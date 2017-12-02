@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 8c307bbe2ab9b917f46d93ce11ba8573be8fe419
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a9093255b7f9281afbcca0ea04654780ebf5b89
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Topologias do Storm de exemplo e componentes para o Apache Storm no HDInsight
 
@@ -31,10 +31,9 @@ Segue-se uma lista de exemplos criado e mantido pela Microsoft para utilização
 | [Escrever para o Azure Data Lake Store do Apache Storm](apache-storm-write-data-lake-store.md) |Escrever para o Azure Data Lake Store |Java |
 | [Origem de evento Hub Spout e Bolt](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Origem do Event Hub Spout e Bolt |Java |
 | [Desenvolver topologias baseadas em Java para o Apache Storm no HDInsight][5797064f] |Maven |Java |
-| [Desenvolver topologias c# para Apache Storm no HDInsight com o Visual Studio][16fce2d1] |Ferramentas do HDInsight para Visual Studio |C#, Java |
-| [Criar vários fluxos de dados numa topologia de c# Storm][ec5a4064] |Vários fluxos |C# |
+| [Desenvolver topologias c# para Apache Storm no HDInsight com o Visual Studio][16fce2d1] |Ferramentas do HDInsight para o Visual Studio |C#, Java |
 | [Processar eventos provenientes dos Hubs de eventos do Azure com o Storm no HDInsight (c#)][844d1d81] |Event Hubs |C# e Java |
-| [Processar eventos provenientes dos Hubs de eventos do Azure com o Storm no HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |Java |
+| [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) (Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight [Java]) |Event Hubs |Java |
 | [Analisar dados de sensor com o Storm e HBase no HDInsight][ab894747] |Event Hubs, HBase, Socket.IO, Web dashboard |C#, Java, JavaScript, HTML |
 | [Processar os dados de sensor vehicle provenientes dos Hubs de eventos a utilizar o Storm no HDInsight][246ee964] |Event Hubs, Cosmos DB, armazenamento do Azure Blob (WASB) |C#, Java |
 | [Extração, transformação e carregamento (ETL) de Event Hubs do Azure para HBase, utilizar o Storm no HDInsight][b4b68194] |Event Hubs, HBase |C# |
@@ -52,7 +51,6 @@ Segue-se uma lista de exemplos criado e mantido pela Microsoft para utilização
 [6eb0d3b8]:apache-storm-deploy-monitor-topology.md "Saiba como implementar e gerir topologias utilizando o Dashboard do Storm baseado na web e a IU do Storm ou as ferramentas do HDInsight para Visual Studio."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "Saiba como criar topologias de C#, utilizando as ferramentas do HDInsight para Visual Studio."
 [5797064f]:apache-storm-develop-java-topology.md "Saiba como criar topologias Storm em Java, com o Maven, criando uma topologia do wordcount básico."
-[ec5a4064]: https://github.com/Blackmist/csharp-storm-example "Demonstra uma topologia do Storm básica que executa um wordcount, implementado em c#. Isto também demonstra como criar vários fluxos de dados dentro de uma topologia de c#."
 [844d1d81]:apache-storm-develop-csharp-event-hub-topology.md "Saiba como ler e escrever dados a partir de Hubs de eventos do Azure com o Storm no HDInsight."
 [ab894747]:apache-storm-sensor-data-analysis.md "Saiba como utilizar o Apache Storm no HDInsight para processar dados de sensores de Event Hubs do Azure, visualizá-la utilizando D3.js e (opcionalmente), armazene-a HBase."
 [246ee964]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md "Saiba como utilizar uma topologia do Storm para ler mensagens a partir de Event Hubs do Azure, leia os documentos da base de dados do Azure Cosmos para referenciar a dados e guardar dados no armazenamento do Azure."

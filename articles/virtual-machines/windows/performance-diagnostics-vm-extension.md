@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 85d4764534c77ea0e4d999e249abe456d0234d75
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de diagnóstico de desempenho do Azure para Windows
 
@@ -46,7 +46,6 @@ O JSON seguinte mostra o esquema para a extensão de diagnóstico de desempenho 
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -70,15 +69,13 @@ O JSON seguinte mostra o esquema para a extensão de diagnóstico de desempenho 
 |Fabricante|Microsoft.Azure.Performance.Diagnostics|Espaço de nomes do publicador para a extensão
 |tipo|AzurePerformanceDiagnostics|Tipo de extensão de VM
 |typeHandlerVersion|1.0|Versão de processador de extensão
-|performanceScenario|Básico|Cenário de desempenho para capturar os dados. Os valores válidos são: **básico**, **vmslow**, **azurefiles**, e **personalizado**.
+|performanceScenario|básica|Cenário de desempenho para capturar os dados. Os valores válidos são: **básico**, **vmslow**, **azurefiles**, e **personalizado**.
 |traceDurationInSeconds|300|Duração de rastreios se qualquer uma das opções de rastreio estão selecionadas.
-|DiagnosticsTrace|D|Opção para ativar o rastreio de diagnóstico. Os valores válidos são **d** ou valor de vazio. Se não pretender capturar este trace, basta deixe o valor como vazio.
 |perfCounterTrace|P|Opção para ativar o rastreio de contador de desempenho. Os valores válidos são **p** ou valor de vazio. Se não pretender capturar este trace, basta deixe o valor como vazio.
 |networkTrace|n|Opção para ativar o rastreio Netmon. Os valores válidos são  **n**  ou valor de vazio. Se não pretender capturar este trace, basta deixe o valor como vazio.
 |xperfTrace|x|Opção para ativar o rastreio XPerf. Os valores válidos são **x** ou valor de vazio. Se não pretender capturar este trace, basta deixe o valor como vazio.
 |storPortTrace|s|Opção para ativar o rastreio StorPort. Os valores válidos são s ou o valor vazio. Se não pretender capturar este trace, basta deixe o valor como vazio.
 |srNumber|123452016365929|Suporta o número da permissão se disponível. Deixe como vazio se não o tiver.
-|requestTimeUtc|9/2/2017 11:06:00 PM|Hora de data atuais em Utc. Não é necessário fornecer este valor se estiver a utilizar o portal para instalar esta extensão.
 |storageAccountName|mystorageaccount|Nome da conta do Storage para armazenar os registos de diagnóstico e os resultados.
 |storageAccountKey|lDuVvxuZB28NNP … hAiRF3voADxLBTcc = =|Chave da conta de armazenamento.
 
@@ -104,7 +101,7 @@ Siga estes passos para instalar a extensão de VM em máquinas virtuais Windows:
     ![Aprovisionamento com êxito a mensagem](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
 
     > [!NOTE]
-    > A execução da extensão será iniciado depois do aprovisionamento é concluída com êxito e irá demorar alguns minutos ou menos para concluir a execução para o cenário básico. Para obter outros cenários, irá percorrer a duração especificada durante a instalação.
+    > A execução de extensão é iniciado depois do aprovisionamento é concluída com êxito e demora alguns minutos ou menos para concluir a execução para o cenário básico. Para obter outros cenários, é executada através de duração especificada durante a instalação.
 
 ## <a name="remove-the-extension"></a>Remova a extensão
 Para remover a extensão de uma máquina virtual, siga estes passos:
@@ -153,10 +150,6 @@ Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manage
       "type": "int",
     "defaultValue": 300
     },
-    "diagnosticsTrace": {
-      "type": "string",
-      "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -192,7 +185,6 @@ Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manage
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -216,8 +208,8 @@ O `Set-AzureRmVMExtension` comando pode ser utilizado para implementar a extens�
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario" = "basic"; "traceDurationInSeconds" = 300; "diagnosticsTrace" = "d"; "perfCounterTrace" = "p"; "networkTrace" = ""; "xperfTrace" = ""; "storPortTrace" = ""; "srNumber" = ""; "requestTimeUtc" = "2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName" = "mystorageaccount" ; "storageAccountKey" = "mystoragekey"}
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -231,13 +223,13 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ````
 
 ## <a name="information-on-the-data-captured"></a>Informações sobre os dados capturados
-Ferramenta de PerfInsights recolhe vários registos, configuração, dados de diagnóstico etc., consoante o cenário selecionado. Para obter mais informações sobre os dados recolhidos por cenário volte visite [PerfInsights documentação](http://aka.ms/perfinsights).
+Ferramenta de PerfInsights recolhe vários registos, configuração, dados de diagnóstico etc., consoante o cenário selecionado. Para obter mais informações sobre os dados recolhidos por cenário, visite [PerfInsights documentação](http://aka.ms/perfinsights).
 
 ## <a name="view-and-share-the-results"></a>Ver e partilhar os resultados
 
 Resultado da extensão está armazenado para uma pasta denominada log_collection na unidade temporária (normalmente D:\log_collection) por predefinição. Nesta pasta, pode ver o ficheiro zip que contém os registos de diagnóstico e de um relatório com findings e recomendações.
 
-O ficheiro zip criado também é carregado para a conta de armazenamento que indicou durante a instalação e é partilhado durante 30 dias a utilizar [assinaturas de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Um ficheiro de texto com o nome *zipfilename*_saslink.txt também é criado na pasta log_collection. Este ficheiro contém a ligação SAS criada para transferir o ficheiro zip. Qualquer pessoa que tenha esta ligação será capaz de transferir o ficheiro zip.
+O ficheiro zip criado também é carregado para a conta de armazenamento que indicou durante a instalação e é partilhado durante 30 dias a utilizar [assinaturas de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Um ficheiro de texto com o nome *zipfilename*_saslink.txt também é criado na pasta log_collection. Este ficheiro contém a ligação SAS criada para transferir o ficheiro zip. Qualquer pessoa que tenha esta ligação é capaz de transferir o ficheiro zip.
 
 Microsoft pode utilizar esta ligação SAS para transferir os dados de diagnóstico para uma investigação mais aprofundada, o engenheiro de suporte a trabalhar num pedido de suporte.
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Event Hubs do Azure para as funções do Azure
 
@@ -33,6 +33,27 @@ Este artigo explica como trabalhar com [Event Hubs do Azure](../event-hubs/event
 Utilize o acionador de Event Hubs para responder a um evento enviado para um fluxo de eventos de hub de eventos. Tem de ter acesso de leitura para o hub de eventos para configurar o acionador.
 
 Quando uma função de Acionador de Event Hubs é acionada, a mensagem que aciona é transmitida para a função como uma cadeia.
+
+## <a name="trigger---scaling"></a>Acionar - dimensionamento
+
+Cada instância de uma função de Event Hub-Triggered é copiada por apenas 1 instância do EventProcessorHost (EPH). Os Event Hubs garantem que apenas 1 EPH pode obter uma concessão numa determinada partição.
+
+Por exemplo, suponha que começam com a seguinte configuração e pressupostos para um Hub de eventos:
+
+1. 10 partições.
+1. 1000 eventos distribuído uniformemente em todas as partições = mensagens de > 100 em cada partição.
+
+Quando a sua função primeiro está ativada, não há apenas 1 instância do funciton. Vamos chamar esta instância de função Function_0. Function_0 terão 1 EPH que gere para obter uma concessão em todas as partições de 10. Será iniciada ler eventos de partições 0-9. A partir deste ponto, irá ocorrer um dos seguintes:
+
+* **É necessária a instância de função apenas 1** -Function_0 é capaz de processar todos os 1000 antes de lógica de dimensionamento das funções do Azure se inicia. Por conseguinte, todas as mensagens de 1000 são processadas pelo Function_0.
+
+* **Adicionar 1 instância de função mais** -lógica das funções do Azure de dimensionamento determina que Function_0 tem mais de mensagens que pode processá-lo, pelo que é criada uma nova instância, Function_1,. Os Event Hubs Deteta que uma nova instância EPH está a tentar ler as mensagens. Os Event Hubs iniciará o balanceamento de carga as partições entre as instâncias EPH, por exemplo, partições 0-4 estão atribuídas ao Function_0 e partições 5 9 estão atribuídas a Function_1. 
+
+* **Adicionar N mais instâncias de função** -lógica das funções do Azure de dimensionamento determina que Function_0 e Function_1 têm mais mensagens que o podem processar. Será dimensionado novamente para Function_2... N, em que N é maior do que o paritions de Hub de eventos. Os Event Hubs carregará balancear as partições Function_0 … 9 instâncias.
+
+O facto de que N é maior do que o número de partições é dimensionamento lógica exclusivo atual das funções do Azure. Isto é feito para se certificar de que existem sempre instâncias de EPH prontamente disponível para obter rapidamente o bloqueio de partition(s) à medida que ficam disponíveis a partir de outras instâncias. Os utilizadores só são-lhe cobrados os recursos utilizados quando executa a instância de função e desta sobre-aprovisionar não serem cobrados.
+
+Se todas as execuções de função tenha êxito sem erros, os pontos de verificação são adicionados à conta de armazenamento associados. Quando a apontar verificação for bem sucedida, todas as mensagens de 1000 nunca devem ser obtidas novamente.
 
 ## <a name="trigger---example"></a>Acionador - exemplo
 

@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.date: 11/30/2017
+ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador do Azure Insights de séries de tempo
 Este artigo explicar as várias funcionalidades e as opções disponíveis na aplicação de web do Explorador de informações de séries de tempo. Utilize o Explorador de informações de séries de tempo no seu browser para criar as visualizações de dados.
@@ -41,7 +41,7 @@ Minutos de ligar a sua origem de evento para o seu ambiente de informações de 
 
 4. Tenha em atenção de que o ícone de nuvem do Azure leva-o para o seu ambiente no portal do Azure.
 
-   ![Ambiente de informações de séries de tempo](media/time-series-insights-explorer/explorer1.png)
+   ![Ambiente de Time Series Insights](media/time-series-insights-explorer/explorer1.png)
 
 5. Em seguida, verá um gráfico que mostra uma contagem de todos os eventos durante o período de tempo selecionado.  Aqui, tem um número de controlos:
 
@@ -90,7 +90,7 @@ Minutos de ligar a sua origem de evento para o seu ambiente de informações de 
 
 11. O **heatmap** pode ser utilizado para detetar rapidamente série de dados exclusivo ou anómalos numa consulta especificada. Termo de pesquisa de uma só pode ser visualizado como um heatmap.    
 
-   ![Heatmap](media/time-series-insights-explorer/explorer6.png)
+   ![Mapa térmico](media/time-series-insights-explorer/explorer6.png)
 
 12. **Eventos**: Quando escolhe explore eventos ao selecionar ou clicar acima, o painel de eventos é disponibilizado.  Aqui, pode ver todos os eventos não processados e exportar os eventos como JSON ou ficheiros CSV. Tenha em atenção que Insights de séries de tempo armazena todos os dados não processados.
 

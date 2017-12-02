@@ -1,6 +1,6 @@
 ---
-title: Processar mensagens do dispositivo para a nuvem do IoT Hub do Azure (Java) | Microsoft Docs
-description: "Como processar mensagens de dispositivo para a nuvem do IoT Hub utilizando regras de encaminhamento e os pontos finais personalizados para emitir mensagens a outros serviços de back-end."
+title: Encaminhamento de mensagens com o IoT Hub do Azure (Java) | Microsoft Docs
+description: "Como processar mensagens de dispositivo para a nuvem do IoT Hub do Azure utilizando regras de encaminhamento e os pontos finais personalizados para emitir mensagens a outros serviços de back-end."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: 0fb3e9012ae88112515ebb552e49fa463a087f54
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 81f846e1fd8cca586613e6fc57737ec27e43a639
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-java"></a>Processar mensagens do dispositivo para a nuvem do IoT Hub (Java)
+# <a name="routing-messages-with-iot-hub-java"></a>Encaminhamento de mensagens com o IoT Hub (Java)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -44,7 +44,7 @@ Para concluir este tutorial, precisa do seguinte:
 * [Maven 3](https://maven.apache.org/install.html)
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
-É necessário ter algum conhecimento básico de [Storage do Azure] e [Service Bus do Azure].
+Também recomendamos ler sobre [Storage do Azure] e [Service Bus do Azure].
 
 ## <a name="send-interactive-messages-from-a-device-app"></a>Enviar mensagens interativas de uma aplicação de dispositivo
 Nesta secção, modificar a aplicação de dispositivo que criou no [introdução ao IoT Hub] tutorial ocasionalmente enviar mensagens que necessitam de processamento de imediato.
@@ -66,9 +66,15 @@ Nesta secção, modificar a aplicação de dispositivo que criou no [introduçã
                     String msgStr;
                     Message msg;
                     if (new Random().nextDouble() > 0.7) {
-                        msgStr = "This is a critical message.";
-                        msg = new Message(msgStr);
-                        msg.setProperty("level", "critical");
+                        if (new Random().nextDouble() > 0.5) {
+                            msgStr = "This is a critical message.";
+                            msg = new Message(msgStr);
+                            msg.setProperty("level", "critical");
+                        } else {
+                            msgStr = "This is a storage message.";
+                            msg = new Message(msgStr);
+                            msg.setProperty("level", "storage");
+                        }
                     } else {
                         double currentTemperature = minTemperature + rand.nextDouble() * 15;
                         double currentHumidity = minHumidity + rand.nextDouble() * 20; 
@@ -99,7 +105,7 @@ Nesta secção, modificar a aplicação de dispositivo que criou no [introduçã
     }
     ```
    
-    Este método aleatoriamente adiciona a propriedade `"level": "critical"` às mensagens enviadas pelo dispositivo, que simula uma mensagem que necessita de uma ação imediata, o back-end da aplicação. A aplicação passa a informação nas propriedades da mensagem, em vez de no corpo da mensagem, pelo que o IoT Hub pode encaminhar a mensagem para o destino de mensagem adequado.
+    Este método aleatoriamente adiciona a propriedade `"level": "critical"` e `"level": "storage"` às mensagens enviadas pelo dispositivo, que simula uma mensagem que necessita de uma ação imediata, o back-end da aplicação ou que têm ser armazenados permanentemente. A aplicação passa a informação nas propriedades da mensagem, em vez de no corpo da mensagem, pelo que o IoT Hub pode encaminhar a mensagem para o destino de mensagem adequado.
    
    > [!NOTE]
    > Pode utilizar as propriedades da mensagem para encaminhar mensagens para vários cenários, incluindo o processamento de frio caminho, para além do exemplo de caminho frequente apresentado aqui.
@@ -107,7 +113,7 @@ Nesta secção, modificar a aplicação de dispositivo que criou no [introduçã
 2. Guarde e feche o ficheiro simulated-device\src\main\java\com\mycompany\app\app.Java.
 
     > [!NOTE]
-    > Com vista à, simplicidade, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar uma política de repetição como término exponencial, como sugerido no artigo do MSDN [processamento de erros transitórios].
+    > Recomendamos vivamente que implementar uma política de repetição como término exponencial, como sugerido no artigo do MSDN [processamento de erros transitórios].
 
 3. Para criar a aplicação **simulated-device** com o Maven, execute o seguinte comando na linha de comandos da pasta simulated-device:
 
@@ -168,6 +174,30 @@ Agora, está pronto para executar as aplicações de três.
    ```
    
    ![Executar simulated-device][simulateddevice]
+
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Opcional) Adicionar o contentor de armazenamento ao seu IoT hub e rota mensagens ao mesmo
+
+Nesta secção, criar uma conta de armazenamento, ligue-o ao seu IoT hub e configurar o seu IoT hub para enviar mensagens para a conta com base na presença de uma propriedade na mensagem. Para obter mais informações sobre como gerir o armazenamento, consulte [introdução ao Storage do Azure][Storage do Azure].
+
+ > [!NOTE]
+   > Se não está limitado a um **Endpoint**, pode configurar o **StorageContainer** para além de **CriticalQueue** e executar ambos os simulatneously.
+
+1. Crie uma conta de armazenamento, conforme descrito em [documentação do Storage do Azure] [Ink-storage]. Anote o nome da conta.
+
+2. No portal do Azure, abra o seu IoT hub e clique em **pontos finais**.
+
+3. No **pontos finais** painel, selecione o **CriticalQueue** ponto final e clique em **eliminar**. Clique em **Sim**e, em seguida, clique em **adicionar**. O ponto final de nome **StorageContainer** e utilizar listas pendentes para selecionar **contentor de armazenamento do Azure**e criar um **conta de armazenamento** e um **armazenamento contentor**.  Tome nota dos nomes.  Quando tiver terminado, clique em **OK** na parte inferior. 
+
+ > [!NOTE]
+   > Se não está limitado a um **Endpoint**, não terá de eliminar o **CriticalQueue**.
+
+4. Clique em **rotas** no seu IoT Hub. Clique em **adicionar** na parte superior do painel para criar uma regra de encaminhamento encaminha mensagens para a fila acabou de adicionar. Selecione **mensagens do dispositivo** como origem de dados. Introduza `level="storage"` como condição e escolha **StorageContainer** como um ponto final personalizado como o encaminhamento ponto final da regra. Clique em **guardar** na parte inferior.  
+
+    Certifique-se a rota de contingência está definida como **ON**. Esta definição é a configuração predefinida de um hub IoT.
+
+1. Certifique-se que as suas aplicações anteriores ainda estão em execução. 
+
+1. No Portal do Azure, aceda à sua conta do storage em **serviço Blob**, clique em **procurar blobs...** .  Selecione o contentor, navegue para e clique no ficheiro JSON e clique em **transferir** para ver os dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

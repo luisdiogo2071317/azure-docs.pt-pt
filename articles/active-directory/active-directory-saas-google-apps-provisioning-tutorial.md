@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 12/01/2017
 ms.author: jeedes
-ms.openlocfilehash: e8ca7fdacf8361570d88260b3c359ee6e2fd3e17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 026eca7fc8f17602ba44ba38db138d645c9d7713
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Tutorial: Configurar o Google Apps para o aprovisionamento de utilizador automáticas
 
@@ -75,7 +75,7 @@ Nesta secção descreve o processo de ligar o seu Azure AD para a API do Google 
 
     b. Selecione **nome de domínio** no painel de navegação esquerdo e, em seguida, selecione **adicionar**.
      
-     ![domínio](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_1.png)
+     ![Domínio](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_1.png)
 
      ![Adicionar domínio](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_2.png)
 
@@ -87,9 +87,13 @@ Nesta secção descreve o processo de ligar o seu Azure AD para a API do Google 
     
     Para obter instruções mais abrangentes sobre a forma de verificar nomes de domínio com o Azure AD, consulte [adicionar o seu próprio nome de domínio para o Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
      
-     ![domínio](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
+     ![Domínio](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
     e. Repita os passos anteriores para todos os domínios que pretende adicionar ao seu diretório.
+
+    > [!NOTE]
+    Para aprovisionamento de utilizadores, o domínio personalizado do Google Apps tem de corresponder ao nome de domínio de origem do Azure AD. Se não corresponderem, poderá conseguir resolver o problema através da implementação de personalização de mapeamento de atributos.
+
 
 5. Agora que tiver verificado todos os seus domínios com o Azure AD, deve verificá-las novamente com o Google Apps. Para cada domínio que já não está registado com o Google Apps, siga os passos seguintes:
    

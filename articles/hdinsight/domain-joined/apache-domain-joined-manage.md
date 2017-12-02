@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 8dd5490fcd5c57077c65b76f3ce44068219d1222
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0fc32960fc2f1ae69315dbfd6bfb8c34c4adc0fa
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="manage-domain-joined-hdinsight-clusters-preview"></a>Gerir clusters do HDInsight associados a um domínio (pré-visualização)
+# <a name="manage-domain-joined-hdinsight-clusters"></a>Gerir clusters do HDInsight associados a um domínio
 Saiba mais utilizadores e funções no HDInsight associados a um domínio e como gerir clusters do HDInsight associados a um domínio.
 
 ## <a name="users-of-domain-joined-hdinsight-clusters"></a>Utilizadores de clusters do HDInsight associados a um domínio
@@ -50,7 +50,7 @@ HDInsight associados a um domínio têm as seguintes funções:
 
 * Administrador de cluster
 * Operador de cluster
-* Administrador de serviço
+* Administrador de Serviços
 * Operador de serviço
 * Utilizador de cluster
 

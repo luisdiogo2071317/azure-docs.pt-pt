@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 50015fabb323e618d3c093d4083cc648ff13b8f1
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 6fa563e102569064d045fbb60ebd5d1df52e3e73
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gerir a expiração do Blob storage do Azure numa rede de entrega de conteúdo do Azure
 > [!div class="op_single_selector"]
@@ -111,22 +111,21 @@ Para atualizar o *CacheControl* propriedade de um blob com o Explorador de armaz
 ![Propriedades do Explorador de armazenamento do Azure](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interface de Linha de Comandos do Azure
-Quando carregar um blob, pode definir o *cacheControl* propriedade com o `-p` mudar o [Interface de linha de comandos do Azure](../cli-install-nodejs.md). O exemplo seguinte mostra como definir o valor de TTL para uma hora (3600 segundos):
+Com o [Interface de linha de comandos do Azure](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) (CLI), pode gerir recursos do blob do Azure na linha de comandos. Para configurar o cabeçalho de cache-control ao carregar um blob com a CLI do Azure, definir o *cacheControl* propriedade utilizando o `-p` mudar. O exemplo seguinte mostra como definir o valor de TTL para uma hora (3600 segundos):
   
-```command
-azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
+' ' Blob de armazenamento do azure CLI do azure carregar -c <connectionstring> - p cacheControl = "idade máxima = test.txt myContainer.\test.txt 3600"
 ```
 
-### <a name="azure-storage-services-rest-api"></a>REST API dos serviços de armazenamento do Azure
-Pode utilizar o [REST API dos serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx) para definir explicitamente o *x-ms-BLOBs-cache-control* propriedade utilizando as seguintes operações num pedido:
+### Azure storage services REST API
+You can use the [Azure storage services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) to explicitly set the *x-ms-blob-cache-control* property by using the following operations on a request:
   
-   - [Colocar Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
-   - [Colocar a lista de bloqueios](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
-   - [Defina as propriedades de Blob](https://msdn.microsoft.com/library/azure/ee691966.aspx)
+   - [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
+   - [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
+   - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
-## <a name="testing-the-cache-control-header"></a>O cabeçalho de Cache-Control de teste
-Pode facilmente verificar as definições de TTL dos blobs. Com o seu browser [ferramentas de programador](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), teste o blob inclui o `Cache-Control` cabeçalho de resposta. Também pode utilizar uma ferramenta como [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), ou [Fiddler](http://www.telerik.com/fiddler) para examinar os cabeçalhos de resposta.
+## Testing the Cache-Control header
+You can easily verify the TTL settings of your blobs. With your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your blob includes the `Cache-Control` response header. You can also use a tool such as [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), or [Fiddler](http://www.telerik.com/fiddler) to examine the response headers.
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Saiba como gerir a expiração de conteúdo do serviço em nuvem na CDN do Azure](cdn-manage-expiration-of-cloud-service-content.md)
+## Next Steps
+* [Learn how to manage expiration of Cloud Service content in Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
 

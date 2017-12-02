@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: f2e7b5b96b70333ae4ee92d24c354960008c7f00
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 17967131853d4334ae2c0ba3c0aa01089b7f3b61
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicações na pilha do Azure
 
@@ -68,7 +68,7 @@ Este script primeiro funciona com a autoridade de certificação de pilha do Azu
 
 Executar o script no anfitrião do Kit de desenvolvimento de pilha do Azure e certifique-se de que está a executar o PowerShell como azurestack\CloudAdmin.
 
-1. Numa sessão do PowerShell em execução como azurestack\CloudAdmin, execute o script de criar AppServiceCerts.ps1 da pasta onde extraiu os scripts de programa auxiliar. O script cria quatro certificados na mesma pasta que o script de certificados de criar necessita do serviço de aplicações.
+1. Numa sessão do PowerShell em execução como azurestack\AzureStackAdmin, execute o script de criar AppServiceCerts.ps1 da pasta onde extraiu os scripts de programa auxiliar. O script cria quatro certificados na mesma pasta que o script de certificados de criar necessita do serviço de aplicações.
 2. Introduza uma palavra-passe para proteger os ficheiros. pfx e tome nota do mesmo. Tem de a introduzir no serviço de aplicações no instalador da pilha do Azure.
 
 #### <a name="create-appservicecertsps1-parameters"></a>Parâmetros de AppServiceCerts.ps1 criar
@@ -88,7 +88,7 @@ O certificado de domínio predefinido é colocado na função de Front-End. É u
 
 O certificado tem de estar no formato. pfx e deve ser um certificado de caráter universal de dois requerente. Isto permite que o domínio predefinido e o ponto final de scm para operações de controlo de origem ser abrangida por um certificado.
 
-| formato | Exemplo |
+| Formato | Exemplo |
 | --- | --- |
 | \*.appservice. \<região\>.\< DomainName\>.\< extensão\> | \*. appservice.redmond.azurestack.external |
 | \*. scm.appservice. <region>. <DomainName>.<extension> | \*. appservice.scm.redmond.azurestack.external |
@@ -97,7 +97,7 @@ O certificado tem de estar no formato. pfx e deve ser um certificado de caráter
 
 O certificado da API é colocado na função de gestão e é utilizado pelo fornecedor de recursos para proteger as chamadas de api. O certificado para a publicação tem de conter um assunto que corresponde a entrada DNS de API:
 
-| formato | Exemplo |
+| Formato | Exemplo |
 | --- | --- |
 | API.appservice. \<região\>.\< DomainName\>.\< extensão\> | API.appservice.Redmond.azurestack.external |
 
@@ -105,7 +105,7 @@ O certificado da API é colocado na função de gestão e é utilizado pelo forn
 
 O certificado para a função de editor protege o tráfego FTPS para os proprietários da aplicação quando estes carregam conteúdo.  O certificado para a publicação tem de conter um assunto que corresponde a entrada FTPS DNS.
 
-| formato | Exemplo |
+| Formato | Exemplo |
 | --- | --- |
 | FTP.appservice. \<região\>.\< DomainName\>.\< extensão\> | API.appservice.Redmond.azurestack.external |
 
@@ -116,11 +116,11 @@ Permite que o certificado para a aplicação de identidade:
 - Início de sessão único cenários para ferramentas de programador avançadas no App Service do Azure na pilha do Azure.
 O certificado para a identidade tem de conter um assunto que corresponde ao formato seguinte:
 
-| formato | Exemplo |
+| Formato | Exemplo |
 | --- | --- |
 | SSO.appservice. \<região\>.\< DomainName\>.\< extensão\> | SSO.appservice.Redmond.azurestack.external |
 
-#### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Extraia o certificado de raiz do Gestor de recursos do Azure pilha do Azure
+### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Extraia o certificado de raiz do Gestor de recursos do Azure pilha do Azure
 
 Numa sessão do PowerShell em execução como azurestack\CloudAdmin, execute o script Get-AzureStackRootCert.ps1 da pasta onde extraiu os scripts de programa auxiliar. O script cria quatro certificados na mesma pasta que o script de certificados de criar necessita do serviço de aplicações.
 
@@ -134,12 +134,10 @@ Numa sessão do PowerShell em execução como azurestack\CloudAdmin, execute o s
 
 App Service do Azure requer a utilização de um servidor de ficheiros. Para implementações de produção, o servidor de ficheiros tem de ser configurado para elevada disponibilidade e capacidade de processamento de falhas.
 
-Para utilização com apenas implementações do Kit de desenvolvimento de pilha do Azure, pode utilizar este exemplo do modelo de implementação Azure Resource Manager para implementar um servidor de ficheiros de nó único configurado: https://aka.ms/appsvconmasdkfstemplate.
+Para utilização com apenas implementações do Kit de desenvolvimento de pilha do Azure, pode utilizar este exemplo do modelo de implementação Azure Resource Manager para implementar um servidor de ficheiros de nó único configurado: https://aka.ms/appsvconmasdkfstemplate. O servidor de ficheiros de nó único será num grupo de trabalho.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Aprovisionar grupos e contas no Active Directory
 
->[!NOTE]
-> Execute todos os comandos seguintes, quando configurar o servidor de ficheiros, uma sessão de linha de comandos de administrador.  **Não utilize o PowerShell.**
 
 1. Crie os seguintes grupos de segurança global do Active Directory:
     - FileShareOwners
@@ -159,7 +157,10 @@ Para utilização com apenas implementações do Kit de desenvolvimento de pilha
 
 ### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Aprovisionar grupos e contas num grupo de trabalho
 
-No grupo de trabalho, execute net e comandos WMIC para aprovisionar grupos e contas.
+>[!NOTE]
+> Execute todos os comandos seguintes, quando configurar o servidor de ficheiros, uma sessão de linha de comandos de administrador.  **Não utilize o PowerShell.**
+
+Ao utilizar o modelo Azure Resource Manager acima, os utilizadores já se encontram criados.
 
 1. Execute os seguintes comandos para criar as contas FileShareOwner e FileShareUser. Substitua <password> com os seus próprios valores.
 ``` DOS
@@ -185,11 +186,11 @@ A partilha de conteúdo contém conteúdo do web site de inquilino. O procedimen
 
 #### <a name="provision-the-content-share-on-a-single-file-server-ad-or-workgroup"></a>Aprovisionar a partilha de conteúdo num servidor único ficheiro (AD ou grupo de trabalho)
 
-No servidor de ficheiros único, execute os seguintes comandos numa linha de comandos elevada. Substitua o valor para < C:\WebSites > os caminhos correspondentes no seu ambiente.
+No servidor de ficheiros único, execute os seguintes comandos numa linha de comandos elevada. Substitua o valor para 'C:\WebSites' os caminhos correspondentes no seu ambiente.
 
 ```DOS
 set WEBSITES_SHARE=WebSites
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 md %WEBSITES_FOLDER%
 net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
@@ -223,7 +224,7 @@ Execute os seguintes comandos numa linha de comandos elevada no servidor de fich
 #### <a name="active-directory"></a>Active Directory
 ```DOS
 set DOMAIN=<DOMAIN>
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
@@ -234,7 +235,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 #### <a name="workgroup"></a>Grupo de trabalho
 ```DOS
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant FileShareOwners:(OI)(CI)(M)
@@ -251,7 +252,7 @@ Para utilizar com o Kit de desenvolvimento de pilha do Azure, pode utilizar o SQ
 
 Para produção e fins de elevada disponibilidade, deve utilizar uma versão completa do SQL Server 2014 SP2 ou posterior, ativar a autenticação de modo misto e implementar uma [configuração altamente disponíveis](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-O App Service do Azure no servidor de SQL do Azure pilha tem de ser acessível a partir de todas as funções do serviço de aplicações. SQL Server pode ser implementado dentro da subscrição do fornecedor predefinida na pilha do Azure. Pode ainda utilizar a infraestrutura existente na sua organização (desde que está estabelecida conetividade à pilha do Azure).
+O App Service do Azure no servidor de SQL do Azure pilha tem de ser acessível a partir de todas as funções do serviço de aplicações. SQL Server pode ser implementado dentro da subscrição do fornecedor predefinida na pilha do Azure. Pode ainda utilizar a infraestrutura existente na sua organização (desde que está estabelecida conetividade à pilha do Azure). Se estiver a utilizar uma imagem do Azure Marketplace, lembre-se configurar a firewall em conformidade. 
 
 Para qualquer uma das funções do SQL Server, pode utilizar uma instância predefinida ou numa instância nomeada. No entanto, se utilizar uma instância nomeada, não se esqueça de que manualmente iniciar o serviço do SQL Server Browser e abrir a porta 1434.
 
@@ -269,12 +270,12 @@ Os administradores tem de configurar o SSO para:
 
 Siga estes passos.
 
-1. Abra uma instância do PowerShell como azurestack\cloudadmin.
+1. Abra uma instância do PowerShell como azurestack\AzureStackAdmin.
 2. Vá para a localização dos scripts transferiu e extraiu no [passo pré-requisitos](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Instalar a pilha do Azure PowerShell](azure-stack-powershell-install.md).
 4. Execute o **criar AADIdentityApp.ps1** script. Quando lhe for pedida para o ID de inquilino do Azure AD, introduza o ID de inquilino do Azure AD que está a utilizar para a implementação de pilha do Azure, por exemplo, myazurestack.onmicrosoft.com.
 5. No **credencial** janela, introduza a sua conta de administrador de serviço do Azure AD e a palavra-passe. Clique em **OK**.
-6. Introduza o caminho do ficheiro de certificado e a palavra-passe de certificado para o [certificado que criou anteriormente](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). O certificado criado para este passo, por predefinição está sso.appservice.local.azurestack.external.pfx.
+6. Introduza o caminho do ficheiro de certificado e a palavra-passe de certificado para o [certificado que criou anteriormente](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). O certificado que criou para este passo por predefinição é **sso.appservice.local.azurestack.external.pfx**.
 7. O script cria uma nova aplicação no inquilino do Azure AD. Anote o ID da aplicação que é devolvido na saída do PowerShell. Terá destas informações durante a instalação.
 8. Abra uma nova janela do browser e inicie sessão no portal do Azure (portal.azure.com) como o **Admin de serviço do Azure Active Directory**.
 9. Abra o fornecedor de recursos do Azure AD.

@@ -1,11 +1,10 @@
 ---
-title: "Adicionar um certificado SSL para a sua aplicação do App Service do Azure | Microsoft Docs"
-description: "Saiba como adicionar um certificado SSL para a sua aplicação de serviço de aplicações."
+title: "Comprar e configurar um certificado SSL para o serviço de aplicações do Azure | Microsoft Docs"
+description: "Saiba como comprar um certificado de serviço de aplicações e vinculá-lo à sua aplicação de serviço de aplicações"
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -13,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
-ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
+ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Comprar e Configurar um Certificado SSL para o Serviço de Aplicações do Azure
 
@@ -74,12 +73,16 @@ Assim que tiver selecionado o repositório do Cofre de chaves para armazenar est
 
 ## <a name="step-4---verify-the-domain-ownership"></a>Passo 4 - verificar a propriedade de domínio
 
-> [!NOTE]
-> Existem três tipos de verificação de domínio suportados por certificados de serviço de aplicações: verificação do domínio, correio, Manual. Estes tipos de verificação são explicados com mais detalhes no [avançadas secção](#advanced).
-
 Do mesmo **certificado configuração** página utilizada no passo 3, clique em **passo 2: verificar**.
 
-**Verificação de domínio** este é o processo mais conveniente **apenas se** tiver  **[comprou o domínio personalizado do App Service do Azure.](custom-dns-web-site-buydomains-web-app.md)**
+Escolha o método de verificação de domínio preferencial. 
+
+Existem quatro tipos de verificação de domínio suportado pela aplicação serviço de certificados: serviço de aplicações, domínio, correio e verificação Manual. Estes tipos de verificação são explicados com mais detalhes no [avançadas secção](#advanced).
+
+> [!NOTE]
+> **Verificação do serviço de aplicações** é a opção mais conveniente quando o domínio que pretende verificar já está mapeado para uma aplicação de serviço de aplicações na mesma subscrição. Demora partido do facto de que a aplicação de serviço de aplicações já ter verificado a propriedade de domínio.
+>
+
 Clique em **verifique** botão para concluir este passo.
 
 ![Inserir uma imagem de verificação de domínio](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -96,7 +99,7 @@ Depois de clicar em **verifique**, utilizar o **atualizar** botão até o **veri
 
 No  **[portal do Azure](https://portal.azure.com/)**, clique em de **do serviço de aplicações** opção no lado esquerdo da página.
 
-Clique no nome da sua aplicação para o qual pretende atribuir este certificado.
+Clique no nome da aplicação a que pretende atribuir este certificado.
 
 No **definições**, clique em **certificados SSL**.
 
@@ -133,7 +136,7 @@ Nesta fase, deve ser capaz de visitar a sua aplicação utilizar `HTTPS://` em v
 
 Existem dois tipos de mais de verificação de domínio suportados por certificados de serviço de aplicações: Mail e verificação Manual.
 
-#### <a name="mail-verification"></a>Verificação de correio
+#### <a name="mail-verification"></a>Verificação por E-mail
 
 Correio eletrónico de verificação já foi enviado para os endereços de E-mail associado este domínio personalizado.
 Para concluir o passo de verificação de E-Mail, abra o e-mail e clique na hiperligação de verificação.
@@ -142,7 +145,11 @@ Para concluir o passo de verificação de E-Mail, abra o e-mail e clique na hipe
 
 Se for necessário reenviar o correio de eletrónico de verificação, clique em de **Reenviar correio eletrónico** botão.
 
-#### <a name="manual-verification"></a>Verificação manual
+#### <a name="domain-verification"></a>Verificação do Domínio
+
+Escolha esta opção apenas para [um domínio de serviço de aplicações que comprou a partir do Azure.](custom-dns-web-site-buydomains-web-app.md). Azure automaticamente adiciona a registo TXT de verificação para si e conclui o processo.
+
+#### <a name="manual-verification"></a>Verificação Manual
 
 > [!IMPORTANT]
 > Verificação de página Web HTML (apenas funciona com o padrão de certificado de SKU)
@@ -197,6 +204,7 @@ Se o certificado SSL está configurado para renovação automática, mas não fo
 - GoDaddy, gerando certificados de serviço de aplicações, necessita de uma vez a cada três anos de verificação de domínio. O administrador de domínio recebe uma mensagem de e-mail uma vez a cada três anos para verificar o domínio. Falha ao verificar o e-mail ou verifique o seu domínio impede que o certificado de serviço de aplicações que está a ser renovado automaticamente. 
 - Todos os serviço de aplicações certificados emitidos antes 31 de Março de 2017 requerem reverification do domínio no momento da renovação seguinte (mesmo se a renovação automática está ativada para o certificado). Este é um resultado de alterações na política da GoDaddy. Verifique o seu correio eletrónico e concluir esta verificação de domínio única para continuar a renovação automática do certificado do serviço de aplicações. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="more-resources"></a>Mais recursos
 
-* [Adicionar uma rede de entrega de conteúdos](app-service-web-tutorial-content-delivery-network.md)
+* [Utilizar um certificado SSL no código da aplicação no App Service do Azure](app-service-web-ssl-cert-load.md)
+* [FAQ: Certificados de serviço de aplicações](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

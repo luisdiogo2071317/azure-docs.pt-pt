@@ -1,6 +1,6 @@
 ---
-title: Processar mensagens de dispositivo para a nuvem do IoT Hub do Azure utilizar rotas (.Net) | Microsoft Docs
-description: "Como processar mensagens de dispositivo para a nuvem do IoT Hub utilizando regras de encaminhamento e os pontos finais personalizados para emitir mensagens a outros serviços de back-end."
+title: Encaminhamento de mensagens com o IoT Hub do Azure (.Net) | Microsoft Docs
+description: "Como processar mensagens de dispositivo para a nuvem do IoT Hub do Azure utilizando regras de encaminhamento e os pontos finais personalizados para emitir mensagens a outros serviços de back-end."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Processar mensagens do dispositivo para a nuvem do IoT Hub utilizar rotas (.NET)
+# <a name="routing-messages-with-iot-hub-net"></a>Encaminhamento de mensagens com o IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -43,7 +43,7 @@ Para concluir este tutorial, precisa do seguinte:
 * Visual Studio 2015 ou Visual Studio 2017.
 * Uma conta ativa do Azure. <br/>Se não tiver uma conta, pode criar um [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos.
 
-É necessário ter algum conhecimento básico de [Storage do Azure] e [Service Bus do Azure].
+Também recomendamos ler sobre [Storage do Azure] e [Service Bus do Azure].
 
 ## <a name="send-interactive-messages"></a>Enviar mensagens interativas
 
@@ -74,8 +74,16 @@ private static async void SendDeviceToCloudMessagesAsync()
 
         if (rand.NextDouble() > 0.7)
         {
-            messageString = "This is a critical message";
-            levelValue = "critical";
+            if (rand.NextDouble() > 0.5)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
+            }
+            else 
+            {
+                messageString = "This is a storage message";
+                levelValue = "storage";
+            }
         }
         else
         {
@@ -93,13 +101,13 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Este método aleatoriamente adiciona a propriedade `"level": "critical"` às mensagens enviadas pelo dispositivo, que simula uma mensagem que necessita de uma ação imediata, a solução de back-end. A aplicação de dispositivo transfere a informação nas propriedades da mensagem, em vez de no corpo da mensagem, pelo que o IoT Hub pode encaminhar a mensagem para o destino de mensagem adequado.
+Este método aleatoriamente adiciona a propriedade `"level": "critical"` e `"level": "storage"` às mensagens enviadas pelo dispositivo, que simula uma mensagem que necessita de uma ação imediata, o back-end da aplicação ou que têm ser armazenados permanentemente. A aplicação passa a informação nas propriedades da mensagem, em vez de no corpo da mensagem, pelo que o IoT Hub pode encaminhar a mensagem para o destino de mensagem adequado.
 
 > [!NOTE]
 > Pode utilizar as propriedades da mensagem para encaminhar mensagens para vários cenários, incluindo o processamento de frio caminho, para além de exemplo-path mostrado aqui.
 
 > [!NOTE]
-> Com vista à, simplicidade, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar uma política de repetição como término exponencial, como sugerido no artigo do MSDN [processamento de erros transitórios].
+> Recomendamos vivamente que implementar uma política de repetição como término exponencial, como sugerido no artigo do MSDN [processamento de erros transitórios].
 
 ## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Encaminhar mensagens a uma fila no seu IoT hub
 
@@ -177,6 +185,30 @@ Agora pode executar as aplicações.
    
    ![Três aplicações de consola][50]
 
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Opcional) Adicionar o contentor de armazenamento ao seu IoT hub e rota mensagens ao mesmo
+
+Nesta secção, criar uma conta de armazenamento, ligue-o ao seu IoT hub e configurar o seu IoT hub para enviar mensagens para a conta com base na presença de uma propriedade na mensagem. Para obter mais informações sobre como gerir o armazenamento, consulte [introdução ao Storage do Azure][Storage do Azure].
+
+ > [!NOTE]
+   > Se não está limitado a um **Endpoint**, pode configurar o **StorageContainer** para além de **CriticalQueue** e executar ambos os simulatneously.
+
+1. Crie uma conta de armazenamento, conforme descrito em [documentação do Storage do Azure] [Ink-storage]. Anote o nome da conta.
+
+2. No portal do Azure, abra o seu IoT hub e clique em **pontos finais**.
+
+3. No **pontos finais** painel, selecione o **CriticalQueue** ponto final e clique em **eliminar**. Clique em **Sim**e, em seguida, clique em **adicionar**. O ponto final de nome **StorageContainer** e utilizar listas pendentes para selecionar **contentor de armazenamento do Azure**e criar um **conta de armazenamento** e um **armazenamento contentor**.  Tome nota dos nomes.  Quando tiver terminado, clique em **OK** na parte inferior. 
+
+ > [!NOTE]
+   > Se não está limitado a um **Endpoint**, não terá de eliminar o **CriticalQueue**.
+
+4. Clique em **rotas** no seu IoT Hub. Clique em **adicionar** na parte superior do painel para criar uma regra de encaminhamento encaminha mensagens para a fila acabou de adicionar. Selecione **mensagens do dispositivo** como origem de dados. Introduza `level="storage"` como condição e escolha **StorageContainer** como um ponto final personalizado como o encaminhamento ponto final da regra. Clique em **guardar** na parte inferior.  
+
+    Certifique-se a rota de contingência está definida como **ON**. Esta definição é a configuração predefinida de um hub IoT.
+
+1. Certifique-se que as suas aplicações anteriores ainda estão em execução. 
+
+1. No Portal do Azure, aceda à sua conta do storage em **serviço Blob**, clique em **procurar blobs...** .  Selecione o contentor, navegue para e clique no ficheiro JSON e clique em **transferir** para ver os dados.
+
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a fiável emitir mensagens do dispositivo para nuvem utilizando a funcionalidade de encaminhamento de mensagens do IoT Hub.
 
@@ -204,5 +236,5 @@ Para saber mais sobre o encaminhamento de mensagens no IoT Hub, veja [enviar e r
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Centro de programadores do IoT do Azure]: https://azure.microsoft.com/develop/iot
 [processamento de erros transitórios]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-c2d]: iot-hub-csharp-csharp-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 11/30/2017
 ms.author: tomfitz
-ms.openlocfilehash: e789a234979be877d990665902fd6219ae7ec40b
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utilizar o Cofre de chaves do Azure para passar o valor do parâmetro seguro durante a implementação
 
@@ -66,7 +66,11 @@ Se estiver a utilizar um cofre de chaves novo ou existente, certifique-se de que
 
 ## <a name="reference-a-secret-with-static-id"></a>Referenciar um segredo com o ID estático
 
-O modelo que recebe um segredo do Cofre de chaves é como qualquer modelo. Isto acontece porque **referenciar o Cofre de chaves no ficheiro de parâmetros, não o modelo.** Por exemplo, o modelo seguinte implementa uma base de dados do SQL Server que inclui uma palavra-passe de administrador. O parâmetro de palavra-passe está definido como uma cadeia segura. No entanto, o modelo não especifica onde vêm esse valor.
+O modelo que recebe um segredo do Cofre de chaves é como qualquer modelo. Isto acontece porque **referenciar o Cofre de chaves no ficheiro de parâmetros, não o modelo.** A imagem seguinte mostra como o ficheiro de parâmetros referencia o segredo e transfere esse valor para o modelo.
+
+![ID estático](./media/resource-manager-keyvault-parameter/statickeyvault.png)
+
+Por exemplo, o [seguintes modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) implementa uma base de dados do SQL Server que inclui uma palavra-passe de administrador. O parâmetro de palavra-passe está definido como uma cadeia segura. No entanto, o modelo não especifica onde vêm esse valor.
 
 ```json
 {
@@ -102,7 +106,7 @@ O modelo que recebe um segredo do Cofre de chaves é como qualquer modelo. Isto 
 }
 ```
 
-Agora, crie um ficheiro de parâmetros para o modelo anterior. No ficheiro de parâmetros, especifique um parâmetro que corresponda ao nome do parâmetro no modelo. Para o valor do parâmetro, consulte o segredo do Cofre de chaves. Referenciar o segredo transferindo o identificador de recurso do Cofre de chaves e o nome do segredo. No exemplo seguinte, o segredo do Cofre de chaves tem de existir e é fornecer um valor estático para o ID de recurso.
+Agora, crie um ficheiro de parâmetros para o modelo anterior. No ficheiro de parâmetros, especifique um parâmetro que corresponda ao nome do parâmetro no modelo. Para o valor do parâmetro, consulte o segredo do Cofre de chaves. Referenciar o segredo transferindo o identificador de recurso do Cofre de chaves e o nome do segredo. No [seguinte ficheiro de parâmetros](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.parameters.json), o segredo do Cofre de chaves tem de existir e fornecer um valor estático para o ID de recurso. Copie este ficheiro localmente e definir o ID de subscrição, o nome do cofre e o nome do SQL Server.
 
 ```json
 {
@@ -127,25 +131,27 @@ Agora, crie um ficheiro de parâmetros para o modelo anterior. No ficheiro de pa
 }
 ```
 
-Agora, implemente o modelo e passar o ficheiro de parâmetros. Para a CLI do Azure, utilize:
+Agora, implemente o modelo e passar o ficheiro de parâmetros. Pode utilizar o modelo de exemplo a partir do GitHub, mas tem de utilizar um ficheiro de parâmetros local com os valores definidos para o seu ambiente.
+
+Para a CLI do Azure, utilize:
 
 ```azurecli-interactive
-az group create --name datagroup --location "Central US"
+az group create --name datagroup --location "South Central US"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-file sqlserver.json \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json \
     --parameters @sqlserver.parameters.json
 ```
 
 Para o PowerShell, utilize:
 
 ```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "Central US"
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateFile sqlserver.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
   -TemplateParameterFile sqlserver.parameters.json
 ```
 
@@ -153,7 +159,13 @@ New-AzureRmResourceGroupDeployment `
 
 A secção anterior mostrou como transmitir um ID de recurso estático para o segredo do Cofre de chaves. No entanto, em alguns cenários, tem de referenciar um segredo do Cofre de chaves que varia com base na implementação atual. Nesse caso, não é possível codificar o ID de recurso no ficheiro de parâmetros. Infelizmente, dinamicamente não é possível gerar o ID de recurso no ficheiro de parâmetros porque expressões de modelo não são permitidas no ficheiro de parâmetros.
 
-Para gerar dinamicamente o ID de recurso para um segredo do Cofre de chaves, tem de mover os recursos que tem o segredo a um modelo de aninhada. No modelo principal, adicionar o modelo de aninhado e passar um parâmetro que contém o ID de recurso gerado dinamicamente. O modelo aninhado tem de estar disponível através de um URI externo. O resto deste artigo assume que adicionou o modelo anterior a uma conta do storage e fica disponível através do URI - `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+Para gerar dinamicamente o ID de recurso para um segredo do Cofre de chaves, terá de mover os recursos que tem o segredo a um modelo de ligado. No modelo principal, adicione o modelo ligado e transmitir um parâmetro que contém o ID de recurso gerado dinamicamente. A imagem seguinte mostra como um parâmetro no modelo ligado referencia o segredo.
+
+![Dynamic ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
+
+O modelo ligado tem de estar disponível através de um URI externo. Normalmente, adicione o seu modelo para uma conta de armazenamento e aceder através do URI, como `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+
+O [seguintes modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json) dinamicamente cria o ID de Cofre de chaves e passa-o como um parâmetro. -Contém ligações para um [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) no GitHub.
 
 ```json
 {
@@ -184,7 +196,7 @@ Para gerar dinamicamente o ID de recurso para um segredo do Cofre de chaves, tem
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json",
+          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -205,7 +217,29 @@ Para gerar dinamicamente o ID de recurso para um segredo do Cofre de chaves, tem
 }
 ```
 
-Implementar o modelo anterior e forneça valores para os parâmetros.
+Implementar o modelo anterior e forneça valores para os parâmetros. Pode utilizar o modelo de exemplo a partir do GitHub, mas tem de fornecer valores de parâmetro para o seu ambiente.
+
+Para a CLI do Azure, utilize:
+
+```azurecli-interactive
+az group create --name datagroup --location "South Central US"
+az group deployment create \
+    --name exampledeployment \
+    --resource-group datagroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json \
+    --parameters vaultName=<your-vault> vaultResourceGroup=examplegroup secretName=examplesecret adminLogin=exampleadmin sqlServerName=<server-name>
+```
+
+Para o PowerShell, utilize:
+
+```powershell
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName datagroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json `
+  -vaultName <your-vault> -vaultResourceGroup examplegroup -secretName examplesecret -adminLogin exampleadmin -sqlServerName <server-name>
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 * Para obter informações gerais sobre cofres de chaves, consulte [introdução ao Cofre de chaves do Azure](../key-vault/key-vault-get-started.md).

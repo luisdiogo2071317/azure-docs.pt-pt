@@ -1,5 +1,5 @@
 ---
-title: "Comparação de planos de alojamento de funções do Azure | Microsoft Docs"
+title: "Escala de funções do Azure e o alojar | Microsoft Docs"
 description: "Saiba como escolher entre o plano de consumo de funções do Azure e o plano do App Service."
 services: functions
 documentationcenter: na
@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="azure-functions-hosting-plans-comparison"></a>Comparação de planos de alojamento das funções do Azure
+# <a name="azure-functions-scale-and-hosting"></a>Escala de funções do Azure e de alojamento
 
-Pode executar as funções do Azure em dois modos diferentes: plano de consumo e o plano do App Service do Azure. O plano de consumo atribui automaticamente a capacidade de computação quando o código está em execução, aumenta horizontalmente de forma conforme necessário para processar carga e, em seguida, dimensiona quando o código não está em execução. Por isso, não tem de pagar VMs Inativas e não têm capacidade de reserva antecipadamente. Este artigo incida no plano de consumo, um [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) modelo de aplicação. Para obter mais informações sobre como funciona o plano do App Service, consulte o [descrição geral dos planos do App Service do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Pode executar as funções do Azure em dois modos diferentes: plano de consumo e o plano do App Service do Azure. O plano de consumo atribui automaticamente a capacidade de computação quando o código está em execução, aumenta horizontalmente de forma conforme necessário para processar carga e, em seguida, dimensiona quando o código não está em execução. Não tem de pagar VMs Inativas e não têm capacidade de reserva antecipadamente. Este artigo incida no plano de consumo, um [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) modelo de aplicação. Para obter mais informações sobre como funciona o plano do App Service, consulte o [descrição geral dos planos do App Service do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
 > Linux que aloja atualmente só está disponível um plano de serviço de aplicações.
@@ -84,18 +84,20 @@ Always On só está disponível no plano de serviço aplicacional. Um plano de c
 
 Um plano de consumo ou um plano do App Service, uma aplicação de função necessita de uma conta de armazenamento do Azure geral que suporta o armazenamento de Blobs do Azure, filas, ficheiros e tabela. Internamente, as funções do Azure utiliza o armazenamento do Azure para operações como a gestão de acionadores e execuções de função de registo. Algumas contas de armazenamento não suportam as filas e tabelas, tais como contas de armazenamento apenas de BLOBs (incluindo o armazenamento premium) e contas de armazenamento para fins gerais com a replicação de armazenamento com redundância de zona. Estas contas são filtradas do **conta de armazenamento** painel quando estiver a criar uma aplicação de função.
 
+<!-- JH: Does using a PRemium Storage account improve perf? -->
+
 Para saber mais sobre os tipos de conta de armazenamento, consulte o artigo [introduzir os serviços de armazenamento do Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Como funciona o plano de consumo
 
-O plano de consumo, o controlador de escala dimensiona automaticamente recursos de CPU e memória adicionando instâncias adicionais do anfitrião de funções, com base no número de eventos que as funções são acionadas no. Cada instância de anfitrião de funções está limitada a 1,5 GB de memória.
+O plano de consumo, o controlador de escala dimensiona automaticamente recursos de CPU e memória adicionando instâncias adicionais do anfitrião de funções, com base no número de eventos que as funções são acionadas no. Cada instância de anfitrião de funções está limitada a 1,5 GB de memória.  Uma instância do anfitrião é a aplicação de função, que significa que todas as funções dentro de um funciton recursos de partilha de aplicações dentro de uma instância e o dimensionamento ao mesmo tempo.
 
 Quando utiliza o consumo de plano de alojamento, ficheiros de código de função são armazenados em partilhas de ficheiros do Azure numa conta de armazenamento principal da função. Ao eliminar a conta de armazenamento principal da aplicação de função, os ficheiros de código de função são eliminados e não podem ser recuperados.
 
 > [!NOTE]
 > Quando estiver a utilizar um acionador de blob um plano de consumo, podem existir até um atraso de 10 minutos processar novos blobs, se uma aplicação de função tornou-se inativo. Depois da aplicação de função está em execução, blobs são processados imediatamente. Para evitar este atraso inicial, considere uma das seguintes opções:
 > - O anfitrião da aplicação de função no plano de serviço de aplicações, com o Always On ativado.
-> - Utilize outro mecanismo para acionar o blob processar, tais como uma mensagem de fila que contém o nome do blob. Por exemplo, consulte o [script do c# e exemplos de JavaScript para o blob de entrada e saída enlaces](functions-bindings-storage-blob.md#input--output---example).
+> - Utilize outro mecanismo para acionar o blob processar, tais como uma subscrição de evento de grelha ou uma mensagem de fila que contém o nome do blob. Por exemplo, consulte o [script do c# e exemplos de JavaScript para o blob de entrada e saída enlaces](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Dimensionamento de tempo de execução
 
@@ -104,6 +106,20 @@ As funções do Azure utiliza um componente denominado o *controlador escala* pa
 A unidade de escala é a aplicação de função. Quando a aplicação de função é ampliada, são atribuídos recursos adicionais para executar várias instâncias do anfitrião das funções do Azure. Por outro lado, como a computação a pedido é reduzida, o controlador de escala remove as instâncias de anfitrião de função. O número de instâncias, eventualmente, é dimensionado para baixo para zero quando não funciona em execução dentro de uma aplicação de função.
 
 ![Controlador de escala eventos de monitorização e criação de instâncias](./media/functions-scale/central-listener.png)
+
+### <a name="understanding-scaling-behaviors"></a>Comportamentos de dimensionamento de compreender
+
+Dimensionamento pode variar em vários fatores e dimensionamento de forma diferente, consoante o acionador e o idioma selecionado. No entanto, existem alguns aspetos do dimensionamento que existe no sistema hoje:
+* Uma aplicação de função única só será dimensionado para um máximo de 200 instâncias. Uma única instância pode processar mais do que uma mensagem ou pedido de cada vez, pelo que não é um limite definido no número de execuções em simultâneo.
+* Apenas serão atribuídas novas instâncias no máximo uma vez a cada 10 segundos.
+
+Acionadores diferentes podem também ter diferentes limites de dimensionamento, bem como documentado abaixo:
+
+* [Hub de Eventos](functions-bindings-event-hubs.md#trigger---scaling)
+
+### <a name="best-practices-and-patterns-for-scalable-apps"></a>Melhores práticas e padrões para aplicações dimensionáveis
+
+Há vários aspetos de uma aplicação de função que afetará o quão bem sejam dimensionadas, incluindo a configuração do anfitrião, requisitos de espaço de tempo de execução e effeciency de recursos.  Ver o [secção de escalabilidade do artigo de considerações de desempenho](functions-best-practices.md#scalability-best-practices) para obter mais informações.
 
 ### <a name="billing-model"></a>Modelo de faturação
 

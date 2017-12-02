@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: b267f5ce5ec76a89327ac58ca76895f8bcc4696b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Utilizar o MapReduce no Hadoop no HDInsight
 
@@ -57,7 +57,7 @@ MapReduce pode ser implementado em vários idiomas. Java é a implementação ma
 
 ## <a name="development-languages"></a>Linguagens de programação
 
-Idiomas ou estruturas baseadas em Java e a Máquina Virtual de Java podem ser executadas diretamente como uma tarefa de MapReduce. O exemplo utilizado neste documento é uma aplicação de Java MapReduce. Idiomas não Java, como c#, Python ou executáveis autónomo, tem de utilizar transmissão em fluxo do Hadoop.
+Idiomas ou estruturas baseadas em Java e a Máquina Virtual de Java podem ser executadas diretamente como uma tarefa de MapReduce. O exemplo utilizado neste documento é uma aplicação de Java MapReduce. Idiomas não Java, como c#, Python ou executáveis autónomo, tem de utilizar **transmissão em fluxo do Hadoop**.
 
 Transmissão em fluxo do Hadoop comunica com o mapeador de pontos e reducer através de STDIN e STDOUT. O mapeador de reducer ler os dados de uma linha de cada vez do STDIN e escrever a saída STDOUT. Cada linha de leitura ou emitidos pelo mapeador de pontos e reducer tem de estar no formato de um par chave/valor, delimitado pelo caráter separador:
 
