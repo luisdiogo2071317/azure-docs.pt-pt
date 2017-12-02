@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreender e utilizar o agente Linux do Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ Um ficheiro de configuração (/ etc/waagent.conf) controla as ações de waagen
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ Um ficheiro de configuração (/ etc/waagent.conf) controla as ações de waagen
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 As várias opções de configuração são descritas detalhadamente abaixo. Opções de configuração são dos três tipos; Valor booleano, cadeia ou número inteiro. As opções de configuração booleano podem ser especificadas como "y" ou "n". A especial palavra-chave "None" podem ser utilizadas para alguns cadeia tipo entradas de configuração conforme especificado abaixo.
 
@@ -209,8 +211,12 @@ Predefinição: n
 
 Se definido, waagent executará CustomData após o aprovisionamento.
 
+**Provisioning.AllowResetSysUser** tipo: predefinição booleana: n
+
+Esta opção permite que a palavra-passe para o utilizador sys a reposição; desativado por predefinição.
+
 **Provisioning.PasswordCryptId**  
-Tipo: cadeia  
+Tipo: Cadeia  
 Predefinição: 6
 
 Algoritmo utilizado pela crypt ao gerar o hash de palavra-passe.  
@@ -220,7 +226,7 @@ Algoritmo utilizado pela crypt ao gerar o hash de palavra-passe.
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-Tipo: cadeia  
+Tipo: Cadeia  
 Predefinição: 10
 
 Comprimento de salt aleatório utilizado ao gerar o hash de palavra-passe.
@@ -290,6 +296,12 @@ Tipo: Cadeia
 Predefinição: nenhuma
 
 Se definido, o agente irá utilizar este servidor proxy para aceder à internet. 
+
+**AutoUpdate.Enabled** tipo: predefinição booleana: y
+
+Ativar ou desativar a atualização automática para o estado do objetivo de processamento; a predefinição está ativada.
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Ubuntu nuvem imagens
 Tenha em atenção que utilizar imagens de nuvem Ubuntu [nuvem init](https://launchpad.net/ubuntu/+source/cloud-init) para efetuar várias tarefas de configuração que caso contrário, deverá ser geridas pelo agente Linux do Azure.  Tenha em atenção as seguintes diferenças:

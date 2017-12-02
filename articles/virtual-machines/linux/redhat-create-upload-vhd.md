@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2017
+ms.date: 12/01/2017
 ms.author: szark
-ms.openlocfilehash: b753c76b8c3d789c681d7fbff6aa07590b860be5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18b7a5ec2a04962523a70886e1aa2344eb818458
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em Red Hat para o Azure
 Neste artigo, irá aprender como preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para utilização no Azure. As versões do RHEL que são abordadas neste artigo são 6.7 + e 7.1 +. Os hipervisores para preparação que são abordados neste artigo são Hyper-V, com base em kernel a máquina virtual (KVM) e VMware. Para obter mais informações sobre os requisitos de elegibilidade para participar no programa de acesso à nuvem do Red Hat, consulte [Web site de acesso à nuvem do Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) e [RHEL em execução no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -343,24 +343,33 @@ Esta secção assume que já obteve um ficheiro ISO a partir do site do Red Hat 
 
 19. Converta a imagem de qcow2 para o formato do VHD.
 
-    Converta primeiro a imagem em formato não processado:
+> [!NOTE]
+> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Referência: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
 
-        # qemu-img convert -f qcow2 -O raw rhel-6.8.qcow2 rhel-6.8.raw
 
-    Certifique-se de que o tamanho da imagem não processado está alinhado com 1 MB. Arredonda caso contrário, o tamanho para alinhar com 1 MB:
+    First convert the image to raw format:
+
+        # qemu-img convert -f qcow2 -O raw rhel-6.9.qcow2 rhel-6.9.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-6.9.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-6.9.raw $rounded_size
 
-    Converter disco em bruto de um VHD de tamanho fixo:
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.8.raw rhel-6.8.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.9.raw rhel-6.9.vhd
 
+    Or, with qemu version **2.6+** include the `force_size` option:
 
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
+
+        
 ### <a name="prepare-a-rhel-7-virtual-machine-from-kvm"></a>Preparar uma máquina virtual do RHEL 7 do KVM
 
 1. Transferir a imagem KVM RHEL 7 do Web site do Red Hat. Este procedimento utiliza RHEL 7 como exemplo.
@@ -483,22 +492,32 @@ Esta secção assume que já obteve um ficheiro ISO a partir do site do Red Hat 
 
 19. Converta a imagem de qcow2 para o formato do VHD.
 
-    Converta primeiro a imagem em formato não processado:
+> [!NOTE]
+> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Referência: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
 
-        # qemu-img convert -f qcow2 -O raw rhel-7.3.qcow2 rhel-7.3.raw
 
-    Certifique-se de que o tamanho da imagem não processado está alinhado com 1 MB. Arredonda caso contrário, o tamanho para alinhar com 1 MB:
+    First convert the image to raw format:
+
+        # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-7.4.raw $rounded_size
 
-    Converter disco em bruto de um VHD de tamanho fixo:
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Preparar uma máquina de virtual baseado no Red Hat do VMware
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -600,22 +619,32 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 
 15. Encerre a máquina virtual e converter o ficheiro VMDK num ficheiro. vhd.
 
-    Converta primeiro a imagem em formato não processado:
+> [!NOTE]
+> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Referência: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
 
-        # qemu-img convert -f vmdk -O raw rhel-6.8.vmdk rhel-6.8.raw
 
-    Certifique-se de que o tamanho da imagem não processado está alinhado com 1 MB. Arredonda caso contrário, o tamanho para alinhar com 1 MB:
+    First convert the image to raw format:
+
+        # qemu-img convert -f vmdk -O raw rhel-6.9.vmdk rhel-6.9.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-6.9.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-6.9.raw $rounded_size
 
-    Converter disco em bruto de um VHD de tamanho fixo:
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.8.raw rhel-6.8.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.9.raw rhel-6.9.vhd
+
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-6.9.raw rhel-6.9.vhd
+
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-vmware"></a>Preparar uma máquina virtual do RHEL 7 do VMware
 1. Criar ou editar o `/etc/sysconfig/network` de ficheiros e adicione o seguinte texto:
@@ -704,22 +733,32 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 
 14. Encerre a máquina virtual e converter o ficheiro VMDK para o formato do VHD.
 
-    Converta primeiro a imagem em formato não processado:
+> [!NOTE]
+> Há um erro conhecido em versões de qemu img > = 2.2.1 que resulte num VHD incorretamente formatado. O problema no QEMU 2.6. É recomendado utilizar qemu-img 2.2.0 ou inferior, ou atualizar para o 2.6 ou superior. Referência: https://bugs.launchpad.net/qemu/+bug/1490611.
+>
 
-        # qemu-img convert -f vmdk -O raw rhel-7.3.vmdk rhel-7.3.raw
 
-    Certifique-se de que o tamanho da imagem não processado está alinhado com 1 MB. Arredonda caso contrário, o tamanho para alinhar com 1 MB:
+    First convert the image to raw format:
+
+        # qemu-img convert -f vmdk -O raw rhel-7.4.vmdk rhel-7.4.raw
+
+    Make sure that the size of the raw image is aligned with 1 MB. Otherwise, round up the size to align with 1 MB:
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.8.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
           gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
         # rounded_size=$((($size/$MB + 1)*$MB))
-        # qemu-img resize rhel-6.8.raw $rounded_size
+        # qemu-img resize rhel-7.4.raw $rounded_size
 
-    Converter disco em bruto de um VHD de tamanho fixo:
+    Convert the raw disk to a fixed-sized VHD:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.3.raw rhel-7.3.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+
+    Or, with qemu version **2.6+** include the `force_size` option:
+
+        # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Preparar uma máquina de virtual baseado no Red Hat a partir de um ficheiro ISO utilizando um ficheiro de kickstart automaticamente
 ### <a name="prepare-a-rhel-7-virtual-machine-from-a-kickstart-file"></a>Preparar uma máquina virtual de RHEL 7 de um ficheiro de kickstart
@@ -857,7 +896,7 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 
     c.  Defina o BIOS para arrancar a partir do CD.
 
-5. Inicie a máquina virtual. Quando o guia de instalação for apresentada, prima **separador** para configurar as opções de arranque.
+5. Inicia a máquina virtual. Quando o guia de instalação for apresentada, prima **separador** para configurar as opções de arranque.
 
 6. Introduza `inst.ks=<the location of the kickstart file>` no fim das opções de arranque e prima **Enter**.
 

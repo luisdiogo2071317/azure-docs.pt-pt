@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 9ce1d32a2785bec1164d2a89dea9946fe113cb33
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c28d92ad23e42401d42d9510fd7d07429929ade7
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Criar cluster DSVM e HDI Spark como destinos de computação
 
@@ -63,18 +63,22 @@ Copie e cole o fragmento JSON seguinte para o `mydsvm.json` de ficheiros e preen
 
 Para o _vmSize_ campo, pode utilizar qualquer tamanho VM suppported listado no [modelo de gestão de recursos do Azure de DSVM Ubuntu](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). Recomendamos que utilize um do abaixo tamanhos como destinos de computação do Azure ML. 
 
-- Standard_DS2_v2 
-- Standard_DS3_v2 
-- Standard_DS4_v2 
-- Standard_DS12_v2 
-- Standard_DS13_v2 
-- Standard_DS14_v2 
-- Standard_NC6 
-- Standard_NC12 
-- Standard_NC24 
- 
+
 >[!TIP]
-> Os tamanhos VM começar a utilizar "NC" são os equipados com uma GPU.
+> Para [profunda de cargas de trabalho de aprendizagem](how-to-use-gpu.md) pode implementar para VMs com tecnologia de GPU.
+
+- [VMs de objetivo geral](/virtual-machines/linux/sizes-general.md)
+  - Standard_DS2_v2 
+  - Standard_DS3_v2 
+  - Standard_DS4_v2 
+  - Standard_DS12_v2 
+  - Standard_DS13_v2 
+  - Standard_DS14_v2 
+- [As VMs com tecnologia de GPU](/virtual-machines/linux/sizes-gpu.md)
+  - Standard_NC6 
+  - Standard_NC12 
+  - Standard_NC24 
+ 
 
 Saiba mais sobre estes [tamanhos de máquinas virtuais do Linux no Azure](../../virtual-machines/linux/sizes.md) e os respetivos [obter informações sobre preços](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 

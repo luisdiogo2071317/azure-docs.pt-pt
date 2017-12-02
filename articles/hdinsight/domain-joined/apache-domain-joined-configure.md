@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.openlocfilehash: 2c844ce8aec04c74a9c2dbecdd1b3effb286df97
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 649d138a85ca47440e43c00637ee92b86f4eb03e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Configurar os clusters do HDInsight associados a um domínio (pré-visualização)
+# <a name="configure-domain-joined-hdinsight-clusters"></a>Configurar clusters do HDInsight associados a um domínio
 
 Saiba como configurar um cluster do Azure HDInsight com o Azure Active Directory (Azure AD) e [Apache Ranger](http://hortonworks.com/apache/ranger/) para tirar partido da autenticação forte e de acesso baseado em funções abundante políticas de controlo (RBAC).  Associado a um domínio HDInsight só pode ser configurada em clusters baseados em Linux. Para obter mais informações, consulte [clusters do HDInsight associados a um domínio introduzir](apache-domain-joined-introduction.md).
 
@@ -43,7 +43,7 @@ Os nomes de serviço do Azure tem de ser globalmente exclusivos. Os nomes seguin
 | Nome de domínio do Azure AD |Contoso (contoso.onmicrosoft.com) |
 | HDInsight VNet |contosohdivnet |
 | Grupo de recursos do HDInsight VNet |contosohdirg |
-| Cluster do HDInsight |contosohdicluster |
+| Cluster HDInsight |contosohdicluster |
 
 Este tutorial fornece os passos para configurar um cluster do HDInsight associados a um domínio. Cada secção tem ligações para outros artigos com mais informações de fundo.
 

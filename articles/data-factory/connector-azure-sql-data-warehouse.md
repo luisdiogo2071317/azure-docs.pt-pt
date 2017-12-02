@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bd5de92a418ae5caa23ae4b081b688707cedcf06
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar os dados de ou para o Azure SQL Data Warehouse, utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -269,7 +269,7 @@ O PolyBase do armazém de dados SQL diretamente suporta Blob do Azure e o Azure 
 Se não são cumpridos os requisitos, o Azure Data Factory verifica as definições e automaticamente retrocede para o mecanismo BULKINSERT para o movimento de dados.
 
 1. **Origem de serviço ligado** é do tipo: **AzureStorage** ou **AzureDataLakeStore**.
-2. O **conjunto de dados de entrada** é do tipo: **AzureBlob** ou **AzureDataLakeStoreFile**e o formato de tipo em `type` propriedades **OrcFormat** , ou **TextFormat** com as seguintes configurações:
+2. O **conjunto de dados de entrada** é do tipo: **AzureBlob** ou **AzureDataLakeStoreFile**e o formato de tipo em `type` propriedades **OrcFormat** , **ParquetFormat**, ou **TextFormat** com as seguintes configurações:
 
    1. `rowDelimiter`tem de ser  **\n** .
    2. `nullValue`está definido como **uma cadeia vazia** (""), ou `treatEmptyAsNull` está definido como **verdadeiro**.
@@ -421,10 +421,10 @@ Quando copiar dados de/para o Azure SQL Data Warehouse, os seguintes mapeamentos
 |:--- |:--- |
 | bigint |Int64 |
 | Binário |Byte] |
-| bits |Valor booleano |
+| bits |Booleano |
 | char |Cadeia, Char [] |
-| Data |DateTime |
-| DateTime |DateTime |
+| data |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -437,7 +437,7 @@ Quando copiar dados de/para o Azure SQL Data Warehouse, os seguintes mapeamentos
 | ntext |Cadeia, Char [] |
 | um valor numérico |Decimal |
 | nvarchar |Cadeia, Char [] |
-| real |Único |
+| real |Solteiro |
 | ROWVERSION |Byte] |
 | smalldatetime |DateTime |
 | smallint |Int16 |

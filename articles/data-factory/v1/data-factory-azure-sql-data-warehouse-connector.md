@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a56afa7c5200b53b398f8a99e8a36df3685b2f66
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Data Warehouse com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -196,7 +196,7 @@ O PolyBase do armazém de dados SQL diretamente suporta Blob do Azure e o Azure 
 Se não são cumpridos os requisitos, o Azure Data Factory verifica as definições e automaticamente retrocede para o mecanismo BULKINSERT para o movimento de dados.
 
 1. **Origem de serviço ligado** é do tipo: **AzureStorage** ou **AzureDataLakeStore com a autenticação principal de serviço**.  
-2. O **conjunto de dados de entrada** é do tipo: **AzureBlob** ou **AzureDataLakeStore**e o formato de tipo em `type` propriedades **OrcFormat**, ou **TextFormat** com as seguintes configurações:
+2. O **conjunto de dados de entrada** é do tipo: **AzureBlob** ou **AzureDataLakeStore**e o formato de tipo em `type` propriedades **OrcFormat**, **ParquetFormat**, ou **TextFormat** com as seguintes configurações:
 
    1. `rowDelimiter`tem de ser  **\n** .
    2. `nullValue`está definido como **uma cadeia vazia** (""), ou `treatEmptyAsNull` está definido como **verdadeiro**.
@@ -309,7 +309,7 @@ Fábrica de dados cria a tabela no arquivo de destino com o mesmo nome de tabela
 | TinyInt | TinyInt |
 | bits | bits |
 | Decimal | Decimal |
-| um valor numérico | Decimal |
+| Numérico | Decimal |
 | Número de vírgula flutuante | Número de vírgula flutuante |
 | dinheiro | dinheiro |
 | Real | Real |
@@ -348,10 +348,10 @@ O mapeamento de é igual a [mapeamento do tipo de dados do SQL Server para ADO.N
 | --- | --- |
 | bigint |Int64 |
 | Binário |Byte] |
-| bits |Valor booleano |
+| bits |Booleano |
 | char |Cadeia, Char [] |
-| Data |DateTime |
-| DateTime |DateTime |
+| data |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -364,7 +364,7 @@ O mapeamento de é igual a [mapeamento do tipo de dados do SQL Server para ADO.N
 | ntext |Cadeia, Char [] |
 | um valor numérico |Decimal |
 | nvarchar |Cadeia, Char [] |
-| real |Único |
+| real |Solteiro |
 | ROWVERSION |Byte] |
 | smalldatetime |DateTime |
 | smallint |Int16 |

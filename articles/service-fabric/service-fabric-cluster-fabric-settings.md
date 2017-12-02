@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 076d4d95db21f0a1c1500ae7766392547a441d1b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as definições de cluster do Service Fabric e política de atualização do Fabric
-Este documento indica como personalizar as várias definições de recursos de infraestrutura e os recursos de infraestrutura atualizar a política para o cluster do Service Fabric. Pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
+Este documento descreve como personalizar várias definições de recursos de infraestrutura e atualizar a política para o cluster do Service Fabric. Pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou através de um modelo Azure Resource Manager.
 
 > [!NOTE]
 > Nem todas as definições estão disponíveis no portal. No caso de uma definição listada abaixo não está disponível através do portal de personalizá-lo a utilizar um modelo Azure Resource Manager.
@@ -772,8 +772,8 @@ PropertyGroup|X509NameMap, a predefinição é nenhum|Dinâmica| |
 |MaxPrimaryReplicationQueueMemorySize|Uint, a predefinição é 0|Estático|Este é o valor máximo da fila de replicação primária em bytes.|
 |MaxSecondaryReplicationQueueSize|uint, a predefinição é de 2048|Estático|Este é o número máximo de operações que pode existir na fila de replicação secundário. Tenha em atenção que tem de ser uma potência de 2.|
 |MaxSecondaryReplicationQueueMemorySize|Uint, a predefinição é 0|Estático|Este é o valor máximo da fila de replicação secundária em bytes.|
-|QueueHealthMonitoringInterval|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(30)|Estático|Especifique timespan em segundos. Este valor determina o período de tempo utilizado pelo replicador para monitorizar os eventos de estado de funcionamento de aviso/erro nas filas de operação de replicação. Um valor de '0' desativa a monitorização de estado de funcionamento |
-|QueueHealthWarningAtUsagePercent|uint, predefinida é 80|Estático|Este valor determina a utilização de fila replicação (em percentagem) após o qual elaboramos relatórios de aviso sobre a utilização elevada da fila. Podemos fazê-lo Depois de um intervalo de tolerância de QueueHealthMonitoringInterval. Se a utilização de fila recai abaixo esta percentagem do intervalo de tolerância|
+|QueueHealthMonitoringInterval|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(30)|Estático|Especifique timespan em segundos. Este valor determina o período de tempo utilizado pelo replicador para monitorizar os eventos de estado de funcionamento de aviso/erro nas filas de operação de replicação. Um valor de '0' desativa a monitorização de estado de funcionamento. |
+|QueueHealthWarningAtUsagePercent|uint, predefinida é 80|Estático|Este valor determina a utilização de fila replicação (em percentagem) após o qual elaboramos relatórios de aviso sobre a utilização elevada da fila. Podemos fazê-lo Depois de um intervalo de tolerância de QueueHealthMonitoringInterval. Se a utilização de fila for inferior esta percentagem no intervalo de tolerância de aviso não foi reportada.|
 |RetryInterval|TimeSpan, a predefinição é Common::TimeSpan::FromSeconds(5)|Estático|Especifique timespan em segundos. Quando uma operação é perdida ou rejeitado este temporizador determina com que frequência o replicador tentará enviar novamente a operação.|
 
 ### <a name="section-name-transport"></a>Secção nome: transporte

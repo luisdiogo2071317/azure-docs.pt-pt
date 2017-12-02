@@ -8,14 +8,35 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/02/2017
-ms.openlocfilehash: 069ad2fcdd11f6fd2c7c282d28dbfa67edb902a1
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.date: 12/01/2017
+ms.openlocfilehash: 08af9d01e55c3f7541d89605323602ec28c73db3
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Base de dados do Azure para PostgreSQL vídeos
+
+
+[Descrição geral: Azure base de dados PostgreSQL e MySQL](https://channel9.msdn.com/Events/Connect/2017/T147)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T147/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Base de dados do Azure para PostgreSQL e base de dados do Azure para MySQL reunir motores de base de dados de edição de Comunidade e capacidades de um serviço completamente gerido, pelo que pode concentrar-se nas suas aplicações em vez de ter que gerir uma base de dados. Otimizar para obter uma descrição geral rápida das vantagens de utilizar o serviço e consulte algumas das funcionalidades em ação.
+
+[Descrição profunda sobre as capacidades de serviço geridas para o MySQL e PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T148/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Base de dados do Azure para PostgreSQL e base de dados do Azure para MySQL reunir motores de base de dados de edição de Comunidade e as capacidades de um serviço completamente gerido. Otimizar para obter uma descrição profunda sobre como funcionam os estes serviços — como podemos garantir a elevada disponibilidade e rápido dimensionamento (em segundos), pelo que pode satisfazer as necessidades dos seus clientes. Também irá aprender sobre algumas dos investimentos subjacentes na segurança e a disponibilidade em todo o mundo.
+
+[Desenvolver uma aplicação de análise inteligente com PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T149)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T149/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Base de dados do Azure para PostgreSQL reúne motor de base de dados de edição de Comunidade e capacidades de um serviço completamente gerido, pelo que pode concentrar-se nas suas aplicações em vez de ter que gerir uma base de dados. Otimize para ver em ação, como é fácil criar novas experiências, como adicionar serviços cognitivos às suas aplicações em virtude a ser no Azure.
+
+
 [Como começar com a nova base de dados do Azure para o serviço de PostgreSQL](https://channel9.msdn.com/events/Build/2017/B8046)
 
 <iframe src="https://channel9.msdn.com/Events/Build/2017/B8046/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>

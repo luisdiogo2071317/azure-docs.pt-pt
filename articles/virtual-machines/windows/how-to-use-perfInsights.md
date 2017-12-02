@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 36e204c73e62e950c3f40eab7e1ce6bccd7abd83
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: bb4c21456643532df040df4fcd5f4fa1a4f48d2c
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar PerfInsights 
 
@@ -30,7 +30,7 @@ Recomendamos que execute este script antes de abrir um pedido de suporte com a M
 
 PerfInsights pode recolher e analisar vários tipos de informações que são agrupados em cenários exclusivos.
 
-### <a name="collect-disk-configuration"></a>Recolher configuração de disco 
+### <a name="collect-basic-configuration"></a>Recolher configuração básica 
 
 Este cenário recolhe a configuração do disco e outras informações importantes, incluindo os seguintes itens:
 
@@ -57,7 +57,7 @@ Esta é uma coleção passiva de informações que não devem afetar o sistema.
 >[!Note]
 >Este cenário é automaticamente incluído em cada um dos seguintes cenários.
 
-### <a name="benchmarkstorage-performance-test"></a>Teste de desempenho do benchmark/armazenamento
+### <a name="benchmarking"></a>Direcionamento de caminhos
 
 Este cenário é executado o [diskspd](https://github.com/Microsoft/diskspd) teste benchmark (IOPS e MBPS) para todas as unidades que estão ligados à VM. 
 
@@ -65,11 +65,11 @@ Este cenário é executado o [diskspd](https://github.com/Microsoft/diskspd) tes
 > Este cenário pode afetar o sistema e não deve ser executado num sistema de produção em direto. Se necessário, execute este cenário numa janela de manutenção dedicada para evitar quaisquer problemas. Maior carga de trabalho que é causada por um teste de rastreio ou benchmark pode afetar negativamente o desempenho da sua VM.
 >
 
-### <a name="general-vm-slow-analysis"></a>Análise de geral VM lenta 
+### <a name="slow-vm-analysis"></a>Análise VM lenta 
 
 Este cenário é executado um [contador de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) rastreio, utilizando os contadores que são especificados no ficheiro Generalcounters.txt. Se a VM é identificada como um servidor que está a executar o SQL Server, é executado um rastreio de contador de desempenho utilizando os contadores que se encontram no ficheiro Sqlcounters.txt. Também inclui dados de diagnóstico de desempenho.
 
-### <a name="vm-slow-analysis-and-benchmark"></a>Análise de VM lenta e benchmark
+### <a name="slow-vm-analysis-and-benchmarking"></a>Análise VM lenta e direcionamento de caminhos
 
 Este cenário é executado um [contador de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) rastreio que é seguido um [diskspd](https://github.com/Microsoft/diskspd) teste benchmark. 
 
@@ -99,9 +99,9 @@ Este cenário é executada uma captura de contador de desempenho especial, junta
 |              | Média Comprimento da fila de escrita       |
 |              | Média Comprimento da fila de dados        |
 
-### <a name="custom-configuration"></a>Configuração personalizada 
+### <a name="custom-slow-vm-analysis"></a>Análise VM lenta personalizado 
 
-Quando executa uma configuração personalizada, estiver a executar todos os rastreios (diagnóstico de desempenho, contador de desempenho, xperf, rede, storport) em paralelo, dependendo de quantos rastreios diferentes estão selecionados. O rastreio esteja concluída, a ferramenta é executada diskspd benchmark, se estiver selecionada. 
+Quando executar uma análise VM lenta personalizada, está a executar todos os rastreios (contador de desempenho, xperf, rede, storport) em paralelo, dependendo de quantos rastreios diferentes estão selecionados. O rastreio esteja concluída, a ferramenta é executada diskspd benchmark, se estiver selecionada. 
 
 > [!Note]
 > Este cenário pode afetar o sistema e não deve ser executado num sistema de produção em direto. Se necessário, execute este cenário numa janela de manutenção dedicada para evitar quaisquer problemas. Maior carga de trabalho que é causada por um teste de rastreio ou benchmark pode afetar negativamente o desempenho da sua VM.
@@ -113,7 +113,7 @@ Regista informações sobre a VM do Windows, discos ou configuração de agrupam
 
 |Dados recolhidos                              |  |  | Cenários de desempenho |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Recolher configuração do disco | Teste de desempenho do benchmark/armazenamento | Análise de geral VM lenta | Análise de VM lenta e benchmark | Análise de ficheiros do Azure | Configuração personalizada |
+|                              | Recolher configuração básica | Direcionamento de caminhos | Análise VM lenta | Análise VM lenta e direcionamento de caminhos | Análise de ficheiros do Azure | Análise VM lenta personalizado |
 | Informações de registos de eventos      | Sim                        | Sim                                | Sim                      | Sim                            | Sim                  | Sim                  |
 | Informações do sistema               | Sim                        | Sim                                | Sim                      | Sim                            | Sim                  | Sim                  |
 | Mapa de volume                       | Sim                        | Sim                                | Sim                      | Sim                            | Sim                  | Sim                  |
@@ -127,7 +127,7 @@ Regista informações sobre a VM do Windows, discos ou configuração de agrupam
 | Configuração da rede            | Sim                        | Sim                                | Sim                      | Sim                            | Sim                  | Sim                  |
 | Configuração da firewall           | Sim                        | Sim                                | Sim                      | Sim                            | Sim                  | Sim                  |
 | Configuração do SQL Server         | Sim                        | Sim                                | Sim                      | Sim                            | Sim                  | Sim                  |
-| Os rastreios de diagnóstico de desempenho * |                            |                                    | Sim                      |                                |                      | Sim                  |
+| Os rastreios de diagnóstico de desempenho * | Sim                        | Sim                                | Sim                      |                                | Sim                  | Sim                  |
 | O contador de desempenho rastreio * *     |                            |                                    |                          |                                |                      | Sim                  |
 | O contador SMB rastreio * *             |                            |                                    |                          |                                | Sim                  |                      |
 | Contador do SQL Server rastreio * *      |                            |                                    |                          |                                |                      | Sim                  |
@@ -180,9 +180,9 @@ Testes de carga de trabalho de e/s Diskspd [disco do SO (escrita) e unidades de 
 
 **Possíveis problemas ao executar o script em produção VMs:**
 
-1.  O script poderá afetar negativamente o desempenho da VM quando é utilizado em conjunto com o cenário "Benchmark" ou "Personalizada" que é configurado utilizando XPerf ou DiskSpd. Seja cuidadoso ao executar o script num ambiente de produção.
+1.  Quando utilizar qualquer cenário de "Personalizada lenta VM analysis" que está configurado para utilizar XPerf ou DiskSpd ou Benchmarking cenários, o script poderá afetar negativamente o desempenho da VM. Não se recomenda a execução destes cenários num ambiente de produção sem supervisão de um engenheiro CSS.
 
-2.  Quando utiliza o script, juntamente com o cenário "Benchmark" ou "Personalizada" que é configurado utilizando DiskSpd, certifique-se de que nenhuma outra atividade em segundo plano interfere com a carga de trabalho de e/s nos discos testadas.
+2.  Quando utilizar qualquer cenário de "Personalizada lenta VM analysis" que está configurado para utilizar DiskSpd ou Benchmarking cenários, certifique-se de que nenhuma outra atividade em segundo plano interfere com a carga de trabalho de e/s nos discos testadas.
 
 3.  Por predefinição, o script utiliza a unidade de armazenamento temporário para recolher dados. Se o rastreio permanece ativada durante mais tempo, a quantidade de dados que são recolhidos pode ser relevante. Isto pode reduzir a disponibilidade de espaço em disco temporário, por conseguinte que afetam a qualquer aplicação que se baseie nesta unidade.
 
@@ -236,7 +236,7 @@ Para executar o script de PerfInsights, siga estes passos:
 
 8.  Também pode executar PerfInsights sem a IU.
 
-    O seguinte comando executa o "geral VM lenta Analysis Services" cenário sem uma linha de comandos de IU de resolução de problemas ou a captura de dados para 30 segundos. Pede-lhe consentimento para a mesma exclusão de responsabilidade e EULA mencionados no passo 4.
+    O seguinte comando executa o "VM lenta Analysis Services" cenário sem uma linha de comandos de IU de resolução de problemas ou a captura de dados para 30 segundos. Pede-lhe consentimento para a mesma exclusão de responsabilidade e EULA mencionados no passo 4.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
@@ -264,13 +264,13 @@ Se continuar a ocorrer a falha de script, mesmo após várias tentativas, recome
 
 Após a falha ocorre, copie a saída completa da consola do PowerShell e enviá-lo para o agente de Support da Microsoft que está a prestar assistência para ajudar a resolver o problema.
 
-### <a name="how-do-i-run-the-script-in-custom-configuration-mode"></a>Como se executar o script no modo de configuração personalizado?
+### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>Como se executar o script no modo de análise VM lento personalizado?
 
-Ao selecionar o **personalizada** configuração, pode ativar várias rastreios em paralelo (utilize Shift para selecionar vários):
+Ao selecionar o **análise VM lenta personalizada**, pode ativar várias rastreios em paralelo (utilize Shift para selecionar vários):
 
 ![Selecione cenários](media/how-to-use-perfInsights/select-scenario.png)
 
-Quando seleciona o diagnóstico de desempenho, rastreio de contador de desempenho, XPerf rastreio, rastreio da rede ou Storport rastreio cenários, siga as instruções nas caixas de diálogo e tentam reproduzir o problema de desempenho lento depois de iniciar os rastreios.
+Quando seleciona o rastreio de contador de desempenho, XPerf rastreio, rastreio da rede ou Storport rastreio cenários, siga as instruções nas caixas de diálogo e tentarem reproduzir o problema de desempenho lento depois de iniciar os rastreios.
 
 A seguinte caixa de diálogo permite-lhe iniciar um rastreio:
 
@@ -290,20 +290,21 @@ Dentro do **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip ficheiro,** que é gerado 
 Selecione o **Findings** separador.
 
 ![localizar separador](media/how-to-use-perfInsights/findingtab.png)
+![findings](media/how-to-use-perfInsights/findings.PNG)
 
 **Notas**
 
--   Mensagens vermelho são conhecidas problemas de configuração que podem causar problemas de desempenho.
+-   Se os problemas que podem causar problemas de desempenho conhecidos findings categorizados como crítica.
 
--   As mensagens no amarelo são avisos que representam não ideal configurações que não necessariamente a causar problemas de desempenho.
+-   Findings categorizados como configurações de não ideal representam importante que não necessariamente a causar problemas de desempenho.
 
--   As mensagens azul são apenas as instruções informativos.
+-   Findings categorizados como informativo são apenas as instruções informativos.
 
-Reveja as ligações HTTP para todas as mensagens de erro vermelho obter informações mais detalhadas sobre os findings e como pode afetar o desempenho ou melhores práticas para as configurações com otimização de desempenho.
+Reveja as recomendações e ligações para todas as findings críticos e importantes obter informações mais detalhadas sobre os findings e como pode afetar o desempenho ou melhores práticas para as configurações com otimização de desempenho.
 
-### <a name="disk-configuration-tab"></a>Separador de configuração do disco
+### <a name="storage-tab"></a>Separador de armazenamento
 
-O **descrição geral** secção apresenta vistas diferentes da configuração do armazenamento, incluindo informações de Diskpart e espaços de armazenamento
+O **Findings** secção apresenta várias recomendações relacionadas com o armazenamento e findings.
 
 O **DiskMap** e **VolumeMap** secções descrevem numa perspetiva dupla lógica como volumes e discos físicos estão relacionados uns aos outros.
 
@@ -315,21 +316,24 @@ Na perspetiva Volume (*VolumeMap*), as tabelas apresentam todos os discos físic
 
 ![separador de volume](media/how-to-use-perfInsights/volumetab.png)
 
-### <a name="sql-server-tab"></a>Separador do SQL Server
+### <a name="sql-tab"></a>Separador SQL
 
-Se o destino da VM aloja quaisquer instâncias do SQL Server, consulte um separador adicional no relatório com o nome **do SQL Server**:
+Se o destino da VM aloja quaisquer instâncias do SQL Server, consulte um separador adicional no relatório com o nome **SQL**:
 
 ![separador de SQL](media/how-to-use-perfInsights/sqltab.png)
 
-Esta secção contém uma descrição "geral" e separadores sub adicionais para cada uma das instâncias do SQL Server alojadas na VM.
+Esta secção contém um separador de "Findings" e os separadores sub adicionais para cada uma das instâncias do SQL Server alojadas na VM.
 
-A secção "Descrição geral" contém uma tabela útil que resume a todos os discos físicos (discos de dados e do sistema) que estão em execução e que contenham uma mistura de ficheiros de dados e ficheiros de registo de transações.
+No separador "Findings" contém uma lista de todos os SQL relacionadas com problemas de desempenho encontrados juntamente com as recomendações.
 
 No exemplo seguinte, *PhysicalDrive0* (em execução a unidade C) é apresentado porque tanto o *modeldev* e *modellog* ficheiros estão localizados na unidade C e são de diferentes tipos (por exemplo, o ficheiro de dados e registo de transações, respetivamente):
 
 ![LogInfo](media/how-to-use-perfInsights/loginfo.png)
 
 Os separadores de específico da instância do SQL Server contenham uma secção geral que apresenta informações básicas sobre a instância selecionada e as secções adicionais para as informações avançadas, incluindo opções de utilizador, as configurações e definições.
+
+### <a name="diagnostic-tab"></a>Separador Diagnóstico
+Separador Diagnóstico contém informações sobre principal da CPU, disco e a memória consumidores na caixa para a duração de PerfInsights executam. Também pode encontrar outras informações úteis, tais como patches crítico que o sistema poderá estar em falta, lista de tarefas e eventos de sistema importantes. 
 
 ## <a name="references-to-the-external-tools-used"></a>Referências para as ferramentas externas utilizadas
 

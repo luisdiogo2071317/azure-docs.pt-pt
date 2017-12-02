@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 81954835185ebaa86c11a9498a85879e6985897a
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming e de colaboração no Azure Machine Learning Workbench
 Este documento explica como como o Azure Machine Learning Workbench pode ajudar a percorrer o seus projetos máquinas, bem como ativar colaboração com seu teammates. 
@@ -156,9 +156,9 @@ Para ilustrar o fluxo de colaboração, vamos guiá-lo através de um exemplo. O
 
 7. Bernardo clica no nome do projeto e o projeto é transferido para o seu computador.
     
-    a. Os ficheiros do projeto transferido são clones do instantâneo da versão mais recente executados gravados no histórico de execução. Não estão a consolidação último no ramo principal.
+    a. Os ficheiros do projeto transferido são uma cópia do instantâneo a execução mais recente registadas no histórico de execução. Não estão a consolidação último no ramo principal.
     
-    b. A pasta local do projeto está definida no _mestre_ ramo unstaged alterações.
+    b. A pasta local do projeto está definida no _mestre_ ramo com as alterações unstaged acima.
 
 8. João pode procurar executa executada pela Inês e restauro de instantâneo de qualquer executa anterior.
 

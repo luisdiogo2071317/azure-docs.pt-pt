@@ -4,7 +4,7 @@ description: "Considerações sobre o funcionamento em rede para serviços de do
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: 5f9236c5cf660be00db6e09d61df617b64d978e9
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 537643f582f6cc3328bd1c098de03c4f6e07c113
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações sobre o funcionamento em rede para serviços de domínio do Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Como selecionar uma Azure virtual network
@@ -28,10 +28,6 @@ As seguintes diretrizes ajudam a selecionar uma rede virtual para utilizar com o
 * **Redes virtuais do Gestor de recursos**: serviços de domínio do Azure AD podem ser ativados nas redes virtuais criadas com o Azure Resource Manager.
 * Não é possível ativar os serviços de domínio do Azure AD numa rede virtual do Azure clássico.
 * Pode ligar outros redes virtuais à rede virtual em que os serviços de domínio do Azure AD é ativado. Para obter mais informações, consulte o [conectividade de rede](active-directory-ds-networking.md#network-connectivity) secção.
-* **Redes virtuais regionais**: Se planeia utilizar uma rede virtual existente, certifique-se de que é uma rede virtual regional.
-
-  * Não é possível utilizar redes virtuais que utilizam o mecanismo de grupos de afinidade legado com os Serviços de Domínio do Azure AD.
-  * Utilizar os serviços de domínio do Azure AD, [migrar redes virtuais legadas para redes virtuais regionais](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ### <a name="azure-region-for-the-virtual-network"></a>Região do Azure para a rede virtual
 * Os serviços de domínio do Azure AD domínio gerido é implementado na mesma região que a rede virtual do Azure, optar por ativar o serviço no.
@@ -39,7 +35,7 @@ As seguintes diretrizes ajudam a selecionar uma rede virtual para utilizar com o
 * Veja a página [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/) para saber em que regiões do Azure estão disponíveis os Serviços de Domínio do Azure AD.
 
 ### <a name="requirements-for-the-virtual-network"></a>Requisitos para a rede virtual
-* **Proximidade para as cargas de trabalho do Azure**: selecione a rede virtual que atualmente aloja/irá alojar máquinas virtuais que necessitam de aceder aos serviços de domínio do Azure AD. Também pode optar por ligar redes virtuais, se as cargas de trabalho são implementadas numa rede virtual diferente domínio gerido.
+* **Proximidade para as cargas de trabalho do Azure**: selecione a rede virtual que atualmente aloja/irá alojar máquinas virtuais que necessitam de aceder aos serviços de domínio do Azure AD. Se as cargas de trabalho são implementadas numa rede virtual diferente domínio gerido, também pode optar por ligar as redes virtuais.
 * **Servidores DNS personalizados/traga a sua própria**: Certifique-se de que existem não existem servidores DNS personalizados configurados para a rede virtual. Um exemplo de um servidor DNS personalizado é uma instância do DNS do Windows Server em execução numa VM do Windows que tenha implementado na rede virtual. Serviços de domínio do AD do Azure se integra com todos os servidores DNS personalizados implementados na rede virtual.
 * **Domínios existentes com o mesmo nome de domínio**: Certifique-se de que não dispõe de um domínio existente com o mesmo nome de domínio disponível na rede virtual. Por exemplo, suponha que tem um domínio chamado 'contoso.com' já disponível na rede virtual selecionada. Posteriormente, tenta ativar um domínio gerido dos serviços de domínio do Azure AD com o mesmo nome de domínio (que é 'contoso.com') na rede virtual. Detetar uma falha ao tentar ativar os serviços de domínio do Azure AD. Esta falha é devido a conflitos de nome para o nome de domínio na rede virtual. Nesta situação, tem de utilizar um nome diferente para configurar o seu domínio gerido dos Serviços de Domínio do Azure AD. Em alternativa, pode anular o aprovisionamento do domínio existente e, em seguida, prosseguir para ativar os Serviços de Domínio do Azure AD.
 
@@ -48,12 +44,11 @@ As seguintes diretrizes ajudam a selecionar uma rede virtual para utilizar com o
 >
 >
 
-## <a name="network-security-groups-and-subnet-design"></a>Grupos de segurança de rede e a estrutura de sub-rede
-A [grupo de segurança de rede (NSG)](../virtual-network/virtual-networks-nsg.md) contém uma lista de regras de lista de controlo de acesso (ACL) que permitem ou negam o tráfego de rede para as instâncias de VM numa rede Virtual. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede. Além disso, o tráfego para uma VM individual pode ser restringido adicional ao associar um NSG diretamente a essa VM.
+
+## <a name="guidelines-for-choosing-a-subnet"></a>Diretrizes para escolher uma sub-rede
 
 ![Estrutura de sub-rede recomendada](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-### <a name="guidelines-for-choosing-a-subnet"></a>Diretrizes para escolher uma sub-rede
 * Implementar os serviços de domínio do Azure AD para um **separar sub-rede dedicado** dentro da sua rede virtual do Azure.
 * Não se aplicam os NSGs para a sub-rede dedicada para o seu domínio gerido. Se tem de aplicar NSGs para a sub-rede dedicada, certifique-se de **não bloquear as portas necessárias para o serviço e gerir o seu domínio**.
 * Restringe o número de endereços IP disponíveis na sub-rede dedicada para o seu domínio gerido excessivamente. Esta restrição impede que o serviço de disponibilizar dois controladores de domínio para o seu domínio gerido.
@@ -64,20 +59,40 @@ A [grupo de segurança de rede (NSG)](../virtual-network/virtual-networks-nsg.md
 >
 >
 
-### <a name="ports-required-for-azure-ad-domain-services"></a>Portas necessárias para os serviços de domínio do Azure AD
+## <a name="ports-required-for-azure-ad-domain-services"></a>Portas necessárias para os serviços de domínio do Azure AD
 As seguintes portas são necessárias para os serviços de domínio do Azure AD para o serviço e manter o seu domínio gerido. Certifique-se de que estas portas não são bloqueadas para a sub-rede em que tiver ativado o seu domínio gerido.
 
-| Número de porta | Objetivo |
-| --- | --- |
-| 443 |Sincronização com o seu inquilino do Azure AD |
-| 3389 |Gestão do seu domínio |
-| 5986 |Gestão do seu domínio |
-| 636 |Proteger o acesso de LDAP (LDAPS) ao seu domínio gerido |
+| Número de porta | Necessário? | Objetivo |
+| --- | --- | --- |
+| 443 | Obrigatório |Sincronização com o seu inquilino do Azure AD |
+| 5986 | Obrigatório | Gestão do seu domínio |
+| 3389 | Opcional | Gestão do seu domínio |
+| 636 | Opcional | Proteger o acesso de LDAP (LDAPS) ao seu domínio gerido |
 
-Porta 5986 é utilizada para efetuar tarefas de gestão a utilizar a comunicação remota do PowerShell no seu domínio gerido. Os controladores de domínio para o seu domínio gerido não normalmente escutar nesta porta. O serviço abre-se esta porta nos controladores de domínio geridos apenas quando uma operação de gestão ou de manutenção tem de ser efetuada para o domínio gerido. Assim que a operação for concluída, o serviço será encerrado a esta porta nos controladores de domínio gerido.
+**Porta 443 (sincronização com o Azure AD)**
+* É utilizado para sincronizar o seu diretório do Azure AD com o seu domínio gerido.
+* É obrigatório para permitir o acesso a esta porta no seu NSG. Sem acesso a esta porta, o seu domínio gerido não está sincronizado com o seu diretório do Azure AD. Os utilizadores poderão não conseguir iniciar sessão como alterações para as respetivas palavras-passe não serão sincronizadas com o seu domínio gerido.
+* Pode restringir o acesso de entrada para esta porta para endereços IP que pertençam ao intervalo de endereços IP do Azure.
 
-Porta 3389 é utilizada para ligações de ambiente de trabalho remotas para o seu domínio gerido. Isto também porta permanece amplamente desativada no seu domínio gerido. O serviço permite esta porta apenas se é necessário ligar ao seu domínio gerido para resolução de problemas, iniciados em resposta a um pedido de serviço que iniciar. Este mecanismo não é utilizado numa base contínua, uma vez que as tarefas de monitorização e gestão são executadas utilizando a comunicação remota do PowerShell. Esta porta é utilizada apenas no evento raro que é necessário para ligar remotamente ao seu domínio gerido para resolução de problemas avançada. A porta está fechada, assim que a operação de resolução de problemas está concluída.
+**Porta 5986 (comunicação remota do PowerShell)** 
+* É utilizado para efetuar tarefas de gestão a utilizar a comunicação remota do PowerShell no seu domínio gerido.
+* É obrigatório para permitir o acesso através desta porta no seu NSG. Sem acesso a esta porta, o seu domínio gerido não pode ser atualizado, configurado, cópia de segurança ou monitorizado.
+* Pode restringir o acesso de entrada para esta porta para os seguintes endereços IP de origem: 52.180.183.8 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
+* Os controladores de domínio para o seu domínio gerido não normalmente escutar nesta porta. O serviço abre-se esta porta nos controladores de domínio geridos apenas quando uma operação de gestão ou de manutenção tem de ser efetuada para o domínio gerido. Assim que a operação for concluída, o serviço será encerrado a esta porta nos controladores de domínio gerido.
 
+**Porta 3389 (ambiente de trabalho remoto)** 
+* É utilizado para ligações de ambiente de trabalho remotas para os controladores de domínio para o seu domínio gerido. 
+* Abrir esta porta através do NSG é opcional. 
+* Isto também porta permanece amplamente desativada no seu domínio gerido. Este mecanismo não é utilizado numa base contínua, uma vez que as tarefas de monitorização e gestão são executadas utilizando a comunicação remota do PowerShell. Esta porta é utilizada apenas no evento raro que necessita de Microsoft para ligar remotamente ao seu domínio gerido para resolução de problemas avançada. A porta está fechada, assim que a operação de resolução de problemas está concluída.
+
+**Porta 636 (LDAP seguro)**
+* É utilizado para permitir um acesso LDAP seguro ao seu domínio gerido através da internet.
+* Abrir esta porta através do NSG é opcional. Abra a porta apenas se tiver acesso LDAP seguro através da internet ativada.
+* Pode restringir o acesso de entrada para esta porta para os endereços IP de origem do qual pretende ligar através de LDAP seguro.
+
+
+## <a name="network-security-groups"></a>Grupos de Segurança de Rede
+A [grupo de segurança de rede (NSG)](../virtual-network/virtual-networks-nsg.md) contém uma lista de regras de lista de controlo de acesso (ACL) que permitem ou negam o tráfego de rede para as instâncias de VM numa rede Virtual. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede. Além disso, o tráfego para uma VM individual pode ser restringido adicional ao associar um NSG diretamente a essa VM.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Exemplo de NSG para redes virtuais com os serviços de domínio do Azure AD
 A tabela seguinte ilustra um exemplo NSG, pode configurar uma rede virtual com um domínio gerido dos serviços de domínio do Azure AD. Esta regra permite o tráfego de entrada sobre as portas necessárias para garantir que o seu domínio gerido permanece corrigido, atualizar e pode ser monitorizado pela Microsoft. A regra predefinida do 'DenyAll' aplica-se a todos os outro o tráfego de entrada da internet.

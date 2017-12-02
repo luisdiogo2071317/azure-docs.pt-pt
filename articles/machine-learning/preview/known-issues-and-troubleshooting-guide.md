@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - problemas conhecidos e guia de resolução de problemas 
 Este artigo ajuda-o a encontrar e corrija erros ou falhas encontradas como parte da utilização da aplicação do Azure Machine Learning Workbench. 
@@ -112,6 +112,19 @@ Infelizmente, não há nenhuma garantia fácil neste. Terá de efetuar os seguin
    - Remova o script`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - remover o atalho de ambiente de trabalho que inicia o script acima
    - Transferir o instalador https://aka.ms/azureml-wb-msi e volte a instalar.
+
+## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Obter bloqueada no ecrã de "Verificação conta experimentação" após iniciar sessão
+Após iniciar sessão, a aplicação do Workbench pode obter bloqueada num ecrã em branco com uma mensagem "A verificar conta experimentação" com uma roda girar a mostrar. Para resolver este problema, siga os passos seguintes:
+1. Encerrar a aplicação
+2. Elimine o ficheiro seguinte:
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. Reinicie a aplicação.
 
 ## <a name="cant-delete-experimentation-account"></a>Não é possível eliminar a conta de experimentação
 Pode utilizar a CLI para eliminar uma conta de experimentação, mas tem de eliminar as áreas de trabalho subordinados e os projetos de subordinados dentro desses áreas de trabalho subordinados primeiro. Caso contrário, verá um erro.
