@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: b54bb67e1188037385d0b373850b6b923eb8d7ac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual personalizada na pilha do Azure
 
@@ -184,7 +184,7 @@ As imagens devem ser capazes de ser referenciado por um URI de armazenamento de 
 
 2. Inicie sessão no Azure pilha como operador. No menu, selecione **mais serviços** > **fornecedores de recursos**. Em seguida, selecione **computação** > **imagens da VM** > **adicionar**.
 
-3. Em **adicionar uma imagem de VM**, introduza o publicador, oferta, SKU e versão da imagem de máquina virtual. Consulte estes segmentos de nome para a imagem VM em modelos do Resource Manager. Certifique-se de que seleciona o **osType** valor corretamente. Para **URI de Blob do disco OD**, introduza o URI de Blob onde a imagem foi carregada. Em seguida, selecione **criar** para começar a criar a imagem de VM.
+3. Em **adicionar uma imagem de VM**, introduza o publicador, oferta, SKU e versão da imagem de máquina virtual. Consulte estes segmentos de nome para a imagem VM em modelos do Resource Manager. Certifique-se de que seleciona o **osType** valor corretamente. Para **URI de Blob do disco de SO**, introduza o URI de Blob onde a imagem foi carregada. Em seguida, selecione **criar** para começar a criar a imagem de VM.
    
    ![Begin para criar a imagem](./media/azure-stack-add-vm-image/image4.png)
 
