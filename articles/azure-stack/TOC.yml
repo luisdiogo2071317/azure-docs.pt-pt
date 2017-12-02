@@ -213,6 +213,10 @@
           items:
             - name: Ligar através da VPN
               href: azure-stack-connect-vpn.md
+            - name: Acerca do VPN gateway
+              href: azure-stack-vpn-gateway-about-vpn-gateways.md
+            - name: Definições do gateway de VPN
+              href: azure-stack-vpn-gateway-settings.md
             - name: Ligar através do ExpressRoute
               href: azure-stack-connect-expressroute.md
     - name: Resolução de problemas
