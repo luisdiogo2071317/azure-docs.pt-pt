@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -87,6 +87,16 @@ A gestão de atualizações é ativada para a máquina virtual.
 Para obter instruções sobre como ativar a gestão de atualizações para máquinas virtuais e computadores não Azure, veja [Connect Windows computers to the Log Analytics service in Azure (Ligar computadores Windows ao serviço do Log Analytics no Azure)](../log-analytics/log-analytics-windows-agents.md).
 
 Para obter instruções sobre como ativar a gestão de atualizações para máquinas virtuais e computadores Linux não Azure, veja [Connect your Linux computers to Log Analytics](../log-analytics/log-analytics-agent-linux.md) (Ligar os seus computadores Linux ao Log Analytics).
+
+## <a name="view-computers-attached-to-your-automation-account"></a>Ver computadores ligados à sua conta de automatização
+Depois de ativar a gestão de atualizações nas suas máquinas, pode clicar em **Computadores** para ver as respetivas informações. Estão disponíveis informações sobre o computador como *Nome*, *Conformidade*, *Ambiente*, *Tipo de SO*, *Atualizações Críticas e de Segurança* e *Outras Atualizações*. 
+
+  ![Separador Ver computadores](./media/manage-update-multi/update-computers-tab.png)
+
+Relativamente aos computadores nos quais a gestão de atualizações tenha sido ativada recentemente, é possível que possam ainda não ter sido avaliados. O estado de conformidade destes será *Não avaliado*.  Esta é uma lista dos valores para o estado de conformidade:
+* Conforme – computadores que não têm atualizações críticas ou de segurança em falta.
+* Não conforme – computadores que têm em falta pelo menos uma atualizações crítica ou de segurança.
+* Não avaliado – os dados da avaliação de atualizações não foram recebidos do computador dentr do período de tempo esperado.  Para computadores Linux, nas últimas três horas e, para computadores Windows, nas últimas 12 horas.  
 
 ## <a name="view-an-update-assessment"></a>Ver avaliações de atualizações
 

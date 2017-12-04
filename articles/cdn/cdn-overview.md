@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
-ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 411c5a43d8a3245fc4642596b3725dadf8745728
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Descrição geral da Rede de Entrega de Conteúdos (CDN) do Azure
-> [!NOTE]
-> Este documento descreve o que é a Rede de Entrega de Conteúdos (CDN) do Azure, como funciona e as funcionalidades de cada produto da CDN do Azure.  Se pretende ignorar estas informações e ir diretamente para um tutorial sobre como criar um ponto final da CDN, consulte [Utilizar a CDN do Azure](cdn-create-new-endpoint.md).  Se pretende ver uma lista das localizações de nós da CDN atual, consulte [Localizações de POP da CDN do Azure](cdn-pop-locations.md).
-> 
-> 
+A Rede de Entrega de Conteúdos (CDN) do Azure coloca em cache conteúdo Web estático em localizações estrategicamente colocadas de modo a fornecer o débito máximo para disponibilização de conteúdo aos utilizadores. A CDN oferece aos programadores uma solução global para o fornecimento de conteúdo de largura de banda alta ao colocar em cache o conteúdo em nós físicos por todo o mundo. 
 
-A Rede de Entrega de Conteúdos (CDN) do Azure coloca em cache conteúdo Web estático em localizações estrategicamente colocadas de modo a fornecer o débito máximo para disponibilização de conteúdo aos utilizadores.  A CDN oferece aos programadores uma solução global para o fornecimento de conteúdo de largura de banda alta ao colocar em cache o conteúdo em nós físicos por todo o mundo. 
+> [!NOTE]
+> Este artigo descreve a CDN do Azure, como funciona e as funcionalidades de cada produto da CDN do Azure. Para ignorar estas informações e ver um tutorial sobre como criar um ponto final da CDN, veja [Introdução à CDN do Azure](cdn-create-new-endpoint.md). Para ver uma lista das localizações de nós da CDN atual, veja [Azure CDN POP Locations](cdn-pop-locations.md) (Localizações POP da CND do Azure).
+> 
 
 As vantagens de utilizar a CDN para colocar em cache recursos de sites incluem:
 
 * Melhor desempenho e experiência do utilizador para os utilizadores finais, especialmente quando se utilizam aplicações nas quais são necessárias vários percursos de ida e volta para carregar conteúdo.
 * Grande dimensionamento para processar melhor cargas elevadas instantâneas, como no início de um evento de iniciação de um produto.
-* Ao distribuir os pedidos de utilizador e publicar conteúdo a partir de servidores Edge, é enviado menos o tráfego para a origem.
+* Distribuição de pedidos de utilizador e publicação de conteúdos diretamente a partir de servidores edge, para que seja enviado menos tráfego para a origem.
+
 
 ## <a name="how-it-works"></a>Como funciona
 ![Descrição geral da CDN](./media/cdn-overview/cdn-overview.png)
@@ -90,13 +90,13 @@ Existem três produtos da CDN do Azure: **CDN do Azure Standard da Akamai**, **C
 > 
 
 ## <a name="next-steps"></a>Passos seguintes
-Para começar a utilizar a CDN, consulte [Utilizar a CDN do Azure](cdn-create-new-endpoint.md).
+Para começar a utilizar a CDN, veja [Introdução à CDN do Azure](cdn-create-new-endpoint.md).
 
 Se for um cliente existente da CDN, já pode gerir os pontos finais da CDN através do [Portal do Microsoft Azure](https://portal.azure.com) ou com o [PowerShell](cdn-manage-powershell.md).
 
-Para ver o CDN em ação, consulte o [vídeo da nossa sessão de Compilação 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+Para ver a CDN em ação, veja o [vídeo da sessão Build de 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
 Saiba como automatizar o CDN do Azure com [.NET](cdn-app-dev-net.md) ou [node. js](cdn-app-dev-node.md).
 
-Para obter informações sobre preços, consulte [Preços da CDN](https://azure.microsoft.com/pricing/details/cdn/).
+Para obter informações sobre preços, veja [Preços da Rede de Entrega de Conteúdos](https://azure.microsoft.com/pricing/details/cdn/).
 

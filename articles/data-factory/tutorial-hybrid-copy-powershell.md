@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 77078087e2532ac779d25ef63cc7fa19b40f0851
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: ca8e664ff1fd509d0461b6d167f28743d2e1e69c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>Tutorial: copiar dados de um SQL Server no local para o Armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar o Azure PowerShell para criar um pipeline do Data Factory que copia dados de uma base de dados do SQL Server no local para um armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud. 
@@ -51,7 +51,7 @@ Neste tutorial, vai utilizar uma base de dados do SQL Server no local como um ar
 1. Inicie o **SQL Server Management Studio** no seu computador. Se não tiver o SQL Server Management Studio no seu computador, instale-o a partir do [centro de transferências](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). 
 2. Ligue ao SQL Server com as suas credenciais. 
 3. Crie uma base de dados de exemplo. Na vista de árvore, clique com o botão direito do rato em **Bases de dados** e clique em **Nova Base de Dados**. Na caixa de diálogo **Nova Base de Dados**, introduza um **nome** para a base de dados e clique em **OK**. 
-4. Execute o script de consulta seguinte na base de dados, o que cria a tabela **emp**. Na vista de árvore, clique com o botão direito do rato na **base de dados** que criou e clique em **Nova Consulta**. 
+4. Execute o script de consulta seguinte na base de dados, o que cria a tabela **emp** e insere alguns dados de exemplo na mesma. Na vista de árvore, clique com o botão direito do rato na **base de dados** que criou e clique em **Nova Consulta**. 
 
     ```sql   
     CREATE TABLE dbo.emp
@@ -61,13 +61,10 @@ Neste tutorial, vai utilizar uma base de dados do SQL Server no local como um ar
         LastName varchar(50),
         CONSTRAINT PK_emp PRIMARY KEY (ID)
     )
-    GO
-    ```
-2. Execute os comandos seguintes na base de dados, que inserem alguns dados de exemplo na tabela:
 
-    ```sql
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
+    GO
     ```
 
 ### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
@@ -105,10 +102,10 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
     ![Página do contentor](media/tutorial-hybrid-copy-powershell/container-page.png)
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="windows-powershell"></a>Windows PowerShell
 
-#### <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
-Instale o Azure PowerShell mais recente, se ainda não o tiver no seu computador. 
+#### <a name="install-powershell"></a>Instalar o PowerShell
+Instale o PowerShell mais recente, se ainda não o tiver no seu computador. 
 
 1. No browser, navegue para a página [Transferir SDKs e Ferramentas](https://azure.microsoft.com/downloads/). 
 2. Clique em **Instalação para Windows**, na secção **Ferramentas de linha de comandos** -> **PowerShell**. 
@@ -116,9 +113,9 @@ Instale o Azure PowerShell mais recente, se ainda não o tiver no seu computador
 
 Para obter informações detalhadas, veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
-#### <a name="log-in-to-azure-powershell"></a>Iniciar sessão no Azure PowerShell
+#### <a name="log-in-to-powershell"></a>Iniciar sessão no PowerShell
 
-1. Inicie o **PowerShell** no seu computador. Mantenha o Azure PowerShell aberto até ao fim deste início rápido. Se o fechar e reabrir, terá de executar os comandos novamente.
+1. Inicie o **PowerShell** no seu computador. Mantenha a janela do PowerShell aberta até ao fim deste início rápido. Se o fechar e reabrir, terá de executar os comandos novamente.
 
     ![Iniciar o PowerShell](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 1. Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe do Azure que utiliza para iniciar sessão no portal do Azure.
@@ -142,25 +139,28 @@ Para obter informações detalhadas, veja [Como instalar e configurar o Azure Po
 1. Defina uma variável para o nome do grupo de recursos que vai utilizar nos comandos do PowerShell mais tarde. Copie o texto do comando seguinte para o PowerShell, especifique um nome para o [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com aspas duplas e execute o comando. Por exemplo: `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>"
+    $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-2. Defina uma variável para o nome da fábrica de dados que possa utilizar em comandos do PowerShell mais tarde. 
-
-    ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>"
-    ```
-1. Defina uma variável para a localização da fábrica de dados: 
-
-    ```powershell
-    $location = "East US"
-    ```
-4. Para criar o grupo de recursos do Azure, execute o comando abaixo: 
+2. Para criar o grupo de recursos do Azure, execute o comando abaixo: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
 
-    Se o grupo de recursos já existir, pode não substituí-lo. Atribua outro valor à variável `$resourceGroupName` e execute novamente o comando.   
+    Se o grupo de recursos já existir, pode não substituí-lo. Atribua outro valor à variável `$resourceGroupName` e execute novamente o comando.
+3. Defina uma variável para o nome da fábrica de dados que possa utilizar em comandos do PowerShell mais tarde. O nome tem de começar com uma letra ou um número e só pode conter letras, números e o caráter de travessão (-).
+
+    > [!IMPORTANT]
+    >  Atualize o nome da fábrica de dados para que seja globalmente exclusivo. Por exemplo, ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFTutorialFactory"
+    ```
+1. Defina uma variável para a localização da fábrica de dados: 
+
+    ```powershell
+    $location = "East US"
+    ```  
 5. Para criar a fábrica de dados, execute o cmdlet **Set-AzureRmDataFactoryV2**: 
     
     ```powershell       
@@ -182,12 +182,12 @@ Tenha em atenção os seguintes pontos:
 
 Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a um computador no local com a base de dados do SQL Server. O runtime de integração autoalojado é o componente que copia os dados do SQL Server no seu computador para o armazenamento de blobs do Azure. 
 
-1. Crie uma variável para o nome do runtime de integração. Tome nota deste nome. Vai utilizá-lo mais tarde no tutorial. 
+1. Crie uma variável para o nome do runtime de integração. Utilize um nome exclusivo e aponte-o. Vai utilizá-lo mais tarde no tutorial. 
 
     ```powershell
-   $integrationRuntimeName = "<your integration runtime name>"
+   $integrationRuntimeName = "ADFTutorialIR"
     ```
-1. Crie um integration runtime autoalojado. Utilize um nome exclusivo no caso de já existir outro integration runtime com o mesmo nome.
+1. Crie um integration runtime autoalojado. 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -230,7 +230,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
    State                     : NeedRegistration
    ```
 
-3. Execute o seguinte comando para obter as **chaves de autenticação** para registar o integration runtime autoalojado no serviço Data Factory na cloud. Copie uma das chaves (exclua as aspas duplas) para registar o runtime de integrçaão autoalojado que vai instalar no computador no passo seguinte:  
+3. Execute o seguinte comando para obter as **chaves de autenticação** para registar o integration runtime autoalojado no serviço Data Factory na cloud. 
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -243,7 +243,8 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
        "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
-   ```
+   ```    
+4. Copie uma das chaves (exclua as aspas duplas) para registar o runtime de integrçaão autoalojado que vai instalar no computador no passo seguinte:  
 
 ## <a name="install-integration-runtime"></a>Instalar o runtime de integração
 1. [Transfira](https://www.microsoft.com/download/details.aspx?id=39717) o runtime de integração autoalojado num computador Windows local e execute a instalação. 
@@ -283,6 +284,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
     - Introduza o nome de **utilizador**. 
     - Introduza a **palavra-passe** do nome de utilizador.
     - Clique em **Testar** para confirmar que o runtime de integração se consegue ligar ao SQL Server. Verá uma marca de verificação verde se a ligação for bem-sucedida. Caso contrário, verá uma mensagem de erro associada a uma falha. Corrija os problemas e confirme que o runtime de integração se consegue ligar ao seu SQL Server.
+    - Aponte estes valores (tipo de autenticação, servidor, base de dados, utilizador, palavra-passe). Vai utilizá-los mais tarde no tutorial. 
     
       
 ## <a name="create-linked-services"></a>Criar serviços ligados
@@ -294,7 +296,7 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 1. Crie um ficheiro JSON com o nome **AzureStorageLinkedService.json** na pasta **C:\ADFv2Tutorial** com o seguinte conteúdo: crie a pasta ADFv2Tutorial, caso ainda não exista.  
 
     > [!IMPORTANT]
-    > Substitua &lt;accountName&gt; e &lt;accountKey&gt; pelo nome e chave da sua conta de armazenamento do Azure antes de guardar o ficheiro.
+    > Substitua &lt;accountName&gt; e &lt;accountKey&gt; pelo nome e a chave da sua **conta de armazenamento do Azure** antes de guardar o ficheiro. Já as apontou como parte dos [pré-requisitos](#get-storage-account-name-and-account-key).
 
    ```json
     {
@@ -310,6 +312,8 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
         "name": "AzureStorageLinkedService"
     }
    ```
+
+    Se estiver a utilizar o Bloco de Notas, selecione **Todos os Ficheiros** no campo **Guardar com o tipo**, na caixa de diálogo **Guardar como**. Caso contrário, pode adicionar a extensão `.txt` ao ficheiro. Por exemplo, `AzureStorageLinkedService.json.txt`. Se criar o ficheiro no Explorador de Ficheiros antes de o abrir no Bloco de Notas, poderá não ver a extensão `.txt`, uma vez que a opção **Ocultar extensões para tipos de ficheiros conhecidos** está definida por predefinição. Antes de avançar para o próximo passo, remova a extensão `.txt`. 
 2. No **Azure PowerShell**, mude para a pasta **C:\ADFv2Tutorial**.
 
    Execute o cmdlet **Set-AzureRmDataFactoryV2LinkedService** para criar o serviço ligado: **AzureStorageLinkedService**. 
@@ -326,6 +330,8 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
     DataFactoryName   : onpremdf0914
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
+
+    Se receber o erro "ficheiro não encontrado". Execute o comando `dir` para confirmar que o ficheiro existe. Se o nome de ficheiro tiver a extensão `.txt` (por exemplo, AzureStorageLinkedService.json.txt), remove-a e execute novamente o comando do PowerShell. 
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Criar e encriptar um serviço ligado do SQL Server (origem)
 Neste passo, vai ligar o seu SQL Server no local à fábrica de dados.
@@ -366,7 +372,7 @@ Neste passo, vai ligar o seu SQL Server no local à fábrica de dados.
                     "type": "SecureString",
                     "value": "Server=<server>;Database=<database>;Integrated Security=True"
                 },
-                "userName": "<domain>\\<user>",
+                "userName": "<user> or <domain>\\<user>",
                 "password": {
                     "type": "SecureString",
                     "value": "<password>"

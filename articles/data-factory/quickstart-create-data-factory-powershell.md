@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 254dcb6642afc19f434df837c9073d2dd7314313
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: cb58fe167fe8b369f51e234badd8e419ebd284e4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>Criar uma fábrica de dados do Azure com o PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,122 +31,37 @@ Este início rápido descreve como utilizar o PowerShell para criar uma fábrica
 >
 > Este artigo não disponibiliza uma introdução detalhada do serviço Data Factory. Para obter uma introdução ao serviço Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
-### <a name="azure-subscription"></a>Subscrição do Azure
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-### <a name="azure-roles"></a>Funções do Azure
-Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário**, ou um **administrador** da subscrição do Azure. No portal do Azure, clique no seu **nome de utilizador** no canto superior direito e selecione **Permissões** para ver as permissões que tem na subscrição. Se tiver acesso a várias subscrições, selecione a subscrição apropriada. Para obter instruções de exemplo sobre como adicionar um utilizador a uma função, veja o artigo [Add roles](../billing/billing-add-change-azure-subscription-administrator.md) (Adicionar funções).
-
-### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
-Neste início rápido, vai utilizar uma Conta de Armazenamento do Azure para fins gerais (especificamente o Armazenamento de Blobs) como arquivo de dados de **origem** e de **destino**. Se não tiver uma conta de armazenamento do Azure para fins gerais, veja [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account), que explica como criar uma. 
-
-#### <a name="get-storage-account-name-and-account-key"></a>Obter o nome e a chave da conta de armazenamento
-Utilize o nome e a chave da sua conta de armazenamento do Azure neste início rápido. O procedimento seguinte disponibiliza os passos para obter o nome e a chave da conta de armazenamento. 
-
-1. Abra um browser e navegue para o [portal do Azure](https://portal.azure.com). Inicie sessão com o seu nome de utilizador e a sua palavra-passe do Azure. 
-2. Clique em **Mais serviços >**, no menu do lado esquerdo, filtre com a palavra-chave **Armazenamento** e selecione **Contas de armazenamento**.
-
-    ![Procurar contas de armazenamento](media/quickstart-create-data-factory-powershell/search-storage-account.png)
-3. Na lista das contas de armazenamento, filtre para encontrar a sua conta de armazenamento (se necessário) e selecione **a sua conta de armazenamento**. 
-4. Na página **Conta de armazenamento**, selecione **Chaves de acesso**, no menu.
-
-    ![Obter o nome e a chave da conta de armazenamento](media/quickstart-create-data-factory-powershell/storage-account-name-key.png)
-5. Copie os valores dos campos **Nome da conta de armazenamento** e **Key1** para a área de transferência. Cole-os num bloco de notas ou noutro editor e guarde-os.  
-
-#### <a name="create-input-folder-and-files"></a>Criar pasta e ficheiros de entrada
-Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no seu armazenamento de blobs do Azure. Depois, vai criar uma pasta chamada **entrada** no contentor e, em seguida, vai carregar um ficheiro de exemplo para essa pasta. 
-
-1. Na página **Conta de armazenamento**, mude para a **Descrição Geral** e, em seguida, clique em **Blobs**. 
-
-    ![Selecionar a opção Blobs](media/quickstart-create-data-factory-powershell/select-blobs.png)
-2. Na página **Serviço Blob** página, clique em **+ Contentor** na barra de ferramentas. 
-
-    ![Adicionar o botão de contentor](media/quickstart-create-data-factory-powershell/add-container-button.png)    
-3. Na caixa de diálogo **Novo contentor**, introduza **adftutorial** para o nome e clique em **OK**. 
-
-    ![Introduzir o nome do contentor](media/quickstart-create-data-factory-powershell/new-container-dialog.png)
-4. Clique em **adftutorial** na lista de contentores. 
-
-    ![Selecionar o contentor](media/quickstart-create-data-factory-powershell/seelct-adftutorial-container.png)
-1. Na página **Contentor**, clique em **Carregar** na barra de ferramentas.  
-
-    ![Botão Carregar](media/quickstart-create-data-factory-powershell/upload-toolbar-button.png)
-6. Na página **Carregar blob**, clique em **Avançadas**.
-
-    ![Clicar na ligação Avançadas](media/quickstart-create-data-factory-powershell/upload-blob-advanced.png)
-7. Inicie o **Bloco de Notas** e crie um ficheiro chamado **emp.txt** com o seguinte conteúdo: Guarde-o na pasta **c:\ADFv2QuickStartPSH**: Crie a pasta **ADFv2QuickStartPSH** caso esta ainda não exista.
-    
-    ```
-    John, Doe
-    Jane, Doe
-    ```    
-8. No portal do Azure, na página **Carregar blob**, procure e selecione o ficheiro **emp.txt** para o campo **Ficheiros**. 
-9. Introduza **entrada** como um valor no campo **Carregar para a pasta**. 
-
-    ![Carregar definições de blob](media/quickstart-create-data-factory-powershell/upload-blob-settings.png)    
-10. Confirme se a pasta é **entrada** e se o ficheiro é **emp.txt**, e clique em **Carregar**.
-11. Deverá ver o ficheiro **emp.txt** e o estado do carregamento na lista. 
-12. Feche a página **Carregar blob** clicando no **X** no canto. 
-
-    ![Fechar a página Carregar blob](media/quickstart-create-data-factory-powershell/close-upload-blob.png)
-1. Mantenha a página do **contentor** aberta. Vai utilizá-la para verificar a saída no final deste início rápido. 
-
-### <a name="azure-powershell"></a>Azure PowerShell
-
-#### <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
-Instale o Azure PowerShell mais recente, se não o tiver no seu computador. 
-
-1. No browser, navegue para a página [Transferir SDKs e Ferramentas](https://azure.microsoft.com/downloads/). 
-2. Clique em **Instalação para Windows**, na secção **Ferramentas de linha de comandos** -> **PowerShell**. 
-3. Para instalar o Azure PowerShell, execute o ficheiro **MSI**. 
-
-Para obter informações detalhadas, veja [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps). 
-
-#### <a name="log-in-to-azure-powershell"></a>Iniciar sessão no Azure PowerShell
-
-1. Inicie o **PowerShell** no seu computador. Mantenha o Azure PowerShell aberto até ao fim deste início rápido. Se o fechar e reabrir, terá de executar os comandos novamente.
-
-    ![Iniciar o PowerShell](media/quickstart-create-data-factory-powershell/search-powershell.png)
-1. Execute o comando seguinte e introduza o mesmo nome de utilizador e a mesma palavra-passe do Azure que utiliza para iniciar sessão no portal do Azure:
-       
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-2. Se tiver várias subscrições do Azure, execute o comando seguinte para ver todas as subscrições desta conta:
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-3. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **SubscriptionId** pelo ID da sua subscrição do Azure:
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
-    ```
+[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
-1. Defina uma variável para o nome do grupo de recursos que vai utilizar nos comandos do PowerShell mais tarde. Copie o texto do comando seguinte para o PowerShell, especifique um nome para o [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com aspas duplas e execute o comando. Por exemplo: `"adfrg"`.
+1. Defina uma variável para o nome do grupo de recursos que vai utilizar nos comandos do PowerShell mais tarde. Copie o texto do comando seguinte para o PowerShell, especifique um nome para o [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com aspas duplas e execute o comando. Por exemplo: `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>";
+    $resourceGroupName = "ADFQuickStartRG";
     ```
-2. Defina uma variável para o nome da fábrica de dados. 
+
+    Se o grupo de recursos já existir, pode não substituí-lo. Atribua outro valor à variável `$resourceGroupName` e execute novamente o comando
+2. Para criar o grupo de recursos do Azure, execute o comando abaixo: 
 
     ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>";
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    Se o grupo de recursos já existir, pode não substituí-lo. Atribua outro valor à variável `$resourceGroupName` e execute novamente o comando. 
+3. Defina uma variável para o nome da fábrica de dados. 
+
+    > [!IMPORTANT]
+    >  Atualize o nome da fábrica de dados para que seja globalmente exclusivo. Por exemplo, ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFQuickStartFactory";
     ```
 1. Defina uma variável para a localização da fábrica de dados: 
 
     ```powershell
     $location = "East US"
     ```
-4. Para criar o grupo de recursos do Azure, execute o comando abaixo: 
-
-    ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
-    ``` 
-    Se o grupo de recursos já existir, pode não substituí-lo. Atribua outro valor à variável `$resourceGroupName` e execute novamente o comando. 
 5. Para criar a fábrica de dados, execute o cmdlet **Set-AzureRmDataFactoryV2**: 
     
     ```powershell       
@@ -186,8 +101,8 @@ Crie os serviços ligados numa fábrica de dados para ligar os seus arquivos de 
         }
     }
     ```
-
-2. No **Azure PowerShell**, mude para a pasta **ADFv2QuickStartPSH**.
+    Se estiver a utilizar o Bloco de Notas, selecione **Todos os Ficheiros** no campo **Guardar com o tipo**, na caixa de diálogo **Guardar como**. Caso contrário, pode adicionar a extensão `.txt` ao ficheiro. Por exemplo, `AzureStorageLinkedService.json.txt`. Se criar o ficheiro no Explorador de Ficheiros antes de o abrir no Bloco de Notas, poderá não ver a extensão `.txt`, uma vez que a opção **Ocultar extensões para tipos de ficheiros conhecidos** está definida por predefinição. Antes de avançar para o próximo passo, remova a extensão `.txt`.
+2. No **PowerShell**, mude para a pasta **ADFv2QuickStartPSH**.
 
 3. Execute o cmdlet **Set-AzureRmDataFactoryV2LinkedService** para criar o serviço ligado: **AzureStorageLinkedService**. 
 
@@ -437,30 +352,7 @@ Neste passo, vai definir os valores para os parâmetros do pipeline:  **inputPat
     "billedDuration": 14
     ```
 
-## <a name="verify-the-output"></a>Verificar a saída
-O pipeline cria automaticamente a pasta de saída no contentor de blobs adftutorial. Em seguida, copia o ficheiro emp.txt da pasta de entrada para a pasta de saída. 
-
-1. No portal do Azure, na página do contentor **adftutorial**, clique em **Atualizar** para ver a pasta de saída. 
-    
-    ![Atualizar](media/quickstart-create-data-factory-powershell/output-refresh.png)
-2. Clique em **saída** na lista de pastas. 
-2. Confirme se o ficheiro **emp.txt** foi copiado para a pasta de saída. 
-
-    ![Atualizar](media/quickstart-create-data-factory-powershell/output-file.png)
-
-## <a name="clean-up-resources"></a>Limpar recursos
-Pode limpar os recursos que criou no Guia de Introdução de duas formas. Pode eliminar o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md), que inclui todos os recursos no grupo de recursos. Se quiser manter os outros recursos intactos, elimine apenas a fábrica de dados que criou neste tutorial.
-
-A eliminação de um grupo de recursos dita a eliminação de todos os recursos, incluindo as fábricas de dados nele incluídas. Execute o seguinte comando para eliminar todo o grupo de recursos: 
-```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
-```
-
-Se quiser eliminar apenas a fábrica de dados, e não o grupo de recursos completo, execute o seguinte comando: 
-
-```powershell
-Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
-```
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
 
 ## <a name="next-steps"></a>Passos seguintes
 O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de blobs do Azure. Leia os [tutoriais](tutorial-copy-data-dot-net.md) para saber como utilizar o Data Factory em mais cenários. 
