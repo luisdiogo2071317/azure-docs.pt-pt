@@ -3,22 +3,21 @@ title: Autorizar a contas de programador com OAuth 2.0 na API Management do Azur
 description: Saiba como autorizar os utilizadores com OAuth 2.0 na API Management.
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 78c48247-64f0-4708-b2d0-98b61a821283
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: c61b4969757d62d7e16e7acecf7d7bed4b31c9b1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: bd8b3d13754e981235cbce39e919f39228820426
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de programador com OAuth 2.0 na API Management do Azure
 Suportam muitas APIs [OAuth 2.0](http://oauth.net/2/) para proteger a API e certifique-se de que apenas os utilizadores válidos têm acesso, e apenas podem aceder a recursos a que está a elegível. Para utilizar a consola de programador interativo da API Management do Azure com essas APIs, o serviço permite-lhe configurar a sua instância de serviço funcione com o OAuth 2.0 API ativada.
@@ -37,7 +36,7 @@ Para começar, clique em **Portal do editor** no Portal do Azure para o seu serv
 ![Portal do publicador][api-management-management-console]
 
 > [!NOTE]
-> Se ainda não criou uma instância de serviço de Gestão de API, consulte [Criar uma instância de serviço de Gestão de API][Create an API Management service instance] no tutorial [Introdução à Gestão de API do Azure][Get started with Azure API Management].
+> Se ainda não criou uma instância de serviço de API Management, consulte [criar uma instância de serviço de API Management][Create an API Management service instance].
 > 
 > 
 
@@ -160,10 +159,10 @@ Para obter mais informações sobre como utilizar o OAuth 2.0 e a API Management
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detetar e avaliar as VMs de VMware no local para a migração para o Azure
 
@@ -37,10 +37,14 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **VMware**: precisa de, pelo menos, uma VM de VMware localizada num anfitrião ESXi ou cluster que execute a versão 5.0 ou superior. O anfitrião ou cluster tem de ser gerido pelo servidor vCenter com a versão 5.5, 6.0 ou 6.5.
-- **conta do vCenter**: necessita de uma conta de só de leitura com credenciais de administrador para o servidor vCenter. Migrar do Azure utiliza esta conta para detetar as VMs.
-- **Permissões**: no vCenter server, necessita de permissões para criar uma VM ao importar um ficheiro. Formato de OVA. 
-- **Definições de estatísticas**: as definições de estatísticas para o servidor vCenter devem ser definidas ao nível 3 antes de começar a implementação. Se inferior nível 3 avaliação irá funcionar, mas não se encontra recolher dados de desempenho de armazenamento e rede.
+- **VMware**: A VMs que pretende migrar tem de ser geridas por um vCenter Server em execução versão 5.5, 6.0 ou 6.5. Além disso, terá de uma versão em execução de anfitrião ESXi 5.0 ou superior para implementar o recoletor de VM. 
+ 
+> [!NOTE]
+> Suporte para o Hyper-V está no nosso plano e irão estar ativado em breve. 
+
+- **conta de servidor do vCenter**: necessita de uma conta de só de leitura para aceder ao vCenter Server. Migrar do Azure utiliza esta conta para detetar as VMs no local.
+- **Permissões**: no vCenter Server, necessita de permissões para criar uma VM ao importar um ficheiro. Formato de OVA. 
+- **Definições de estatísticas**: as definições de estatísticas para o vCenter Server devem ser definidas ao nível 3 antes de começar a implementação. Se inferior ao nível 3, avaliação irá funcionar, mas não se encontra recolher dados de desempenho de armazenamento e rede. O tamanho de recomendações neste caso, serão efetuadas com base nos dados de desempenho para dados de CPU, memória e configuração para os adaptadores de rede e de disco. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 Inicie sessão no [Portal do Azure](https://portal.azure.com).
@@ -51,7 +55,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Procurar **Azure migrar**e selecione o serviço (**Azure migrar (pré-visualização)** nos resultados da pesquisa. Em seguida, clique em **Criar**.
 3. Especifique um nome de projeto e a subscrição do Azure para o projeto.
 4. Crie um novo grupo de recursos.
-5. Especificar a região na qual pretende criar o projeto, em seguida, clique em **criar**. Metadados reunidos a partir de VMs no local serão armazenados nesta região. Só pode criar um projeto do Azure migrar na região Central EUA oeste para esta pré-visualização. No entanto, pode avaliar as VMs para uma localização diferente.
+5. Especificar a região na qual pretende criar o projeto, em seguida, clique em **criar**. Metadados reunidos a partir de VMs no local serão armazenados nesta região. Só pode criar um projeto do Azure migrar na região Central EUA oeste para esta pré-visualização. No entanto, ainda pode planear a migração para qualquer localização do Azure de destino. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -93,7 +97,7 @@ Verifique se o. Ficheiro OVA é seguro, antes de implementá-lo.
 
 ## <a name="create-the-collector-vm"></a>Criar o recoletor de VM
 
-Importe o ficheiro transferido para o servidor vCenter.
+Importe o ficheiro transferido para o vCenter Server.
 
 1. Na consola do cliente vSphere, clique em **ficheiro** > **implementar o modelo de OVF**.
 
@@ -143,7 +147,7 @@ Deteção de tempo depende quantas VMs está a detetar. Normalmente, para 100 VM
 Depois das VMs que são descobertas, agrupá-los e criar uma avaliação. 
 
 1. No projeto **descrição geral** página, clique em **+ Criar avaliação**.
-2. Clique em **ver todos os** para rever as definições de avaliação.
+2. Clique em **ver todos os** para rever as propriedades de avaliação.
 3. Criar o grupo e especifique um nome de grupo.
 4. Selecione as máquinas que pretende adicionar ao grupo.
 5. Clique em **Criar avaliação**, para criar o grupo e a avaliação.
@@ -168,13 +172,16 @@ Esta vista mostra o estado de preparação para cada máquina.
 
 #### <a name="monthly-cost-estimate"></a>Estimativa de custo mensal
 
-Esta vista mostra a custos de computação e armazenamento, para cada máquina. Custos estimativas são calculadas com as recomendações com base no desempenho de tamanho para uma máquina e respetivos discos e as propriedades de avaliação.
+Esta vista mostra a computação total e o custo de armazenamento de executar as VMs no Azure, juntamente com os detalhes para cada máquina. Custos estimativas são calculadas com as recomendações com base no desempenho de tamanho para uma máquina e respetivos discos e as propriedades de avaliação. 
 
-Custos de mensais estimados para armazenamento e computação são agregados para todas as VMs no grupo. Pode clicar em cada máquina para desagregar para obter mais detalhes. 
+> [!NOTE]
+> A estimativa de custo fornecida pelo Azure migrar é para executar as VMs no local como a infraestrutura do Azure como um VMs de serviço (IaaS). Considere qualquer plataforma como serviço (PaaS) ou de Software como um custos de serviço (SaaS). 
+
+Custos de mensais estimados para armazenamento e computação são agregados para todas as VMs no grupo. 
 
 ![Avaliação de custo de VM](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-Pode desagregar Consulte custos para uma máquina específica.
+Pode desagregar consulte os detalhes para um computador específico.
 
 ![Avaliação de custo de VM](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 

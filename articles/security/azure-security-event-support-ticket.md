@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2017
 ms.author: v-dabosl
-ms.openlocfilehash: 01168e050f5feec1fa2eafc57b76f2e18c921b93
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 753d6abcdd063d5c092b0c90770396d176bc52e8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Como iniciar um pedido de suporte de eventos de segurança
 
-1. Navegue para [Portal do publicador](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) e inicie sessão com as credenciais da Microsoft.
+1. Navegue para [suporte do Editor](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636450758943226673) e inicie sessão com as suas credenciais de Microsoft.
 2. Selecione "Eventos de segurança" como o tipo de problema e escolha entre as categorias "Incidente de segurança" e "Vulnerabilidade".
 
     ![Tipo de evento e definição][1]
 
-3. Depois de selecionar o tipo de problema e categoria, clique em de '**pedido de início**' botão.
+3. Depois de selecionar o tipo de problema e categoria, clique em de '**pedido de início**' botão. Forneça as seguintes informações para ajudar-na compreender melhor o problema.
 
-    posso. O que é o problema e/ou a vulnerabilidade.
+    posso. O que é o problema e/ou a vulnerabilidade?
 
     II. Quanto a vulnerabilidades, forneça o Exposures (mitre.org) ou o manchas saída CVSS3 v3 Calculadora (https://www.first.org/cvss/calculator/3.0).
 

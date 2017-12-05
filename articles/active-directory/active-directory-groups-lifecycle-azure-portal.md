@@ -1,5 +1,5 @@
 ---
-title: "Pré-visualizar a expiração de grupos do Office 365 no Azure Active Directory | Microsoft Docs"
+title: "Grupos de expiração para o Office 365 no Azure Active Directory | Microsoft Docs"
 description: "Como configurar a expiração de grupos do Office 365 no Azure Active Directory (pré-visualização)"
 services: active-directory
 documentationcenter: 
@@ -12,29 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2dd56bd34e5b7845298fab1f36e231113a2e28e
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="configure-office-365-groups-expiration-preview"></a>Configurar a expiração de grupos do Office 365 (pré-visualização)
+# <a name="configure-expiration-for-office-365-groups-preview"></a>Configurar a expiração de grupos do Office 365 (pré-visualização)
 
-Agora pode gerir o ciclo de vida de grupos do Office 365 através da definição de expiração de todos os grupos do Office 365 que selecionar. Depois desta expiração é definida, os proprietários desses grupos-lhe pedidos para renovar os respetivos grupos se precisarem ainda os grupos. Qualquer grupo do Office 365 não for renovado será eliminado. Nenhum grupo do Office 365 que tenha sido eliminado pode ser restaurado no prazo de 30 dias, os proprietários de grupo ou o administrador.  
-
+Agora pode gerir o ciclo de vida de grupos do Office 365 através da definição de funcionalidades de expiração das mesmas. Pode definir expiração para apenas os grupos do Office 365 no Azure Active Directory (Azure AD). Depois de definir um grupo a expirar:
+-   Os proprietários do grupo são notificados para renovar o grupo que está prestes a expiração
+-   Qualquer grupo que não a renovar é eliminado
+-   Qualquer grupo do Office 365 é eliminado pode ser restaurado no prazo de 30 dias, os proprietários de grupo ou do administrador
 
 > [!NOTE]
-> Pode definir expiração para apenas os grupos do Office 365.
->
-> A definição de expiração para grupos do Office 365 requer que está atribuída uma licença do Azure AD Premium
->   - O administrador configura as definições de expiração para o inquilino
->   - Todos os membros dos grupos selecionados para esta definição
+> A definição de expiração para grupos do Office 365 requer uma licença do Azure AD Premium ou uma licença do Azure AD Basic EDU para todos os membros dos grupos aos quais são aplicadas as definições de expiração.
+> 
+> Para o Azure AD Basic EDU licenciado aos clientes: para configurar esta política pela primeira vez, utilize os cmdlets do Azure Active Directory PowerShell. Depois disso, pode atualizar as definições de expiração utilizando o PowerShell ou o portal do Azure AD, com uma conta que seja um administrador de conta de utilizador ou um Administrador Global no inquilino do Azure AD.
 
-## <a name="set-office-365-groups-expiration"></a>Definir a expiração de grupos do Office 365
+Para obter informações sobre como transferir e instalar os cmdlets do Azure AD PowerShell, consulte [Azure Active Directory PowerShell para gráfico: versão de pré-visualização pública 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+
+## <a name="set-group-expiration"></a>Expiração do conjunto de grupo
 
 1. Abra o [Centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global no inquilino do Azure AD.
 
@@ -51,7 +53,6 @@ Agora pode gerir o ciclo de vida de grupos do Office 365 através da definição
   * Selecione os grupos do Office 365 expirarem. Pode ativar a expiração de **todos os** grupos do Office 365, pode selecionar entre os grupos do Office 365 ou selecionar **nenhum** para desativar a expiração de todos os grupos.
   * Guardar as definições, quando tiver terminado, selecionando **guardar**.
 
-Para obter instruções sobre como transferir e instalar o módulo do PowerShell da Microsoft configurar a expiração de grupos do Office 365 através do PowerShell, consulte [Azure módulo Active Directory V2 PowerShell - versão de pré-visualização pública 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 Notificações de e-mail, tal como esta são enviadas para os proprietários de grupo do Office 365 30 dias, 15 dias e 1 dia antes da expiração do grupo.
 
@@ -68,7 +69,8 @@ O grupo pode ser restaurado selecionando **restauro grupo** ou utilizando os cmd
 Se o grupo que está a restaurar contém documentos, SharePoint sites ou outros objetos persistentes, pode demorar até 24 horas para restaurar completamente o grupo e o respetivo conteúdo.
 
 > [!NOTE]
-> * Ao implementar as definições de expiração, poderão existir alguns grupos que são mais antigos do que a janela de expiração. Estes grupos não são eliminados imediatamente, mas estão definidos para 30 dias até a expiração. O primeiro e-mail de notificação de renovação enviado dentro de um dia. Por exemplo, um grupo foi criado dias 400 há e o intervalo de expiração é definido para 180 dias. Quando aplicar definições de expiração, o grupo A tem 30 dias antes de ser eliminado, a menos que o proprietário renova-lo.
+> * Quando configurar a expiração pela primeira vez, todos os grupos que são mais antigos do que o intervalo de expiração são definidos para 30 dias até a expiração. O primeiro e-mail de notificação de renovação enviado dentro de um dia. 
+>   Por exemplo, um grupo foi criado dias 400 há e o intervalo de expiração é definido para 180 dias. Quando aplicar definições de expiração, o grupo A tem 30 dias antes de ser eliminado, a menos que o proprietário renova-lo.
 > * Quando um grupo dinâmico é eliminado e restaurado, é apresentado como um novo grupo e novamente preenchida, de acordo com a regra. Este processo poderá demorar até 24 horas.
 
 ## <a name="next-steps"></a>Passos seguintes

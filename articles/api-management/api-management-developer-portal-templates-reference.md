@@ -1,5 +1,5 @@
 ---
-title: "Modelos de Portal de Programador de gestão de API do Azure | Microsoft Docs"
+title: "Modelos de portais para programadores de gestão de API do Azure | Microsoft Docs"
 description: "Saiba como personalizar os conteúdos de páginas de portal de programador utilizando um conjunto de modelos na API Management do Azure."
 services: api-management
 documentationcenter: 
@@ -12,22 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2f2a943657dd328fc5657b775ba0273f99718f39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 540e9804d2ee84c050531f5287d4c4b8922ae999
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="azure-api-management-developer-portal-templates"></a>Modelos de Portal de Programador de gestão de API do Azure
+# <a name="developer-portal-templates"></a>Modelos de portais de programador
+
 Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de páginas de portal de programador utilizando um conjunto de modelos que configurar o respetivo conteúdo. Utilizando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto de fornecido localizado [recursos de cadeia](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma enorme flexibilidade para configurar o conteúdo das páginas como julgar utilizando estes modelos.  
   
- Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de API Management utilizando modelos](api-management-developer-portal-templates.md).  
+Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de API Management utilizando modelos](api-management-developer-portal-templates.md).  
 
-
-
-  
 ##  <a name="DeveloperPortalTemplates"></a>Modelos de portais de programador  
   
 -   [APIs](api-management-api-templates.md)  
@@ -60,9 +58,9 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
     -   [Inscrever-se](api-management-page-templates.md#SignUp)  
     -   [Página não foi encontrado](api-management-page-templates.md#PageNotFound)
 
-
 ## <a name="next-steps"></a>Passos seguintes  
--   [Referência de modelo](api-management-developer-portal-templates-reference.md)  
--   [Referência de modelo de dados](api-management-template-data-model-reference.md)  
--   [Controlos de página](api-management-page-controls.md)  
--   [Recursos de modelo](api-management-template-resources.md)
+
++ [Referência de modelo](api-management-developer-portal-templates-reference.md)  
++ [Referência de modelo de dados](api-management-template-data-model-reference.md)  
++ [Controlos de página](api-management-page-controls.md)  
++ [Recursos de modelo](api-management-template-resources.md)

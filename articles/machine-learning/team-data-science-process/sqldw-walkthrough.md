@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: bradsev;weig
-ms.openlocfilehash: 73517a8d58700e987ce80889dadf8791e53170a3
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Data Warehouse
 Neste tutorial, iremos guiá-lo através de criar e implementar um modelo de machine learning utilizar o SQL Data Warehouse (armazém de dados do SQL Server) para um conjunto de dados publicamente disponível – o [NYC Taxi viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O modelo de classificação binária construído prevê ou não uma sugestão é paga para uma viagem e modelos para classificação de várias classes e regressão também são abordados que prever a distribuição para as quantidades de sugestão pagas.
@@ -839,7 +839,6 @@ Neste exercício, vamos já explorou e foi desenvolvido os dados no armazém de 
 3. Introduza o nome DNS da base de dados no **nome do servidor de base de dados** campo. Formato:`tcp:<your_virtual_machine_DNS_name>,1433`
 4. Introduza o **nome de base de dados** no campo correspondente.
 5. Introduza o *nome de utilizador do SQL Server* no **nome de conta de utilizador do servidor**e o *palavra-passe* no **palavra-passe de conta de utilizador do**.
-6. Verifique o **aceita qualquer certificado de servidor** opção.
 7. No **consulta de base de dados** editar a área de texto, cole a consulta que extrai os campos de base de dados necessárias (incluindo quaisquer campos calculados, tais como as etiquetas) e baixo amostras de dados para o tamanho da amostra pretendido.
 
 Um exemplo de uma experimentação de classificação binária ler os dados diretamente a partir da base de dados do SQL Data Warehouse é na imagem abaixo (não se esqueça de substituir o nyctaxi_trip de nomes de tabela e nyctaxi_fare pelo nome de esquema e os nomes de tabela que utilizou a explicação passo a passo). Podem ser construídas experimentações semelhantes para classificação de várias classes e problemas de regressão.

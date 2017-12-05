@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a8bbe6c4f6919f150012163b0c7559d2986e072f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9872ee033d8c0bed215f8b37d64395e5dcd534c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,17 +26,11 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 ##  <a name="AccessRestrictionPolicies"></a>Políticas de restrição de acesso  
   
 -   [Cabeçalho HTTP de verificação](api-management-access-restriction-policies.md#CheckHTTPHeader) -impõe a existência de e/ou valor de um cabeçalho de HTTP.  
-  
 -   [Limitar taxa de chamadas por subscrição](api-management-access-restriction-policies.md#LimitCallRate) -picos de utilização da API impede ao limitar taxa de chamadas, numa base por subscrição.  
-  
 -   [Limitar taxa de chamadas por chave](#LimitCallRateByKey) -picos de utilização da API impede ao limitar taxa de chamadas, numa base por chave.  
-  
 -   [Restringir o chamador IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) -chamadas de filtros (permite/nega) provenientes de endereços IP específicos e/ou intervalos de endereços.  
-  
 -   [Definir quota de utilização por subscrição](api-management-access-restriction-policies.md#SetUsageQuota) -permite-lhe impor uma renováveis duração da chamada de volume e/ou de largura de banda de quota ou, numa base por subscrição.  
-  
 -   [Definir quota de utilização por chave](#SetUsageQuotaByKey) -permite-lhe impor uma renováveis duração da chamada de volume e/ou de largura de banda de quota ou, numa base por chave.  
-  
 -   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) -impõe existência e validade de um JWT extraído de um cabeçalho de HTTP especificado ou um parâmetro de consulta especificada.  
   
 ##  <a name="CheckHTTPHeader"></a>Verifique o cabeçalho de HTTP  
@@ -61,14 +55,14 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |cabeçalho de verificação|Elemento raiz.|Sim|  
 |valor|Valor de cabeçalho HTTP permitido. Quando são especificados vários elementos de valor, a verificação é considerada um êxito se qualquer um dos valores de uma correspondência.|Não|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |Falha-verifique--mensagem de erro|Mensagem de erro para devolver no corpo da resposta HTTP, se o cabeçalho não existe ou tem um valor inválido. Esta mensagem tem de ter os caracteres especiais caráter de escape correto.|Sim|N/D|  
 |Falha-verifique-httpcode|Código de estado de HTTP a devolver se o cabeçalho não existe ou tem um valor inválido.|Sim|N/D|  
@@ -116,7 +110,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |limite de conjunto|Elemento raiz.|Sim|  
 |api|Adicione um ou mais destes elementos para impor um limite de taxa de chamadas no APIs dentro do produto. Produto e a API de limites são aplicados de forma independente de taxa de chamadas.|Não|  
@@ -124,9 +118,9 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|nome|O nome da API para o qual pretende aplicar o limite de taxa.|Sim|N/D|  
+|name|O nome da API para o qual pretende aplicar o limite de taxa.|Sim|N/D|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|Sim|N/D|  
 |período de renovação|O período de tempo em segundos após o qual repõe a quota.|Sim|N/D|  
   
@@ -175,13 +169,13 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |limite de conjunto|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|Sim|N/D|  
 |Counter-chave|A chave a utilizar para a política de limite de taxa.|Sim|N/D|  
@@ -218,7 +212,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |filtro de IP|Elemento raiz.|Sim|  
 |Endereço|Especifica um único endereço IP para filtrar.|Pelo menos um `address` ou `address-range` elemento é necessário.|  
@@ -226,7 +220,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |intervalo de endereços de = "address" para = "address"|Um intervalo de endereços IP para permitir ou negar o acesso.|Obrigatório quando o `address-range` elemento é utilizado.|N/D|  
 |ação de filtro de IP = "Permitir &#124; forbid"|Especifica se devem ser permitidas chamadas ou não para os intervalos e endereços IP especificados.|Sim|N/D|  
@@ -235,7 +229,6 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
-  
 -   **Âmbitos de política:** global, produto, API, operação  
   
 ##  <a name="SetUsageQuota"></a>Definir quota de utilização por subscrição  
@@ -272,7 +265,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |quota|Elemento raiz.|Sim|  
 |api|Adicione um ou mais destes elementos para impor uma quota em APIs dentro do produto. Quotas de produto e API são aplicadas de forma independente.|Não|  
@@ -280,9 +273,9 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|nome|O nome da API ou operação para o qual se aplica a quota.|Sim|N/D|  
+|name|O nome da API ou operação para o qual se aplica a quota.|Sim|N/D|  
 |Largura de banda|O número total máximo de quilobytes permitidas durante o intervalo de tempo especificado no `renewal-period`.|O `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/D|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|O `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/D|  
 |período de renovação|O período de tempo em segundos após o qual repõe a quota.|Sim|N/D|  
@@ -291,7 +284,6 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
-  
 -   **Âmbitos de política:** produto  
   
 ##  <a name="SetUsageQuotaByKey"></a>Definir quota de utilização por chave  
@@ -334,13 +326,13 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |quota|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |Largura de banda|O número total máximo de quilobytes permitidas durante o intervalo de tempo especificado no `renewal-period`.|O `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/D|  
 |chamadas|O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.|O `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas.|N/D|  
@@ -352,7 +344,6 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
-  
 -   **Âmbitos de política:** global, produto, API, operação  
   
 ##  <a name="ValidateJWT"></a>Validar JWT  
@@ -492,7 +483,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Necessário|  
+|Elemento|Descrição|Requerido|  
 |-------------|-----------------|--------------|  
 |jwt validar|Elemento raiz.|Sim|  
 |público|Contém uma lista de afirmações de audiência aceitável que pode estar presente no token. Se existirem vários valores de público-alvo, em seguida, cada valor é experimentada até que todos os ficam esgotados (caso em que falha de validação) ou até uma ter êxito. Tem de ser especificado pelo menos um público-alvo.|Não|  
@@ -504,27 +495,32 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |desfasamento de relógio|TimeSpan. Fornece algumas pequena leeway no caso de afirmação de expiração do token está presente no token e é posterior à data atual / hora.|Não|0 segundos|  
 |Falha-validação--mensagem de erro|Mensagem de erro para devolver no corpo da resposta HTTP, se o JWT não transmite a validação. Esta mensagem tem de ter os caracteres especiais caráter de escape correto.|Não|Mensagem de erro predefinida depende de problema de validação, por exemplo "JWT não está presente."|  
 |Falha-validação-httpcode|Código de estado de HTTP a devolver se a JWT não aprovado na validação.|Não|401|  
 |nome do cabeçalho|O nome do cabeçalho de HTTP que contém o token.|O `header-name` ou `query-paremeter-name` tem de ser especificado; mas não ambos.|N/D|  
-|ID|O `id` atributo no `key` elemento permite-lhe especificar a cadeia que irá ser comparada com `kid` de afirmação no token (caso exista) localizar a chave a utilizar para a validação da assinatura adequada.|Não|N/D|  
-|Correspondência|O `match` atributo no `claim` elemento Especifica se cada valor de afirmação na política tem de estar presente no token para validação com êxito. Os valores possíveis são:<br /><br /> -                          `all`-cada valor de afirmação na política tem de estar presente no token para validação com êxito.<br /><br /> -                          `any`-valor, pelo menos, uma afirmação deve estar presente no token para validação com êxito.|Não|Todos os|  
+|id|O `id` atributo no `key` elemento permite-lhe especificar a cadeia que irá ser comparada com `kid` de afirmação no token (caso exista) localizar a chave a utilizar para a validação da assinatura adequada.|Não|N/D|  
+|Correspondência|O `match` atributo no `claim` elemento Especifica se cada valor de afirmação na política tem de estar presente no token para validação com êxito. Os valores possíveis são:<br /><br /> -                          `all`-cada valor de afirmação na política tem de estar presente no token para validação com êxito.<br /><br /> -                          `any`-valor, pelo menos, uma afirmação deve estar presente no token para validação com êxito.|Não|tudo|  
 |nome da paremeter de consulta|O nome do parâmetro de consulta que contém o token.|O `header-name` ou `query-paremeter-name` tem de ser especificado; mas não ambos.|N/D|  
-|exigir expiração-tempo|valor booleano. Especifica se uma afirmação de expiração é necessária no token.|Não|VERDADEIRO|
+|exigir expiração-tempo|valor booleano. Especifica se uma afirmação de expiração é necessária no token.|Não|true|
 |esquema de exigir|O nome do token de esquema, por exemplo "Portador". Quando este atributo for definido, a política irá garantir que esquema especificada encontra-se no valor de cabeçalho de autorização.|Não|N/D|
-|exigir-assinado-tokens|valor booleano. Especifica se um token é necessário para ser iniciada.|Não|VERDADEIRO|  
+|exigir-assinado-tokens|valor booleano. Especifica se um token é necessário para ser iniciada.|Não|true|  
 |separador|Cadeia. Especifica um separador (por exemplo, ",") para ser utilizado para extrair um conjunto de valores de uma afirmação com múltiplos valor.|Não|N/D| 
-|URL|Abra o URL de ponto final de configuração de ID de onde podem obter metadados de configuração de ID aberta. Para o Azure Active Directory, utilize o seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o nome do seu inquilino de diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/D|  
+|url|Abra o URL de ponto final de configuração de ID de onde podem obter metadados de configuração de ID aberta. Para o Azure Active Directory, utilize o seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o nome do seu inquilino de diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/D|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
-  
 -   **Âmbitos de política:** global, produto, API, operação  
   
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações para trabalhar com as políticas, consulte [políticas na API Management](api-management-howto-policies.md).  
+
+Para obter mais informações para trabalhar com as políticas, consulte:
+
++ [Políticas de gestão de API](api-management-howto-policies.md)
++ [APIs de transformação](transform-api.md)
++ [Referência de política](api-management-policy-reference.md) para uma lista completa das declarações de política e as respetivas definições
++ [Exemplos de política](policy-samples.md)   

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 0a780461bb934b4766f8050fba825e1d7503f4fd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 87ab620444df4588cc43a3691cb215006561090d
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos de IoT Hub
 Este artigo apresenta uma lista alguns dos termos comuns utilizados nos artigos IoT Hub.
@@ -36,9 +36,6 @@ O [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) é uma f
 ## <a name="azure-iot-device-sdks"></a>SDKs do Azure do dispositivo IoT
 Existem _SDKs do dispositivo_ disponível para vários idiomas que permitem-lhe criar [aplicações de dispositivos](#device-app) que interagem com um IoT hub. Os tutoriais do IoT Hub mostram-lhe como utilizar estes SDKs do dispositivo. Pode encontrar o código de origem e obter mais informações sobre os SDKs do dispositivo no GitHub, [repositório](https://github.com/Azure/azure-iot-sdks).
 
-## <a name="azure-iot-edge"></a>Azure IoT Edge
-Limite de IoT do Azure move a análise de nuvem e a lógica de negócio personalizadas para dispositivos, para que a sua organização pode concentrar-se na informações empresariais em vez de gestão de dados. Ative a sua solução verdadeiramente Dimensionar ao configurar o seu software de IoT, implementar em dispositivos através de contentores padrão e monitorização-tudo a partir da nuvem. Começar com um tutorial que mostra como instalar e utilizar o Azure IoT Edge num [Linux](../iot-edge/tutorial-simulate-device-linux.md) ou [Windows](../iot-edge/tutorial-simulate-device-windows.md) dispositivo.
-
 ## <a name="azure-iot-service-sdks"></a>SDKs de serviço do IoT do Azure
 Existem _service SDKs_ disponível para vários idiomas que permitem-lhe criar [aplicações de back-end](#back-end-app) que interagem com um IoT hub. Os tutoriais do IoT Hub mostram-lhe como utilizar estes SDKs de serviço. Pode encontrar o código de origem e obter mais informações sobre os SDKs de serviço no GitHub, [repositório](https://github.com/Azure/azure-iot-sdks).
 
@@ -51,10 +48,10 @@ O [portal do Microsoft Azure](https://portal.azure.com) é um local central onde
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 [O Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) permite-lhe trabalhar com os recursos na sua solução como um grupo. Pode implementar, atualizar ou eliminar os recursos para a sua solução numa operação única e coordenada.
 
-## <a name="azure-service-bus"></a>Service Bus do Azure
+## <a name="azure-service-bus"></a>Azure Service Bus
 [Barramento de serviço](../service-bus/index.md) fornece comunicação ativado para a nuvem com mensagens empresariais e comunicação retransmitida que o ajuda a estabelecer ligação soluções no local com a nuvem. Tutoriais do IoT Hub se utilizar o Service Bus [filas](../service-bus-messaging/service-bus-messaging-overview.md).
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 [Armazenamento do Azure](../storage/common/storage-introduction.md) é uma solução de armazenamento de nuvem. Inclui o serviço de armazenamento de BLOBs que pode utilizar para armazenar dados de objetos não estruturados. Tutoriais do IoT Hub utilizam o blob storage.
 
 ## <a name="back-end-app"></a>Aplicação de back-end
@@ -66,7 +63,7 @@ Cada IoT hub inclui um incorporado [endpoint](iot-hub-devguide-endpoints.md) que
 ## <a name="cloud-gateway"></a>Gateway de nuvem
 Um gateway de nuvem ativa a conectividade para dispositivos que não é possível ligar diretamente à [IoT Hub](#iot-hub). Um gateway de nuvem está alojado na nuvem contrast para um [gateway de campo](#field-gateway) que executa o local para os seus dispositivos. Um caso de utilização típica para um gateway de nuvem consiste em implementar tradução de protocolos para os seus dispositivos.
 
-## <a name="cloud-to-device"></a>Nuvem para o dispositivo
+## <a name="cloud-to-device"></a>Nuvem para dispositivo
 Refere-se às mensagens enviadas a partir de um hub IoT para um dispositivo ligado. Muitas vezes, estas mensagens são comandos que instrui o dispositivo execute uma ação. Para obter mais informações, consulte [enviar e receber mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="connection-string"></a>Cadeia de ligação
@@ -89,7 +86,7 @@ No contexto de um [dispositivo duplo](iot-hub-devguide-device-twins.md), assim o
 ## <a name="desired-properties"></a>Propriedades pretendidas
 No contexto de um [dispositivo duplo](iot-hub-devguide-device-twins.md), pretendido propriedades é uma subsecção do dispositivo duplo que é utilizado com [comunicadas propriedades](#reported-properties) para sincronizar a configuração do dispositivo ou condição. Propriedades pretendidas só podem ser definidas uma [aplicações back-end](#back-end-app) e são respeitadas pelo [aplicação de dispositivo](#device-app).
 
-## <a name="device-to-cloud"></a>Dispositivo-nuvem
+## <a name="device-to-cloud"></a>Dispositivo para a nuvem
 Refere-se às mensagens enviadas a partir de um dispositivo ligado para [IoT Hub](#iot-hub). Estas mensagens podem ser [ponto de dados](#data-point-message) ou [interativa](#interactive-message) mensagens. Para obter mais informações, consulte [enviar e receber mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="device"></a>Dispositivo
@@ -146,7 +143,7 @@ Um IoT hub expõe vários [pontos finais](iot-hub-devguide-endpoints.md) que per
 ## <a name="event-hubs-service"></a>Serviço de Hubs de eventos
 [Os Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) é um serviço de entrada de dados altamente dimensionável que pode ingerir milhões de eventos por segundo. O serviço permite-lhe processar e analisar as quantidades enormes de dados produzidos pelos seus dispositivos e aplicações ligados. Para ver uma comparação com o serviço do IoT Hub, consulte [comparação do IoT Hub do Azure e Event Hubs do Azure](iot-hub-compare-event-hubs.md).
 
-## <a name="event-hub-compatible-endpoint"></a>Ponto final compatível com o Hub de eventos
+## <a name="event-hub-compatible-endpoint"></a>Ponto final compatível com Hubs de Eventos
 Ler [dispositivo para nuvem](#device-to-cloud) as mensagens enviadas ao seu IoT hub, pode ligar a um ponto final no seu hub e utilizar qualquer método compatível com o Event Hub para ler as mensagens. Métodos de compatível com o Hub de eventos incluem a utilização de [SDKs de Hubs de eventos](../event-hubs/event-hubs-programming-guide.md) e [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Gateway de campo
@@ -164,7 +161,50 @@ O [registo de identidade](iot-hub-devguide-identity-registry.md) é o componente
 ## <a name="interactive-message"></a>Mensagem interativa
 É uma mensagem interativa um [nuvem para o dispositivo](#cloud-to-device) mensagem que aciona uma ação imediata a solução de back-end. Por exemplo, um dispositivo pode enviar um alarme sobre uma falha que deve ser automaticamente a sessão para um sistema CRM.
 
-## <a name="iot-hub"></a>IoT Hub
+## <a name="iot-edge"></a>IoT Edge
+Limite do Azure IoT permite condicionada por nuvem de implementação de serviços do Azure e o código de solução específicos para dispositivos no local. Dispositivos de IoT limite podem agregar dados de outros dispositivos para realizar a computação e análise antes dos dados são enviados para a nuvem. Para obter mais informações, consulte [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/).
+
+## <a name="iot-edge-agent"></a>Agente de limite de IoT
+A parte do tempo de execução de limite de IoT responsável pela implementação e módulos de monitorização.
+
+## <a name="iot-edge-device"></a>Dispositivo IoT Edge
+Os dispositivos de IoT Edge têm o limite de IoT runtime instalado e sinalizados como "Dispositivo de limite de IoT" nos detalhes do dispositivo. Saiba como [implementar o Azure IoT Edge num dispositivo simulado com Linux - pré-visualizar](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-simulate-device-linux).
+
+## <a name="iot-edge-deployment"></a>Implementação de limite de IoT
+Uma implementação de limite de IoT configura um conjunto de destino de dispositivos de limite de IoT a executar um conjunto de limite de IoT módulos. Cada implementação continuamente garante que todos os dispositivos que correspondem a condição de destino estiver a executar o conjunto de módulos especificados, mesmo quando novos dispositivos são criados ou modificados para corresponder a condição de destino. Cada dispositivo de limite de IoT apenas recebe a implementação de prioridade mais alta cuja condição de destino cumpre. Saiba mais sobre [implementação IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring).
+
+## <a name="iot-edge-deployment-manifest"></a>Manifesto de implementação de limite de IoT
+Um documento Json que contém as informações a serem copiadas twin(s) de módulo de um ou mais dispositivos de IoT Edge para implementar um conjunto de módulos, rotas e módulo associado pretendido propriedades.
+
+## <a name="iot-edge-gateway-device"></a>Dispositivo de gateway de IoT Edge
+Um dispositivo de limite de IoT com o dispositivo a jusante. O dispositivo a jusante pode ser IoT Edge ou não dispositivo de limite de IoT.
+
+## <a name="iot-edge-hub"></a>Hub IoT Edge
+A parte do tempo de execução de limite de IoT responsável pelo módulo ao módulo comunicações, a montante (para o IoT Hub) e a jusante (na direção oposta ao IoT Hub) comunicações. 
+
+## <a name="iot-edge-leaf-device"></a>Dispositivo de limite de IoT de folha
+Um dispositivo de limite de IoT com nenhum dispositivo a jusante. 
+
+## <a name="iot-edge-module"></a>Módulo de limite de IoT
+Um módulo de limite de IoT é um contentor de Docker que pode implementar em dispositivos de limite de IoT. Executa uma tarefa específica, como uma mensagem a partir de um dispositivo de ingestão de relacionadas, transformar uma mensagem ou enviar uma mensagem para um hub IoT. Comunica com outros módulos e envia dados para o tempo de execução do limite de IoT. [Compreender os requisitos e ferramentas para o desenvolvimento de módulos de limite de IoT](https://docs.microsoft.com/en-us/azure/iot-edge/module-development).
+
+## <a name="iot-edge-module-identity"></a>Identidade do módulo de limite de IoT
+Um registo no registo de identidade do módulo do IoT Hub com detalhes sobre as credenciais de segurança e de existência para ser utilizado por um módulo para autenticar com um concentrador de limite ou o IoT Hub.
+
+## <a name="iot-edge-module-image"></a>Imagem de módulo de limite de IoT
+A imagem de docker que é utilizada pelo tempo de execução de limite de IoT para instanciar instâncias do módulo.
+
+## <a name="iot-edge-module-twin"></a>Duplo de módulo de limite de IoT
+Um documento Json continuada no IoT Hub que armazena as informações de estado de uma instância do módulo. 
+
+## <a name="iot-edge-runtime"></a>Runtime do IoT Edge
+Tempo de execução do limite de IoT inclui tudo o que distribui Microsoft para ser instalada num dispositivo de limite de IoT. Faz parte o agente de limite, o hub de limite e o ferramenta Edge CTL.
+
+## <a name="iot-edge-set-modules-to-a-single-device"></a>Limite de IoT definido módulos para um único dispositivo
+Uma operação que copia o conteúdo de um manifesto de IoT Edge no dispositivo ' duplo de módulo. A API subjacente é um genérico 'aplicar a configuração do', que demora simplesmente um manifesto de IoT Edge como entrada.
+seg
+
+## <a name="iot-hub"></a>Hub IoT
 IoT Hub é um serviço completamente gerido do Azure que permite comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos e uma solução de back-end. Para obter mais informações, consulte [que é o IoT Hub do Azure?](iot-hub-what-is-iot-hub.md) Utilizar o [subscrição do Azure](#subscription), pode criar os hubs IoT para processar o seu IoT mensagens cargas de trabalho.
 
 ## <a name="iot-hub-metrics"></a>Métricas de IoT Hub
@@ -176,7 +216,7 @@ O [idioma de consulta do IoT Hub](iot-hub-devguide-query-language.md) é uma lin
 ## <a name="iot-hub-resource-provider-rest-api"></a>Fornecedor de recursos do IoT Hub REST API
 Pode utilizar o [API de REST do fornecedor de recursos do IoT Hub](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) para gerir os hubs IoT no seu [subscrição do Azure](#subscription) efetuar operações como criar, atualizar e eliminar hubs.
 
-## <a name="iot-suite"></a>Suite IoT
+## <a name="iot-suite"></a>IoT Suite
 Azure IoT Suite reúne vários serviços do Azure com soluções pré-configuradas. Estas soluções pré-configuradas permitem-lhe começar a trabalhar rapidamente com implementações ponto-a-ponto dos cenários comuns do IoT. Para obter mais informações, consulte [que é o Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
 
 ## <a name="iothub-explorer"></a>Explorador de iothub
@@ -187,9 +227,6 @@ Pode utilizar a sua solução de back-end [tarefas](iot-hub-devguide-jobs.md) pa
 
 ## <a name="jobs-rest-api"></a>Tarefas de REST API
 O [API de REST de tarefas](https://docs.microsoft.com/rest/api/iothub/jobapi) permite-lhe gerir [tarefas](#job) em execução no seu IoT hub.
-
-## <a name="module"></a>Módulo
-No [Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md), um [módulo](../iot-edge/iot-edge-modules.md) é um componente que executa uma tarefa específica. As tarefas podem incluir uma mensagem a partir de um dispositivo de ingestão de relacionadas, transformar uma mensagem ou enviar uma mensagem para um hub IoT. Um mediador é responsável por reencaminhamento de mensagens entre módulos. Limite de IoT do Azure inclui um conjunto de módulos de exemplo. Também pode criar os seus próprios módulos personalizados.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) é uma da mensagens protocolos que [IoT Hub](#iot-hub) suporta para comunicar com os dispositivos. Para obter mais informações sobre os protocolos de mensagens que suporta o IoT Hub, consulte [enviar e receber mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
@@ -202,6 +239,9 @@ Um dispositivo físico é um dispositivo real, tais como um Raspberry Pi que lig
 
 ## <a name="primary-and-secondary-keys"></a>Chaves primárias e secundárias
 Quando liga a um ponto de final orientado para o dispositivo ou orientado para o serviço num IoT hub, o [cadeia de ligação](#connection-string) incluem a chave para conceder a aceder. Ao adicionar um dispositivo para o [registo de identidade](#identity-registry) ou adicione um [partilhado a política de acesso](#shared-access-policy) ao seu hub, o serviço gera uma chave primária e secundária. Ter duas chaves permite-lhe rollover da chave de um para outro quando atualizar uma chave sem perderem o acesso ao IoT hub.
+
+## <a name="priority"></a>Prioridade
+Quando duas implementações de limite de IoT visam o mesmo dispositivo, a implementação com a prioridade mais alta é aplicada. Se duas implementações têm a mesma prioridade, é aplicada a implementação com a data de criação posterior. Saiba mais sobre [prioridade](#https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#priority).
 
 ## <a name="protocol-gateway"></a>Gateway de protocolo
 Um gateway de protocolo normalmente é implementado na nuvem e fornece serviços de tradução para dispositivos que se ligam de protocolo [IoT Hub](#iot-hub). Para obter mais informações, consulte [que é o IoT Hub do Azure?](iot-hub-what-is-iot-hub.md)
@@ -247,6 +287,9 @@ No contexto de um [dispositivo duplo](iot-hub-devguide-device-twins.md), as prop
 
 ## <a name="tags"></a>Etiquetas
 No contexto de um [dispositivo duplo](iot-hub-devguide-device-twins.md), as etiquetas são os metadados do dispositivo armazenada e obtida através do solução de back-end sob a forma de um documento JSON. As etiquetas não estão visíveis para as aplicações num dispositivo.
+
+## <a name="target-condition"></a>Condição de destino
+Numa implementação IoT Edge, a condição de destino é qualquer condição booleana em tags de dispositivos duplos para selecionar os dispositivos de destino da implementação, por exemplo, "tag.environment = prod". A condição de destino é avaliada continuamente para incluir quaisquer novos dispositivos que cumprem os requisitos ou remova os dispositivos que já não está a fazer. Saiba mais sobre [condição de destino](https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring#target-condition)
 
 ## <a name="telemetry"></a>Telemetria
 Dispositivos recolher dados de telemetria, tais como velocidade do vento ou temperatura e utilizar [mensagens de ponto de dados](#data-point-messages) para enviar a telemetria para um hub IoT.

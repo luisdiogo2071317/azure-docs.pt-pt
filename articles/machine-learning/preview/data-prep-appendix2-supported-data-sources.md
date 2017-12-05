@@ -12,18 +12,37 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Origens de dados suportados de preparação de dados do Azure Machine Learning 
 Este artigo descreve as origens de dados atualmente suportados para a preparação de dados do Azure Machine Learning.
 
 As origens de dados suportada para esta versão são os seguintes.
 
-## <a name="types"></a>Tipos de 
+## <a name="types"></a>Tipos 
+
+### <a name="sql-server"></a>SQL Server
+Ler a partir do servidor SQL no local ou a base de dados SQL do Azure.
+
+#### <a name="options"></a>Opções
+- Endereço do Servidor
+- Confiança servidor (par quando o certificado no servidor não é válido. Utilize com cuidado)
+- Tipo de autenticação (Windows, o servidor)
+- Nome de Utilizador
+- Palavra-passe
+- Para ligar à base de dados
+- Consulta SQL
+
+#### <a name="notes"></a>Notas
+- Colunas de variante do SQL não são suportadas
+- Coluna de hora é convertida em datetime, acrescentando tempo da base de dados até à data 1970/1/1
+- Quando executado no cluster do Spark, todos os dados relacionados com as colunas (data, datetime, datetime2, datetimeoffset) irão avaliar valores incorretos para datas anteriores 1583
+- Os valores nas colunas decimais poderão perder precisão devido a conversão para decimal
+
 ### <a name="directory-vs-file"></a>Diretório vs. o ficheiro
 Escolha um único ficheiro e lê-lo na preparação de dados. O tipo de ficheiro é analisado para determinar os parâmetros predefinidos para a ligação de ficheiro apresentadas no ecrã seguinte.
 
@@ -40,7 +59,7 @@ Ler um ficheiro de valores separados por vírgulas de armazenamento.
 
 #### <a name="options"></a>Opções
 - separador
-- Comentário
+- Comentar
 - Cabeçalhos
 - Símbolo decimal
 - Codificação de ficheiro
@@ -50,7 +69,7 @@ Ler um ficheiro de valores separados por vírgulas de armazenamento.
 Ler um ficheiro separador separados-valor de armazenamento.
 
 #### <a name="options"></a>Opções
-- Comentário
+- Comentar
 - Cabeçalhos
 - Codificação de ficheiro
 - Linhas a ignorar
@@ -89,6 +108,9 @@ Execução de escalamento horizontal depende Parquet do Spark capacidades de lei
 ### <a name="local"></a>Local
 Um disco rígido local ou uma localização de armazenamento de rede mapeadas.
 
-### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
+### <a name="sql-server"></a>SQL Server
+Servidor de SQL no local, ou a base de dados SQL do Azure.
+
+### <a name="azure-blob-storage"></a>Armazenamento de blobs do Azure
 Blob storage do Azure, que requer uma subscrição do Azure.
 

@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: cf27e4d9997a796fa61af6e6f0af3c0c5a0c296f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 55fac34a5eae169a3a4fd8c64c90c552fdb5df5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Utilizar identidade de serviço gerida do Azure na API Management do Azure
 
@@ -118,9 +118,8 @@ O exemplo seguinte mostra como obter um certificado a partir do Cofre de chaves 
 3. Atualize a instância de API Management, definindo um nome de domínio personalizado através de um certificado na instância do Cofre de chaves.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Para executar o abaixo modelo arm é necessário o seguinte 
-1. Cofre de chaves que contém o certificado pfx na mesma subscrição e resourcegroup mesmo que o serviço de Api Management. Este é o requisito do modelo arm. 
-2. O tipo de conteúdo do segredo deve ser *application/x-pkcs12*. Pode utilizar o script seguinte para carregar o certificado
+1. O Cofre de chaves que contém o certificado pfx tem de ser na mesma subscrição do Azure e o mesmo grupo de recursos que o serviço de API Management. Este é um requisito do modelo Azure Resource Manager. 
+2. O tipo de conteúdo do segredo tem de ser *application/x-pkcs12*. Pode utilizar o script seguinte para carregar o certificado:
 
 ```powershell
 $pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 

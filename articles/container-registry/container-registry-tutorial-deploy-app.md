@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: 749a536fea50d0f45b021cfeaffe8e493faa9b3f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.custom: mvc
+ms.openlocfilehash: 4c597ab33bf344717f82187f4f7e6e620fd64d3e
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-web-app-from-azure-container-registry"></a>Implementar a aplicação web a partir do registo de contentor do Azure
 
@@ -36,7 +36,7 @@ Se ainda não criou um registo georreplicação e a imagem da aplicação de exe
 
 A parte seguinte da série, a atualizar a aplicação, em seguida, emitir uma nova imagem do contentor para o registo. Por fim, navegar para cada instância de aplicação Web em execução para ver a alteração refletida automaticamente no ambos, que mostra o registo de contentor do Azure georreplicação e webhooks em ação.
 
-## <a name="automatic-deployment-to-web-app-for-containers"></a>Implementação automática para a aplicação Web para contentores
+## <a name="automatic-deployment-to-web-apps-for-containers"></a>Implementação automática para as aplicações Web para contentores
 
 Registo de contentor do Azure fornece suporte para a implementação de aplicações diretamente a [Web Apps para contentores](../app-service/containers/index.yml). Neste tutorial, utilize o portal do Azure para implementar a imagem de contentor criada no tutorial anterior para planos de aplicações web dois localizadas em diferentes regiões do Azure.
 
@@ -48,11 +48,11 @@ Neste passo, vai criar uma aplicação de Web para a instância de contentores n
 
 Iniciar sessão para o [portal do Azure](https://portal.azure.com) e navegue para o registo que criou no tutorial anterior.
 
-Selecione **repositórios de** > **acr-helloworld**, em seguida, faça duplo clique no **v1** tag em **etiquetas** e selecione **Implementar no app service**.
+Selecione **repositórios de** > **acr-helloworld**, em seguida, faça duplo clique no **v1** tag em **etiquetas** e selecione **Implementar a aplicação web**.
 
 ![Implementar no app service no portal do Azure][deploy-app-portal-01]
 
-Em **aplicação Web no Linux (pré-visualização)** que é apresentado, especifique os seguintes valores para cada definição:
+Em **aplicação Web para contentores** que é apresentado, especifique os seguintes valores para cada definição:
 
 | Definição | Valor |
 |---|---|
@@ -71,7 +71,7 @@ Quando a implementação estiver concluída, pode ver a aplicação em execuçã
 
 No portal, selecione **serviços aplicacionais**, em seguida, a aplicação web que aprovisionou no passo anterior. Neste exemplo, a aplicação web é denominada *uniqueregistryname westus*.
 
-Selecione o URL da aplicação web com hiperligação na parte superior direita do **descrição geral do serviço de aplicações** para ver a aplicação em execução no seu browser.
+Selecione o URL da aplicação web com hiperligação na parte superior direita do **do serviço de aplicações** descrição geral para ver a aplicação em execução no seu browser.
 
 ![Aplicação Web na configuração do Linux no portal do Azure][deploy-app-portal-04]
 
@@ -81,7 +81,7 @@ Depois da imagem de Docker é implementada a partir do seu registo de contentor 
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>Implementar a aplicação Web segunda instância de contentores
 
-Utilize o procedimento descrito na secção anterior para implementar uma aplicação web segundo para o *EUA Leste* região. Em **aplicação Web no Linux (pré-visualização)**, especifique os seguintes valores:
+Utilize o procedimento descrito na secção anterior para implementar uma aplicação web segundo para o *EUA Leste* região. Em **aplicação Web para contentores**, especifique os seguintes valores:
 
 | Definição | Valor |
 |---|---|

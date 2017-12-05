@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 3b2fbab10836b138792efad7ea30f4f0d15905c3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 69707931402de597c9d6a329da349723da2a782a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copiar os dados de ou para o Azure Data Lake Store utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,7 @@ As secções seguintes fornecem detalhes sobre as propriedades que são utilizad
 
 As seguintes propriedades são suportadas para o serviço ligado do Azure Data Lake Store:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Requerido |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida **AzureDataLakeStore**. | Sim |
 | dataLakeStoreUri | Informações sobre a conta do Azure Data Lake Store. Estas informações demora um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
@@ -58,15 +58,15 @@ As seguintes propriedades são suportadas para o serviço ligado do Azure Data L
 Consulte as secções seguintes no mais propriedades e exemplos JSON para tipos de autenticação diferentes respetivamente:
 
 - [Utilizar a autenticação principal de serviço](#using-service-principal-authentication)
-- [Utilizando a autenticação de identidade de serviço geridas](#using-managed-service-identitiy-authentication)
+- [Utilizando a autenticação de identidade de serviço geridas](#using-managed-service-identity-authentication)
 
 ### <a name="using-service-principal-authentication"></a>Utilizar a autenticação principal de serviço
 
 Para utilizar a autenticação principal de serviço, registe uma entidade de aplicação no Azure Active Directory (Azure AD) e conceder acesso ao Data Lake Store. Para obter passos detalhados, consulte [autenticação de serviço a serviço](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Tome nota dos seguintes valores que utilizar para definir o serviço ligado:
 
-- ID da aplicação
+- ID da Aplicação
 - Chave da aplicação
-- ID do inquilino
+- ID do Inquilino
 
 >[!TIP]
 > Certifique-se de que conceder as serviço principal permissões adequadas no Azure Data Lake Store:
@@ -75,7 +75,7 @@ Para utilizar a autenticação principal de serviço, registe uma entidade de ap
 
 São suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Requerido |
 |:--- |:--- |:--- |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim |
 | servicePrincipalKey | Especifique a chave da aplicação. Marcar este campo como um SecureString. | Sim |
@@ -149,7 +149,7 @@ Para uma lista completa das secções e propriedades disponíveis para definir o
 
 Para copiar dados da Azure Data Lake Store, defina a propriedade de tipo do conjunto de dados para **AzureDataLakeStoreFile**. São suportadas as seguintes propriedades:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Requerido |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **AzureDataLakeStoreFile** |Sim |
 | folderPath | Caminho para o contentor e a pasta no armazenamento de ficheiros. Exemplo: rootfolder/subpasta / |Sim |
@@ -193,7 +193,7 @@ Para uma lista completa das secções e propriedades disponíveis para definir a
 
 Para copiar dados do Azure Data Lake Store, defina o tipo de origem na atividade de cópia para **AzureDataLakeStoreSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Requerido |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **AzureDataLakeStoreSource** |Sim |
 | Recursiva | Indica se os dados é lida a recursivamente partir das pastas sub ou apenas a partir da pasta especificada.<br/>Valores permitidos são: **verdadeiro** (predefinição), **false** | Não |
@@ -234,7 +234,7 @@ Para copiar dados do Azure Data Lake Store, defina o tipo de origem na atividade
 
 Para copiar dados para o Blob do Azure, defina o tipo de sink na atividade de cópia para **AzureDataLakeStoreSink**. São suportadas as seguintes propriedades no **sink** secção:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Requerido |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **AzureDataLakeStoreSink** |Sim |
 | copyBehavior | Define o comportamento de cópia quando a origem é ficheiros de arquivo de dados baseada em ficheiros.<br/><br/>Valores permitidos são:<br/><b>-PreserveHierarchy (predefinição)</b>: preserva a hierarquia de ficheiros na pasta de destino. O caminho relativo do ficheiro de origem para a pasta de origem é idêntico ao caminho relativo do ficheiro de destino para a pasta de destino.<br/><b>-FlattenHierarchy</b>: todos os ficheiros da pasta de origem estão no primeiro nível da pasta de destino. Os ficheiros de destino tem o nome de automaticamente gerado. <br/><b>-MergeFiles</b>: une todos os ficheiros da pasta de origem para um ficheiro. Se não for especificado o nome de ficheiro/Blob, o nome de ficheiro intercalado seria o nome especificado; caso contrário, seria nome de ficheiro gerada automaticamente. | Não |

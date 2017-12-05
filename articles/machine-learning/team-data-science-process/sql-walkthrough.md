@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-ms.openlocfilehash: d42377a55b1decc0918932b3ecc13cf575f934a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Server
 Neste tutorial, a guiá-lo durante o processo de criar e implementar um modelo de machine learning com o SQL Server e um conjunto de dados publicamente disponível – o [NYC Taxi viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O procedimento segue um fluxo de trabalho de ciências de dados padrão: ingestão e explorar os dados, engenheiro de funcionalidades para o facilitar a aprendizagem, em seguida, criar e implementar um modelo.
@@ -581,7 +581,6 @@ Neste exercício, vamos já explorou e foi desenvolvido os dados no SQL Server e
 3. Introduza o nome DNS da base de dados no **nome do servidor de base de dados** campo. Formato:`tcp:<your_virtual_machine_DNS_name>,1433`
 4. Introduza o **nome de base de dados** no campo correspondente.
 5. Introduza o **nome de utilizador do SQL Server** no * * aqccount nome do servidor de utilizador e a palavra-passe a **palavra-passe de conta de utilizador do**.
-6. Verifique **aceita qualquer certificado de servidor** opção.
 7. No **consulta de base de dados** editar a área de texto, cole a consulta que extrai os campos de base de dados necessárias (incluindo quaisquer campos calculados, tais como as etiquetas) e baixo amostras de dados para o tamanho da amostra pretendido.
 
 É um exemplo de uma experimentação de classificação binária ler os dados diretamente a partir da base de dados do SQL Server na imagem abaixo. Podem ser construídas experimentações semelhantes para classificação de várias classes e problemas de regressão.

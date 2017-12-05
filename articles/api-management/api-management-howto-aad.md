@@ -3,22 +3,21 @@ title: Autorizar a contas de programador com o Azure Active Directory - API Mana
 description: Saiba como autorizar os utilizadores com o Azure Active Directory na API Management.
 services: api-management
 documentationcenter: API Management
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 33a69a83-94f2-4e4e-9cef-f2a5af3c9732
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2e8bc33ddf38657fe2d0d84a7bf64d4177d51572
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 > [!WARNING]
 > Integração do Active Directory do Azure está disponível no [programador e Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) camadas apenas.
@@ -71,15 +70,15 @@ Se vários diretórios de Active Directory do Azure vai ser utilizado para esta 
 
 Cópia o **URL de redirecionamento** do **do Azure Active Directory** secção o **identidades externo** separador no portal do publicador e cole-o para o **URL de resposta** caixa de texto. 
 
-![URL de resposta][api-management-aad-reply-url]
+![URL de Resposta][api-management-aad-reply-url]
 
 Desloque-se para a parte inferior do separador de configuração, selecione o **permissões de aplicação** pendente e verifique **ler os dados de diretório**.
 
-![Permissões de aplicação][api-management-aad-app-permissions]
+![Permissões de Aplicação][api-management-aad-app-permissions]
 
 Selecione o **delegar permissões** pendente e verifique **ativar início de sessão e ler os perfis dos utilizadores**.
 
-![Permissões delegadas][api-management-aad-delegated-permissions]
+![Permissões Delegadas][api-management-aad-delegated-permissions]
 
 > Para obter mais informações sobre a aplicação e as permissões delegadas, consulte [aceder a Graph API][Accessing the Graph API].
 > 
@@ -87,11 +86,11 @@ Selecione o **delegar permissões** pendente e verifique **ativar início de ses
 
 Copiar o **Id de cliente** para a área de transferência.
 
-![Id de cliente][api-management-aad-app-client-id]
+![ID de Cliente][api-management-aad-app-client-id]
 
 Regresse ao portal do publicador e cole o **Id de cliente** copiados da configuração de aplicação do Azure Active Directory.
 
-![Id de cliente][api-management-client-id]
+![ID de Cliente][api-management-client-id]
 
 Mude para a configuração do Azure Active Directory e clique em de **selecione duração** pendente no **chaves** secção e especificar um intervalo. Neste exemplo, **1 ano** é utilizado.
 
@@ -107,7 +106,7 @@ Clique em **guardar** para guardar a configuração e apresentar a chave. Copie 
 
 Regresse ao portal do publicador e cole a chave para o **segredo do cliente** caixa de texto.
 
-![Segredo do cliente][api-management-client-secret]
+![Segredo do Cliente][api-management-client-secret]
 
 **Permitido inquilinos** Especifica os diretórios têm acesso a APIs da instância do serviço de API Management. Especifique os domínios das instâncias do Azure Active Directory ao qual pretende conceder acesso. Pode separar vários domínios com newlines, espaços ou vírgulas.
 
@@ -149,7 +148,7 @@ Mudar para o **visibilidade** separador e clique em **adicionar grupos do Azure 
 
 Selecione o **inquilino do Azure Active Directory** da lista pendente lista e, em seguida, escreva o nome do grupo pretendido no **grupos** ser adicionado a caixa de texto.
 
-![Selecione o grupo][api-management-select-group]
+![Selecionar grupo][api-management-select-group]
 
 Este nome de grupo pode ser encontrado no **grupos** lista para o Azure Active Directory, conforme mostrado no exemplo seguinte.
 
@@ -188,7 +187,7 @@ Poderá ser pedido com um formulário de registo se são necessárias quaisquer 
 
 Agora, o utilizador é registado no portal do programador para a instância de serviço de API Management.
 
-![Registo completo][api-management-registration-complete]
+![Registo Concluído][api-management-registration-complete]
 
 [api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
 [api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-security-external-identities.png
@@ -227,10 +226,10 @@ Agora, o utilizador é registado no portal do programador para a instância de s
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

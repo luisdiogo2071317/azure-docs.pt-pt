@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: cherylmc
-ms.openlocfilehash: 1d289c09465cb8d5e4bfa569441dffcbf562b3bf
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: b67fdfc82bbc132772186e3500079cfcfdafe02b
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminar um gateway de rede virtual através do portal
 
@@ -28,11 +28,15 @@ ms.lasthandoff: 11/17/2017
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [PowerShell (clássico)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 
-Existem duas abordagens diferentes que pode tomar quando pretender eliminar um gateway de rede virtual para uma configuração de gateway VPN.
+Este artigo fornece instruções para eliminar um gateways de VPN do Azure implementadas utilizando o modelo de implementação Resource Manager. Existem duas abordagens diferentes que pode tomar quando pretender eliminar um gateway de rede virtual para uma configuração de gateway VPN.
 
 - Se pretender eliminar tudo e comece de novo, como no caso de um ambiente de teste, pode eliminar o grupo de recursos. Quando elimina um grupo de recursos, elimina todos os recursos dentro do grupo. Este é o método só é recomendada se não pretender manter qualquer um dos recursos no grupo de recursos. Não é possível eliminar seletivamente apenas alguns recursos através desta abordagem.
 
 - Se pretender manter alguns dos recursos no seu grupo de recursos, ao eliminar um gateway de rede virtual fica ligeiramente mais complicado. Antes de poder eliminar o gateway de rede virtual, primeiro tem de eliminar todos os recursos dependentes no gateway. Os passos a que seguir dependem do tipo de ligações que criou e os recursos dependentes para cada ligação.
+
+> [!IMPORTANT]
+> As instruções abaixo descrevem como eliminar os gateways de VPN do Azure implementados utilizando o modelo de implementação Resource Manager. Para eliminar um gateway de VPN implementado utilizando o modelo de implementação clássica,. Utilize o Azure PowerShell, tal como descrito [aqui](vpn-gateway-delete-vnet-gateway-classic-powershell.md).
+
 
 ## <a name="delete-a-vpn-gateway"></a>Eliminar um gateway de VPN
 

@@ -11,14 +11,15 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2016
 ms.author: naziml
-ms.openlocfilehash: 3c218a6fe3857c216bc185c5d3630025f332147b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.custom: mvc
+ms.openlocfilehash: bfe36ee5365e71db4280e8e2ccff6db8e552dd39
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurar uma Firewall de aplicação Web (WAF) para o ambiente de serviço de aplicações
 ## <a name="overview"></a>Descrição geral
@@ -26,7 +27,7 @@ Firewalls de aplicação Web, como o [Barracuda WAF para o Azure](https://www.ba
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
-## <a name="setup"></a>Configurar
+## <a name="setup"></a>Configuração
 Para este documento, vamos configurar o ambiente de serviço de aplicações por trás de várias instâncias com balanceamento de carga Barracuda WAF para que apenas o tráfego do WAF pode alcançar o ambiente de serviço de aplicações e não está acessível a partir da rede de Perímetro. Além disso, temos Traffic Manager do Azure à frente as instâncias de Barracuda WAF para equilibrar a carga entre centros de dados do Azure e regiões. Um diagrama de alto nível da configuração teria aspeto na imagem seguinte:
 
 ![Arquitetura][Architecture] 

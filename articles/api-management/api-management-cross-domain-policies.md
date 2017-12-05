@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 590831454e8a18678e357b4824eb35a717d1fee0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,9 +26,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 ##  <a name="CrossDomainPolicies"></a>Entre as políticas de domínio  
   
 -   [Permitir chamadas entre domínios](api-management-cross-domain-policies.md#AllowCrossDomainCalls) -faz com que a API acessível a partir de clientes baseada no browser Adobe Flash e o Microsoft Silverlight.  
-  
 -   [CORS](api-management-cross-domain-policies.md#CORS) -adiciona os recursos de várias origens (CORS) com o suporte para uma operação ou uma API para permitir que as chamadas entre domínios de clientes baseados no browser de partilha.  
-  
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) -adiciona JSON com o suporte do preenchimento (JSONP) para uma operação ou uma API para permitir que as chamadas entre domínios de clientes baseada no browser do JavaScript.  
   
 ##  <a name="AllowCrossDomainCalls"></a>Permitir chamadas entre domínios  
@@ -55,7 +53,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |entre domínios|Elemento raiz. Elementos subordinados devem estar em conformidade com a [especificação de ficheiro de política entre domínios Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|  
   
@@ -63,7 +61,6 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
-  
 -   **Âmbitos de política:** global  
   
 ##  <a name="CORS"></a>CORS  
@@ -125,7 +122,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |cors|Elemento raiz.|Sim|N/D|  
 |origens permitidas|Contém `origin` elementos que descrevem as origens permitidas para pedidos entre domínios. `allowed-origins`pode conter qualquer um único `origin` elemento que especifica `*` para permitir que qualquer origem, ou um ou mais `origin` elementos que contêm um URI.|Sim|N/D|  
@@ -138,16 +135,15 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|permitir que as credenciais|O `Access-Control-Allow-Credentials` cabeçalho na resposta prévia será definida para o valor deste atributo e afeta a capacidade do cliente para submeter credenciais nos pedidos entre domínios.|Não|FALSO|  
+|permitir que as credenciais|O `Access-Control-Allow-Credentials` cabeçalho na resposta prévia será definida para o valor deste atributo e afeta a capacidade do cliente para submeter credenciais nos pedidos entre domínios.|Não|False|  
 |verificação prévia-resultado--idade máxima|O `Access-Control-Max-Age` cabeçalho na resposta prévia será definida para o valor deste atributo e afeta a capacidade do agente de utilizador de resposta de pré-voo da cache.|Não|0|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
-  
 -   **Âmbitos de política:** API, operação  
   
 ##  <a name="JSONP"></a>JSONP  
@@ -171,13 +167,13 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |jsonp|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |nome de parâmetro de chamada de retorno|A chamada de função de JavaScript entre domínios prefixo com o nome de domínio completamente qualificado onde reside a função.|Sim|N/D|  
   
@@ -185,8 +181,13 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** saída  
-  
 -   **Âmbitos de política:** global, produto, API, operação  
   
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações para trabalhar com as políticas, consulte [políticas na API Management](api-management-howto-policies.md).  
+
+Para obter mais informações para trabalhar com as políticas, consulte:
+
++ [Políticas de gestão de API](api-management-howto-policies.md)
++ [APIs de transformação](transform-api.md)
++ [Referência de política](api-management-policy-reference.md) para uma lista completa das declarações de política e as respetivas definições
++ [Exemplos de política](policy-samples.md)   

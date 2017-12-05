@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 58f7f71fd619eea2865ed42d2808fe6ae3e75c1f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de gestão de API
 Sintaxe de expressões de política é c# 6.0. Cada expressão tem acesso ao implicitamente fornecido [contexto](api-management-policy-expressions.md#ContextVariables) variável e um permitido [subconjunto](api-management-policy-expressions.md#CLRTypes) dos tipos de .NET Framework.  
   
-> [!NOTE]
+> [!TIP]
 >  Para obter mais informações sobre as expressões de política, consulte o [expressões de política](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) vídeo.  
 >   
 >  Para demonstrações de configuração de políticas utilizando expressões de política, consulte [nuvem abrangem episódio 177: mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Este vídeo contém as demonstrações de expressão de política seguinte.  
@@ -88,53 +88,53 @@ Sintaxe de expressões de política é c# 6.0. Cada expressão tem acesso ao imp
 |Newtonsoft.Json.Linq.JToken|Todos os métodos são suportados|  
 |Newtonsoft.Json.Linq.JTokenType|Todos os métodos são suportados|  
 |Newtonsoft.Json.Linq.JValue|Todos os métodos são suportados|  
-|System.Collections.Generic.IReadOnlyCollection < T\>|Todos|  
-|System.Collections.Generic.IReadOnlyDictionary < TKey, TValue >|Todos|  
-|System.Collections.Generic.ISet < TKey, TValue >|Todos|  
+|System.Collections.Generic.IReadOnlyCollection < T\>|Tudo|  
+|System.Collections.Generic.IReadOnlyDictionary < TKey, TValue >|Tudo|  
+|System.Collections.Generic.ISet < TKey, TValue >|Tudo|  
 |System.Collections.Generic.KeyValuePair < TKey, TValue >|Chave, o valor|  
-|System.Collections.Generic.List < TKey, TValue >|Todos|  
-|System.Collections.Generic.Queue < TKey, TValue >|Todos|  
-|System.Collections.Generic.Stack < TKey, TValue >|Todos|  
-|System.Convert|Todos|  
-|DateTime|Todos|  
+|System.Collections.Generic.List < TKey, TValue >|Tudo|  
+|System.Collections.Generic.Queue < TKey, TValue >|Tudo|  
+|System.Collections.Generic.Stack < TKey, TValue >|Tudo|  
+|System.Convert|Tudo|  
+|DateTime|Tudo|  
 |System.DateTimeKind|UTC|  
-|System.DateTimeOffset|Todos|  
-|System|Todos|  
-|System.Double|Todos|  
-|GUID|Todos|  
-|System.IEnumerable < T\>|Todos|  
-|System.IEnumerator < T\>|Todos|  
-|System.Int16|Todos|  
-|System. Int32|Todos|  
-|System. Int64|Todos|  
+|System.DateTimeOffset|Tudo|  
+|System|Tudo|  
+|System.Double|Tudo|  
+|GUID|Tudo|  
+|System.IEnumerable < T\>|Tudo|  
+|System.IEnumerator < T\>|Tudo|  
+|System.Int16|Tudo|  
+|System. Int32|Tudo|  
+|System. Int64|Tudo|  
 |System.Linq.Enumerable < T\>|Todos os métodos são suportados|  
-|Math|Todos|  
-|System.MidpointRounding|Todos|  
-|System. Nullable < T\>|Todos|  
-|System.Random|Todos|  
-|System.SByte|Todos|  
-|Cryptography. HMACSHA384|Todos|  
-|Cryptography. HMACSHA512|Todos|  
-|System.Security.Cryptography.HashAlgorithm|Todos|  
-|System.Security.Cryptography.HMAC|Todos|  
-|System.Security.Cryptography.HMACMD5|Todos|  
-|System.Security.Cryptography.HMACSHA1|Todos|  
-|System.Security.Cryptography.HMACSHA256|Todos|  
-|System.Security.Cryptography.KeyedHashAlgorithm|Todos|  
-|System.Security.Cryptography.MD5|Todos|  
-|System.Security.Cryptography.RNGCryptoServiceProvider|Todos|  
-|System.Security.Cryptography.SHA1|Todos|  
-|System.Security.Cryptography.SHA1Managed|Todos|  
-|System.Security.Cryptography.SHA256|Todos|  
-|System.Security.Cryptography.SHA256Managed|Todos|  
-|System.Security.Cryptography.SHA384|Todos|  
-|System.Security.Cryptography.SHA384Managed|Todos|  
-|System.Security.Cryptography.SHA512|Todos|  
-|System.Security.Cryptography.SHA512Managed|Todos|  
-|System.Single|Todos|  
-|String|Todos|  
-|System.StringSplitOptions|Todos|  
-|System.Text.Encoding|Todos|  
+|Math|Tudo|  
+|System.MidpointRounding|Tudo|  
+|System. Nullable < T\>|Tudo|  
+|System.Random|Tudo|  
+|System.SByte|Tudo|  
+|Cryptography. HMACSHA384|Tudo|  
+|Cryptography. HMACSHA512|Tudo|  
+|System.Security.Cryptography.HashAlgorithm|Tudo|  
+|System.Security.Cryptography.HMAC|Tudo|  
+|System.Security.Cryptography.HMACMD5|Tudo|  
+|System.Security.Cryptography.HMACSHA1|Tudo|  
+|System.Security.Cryptography.HMACSHA256|Tudo|  
+|System.Security.Cryptography.KeyedHashAlgorithm|Tudo|  
+|System.Security.Cryptography.MD5|Tudo|  
+|System.Security.Cryptography.RNGCryptoServiceProvider|Tudo|  
+|System.Security.Cryptography.SHA1|Tudo|  
+|System.Security.Cryptography.SHA1Managed|Tudo|  
+|System.Security.Cryptography.SHA256|Tudo|  
+|System.Security.Cryptography.SHA256Managed|Tudo|  
+|System.Security.Cryptography.SHA384|Tudo|  
+|System.Security.Cryptography.SHA384Managed|Tudo|  
+|System.Security.Cryptography.SHA512|Tudo|  
+|System.Security.Cryptography.SHA512Managed|Tudo|  
+|System.Single|Tudo|  
+|String|Tudo|  
+|System.StringSplitOptions|Tudo|  
+|System.Text.Encoding|Tudo|  
 |System.Text.RegularExpressions.Capture|Valor de índice, comprimento,|  
 |System.Text.RegularExpressions.CaptureCollection|Contagem de Item|  
 |System.Text.RegularExpressions.Group|Capturas de êxito|  
@@ -142,12 +142,12 @@ Sintaxe de expressões de política é c# 6.0. Cada expressão tem acesso ao imp
 |System.Text.RegularExpressions.Match|Resultado vazio, grupos,|  
 |RegularExpressions|. ctor, IsMatch, corresponde a, corresponde, substituir|  
 |System.Text.RegularExpressions.RegexOptions|Compilado, IgnoreCase, IgnorePatternWhitespace, múltiplas linhas, None, RightToLeft, Singleline|  
-|System.TimeSpan|Todos|  
-|System.Tuple|Todos|  
-|System.UInt16|Todos|  
-|System.UInt32|Todos|  
-|UInt64|Todos|  
-|URI|Todos|  
+|System.TimeSpan|Tudo|  
+|System.Tuple|Tudo|  
+|System.UInt16|Tudo|  
+|System.UInt32|Tudo|  
+|UInt64|Tudo|  
+|URI|Tudo|  
 |System.Xml.Linq.Extensions|Todos os métodos são suportados|  
 |System.Xml.Linq.XAttribute|Todos os métodos são suportados|  
 |System.Xml.Linq.XCData|Todos os métodos são suportados|  
@@ -165,7 +165,7 @@ Sintaxe de expressões de política é c# 6.0. Cada expressão tem acesso ao imp
 |System.Xml.Linq.XObject|Todos os métodos são suportados|  
 |System.Xml.Linq.XProcessingInstruction|Todos os métodos são suportados|  
 |System.Xml.Linq.XText|Todos os métodos são suportados|  
-|System.Xml.XmlNodeType|Todos|  
+|System.Xml.XmlNodeType|Tudo|  
   
 ##  <a name="ContextVariables"></a>Variável de contexto  
  Uma variável com o nome `context` está implicitamente disponível em cada política [expressão](api-management-policy-expressions.md#Syntax). Os seus membros fornecem informações relevantes para o `\request`. Todas as `context` membros são só de leitura.  
@@ -206,5 +206,15 @@ Sintaxe de expressões de política é c# 6.0. Cada expressão tem acesso ao imp
 |byte [] desencriptar (entrada: esta byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|entrada - cyphertext a desencriptar<br /><br />alg - algoritmo de encriptação<br /><br />Devolve texto simples.|
 |byte [] desencriptar (entrada: esta byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, chave: byte [], iv:byte[])|entrada cyphertext - entrada - a desencriptar<br /><br />alg - algoritmo de encriptação<br /><br />chave - chave de encriptação<br /><br />IV - vetor de inicialização<br /><br />Devolve texto simples.|
 
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
+>
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações para trabalhar com as políticas, consulte [políticas na API Management](api-management-howto-policies.md).  
+
+Para obter mais informações para trabalhar com as políticas, consulte:
+
++ [Políticas de gestão de API](api-management-howto-policies.md)
++ [APIs de transformação](transform-api.md)
++ [Referência de política](api-management-policy-reference.md) para uma lista completa das declarações de política e as respetivas definições
++ [Exemplos de política](policy-samples.md)   

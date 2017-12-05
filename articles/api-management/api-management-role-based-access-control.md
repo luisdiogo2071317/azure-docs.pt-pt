@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: a3872aae3a9eb8da0b881ec9388f54546e84b08b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Como utilizar o controlo de acesso baseado em funções na API Management do Azure
 Gestão de API do Azure baseia-se no controlo de acesso de em funções do Azure (RBAC) para ativar a gestão de acesso detalhada para serviços de gestão de API e entidades (por exemplo, APIs e políticas). Este artigo fornece uma descrição geral das funções incorporadas e personalizadas na API Management. Para obter mais informações sobre a gestão de acesso no portal do Azure, consulte [introdução à gestão de acesso no portal do Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -61,9 +61,12 @@ New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinit
 
 O [operações de fornecedor de recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md#microsoftapimanagement) artigo contém a lista de permissões que podem ser concedidas ao nível da API Management.
 
-## <a name="watch-a-video-overview"></a>Veja uma descrição geral do vídeo
+## <a name="video"></a>Vídeo
 
-Para obter mais informações, pode ver o [controlo de acesso baseado em funções na API Management](https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player) vídeo.
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player]
+>
+>
 
 ## <a name="next-steps"></a>Passos seguintes
 
