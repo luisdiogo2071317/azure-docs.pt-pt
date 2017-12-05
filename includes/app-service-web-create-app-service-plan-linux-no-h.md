@@ -1,4 +1,4 @@
-A Shell de nuvem, criar um plano de serviço de aplicações no grupo de recursos com o [criar plano de serviço aplicacional az](/cli/azure/appservice/plan#create) comando.
+A Shell de nuvem, criar um plano de serviço de aplicações no grupo de recursos com o [criar plano de serviço aplicacional az](/cli/azure/appservice/plan#az_appservice_plan_create) comando.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 

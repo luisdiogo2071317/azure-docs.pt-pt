@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>As opções de contexto para o servidor R no HDInsight de computação
 
@@ -33,12 +33,12 @@ O nó de extremidade de um cluster fornece um local conveniente para ligar ao cl
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de um nó de extremidade de computação
 Em geral, um script do R que é executado no servidor R no nó de extremidade é executado dentro do interpretador de R nesse nó. As exceções são esses passos que chamar uma função de ScaleR. As chamadas de ScaleR executam num ambiente de computação que é determinado pelo como definir o contexto de computação ScaleR.  Quando executar o script do R a partir de um nó de extremidade, os valores possíveis do contexto de computação são:
 
-- local sequencial (*'local'*)
-- local paralelo (*'localpar'*)
+- local sequencial (*local*)
+- local paralelo (*localpar*)
 - Reduzir o mapa
 - Spark
 
-O *'local'* e *'localpar'* diferem opções apenas em como **rxExec** chamadas são executadas. Ambos os executar outras chamadas de função rx de forma paralela em núcleos disponíveis a menos que especificado em contrário através da utilização do ScaleR **numCoresToUse** opção, por exemplo `rxOptions(numCoresToUse=6)`. Opções de execução paralela oferecem um desempenho ideal.
+O *local* e *localpar* diferem opções apenas em como **rxExec** chamadas são executadas. Ambos os executar outras chamadas de função rx de forma paralela em núcleos disponíveis a menos que especificado em contrário através da utilização do ScaleR **numCoresToUse** opção, por exemplo `rxOptions(numCoresToUse=6)`. Opções de execução paralela oferecem um desempenho ideal.
 
 A tabela seguinte resume as várias opções de contexto de computação para definir a forma como as chamadas são executadas:
 
@@ -62,8 +62,8 @@ Qual das três opções que escolher que fornecem paralelizada execução depend
 Tendo em conta estes princípios, as secções seguintes disponibilizam algumas prática regras gerais para a seleção de um contexto de computação.
 
 ### <a name="local"></a>Local
-* Se a quantidade de dados para analisar é pequena e não requerem a análise repetido, em seguida, transmiti-lo diretamente para o Analysis Services rotina utilizando *'local'* ou *'localpar'*.
-* Se a quantidade de dados para analisar pequena ou média e requer a análise repetido, em seguida, copie-a para o sistema de ficheiros local, importá-lo para XDF e analisá-lo através de *'local'* ou *'localpar'*.
+* Se a quantidade de dados para analisar é pequena e não requerem a análise repetido, em seguida, transmiti-lo diretamente para o Analysis Services rotina utilizando *local* ou *localpar*.
+* Se a quantidade de dados para analisar pequena ou média e requer a análise repetido, em seguida, copie-a para o sistema de ficheiros local, importá-lo para XDF e analisá-lo através de *local* ou *localpar*.
 
 ### <a name="hadoop-spark"></a>Spark de Hadoop
 * Se a quantidade de dados para analisar for grande, em seguida, importá-lo para utilizar o Spark DataFrame **RxHiveData** ou **RxParquetData**, ou para XDF no HDFS (a menos que o armazenamento é um problema) e analisá-lo utilizando o contexto de computação de Spark.
@@ -76,7 +76,7 @@ Para obter mais informações e exemplos de contextos de computação ScaleR, co
 
     > ?rxSetComputeContext
 
-Também pode consultar o "[ScaleR Distributed informática Guide](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)" que está disponível a partir do [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "servidor R no MSDN") biblioteca.
+Também pode consultar o [ScaleR Distributed informática Guide](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) que está disponível a partir do [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) biblioteca.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu sobre as opções que estão disponíveis para especificar se e como a execução é paralelizada por núcleos do nó de extremidade ou cluster do HDInsight. Para saber mais sobre como utilizar o R Server com clusters do HDInsight, consulte os seguintes tópicos:

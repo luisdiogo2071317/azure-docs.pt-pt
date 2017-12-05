@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: cf077fef6df2fd21cf51f6b4fd4e26a4b5081247
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: b5cd022c87a6a7a9e18f33b869db04e72be5cef7
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure (pré-visualização)
 
@@ -41,7 +41,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * O domínio de pontos finais para o Azure US Government estava incorreto. Foi corrigido.
 * Por vezes, foi difícil de clique no botão aplicar no painel Gerir contas. Já não deverá ocorrer.
 
-### <a name="new"></a>novo
+### <a name="new"></a>Novo
 * Suporte de pré-visualização para a base de dados do Azure Cosmos:
     * [Documentação online](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
     * Criar bases de dados e de coleções
@@ -76,7 +76,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Embora a pilha do Azure atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros continua a aparecer sob uma conta de armazenamento de pilha do Azure ligada.
 * A shell de Electron utilizada pelo Explorador de armazenamento tem problemas com algumas aceleração de hardware da GPU (unidade de processamento de gráficos). Se o Explorador de armazenamento apresenta uma janela de principal (vazia) em branco, pode tentar iniciar o Explorador de armazenamento na linha de comandos e desativar a aceleração de GPU adicionando o `--disable-gpu` comutador:
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * Para os utilizadores no Ubuntu 14.04, terá de garantir GCC é atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
 
@@ -102,7 +102,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * [Transferir o Explorador de armazenamento do Azure 0.9.1 (pré-visualização) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
 * [Transferir o Explorador de armazenamento do Azure 0.9.1 (pré-visualização) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
-### <a name="new"></a>novo
+### <a name="new"></a>Novo
 * Suporte de pré-visualização para a base de dados do Azure Cosmos:
     * [Documentação online](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
     * Criar bases de dados e de coleções
@@ -137,7 +137,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Embora a pilha do Azure atualmente não suporta partilhas de ficheiros, um nó de partilhas de ficheiros continua a aparecer sob uma conta de armazenamento de pilha do Azure ligada.
 * A shell de Electron utilizada pelo Explorador de armazenamento tem problemas com algumas aceleração de hardware da GPU (unidade de processamento de gráficos). Se o Explorador de armazenamento apresenta uma janela de principal (vazia) em branco, pode tentar iniciar o Explorador de armazenamento na linha de comandos e desativar a aceleração de GPU adicionando o `--disable-gpu` comutador:
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * Para os utilizadores no Ubuntu 14.04, terá de garantir GCC é atualizada - Isto pode ser efetuado executando os comandos seguintes e, em seguida, reiniciar o computador:
 
@@ -179,7 +179,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 ## <a name="version-0816"></a>Versão 0.8.16
 8/21/2017
 
-### <a name="new"></a>novo
+### <a name="new"></a>Novo
 * Quando abre um blob, Explorador de armazenamento irá solicitar-lhe carregar o ficheiro transferido, desde que seja detetada uma alteração
 * Pilha de Azure início de sessão experiência melhorada
 * Melhoria do desempenho de carregamento/transferência muitos ficheiros pequenos ao mesmo tempo
@@ -219,7 +219,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 ### <a name="version-0814"></a>Versão 0.8.14
 06/22/2017
 
-### <a name="new"></a>novo
+### <a name="new"></a>Novo
 
 * Versão atualizada do Electron para 1.7.2 para tirar o máximo partido das várias atualizações de segurança críticas
 * Pode agora rapidamente aceder ao guia de resolução de problemas online no menu de ajuda
@@ -246,7 +246,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 ### <a name="version-0813"></a>Versão 0.8.13
 05/12/2017
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * Explorador de armazenamento de resolução de problemas [guia][2]
 * [Instruções] [ 3] sobre a ligação a uma subscrição de pilha do Azure
@@ -281,7 +281,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 ### <a name="version-0812--0811--0810"></a>Versão 0.8.12 / 0.8.11 / 0.8.10
 04/07/2017
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * Explorador de armazenamento agora será fechada automaticamente quando instala uma atualização de notificação de atualização
 * Acesso rápido no local fornece uma experiência melhorada para trabalhar com os recursos acedidos com frequência
@@ -329,7 +329,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
 
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * Explorador de armazenamento 0.8.9 irá transferir automaticamente a versão mais recente de atualizações.
 * URI de SAS gerado para anexar uma conta de armazenamento correções: utilizar um portal iria resultar num erro.
@@ -359,7 +359,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * Pode escolher como resolver conflitos no início de sessão de uma atualização, a transferência ou a cópia na janela de atividades
 * Coloque o cursor sobre um separador para ver o caminho completo do recurso de armazenamento
@@ -386,7 +386,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 11/18/2016
 ### <a name="version-086"></a>Versão 0.8.6
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * Pode agora pin utilizado mais frequentemente serviços para o acesso rápido para navegação fácil
 * Pode agora abrir editores vários separadores diferentes. Único clique para abrir um separador temporário; Faça duplo clique para abrir um separador permanente. Também pode clicar no separador temporário para o tornar um separador permanente
@@ -424,7 +424,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 10/03/2016
 ### <a name="version-085"></a>Versão 0.8.5
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * Agora pode utilizar chaves geradas pelo Portal SAS para anexar a contas de armazenamento e de recursos
 
@@ -447,7 +447,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * Gerar hiperligações diretas para contas de armazenamento, contentores, filas, tabelas ou partilhas de ficheiros para a partilha e suportam o facilitar o acesso aos recursos da sua - Windows e Mac OS
 * Procure os contentores de BLOBs, tabelas, filas, partilhas de ficheiros ou contas de armazenamento a partir da caixa de pesquisa
@@ -468,7 +468,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * Mudar o nome de contentores, tabelas, partilhas de ficheiros
 * Experiência melhorada de construtor de consultas
@@ -494,7 +494,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * As contas de armazenamento estão agrupadas por subscrições; armazenamento de desenvolvimento e de recursos ligados através de SAS ou de chave são apresentados no nó (locais e anexadas)
 * Terminar sessão das contas no painel de "Definições de conta do Azure"
@@ -521,7 +521,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * Suporte de partilha de ficheiros: ver, carregar, transferir, copiar ficheiros e diretórios, SAS URIs (criar e ligar)
 * Experiência de utilizador para ligar ao armazenamento com as chaves de conta ou SAS URIs melhorada
@@ -544,7 +544,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 05/17/2016
 ### <a name="version-07201605090"></a>Versão 0.7.20160509.0
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * Falhas de processamento para a aplicação de erros melhor
 
@@ -565,7 +565,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
 
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * Suporte de tabela: visualização, consultar, exportação, importar e as operações CRUD de entidades
 * Suporte da fila: visualizar, adicionar, dequeueing mensagens
@@ -597,7 +597,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 
 ### <a name="version-07201601050"></a>Versão 0.7.20160105.0
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * Apoio técnico para Linux (funcionalidades de paridade para OSX)
 * Adicionar contentores de Blobs com a chave de assinaturas de acesso partilhado (SAS)
@@ -627,7 +627,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 11/18/2015
 ### <a name="version-07201511160"></a>Versão 0.7.20151116.0
 
-#### <a name="new"></a>novo
+#### <a name="new"></a>Novo
 
 * macOS e as versões do Windows
 * Iniciar sessão para ver as contas do Storage – utilizar a sua conta da organização, Account Microsoft, 2FA, etc.

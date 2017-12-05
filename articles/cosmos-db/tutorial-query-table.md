@@ -10,16 +10,17 @@ tags:
 ms.assetid: 14bcb94e-583c-46f7-9ea8-db010eb2ab43
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: d1b2645580c12777ea39816bdcc62cfabc172d16
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.custom: mvc
+ms.openlocfilehash: 80fed91c45ae19193f6b8dfcaef747f8c4253dee
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB: Como consultar dados da tabela, utilizando a API de tabela
 
@@ -32,7 +33,7 @@ Este artigo abrange as seguintes tarefas:
 
 As consultas neste artigo, utilize o seguinte exemplo `People` tabela:
 
-| PartitionKey | RowKey | E-mail | PhoneNumber |
+| PartitionKey | RowKey | Correio Eletrónico | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0101 |
 | Santos | Bernardo | Ben@contoso.com| 425-555-0102 |
@@ -56,7 +57,7 @@ https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')
 ```
 **Resultados**
 
-| PartitionKey | RowKey | E-mail | PhoneNumber |
+| PartitionKey | RowKey | Correio Eletrónico | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0104 |
 
@@ -82,7 +83,7 @@ Para obter mais informações sobre como construir as expressões de filtro para
 
 **Resultados**
 
-| PartitionKey | RowKey | E-mail | PhoneNumber |
+| PartitionKey | RowKey | Correio Eletrónico | PhoneNumber |
 | --- | --- | --- | --- |
 | Bernardo |Santos | Ben@contoso.com| 425-555-0102 |
 
