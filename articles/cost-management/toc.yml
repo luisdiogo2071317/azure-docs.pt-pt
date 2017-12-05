@@ -27,6 +27,10 @@
   items:
     - name: Compreender os relatórios de custos
       href: understading-cost-reports.md
+- name: Guias de procedimentos
+  items:
+    - name: Utilizar relatórios do Cost Management
+      href: use-reports.md
 - name: Recursos
   items:
     - name: Vídeos sobre Gestão de Custos

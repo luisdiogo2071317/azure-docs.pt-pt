@@ -29,6 +29,8 @@
       href: how-to-manage-account-keys.md
     - name: Como utilizar o Controlo de Mapas
       href: how-to-use-map-control.md
+    - name: Como procurar um endereço
+      href: how-to-search-for-address.md
 - name: Referência
   items:
     - name: Centro de Programadores do Azure IoT

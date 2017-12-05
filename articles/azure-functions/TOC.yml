@@ -63,7 +63,7 @@
       href: functions-cli-samples.md
 - name: Conceitos
   items:
-    - name: Comparação de planos de alojamento
+    - name: Dimensionamento e alojamento
       href: functions-scale.md
     - name: Acionadores e enlaces
       href: functions-triggers-bindings.md

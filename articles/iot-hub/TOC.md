@@ -70,9 +70,10 @@
 ### [Utilizar o SDK do dispositivo IoT para C](iot-hub-device-sdk-c-intro.md)
 #### [Utilizar o IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [Utilizar o serializador](iot-hub-device-sdk-c-serializer.md)
-### Processar mensagens do dispositivo para a cloud
+### Encaminhar mensagens
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
+#### [Node.js](iot-hub-node-node-process-d2c.md)
 ### Enviar mensagens da cloud para o dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)

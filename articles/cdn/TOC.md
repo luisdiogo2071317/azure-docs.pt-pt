@@ -21,8 +21,8 @@
 ## Gerir
 ### [Gerir com o Azure PowerShell](cdn-manage-powershell.md)
 ### Configurar time-to-live
-#### [Aplicações Web/Serviços Cloud, ASP.NET ou conteúdo IIS](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Conteúdo de serviço blob de armazenamento](cdn-manage-expiration-of-blob-content.md)
+#### [Conteúdo Web do Azure](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Armazenamento de Blobs do Azure](cdn-manage-expiration-of-blob-content.md)
 ### [Restringir acesso por país](cdn-restrict-access-by-country.md)
 ### [Comprimir ficheiros para melhorar o desempenho](cdn-improve-performance.md)
 ### Conteúdo de cache por cadeia de consulta
