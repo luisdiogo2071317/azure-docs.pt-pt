@@ -12,15 +12,15 @@ ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2d4915cf12690c98275b1fe327dd2574a6343e9e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra com Azure Logic Apps
 
@@ -62,7 +62,7 @@ As APIs de serviços cognitivos estão disponíveis no Azure como recursos indiv
     | Definição      |  Valor sugerido   | Descrição                                        |
     | --- | --- | --- |
     | **Nome** | MyCognitiveServicesAccnt | Escolha um nome de conta exclusiva. |
-    | **Localização** | EUA Oeste | Utilize a localização mais próximo. |
+    | **Localização** | E.U.A. Oeste | Utilize a localização mais próximo. |
     | **Escalão de preço** | F0 | Começar a utilizar o escalão mais baixo. Se executar fora de chamadas, dimensione para um escalão superior.|
     | **Grupo de recursos** | myResourceGroup | Utilize o mesmo grupo de recursos para todos os serviços neste tutorial.|
 
@@ -85,8 +85,8 @@ Funções fornece uma excelente forma de descarga de tarefas de processamento nu
     | **Nome** | MyFunctionApp | Escolha um nome de conta exclusiva. |
     | **Grupo de recursos** | myResourceGroup | Utilize o mesmo grupo de recursos para todos os serviços neste tutorial.|
     | **Plano de alojamento** | Plano de Consumo | Isto define os custo e a utilização alocações.
-    | **Localização** | EUA Oeste | Utilize a localização mais próximo. |
-    | **Armazenamento** | Criar Nova | Gera automaticamente uma nova conta de armazenamento.|
+    | **Localização** | E.U.A. Oeste | Utilize a localização mais próximo. |
+    | **Armazenamento** | Criar Novo | Gera automaticamente uma nova conta de armazenamento.|
     | **Escalão de preço** | F0 | Começar a utilizar o escalão mais baixo. Se executar fora de chamadas, dimensione para um escalão superior.|
 
 2. Selecione a sua aplicação de funções do dashboard e expandir a sua função, clique em de  **+**  junto a **funções**, clique em de **Webhook + API**,  **CSharp**, em seguida, **criar esta função**. Esta ação irá criar uma função utilizando o modelo HTTPTrigger c#. O código será apresentado numa nova janela como`run.csx`
@@ -142,7 +142,7 @@ Agora, tem uma função que categoriza pontuações de sentimento. Em seguida, c
     | ----------------- | ------------ | ------------- |
     | **Nome** | TweetSentiment | Escolha um nome adequado para a sua aplicação. |
     | **Grupo de recursos** | myResourceGroup | Escolha o mesmo grupo de recursos existente como antes. |
-    | **Localização** | EUA Leste | Escolha uma localização perto de si. |    
+    | **Localização** | E.U.A. Leste | Escolha uma localização perto de si. |    
 
 4. Escolha **afixar ao dashboard**e, em seguida, clique em **criar** para criar a sua aplicação lógica. 
 
@@ -200,7 +200,7 @@ Agora que a deteção de dados de sentimento estiver configurada, pode adicionar
 
 3. No **corpo do pedido**, clique em **pontuação** e, em seguida, **guardar**.
 
-    ![Classificação](media/functions-twitter-email/trigger_score.png)
+    ![Pontuação](media/functions-twitter-email/trigger_score.png)
 
 Agora, a função é acionada quando é enviada uma classificação de dados de sentimento da aplicação lógica. Uma categoria codificado por cores é devolvida para a aplicação lógica pela função. Em seguida, adicionar uma notificação de correio eletrónico que é enviada quando um valor de dados de sentimento do **RED** é devolvido na função. 
 

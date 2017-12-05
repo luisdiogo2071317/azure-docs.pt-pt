@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: andredm
-ms.openlocfilehash: 4d98556f17fa834c497c2d1cd1854c9e6b02e021
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b9f45462fb108ff9cc9039cdb0d0a9ef318fc218
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-stack-1711-update"></a>Atualização de pilha 1711 do Azure
 
@@ -31,7 +31,7 @@ Este artigo descreve os melhoramentos e corrige deste pacote de atualização, p
 
 ## <a name="build-reference"></a>Referência de compilação
 
-É o número de compilação de atualização do Azure pilha 1711 **20171122.1**.
+É o número de compilação de atualização do Azure pilha 1711 **171201.3**.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -85,7 +85,7 @@ Esta secção contém as questões importantes que poderá encontrar durante a i
 
 ### <a name="known-issues-post-installation"></a>Problemas conhecidos (pós-instalação)
 
-Esta secção contém pós-instalação problemas conhecidos com compilação **20171122.1**.
+Esta secção contém pós-instalação problemas conhecidos com compilação **20171201.3**.
 
 #### <a name="portal"></a>Portal
 
@@ -108,7 +108,7 @@ Esta secção contém pós-instalação problemas conhecidos com compilação **
 
 - Se reiniciar o computador de uma instância de função de infraestrutura, poderá receber uma mensagem a indicar que o reinício falhou. No entanto, o reinício, na verdade, com êxito.
 
-#### <a name="marketplace"></a>Marketplace
+#### <a name="marketplace"></a>Mercado
 - Quando tentar adicionar itens para o mercado de pilha do Azure utilizando o **adicionar a partir do Azure** opção, nem todos os itens podem ser visíveis para transferência.
 - Os utilizadores podem procurar o mercado completo sem uma subscrição e podem ver itens administrativos como planos e ofertas. Estes itens estão não funcional para os utilizadores.
 
@@ -118,7 +118,7 @@ Esta secção contém pós-instalação problemas conhecidos com compilação **
 - Não há nenhum experiência marketplace para criar conjuntos de dimensionamento de máquina virtual. Pode criar um conjunto, utilizando um modelo de dimensionamento.
 - Definições de dimensionamento para conjuntos de dimensionamento de máquina virtual não estão disponíveis no portal. Como solução, pode utilizar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Devido às diferenças de versão do PowerShell, tem de utilizar o `-Name` parâmetro em vez de `-VMScaleSetName`.
  
-#### <a name="networking"></a>Redes
+#### <a name="networking"></a>Rede
 - Não é possível criar um balanceador de carga com um endereço IP público utilizando o portal. Como solução, pode utilizar o PowerShell para criar o Balanceador de carga.
 - Tem de criar uma regra de tradução (NAT) de endereço de rede quando cria um balanceador de carga de rede. Caso contrário, receberá um erro ao tentar adicionar uma regra NAT após a criação do Balanceador de carga.
 - Não é possível desassociar um endereço IP público de uma máquina virtual (VM) depois da VM foi criada e associada a esse endereço IP. Desassociação irá aparecer funcionar, mas o endereço IP público anteriormente atribuído permanece associado a VM original. Este comportamento ocorre mesmo reatribuir o endereço IP para uma nova VM (normalmente denominado como um *alternância de VIP*). Todas as futuras tenta estabelecer ligação através deste resultado de endereço IP numa ligação para a VM originalmente associada e não para a nova. Atualmente, tem de utilizar os novos endereços IP públicos apenas para a criação de nova VM.

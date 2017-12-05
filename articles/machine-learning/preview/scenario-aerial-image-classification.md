@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="aerial-image-classification"></a>Classificação de imagem com vista aérea
 
@@ -59,9 +59,14 @@ As seguintes instruções descrevem o processo de configuração de ambiente de 
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Siga o [instalar e criar o guia de introdução](quickstart-installation.md) para instalar o Workbench do Azure Machine Learning e criar a experimentação e contas de gestão de modelo.
 - [Lote AI](https://github.com/Azure/BatchAI) Python SDK e o Azure CLI 2.0
-    - Instalar o SDK de AI do Batch e o Azure CLI 2.0, seguindo as instruções de [secção pré-requisitos de receitas](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - A partir desta redação, o Workbench do Azure Machine Learning utiliza uma bifurcação separada do 2.0 de CLI do Azure. Para efeitos de clareza, denominamos versão o Workbench do CLI como "CLI iniciado a partir do Workbench de aprendizagem máquina do Azure" e a versão de lançamento geral (que inclui o Batch AI) "CLI do Azure 2.0."
-    - Criar um Azure Active Directory principal de serviço e aplicação seguindo [estas instruções](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). O ID de cliente do registo, o segredo e o ID do inquilino.
+    - Conclua as seguintes secções o [Batch AI receitas Leia-me](https://github.com/Azure/BatchAI/tree/master/recipes):
+        - "Pré-requisitos"
+        - "Criar e colocar a sua aplicação do Azure Active Directory (AAD)"
+        - "Registar fornecedores de recursos de BatchAI" (em "executar receitas com a CLI do Azure 2.0")
+        - "Instalar o cliente de gestão do Azure Batch AI"
+        - "Instalar o SDK de Python do Azure"
+    - Registo o ID de cliente, o segredo e o ID do inquilino da aplicação do Azure Active Directory que são direcionados para criar. Irá utilizar as credenciais mais tarde no tutorial.
+    - A partir desta redação, do Azure Machine Learning Workbench e o Azure Batch AI utilizam separadas bifurcações de 2.0 de CLI do Azure. Para efeitos de clareza, denominamos versão o Workbench do CLI como "CLI iniciado a partir do Workbench de aprendizagem máquina do Azure" e a versão de lançamento geral (que inclui o Batch AI) "CLI do Azure 2.0."
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), um livre utilitário para coordenar a transferência de ficheiros entre contas de armazenamento do Azure
     - Certifique-se de que a pasta que contém o executável do AzCopy na variável de ambiente PATH do sistema. (Estão disponíveis instruções sobre a modificação de variáveis de ambiente [aqui](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Um cliente SSH; Recomendamos [PuTTY](http://www.putty.org/).
@@ -215,7 +220,7 @@ O cluster de AI do Batch acede aos seus dados de formação num servidor de fich
 1. Emita o comando seguinte para criar um servidor de ficheiros de rede:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Verifique o estado de aprovisionamento do seu servidor de ficheiros de rede utilizando o seguinte comando:

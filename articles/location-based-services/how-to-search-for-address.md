@@ -8,11 +8,11 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: f7337c1c5821016987096da47dda4ac1124d7910
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Como localizar um endereço utilizando o serviço de pesquisa do Azure com base dos serviços de localização (pré-visualização)
 O serviço de pesquisa é um conjunto de APIs concebidos para programadores procurar endereços, de locais, de pontos de interesse, listagens de empresas e outras informações geográficas RESTful. O serviço de pesquisa atribui um latitude/longitude para um endereço específico, Rua cruzada, funcionalidade geográfica ou ponto de interesse (POI). Os valores de latitude e longitude devolvidos pelas APIs do serviço de pesquisa podem ser utilizados como parâmetros outros do Azure com base os serviços de localização, tais como a rota e APIs de fluxo de tráfego.
@@ -40,7 +40,7 @@ A maioria das consultas de pesquisa predefinido para ' maxFuzzyLevel = 1' para o
 
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
-    | Método HTTP | GET |
+    | Método HTTP | INTRODUÇÃO |
     | URL do pedido | https://Atlas.microsoft.com/search/Fuzzy/JSON? |
     | Autorização | Sem autenticação |
 
@@ -62,12 +62,11 @@ A maioria das consultas de pesquisa predefinido para ' maxFuzzyLevel = 1' para o
     
     Os resultados são diversificados para esta consulta, não associada a qualquer localização de referência específica. Pode utilizar o **countrySet** parâmetro para especificar apenas países/regiões para as quais a aplicação necessita de cobertura, como é o comportamento predefinido para procurar o universo de todo, potencialmente devolver resultados desnecessários.
 
-5. Adicione o seguinte valor para a cadeia de consulta e clique em **enviar**:
-    ```
-        ,countrySet=US
-    ```
-    >[!NOTE] 
-    >Certifique-se de que a vírgula-separado o URI adicional parâmetros na cadeia de consulta.
+5. Adicione a seguinte chave / valor par o **Params** secção e clique em **enviar**:
+
+    | Chave | Valor |
+    |------------------|-------------------------|
+    | countrySet | EUA |
     
     Os resultados são agora tem um vínculo pelo indicativo do país e a consulta devolve pizza restaurants nos Estados Unidos.
     
@@ -93,7 +92,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
-    | Método HTTP | GET |
+    | Método HTTP | INTRODUÇÃO |
     | URL do pedido | https://Atlas.microsoft.com/search/Address/JSON? |
     | Autorização | Sem autenticação |
 
@@ -116,10 +115,11 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
         400 Broad, Seattle
     ```
 
-5. Adicione o seguinte valor para a cadeia de consulta e clique em **enviar**:
-    ```
-        ,typeahead
-    ```
+5. Adicione a seguinte chave / valor par o **Params** secção e clique em **enviar**:
+
+    | Chave | Valor |
+    |-----|------------|
+    | typeahead | true |
 
     O **typeahead** sinalizador indica a API de pesquisa de endereço para processar a consulta como uma entrada parcial e devolver uma matriz de valores preditivos.
 
@@ -132,7 +132,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
-    | Método HTTP | GET |
+    | Método HTTP | INTRODUÇÃO |
     | URL do pedido | https://Atlas.microsoft.com/search/Address/reverse/JSON? |
     | Autorização | Sem autenticação |
     
@@ -150,37 +150,43 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     
     A resposta inclui a entrada POI para o campo de Safeco com uma categoria de poi de "stadium". 
     
-4. Adicione o seguinte valor para a cadeia de consulta e clique em **enviar**:
-    ```
-        ,number
-    ```
+4. Adicione a seguinte chave / valor par o **Params** secção e clique em **enviar**:
+
+    | Chave | Valor |
+    |-----|------------|
+    | número | true |
+
     Se o [número](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta é enviado com o pedido, a resposta pode incluir o lado da rua (esquerda/direita) e também uma posição de deslocamento para esse número.
     
-5. Adicione o seguinte valor para a cadeia de consulta e clique em **enviar**:
-    ```
-        ,spatialKeys
-    ```
+5. Adicione a seguinte chave / valor par o **Params** secção e clique em **enviar**:
+
+    | Chave | Valor |
+    |-----|------------|
+    | spatialKeys | true |
 
     Quando o [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta está definido, a resposta contém proprietárias georreplicação geográficos as informações de chave numa localização especificada.
 
-6. Adicione o seguinte valor para a cadeia de consulta e clique em **enviar**:
-    ```
-        ,returnSpeedLimit
-    ```
+6. Adicione a seguinte chave / valor par o **Params** secção e clique em **enviar**:
+
+    | Chave | Valor |
+    |-----|------------|
+    | returnSpeedLimit | true |
     
     Quando o [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta está definido, a resposta devolver do que o limite de velocidade publicado.
 
-7. Adicione o seguinte valor para a cadeia de consulta e clique em **enviar**:
-    ```
-        ,returnRoadUse
-    ```
+7. Adicione a seguinte chave / valor par o **Params** secção e clique em **enviar**:
+
+    | Chave | Valor |
+    |-----|------------|
+    | returnRoadUse | true |
 
     Quando o [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta está definido, a resposta devolve matriz de utilização da estrada para reversegeocodes nível completo.
 
-8. Adicione o seguinte valor para a cadeia de consulta e clique em **enviar**:
-    ```
-        ,roadUse
-    ```
+8. Adicione a seguinte chave / valor par o **Params** secção e clique em **enviar**:
+
+    | Chave | Valor |
+    |-----|------------|
+    | roadUse | true |
 
     Pode restringir a consulta inversa geocode a um tipo específico de utilização de utilização da estrada o [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta.
     
@@ -194,7 +200,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
-    | Método HTTP | GET |
+    | Método HTTP | INTRODUÇÃO |
     | URL do pedido | https://Atlas.microsoft.com/search/Address/reverse/crossstreet/JSON? |
     | Autorização | Sem autenticação |
     

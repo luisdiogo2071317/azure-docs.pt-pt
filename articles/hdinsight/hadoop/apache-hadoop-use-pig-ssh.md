@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: be18f6db46285233e233c843dab1f389cd553e96
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: fa19913928bad8b91777c0904324ff5983f6472c
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Executar tarefas do Pig num cluster baseado em Linux com o comando de Pig (SSH)
 
@@ -35,35 +35,39 @@ Saiba como executar interativamente tarefas do Pig a partir de uma ligação SSH
 
 Utilize o SSH para ligar ao cluster do HDInsight. O exemplo seguinte liga a um cluster com o nome **myhdinsight** como a conta de chamada **sshuser**:
 
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```
 
-**Se forneceu uma chave de certificado para autenticação SSH** quando criou o cluster do HDInsight, poderá ter de especificar a localização da chave privada no seu sistema de cliente.
-
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
-
-**Se forneceu uma palavra-passe para autenticação SSH** quando criou o cluster do HDInsight, forneça a palavra-passe quando lhe for pedido.
-
-Para obter mais informações sobre como utilizar o SSH com o HDInsight, consulte [utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="pig"></a>Utilize o comando de Pig
 
 1. Assim que estiver ligado, inicie a interface de linha de comandos (CLI) do Pig utilizando o seguinte comando:
 
-        pig
+    ```bash
+    pig
+    ```
 
-    Depois de um momento, deve ver um `grunt>` linha.
+    Depois de um momento, a linha é alterado para`grunt>`.
 
 2. Introduza a seguinte instrução:
 
-        LOGS = LOAD '/example/data/sample.log';
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    ```
 
     Este comando carrega o conteúdo do ficheiro sample.log para registos. Pode ver o conteúdo do ficheiro, utilizando a seguinte instrução:
 
-        DUMP LOGS;
+    ```piglatin
+    DUMP LOGS;
+    ```
 
 3. Em seguida, transforme os dados através da aplicação de uma expressão regular para extrair apenas o nível de registo de cada registo utilizando a seguinte instrução:
 
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```piglatin
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```
 
     Pode utilizar **informação do estado** para ver os dados depois da transformação. Neste caso, utilize `DUMP LEVELS;`.
 
@@ -81,36 +85,48 @@ Para obter mais informações sobre como utilizar o SSH com o HDInsight, consult
 
 5. Também pode guardar os resultados de uma transformação utilizando o `STORE` instrução. Por exemplo, a seguinte instrução guarda o `RESULT` para o `/example/data/pigout` diretório no armazenamento de predefinido para o cluster:
 
-        STORE RESULT into '/example/data/pigout';
+    ```piglatin
+    STORE RESULT into '/example/data/pigout';
+    ```
 
    > [!NOTE]
    > Os dados são armazenados no diretório especificado em ficheiros com o nome `part-nnnnn`. Se já existe um diretório, receberá um erro.
 
 6. Para sair da linha de comandos da grunt, introduza a seguinte instrução:
 
-        QUIT;
+    ```piglatin
+    QUIT;
+    ```
 
 ### <a name="pig-latin-batch-files"></a>Ficheiros de batch de PIg Latin
 
 Também pode utilizar o comando de Pig para executar o Pig Latin contidos num ficheiro.
 
-1. Depois de sair da linha de comandos grunt, utilize o seguinte comando para o pipe STDIN para um ficheiro com o nome `pigbatch.pig`. Este ficheiro é criado no diretório de raiz para a conta de utilizador SSH.
+1. Depois de sair da linha de comandos grunt, utilize o seguinte comando para criar o ficheiro denominado `pigbatch.pig`:
 
-        cat > ~/pigbatch.pig
+    ```bash
+    nano ~/pigbatch.pig
+    ```
 
-2. Escreva ou cole as seguintes linhas e, em seguida, utilize Ctrl + D quando terminar.
+2. Escreva ou cole as seguintes linhas:
 
-        LOGS = LOAD '/example/data/sample.log';
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-        FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-        GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-        FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-        RESULT = order FREQUENCIES by COUNT desc;
-        DUMP RESULT;
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+    RESULT = order FREQUENCIES by COUNT desc;
+    DUMP RESULT;
+    ```
+
+    Quando terminar, utilize __Ctrl__ + __X__, __Y__e, em seguida, __Enter__ para guardar o ficheiro.
 
 3. Utilize o seguinte comando para executar o `pigbatch.pig` ficheiro utilizando o comando de Pig.
 
-        pig ~/pigbatch.pig
+    ```bash
+    pig ~/pigbatch.pig
+    ```
 
     Após a conclusão da tarefa de lote, consulte o seguinte resultado:
 

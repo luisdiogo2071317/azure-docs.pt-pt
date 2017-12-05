@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 25311958314cca049d109ecbe3f46aaaa36b694d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b714c5de96a8fb7ed66a30c62daaa38b84fdc5b
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Enviar eventos para utilizando C de Event Hubs do Azure
 
@@ -27,16 +27,16 @@ Os Event Hubs são um sistema de ingestão altamente dimensionável, que pode in
 
 Para obter mais informações, consulte [descrição geral dos Event Hubs] [descrição geral dos Event Hubs].
 
-Neste tutorial, ficará a saber como enviar eventos para um hub de eventos utilizando uma aplicação de consola no C. Para receber eventos, clique o idioma apropriado de receção na tabela da esquerda do conteúdo.
+Este tutorial descreve como enviar eventos para um hub de eventos utilizando uma aplicação de consola no C. Para saber mais sobre receber eventos, clique o idioma apropriado de receção na tabela da esquerda do conteúdo.
 
-Para concluir este tutorial, irá precisar do seguinte:
+Para concluir este tutorial, precisa do seguinte:
 
-* Num ambiente de desenvolvimento de C. Para este tutorial, iremos assumir a pilha de gcc numa VM com Ubuntu 14.04 Linux do Azure.
+* Num ambiente de desenvolvimento de C. Este tutorial assume que a pilha de gcc numa VM com Ubuntu 14.04 Linux do Azure.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
 * Uma conta ativa do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Enviar mensagens para os Event Hubs
-Nesta secção, vamos escrever uma aplicação de C para enviar eventos para o hub de eventos. O código utiliza a biblioteca de Proton AMQP do [Apache Qpid projeto](http://qpid.apache.org/). Isto é semelhante a utilização de tópicos e filas do Service Bus com AMQP do C conforme mostrado [aqui](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte [documentação Qpid Proton](http://qpid.apache.org/proton/index.html).
+Esta secção mostra como escrever uma aplicação de C para enviar eventos para o hub de eventos. O código utiliza a biblioteca de Proton AMQP do [Apache Qpid projeto](http://qpid.apache.org/). Isto é semelhante a utilização de tópicos e filas do Service Bus com AMQP do C conforme mostrado [neste exemplo](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte o [documentação Qpid Proton](http://qpid.apache.org/proton/index.html).
 
 1. Do [página Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html), siga as instruções para instalar Qpid Proton, dependendo do seu ambiente.
 2. Para compilar a biblioteca de Proton, instale os seguintes pacotes:
@@ -59,7 +59,7 @@ Nesta secção, vamos escrever uma aplicação de C para enviar eventos para o h
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. No seu diretório de trabalho, crie um novo ficheiro chamado **sender.c** com o seguinte código. Não se esqueça de substituir o valor para o seu nome de hub de eventos e o nome do espaço de nomes. Também deve substituir uma versão com codificação URL da chave para o **SendRule** criada anteriormente. É possível codificar o URL [aqui](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. No seu diretório de trabalho, crie um novo ficheiro chamado **sender.c** com o seguinte código. Não se esqueça de substituir os valores para a sua/nome da chave SAS, o nome do hub de eventos e o espaço de nomes. Também deve substituir uma versão com codificação URL da chave para o **SendRule** criada anteriormente. É possível codificar o URL [aqui](http://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"
@@ -147,15 +147,13 @@ Nesta secção, vamos escrever uma aplicação de C para enviar eventos para o h
     ```
 
     > [!NOTE]
-    > Este código, utilizamos uma janela de saída de 1 para forçar as mensagens de saída logo que possível. Em geral, a aplicação deve tentar mensagens de batch para aumentar o débito. Consulte o [página Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) para obter informações sobre como utilizar a biblioteca de Qpid Proton neste e noutros ambientes e de plataformas para os quais são fornecidos enlaces (atualmente Perl, PHP, Python, Ruby e o).
+    > Este código utiliza uma janela de saída de 1 para forçar as mensagens de saída logo que possível. Recomenda-se que a aplicação tenta mensagens de batch para aumentar o débito. Consulte o [página Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) para obter informações sobre como utilizar a biblioteca de Qpid Proton neste e noutros ambientes e de plataformas para os quais são fornecidos enlaces (atualmente Perl, PHP, Python, Ruby e o).
 
 
 ## <a name="next-steps"></a>Passos seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
-* [Descrição geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md
-)
-* [Criar um hub de eventos](event-hubs-create.md)
+* [Descrição geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 
 <!-- Images. -->
