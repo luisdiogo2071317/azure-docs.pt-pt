@@ -3,22 +3,21 @@ title: "Proteger um back-end de Web API com o Azure Active Directory e a gestão
 description: Saiba como proteger um back-end de Web API com o Azure Active Directory e a API Management.
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: f856ff03-64a1-4548-9ec4-c0ec4cc1600f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3dd583c47fd2d9133c8a07e7bedcd49750ffdce4
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Como pretende proteger um back-end de Web API com o Azure Active Directory e a API Management
 O vídeo seguinte mostra como criar um back-end de Web API e protegê-lo através do protocolo de OAuth 2.0 com o Azure Active Directory e a API Management.  Este artigo fornece uma descrição geral e informações adicionais para obter os passos as vídeo. Este vídeo de minuto 24 mostra-lhe como para:
@@ -378,21 +377,21 @@ O pedido não está autorizado porque o API de back-end está protegido pelo Azu
 
 Navegue para o inquilino do Azure AD do primeiro passo neste vídeo, neste exemplo **APIMDemo** e navegue para o **aplicações** separador.
 
-![nova aplicação][api-management-aad-new-application-devportal]
+![Nova aplicação][api-management-aad-new-application-devportal]
 
 Clique em de **adicionar** botão para criar uma nova aplicação do Azure Active Directory e escolha **adicionar uma aplicação que a minha organização está a desenvolver**.
 
-![nova aplicação][api-management-new-aad-application-menu]
+![Nova aplicação][api-management-new-aad-application-menu]
 
 Escolha **Web de aplicação e/ou Web API**, introduza um nome e clique na seta seguinte. Neste exemplo **APIMDeveloperPortal** é utilizado.
 
-![nova aplicação][api-management-aad-new-application-devportal-1]
+![Nova aplicação][api-management-aad-new-application-devportal-1]
 
 Para **URL de início de sessão** introduza o URL do seu serviço de API Management e de acréscimo `/signin`. Neste exemplo `https://contoso5.portal.azure-api.net/signin` é utilizado.
 
 Para **URL de Id de aplicação** introduza o URL do seu serviço de API Management e de acréscimo alguns carateres exclusivos. Estes podem ser quaisquer carateres pretendidos e, neste exemplo `https://contoso5.portal.azure-api.net/dp` é utilizado. Quando o pretendido **as propriedades da aplicação** são configurados, clique na marca de verificação para criar a aplicação.
 
-![nova aplicação][api-management-aad-new-application-devportal-2]
+![Nova aplicação][api-management-aad-new-application-devportal-2]
 
 ## <a name="configure-an-api-management-oauth-20-authorization-server"></a>Configurar um servidor de autorização de API Management OAuth 2.0
 O passo seguinte consiste em configurar um servidor de autorização do OAuth 2.0 na API Management. Este passo é demonstrado as vídeo começando 9:43.
@@ -431,13 +430,13 @@ Para além de colar no ponto final do token, adicionar um parâmetro de corpo ad
 
 Em seguida, especifique as credenciais de cliente. Estas são as credenciais para o recurso que pretende aceder, neste caso o portal do programador.
 
-![Credenciais do cliente][api-management-client-credentials]
+![Credenciais de cliente][api-management-client-credentials]
 
 Para obter o **Id de cliente**, navegue para o **configurar** separador da aplicação AAD para o portal do programador e copie o **Id de cliente**.
 
 Para obter o **segredo do cliente** clique o **selecione duração** pendente no **chaves** secção e especificar um intervalo. Neste exemplo é utilizado a 1 ano.
 
-![ID de cliente][api-management-aad-client-id]
+![ID do Cliente][api-management-aad-client-id]
 
 Clique em **guardar** para guardar a configuração e apresentar a chave. 
 
@@ -452,7 +451,7 @@ Copie a chave para a área de transferência, regresse ao portal do publicador, 
 
 Imediatamente a seguir as credenciais do cliente é uma concessão do código de autorização. Copiar este código de autorização e o comutador de volta para a aplicação de portal para programadores do Azure AD Configurar página e cole a concessão de autorização para o **URL de resposta** campo e clique em **guardar** novamente.
 
-![URL de resposta][api-management-aad-reply-url]
+![URL de Resposta][api-management-aad-reply-url]
 
 O passo seguinte é configurar as permissões para o portal de programador da aplicação AAD. Clique em **permissões de aplicação** e marque a caixa de **ler os dados de diretório**. Clique em **guardar** guardar esta alteração e, em seguida, clique em **Adicionar aplicação**.
 
@@ -561,5 +560,5 @@ Para outra demonstração de configurar e utilizar esta política, consulte [nuv
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Manage your first API]: api-management-get-started.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[Manage your first API]: import-and-publish.md

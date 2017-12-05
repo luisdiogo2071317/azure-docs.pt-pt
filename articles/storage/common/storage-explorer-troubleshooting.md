@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas de Explorador de armazenamento do Azure
 
@@ -173,10 +173,18 @@ Se estiver a ligar a um serviço utilizando um URL SAS e estão a ocorrer este e
 
 - Se o URL de SAS baseiam-se uma política de acesso, certifique-se de que a política de acesso não foi revogada.
 
+Se o acidentalmente ligado um URL SAS inválido e não foi possível desligar, siga estes passos:
+1.  Ao executar o Explorador de armazenamento, premir a tecla F12 para abrir a janela de ferramentas de programador.
+2.  Clique no separador de aplicação, em seguida, clique em armazenamento Local > file:// na árvore à esquerda.
+3.  Localize a chave associada com o tipo de serviço do URI de SAS problemáticas. Por exemplo, se o incorretos URI de SAS para um contentor de blob, procure a chave com o nome "StorageExplorer_AddStorageServiceSAS_v1_blob".
+4.  O valor da chave deve ser uma matriz JSON. Localizar o objeto associado ao URI incorreto e removê-lo.
+5.  Prima Ctrl + R recarregar o Explorador de armazenamento.
+
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Se nenhuma das soluções de resolver o problema, submeter o seu problema através da ferramenta de comentários com o seu e-mail e tantos detalhes sobre o problema incluídas como podem, para que podemos contactá-lo para corrigir o problema.
 
 Para tal, clique em **ajudar** e, em seguida, clique em **enviar comentários**.
 
-![Comentários](./media/storage-explorer-troubleshooting/4022503_en_1.png)
+![Feedback](./media/storage-explorer-troubleshooting/4022503_en_1.png)

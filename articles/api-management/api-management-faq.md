@@ -1,6 +1,6 @@
 ---
 title: "FAQ sobre gestão de API do Azure | Microsoft Docs"
-description: "Saiba as respostas a perguntas comuns, padrões e melhores práticas na API Management do Azure."
+description: "Conheça as respostas às perguntas mais frequentes (FAQ), padrões e melhor práticas na API Management do Azure."
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -12,20 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: a9740cf527e4a9811b510ad5c96e5ab769efc2d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas mais frequentes sobre gestão de API do Azure
 Obter as respostas a perguntas comuns, padrões e melhores práticas para a API Management do Azure.
 
 ## <a name="contact-us"></a>Contacte-nos
 * [Como pode posso fazer a equipa de gestão de API do Microsoft Azure de uma pergunta?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
-
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 * [O que o significa de uma funcionalidade está em pré-visualização?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -62,7 +61,7 @@ Quando é uma funcionalidade de pré-visualização, significa está a procura a
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Como posso proteger a ligação entre o gateway de gestão de API e os meus serviços de back-end?
 Tem várias opções para proteger a ligação entre o gateway de gestão de API e os serviços de back-end. Pode:
 
-* Utilize a autenticação básica de HTTP. Para obter mais informações, consulte [as definições da API configurar](api-management-howto-create-apis.md#configure-api-settings).
+* Utilize a autenticação básica de HTTP. Para obter mais informações, consulte [importação e publicar a sua primeira API](import-and-publish.md).
 * Utilizar a autenticação mútua de SSL, conforme descrito em [como proteger serviços de back-end utilizando o cliente de autenticação de certificado na API Management do Azure](api-management-howto-mutual-certificates.md).
 * Utilize Adicionar à lista branca IP do seu serviço de back-end. Se tiver uma instância de gestão de API de camada Standard ou Premium, o endereço IP do gateway permanece constante. Pode definir a lista branca, para permitir que este endereço IP. Pode obter o endereço IP da sua instância de gestão de API no Dashboard do portal do Azure.
 * Ligar a instância de API Management para uma rede Virtual do Azure.
@@ -102,7 +101,7 @@ Se a política que pretende adicionar aparece desativada ou sombreados no editor
 Tem algumas opções para utilizar o controlo de versões de API na API Management:
 
 * Na API Management, pode configurar as APIs para representar versões diferentes. Por exemplo, poderá ter duas APIs diferentes, MyAPIv1 e MyAPIv2. Um programador pode escolher a versão que o programador pretende utilizar.
-* Também pode configurar a sua API com um URL de serviço não inclui um segmento de versão, por exemplo, https://my.api. Em seguida, configure um segmento de versão de cada operação [Rewrite URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) modelo. Por exemplo, pode ter uma operação com um [modelo URL](api-management-howto-add-operations.md#url-template) chamado /resource e um [Rewrite URL](api-management-howto-add-operations.md#rewrite-url-template) modelo chamado/v1/recursos. Pode alterar o valor de segmento de versão em separado para cada operação.
+* Também pode configurar a sua API com um URL de serviço não inclui um segmento de versão, por exemplo, https://my.api. Em seguida, configure um segmento de versão de cada operação [Rewrite URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) modelo. 
 * Se gostaria de manter um segmento de versão "predefinido" no URL do serviço de API, no selecionada operations, definir uma política que utiliza o [definir o serviço de back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) política para alterar o caminho de pedido de back-end.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Como configurar vários ambientes numa única API?

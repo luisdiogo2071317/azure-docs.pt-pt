@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>Erro ao processar o nas políticas de gestão de API
 Gestão de API do Azure permite editores responder a condições de erro que possam ocorrer durante o processamento de pedidos para o proxy, fornecendo um `ProxyError` objeto. O `ProxyError` objeto é acedido através do [contexto. LastError](api-management-policy-expressions.md#ContextVariables) propriedade e pode ser utilizado pelas políticas no `on-error` secção política. Este tópico fornece uma referência para o erro capacidades de processamento na API Management do Azure.  
@@ -56,39 +56,28 @@ Gestão de API do Azure permite editores responder a condições de erro que pos
  As seguintes políticas podem ser utilizadas no `on-error` secção política.  
   
 -   [Escolha](api-management-advanced-policies.md#choose)  
-  
 -   [Definir variável](api-management-advanced-policies.md#set-variable)  
-  
 -   [localizar e substituir](api-management-transformation-policies.md#Findandreplacestringinbody)  
-  
 -   [resposta de retorno](api-management-advanced-policies.md#ReturnResponse)  
-  
 -   [cabeçalho de conjunto](api-management-transformation-policies.md#SetHTTPheader)  
-  
 -   [método de conjunto](api-management-advanced-policies.md#SetRequestMethod)  
-  
 -   [Definir estado](api-management-advanced-policies.md#SetStatus)  
-  
 -   [pedido de envio](api-management-advanced-policies.md#SendRequest)  
-  
 -   [enviar-uma forma de pedido](api-management-advanced-policies.md#SendOneWayRequest)  
-  
 -   [registo para eventhub](api-management-advanced-policies.md#log-to-eventhub)  
-  
 -   [JSON para xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
-  
 -   [XML para json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>LastError  
  Quando ocorre um erro e controlo de passar para o `on-error` secção de política, o erro é armazenado no [contexto. LastError](api-management-policy-expressions.md#ContextVariables) propriedade que pode ser acedida por políticas no `on-error` secção e tem as seguintes propriedades.  
   
-|Nome|Tipo|Descrição|Necessário|  
+|Nome|Tipo|Descrição|Requerido|  
 |----------|----------|-----------------|--------------|  
-|Origem|Cadeia|Os nomes de elemento onde ocorreu o erro. Pode ser política ou um nome de passo de pipeline incorporada.|Sim|  
+|Ver código-fonte|Cadeia|Os nomes de elemento onde ocorreu o erro. Pode ser política ou um nome de passo de pipeline incorporada.|Sim|  
 |Razão|Cadeia|Código de erro de máquina amigável, que foi utilizado no processamento de erros.|Não|  
 |Mensagem|Cadeia|Descrição do erro legível por humanos.|Sim|  
 |Âmbito|Cadeia|Nome do âmbito em que ocorreu o erro e pode ser uma das "global", "product", "api" ou "operação"|Não|  
-|Section|Cadeia|Nome de secção onde ocorreu o erro e foi uma das "de entrada", "backend", "saída" ou "no error".|Não|  
+|Secção|Cadeia|Nome de secção onde ocorreu o erro e foi uma das "de entrada", "backend", "saída" ou "no error".|Não|  
 |Caminho|Cadeia|Especifica a política aninhada, por exemplo, "Escolha [3] / quando [2]".|Não|  
 |PolicyId|Cadeia|O valor da `id` atributo, se for especificado pelo cliente, na política de onde ocorreu o erro|Não|  
   
@@ -98,7 +87,7 @@ Gestão de API do Azure permite editores responder a condições de erro que pos
 ## <a name="predefined-errors-for-built-in-steps"></a>Erros predefinidos para passos incorporados  
  Os seguintes erros estão predefinidos para condições de erro que podem ocorrer durante a avaliação dos passos de processamento incorporada.  
   
-|Origem|Condição|Razão|Mensagem|  
+|Ver código-fonte|Condição|Razão|Mensagem|  
 |------------|---------------|------------|-------------|  
 |configuração|URI não corresponde a qualquer Api ou a operação|OperationNotFound|Não é possível comparar o pedido de entrada para uma operação.|  
 |Autorização|Chave de subscrição não foi fornecido|SubscriptionKeyNotFound|Acesso negado devido à falta de chave de subscrição. Certifique-se de que inclui a chave de subscrição quando efetuar pedidos para esta API.|  
@@ -107,7 +96,7 @@ Gestão de API do Azure permite editores responder a condições de erro que pos
 ## <a name="predefined-errors-for-policies"></a>Erros predefinidos para as políticas  
  Os seguintes erros estão predefinidos para condições de erro que podem ocorrer durante a avaliação da política.  
   
-|Origem|Condição|Razão|Mensagem|  
+|Ver código-fonte|Condição|Razão|Mensagem|  
 |------------|---------------|------------|-------------|  
 |limite de taxa|Excedida o limite de velocidade|RateLimitExceeded|O limite de velocidade for excedido|  
 |quota|Quota foi excedida|QuotaExceeded|Volume de chamadas fora da quota. Quota será replenished no xx:xx:xx. - ou - de quota de largura de banda. Quota será replenished no xx:xx:xx.|  
@@ -128,4 +117,10 @@ Gestão de API do Azure permite editores responder a condições de erro que pos
 |jwt validar|Outras falhas de validação|JwtInvalid|< Mensagem da biblioteca de jwt\>|
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações para trabalhar com as políticas, consulte [políticas na API Management](api-management-howto-policies.md).  
+
+Para obter mais informações para trabalhar com as políticas, consulte:
+
++ [Políticas de gestão de API](api-management-howto-policies.md)
++ [APIs de transformação](transform-api.md)
++ [Referência de política](api-management-policy-reference.md) para uma lista completa das declarações de política e as respetivas definições
++ [Exemplos de política](policy-samples.md)   

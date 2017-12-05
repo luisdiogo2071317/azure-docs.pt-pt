@@ -3,22 +3,21 @@ title: "Proteger serviços de back-end utilizando o cliente de autenticação de
 description: "Saiba como proteger serviços de back-end utilizando a autenticação de certificado de cliente na API Management do Azure."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 43453331-39b2-4672-80b8-0a87e4fde3c6
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 196a91c21afb8c1596c9766f6a2a5d373b828f60
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: c8573c73b0a6dc1b2644f78276d2f3e4fd442cea
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como proteger serviços de back-end utilizando o cliente de autenticação de certificado na API Management do Azure
 API Management fornece a capacidade para proteger o acesso ao serviço de back-end de uma API utilizando certificados de cliente. Este guia mostra como gerir certificados no portal do publicador API e como configurar uma API para utilizar um certificado para aceder ao seu serviço de back-end.
@@ -33,7 +32,7 @@ Para começar, clique em **Portal do editor** no Portal do Azure para o seu serv
 
 ![Portal do publicador da API][api-management-management-console]
 
-> Se ainda não criou uma instância de serviço de Gestão de API, consulte [Criar uma instância de serviço de Gestão de API][Create an API Management service instance] no tutorial [Introdução à Gestão de API do Azure][Get started with Azure API Management].
+> Se ainda não criou uma instância de serviço de API Management, consulte [criar uma instância de serviço de API Management][Create an API Management service instance].
 > 
 > 
 
@@ -70,7 +69,7 @@ Quando o certificado é carregado, aparecerá no **certificados de cliente** sep
 ## <a name="step1a"></a>Eliminar um certificado de cliente
 Para eliminar um certificado, clique em **eliminar** junto do certificado pretendido.
 
-![Eliminar o certificado][api-management-certificate-delete]
+![Eliminar Certificado][api-management-certificate-delete]
 
 Clique em **Sim, elimine-o** para confirmar.
 
@@ -91,7 +90,7 @@ Selecione **certificados de cliente** do **com credenciais** na lista pendente.
 
 Selecione o certificado pretendido o **certificado de cliente** na lista pendente. Se existirem vários certificados, que pode examinar o assunto ou os últimos quatro carateres do thumbprint conforme indicado na secção anterior para determinar o certificado correto.
 
-![Selecione o certificado][api-management-select-certificate]
+![Selecionar certificado][api-management-select-certificate]
 
 Clique em **guardar** para guardar a alteração de configuração para a API.
 
@@ -144,10 +143,10 @@ Para mais informações sobre outras formas de proteger o seu serviço de back-e
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

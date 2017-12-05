@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 030d6d136c16946d6231b165b4b33d496bb7c818
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chaves exclusivas do BD Azure Cosmos
 
-Chaves exclusivas fornecem os programadores a capacidade de adicionar uma camada de integridade dos dados para a respetiva base de dados. Criar uma política de chave exclusiva quando é criado um contentor, certifique-se a exclusividade de um ou mais valores por [partição](partition-data.md). Depois de criar um contentor com a política de chave exclusiva, impede a criação de quaisquer itens de novas ou atualizadas com valores duplicados valores especificados pela restrição de chave exclusiva.   
+Chaves exclusivas fornecem os programadores a capacidade de adicionar uma camada de integridade dos dados para a respetiva base de dados. Criar uma política de chave exclusiva quando é criado um contentor, certifique-se a exclusividade de um ou mais valores por [chave de partição](partition-data.md). Depois de criar um contentor com a política de chave exclusiva, impede a criação de quaisquer itens de novas ou atualizadas com valores duplicados valores especificados pela restrição de chave exclusiva.   
 
 > [!NOTE]
 > Chaves exclusivas são suportadas por versões mais recentes do [.NET](documentdb-sdk-dotnet.md) e [.NET Core](documentdb-sdk-dotnet-core.md) SDKs do DocumentDB (SQL) e o [MongoDB API](mongodb-feature-support.md#unique-indexes). A API de tabela e a Graph API não suportam chaves exclusivas neste momento. 
@@ -38,7 +38,7 @@ Se pretende que os utilizadores para conseguir criar vários registos com o mesm
 
 **Valores de chave exclusiva do e-mail, firstName e lastName permitidos**
 
-|Nome próprio|Apelido|Endereço de e-mail|
+|Nome próprio|Apelido|Endereço de correio eletrónico|
 |---|---|---|
 |Gaby|Duperre|gaby@contoso.com |
 |Gaby|Duperre|gaby@fabrikam.com|

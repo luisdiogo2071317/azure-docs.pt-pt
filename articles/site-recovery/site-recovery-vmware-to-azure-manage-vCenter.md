@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/04/2017
 ms.author: anoopkv
-ms.openlocfilehash: 1b7a2d99cfa9f7d54d5303c21202fc34cf6d15ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2dcca54c9e1e9330bf7c2a37dc08f67817b6af47
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Gerir o VMware vCenter Server no Azure Site Recovery
 Este artigo aborda as várias operações de recuperação de sites que podem ser executadas no VMware vCenter.
@@ -27,7 +27,7 @@ Este artigo aborda as várias operações de recuperação de sites que podem se
 
 **Suporta o VMware vCenter e VMware vSphere anfitrião do ESX** | **Detalhes** |
 |--- | --- |
-|**Servidores do VMware no local** | Um ou mais VMware vSphere servidores, com 6.0, 5.5, 5.1 com as atualizações mais recentes. Servidores devem estar localizados na mesma rede que o servidor de configuração (ou o servidor de processo separado).<br/><br/> Recomendamos que um servidor vCenter para gerir anfitriões, com 6.0 ou 5.5 com as atualizações mais recentes. Apenas as funcionalidades que estão disponíveis no 5.5 são suportadas quando implementar a versão 6.0.|
+|**Servidores do VMware no local** | Um ou mais VMware vSphere servidores, execução 6.5,6.0, 5.5 com atualizações mais recentes. Servidores devem estar localizados na mesma rede que o servidor de configuração (ou o servidor de processo separado).<br/><br/> Recomendamos que um servidor vCenter para gerir anfitriões, com 6.5,6.0 ou 5.5 com as atualizações mais recentes. Apenas as funcionalidades que estão disponíveis no 5.5 são suportadas quando implementar a versão 6.0.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparar uma conta de deteção automática
 Recuperação de sites precisa de aceder ao VMware para o servidor de processos detetar automaticamente máquinas virtuais e para ativação pós-falha e a reativação pós-falha de máquinas virtuais.

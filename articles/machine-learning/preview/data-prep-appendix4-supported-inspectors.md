@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Suportado inspetores para a pré-visualização de preparação de dados do Azure Machine Learning
 Este documento descreve o conjunto de inspetores que estão disponíveis nesta pré-visualização.
@@ -54,7 +54,7 @@ Este Inspector suporta o efeito de halo.
 - Sobreposição de desenho de densidade de kernel (Gaussian kernel) 
 
 
-### <a name="actions"></a>Ações
+### <a name="actions"></a>Acções
 Este inspector suporta filtragem através de registos, que podem incluir único ou selecionar vários registos. Aplica filtros conforme descritos anteriormente.
 
 ## <a name="value-counts"></a>Contagens de valor
@@ -67,7 +67,7 @@ Este inspector apresenta uma tabela de frequência de valores para a coluna atua
 - Mostrar halo
 
 
-### <a name="actions"></a>Ações 
+### <a name="actions"></a>Acções 
 Este inspector suporta filtragem através de barras, que podem incluir as barras de valor única ou selecionar vários. Aplica filtros conforme descritos anteriormente.
 
 ## <a name="box-plot"></a>Desenho de caixa 
@@ -95,7 +95,7 @@ Um gráfico de linha com deteção automática de tempo no eixo x.
 - Tamanho da amostra
 
 
-### <a name="actions"></a>Ações
+### <a name="actions"></a>Acções
 Este inspector suporta filtragem através de um método select de clique e arraste para selecionar um intervalo no gráfico. Depois de concluir a seleção, aplica filtros conforme descritos anteriormente.
 
 
@@ -109,7 +109,22 @@ Um mapa com pontos são desenhados, partindo do princípio que foram especificad
 - Agrupar por coluna
 
 
-### <a name="actions"></a>Ações
+### <a name="actions"></a>Acções
 Este inspector suporta filtragem através de seleção de ponto no mapa. Prima a **Ctrl** chave e, em seguida, clique e arraste com o rato para formar um quadrado à volta de pontos. Em seguida, aplicar filtros conforme descritos anteriormente.
 
 Rapidamente pode redimensionar o mapa para mostrar apenas os pontos de possíveis, premindo o **i** no lado esquerdo do mapa.
+
+
+## <a name="pattern-frequency"></a>Frequência de padrão 
+
+Este inspector mostra uma lista de padrões na coluna selecionada de cadeia. Os padrões são representados utilizando uma expressão regular como sintaxe. Posicionado o padrão mostra exemplos de valores representados por esse padrão. Juntamente com os padrões, também é apresentado os coverages aproximados em termos de percentagem.
+
+![Imagem de inspector o padrão](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### <a name="options"></a>Opções
+- Número de valores superiores
+- Descendente
+- Mostrar halo
+
+### <a name="actions"></a>Acções
+Este inspector suporta filtragem com base em padrões apresentados. Prima a **Ctrl** da chave e, em seguida, selecione as barras de manchas na inspector padrão. Em seguida, aplicar filtros conforme descritos anteriormente. Como resultado acion utilizador, é adicionado um passo de filtragem avançadas. Pode ver e modificar o código de Python gerado ao invocar a opção de editar o passo de filtro avançadas.

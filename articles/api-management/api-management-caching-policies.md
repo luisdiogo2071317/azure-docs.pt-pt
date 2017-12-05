@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f8405528310813e305196d06b1b376410022193
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-caching-policies"></a>Políticas de gestão de API de colocação em cache
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -28,15 +28,12 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 -   Resposta de colocação em cache de políticas  
   
     -   [Obter a partir da cache](api-management-caching-policies.md#GetFromCache) -efetuar cache procurar e devolver um válido as respostas em cache quando disponível.  
-  
     -   [Arquivo de cache](api-management-caching-policies.md#StoreToCache) -coloca em cache respostas de acordo com a configuração de controlo de cache especificado.  
   
 -   Valor de políticas de colocação em cache  
-  
-    -   [Obter o valor da cache](#GetFromCacheByKey) -obter um item em cache por chave.  
-  
-    -   [Armazenar o valor na cache](#StoreToCacheByKey) -armazenar um item na cache por chave.  
-  
+
+    -   [Obter o valor da cache](#GetFromCacheByKey) -obter um item em cache por chave. 
+    -   [Armazenar o valor na cache](#StoreToCacheByKey) -armazenar um item na cache por chave. 
     -   [Remova o valor da cache](#RemoveCacheByKey) -remover um item na cache por chave.  
   
 ##  <a name="GetFromCache"></a>Obter a partir da cache  
@@ -106,7 +103,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |pesquisa de cache|Elemento raiz.|Sim|  
 |variar pelo cabeçalho|Iniciar a colocação em cache respostas por valor do cabeçalho especificado, tais como autorização aceitar, aceitar-conjunto de carateres, aceitar codificação, idioma de aceitar, esperado, do anfitrião, If-Match.|Não|  
@@ -114,19 +111,18 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|permitir-privada-resposta-colocação em cache|Quando definido como `true`, permite a colocação em cache de pedidos que contêm um cabeçalho de autorização.|Não|FALSO|  
-|a jusante tipo colocação em cache|Este atributo deve ser definido para um dos seguintes valores.<br /><br /> -nenhum - não é permitida a colocação em cache a jusante.<br />-privada - a jusante privada colocação em cache é permitida.<br />-públicas - privadas e partilhado a jusante a colocação em cache é permitida.|Não|Nenhum|  
-|tem-revalidate|Se a jusante a colocação em cache está ativada neste atributo transforma ou desativar o `must-revalidate` diretiva de controlo de cache nas respostas de gateway.|Não|VERDADEIRO|  
-|variar pelo programador|Definido como `true` para respostas de cache por chave de programador.|Não|FALSO|  
-|variar-por-programador-groups|Definido como `true` para respostas de cache por função de utilizador.|Não|FALSO|  
+|permitir-privada-resposta-colocação em cache|Quando definido como `true`, permite a colocação em cache de pedidos que contêm um cabeçalho de autorização.|Não|False|  
+|a jusante tipo colocação em cache|Este atributo deve ser definido para um dos seguintes valores.<br /><br /> -nenhum - não é permitida a colocação em cache a jusante.<br />-privada - a jusante privada colocação em cache é permitida.<br />-públicas - privadas e partilhado a jusante a colocação em cache é permitida.|Não|nenhum|  
+|tem-revalidate|Se a jusante a colocação em cache está ativada neste atributo transforma ou desativar o `must-revalidate` diretiva de controlo de cache nas respostas de gateway.|Não|true|  
+|variar pelo programador|Definido como `true` para respostas de cache por chave de programador.|Não|False|  
+|variar-por-programador-groups|Definido como `true` para respostas de cache por função de utilizador.|Não|False|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
-  
 -   **Âmbitos de política:** API, operação, produto  
   
 ##  <a name="StoreToCache"></a>Armazene a cache  
@@ -185,21 +181,20 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |arquivo de cache|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |Duração|Especificar o Time-to-live das entradas em cache, em segundos.|Sim|N/D|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **As secções de política:** saída  
-  
+-   **As secções de política:** saída    
 -   **Âmbitos de política:** API, operação, produto  
   
 ##  <a name="GetFromCacheByKey"></a>Obter o valor da cache  
@@ -228,23 +223,22 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |valor de pesquisa de cache|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |valor predefinido|Um valor que será atribuído para a variável, caso a pesquisa de chave de cache resultou numa falha de acerto na. Se este atributo não for especificado, `null` está atribuído.|Não|`null`|  
-|key|Valor de chave de cache para utilizar a pesquisa.|Sim|N/D|  
+|chave|Valor de chave de cache para utilizar a pesquisa.|Sim|N/D|  
 |nome da variável|Nome do [variável de contexto](api-management-policy-expressions.md#ContextVariables) o valor looked cópias de segurança será atribuído, se a pesquisa foi concluída com êxito. Se a pesquisa resulta numa falha de acerto na, a variável será atribuída o valor da `default-value` atributo ou `null`, se o `default-value` atributo for omitido.|Sim|N/D|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada, saída, back-end, no caso de erro  
-  
 -   **Âmbitos de política:** global, API, operação, produto  
   
 ##  <a name="StoreToCacheByKey"></a>Armazenar o valor na cache  
@@ -271,27 +265,26 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |valor de arquivo de cache|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
 |Duração|Valor serão colocadas em cache para o valor de duração fornecido, especificado em segundos.|Sim|N/D|  
-|key|O valor de chave de cache será armazenado em.|Sim|N/D|  
+|chave|O valor de chave de cache será armazenado em.|Sim|N/D|  
 |valor|O valor a ser colocados em cache.|Sim|N/D|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada, saída, back-end, no caso de erro  
-  
 -   **Âmbitos de política:** global, API, operação, produto  
   
 ###  <a name="RemoveCacheByKey"></a>Remova o valor da cache  
- O `cache-remove-value` elimina um item em cache identificado pela respetiva chave. A chave pode ter um valor de cadeia arbitrária e, geralmente, é fornecida através de uma expressão de política.  
+O `cache-remove-value` elimina um item em cache identificado pela respetiva chave. A chave pode ter um valor de cadeia arbitrária e, geralmente, é fornecida através de uma expressão de política.  
   
 #### <a name="policy-statement"></a>Declaração de política  
   
@@ -311,23 +304,27 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 #### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Necessário|  
+|Nome|Descrição|Requerido|  
 |----------|-----------------|--------------|  
 |cache-remove-valor|Elemento raiz.|Sim|  
   
 #### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Necessário|Predefinição|  
+|Nome|Descrição|Requerido|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|key|A chave do valor anteriormente em cache a serem removidos da cache.|Sim|N/D|  
+|chave|A chave do valor anteriormente em cache a serem removidos da cache.|Sim|N/D|  
   
 #### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
 -   **As secções de política:** entrada, saída, back-end, no caso de erro  
-  
 -   **Âmbitos de política:** global, API, operação, produto  
-  
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações para trabalhar com as políticas, consulte [políticas na API Management](api-management-howto-policies.md).  
+
+Para obter mais informações para trabalhar com as políticas, consulte:
+
++ [Políticas de gestão de API](api-management-howto-policies.md)
++ [APIs de transformação](transform-api.md)
++ [Referência de política](api-management-policy-reference.md) para uma lista completa das declarações de política e as respetivas definições
++ [Exemplos de política](policy-samples.md)   
