@@ -1,29 +1,22 @@
 ---
-title: Partilha de ficheiros para o cluster DC/OS do Azure | Microsoft Docs
+title: Partilha de ficheiros de cluster do Azure DC/OS
 description: "Criar e montar uma partilha de ficheiros para um cluster DC/SO no serviço de contentor do Azure"
 services: container-service
-documentationcenter: 
 author: julienstroheker
 manager: dcaro
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, contentores, microserviços, Mesos, Azure, partilha de ficheiros, cifs"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: a5905cac12f52f94a5722cc01495d5c1168634f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1c318f4204efd24a2d9d3d83bb1cb71f5775bdb
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Criar e montar uma partilha de ficheiros para um cluster DC/OS
+
 Este tutorial fornece detalhes sobre como criar uma partilha de ficheiros no Azure e montá-la em cada agente e o mestre do cluster DC/OS. Configurar uma partilha de ficheiros torna mais fácil partilhar ficheiros em cluster, tais como a configuração, acesso, os registos e muito mais. As seguintes tarefas são concluídas neste tutorial:
 
 > [!div class="checklist"]

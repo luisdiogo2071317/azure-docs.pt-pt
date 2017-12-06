@@ -2,22 +2,15 @@
 title: "Tutorial de registo de contentor do Azure – implemente a aplicação web a partir do registo de contentor do Azure"
 description: "Implemente uma aplicação web baseado em Linux utilizando uma imagem do contentor de um registo de contentor do Azure georreplicação. Parte dois de uma série de três partes."
 services: container-registry
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: neilpeterson
-tags: acr, azure-container-registry, geo-replication
-keywords: Docker, contentores, registo, Azure
 ms.service: container-registry
-ms.devlang: 
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 4c597ab33bf344717f82187f4f7e6e620fd64d3e
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/05/2017

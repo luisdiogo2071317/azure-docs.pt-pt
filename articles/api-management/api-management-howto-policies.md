@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 5c8e0a317126ae651bc93b7a00c3742e12d975fc
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 315e4bd7372416800373f98ecb5d8b1eb440e134
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="policies-in-azure-api-management"></a>Políticas de API Management do Azure
 
@@ -70,7 +70,7 @@ Consulte o [referência de política](api-management-policy-reference.md) para u
 
 ## <a name="policy-samples"></a>Exemplos de política
 
-Consulte [amostras de política](policy-samples.md) para obter exemplos de código.
+Consulte [amostras de política](policy-samples.md) para obter mais exemplos de código.
 
 ## <a name="examples"></a>Exemplos
 

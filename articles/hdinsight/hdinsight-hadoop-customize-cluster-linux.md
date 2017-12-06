@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5e4fe189a3fa7269a271b422116dc6838e7ef3cb
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalizar clusters do HDInsight baseado em Linux utilizando as ações de script
 
@@ -76,9 +76,6 @@ Uma ação de script é scripts de Bash que fornecem um URI para e os parâmetro
         > HDInsight suporta apenas __para fins gerais__ contas de armazenamento do Azure. Não suporta atualmente o __armazenamento de BLOBs__ tipo de conta.
 
 * Pode ser restringida a **em apenas determinados tipos de nó**para nós principais de exemplo ou nós de trabalho.
-
-  > [!NOTE]
-  > Quando utilizado com o HDInsight Premium, pode especificar que o script deve ser utilizado no nó de extremidade.
 
 * Pode ser **persistente** ou **ad hoc**.
 
@@ -425,7 +422,7 @@ O serviço de HDInsight fornece várias formas de utilizar componentes personali
 
 3. Amostras - para componentes personalizados populares, a Microsoft e outras pessoas podem fornecer exemplos de como estes componentes podem ser utilizados nos clusters do HDInsight. Estes exemplos são fornecidos sem suporte.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 Pode utilizar a IU da web do Ambari para ver informações registadas pelas ações de script. Se o script falhar durante a criação do cluster, os registos também estão disponíveis na conta do storage predefinida associada com o cluster. Esta secção fornece informações sobre como obter os registos utilizando ambas estas opções.
 

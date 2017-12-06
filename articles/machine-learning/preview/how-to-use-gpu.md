@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 552a4c9565bef62bb1aa7071b88473feb21a05f8
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 4ef5c9ad58f86a669fc5c0bceb085ef2a266a008
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Como utilizar GPU no Azure Machine Learning
 Unidade de processamento gráfico (GPU) em grande escala é utilizada para processar tarefas viáveis intensivas que, normalmente, podem acontecer quando se prepara determinados modelos de rede neuronal profundo. Ao utilizar GPUs, pode reduzir o tempo de preparação dos modelos significativamente. Neste documento, irá aprender a configurar o Azure ML Workbench utilizar [DSVM (máquina de Virtual de ciência de dados)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) equipados com GPUs como destino de execução. 
@@ -78,7 +78,7 @@ Pode utilizar o _MNIST classificar utilizando TensorFlow_ exemplo, ou o _classif
 Inicie a linha de comandos do Azure ML Workbench. Introduza o seguinte comando. Substitua o texto do marcador do exemplo abaixo os seus próprios valores para o nome, endereço IP, nome de utilizador e palavra-passe. 
 
 ```batch
-C:\MyProj> az ml computetarget attach --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password" --type remotedocker
+C:\MyProj> az ml computetarget attach remotedocker --name "my_dsvm" --address "my_dsvm_ip_address" --username "my_name" --password "my_password" 
 ```
 
 ### <a name="configure-azure-ml-workbench-to-access-gpu"></a>Configurar o Azure ML Workbench para acesso GPU

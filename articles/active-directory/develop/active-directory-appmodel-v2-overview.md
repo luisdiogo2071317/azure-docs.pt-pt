@@ -15,42 +15,40 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a6a7c6bdf3deaee3a3949fe409a7fab6b7664695
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: bd090450fad0be855240788c4cfa9dc58c1c4c6d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Início de sessão Microsoft Account & utilizadores do Azure AD numa única aplicação
-No passado, um programador de aplicações que pretendiam para suportar ambas as contas pessoais da Microsoft e funcionam contas do Azure Active Directory foi necessários para integrar com dois sistemas separados.  O **ponto final de v 2.0 do Azure AD** introduz uma nova versão de API de autenticação permite-lhe iniciar sessão em ambos os tipos de contas utilizando uma integração simple.  As aplicações que utilizem o ponto final v 2.0 também podem consumir APIs REST do [Microsoft Graph](https://graph.microsoft.io) utilizando qualquer tipo de conta.
+# <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Inicie sessão no Azure Active Directory e Account Microsoft a utilizadores numa única aplicação
+No passado, os programadores de aplicações que pretendiam para suportar ambas as contas pessoais da Microsoft e contas do Azure Active Directory profissionais tinham que integrar com dois sistemas separados. O ponto de final de v 2.0 do Azure Active Directory (Azure AD) apresenta uma nova versão de API de autenticação que simplifica este processo. Ponto final v 2.0 do Azure AD permite início de sessão a partir de ambos os tipos de contas através de uma única integração. As aplicações que utilizam o ponto final v 2.0 do Azure AD também podem consumir as APIs REST do [Microsoft Graph API](https://graph.microsoft.io) através da utilização de qualquer tipo de conta.
 
 ## <a name="getting-started"></a>Introdução
-Escolha a sua plataforma favorita na lista seguinte para criar uma aplicação utilizando as nossas bibliotecas de open source para & estruturas.  Em alternativa, pode utilizar a nossa documentação do protocolo OAuth 2.0 & OpenID Connect para enviar e receber mensagens de protocolo diretamente, sem utilizar uma biblioteca de autenticação.
-
+Escolha a sua plataforma favorita na lista seguinte para criar uma aplicação utilizando o Microsoft abrir estruturas e bibliotecas de origem. Também pode utilizar os protocolos de OAuth 2.0 e o OpenID Connect para enviar e receber mensagens de protocolo diretamente, sem utilizar uma biblioteca de autenticação.
 <br />
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [Azure AD v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
-## <a name="whats-new"></a>Novidades
-As informações aqui será útil compreender o que é & o que não é possível com o ponto final v 2.0.
+## <a name="learn-more-about-the-azure-ad-v20-endpoint"></a>Saiba mais sobre o ponto final v 2.0 do Azure AD
+Saiba mais sobre o que pode fazer com o ponto de final de v 2.0 do Azure AD:
 
-* Saiba mais sobre o [tipos de aplicações, pode criar com o ponto final v 2.0](active-directory-v2-flows.md).
-* Compreender o [limitações e restrições](active-directory-v2-limitations.md) com o ponto final v 2.0.
-* Veja esta descrição geral do vídeo para o ponto final v 2.0:
+* Detetar o [tipos de aplicações que podem ser criados com o ponto de final de v 2.0 do Azure AD](active-directory-v2-flows.md).
+* Compreender o [limitações e restrições](active-directory-v2-limitations.md) com o ponto de final de v 2.0 do Azure AD.
+* Veja este vídeo para uma descrição geral do ponto final v 2.0 do Azure AD:
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
-## <a name="reference"></a>Referência
-Estas hiperligações serão úteis para explorar a plataforma em profundidade:
+## <a name="additional-resources"></a>Recursos adicionais
+Explore informações aprofundadas sobre a plataforma de ponto final de v 2.0 do Azure AD:
 
-* [Referência do protocolo de v 2.0](active-directory-v2-protocols.md)
-* [Referência de Token de v 2.0](active-directory-v2-tokens.md)
-* [Referência da biblioteca de v 2.0](active-directory-v2-libraries.md)
-* [Âmbitos e consentimento no ponto final v 2.0](active-directory-v2-scopes.md)
-* [O Microsoft Graph](https://graph.microsoft.io)
+* [Referenciam de protocolos de v 2.0 do Azure AD](active-directory-v2-protocols.md)
+* [Referência de tokens do Azure AD v 2.0](active-directory-v2-tokens.md)
+* [Referenciam a bibliotecas de autenticação de v 2.0 do Azure AD](active-directory-v2-libraries.md)
+* [Âmbitos e consentimento no ponto final v 2.0 do Azure AD](active-directory-v2-scopes.md)
+* [O Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]
-> Se só precisa de iniciar sessão em contas profissionais e escolares do Azure Active Directory, deve começar com o nosso [guia para programadores do Azure AD](active-directory-developers-guide.md).  O ponto final v 2.0 destina-se a programadores que necessitem explicitamente para iniciar sessão em contas pessoais da Microsoft.
+> Se só precisa de iniciar sessão em contas profissionais e escolares do Azure Active Directory, começar a utilizar o [guia para programadores do Azure AD](active-directory-developers-guide.md). Ponto final v 2.0 do Azure AD destina-se a programadores que necessitem explicitamente para iniciar sessão em contas pessoais da Microsoft.
 
-
-[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

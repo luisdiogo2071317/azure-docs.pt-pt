@@ -1,28 +1,22 @@
 ---
-title: Cluster do Azure DC/OS do monitor - Datadog | Microsoft Docs
+title: Monitorizar o cluster do Azure DC/SO - Datadog
 description: "Monitorize um cluster do serviço de contentor do Azure com Datadog. Utilize a IU da web de DC/OS para implementar os agentes de Datadog ao cluster."
 services: container-service
-documentationcenter: 
 author: sauryadas
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: Contentores, DC/SO, o Docker Swarm, Azure
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 9dd451f994940d7cc3a59bd7fd08a8f067345e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b895ef906a8c8f3f8cc21267d80f8b59b64837f4
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Monitor de um cluster do serviço de contentor do Azure DC/SO com Datadog
+
 Neste artigo, irá implementar agentes Datadog para todos os nós de agente no seu cluster do serviço de contentor do Azure. Precisa de uma conta com Datadog para esta configuração. 
 
 ## <a name="prerequisites"></a>Pré-requisitos

@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 89a2e590d7ae80540ac9f4d76be6f5f50049bdd6
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d1f5c6e0ab682aedf015189f3540442a5657d462
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/05/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detetar enfrentam e emoções com a análise de multimédia do Azure
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O **Azure suporte de dados enfrentam Detector** processador de multimédia (MP) permite-lhe contagem, controlar movimentos e mesmo meça a participação de público-alvo e reação através de expressões facial. Este serviço contém duas funcionalidades: 
 
 * **Deteção de rostos em**
@@ -334,12 +334,7 @@ O seguinte programa mostra como:
 
 Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento de Serviços de Multimédia com .NET). 
 
-Para o exemplo funcionar, siga estes dois passos adicionais:
 
-1. A versão de utilização 4.1.0 do **WindowsAzure.MediaServices.Extensions** (devido a problemas de compatibilidade com os pacotes dependentes). 
-2. A versão de utilização 3.16.1 do **Microsoft.IdentityModel.Clients.ActiveDirectory** (devido a um erro conhecido em versões posteriores).
-
-Estes requisitos estão em vigor no momento de 24 de Novembro de 2017.
 
 #### <a name="example"></a>Exemplo
 

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 265c5f660c4bee53a2faf4a073384587eb3f65fc
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Resolver problemas de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -26,7 +26,7 @@ Utilize sincronização de ficheiros do Azure (pré-visualização) para central
 Este artigo foi concebido para ajudar a resolver problemas que podem surgir com a implementação de sincronização de ficheiros do Azure. Dita também como recolher registos importantes do sistema, se uma investigação mais aprofundada do problema é necessária. Se não vir a resposta à sua pergunta, pode contactar-nos através dos seguintes canais (pela ordem em constante crescendo):
 
 1. A secção de comentários deste artigo.
-2. [Fórum de armazenamento do Azure](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. [Fórum de armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure ficheiros UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Suporte da Microsoft. Para criar um novo pedido de suporte, no portal do Azure, o **ajudar** separador, selecione o **ajuda + suporte** botão e, em seguida, selecione **novo pedido de suporte**.
 
@@ -44,7 +44,7 @@ Reveja installer.log para determinar a causa da falha de instalação.
 > A instalação do agente irá falhar se a máquina está configurada para utilizar o Microsoft Update e o serviço Windows Update não está em execução.
 
 <a id="server-registration-missing"></a>**Servidor não está listado em servidores registados no portal do Azure**  
-Se um servidor não está listado em **servidores registados** para um serviço de sincronização de armazenamento:
+Se um servidor não está listado em **registado servidores** para um serviço de sincronização de armazenamento:
 1. Inicie sessão servidor que pretende registar.
 2. Abra o Explorador de ficheiros e, em seguida, avance para o diretório de instalação do agente de sincronização de armazenamento (a localização predefinida é c:\Programas\Microsoft Files\Azure\StorageSyncAgent). 
 3. Execute ServerRegistration.exe e conclua o Assistente para registar o servidor com um serviço de sincronização de armazenamento.
@@ -55,7 +55,7 @@ Se um servidor não está listado em **servidores registados** para um serviço 
 
 Esta mensagem é apresentada se o servidor foi anteriormente registado com um serviço de sincronização de armazenamento. Para anular o registo do servidor do serviço de sincronização atual do armazenamento e, em seguida, registe com um novo serviço de sincronização de armazenamento, execute os passos descritos em [anular o registo de um servidor com sincronização de ficheiros do Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
-Se o servidor não está listado em **servidores registados** no serviço de sincronização de armazenamento, no servidor que pretende anular o registo, execute os seguintes comandos do PowerShell:
+Se o servidor não está listado em **registado servidores** no serviço de sincronização de armazenamento, no servidor que pretende anular o registo, execute os seguintes comandos do PowerShell:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -68,8 +68,8 @@ Reset-StorageSyncServer
 <a id="web-site-not-trusted"></a>**Quando o registo do servidor, posso ver várias respostas de "web site não fidedignos". Porquê?**  
 Este problema ocorre quando o **segurança avançada do Internet Explorer** política for ativada durante o registo de servidor. Para obter mais informações sobre como desativar corretamente o **segurança avançada do Internet Explorer** política, consulte [preparar o Windows Server para utilizar com sincronização de ficheiros do Azure](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [como implementar o ficheiro do Azure Sincronização (pré-visualização)](storage-sync-files-deployment-guide.md).
 
-## <a name="sync-group-management"></a>Gestão de grupo de sincronização
-<a id="cloud-endpoint-using-share"></a>**Falha de criação de ponto final, com o erro de nuvem: "Partilha de ficheiros do Azure especificada já está a ser utilizado por um CloudEndpoint diferentes"**  
+## <a name="sync-group-management"></a>Gestão de sincronização de grupo
+<a id="cloud-endpoint-using-share"></a>**Falha de criação do ponto final de nuvem, com este erro: "Partilha de ficheiros do Azure especificada já está a ser utilizado por um CloudEndpoint diferentes"**  
 Este problema ocorre se a partilha de ficheiros do Azure já está a ser utilizado por outro ponto final da nuvem. 
 
 Se vir esta mensagem e a partilha de ficheiros do Azure atualmente não está em utilização por um ponto final da nuvem, execute os seguintes passos para limpar os metadados de sincronização de ficheiros do Azure na partilha de ficheiros do Azure:
@@ -81,7 +81,7 @@ Se vir esta mensagem e a partilha de ficheiros do Azure atualmente não está em
 2. A partilha de ficheiros do Azure com o botão direito e, em seguida, selecione **Editar metadados**.
 3. Clique com botão direito **SyncService**e, em seguida, selecione **eliminar**.
 
-<a id="cloud-endpoint-authfailed"></a>**Falha de criação de ponto final, com o erro de nuvem: "AuthorizationFailed"**  
+<a id="cloud-endpoint-authfailed"></a>**Falha de criação do ponto final de nuvem, com este erro: "AuthorizationFailed"**  
 Este problema ocorre se a sua conta de utilizador não tem direitos suficientes para criar um ponto final da nuvem. 
 
 Para criar um ponto final da nuvem, a conta de utilizador tem de ter as seguintes permissões de Authorization Microsoft:  
@@ -102,12 +102,12 @@ Para determinar se a sua função de utilizador da conta tem as permissões nece
     * **Atribuição de função** deve ter **leitura** e **escrever** permissões.
     * **Definição de função** deve ter **leitura** e **escrever** permissões.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Falha de eliminação de ponto final, com o erro de nuvem: "MgmtInternalError"**  
+<a id="cloud-endpoint-deleteinternalerror"></a>**Falha de eliminação de ponto final da nuvem, com este erro: "MgmtInternalError"**  
 Este problema pode ocorrer se a conta de armazenamento ou de partilha de ficheiros do Azure é eliminada antes de eliminar o ponto final da nuvem. Este problema será resolvido numa atualização futura. Nessa altura, poderá eliminar um ponto final da nuvem depois de eliminar a conta de armazenamento ou de partilha de ficheiros do Azure.
 
 Entretanto, para impedir que este problema ocorrer, elimine o ponto final da nuvem antes de eliminar a conta de armazenamento ou de partilha de ficheiros do Azure.
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>Sincronizar
 <a id="afs-change-detection"></a>**Se criar um ficheiro diretamente na minha partilha de ficheiros do Azure através de SMB ou através do portal, quanto tempo demora para o ficheiro a sincronizar para servidores no grupo de sincronização?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -132,7 +132,29 @@ Se os ficheiros individuais falharem a sincronizar:
     > [!NOTE]
     > Sincronização de ficheiros do Azure periodicamente tira instantâneos VSS para sincronizar os ficheiros que tenham identificadores abertos.
 
-## <a name="cloud-tiering"></a>Disposição em camadas na cloud 
+## <a name="cloud-tiering"></a>Cloud em camadas 
+Existem dois caminhos para falhas na nuvem em camadas:
+
+- Os ficheiros podem não conseguir camada, o que significa que sincronização de ficheiros do Azure sem êxito tenta a camada de um ficheiro para ficheiros do Azure.
+- Ficheiros podem falhar a devolução de chamada, o que significa que o filtro de sistema de ficheiros de sincronização de ficheiros do Azure (StorageSync.sys) falha ao transferir dados quando um utilizador de tentativas para aceder a um ficheiro que tenha sido camado.
+
+Existem duas classes principais de falhas que podem acontecer através de um caminho de falha:
+
+- Falhas de armazenamento na nuvem
+    - *Problemas de disponibilidade do serviço de armazenamento transitório*. Consulte [contrato de nível de serviço (SLA) de armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/v1_2/) para obter mais informações.
+    - *Partilha de ficheiros do Azure inacessível*. Esta falha ocorre normalmente ao eliminar a partilha de ficheiros do Azure quando for ainda é um ponto final da nuvem de um grupo de sincronização.
+    - *Conta de armazenamento inacessível*. Esta falha ocorre normalmente quando eliminar a conta de armazenamento enquanto ainda tem uma partilha de ficheiros do Azure que é um ponto final da nuvem de um grupo de sincronização. 
+- Falhas de servidor 
+    - *Filtro de sistema do Azure ficheiros de sincronização de ficheiros (StorageSync.sys) não está carregado*. Para responder a criação de camadas/devolução de chamada pedidos, o filtro de sistema de ficheiros de sincronização de ficheiros do Azure têm de ser carregado. O filtro está a ser carregado não pode ocorrer por diversas razões, mas a razão mais comum é que o administrador descarregado-o manualmente. O filtro de sistema de ficheiros de sincronização de ficheiros do Azure têm de ser carregado em todas as horas para a sincronização de ficheiros do Azure funcionar corretamente.
+    - *Ponto de reanálise quebrada em falta, danificado ou de outra forma*. Um ponto de reanálise é uma estrutura de dados especiais num ficheiro que consiste em duas partes:
+        1. Uma tag de reanálise, que indica ao sistema operativo que o filtro de sistema de ficheiros de sincronização de ficheiros do Azure (StorageSync.sys) poderá ter de efetuar alguns ação na e/s para o ficheiro. 
+        2. Dados de reanálise, que indica ao filtro de sistema de ficheiros, o URI do ficheiro no ponto final da nuvem associada (a partilha de ficheiros do Azure). 
+        
+        A forma mais comuns que poderão ficar danificado um ponto de reanálise é se um administrador tenta modificar a etiqueta ou respetivos dados. 
+    - *Problemas de conectividade de rede*. Para o escalão ou recuperar de um ficheiro, o servidor tem de ter conectividade à internet.
+
+As seguintes secções indicam como resolver problemas de camadas na nuvem e determinar se um problema é um problema de armazenamento na nuvem ou um problema de servidor.
+
 <a id="files-fail-tiering"></a>**Resolver problemas de ficheiros que não obedeçam a camada**  
 Se os ficheiros falharem a camada para ficheiros do Azure:
 

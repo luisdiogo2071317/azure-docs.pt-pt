@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -64,15 +64,15 @@ Este tipo de eventos de risco identifica os utilizadores que têm sessão com ê
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Deslocação impossível para localizações atípicas
 
-Este tipo de eventos de risco identifica dois inícios de sessão com origem a partir de localizações geograficamente distantes, em que, pelo menos, uma das localizações pode também ser atípica para o utilizador, fornecido passado comportamento. Além disso, o tempo entre dois inícios de sessão é mais curto do que o tempo que demorariam viajam de primeira localização para o segundo, que indica que outro utilizador está a utilizar as mesmas credenciais ao utilizador. 
+Este tipo de eventos de risco identifica dois inícios de sessão com origem a partir de localizações geograficamente distantes, em que, pelo menos, uma das localizações pode também ser atípica para o utilizador, fornecido passado comportamento. Entre vários outros fatores, este algoritmo do machine learning tem em consideração o tempo entre dois inícios de sessão e a hora que demorariam para o utilizador viajam de primeira localização para o segundo, que indica que outro utilizador está a utilizar o mesmo credenciais.
 
-Este algoritmo do machine learning que ignora óbvios "*falsos positivos*" contribuir para a condição de deslocação impossível, tais como as VPNs e localizações regularmente utilizadas por outros utilizadores na organização.  O sistema tem um período de aprendizagem inicial de 14 dias durante os quais este aprende o comportamento de início de sessão de um novo utilizador.
+O algoritmo ignora óbvios "falsos positivos" contribuir para as condições de deslocação impossível, tais como as VPNs e localizações regularmente utilizadas por outros utilizadores na organização. O sistema tem um período de aprendizagem inicial de 14 dias durante os quais este aprende o comportamento de início de sessão de um novo utilizador. 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Início de sessão a partir de localizações desconhecidas
 
 Este tipo de eventos de risco considera decorridos desde o início de sessão localizações (IP, Latitude / Longitude e ASN) para determinar as localizações de nova / familiarizadas. O sistema armazena informações sobre localizações anteriores utilizados por um utilizador e considera estas localizações "familiares". O evento de risco é acionado quando o início de sessão ocorre a partir de uma localização que já não se encontra na lista de localizações familiares. O sistema tem um período de aprendizagem inicial de 30 dias, durante os quais não sinalizador quaisquer novas localizações como localizações desconhecidas. O sistema ignora também inícios de sessão de dispositivos familiares e localizações geograficamente próximo de uma localização familiar. 
 
-### <a name="sign-ins-from-infected-devices"></a>Inícios de sessão a partir de dispositivos infetados
+### <a name="sign-ins-from-infected-devices"></a>Inícios de sessão de dispositivos infetados
 
 Este tipo de eventos de risco identifica inícios de sessão de dispositivos infetados com software maligno, que são reconhecidos ativamente comunicar com um servidor bot. Isto é determinado através da correlação entre os endereços IP do dispositivo do utilizador em relação a endereços IP que contactaram um servidor bot. 
 
@@ -143,7 +143,7 @@ Impossível é normalmente um bom indicador de que um hacker conseguiu com êxit
 
 Localizações desconhecidas podem fornecer uma forte indicação de que um atacante é capaz de utilizar uma identidade roubada. FALSO-positivos podem ocorrer quando um utilizador viaja, está a tentar terminar um novo dispositivo ou está a utilizar uma VPN de novo. Como resultado destas falsos positivos, o nível de risco para este tipo de evento é **média**.
 
-### <a name="sign-ins-from-infected-devices"></a>Inícios de sessão a partir de dispositivos infetados
+### <a name="sign-ins-from-infected-devices"></a>Inícios de sessão de dispositivos infetados
 
 Este evento de risco identifica os endereços IP, não os dispositivos de utilizador. Se vários dispositivos estejam atrás de um único endereço IP e apenas alguns são controladas pela rede bot, inícios de sessão de outros dispositivos meu acionador este evento desnecessariamente, que é o motivo para classificar este evento de risco como **baixa**.  
 
@@ -165,12 +165,12 @@ Eventos de risco são foundation para proteger as identidades do seu Azure AD. D
 
 | Tipo de evento de risco | Nível de risco | Tipo de deteção |
 | :-- | --- | --- |
-| [Utilizadores com credenciais obtidas ilicitamente](#leaked-credentials) | Elevado | Offline |
-| [Inícios de sessão de endereços IP anónimos](#sign-ins-from-anonymous-ip-addresses) | Médio | Em tempo real |
-| [Deslocação impossível para localizações atípicas](#impossible-travel-to-atypical-locations) | Médio | Offline |
-| [Inícios de sessão a partir de localizações desconhecidas](#sign-in-from-unfamiliar-locations) | Médio | Em tempo real |
-| [Inícios de sessão a partir de dispositivos infetados](#sign-ins-from-infected-devices) | Baixo | Offline |
-| [Inícios de sessão de endereços IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) | Médio | Offline|
+| [Utilizadores com credenciais obtidas ilicitamente](#leaked-credentials) | Alta | Offline |
+| [Inícios de sessão de endereços IP anónimos](#sign-ins-from-anonymous-ip-addresses) | Média | Em tempo real |
+| [Deslocação impossível para localizações atípicas](#impossible-travel-to-atypical-locations) | Média | Offline |
+| [Inícios de sessão a partir de localizações desconhecidas](#sign-in-from-unfamiliar-locations) | Média | Em tempo real |
+| [Inícios de sessão a partir de dispositivos infetados](#sign-ins-from-infected-devices) | Baixa | Offline |
+| [Inícios de sessão de endereços IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) | Média | Offline|
 
 Onde podem encontrar os eventos de risco que foram detetados no seu ambiente?
 Existem dois locais onde rever eventos de risco comunicado:

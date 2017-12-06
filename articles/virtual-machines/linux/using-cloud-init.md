@@ -15,29 +15,29 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 3670676032eb71a5339bb1219cb794366b912147
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="use-cloud-init-to-customize-a-linux-vm-in-azure"></a>Utilizar a cloud init para personalizar uma VM com Linux no Azure
-Este artigo mostra como utilizar [nuvem init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual ou máquina virtual (VM) conjuntos de dimensionamento (VMSS) no aprovisionamento de tempo no Azure. Estes scripts de nuvem init executam no primeiro arranque depois dos recursos foram aprovisionados através do Azure.  
+# <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Suporte de nuvem init para máquinas virtuais no Azure
+Este artigo explica o suporte se existe para [nuvem init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual ou máquina virtual (VM) conjuntos de dimensionamento (VMSS) no aprovisionamento de tempo no Azure. Estes scripts de nuvem init executam no primeiro arranque depois dos recursos foram aprovisionados através do Azure.  
 
 ## <a name="cloud-init-overview"></a>Descrição geral da nuvem init
-[Nuvem init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux como efetua o arranque pela primeira vez. Pode utilizar a cloud init para instalar pacotes e escrever em ficheiros, ou para configurar utilizadores e de segurança. Uma vez init de nuvem é chamado durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.  Para mais informações sobre como corretamente formatar o `#cloud-config` ficheiros, consulte o [site de documentação de nuvem init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`fiels são ficheiros de texto codificados em base64.
+[Nuvem init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux como efetua o arranque pela primeira vez. Pode utilizar a cloud init para instalar pacotes e escrever em ficheiros, ou para configurar utilizadores e de segurança. Uma vez init de nuvem é chamado durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.  Para mais informações sobre como corretamente formatar o `#cloud-config` ficheiros, consulte o [site de documentação de nuvem init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`os ficheiros são ficheiros de texto codificados em base64.
 
 Nuvem init também funciona em distribuições. Por exemplo, não utilize **apt get instalação** ou **yum instalar** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes para instalar. Nuvem init utiliza automaticamente a ferramenta de gestão do pacote nativo para distro que selecionar.
 
  Estamos ativamente a trabalhar com os nossos parceiros de distro Linux endorsed para ter imagens de nuvem-init ativada disponíveis no Azure marketplace. Estas imagens fará com que as implementações de nuvem init e configurações funcionam sem problemas com as VMs e conjuntos de dimensionamento da VM (VMSS). A tabela seguinte descreve a disponibilidade de imagens de nuvem-init ativada atual na plataforma do Azure:
 
-| Publicador | Oferta | SKU | Versão | nuvem init pronto
+| Fabricante | Oferta | SKU | Versão | nuvem init pronto
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |Canónico |UbuntuServer |16.04 LTS |mais recente |sim | 
 |Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
 |CoreOS |CoreOS |Estável |mais recente |sim |
-|OpenLogic |CentOS |7 CI |mais recente |pré-visualizar |
-|RedHat |RHEL |7 CI NÃO PROCESSADOS |mais recente |pré-visualizar |
+|OpenLogic |CentOS |7 CI |mais recente |pré-visualização |
+|RedHat |RHEL |7 CI NÃO PROCESSADOS |mais recente |pré-visualização |
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>O que é a diferença entre init de nuvem e o agente Linux (WALA)?
 WALA é um agente específico da plataforma do Azure utilizado para aprovisionar, configurar VMs e processar extensões do Azure. Iremos são melhorando a tarefa de configurar VMs para utilizar init nuvem em vez do agente Linux para permitir que os clientes de nuvem init existentes utilizar os scripts de nuvem init atual.  Se tiver investimentos em scripts de nuvem init para configurar os sistemas Linux, existem **sem definições adicionais necessárias** para ativá-los. 

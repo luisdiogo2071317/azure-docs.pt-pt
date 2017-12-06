@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d6cddf54827d44e41add9e1e6b1a4323e03879e7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dff87d41df2bdb5439785846c9653f2f0be2b40d
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados utilizando a atividade de cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/03/2017
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [atividade de cópia na V2](../copy-activity-overview.md).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 No Azure Data Factory, pode utilizar a atividade de cópia para copiar dados entre no local e nuvem arquivos de dados. Depois dos dados são copiados, este pode ser mais transformado e analisado. Também pode utilizar a atividade de cópia de publicação de transformação e resultados de análise para intelligence de negócio (BI) e o consumo de aplicação.
 
 ![Função de atividade de cópia](media/data-factory-data-movement-activities/copy-activity.png)
@@ -96,32 +96,32 @@ Quando os arquivos de dados de origem e dependente estão na nuvem, a fábrica d
 
 | Geografia dos arquivos de dados de destino | Região do arquivo de dados de destino | Região utilizada para o movimento de dados |
 |:--- |:--- |:--- |
-| Estados Unidos | EUA Leste | EUA Leste |
-| &nbsp; | EUA Leste 2 | EUA Leste 2 |
+| Estados Unidos da América | Este dos E.U.A. | Este dos E.U.A. |
+| &nbsp; | Leste dos E.U.A. 2 | Leste dos E.U.A. 2 |
 | &nbsp; | EUA Central | EUA Central |
-| &nbsp; | EUA Centro-Norte | EUA Centro-Norte |
+| &nbsp; | E.U.A. Centro-Norte  | E.U.A. Centro-Norte  |
 | &nbsp; | EUA Centro-Sul | EUA Centro-Sul |
-| &nbsp; | EUA Centro-Oeste | EUA Centro-Oeste |
+| &nbsp; | Centro Oeste dos E.U.A  | Centro Oeste dos E.U.A  |
 | &nbsp; | EUA Oeste | EUA Oeste |
-| &nbsp; | EUA Oeste 2 | EUA Oeste |
+| &nbsp; | Oeste dos E.U.A 2 | Oeste dos E.U.A 2 |
 | Canadá | Leste do Canadá | Canadá Central |
 | &nbsp; | Canadá Central | Canadá Central |
 | Brasil | Sul do Brasil | Sul do Brasil |
 | Europa | Europa do Norte | Europa do Norte |
 | &nbsp; | Europa Ocidental | Europa Ocidental |
-| Reino Unido | Reino Unido Oeste | Reino Unido Sul |
-| &nbsp; | Reino Unido Sul | Reino Unido Sul |
+| Reino Unido | Oeste do R.U. | Sul do R.U. |
+| &nbsp; | Sul do R.U. | Sul do R.U. |
 | Ásia-Pacífico | Sudeste Asiático | Sudeste Asiático |
-| &nbsp; | Ásia Oriental | Sudeste Asiático |
-| Austrália | Leste da Austrália | Leste da Austrália |
+| &nbsp; | Este Asiático | Sudeste Asiático |
+| Austrália | Este da Austrália | Este da Austrália |
 | &nbsp; | Sudeste da Austrália | Sudeste da Austrália |
-| Índia | Índia Central | Índia Central |
-| &nbsp; | Índia Ocidental | Índia Central |
-| &nbsp; | Sul da Índia | Índia Central |
-| Japão | Leste do Japão | Leste do Japão |
-| &nbsp; | Oeste do Japão | Leste do Japão |
+| Índia | Centro da Índia | Centro da Índia |
+| &nbsp; | Índia Ocidental | Centro da Índia |
+| &nbsp; | Sul da Índia | Centro da Índia |
+| Japão | Este do Japão | Este do Japão |
+| &nbsp; | Oeste do Japão | Este do Japão |
 | Coreia | Coreia Central | Coreia Central |
-| &nbsp; | Coreia do Sul | Coreia Central |
+| &nbsp; | Sul da Coreia | Coreia Central |
 
 Em alternativa, pode indicar explicitamente a região do serviço do Data Factory para ser utilizado para efetuar a cópia especificando `executionLocation` propriedade de atividade de cópia `typeProperties`. Os valores suportados para esta propriedade constam acima **região utilizada para o movimento de dados** coluna. Tenha em atenção de que os seus dados atravessa nessa região através da transmissão durante a cópia. Por exemplo, para copiar entre Azure armazena na Coreia, pode especificar `"executionLocation": "Japan East"` para encaminhar através de região Japão (consulte [JSON de exemplo](#by-using-json-scripts) como referência).
 

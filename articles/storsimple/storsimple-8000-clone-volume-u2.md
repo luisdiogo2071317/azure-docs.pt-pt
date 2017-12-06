@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/26/2017
+ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Utilizar o serviço StorSimple Manager de dispositivos no portal do Azure para clonar um volume
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial descreve como pode utilizar uma cópia de segurança definida para clonar um volume individuais através do **catálogo de cópia de segurança** painel. Também explica a diferença entre *transitório* e *permanente* clones. As orientações neste tutorial aplica-se a todos os dispositivos de série 8000 do StorSimple executar a atualização 3 ou posterior.
 
@@ -69,12 +69,7 @@ Execute os seguintes passos para criar um clone do seu volume a partir do catál
    
     ![Lista de conjunto de cópia de segurança](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. Expanda a cópia de segurança definida para ver os volumes associados. Estes volumes devem ser colocados offline no anfitrião e do dispositivo antes de pode restaurá-las. Aceder aos volumes no **Volumes** painel do seu dispositivo e, em seguida, siga os passos no [colocar offline um volume](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) para colocá-las offline.
-   
-   > [!IMPORTANT]
-   > Certifique-se de que seguiu os volumes offline no anfitrião em primeiro lugar, antes de colocar offline os volumes no dispositivo. Se não efetuar os volumes offline no anfitrião, pode, potencialmente, levar a danos nos dados.
-   
-4. Navegue de volta para o **catálogo de cópia de segurança** e selecione um volume num conjunto de cópia de segurança. Clique com botão direito e, em seguida, no menu de contexto, selecione **Clone**.
+3. Expanda a cópia de segurança definida para ver o volume associado e selecione um volume num conjunto de cópia de segurança. Clique com botão direito e, em seguida, no menu de contexto, selecione **Clone**.
 
    ![Lista de conjunto de cópia de segurança](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 

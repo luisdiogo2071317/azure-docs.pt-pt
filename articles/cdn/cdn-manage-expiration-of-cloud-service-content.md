@@ -14,22 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: fe519c3ad5f99899277bf005929142c52a4c4724
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Gerir a expiração de conteúdo web numa rede de entrega de conteúdo do Azure
 > [!div class="op_single_selector"]
-> * [Conteúdo da web do Azure](cdn-manage-expiration-of-cloud-service-content.md)
+> * [Conteúdo Web do Azure](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Armazenamento de Blobs do Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 
-Os ficheiros a partir de qualquer servidor de web de origem acessível publicamente podem ser colocadas em cache na rede de entrega de conteúdos (CDN) do Azure até as respetivas time-to-live (TTL) decorrida. O valor de TTL é determinado pelo `Cache-Control` cabeçalho de resposta HTTP do servidor de origem. Este artigo descreve como definir `Cache-Control` cabeçalhos para a funcionalidade Web Apps do App Service do Microsoft Azure, Cloud Services do Azure, as aplicações ASP.NET e sites de serviços de informação Internet (IIS), todos os que estão configurados da mesma forma. Pode definir o `Cache-Control` cabeçalho utilizando ficheiros de configuração ou através de programação.
+Os ficheiros a partir de qualquer servidor de web de origem acessível publicamente podem ser colocadas em cache na rede de entrega de conteúdos (CDN) do Azure até as respetivas time-to-live (TTL) decorrida. O valor de TTL é determinado pelo `Cache-Control` cabeçalho de resposta HTTP do servidor de origem. Este artigo descreve como definir `Cache-Control` cabeçalhos para a funcionalidade Web Apps do App Service do Microsoft Azure, Cloud Services do Azure, as aplicações ASP.NET e sites de serviços de informação Internet (IIS), todos os que estão configurados da mesma forma. Pode definir o `Cache-Control` cabeçalho utilizando ficheiros de configuração ou através de programação. 
+
+Também pode controlar as definições de cache do portal do Azure através da definição [CDN regras a colocação em cache](cdn-caching-rules.md). Se configurar um ou mais a colocação em cache as regras e definir o respetivo comportamento de colocação em cache para **substituir** ou **ignorar a cache**, as definições de colocação em cache origem fornecidos pelo abordadas neste artigo são ignoradas. Para obter informações sobre os conceitos gerais de colocação em cache, consulte [funciona como colocação em cache](cdn-how-caching-works.md).
 
 > [!TIP]
-> Pode optar por não definir nenhum valor de TTL num ficheiro. Neste caso, o Azure CDN aplica automaticamente uma predefinição TTL de sete dias. Esta predefinição TTL só se aplica a otimizações de entrega web geral. Para otimizações de ficheiros grandes, o TTL predefinido é um dia e para o suporte de dados otimizações de transmissão em fluxo, o TTL predefinido é de um ano.
+> Pode optar por não definir nenhum valor de TTL num ficheiro. Neste caso, o CDN do Azure aplica automaticamente uma predefinição TTL de sete dias, a menos que configurou regras no portal do Azure a colocação em cache. Esta predefinição TTL só se aplica a otimizações de entrega web geral. Para otimizações de ficheiros grandes, o TTL predefinido é um dia e para o suporte de dados otimizações de transmissão em fluxo, o TTL predefinido é de um ano.
 > 
 > Para obter mais informações sobre como funciona o CDN do Azure para acelerar o acesso a ficheiros e outros recursos, consulte [descrição geral da rede de entrega de conteúdos de Azure](cdn-overview.md).
 > 
@@ -82,5 +84,5 @@ Pode facilmente verificar as definições de TTL do seu conteúdo web. Com o seu
 ## <a name="next-steps"></a>Passos Seguintes
 * [Lê os detalhes sobre o **clientCache** elemento](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Leia a documentação para o **HttpResponse.Cache** propriedade](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Leia a documentação para o **HttpCachePolicy classe**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
-
+* [Leia a documentação para o **HttpCachePolicy classe**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Saiba mais sobre conceitos a colocação em cache](cdn-how-caching-works.md)
