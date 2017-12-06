@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação do Serviço de Aprovisionamento de Dispositivos no Hub IoT (pré-visualização)
+title: Documentação do Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure
 metadata:
-  title: 'Documentação do Serviço de Aprovisionamento de Dispositivos no Hub IoT (pré-visualização) - tutoriais, Referência de API'
+  title: 'Documentação do Serviço de Aprovisionamento de Dispositivos no Hub IoT - tutoriais, Referência de API'
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
   services: iot-dps
   author: nberdy
@@ -14,7 +14,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'O serviço de Aprovisionamento de Dispositivos no Hub IoT (pré-visualização) é um serviço auxiliar para o Hub IoT que permite o aprovisionamento sem toque e just-in-time no hub IoT certo sem que seja necessária intervenção humana, possibilitando aos clientes aprovisionar milhares de dispositivos de forma segura e dimensionável. Saiba como aprovisionar dispositivos no hub ou hubs IoT com os nossos inícios rápidos, tutoriais e exemplos.'
+  description: 'O serviço de Aprovisionamento de Dispositivos no Hub IoT é um serviço auxiliar para o Hub IoT que permite o aprovisionamento sem toque e just-in-time no hub IoT certo sem que seja necessária intervenção humana, possibilitando aos clientes aprovisionar milhares de dispositivos de forma segura e dimensionável. Saiba como aprovisionar dispositivos no hub ou hubs IoT com os nossos inícios rápidos, tutoriais e exemplos.'
 sections:
   - title: Inícios rápidos de cinco minutos
     items:
@@ -34,7 +34,7 @@ sections:
   - title: Tutoriais Passo-a-Passo
     items:
       - type: paragraph
-        text: Saiba como utilizar o Serviço de Aprovisionamento de Dispositivos no Hub IoT (pré-visualização) para aprovisionar automaticamente os dispositivos de segurança ativados para um ou vários hubs IoT.
+        text: Saiba como utilizar o Serviço de Aprovisionamento de Dispositivos no Hub IoT para aprovisionar automaticamente os dispositivos de segurança ativados para um ou vários hubs IoT.
       - type: list
         style: ordered
         items:
