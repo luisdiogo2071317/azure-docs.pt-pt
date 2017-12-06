@@ -1,41 +1,33 @@
 ---
-title: "Instâncias de contentor do Azure - grupo contentor multi | Documentos do Azure"
-description: "Instâncias de contentor do Azure - grupo contentor multi"
+title: "Implementar o contentor de vários grupos em instâncias de contentor do Azure"
+description: "Saiba como implementar um grupo contentor com vários contentores em instâncias de contentor do Azure."
 services: container-instances
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-a-container-group"></a>Implementar um grupo contentor
 
-Instâncias de contentor do Azure suporta a implementação de vários contentores para um anfitrião único através de um *grupo contentor*. Isto é útil ao criar um sidecar de aplicação para o registo, monitorização ou qualquer outra configuração em que um processo anexado segundo as necessita de um serviço. 
+Instâncias de contentor do Azure suporta a implementação de vários contentores para um anfitrião único através de um *grupo contentor*. Isto é útil ao criar um sidecar de aplicação para o registo, monitorização ou qualquer outra configuração em que um processo anexado segundo as necessita de um serviço.
 
 Este documento explica como através de uma configuração de sidecar de contentor multi simples utilizando um modelo Azure Resource Manager a executar.
 
 ## <a name="configure-the-template"></a>Configurar o modelo
 
-Crie um ficheiro denominado `azuredeploy.json` e copie o seguinte json para a mesma. 
+Crie um ficheiro denominado `azuredeploy.json` e copie o seguinte json para a mesma.
 
-Neste exemplo, um grupo de contentor com dois contentores e um endereço IP público é definido. O primeiro contentor do grupo é executada uma aplicação com acesso à internet. O contentor segundo, sidecar, faz um pedido de HTTP para a aplicação web principal através de rede local do grupo. 
+Neste exemplo, um grupo de contentor com dois contentores e um endereço IP público é definido. O primeiro contentor do grupo é executada uma aplicação com acesso à internet. O contentor segundo, sidecar, faz um pedido de HTTP para a aplicação web principal através de rede local do grupo.
 
-Neste exemplo sidecar foi ser expandido para acionar um alerta se recebeu um código de resposta HTTP diferente de 200 OK. 
+Neste exemplo sidecar foi ser expandido para acionar um alerta se recebeu um código de resposta HTTP diferente de 200 OK.
 
 ```json
 {
@@ -46,7 +38,7 @@ Neste exemplo sidecar foi ser expandido para acionar um alerta se recebeu um có
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
@@ -135,7 +127,7 @@ Implementar o modelo com o [criar a implementação do grupo az](/cli/azure/grou
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-Dentro de alguns segundos, irá receber uma resposta inicial a partir do Azure. 
+Dentro de alguns segundos, irá receber uma resposta inicial a partir do Azure.
 
 ## <a name="view-deployment-state"></a>Ver o estado de implementação
 
@@ -153,9 +145,9 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## <a name="view-logs"></a>Ver registos   
+## <a name="view-logs"></a>Ver registos
 
-Ver o resultado de registo de um contentor utilizando o `az container logs` comando. O `--container-name` argumento especifica o contentor a partir da qual pretende extrair os registos. Neste exemplo, o primeiro contentor está especificado. 
+Ver o resultado de registo de um contentor utilizando o `az container logs` comando. O `--container-name` argumento especifica o contentor a partir da qual pretende extrair os registos. Neste exemplo, o primeiro contentor está especificado.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup

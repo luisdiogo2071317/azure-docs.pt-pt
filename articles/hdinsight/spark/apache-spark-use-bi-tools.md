@@ -15,110 +15,131 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: fabf48da80cf44e82068d180c896ebbca7078d18
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI utilizando ferramentas de visualização de dados com o Azure HDInsight
 
-Saiba como utilizar o Power BI e o Tableau para visualizar dados de um cluster do Apache Spark no Azure HDInsight.
+Saiba como utilizar [Microsoft Power BI](http://powerbi.microsoft.com) e [Tableau](http://www.tableau.com) para visualizar dados em cluster do Apache Spark no Azure HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte [clusters do Apache Spark criar no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Dados de exemplo no cluster. Para obter instruções, consulte [executar consultas interativas num cluster do HDInsight Spark](apache-spark-load-data-run-query.md).
-* Power BI: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) e [subscrição de avaliação do Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (opcional).
-* Tableau: [Tableau ambiente de trabalho](http://www.tableau.com/products/desktop) e [o controlador ODBC do Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229).
+* **Completa [executar consultas interativas nos clusters do Spark no HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) e [subscrição de avaliação do Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (opcional).
+* **Tableau**: [Tableau ambiente de trabalho](http://www.tableau.com/products/desktop) e [o controlador ODBC do Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
-## <a name="hivetable"></a>Reveja os dados de exemplo
+## <a name="hivetable"></a>Verificar os dados
 
-O bloco de notas do Jupyter que criou no [tutorial anterior](apache-spark-load-data-run-query.md) inclui código para criar um `hvac` tabela. Esta tabela é baseada no ficheiro CSV disponível em todos os clusters do HDInsight Spark em **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Vamos rever os dados no cluster do Spark antes de criar visualizações.
+O bloco de notas do Jupyter que criou no [tutorial anterior](apache-spark-load-data-run-query.md) inclui código para criar um `hvac` tabela. Esta tabela é baseada no ficheiro CSV disponível em todos os clusters do HDInsight Spark em **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Utilize o procedimento seguinte para verificar os dados.
 
-1. Certifique-se de que existem as tabelas esperadas. Numa célula vazia no bloco de notas, copie o seguinte fragmento e prima **SHIFT + ENTER**.
+1. O bloco de notas do Jupyter, cole o seguinte código e, em seguida, prima **SHIFT + ENTER**. O código verifica se a existência das tabelas.
 
-        %%sql
-        SHOW TABLES
+    ```PySpark
+    %%sql
+    SHOW TABLES
+    ```
 
-    Poderá ver um resultado semelhante ao apresentado abaixo:
+    O resultado é aspeto:
 
     ![Mostrar a tabelas no Spark](./media/apache-spark-use-bi-tools/show-tables.png)
 
     Se tiver fechado o bloco de notas antes de iniciar este tutorial, `hvactemptable` é limpa, pelo que não está incluída na saída.
-    Apenas tabelas que estão armazenadas no metastore de ramo de registo (indicado pelo **falso** sob o **isTemporary** coluna) pode ser acedido a partir de ferramentas de BI. Neste tutorial, vamos ligar para o **AVAC** tabela foi criada.
+    Apenas tabelas que estão armazenadas no metastore de ramo de registo (indicado pelo **falso** sob o **isTemporary** coluna) pode ser acedido a partir de ferramentas de BI. Neste tutorial, ligar a **AVAC** tabela que criou.
 
-2. Certifique-se de que a tabela contém os dados esperados. Numa célula vazia no bloco de notas, copie o seguinte fragmento e prima **SHIFT + ENTER**.
+2. Cole o seguinte código numa célula vazia e, em seguida, prima **SHIFT + ENTER**. O código verifica os dados na tabela.
 
-        %%sql
-        SELECT * FROM hvac LIMIT 10
+    ```PySpark
+    %%sql
+    SELECT * FROM hvac LIMIT 10
+    ```
 
-    Poderá ver um resultado semelhante ao apresentado abaixo:
+    O resultado é aspeto:
 
     ![Mostrar linhas da tabela de AVAC no Spark](./media/apache-spark-use-bi-tools/select-limit.png)
 
-3. Encerre o bloco de notas para libertar os recursos. Para o fazer, no menu **Ficheiro** do bloco de notas, clique em **Fechar e Parar**.
+3. Do **ficheiro** menu do bloco de notas, clique em **fechar e parar**. Encerre o bloco de notas para libertar os recursos. 
 
-## <a name="powerbi"></a>Utilizar o Power BI para visualização de dados do Spark
 
-Agora que tiver confirmado que os dados esperados existem, pode utilizar o Power BI para criar visualizações, relatórios e dashboards a partir destes dados. Neste artigo, iremos irá mostrar um exemplo simples com dados estáticos, mas indique nos comentários se gostaria de ver mais complexos exemplos de transmissão em fluxo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+## <a name="powerbi"></a>Utilizar o Power BI
+
+Nesta secção, utilizar o Power BI para criar visualizações, relatórios e dashboards a partir dos dados de cluster do Spark. 
 
 ### <a name="create-a-report-in-power-bi-desktop"></a>Criar um relatório no Power BI Desktop
 Os passos primeiro trabalhar com o Spark estão a ligar ao cluster no Power BI Desktop, carregar dados do cluster e criar uma visualização básica com base nesses dados.
 
 > [!NOTE]
-> O conector demonstrado neste artigo está atualmente em pré-visualização, mas Aconselhamo-lo para utilizá-la e quaisquer comentários tiver através de [Comunidade do Power BI](https://community.powerbi.com/) site ou [Power BI ideias](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
+> O conector demonstrado neste artigo está atualmente em pré-visualização. Quaisquer comentários tiver através de [Comunidade do Power BI](https://community.powerbi.com/) site ou [Power BI ideias](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
-1. No Power BI Desktop, no **home page** separador, clique em **obter dados**, em seguida, **mais**.
+1. Abra [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
+1. Do **home page** separador, clique em **obter dados**, em seguida, **mais**.
 
-2. Procurar `Spark`, selecione **Azure HDInsight Spark**, em seguida, clique em **Connect**.
+    ![Carregar dados para o Power BI Desktop do Apache Spark do HDInsight](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "obter dados para o Power BI a partir do Apache Spark BI")
+
+
+2. Introduza `Spark` na caixa de pesquisa, selecione **Azure HDInsight Spark (Beta)**e, em seguida, clique em **Connect**.
 
     ![Obter dados para o Power BI a partir do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "obter dados para o Power BI a partir do Apache Spark BI")
 
-3. Introduza o URL de cluster (no formato `mysparkcluster.azurehdinsight.net`), selecione **DirectQuery**, em seguida, clique em **OK**.
+3. Introduza o URL de cluster (no formato `mysparkcluster.azurehdinsight.net`), selecione **DirectQuery**e, em seguida, clique em **OK**.
 
-    ![Ligar para o Apache Spark BI](./media/apache-spark-use-bi-tools/connect-to-apache-spark-bi.png "ligar para o Apache Spark BI")
+    Pode utilizar o modo de conectividade de dados com o Spark. Se utilizar DirectQuery, as alterações são refletidas em relatórios sem atualizar o conjunto de dados completo. Se importar dados, tem de atualizar o conjunto de dados para ver as alterações. Para obter mais informações sobre como e quando utilizar DirectQuery, consulte [utilizando DirectQuery no Power BI](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/). 
 
-    > [!NOTE]
-    > Pode utilizar o modo de conectividade com o Spark. Se utilizar DirectQuery, as alterações são refletidas em relatórios sem atualizar o conjunto de dados completo. Se importar dados, tem de atualizar o conjunto de dados para ver as alterações. Para obter mais informações sobre como e quando utilizar DirectQuery, consulte [utilizando DirectQuery no Power BI](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/). 
+4. Introduza as informações de conta de início de sessão do HDInsight, em seguida, clique em **Connect**. O nome da conta predefinida é *admin*.
 
-4. Introduza as informações de conta de início de sessão do HDInsight para **nome de utilizador** e **palavra-passe** (a conta predefinida é `admin`), em seguida, clique em **Connect**.
-
-    ![Nome do cluster de utilizador e palavra-passe de spark](./media/apache-spark-use-bi-tools/user-password.png "Spark nome de utilizador do cluster e a palavra-passe")
-
-5. Selecione o `hvac` tabela e espere para ver uma pré-visualização dos dados. Em seguida, clique em **carga**.
+5. Selecione o `hvac` tabela, espere para ver uma pré-visualização dos dados e, em seguida, clique em **carga**.
 
     ![Nome do cluster de utilizador e palavra-passe de spark](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark nome de utilizador do cluster e a palavra-passe")
 
-    Ambiente de trabalho do Power BI tem agora todas as informações de que tem de estabelecer ligação com os Spark cluster e carregar dados do `hvac` tabela. A tabela e as colunas são apresentadas no **campos** painel.
+    Ambiente de trabalho do Power BI tem as informações que necessita para estabelecer ligação com os Spark cluster e carregar dados do `hvac` tabela. A tabela e as colunas são apresentadas no **campos** painel.  Veja a captura de ecrã abaixo.
 
-    ![Listar as tabelas no dashboard do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "listar as tabelas no dashboard do Apache Spark BI")
+6. Visualize a variância entre temperatura de destino e temperatura real para cada criação: 
 
-7. Crie uma visualização para mostrar a variância entre temperatura de destino e temperatura real para cada criação: 
-
-    1. No **VISUALIZAÇÕES** painel, selecione **gráfico de área**. Arraste o **BuildingID** campo para **eixo**e arraste o **ActualTemp** e **TargetTemp** campos para **valor**.
+    1. No **VISUALIZAÇÕES** painel, selecione **gráfico de área**. 
+    2. Arraste o **BuildingID** campo para **eixo**e arraste o **ActualTemp** e **TargetTemp** campos para **valor**.
 
         ![Criar Spark visualizações de dados através do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "visualizações de dados de Spark criar através do Apache Spark BI")
 
-    2. Por predefinição, a visualização mostra a soma dos **ActualTemp** e **TargetTemp**. Para ambos os campos, na lista pendente, selecione **médio** para obter uma média de real e temperatures de destino para cada edifício.
-
-        ![Criar Spark visualizações de dados através do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "visualizações de dados de Spark criar através do Apache Spark BI")
-
-    3. A visualização de dados deve ser semelhante na captura de ecrã. Mova o cursor sobre a visualização para obter sugestões de ferramenta com dados relevantes.
+        O diagrama que se pareça com:
 
         ![Criar Spark visualizações de dados através do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "visualizações de dados de Spark criar através do Apache Spark BI")
 
-11. Clique em **ficheiro** , em seguida, **guardar**e introduza o nome `spark.pbix` para o ficheiro. 
+        Por predefinição, a visualização mostra a soma dos **ActualTemp** e **TargetTemp**. Clique na seta para baixo junto a **ActualTemp** e **TragetTemp** no painel de visualizações, pode ver **soma** está selecionada.
+
+    3. Clique nas setas para baixo junto a **ActualTemp** e **TragetTemp** no painel de visualizações, selecione **médio** para obter uma média de real e temperatures de destino para cada a criar.
+
+        ![Criar Spark visualizações de dados através do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "visualizações de dados de Spark criar através do Apache Spark BI")
+
+        A visualização de dados deverá ser semelhante na captura de ecrã. Mova o cursor sobre a visualização para obter sugestões de ferramenta com dados relevantes.
+
+        ![Criar Spark visualizações de dados através do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "visualizações de dados de Spark criar através do Apache Spark BI")
+
+7. Clique em **ficheiro** , em seguida, **guardar**e introduza o nome `BuildingTemperature.pbix` para o ficheiro. 
 
 ### <a name="publish-the-report-to-the-power-bi-service-optional"></a>Publicar o relatório no serviço Power BI (opcional)
-Tem agora um relatório totalmente funcional no Power BI Desktop e pode parar existe mas, muitas pessoas pretendem tirar partido do serviço do Power BI, o que torna mais fácil partilhar relatórios e dashboards na sua organização. 
 
-Nesta secção, publicar o conjunto de dados e relatório que está contido no ficheiro do Power BI Desktop que criou. Em seguida, afixar a um dashboard de visualização do relatório. Dashboards são normalmente utilizados para se focarem num subconjunto dos dados num relatório; tem apenas uma visualização no relatório, mas é ainda útil seguir os passos.
+O serviço do Power BI permite-lhe partilhar relatórios e dashboards na sua organização. Nesta secção, pode publica primeiro o conjunto de dados e o relatório. Em seguida, afixar o relatório num dashboard. Dashboards são normalmente utilizados para se focarem num subconjunto dos dados num relatório; tem apenas uma visualização no relatório, mas é ainda útil seguir os passos.
 
-1. No Power BI Desktop, no **home page** separador, clique em **publicar**.
+1. Abra o ambiente de trabalho do Power BI.
+2. Do **home page** separador, clique em **publicar**.
 
     ![Publicação a partir do ambiente de trabalho do Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "publicação a partir do ambiente de trabalho do Power BI")
 
@@ -126,7 +147,7 @@ Nesta secção, publicar o conjunto de dados e relatório que está contido no f
 
     ![Selecione a área de trabalho para publicar o conjunto de dados e relatórios para](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "selecione área de trabalho para publicar o conjunto de dados e relatórios para") 
 
-3. Depois do Power BI Desktop devolve uma mensagem de êxito, clique em **abrir 'spark.pbix' no Power BI**.
+3. Após a publicação for bem sucedida, clique em **aberto 'BuildingTemperature.pbix' no Power BI**.
 
     ![Publicar com êxito, clique para introduzir credenciais](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "publicar com êxito, clique para introduzir credenciais") 
 
@@ -138,31 +159,31 @@ Nesta secção, publicar o conjunto de dados e relatório que está contido no f
 
     ![Editar as credenciais no serviço Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "editar credenciais no serviço Power BI")
 
-6. Introduza as informações de conta de início de sessão do HDInsight (normalmente, a predefinição `admin` conta que utilizou no Power BI Desktop), em seguida, clique em **iniciar sessão**.
+6. Introduza as informações de conta de início de sessão do HDInsight e, em seguida, clique em **sessão**. O nome da conta predefinida é *admin*.
 
     ![Inicie sessão no cluster do Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "inicie sessão no cluster do Spark")
 
-7. No painel esquerdo, aceda a **áreas de trabalho** > **minha área de trabalho** > **relatórios**, em seguida, clique em **spark**.
+7. No painel esquerdo, aceda a **áreas de trabalho** > **minha área de trabalho** > **relatórios**, em seguida, clique em **BuildingTemperature**.
 
     ![Relatório listado em relatórios no painel esquerdo](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "relatório listado em relatórios no painel esquerdo")
 
-    Também deverá ver **spark** listados na **conjuntos de dados** no painel esquerdo.
+    Também deverá ver **BuildingTemperature** listados na **conjuntos de dados** no painel esquerdo.
 
-8. O visual que criou no Power BI Desktop está agora disponível no serviço. Para afixar este elemento visual para um dashboard, coloque o cursor sobre o visual e clique no ícone de pin.
+    O visual que criou no Power BI Desktop está agora disponível no serviço Power BI. 
+
+8. Coloque o cursor sobre a visualização e, em seguida, clique no ícone de pin no canto superior direito.
 
     ![Relatório no serviço Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "relatório no serviço Power BI")
 
-9. Selecione "Novo dashboard", introduza o nome `SparkDemo`, em seguida, clique em **Pin**.
+9. Selecione "Novo dashboard", introduza o nome `Building temperature`, em seguida, clique em **Pin**.
 
     ![Afixar ao dashboard novo](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "afixar ao dashboard novo")
 
 10. No relatório, clique em **aceder ao dashboard**. 
 
-    ![Aceda ao dashboard](./media/apache-spark-use-bi-tools/apache-spark-bi-open-dashboard.png "aceder ao dashboard")
-
 O visual está afixado ao dashboard - pode adicionar outros elementos visuais para o relatório e afixar ao dashboard do mesmo. Para obter mais informações sobre relatórios e dashboards, consulte [relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)e [Dashboards no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
-## <a name="tableau"></a>Utilizar o ambiente de trabalho Tableau para visualização de dados de Spark
+## <a name="tableau"></a>Utilize o Tableau ambiente de trabalho 
 
 > [!NOTE]
 > Esta secção é aplicável apenas para os clusters do Spark 1.5.2 criadas no Azure HDInsight.
@@ -191,7 +212,7 @@ O visual está afixado ao dashboard - pode adicionar outros elementos visuais pa
 6. Clique em de **Sheet1** separador na parte inferior esquerda. Efetuar uma visualização que mostra o destino de média e temperatures reais para edifícios todos os para cada data. Arraste **data** e **criação ID** para **colunas** e **Temp real**/**destino Temp** para **linhas**. Em **marcas**, selecione **área** a utilizar um mapa de área para visualização de dados de Spark.
 
      ![Adicione campos para visualização de dados de Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "adicionar campos para visualização de dados do Spark")
-7. Por predefinição, os campos de temperatura são apresentados como agregado. Se pretende mostrar os temperatures média em vez disso, pode fazê-na lista pendente, conforme mostrado abaixo.
+7. Por predefinição, os campos de temperatura são apresentados como agregado. Se pretende mostrar os temperatures média em vez disso, pode fazê-na lista pendente, conforme mostrado na captura de ecrã seguinte.
 
     ![Tirar médio de temperatura para visualização de dados de Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "demorar médio de temperatura para visualização de dados do Spark")
 

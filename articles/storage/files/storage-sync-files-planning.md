@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 241b744f5c5e89f53addb4d41d732245d76ef9a3
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f2e7f93d2d2914399f3fc7b24a00540f1c045b58
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -28,7 +28,7 @@ Este artigo descreve considerações importantes sobre uma implementação de si
 ## <a name="azure-file-sync-terminology"></a>Terminologia de sincronização de ficheiros do Azure
 Antes de obter para os detalhes do planeamento de uma implementação de sincronização de ficheiros do Azure, é importante perceber a terminologia.
 
-### <a name="storage-sync-service"></a>Serviço de sincronização de armazenamento
+### <a name="storage-sync-service"></a>Serviço de Sincronização de Armazenamento
 O serviço de sincronização de armazenamento é o recurso mais superior do Azure para a sincronização de ficheiros do Azure. O recurso de serviço de sincronização de armazenamento é um elemento de rede do recurso de conta de armazenamento e da mesma forma pode ser implementado em grupos de recursos do Azure. Um recurso de nível superior distinto do recurso de conta de armazenamento é necessário porque o serviço de sincronização de armazenamento pode criar relações de sincronização com várias contas do storage através de vários grupos de sincronização. Uma subscrição pode ter vários recursos de armazenamento sincronização serviço implementados.
 
 ### <a name="sync-group"></a>Grupo de sincronização
@@ -46,16 +46,22 @@ O agente de sincronização de ficheiros do Azure é um pacote transferível, qu
     - C:\Programas\Microsoft Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Ponto final do servidor
-Um ponto final do servidor representa uma localização específica no servidor registado, tais como uma pasta no volume do servidor ou na raiz do volume. Vários pontos finais de servidor pode existir no mesmo volume se os espaços de nomes não se sobrepuserem (por exemplo, F:\sync1 e F:\sync2). Pode configurar políticas de camadas na nuvem individualmente para cada ponto final do servidor. Se adicionar uma localização do servidor que tenha um conjunto de ficheiros como um ponto final do servidor a um grupo de sincronização, esses ficheiros são intercalados com outros ficheiros que já estejam nesse outros pontos finais no grupo de sincronização.
+Um ponto final do servidor representa uma localização específica num servidor registado, tais como uma pasta no volume do servidor ou na raiz do volume. Vários pontos finais de servidor podem existir no mesmo volume se os espaços de nomes não se sobrepuserem (por exemplo, F:\sync1 e F:\sync2). Pode configurar políticas de camadas na nuvem individualmente para cada ponto final do servidor. Se adicionar uma localização do servidor que tenha um conjunto de ficheiros como um ponto final do servidor a um grupo de sincronização, esses ficheiros são intercalados com outros ficheiros que já estejam nesse outros pontos finais no grupo de sincronização.
+
+> [!Note]  
+> Um ponto final do servidor pode ser localizado no volume de sistema do Windows. Nuvem em camadas não é suportado no volume do sistema.
 
 ### <a name="cloud-endpoint"></a>Ponto final da nuvem
-Um ponto final da nuvem é uma partilha de ficheiros do Azure que faz parte de um grupo de sincronização. As sincronizações de partilha de ficheiros do Azure completa e uma partilha de ficheiros do Azure podem ser um membro de apenas um ponto final da nuvem. Por conseguinte, uma partilha de ficheiros do Azure pode ser um membro de apenas um grupo de sincronização. Se adicionar uma partilha de ficheiros do Azure que tenha um conjunto de ficheiros como um ponto final da nuvem para um grupo de sincronização, os ficheiros existentes são intercalados com outros ficheiros que já estejam nesse outros pontos finais no grupo de sincronização.
+Um ponto final da nuvem é uma partilha de ficheiros do Azure que faz parte de um grupo de sincronização. As sincronizações de partilha de ficheiros do Azure completa e uma partilha de ficheiros do Azure podem ser um membro do ponto final de uma nuvem apenas. Por conseguinte, uma partilha de ficheiros do Azure pode ser um membro de apenas um grupo de sincronização. Se adicionar uma partilha de ficheiros do Azure que tenha um conjunto de ficheiros como um ponto final da nuvem para um grupo de sincronização, os ficheiros existentes são intercalados com outros ficheiros que já estejam nesse outros pontos finais no grupo de sincronização.
 
 > [!Important]  
 > Sincronização de ficheiros do Azure suporta diretamente a efetuar alterações à partilha de ficheiros do Azure. No entanto, quaisquer alterações efetuadas na partilha de ficheiros do Azure primeiro tem de ser detetados por uma tarefa de deteção de alteração de sincronização de ficheiros do Azure. Uma tarefa de deteção de alteração é iniciada, para um ponto final da nuvem, apenas uma vez a cada 24 horas. Para obter mais informações, consulte [ficheiros do Azure perguntas mais frequentes](storage-files-faq.md#afs-change-detection).
 
-### <a name="cloud-tiering"></a>Disposição em camadas na cloud 
+### <a name="cloud-tiering"></a>Cloud em camadas 
 Nuvem camadas é uma funcionalidade opcional de sincronização de ficheiros do Azure na qual raramente utilizados ou acedidos ficheiros podem ser colocado em camadas para ficheiros do Azure. Quando um ficheiro está em camadas, o filtro de sistema de ficheiros de sincronização de ficheiros do Azure (StorageSync.sys) substitui o ficheiro localmente com um ponteiro, ou um ponto de reanálise. O ponto de reanálise representa um URL para o ficheiro nos ficheiros do Azure. Um ficheiro em camadas tem o atributo "offline" definido no NTFS, para que aplicações de terceiros podem identificar os ficheiros em camadas. Quando um utilizador abre um ficheiro em camadas, sincronização de ficheiros do Azure recalls totalmente os dados de ficheiro de ficheiros do Azure sem o necessidade de saber o que não é armazenado o ficheiro localmente no sistema do utilizador. Esta funcionalidade também é conhecido como gestão de armazenamento hierárquico (HSM).
+
+> [!Important]  
+> Nuvem em camadas não é suportada para pontos finais de servidor nos volumes de sistema do Windows.
 
 ## <a name="azure-file-sync-interoperability"></a>Interoperabilidade de sincronização de ficheiros do Azure 
 Esta secção abrange interoperabilidade de sincronização de ficheiros do Azure com o Windows Server funcionalidades e funções e das soluções de terceiros.
@@ -77,17 +83,17 @@ Versões futuras do Windows Server serão adicionadas à medida que são lançad
 | Funcionalidade | Estado de suporte | Notas |
 |---------|----------------|-------|
 | Listas de controlo de acesso (ACLs) | Totalmente suportado | ACLs do Windows são mantidas através da sincronização de ficheiros do Azure e são impostas pelo Windows Server em pontos finais do servidor. ACLs do Windows não são (ainda) suportado pelo Azure ficheiros se os ficheiros são acedidos diretamente na nuvem. |
-| Ligações fixas | Ignorada | |
-| Ligações simbólicas | Ignorada | |
+| Ligações fixas | Ignorado | |
+| Ligações simbólicas | Ignorado | |
 | Os pontos de montagem | Parcialmente suportada | Pontos de montagem poderão ser a raiz de um ponto final do servidor, mas são ignorados se estes estão contidos no espaço de nomes de um ponto final do servidor. |
-| Junctions | Ignorada | |
-| Pontos de reanálise | Ignorada | |
+| Junctions | Ignorado | Por exemplo, as DfrsrPrivate de sistema de ficheiros distribuído e DFSRoots pastas. |
+| Pontos de reanálise | Ignorado | |
 | Compressão NTFS | Totalmente suportado | |
 | Ficheiros dispersos | Totalmente suportado | Sincronização de ficheiros dispersos (não são bloqueadas), mas que a sincronização na nuvem como um ficheiro completo. Se alterar o conteúdo do ficheiro na nuvem (ou noutro servidor), o ficheiro já não consta disperso quando a alteração é transferida. |
 | Fluxos de dados alternativos (anúncios) | Preservados, mas não sincronizado | |
 
 > [!Note]  
-> São suportados apenas os volumes NTFS.
+> São suportados apenas os volumes NTFS. O reFS, FAT, FAT32 e outros sistemas de ficheiros não são suportados.
 
 ### <a name="failover-clustering"></a>Clustering de ativação pós-falha
 Clustering de ativação pós-falha do Windows Server é suportada pela sincronização de ficheiros do Azure para a opção de implementação de "Servidor de ficheiros de utilização geral". Clustering de ativação pós-falha não é suportada em "Servidor de ficheiros de escalamento horizontal para dados de aplicação" (SOFS) ou em Volumes Partilhados em cluster (CSVs).
@@ -97,6 +103,24 @@ Clustering de ativação pós-falha do Windows Server é suportada pela sincroni
 
 ### <a name="data-deduplication"></a>A eliminação de duplicados de dados
 Para volumes que não tenham uma cloud camadas ativada, a sincronização de ficheiros do Azure suporta a ser ativada no volume do Windows eliminação de duplicados de dados de servidor. Atualmente, não suportamos a interoperabilidade entre a sincronização de ficheiros do Azure com a nuvem em camadas ativado e a eliminação de duplicados de dados.
+
+### <a name="distributed-file-system-dfs"></a>Sistema de ficheiros distribuído (DFS)
+Sincronização de ficheiros do Azure suporta a interoperabilidade com espaços de nomes DFS (DFS-N) e replicação DFS (DFS-R) a partir [agente de sincronização de ficheiros do Azure 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
+
+**Espaços de nomes DFS (DFS-N)**: sincronização de ficheiros do Azure é totalmente suportada em servidores de DFS-N. Pode instalar o agente de sincronização de ficheiros do Azure num ou mais membros DFS-N para sincronizar os dados entre os pontos finais de servidor e o ponto final da nuvem. Para obter mais informações, consulte [descrição geral de espaços de nomes DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+ 
+**Replicação DFS (DFS-R)**: uma vez que DFS-R e sincronização de ficheiros do Azure são ambas as soluções de replicação, na maioria dos casos, é recomendável a substituição DFS-R com sincronização de ficheiros do Azure. Existem no entanto, vários cenários em que pretenda para utilizam o DFS-R e sincronização de ficheiros do Azure em conjunto:
+
+- Estiver a migrar de uma implementação de DFS-R para uma implementação de sincronização de ficheiros do Azure. Para obter mais informações, consulte [migrar uma implementação de replicação de DFS (DFS-R) a sincronização de ficheiros do Azure](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
+- Nem todos os servidor no local que necessita de uma cópia dos seus dados de ficheiro que pode ser ligado diretamente à internet.
+- Servidores de sucursais consolidar os dados num servidor de concentrador único para o qual gostaria de utilizar a sincronização de ficheiros do Azure.
+
+Para a sincronização de ficheiros do Azure e DFS-R para lado a lado de trabalho:
+
+1. Sincronização de ficheiros do Azure na nuvem em camadas pode ser desativado em volumes com pastas replicada DFS-R.
+2. Pontos finais do servidor não devem ser configurados em pastas só de leitura de replicação de DFS-R.
+
+Para obter mais informações, consulte [descrição geral da replicação de DFS](https://technet.microsoft.com/library/jj127250).
 
 ### <a name="antivirus-solutions"></a>Soluções de antivírus
 Porque antivírus funciona através da análise de ficheiros de código malicioso conhecido, um produto antivírus pode causar a devolução de chamada de ficheiros em camadas. Porque os ficheiros em camadas tem o atributo "offline" definido, recomendamos a consultar o fornecedor de software para aprender a configurar a solução para ignorar a leitura de ficheiros offline. 
@@ -135,7 +159,7 @@ Sincronização de ficheiros do Azure está disponível apenas nas regiões segu
 | EUA Oeste | Califórnia, EUA |
 | Europa Ocidental | Países Baixos |
 | Sudeste Asiático | Singapura |
-| Leste da Austrália | Novo Wales-Sul, da Austrália |
+| Este da Austrália | Novo Wales-Sul, da Austrália |
 
 Pré-visualização, suportamos a sincronizar apenas com uma partilha de ficheiros do Azure que se encontra na mesma região que o serviço de sincronização de armazenamento.
 

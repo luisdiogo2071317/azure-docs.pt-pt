@@ -1,26 +1,19 @@
 ---
-title: "Conjuntos de agente DC/OS para o serviço de contentor do Azure | Microsoft Docs"
+title: "Conjuntos de agente DC/OS para o serviço de contentor do Azure"
 description: "Como funcionam os agrupamentos de agente públicas e privadas com um cluster do serviço de contentor do Azure DC/OS"
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, Contentores, Microserviços, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: da4a196b1a73c78dfff7d8310edcc349b8d10665
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e82a6c1ee2d45cd07f4e87c43ad4fb1149ef555c
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Conjuntos de agente DC/OS para o serviço de contentor do Azure
 Clusters DC/SO no serviço de contentor do Azure contêm nós de agente em dois conjuntos, um conjunto público e um conjunto privado. Uma aplicação pode ser implementada para o agrupamento, que afeta a acessibilidade entre as máquinas no seu serviço de contentor. As máquinas podem ser expostas à internet (público) ou manter interno (privado). Este artigo fornece uma breve descrição geral do motivo que existem conjuntos de públicos e privados.

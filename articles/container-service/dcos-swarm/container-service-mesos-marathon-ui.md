@@ -1,28 +1,22 @@
 ---
-title: Gerir o cluster DC/OS do Azure com a IU do Marathon | Microsoft Docs
+title: Gerir o cluster DC/OS do Azure com a IU do Marathon
 description: "Implemente contentores num serviço de cluster do Serviço de Contentor do Azure utilizando a IU da Web do Marathon."
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, Contentores, Microserviços, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b00088bb005519dc5d533433308c0e3e33c7f433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c5fc223105b1dae0ce07f242a6b42b34fd2ab3
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Gerir um cluster DC/SO do Azure Container Service através da Marathon Web UI
+
 O DC/OS fornece um ambiente para implementação e dimensionamento de cargas de trabalho em cluster, abstraindo o hardware subjacente. Na parte superior do DC/OS, existe uma estrutura que gere o agendamento e a execução de cargas de trabalho de computação.
 
 Enquanto as estruturas estejam disponíveis para muitas cargas de trabalho populares, este documento descreve como começar a implementar contentores com o Marathon. 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: juliako
-ms.openlocfilehash: 3bba48d5425ae47c72aca893af7c11fe270c2929
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/05/2017
+ms.author: juliako;anilmur
+ms.openlocfilehash: 72b4a7b746d446e47b52cf34726a50dd52eaba97
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparação do Azure em codificadores de suporte de dados a pedido
 
@@ -33,7 +33,7 @@ A tabela seguinte compara as funcionalidades entre o suporte de dados codificado
 |Aplicar a lógica condicional ao codificação<br/>(por exemplo, se a entrada é HD, em seguida, codificar áudio 5.1)|Não|Sim|
 |Fechado captioning|Não|[Sim](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
 |[Correção do Dolby® Loudness profissionais](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> com o diálogo Intelligence™|Não|Sim|
-|Telecine anular interlacing, inverso|Básica|Qualidade de difusão|
+|Telecine anular interlacing, inverso|Básico|Qualidade de difusão|
 |Detetar e remover limites preto <br/>(pillarboxes, letterboxes)|Não|Sim|
 |Geração em miniatura|[Sim](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sim](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
 |Recorte/corte e stitching dos vídeos do|[Sim](media-services-advanced-encoding-with-mes.md#trim_video)|Sim|
@@ -117,6 +117,7 @@ A tabela seguinte compara as funcionalidades entre o suporte de dados codificado
 | Saída Codecs vídeo | Media Encoder Standard | Fluxo de Trabalho Premium de Codificador de Multimédia |
 | --- | --- | --- |
 | AVC (264; 8 bits; até o perfil de alto nível 5.2; 4 HD Ultra estanques aos K; Dentro de AVC) |Apenas 8 bits 4:2:0 |Sim |
+| HEVC (H.265; 8 bits e 10 bits;)  |Não |Sim |
 | DNxHD avid (em MXF) |Não |Sim |
 | MPEG-2 (até perfil 422 e de elevado nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |Não |Sim |
 | MPEG-1 |Não |Sim |

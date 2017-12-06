@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c0bd1aa2236eb44a41142f9cfc20c220ca49e99
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs de SQL Server
 Quando configura uma imagem de máquina virtual do SQL Server no Azure, o Portal de ajuda a automatizar a configuração de armazenamento. Isto inclui anexar armazenamento para a VM, tornando esse armazenamento acessível ao SQL Server e configurá-lo a otimizar para os seus requisitos de desempenho específicos.
@@ -30,7 +30,7 @@ Este tópico explica como Azure configura o armazenamento para as suas VMs do SQ
 ## <a name="prerequisites"></a>Pré-requisitos
 Para utilizar as definições de configuração de armazenamento automática, a máquina virtual requer as seguintes características:
 
-* Aprovisionada com um [imagem de galeria do SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
+* Aprovisionada com um [imagem de galeria do SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 * Utiliza o [modelo de implementação do Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md).
 * Utiliza [armazenamento Premium](../premium-storage.md).
 
@@ -115,10 +115,10 @@ Azure utiliza as seguintes definições para criar o agrupamento de armazenament
 | --- | --- |
 | Tamanho do stripe |256 KB (armazenamento de dados); 64 KB (transacional) |
 | Tamanhos de disco |1 TB |
-| Cache |Leitura |
+| Cache |Ler |
 | Tamanho da alocação |Tamanho de unidade de alocação de NTFS 64 KB |
-| Inicialização instantânea de ficheiros |Ativado |
-| Páginas de bloqueio na memória |Ativado |
+| Inicialização instantânea de ficheiros |Ativada |
+| Páginas de bloqueio na memória |Ativada |
 | Recuperação |Recuperação simples (sem resiliência) |
 | Número de colunas |Número de discos de dados<sup>1</sup> |
 | Localização de TempDB |Armazenados em discos de dados<sup>2</sup> |
@@ -132,7 +132,7 @@ A tabela seguinte descreve as opções de tipo de carga de três trabalho dispon
 
 | Tipo de carga de trabalho | Descrição | Otimizações de |
 | --- | --- | --- |
-| **Geral** |Predefinição que suporta a maioria das cargas de trabalho |Nenhuma |
+| **Geral** |Predefinição que suporta a maioria das cargas de trabalho |Nenhum |
 | **Processamento de transações** |Otimiza o armazenamento para cargas de trabalho OLTP de bases de dados tradicionais |Sinalizador de rastreio 1117<br/>Sinalizador de rastreio 1118 |
 | **Armazém de dados** |Otimiza o armazenamento para cargas de trabalho analíticas e de relatórios |Sinalizador de rastreio 610<br/>Sinalizador de rastreio 1117 |
 
