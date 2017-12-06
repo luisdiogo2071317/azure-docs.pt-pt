@@ -11,13 +11,13 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/13/2017
+ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Perguntas mais frequentes sobre os ficheiros do Azure
 [Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (também conhecido como sistema de ficheiros Internet comum ou CIFS). É possível montar partilhas de ficheiros do Azure em simultâneo em implementações de nuvem ou no local do Windows, Linux e macOS. Também pode colocar em cache as partilhas de ficheiros do Azure nas máquinas do Windows Server utilizando a sincronização de ficheiros do Azure (pré-visualização) para acesso rápido próximo de onde os dados são utilizados.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/20/2017
 Este artigo responde a questões recorrentes sobre ficheiros do Azure e funcionalidades, incluindo a utilização de sincronização de ficheiros do Azure com ficheiros do Azure. Se não vir a resposta à sua pergunta, pode contactar-nos através dos seguintes canais (pela ordem em constante crescendo):
 
 1. A secção de comentários deste artigo.
-2. [Fórum de armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata).
+2. [Fórum de armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure ficheiros UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Suporte da Microsoft. Para criar um novo pedido de suporte, no portal do Azure, o **ajudar** separador, selecione o **ajuda + suporte** botão e, em seguida, selecione **novo pedido de suporte**.
 
@@ -148,6 +148,9 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```
 
+* <a id="afs-effective-vfs"></a>**Como é *espaço livre no volume* interpretado quando tiver vários pontos finais de servidor num volume?**  
+    Quando existe mais do que um ponto final do servidor num volume, o limiar de espaço livre de volume Efetivo é o maior espaço livre de volume especificado em qualquer ponto final do servidor nesse volume. Os ficheiros serão camados, de acordo com os seus padrões de utilização, independentemente do ponto final do servidor ao qual pertencem. Por exemplo, se tiver dois pontos finais de servidor num volume, Endpoint1 e Endpoint2, onde Endpoint1 tem um limiar de espaço livre no volume de 25% e Endpoint2 tem um limiar de espaço livre no volume de 50%, o limiar de espaço livre de volume para ambos os pontos finais do serão 50%.
+
 * <a id="afs-files-excluded"></a>**Os ficheiros ou pastas são excluídas automaticamente por uma sincronização de ficheiros do Azure?**  
     Por predefinição, a sincronização de ficheiros do Azure exclui os seguintes ficheiros:
     * Desktop.ini
@@ -199,7 +202,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 * <a id="mount-locally"></a>**Como montar uma partilha de ficheiros do Azure no meu computador local?**  
     É possível montar a partilha de ficheiros utilizando o protocolo SMB, se abrir a porta 445 (saída de TCP) e o cliente suportar o protocolo SMB 3.0 (por exemplo, se estiver a utilizar o Windows 10 ou Windows Server 2016). Se a porta 445 estiver bloqueada pela política da sua organização ou pelo seu ISP, pode utilizar a sincronização de ficheiros do Azure para aceder à partilha de ficheiros do Azure.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 * <a id="backup-share"></a>**Como posso fazer cópia de segurança os meus ficheiros do Azure partilhar?**  
     Pode utilizar periódica [partilhar instantâneos (pré-visualização)](storage-how-to-use-files-snapshots.md) para proteção contra eliminações acidentais. Também pode utilizar AzCopy, Robocopy ou uma ferramenta de cópia de segurança de terceiros que pode fazer cópias de segurança de uma partilha de ficheiros montada. 
 

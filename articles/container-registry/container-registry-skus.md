@@ -2,28 +2,23 @@
 title: SKUs de registo de contentor do Azure
 description: "Comparações entre as diferentes escalões de serviço disponíveis no registo de contentor do Azure"
 services: container-registry
-documentationcenter: 
 author: stevelas
-manager: balans
-editor: mmacy
+manager: timlt
 ms.service: container-registry
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/16/2017
 ms.author: stevelas
-ms.openlocfilehash: dae97084bdaab77efd38169cdf7e70c827b0b5ab
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: cf7724dd9e3e870cfd7ec0b5d2e4ea1d0694e9de
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-container-registry-skus"></a>SKUs de registo de contentor do Azure
 
 Registo de contentor do Azure (ACR) está disponível em vários escalões de serviço, conhecidos como SKUs. Fornecem estas SKUs preços previsíveis e várias opções para a forma como pretende utilizar o registo de Docker privado no Azure. Escolher um SKU de nível mais elevado fornece mais o desempenho e dimensionamento. No entanto, todos os SKUs fornecem as mesmas capacidades programáticas, permitindo um programador obter uma introdução básica e converter para Standard e Premium, à medida que aumenta de utilização do registo.
 
-## <a name="basic"></a>Básica
+## <a name="basic"></a>Básico
 Um ponto de entrada com otimização de custos para programadores de aprendizagem sobre o registo de contentor do Azure. Os registos do básicos tenham as mesmas capacidades programáticas como Standard e Premium (integração de autenticação do Azure Active Directory, a eliminação de imagem e web hooks), no entanto, existem restrições de utilização e de tamanho.
 
 ## <a name="standard"></a>Standard
@@ -32,7 +27,7 @@ Os registos do padrão oferecem as mesmas capacidades que básico, com limites d
 ## <a name="premium"></a>Premium
 Os registos do Premium fornecem limites superiores sobre as restrições, tais como operações simultâneas, ativar cenários de volume elevado e de armazenamento. Para além de maior capacidade de débito de imagem, Premium adiciona funcionalidades como [georreplicação](container-registry-geo-replication.md) para gerir um único registo em várias regiões, manter um registo de fecho de rede para cada implementação.
 
-## <a name="classic"></a>Clássica
+## <a name="classic"></a>Clássico
 O registo de clássico SKU ativada a edição inicial do serviço de registo de contentor do Azure no Azure. Os registos do clássicos são apoiados por uma conta de armazenamento que o Azure cria na sua subscrição, o que limita a capacidade para ACR fornecer capacidades de nível mais elevadas, tais como o aumento do débito e a georreplicação. Devido ao respetivas capacidades limitadas, planeamos de despromover o SKU clássico no futuro.
 
 > [!NOTE]

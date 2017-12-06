@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 0973f83ae839597f3b499814a4a04a8a640a1fb6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadeamento nas funções durável - exemplo de sequência de Olá de função
 
@@ -39,7 +39,7 @@ As secções seguintes explicam o código que são utilizados para programação
  
 ## <a name="functionjson-file"></a>ficheiro Function.JSON
 
-Se utilizar o portal do Azure para desenvolvimento, eis o conteúdo a *function.json* ficheiro para a função do orchestrator. A maioria das orchestrator *function.json* ficheiros quase exatamente este aspeto.
+Se utilizar o Visual Studio Code ou o portal do Azure para desenvolvimento, eis o conteúdo a *function.json* ficheiro para a função do orchestrator. A maioria das orchestrator *function.json* ficheiros quase exatamente este aspeto.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/function.json)]
 
@@ -48,7 +48,7 @@ O mais importante é o `orchestrationTrigger` tipo de enlace. Todas as funções
 > [!WARNING]
 > Para cumprir a regra "nenhum e/s" das funções do orchestrator, não utilize qualquer entrada ou saída enlaces ao utilizar o `orchestrationTrigger` acionar o enlace.  Se outras de entrada ou saída enlaces são necessários, estes em vez disso, devem ser utilizadas no contexto de `activityTrigger` funções, que são chamadas do orchestrator.
 
-## <a name="c-script"></a>Script C#
+## <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script do c# (código de exemplo portal Visual Studio Code e o Azure) 
 
 Eis o código de origem:
 

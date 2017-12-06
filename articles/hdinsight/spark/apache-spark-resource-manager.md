@@ -16,22 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jgao
-ms.openlocfilehash: 3c98150239134c686ac8edebd3c477bec8be7dd8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b2208f0553ce62be054409a415723445733708d4
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerir os recursos de cluster do Apache Spark no Azure HDInsight 
 
-Este artigo irá aprender a aceder às interfaces, como Ambari IU, IU do YARN, e o servidor de histórico do Spark associadas com o cluster do Spark. Pode também saber mais sobre como otimizar a configuração de cluster para um desempenho ideal.
+Saiba como aceder as interfaces, como Ambari IU, IU do YARN e o servidor de histórico de Spark associado um cluster do Spark e de como otimizar a configuração de cluster para um desempenho ideal.
 
 **Pré-requisitos:**
 
-* Uma subscrição do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte [clusters do Apache Spark criar no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-do-i-launch-the-ambari-web-ui"></a>Como iniciar a IU da Web do Ambari?
+## <a name="open-the-ambari-web-ui"></a>Abra a IU da Web do Ambari
 1. No [portal do Azure](https://portal.azure.com/), no startboard, clique no mosaico relativo ao cluster do Spark (se o tiver afixado ao startboard). Também pode navegar até ao cluster em **Procurar Tudo** > **Clusters do HDInsight**.
 2. Para o cluster do Spark, clique em **Dashboard**. Quando lhe for pedido, introduza as credenciais de administrador para o cluster do Spark.
 
@@ -40,7 +39,7 @@ Este artigo irá aprender a aceder às interfaces, como Ambari IU, IU do YARN, e
 
     ![IU da Web do Ambari](./media/apache-spark-resource-manager/ambari-web-ui.png "IU da Web do Ambari")   
 
-## <a name="how-do-i-launch-the-spark-history-server"></a>Como iniciar o servidor de histórico do Spark?
+## <a name="open-the-spark-history-server"></a>Abra o servidor de histórico do Spark
 1. No [portal do Azure](https://portal.azure.com/), no startboard, clique no mosaico relativo ao cluster do Spark (se o tiver afixado ao startboard).
 2. No painel do cluster, em **ligações rápidas**, clique em **Cluster Dashboard**. No **Cluster Dashboard** painel, clique em **Spark histórico servidor**.
 
@@ -48,7 +47,7 @@ Este artigo irá aprender a aceder às interfaces, como Ambari IU, IU do YARN, e
 
     Quando lhe for pedido, introduza as credenciais de administrador para o cluster do Spark.
 
-## <a name="how-do-i-launch-the-yarn-ui"></a>Como iniciar a IU do Yarn?
+## <a name="open-the-yarn-ui"></a>Abra o IU do Yarn
 Pode utilizar a IU do YARN para monitorizar as aplicações que estão atualmente em execução no cluster do Spark.
 
 1. No painel do cluster, clique em **Cluster Dashboard**e, em seguida, clique em **YARN**.
@@ -60,7 +59,7 @@ Pode utilizar a IU do YARN para monitorizar as aplicações que estão atualment
    >
    >
 
-## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>O que é a configuração do cluster ideal para executar Spark aplicações?
+## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>A configuração do cluster ideal para executar Spark aplicações
 Os três parâmetros de chaves que podem ser utilizados para a configuração de Spark consoante os requisitos da aplicação são `spark.executor.instances`, `spark.executor.cores`, e `spark.executor.memory`. Um Executor é um processo iniciado para uma aplicação de Spark. Este é executado no nó de trabalho e é responsável para realizar as tarefas para a aplicação. O número predefinido de executor e os tamanhos de executor de cada cluster é calculado com base no número de nós de trabalho e o tamanho de nó de trabalho. Esta informação é armazenada no `spark-defaults.conf` sobre os nós principais do cluster.
 
 Os parâmetros de três configuração podem ser configurados ao nível do cluster (para todas as aplicações executadas no cluster) ou podem ser especificados para cada aplicação individuais bem.

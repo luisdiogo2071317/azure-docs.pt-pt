@@ -1,29 +1,22 @@
 ---
-title: Monitorizar um cluster do Azure DC/SO - ELK pilha | Microsoft Docs
+title: Monitor de um cluster do Azure DC/SO - ELK pilha
 description: "Monitorize um cluster DC/OS em cluster do serviço de contentor do Azure com ELK (Elasticsearch, Logstash e Kibana)."
 services: container-service
-documentationcenter: 
 author: sauryadas
-manager: madhana
-editor: 
-tags: acs, azure-container-service
-keywords: "Contentores, DC/OS, Azure, monitorização, elk"
-ms.assetid: 
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: fcfa277cdd0f3cebc0fbbb23e771fb23ffbe2ca6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b378fc38233534df74582388e6e832d40f431d11
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Monitor de um cluster do serviço de contentor do Azure com ELK
+
 Neste artigo, vamos demonstrar como implementar a pilha ELK (Elasticsearch Logstash, Kibana) num cluster DC/SO no serviço de contentor do Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos

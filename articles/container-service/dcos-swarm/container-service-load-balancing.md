@@ -1,28 +1,22 @@
 ---
-title: Carregar saldo contentores no cluster DC/OS do Azure | Microsoft Docs
+title: Contentores de balanceamento de carga no cluster do Azure DC/OS
 description: "O balanceamento de carga entre vários contentores num cluster DC/OS do serviço de contentor do Azure."
 services: container-service
-documentationcenter: 
 author: rgardler
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Contentores, Microserviços, DC/OS, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 78725c9d23e13d307821a188028ef573d1def038
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8dfa99b609cf2c54d29c55d3f5ba748910f7513b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Contentores de balanceamento de carga de um cluster do serviço de contentor do Azure DC/OS
+
 Neste artigo, vamos explorar como criar um balanceador de carga interno num serviço de contentor do Azure DC/SO gerido utilizando o Marathon-LB. Esta configuração permite-lhe aumentar horizontalmente as suas aplicações. Também permite-lhe tirar partido do agente público e privado clusters colocando os balanceadores de carga no cluster público e os contentores de aplicação no cluster privado. Neste tutorial:
 
 > [!div class="checklist"]

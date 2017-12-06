@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Com monitorização de estado singletons nas funções durável - exemplo de contador
 
@@ -45,13 +45,31 @@ Funções duráveis faz com que este tipo de cenário trivial implementar porque
 
 Este artigo explica o **E3_Counter** função na aplicação de exemplo.
 
-As secções seguintes explicam o código que é utilizado para o desenvolvimento de Visual Studio. O código para o desenvolvimento de portal do Azure é semelhante.
+
 
 ## <a name="the-counter-orchestration"></a>A orquestração de contador
+
+As secções seguintes explicam o código que é utilizado para o desenvolvimento de Visual Studio Code e o Portal do Azure.
+
+### <a name="c-script"></a>Script do c#
+
+O ficheiro function.json:
+
+[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+
+O ficheiro run.csx:
+
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+
+### <a name="precompiled-c"></a>Pré-compilada c# 
+
+As secções seguintes explicam o código que é utilizado para o desenvolvimento de Visual Studio.
 
 Eis o código que implementa a função do orchestrator:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+
+### <a name="explanation-of-the-code"></a>Explicação do código
 
 Esta função do orchestrator, essencialmente, faz o seguinte:
 

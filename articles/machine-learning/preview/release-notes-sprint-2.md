@@ -10,8 +10,8 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: 3209ad7c9b2afd9ff06d685c41b1775800a62a53
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f3579942624de282b01d74c4b8c449c56a66e7b7
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/05/2017
@@ -73,10 +73,11 @@ Segue-se uma lista das atualizações de detalhado cada área de componente do A
 ### <a name="job-execution"></a>Execução da tarefa
 Agora pode criar e aceder a um destino de computação de tipo remotedocker ou cluster utilizando a autenticação baseada em chave SSH seguindo estes passos:
 - Anexar um destino de computação utilizando o seguinte comando na CLI
-```
-az ml computetarget attach remotedocker -a <fqdn or IP address> -n <name for your compute target> -u <username to be used to access the compute target> –k
-```
-[!NOTE] Especifica opção -k no comando para gerar e utilizar a chave SSH.
+
+    ```azure-cli
+    $ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+    ```
+[!NOTE] Especifica uma opção -k (ou - utilização-azureml--chave ssh) no comando para gerar e utilizar a chave SSH.
 
 - Azure ML Workbench irá gerar uma chave pública e de saída que na sua consola. Inicie sessão no destino computação utilizando o mesmo nome de utilizador e de acréscimo ~/.ssh/authorized_keys ficheiros com esta chave pública.
 
@@ -109,11 +110,10 @@ Para obter mais informações sobre a criação de destinos de computação, con
 - [Integração de AZTK](https://github.com/Azure/aztk/wiki/Spark-on-Azure-for-Python-Users#optional-set-up-mmlspark)
 
 ### <a name="sample-projects"></a>Projetos de exemplo
-- Exemplos de Iris e SparkMML atualizados com a nova versão do SDK do Azure ML
+- [Iris](https://github.com/Azure/MachineLearningSamples-Iris) e [MMLSpark](https://github.com/Azure/mmlspark) amostras atualizadas com a nova versão do SDK do Azure ML
 
 ## <a name="breaking-changes"></a>ALTERAÇÕES DE ÚLTIMA HORA
 - Promovido a `--type` no comutador `az ml computetarget attach` para um comando secundárias. 
 
-- `az ml computetarget attach --type remotedocker`é agora`az ml computetarget attach remotedocker`
-
-- `az ml computetarget attach --type cluster`é agora`az ml computetarget attach cluster`
+    - `az ml computetarget attach --type remotedocker`é agora`az ml computetarget attach remotedocker`
+    - `az ml computetarget attach --type cluster`é agora`az ml computetarget attach cluster`

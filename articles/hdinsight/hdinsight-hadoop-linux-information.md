@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
-ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -91,6 +91,8 @@ Este comando devolve um documento JSON que descrevem o serviço e, em seguida, j
     > [!NOTE]
     > Só pode aceder os nós principais do cluster através de SSH a partir de uma máquina cliente. Assim que estiver ligado, em seguida, pode aceder a nós de trabalho utilizando SSH de um headnode.
 
+Para obter mais informações, consulte o [portas utilizadas pelos serviços do Hadoop no HDInsight](hdinsight-hadoop-port-settings-for-services.md) documento.
+
 ## <a name="file-locations"></a>Localizações de ficheiros
 
 Podem encontrar os ficheiros relacionados com o Hadoop em nós de cluster em `/usr/hdp`. Este diretório contém subdiretórios os seguintes:
@@ -108,9 +110,6 @@ O HDInsight utiliza o blobs Storage do Azure ou do Azure Data Lake Store como o 
 
 * Armazenamento de longa duração cheap
 * Acessibilidade de serviços externos como Web sites, utilitários de carregamento/transferência de ficheiros, vários SDKs de idioma e browsers da web
-
-> [!WARNING]
-> HDInsight suporta apenas __para fins gerais__ contas de armazenamento do Azure. Não suporta atualmente o __armazenamento de BLOBs__ tipo de conta.
 
 Uma conta de armazenamento do Azure pode conter até 4.75 TB, apesar dos blobs individuais (ou ficheiros de uma perspetiva de HDInsight) só podem aceder 195 GB. O Azure Data Lake Store podem aumentar dinamicamente para conter biliões de ficheiros, com maiores do que um petabyte de ficheiros individuais. Para obter mais informações, consulte [compreender os blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) e [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
@@ -234,6 +233,8 @@ Os tipos de outro cluster são afetados pelo dimensionamento da seguinte forma:
 
         1. Abra **https://CLUSTERNAME.azurehdinsight.net/stormui** no seu browser, em que CLUSTERNAME é o nome do cluster do Storm. Se lhe for solicitado, introduza o nome de cluster do HDInsight administrador (administrador) e a palavra-passe que especificou quando criar o cluster.
         2. Selecione a topologia que pretende rebalancear, em seguida, selecione o **rebalancear** botão. Introduza o atraso antes da operação de reequilibre é executada.
+
+* **Kafka**: deve rebalancear as réplicas de partição após operações de dimensionamento. Para obter mais informações, consulte o [elevada disponibilidade de dados com Kafka no HDInsight](./kafka/apache-kafka-high-availability.md) documento.
 
 Para obter informações específicas sobre como aumentar o cluster do HDInsight, consulte:
 

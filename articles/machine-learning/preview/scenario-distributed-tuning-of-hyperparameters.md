@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuída a otimização de sintonização utilizando o Azure Machine Learning Workbench
 
@@ -27,9 +27,9 @@ Segue-se a ligação para o repositório do GitHub pública:
 
 Muitos algoritmos de machine learning tem uma ou mais botões, denominados de sintonização. Estes botões permitem a otimização de algoritmos para otimizar o seu desempenho sobre dados futuros, medidos de acordo com as métricas de utilizador especificado (por exemplo, exatidão, AUC, RMSE). Scientist de dados tem de fornecer valores de sintonização quando criar um modelo de dados de formação e antes de ver os dados de teste futuras. Com a pode de dados de formação conhecida como base configuramos os valores de sintonização, para que o modelo tem um bom desempenho sobre os dados de teste desconhecido? 
 
-É uma técnica mais popular para otimização de sintonização um *pesquisa de grelha* combinado com *validação cruzada*. Validação cruzada é uma técnica que avalia o quão bem um modelo preparado no conjunto de preparação, prevê através do conjunto de teste. Com esta técnica, inicialmente iremos dividir o conjunto de dados em K subconjuntos de validação e, em seguida, preparar os tempos de algoritmo K em round robin, no, mas um dos subconjuntos de validação, denominados Escalamento contido subconjuntos de validação. Iremos computação o valor médio das métricas de modelos de K de através de subconjuntos de validação do K Escalamento contido. Este valor médio, denominado *estimativa de desempenho entre validados*, depende os valores de sintonização utilizado ao criar modelos de K. Quando a otimização de sintonização, iremos procurar o espaço de valores de hyperparameter candidato para localizar a estimar aqueles que otimizar o desempenho de validação cruzada. Pesquisa de grelha é uma técnica de pesquisa comuns, onde o espaço de valores de candidatos de sintonização vários é um produto cruzado de conjuntos de valores de candidatos de sintonização individuais. 
+É uma técnica mais popular para otimização de sintonização um *pesquisa de grelha* combinado com *validação cruzada*. Validação cruzada é uma técnica que avalia o quão bem um modelo preparado no conjunto de preparação, prevê através do conjunto de teste. Com esta técnica, iremos dividir primeiro o conjunto de dados em K subconjuntos de validação e, em seguida, preparar os tempos de K de algoritmo em round robin. Podemos fazê-lo em todos os mas um dos subconjuntos de validação, chamada de "saída contido subconjuntos de validação". Iremos computação o valor médio das métricas de modelos de K de através de subconjuntos de validação do K Escalamento contido. Este valor médio, denominado *estimativa de desempenho entre validados*, depende os valores de sintonização utilizado ao criar modelos de K. Quando a otimização de sintonização, iremos procurar o espaço de valores de hyperparameter candidato para localizar a estimar aqueles que otimizar o desempenho de validação cruzada. Pesquisa de grelha é uma técnica de pesquisa comuns. Na pesquisa de grelha, o espaço de valores de candidatos de sintonização vários é um produto cruzado de conjuntos de valores de candidatos de sintonização individuais. 
 
-Pesquisa de grelha utilizando a validação cruzada pode ser morosa. Se um algoritmo tem de 5 sintonização, cada um com 5 valores candidato e utilizamos subconjuntos de validação K = 5, em seguida, para concluir uma pesquisa de grelha temos de formação 5<sup>6</sup>= 15625 modelos. Felizmente, pesquisa de grelha a utilização de validação cruzada é um procedimento constrangedoramente paralelo e todos os estes modelos podem ser preparados em paralelo.
+Pesquisa de grelha utilizando a validação cruzada pode ser morosa. Se um algoritmo tiver cinco sintonização com cinco valores de candidatos, utilizamos K = 5 subconjuntos de validação. Vamos, em seguida, conclua uma pesquisa de grelha por formação 5<sup>6</sup>= 15625 modelos. Felizmente, pesquisa de grelha a utilização de validação cruzada é um procedimento constrangedoramente paralelo e todos os estes modelos podem ser preparados em paralelo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,9 +37,17 @@ Pesquisa de grelha utilizando a validação cruzada pode ser morosa. Se um algor
 * Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) seguintes o [instalar e criar o guia de introdução](./quickstart-installation.md) para instalar o Workbench e criar contas.
 * Este cenário pressupõe que está a executar do Azure ML Workbench no Windows 10 ou MacOS com o motor de Docker instalada localmente. 
 * Para executar o cenário com um contentor de Docker remoto, aprovisionar a Máquina Virtual de ciência de dados do Ubuntu (DSVM), seguindo o [instruções](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Recomendamos que utilize uma máquina virtual pelo menos 8 núcleos e 28 Gb de memória. D4 instâncias de máquinas virtuais têm essa capacidade. 
-* Para executar este cenário com um cluster do Spark, aprovisionar clusters do HDInsight ao seguir o [instruções](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Recomenda-se ter um cluster com o mínimo de seis nós de trabalho e pelo menos 8 núcleos e 28 Gb de memória em nós de cabeçalho e de trabalho. D4 instâncias de máquinas virtuais têm essa capacidade. Para maximizar o desempenho do cluster, recomendamos para alterar os parâmetros spark.executor.instances, spark.executor.cores e spark.executor.memory seguindo o [instruções](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) e editar as definições em "personalizado secção de spark predefinições".
+* Para executar este cenário com um cluster do Spark, aprovisionar Azure HDInsight cluster seguindo estes [instruções](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Recomenda-se ter, pelo menos, um cluster com o 
+- seis nós de trabalho
+- oito núcleos
+- 28 Gb de memória em nós de cabeçalho e de trabalho. D4 instâncias de máquinas virtuais têm essa capacidade. Recomendamos a alteração dos parâmetros seguintes para maximizar o desempenho do cluster.
+- spark.executor.instances
+- spark.executor.cores
+- spark.executor.Memory 
 
-     **Resolução de problemas**: subscrição do Azure o pode ter uma quota no número de núcleos que podem ser utilizadas. O portal do Azure permite a criação do cluster com o número total de núcleos exceder a quota. Para localizar a quota, aceda no portal do Azure para a secção de subscrições, clique na subscrição utilizada para implementar um cluster e, em seguida, clique em **utilização + quotas**. Normalmente, as quotas são definidas por região do Azure e pode optar por implementar o cluster do Spark numa região onde tem suficiente núcleos livres. 
+Pode seguir estes [instruções](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) e editar as definições na secção "predefinições do spark personalizado".
+
+     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
 * Crie uma conta de armazenamento do Azure que é utilizada para armazenar o conjunto de dados. Siga o [instruções](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) para criar uma conta de armazenamento.
 
@@ -72,7 +80,7 @@ Utilizamos [scikit-Saiba](https://anaconda.org/conda-forge/scikit-learn), [xgboo
 
 A modificação conda\_dependencies.yml ficheiro é armazenado no diretório de aml_config do tutorial. 
 
-Nos passos, ligar o ambiente de execução à conta do Azure. Janela de linha de comandos aberta (CLI) ao clicar em menu de ficheiro no canto superior esquerdo do AML Workbench e escolher "Linha de comandos aberta." Em seguida, execute na CLI
+Nos passos, ligar o ambiente de execução à conta do Azure. Clique em ficheiro Menu do canto superior esquerdo do AML Workbench. E escolha "Abra a linha de comandos". Em seguida, execute na CLI
 
     az login
 
@@ -84,19 +92,19 @@ Vá para esta página web, introduza o código e iniciar sessão na sua conta do
 
     az account list -o table
 
-e localize a subscrição de subscrição de ID do Azure com a sua conta da área de trabalho do AML Workbench. Por fim, execute na CLI
+e localize o ID de subscrição do Azure que tenha a sua conta da área de trabalho do AML Workbench. Por fim, execute na CLI
 
     az account set -s <subscription ID>
 
 para concluir a ligação à sua subscrição do Azure.
 
-Nas dois secções mostramos como concluir a configuração de docker remoto e o cluster do Spark.
+Em duas secções seguintes, vamos mostram como concluir a configuração do docker remoto e o cluster do Spark.
 
 #### <a name="configuration-of-remote-docker-container"></a>Configuração do contentor de Docker remoto
 
  Para configurar um contentor de Docker remoto, execute na CLI
 
-    az ml computetarget attach --name dsvm --address <IP address> --username <username> --password <password> --type remotedocker
+    az ml computetarget attach remotedocker --name dsvm --address <IP address> --username <username> --password <password> 
 
 com o IP endereço, nome de utilizador e palavra-passe no DSVM. Endereço IP do DSVM pode ser encontrado na secção Descrição geral da sua página DSVM no portal do Azure:
 
@@ -106,7 +114,7 @@ com o IP endereço, nome de utilizador e palavra-passe no DSVM. Endereço IP do 
 
 Para configurar o ambiente do Spark, execute na CLI
 
-    az ml computetarget attach --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> --type cluster
+    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 com o nome do cluster, o nome de utilizador do SSH do cluster e palavra-passe. O valor predefinido do nome de utilizador do SSH é `sshuser`, a menos que o alterado durante o aprovisionamento do cluster. O nome do cluster pode ser encontrado na secção de propriedades da sua página de cluster no portal do Azure:
 
@@ -136,13 +144,13 @@ Para transferir dados de Kaggle, visite [página do conjunto de dados](https://w
 ![Abra blob](media/scenario-distributed-tuning-of-hyperparameters/open_blob.png)
 ![contentor aberta](media/scenario-distributed-tuning-of-hyperparameters/open_container.png)
 
-Depois disso selecione o contentor de conjunto de dados da lista e clique no botão de carregamento. Portal do Azure permite carregar em simultâneo vários ficheiros. Na secção "Carregar blob", clique no botão de pasta, selecione todos os ficheiros do conjunto de dados, clique em abrir e, em seguida, clique em carregamento. Captura de ecrã abaixo ilustra estes passos:
+Depois disso, selecione o contentor de conjunto de dados da lista e clique no botão de carregamento. Portal do Azure permite-lhe carregar em simultâneo vários ficheiros. Na secção "Carregar blob", clique no botão de pasta, selecione todos os ficheiros do conjunto de dados, clique em abrir e, em seguida, clique em carregamento. Captura de ecrã seguinte ilustra estes passos:
 
 ![Carregar blob](media/scenario-distributed-tuning-of-hyperparameters/upload_blob.png) 
 
 Carregamento dos ficheiros demora vários minutos, consoante a ligação à Internet. 
 
-No nosso código, utilizamos [SDK de armazenamento do Azure](https://azure-storage.readthedocs.io/en/latest/) para transferir o conjunto de dados do armazenamento de BLOBs para o ambiente de execução atual. A transferência é efetuada na carga\_função data () do ficheiro de load_data.py. Para utilizar este código, é necessário substituir < nome_conta > e < ACCOUNT_KEY > com o nome e a chave primária da conta de armazenamento que aloja o conjunto de dados. Nome da conta é apresentado no canto superior esquerdo da página do Azure da sua conta do storage. Para obter a conta de chaves de acesso da chave, selecione na página do Azure de armazenamento (consulte a captura de ecrã primeiro na secção de ingestão de dados) da conta e, em seguida, copie a cadeia de comprimento na primeira linha da coluna chave:
+No nosso código, utilizamos [SDK de armazenamento do Azure](https://azure-storage.readthedocs.io/en/latest/) para transferir o conjunto de dados do armazenamento de BLOBs para o ambiente de execução atual. A transferência é efetuada na carga\_função data () do ficheiro de load_data.py. Para utilizar este código, é necessário substituir < nome_conta > e < ACCOUNT_KEY > com o nome e a chave primária da conta de armazenamento que aloja o conjunto de dados. Pode ver o nome da conta no canto superior esquerdo da página do Azure da sua conta de armazenamento. Para obter a conta de chaves de acesso da chave, selecione na página do Azure de armazenamento (consulte a captura de ecrã primeiro na secção de ingestão de dados) da conta e, em seguida, copie a cadeia de comprimento na primeira linha da coluna chave:
  
 ![Chave de acesso](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
@@ -161,7 +169,7 @@ O seguinte código da função de load_data() transfere um ficheiro único:
     # Load blob
     my_service.get_blob_to_path(CONTAINER_NAME, 'app_events.csv.zip', 'app_events.csv.zip')
 
-Tenha em atenção que não tem de executar load_data.py ficheiro manualmente. Mais tarde será chamado a partir de outros ficheiros.
+Tenha em atenção que não tem de executar load_data.py ficheiro manualmente. Este é chamado a partir de outros ficheiros mais tarde.
 
 ### <a name="feature-engineering"></a>Com engenharia
 O código para todas as funcionalidades de computação é na funcionalidade\_engineering.py ficheiro. Não é necessário executar o ficheiro de feature_engineering.py manualmente. Mais tarde será chamado a partir de outros ficheiros.
@@ -174,11 +182,11 @@ Iremos criar vários conjuntos de funcionalidades:
 * Fração de eventos gerados pelo utilizador em cada aplicação (um\_frequente\_app_labels função)
 * Fração de eventos gerados pelo utilizador em cada etiqueta da aplicação (um\_frequente\_app_labels função)
 * Fração de eventos gerados pelo utilizador em cada categoria de aplicação (texto\_category_features função)
-* Funcionalidades de indicador de categorias de aplicações que foram utilizadas por utilizado para gerar eventos (um\_hot_category função)
+* Funcionalidades de indicador de categorias de aplicações que foram utilizadas para gerar eventos (um\_hot_category função)
 
 Estas funcionalidades foram inspired pelo Kaggle kernel [um modelo linear em aplicações e as etiquetas](https://www.kaggle.com/dvasyukova/a-linear-model-on-apps-and-labels).
 
-O cálculo destas funcionalidades requer uma quantidade significativa de memória. Inicialmente tentar computação funcionalidades no ambiente local com 16 Gb de RAM. Iremos foram capazes de calcular os primeiras quatro conjuntos de funcionalidades, mas foi recebido o erro 'fora de memória' quando o conjunto de funcionalidades quinto de computação. O cálculo dos conjuntos de quatro primeiras funcionalidade é no ficheiro singleVMsmall.py e pode ser executado no ambiente local através da execução 
+O cálculo destas funcionalidades requer uma quantidade significativa de memória. Inicialmente tentar computação funcionalidades no ambiente local com 16 GB de RAM. Iremos foram capazes de calcular os primeiras quatro conjuntos de funcionalidades, mas foi recebido o erro 'fora de memória' quando o conjunto de funcionalidades quinto de computação. O cálculo dos conjuntos de quatro primeiras funcionalidade é no ficheiro singleVMsmall.py e pode ser executado no ambiente local através da execução 
 
      az ml experiment submit -c local .\singleVMsmall.py   
 
@@ -190,7 +198,7 @@ Uma vez que o ambiente local é demasiado pequeno para computação que todos os
 Utilizamos [xgboost](https://anaconda.org/conda-forge/xgboost) implementação [1] de aumento de gradação da árvore. Utilizamos [scikit-Saiba](http://scikit-learn.org/) pacote para otimizar xgboost de sintonização. Embora xgboost não faz parte de scikit-saiba pacote, implementa scikit-saiba API e, por conseguinte, podem ser utilizadas em conjunto com as funções do scikit de otimização de hyperparameter-saber mais. 
 
 Xgboost tem de oito sintonização:
-* n_esitmators
+* n_estimators
 * max_depth
 * reg_alpha
 * reg_lambda
@@ -198,9 +206,12 @@ Xgboost tem de oito sintonização:
 * learning_rate
 * colsample\_by_level
 * subsample
-* objetivo uma descrição de sintonização estes pode ser encontrada [aqui](http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn) e [aqui](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). Inicialmente, utilize DSVM remoto e otimizar a partir de uma pequena grelha dos valores de candidatos de sintonização:
+* objetivo uma descrição de sintonização estes pode ser encontrado em
+- http://xgboost.readthedocs.IO/en/Latest/Python/python_api.HTML#Module-xgboost.sklearn-https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
+- 
+Inicialmente, iremos utilizar DSVM remoto e otimizar a partir de uma pequena grelha dos valores de candidatos de sintonização:
 
-    tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objetivo': ['multi:softprob'] 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1], 'learning_rate': [0,1], 'colsample_bylevel': [0,1,], 'subsample': [0,5]}]  
+    tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
 Esta grelha tem quatro combinações de valores de sintonização. Utilizamos 5-fold validação cruzada, 4, 5 = 20 do resultante é executado de xgboost. Para medir o desempenho dos modelos, utilizamos de métrica de perda de registo negativo. O código seguinte localiza os valores de sintonização da grelha que maximizar a perda de validados entre registo negativo. O código também utiliza estes valores para preparar o modelo final ao longo do conjunto de preparação completa:
 
@@ -224,7 +235,7 @@ Depois de criar o modelo, iremos guardar os resultados da otimização de hyperp
     for key in clf_cv.best_params_.keys():
         run_logger.log(key, clf_cv.best_params_[key]) 
 
-Também podemos criar o ficheiro de sweeping_results.txt com perdas entre validados registo negativo de todas as combinações de valores de hyperparameter na grelha:
+Também podemos criar o ficheiro de sweeping_results.txt com perdas de registo validados cruzada, negativo de todas as combinações de valores de hyperparameter na grelha.
 
     if not path.exists('./outputs'):
         makedirs('./outputs')
@@ -249,13 +260,13 @@ Este comando terminar em 1 hora de 38 minutos quando DSVM tem 8 núcleos e 28 Gb
 
 ![histórico de execução](media/scenario-distributed-tuning-of-hyperparameters/run_history.png)
 
-Por predefinição janela do histórico de execuções mostra os valores e gráficos do primeiro valores registados 1-2. Para obter uma lista completa dos valores escolhidos de sintonização, clique no ícone definições marcado com círculo vermelho na captura de ecrã anterior e selecione sintonização para ser mostrada na tabela. Além disso, para selecionar os gráficos que são apresentados na parte superior da janela do histórico de execução, clique no ícone de definição marcado com círculo azul e selecione os gráficos da lista. 
+Por predefinição janela do histórico de execuções mostra os valores e gráficos do primeiro valores registados 1-2. Para ver a lista completa dos valores escolhidos de sintonização, clique no ícone definições marcado com círculo vermelho na captura de ecrã anterior. Em seguida, selecione de sintonização para ser mostrada na tabela. Além disso, para selecionar os gráficos que são apresentados na parte superior da janela do histórico de execução, clique no ícone de definição marcado com círculo azul e selecione os gráficos da lista. 
 
 Os valores escolhidos de sintonização também podem ser examinados na janela de propriedades de execução: 
 
 ![Propriedades de execução](media/scenario-distributed-tuning-of-hyperparameters/run_properties.png)
 
-No canto superior direito da janela de propriedades executar há uma secção de ficheiros de saída com a lista de todos os ficheiros que foram criados no '. \output' pasta no ambiente de execução. varrimento\_results.txt pode ser transferido a partir daí, selecionando-e clicar no botão de transferência. sweeping_results.txt devem ter o seguinte resultado:
+No canto superior direito da janela de propriedades de execução, não há uma secção de ficheiros de saída com a lista de todos os ficheiros que foram criados no '. \output' pasta. varrimento\_results.txt pode ser transferido a partir daí, selecionando-e clicar no botão de transferência. sweeping_results.txt devem ter o seguinte resultado:
 
     metric =  neg_log_loss
     mean: -2.29096, std: 0.03748, params: {'colsample_bytree': 1, 'learning_rate': 0.1, 'subsample': 0.5, 'n_estimators': 300, 'reg_alpha': 1, 'objective': 'multi:softprob', 'colsample_bylevel': 0.1, 'reg_lambda': 1, 'max_depth': 3}
@@ -279,7 +290,7 @@ Em seguida, iremos substituir
 
     from sklearn.model_selection import GridSearchCV
 
-com o 
+com 
 
     from spark_sklearn import GridSearchCV
 
@@ -297,15 +308,15 @@ no CLI windows. Esta instalação demora vários minutos. Depois disso executamo
 
     az ml experiment submit -c spark .\distributed_sweep.py
 
-Este comando terminar em 1 hora 6 minutos quando o cluster do Spark tem 6 nós de trabalho com 28 Gb de memória. Os resultados da otimização de sintonização no cluster do Spark, nomeadamente os registos, melhor valores do ficheiro de sintonização e sweeping_results.txt, podem ser acedidos no Azure Machine Learning Workbench da mesma forma que a execução de DSVM remota. 
+Este comando terminar em 1 hora 6 minutos quando o cluster do Spark tem 6 nós de trabalho com 28 Gb de memória. Os resultados da otimização hyperparameter podem ser acedidos no Azure Machine Learning Workbench da mesma forma que a execução de DSVM remota. (nomeadamente os registos, melhor valores de sintonização e sweeping_results.txt ficheiro)
 
 ### <a name="architecture-diagram"></a>Diagrama da arquitetura
 
-O diagrama seguinte mostra o fluxo de trabalho ponto a ponto: ![arquitetura](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
+O diagrama seguinte mostra o fluxo de trabalho geral: ![arquitetura](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
 
 ## <a name="conclusion"></a>Conclusão 
 
-Neste cenário, iremos mostrou como utilizar o Azure Machine Learning Workbench para efetuar a otimização de hyperparameter na máquina de virtual remota e no cluster do Spark remoto. Vimos que o Workbench do Azure Machine Learning fornece ferramentas para configuração fácil de ambientes de execução e mudar entre eles. 
+Neste cenário, iremos mostrou como utilizar o Azure Machine Learning Workbench para efetuar a otimização de regulação em máquinas virtuais remotas e clusters do Spark. Vimos que o Workbench do Azure Machine Learning fornece ferramentas para configuração fácil dos ambientes de execução. Também permite facilmente mudar entre eles. 
 
 ## <a name="references"></a>Referências
 

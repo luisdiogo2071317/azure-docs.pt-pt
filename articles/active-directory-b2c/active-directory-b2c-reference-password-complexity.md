@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 800199b3d1d91d700d26f988a4d49713028de1ce
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: b7103103201563c6878095cf31cfcdf2938a9c7f
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>O Azure AD B2C: Configurar os requisitos de complexidade de palavras-passe
 
 > [!NOTE]
-> **Esta funcionalidade está em pré-visualização.**  Contacte [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com) ter o seu inquilino de teste ativado com esta funcionalidade.
+> **Esta funcionalidade está em pré-visualização.**  Contacte [ AADB2CPreview@microsoft.com ](mailto:AADB2CPreview@microsoft.com) ter o seu inquilino de teste ativado com esta funcionalidade.  Não efetue testes isto no inquilinos de produção.
 
 O Azure Active Directory B2C (Azure AD B2C) suporta alterar os requisitos de complexidade de palavras-passe fornecidas por um utilizador final ao criar uma conta.  Por predefinição, o Azure AD B2C utiliza `Strong` palavras-passe.  Azure AD B2C suporta também para controlar a complexidade de palavras-passe que os clientes podem utilizar as opções de configuração.
 
@@ -47,7 +47,7 @@ Eis os tipos de políticas, onde a complexidade de palavra-passe pode ser config
 1. Abra **complexidade de palavra-passe**.
 1. Alterar a complexidade de palavra-passe para esta política para **simples**, **forte**, ou **personalizada**.
 
-### <a name="comparison-chart"></a>Gráfico de comparação
+### <a name="comparison-chart"></a>Gráfico de Comparação
 
 | Complexidade | Descrição |
 | --- | --- |
@@ -64,7 +64,7 @@ Permite-lhe aceitar dígitos apenas (pins) ou o completo conjunto de carateres.
 * **Apenas números** permite dígitos apenas (0-9) ao introduzir uma palavra-passe.
 * **Todos os** permite que qualquer letra, número ou símbolo.
 
-### <a name="length"></a>comprimento
+### <a name="length"></a>Comprimento
 
 Permite-lhe controlar os requisitos de comprimento da palavra-passe.
 

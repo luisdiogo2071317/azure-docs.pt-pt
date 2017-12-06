@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: b962ad3da6d5daff2c8b2524828a9450da702abb
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsão da carga de trabalho dos servidores em terabytes de dados
 
@@ -50,7 +50,7 @@ As pré-requisitos para executar este exemplo são os seguintes:
 * Windows 10 (as instruções neste exemplo são, geralmente, os mesmos para sistemas de macOS).
 * Dados ciência Máquina Virtual (DSVM) para Linux (Ubuntu). Pode aprovisionar um DSVM Ubuntu seguindo [estas instruções](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Também pode ver [este guia de introdução](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Recomendamos que utilize uma máquina virtual pelo menos 8 núcleos e 32 GB de memória. Terá do endereço IP de DSVM, nome de utilizador e palavra-passe para experimentar neste exemplo. Guarde a tabela seguinte com as informações DSVM para os passos seguintes:
 
- Nome do campo| Valor |  
+ Nome de campo| Valor |  
  |------------|------|
 Endereço IP de DSVM | xxx|
  Nome de utilizador  | xxx|
@@ -60,7 +60,7 @@ Endereço IP de DSVM | xxx|
 
 * Um Cluster do Spark HDInsight com a versão de plataforma de dados do Hortonworks 3.6 e a versão do Spark 2.1.x. Visite [criar um cluster do Apache Spark no Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) para obter detalhes sobre como criar clusters do HDInsight. Recomendamos que utilize um cluster de trabalho de três, com cada trabalho ter 16 núcleos e 112 GB de memória. Ou apenas pode escolher tipo de VM `D12 V2` para o nó principal, e `D14 V2` para o nó de trabalho. A implementação do cluster demora cerca de 20 minutos. Tem o nome do cluster, o nome de utilizador SSH e a palavra-passe para experimentar neste exemplo. Guarde a tabela seguinte com as informações de cluster do Azure HDInsight para os passos seguintes:
 
- Nome do campo| Valor |  
+ Nome de campo| Valor |  
  |------------|------|
  Nome do cluster| xxx|
  Nome de utilizador  | xxx (sshuser por predefinição)|
@@ -69,7 +69,7 @@ Endereço IP de DSVM | xxx|
 
 * Uma conta de armazenamento do Azure. Pode seguir [estas instruções](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para criar um. Além disso, criar contentores de BLOBs privada dois com os nomes de `fullmodel` e `onemonthmodel` nesta conta de armazenamento. A conta de armazenamento é utilizada para guardar resultados de computação intermédio e modelos de machine learning. Tem a chave de acesso e o nome conta de armazenamento para experimentar neste exemplo. Guarde a tabela seguinte com as informações de conta de armazenamento do Azure para os passos seguintes:
 
- Nome do campo| Valor |  
+ Nome de campo| Valor |  
  |------------|------|
  Nome da conta de armazenamento| xxx|
  Chave de acesso  | xxx|
@@ -81,7 +81,7 @@ O DSVM Ubuntu e o cluster do Azure HDInsight criada na lista de pré-requisitos 
 
 Crie um novo projeto ao utilizar este exemplo como um modelo:
 1.  Abra do Machine Learning Workbench.
-2.  No **projetos** página, selecione o  **+**  iniciar sessão e selecionar **novo projeto**.
+2.  No **projetos** página, selecione o ** + ** iniciar sessão e selecionar **novo projeto**.
 3.  No **criar novo projeto** painel, preencha as informações para o novo projeto.
 4.  No **modelos de projeto de pesquisa** caixa de pesquisa, escreva **previsão de carga de trabalho nos dados de Terabytes**e selecione o modelo.
 5.  Selecione **Criar**.
@@ -95,10 +95,10 @@ Os dados utilizados neste exemplo são dados de carga de trabalho do servidor si
 
 O tamanho total dos dados é de aproximadamente 1 TB. Cada ficheiro é cerca de 1 a 3 GB e está no formato de ficheiro CSV, sem cabeçalho. Cada linha de dados representa a carga de uma transação de um determinado servidor. As informações detalhadas do esquema de dados são o seguinte:
 
-Número de colunas | Nome do campo| Tipo | Descrição |  
+Número de colunas | Nome de campo| Tipo | Descrição |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | DateTime |    Hora de início de sessão
-2  |`SessionEnd`    | DateTime | Hora de fim de sessão
+1  | `SessionStart` | Datetime |    Hora de início de sessão
+2  |`SessionEnd`    | Datetime | Hora de fim de sessão
 3 |`ConcurrentConnectionCounts` | Número inteiro | Número de ligações simultâneas
 4 | `MbytesTransferred` | duplo | Normalizado dados transferidos em megabytes
 5 | `ServiceGrade` | Número inteiro |  Nível de serviço para a sessão
@@ -203,7 +203,7 @@ O segundo argumento é depuração. Defini-la como FILTER_IP permite uma rápido
 
 Inicie a linha de comandos do Machine Learning Workbench selecionando **ficheiro** > **abra a linha de comandos**. Em seguida, execute: 
 
-```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
+```az ml computetarget attach remotedocker --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password ```
 
 Os seguintes dois ficheiros são criados na pasta aml_config do seu projeto:
 
@@ -266,7 +266,7 @@ Quando tiver concluído com êxito a experimentação nos dados pequenos, pode c
 
 ##### <a name="1-create-the-compute-target-in-machine-learning-workbench-for-the-hdinsight-cluster"></a>1. Criar o destino de computação no Machine Learning Workbench para o cluster do HDInsight
 
-```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
+```az ml computetarget attach cluster --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password```
 
 Os seguintes dois ficheiros são criados na pasta aml_config:
     
@@ -382,7 +382,7 @@ Escolha uma cadeia exclusiva como o ambiente para operationalization. Aqui, util
 
         az ml experiment submit -t dockerdsvm -c dockerdsvm webservice.py
 
-5. Crie uma imagem de Docker. 
+5. Crie uma imagem do Docker. 
 
         az ml image create -n [unique]image --manifest-id $manifestID
 

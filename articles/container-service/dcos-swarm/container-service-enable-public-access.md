@@ -1,28 +1,22 @@
 ---
-title: "Ativar o acesso à aplicação de contentor do Azure DC/SO | Microsoft Docs"
+title: "Ativar o acesso à aplicação de contentor do Azure DC/OS"
 description: "Como ativar o acesso público ao contentores de DC/SO no serviço de contentor do Azure."
 services: container-service
-documentationcenter: 
 author: sauryadas
 manager: madhana
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, Contentores, Microserviços, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: c9ef5913859cf3a55a2de2107a9304f1d28a4829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aedc97335a0b9ad00cf653477b62bf530b556900
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Ativar o acesso público para uma aplicação de serviço de contentor do Azure
+
 Qualquer contentor de DC/OS em ACS [agrupamento de agentes públicos](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) automaticamente está exposto à internet. Por predefinição, as portas **80**, **443**, **8080** estão abertas e qualquer contentor (público) está a escutar as portas estão acessíveis. Este artigo mostra como abrir portas mais para as suas aplicações no serviço de contentor do Azure.
 
 ## <a name="open-a-port-portal"></a>Abrir uma porta (portal)
@@ -43,7 +37,7 @@ Em primeiro lugar, é necessário abrir a porta que queremos.
    | Nome |Um nome descritivo da sonda. |
    | Porta |A porta do contentor para testar. |
    | Caminho |(Quando no modo HTTP) O caminho relativo Web site para pesquisa. HTTPS não suportado. |
-   | intervalo |A quantidade de tempo entre a sonda tenta, em segundos. |
+   | Intervalo |A quantidade de tempo entre a sonda tenta, em segundos. |
    | Limiar de mau estado de funcionamento |Número de sonda consecutivas tentativas antes de considerar o contentor de mau estado de funcionamento. |
 6. Novamente das propriedades do Balanceador de carga do agente, clique em **as regras de balanceamento de carga** e, em seguida, **adicionar**.
    

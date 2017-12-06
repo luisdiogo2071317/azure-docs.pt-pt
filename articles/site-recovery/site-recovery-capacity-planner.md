@@ -12,19 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f504888aac9e8d97e974fb5bec0a12a8ede39c76
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+Nova versão avançada do [Planeador de implementação do Azure Site Recovery para o Hyper-V para o Azure](site-recovery-hyper-v-deployment-planner.md) está agora disponível e de substituir a ferramenta antiga. Utilize a ferramenta de novo para o planeamento da implementação. A ferramenta fornece orientação os seguintes:
+* Avaliação de elegibilidade do VM, com base no número de discos, tamanho do disco, IOPS, volume de alterações e alguns características VM.
+* Largura de banda de rede necessário versus avaliação RPO.
+* Requisitos de infraestrutura do Azure.
+* Requisitos de infraestrutura no local.
+* Replicação inicial orientações de criação de batches.
+* Calcular o custo total de DR para o Azure.
+
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planear a capacidade para proteger as VMs de Hyper-V com a recuperação de Site
 
 A ferramenta de Planeador de capacidade do Azure Site Recovery ajuda a descobrir os requisitos de capacidade quando replicar VMs de Hyper-V com o Azure Site Recovery.
 
-Utilize o planeador de capacidade de recuperação de Site para analisar o seu ambiente de origem e cargas de trabalho, precisará de largura de banda de estimativa e recursos do servidor que precisará para a localização de origem e os recursos (máquinas virtuais e armazenamento, etc.), que necessita na localização de destino.
+Utilize o planeador de capacidade de recuperação de Site para analisar o seu ambiente de origem e cargas de trabalho, estimar necessidades de largura de banda e os recursos de servidor que precisará para a localização de origem e os recursos (máquinas virtuais e armazenamento, etc.), que necessita na localização de destino .
 
 Pode executar a ferramenta em alguns dos modos de:
 

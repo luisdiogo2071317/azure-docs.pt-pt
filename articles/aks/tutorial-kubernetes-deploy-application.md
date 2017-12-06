@@ -1,27 +1,19 @@
 ---
-title: "Kubernetes no tutorial do Azure – implementar aplicações | Microsoft Docs"
+title: "Kubernetes no tutorial do Azure – implementar aplicações"
 description: "Tutorial AKS - implementar aplicações"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Docker, Contentores, Microsserviços, Kubernetes, DC/OS, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 73b943709fb3846058d4b1c09bc76b09460855ed
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 3a6a75a324987b82a08219217407ad7ad14db9f8
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Executar aplicações no serviço de contentor do Azure (AKS)
 
@@ -29,7 +21,7 @@ Neste tutorial, parte quatro de oito, um exemplo de aplicação é implementado 
 
 > [!div class="checklist"]
 > * Atualizar os ficheiros de manifesto Kubernetes
-> * Executar a aplicação no Kubernetes
+> * Executar uma aplicação no Kubernetes
 > * Testar a aplicação
 
 Nos tutoriais subsequentes, esta aplicação é ampliada, atualizar, e Operations Management Suite configurado para monitorizar o cluster Kubernetes.

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: e85515c29d8f626c7eb2bfb636dc6c18da78b5c5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Tutorial de partilha de bicicleta: avançadas preparação de dados com o Azure Machine Learning Workbench
 Serviços de Machine Learning do Azure (pré-visualização) é um ciência de dados ponto-a-ponto integrada e a solução de análise avançadas para cientistas de dados professional preparar os dados, experimentações de desenvolver e implementar modelos na escala da nuvem.
@@ -201,7 +201,7 @@ Para devolver o __vista de dados__, selecione __dados__ do canto superior esquer
    ![Imagem da caixa de diálogo de filtro](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
    > [!NOTE]
-   > FM 15 é um tipo de Meteorological Terminal Aviation rotina Meteorologia relatório (METAR). Os relatórios de FM 15 empirically são respeitados seja o mais completa, com dados em falta listtle.
+   > FM 15 é um tipo de Meteorological Terminal Aviation rotina Meteorologia relatório (METAR). Os relatórios de FM 15 empirically são respeitados seja o mais completa, com pouca dados em falta.
 
 ## <a name="remove-a-column"></a>Remover uma coluna
 
@@ -287,7 +287,7 @@ Para utilizar os dados numa predição de blocos de tempo de duas horas, tem de 
 
    Tipo `Jan 01, 2015 12AM-2AM` do exemplo contra a primeira linha e prima **Enter**.
 
-   O Workbench determina a transformação com base no exemplo que fornecer. Neste exemplo, o resultado é que a data é o formato alterado concatenado com o período de duas horas.
+   O Workbench determina a transformação com base no exemplo que fornecer. Neste exemplo, o resultado é que o formato de data é alterado e concatenado com o período de duas horas.
 
    ![Imagem do exemplo ' 01 de Janeiro de 2015 12: 00 - 2 AM](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 

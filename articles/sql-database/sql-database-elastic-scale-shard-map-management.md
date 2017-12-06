@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: ddove
-ms.openlocfilehash: 18870b763546a9bccb77df85b01640cfd3c8b852
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 03e7a3612e1cfcfaee2084db0d2eadb72e8a5f9d
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Aumentar horizontalmente bases de dados com o Gestor de mapa de partições horizontais
 Para ampliar facilmente as bases de dados SQL Azure, utilize um Gestor de mapa de partições horizontais. O Gestor de mapa de partições horizontais é uma base de dados especial que mantém as informações de mapeamento global sobre todas as partições horizontais (bases de dados) de um conjunto de partições horizontais. Os metadados permite que uma aplicação ligar à base de dados correto com base no valor da **chave de fragmentação**. Além disso, todas as partições horizontais no conjunto contém maps que monitorizam os dados de partições horizontais local (conhecido como **shardlets**). 
 
 ![Gestão de mapa de partições horizontais](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-Compreender como estes mapeamentos são construídos é essencial para gestão de mapa de partições horizontais. Isto é feito utilizando a classe de ShardMapManager ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)), foi encontrada no [biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md) para gerir os mapas de partições horizontais.  
+Compreender como estes mapeamentos são construídos é essencial para gestão de mapa de partições horizontais. Isto é feito utilizando a classe de ShardMapManager ([Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)), foi encontrada no [biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md) para gerir os mapas de partições horizontais.  
 
 ## <a name="shard-maps-and-shard-mappings"></a>Mapas de partições horizontais e mapeamentos de partições horizontais
 Para cada partição horizontal, tem de selecionar o tipo de mapa de partições horizontais criar. A opção depende a arquitetura de base de dados: 
@@ -53,11 +53,11 @@ Dimensionamento elástico suporta os seguintes tipos como chaves de fragmentaç�
 
 | .NET | Java |
 | --- | --- |
-| inteiro |inteiro |
+| número inteiro |número inteiro |
 | longa |longa |
 | GUID |UUID |
 | Byte]  |Byte] |
-| datetime | carimbo de data/hora |
+| DateTime | carimbo de data/hora |
 | TimeSpan | Duração|
 | Datetimeoffset |offsetdatetime |
 
@@ -98,11 +98,28 @@ Na biblioteca de cliente, o Gestor de mapa de partições horizontais é uma col
 3. **Cache da aplicação**: cada instância de aplicação ao aceder a um **ShardMapManager** objeto mantém uma cache na memória local do respetivos mapeamentos. Armazena as informações de encaminhamento que recentemente foram obtidas. 
 
 ## <a name="constructing-a-shardmapmanager"></a>Construir uma ShardMapManager
-A **ShardMapManager** objecto é construído através de uma fábrica ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory)) padrão. O **ShardMapManagerFactory.GetSqlShardMapManager** ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager)) método aceita as credenciais (incluindo o nome do servidor e o nome de base de dados que contém o GSM) do formato de um **ConnectionString** e devolve uma instância de um **ShardMapManager**.  
+A **ShardMapManager** objecto é construído através de uma fábrica ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)) padrão. O **ShardMapManagerFactory.GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) método aceita as credenciais (incluindo o nome do servidor e o nome de base de dados que contém o GSM) do formato de um **ConnectionString** e devolve uma instância de um **ShardMapManager**.  
 
 **Tenha em atenção:** o **ShardMapManager** deve ser instanciado apenas uma vez por domínio de aplicação, dentro do código de inicialização de uma aplicação. Criação de instâncias adicionais de ShardMapManager no mesmo domínio de aplicação resulta num aumento de memória e a utilização de CPU da aplicação. A **ShardMapManager** pode conter qualquer número de mapas de partições horizontais. Enquanto um mapa de partições horizontais única pode ser suficiente para muitas aplicações, há horas quando são utilizados os diferentes conjuntos de bases de dados para outro esquema ou para fins de exclusivos; Nesses casos, várias partições horizontais maps poderão ser preferível. 
 
-Neste código, uma aplicação tenta abrir um existente **ShardMapManager** com o TryGetSqlShardMapManager ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager)) método.  Se os objetos que representa um Global **ShardMapManager** (GSM) não ainda existe na base de dados, a biblioteca de cliente cria-los existe utilizando o CreateSqlShardMapManager ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager), [Java ](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager)) método.
+Neste código, uma aplicação tenta abrir um existente **ShardMapManager** com o TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)) método.  Se os objetos que representa um Global **ShardMapManager** (GSM) não ainda existe na base de dados, a biblioteca de cliente cria-los existe utilizando o CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET ](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) método.
+
+```Java
+// Try to get a reference to the Shard Map Manager in the shardMapManager database.
+// If it doesn't already exist, then create it.
+ShardMapManager shardMapManager = null;
+boolean shardMapManagerExists = ShardMapManagerFactory.tryGetSqlShardMapManager(shardMapManagerConnectionString,ShardMapManagerLoadPolicy.Lazy, refShardMapManager);
+shardMapManager = refShardMapManager.argValue;
+
+if (shardMapManagerExists) {
+    ConsoleUtils.writeInfo("Shard Map %s already exists", shardMapManager);
+}
+else {
+    // The Shard Map Manager does not exist, so create it
+    shardMapManager = ShardMapManagerFactory.createSqlShardMapManager(shardMapManagerConnectionString);
+    ConsoleUtils.writeInfo("Created Shard Map %s", shardMapManager);
+}
+```
 
 ```csharp
 // Try to get a reference to the Shard Map Manager via the Shard Map Manager database.  
@@ -131,50 +148,10 @@ else
 } 
 ```
 
-```Java
-// Try to get a reference to the Shard Map Manager in the shardMapManager database.
-// If it doesn't already exist, then create it.
-ShardMapManager shardMapManager = null;
-boolean shardMapManagerExists = ShardMapManagerFactory.tryGetSqlShardMapManager(shardMapManagerConnectionString,ShardMapManagerLoadPolicy.Lazy, refShardMapManager);
-shardMapManager = refShardMapManager.argValue;
-
-if (shardMapManagerExists) {
-    ConsoleUtils.writeInfo("Shard Map %s already exists", shardMapManager);
-}
-else {
-    // The Shard Map Manager does not exist, so create it
-    shardMapManager = ShardMapManagerFactory.createSqlShardMapManager(shardMapManagerConnectionString);
-    ConsoleUtils.writeInfo("Created Shard Map %s", shardMapManager);
-}
-```
-
-Para a versão do .NET, pode utilizar o Powershell para criar um novo Gestor de mapa de partições horizontais. Um exemplo está disponível [aqui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Para a versão do .NET, pode utilizar o PowerShell para criar um novo Gestor de mapa de partições horizontais. Um exemplo está disponível [aqui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 ## <a name="get-a-rangeshardmap-or-listshardmap"></a>Obter um RangeShardMap ou ListShardMap
-Depois de criar um ID de partição horizontal manager mapa, pode obter o RangeShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)) ou ListShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn807370.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)) utilizando o TryGetRangeShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap)), o TryGetListShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap)), ou o GetShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap)) método.
-
-```csharp
-// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
-public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
-{
-    // Try to get a reference to the Shard Map.
-    RangeShardMap<T> shardMap;
-    bool shardMapExists = shardMapManager.TryGetRangeShardMap(shardMapName, out shardMap);
-
-    if (shardMapExists)
-    {
-        ConsoleUtils.WriteInfo("Shard Map {0} already exists", shardMap.Name);
-    }
-    else
-    {
-        // The Shard Map does not exist, so create it
-        shardMap = shardMapManager.CreateRangeShardMap<T>(shardMapName);
-        ConsoleUtils.WriteInfo("Created Shard Map {0}", shardMap.Name);
-    }
-
-    return shardMap;
-} 
-```
+Depois de criar um ID de partição horizontal manager mapa, pode obter o RangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) ou ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807370.aspx)) utilizando o TryGetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), o TryGetListShardMap ([Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), ou o GetShardMap ([ Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) método.
 
 ```Java
 // Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
@@ -204,6 +181,29 @@ static <T> RangeShardMap<T> createOrGetRangeShardMap(ShardMapManager shardMapMan
 }
 ```
 
+```csharp
+// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
+public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
+{
+    // Try to get a reference to the Shard Map.
+    RangeShardMap<T> shardMap;
+    bool shardMapExists = shardMapManager.TryGetRangeShardMap(shardMapName, out shardMap);
+
+    if (shardMapExists)
+    {
+        ConsoleUtils.WriteInfo("Shard Map {0} already exists", shardMap.Name);
+    }
+    else
+    {
+        // The Shard Map does not exist, so create it
+        shardMap = shardMapManager.CreateRangeShardMap<T>(shardMapName);
+        ConsoleUtils.WriteInfo("Created Shard Map {0}", shardMap.Name);
+    }
+
+    return shardMap;
+} 
+```
+
 ### <a name="shard-map-administration-credentials"></a>Credenciais de administração de mapa de partições horizontais
 As aplicações que administram e manipular mapas de partições horizontais são diferentes das que utilizam os maps de partições horizontais para ligações de rota. 
 
@@ -226,19 +226,19 @@ Para obter mais informações, consulte [dados dependentes encaminhamento](sql-d
 
 Estes métodos funcionam em conjunto como os blocos modulares disponíveis para modificar a distribuição geral dos dados no seu ambiente de base de dados em partição horizontal.  
 
-* Para adicionar ou remover shards: utilizar **CreateShard** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard)) e **DeleteShard** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx), [ Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.deleteshard)) da Shardmap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map)) classe. 
+* Para adicionar ou remover shards: utilizar **CreateShard** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)) e **DeleteShard** ([Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.deleteshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx)) da Shardmap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx)) classe. 
   
     O servidor e base de dados que representa as partições horizontais de destino tem de existir para estas operações executar. Estes métodos não tem qualquer impacto nas bases de dados, apenas nos metadados no mapa de partições horizontais.
-* Para criar ou remover pontos ou intervalos que estão mapeados para as shards: utilizar **CreateRangeMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn841993.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.createrangemapping)), **DeleteMapping** ( [.NET](https://msdn.microsoft.com/library/azure/dn824200.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.deletemapping)) da RangeShardMapping ([.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)) classe, e **CreatePointMapping**  ([.NET](https://msdn.microsoft.com/library/azure/dn807218.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map.createpointmapping)) da ListShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn842123.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)) classe.
+* Para criar ou remover pontos ou intervalos que estão mapeados para as shards: utilizar **CreateRangeMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.createrangemapping), [.NET](https://msdn.microsoft.com/library/azure/dn841993.aspx)), **DeleteMapping** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.deletemapping), [.NET](https://msdn.microsoft.com/library/azure/dn824200.aspx)) da RangeShardMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) classe, e **CreatePointMapping ** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map.createpointmapping), [.NET](https://msdn.microsoft.com/library/azure/dn807218.aspx)) da ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn842123.aspx)) classe.
   
     Muitos pontos diferentes ou intervalos de podem ser mapeados para as partições horizontais mesmo. Estes métodos afetam apenas metadados - não afetam todos os dados que podem já estar presentes no shards. Se precisam de dados a serem removidos da base de dados para que seja consistente com **DeleteMapping** operações, execute essas operações em separado, mas em conjunto com a utilização destes métodos.  
-* Para dividir intervalos existentes em dois ou intercalar um intervalos adjacentes: utilizar **SplitMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn824205.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.splitmapping)) e **MergeMappings** ( [.NET](https://msdn.microsoft.com/library/azure/dn824201.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.mergemappings)).  
+* Para dividir intervalos existentes em dois ou intercalar um intervalos adjacentes: utilizar **SplitMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.splitmapping), [.NET](https://msdn.microsoft.com/library/azure/dn824205.aspx)) e **MergeMappings** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.mergemappings), [.NET](https://msdn.microsoft.com/library/azure/dn824201.aspx)).  
   
     Tenha em atenção que divide e operações de intercalação **não altere as partições horizontais ao qual os valores de chaves estão mapeados**. Uma divisão de quebras de um intervalo existente em duas partes, mas deixa ambos como mapeado para o ID de partição horizontal mesmo. Uma intercalação opera em dois intervalos adjacentes que já estão mapeados para o mesmo ID de partição horizontal, União-los para um único intervalo.  O movimento dos pontos ou intervalos próprios entre shards tem de ser coordenado utilizando **UpdateMapping** em conjunto com o movimento de dados.  Pode utilizar o **divisão/intercalação** service, ou seja, parte das ferramentas de base de dados elástica para coordenar as alterações de mapa de ID de partição horizontal com o movimento de dados, quando é necessário o movimento. 
-* Para voltar a mapear (ou mover) pontos individuais ou intervalos de shards diferentes: utilizar **UpdateMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn824207.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.updatemapping)).  
+* Para voltar a mapear (ou mover) pontos individuais ou intervalos de shards diferentes: utilizar **UpdateMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.updatemapping), [.NET](https://msdn.microsoft.com/library/azure/dn824207.aspx)).  
   
     Uma vez que os dados poderão ter de ser movidos de um ID de partição horizontal para outro para estar consistente com **UpdateMapping** operações, tem de efetuar essa movimento separadamente, mas em conjunto com a utilização destes métodos.
-* Para tirar mapeamentos online e offline: utilizar **MarkMappingOffline** ([.NET](https://msdn.microsoft.com/library/azure/dn824202.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingoffline)) e **MarkMappingOnline** ([. NET](https://msdn.microsoft.com/library/azure/dn807225.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingonline)) para controlar o estado online de um mapeamento. 
+* Para tirar mapeamentos online e offline: utilizar **MarkMappingOffline** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingoffline), [.NET](https://msdn.microsoft.com/library/azure/dn824202.aspx)) e **MarkMappingOnline** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingonline), [.NET](https://msdn.microsoft.com/library/azure/dn807225.aspx)) para controlar o estado online de um mapeamento. 
   
     Determinadas operações nos mapeamentos de partições horizontais só são permitidas quando um mapeamento está no estado "offline", incluindo **UpdateMapping** e **DeleteMapping**. Quando um mapeamento estiver offline, um pedido de dados dependentes com base numa chave incluída nesse mapeamento devolve um erro. Além disso, quando um intervalo primeiro seja colocado offline, são automaticamente eliminadas todas as ligações para o ID de partição horizontal afetado para evitar resultados inconsistentes ou incompletos para consultas direcionados contra intervalos a ser alterados. 
 

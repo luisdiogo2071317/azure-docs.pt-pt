@@ -2,26 +2,18 @@
 title: "Grupos de contentor de instâncias de contentor do Azure"
 description: "Compreender como funcionam os grupos de contentor em instâncias de contentor do Azure"
 services: container-instances
-documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/08/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 25eab41c3f0c986bcce33123f86f4c9638b77191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 568a99d44a5a32339d438ed1025670d12ecce791
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contentor em instâncias de contentor do Azure
 
@@ -42,7 +34,7 @@ Tenha em atenção que:
 - O grupo é constituído por dois contentores. Um contentor escuta na porta 80, enquanto o outro escuta na porta 5000.
 - O grupo inclui duas partilhas de ficheiros do Azure como volume monta e cada contentor monta uma das partilhas localmente.
 
-### <a name="networking"></a>Redes
+### <a name="networking"></a>Funcionamento em rede
 
 Grupos de contentor partilham um endereço IP e um espaço de nomes de porta nesse endereço IP. Para permitir aos clientes externos atingir um contentor dentro do grupo, tem de expor a porta no endereço IP de e para o contentor. Porque contentores dentro do grupo de partilham de um espaço de nomes de porta, o mapeamento de porta não é suportado. Contentores dentro de um grupo podem aceder entre si através de localhost nas portas que possam tem expostos, mesmo que essas portas não são expostas externamente no endereço IP do grupo.
 

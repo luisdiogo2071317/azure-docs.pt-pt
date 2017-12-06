@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 6a247c225af734757ab0cb0a7502f39535299ca7
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Ficheiros de configuração do serviço de experimentação do Machine Learning do Azure
 
@@ -113,10 +113,10 @@ Para especificar uma configuração específica de execução, é necessário um
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
-$ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password> --type remotedocker
+$ az ml computetarget attach remotedocker -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password>
 
 # create a compute context pointing to an HDI cluster head-node via SSH
-$ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> --type cluster
+$ az ml computetarget attach cluster -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> 
 ```
 
 Este comando cria um par de ficheiros com base no cálculo de destino especificado. Digamos que com o nome do destino de computação _foo_. Este comando gera _foo.compute_ e _foo.runconfig_ no seu **aml_config** pasta.
@@ -131,7 +131,7 @@ _\<nome do destino de computação > .compute_ ficheiro Especifica as informaç�
   - local
   - Docker
   - remotedocker
-  - Cluster
+  - cluster
 
 **baseDockerImage**: imagem de Docker o utilizada para executar o script de Python/PySpark. O valor predefinido é _microsoft/mmlspark:plus-0.7.91_. Também é suportada uma imagem de outra: _microsoft/mmlspark:plus-gpu-0.7.91_, que lhe dê acesso GPU para a máquina do anfitrião (se GPU estiver presente).
 
