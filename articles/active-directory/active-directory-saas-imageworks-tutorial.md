@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c12fe2f01c35d70763910c41cb45859bce33aea
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9e152c43507cea7e6407a349be414c2a895cb5fc
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Tutorial: Integração do Azure Active Directory com imagem FUNCIONA
 
@@ -113,7 +113,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://sp.i-imageworks.jp/iw/<tenantName>/postResponse`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de imagem FUNCIONA cliente](mailto:riki.satou@fujifilm.com) para obter estes valores. 
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de imagem FUNCIONA cliente](mailto:iw-sd-support@fujifilm.com) para obter estes valores. 
  
 4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -127,7 +127,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configuração de funcionamento de imagem](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_configure.png) 
 
-7. Para configurar o início de sessão único em **imagem FUNCIONA** lado, terá de enviar o transferido **Certificate(Base64), Sign-Out URL, ID de entidade de SAML e único início de sessão no URL do serviço SAML** para [FUNCIONA de imagem equipa de suporte](mailto:riki.satou@fujifilm.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
+7. Para configurar o início de sessão único em **imagem FUNCIONA** lado, terá de enviar o transferido **Certificate(Base64), Sign-Out URL, ID de entidade de SAML e único início de sessão no URL do serviço SAML** para [FUNCIONA de imagem equipa de suporte](mailto:iw-sd-support@fujifilm.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -167,7 +167,7 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
  
 ### <a name="create-a-image-works-test-user"></a>Criar um utilizador de teste de imagem FUNCIONA
 
-Nesta secção, vai criar um utilizador chamado Britta Simon na imagem FUNCIONA. Trabalhar com [equipa de suporte de imagem FUNCIONA](mailto:riki.satou@fujifilm.com) para adicionar os utilizadores na plataforma FUNCIONA de imagem. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um utilizador chamado Britta Simon na imagem FUNCIONA. Trabalhar com [equipa de suporte de imagem FUNCIONA](mailto:iw-sd-support@fujifilm.com) para adicionar os utilizadores na plataforma FUNCIONA de imagem. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

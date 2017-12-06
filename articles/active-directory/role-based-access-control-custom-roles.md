@@ -15,11 +15,11 @@ ms.date: 07/11/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e72f2c8095d13c4b6df3c6576bd58806a3c0f2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bb671e1870ae22eb515adc36ce0235e1d8ecddd
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Criar funções personalizadas para controlo de acesso em funções do Azure
 Crie uma função personalizada no controlo de acesso em funções do Azure (RBAC), se nenhuma das funções incorporadas satisfazer as suas necessidades de acesso específicas. Funções personalizadas podem ser criadas utilizando [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Interface de linha de comandos do Azure](role-based-access-control-manage-access-azure-cli.md) (CLI) e o [REST API](role-based-access-control-manage-access-rest.md). Tal como funções incorporadas, pode atribuir funções personalizadas para os utilizadores, grupos e aplicações na subscrição, o grupo de recursos e âmbitos de recursos. Funções personalizadas são armazenadas num inquilino do Azure AD e podem ser partilhadas entre subscrições.
@@ -28,7 +28,7 @@ Cada inquilino, pode criar até 2000 funções personalizadas.
 
 O exemplo seguinte mostra uma função personalizada de monitorização e reiniciar as máquinas virtuais:
 
-```
+```json
 {
   "Name": "Virtual Machine Operator",
   "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
@@ -67,7 +67,7 @@ O **ações** propriedade de uma função personalizada especifica as operaçõe
 
 Utilize `Get-AzureRmProviderOperation` (no PowerShell) ou `azure provider operations show` (na CLI do Azure) para operações de lista de fornecedores de recursos do Azure. Também pode utilizar estes comandos para verificar se uma cadeia de operação é válida e, para expandir as cadeias de operação de caráter universal.
 
-```
+```powershell
 Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
 
 Get-AzureRMProviderOperation Microsoft.Network/*
@@ -75,7 +75,7 @@ Get-AzureRMProviderOperation Microsoft.Network/*
 
 ![Captura de ecrã do PowerShell - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
-```
+```azurecli
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
 
 azure provider operations show "Microsoft.Network/*"
@@ -118,6 +118,7 @@ O **AssignableScopes** propriedade da função personalizada também controla qu
 
 ## <a name="see-also"></a>Consultar também
 * [Controlo de acesso baseado em funções](role-based-access-control-configure.md): começar a utilizar o RBAC no portal do Azure.
+* Para obter uma lista de operações disponíveis, consulte [operações de fornecedor de recursos do Azure Resource Manager](role-based-access-control-resource-provider-operations.md).
 * Saiba como gerir o acesso com:
   * [PowerShell](role-based-access-control-manage-access-powershell.md)
   * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)

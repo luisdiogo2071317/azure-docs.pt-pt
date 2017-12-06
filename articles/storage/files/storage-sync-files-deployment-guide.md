@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 42a0e7a3816e0f1d96951feac210e5770add4fe1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 7b4de3e7b7e98ab76c02ea7c1cf069cee94706fc
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Implementar a sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -92,7 +92,7 @@ Depois de iniciar sessão, serão apresentadas as seguintes informações:
 Depois de selecionar as informações adequadas, selecione **registar** para concluir o registo do servidor. Como parte do processo de registo, é-lhe pedida uma adicional início de sessão.
 
 ## <a name="create-a-sync-group"></a>Criar um grupo de sincronização
-Um grupo de sincronização define a topologia de sincronização para um conjunto de ficheiros. Pontos finais dentro de um grupo de sincronização são mantidos sincronizados entre si. Um grupo de sincronização tem de conter pelo menos um ponto final da nuvem, que representa uma partilha de ficheiros do Azure, e um ponto final do servidor, que representa um caminho no Windows Server. Para criar um grupo de sincronização, no [portal do Azure](https://portal.azure.com/), aceda ao seu serviço de sincronização de armazenamento e, em seguida, selecione **+ o grupo de sincronização**:
+Um grupo de sincronização define a topologia de sincronização para um conjunto de ficheiros. Pontos finais dentro de um grupo de sincronização são mantidos sincronizados entre si. Um grupo de sincronização tem de conter ponto final de pelo menos uma nuvem, que representa uma partilha de ficheiros do Azure, e o ponto final de um servidor, que representa um caminho no Windows Server. Para criar um grupo de sincronização, no [portal do Azure](https://portal.azure.com/), aceda ao seu serviço de sincronização de armazenamento e, em seguida, selecione **+ o grupo de sincronização**:
 
 ![Criar um novo grupo de sincronização no portal do Azure](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
@@ -109,15 +109,31 @@ Para adicionar um ponto final do servidor, vá para o grupo de sincronização r
 
 No **adicionar ponto final do servidor** painel, introduza as seguintes informações para criar um ponto final do servidor:
 
-- **Registar servidor**: O nome do servidor ou cluster onde pretende criar o ponto final do servidor.
+- **Servidor registado**: O nome do servidor ou cluster onde pretende criar o ponto final do servidor.
 - **Caminho**: caminho do Windows Server para ser sincronizada com êxito como parte do grupo de sincronização.
 - **Criação de camadas de nuvem**: um comutador para ativar ou desativar na nuvem em camadas. Com a nuvem em camadas, raramente utilizado ou aceder a ficheiros pode ser colocado em camadas para ficheiros do Azure.
-- **Espaço livre no volume**: A quantidade de espaço a reservar em volume no qual o ponto final do servidor está localizado. Por exemplo, se o espaço livre no volume estiver definido como 50%, num volume que tem um único ponto final do servidor, aproximadamente meio a quantidade de dados está em camadas para ficheiros do Azure. Independentemente de se na nuvem em camadas é ativada, a partilha de ficheiros do Azure tem sempre uma cópia completa dos dados no grupo de sincronização.
+- **Espaço livre no volume**: A quantidade de espaço a reservar em volume no qual o ponto final do servidor está localizado. Por exemplo, se o espaço livre no volume estiver definido como 50%, num volume que tenha um ponto final de servidor único, aproximadamente meio a quantidade de dados está em camadas para ficheiros do Azure. Independentemente de se na nuvem em camadas é ativada, a partilha de ficheiros do Azure tem sempre uma cópia completa dos dados no grupo de sincronização.
 
 Para adicionar o ponto final do servidor, selecione **criar**. Os ficheiros são agora mantidos sincronizados em toda a partilha de ficheiros do Azure e o Windows Server. 
 
 > [!Important]  
 > Pode efetuar alterações a qualquer ponto final da nuvem ou no grupo de sincronização de ponto final do servidor e os ficheiros foram sincronizadas para os pontos finais no grupo de sincronização. Se fizer uma alteração para o ponto final da nuvem (partilha de ficheiros do Azure) diretamente, alterações primeiro tem de ser detetados por uma tarefa de deteção de alteração de sincronização de ficheiros do Azure. Uma tarefa de deteção de alteração é iniciada, para um ponto final da nuvem, apenas uma vez a cada 24 horas. Para obter mais informações, consulte [ficheiros do Azure perguntas mais frequentes](storage-files-faq.md#afs-change-detection).
+
+## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrar uma implementação de replicação de DFS (DFS-R) a sincronização de ficheiros do Azure
+Para migrar uma implementação de DFS-R para sincronização de ficheiros do Azure:
+
+1. Crie um grupo de sincronização para representar a topologia de DFS-R, que estará a substituir.
+2. Inicie no servidor que tenha o conjunto completo de dados na sua topologia de DFS-R para migrar. Instale a sincronização de ficheiros do Azure nesse servidor.
+3. Registar esse servidor e criar um ponto final do servidor para o servidor primeiro a ser migrada. Não ative a nuvem em camadas.
+4. Permitir que todos os a sincronização de dados para a partilha de ficheiros do Azure (ponto final da nuvem).
+5. Instalar e registar o agente de sincronização de ficheiros do Azure em cada um dos servidores DFS-R restantes.
+6. Desativar DFS-R. 
+7. Crie um ponto final do servidor em cada um dos servidores DFS-R. Não ative a nuvem em camadas.
+8. Certifique-se a sincronização estiver concluída e testar a sua topologia conforme pretendido.
+9. Extinguir DFS-R.
+10. Na nuvem em camadas pode agora ser ativada em qualquer ponto final do servidor conforme pretendido.
+
+Para obter mais informações, consulte [interoperabilidade de sincronização de ficheiros do Azure com o sistema de ficheiros distribuído (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Adicionar ou remover um Azure sincronização do ponto final do ficheiro](storage-sync-files-server-endpoint.md)
