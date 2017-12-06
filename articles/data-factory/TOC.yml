@@ -34,7 +34,14 @@
     - name: 4 - Copiar dados em massa
       href: tutorial-bulk-copy.md
     - name: 5 - Copiar dados incrementalmente
-      href: tutorial-incremental-copy-powershell.md
+      href: tutorial-incremental-copy-overview.md
+      items:
+        - name: 5.1 - Copiar de uma tabela
+          href: tutorial-incremental-copy-powershell.md
+        - name: 5.2 - Copiar de várias tabelas
+          href: tutorial-incremental-copy-multiple-tables-powershell.md
+        - name: 5.3 - Utilizar funcionalidade monitorização de alterações
+          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - Transformar dados na cloud
       href: tutorial-transform-data-spark-powershell.md
     - name: 7 - Transformar dados numa rede virtual
@@ -228,6 +235,16 @@
           href: create-azure-ssis-integration-runtime.md
         - name: Associar o runtime de integração de SSIS do Azure a uma VNET
           href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: Executar pacotes do SSIS no Azure
+      items:
+        - name: Criar o runtime de integração de SSIS do Azure
+          href: create-azure-ssis-integration-runtime.md
+        - name: Associar o runtime de integração de SSIS do Azure a uma VNET
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Gerir o runtime de integração de SSIS do Azure
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Configurar o desempenho de runtime de integração do SSIS do Azure
+          href: configure-azure-ssis-integration-runtime-performance.md
 - name: Referência
   items:
     - name: .NET
