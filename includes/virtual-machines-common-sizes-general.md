@@ -8,15 +8,7 @@ Tamanhos de VM de objetivo geral fornecem equilibrado CPU para memória rácio. 
 
 - Os tamanhos do escalão básico destinam-se, principalmente, ao desenvolvimento de cargas de trabalho e outras aplicações que não requerem balanceamento de carga, dimensionamento automático ou máquinas virtuais que consomem muita memória. Para obter informações sobre os tamanhos de VMs mais adequados para aplicações de produção, veja (Tamanhos das máquinas virtuais) [virtual-machines-size-specs.md] e, para obter informações sobre os preços das VMs, veja [Preços de Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## <a name="b-series-preview"></a>Série B (pré-visualização)
-
-> [!NOTE] 
-> Pré-visualizações ficam disponíveis para si condition que aceita os termos de utilização. Para obter mais informações, consulte [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Esta pré-visualização será limitada para as seguintes regiões:
-> - -NOS - oeste 2
-> - -NOS - leste
-> - Europa - Oeste
-> - Ásia-Pacífico - Southeast
+## <a name="b-series"></a>Série B
 
 As VMs burstable B-série são ideais para cargas de trabalho que não tem o desempenho total da CPU continuamente, como servidores web, desenvolvimento de bases de dados pequenas e ambientes de teste. Estas cargas de trabalho normalmente têm requisitos de desempenho burstable. A série B fornece estes clientes a capacidade para comprar um tamanho VM com um desempenho de linha de base de conscience de preços que permite que a instância VM criar cópias de segurança créditos quando a VM está a utilizar menor do que o desempenho de base. Quando a VM terem sido acumulados crédito, a VM pode impulsar linha de base da VM com até 100% de CPU, quando a aplicação requer o desempenho da CPU superior.
 
@@ -31,7 +23,7 @@ As VMs burstable B-série são ideais para cargas de trabalho que não tem o des
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Série Dsv3
+## <a name="dsv3-series"></a>Dsv3-série *
 
 ACU: 160-190
 
@@ -46,9 +38,9 @@ Os tamanhos da série Dsv3 baseiam-se no processador 2.3 GHz Intel XEON ® E5-26
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / alto                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / extremamente elevado                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8 / extremamente elevado                                       |
+* VM Dsv3 série funcionalidade tecnologia® Hyper-Threading da Intel
 
-
-## <a name="dv3-series"></a>Série Dv3
+## <a name="dv3-series"></a>Dv3-série * 
 
 ACU: 160-190
 
@@ -65,7 +57,7 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / alto                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / extremamente elevado                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / extremamente elevado                     |
-
+* VM Dv3 série funcionalidade tecnologia® Hyper-Threading da Intel
 
 ## <a name="dsv2-series"></a>Série DSv2
 
