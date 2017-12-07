@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 6678f429d5d1242f1193933ec147fc910d53f925
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a1e56a6d31568d1d36e713b9a1000d84c6446bac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-media-services-overview"></a>Descrição geral dos Serviços de Multimédia do Azure 
 
@@ -63,10 +63,9 @@ Para compilar soluções de Media Services, pode utilizar:
 
 Localize vários exemplos de código na galeria **Exemplos de Código do Azure**: [exemplos de código dos Serviços de Multimédia do Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
-## <a name="concepts-and-overview"></a>Conceitos e descrição geral
-Para saber mais sobre os conceitos de Media Services do Azure, consulte [Conceitos](media-services-concepts.md).
+## <a name="concepts"></a>Conceitos
 
-Para obter um conjunto de procedimentos que apresente todos os componentes principais dos Media Services do Azure, consulte [Tutorial Passo-a-Passo dos Media Services do Azure](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Este conjunto possui uma excelente descrição geral dos conceitos e utiliza a ferramenta AMSE para demonstrar as tarefas AMS. A ferramenta AMSE é uma ferramenta do Windows. Esta ferramenta suporta a maioria das tarefas que pode realizar através de programação com [o SDK do AMS para .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK para Java](https://github.com/Azure/azure-sdk-for-java) ou [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php).
+Para saber mais sobre os conceitos de Media Services do Azure, consulte [Conceitos](media-services-concepts.md).
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>Cenários suportados e disponibilidade dos Serviços de Multimédia em datacenters
 

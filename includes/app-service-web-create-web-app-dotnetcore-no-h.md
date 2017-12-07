@@ -1,6 +1,6 @@
-No Cloud Shell, crie uma [aplicação Web](../articles/app-service/containers/app-service-linux-intro.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#create). 
+No Cloud Shell, crie uma [aplicação Web](../articles/app-service/containers/app-service-linux-intro.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#az_webapp_create). 
 
-No exemplo seguinte, substitua `<app_name>` com um nome de aplicação exclusivo global (carateres válidos são `a-z`, `0-9`, e `-`). O tempo de execução está definido como `dotnetcore|1.1`. Para ver os tempos de execução todos suportados, execute [az webapp lista-tempos de execução](/cli/azure/webapp#list-runtimes). 
+No exemplo seguinte, substitua `<app_name>` com um nome de aplicação exclusivo global (carateres válidos são `a-z`, `0-9`, e `-`). O tempo de execução está definido como `dotnetcore|1.1`. Para ver os tempos de execução todos suportados, execute [az webapp lista-tempos de execução](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git
