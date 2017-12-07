@@ -1,6 +1,6 @@
-A Shell de nuvem, criar uma aplicação web no `myAppServicePlan` plano de serviço de aplicações com o [az webapp criar](/cli/azure/webapp#create) comando. 
+A Shell de nuvem, criar uma aplicação web no `myAppServicePlan` plano de serviço de aplicações com o [az webapp criar](/cli/azure/webapp#az_webapp_create) comando. 
 
-No exemplo seguinte, substitua `<app_name>` com um nome de aplicação exclusivo global (carateres válidos são `a-z`, `0-9`, e `-`). O tempo de execução está definido como `NODE|6.9`. Para ver os tempos de execução todos suportados, execute [az webapp lista-tempos de execução](/cli/azure/webapp#list-runtimes). 
+No exemplo seguinte, substitua `<app_name>` com um nome de aplicação exclusivo global (carateres válidos são `a-z`, `0-9`, e `-`). O tempo de execução está definido como `NODE|6.9`. Para ver os tempos de execução todos suportados, execute [az webapp lista-tempos de execução](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
