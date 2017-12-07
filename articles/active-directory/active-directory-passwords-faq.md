@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 112bfeea29eacd0615f1d134567ec52264318b5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Gestão de palavras-passe perguntas mais frequentes
 
@@ -81,6 +81,19 @@ Estas FAQ é dividida nas seguintes secções:
 
 ## <a name="password-reset"></a>Reposição de palavras-passe
 
+* **P: pode impedir que utilizadores várias tentativas para repor uma palavra-passe num curto período de tempo?**
+
+  > **R:** Sim, existem funcionalidades de segurança incorporadas no protegê-lo contra utilização indevida de reposição de palavra-passe. 
+  >
+  > Os utilizadores podem tentar apenas cinco tentativas de reposição de palavra-passe dentro do período de 24 horas antes de estão bloqueadas durante 24 horas. 
+  >
+  > Os utilizadores podem tentar validar um número de telefone, enviar um SMS ou validar perguntas de segurança e respostas apenas cinco vezes dentro de uma hora até estão bloqueadas durante 24 horas. 
+  >
+  > Os utilizadores podem enviar um e-mail um máximo de 10 vezes num período de 10 minutos antes de estão bloqueadas durante 24 horas.
+  >
+  > Os contadores são repostos assim que um utilizador repõe a palavra-passe.
+  >
+  >
 * **P: quanto deve aguardar para receber um e-mail, SMS ou chamada telefónica de reposição de palavra-passe?**
 
   > **R:** mensagens de correio eletrónico, mensagens SMS, e as chamadas telefónicas deve chegam sob um minuto. As maiúsculas e minúsculas normal é 5 a 20 segundos.
@@ -163,11 +176,6 @@ Estas FAQ é dividida nas seguintes secções:
 * **P: se um utilizador registou mais do que o número máximo de perguntas necessárias para repor, como são as perguntas de segurança selecionadas durante a reposição?**
 
   > **R:** *N* número de perguntas de segurança é seleccionado aleatoriamente entre o número total de perguntas a que um utilizador tiver registado para onde *N* é a quantidade que está definida para o  **Número de perguntas necessárias para repor** opção. Por exemplo, se um utilizador registou cinco perguntas de segurança, mas apenas três são necessárias para repor uma palavra-passe, três das cinco perguntas são selecionadas aleatoriamente e são apresentadas na reposição. Para evitar pergunta hammering, se o utilizador obtém as respostas às questões errado o processo de seleção é iniciado através de.
-  >
-  >
-* **P: pode impedir que utilizadores várias tentativas para repor uma palavra-passe num curto período de tempo?**
-
-  > **R:** Sim, existem funcionalidades de segurança incorporadas no protegê-lo contra utilização indevida de reposição de palavra-passe. Os utilizadores podem tentar apenas cinco tentativas de reposição de palavra-passe dentro de uma hora até estão bloqueadas durante 24 horas. Os utilizadores podem tentar validar um número de telefone só cinco vezes dentro de uma hora até estão bloqueadas durante 24 horas. Os utilizadores podem experimentar um método de autenticação única só cinco vezes dentro de uma hora até estão bloqueadas durante 24 horas.
   >
   >
 * **P: quanto são o e-mail e o SMS Monouso códigos de acesso válidos?**
@@ -275,7 +283,7 @@ Estas FAQ é dividida nas seguintes secções:
 * [Como posso concluir uma implementação com êxito da SSPR?](active-directory-passwords-best-practices.md)
 * [Repor ou alterar a palavra-passe](active-directory-passwords-update-your-own-password.md)
 * [Registar-se na reposição personalizada de palavra-passe](active-directory-passwords-reset-register.md)
-* [Tem uma pergunta licenciamento?](active-directory-passwords-licensing.md)
+* [Tem alguma pergunta sobre licenciamento?](active-directory-passwords-licensing.md)
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](active-directory-passwords-data.md)
 * [Que métodos de autenticação estão disponíveis para os utilizadores?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Quais são as opções de política da SSPR?](active-directory-passwords-policy.md)

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e1c1b8bdf94104c0047e367f67a29d557fcc8df9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory reporting FAQ
 
@@ -119,5 +119,11 @@ Este artigo inclui as respostas a perguntas mais frequentes sobre o Azure Active
 **P: como são calculados os endereços IP no relatório de risco inícios de sessão e inícios de sessão?**
 
 **R:** endereços IP são emitidos de forma a que não há nenhuma ligação definitiva entre um endereço IP e onde está localizado fisicamente o computador com esse endereço. Isto é complicou fatores, tais como fornecedores de móveis e VPNs emitir endereços IP de agrupamentos centrais muito frequentemente longe onde o dispositivo de cliente, na verdade, é utilizado. Tendo em conta o acima, a conversão de endereço IP para uma localização física é um melhor esforço, com base nos rastreios, dados de registo, procure inversa ups e outras informações. 
+
+---
+
+**P: o que faz o evento de risco "Início de sessão com o risco adicional detetado" significam?**
+
+**R:** para lhe dar uma aprofundadas sobre todos os os risco inícios de sessão no seu ambiente mostramos o evento de risco "Início de sessão com o risco adicional detetado" para considera duvidosos devido a deteções de inícios de sessão exclusiva para subscritores do Azure AD Identity Protection.
 
 ---

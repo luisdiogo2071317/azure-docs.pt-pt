@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço Azure Backup
 Este artigo tem respostas a perguntas comuns para o ajudar a compreender rapidamente os componentes do Azure Backup. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Pode fazer perguntas sobre o Azure Backup ao clicar em **Comentários** (à direita). Os comentários aparecem na parte inferior do artigo. É necessária uma conta Livefyre para o comentário. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -112,7 +112,6 @@ O Azure Backup suporta a lista seguinte de sistemas operativos para criar cópia
 | Windows Storage Server 2012 e SPs mais recentes |64 bits |Standard, Workgroup |
 | Windows Server 2012 R2 SPs mais recentes |64 bits |Essencial |
 | Windows Server 2008 R2 SP1 |64 bits |Standard, Enterprise, Datacenter, Foundation |
-| Windows Server 2008 SP2 |64 bits |Standard, Enterprise, Datacenter, Foundation |
 
 **Para cópias de segurança de VMs do Azure:**
 

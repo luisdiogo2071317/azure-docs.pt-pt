@@ -3,8 +3,8 @@ title: "Tabelas temporárias no SQL Data Warehouse | Microsoft Docs"
 description: "Introdução ao tabelas temporárias no Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: fd8c31a727dae3b011aa8294a81f005bad72a278
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: e3b2f9017ecea7d9f78c07476f96c3dd8d031863
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tabelas temporárias no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,12 +33,12 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Tabelas temporárias são muito úteis durante o processamento de dados - especialmente durante a transformação onde os resultados intermédios estão transitórios. No SQL Data Warehouse tabelas temporárias existirem ao nível da sessão.  Apenas são visíveis para a sessão em que foram criadas e são automaticamente removidas quando termina a sessão.  Tabelas temporárias oferecem uma vantagem de desempenho, porque os respetivos resultados são escritos no local em vez de armazenamento remoto.  Tabelas temporárias são ligeiramente diferentes no armazém de dados SQL do Azure SQL Database do Azure que possam ser acedidos de qualquer local dentro da sessão, incluindo dentro e fora de um procedimento armazenado.
+Tabelas temporárias são úteis quando o processamento de dados - especialmente durante a transformação onde os resultados intermédios estão transitórios. No SQL Data Warehouse, tabelas temporárias existirem ao nível da sessão.  Apenas são visíveis para a sessão em que foram criadas e são automaticamente removidas quando termina a sessão.  Tabelas temporárias oferecem uma vantagem de desempenho, porque os respetivos resultados são escritos no local em vez de armazenamento remoto.  Tabelas temporárias são ligeiramente diferentes no armazém de dados SQL do Azure SQL Database do Azure que possam ser acedidos de qualquer local dentro da sessão, incluindo dentro e fora de um procedimento armazenado.
 
 Este artigo contém documentação de orientação essencial para utilizar tabelas temporárias e realça os princípios de tabelas temporárias ao nível de sessão. Utilizar as informações deste artigo pode ajudá-lo modularize código, melhorando reusability e facilidade de manutenção do seu código.
 
 ## <a name="create-a-temporary-table"></a>Criar uma tabela temporária
-São criadas tabelas temporárias atribuindo simplesmente lhe o prefixo do nome de tabela com um `#`.  Por exemplo:
+São criadas tabelas temporárias lhe o prefixo do nome de tabela com um `#`.  Por exemplo:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -112,12 +112,12 @@ FROM    t1
 ``` 
 
 > [!NOTE]
-> `CTAS`é um comando muito poderoso e tem a vantagem adicional de que está a ser muito eficientes na sua utilização do espaço de registo de transações. 
+> `CTAS`é um comando elevado desempenho e tem a vantagem adicional de que está a ser eficiente na sua utilização do espaço de registo de transações. 
 > 
 > 
 
 ## <a name="dropping-temporary-tables"></a>Remover tabelas temporárias
-Quando é criada uma nova sessão, não existem tabelas temporárias devem existir.  No entanto, se estiver a chamar o procedimento armazenado mesmo, que cria um temporário com o mesmo nome, certifique-se de que o `CREATE TABLE` instruções são com êxito uma verificação de pré-existência simple com um `DROP` podem ser utilizados como no exemplo abaixo:
+Quando é criada uma nova sessão, não existem tabelas temporárias devem existir.  No entanto, se estiver a chamar o procedimento armazenado mesmo, que cria um temporário com o mesmo nome, certifique-se de que o `CREATE TABLE` instruções são com êxito uma verificação de pré-existência simple com um `DROP` podem ser utilizados como no exemplo seguinte:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -126,14 +126,14 @@ BEGIN
 END
 ```
 
-Para consistência de codificação, é uma boa prática para utilizar este padrão de tabelas e tabelas temporárias.  Também é uma boa ideia utilizar `DROP TABLE` para remover a tabelas temporárias quando tiver terminado com os mesmos no seu código.  No procedimento armazenado desenvolvimento é bastante comum para ver os comandos de largar agrupadas no final de um procedimento para garantir que estes objetos são limpos.
+Para consistência de codificação, é uma boa prática para utilizar este padrão de tabelas e tabelas temporárias.  Também é uma boa ideia utilizar `DROP TABLE` para remover a tabelas temporárias quando tiver terminado com os mesmos no seu código.  Desenvolvimento de procedimentos armazenados, é comum para ver que os comandos de largar agrupadas no final de um procedimento para garantir que estes objetos são limpos.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
 ## <a name="modularizing-code"></a>Código modularizing
-Uma vez que a tabelas temporárias podem ser vistas em qualquer lugar numa sessão de utilizador, este pode ser explorada para ajudar a modularize código da aplicação.  Por exemplo, o procedimento armazenado abaixo reúne as práticas recomendadas de acima para gerar DDL que irá atualizar todas as estatísticas na base de dados pelo nome da estatística.
+Uma vez que a tabelas temporárias podem ser vistas em qualquer lugar numa sessão de utilizador, este pode ser explorada para ajudar a modularize código da aplicação.  Por exemplo, o seguinte procedimento armazenado gera DDL para atualizar todas as estatísticas na base de dados pelo nome da estatística.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -207,7 +207,7 @@ FROM    t1
 GO
 ```
 
-Nesta fase, a única ação que tenha ocorrido é a criação de um procedimento armazenado que simplesmente será gerada uma tabela temporária, stats_ddl #, com as instruções DDL.  Este procedimento armazenado irá remover #stats_ddl se já existir Certifique-se de que não falha se mais do que uma vez executado dentro de uma sessão.  No entanto, uma vez que não existe nenhum `DROP TABLE` no final do procedimento armazenado, quando o procedimento armazenado for concluído, que irá deixar a tabela criada para que possa ser lido fora do procedimento armazenado.  No SQL Data Warehouse, ao contrário de outras bases de dados do SQL Server, é possível utilizar a tabela temporária fora o procedimento que o criou.  Podem ser utilizadas a tabelas temporárias do SQL Data Warehouse **em qualquer lugar** dentro da sessão. Isto pode levar a mais modular e gerível código como o exemplo abaixo:
+Nesta fase, a única ação que tenha ocorrido é a criação de um procedimento armazenado que generatess uma tabela temporária, stats_ddl #, com as instruções DDL.  Este procedimento armazenado ignora #stats_ddl se já existir Certifique-se de que não falha se mais do que uma vez executado dentro de uma sessão.  No entanto, uma vez que não existe nenhum `DROP TABLE` no final do procedimento armazenado, quando o procedimento armazenado for concluído, sai a tabela criada para que possa ser lido fora do procedimento armazenado.  No SQL Data Warehouse, ao contrário de outras bases de dados do SQL Server, é possível utilizar a tabela temporária fora o procedimento que o criou.  Podem ser utilizadas a tabelas temporárias do SQL Data Warehouse **em qualquer lugar** dentro da sessão. Isto pode levar a mais código modular e gerível como no exemplo seguinte:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;

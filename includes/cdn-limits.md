@@ -1,7 +1,7 @@
 
 | Recurso | Limite predefinido | Limite máximo | 
 | --- | --- | --- |
-| Perfis da CDN |8 |25 |
+| Perfis de CDN |25 |25 |
 | Pontos finais por perfil da CDN |10 |25 |
 | Domínios personalizados por ponto final |10 |25 |
 

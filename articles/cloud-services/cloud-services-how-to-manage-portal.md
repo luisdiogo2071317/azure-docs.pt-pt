@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Como gerir Cloud Services
-No **serviços em nuvem (clássica)** área do Azure portal, pode atualizar uma função de serviço ou uma implementação, promover uma implementação faseada para produção, ligar recursos ao seu serviço de nuvem, para que possa ver as dependências de recursos e dimensionar os recursos em conjunto e eliminar um serviço em nuvem ou de uma implementação.
+No **serviços em nuvem** área do Azure portal, pode atualizar uma função de serviço ou uma implementação, promover uma implementação faseada para produção, ligar recursos ao seu serviço de nuvem, para que possa ver as dependências de recursos e a escala de recursos em conjunto e eliminar uma serviço ou uma implementação de nuvem.
 
 Estão disponíveis mais informações sobre como dimensionar o serviço de nuvem [aqui](cloud-services-how-to-scale-portal.md).
 
@@ -80,9 +80,6 @@ Tenha em atenção que as atualizações de SO convidado e serviço autorrecuper
 **Uma troca implica o período de indisponibilidade para a minha aplicação? Como posso processá-lo?**
 
 Conforme descrito na última secção, uma troca de implementação é rápida, normalmente, uma vez que é apenas uma alteração de configuração de Balanceador de carga do Azure. Em alguns casos, no entanto, este pode demorar segundos dez ou mais e resultar em falhas de ligação transitório. Para limitar o impacto para os seus clientes, considere implementar [lógica de repetição do cliente](../best-practices-retry-general.md).
-
-## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Como: ligar um recurso a um serviço em nuvem
-O portal do Azure não ligar recursos em conjunto como atual portal clássico do Azure. Em vez disso, implemente recursos adicionais para o mesmo grupo de recursos que está a ser utilizado pelo serviço de nuvem.
 
 ## <a name="how-to-delete-deployments-and-a-cloud-service"></a>Como: eliminar as implementações e um serviço em nuvem
 Antes de poder eliminar um serviço em nuvem, tem de eliminar cada implementação existente.

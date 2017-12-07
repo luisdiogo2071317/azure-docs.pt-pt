@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: ec33ba08c6284e90edc1870eef4bf3059b917efb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Resolver problemas relacionados com funções de serviço em nuvem que não conseguem iniciar
 Seguem-se alguns problemas comuns e soluções relacionadas com a Cloud Services do Azure funções que não conseguem iniciar.
@@ -62,9 +62,8 @@ Assim que o serviço está implementada novamente, verá uma mensagem de erro co
 Pode utilizar o ambiente de trabalho remoto para aceder a função e ver informações de erro mais completas remotamente. Utilize os seguintes passos para ver os erros, utilizando o ambiente de trabalho remoto:
 
 1. Certifique-se de que o Azure SDK 1.3 ou posterior está instalado.
-2. Durante a implementação da solução utilizando o Visual Studio, optar por "Configurar ambientes de trabalho ligações remotas...". Para obter mais informações sobre como configurar a ligação de ambiente de trabalho remoto, consulte [utilizando o ambiente de trabalho remoto com as funções do Azure](../vs-azure-tools-remote-desktop-roles.md).
-3. No portal do Microsoft Azure clássico, assim que a instância mostra um Estado de **pronto**, clique das instâncias da função.
-4. Clique em de **Connect** ícone no **acesso remoto** área do Friso.
+2. Durante a implementação da solução utilizando o Visual Studio, optar por "Configurar ligações de ambiente de trabalho remoto". Para obter mais informações sobre como configurar a ligação de ambiente de trabalho remoto, consulte [utilizando o ambiente de trabalho remoto com as funções do Azure](../vs-azure-tools-remote-desktop-roles.md).
+3. No portal do Microsoft Azure, depois da instância mostra um Estado de **pronto**remoto para a instância. Para obter mais informações sobre como utilizar o ambiente de trabalho remoto com serviços em nuvem, consulte [remoto em instâncias de função](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Iniciar sessão para a máquina virtual, utilizando as credenciais que foram especificadas durante a configuração do ambiente de trabalho remoto.
 6. Abra uma janela de comando.
 7. Digite `IPconfig`.

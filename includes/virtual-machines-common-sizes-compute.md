@@ -12,11 +12,11 @@ As VMs da série F são uma excelente opção para cargas de trabalho que exigem
 
 A série Fs oferece todas as vantagens da série F, além do armazenamento Premium.
 
-## <a name="fsv2-series"></a>Série Fsv2
+## <a name="fsv2-series"></a>Fsv2-série *
 
 ACU: 195-210
 
-| Tamanho             | do vCPU | Memória: GiB | SSD Local: GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
+| Tamanho             | do vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Moderado                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Moderado                                       |
@@ -25,7 +25,7 @@ ACU: 195-210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extremamente elevado                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extremamente elevado                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremamente elevado                                 |
-
+* VM Fsv2 série funcionalidade tecnologia® Hyper-Threading da Intel
 
 ## <a name="fs-series"></a>Série Fs*
 

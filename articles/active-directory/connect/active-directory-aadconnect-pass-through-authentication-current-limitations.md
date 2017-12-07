@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: 978ad8f14d70fe60cb220136e87ce4a064672b8a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a7edfd1939ad45dd3309fe5eaee2afa36086e9eb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Do Azure autenticação do Active Directory pass-through: Limitações atuais
 
@@ -47,7 +47,10 @@ Os cenários seguintes são _não_ suportados:
 - Deteção de utilizadores com [fuga credenciais](../active-directory-reporting-risk-events.md#leaked-credentials).
 
 >[!IMPORTANT]
->Como uma solução para cenários não suportados _apenas_, ativar a sincronização de hash de palavra-passe no [funcionalidades opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) página do Assistente do Azure AD Connect. Ativar a sincronização de hash de palavra-passe também dá-lhe a opção de autenticação de ativação pós-falha se a sua infraestrutura no local é interrompida. Esta ativação pós-falha de autenticação pass-through para a sincronização de hash de palavra-passe do Active Directory não é automática. Necessita de ajuda do Support da Microsoft.
+>Como uma solução para cenários não suportados _apenas_, ativar a sincronização de hash de palavra-passe no [funcionalidades opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) página do Assistente do Azure AD Connect.
+
+>[!NOTE]
+Ativar a sincronização de hash de palavra-passe dá-lhe a opção de autenticação de ativação pós-falha se a sua infraestrutura no local é interrompida. Esta ativação pós-falha de autenticação pass-through para a sincronização de hash de palavra-passe do Active Directory não é automática. Terá de mudar o método de início de sessão manualmente utilizando o Azure AD Connect. Se o servidor que executa o Azure AD Connect ficar inativo, irá necessitar de ajuda do Support da Microsoft para desativar a autenticação pass-through.
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Início Rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md): começar a trabalhar com a autenticação pass-through do Azure AD.

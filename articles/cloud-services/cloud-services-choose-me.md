@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: d27a4be968dc12818f7031b59ed40fbc9f9d88d3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 17ecf39128994dad93f017f87f105254f3017230
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Devo escolher serviços em nuvem ou outra coisa?
 É a escolha de Cloud Services do Azure para si? O Azure oferece diferentes modelos de alojamento para a execução de aplicações. Cada um deles fornece um conjunto diferente de serviços, para o qual deles escolher depende exatamente o que está a tentar fazer.
@@ -50,7 +50,7 @@ Apesar das aplicações são executadas nas máquinas virtuais, é importante co
 ## <a name="scaling-and-management"></a>Dimensionamento e gestão
 Com os serviços em nuvem, não crie máquinas virtuais. Em vez disso, é fornecer um ficheiro de configuração que diz ao Azure quantos de cada gostaria, tais como **web três instâncias de função** e **duas instâncias de função de trabalho**, e a plataforma cria por si.  Escolher ainda [que tamanho](cloud-services-sizes-specs.md) as VMs de segurança devem ser, mas não explicitamente criá-los por si. Se a aplicação tem de processar uma carga maior, pode pedir para as VMs mais e Azure cria nessas instâncias. Se a carga diminui, pode encerrar essas instâncias e parar a pagar para os mesmos.
 
-Uma aplicação de serviços em nuvem é normalmente disponibilizada aos utilizadores através de um processo de dois passos. Um programador primeiro [carrega a aplicação](cloud-services-how-to-create-deploy-portal.md) para área de transição da plataforma. Quando o programador está pronto para disponibilizar a aplicação em direto, que utilizam o portal do Azure para trocar com a produção de teste. Isto [alternar entre transição e produção](cloud-services-nodejs-stage-application.md) pode ser efetuada sem período de indisponibilidade, que permite uma aplicação em execução ser atualizado para uma nova versão sem preventiva os seus utilizadores.
+Uma aplicação de serviços em nuvem é normalmente disponibilizada aos utilizadores através de um processo de dois passos. Um programador primeiro [carrega a aplicação](cloud-services-how-to-create-deploy-portal.md) para área de transição da plataforma. Quando o programador está pronto para disponibilizar a aplicação em direto, que utilizam o portal do Azure para trocar com a produção de teste. Isto [alternar entre transição e produção](cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production) pode ser efetuada sem período de indisponibilidade, que permite uma aplicação em execução ser atualizado para uma nova versão sem preventiva os seus utilizadores.
 
 ## <a name="monitoring"></a>Monitorização
 Serviços cloud também fornece a monitorização. Como máquinas de virtuais do Azure, este Deteta um servidor físico com falhas e reinicia as VMs que estavam em execução nesse servidor num computador novo. Mas serviços Cloud também Deteta VMs com falhas e de aplicações, não apenas as falhas de hardware. Ao contrário das máquinas virtuais, tem um agente dentro de cada função da web e de trabalho e, por isso, é possível iniciar novas VMs e instâncias da aplicação quando ocorrem falhas.

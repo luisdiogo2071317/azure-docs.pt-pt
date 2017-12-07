@@ -26,7 +26,7 @@ Para começar a utilizar com o Premium Storage, [criar a sua conta do Azure grat
 Para obter informações sobre como migrar as suas VMs existentes para o Premium Storage, consulte [converter uma VM do Windows de discos não geridos para gerido discos](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) ou [converter uma VM com Linux de discos não geridos para gerido discos](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
-> Armazenamento Premium está disponível na maior parte das regiões. Para obter a lista de regiões disponíveis, no [serviços do Azure por região](https://azure.microsoft.com/regions/#services), veja as regiões na qual suportado VMs de série de tamanho de suporte Premium (-série DS, série DSV2-série, série GS e VMs Fs-série) são suportados.
+> Armazenamento Premium está disponível na maior parte das regiões. Para obter a lista de regiões disponíveis, consulte a linha para **armazenamento em disco** no [produtos do Azure disponíveis por região](https://azure.microsoft.com/regions/#services).
 > 
 
 ## <a name="features"></a>Funcionalidades

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 4ba53dd1239290c64907ed431d404b2d1be66c36
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 08503a7f6f32125c324173636dbda0548f3ccb8c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Utilizar uma imagem personalizada do Docker da aplicação Web para contentores
 
@@ -84,7 +84,7 @@ docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 
 O comando produz o resultado semelhante ao seguinte:
 
-```bash
+```
 # The output from the commands in this article has been shortened for brevity.
 
 Sending build context to Docker daemon  5.558MB
@@ -130,7 +130,7 @@ Um registo é uma aplicação que aloja as imagens e fornece serviços de imagem
 
 Hub de docker é um registo para imagens de Docker que permite-lhe alojar o seus repositórios, públicos ou privados. Para enviar uma imagem personalizada do Docker ao Hub Docker público, utilize o [docker push](https://docs.docker.com/engine/reference/commandline/push/) de comandos e forneça um nome de imagem completa e a etiqueta. Um nome de imagem completa e etiqueta aspeto o exemplo seguinte:
 
-```bash
+```
 <docker-id>/image-name:tag
 ```
 
@@ -143,12 +143,12 @@ docker login --username <docker-id> --password <docker-hub-password>
 Uma mensagem "início de sessão foi efetuado com êxito" confirma que tiver iniciado a sessão. Depois de a sessão, pode emitir a imagem a utilizar o Hub de Docker o [docker push](https://docs.docker.com/engine/reference/commandline/push/) comando.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Certifique-se de que o push com sucesso, examinando o comando de saída do.
 
-```bash
+```
 The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
 c33197c3f6d4: Pushed
 ccd2c850ee43: Pushed
@@ -314,7 +314,7 @@ top
 
 O `top` comando expõe todos os processos em execução num contentor.
 
-```bash
+```
 PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
  1 root      20   0  945616  35372  15348 S  0.0  2.1   0:04.63 node
 20 root      20   0   55180   2776   2516 S  0.0  0.2   0:00.00 sshd
@@ -343,7 +343,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 O comando de revela resultado semelhante a seguinte cadeia JSON, que mostra que a alteração de configuração foi concluída com êxito:
 
-```bash
+```json
 [
   {
     "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
@@ -383,7 +383,7 @@ az acr create --name <azure-container-registry-name> --resource-group myResource
 
 Criar um contentor produz a seguinte saída:
 
-```bash
+```
  - Finished ..
 Create a new service principal and assign access:
   az ad sp create-for-rbac --scopes /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name> --role Owner --password <password>
@@ -447,6 +447,12 @@ Certifique-se de que o início de sessão foi efetuado com êxito.
 
 ### <a name="push-an-image-to-azure-container-registry"></a>Emitir uma imagem para o registo de contentor do Azure
 
+> [!NOTE]
+> Se estiver a utilizar a sua própria imagem, tag de imagem da seguinte forma:
+> ```bash
+> docker tag <azure-container-registry-name>.azurecr.io/mydockerimage
+> ```
+
 Push a imagem utilizando o `docker push` comando. Tag de imagem com o nome do registo, seguido pelo seu nome de imagem e a etiqueta.
 
 ```bash
@@ -505,7 +511,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 O comando de revela resultado semelhante a seguinte cadeia JSON, que mostra que a alteração de configuração foi concluída com êxito:
 
-```bash
+```json
 [
   {
     "name": "DOCKER_CUSTOM_IMAGE_NAME",

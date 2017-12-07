@@ -1,6 +1,6 @@
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*.
 
@@ -10,7 +10,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie uma VM com o comando [z vm create](/cli/azure/vm#create). 
+Crie uma VM com o comando [z vm create](/cli/azure/vm#az_vm_create). 
 
 O exemplo seguinte cria uma VM com o nome *myVM* e cria chaves SSH caso estas ainda não existam numa localização chave predefinida. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. O comando também define *azureuser* como um nome de utilizador administrador. Utilizar este nome mais tarde para ligar à VM. 
 
@@ -42,7 +42,7 @@ Quando a VM tiver sido criada, a CLI do Azure mostra informações semelhantes a
 
 ## <a name="open-port-80-for-web-traffic"></a>Abrir a porta 80 para o tráfego da Web 
 
-Por predefinição, apenas as ligações de SSH são permitidas para VMs com Linux implementados no Azure. Porque esta VM vai ser um servidor web, terá de abrir a porta 80 da internet. Utilize o comando [az vm open-port](/cli/azure/vm#open-port) para abrir a porta pretendida.  
+Por predefinição, apenas as ligações de SSH são permitidas para VMs com Linux implementados no Azure. Porque esta VM vai ser um servidor web, terá de abrir a porta 80 da internet. Utilize o comando [az vm open-port](/cli/azure/vm#az_vm_open_port) para abrir a porta pretendida.  
  
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

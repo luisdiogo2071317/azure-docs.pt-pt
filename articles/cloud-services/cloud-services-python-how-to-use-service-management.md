@@ -14,17 +14,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>Como utilizar o serviço de gestão do Python
-Este guia mostra como programaticamente efetuar tarefas de gestão comuns do serviço do Python. O **ServiceManagementService** classe no [Azure SDK para Python](https://github.com/Azure/azure-sdk-for-python) suporta acesso programático para muito a funcionalidade relacionadas com a gestão do serviço que está disponível no [portal clássico do Azure] [ management-portal] (tais como **criar, atualizar e eliminar serviços em nuvem, implementações, os serviços de gestão de dados e as máquinas virtuais**). Esta funcionalidade pode ser útil na criação de aplicações que necessitam de acesso programático para gestão de serviço.
+Este guia mostra como programaticamente efetuar tarefas de gestão comuns do serviço do Python. O **ServiceManagementService** classe no [Azure SDK para Python](https://github.com/Azure/azure-sdk-for-python) suporta acesso programático para muito a funcionalidade relacionadas com a gestão do serviço que está disponível no [Azure Portal] [ management-portal] (tais como **criar, atualizar e eliminar serviços em nuvem, implementações, os serviços de gestão de dados e as máquinas virtuais**). Esta funcionalidade pode ser útil na criação de aplicações que necessitam de acesso programático para gestão de serviço.
 
 ## <a name="WhatIs"></a>Que é o serviço de gestão
-A API de gestão de serviço fornece acesso programático para muito a funcionalidade de gestão do serviço, disponível através de [portal clássico do Azure][management-portal]. O Azure SDK para Python permite-lhe gerir os seus serviços em nuvem e as contas de armazenamento.
+A API de gestão de serviço fornece acesso programático para muito a funcionalidade de gestão do serviço, disponível através de [portal do Azure][management-portal]. O Azure SDK para Python permite-lhe gerir os seus serviços em nuvem e as contas de armazenamento.
 
 Para utilizar a API de gestão de serviço, terá de [criar uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -35,7 +35,7 @@ O Azure SDK para Python encapsula num wrapper a [API de gestão de serviços do 
 Todas as funcionalidades descritas neste artigo estão disponíveis no `azure-servicemanagement-legacy` pacote, o que pode instalar através do pip. Para obter mais informações sobre a instalação (por exemplo, se estiver familiarizado com o Python), consulte este artigo: [instalar o Python e o Azure SDK](../python-how-to-install.md)
 
 ## <a name="Connect"></a>Como: ligar à gestão de serviço
-Para ligar ao ponto final do serviço de gestão, é necessário o ID de subscrição do Azure e um certificado de gestão válido. Pode obter o ID de subscrição através de [portal clássico do Azure][management-portal].
+Para ligar ao ponto final do serviço de gestão, é necessário o ID de subscrição do Azure e um certificado de gestão válido. Pode obter o ID de subscrição através de [portal do Azure][management-portal].
 
 > [!NOTE]
 > Agora é possível utilizar certificados criados com OpenSSL quando em execução no Windows.  Requer o Python 2.7.4 ou posterior. Recomendamos que os utilizadores utilizem OpenSSL em vez de. pfx, desde o suporte de. pfx certificados provavelmente serão removidos no futuro.
@@ -53,7 +53,7 @@ Para criar o `.cer` de certificado, execute:
 
 Para obter mais informações sobre os certificados do Azure, consulte [descrição geral de certificados para serviços de nuvem do Azure](cloud-services-certs-create.md). Para obter uma descrição completa dos parâmetros de OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Depois de criar estes ficheiros, terá de carregar o `.cer` ficheiro ao Azure através da ação "Carregar" de separador "Definições" o [portal clássico do Azure][management-portal], e terá de tome nota do local onde guardada a `.pem` ficheiro.
+Depois de criar estes ficheiros, terá de carregar o `.cer` ficheiro ao Azure através da ação "Carregar" de separador "Definições" o [portal do Azure][management-portal], e terá de tome nota do local onde guardada a `.pem` ficheiro.
 
 Após obter o ID de subscrição, criou um certificado e carregado o `.cer` ficheiro para o Azure, pode ligar ao ponto final de gestão do Azure através da transmissão do id de subscrição e o caminho para o `.pem` do ficheiro para **ServiceManagementService**:
 
@@ -74,7 +74,7 @@ Pode criar um certificado de gestão autoassinado na sua máquina utilizando `ma
 
 O comando cria o `.cer` de ficheiros e instala-na **pessoais** arquivo de certificados. Para obter mais informações, consulte [descrição geral de certificados para serviços de nuvem do Azure](cloud-services-certs-create.md).
 
-Depois de ter criado o certificado, terá de carregar o `.cer` ficheiro ao Azure através da ação "Carregar" de separador "Definições" o [portal clássico do Azure][management-portal].
+Depois de ter criado o certificado, terá de carregar o `.cer` ficheiro ao Azure através da ação "Carregar" de separador "Definições" o [portal do Azure][management-portal].
 
 Após obter o ID de subscrição, criou um certificado e carregado o `.cer` ficheiro para o Azure, pode ligar ao ponto final de gestão do Azure através da transmissão do id de subscrição e a localização do certificado no seu **pessoal** arquivo de certificados para **ServiceManagementService** (novamente, substitua *AzureCertificate* com o nome do seu certificado):
 
@@ -421,7 +421,7 @@ Para obter mais informações, consulte o [Centro para Programadores do Python](
 [How to: Create a virtual machine]: #CreateVM
 [How to: Delete a virtual machine]: #DeleteVM
 [Next Steps]: #NextSteps
-[management-portal]: https://manage.windowsazure.com/
+[management-portal]: https://portal.azure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 

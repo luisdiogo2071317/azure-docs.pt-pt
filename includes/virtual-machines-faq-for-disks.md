@@ -109,6 +109,40 @@ Não. Não é possível atualizar a propriedade de nome de computador. A VM nova
 * [Lista de modelos utilizando discos geridos](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## <a name="migrate-to-managed-disks"></a>Migrar para o Managed Disks 
+
+**As alterações que são necessárias no pré-existente cópia de segurança do Azure configuração anterior/após a migração de um serviço em discos geridos?**
+
+Não são necessárias alterações. 
+
+**A minha cópias de segurança VM criadas através do serviço de cópia de segurança do Azure antes da migração continuarão a funcionar?**
+
+Sim, as cópias de segurança funcionam sem problemas.
+
+**As alterações que são necessárias numa pré-existente encriptação de discos do Azure antes/após a migração de configuração de discos geridos?**
+
+Não são necessárias alterações. 
+
+**É automatizar a migração de um conjuntos de dimensionamento do existente VM (VMSS) de discos não geridos a geridos discos suportados?**
+
+Não. Pode criar um novo VMSS com discos geridos com a imagem a partir do seu VMSS antigo discos não geridos. 
+
+**Pode criar um disco geridos de um instantâneo de blob de página efetuado antes de migrar discos geridos?**
+
+Não. Pode exportar um instantâneo de blob de página como um blob de página e, em seguida, criar um disco gerido a partir do blob de página exportado. 
+
+**Pode falhar ao longo do meu máquinas no local protegidas pelo Azure Site Recovery para uma VM com discos geridos?**
+
+Sim, pode escolher a ativação pós-falha para uma VM com discos geridos.
+
+**Existe qualquer impacto da migração em VMs do Azure protegidos pelo Azure Site Recovery (ASR) através de replicação do Azure para o Azure?**
+
+Sim. Proteção do Azure para o Azure de ASR não é suportada para VMs com discos geridos. Vai ser suportado pela extremidade de CY2018. 
+
+**Pode migrar VMs com discos não geridos que estão localizados em contas de armazenamento que estão ou que foram anteriormente encriptadas para discos geridos?**
+
+Sim
+
 ## <a name="managed-disks-and-storage-service-encryption"></a>Geridos discos e a encriptação do serviço de armazenamento 
 
 **É encriptação do serviço de armazenamento do Azure ativada por predefinição quando criar um disco gerido?**

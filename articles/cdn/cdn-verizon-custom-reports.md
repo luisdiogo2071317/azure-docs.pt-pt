@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8df9fd46fe3ce8d87e7ad5377a21a0bc7a458d2b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios personalizados da Verizon
 
@@ -30,7 +30,7 @@ Através da Verizon personalizada relatórios através do portal de gerir para p
 ## <a name="accessing-verizon-custom-reports"></a>Aceder a relatórios personalizados da Verizon
 1. No painel de perfil da CDN, clique o **gerir** botão.
    
-    ![Botão de gerir do painel do perfil da CDN](./media/cdn-reports/cdn-manage-btn.png)
+    ![Botão de gerir do perfil de CDN](./media/cdn-reports/cdn-manage-btn.png)
    
     É aberto o portal de gestão do CDN.
 2. Coloque o cursor sobre o **análise** separador, em seguida, coloque o cursor sobre o **relatórios personalizados** flyout. Clique em **contorno CNAMEs**.
@@ -74,11 +74,11 @@ Pode exportar os dados no formato de Excel clicando o símbolo de Excel à direi
 | 4xx                       | Indica o número total de pedidos ou dados transferidos (MB) para o limite CNAME que resulta num código de estado HTTP 4xx (por exemplo, 400 pedido incorreto, 403 proibido ou 404 não encontrado). |
 | 5XX                       | Indica o número total de pedidos ou dados transferidos (MB) para o limite CNAME que resulte num código de estado HTTP 5xx (por exemplo, 500 Erro interno do servidor ou Gateway incorreto 502). |
 | % De acertos na cache               | Indica a percentagem de pedidos colocáveis que foram fornecidos diretamente a partir da cache para o autor do pedido. |
-| Acertos na cache                | Indica o número total de pedidos ou dados transferidos (MB) para o limite CNAME que resulte num acertos na cache, (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Um acertos na cache de ocorre quando é encontrada uma versão em cache do conteúdo pedido. |
+| Acertos na Cache                | Indica o número total de pedidos ou dados transferidos (MB) para o limite CNAME que resulte num acertos na cache, (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Um acertos na cache de ocorre quando é encontrada uma versão em cache do conteúdo pedido. |
 | Dados transferidos (MB)     | Indica a quantidade total de dados transferidos (MB) de servidores edge para clientes HTTP (browsers da web) para o CNAME do limite. A quantidade de dados transferidos é calculada através da adição de cabeçalhos de resposta de HTTP para o corpo da resposta. Como resultado, a quantidade de dados transferidos para cada recurso é superior ao tamanho real do ficheiro. |
 | Descrição               | Identifica um limite de CNAME pelo respetivo nome de anfitrião |
-| Pedidos com êxito                      | Indica o número total de pedidos na periferia CNAME |
-| Falhas de acertos na                    | Indica o número total de pedidos ou dados transferidos (MB) para o limite CNAME que resulte numa falha de acerto na cache (por exemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS ou TCP_MISS). Ocorre uma falha de acerto na cache quando o conteúdo solicitado não foi colocado em cache no servidor edge que cumpridas o pedido. | 
+| Acertos                      | Indica o número total de pedidos na periferia CNAME |
+| Falhas                    | Indica o número total de pedidos ou dados transferidos (MB) para o limite CNAME que resulte numa falha de acerto na cache (por exemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS ou TCP_MISS). Ocorre uma falha de acerto na cache quando o conteúdo solicitado não foi colocado em cache no servidor edge que cumpridas o pedido. | 
 | Não existem Cache                  | Indica o número total de pedidos ou dados transferidos (MB) para o limite CNAME que resulta num código de estado CONFIG_NOCACHE cache.  |
 | Outros                     | Indica o número total de pedidos ou os dados transferido (MB) para o limite CNAME indicado que resulta num código de estado HTTP que esteja fora 2xx - 5xx intervalo. |
 | Plataforma                  | Indica a plataforma que processa o tráfego o CNAME edge. |

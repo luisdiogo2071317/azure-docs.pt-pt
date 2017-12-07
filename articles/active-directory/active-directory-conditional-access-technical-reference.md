@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Referência técnica do Azure Active Directory acesso condicional
 
@@ -117,7 +117,7 @@ Na sua política de acesso condicional, pode selecionar **Browsers** como aplica
 
 ![Controlo de acesso para browsers suportados](./media/active-directory-conditional-access-technical-reference/05.png)
 
-Esta definição não tem um impacto em tentativas de acesso de browsers seguintes: 
+Esta definição funciona com todos os browsers. No entanto, para uma política de dispositivo, como um requisito de conformidade do dispositivo, de satisfazer os seguintes sistemas operativos e browsers são suportados:
 
 
 | SO                     | Browsers                            | Suporte     |
@@ -139,6 +139,9 @@ Esta definição não tem um impacto em tentativas de acesso de browsers seguint
 > Para obter suporte do Chrome, tem de utilizar o Windows 10 criadores Update (versão 1703) ou posterior.<br>
 > Pode instalar [esta extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
+Estes browsers suportam a autenticação do dispositivo, permitindo ao dispositivo ser identificado e validado com uma política. A verificação de dispositivo falha se o browser está em execução no modo privado. 
+
+
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Clientes de ambiente de trabalho e aplicações móveis suportadas
 
 Na sua política de acesso condicional, pode selecionar **clientes de ambiente de trabalho e aplicações móveis** como aplicação de cliente.
@@ -150,7 +153,7 @@ Na sua política de acesso condicional, pode selecionar **clientes de ambiente d
 Esta definição não tem um impacto em tentativas de acesso dos clientes de ambiente de trabalho e as seguintes aplicações móveis: 
 
 
-|Aplicações do cliente|Serviço de destino|Plataforma|
+|Aplicações de cliente|Serviço de destino|Plataforma|
 |---|---|---|
 |Aplicação remota do Azure|Remoto App service do Azure|Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
 |Aplicação do Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS e Android|

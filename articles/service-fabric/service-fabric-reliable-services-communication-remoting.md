@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicação remota do serviço com Reliable Services
 Para os serviços que não estão associados a um protocolo de comunicação específico ou pilha, como end WebAPI, o Windows Communication Foundation (WCF) ou outros recursos, a arquitetura de Reliable Services fornece um mecanismo de comunicação remota de forma rápida e fácil configurar a chamada de procedimento remoto para os serviços.
@@ -79,10 +79,10 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-A arquitetura de sistema de interação remota propaga exceções acionadas o serviço para o cliente. Lógica de processamento de exceções, por isso, o cliente utilizando `ServiceProxy` diretamente pode processar exceções que emite o serviço.
+A arquitetura de sistema de interação remota propaga exceções acionadas pelo serviço para o cliente. Como resultado, quando utilizar `ServiceProxy`, o cliente é responsável por processar as exceções acionadas pelo serviço.
 
 ## <a name="service-proxy-lifetime"></a>Duração do Proxy de serviço
-Criação de ServiceProxy é uma operação simples, para que os utilizadores podem criar tantas como que precisam. Instâncias de Proxy de serviço podem ser reutilizadas, desde que os utilizadores necessitam. Se uma chamada de procedimento remoto emite uma exceção, os utilizadores ainda podem reutilizar a mesma instância de proxy. Cada ServiceProxy contém um cliente de comunicação utilizado para enviar mensagens através da transmissão. Ao invocar chamadas remotas, iremos internamente Verifique se o cliente de comunicação é válido. Com base no que resultam, vamos voltar a criar o cliente de comunicação se for necessário. Por conseguinte, se ocorrer uma exceção, os utilizadores não precisam de recriar serviceproxy, mas são feitos transparente.
+Criação de ServiceProxy é uma operação simples, para que os utilizadores podem criar tantas como que precisam. Instâncias de Proxy de serviço podem ser reutilizadas, desde que os utilizadores necessitam. Se uma chamada de procedimento remoto emite uma exceção, os utilizadores ainda podem reutilizar a mesma instância de proxy. Cada ServiceProxy contém um cliente de comunicação utilizado para enviar mensagens através da transmissão. Ao invocar chamadas remotas, iremos internamente Verifique se o cliente de comunicação é válido. Com base no que resultam, vamos voltar a criar o cliente de comunicação se for necessário. Por conseguinte, se ocorrer uma exceção, os utilizadores não necessário recriá- `ServiceProxy` porque este é feito transparente.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Duração de ServiceProxyFactory
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é uma fábrica de que cria instâncias de proxy para interfaces de comunicação remota diferente. Se utilizar a api `ServiceProxy.Create` para criar o proxy, em seguida, a estrutura cria um singleton ServiceProxy.
@@ -91,12 +91,13 @@ A criação do Factory é uma operação dispendiosa. ServiceProxyFactory manté
 É melhor prática colocar em cache ServiceProxyFactory, desde que possível.
 
 ## <a name="remoting-exception-handling"></a>Processamento de exceções de comunicação remota
-A exceção de remota emitida pela API do serviço, são enviadas para o cliente como AggregateException. RemoteExceptions deve ser serializáveis DataContract [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) é acionada ao proxy API com o erro de serialização.
+Todas as exceções remotas emitidas pela API do serviço são enviadas para o cliente como AggregateException. RemoteExceptions deve ser DataContract serializável; Se não forem, o proxy API emite [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) com o erro de serialização.
 
-ServiceProxy processar todas as exceções de ativação pós-falha para a partição de serviço é criado para. Resolve novamente os pontos finais esteja Exceptions(Non-Transient Exceptions) ativação pós-falha e repetem a chamada com o ponto final correto. Número de tentativas de ativação pós-falha exceção é indefinido.
-Se ocorrer exceções transitório, proxy repete a chamada.
+ServiceProxy processa todas as exceções de ativação pós-falha para a partição de serviço que é criado para. -Lo novamente resolve os pontos finais, se existirem exceções de ativação pós-falha (exceções não transitório) e repete a chamada com o ponto final correto. O número de tentativas de exceções de ativação pós-falha é indefinido.
+Se ocorrerem exceções transitórias, o proxy repete a chamada.
 
-Os parâmetros predefinidos de repetição são fornecidos por [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) Transferindo OperationRetrySettings objeto para ServiceProxyFactory construtor, o utilizador pode configurar estes valores.
+Os parâmetros predefinidos de repetição são fornecidos por [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Transferindo OperationRetrySettings objeto para ServiceProxyFactory construtor, o utilizador pode configurar estes valores.
 ## <a name="how-to-use-remoting-v2-stack"></a>Como utilizar a pilha do sistema de interação remota V2
 Com o pacote de gestão remota do NuGet 2.8, tem a opção para utilizar a pilha do sistema de interação remota V2. Pilha do sistema de interação remota V2 é mais performant e fornece as funcionalidades, como personalizada serializável e mais incorporável Api.
 Por predefinição, se não fizer seguintes alterações, continua a utilizar a pilha do sistema de interação remota V1.

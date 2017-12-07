@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92a52910ef8b9f078a8ea6ac409f89719f889b24
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência de modelo de dados do modelo de API Management do Azure
 Este tópico descreve as representações de entidade e tipo para itens comuns utilizados em modelos de dados para os modelos de portal do programador na API Management do Azure.  
@@ -59,7 +59,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |nome|Cadeia|Nome da API. Não deve estar vazio. Comprimento máximo é 100 carateres.|  
 |descrição|Cadeia|Descrição da API. Não deve estar vazio. Pode incluir a formatação tags HTML. Comprimento máximo é de 1000 carateres.|  
 |serviceUrl|Cadeia|URL absoluto do serviço de back-end implementar esta API.|  
-|Caminho|Cadeia|URL relativo identificar exclusivamente esta API e todos os respetivos caminhos recursos a instância do serviço de API Management. É acrescentado a para o API base URL de ponto final especificado durante a criação de instância de serviço para formar um URL público para esta API.|  
+|caminho|Cadeia|URL relativo identificar exclusivamente esta API e todos os respetivos caminhos recursos a instância do serviço de API Management. É acrescentado a para o API base URL de ponto final especificado durante a criação de instância de serviço para formar um URL público para esta API.|  
 |protocolos|matriz de número|Descreve em protocolos de quais é possível invocar as operações desta API. Valores permitidos são `1 - http` e `2 - https`, ou ambos.|  
 |authenticationSettings|[Definições de autenticação de servidor de autorização](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Coleção de definições de autenticação incluídos nesta API.|  
 |subscriptionKeyParameterNames|objeto|Propriedade opcional que pode ser utilizada para especificar nomes personalizados para os parâmetros de consulta e/ou de cabeçalho que contém a chave de subscrição. Quando esta propriedade está presente tem de conter, pelo menos, uma das duas propriedades seguintes.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
@@ -84,9 +84,9 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Url|URI|O URI da aplicação.|  
 |Versão|Cadeia|Informações de versão para a aplicação.|  
 |Requisitos|Cadeia|Uma descrição dos requisitos para a aplicação.|  
-|Estado|Número|O estado atual da aplicação.<br /><br /> -0 - registado<br /><br /> -1 - submetido<br /><br /> -2 - publicado<br /><br /> -3 - rejeitados<br /><br /> -4 - não publicado|  
+|Estado|número|O estado atual da aplicação.<br /><br /> -0 - registado<br /><br /> -1 - submetido<br /><br /> -2 - publicado<br /><br /> -3 - rejeitados<br /><br /> -4 - não publicado|  
 |RegistrationDate|DateTime|A data e hora que a aplicação foi registada.|  
-|CategoryId|Número|A categoria da aplicação (financeiros, entretenimento, etc.)|  
+|CategoryId|número|A categoria da aplicação (financeiros, entretenimento, etc.)|  
 |DeveloperId|Cadeia|O identificador exclusivo do programador que submetido a aplicação.|  
 |Anexos|Coleção de [anexo](#Attachment) entidades.|Os anexos para a aplicação, tais como capturas de ecrã ou ícones.|  
 |Ícone|[Anexo](#Attachment)|O ícone da para a aplicação.|  
@@ -105,17 +105,17 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Título|Cadeia|O nome da operação.|  
+|título|Cadeia|O nome da operação.|  
 |fragmento|Cadeia|Esta propriedade foi preterida e não deve ser utilizada.|  
 |Pincel|Cadeia|Que modelo a utilizar quando se apresenta o código de exemplo de cores da sintaxe de código. Valores permitidos são `plain`, `php`, `java`, `xml`, `objc`, `python`, `ruby`, e `csharp`.|  
 |modelo|Cadeia|O nome deste modelo de exemplo de código.|  
-|Corpo|Cadeia|Um marcador de posição para a parte de exemplo de código de fragmento.|  
+|corpo|Cadeia|Um marcador de posição para a parte de exemplo de código de fragmento.|  
 |Método|Cadeia|O método HTTP da operação.|  
 |Esquema|Cadeia|O protocolo a utilizar para o pedido de operação.|  
-|Caminho|Cadeia|O caminho da operação.|  
+|caminho|Cadeia|O caminho da operação.|  
 |consulta|Cadeia|Exemplo de cadeia de consulta com parâmetros definidos.|  
 |anfitrião|Cadeia|O URL do gateway de serviço de API Management para a API que contém esta operação.|  
-|Cabeçalhos|Coleção de [cabeçalho](#Header) entidades.|Cabeçalhos para esta operação.|  
+|cabeçalhos|Coleção de [cabeçalho](#Header) entidades.|Cabeçalhos para esta operação.|  
 |parâmetros|Coleção de [parâmetro](#Parameter) entidades.|Parâmetros que são definidos para esta operação.|  
   
 ##  <a name="Comment"></a>Comentário  
@@ -123,7 +123,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Id|Número|O id do comentário.|  
+|Id|número|O id do comentário.|  
 |CommentText|Cadeia|O corpo do comentário. Pode incluir HTML.|  
 |DeveloperCompany|Cadeia|O nome da empresa do programador.|  
 |PostedOn|DateTime|A data e hora que o comentário foi publicado.|  
@@ -161,7 +161,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |descrição|Cadeia|Descrição de parâmetro.|  
 |valor|Cadeia|Valor do cabeçalho.|  
 |TypeName|Cadeia|Tipo de dados do valor do cabeçalho.|  
-|Opções|Cadeia|Opções.|  
+|opções|Cadeia|Opções.|  
 |Necessário|Valor booleano|Indica se o cabeçalho é necessário.|  
 |Só de leitura|Valor booleano|Indica se o cabeçalho é só de leitura.|  
   
@@ -171,7 +171,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |descrição|Cadeia|Descrição de pedido de operação.|  
-|Cabeçalhos|matriz de [cabeçalho](#Header) entidades.|Cabeçalhos de pedido.|  
+|cabeçalhos|matriz de [cabeçalho](#Header) entidades.|Cabeçalhos de pedido.|  
 |parâmetros|matriz de [parâmetro](#Parameter)|Coleção de parâmetros de operação de pedido.|  
 |representações|matriz de [representação](#Representation)|Coleção de representações de pedido de operação.|  
   
@@ -223,11 +223,11 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|Página|Número|O número de página atual.|  
-|PageSize|Número|O máximo de resultados a apresentar numa única página.|  
-|TotalItemCount|Número|O número de itens para apresentar.|  
+|Página|número|O número de página atual.|  
+|PageSize|número|O máximo de resultados a apresentar numa única página.|  
+|TotalItemCount|número|O número de itens para apresentar.|  
 |Mostrartudo|Valor booleano|Indica se deve mo todos os resultados numa única página.|  
-|Que PageCount|Número|O número de páginas de resultados.|  
+|Que PageCount|número|O número de páginas de resultados.|  
   
 ##  <a name="Parameter"></a>Parâmetro  
  Esta secção descreve o `parameter` representação.  
@@ -237,9 +237,9 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |nome|Cadeia|Nome do parâmetro.|  
 |descrição|Cadeia|Descrição de parâmetro.|  
 |valor|Cadeia|Valor do parâmetro.|  
-|Opções|Matriz da cadeia|Valores definidos para valores de parâmetro de consulta.|  
+|opções|Matriz da cadeia|Valores definidos para valores de parâmetro de consulta.|  
 |Necessário|Valor booleano|Especifica se é necessário o parâmetro ou não.|  
-|tipo|Número|Indica se este parâmetro é um parâmetro de caminho (1) ou um parâmetro de cadeia de consulta (2).|  
+|tipo|número|Indica se este parâmetro é um parâmetro de caminho (1) ou um parâmetro de cadeia de consulta (2).|  
 |TypeName|Cadeia|Tipo de parâmetro.|  
   
 ##  <a name="Product"></a>Produto  
@@ -251,9 +251,9 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Título|Cadeia|Nome do produto. Não deve estar vazio. Comprimento máximo é 100 carateres.|  
 |Descrição|Cadeia|Descrição do produto. Não deve estar vazio. Pode incluir a formatação tags HTML. Comprimento máximo é de 1000 carateres.|  
 |Termos|Cadeia|Produto termos de utilização. Os programadores tentar subscrever o produto serão apresentados e têm de aceitar estes termos antes de poderem concluir o processo de subscrição.|  
-|ProductState|Número|Especifica se o produto está publicado ou não. Produtos publicados são Detetáveis pelos programadores no portal de programador. Produtos publicada não estão visíveis apenas para administradores.<br /><br /> Os valores permitidos para o estado do produto são:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
+|ProductState|número|Especifica se o produto está publicado ou não. Produtos publicados são Detetáveis pelos programadores no portal de programador. Produtos publicada não estão visíveis apenas para administradores.<br /><br /> Os valores permitidos para o estado do produto são:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
 |AllowMultipleSubscriptions|Valor booleano|Especifica se um utilizador pode ter várias subscrições para este produto ao mesmo tempo.|  
-|MultipleSubscriptionsCount|Número|O número de subscrições para este produto, o utilizador atual.|  
+|MultipleSubscriptionsCount|número|O número de subscrições para este produto, o utilizador atual.|  
   
 ##  <a name="Provider"></a>Fornecedor  
  O `provider` entidade tem as seguintes propriedades.  
@@ -278,12 +278,12 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |Id|Cadeia|Identificador de recurso. Identifica de forma exclusiva a subscrição dentro da instância atual do serviço de API Management. O valor é um URL relativo válido no formato de `subscriptions/{sid}` onde `{sid}` é um identificador de subscrição. Esta propriedade é só de leitura.|  
-|ProductId|Cadeia|O identificador de recurso de produto do produto subscrito. O valor é um URL relativo válido no formato de `products/{pid}` onde `{pid}` é um identificador de produto.|  
+|Id do Produto|Cadeia|O identificador de recurso de produto do produto subscrito. O valor é um URL relativo válido no formato de `products/{pid}` onde `{pid}` é um identificador de produto.|  
 |ProductTitle|Cadeia|Nome do produto. Não deve estar vazio. Comprimento máximo é 100 carateres.|  
 |ProductDescription|Cadeia|Descrição do produto. Não deve estar vazio. Pode incluir a formatação tags HTML. Comprimento máximo é de 1000 carateres.|  
 |ProductDetailsUrl|Cadeia|URL relativo os detalhes do produto.|  
 |state|Cadeia|O estado da subscrição. Estados possíveis são:<br /><br /> - `0 - suspended`– a subscrição está bloqueada e o subscritor não é possível chamar as APIs do produto.<br /><br /> - `1 - active`– a subscrição está ativa.<br /><br /> - `2 - expired`– a subscrição atingiu a respetiva data de expiração e foi desativada.<br /><br /> - `3 - submitted`– o pedido de subscrição foi efetuado pelo programador, mas ainda não foi aprovado ou rejeitado.<br /><br /> - `4 - rejected`– o pedido de subscrição foi negado por um administrador.<br /><br /> - `5 - cancelled`– a subscrição foi cancelada pelo administrador ou programador.|  
-|displayName|Cadeia|Nome a apresentar da subscrição.|  
+|Nome a Apresentar|Cadeia|Nome a apresentar da subscrição.|  
 |CreatedDate|DateTime|A data a subscrição foi criada, no formato ISO 8601: `2014-06-24T16:25:00Z`.|  
 |CanBeCancelled|Valor booleano|Indica se a subscrição pode ser cancelada pelo utilizador atual.|  
 |IsAwaitingApproval|Valor booleano|Indica se a subscrição está a aguardar aprovação.|  
@@ -304,7 +304,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |Id|Cadeia|Identificador de recurso. Identifica de forma exclusiva a subscrição dentro da instância atual do serviço de API Management. O valor é um URL relativo válido no formato de `subscriptions/{sid}` onde `{sid}` é um identificador de subscrição. Esta propriedade é só de leitura.|  
-|displayName|Cadeia|O nome a apresentar da subscrição|  
+|Nome a Apresentar|Cadeia|O nome a apresentar da subscrição|  
   
 ##  <a name="UserAccountInfo"></a>Informações da conta de utilizador  
  O `user account info` entidade tem as seguintes propriedades.  
@@ -332,7 +332,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |DelegationEnabled|Valor booleano|Indica se o início de sessão delegado está ativada.|  
 |DelegationUrl|Cadeia|O delegado de sessão no url, se estiver ativada.|  
 |SsoSignUpUrl|Cadeia|O início de sessão único URL para o utilizador, se estiver presente.|  
-|AuxServiceUrl|Cadeia|Se o utilizador atual é um administrador, esta é uma ligação à instância de serviço no Portal clássico do Azure.|  
+|AuxServiceUrl|Cadeia|Se o utilizador atual é um administrador, esta é uma ligação à instância de serviço no portal do Azure.|  
 |Fornecedores|Coleção de [fornecedor](#Provider) entidades|Os fornecedores de autenticação para este utilizador.|  
 |UserRegistrationTerms|Cadeia|Termos de licenciamento que um utilizador tem de aceitar antes de iniciar sessão.|  
 |UserRegistrationTermsEnabled|Valor booleano|Indica se os termos estão ativados.|  
@@ -344,9 +344,9 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |--------------|----------|-----------------|  
 |PasswordConfirm|Valor booleano|Valor utilizado pelo [inscrição](api-management-page-controls.md#sign-up)controlo de inscrição.|  
 |Palavra-passe|Cadeia|Palavra-passe da conta de utilizador.|  
-|PasswordVerdictLevel|Número|Valor utilizado pelo [inscrição](api-management-page-controls.md#sign-up)controlo de inscrição.|  
+|PasswordVerdictLevel|número|Valor utilizado pelo [inscrição](api-management-page-controls.md#sign-up)controlo de inscrição.|  
 |UserRegistrationTerms|Cadeia|Termos de licenciamento que um utilizador tem de aceitar antes de iniciar sessão.|  
-|UserRegistrationTermsOptions|Número|Valor utilizado pelo [inscrição](api-management-page-controls.md#sign-up)controlo de inscrição.|  
+|UserRegistrationTermsOptions|número|Valor utilizado pelo [inscrição](api-management-page-controls.md#sign-up)controlo de inscrição.|  
 |ConsentAccepted|Valor booleano|Valor utilizado pelo [inscrição](api-management-page-controls.md#sign-up)controlo de inscrição.|  
 |E-mail|Cadeia|Endereço de correio eletrónico. Não deve estar vazio e tem de ser exclusivos numa instância de serviço. Comprimento máximo é 254 carateres.|  
 |Nome próprio|Cadeia|Nome próprio. Não deve estar vazio. Comprimento máximo é 100 carateres.|  

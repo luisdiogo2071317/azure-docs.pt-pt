@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 2df39c64470e28bdf664d388041ae1b17d80db69
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 763e690cac06fc321f7d1f873da7405c44c02b80
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Serviço de metadados do Azure: Agendados eventos (pré-visualização) para VMs com Linux
 
@@ -87,7 +87,7 @@ Ao consultar o serviço de metadados, tem de fornecer o cabeçalho `Metadata:tru
 Na primeira vez, que efetue um pedido para eventos agendados, o Azure implicitamente ativa a funcionalidade na sua máquina Virtual. Como resultado, deve esperar uma resposta atrasada na sua primeira chamada de dois minutos.
 
 > [!NOTE]
-> Eventos agendados é desativado automaticamente para o seu serviço se o serviço não chame o ponto final para 1 dia. Depois de eventos agendada está desativado para o seu serviço, não haverá eventos criados para manutenção iniciada pelo utilizador.
+> Eventos agendados é desativado automaticamente para o seu serviço se o serviço não chame o ponto final para 1 dia. Depois de eventos agendada está desativado para o seu serviço, não haverá nenhuma eventos criados para manutenção iniciada pelo utilizador.
 
 ### <a name="user-initiated-maintenance"></a>Manutenção iniciada pelo utilizador
 Utilizador iniciou a manutenção de máquina virtual através do portal do Azure, API, CLI, ou PowerShell resulta num evento agendado. Isto permite-lhe testar a lógica de preparação de manutenção na sua aplicação e permite à aplicação para se preparar para manutenção iniciada pelo utilizador.

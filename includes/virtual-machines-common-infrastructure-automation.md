@@ -40,22 +40,25 @@ Aprenda a:
 - [Implementar Puppet no Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview).
 
 
-## <a name="cloud-init"></a>init de nuvem
-[Nuvem init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux como efetua o arranque pela primeira vez. Pode utilizar a cloud init para instalar pacotes e escrever em ficheiros, ou para configurar utilizadores e de segurança. Como é executado na nuvem init durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.
+## <a name="cloud-init"></a>Inicialização da cloud
+[Nuvem init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux como efetua o arranque pela primeira vez. Pode utilizar a cloud init para instalar pacotes e escrever em ficheiros, ou para configurar utilizadores e de segurança. Uma vez init de nuvem é chamado durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.  Para mais informações sobre como corretamente formatar o `#cloud-config` ficheiros, consulte o [site de documentação de nuvem init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`os ficheiros são ficheiros de texto codificados em base64.
 
-Nuvem init também funciona em distribuições. Por exemplo, não utilize **apt get instalação** ou **yum instalar** para instalar um pacote. Em vez disso, é possível definir uma lista dos pacotes para instalar. Nuvem init utiliza automaticamente a ferramenta de gestão do pacote nativo para distro que selecionar.
+Nuvem init também funciona em distribuições. Por exemplo, não utilize **apt get instalação** ou **yum instalar** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes para instalar. Nuvem init utiliza automaticamente a ferramenta de gestão do pacote nativo para distro que selecionar.
 
-Estamos a trabalhar com os nossos parceiros de obter init cloud incluídos e a funcionar nas imagens que fornecem ao Azure. A tabela seguinte descreve a disponibilidade de nuvem init atual nas imagens de plataforma do Azure:
+ Estamos ativamente a trabalhar com os nossos parceiros de distro Linux endorsed para ter imagens de nuvem-init ativada disponíveis no Azure marketplace. Estas imagens fará com que as implementações de nuvem init e configurações funcionam sem problemas com as VMs e conjuntos de dimensionamento da VM (VMSS). A tabela seguinte descreve a disponibilidade de imagens de nuvem-init ativada atual na plataforma do Azure:
 
-| Alias | Publicador | Oferta | SKU | Versão |
+| Publicador | Oferta | SKU | Versão | nuvem init pronto
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canónico |UbuntuServer |14.04.5-LTS |mais recente |
-| UbuntuLTS |Canónico |UbuntuServer |16.04 LTS |mais recente |
-| CoreOS |CoreOS |CoreOS |Estável |mais recente |
+|Canónico |UbuntuServer |16.04 LTS |mais recente |sim | 
+|Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
+|CoreOS |CoreOS |Estável |mais recente |sim |
+|OpenLogic |CentOS |7 CI |mais recente |pré-visualizar |
+|RedHat |RHEL |7 CI NÃO PROCESSADOS |mais recente |pré-visualizar |
 
-Aprenda a:
+Saiba mais detalhes sobre init de nuvem no Azure:
 
-- [Personalizar uma VM com Linux com a nuvem init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
+- [Nuvem init suporte para computadores virtuais Linux no Azure](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Tente um tutorial sobre a configuração automatizada de VM com a nuvem init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC

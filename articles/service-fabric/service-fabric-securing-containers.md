@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 3e41e293cc5340c0e32cf2cc6ef7ab7534330884
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c18c2b3b0d271f2dbe4f247c132850b49d8f1d9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="container-security"></a>Segurança de contentor
 
@@ -36,13 +36,13 @@ Pode proteger os serviços de contentor, especificando um certificado. O certifi
 
 Para clusters do windows, ao iniciar a aplicação, o tempo de execução lê os certificados e gera um ficheiro PFX e a palavra-passe para cada certificado. Este ficheiro PFX e a palavra-passe estão acessíveis no interior do contentor utilizando as seguintes variáveis de ambiente: 
 
-* **Certificate_ServicePackageName_CodePackageName_CertName_PFX**
-* **Certificate_ServicePackageName_CodePackageName_CertName_Password**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PFX**
+* **Certificates_ServicePackageName_CodePackageName_CertName_Password**
 
 Para os clusters do Linux, o certificates(PEM) simplesmente é copiado através da loja especificada pelo X509StoreName no contentor. As variáveis de ambiente correspondente no linux são:
 
-* **Certificate_ServicePackageName_CodePackageName_CertName_PEM**
-* **Certificate_ServicePackageName_CodePackageName_CertName_PrivateKey**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PEM**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey**
 
 Em alternativa, se já tiver os certificados no formato necessário e pretenda simplesmente para aceder ao mesmo no interior do contentor, pode criar um pacote de dados no interior do seu pacote de aplicação e especifique o seguinte no interior o manifesto da aplicação:
 
@@ -54,8 +54,8 @@ Em alternativa, se já tiver os certificados no formato necessário e pretenda s
 O serviço de contentor ou processo é responsável por importar os ficheiros de certificado para o contentor. Para importar o certificado, pode utilizar `setupentrypoint.sh` scripts ou executar código personalizado no processo do contentor. Código de exemplo em c# para importar o ficheiro PFX segue:
 
 ```c#
-    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
-    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
+    string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
+    string passwordFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
     string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
     password = password.Replace("\0", string.Empty);

@@ -8,17 +8,17 @@ Existem três cenários que podem conduzir a máquina virtual no Azure a ser afe
 
   Máquinas virtuais pode também tempo de inatividade na improvável eventualidade de uma falha ou desastre que afeta a todo o datacenter ou mesmo uma região de toda. Nestes cenários, o Azure oferece opções de proteção, incluindo [zonas de disponibilidade](../articles/availability-zones/az-overview.md) e [emparelhado regiões](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-* Os **eventos de Manutenção Planeada** são atualizações periódicas levadas a cabo pela Microsoft na plataforma Azure subjacente para melhorar a fiabilidade, o desempenho e a segurança gerais da infraestrutura da plataforma em que as suas máquinas virtuais são executadas. A maior parte destas atualizações são realizadas sem exercer qualquer impacto nas suas Máquinas Virtuais ou Serviços Cloud (consulte [Manutenção de Conservação de VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/preserving-maintenance)). Ainda que a plataforma Azure tente utilizar a Manutenção de Conservação de VMs em todas as ocasiões possíveis, há algumas situações raras em que estas atualizações precisam de um reinício da máquina virtual para aplicar as atualizações necessárias à infraestrutura subjacente. Neste caso, pode realizar a Manutenção Planeada do Azure com a operação de Reimplementação da Manutenção dando início à manutenção das respetivas VMs no intervalo de tempo adequado. Para obter mais informações, consulte [Manutenção Planeada para Máquinas Virtuais](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/planned-maintenance/).
+* Os **eventos de Manutenção Planeada** são atualizações periódicas levadas a cabo pela Microsoft na plataforma Azure subjacente para melhorar a fiabilidade, o desempenho e a segurança gerais da infraestrutura da plataforma em que as suas máquinas virtuais são executadas. A maior parte destas atualizações são realizadas sem exercer qualquer impacto nas suas Máquinas Virtuais ou Serviços Cloud (consulte [Manutenção de Conservação de VMs](https://docs.microsoft.com/azure/virtual-machines/windows/preserving-maintenance)). Ainda que a plataforma Azure tente utilizar a Manutenção de Conservação de VMs em todas as ocasiões possíveis, há algumas situações raras em que estas atualizações precisam de um reinício da máquina virtual para aplicar as atualizações necessárias à infraestrutura subjacente. Neste caso, pode realizar a Manutenção Planeada do Azure com a operação de Reimplementação da Manutenção dando início à manutenção das respetivas VMs no intervalo de tempo adequado. Para obter mais informações, consulte [Manutenção Planeada para Máquinas Virtuais](https://docs.microsoft.com/azure/virtual-machines/windows/planned-maintenance/).
 
 
 Para reduzir o impacto do período de indisponibilidade devido a um ou mais destes eventos, recomendamos as seguintes melhores práticas de elevada disponibilidade para as máquinas virtuais:
 
 * [Configurar várias máquinas virtuais num conjunto de disponibilidade para redundância]
 * [Utilizar discos geridos para VMs num conjunto de disponibilidade]
-* [Utilizar Eventos Agendados para responder de forma proativa a eventos com repercussões na VM] (https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Utilizar eventos agendados proativamente a resposta à VM afetar eventos] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configurar cada camada da aplicação em conjuntos de disponibilidade separados]
 * [Combinar um Balanceador de Carga com conjuntos de disponibilidade]
-* [Zonas de disponibilidade de utilização para proteger contra falhas de nível de centro de dados]
+* [Utilize as zonas de disponibilidade para proteger contra falhas de nível de centro de dados]
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>Configurar várias máquinas virtuais num conjunto de disponibilidade para redundância
 Para fornecer redundância à aplicação, é recomendável agrupar duas ou mais máquinas virtuais num conjunto de disponibilidade. Esta configuração num centro de dados garante que, durante a um evento de manutenção planeada ou, pelo menos uma máquina virtual está disponível e cumpre 99,95% SLA do Azure. Para obter mais informações, veja [SLA para Máquinas Virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
@@ -81,3 +81,4 @@ Saiba mais sobre a implementação de um [Windows](../articles/virtual-machines/
 [Combinar um Balanceador de Carga com conjuntos de disponibilidade]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Utilizar discos geridos para VMs num conjunto de disponibilidade]: #use-managed-disks-for-vms-in-an-availability-set
+[Utilize as zonas de disponibilidade para proteger contra falhas de nível de centro de dados]: #use-availability-zones-to-protect-from-datacenter-level-failures

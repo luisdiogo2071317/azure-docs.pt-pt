@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia para programadores do Java de funções do Azure
 > [!div class="op_single_selector"]
@@ -33,14 +33,14 @@ Normalmente, uma função do Azure é invocada devido a um acionador externo. A 
 
 Anotações do Java estão incluídas no `azure-functions-java-core` pacote vincular a entrada e saídas ao seu métodos. Suportado acionadores de entrada e saída anotações de enlace estão incluídas na tabela seguinte:
 
-Enlace | Anotação
+Vínculo | Anotação
 ---|---
 CosmosDB | N/D
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | N/D
 Hubs de Notificação | N/D
-Blob de armazenamento | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`BlobOutput`</li></ul>
-Fila de armazenamento | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
+Blob de armazenamento | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
+Fila de Armazenamento | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Tabela de armazenamento | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Temporizador | <ul><li>`TimerTrigger`</li></ul>
 Twilio | N/D
@@ -213,7 +213,7 @@ O `@BindingName` anotação aceita um `String` propriedade que representa o nome
 
 Para que quando esta função é invocada, o payload de pedido HTTP passa opcional `String` para o argumento `in` e um Table Storage do Azure `MyObject` transmitida para o argumento de tipo `obj`. Utilize o `Optional<T>` tipo para processar entradas para as suas funções que podem ser nulos.
 
-## <a name="outputs"></a>saídas
+## <a name="outputs"></a>Saídas
 
 Podem ser expressadas saídas no valor de retorno ou os parâmetros de saída. Se existir apenas uma saída, recomendamos que utilize o valor de retorno. Para várias saídas, tem de utilizar os parâmetros de saída.
 
@@ -270,7 +270,7 @@ qual deve definir o enlace de saída no `function.json`:
 
 Por vezes, uma função tem de ter detalhadas controlo sobre entradas e saídas. Especializada tipos o `azure-functions-java-core` pacote são fornecidos para manipular informações de pedido e personalizar o estado de retorno de um acionador HTTP:
 
-| Tipo especializado      |       destino        | Utilização normal                  |
+| Tipo especializado      |       Alvo        | Utilização normal                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    Acionador de HTTP     | Obter o método, cabeçalhos ou consultas |
 | `HttpResponseMessage<T>` | Enlace de saída de HTTP | Devolver o estado diferente de 200   |

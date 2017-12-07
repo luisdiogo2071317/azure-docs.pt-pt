@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6a5bb66db889dc1c52252773e3f129ba2c3d55f1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9bb55d5af16056ebafc131e73ac4b9da181bd8c7
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Criar aplicações de clips com Recortador de suporte de dados do Azure
 Recortador de suporte de dados do Azure é uma biblioteca de JavaScript livre que permite aos programadores de web fornecer os seus utilizadores com uma interface para criar aplicações de clips de suporte de dados. Esta ferramenta pode ser integrada em qualquer página web e fornece APIs para carregar os recursos e submeter tarefas de recorte.
@@ -29,8 +29,11 @@ Recortador de suporte de dados do Azure permite-lhe:
 
 Para pedir novas funcionalidades, fornecer ideias ou comentários, submeter para [UserVoice de Media Services do Azure](http://aka.ms/amsvoice/). Se tiver problemas específicos, questões ou localizar uma linha na equipa de quaisquer erros, remova o suporte de dados de serviços e amcinfo@microsoft.com.
 
+A imagem seguinte ilustra a interface Recortador: ![Recortador de suporte de dados do Azure](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)
+
 ## <a name="release-notes"></a>Notas de versão
-A lista seguinte descreve vários problemas conhecidos e changelog para a versão mais recente do Recortador:
+Consulte a lista seguinte para a mensagem de blogue Recortador, vários problemas conhecidos e changelog para a versão mais recente do Recortador:
+- [Mensagem de blogue](https://azure.microsoft.com/blog/azure-media-clipper/)
 - [Lista de problemas conhecidos](https://amp.azure.net/libs/amc/latest/docs/known_issues.html)
 - [Changelog](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
 

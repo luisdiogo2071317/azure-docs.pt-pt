@@ -139,7 +139,7 @@ Máquinas virtuais do Azure, conjuntos de dimensionamento de máquina virtual, B
 * [Armazenamento de ficheiros](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Dados e análise
-* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) para clusters do Hadoop no Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) para clusters do Hadoop no Azure
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
