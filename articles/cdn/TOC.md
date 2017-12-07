@@ -41,13 +41,14 @@
 
 ## Analisar
 ### [Analisar padrões de utilização da CDN do Azure](cdn-log-analysis.md)
-#### [Relatórios de núcleos da Verizon](cdn-analyze-usage-patterns.md)
-#### [Relatórios personalizados da Verizon](cdn-verizon-custom-reports.md)
 #### [Registos de diagnóstico do Azure](cdn-azure-diagnostic-logs.md)
-### Ferramentas de análise para CDN do Azure a partir da Verizon
-#### [Gerar relatórios HTTP avançados](cdn-advanced-http-reports.md)
-#### [Ver estatísticas em tempo real](cdn-real-time-stats.md)
-#### [Analisar o desempenho de nó edge](cdn-edge-performance.md)
+#### Ferramentas de análise para CDN do Azure a partir da Verizon
+##### [Relatórios de núcleos da Verizon](cdn-analyze-usage-patterns.md)
+##### [Relatórios personalizados da Verizon](cdn-verizon-custom-reports.md)
+#### Ferramentas de análise para CDN Premium do Azure a partir da Verizon
+##### [Gerar relatórios HTTP avançados](cdn-advanced-http-reports.md)
+##### [Ver estatísticas em tempo real](cdn-real-time-stats.md)
+##### [Analisar o desempenho de nó edge](cdn-edge-performance.md)
 
 ## Programar
 ### [.NET](cdn-app-dev-net.md)

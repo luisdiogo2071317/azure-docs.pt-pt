@@ -164,6 +164,8 @@
       items:
         - name: Pré-pagamento de VMs - Instâncias Reservadas
           href: prepay-reserved-vm-instances.md
+        - name: Utilização de VM
+          href: vm-usage.md
         - name: Tarefas comuns da CLI
           href: cli-manage.md
         - name: Mover uma VM

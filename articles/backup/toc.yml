@@ -75,7 +75,7 @@
               href: backup-azure-exchange-mabs.md
             - name: Utilizar o Azure Backup Server para criar cópias de segurança de farms do SharePoint
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: Utilizar o Azure Backup Server para crair cópias de segurança do SQL
+            - name: Utilizar o Azure Backup Server para criar cópias de segurança do SQL
               href: backup-azure-sql-mabs.md
             - name: Proteger o estado do sistema e a recuperação bare-metal
               href: backup-mabs-system-state-and-bmr.md
@@ -97,9 +97,9 @@
               href: backup-azure-vms-introduction.md
         - name: Fazer cópias de segurança de VMs
           items:
-            - name: Criar cópias de segurança de máquinas virtuais do Azure para um cofre dos Serviços de Recuperação
+            - name: Fazer cópias de segurança de máquinas virtuais do Azure para um cofre dos Serviços de Recuperação
               href: backup-azure-arm-vms.md
-            - name: Criar cópias de segurança de máquinas virtuais encriptadas
+            - name: Fazer cópias de segurança de máquinas virtuais encriptadas
               href: backup-azure-vms-encryption.md
             - name: Fazer cópia de segurança de máquinas virtuais do Azure
               href: backup-azure-vms.md
@@ -171,9 +171,9 @@
           href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
     - name: Windows Server
       items:
-        - name: Criar cópias de segurança de ficheiros e pastas do Windows Server
+        - name: Fazer cópias de segurança de ficheiros e pastas do Windows Server
           href: backup-configure-vault.md
-        - name: Criar cópia de segurança do Estado do Sistema Windows Server
+        - name: Fazer cópia de segurança do Estado do Sistema Windows Server
           href: backup-azure-system-state.md
         - name: Recuperar ficheiros do Azure para o Windows Server
           href: backup-azure-restore-windows-server.md
@@ -181,7 +181,7 @@
           href: backup-azure-restore-system-state.md
         - name: Monitorizar e gerir cofres dos Serviços de Recuperação
           href: backup-azure-manage-windows-server.md
-        - name: Faça uma cópia de segurança e restauro com o portal clássico
+        - name: Fazer cópia de segurança e restaurar com o portal clássico
           items:
             - name: Windows Server com o modelo de implementação clássica
               href: backup-configure-vault-classic.md
@@ -209,6 +209,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Resolução de problemas do Azure Backup Server
           href: backup-azure-mabs-troubleshoot.md
+        - name: Resolução de problemas do Azure Backup Agent
+          href: backup-azure-mars-troubleshoot.md
 - name: Referência
   items:
     - name: Azure PowerShell
