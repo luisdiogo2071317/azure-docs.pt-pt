@@ -1,9 +1,9 @@
 ---
-title: "Início rápido do Azure - criar uma conta de armazenamento utilizando o PowerShell | Microsoft Docs"
-description: Rapidamente aprender a criar uma nova conta de armazenamento com o PowerShell
+title: "Início Rápido do Azure – Criar uma conta de armazenamento com o PowerShell | Microsoft Docs"
+description: Aprenda a criar rapidamente uma nova conta de armazenamento com o PowerShell
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/29/2017
-ms.author: robinsh
-ms.openlocfilehash: c9175cce0cb93e73009fb8d751e54f631603d482
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.author: tamram
+ms.openlocfilehash: b4b917adfb3644cca71b6696df005fbf9e295240
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="create-a-storage-account-using-powershell"></a>Criar uma conta de armazenamento utilizando o PowerShell
+# <a name="create-a-storage-account-using-powershell"></a>Criar uma conta de armazenamento com o PowerShell
 
-O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este detalhes guia através do PowerShell para criar uma conta de armazenamento do Azure. 
+O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este guia fornece detalhes sobre a utilização do PowerShell para criar uma conta de Armazenamento do Azure. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -37,7 +37,7 @@ Inicie sessão na sua subscrição do Azure com o comando `Login-AzureRmAccount`
 Login-AzureRmAccount
 ```
 
-Se não souber qual localização que pretende utilizar, pode listar as localizações disponíveis. Depois de é apresentada a lista, localize aquela que pretende utilizar. Neste exemplo, vai utilizar **eastus**. Armazene-o numa variável e utilize a variável, pelo que pode alterá-la num único local.
+Se não souber qual a localização que quer utilizar, pode listar as localizações disponíveis. Depois de a lista ser apresentada, localize a que quer utilizar. Este exemplo utilizará **eastus**. Armazene-a numa variável e utilize-a de forma a poder alterá-la num único local.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -55,16 +55,16 @@ $resourceGroup = "contoso-storage-accounts"
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
 ```
 
-## <a name="create-a-general-purpose-standard-storage-account"></a>Criar uma conta de armazenamento standard para fins gerais
+## <a name="create-a-general-purpose-standard-storage-account"></a>Criar uma conta de armazenamento padrão para fins gerais
 
-Existem vários tipos de contas do storage, dependendo de como se passa a ser utilizado e para o serviço (blobs, ficheiros, tabelas ou filas). Esta tabela mostra as possibilidades.
+Existem vários tipos de contas de armazenamento, consoante o modo de utilização e para que serviço (blobs, ficheiros, tabelas ou filas). Esta tabela mostra as possibilidades.
 
 |**Tipo de conta de armazenamento**|**Standard para fins gerais**|**Premium para fins gerais**|**Armazenamento de blobs, camadas de acesso frequente e esporádico**|
 |-----|-----|-----|-----|
-|**Serviços suportados**| BLOB, ficheiro, tabela, serviços da fila | Serviço Blob | Serviço Blob|
-|**Tipos de blobs suportados**|Os blobs de blocos, blobs de páginas, blobs de acréscimo | Blobs de páginas | Blobs de blocos e blobs de acréscimo|
+|**Serviços suportados**| Serviços Blob, Ficheiro, Tabela e Fila | Serviço Blob | Serviço Blob|
+|**Tipos de blobs suportados**|Blobs de blocos, blobs de páginas e blobs de acréscimo | Blobs de páginas | Blobs de blocos e blobs de acréscimo|
 
-Utilizar [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) para criar uma conta de armazenamento standard para fins gerais que pode utilizar para todos os serviços de quatro. Nome da conta de armazenamento *contosomvcstandard*e configure-a para ter armazenamento localmente redundante e blob encriptação ativada.
+Utilize [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) para criar uma conta de armazenamento padrão para fins gerais que possa utilizar para os quatro serviços. Atribua o nome *contosomvcstandard* à conta de armazenamento e configure-a para ter o Armazenamento Localmente Redundante e a encriptação de blobs ativados.
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -77,7 +77,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não é necessário, pode utilizar o [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) comando para remover o grupo de recursos e todos os recursos relacionados. Neste caso, remove a conta de armazenamento que criou.
+Quando já não for necessário, pode utilizar o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos relacionados. Neste caso, remove a conta de armazenamento que criou.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -85,6 +85,6 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este guia de introdução, criou uma conta de armazenamento standard para fins gerais. Para saber como carregar e transferir blobs com a sua conta de armazenamento, avance para o guia de introdução do armazenamento de Blobs.
+Neste início rápido, criou uma conta de armazenamento padrão para fins gerais. Para saber como carregar e transferir blobs com a sua conta de armazenamento, avance para o início rápido de armazenamento de Blobs.
 > [!div class="nextstepaction"]
-> [Transferência de objetos para/de Blob storage do Azure com o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
+> [Transferir objetos de/para o armazenamento de Blobs do Azure com o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)

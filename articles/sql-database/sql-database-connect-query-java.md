@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 07/10/2017
+ms.date: 07/11/2017
 ms.author: andrela
-ms.openlocfilehash: cb1c387628a79ddfada0786c8c6422b6671a2c19
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 994705b0a9c7ca850c357a5810f1edb1618098d6
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Utilizar o Java para consultar uma base de dados SQL do Azure
 
@@ -29,15 +29,11 @@ Este guia de introdução demonstra como utilizar o [Java](https://docs.microsof
 
 Para concluir este tutorial de início rápido, certifique-se de que tem os seguintes pré-requisitos:
 
-- Uma base de dados SQL do Azure. Este início rápido utiliza os recursos criados num dos inícios rápidos seguintes: 
-
-   - [Criar BD - Portal](sql-database-get-started-portal.md)
-   - [Criar BD - CLI](sql-database-get-started-cli.md)
-   - [Criar BD - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Uma [regra de firewall ao nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que utilizar para este tutorial de início rápido.
 
-- Ter instalado o Java e software relacionado para o seu sistema operativo.
+- Ter instalado o Java e software relacionado para o seu sistema operativo:
 
     - **MacOS**: instalar o Homebrew e o Java e, em seguida, instalar o Maven. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
     - **Ubuntu**: instale o Kit de desenvolvimento Java e instale o Maven. Veja os [Passos 1.2, 1.3 e 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
@@ -45,15 +41,7 @@ Para concluir este tutorial de início rápido, certifique-se de que tem os segu
 
 ## <a name="sql-server-connection-information"></a>Informações de ligação do servidor SQL
 
-Obtenha as informações de ligação necessárias para ligar à base de dados SQL do Azure. Irá precisar do nome de servidor totalmente qualificado, do nome de base de dados e das informações de início de sessão nos seguintes procedimentos.
-
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Bases de Dados SQL** a partir do menu do lado esquerdo e clique na sua base de dados na página **Bases de Dados SQL**. 
-3. Na página **Descrição Geral** da sua base de dados, reveja o nome de servidor totalmente qualificado, conforme mostrado na imagem seguinte: pode colocar o cursor sobre o nome do servidor para que a opção **Clique para copiar** seja apresentada.  
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Caso se tenha esquecido das informações de início de sessão do servidor, navegue até à pagina do servidor da Base de Dados SQL para ver o nome de administrador do servidor.  Se necessário, reponha a palavra-passe.     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="create-maven-project-and-dependencies"></a>**Criar projeto Maven e dependências**
 1. A partir do terminal, crie um novo projeto Maven chamado **sqltest**. 

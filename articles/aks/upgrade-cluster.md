@@ -1,35 +1,27 @@
 ---
-title: "Atualizar um cluster do serviço de contentor do Azure (AKS) | Microsoft Docs"
-description: "Atualizar um cluster do serviço de contentor do Azure (AKS)"
+title: Atualizar um cluster do Azure Container Service (AKS)
+description: Atualizar um cluster do Azure Container Service (AKS)
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Kubernetes, Docker, Containers, Microsserviços, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 15e3e96587962ef9cc531e1825f37b92d26928fd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 40b55309ee4c52743b30682d8751e6e432f9bb4a
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Atualizar um cluster do serviço de contentor do Azure (AKS)
+# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Atualizar um cluster do Azure Container Service (AKS)
 
-Serviço de contentor do Azure (AKS) torna mais fácil efetuar tarefas de gestão comuns, incluindo Kubernetes clusters a atualizar.
+O Azure Container Service (AKS) facilita a execução de tarefas de gestão comuns, incluindo a atualização de clusters do Kubernetes.
 
 ## <a name="upgrade-an-aks-cluster"></a>Atualizar um cluster do AKS
 
-Antes de atualizar um cluster, utilize o `az aks get-versions` comando para verificar qual Kubernetes versões estão disponíveis para atualização.
+Antes de atualizar um cluster, utilize o comando `az aks get-versions` para verificar que versões do Kubernetes estão disponíveis para atualização.
 
 ```azurecli-interactive
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
@@ -43,7 +35,7 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-Temos três versões disponíveis para atualização: 1.7.9, 1.8.1 e 1.8.2. Podemos utilizar o `az aks upgrade` comando para atualizar para a versão mais recente disponível.  Durante o processo de atualização, nós são cuidadosamente [cordoned e drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) para minimizar perturbações para as aplicações em execução.
+Existem três versões disponíveis para atualização: 1.7.9, 1.8.1 e 1.8.2. Podemos utilizar o comando `az aks upgrade` para atualizar para a versão mais recente disponível.  Durante o processo de atualização, os nós são cuidadosamente [isolados e drenados](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) para minimizar a interrupção das aplicações em execução.  Antes de iniciar uma atualização dos clusters, certifique-se de que tem capacidade de computação adicional suficiente para processar a carga de trabalho à medida que são adicionados e removidos nós de cluster.
 
 ```azurecli-interactive
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
@@ -105,7 +97,7 @@ Saída:
 }
 ```
 
-Agora pode confirmar a atualização foi concluída com êxito com o `az aks show` comando.
+Agora, pode confirmar se a atualização foi concluída com êxito com o comando `az aks show`.
 
 ```azurecli-interactive
 az aks show --name myK8sCluster --resource-group myResourceGroup --output table
@@ -121,7 +113,7 @@ myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded        
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre como implementar e gerir AKS com os tutoriais AKS.
+Saiba mais sobre como implementar e gerir AKS com os tutoriais de AKS.
 
 > [!div class="nextstepaction"]
-> [Tutorial AKS](./tutorial-kubernetes-prepare-app.md)
+> [Tutorial de AKS](./tutorial-kubernetes-prepare-app.md)

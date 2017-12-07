@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 07/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 6eb026b5f478769f680e3899a7c743546c2c9d88
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 1d2a22500c322a63b134e29e5f7509df271eafb9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Utilizar o .NET Core (C#) para consultar uma base de dados SQL do Azure
 
@@ -29,30 +29,21 @@ Este tutorial de início rápido demonstra como utilizar o [.NET Core](https://w
 
 Para concluir este tutorial de início rápido, certifique-se de que tem o seguinte:
 
-- Uma base de dados SQL do Azure. Este início rápido utiliza os recursos criados num dos inícios rápidos seguintes: 
-
-   - [Criar BD - Portal](sql-database-get-started-portal.md)
-   - [Criar BD - CLI](sql-database-get-started-cli.md)
-   - [Criar BD - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Uma [regra de firewall ao nível do servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador que utilizar para este tutorial de início rápido.
+
 - Já instalou o [.NET Core para o seu sistema operativo](https://www.microsoft.com/net/core). 
 
 ## <a name="sql-server-connection-information"></a>Informações de ligação do servidor SQL
 
-Obtenha as informações de ligação necessárias para ligar à base de dados SQL do Azure. Irá precisar do nome de servidor totalmente qualificado, do nome de base de dados e das informações de início de sessão nos seguintes procedimentos.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Bases de Dados SQL** a partir do menu do lado esquerdo e clique na sua base de dados na página **Bases de Dados SQL**. 
-3. Na página **Overview (Descrição geral)** da sua base de dados, reveja o nome de servidor totalmente qualificado, como mostrado na imagem seguinte. Pode pairar sobre o nome do servidor para aparecer a opção **Clique para copiar**. 
+#### <a name="for-adonet"></a>Para ADO.NET
 
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+1. Continue ao clicar em **Mostrar cadeias de ligação da base de dados**.
 
-4. Caso se tenha esquecido das informações de início de sessão do servidor da Base de Dados SQL do Azure, navegue até à pagina do servidor da Base de Dados SQL para ver o nome de administrador do servidor. Pode repor a palavra-passe, se necessário.
-
-5. Clique em **Mostrar cadeias de ligação da base de dados**.
-
-6. Reveja a cadeia de ligação **ADO.NET** completa.
+2. Reveja a cadeia de ligação **ADO.NET** completa.
 
     ![Cadeia de ligação de ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
