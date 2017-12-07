@@ -1,9 +1,9 @@
 ---
-title: "Início rápido do Azure - criar uma conta de armazenamento utilizando a CLI do Azure | Microsoft Docs"
-description: Saiba mais rapidamente criar uma nova conta de armazenamento utilizando a CLI do Azure.
+title: "Início Rápido do Azure – Criar uma conta de armazenamento com a CLI do Azure | Microsoft Docs"
+description: Aprenda a criar rapidamente uma nova conta de armazenamento com a CLI do Azure.
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/28/2017
 ms.author: marsma
-ms.openlocfilehash: b1fb2da4acf6e06219d790f2354cada4f1e34285
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 7186c5e2ce94d06b21d95a557e960b82e268cdce
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="create-a-storage-account-using-the-azure-cli"></a>Criar uma conta de armazenamento utilizando a CLI do Azure
+# <a name="create-a-storage-account-using-the-azure-cli"></a>Criar uma conta de armazenamento com a CLI do Azure
 
-A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este detalhes de início rápido, utilizando a CLI do Azure para criar uma conta de armazenamento do Azure.
+A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este Início Rápido fornece detalhes sobre a utilização da CLI do Azure para criar uma conta de Armazenamento do Azure.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -33,7 +33,7 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos do Azure com o comando [az group create](/cli/azure/group#create). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Este exemplo cria um grupo de recursos denominado *myResourceGroup* no *eastus* região.
+Crie um grupo de recursos do Azure com o comando [az group create](/cli/azure/group#create). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Este exemplo cria um grupo de recursos com o nome *myResourceGroup* na região *eastus*.
 
 ```azurecli-interactive
 az group create \
@@ -41,7 +41,7 @@ az group create \
     --location eastus
 ```
 
-Se não tiver a certeza que região para especificar para o `--location` parâmetro, pode obter uma lista de regiões suportadas para a sua subscrição com o [az conta lista-localizações](/cli/azure/account#list) comando.
+Se não tiver a certeza de qual a região a especificar para o parâmetro `--location`, pode obter uma lista de regiões suportadas para a sua subscrição com o comando [az account list-locations](/cli/azure/account#list).
 
 ```azurecli-interactive
 az account list-locations \
@@ -49,14 +49,14 @@ az account list-locations \
     --out table
 ```
 
-## <a name="create-a-general-purpose-standard-storage-account"></a>Criar uma conta de armazenamento standard para fins gerais
+## <a name="create-a-general-purpose-standard-storage-account"></a>Criar uma conta de armazenamento padrão para fins gerais
 
-Existem vários tipos de contas de armazenamento adequada para cenários de utilização diferentes, cada um deles suporta um ou mais dos serviços de armazenamento (blobs, ficheiros, tabelas ou filas). A tabela seguinte fornece detalhes sobre os tipos de conta de armazenamento disponível.
+Existem vários tipos de contas de armazenamento adequadas para cenários de utilização diferentes, em que cada um deles suporta um ou vários dos serviços de armazenamento (blobs, ficheiros, tabelas ou filas). A tabela seguinte fornece detalhes sobre os tipos de contas de armazenamento disponíveis.
 
 |**Tipo de conta de armazenamento**|**Standard para fins gerais**|**Premium para fins gerais**|**Armazenamento de blobs, camadas de acesso frequente e esporádico**|
 |-----|-----|-----|-----|
-|**Serviços suportados**| BLOB, ficheiro, tabela, serviços da fila | Serviço Blob | Serviço Blob|
-|**Tipos de blobs suportados**|Os blobs de blocos, blobs de páginas, blobs de acréscimo | Blobs de páginas | Blobs de blocos e blobs de acréscimo|
+|**Serviços suportados**| Serviços Blob, Ficheiro, Tabela e Fila | Serviço Blob | Serviço Blob|
+|**Tipos de blobs suportados**|Blobs de blocos, blobs de páginas e blobs de acréscimo | Blobs de páginas | Blobs de blocos e blobs de acréscimo|
 
 Crie uma conta de armazenamento padrão para fins gerais com o comando [az storage account create](/cli/azure/storage/account#create).
 
@@ -71,7 +71,7 @@ az storage account create \
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não necessita de qualquer um dos recursos no seu grupo de recursos, incluindo a conta de armazenamento que criou neste guia de introdução, elimine o grupo de recursos com o [eliminação do grupo de az](/cli/azure/group#delete) comando.
+Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta de armazenamento que criou neste Início Rápido, elimine o grupo de recursos com o comando [az group delete](/cli/azure/group#delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -79,7 +79,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este guia de introdução, criou um grupo de recursos e uma conta de armazenamento standard para fins gerais. Para saber como transferir dados para e da sua conta de armazenamento, avance para armazenamento de Blobs do início rápido.
+Neste Início Rápido, criou um grupo de recursos e uma conta de armazenamento padrão para fins gerais. Para saber como transferir dados de e para a sua conta de armazenamento, avance para o Início Rápido de armazenamento de Blobs.
 
 > [!div class="nextstepaction"]
-> [Transferência de objetos de e para o Blob storage do Azure utilizando a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
+> [Transferir objetos de e para o armazenamento de Blobs do Azure com a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
