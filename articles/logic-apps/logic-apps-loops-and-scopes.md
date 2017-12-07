@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Ciclos, Âmbitos e Divisões do Logic Apps
   
@@ -26,7 +26,7 @@ As Logic Apps fornece várias formas de trabalhar com matrizes, coleções, lote
   
 ## <a name="foreach-loop-and-arrays"></a>Ciclo de ForEach e matrizes
   
-As Logic Apps permite-lhe cíclicas através de um conjunto de dados e executar uma ação para cada item.  Isto é possível através de `foreach` ação.  No estruturador, pode especificar para adicionar um para cada ciclo.  Depois de selecionar a matriz de que pretende iterar, pode começar a adicionar ações.  Atualmente está limitado a ação apenas um por foreach ciclo, mas esta restrição irá ser lifted nas próximas semanas.  Uma vez no ciclo pode começar a especificar que devem ocorrer em cada valor de matriz.
+As Logic Apps permite-lhe cíclicas através de um conjunto de dados e executar uma ação para cada item.  Isto é possível através de `foreach` ação.  No estruturador, pode especificar para adicionar um para cada ciclo.  Depois de selecionar a matriz de que pretende iterar, pode começar a adicionar ações.  Pode adicionar várias ações por foreach ciclo.  Uma vez no ciclo pode começar a especificar que devem ocorrer em cada valor de matriz.
 
 Se utilizar a vista de código, pode especificar um para cada ciclo como abaixo.  Este é um exemplo de um para cada ciclo que envia uma mensagem de e-mail para cada endereço de correio eletrónico que contém 'microsoft.com':
 
@@ -137,7 +137,7 @@ SplitOn pode ser especificado na vista de código como o exemplo seguinte.  Isto
 }
 ```
 
-## <a name="scopes"></a>âmbitos
+## <a name="scopes"></a>Âmbitos
 
 É possível uma série de ações em conjunto com um âmbito de grupo.  Isto é particularmente útil para implementar o processamento de exceções.  O estruturador pode adicionar um novo âmbito e começar a adicionar quaisquer ações dentro do mesmo.  Pode definir âmbitos na vista de código como o seguinte:
 

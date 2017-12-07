@@ -32,3 +32,9 @@
 | Sudeste da Austrália | 2                       |
 |                     |                         |
 | Sul do Brasil        | 2                       |
+|                     |                         |
+| Gov (US) - Virginia     | 2                       |
+| Gov (US) - Texas        | 2                       |
+| Gov (US) - Arizona      | 2                       |
+| US DoD Centro      | 2                       |
+| US DoD Leste         | 2                       |

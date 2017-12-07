@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de Media Services do Azure
 Este tópico fornece uma descrição geral dos conceitos de Media Services mais importantes.
@@ -151,10 +151,9 @@ A política de autorização da chave de conteúdo pode ter um ou mais restriç�
 Quando configurar o token restrito a política, tem de especificar a chave de verificação principal, o emissor e o parâmetros público-alvo. A chave de verificação principal contém a chave que o token foi assinado com, emissor é o serviço de token seguro que emite o token. O público-alvo (por vezes denominado âmbito) descreve a intenção do token ou o recurso autoriza o token de acesso a. O serviço de entrega de chave de Media Services valida que estes valores no token correspondem aos valores no modelo.
 
 Para obter mais informações, veja os artigos seguintes:
-
-[Descrição geral do conteúdo de proteger](media-services-content-protection-overview.md)
-[proteger com AES-128](media-services-protect-with-aes128.md)
-[proteger com DRM](media-services-protect-with-drm.md)
+- [Proteger conteúdo descrição geral](media-services-content-protection-overview.md)
+- [Proteger com AES-128](media-services-protect-with-aes128.md)
+- [Proteger com PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Entrega
 ### <a id="dynamic_packaging"></a>Empacotamento dinâmico

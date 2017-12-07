@@ -24,7 +24,7 @@ Quando se liga a VMs, deve utilizar a criptografia de chave pública para fornec
 
 ## <a name="policies"></a>Políticas
 
-[As políticas do Azure Resource Manager](../articles/azure-resource-manager/resource-manager-policy.md) pode ser utilizado para definir o comportamento pretendido para a sua organização [VMs do Windows](../articles/virtual-machines/windows/policy.md) e [VMs com Linux](../articles/virtual-machines/linux/policy.md). Ao utilizar políticas, uma organização pode aplicar vários convenções e regras em toda a empresa. Imposição do comportamento pretendido pode ajudar a mitigar o risco ao contribuir para o êxito da organização.
+[As políticas do Azure](../articles/azure-policy/azure-policy-introduction.md) pode ser utilizado para definir o comportamento pretendido para a sua organização [VMs do Windows](../articles/virtual-machines/windows/policy.md) e [VMs com Linux](../articles/virtual-machines/linux/policy.md). Ao utilizar políticas, uma organização pode aplicar vários convenções e regras em toda a empresa. Imposição do comportamento pretendido pode ajudar a mitigar o risco ao contribuir para o êxito da organização.
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 

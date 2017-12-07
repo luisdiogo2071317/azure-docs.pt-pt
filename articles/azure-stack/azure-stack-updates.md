@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5c7810a88bee65cf22276082f72b18a7f9e983f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gerir as atualizações na descrição geral de pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas*
 
-Microsoft vai lançar pacotes de atualização para sistemas de pilha do Azure integrado regularmente. Cada versão de atualizações de software da Microsoft é incluído como um pacote de atualização única. Como um operador de pilha do Azure, pode importar facilmente, instalação e monitorize o progresso de instalação destas de atualização de pacotes a partir do portal do administrador. 
+Microsoft vai lançar pacotes de atualização para sistemas de pilha do Azure integrado uma cadência regulares que, normalmente, irá enquadram-se na quarta terça-feira de cada mês, começando disponibilidade geral. Colocar o OEM sobre o seu processo de notificação específicos para garantir a sua organização alcance de notificações de atualização ou verifique aqui em sistemas de notes\Integrated Concepts\Release notas de versão para obter mais informações sobre versões específicas.
+
+Cada versão de atualizações de software da Microsoft é incluído como um pacote de atualização única. Como um operador de pilha do Azure, pode importar facilmente, instalação e monitorize o progresso de instalação destas de atualização de pacotes a partir do portal do administrador. 
 
 O fornecedor de hardware de fabricante de equipamento original (OEM) também vai lançar atualizações, tais como atualizações de controladores e firmware. Estas atualizações são fornecidas como pacotes separados pelo seu fornecedor de hardware do OEM e são geridas separadamente das atualizações da Microsoft.
 

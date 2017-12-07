@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a35c7255a1c30a693862589c14f6a22a1900790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36ec76718d21cac5ae3203f1c6d4b8af2aacb9ed
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configure-content-key-authorization-policy"></a>Configurar a política de autorização da chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -28,9 +28,9 @@ Serviços de suporte de dados do Microsoft Azure permite-lhe entregar MPEG-DASH,
 
 Os Media Services também fornecem uma **serviço de entrega de licença/chave** do que os clientes podem obter chaves AES ou licenças PlayReady/Widevine para reproduzir o conteúdo encriptado.
 
-Este tópico mostra como utilizar o portal do Azure para configurar a política de autorização da chave de conteúdo. A chave mais tarde pode ser utilizada para encriptar o conteúdo de forma dinâmica. Tenha em atenção que atualmente pode encriptar transmissão seguintes formatos: HLS, MPEG DASH e transmissão em fluxo uniforme. Não é possível encriptar transferências de transferência progressiva.
+Este artigo mostra como utilizar o portal do Azure para configurar a política de autorização da chave de conteúdo. A chave mais tarde pode ser utilizada para encriptar o conteúdo de forma dinâmica. Atualmente, pode encriptar os seguintes formatos de transmissão em fluxo: HLS, MPEG DASH e transmissão em fluxo uniforme. Não é possível encriptar transferências de transferência progressiva.
 
-Quando um leitor de solicita um fluxo que está definido como seja encriptado dinamicamente, o Media Services utiliza a chave configurada para encriptar o conteúdo através da encriptação AES ou DRM de forma dinâmica. Para desencriptar o fluxo, o leitor solicitará a chave do serviço de entrega de chave. Para decidir se pretende ou não o utilizador está autorizado para obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
+Quando um leitor de solicita um fluxo que está definido como seja encriptado dinamicamente, o Media Services utiliza a chave configurada para encriptar o conteúdo através da encriptação AES ou DRM de forma dinâmica. Para desencriptar o fluxo, o leitor de pedidos a chave do serviço de entrega de chave. Para decidir se pretende ou não o utilizador está autorizado para obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
 
 Se planear ter várias chaves de conteúdo ou pretender especificar um **serviço de entrega de licença/chave** URL que não seja o serviço de entrega de chave de Media Services, utilize o SDK .NET dos Media Services ou REST APIs.
 
@@ -42,6 +42,7 @@ Se planear ter várias chaves de conteúdo ou pretender especificar um **serviç
 * Quando a sua conta de AMS é criada um **predefinido** ponto final de transmissão em fluxo é adicionado à sua conta na **parado** estado. Para iniciar o conteúdo de transmissão em fluxo e tirar partido do empacotamento dinâmico e a encriptação dinâmica, o ponto final de transmissão em fluxo tem de ser o **executar** estado. 
 * O elemento tem de conter um conjunto de MP4s de velocidade de transmissão adaptável ou ficheiros de transmissão em fluxo uniforme de velocidade de transmissão adaptável. Para obter mais informações, consulte [codificar um elemento](media-services-encode-asset.md).
 * O serviço de entrega de chave coloca em cache ContentKeyAuthorizationPolicy e os respetivos objetos relacionados (opções de política e restrições) para 15 minutos.  Se criar um ContentKeyAuthorizationPolicy e especifique a utilização de uma restrição "Token", em seguida, testá-lo e, em seguida, atualizar a política a restrição "Abrir", irá demorar cerca de 15 minutos antes da política muda para a versão "Aberta" da política.
+* Ponto final de transmissão em fluxo do AMS define o valor do cabeçalho CORS 'Acesso controlo-permitir-origem' na resposta prévia como caráter universal '\*'. Isto funciona bem com a maioria dos jogadores incluindo nosso Media Player do Azure, Roku e JW e outros. No entanto, algumas jogadores que tiram partido dashjs não funcionar, uma vez, com o conjunto de modo de credenciais para "incluir", XMLHttpRequest no respetivo dashjs não permite carateres universais "\*" como o valor de "' Acesso controlo-permitir-origem". Como uma solução para esta limitação no dashjs, se estiver a alojar o seu cliente de um único domínio, o Media Services do Azure pode especificar esse domínio no cabeçalho de resposta de verificação prévia. Pode entrar, abrindo um pedido de suporte através do portal do Azure.
 
 ## <a name="how-to-configure-the-key-authorization-policy"></a>Como: configurar a política de autorização da chave
 Para configurar a política de autorização da chave, selecione o **PROTEÇÃO de conteúdos** página.
@@ -49,7 +50,7 @@ Para configurar a política de autorização da chave, selecione o **PROTEÇÃO 
 Os Media Services suportam várias formas de autenticar utilizadores que efetuam pedidos de chave. A política de autorização da chave de conteúdo pode ter **abrir**, **token**, ou **IP** restrições de autorização (**IP** pode ser configurado com REST ou o .NET SDK).
 
 ### <a name="open-restriction"></a>Restrição aberta
-O **abrir** restrição significa que o sistema irá fornecer a chave para qualquer pessoa que faz um pedido de chave. Esta restrição poderão ser úteis para fins de teste.
+O **abrir** restrição significa que o sistema disponibiliza a chave de qualquer pessoa que faz um pedido de chave. Esta restrição poderão ser úteis para fins de teste.
 
 ![OpenPolicy][open_policy]
 
@@ -60,7 +61,7 @@ O **token** política restrita tem de ser acompanhada de um token emitido por um
 
 Serviços de suporte de dados não fornece **proteger serviços Token**. Pode criar um STS personalizado ou tirar partido das ACS do Microsoft Azure para tokens de problema. O STS tem de ser configurado para criar o token assinado com especificado chave e emitir afirmações que especificou na configuração de restrição de token. O serviço de entrega de chave de Media Services irá devolver a chave de encriptação para o cliente se o token é válido e as afirmações no token correspondem às configurado para a chave de conteúdo. Para obter mais informações, consulte [utilização do Azure ACS para tokens de problema](http://mingfeiy.com/acs-with-key-services).
 
-Quando configurar o **TOKEN** política restrita, tem de definir os valores para **chave de verificação**, **emissor** e **público-alvo**. A chave de verificação principal contém a chave que o token foi assinado com, emissor é o serviço de token seguro que emite o token. O público-alvo (por vezes denominado âmbito) descreve a intenção do token ou o recurso autoriza o token de acesso a. O serviço de entrega de chave de Media Services valida que estes valores no token correspondem aos valores no modelo.
+Quando configurar o **token** restringido a política, tem de especificar o site primário **chave de verificação**, **emissor** e **público-alvo** parâmetros. O principal **chave de verificação** contém a chave que o token foi assinado com, **emissor** é o serviço de token seguro que emite o token. O **público-alvo** (por vezes denominado **âmbito**) descreve o token ou o recurso autoriza o token de acesso para o objetivo. O serviço de entrega de chave de Media Services valida que estes valores no token correspondem aos valores no modelo.
 
 ### <a name="playready"></a>PlayReady
 Quando proteger o seu conteúdo com **PlayReady**, uma das ações tem de especificar na sua política de autorização é uma cadeia XML que define o modelo de licença PlayReady. Por predefinição, está definida a seguinte política:
@@ -69,7 +70,7 @@ Quando proteger o seu conteúdo com **PlayReady**, uma das ações tem de especi
 
 Pode clicar no **importar o xml de política** botão e fornecer um XML diferente que está em conformidade com o esquema de XML definido [aqui](media-services-playready-license-template-overview.md).
 
-## <a name="next-step"></a>Passo seguinte
+## <a name="next-steps"></a>Passos seguintes
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 48c9f55e2296b88acc697ab818f13787695643a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57f5c5ce5dcc88b273385f50b3f9ef69f1ffd157
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory com base na aplicação acesso condicional  
 
@@ -86,7 +86,7 @@ Este cenário pressupõe que um utilizador:
 
 - Abre a aplicação do Outlook e inicia sessão com as credenciais do Azure AD
 
-- É-lhe pedido para instalar Authenticor (iOS) ou do Portal da empresa (Android), para continuar
+- É-lhe pedido para instalar o autenticador (iOS) ou do Portal da empresa (Android), para continuar
 
 - Instala a aplicação e pode regressar à aplicação Outlook para continuar
 

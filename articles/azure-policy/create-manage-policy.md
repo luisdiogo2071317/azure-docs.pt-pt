@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerir políticas para impor a compatibilidade
 
@@ -26,22 +26,6 @@ Noções sobre como criar e gerir políticas no Azure é importante para permane
 > * Implementar uma nova política numa organização
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-## <a name="opt-in-to-azure-policy"></a>Escolher a política do Azure
-
-Política do Azure está agora disponível na pré-visualização limitada, por isso terá de registar para pedir acesso.
-
-1. Aceda a política do Azure em https://aka.ms/getpolicy e selecione **inscrever-se** no painel esquerdo.
-
-   ![Pesquisa para a política](media/assign-policy-definition/sign-up.png)
-
-2. Optar ativamente por participar na política do Azure ao selecionar as subscrições no **subscrição** lista que gostaria de trabalhar com. Em seguida, selecione **registar**.
-
-   A lista de subscrição inclui todas as subscrições do Azure.
-
-   ![Optar ativamente por participar em utilizar a política do Azure](media/assign-policy-definition/preview-opt-in.png)
-
-   Consoante a pedido, este poderá demorar até alguns dias para-nos aceitar o pedido de registo. Depois de aceite, obtém o pedido, será notificado através de e-mail que pode começar a utilizar o serviço.
 
 ## <a name="assign-a-policy"></a>Atribuir uma política
 
@@ -69,7 +53,7 @@ Política do Azure está agora disponível na pré-visualização limitada, por 
 
    Existem dois escalões de preços dentro de política do Azure – *livres* e *padrão*. Com o escalão gratuito, apenas pode impor políticas de recursos futuras, enquanto com padrão, pode também impor-los em recursos existentes para compreender melhor o seu estado de compatibilidade. Uma vez que estão na pré-visualização limitada, iremos não ainda libertadas um modelo de preços, pelo que não receberão uma fatura para selecionar *padrão*. Para mais informações sobre preços, observe: [preços de política do Azure](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Selecione o **âmbito** -subscrição (ou grupo de recursos) registado anteriormente quando optado política do Azure. Um âmbito determina que recursos ou agrupamento de recursos de atribuição de política obtém imposta. Podem ir de uma subscrição para grupos de recursos.
+8. Selecione o **âmbito** -subscrição (ou grupo de recursos) anteriormente registados. Um âmbito determina que recursos ou agrupamento de recursos de atribuição de política obtém imposta. Podem ir de uma subscrição para grupos de recursos.
 
    Para este exemplo, estamos a utilizar esta subscrição - **Dev de capacidade de análise do Azure**. A subscrição serão diferentes.
 
@@ -94,9 +78,9 @@ Agora que Atribuímos a definição de política, vamos criar uma nova política
       - A política de regras/condições, neste caso – o tamanho do SKU de VM é igual a série de G
       - A política em vigor, neste caso – **negar**.
 
-   Eis o que o json deve ter o seguinte aspeto
+    Eis o que o json deve ter o seguinte aspeto
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -116,11 +100,9 @@ Agora que Atribuímos a definição de política, vamos criar uma nova política
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   Para ver os exemplos de código json, observe este artigo - [modelos de política do Azure](json-samples.md)
+    Para ver os exemplos de código json, leia o [modelos de política do Azure](json-samples.md) artigo.
 
 4. Selecione **Guardar**.
 

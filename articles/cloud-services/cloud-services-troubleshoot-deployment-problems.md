@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Resolver problemas de implementação do serviço de nuvem
 Quando implementar um pacote de aplicação de serviço em nuvem do Azure, pode obter informações sobre a implementação do **propriedades** painel no portal do Azure. Pode utilizar os detalhes neste painel para o ajudar a resolver problemas relacionados com o serviço em nuvem, e pode fornecer estas informações para suportar o Azure ao abrir um novo pedido de suporte.
@@ -27,7 +27,6 @@ Quando implementar um pacote de aplicação de serviço em nuvem do Azure, pode 
 Pode encontrar o **propriedades** painel da seguinte forma:
 
 * No portal do Azure, clique a implementação do seu serviço em nuvem, clique em **todas as definições**e, em seguida, clique em **propriedades**.
-* No portal clássico do Azure, clique a implementação do seu serviço em nuvem, clique em **DASHBOARD**, localizada no canto inferior direito da página (em **leitura rápida**). Lembre-se de que não há qualquer etiqueta "Propriedades" neste painel.
 
 > [!NOTE]
 > Pode copiar o conteúdo a **propriedades** painel para a área de transferência clicando no ícone no canto superior direito do painel.

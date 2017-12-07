@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: ec22a9898350b07662266707b2fd086a7a5daa93
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e8e07fa54aa10d34f0878042a5d9ac43f9a6704b
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
 Este artigo contém instruções para utilizar os cmdlets do PowerShell do Azure Active Directory (Azure AD) para criar e grupos de atualização. Este conteúdo aplica-se apenas a grupos do Office 365. 
@@ -28,7 +28,7 @@ Este artigo contém instruções para utilizar os cmdlets do PowerShell do Azure
 > [!IMPORTANT]
 > Algumas definições requerem uma licença do Azure Active Directory Premium P1. Para obter mais informações, consulte o [as definições do modelo](#template-settings) tabela.
 
-Para obter mais informações sobre como permitir aos utilizadores criar grupos de segurança, defina `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` conforme descrito em [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+Para mais informações sobre como impedir os utilizadores de não administrador criar *segurança* grupos, defina `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` conforme descrito em [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Definições de grupos do Office 365 são configuradas utilizando um objeto de definições e um objeto de SettingsTemplate. Inicialmente, não vir quaisquer objetos de definições no seu diretório, porque o diretório está configurado com as predefinições. Para alterar as definições predefinidas, tem de criar um novo objeto de definições através de um modelo de definições. Modelos de definições são definidos pela Microsoft. Existem vários modelos diferentes definições. Para configurar as definições de grupo do Office 365 para o seu diretório, pode utilizar o modelo com o nome "Group.Unified". Configurar definições de grupo do Office 365 num único grupo, utilize o modelo com o nome "Group.Unified.Guest". Este modelo é utilizado para gerir o acesso de convidado para um grupo do Office 365. 
 

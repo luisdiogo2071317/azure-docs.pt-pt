@@ -3,8 +3,8 @@ title: "A indexação de tabelas no armazém de dados SQL | Microsoft Azure"
 description: "Introdução à tabela de indexação no Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/12/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: b205ed47833f675286539705e2754d2ea3821b8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 672270536a7405e617edbcf5ec0e6eff68be7fde
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>A indexação de tabelas no armazém de dados do SQL Server
 > [!div class="op_single_selector"]
@@ -174,14 +174,14 @@ Depois de ter de executar a consulta que pode começar a observar os dados e ana
 | [OPEN_rowgroup_rows_MAX] |Tal como acima |
 | [OPEN_rowgroup_rows_AVG] |Tal como acima |
 | [CLOSED_rowgroup_rows] |Observe as linhas de grupo de linha fechado como uma verificação de sanity. |
-| [CLOSED_rowgroup_count] |O número de grupos de linhas fechado deve ser baixa se qualquer são visualizadas de todo. Grupos de linhas fechado podem ser convertidos para roups rowg comprimido utilizando ALTER INDEX... REORGANISE comando. No entanto, isto não é normalmente necessário. Grupos fechados automaticamente são convertidos em grupos de linhas columnstore pelo processo de "cadeia de identificação Movimentador" em segundo plano. |
+| [CLOSED_rowgroup_count] |O número de grupos de linhas fechado deve ser baixa se qualquer são visualizadas de todo. Grupos de linhas fechado podem ser convertidos em grupos de linhas comprimido utilizando ALTER INDEX... REORGANISE comando. No entanto, isto não é normalmente necessário. Grupos fechados automaticamente são convertidos em grupos de linhas columnstore pelo processo de "cadeia de identificação Movimentador" em segundo plano. |
 | [CLOSED_rowgroup_rows_MIN] |Grupos de linhas fechado devem ter uma taxa muito elevada de preenchimento. Se a taxa de preenchimento para um grupo de linhas fechado for baixa, são necessárias mais análises do columnstore. |
 | [CLOSED_rowgroup_rows_MAX] |Tal como acima |
 | [CLOSED_rowgroup_rows_AVG] |Tal como acima |
 | [Rebuild_Index_SQL] |SQL Server para reconstruir o índice columnstore em tabelas de |
 
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Causas de qualidade de índice columnstore fraco
-Se identificou tabelas com qualidade de segmento fraco, é melhor identificar a causa raiz.  Seguem-se algumas outras causas comuns de segmento fraco quaility:
+Se identificou tabelas com qualidade de segmento fraco, é melhor identificar a causa raiz.  Seguem-se algumas outras causas comuns de qualidade de segmento fraco:
 
 1. Pressão de memória quando o índice foi criado
 2. Elevado volume de operações DML
@@ -191,7 +191,7 @@ Se identificou tabelas com qualidade de segmento fraco, é melhor identificar a 
 Estes fatores podem causar um índice columnstore ter significativamente inferior ao ideal milhões de 1 linhas por grupo de linhas.  Também pode provocar a linhas Ir para o grupo de linhas de diferenças em vez de um grupo de linhas comprimido. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Pressão de memória quando o índice foi criado
-O número de linhas por grupo de linhas comprimido está diretamente relacionadas com a largura da linha e a quantidade de memória disponível para processar o grupo de linhas.  Quando as linhas são escritas em tabelas columnstore sob pressão de memória, a qualidade de segmento de columnstore poderá sofrer consequências.  Por conseguinte, a melhor prática é atribuir a sessão que está a escrever para o acesso de tabelas de índice columnstore ao, tanta memória como possíveis.  Uma vez que existe um compromisso entre a memória e simultaneidade, a documentação de orientação na alocação de memória direita depende dos dados em cada linha da sua tabela, a quantidade de DWU alocou ao seu sistema e a quantidade de ranhuras de concorrência que deu à sessão que é escrever os dados da tabela.  Como melhor prática, recomendamos que comece com xlargerc se estiver a utilizar DW300 ou menos largerc se estiver a utilizar DW400 DW600 e mediumrc se estiver a utilizar DW1000 e acima.
+O número de linhas por grupo de linhas comprimido está diretamente relacionadas com a largura da linha e a quantidade de memória disponível para processar o grupo de linhas.  Quando as linhas são escritas em tabelas columnstore sob pressão de memória, a qualidade de segmento de columnstore poderá sofrer consequências.  Por conseguinte, a melhor prática é atribuir a sessão que está a escrever para o acesso de tabelas de índice columnstore ao, tanta memória como possíveis.  Uma vez que não há um compromisso entre a memória e a simultaneidade, a documentação de orientação na alocação de memória direita depende dos dados em cada linha da sua tabela, as unidades de armazém de dados alocadas para o sistema e o número de ranhuras de concorrência que deu à sessão do que está a escrever dados para a tabela.  Como melhor prática, recomendamos que comece com xlargerc se estiver a utilizar DW300 ou menos largerc se estiver a utilizar DW400 DW600 e mediumrc se estiver a utilizar DW1000 e acima.
 
 ### <a name="high-volume-of-dml-operations"></a>Elevado volume de operações DML
 Um grande volume de operações DML que atualizar e eliminar linhas pode introduzir ineficácia no columnstore. Isto é particularmente verdadeiro quando a maioria das linhas de um grupo de linha são modificadas.
@@ -247,7 +247,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Reconstruir um índice no SQL Data Warehouse é uma operação offline.  Para obter mais informações sobre como reconstruir índices, consulte a secção ALTER INDEX REBUILD [desfragmentação de índices Columnstore] [ Columnstore Indexes Defragmentation] e o tópico de sintaxe [ALTER INDEX] [ ALTER INDEX].
+Reconstruir um índice no SQL Data Warehouse é uma operação offline.  Para obter mais informações sobre como reconstruir índices, consulte a secção ALTER INDEX REBUILD [desfragmentação de índices Columnstore][Columnstore Indexes Defragmentation], e [ALTER INDEX] [ ALTER INDEX].
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Passo 3: Verificar a qualidade de segmento de columnstore em cluster foi melhorado
 Execute novamente a consulta que tabela identificada com fraco segmentar qualidade e certifique-se de qualidade de segmento foi melhorado.  Se não melhorar a qualidade de segmento, é possível que as linhas na tabela são muito grande.  Considere a utilização de uma classe de recursos mais elevado ou DWU ao reconstruir os índices.

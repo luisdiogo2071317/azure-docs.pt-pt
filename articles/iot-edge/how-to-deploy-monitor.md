@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e7007bd6cca24dc4c2573fb274cecbf88ecfa374
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implementar e monitorizar os módulos de limite de IoT à escala - pré-visualização
 
@@ -42,19 +42,21 @@ Para obter mais informações sobre dispositivos duplos e etiquetas, consulte [c
 
 1. Iniciar sessão para o [portal do Azure] [ lnk-portal] e navegue até ao seu IoT hub. 
 1. Selecione **IoT Edge (pré-visualização)**.
-1. Selecione **criar limite implementação**.
+1. Selecione **adicionar implementação de limite de IoT**.
 
 Existem cinco passos para criar uma implementação. As secções seguintes guiá-lo através de cada um deles. 
 
-### <a name="step-1-label-deployment"></a>Passo 1: Implementação de etiqueta
+### <a name="step-1-name-and-label"></a>Passo 1: Nome e a etiqueta
 
-1. Permitir a implementação de um ID exclusivo. Evite espaços e os seguintes carateres inválidos: `& ^ [ ] { } \ | " < > /`.
+1. Dê um nome exclusivo de implementação. Evite espaços e os seguintes carateres inválidos: `& ^ [ ] { } \ | " < > /`.
 1. Adicione etiquetas para ajudar a monitorizar as implementações. As etiquetas são **nome**, **valor** pares que descrevem a sua implementação. Por exemplo, `HostPlatform, Linux` ou `Version, 3.0.1`.
 1. Selecione **seguinte** mover para o passo dois. 
 
-### <a name="step-2-add-modules"></a>Passo 2: Adicionar módulos
+### <a name="step-2-add-modules-optional"></a>Passo 2: Adicionar módulos (opcionais)
 
 Existem dois tipos de módulos que pode adicionar a uma implementação. O primeiro é um módulo baseado num serviço do Azure, como a conta de armazenamento ou o Stream Analytics. O segundo é um módulo baseado nos seu próprio código. Pode adicionar vários módulos de qualquer tipo para uma implementação. 
+
+Se criar uma implementação com nenhuma módulos, remove quaisquer módulos existentes dos dispositivos. 
 
 >[!NOTE]
 >O Azure Machine Learning e as funções do Azure não suportam a implementação de serviço do Azure automatizada ainda. Utilize a implementação do módulo personalizado para adicionar manualmente esses serviços à sua implementação. 

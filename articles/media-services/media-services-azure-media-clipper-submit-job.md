@@ -9,16 +9,20 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4a142648793f934e939be26378504c19facf40e1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Submeter tarefas de recorte de Recortador de suporte de dados do Azure
 Recortador de suporte de dados do Azure requer um **submitSubclipCallback** método para ser implementada para processar a submissão da tarefa de recorte. Esta função é para implementar um POST de HTTP de saída Recortador a um serviço web. Este serviço web é onde pode submeter a tarefa de codificação. O resultado do Recortador é a um codificador de multimédia Standard codificação predefinição para as tarefas compostas ou o payload de REST API para chamadas de filtro de manifesto dinâmico. Este modelo pass-through é necessário porque as credenciais de conta de serviços de suporte de dados não são seguras no browser do cliente.
 
-O exemplo de código seguinte ilustra um exemplo **submitSubclipCallback** método. Neste método, implementa o HTTP POST da predefinição de codificação MES. Se a publicação foi efetuada com êxito (**resultado**), o **promessa** for resolvido, caso contrário, que é rejeitado com detalhes do erro.
+O diagrama de sequência seguinte ilustra o fluxo de trabalho entre o browser cliente, o serviço web e os Media Services do Azure: ![diagrama de sequência de Recortador de suporte de dados do Azure](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
+
+No diagrama anterior, as quatro entidades são: browser do utilizador final, o serviço web, o ponto final da CDN que aloja os recursos de Recortador e os Media Services do Azure. Quando o utilizador final navega para a página web, a página obtém o Recortador JavaScript e os recursos do CSS do ponto final de CDN alojamento. O utilizador final configura a tarefa de recorte ou chamada de criação de filtro de manifesto dinâmica partir do respetivo browser. Quando o utilizador final submete a tarefa ou um filtro de criação de chamada, o browser coloca o payload de tarefa a um serviço web que tem de implementar. Este serviço web, fundamentalmente, submete a tarefa de recorte ou as credenciais da conta de serviços de criação de chamada de filtro para utilizar o suporte de dados de Media Services do Azure.
+
+O exemplo de código seguinte ilustra um exemplo **submitSubclipCallback** método. Neste método, implementa o HTTP POST da predefinição de codificação codificador de multimédia Standard. Se a publicação foi efetuada com êxito (**resultado**), o **promessa** for resolvido, caso contrário, que é rejeitado com detalhes do erro.
 
 ```javascript
 // Submit Subclip Callback
@@ -49,9 +53,11 @@ var subclipper = new subclipper({
     submitSubclipCallback: onSubmitSubclip,
 });
 ```
-O resultado a submissão da tarefa é o o MES codificação predefinição para a tarefa composta ou o payload de REST API para filtros dinâmicos de manifesto.
+O resultado a submissão da tarefa é o a predefinição de codificação codificador de multimédia Standard para a tarefa composta ou o payload de REST API para os filtros de manifesto dinâmicos.
 
-## <a name="rendered-output"></a>Saída composta
+## <a name="submitting-encoding-job-to-create-video"></a>A submeter a tarefa de codificação para criar as vídeo
+Pode submeter uma tarefa de codificação codificador de multimédia Standard para criar uma moldura exata clip de vídeo. Codificação produzir tarefa composto vídeos, um novo fragmentados ficheiro MP4.
+
 O contrato de saída da tarefa para recorte composto é um objeto JSON com as seguintes propriedades:
 
 ```json
@@ -145,8 +151,10 @@ O contrato de saída da tarefa para recorte composto é um objeto JSON com as se
 }
 ```
 
-## <a name="filter-output"></a>Saída de filtro
-O contrato de saída para um recorte de filtro é um objeto JSON com as seguintes propriedades:
+Para efetuar a tarefa de codificação, submeter o codificador de multimédia Standard da tarefa de codificação associada com configuração predefinida. Consulte este artigo para obter detalhes sobre a codificação a submeter as tarefas utilizando o [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) ou [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+
+## <a name="quickly-creating-video-clips-without-encoding"></a>Criar rapidamente aplicações de clips de vídeos sem codificação
+Alternativa para a criação de uma tarefa de codificação, pode utilizar o Recortador de suporte de dados do Azure para criar o manifesto de filtros dinâmicos. Os filtros não necessitam de codificação e podem ser criados rapidamente, como um novo elemento não é criado. O contrato de saída para um recorte de filtro é um objeto JSON com as seguintes propriedades:
 
 ```json
 {
@@ -218,3 +226,5 @@ O contrato de saída para um recorte de filtro é um objeto JSON com as seguinte
   }
 }
 ```
+
+Para submeter a chamada REST para criar o filtro de manifesto dinâmico, submeter o payload de filtro associado utilizando o [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).

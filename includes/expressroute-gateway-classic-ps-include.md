@@ -1,4 +1,4 @@
-Tem de criar uma VNet e uma sub-rede de gateway em primeiro lugar, antes de trabalhar as seguintes tarefas. Consulte o artigo [configurar uma rede Virtual com o portal clássico](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) para obter mais informações.
+Tem de criar uma VNet e uma sub-rede de gateway em primeiro lugar, antes de trabalhar as seguintes tarefas.
 
 > [!NOTE]
 > Estes exemplos não se aplicam ao S2S/ExpressRoute coexistentes configurações.
@@ -9,7 +9,7 @@ Tem de criar uma VNet e uma sub-rede de gateway em primeiro lugar, antes de trab
 Utilize o comando abaixo para criar um gateway. Não se esqueça de substituir quaisquer valores para os seus próprios.
 
 ```powershell
-New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType Dedicated -GatewaySKU  Standard
+New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
 ```
 
 ## <a name="verify-the-gateway-was-created"></a>Certifique-se de que a criação do gateway
@@ -17,7 +17,7 @@ New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" 
 Utilize o comando abaixo para verificar se o gateway foi criado. Este comando também obtém o ID de gateway, o que precisa para outras operações.
 
 ```powershell
-Get-AzureVirtualNetworkGateway
+Get-AzureVNetGateway
 ```
 
 ## <a name="resize-a-gateway"></a>Redimensionar um gateway
@@ -30,7 +30,7 @@ Há uma série de [SKUs de Gateway](../articles/expressroute/expressroute-about-
 >
 
 ```powershell
-Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+Resize-AzureVNetGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
 ## <a name="remove-a-gateway"></a>Remover um gateway
@@ -38,5 +38,5 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 Utilize o comando abaixo para remover um gateway
 
 ```powershell
-Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+Remove-AzureVnetGateway -GatewayId <Gateway ID>
 ```

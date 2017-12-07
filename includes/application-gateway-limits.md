@@ -8,11 +8,13 @@
 | Serviços de Escuta HTTP |20 | |
 | Regras de balanceamento de carga HTTP |200 |n. º de serviços de escuta de HTTP * n, n = predefinição 10 |
 | Definições de HTTP de back-end |20 |1 por Conjunto de Endereços de Back-end |
-| Instâncias por gateway |10 | |
+| Instâncias por gateway |10 | Para mais instâncias, abra o pedido de suporte |
 | Certificados SSL |20 |1 por Serviço de Escuta HTTP |
 | Certificados de autenticação |5 | 10 no máximo |
 | O limite de tempo mínimo de pedido |1 segundo | |
 | Tempo limite máximo de pedidos |24 h | |
 | Número de sites |20 |1 por Serviço de Escuta HTTP |
 | Mapas de URL por serviço de escuta |1 | |
+| Tamanho máximo do ficheiro de carregamento padrão |2GB | |
+| WAF de tamanho máximo do ficheiro carregamento |100 MB| |
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 724c03bd360cef5548a3460263ec39a6ca791d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 495f64f31eae63fcee343b277e16ac04e8575c21
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementar recursos com modelos do Resource Manager e do Azure PowerShell
 
-Este tópico explica como utilizar o Azure PowerShell com modelos do Resource Manager para implementar os recursos no Azure. Se não estiver familiarizado com conceitos de implementar e gerir as suas soluções do Azure, consulte [descrição geral do Azure Resource Manager](resource-group-overview.md).
+Este artigo explica como utilizar o Azure PowerShell com modelos do Resource Manager para implementar os recursos no Azure. Se não estiver familiarizado com conceitos de implementar e gerir as suas soluções do Azure, consulte [descrição geral do Azure Resource Manager](resource-group-overview.md).
 
 O modelo do Resource Manager que implementar possível ser um ficheiro local no seu computador, ou um ficheiro externo que está localizado num repositório como GitHub. O modelo que implementa neste artigo está disponível no [modelo de exemplo](#sample-template) secção, ou como [modelo de conta de armazenamento no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
@@ -71,6 +71,15 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 ```
 
 O exemplo anterior requer um URI acessível publicamente para o modelo, que funciona para a maioria dos cenários, porque o modelo não deve incluir dados confidenciais. Se tiver de especificar os dados confidenciais (por exemplo, uma palavra-passe de administrador), passe esse valor como um parâmetro seguro. No entanto, se não pretender que o modelo para estar acessível publicamente, pode protegê-lo armazenando-o num contentor de armazenamento privada. Para obter informações sobre a implementação de um modelo que necessita de um token de assinatura (SAS) de acesso partilhado, consulte [implementar a modelo privado com o SAS token](resource-manager-powershell-sas-token.md).
+
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
+
+Na Shell de nuvem, utilize os seguintes comandos:
+
+```powershell
+New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile "C:\users\ContainerAdministrator\CloudDrive\templates\azuredeploy.json" -storageAccountType Standard_GRS
+```
 
 ## <a name="parameter-files"></a>Ficheiros de parâmetro
 
@@ -154,7 +163,7 @@ New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
 
 ## <a name="sample-template"></a>Modelo de exemplo
 
-O modelo seguinte é utilizado para os exemplos neste tópico. Copie e guarde-o como um ficheiro denominado storage.json. Para compreender como criar este modelo, consulte [criar o primeiro modelo Azure Resource Manager](resource-manager-create-first-template.md).  
+O modelo seguinte é utilizado para os exemplos neste artigo. Copie e guarde-o como um ficheiro denominado storage.json. Para compreender como criar este modelo, consulte [criar o primeiro modelo Azure Resource Manager](resource-manager-create-first-template.md).  
 
 ```json
 {

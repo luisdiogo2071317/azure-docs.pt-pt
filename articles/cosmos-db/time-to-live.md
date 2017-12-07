@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Expirar os dados em coleções de base de dados do Azure Cosmos automaticamente com TTL
 As aplicações podem produzir e armazenar grandes quantidades de dados. Alguns destes dados, incluindo machine gerado dados, os registos e utilizador a sessão do evento informações apenas são útil para um período de tempo finito. Depois dos dados ficam surplus às necessidades da aplicação é seguro remover estes dados e reduzir as necessidades de armazenamento de uma aplicação.
@@ -149,6 +149,8 @@ Para desativar o TTL inteiramente numa coleção e parar o processo em segundo p
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+## <a name="ttl-and-index-interaction"></a>Interação de TTL e índice
+Adição de TTL ou alteração é uma alteração ao índice subjacente. Quando não existe nenhum valor de TTL e fornecer um valor TTL válido - Isto resulta numa operação de nova indexação. Para o índice consistente - o utilizador não verão qualquer alteração de estado de índice. No caso do índice lento - o índice primeiro de todas as é sempre obtendo cópias de segurança e com esta alteração no valor de ttl, o índice é recriado a partir do zero. O impacto no caso desta última opção é que consultas efetuadas durante a reconstrução do índice não devolverão resultados completos ou corretos. Não altere TTL para o índice em diferido se precisar de exacta contagem dados etc como modo de indexação em si é lento.  Idealmente, índice consistente deve ser sempre escolhido. 
 
 ## <a name="faq"></a>FAQ
 **O que irá TTL custo-me?**

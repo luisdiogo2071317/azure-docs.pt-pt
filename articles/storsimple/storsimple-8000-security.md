@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 12/06/2017
 ms.author: alkohli
-ms.openlocfilehash: e4980cdb77650f011d143ed9e86fbe0af6b29d5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e de segurança do StorSimple
 
@@ -157,7 +157,7 @@ A chave de encriptação de dados do serviço é gerada no apenas o primeiro dis
 > 
 > Se se perder a chave de encriptação de dados do serviço, uma pessoa de suporte da Microsoft pode ajudá-lo para obtê-lo, desde que tenha, pelo menos, um dispositivo num estado online. Recomendamos que altere a chave de encriptação de dados do serviço após é obtido. Para obter instruções, aceda a [alterar a chave de encriptação de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 
-Pode alterar a chave de encriptação de dados do serviço e o certificado de encriptação de dados correspondente ao selecionar o **chave de encriptação de dados de serviço de alteração** opção no dashboard do serviço. Para garantir que a segurança dos dados não for comprometida, tem de utilizar um dispositivo físico StorSimple para alterar a chave de encriptação de dados do serviço. Alterar as chaves de encriptação requer que todos os dispositivos ser atualizado com a nova chave. Por conseguinte, recomendamos que altere a chave quando todos os dispositivos estão online. Se os dispositivos estiverem offline, as respetivas chaves podem ser alteradas noutra altura. Os dispositivos com chaves Desatualizadas ainda será capazes de executar cópias de segurança, mas não poderão restaurar dados até que a chave é atualizada. Para obter mais informações, aceda a [utilize o dashboard de serviço do Gestor de dispositivos do StorSimple](storsimple-8000-service-dashboard.md).
+Para alterar a chave de encriptação de dados do serviço e o certificado de encriptação de dados correspondente, siga os passos no [alterar a chave de encriptação de dados do serviço para o seu serviço do Gestor de dispositivos do StorSimple](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Alterar as chaves de encriptação requer que todos os dispositivos ser atualizado com a nova chave. Por conseguinte, recomendamos que altere a chave quando todos os dispositivos estão online. Se os dispositivos estiverem offline, as respetivas chaves podem ser alteradas noutra altura. Os dispositivos com chaves Desatualizadas ainda será capazes de executar cópias de segurança, mas não poderão restaurar dados até que a chave é atualizada.
 
 A chave de encriptação de dados do serviço e o certificado de encriptação de dados não expirar. No entanto, recomendamos que altere a chave de encriptação de dados do serviço anual para ajudar a evitar o comprometimento de chave.
 
@@ -212,7 +212,7 @@ Seguem-se algumas perguntas e respostas sobre segurança e o Microsoft Azure Sto
 
 **R:** imediatamente, deve alterar a chave de encriptação de dados do serviço e as chaves de conta de armazenamento para a conta de armazenamento que está a ser utilizado para dados de camadas. Para obter instruções, aceda a:
 
-* [Alterar a chave de encriptação de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Alterar a chave de encriptação de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Rotação da chave de contas do storage](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **P:** tenho um novo dispositivo StorSimple que é solicitar a chave de registo do serviço. Como obtê-lo?
@@ -225,7 +225,7 @@ Seguem-se algumas perguntas e respostas sobre segurança e o Microsoft Azure Sto
 
 **R:** contacte o suporte da Microsoft. Pode iniciar sessão a uma sessão de suporte no seu dispositivo e ajuda a obter a chave (desde que, pelo menos, um dispositivo está online). Imediatamente depois de obter a chave de encriptação de dados do serviço, só deve ser alterado para se certificar de que a nova chave é conhecida apenas para si. Para obter instruções, aceda a:
 
-* [Alterar a chave de encriptação de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Alterar a chave de encriptação de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
 **P:** autorizados de um dispositivo para uma alteração de chave de encriptação de dados de serviço, mas não foi possível iniciar o processo de alteração de chave. O que devo fazer?
 
@@ -240,10 +240,10 @@ Seguem-se algumas perguntas e respostas sobre segurança e o Microsoft Azure Sto
 **R:** alterar e repor as palavras-passe que permitem o acesso ao dispositivo StorSimple e alterar a encriptação de dados do serviço de chave para se certificar de que as novas informações não são conhecidas não autorizado técnico. Para obter instruções, aceda a:
 
 * [Utilizar o serviço do Gestor de dispositivos do StorSimple para alterar as palavras-passe do storsimple](storsimple-8000-change-passwords.md)
-* [Alterar a chave de encriptação de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Alterar a chave de encriptação de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Configurar o CHAP para o dispositivo StorSimple](storsimple-8000-configure-chap.md)
 
-**P:** pretender fornecer a palavra-passe do Snapshot Manager do StorSimple num anfitrião que está a ligar para o dispositivo StorSimple, mas a palavra-passe não está disponível. O que devo fazer?
+**P:** pretender fornecer a palavra-passe do Snapshot Manager do StorSimple num anfitrião que está a ligar para o dispositivo StorSimple, mas a palavra-passe não está disponível. O que posso fazer?
 
 **R:** se tenha esquecido a palavra-passe, deve criar um novo. Em seguida, lembre-se de que todos os utilizadores existentes de informar que a palavra-passe foi alterada e que deve a atualizar os seus clientes para utilizar a nova palavra-passe. Para obter instruções, aceda a:
 

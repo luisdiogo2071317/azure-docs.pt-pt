@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 12/05/2017
 ms.author: barclayn
-ms.openlocfilehash: 6c49b086fd35a855fa8e32fa576c5b52d16f1d04
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0d34a19658ae67a9c98d6f31aaca35e67add5beb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>As chaves como gerar e transferir protegida por HSM para o Cofre de chaves do Azure
 ## <a name="introduction"></a>Introdução
@@ -82,10 +82,14 @@ Para obter instruções de instalação, consulte [como instalar e configurar o 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Passo 1.2: Obter o ID de subscrição do Azure
 Iniciar uma sessão do Azure PowerShell e inicie sessão na sua conta do Azure utilizando o seguinte comando:
 
-        Add-AzureAccount
+```Powershell
+   Add-AzureAccount
+```
 Na janela pop-up do browser, introduza o seu nome de utilizador da conta do Azure e a palavra-passe. Em seguida, utilize o [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) comando:
 
-        Get-AzureSubscription
+```powershell
+   Get-AzureSubscription
+```
 O resultado, localize o ID da subscrição que irá utilizar para o Cofre de chaves do Azure. Este ID de subscrição que irá precisar posteriormente.
 
 Não feche a janela do PowerShell do Azure.
@@ -188,7 +192,9 @@ KeyVault BYOK-ferramentas UnitedKingdom.zip
 
 Para validar a integridade da sua transferido conjunto de ferramentas BYOK, da sessão do Azure PowerShell, utilize o [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet.
 
-    Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```powershell
+   Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```
 
 O conjunto de ferramentas inclui o seguinte:
 
@@ -208,7 +214,9 @@ Instalar o software de suporte nCipher (Thales) num computador Windows e, em seg
 
 Certifique-se de que as ferramentas de Thales estão no seu caminho (**%nfast_home%\bin**). Por exemplo, escreva o seguinte:
 
-        set PATH=%PATH%;"%nfast_home%\bin"
+  ```cmd
+  set PATH=%PATH%;"%nfast_home%\bin"
+  ```
 
 Para obter mais informações, consulte o guia de utilizador incluído no HSM da Thales.
 
@@ -229,7 +237,9 @@ Se estiver a utilizar nShield da Thales limite, para alterar o modo de: 1. Utili
 ### <a name="step-32-create-a-security-world"></a>Passo 3.2: Criar um universo de segurança
 Inicie uma linha de comandos e execute o programa de novo universo da Thales.
 
+   ```cmd
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+   ```
 
 Este programa cria um **universo de segurança** ficheiros em % NFAST_KMDATA%\local\world, que corresponde à pasta C:\ProgramData\nCipher\Key Management Data\local. Pode utilizar valores diferentes para o quórum, mas no nosso exemplo, é-lhe pedido que introduza três cartões em branco e pins para cada um deles. Em seguida, os dois cartões dar acesso total ao universo de segurança. Estes cartões tornam-se a **conjunto de cartões de administrador** para o novo universo de segurança.
 
@@ -293,6 +303,10 @@ Para validar o pacote transferido:
    * Para Índia:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+   * Para o Reino Unido:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
+
      > [!TIP]
      > O software da Thales inclui python em %NFAST_HOME%\python\bin
      >
@@ -370,6 +384,9 @@ Abra uma nova linha de comandos e altere o diretório atual para a localização
 * Para Índia:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
+* Para o Reino Unido:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
 Quando executar este comando, substitua *contosokey* com o mesmo valor que especificou no **passo 3.5: criar uma nova chave** do [gerar a chave de](#step-3-generate-your-key) passo.
 
@@ -426,6 +443,9 @@ Execute um dos seguintes comandos, consoante a região geográfica ou a instânc
 * Para Índia:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* Para o Reino Unido:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 Quando executar este comando, utilize estas instruções:
 
@@ -441,7 +461,9 @@ Utilize uma pen USB ou outro armazenamento portátil para copiar o ficheiro de s
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Passo 5: Transferir a chave para o Cofre de chaves do Azure
 Para este passo final, na estação de trabalho ligada à Internet, utilize o [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) cmdlet para carregar o pacote de transferência da chave que copiou da estação de trabalho desligada para o HSM de Cofre de chaves do Azure:
 
-    Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```powershell
+        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```
 
 Se o carregamento for bem-sucedido, verá apresentar as propriedades da chave que acabou de adicionar.
 

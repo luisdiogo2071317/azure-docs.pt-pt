@@ -3,7 +3,7 @@ title: "Configurar a política de autorização da chave de conteúdo utilizando
 description: "Saiba como configurar uma política de autorização para uma chave de conteúdo utilizando o SDK .NET dos Media Services."
 services: media-services
 documentationcenter: 
-author: Mingfeiy
+author: mingfeiy
 manager: cfowler
 editor: 
 ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: 75dd9107dca215a0b31db3d44bada69210fe9ac6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9a7aa64d434efcf44553d5d900601638a329a1d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Encriptação dinâmica: configurar a política de autorização da chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -30,28 +30,25 @@ Os Media Services também fornecem uma **serviço de entrega de licença/chave**
 
 Se pretender que para os serviços de suporte de dados encriptar um recurso, tem de associar uma chave de encriptação (**CommonEncryption** ou **EnvelopeEncryption**) com o elemento (tal como descrito [aqui](media-services-dotnet-create-contentkey.md)) e também configurar políticas de autorização da chave (como descrito neste artigo).
 
-Quando um fluxo é solicitado por um leitor, os Media Services utiliza a chave especificada dinamicamente encriptar o seu conteúdo através da encriptação AES ou DRM. Para desencriptar o fluxo, o leitor solicitará a chave do serviço de entrega de chave. Para decidir se pretende ou não o utilizador está autorizado para obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
+Quando um fluxo é solicitado por um leitor, os Media Services utiliza a chave especificada dinamicamente encriptar o seu conteúdo através da encriptação AES ou DRM. Para desencriptar o fluxo, o leitor de pedidos a chave do serviço de entrega de chave. Para decidir se pretende ou não o utilizador está autorizado para obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
 
 Os Media Services suportam várias formas de autenticar utilizadores que efetuam pedidos de chave. A política de autorização da chave de conteúdo pode ter um ou mais restrições de autorização: **abrir** ou **token** restrição. A política de token restrito tem de ser acompanhada por um token emitido por um Serviço de Token Seguro (STS). Os Media Services suportam tokens no **Web Tokens simples** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) formato e **JSON Web Token** ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)) formato.
 
-Serviços de suporte de dados não fornece serviços de Token seguro. Pode criar um STS personalizado ou tirar partido das ACS do Microsoft Azure para tokens de problema. O STS tem de ser configurado para criar o token assinado com especificado chave e emitir afirmações que especificou na configuração de restrição de token (conforme descrito neste artigo). O serviço de entrega de chave de Media Services irá devolver a chave de encriptação para o cliente se o token é válido e as afirmações no token correspondem às configurado para a chave de conteúdo.
+Serviços de suporte de dados não fornece serviços de Token seguro. Pode criar um STS personalizado ou tirar partido das ACS do Microsoft Azure para tokens de problema. O STS tem de ser configurado para criar o token assinado com especificado chave e emitir afirmações que especificou na configuração de restrição de token (conforme descrito neste artigo). O serviço de entrega de chave de Media Services devolve a chave de encriptação para o cliente se o token é válido e as afirmações no token correspondem às configurado para a chave de conteúdo.
 
-Para obter mais informações, veja
-
-[Autenticação de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-
-[Integrar a aplicação do Azure Media Services OWIN MVC com base no Azure Active Directory e restringir a entrega de chave de conteúdo com base em afirmações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
-
-[Utilizar o Azure ACS para tokens de problema](http://mingfeiy.com/acs-with-key-services).
+Para obter mais informações, veja os artigos seguintes:
+- [Autenticação de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [Integrar a aplicação baseada em MVC de OWIN de serviços de suporte de dados do Azure com o Azure Active Directory e restringir a entrega de chave de conteúdo com base em afirmações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 ### <a name="some-considerations-apply"></a>São aplicáveis algumas considerações:
 * Quando a sua conta de AMS é criada um **predefinido** ponto final de transmissão em fluxo é adicionado à sua conta na **parado** estado. Para iniciar o conteúdo de transmissão em fluxo e tirar partido do empacotamento dinâmico e a encriptação dinâmica, o ponto final de transmissão em fluxo tem de ser o **executar** estado. 
 * O elemento tem de conter um conjunto de MP4s de velocidade de transmissão adaptável ou ficheiros de transmissão em fluxo uniforme de velocidade de transmissão adaptável. Para obter mais informações, consulte [codificar um elemento](media-services-encode-asset.md).
 * Carregar e codificar seus ativos utilizando **AssetCreationOptions.StorageEncrypted** opção.
-* Se planear ter várias chaves de conteúdo que requerem a mesma configuração de política, é vivamente recomendado para criar uma política de autorização único e reutilizá-lo com várias chaves de conteúdo.
+* Se planear ter várias chaves de conteúdo que requerem a mesma configuração de política, é recomendado para criar uma política de autorização único e reutilizá-lo com várias chaves de conteúdo.
 * O serviço de entrega de chave coloca em cache ContentKeyAuthorizationPolicy e os respetivos objetos relacionados (opções de política e restrições) para 15 minutos.  Se criar um ContentKeyAuthorizationPolicy e especifique a utilização de uma restrição "Token", em seguida, testá-lo e, em seguida, atualizar a política a restrição "Abrir", irá demorar cerca de 15 minutos antes da política muda para a versão "Aberta" da política.
 * Se adicionar ou atualizar a sua política de entrega de elementos, tem de eliminar um localizador existente (se aplicável) e criar um novo localizador.
 * Atualmente, não é possível encriptar transferências de transferência progressiva.
+* Ponto final de transmissão em fluxo do AMS define o valor do cabeçalho CORS 'Acesso controlo-permitir-origem' na resposta prévia como caráter universal '\*'. Isto funciona bem com a maioria dos jogadores incluindo nosso Media Player do Azure, Roku e JW e outros. No entanto, algumas jogadores que tiram partido dashjs não funcionar, uma vez, com o conjunto de modo de credenciais para "incluir", XMLHttpRequest no respetivo dashjs não permite carateres universais "\*" como o valor de "' Acesso controlo-permitir-origem". Como uma solução para esta limitação no dashjs, se estiver a alojar o seu cliente de um único domínio, o Media Services do Azure pode especificar esse domínio no cabeçalho de resposta de verificação prévia. Pode entrar, abrindo um pedido de suporte através do portal do Azure.
 
 ## <a name="aes-128-dynamic-encryption"></a>Encriptação dinâmica AES-128
 ### <a name="open-restriction"></a>Restrição aberta
@@ -99,9 +96,9 @@ O exemplo seguinte cria uma política de autorização aberta e adiciona-o para 
 ### <a name="token-restriction"></a>Restrição de token
 Esta secção descreve como criar uma política de autorização da chave de conteúdo e associe-a com a chave de conteúdo. A política de autorização descreve os requisitos de autorização devem ser cumpridos para determinar se o utilizador está autorizado para receberem a chave (por exemplo, does a lista de "chave de verificação" contém a chave que o token foi assinado com).
 
-Para configurar a opção de restrição de token, terá de utilizar um XML para descrever os requisitos de autorização do token. O XML de configuração de restrição de token tem de estar em conformidade com o esquema XML seguinte.
+Para configurar a opção de restrição de token, terá de utilizar um XML para descrever os requisitos de autorização do token. O XML de configuração de restrição de token tem de estar em conformidade com o esquema XML seguinte:
 
-#### <a id="schema"></a>Esquema de restrição de token
+#### <a name="token-restriction-schema"></a>Esquema de restrição de token
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -149,7 +146,7 @@ Para configurar a opção de restrição de token, terá de utilizar um XML para
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Quando configurar o **token** restringido a política, tem de especificar o site primário * * verificação chave * *, **emissor** e **público-alvo** parâmetros. O * * a chave de verificação principal * * contém a chave que o token foi assinado com, **emissor** é o serviço de token seguro que emite o token. O **público-alvo** (por vezes denominado **âmbito**) descreve o token ou o recurso autoriza o token de acesso para o objetivo. O serviço de entrega de chave de Media Services valida que estes valores no token correspondem aos valores no modelo. 
+Quando configurar o **token** restringido a política, tem de especificar o site primário **chave de verificação**, **emissor** e **público-alvo** parâmetros. O principal **chave de verificação** contém a chave que o token foi assinado com, **emissor** é o serviço de token seguro que emite o token. O **público-alvo** (por vezes denominado **âmbito**) descreve o token ou o recurso autoriza o token de acesso para o objetivo. O serviço de entrega de chave de Media Services valida que estes valores no token correspondem aos valores no modelo.
 
 Quando utilizar **SDK de Media Services para .NET**, pode utilizar o **TokenRestrictionTemplate** class para gerar o token de restrição.
 O exemplo seguinte cria uma política de autorização com uma restrição de token. Neste exemplo, o cliente terá de apresentar um token que contém: assinatura de chave (VerificationKey), um emissor de token e afirmações necessárias.
@@ -208,7 +205,7 @@ O exemplo seguinte cria uma política de autorização com uma restrição de to
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
 
-#### <a id="test"></a>Token de teste
+#### <a name="test-token"></a>Token de teste
 Para obter um token de teste com base na restrição de token que foi utilizada para a política de autorização da chave, efetue o seguinte.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -231,12 +228,12 @@ Para obter um token de teste com base na restrição de token que foi utilizada 
 ## <a name="playready-dynamic-encryption"></a>Encriptação PlayReady dinâmico
 Os Media Services permite-lhe configurar os direitos e as restrições que pretende para o tempo de execução de PlayReady DRM a impor quando um utilizador está a tentar reproduzir conteúdo protegido. 
 
-Quando proteger o conteúdo com PlayReady, uma das ações tem de especificar na sua política de autorização é uma cadeia XML que define o [o modelo de licença PlayReady](media-services-playready-license-template-overview.md). No SDK de Media Services para .NET, o **PlayReadyLicenseResponseTemplate** e **PlayReadyLicenseTemplate** classes irão ajudar a definir o modelo de licença PlayReady.
+Quando proteger o conteúdo com PlayReady, uma das ações tem de especificar na sua política de autorização é uma cadeia XML que define o [o modelo de licença PlayReady](media-services-playready-license-template-overview.md). No SDK de Media Services para .NET, o **PlayReadyLicenseResponseTemplate** e **PlayReadyLicenseTemplate** classes ajudam a definir o modelo de licença PlayReady.
 
-[Este tópico](media-services-protect-with-drm.md) mostra como encriptar o seu conteúdo com **PlayReady** e **Widevine**.
+[Este artigo](media-services-protect-with-playready-widevine.md) mostra como encriptar o seu conteúdo com **PlayReady** e **Widevine**.
 
 ### <a name="open-restriction"></a>Restrição aberta
-Abra restrição significa que o sistema irá fornecer a chave para qualquer pessoa que faz um pedido de chave. Esta restrição poderão ser úteis para fins de teste.
+Abra restrição significa que o sistema disponibiliza a chave de qualquer pessoa que faz um pedido de chave. Esta restrição poderão ser úteis para fins de teste.
 
 O exemplo seguinte cria uma política de autorização aberta e adiciona-o para a chave de conteúdo.
 
@@ -415,14 +412,12 @@ Para obter um token de teste com base na restrição de token que foi utilizada 
         JWT = 2,
     }
 
-
-
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-step"></a>Passo seguinte
-Agora que configurou a política de autorização da chave de conteúdo, vá para o [como configurar a política de entrega de elemento](media-services-dotnet-configure-asset-delivery-policy.md) tópico.
+## <a name="next-steps"></a>Passos seguintes
+Agora que configurou a política de autorização da chave de conteúdo, aceda a [como configurar a política de entrega de elemento](media-services-dotnet-configure-asset-delivery-policy.md).
 

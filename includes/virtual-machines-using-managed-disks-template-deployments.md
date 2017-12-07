@@ -214,6 +214,6 @@ Para obter informações completas sobre as especificações de REST API, reveja
     * [VM com Linux com o disco gerido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
     * [Obter uma lista completa dos modelos de disco gerido](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * Visite o [descrição geral do discos geridos Azure](../articles/virtual-machines/windows/managed-disks-overview.md) documento para saber mais sobre discos geridos.
-* Consulte a documentação de referência de modelo para recursos da máquina virtual, visitando o [referência ao modelo Microsoft.Compute/virtualMachines](/templates/microsoft.compute/virtualmachines) documento.
-* Consulte a documentação de referência de modelo para recursos de disco, visitando o [referência ao modelo Microsoft.Compute/disks](/templates/microsoft.compute/disks) documento.
+* Consulte a documentação de referência de modelo para recursos da máquina virtual, visitando o [referência ao modelo Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines) documento.
+* Consulte a documentação de referência de modelo para recursos de disco, visitando o [referência ao modelo Microsoft.Compute/disks](/azure/templates/microsoft.compute/disks) documento.
  

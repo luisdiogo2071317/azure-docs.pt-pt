@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d519cd36d41728f57419cd6cecd2a79d65a4af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="widevine-license-template-overview"></a>Descrição geral do modelo de licença Widevine
-## <a name="overview"></a>Descrição geral
-Media Services do Azure agora permite-lhe configurar e pedido licenças Widevine. Quando o leitor de utilizador final tenta reproduzir o conteúdo de Widevine protegido, é enviado um pedido para o serviço de entrega de licença para obter uma licença. Se o serviço de licenciamento aprova o pedido, que emite a licença que é enviada para o cliente e pode ser utilizada para desencriptar e reproduzir o conteúdo especificado.
+Media Services do Azure permite-lhe configurar e pedido licenças Widevine. Quando o leitor de utilizador final tenta reproduzir o conteúdo de Widevine protegido, é enviado um pedido para o serviço de entrega de licença para obter uma licença. Se o serviço de licenciamento aprova o pedido, que emite a licença que é enviada para o cliente e pode ser utilizada para desencriptar e reproduzir o conteúdo especificado.
 
 Pedido de licença Widevine é formatado como uma mensagem JSON.  
 
@@ -72,7 +71,7 @@ Pedido de licença Widevine é formatado como uma mensagem JSON.
 | session_init |Estrutura JSON, consulte **inicialização da sessão** abaixo |Dados opcionais transmitido a licença. |
 | parse_only |valor booleano. VERDADEIRO ou FALSO |O pedido de licença é analisado mas nenhuma licença é emitida. No entanto, os valores formulário de pedido de licença são devolvido na resposta. |
 
-## <a name="content-key-specs"></a>Especificações da chave de conteúdo
+## <a name="content-key-specs"></a>Especificações de chaves de conteúdo
 Se existir uma política já existente, não é necessário especificar qualquer um dos valores existentes na especificação de chave de conteúdo.  A política de pré-existente associada este conteúdo será utilizada para determinar a proteção de saída como HDCP e CGMS.  Se uma política pré-existente não está registada com o servidor de licenças Widevine, o fornecedor de conteúdo pode inserir os valores para o pedido de licença.   
 
 Cada content_key_specs tem de ser especificado para todas as controla, independentemente da opção use_policy_overrides_exclusively. 
@@ -197,5 +196,5 @@ O exemplo seguinte mostra como utilizar os APIs de .NET para configurar uma lice
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consultar também
-[Utilizar encriptação comum PlayReady e/ou Widevine dinâmico](media-services-protect-with-drm.md)
+[Utilizar encriptação comum PlayReady e/ou Widevine dinâmico](media-services-protect-with-playready-widevine.md)
 

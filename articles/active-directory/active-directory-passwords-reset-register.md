@@ -16,37 +16,37 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: b884f8bc3a20052fa0cb40772deef591b69d7b10
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6fff5b31e70b0782aaf87e6bb4252f0c939d4c72
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="register-for-self-service-password-reset"></a>Registar-se na reposição personalizada de palavra-passe
 
 > [!IMPORTANT]
-> **Está aqui porque está a ter problemas em iniciar sessão?** Se assim for, [Eis como pode alterar e repor a sua própria palavra-passe](active-directory-passwords-update-your-own-password.md).
+> Está aqui porque não é possível iniciar sessão? Se Sim, consulte [repor a palavra-passe de conta escolar ou profissional](active-directory-passwords-update-your-own-password.md).
 
-Como um utilizador final, pode repor a palavra-passe ou desbloquear a conta sem ter de enunciar para uma pessoa que utiliza a reposição de palavra-passe self-service (SSPR). Antes de poder utilizar esta funcionalidade, tem de registar os métodos de autenticação ou confirmar os métodos de autenticação predefinidos que o administrador tem preenchido.
+Como um utilizador final, pode repor a palavra-passe ou desbloquear a conta por si, se utilizar a reposição de palavra-passe self-service do Azure Active Directory (Azure AD) (SSPR). Antes de poder utilizar esta funcionalidade, terá de registar os métodos de autenticação ou confirme os métodos de autenticação predefinido que o administrador tem preenchido.
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registar ou confirmar dados de autenticação com SSPR
 
-1. Abra o browser no seu dispositivo e aceda à [página de registo de reposição de palavra-passe](http://aka.ms/ssprsetup)
-2. Introduza o seu nome de utilizador e palavra-passe fornecidos pelo administrador
-3. Dependendo de como a sua equipa de TI tiver configurado coisas, um ou mais das seguintes opções estão disponíveis para configurar e verificar. O administrador pode preencher algumas desta situação para si se tiverem permissão para utilizar as informações.
-    * Telefone do escritório apenas é capaz de ser definida pelo administrador
-    * Telefone de autenticação deve ser definido para outro número de telefone seria tem acesso a como um telemóvel que pode receber um texto ou chamada.
-    * E-Mail de autenticação deve ser definido para um endereço de correio eletrónico alternativo que pode aceder sem a palavra-passe que ter de repor.
-    * Perguntas de segurança fornece uma lista de perguntas a que o administrador tiver aprovado para que possa responder. Não pode utilizar a mesma pergunta ou responder a mais do que uma vez.
-4. Forneça e verifique as informações pedidas pelo seu administrador. Se estiver disponível mais do que uma opção, sugerimos que registar vários métodos para fornecer flexibilidade quando outro método não está disponível (exemplo: estiverem em deslocação e não é possível aceder ao seu telefone do escritório)
+1. Abra o browser no seu dispositivo e vá para o [página de registo de reposição de palavra-passe](http://aka.ms/ssprsetup).
+2. Introduza o nome de utilizador e a palavra-passe que o administrador fornecido.
+3. Dependendo de como a sua equipa de TI configurou coisas, um ou mais das seguintes opções estão disponíveis para configurar e verificar. Se o administrador tem permissão para utilizar as informações, pode de preencher algumas das informações por si.
+    * **Telefone do escritório**: apenas o administrador pode definir esta opção.
+    * **Telefone de autenticação**: defina esta opção para outro número de telefone que tenha acesso. Um exemplo é um telemóvel que pode receber um texto ou uma chamada.
+    * **E-Mail de autenticação**: defina esta opção para um endereço de correio eletrónico alternativo que pode aceder sem utilizar a palavra-passe que pretende repor.
+    * **Perguntas de segurança**: O administrador tiver aprovado esta lista de perguntas responder. Não é possível utilizar a mesma pergunta ou responder a mais do que uma vez.
+4. Forneça e verifique as informações que o administrador necessita. Se estiver disponível mais do que uma opção, sugerimos que registar vários métodos. Isto dá-lhe flexibilidade quando um dos métodos não está disponível. Um exemplo é quando estiver a estiverem em deslocação e for possível aceder ao seu telefone do escritório.
 
-    ![Registe métodos de autenticação e clique em Concluir][Register]
+    ![Registar métodos de autenticação e selecione concluir][Register]
 
-5. Quando concluir o passo 4, escolha **concluir** e agora poderá utilizar a reposição personalizada de palavra-passe quando precisar no futuro.
+5. Selecione **concluir**. Agora, pode utilizar SSPR quando for necessário no futuro.
 
-Se introduzir dados no Telefone de Autenticação ou no E-mail de Autenticação, não é visível no diretório global. As únicas pessoas que podem ver estes dados são os administradores. Apenas o utilizador pode ver as respostas às suas Perguntas de Segurança.
+Se introduzir dados de **telefone de autenticação** ou **correio eletrónico de autenticação**, não é visível no diretório global. As únicas pessoas que podem ver estes dados são os administradores. Só pode ver as respostas às perguntas de segurança.
 
-Os administradores podem pedir para confirmar os métodos de autenticação após um período de tempo, para assegurar que continua a ter os métodos adequados registados.
+Os administradores podem implicar a confirmar os métodos de autenticação após um período de tempo para se certificar de que tem dos métodos adequados registados.
 
 ## <a name="common-problems-and-their-solutions"></a>Problemas comuns e as respetivas soluções
 
@@ -54,15 +54,16 @@ Os administradores podem pedir para confirmar os métodos de autenticação apó
 
 | Caso de erro| O erro vir?| Solução |
 | --- | --- | --- |
-| Posso obter uma página ". Contacte o administrador" depois de introduzir o meu ID de utilizador | Contacte o administrador <br> <br> Detetámos que a palavra-passe da conta de utilizador não é gerida pela Microsoft. Como resultado, não conseguimos automaticamente repor a palavra-passe. <br> <br> Terá de contactar a sua equipa de TI para obter mais assistência. | Está a ver esta mensagem porque a sua equipa de TI gere a palavra-passe no seu ambiente no local e não permite-lhe repor a palavra-passe do não é possível aceder a ligação de conta. <br> <br> Para repor a palavra-passe, contacte a equipa de TI diretamente para obter ajuda e informar de que pretende repor a palavra-passe, pelo que podem ativar esta funcionalidade para si.|
-| Posso obter um erro "a conta não está ativada para a reposição de palavra-passe" depois de introduzir o meu ID de utilizador | A sua conta não permite reposição da palavra-passe <br> <br> Lamentamos, mas a sua equipa de TI não tenha configurado a sua conta para utilização com este serviço. <br> <br> Se quiser, podemos contactá um administrador na sua organização para repor a palavra-passe por si. | Está a ver esta mensagem porque a sua equipa de TI não activou a reposição da sua organização de palavra-passe de não é possível aceder a ligação de conta ou ainda não está licenciado para utilizar a funcionalidade. <br> <br> Para repor a palavra-passe, clique o contacto uma ligação de administrador para enviar uma mensagem de e-mail da sua empresa e informar de que pretende repor a palavra-passe, pelo que podem ativar esta funcionalidade para si da equipa de TI. |
-| Posso obter um erro de "pode não verificar a sua conta" depois de introduzir o meu ID de utilizador | Não foi possível verificar a sua conta <br> <br> Se quiser, podemos contactá um administrador na sua organização para repor a palavra-passe por si. | Está a ver esta mensagem porque estão ativados para a reposição de palavra-passe, mas não tiver registado para utilizar o serviço. Para registar para a reposição de palavra-passe, aceda ao http://aka.ms/ssprsetup após ter recuperou o acesso à sua conta. <br> <br> Para repor a palavra-passe, clique o contacto uma ligação de administrador para enviar uma mensagem de e-mail da sua empresa equipa de TI. |
+| Posso obter uma página ". Contacte o administrador" depois de introduzir o meu ID de utilizador | Contacte o administrador. <br> <br> Detetámos que a palavra-passe da conta de utilizador não é gerida pela Microsoft. Como resultado, não conseguimos automaticamente repor a palavra-passe. <br> <br> Contacte a equipa de TI para obter ajuda adicional. | Está a ver esta mensagem porque a sua equipa de TI gere a palavra-passe no seu ambiente no local e não permite-lhe repor a palavra-passe do **não é possível aceder à sua conta** ligação. <br> <br> Para repor a palavra-passe, contacte a equipa de TI diretamente para obter ajuda. Informe de que pretende repor a palavra-passe, pelo que podem ativar esta funcionalidade para si.|
+| Posso obter um erro "a conta não está ativada para a reposição de palavra-passe" depois de introduzir o meu ID de utilizador | A conta não está ativada para a reposição de palavra-passe. <br> <br> Lamentamos, mas a sua equipa de TI não tenha configurado a sua conta para utilização com este serviço. <br> <br> Se quiser, podemos contactá um administrador na sua organização para repor a palavra-passe por si. | Está a ver esta mensagem porque a sua equipa de TI não activou a reposição da sua organização de palavra-passe a **não é possível aceder à sua conta** ligar ou ainda não está licenciado para utilizar a funcionalidade. <br> <br> Para repor a palavra-passe, selecione o **contacte um administrador** ligação. Mensagens de correio eletrónico serão enviadas para a sua empresa equipa de TI. Mensagem de correio eletrónico permite-lhes saber que pretende repor a palavra-passe, pelo que podem ativar esta funcionalidade para si. |
+| Posso obter um erro de "pode não verificar a sua conta" depois de introduzir o meu ID de utilizador | Não foi possível verificar a sua conta. <br> <br> Se quiser, podemos contactá um administrador na sua organização para repor a palavra-passe por si. | Está a ver esta mensagem porque está a ser ativada para a reposição de palavra-passe, mas ainda não está registado para utilizar o serviço. Para registar para a reposição de palavra-passe, vá para o [página de registo de reposição de palavra-passe](http://aka.ms/ssprsetup) depois de ter recuperou o acesso à sua conta. <br> <br> Para repor a palavra-passe, selecione o **contacte um administrador** ligação para enviar uma mensagem de e-mail da sua empresa equipa de TI. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Como alterar a palavra-passe através da reposição personalizada de palavra-passe](active-directory-passwords-update-your-own-password.md)
+* [Alterar a palavra-passe através da utilização de reposição de palavra-passe self-service](active-directory-passwords-update-your-own-password.md)
 * [Página de registo de reposição de palavra-passe](http://aka.ms/ssprsetup)
 * [Portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com/)
-* [Não consegue iniciar sessão com a sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+* [Quando não é possível iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
-[Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Página de registo de reposição de palavra-passe que mostra métodos registados e o botão de conclusão"
+[Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Página de registo de reposição de palavra-passe que mostra os métodos de registado e no botão Concluir"
+

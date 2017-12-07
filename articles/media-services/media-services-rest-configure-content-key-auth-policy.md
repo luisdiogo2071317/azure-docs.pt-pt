@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: juliako
-ms.openlocfilehash: c584806105c2583daca944260b65da2f7637bb0c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0ae5d37507bb6e36589e9755faf8bd3471910257
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Encriptação dinâmica: configurar a política de autorização de chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -34,13 +34,9 @@ Os Media Services suportam várias formas de autenticar utilizadores que efetuam
 
 Serviços de suporte de dados não fornece serviços de Token seguro. Pode criar um STS personalizado ou tirar partido das ACS do Microsoft Azure para tokens de problema. O STS tem de ser configurado para criar o token assinado com especificado chave e emitir afirmações que especificou na configuração de restrição de token (conforme descrito neste artigo). O serviço de entrega de chave de Media Services irá devolver a chave de encriptação para o cliente se o token é válido e as afirmações no token correspondem às configurado para a chave de conteúdo.
 
-Para obter mais informações, veja
-
-[Autenticação de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-
-[Integrar a aplicação do Azure Media Services OWIN MVC com base no Azure Active Directory e restringir a entrega de chave de conteúdo com base em afirmações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
-
-[Utilizar o Azure ACS para tokens de problema](http://mingfeiy.com/acs-with-key-services).
+Para obter mais informações, veja os artigos seguintes:
+- [Autenticação de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [Integrar a aplicação do Azure Media Services OWIN MVC com base no Azure Active Directory e restringir a entrega de chave de conteúdo com base em afirmações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 ### <a name="some-considerations-apply"></a>São aplicáveis algumas considerações:
 * Para poder utilizar o empacotamento dinâmico e a encriptação dinâmica, certifique-se o ponto final de transmissão em fluxo partir do qual pretende transmitir o seu conteúdo está a ser o **executar** estado.
@@ -50,6 +46,7 @@ Para obter mais informações, veja
 * O serviço de entrega de chave coloca em cache ContentKeyAuthorizationPolicy e os respetivos objetos relacionados (opções de política e restrições) para 15 minutos.  Se criar um ContentKeyAuthorizationPolicy e especifique a utilização de uma restrição "Token", em seguida, testá-lo e, em seguida, atualizar a política a restrição "Abrir", irá demorar cerca de 15 minutos antes da política muda para a versão "Aberta" da política.
 * Se adicionar ou atualizar a sua política de entrega de elementos, tem de eliminar um localizador existente (se aplicável) e criar um novo localizador.
 * Atualmente, não é possível encriptar transferências de transferência progressiva.
+* Ponto final de transmissão em fluxo do AMS define o valor do cabeçalho CORS 'Acesso controlo-permitir-origem' na resposta prévia como caráter universal '\*'. Isto funciona bem com a maioria dos jogadores incluindo nosso Media Player do Azure, Roku e JW e outros. No entanto, algumas jogadores que tiram partido dashjs não funcionar, uma vez, com o conjunto de modo de credenciais para "incluir", XMLHttpRequest no respetivo dashjs não permite carateres universais "\*" como o valor de "' Acesso controlo-permitir-origem". Como uma solução para esta limitação no dashjs, se estiver a alojar o seu cliente de um único domínio, o Media Services do Azure pode especificar esse domínio no cabeçalho de resposta de verificação prévia. Pode entrar, abrindo um pedido de suporte através do portal do Azure.
 
 ## <a name="aes-128-dynamic-encryption"></a>Encriptação dinâmica AES-128
 > [!NOTE]
@@ -234,7 +231,7 @@ Para configurar a opção de restrição de token, terá de utilizar um XML para
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Quando configurar o **token** restringido a política, tem de especificar o site primário * * verificação chave * *, **emissor** e **público-alvo** parâmetros. O * * a chave de verificação principal * * contém a chave que o token foi assinado com, **emissor** é o serviço de token seguro que emite o token. O **público-alvo** (por vezes denominado **âmbito**) descreve o token ou o recurso autoriza o token de acesso para o objetivo. O serviço de entrega de chave de Media Services valida que estes valores no token correspondem aos valores no modelo. 
+Quando configurar o **token** restringido a política, tem de especificar o site primário **chave de verificação**, **emissor** e **público-alvo** parâmetros. O principal **chave de verificação** contém a chave que o token foi assinado com, **emissor** é o serviço de token seguro que emite o token. O **público-alvo** (por vezes denominado **âmbito**) descreve o token ou o recurso autoriza o token de acesso para o objetivo. O serviço de entrega de chave de Media Services valida que estes valores no token correspondem aos valores no modelo.
 
 O exemplo seguinte cria uma política de autorização com uma restrição de token. Neste exemplo, o cliente terá de apresentar um token que contém: assinatura de chave (VerificationKey), um emissor de token e afirmações necessárias.
 

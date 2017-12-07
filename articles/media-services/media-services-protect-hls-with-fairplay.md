@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2027aed8a604c33c96c66c23e9ddaa51f632edb5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteger a sua HLS conteúdo com do FairPlay da Apple ou Microsoft PlayReady
 Media Services do Azure permite-lhe encriptar de forma dinâmica o conteúdo de HTTP Live Streaming (HLS), utilizando os seguintes formatos:  
@@ -33,12 +33,12 @@ Media Services do Azure permite-lhe encriptar de forma dinâmica o conteúdo de 
 
 A imagem seguinte mostra o **HLS + do FairPlay ou PlayReady encriptação dinâmica** fluxo de trabalho.
 
-![Diagrama de fluxo de trabalho de encriptação dinâmica](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagrama de fluxo de trabalho de encriptação dinâmica](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-Este tópico demonstra como utilizar os Media Services para encriptar de forma dinâmica o conteúdo HLS do FairPlay da Apple. Também mostra como utilizar o serviço de entrega de licença de Media Services para fornecer licenças do FairPlay aos clientes.
+Este artigo demonstra como utilizar os Media Services encriptar de forma dinâmica o conteúdo HLS do FairPlay da Apple. Também mostra como utilizar o serviço de entrega de licença de Media Services para fornecer licenças do FairPlay aos clientes.
 
 > [!NOTE]
-> Se pretender também encriptar o seu conteúdo HLS com PlayReady, terá de criar uma chave de conteúdo comuns e associe-o seu elemento. Terá também de configurar a política de autorização da chave de conteúdo, conforme descrito em [PlayReady utilizando a encriptação comum dinâmica](media-services-protect-with-drm.md).
+> Se pretender também encriptar o seu conteúdo HLS com PlayReady, terá de criar uma chave de conteúdo comuns e associe-o seu elemento. Terá também de configurar a política de autorização da chave de conteúdo, conforme descrito em [PlayReady utilizando a encriptação comum dinâmica](media-services-protect-with-playready-widevine.md).
 >
 >
 
@@ -65,14 +65,14 @@ Os seguintes procedimentos tem de ser definidos no lado de entrega de chave de M
         Ir para a pasta onde estão o certificado do FairPlay e outros ficheiros fornecidos pela Apple.
     2. Execute o comando seguinte a partir da linha de comandos. Isto converte o ficheiro. cer para um ficheiro. pem.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509-informar der-no fairplay.cer-out do fairplay out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509-informar der-no FairPlay.cer-out do FairPlay out.pem
     3. Execute o comando seguinte a partir da linha de comandos. Isto converte o ficheiro. pem para um ficheiro. pfx com a chave privada. A palavra-passe para o ficheiro. pfx, em seguida, é pedida pelo OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-exportar - out do fairplay out.pfx-inkey privatekey.pem-do fairplay out.pem - passin file:privatekey-pem-pass.txt
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-exportar - out do FairPlay out.pfx-inkey privatekey.pem-do FairPlay out.pem - passin file:privatekey-pem-pass.txt
   * **Palavra-passe de aplicação Cert**: A palavra-passe para criar o ficheiro. pfx.
   * **ID de palavra-passe de aplicação Cert**: tem de carregar a palavra-passe, semelhante à forma como carregam outras chaves dos Media Services. Utilize o **ContentKeyType.FairPlayPfxPassword** valor de enumeração para obter o ID de serviços de suporte de dados Este é o que precisam de utilizar dentro da opção de política de entrega de chave.
   * **IV**: Este é um valor aleatório de 16 bytes. Tem de corresponder a iv na política de entrega de elemento. Gerar o iv e colocá-la em ambos os locais: a política de entrega de elemento e a opção de política de entrega de chave.
-  * **PEÇA**: esta chave é recebida ao gerar a certificação através do portal de programador da Apple. Cada equipa de desenvolvimento irá receber uma peça ao exclusiva. Guarde uma cópia da peça ao e armazene-o num local seguro. Terá de configurar a peça ao como FairPlayAsk aos Media Services mais tarde.
+  * **PEÇA**: esta chave é recebida ao gerar a certificação através do portal de programador da Apple. Cada equipa de desenvolvimento recebe uma peça ao exclusiva. Guarde uma cópia da peça ao e armazene-o num local seguro. Terá de configurar a peça ao como FairPlayAsk aos Media Services mais tarde.
   * **PEDIR ID**: este ID é obtido quando carregar peça para os serviços de suporte de dados. Tem de carregar peça ao utilizando o **ContentKeyType.FairPlayAsk** valor de enumeração. Como resultado, o ID de serviços de suporte de dados é devolvido e, este é o que deve ser utilizado ao definir a opção de política de entrega de chave.
 
 Os seguintes procedimentos tem de ser definidos ao lado do cliente FPS:
@@ -125,7 +125,7 @@ Pode desenvolver aplicações do leitor, utilizando o SDK do iOS. Para conseguir
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player não suporta a reprodução do FairPlay a box. Para obter a reprodução do FairPlay no MAC OS X, obtenha o leitor de exemplo da conta de programador da Apple.
+> Azure Media Player suporta a reprodução do FairPlay. Consulte [documentação do Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) para obter mais informações.
 >
 >
 
@@ -157,7 +157,7 @@ O exemplo seguinte demonstra a capacidade de utilizar os Media Services para ent
 Substitua o código no seu ficheiro Program.cs com o código mostrado nesta secção.
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, consulte [isto](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Certifique-se de que atualiza as variáveis para apontar para as pastas onde se encontram os seus ficheiros de entrada.
 

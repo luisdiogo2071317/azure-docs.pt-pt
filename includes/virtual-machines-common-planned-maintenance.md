@@ -4,9 +4,9 @@ Azure executa periodicamente atualizações para melhorar a fiabilidade, desempe
 
 - Se a manutenção requer um reinício, receberá um aviso quando a manutenção planeada. Nestes casos, é-irá também ser dada uma janela de tempo em que pode iniciar a manutenção por si, cada vez que funciona para si.
 
-Esta página descreve a forma como o Microsoft Azure executa ambos os tipos de manutenção. Para mais informações sobre eventos não planeadas (falhas), consulte o artigo sobre como gerir a disponibilidade das máquinas virtuais para [Windows] (../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Esta página descreve a forma como o Microsoft Azure executa ambos os tipos de manutenção. Para mais informações sobre eventos não planeadas (falhas), consulte o artigo sobre como gerir a disponibilidade das máquinas virtuais para [Windows] (.. / articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-As aplicações em execução numa máquina virtual podem recolher informações sobre as futuras atualizações ao utilizar o serviço de metadados do Azure para [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) ou [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
+As aplicações em execução numa máquina virtual podem recolher informações sobre as futuras atualizações ao utilizar o serviço de metadados do Azure para [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) ou [Linux] (.. / articles/virtual-machines/linux/instance-metadata-service.md).
 
 Para obter informações "procedimentos" na gestão maintence planeada, consulte "Planeada de processamento de notificações de manutenção" para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
@@ -47,4 +47,4 @@ Dentro de um conjunto de disponibilidade, VMs individuais são distribuídas por
 
 Conjuntos de dimensionamento de máquina virtual são um recurso de computação do Azure que lhe permite implementar e gerir um conjunto de VMs idênticas, como um único recurso. O conjunto de dimensionamento é implementado automaticamente entre domínios de atualização, como VMs num conjunto de disponibilidade. Tal como com conjuntos de disponibilidade, com conjuntos de dimensionamento de apenas um domínio com uma única atualização é afetado em qualquer momento.
 
-Para obter mais informações sobre como configurar as máquinas virtuais de elevada disponibilidade, consulte o artigo sobre como gerir a disponibilidade das máquinas virtuais para o Windows (../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Para obter mais informações sobre como configurar as máquinas virtuais de elevada disponibilidade, consulte Gerir a disponibilidade das máquinas virtuais para [Windows](../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).

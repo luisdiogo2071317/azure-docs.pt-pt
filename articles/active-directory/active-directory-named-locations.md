@@ -1,6 +1,6 @@
 ---
 title: "Com o nome localizações no Azure Active Directory | Microsoft Docs"
-description: "Ao configurar a chamada localizações, pode evitar a necessidade de endereços IP que são proprietário pela sua organização geram falsos positivos para o Impossible viajam para localizações atípicas tipo de evento de risco."
+description: "Saiba o que com o nome localizações são e como configurá-las."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,22 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Localizações nomeadas no Azure Active Directory
 
-Com a funcionalidade de localizações com o nome do Azure Active Directory, pode Etiquetar intervalos de endereços IP fidedignos nas suas organizações. No seu ambiente, pode utilizar localizações chamadas no contexto da deteção de [eventos de risco](active-directory-reporting-risk-events.md). A funcionalidade de ajuda a reduzir o número de comunicado falsos positivos para o *Impossible viajar para localizações atípicas* o risco de tipo de evento. 
+Com nomeado localizações, pode Etiquetar fidedignos intervalos de endereços IP na sua organização. Azure Active Directory utiliza localizações chamadas no contexto de:
 
-## <a name="configuration"></a>Configuração
+- A deteção de [eventos de risco](active-directory-reporting-risk-events.md) para reduzir o número de falsos positivos comunicados.  
 
-Para configurar uma localização com nome:
+- [Acesso condicional baseado na localização](active-directory-conditional-access-azure-portal.md#locations).
+
+
+Este artigo explica, como pode configurar com o nome localizações no seu ambiente.
+
+
+## <a name="entry-points"></a>Pontos de entrada
+
+Pode aceder à página de configuração da localização nomeado no **segurança** secção da página do Azure Active Directory, clicando em:
+
+![Pontos de entrada](./media/active-directory-named-locations/34.png)
+
+- **Acesso condicional:**
+
+    - No **gerir** secção, clique em **denominado localizações**.
+    
+        ![O comando de localizações denominado](./media/active-directory-named-locations/06.png)
+
+- **Risco inícios de sessão:**
+
+    - Na barra de ferramentas na parte superior, clique em **adicionar conhecido intervalos de endereços IP**.
+
+       ![O comando de localizações denominado](./media/active-directory-named-locations/35.png)
+
+
+
+## <a name="configuration-example"></a>Exemplo de configuração
+
+**Para configurar uma localização com nome:**
 
 1. Iniciar sessão para o [portal do Azure](https://portal.azure.com) como administrador global.
 
@@ -34,22 +62,22 @@ Para configurar uma localização com nome:
 
     ![A ligação do Azure Active Directory no painel esquerdo](./media/active-directory-named-locations/01.png)
 
-3. No **do Azure Active Directory** painel, no **segurança** secção, clique em **acesso condicional**.
+3. No **do Azure Active Directory** na página de **segurança** secção, clique em **acesso condicional**.
 
     ![O comando de acesso condicional](./media/active-directory-named-locations/05.png)
 
 
-4. No **acesso condicional** painel, no **gerir** secção, clique em **denominado localizações**.
+4. No **acesso condicional** na página de **gerir** secção, clique em **denominado localizações**.
 
     ![O comando de localizações denominado](./media/active-directory-named-locations/06.png)
 
 
-5. No **denominado localizações** painel, clique em **nova localização**.
+5. No **denominado localizações** página, clique em **nova localização**.
 
     ![O novo comando de localização](./media/active-directory-named-locations/07.png)
 
 
-6. No **novo** painel, efetue o seguinte procedimento:
+6. No **novo** página, efetue o seguinte:
 
     ![O novo painel](./media/active-directory-named-locations/56.png)
 
@@ -73,5 +101,10 @@ Para configurar uma localização com nome:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre eventos de risco, consulte [eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+Para saber mais sobre:
 
+- **Eventos de risco**, consulte [eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+
+- **Acesso condicional**, consulte [de acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+- **Relatórios de inícios de sessão arriscados**, consulte [relatório arriscados inícios de sessão no portal do Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  
