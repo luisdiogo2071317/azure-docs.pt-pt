@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a9d6ebb2ae92b631d4663b1373c684b2e10a9507
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsão da carga de trabalho dos servidores em terabytes de dados
 
@@ -46,21 +46,24 @@ Neste cenário, que se concentre em previsão da carga de trabalho para cada má
 As pré-requisitos para executar este exemplo são os seguintes:
 
 * Um [conta do Azure](https://azure.microsoft.com/free/) (gratuitas estão disponíveis).
-* Uma cópia instalada do [Machine Learning Workbench](./overview-what-is-azure-ml.md). Para instalar o programa e criar uma área de trabalho, consulte o [guia de instalação de início rápido](./quickstart-installation.md).
+* Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). Para instalar o programa e criar uma área de trabalho, consulte o [guia de instalação de início rápido](./quickstart-installation.md). Se tiver várias subscrições, pode [definir a subscrição pretendida para a subscrição do Active Directory atual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (as instruções neste exemplo são, geralmente, os mesmos para sistemas de macOS).
-* Dados ciência Máquina Virtual (DSVM) para Linux (Ubuntu). Pode aprovisionar um DSVM Ubuntu seguindo [estas instruções](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Também pode ver [este guia de introdução](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Recomendamos que utilize uma máquina virtual pelo menos 8 núcleos e 32 GB de memória. Terá do endereço IP de DSVM, nome de utilizador e palavra-passe para experimentar neste exemplo. Guarde a tabela seguinte com as informações DSVM para os passos seguintes:
+* Um dados ciência de Máquina Virtual (DSVM) para Linux (Ubuntu), de preferência na região EUA Leste onde localiza os dados. Pode aprovisionar um DSVM Ubuntu seguindo [estas instruções](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Também pode ver [este guia de introdução](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Recomendamos que utilize uma máquina virtual pelo menos 8 núcleos e 32 GB de memória. 
 
- Nome de campo| Valor |  
+Siga o [instrução](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) para ativar o acesso de palavra-passe sem sudoer na VM para AML Workbench.  Pode optar por utilizar [autenticação baseada em chave SSH para criar e utilizar a VM no AML Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Neste exemplo, utilizamos palavra-passe para aceder a VM.  Guarde a tabela seguinte com as informações DSVM para os passos seguintes:
+
+ Nome do campo| Valor |  
  |------------|------|
 Endereço IP de DSVM | xxx|
  Nome de utilizador  | xxx|
  Palavra-passe   | xxx|
 
+
  Pode optar por utilizar qualquer VM com [motor de Docker](https://docs.docker.com/engine/) instalado.
 
-* Um Cluster do Spark HDInsight com a versão de plataforma de dados do Hortonworks 3.6 e a versão do Spark 2.1.x. Visite [criar um cluster do Apache Spark no Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) para obter detalhes sobre como criar clusters do HDInsight. Recomendamos que utilize um cluster de trabalho de três, com cada trabalho ter 16 núcleos e 112 GB de memória. Ou apenas pode escolher tipo de VM `D12 V2` para o nó principal, e `D14 V2` para o nó de trabalho. A implementação do cluster demora cerca de 20 minutos. Tem o nome do cluster, o nome de utilizador SSH e a palavra-passe para experimentar neste exemplo. Guarde a tabela seguinte com as informações de cluster do Azure HDInsight para os passos seguintes:
+* Um Cluster do Spark HDInsight com a versão de plataforma de dados do Hortonworks 3.6 e a versão do Spark 2.1.x, de preferência na região EUA Leste onde localiza os dados. Visite [criar um cluster do Apache Spark no Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) para obter detalhes sobre como criar clusters do HDInsight. Recomendamos que utilize um cluster de trabalho de três, com cada trabalho ter 16 núcleos e 112 GB de memória. Ou apenas pode escolher tipo de VM `D12 V2` para o nó principal, e `D14 V2` para o nó de trabalho. A implementação do cluster demora cerca de 20 minutos. Tem o nome do cluster, o nome de utilizador SSH e a palavra-passe para experimentar neste exemplo. Guarde a tabela seguinte com as informações de cluster do Azure HDInsight para os passos seguintes:
 
- Nome de campo| Valor |  
+ Nome do campo| Valor |  
  |------------|------|
  Nome do cluster| xxx|
  Nome de utilizador  | xxx (sshuser por predefinição)|
@@ -69,7 +72,7 @@ Endereço IP de DSVM | xxx|
 
 * Uma conta de armazenamento do Azure. Pode seguir [estas instruções](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para criar um. Além disso, criar contentores de BLOBs privada dois com os nomes de `fullmodel` e `onemonthmodel` nesta conta de armazenamento. A conta de armazenamento é utilizada para guardar resultados de computação intermédio e modelos de machine learning. Tem a chave de acesso e o nome conta de armazenamento para experimentar neste exemplo. Guarde a tabela seguinte com as informações de conta de armazenamento do Azure para os passos seguintes:
 
- Nome de campo| Valor |  
+ Nome do campo| Valor |  
  |------------|------|
  Nome da conta de armazenamento| xxx|
  Chave de acesso  | xxx|
@@ -81,7 +84,7 @@ O DSVM Ubuntu e o cluster do Azure HDInsight criada na lista de pré-requisitos 
 
 Crie um novo projeto ao utilizar este exemplo como um modelo:
 1.  Abra do Machine Learning Workbench.
-2.  No **projetos** página, selecione o ** + ** iniciar sessão e selecionar **novo projeto**.
+2.  No **projetos** página, selecione o  **+**  iniciar sessão e selecionar **novo projeto**.
 3.  No **criar novo projeto** painel, preencha as informações para o novo projeto.
 4.  No **modelos de projeto de pesquisa** caixa de pesquisa, escreva **previsão de carga de trabalho nos dados de Terabytes**e selecione o modelo.
 5.  Selecione **Criar**.
@@ -91,11 +94,11 @@ Executar `git status` inspecionar o estado dos ficheiros de registo de versão.
 
 ## <a name="data-description"></a>Descrição de dados
 
-Os dados utilizados neste exemplo são dados de carga de trabalho do servidor sintetizado. Estar alojado numa conta de armazenamento de Blobs do Azure que seja acessível publicamente. Podem encontrar as informações de conta de armazenamento específicas de `dataFile` campo [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). Pode utilizar os dados diretamente a partir do armazenamento de Blobs. Se o armazenamento é utilizado por vários utilizadores em simultâneo, pode utilizar [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) para transferir os dados para o seu próprio armazenamento. 
+Os dados utilizados neste exemplo são dados de carga de trabalho do servidor sintetizado. Estar alojado numa conta de armazenamento de Blobs do Azure que seja acessível publicamente na região EUA Leste. Podem encontrar as informações de conta de armazenamento específicas de `dataFile` campo [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) no formato de "wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>". Pode utilizar os dados diretamente a partir do armazenamento de Blobs. Se o armazenamento é utilizado por vários utilizadores em simultâneo, pode utilizar [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) para transferir os dados para o seu próprio armazenamento para uma melhor experiência de experimentação. 
 
 O tamanho total dos dados é de aproximadamente 1 TB. Cada ficheiro é cerca de 1 a 3 GB e está no formato de ficheiro CSV, sem cabeçalho. Cada linha de dados representa a carga de uma transação de um determinado servidor. As informações detalhadas do esquema de dados são o seguinte:
 
-Número de colunas | Nome de campo| Tipo | Descrição |  
+Número de colunas | Nome do campo| Tipo | Descrição |  
 |------------|------|-------------|---------------|
 1  | `SessionStart` | Datetime |    Hora de início de sessão
 2  |`SessionEnd`    | Datetime | Hora de fim de sessão
@@ -270,7 +273,7 @@ Quando tiver concluído com êxito a experimentação nos dados pequenos, pode c
 
 Os seguintes dois ficheiros são criados na pasta aml_config:
     
--  myhdo.Compute: este ficheiro contém informações de ligação e a configuração para um destino de execução remota.
+-  myhdi.Compute: este ficheiro contém informações de ligação e a configuração para um destino de execução remota.
 -  myhdi.runconfig: este ficheiro está definido das opções de execução utilizadas na aplicação Workbench.
 
 

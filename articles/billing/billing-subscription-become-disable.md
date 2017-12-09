@@ -16,24 +16,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: f0fb408557f58ddf434cbebb8978dc81342c87c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c6b190c3ddc8e474175693229d2e043196eac92
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que razão a minha subscrição do Azure está desativada e como reativá-lo?
 
-Poderá ter a sua subscrição do Azure-se desativado porque atingiu o limite de gastos, ter uma fatura em atraso, atingiu o limite de cartão de crédito, ou porque a subscrição foi cancelada pelo administrador de conta. Consulte o problema se aplica a si e siga os passos neste artigo para obter a sua subscrição reativada.
+Poderá ter a sua subscrição do Azure desativada porque o seu crédito expirou, atingiu o limite de gastos, ter uma fatura em atraso, atingiu o limite de cartão de crédito, ou porque a subscrição foi cancelada pelo administrador de conta. Consulte o problema se aplica a si e siga os passos neste artigo para obter a sua subscrição reativada.
+
+## <a name="your-credit-is-expired"></a>O crédito expirou
+
+Quando se inscrever numa conta gratuita do Azure, obtenha uma subscrição de avaliação gratuita, que fornece $200 em créditos do Azure para 30 dias e dos serviços livres de 12 meses. No final de 30 dias, Azure desativa a sua subscrição. A subscrição está desativada para protegê-lo contra acidentalmente incorrer em custos de utilização para além de crédito e os serviços gratuitos incluídos na sua subscrição. Para continuar a utilizar os serviços do Azure, terá [atualizar a subscrição para uma subscrição pay as you go](billing-upgrade-azure-subscription.md). Após a atualização, a subscrição ainda tem acesso a fim de libertar serviços durante 12 meses. Apenas obter cobrado para utilização para além dos serviços gratuitos e quantidades.
 
 ## <a name="you-reached-your-spending-limit"></a>Atingiu o limite de gastos
 
-Quando a utilização da exhausts as quantidades mensais incluídas na sua subscrição, desativaremos o serviço para o resto desse período de faturação. O serviço está desativado para protegê-lo contra acidentalmente incorrer em custos de utilização para além da quantidade incluída com a sua subscrição. Para remover o limite de gastos, consulte [remover o limite de gastos no Centro de contas](billing-spending-limit.md#remove).
+As subscrições do Azure com o crédito como versão de avaliação gratuita e Visual Studio Enterprise têm limites de gastos nos mesmos. Isto significa que só pode utilizar os serviços até o crédito incluído. Quando a sua utilização atinge o limite de gastos, Azure desativa a sua subscrição para o resto desse período de faturação. A subscrição está desativada para protegê-lo contra acidentalmente incorrer em custos de utilização além de crédito incluído na sua subscrição. Para remover o limite de gastos, consulte [remover o limite de gastos no Centro de contas](billing-spending-limit.md#remove).
 
 > [!NOTE] 
-> Se tiver uma subscrição de avaliação gratuita e remover o limite de gastos, converte a subscrição para pay as you go no fim da versão de avaliação gratuita.
+> Se tiver uma subscrição de avaliação gratuita e remover o limite de gastos, converte a subscrição para pay as you go no fim da versão de avaliação gratuita. Mantenha o crédito restante para os totais de 30 dias depois de criada a subscrição. Também tem acesso a fim de libertar serviços durante 12 meses.
 
 Para monitorizar e gerir atividade de faturação do Azure, consulte [evitar custos inesperados com faturação do Azure e custos de gestão](billing-getting-started.md) e [configurar alertas para as subscrições do Microsoft Azure de faturação](billing-set-up-alerts.md).
+
 
 ## <a name="your-bill-is-past-due"></a>A fatura está em atraso
 

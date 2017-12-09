@@ -16,11 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6718694af487929d193dae54ecb2d85ece64887a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e6adf0c4b8273facce609c9e162969cdd2afaaa
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
 
@@ -45,6 +45,10 @@ A tabela seguinte inclui ligações para bash scripts compiladas com a CLI do Az
 | [Ligar uma aplicação Web a uma conta de armazenamento](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma aplicação web do Azure e uma conta de armazenamento, em seguida, adiciona a cadeia de ligação de armazenamento para as definições da aplicação. |
 | [Ligar uma aplicação web a uma cache de redis](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma aplicação web do Azure e uma cache de redis, em seguida, adiciona os detalhes de ligação redis para as definições da aplicação.) |
 | [Ligar uma aplicação web à base de dados do Cosmos](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma aplicação web do Azure e uma base de dados do Cosmos e, em seguida, adiciona os detalhes da ligação de base de dados do Cosmos para as definições da aplicação. |
+|**Cópia de segurança e restaurar a aplicação**||
+| [Cópia de segurança de uma aplicação web](./scripts/app-service-cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma aplicação web do Azure e cria uma única cópia de segurança para o mesmo. |
+| [Criar uma cópia de segurança agendada para uma aplicação web](./scripts/app-service-cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma aplicação web do Azure e cria uma cópia de segurança agendada para o mesmo. |
+| [Restaura uma aplicação web a partir de uma cópia de segurança](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Restaura uma aplicação web do Azure a partir de uma cópia de segurança. |
 |**Monitorizar aplicação**||
 | [Monitorizar uma aplicação Web com os registos do servidor Web](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma aplicação web do Azure, ativa o registo para a mesma e transfere os registos no seu computador local. |
 | | |

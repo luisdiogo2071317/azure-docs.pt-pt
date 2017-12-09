@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 7b4de3e7b7e98ab76c02ea7c1cf069cee94706fc
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a9be43e6dd8ce2c8ba8326b06923677eb897765b
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Implementar a sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -33,7 +33,7 @@ Recomendamos vivamente que leia [planear uma implementação de ficheiros do Azu
 * Pelo menos uma instância suportada do Windows Server ou cluster do Windows Server para sincronizar com sincronização de ficheiros do Azure. Para obter mais informações sobre as versões suportadas do Windows Server, consulte [interoperabilidade com o Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability).
 
 ## <a name="deploy-the-storage-sync-service"></a>Implementar o serviço de sincronização de armazenamento 
-O serviço de sincronização de armazenamento é o recurso mais superior do Azure para a sincronização de ficheiros do Azure. Para implementar um serviço de sincronização do Storage, vá para o [portal do Azure](https://portal.azure.com/)e, em seguida, procure a sincronização de ficheiros do Azure. Nos resultados da pesquisa, selecione **sincronização de ficheiros do Azure (pré-visualização)**e, em seguida, selecione **criar** para abrir o **implementar sincronização de armazenamento** separador.
+O serviço de sincronização de armazenamento é o recurso mais superior do Azure para a sincronização de ficheiros do Azure. Para implementar um serviço de sincronização do Storage, vá para o [portal do Azure](https://portal.azure.com/), clique em novo e, em seguida, procure a sincronização de ficheiros do Azure. Nos resultados da pesquisa, selecione **sincronização de ficheiros do Azure (pré-visualização)**e, em seguida, selecione **criar** para abrir o **implementar sincronização de armazenamento** separador.
 
 No painel que se abre, introduza as seguintes informações:
 

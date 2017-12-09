@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: tonguyen
-ms.openlocfilehash: d74f649a8b5f35ffe16479576959e5ebb2857bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar encargos inesperados com o custo de gestão e de faturação do Azure
 
@@ -28,6 +28,8 @@ Quando se inscreve no Azure, existem várias coisas que pode fazer para obter um
 - Se a sua subscrição está um Enterprise Agreement (EA), a pré-visualização pública para ver os custos no portal do Azure está disponível. Se a sua subscrição é através do fornecedor de solução em nuvem (CSP) ou de Azure Sponsorship, em seguida, algumas das seguintes funcionalidades poderão não se aplicar ao utilizador. Consulte [recursos adicionais para EA, o CSP e o patrocínio](#other-offers) para obter mais informações.
 
 - Se numa avaliação gratuita, a sua subscrição está [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), do Azure no Open (AIO) ou elegíveis do BizSpark, a subscrição é automaticamente desativada quando todos os seus créditos são utilizados. Saiba mais sobre [limites de gastos](#spending-limit) para evitar que a sua subscrição unexpectantly desativada.
+
+- Caso tenha efetuado a cópia de segurança para [conta gratuita do Azure](https://azure.microsoft.com/en-us/free/), [pode utilizar alguns dos serviços do Azure mais populares gratuitamente durante 12 meses](billing-create-free-services-included-free-account.md). Juntamente com recomendações listadas abaixo, consulte [evitar obter gratuitamente cobrados conta](billing-avoid-charges-free-account.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Obter os custos estimados antes de adicionar serviços do Azure
 

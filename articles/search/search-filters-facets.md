@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 3480fbbecf59fe985103fe39ec27fef2668b3c0a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Como criar um filtro de aspeto de restrições na Azure Search 
 
@@ -48,7 +48,7 @@ Qualquer [campo tipo](https://docs.microsoft.com/rest/api/searchservice/supporte
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections (consulte [como tipos de dados complexos aspeto](#facet-complex-fields) posteriormente neste artigo.)
++ Edm.Collections
 + Tipos de campo numérico: Edm.Double Edm.Int32, Edm.Int64,
 
 Não é possível utilizar Edm.GeographyPoint na navegação por facetas. Facetas são construídas a partir de texto legível humano ou números. Como tal, facetas não são suportadas para georreplicação coordenadas. Precisa de um campo Cidade ou uma região para aspeto por localização.

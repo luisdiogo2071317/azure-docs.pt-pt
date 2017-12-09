@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 5106b0a480bb853ad75ad1aaca896f7a72fc4f71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe50fb3a7434702101dc5ae7a9dd176a33423119
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Criar um gateway de aplicação utilizando a CLI do Azure
 
@@ -37,7 +37,7 @@ O Application Gateway do Azure é um balanceador de carga de 7 camadas. Fornece 
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Pré-requisito: Instalar a CLI do Azure
 
-Para efetuar os passos neste artigo, terá de [instalar a Interface de linha de comandos do Azure para Mac, Linux e Windows (CLI do Azure)](../xplat-cli-install.md) e terá [inicie sessão no Azure](../xplat-cli-connect.md). 
+Para efetuar os passos neste artigo, terá de [instalar a Interface de linha de comandos do Azure para Mac, Linux e Windows (CLI do Azure)](../xplat-cli-install.md) e terá [inicie sessão no Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
 > Se não tiver uma conta do Azure, é necessário um. Subscreva [uma avaliação gratuita aqui](../active-directory/sign-up-organization.md).

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 190a47a25ba971038c4b4c9fb54d35c22e4804bf
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: Integração do Azure Active Directory com Teamwork.com
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Tutorial: Integração do Azure Active Directory com [Teamwork.com](https://www.teamwork.com/projects)
 
 Neste tutorial, irá aprender a integrar Teamwork.com com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o
 Para configurar a integração do Azure AD com Teamwork.com, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um Teamwork.com-início de sessão único ativada subscrição
+- A [Teamwork.com](https://www.teamwork.com/projects) subscrição no plano de Pro ou superior
 
 > [!NOTE]
 > Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.

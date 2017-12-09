@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: asgang
-ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 209ec47388ee7291f8107df022e0c2bb202ba6b5
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais do Azure para outra região do Azure
 
@@ -76,19 +76,19 @@ Na secção de definições, pode configurar as propriedades do site de destino
     > [!TIP]
     > É recomendado para manter a localização de destino mesmo a partir da recuperação do seu Cofre de serviços.
 
-2. **Grupo de recursos de destino:** é o grupo de recursos para que todos os seus máquinas virtuais replicadas irão pertencer. Por predefinição o Azure Site Recovery irá criar um novo grupo de recursos na região de destino com um nome que o sufixo "asr". No caso de grupo de recursos criado pelo Azure Site Recovery já existe, será reutilizada. Também pode optar por personalizá-la conforme mostrado na secção abaixo.    
-3. **Rede Virtual de destino:** por predefinição, a recuperação de sites do Azure irá criar uma nova rede virtual na região de destino com um nome que o sufixo "asr". Isto será mapeado para a sua rede de origem e será utilizado para qualquer proteção futura.
+2. **Grupo de recursos de destino:** é o grupo de recursos para que todos os seus máquinas virtuais replicadas pertence. Por predefinição o Azure Site Recovery cria um novo grupo de recursos na região de destino com um nome que o sufixo "asr". No caso de grupo de recursos criado pelo Azure Site Recovery já existe, será reutilizada. Também pode optar por personalizá-la conforme mostrado na secção abaixo.    
+3. **Rede Virtual de destino:** por predefinição, a recuperação de sites do Azure cria uma nova rede virtual na região de destino com um nome que o sufixo "asr". Isto será mapeado para a sua rede de origem e será utilizado para qualquer proteção futura.
 
     > [!NOTE]
     > [Verifique os detalhes de rede](site-recovery-network-mapping-azure-to-azure.md) para saber mais sobre o mapeamento da rede.
 
-4. **As contas de armazenamento de destino:** por predefinição, o Azure Site Recovery irá criar a nova conta de armazenamento de destino mimicking a configuração de armazenamento VM de origem. No caso de conta de armazenamento criada pelo Azure Site Recovery já existir, será reutilizada.
+4. **As contas de armazenamento de destino:** por predefinição, o Azure Site Recovery cria uma nova conta de armazenamento de destino mimicking a configuração de armazenamento VM de origem. No caso de conta de armazenamento criada pelo Azure Site Recovery já existir, será reutilizada.
 
 5. **As contas de armazenamento em cache:** do Azure Site Recovery tem de conta de armazenamento adicional chamou o armazenamento de cache na região de origem. Todas as alterações a acontecer nas VMs de origem são controladas e enviadas para a conta de armazenamento de cache antes de replicar os para a localização de destino.
 
-6. **Conjunto de disponibilidade:** por predefinição, o Azure Site Recovery irá criar uma novo conjunto de disponibilidade na região de destino com um nome que o sufixo "asr". No caso de conjunto de disponibilidade criado pelo Azure Site Recovery já existe, será reutilizada.
+6. **Conjunto de disponibilidade:** por predefinição, o Azure Site Recovery cria uma novo conjunto de disponibilidade na região de destino com um nome que o sufixo "asr". No caso de conjunto de disponibilidade criado pelo Azure Site Recovery já existe, é reutilizado.
 
-7.  **Política de replicação:** define as definições de recuperação ponto retenção histórico e aplicação consistente frequência de instantâneos. Por predefinição, o Azure Site Recovery irá criar uma nova política de replicação com as predefinições dos ' 24 horas para retenção do ponto de recuperação e ' 60 minutos para a frequência de instantâneos consistentes da aplicação.
+7.  **Política de replicação:** define as definições de recuperação ponto retenção histórico e aplicação consistente frequência de instantâneos. Por predefinição, o Azure Site Recovery cria uma nova política de replicação com as predefinições dos ' 24 horas para retenção do ponto de recuperação e ' 60 minutos para a frequência de instantâneos consistentes da aplicação.
 
     ![Ativar a replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
@@ -109,7 +109,7 @@ No caso de pretender alterar as predefinições utilizadas pelo Azure Site Recov
 ![Ativar a replicação](./media/site-recovery-replicate-azure-to-azure/customize.PNG) clique em **criar o recurso de destino** e ativar a replicação
 
 
-Depois de máquinas virtuais estão protegidas pode verificar o estado de funcionamento de VMs em **replicado itens**
+Depois de máquinas virtuais estiverem protegidas, pode verificar o estado de funcionamento de VMs em **replicado itens**
 
 >[!NOTE]
 >Durante o período de tempo da replicação inicial, pode existir a possibilidade de estado demora tempo a atualizar e não consegue ver o progresso durante algum tempo. Pode clicar no botão Atualizar no topo do painel para obter o estado mais recente.

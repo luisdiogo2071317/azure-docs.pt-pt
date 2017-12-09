@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a9d455203e50da47208ef1494d38a950161bee1
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: eb9c2ce5170aa02b7502eb5a52f2bf4b3a8ccb9c
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Deve utilizar o ponto final v 2.0?
 Quando criar aplicações que se integram com o Azure Active Directory, terá de decidir se os protocolos de autenticação e de ponto final v 2.0 as suas necessidades. Ponto final do Azure do Active Directory original é ainda totalmente suportado e, em alguns aspetos, é mais avançada funcionalidade de v 2.0. No entanto, o ponto final v 2.0 [apresenta as vantagens significativas](active-directory-v2-compare.md) para programadores.
@@ -110,7 +110,7 @@ O ponto final v 2.0 não suporta SAML ou WS-Federation; só suporta abrir ID Con
 * O ponto final v 2.0 não suporta afirmações emissoras de função ou grupo em tokens de ID.
 * O [concessão de credenciais de palavra-passe do OAuth 2.0 recursos proprietário](https://tools.ietf.org/html/rfc6749#section-4.3) não é suportado pelo ponto final v 2.0.
 
-Addtion, o ponto final v 2.0 não suporta qualquer outra forma dos protocolos SAML ou WS-Federation.
+Além disso, o ponto final v 2.0 não suporta qualquer outra forma dos protocolos SAML ou WS-Federation.
 
 Para melhor compreender o âmbito da funcionalidade de protocolo suportado no ponto final v 2.0, leia a nossa [referência do protocolo OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 

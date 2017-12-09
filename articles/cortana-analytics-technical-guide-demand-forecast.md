@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ed2a17fd735c1b0e67cbf5d08450d36620d4c857
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guia técnico para o modelo de solução do Cortana Intelligence para a pedido previsão de energia
 ## <a name="overview"></a>**Descrição geral**
@@ -82,7 +82,7 @@ Para o pedido de previsão para o modelo de solução de energia, a consulta do 
 
 O [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) consulta pode ser encontrada por:
 
-* Iniciar sessão para o [portal do Azure](https://manage.windowsazure.com/)
+* Iniciar sessão para o [portal do Azure](https://portal.azure.com/)
 * Localizar as tarefas do stream analytics ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) que foram gerados quando a solução foi implementada. Um é enviar por push dados para o blob storage (por exemplo, mytest1streaming432822asablob) e o outro é para enviar por push dados para o Power BI (por exemplo, mytest1streaming432822asapbi).
 * Selecionar
 

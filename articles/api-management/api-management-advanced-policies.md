@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="api-management-advanced-policies"></a>API de gestão avançada de políticas
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -122,7 +122,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |Escolha|Elemento raiz.|Sim|  
 |Quando|A condição a utilizar para o `if` ou `ifelse` partes do `choose` política. Se o `choose` política tem vários `when` secções, estes são avaliadas sequencialmente. Uma vez a `condition` de um quando o elemento é avaliada para `true`, não mais `when` condições são avaliadas.|Sim|  
@@ -130,7 +130,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|  
+|Atributo|Descrição|Necessário|  
 |---------------|-----------------|--------------|  
 |condição = "expressão booleana &#124; Booleano constante"|A expressão booleana ou constante para avaliada quando o que contém `when` declaração de política é avaliada.|Sim|  
   
@@ -234,15 +234,15 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |pedido de reencaminhamento|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|Predefinição|  
+|Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
-|tempo limite = "número inteiro"|O intervalo de tempo limite em segundos antes da chamada para o serviço de back-end irá falhar.|Não|Não há tempo limite|  
+|tempo limite = "número inteiro"|O intervalo de tempo limite em segundos antes da chamada para o serviço de back-end irá falhar.|Não|300 segundos|  
 |seguir redirecionamentos = "true &#124; FALSE"|Especifica se redirecionamentos a partir do serviço de back-end são seguidos pelo gateway ou devolvidos ao autor da chamada.|Não|False|  
   
 ### <a name="usage"></a>Utilização  
@@ -281,15 +281,15 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|    
 |simultaneidade de limite|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|Predefinição|  
+|Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|--------------|  
-|chave|Uma cadeia. Expressão permitido. Especifica o âmbito de concorrência. Pode ser partilhado por várias políticas.|Sim|N/D|  
+|key|Uma cadeia. Expressão permitido. Especifica o âmbito de concorrência. Pode ser partilhado por várias políticas.|Sim|N/D|  
 |contagem máxima|Um número inteiro. Especifica um número máximo de pedidos que estão autorizados a introduzir a política.|Sim|N/D|  
   
 ### <a name="usage"></a>Utilização  
@@ -331,13 +331,13 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |registo para eventhub|Elemento raiz. O valor deste elemento é a cadeia para iniciar sessão para o hub de eventos.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|  
+|Atributo|Descrição|Necessário|  
 |---------------|-----------------|--------------|  
 |id de registo|O id de registo registado com o serviço de API Management.|Sim|  
 |id de partição|Especifica o índice da partição onde são enviadas as mensagens.|Opcional. Este atributo não pode ser utilizado se `partition-key` é utilizado.|  
@@ -374,13 +374,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |resposta de mock|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|Predefinição|  
+|Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|--------------|  
 |código de estado|Especifica o código de estado de resposta e é utilizado para selecionar exemplo correspondente ou esquema.|Não|200|  
 |tipo de conteúdo|Especifica `Content-Type` valor de cabeçalho de resposta e é utilizado para selecionar exemplo correspondente ou esquema.|Não|Nenhuma|  
@@ -430,13 +430,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
-|repetir|Elemento raiz. Pode conter quaisquer outras políticas como os respetivos elementos subordinados.|Sim|  
+|retry|Elemento raiz. Pode conter quaisquer outras políticas como os respetivos elementos subordinados.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|Predefinição|  
+|Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
 |condição|Um booleano literal ou [expressão](api-management-policy-expressions.md) especificar se as tentativas devem ser paradas (`false`) ou continuou (`true`).|Sim|N/D|  
 |contagem|Um número positivo que especifica o número máximo de tentativas a tentar.|Sim|N/D|  
@@ -485,7 +485,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |resposta de retorno|Elemento raiz.|Sim|  
 |cabeçalho de conjunto|A [conjunto cabeçalho](api-management-transformation-policies.md#SetHTTPheader) declaração de política.|Não|  
@@ -494,7 +494,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|  
+|Atributo|Descrição|Necessário|  
 |---------------|-----------------|--------------|  
 |nome da variável de resposta|O nome da variável de contexto referenciado a partir de, por exemplo, um montante [pedido de envio](api-management-advanced-policies.md#SendRequest) política e contém um `Response` objeto|Opcional.|  
   
@@ -551,7 +551,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |enviar-uma forma de pedido|Elemento raiz.|Sim|  
 |url|O URL do pedido.|Não se modo = cópia; Sim, caso contrário.|  
@@ -561,10 +561,10 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|Predefinição|  
+|Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
 |modo = "cadeia"|Determina se se trata de um novo pedido ou uma cópia do pedido atual. No modo de saída, modo = cópia não inicializou o corpo do pedido.|Não|Novo|  
-|name|Especifica o nome do cabeçalho de ser definida.|Sim|N/D|  
+|nome|Especifica o nome do cabeçalho de ser definida.|Sim|N/D|  
 |ação existe|Especifica a ação a tomar quando o cabeçalho já está especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do cabeçalho existente.<br />-Ignorar - não substitui o valor de cabeçalho existente.<br />-Acrescentar - acrescenta o valor para o valor de cabeçalho existente.<br />-delete - remove o cabeçalho do pedido.<br /><br /> Quando definido como `override` inscrever várias entradas com o mesmo nome resulta no cabeçalho de que está a ser definido de acordo com todas as entradas (que serão apresentadas várias vezes); apenas os valores listados serão definidos no resultado.|Não|substituir|  
   
 ### <a name="usage"></a>Utilização  
@@ -630,7 +630,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |pedido de envio|Elemento raiz.|Sim|  
 |url|O URL do pedido.|Não se modo = cópia; Sim, caso contrário.|  
@@ -640,13 +640,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|Predefinição|  
+|Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
 |modo = "cadeia"|Determina se se trata de um novo pedido ou uma cópia do pedido atual. No modo de saída, modo = cópia não inicializou o corpo do pedido.|Não|Novo|  
 |nome da variável de resposta = "cadeia"|Se não estiver presente, `context.Response` é utilizado.|Não|N/D|  
 |tempo limite = "número inteiro"|O intervalo de tempo limite em segundos antes da chamada para o URL de falha.|Não|60|  
 |Ignorar-erro|Se VERDADEIRO e os resultados de pedido num erro:<br /><br /> -Se foi especificado o nome de variável de resposta irá conter um valor nulo.<br />-Se não foi especificado o nome da variável de resposta, contexto. Não será possível atualizar o pedido.|Não|False|  
-|name|Especifica o nome do cabeçalho de ser definida.|Sim|N/D|  
+|nome|Especifica o nome do cabeçalho de ser definida.|Sim|N/D|  
 |ação existe|Especifica a ação a tomar quando o cabeçalho já está especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do cabeçalho existente.<br />-Ignorar - não substitui o valor de cabeçalho existente.<br />-Acrescentar - acrescenta o valor para o valor de cabeçalho existente.<br />-delete - remove o cabeçalho do pedido.<br /><br /> Quando definido como `override` inscrever várias entradas com o mesmo nome resulta no cabeçalho de que está a ser definido de acordo com todas as entradas (que serão apresentadas várias vezes); apenas os valores listados serão definidos no resultado.|Não|substituir|  
   
 ### <a name="usage"></a>Utilização  
@@ -676,13 +676,13 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |Proxy|Elemento raiz|Sim|  
 
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|Predefinição|  
+|Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
 |URL = "cadeia"|URL de proxy no formato http://host:port.|Sim|N/D|  
 |nome de utilizador = "cadeia"|Nome de utilizador a ser utilizado para a autenticação com o proxy.|Não|N/D|  
@@ -736,7 +736,7 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |método de conjunto|Elemento raiz. O valor do elemento Especifica o método HTTP.|Sim|  
   
@@ -776,13 +776,13 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |Definir estado|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|Predefinição|  
+|Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
 |código = "número inteiro"|O código de estado HTTP a devolver.|Sim|N/D|  
 |razão = "cadeia"|Uma descrição do motivo para devolver o código de estado.|Sim|N/D|  
@@ -811,7 +811,7 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |Definir variável|Elemento raiz.|Sim|  
   
@@ -819,7 +819,7 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 |Atributo|Descrição|Necessário|  
 |---------------|-----------------|--------------|  
-|name|O nome da variável.|Sim|  
+|nome|O nome da variável.|Sim|  
 |valor|O valor da variável. Isto pode ser uma expressão ou um valor literal.|Sim|  
   
 ### <a name="usage"></a>Utilização  
@@ -878,13 +878,13 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |Rastreio|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|Predefinição|  
+|Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
 |origem|Literal de cadeia significativo para o Visualizador de rastreio e especificar a origem da mensagem.|Sim|N/D|  
   
@@ -945,15 +945,15 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 ### <a name="elements"></a>Elementos  
   
-|Elemento|Descrição|Requerido|  
+|Elemento|Descrição|Necessário|  
 |-------------|-----------------|--------------|  
 |Aguarde|Elemento raiz. Pode conter como elementos subordinados só `send-request`, `cache-lookup-value`, e `choose` políticas.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Atributo|Descrição|Requerido|Predefinição|  
+|Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
-|para|Determina se o `wait` aguarda política para todas as políticas de subordinados imediatos seja concluído ou apenas um. Valores permitidos são:<br /><br /> -   `all`-aguardar para todas as políticas de subordinados imediatos concluir<br />-qualquer - Aguarde qualquer política de subordinados imediatos para concluir. Depois de concluída a política de imediato subordinados primeiro, o `wait` conclusão da política e a execução de outras políticas de subordinados imediatos é terminada.|Não|tudo|  
+|para|Determina se o `wait` aguarda política para todas as políticas de subordinados imediatos seja concluído ou apenas um. Valores permitidos são:<br /><br /> -   `all`-aguardar para todas as políticas de subordinados imediatos concluir<br />-qualquer - Aguarde qualquer política de subordinados imediatos para concluir. Depois de concluída a política de imediato subordinados primeiro, o `wait` conclusão da política e a execução de outras políticas de subordinados imediatos é terminada.|Não|all|  
   
 ### <a name="usage"></a>Utilização  
  

@@ -1,6 +1,6 @@
 ---
-title: "Ocultar uma aplicação de terceiros da experiência do utilizador no Azure Active Directory | Microsoft Docs"
-description: "Como ocultar uma aplicação de terceiros da experiência do utilizador no Azure Active Directory"
+title: "Ocultar uma aplicação da experiência do utilizador no Azure Active Directory | Microsoft Docs"
+description: "Como ocultar uma aplicação da experiência do utilizador no Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,18 +15,18 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 58e3dd23805ada39e77194ddb4ebf507c24fd1f2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Ocultar uma aplicação de terceiros da experiência do utilizador no Azure Active Directory
+# <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Ocultar uma aplicação da experiência do utilizador no Azure Active Directory
 
-Se tiver uma aplicação de terceiros (uma aplicação publicada por outras pessoas que Microsoft) que não pretende ser mostrada no painel de acesso dos utilizadores ou do Office 365 launchers, há uma opção de ocultar este mosaico da aplicação. Por ocultar os utilizadores da aplicação ainda tem permissões para a aplicação, mas não irão vê-las aparecer no respetivos launchers de aplicação. Tem de ter as permissões adequadas para gerir a aplicação da empresa e tem de ser administrador global do diretório.
+Se tiver uma aplicação que não pretende mostrar no painel de acesso ou do Office 365 launchers dos utilizadores, é uma opção para ocultar este mosaico da aplicação. Esta opção só está disponível para aplicações de terceiros (aplicações não publicadas pela Microsoft). Por ocultar os utilizadores da aplicação ainda tem permissões para a aplicação, mas não irão vê-las aparecer no respetivos launchers de aplicação. Tem de ter as permissões adequadas para gerir a aplicação da empresa e tem de ser administrador global do diretório. 
 
-## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Ocultar uma aplicação de terceiros da experiência do utilizador
-Utilize os seguintes passos para ocultar uma aplicação de terceiros do painel de acesso de um utilizador e launchers de aplicação do Office 365
+## <a name="hiding-an-application-from-users-end-user-experiences"></a>Ocultar uma aplicação a partir das experiências do utilizador final do utilizador
+Utilize os seguintes passos para ocultar uma aplicação a partir do painel de acesso de um utilizador e launchers de aplicação do Office 365
 
 ### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Como posso ocultar uma aplicação de terceiros do painel de acesso de utilizador e launchers de aplicação do Office 365?
 

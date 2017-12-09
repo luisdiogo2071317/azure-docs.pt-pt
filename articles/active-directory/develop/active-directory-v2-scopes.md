@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1488e8d2a70f7317c97275b83db3b9f05e9deb4b
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Âmbitos, permissões e consentimento no ponto final v 2.0 do Azure Active Directory
 As aplicações que se integram com o Azure Active Directory (Azure AD), siga um modelo de autorização que proporciona aos utilizadores controlo sobre a forma como uma aplicação pode aceder aos respetivos dados. A implementação de v 2.0 do modelo de autorização foi atualizada e as alterações como uma aplicação tem de interagir com o Azure AD. Este artigo aborda os conceitos básicos neste modelo de autorização, incluindo âmbitos, permissões e consentimento.
@@ -46,8 +46,8 @@ Ao definir estes tipos de permissões, o recurso tem controlo detalhado sobre os
 
 No Azure AD e OAuth, estes tipos de permissões são denominados *âmbitos*. Eles também por vezes, são referidos como *oAuth2Permissions*. Um âmbito é representado no Azure AD como um valor de cadeia. Continuar com o exemplo de Microsoft Graph, o valor do âmbito para cada permissão é:
 
-* Leia o calendário de um utilizador através da utilização`Calendar.Read`
-* Escrever calendário do utilizador através da utilização`Mail.ReadWrite`
+* Leia o calendário de um utilizador através da utilização`Calendars.Read`
+* Escrever calendário do utilizador através da utilização`Calendars.ReadWrite`
 * Enviar correio eletrónico como um utilizador a utilizar pelo`Mail.Send`
 
 Uma aplicação pode solicitar estas permissões, especificando os âmbitos nos pedidos para o ponto final v 2.0.
@@ -58,10 +58,10 @@ A implementação de v 2.0 do OpenID Connect tem alguns âmbitos bem definidos q
 ### <a name="openid"></a>openid
 Se uma aplicação executa início de sessão utilizando [OpenID Connect](active-directory-v2-protocols.md), tem de pedir a `openid` âmbito. O `openid` âmbito mostra a página de consentimento de conta de trabalho como a permissão "Iniciar sessão" e a página de consentimento de conta Microsoft pessoal como a permissão "Ver o seu perfil e ligar a aplicações e serviços utilizando a sua conta Microsoft". Com esta permissão, uma aplicação pode receber um identificador exclusivo para o utilizador sob a forma do `sub` de afirmação. Também permite o acesso de aplicação para o ponto final UserInfo. O `openid` âmbito pode ser utilizado o ponto de final de token de v 2.0 para adquirir tokens de ID, o que podem ser utilizados para proteger chamadas HTTP entre os diferentes componentes de uma aplicação.
 
-### <a name="email"></a>Correio eletrónico
+### <a name="email"></a>e-mail
 O `email` âmbito pode ser utilizado com o `openid` âmbito e quaisquer outros. Fornece o acesso de aplicação para o endereço de e-mail principal do utilizador no formato de `email` de afirmação. O `email` afirmação está incluída num token apenas se um endereço de e-mail está associado à conta de utilizador, que não é sempre o caso. Se utiliza o `email` âmbito, a aplicação deve estar preparada para processar um caso em que o `email` afirmação não existe no token.
 
-### <a name="profile"></a>Perfil
+### <a name="profile"></a>perfil
 O `profile` âmbito pode ser utilizado com o `openid` âmbito e quaisquer outros. Fornece o acesso de aplicação para uma quantidade substancial de informações sobre o utilizador. As informações que possa aceder incluem, mas não está limitadas a, o nome de utilizador nome próprio, apelido, preferencial e ID de objeto. Para obter uma lista completa das afirmações perfil disponíveis no parâmetro id_tokens para um utilizador específico, consulte o [v 2.0 tokens referência](active-directory-v2-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
 &scope=
-https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendars.read%20
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```

@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c10374adf9b1438e087aa5fdba670f6d0234ee6f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Como requerer a verificação de dois passos para um utilizador ou grupo
 
@@ -40,11 +40,11 @@ Ambas estas opções de pedem aos utilizadores para se registar para Azure multi
 
 Contas de utilizador no multi-factor Authentication do Azure tem os seguintes três Estados distintos:
 
-| Estado | Descrição | Aplicações não baseadas no browser afetadas | Aplicações de browser e a autenticação moderna afetados |
-|:---:|:---:|:---:|:--:|
-| Desativado |O estado predefinido para um novo utilizador não inscrito Azure multi-factor Authentication (MFA). |Não |Não |
-| Ativado |O utilizador inscreveu na MFA do Azure, mas não registado. Serão solicitados para registar da próxima vez que iniciar sessão. |Não.  Podem continuar a funcionar até que o processo de registo é concluído. | Sim. Depois do token de atualização para a sessão expira, o registo do MFA será necessário.|
-| Imposto |O utilizador foi inscrito e concluiu o processo de registo para o MFA do Azure. |Sim.  As aplicações necessitam de palavras-passe de aplicação. |Sim. MFA necessária no início de sessão. |
+| Estado | Descrição | Aplicações não baseadas no browser afetadas | Aplicações de browser afetadas | Autenticação moderna afetada |
+|:---:|:---:|:---:|:--:|:--:|
+| Desativado |O estado predefinido para um novo utilizador não inscrito Azure multi-factor Authentication (MFA). |Não |Não |Não |
+| Ativado |O utilizador inscreveu na MFA do Azure, mas não registado. Serão solicitados para registar da próxima vez que iniciar sessão. |Não.  Podem continuar a funcionar até que o processo de registo é concluído. | Sim. Depois da sessão expira, o registo do MFA será necessário.| Sim. Depois do token de acesso expira, o registo do MFA será necessário. |
+| Imposto |O utilizador foi inscrito e concluiu o processo de registo para o MFA do Azure. |Sim.  As aplicações necessitam de palavras-passe de aplicação. |Sim. MFA necessária no início de sessão. | Sim. MFA necessária no início de sessão. |
 
 Estado do utilizador reflete se um administrador inscreveu-los na MFA do Azure e, se poderem concluir o processo de registo.
 

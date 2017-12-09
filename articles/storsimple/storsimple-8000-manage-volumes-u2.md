@@ -4,7 +4,7 @@ description: "Explica como adicionar, modificar, monitorizar e eliminar os volum
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 09f4de79ab9b0cdfafd10c7c7c29b0f8e6304f14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utilizar o serviço StorSimple Manager de dispositivos para gerir volumes (atualização 3 ou posterior)
 
@@ -119,11 +119,7 @@ Utilize as instruções neste tutorial para realizar as seguintes tarefas:
       
        Se aprovisionar um volume localmente afixado de 8,5 TB (tamanho máximo admissível) no dispositivo 8100, terá esgotado todo o espaço local disponível no dispositivo. Não pode criar nenhum volume escalonado a partir desse ponto, uma vez que não há espaço local no dispositivo para alojar o conjunto de trabalho do volume escalonado. Os volumes em camadas existentes também afetam o espaço disponível. Por exemplo, se tiver um dispositivo 8100 que já tem volumes em camadas de, aproximadamente, 106 TB, está disponível apenas um espaço de 4 TB para volumes afixados localmente.
 
-    6. No campo **Anfitriões ligados**, clique na seta. 
-
-        ![Anfitriões ligados](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
-
-    7. No **ligados a anfitriões** painel, escolha um ACR existente ou adicionar um novo ACR. Se escolher uma nova ACR, em seguida, forneça um **nome** para o ACR, forneça o **iSCSI Qualified nome** (IQN) de anfitrião do Windows. Se não tiver o IQN, veja [Get the IQN of a Windows Server host (Obter o IQN de um anfitrião do Windows Server)](#get-the-iqn-of-a-windows-server-host). Clique em **Criar**. É criado um volume com as definições especificadas.
+    6. No campo **Anfitriões ligados**, clique na seta. No **ligados a anfitriões** painel, escolha um ACR existente ou adicionar um novo ACR. Se escolher uma nova ACR, em seguida, forneça um **nome** para o ACR, forneça o **iSCSI Qualified nome** (IQN) de anfitrião do Windows. Se não tiver o IQN, veja [Get the IQN of a Windows Server host (Obter o IQN de um anfitrião do Windows Server)](#get-the-iqn-of-a-windows-server-host). Clique em **Criar**. É criado um volume com as definições especificadas.
 
         ![Clique em Criar](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 

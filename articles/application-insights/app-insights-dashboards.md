@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegação e Dashboards no portal do Application Insights
 Depois de ter [configurar o Application Insights no seu projeto](app-insights-overview.md), dados de telemetria sobre o desempenho e a utilização da sua aplicação aparecerá no recurso do Application Insights do seu projeto no [portal do Azure](https://portal.azure.com).
@@ -97,6 +97,9 @@ Quando tiver criado um dashboard, pode partilhá-las com outros utilizadores.
 ![No cabeçalho do dashboard, clique em partilha](./media/app-insights-dashboards/41.png)
 
 Saiba mais sobre [funções e controlo de acesso](app-insights-resources-roles-access-control.md).
+
+## <a name="create-dashboards-programmatically"></a>Crie dashboards através de programação
+Pode automatizar a utilização de criação de dashboard [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) e um editor de JSON simple.
 
 ## <a name="app-navigation"></a>Navegação de aplicação
 O painel de descrição geral é o gateway para obter mais informações sobre a sua aplicação.

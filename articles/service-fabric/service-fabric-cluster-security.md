@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: e75929ee5d3f57af77c66910cc294a7c0fb6629a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança de cluster do Service Fabric
-Um cluster do Service Fabric do Azure é um recurso que é proprietário. Tem de proteger os clusters para ajudar a impedir que utilizadores não autorizados a ligar aos mesmos. Um cluster seguro é especialmente importante quando estiver a executar cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não segura, se o cluster expõe pontos finais de gestão para a internet pública, os utilizadores anónimos podem ligar à mesma. 
+Um cluster do Service Fabric do Azure é um recurso que é proprietário. É da responsabilidade do cliente para proteger os clusters para ajudar a impedir que utilizadores não autorizados a ligar aos mesmos. Um cluster seguro é especialmente importante quando estiver a executar cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não segura, se o cluster expõe pontos finais de gestão para a internet pública, os utilizadores anónimos podem ligar à mesma. Não são suportados clusters de não segura para cargas de trabalho de produção. 
 
 Este artigo é uma descrição geral dos cenários de segurança de clusters do Azure e clusters autónomos e as várias tecnologias que pode utilizar para implementá-la:
 
@@ -58,7 +58,7 @@ Clusters em execução no Azure e autónoma clusters em execução no Windows, a
 ### <a name="client-to-node-certificate-security"></a>Segurança do certificado de cliente para o nó
 Configure a segurança do certificado de cliente para o nó quando criar o cluster, no portal do Azure, utilizando um modelo do Resource Manager ou utilizando um modelo JSON autónomo. Para criar o certificado, especifique um certificado de cliente de administração ou um certificado de cliente utilizador. Como melhor prática, os cliente e utilizador certificados de cliente administrativo que especificar devem ser diferentes do certificados primários e secundários que especificar para [segurança de nó de nó](#node-to-node-security). Por predefinição, os certificados de cluster para o nó de nó segurança são adicionados à lista de certificados de cliente permitidas admin.
 
-Os clientes que ligam o cluster utilizando o certificado de admin têm acesso total para as capacidades de gestão. Os clientes que ligam o cluster utilizando o certificado de cliente de utilizador só de leitura têm acesso de leitura para as capacidades de gestão. Estes certificados são utilizados para o RBAC que são descritos mais à frente neste artigo.
+Os clientes que ligam o cluster utilizando o certificado de admin têm acesso total para as capacidades de gestão. Os clientes que ligam o cluster utilizando o certificado de cliente de utilizador só de leitura têm acesso de leitura para as capacidades de gestão. Estes certificados são utilizados para o RBAC descrita neste artigo.
 
 Para saber como configurar a segurança do certificado num cluster do Azure, consulte [configurar um cluster utilizando um modelo Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 

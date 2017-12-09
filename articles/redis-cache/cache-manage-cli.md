@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Como criar e gerir a Cache de Redis do Azure utilizando a Interface de linha de comandos do Azure (CLI do Azure)
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Para criar e gerir instâncias de Cache de Redis do Azure utilizando a CLI do Az
 
 * Tem de ter uma conta do Azure. Se não tiver uma, pode criar um [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) dentro de alguns momentos.
 * [Instalar a CLI do Azure](../cli-install-nodejs.md).
-* Ligar a instalação da CLI do Azure com uma conta pessoal do Azure, ou com um trabalho ou escola conta do Azure e iniciar sessão a partir da CLI do Azure utilizando o `azure login` comando. Para compreender as diferenças e escolher, consulte [ligar a uma subscrição do Azure a partir da linha de comandos Interface do Azure (CLI do Azure)](../xplat-cli-connect.md).
+* Ligar a instalação da CLI do Azure com uma conta pessoal do Azure, ou com um trabalho ou escola conta do Azure e iniciar sessão a partir da CLI do Azure utilizando o `azure login` comando. Para compreender as diferenças e escolher, consulte [ligar a uma subscrição do Azure a partir da linha de comandos Interface do Azure (CLI do Azure)](/cli/azure/authenticate-azure-cli).
 * Antes de executar qualquer um dos seguintes comandos, mude a CLI do Azure para o modo Resource Manager executando o `azure config mode arm` comando. Para obter mais informações, consulte [utilizar a CLI do Azure para gerir recursos do Azure e os grupos de recursos](../xplat-cli-azure-resource-manager.md).
 
 ## <a name="redis-cache-properties"></a>Propriedades da Cache de redis
@@ -50,7 +50,7 @@ As seguintes propriedades são utilizadas quando criar e atualizar instâncias d
 | nome |-n, – nome |Nome da Cache de Redis. |
 | grupo de recursos |-g, - grupo de recursos |Nome do grupo de recursos. |
 | localização |-l, – localização |Localização para criar a cache. |
-| Tamanho |-z, - tamanho |Tamanho da Cache de Redis. Os valores válidos: [C0 C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| tamanho |-z, - tamanho |Tamanho da Cache de Redis. Os valores válidos: [C0 C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | SKU |-x, - sku |SKU de redis. Deve ser um dos: [básico, Standard, Premium] |
 | EnableNonSslPort |-i, - enable-não--porta ssl |Propriedade EnableNonSslPort da Cache de Redis. Adicionar este sinalizador, se pretender ativar a porta de SSL não para a sua cache |
 | Configuração de redis |-c - redis-configuração, |Configuração de redis. Introduza uma cadeia de formatação JSON de chaves de configuração e os valores aqui. Formato: "{" ":""," ":" "}" |

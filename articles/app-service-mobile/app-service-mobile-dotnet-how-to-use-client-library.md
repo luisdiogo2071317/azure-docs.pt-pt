@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: glenga
-ms.openlocfilehash: 2b83dfe2f3e2645713ff7e1acfb4d7f26fe0d0cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbd2a53a7ba30915ed95cf6b0cb73b07a4f48a24
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como utilizar o cliente gerido para Mobile Apps do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -651,7 +651,7 @@ Pode utilizar o Active Directory Authentication Library (ADAL) para autenticaç�
 2. No Visual Studio ou no Xamarin Studio, abra o projeto e adicione uma referência para o `Microsoft.IdentityModel.CLients.ActiveDirectory` pacote NuGet. Quando pesquisar, inclua as versões de pré-lançamento.
 3. Adicione o seguinte código à sua aplicação, de acordo com a plataforma que está a utilizar. Em cada um, efetuar a substituição de seguintes:
 
-   * Substitua **aqui de autoridade de inserção** com o nome do inquilino no qual que aprovisionou a sua aplicação. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor pode ser copiado a partir do separador no Azure Active Directory no domínio a [portal clássico do Azure].
+   * Substitua **aqui de autoridade de inserção** com o nome do inquilino no qual que aprovisionou a sua aplicação. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor pode ser copiado a partir do separador no Azure Active Directory no domínio a [portal do Azure].
    * Substitua **INSERT-RESOURCE-ID-aqui** com o ID de cliente para o back-end da aplicação móvel. Pode obter o ID de cliente do **avançadas** separador em **definições do Azure Active Directory** no portal.
    * Substitua **INSERT-cliente ID aqui** com o ID de cliente que copiou da aplicação cliente nativa.
    * Substitua **INSERT-REDIRECIONAMENTO-URI-aqui** com o seu site */.auth/login/done* ponto final, utilizando o esquema de HTTPS. Este valor deve ser semelhante *https://contoso.azurewebsites.net/.auth/login/done*.
@@ -1122,7 +1122,6 @@ public class MyHandler : DelegatingHandler
 [ID de utilizador]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [onde]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
 [portal do Azure]: https://portal.azure.com/
-[portal clássico do Azure]: https://manage.windowsazure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/en-us/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx

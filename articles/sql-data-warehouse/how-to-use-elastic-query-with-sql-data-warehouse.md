@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-ms.openlocfilehash: 295cc59fdb23105534b4e7431902eaa720643330
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Como utilizar consulta elástico com o SQL Data Warehouse
 
@@ -78,7 +78,7 @@ Para obter mais informações sobre consulta elástico com base de dados do SQL 
 
 ### <a name="elastic-querying"></a>Consultar elástico
 
-- A tabela externa e a tabela em cache interally existam como objetos diferentes, com a instância de base de dados do SQL Server. Considere criar uma vista ao longo da parte superior da parte da tabela e a tabela externa em cache de que as uniões as tabelas e aplica os filtros no ponto de limites de cada tabela.
+- Em muitos casos, um pode pretender gerir um tipo de tabela Stretch, onde é uma parte da sua tabela na base de dados SQL como dados em cache para um desempenho com o resto dos dados armazenados no armazém de dados do SQL Server. Terá de ter dois objetos na base de dados do SQL Server: uma tabela externa na base de dados do SQL Server que referencia a tabela base do armazém de dados do SQL Server e a parte "em cache" da tabela na base de dados SQL. Considere criar uma vista ao longo da parte superior da parte da tabela e a tabela externa em cache de que as uniões de tabelas e aplica os filtros que separam dados materializados nos dados de base de dados SQL e SQL Data Warehouse expostos através de tabelas externas.
 
   Imagine que gostaria de manter o ano mais recente dos dados numa instância de base de dados do SQL Server. Temos de duas tabelas **ext. As ordens**, que referencia o armazém de dados ordena tabelas, e **dbo. As ordens** que representa o mais recente visão de anos de dados a instância de base de dados do SQL Server. Em vez de pedir aos utilizadores para decidir se pretende consultar uma tabela ou outro, iremos criar uma vista ao longo da parte superior do ambas as tabelas no ponto de partição do ano mais recente.
 
@@ -135,13 +135,17 @@ Para obter mais informações sobre consulta elástico com base de dados do SQL 
 
 ## <a name="faq"></a>FAQ
 
-P: Posso utilizar bases de dados dentro de um conjunto de bases de dados elásticas com elástico consulta?
+P: Posso utilizar bases de dados dentro de um agrupamento elástico com elástico consulta?
 
-R: Sim. Bases de dados SQL num agrupamento elástico pode utilizar a consulta elástica. 
+R: Sim. Bases de dados SQL num agrupamento elástico pode utilizar a consulta elástico. 
 
-P: existe um limite para quantas bases de dados posso utilizar para a consulta elástica?
+P: existe um limite para quantas bases de dados posso utilizar para a consulta elástico?
 
-R: lógicos servidores têm limites DTU no local para impedir que os clientes overspending acidental. Se pretende ativar a várias bases de dados para a consulta elástica juntamente com uma instância de armazém de dados do SQL Server, pode atingir a cap inesperadamente. Se isto ocorrer, submeta um pedido para aumentar o limite DTU no seu servidor lógico. Pode aumentar a quota por [criar um pedido de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e selecionando *Quota* como o tipo de pedido
+R: não há nenhum disco rígida extremidade na como muitas bases de dados podem ser utilizados para a consulta elástico. No entanto, cada consulta elástico (consultas acessos do armazém de dados do SQL Server) será contam para limites de concorrência normal.
+
+P: existem limites DTU envolvidos elástico consulta?
+
+R: limites DTU de não são impostas qualquer forma diferente com consulta elástico. A política padrão é que servidores lógicas têm limites DTU no local para impedir que os clientes overspending acidental. Se pretende ativar a várias bases de dados para a consulta elástica juntamente com uma instância de armazém de dados do SQL Server, pode atingir a cap inesperadamente. Se isto ocorrer, submeta um pedido para aumentar o limite DTU no seu servidor lógico. Pode aumentar a quota por [criar um pedido de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e selecionando *Quota* como o tipo de pedido
 
 P: Posso utilizar dados linha nível segurança/dinâmico máscara com elástico consulta?
 

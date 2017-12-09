@@ -15,9 +15,9 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: c079e9c02041cbc1b61f135038fba634a45c574d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: 791446fbd7eb025441f051e2d8f8f2b1e6c47ebe
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/08/2017
 ---
@@ -68,7 +68,7 @@ BD do Azure do Cosmos suporta três indexação modos que podem ser configurados
 
 **Consistente**: se a política de uma coleção de base de dados do Azure Cosmos é designada como "consistente", as consultas de uma dada coleção da base de dados do Azure Cosmos siga o mesmo nível de consistência especificados para as ponto de leituras (ou seja, forte, consistência vinculada, sessão ou eventual). O índice é atualizado de forma síncrona como parte da atualização de documento (ou seja, inserir, substituir, atualizar e eliminar um documento numa coleção de base de dados do Azure Cosmos).  A indexação consistente suporta consultas consistentes ao custo de redução possíveis débito de escrita. Este redução é uma função caminhos exclusivo que precisam de ser indexados e "nível de consistência". Modo de indexação consistente foi concebido para cargas de trabalho "escrever rapidamente, consulta imediatamente".
 
-**Em diferido**: O índice é atualizado de forma assíncrona quando uma coleção de base de dados do Azure Cosmos quiescent ou seja, quando a capacidade de débito da coleção não é totalmente utilizada para servir pedidos de utilizador. Para "de inserção agora, consulta mais tarde" cargas de trabalho que requerem a ingestão de documento, "lento" modo de indexação possam ser adequado. Tenha em atenção que poderá obter resultados inconsistentes como dados obtém ingeridos e indexados lentamente. Isto significa que as consultas de contagem ou consulta específicas resultados não são garantidos que seja correto ou repeatable até dados estão indexados. O índice, geralmente, está a ser catch segurança modo. Tem Activelocation indexação lento - o TTL alterar resultados na obtenção de índice removida e recriada, pelo que esta atividade pode resultar em resultados inesperados. A maioria dos clientes deve utilizar a indexação consistente.
+**Em diferido**: neste caso específico, o índice é atualizado no modo assíncrono quando uma coleção de base de dados do Azure Cosmos é quiescent, ou seja, quando a capacidade de débito da coleção não é totalmente utilizada para servir pedidos do utilizador. Para "de inserção agora, consulta mais tarde" cargas de trabalho que requerem a ingestão de documento, o modo de indexação "lento" possam ser adequado. Tenha em atenção que poderá obter resultados inconsistentes como dados obtém ingeridos e indexados lentamente. Isto significa que as consultas de CONTAGEM ou consulta específicas resultados poderão não ser consistente ou repeatable em qualquer momento. O índice é, geralmente, no catch modo com transmissões em dados de cópia de segurança. No que respeita à indexação lento, tempo (TTL) em direto altera o resultado no índice obter removida e recriada, que faz com que os resultados de consulta e CONTAGEM inconsistente durante um período de tempo. Por esta razão, a maioria das contas de base de dados do Azure Cosmos deve utilizar a indexação consistente.
 
 **Nenhum**: uma coleção marcada com o modo de índice de "None" não tem nenhum índice associado. Isto é normalmente utilizado se a base de dados do Azure Cosmos é utilizada como um armazenamento de chave-valor e os documentos são acedidos apenas pela respetiva propriedade ID. 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Andaime enterprise do Azure - governação prescritiva subscrição
 As empresas adotem cada nuvem pública para a agilidade e a flexibilidade. Estes são utilizar força da codificação da nuvem para gerar receitas ou otimizar os recursos para as empresas. O Microsoft Azure oferece um em diversos serviços de que as empresas podem assemblar como blocos modulares para resolver um grande número de aplicações e cargas de trabalho. 
@@ -168,7 +168,7 @@ Para obter mais exemplos das etiquetas, consulte [recomendado convenções de no
 ## <a name="resource-group"></a>Grupo de recursos
 Gestor de recursos permite-lhe colocar recursos em grupos significativos para a afinidade de faturação ou natural de gestão. Conforme mencionado anteriormente, o Azure tem dois modelos de implementação. No modelo de clássico anterior, a unidade básica de gestão foi a subscrição. Foi difícil dividir recursos numa subscrição, que levou a criação de grandes quantidades de subscrições. Com o modelo do Resource Manager, que vimos a introdução de grupos de recursos. Grupos de recursos são contentores de recursos que têm um ciclo de vida comuns ou partilham um atributo, tais como "todos os servidores SQL" ou "A aplicação".
 
-Grupos de recursos não podem ser incluídos em si e recursos só podem pertencer a um grupo de recursos. Pode aplicar determinadas ações em todos os recursos num grupo de recursos. Por exemplo, a eliminação de um grupo de recursos remove todos os recursos no grupo de recursos. Normalmente, colocar uma aplicação completa ou sistema relacionado no mesmo grupo de recursos. Por exemplo, uma aplicação de três camadas denominada Contoso Web aplicação iria conter o servidor web, o servidor de aplicações e o SQL server no mesmo grupo de recursos.
+Grupos de recursos não podem ser incluídos em si e recursos só podem pertencer a um grupo de recursos. Pode aplicar determinadas ações em todos os recursos num grupo de recursos. Por exemplo, a eliminação de um grupo de recursos remove todos os recursos no grupo de recursos. Normalmente, colocar uma aplicação completa ou sistema relacionado no mesmo grupo de recursos. Por exemplo, uma aplicação de três camadas chamada aplicação de Web da Contoso iria conter o servidor web, o servidor de aplicações e o SQL server no mesmo grupo de recursos.
 
 > [!TIP]
 > Como organizar os seus grupos de recursos podem variar de cargas de trabalho "TI tradicionais" para cargas de trabalho "TI seja ágil":
