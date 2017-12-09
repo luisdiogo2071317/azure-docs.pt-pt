@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 44028b2ef268cb2deff273f755d2f5aeab5bdc17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ebf9f70abc6fbf880d7183ca0f5533a24d59451
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cdn-pop-locations"></a>Localizações POP do CDN do Azure
 Este tópico lista as localizações de POP atual para **CDN do Azure da Verizon** e **CDN do Azure da Akamai**.
@@ -35,7 +35,7 @@ Este tópico lista as localizações de POP atual para **CDN do Azure da Verizon
 | América do Norte | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />AC, Los Angeles<br />Miami, FL<br />Nova Iorque, NY<br />Philadelphia, PA<br />Blogue de SAN, AC<br />Seattle, WA<br />Washington DC | Canadá<br />México<br />Estados Unidos |
 | América do Sul | Buenos Aires, Argentina<br />Brasil, rio Alemanha Janeiro<br />Dobra Paulo, Brasil<br />Valparaíso, subordinado<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentina<br />Brasil<br />Chile<br />Colômbia<br />Equador<br />Peru<br />Uruguai |
 | Europa do Norte e leste | Copenhagen, Dinamarca<br />Helsinki, Finlândia<br />Warsaw, Polónia<br />Stockholm, Suécia | Bulgária<br />Dinamarca<br />Finlândia<br />Noruega<br />Polónia<br />Suécia<br /> |
-| Na Europa Ocidental | Viena, Áustria<br />França, Paris<br />Frankfurt, Alemanha<br />Amesterdão, Países Baixos<br />Londres, RU | Áustria<br />Bélgica<br />França<br />Alemanha<br />Irlanda<br />Países Baixos<br />Suíça<br />Reino Unido |
+| Europa Ocidental | Viena, Áustria<br />França, Paris<br />Frankfurt, Alemanha<br />Amesterdão, Países Baixos<br />Londres, RU | Áustria<br />Bélgica<br />França<br />Alemanha<br />Irlanda<br />Países Baixos<br />Suíça<br />Reino Unido |
 | Europa Austrais | Milão, Itália<br />Madrid, Espanha | Grécia<br />Itália<br />Portugal<br />Espanha |
 | Ásia Oriental | RAE de Hong Kong<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japão<br />Japão, Tóquio<br />Singapura<br />Seoul, Sul da Coreia<br />Kaohsiung, Taiwan | RAE de Hong Kong<br />Indonésia<br />Japão<br />Macau<br />Malásia<br />Filipinas<br />Singapura<br />Coreia do Sul<br />Taiwan<br />Tailândia |
 | Sul e Ásia Central | Bangalore, Índia<br />Chennai, Índia<br />Delhi, Índia<br />Mumbai, Índia<br />Novo Delhi, Índia | Índia<br />Sri Lanka |
@@ -44,5 +44,5 @@ Este tópico lista as localizações de POP atual para **CDN do Azure da Verizon
 | Austrália e Nova Zelândia | Melbourne, Austrália<br />Sydney, Austrália<br />Auckland, Nova Zelândia | Austrália<br />Nova Zelândia |
 
 ## <a name="see-also"></a>Veja Também
-* [API de nós do CDN limite do Azure para obter mais recentes endereços IP para adicionar à lista branca](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
+* [API de nós do CDN limite do Azure para obter mais recentes endereços IP para adicionar à lista branca](https://docs.microsoft.com/rest/api/cdn/edgenodes)
 

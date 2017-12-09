@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 4ad90ad979c5bd74fc55155098c88d5c13cb12e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e673a92a9740b96eac20cdf5673395bacca8b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Como obter uma instância de processador de multimédia
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Descrição geral
-Nos Media Services, que um processador de multimédia é um componente que processa uma tarefa de processamento específico, tal como a codificação, formato conversão, encriptar ou desencriptar o conteúdo de multimédia. Normalmente, crie um processador de multimédia quando estiver a criar uma tarefa para codificar, encriptar ou converter o formato de conteúdo do suporte de dados.
+Processadores de suporte de dados são um componente que processa um vídeo específico ou a tarefa de processamento de áudio, tais como a codificação de conversão do formato, encriptação ou desencriptar os conteúdos de multimédia. Todas as tarefas submetidas para os Media Services requerem um processador de multimédia para codificar, encriptar ou converter o conteúdo de vídeo ou áudio. 
 
 ## <a name="azure-media-processors"></a>Processadores de Media Services do Azure 
 
@@ -44,8 +44,6 @@ O tópico seguinte fornece uma lista de processadores de suporte de dados:
 
 Para obter informações sobre como ligar à API do AMS, consulte [aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Depois de ligar com êxito a https://media.windows.net, receberá um redirecionamento 301 especificando noutro URI de serviços de suporte de dados. Tem de se as chamadas subsequentes para o novo URI.
 
 ## <a name="get-a-media-processor"></a>Obter um processador de multimédia
 
@@ -60,7 +58,7 @@ Pedido:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 Resposta:
@@ -89,5 +87,5 @@ Resposta:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que sabe como obter uma instância de processador de suporte de dados, vá para o [como codificar um elemento](media-services-rest-get-started.md) tópico que irá mostrar como utilizar o codificador de multimédia Standard para codificar um elemento.
+Agora que sabe como obter uma instância de processador de suporte de dados, vá para o [como codificar um elemento](media-services-rest-get-started.md) artigo que demonstra como utilizar o codificador de multimédia Standard para codificar um elemento.
 

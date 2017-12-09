@@ -115,7 +115,7 @@ Se lhe pode aceder à aplicação, certifique-se de que o seu dispositivo de lim
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Passo 4 se não conseguir aceder a aplicação, utilize Certifique-se de IP para verificar as definições. 
 
-Para obter mais informações, consulte [descrição geral da monitorização de rede do Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Para obter mais informações, consulte [descrição geral da monitorização de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 [Resolver problemas de ligações de ambiente de trabalho remoto para um baseados em Windows Máquina Virtual do Azure](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

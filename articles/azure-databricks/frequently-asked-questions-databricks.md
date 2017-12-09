@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: d8257056fddda408b622d3da11c707ff39e180db
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas mais frequentes sobre Databricks do Azure
 
@@ -94,7 +94,7 @@ Se não tiver criado a área de trabalho e são adicionados como um utilizador, 
 
 #### <a name="solution"></a>Solução
 
-Databricks clusters utilizam um endereço IP público por nó. Se a sua subscrição já tiver utilizado a todos os IPs públicos, deve [pedido para aumentar a quota](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Escolha **Quota** como o **emitir tipo**, e **redes: ARM** como o **tipo de Quota**. No **detalhes**, pedir um aumento de quota de endereço IP público. Por exemplo, se o limite atualmente é 60 e pretender criar um cluster de nó de 100, pedir um aumento de limite a 160.
+Databricks clusters utilizam um endereço IP público por nó. Se a sua subscrição já tiver utilizado a todos os IPs públicos, deve [pedido para aumentar a quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Escolha **Quota** como o **emitir tipo**, e **redes: ARM** como o **tipo de Quota**. No **detalhes**, pedir um aumento de quota de endereço IP público. Por exemplo, se o limite atualmente é 60 e pretender criar um cluster de nó de 100, pedir um aumento de limite a 160.
 
 ### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Um segundo tipo de falha no início do fornecedor de nuvem ao configurar o cluster
 

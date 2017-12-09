@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: dc4a362b5737bb424ca2c196c85f4c51b6ee5e30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 51a9c8bd628ef9e65d04a3a4ddbdc127d84d4b54
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicação remota do serviço com Reliable Services
 > [!div class="op_single_selector"]
@@ -90,8 +90,8 @@ A arquitetura de sistema de interação remota propaga exceções acionadas o se
 Criação de ServiceProxy é uma operação simples, para que o utilizador pode criar tantas como precisarem. Proxy de serviço pode ser reutilizado desde que o utilizador precisar dele. Utilizador pode utilizar novamente ao mesmo proxy em caso de exceção. Cada ServiceProxy contém cliente de comunicação utilizada para enviar mensagens através da transmissão. Ao invocar a API, temos de interno Verifique se o cliente de comunicação utilizada é válido. Com base no que resultam, vamos voltar a criar o cliente de comunicação. Por conseguinte, o utilizador não é necessário recriar serviceproxy em caso de exceção.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Duração de ServiceProxyFactory
-[FabricServiceProxyFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) é uma fábrica de que cria o proxy para interfaces de comunicação remota diferente. Se utilizar a API `ServiceProxyBase.create` para criar o proxy, em seguida, framework cria um `FabricServiceProxyFactory`.
-É útil criar um manualmente quando for necessário substituir [ServiceRemotingClientFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) propriedades.
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) é uma fábrica de que cria o proxy para interfaces de comunicação remota diferente. Se utilizar a API `ServiceProxyBase.create` para criar o proxy, em seguida, framework cria um `FabricServiceProxyFactory`.
+É útil criar um manualmente quando for necessário substituir [ServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) propriedades.
 Fábrica é uma operação dispendiosa. `FabricServiceProxyFactory`mantém a cache de clientes de comunicação.
 Melhor prática é cache `FabricServiceProxyFactory` há tempo quanto possível.
 
@@ -101,7 +101,7 @@ A exceção de remota emitida pela API do serviço, como RuntimeException ou Fab
 ServiceProxy processar todas as exceções de ativação pós-falha para a partição de serviço é criado para. Resolve novamente os pontos finais esteja Exceptions(Non-Transient Exceptions) ativação pós-falha e repetem a chamada com o ponto final correto. Número de tentativas de ativação pós-falha exceção é indefinido.
 Em caso de TransientExceptions, apenas repete a chamada.
 
-Os parâmetros predefinidos de repetição são fornecidos por [OperationRetrySettings]. (https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) Transferindo OperationRetrySettings objeto para ServiceProxyFactory construtor, o utilizador pode configurar estes valores.
+Os parâmetros predefinidos de repetição são fornecidos por [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) Transferindo OperationRetrySettings objeto para ServiceProxyFactory construtor, o utilizador pode configurar estes valores.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Proteger a comunicação para Reliable Services](service-fabric-reliable-services-secure-communication.md)

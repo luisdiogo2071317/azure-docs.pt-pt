@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c94a52b8a34100f22b627e291cb0becd3501fd55
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5feaaa64a130e86f2016bcb6c1d01853a9a406a7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Introdução ao Azure Active Directory API do relatório
 
@@ -28,7 +28,7 @@ Azure Active Directory fornece-lhe uma variedade de relatórios. Os dados destes
 Este artigo fornece-lhe as informações necessárias começar a utilizar com o Azure AD APIs de relatórios.
 Na secção seguinte, pode encontrar mais detalhes sobre como utilizar a auditoria e início de sessão APIs. 
 
-Para perguntas mais frequentes, leia a nossa [FAQ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-faq). Para problemas, consulte [um pedido de suporte de ficheiros](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto)
+Para perguntas mais frequentes, leia a nossa [FAQ](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-faq). Para problemas, consulte [um pedido de suporte de ficheiros](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 ## <a name="learning-map"></a>Mapa de aprendizagem
 1. **Preparar** -antes de testar as amostras da API, terá de concluir o [pré-requisitos para o Azure AD API do relatório de acesso](active-directory-reporting-api-prerequisites-azure-portal.md).

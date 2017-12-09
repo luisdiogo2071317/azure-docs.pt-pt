@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b3fda4e6f38b0966820cc56d24e52feb07b44d15
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede routeable não internet que controla o acesso a. Estas redes, em seguida, podem ser ligadas a suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começar a utilizar as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -99,7 +99,7 @@ Segue-se uma lista dos problemas de configurações incorretas comuns que podem 
 * **Configuração do servidor DNS personalizada**: gestão de API o serviço depende de vários serviços do Azure. Quando a API Management está alojado numa VNET com um servidor DNS personalizado, tem de resolver os nomes de anfitriões desses serviços do Azure. Siga [isto](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) orientações sobre a configuração DNS personalizada. Consulte a tabela de portas abaixo e outros requisitos de rede para referência.
 
 > [!IMPORTANT]
-> Recomenda-se que, se estiver a utilizar um servidor de DNS personalizado (es) para a VNET, configure que **antes** implementar um serviço de API Management para a mesma. Caso contrário, terá de atualizar o serviço de API Management sempre que alterar os servidores de DNS (s) executando o [aplicar a operação de configuração de rede](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Recomenda-se que, se estiver a utilizar um servidor de DNS personalizado (es) para a VNET, configure que **antes** implementar um serviço de API Management para a mesma. Caso contrário, terá de atualizar o serviço de API Management sempre que alterar os servidores de DNS (s) executando o [aplicar a operação de configuração de rede](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **As portas necessárias para a API Management**: tráfego de entrada e saída para a sub-rede na qual a API Management está implementada pode ser controlado através de [grupo de segurança de rede][Network Security Group]. Se qualquer uma destas portas não estão disponíveis, a gestão de API poderá não funcionar corretamente e podem ficar inacessível. Um ou mais destas portas bloqueadas é ter outro problema de configuração incorreta comum quando utilizar a API Management com uma VNET.
 
@@ -108,7 +108,7 @@ Quando uma instância de serviço de API Management está alojada numa VNET, as 
 | Origem / destino portas | Direção | Protocolo de transporte | Origem / destino | Objetivo (*) | Tipo de rede virtual |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação de cliente para gestão de API|Externo |
-| * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e o Powershell |Interno |
+| * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e o Powershell |Interna |
 | * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência de armazenamento do Azure, o Service Bus do Azure e o Azure Active Directory (quando aplicável).|Externo & interno | 
 | * / 1433 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|**Acesso a pontos finais do SQL do Azure** |Externo & interno |
 | * / 11000 - 11999 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|**Acesso ao Azure SQL V12 mais recente** |Externo & interno |
@@ -148,7 +148,7 @@ Quando uma instância de serviço de API Management está alojada numa VNET, as 
  > [!IMPORTANT]
  > Depois de validar a conectividade, certifique-se remover todos os recursos implementados na sub-rede, antes de implementar a gestão de API para a sub-rede.
 
-* **As atualizações incrementais**: quando efetuar alterações à sua rede, consulte [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus), para verificar que o serviço de API Management não perdeu acesso a qualquer um dos recursos críticos que que depende. O estado de conectividade deve ser atualizado a cada 15 minutos.
+* **As atualizações incrementais**: quando efetuar alterações à sua rede, consulte [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), para verificar que o serviço de API Management não perdeu acesso a qualquer um dos recursos críticos que que depende. O estado de conectividade deve ser atualizado a cada 15 minutos.
 
 * **Ligações de navegação de recursos**: ao implementar numa sub-rede de vnet do Resource Manager estilo, gestão de API reserva-se a sub-rede através da criação de uma ligação de navegação de recursos. Se a sub-rede já contém um recurso de um fornecedor diferente, a implementação será **falhar**. Da mesma forma, quando mover um serviço de API Management para outra sub-rede ou eliminá-lo, vamos remover dessa ligação de navegação de recursos. 
 

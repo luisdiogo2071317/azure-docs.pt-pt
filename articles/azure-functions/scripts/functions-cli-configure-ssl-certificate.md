@@ -16,11 +16,11 @@ ms.topic: sample
 ms.date: 04/10/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 76602f63f8b7fd7adc38353756387484f0af6493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbc94734f3c49e7318734b05b30e0ef6b8767004
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Vincular um certificado SSL personalizado para uma aplicação de função
 
@@ -54,7 +54,7 @@ Este script utiliza os seguintes comandos. Cada comando nas ligações de tabela
 | [Criar AZ functionapp]() | Cria uma aplicação de função. |
 | [Adicione o nome de anfitrião do AZ appservice web configuração](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Mapeia um domínio personalizado para a aplicação de função. |
 | [carregamento de ssl de configuração do AZ serviço de aplicações web](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | Carrega um certificado SSL para uma aplicação de função. |
-| [enlace de ssl de configuração do AZ serviço de aplicações web](https://docs.microsoft.com/en-us/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Vincula um certificado SSL carregado para uma aplicação de função. |
+| [enlace de ssl de configuração do AZ serviço de aplicações web](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | Vincula um certificado SSL carregado para uma aplicação de função. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a28eacd820ed28a6470992ce86b060e886c00bcb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a2c514e76cfdeb263f384db3fa7d7da1783b0c22
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Como alterar as predefinições de duração do token para uma aplicação desenvolvida personalizada
 
@@ -29,10 +29,10 @@ O Azure AD Premium permite que os programadores de aplicações e administradore
 
  * Segue-se uma política de exemplo que define o token de atualização de fator único de idade máxima. Crie uma política:```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
- * Finalizar a [duração do token configurar](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes) documento para saber como criar outra personalizada.
+ * Finalizar a [duração do token configurar](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) documento para saber como criar outra personalizada.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Configurar a duração do Token](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
+[Configurar a duração do Token](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
 
-[Referência de Token do Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims)
+[Referência de Token do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
 

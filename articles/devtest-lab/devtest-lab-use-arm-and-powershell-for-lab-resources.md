@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: tarcher
-ms.openlocfilehash: cea4531175df2cc39790497dc049d27e23ffa0c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9f293c7c96633cd0116dc3c19189085d24048b4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Criar ou modificar laboratórios automaticamente com modelos Azure Resource Manager e o PowerShell
 
@@ -30,7 +30,7 @@ Este artigo ajuda-ajudá-lo durante o processo de utilizar estes modelos e scrip
 Pode encontrar previamente efetuadas [modelos Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) e [scripts do PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) no nosso público [repositório do Github](https://github.com/Azure/azure-devtestlab). Utilizá-los como-é, ou personalize-os para as suas necessidades e armazená-las na sua própria [repositório de Git privado](devtest-lab-add-artifact-repo.md). 
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>Passo 2: Modificar o modelo Azure Resource Manager
-Pode seguir os passos indicados em [criar o primeiro modelo Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template) se nunca tiver criado um modelo antes de.
+Pode seguir os passos indicados em [criar o primeiro modelo Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) se nunca tiver criado um modelo antes de.
 
 Além disso, [melhores práticas para a criação de modelos Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) oferece muitas orientações e sugestões para ajudar a criar os modelos Azure Resource Manager que são fiáveis e fáceis de utilizar. Normalmente, irá utilizar uma variação de um dos abordagens ou exemplos fornecidos e modificar o modelo para as suas necessidades.
 

@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Submeter tarefas de recorte de Recortador de suporte de dados do Azure
 Recortador de suporte de dados do Azure requer um **submitSubclipCallback** método para ser implementada para processar a submissão da tarefa de recorte. Esta função é para implementar um POST de HTTP de saída Recortador a um serviço web. Este serviço web é onde pode submeter a tarefa de codificação. O resultado do Recortador é a um codificador de multimédia Standard codificação predefinição para as tarefas compostas ou o payload de REST API para chamadas de filtro de manifesto dinâmico. Este modelo pass-through é necessário porque as credenciais de conta de serviços de suporte de dados não são seguras no browser do cliente.
@@ -151,7 +151,7 @@ O contrato de saída da tarefa para recorte composto é um objeto JSON com as se
 }
 ```
 
-Para efetuar a tarefa de codificação, submeter o codificador de multimédia Standard da tarefa de codificação associada com configuração predefinida. Consulte este artigo para obter detalhes sobre a codificação a submeter as tarefas utilizando o [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) ou [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+Para efetuar a tarefa de codificação, submeter o codificador de multimédia Standard da tarefa de codificação associada com configuração predefinida. Consulte este artigo para obter detalhes sobre a codificação a submeter as tarefas utilizando o [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) ou [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset).
 
 ## <a name="quickly-creating-video-clips-without-encoding"></a>Criar rapidamente aplicações de clips de vídeos sem codificação
 Alternativa para a criação de uma tarefa de codificação, pode utilizar o Recortador de suporte de dados do Azure para criar o manifesto de filtros dinâmicos. Os filtros não necessitam de codificação e podem ser criados rapidamente, como um novo elemento não é criado. O contrato de saída para um recorte de filtro é um objeto JSON com as seguintes propriedades:
@@ -227,4 +227,4 @@ Alternativa para a criação de uma tarefa de codificação, pode utilizar o Rec
 }
 ```
 
-Para submeter a chamada REST para criar o filtro de manifesto dinâmico, submeter o payload de filtro associado utilizando o [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).
+Para submeter a chamada REST para criar o filtro de manifesto dinâmico, submeter o payload de filtro associado utilizando o [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest).

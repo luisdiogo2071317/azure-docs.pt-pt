@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: 303fcfbda1934e3b29cb8ed06087c560275489e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: fc7d9494ddce127cb402d756f5fb03f21c5d3e8c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Gerir o Azure Cosmos DB no Explorador de armazenamento do Azure (pré-visualização)
 
@@ -54,7 +54,7 @@ Instalar os bits Explorador de armazenamento do Azure mais recentes aqui: [Explo
 
 3. Selecione a sua subscrição da lista e, em seguida, clique em **aplicar**.
 
-    ![Aplicar](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/apply-subscription.png)
+    ![Registe-se](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/apply-subscription.png)
 
     O painel do Explorador de atualizações e apresenta as contas na subscrição selecionada.
 
@@ -70,7 +70,7 @@ Uma maneira de ligar a uma base de dados do Azure Cosmos consiste em utilizar um
 
     ![ligar à base de dados do Azure Cosmos pela cadeia de ligação](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Escolha apropriados **experiência predefinido** para o tipo de conta qualquer um dos **DocumentDB** ou **MongoDB**, colar na sua **cadeia de ligação**e, em seguida, clique em **OK** para ligar a conta de base de dados do Azure Cosmos. Para informações sobre como obter a cadeia de ligação, consulte [obter a cadeia de ligação](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Escolha apropriados **experiência predefinido** para o tipo de conta qualquer um dos **DocumentDB** ou **MongoDB**, colar na sua **cadeia de ligação**e, em seguida, clique em **OK** para ligar a conta de base de dados do Azure Cosmos. Para informações sobre como obter a cadeia de ligação, consulte [obter a cadeia de ligação](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![cadeia de ligação](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -152,5 +152,5 @@ Editar o filtro de documento introduzindo um [consulta SQL](documentdb-sql-query
 ## <a name="next-steps"></a>Passos seguintes
 
 * Veja o vídeo seguinte para ver como utilizar a base de dados do Azure Cosmos no Explorador de armazenamento do Azure: [utilizar o Azure Cosmos DB no Explorador de armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Saiba mais sobre o Explorador de armazenamento e ligue-se mais serviços [introdução ao Explorador de armazenamento (pré-visualização)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Saiba mais sobre o Explorador de armazenamento e ligue-se mais serviços [introdução ao Explorador de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

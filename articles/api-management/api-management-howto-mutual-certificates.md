@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: c8573c73b0a6dc1b2644f78276d2f3e4fd442cea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como proteger serviços de back-end utilizando o cliente de autenticação de certificado na API Management do Azure
 API Management fornece a capacidade para proteger o acesso ao serviço de back-end de uma API utilizando certificados de cliente. Este guia mostra como gerir certificados no portal do publicador API e como configurar uma API para utilizar um certificado para aceder ao seu serviço de back-end.
@@ -108,7 +108,7 @@ Clique em **guardar** para guardar a alteração de configuração para a API.
 
 ## <a name="self-signed-certificates"></a>Certificados autoassinados
 
-Se estiver a utilizar certificados autoassinados, terá de desativar a validação da cadeia de certificado por ordem para a gestão de API comunicar com o sistema de back-end, caso contrário, irá devolver um código de 500 Erro. Para configurar, pode utilizar o [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (para o novo back-end) ou [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (para o back-end existente) cmdlets do PowerShell e defina o `-SkipCertificateChainValidation` parâmetro `True`.
+Se estiver a utilizar certificados autoassinados, terá de desativar a validação da cadeia de certificado por ordem para a gestão de API comunicar com o sistema de back-end, caso contrário, irá devolver um código de 500 Erro. Para configurar, pode utilizar o [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (para o novo back-end) ou [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (para o back-end existente) cmdlets do PowerShell e defina o `-SkipCertificateChainValidation` parâmetro `True`.
 
 ```
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

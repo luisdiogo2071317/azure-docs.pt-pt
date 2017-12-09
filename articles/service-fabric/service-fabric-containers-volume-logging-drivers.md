@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Utilizar o volume de Docker plug-ins e controladores de registo no contentor de
 Recursos de infraestrutura de serviço do Azure suporta a especificação de [Docker volume plug-ins](https://docs.docker.com/engine/extend/plugins_volume/) e [controladores de registo de Docker](https://docs.docker.com/engine/admin/logging/overview/) para o seu serviço de contentor. Pode manter os dados no [ficheiros do Azure](https://azure.microsoft.com/services/storage/files/) quando o contentor é movido ou reiniciado num anfitrião diferente.
@@ -28,7 +28,7 @@ Apenas os controladores de volume para contentores de Linux são atualmente supo
 
 ## <a name="install-the-docker-volumelogging-driver"></a>Instale o controlador de volume/registo de Docker
 
-Se o controlador de volume/registo de Docker não está instalado no computador, pode instalá-lo manualmente utilizando os protocolos RDP/SSH. Pode efetuar a instalação com estes protocolos através de um [conjunto de dimensionamento de máquina virtual de script de arranque](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) ou um [SetupEntryPoint script](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service).
+Se o controlador de volume/registo de Docker não está instalado no computador, pode instalá-lo manualmente utilizando os protocolos RDP/SSH. Pode efetuar a instalação com estes protocolos através de um [conjunto de dimensionamento de máquina virtual de script de arranque](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) ou um [SetupEntryPoint script](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
 Um exemplo de script para instalar o [controladores de volume do Docker para o Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) é o seguinte:
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: sumedhb;aglick
-ms.openlocfilehash: 6419d54c54e7d19103419262b79e7a5268b2268c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f19c4bba2152eb021831dedda734fd54ee78d75
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilidade do Cofre de chaves do Azure e de redundância
 O Cofre de chaves do Azure inclui várias camadas de redundância para se certificar de que as chaves e segredos permanecem disponíveis para a sua aplicação, mesmo se os componentes individuais do serviço falharem.
 
-O conteúdo do seu Cofre de chaves é replicado na região e para uma região secundária, pelo menos, 150 quilómetros ausente mas a mesma geografia. Isto mantém elevada durabilidade das suas chaves e segredos. Consulte o [Azure emparelhado regiões](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions) documento para obter detalhes sobre os pares de região específica.
+O conteúdo do seu Cofre de chaves é replicado na região e para uma região secundária, pelo menos, 150 quilómetros ausente mas a mesma geografia. Isto mantém elevada durabilidade das suas chaves e segredos. Consulte o [Azure emparelhado regiões](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) documento para obter detalhes sobre os pares de região específica.
 
 Se falharem a componentes individuais no serviço Cofre de chaves, alternativos componentes na região passo para servir o pedido para se certificar de que não há nenhum degradação de funcionalidade. Não é necessário efetuar qualquer ação para acionar esta. -Ocorre automaticamente e será transparente para si.
 
@@ -44,7 +44,7 @@ Existem algumas limitações a ter em consideração:
   * Moldar
   * Desenrolar
   * Verificar
-  * Início de sessão
+  * Assinar
   * Cópia de segurança
 * Após uma ativação pós-falha é falha novamente, todos os tipos de pedido (incluindo leitura *e* pedidos de escrita) estão disponíveis.
 

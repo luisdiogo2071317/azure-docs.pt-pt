@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: d5aa5cb5331b8b0e714156982ed162e873428be0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Tem de ajudar com o portal de aplicações My?
 
@@ -35,7 +35,7 @@ Problemas gerais para verificar:
 
 - Certifique-se a palavra-passe não está expirada ou esquecimento. Verifique [aqui](active-directory-passwords-update-your-own-password.md) para obter mais detalhes sobre como atualizar a palavra-passe.
 
-- Verifique se as informações de contacto de autenticação são até Data e não a bloquear o acesso. Verifique [aqui](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) para obter mais detalhes sobre como configurar as suas informações de autenticação.
+- Verifique se as informações de contacto de autenticação são até Data e não a bloquear o acesso. Verifique [aqui](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) para obter mais detalhes sobre como configurar as suas informações de autenticação.
 
 - Tente limpar os cookies do browser e, em seguida, tente voltar a iniciar sessão.
 

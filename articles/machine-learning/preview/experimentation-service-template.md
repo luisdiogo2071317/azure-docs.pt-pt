@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 2efffd14c748a070fff59bcf9dd21c02eb9f6dcd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: c7f4bf0fed35ffb2c03e8b983260c6093032fe79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Configurar o serviço de experimentação do Azure Machine Learning
 
 ## <a name="overview"></a>Descrição geral
-Conta de serviço de experimentação do Machine Learning do Azure, área e projeto são recursos do Azure. Como tal, que podem ser implementados através de modelos do Gestor de recursos. Os modelos do Resource Manager são ficheiros JSON que definem os recursos que precisa de implementar para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções do Azure, veja [Descrição geral do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+Conta de serviço de experimentação do Machine Learning do Azure, área e projeto são recursos do Azure. Como tal, que podem ser implementados através de modelos do Gestor de recursos. Os modelos do Resource Manager são ficheiros JSON que definem os recursos que precisa de implementar para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções do Azure, veja [Descrição geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="deploy-a-template"></a>Implementar um modelo
 A implementação de um modelo requer apenas alguns passos na Interface de linha de comandos do Azure ou no portal do Azure.
@@ -137,7 +137,7 @@ Crie um ficheiro com abaixo conteúdo e guarde-o como < Parameters. JSON >.
 Existem três valores que podem ser alteradas. 
 * AccountName: O nome da conta de experimentação.
 * Localização: Uma das regiões do Azure suportadas.
-* Conta de armazenamento SKU: Azure ML só suporta o armazenamento standard, premium não. Para obter mais informações sobre o armazenamento, consulte [introdução de armazenamento](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). 
+* Conta de armazenamento SKU: Azure ML só suporta o armazenamento standard, premium não. Para obter mais informações sobre o armazenamento, consulte [introdução de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
 
 ```json
 {

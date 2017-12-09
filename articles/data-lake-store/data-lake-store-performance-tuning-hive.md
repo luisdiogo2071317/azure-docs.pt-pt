@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: e10bf8f7cbae2b81d22823ff74fe652c6bcb2da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57bd8758c2ae24922a959c9ce3893aad90dfe7e1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Orientações para do Hive no HDInsight e o Azure Data Lake Store de otimização do desempenho
 
@@ -29,8 +29,8 @@ As predefinições foram definidas para oferecer um bom desempenho em muitos cas
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Azure Data Lake Store**. Para obter instruções sobre como criar um, consulte [introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Cluster do HDInsight Azure** com acesso a uma conta de Data Lake Store. Consulte [criar um cluster do HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de que ativar o ambiente de trabalho remoto para o cluster.
-* **Em execução do Hive no HDInsight**.  Para saber mais sobre como executar tarefas do Hive no HDInsight, consulte [utilizar o Hive no HDInsight] (https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-hive)
-* **Diretrizes no ADLS de otimização do desempenho**.  Para os conceitos gerais de desempenho, consulte [guia de otimização de desempenho do Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Em execução do Hive no HDInsight**.  Para saber mais sobre como executar tarefas do Hive no HDInsight, consulte [utilizar o Hive no HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Diretrizes no ADLS de otimização do desempenho**.  Para os conceitos gerais de desempenho, consulte [guia de otimização de desempenho do Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -56,7 +56,7 @@ Seguem-se as definições mais importantes para otimizar para um melhor desempen
 
 **Definir hive.exec.reducer.bytes.per.reducer** – o valor predefinido funciona bem quando os dados são descomprimidos.  Para os dados são comprimidos, deve reduzir o tamanho do reducer.  
 
-**Definir hive.tez.container.size** – em cada nó, memória é especificada por yarn.nodemanager.resource.memory mb e deve ser definida corretamente no HDI cluster por predefinição.  Para obter informações adicionais sobre a definição de memória adequada no YARN, consulte este [publique](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Definir hive.tez.container.size** – em cada nó, memória é especificada por yarn.nodemanager.resource.memory mb e deve ser definida corretamente no HDI cluster por predefinição.  Para obter informações adicionais sobre a definição de memória adequada no YARN, consulte este [publique](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
 Cargas de trabalho de e/s intensivas podem beneficiar do paralelismo mais ao diminuir o tamanho do contentor de Tez. Isto permite que o utilizador mais contentores que aumenta de concorrência.  No entanto, algumas consultas do Hive requerem uma quantidade significativa de memória (por exemplo, MapJoin).  Se a tarefa não tem memória suficiente, receberá um fora de exceção de memória durante o tempo de execução.  Se receber fora de exceções de memória, em seguida, deve aumentar a memória.   
 

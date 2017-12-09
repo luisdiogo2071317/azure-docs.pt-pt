@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 6c43473b86c14679ace558de478bd95f41d476da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ffd310573d0800593bd9d93d74da4bcece61fa4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Criar Filtros com o SDK .NET dos Serviços de Multimédia do Azure
 > [!div class="op_single_selector"]
@@ -27,13 +27,13 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-A partir da versão 2.11, os Media Services permite-lhe definir os filtros para os elementos. Estes filtros são as regras do lado do servidor que irão permitir que os seus clientes de optar por efetuar ações como: reprodução apenas uma secção de um vídeo (em vez de reproduzir o vídeo todo), ou especifique apenas um subconjunto de áudio e vídeos renditions que pode processar o dispositivo do cliente (em vez de todos os renditions que estão associados com o elemento). Esta filtragem dos seus ativos é conseguido através de **manifesto dinâmica**s que são criados após o pedido do cliente para um vídeo de fluxo com base em filtros especificados.
+A partir da versão 2.17, os Media Services permite-lhe definir os filtros para os elementos. Estes filtros são regras de lado do servidor que permitem que os seus clientes de optar por efetuar ações como: reprodução apenas uma secção de um vídeo (em vez de reproduzir o vídeo todo), ou especifique apenas um subconjunto de áudio e vídeos renditions que processa (em vez do dispositivo do cliente todos os os renditions que estão associados com o elemento). Esta filtragem dos seus ativos é conseguido através de **manifesto dinâmica**s que são criados após o pedido do cliente para um vídeo de fluxo com base em filtros especificados.
 
 Para obter mais informações relacionadas com filtros e manifesto dinâmico, consulte [dinâmico manifestos descrição geral](media-services-dynamic-manifest-overview.md).
 
-Este tópico mostra como utilizar o SDK .NET dos Media Services para criar, atualizar e eliminar os filtros. 
+Este artigo mostra como utilizar o SDK .NET dos Media Services para criar, atualizar e eliminar os filtros. 
 
-Tenha em atenção de que o se atualizar um filtro, pode demorar até 2 minutos para o ponto final para atualizar as regras de transmissão em fluxo. Se o conteúdo tiver sido servido com este filtro (e colocados em cache no proxies e CDN caches), ao atualizar este filtro pode resultar em falhas de leitor. É Recomendamos para limpar a cache depois de atualizar o filtro. Se esta opção não for possível, considere utilizar um filtro diferente. 
+Tenha em atenção de que o se atualizar um filtro, pode demorar até dois minutos até que ponto final para atualizar as regras de transmissão em fluxo. Se o conteúdo tiver sido servido com este filtro (e colocados em cache no proxies e CDN caches), ao atualizar este filtro pode resultar em falhas de leitor. Sempre limpe a cache depois de atualizar o filtro. Se esta opção não for possível, considere utilizar um filtro diferente. 
 
 ## <a name="types-used-to-create-filters"></a>Tipos de utilizados para criar filtros
 Quando criar os filtros, são utilizados os seguintes tipos: 

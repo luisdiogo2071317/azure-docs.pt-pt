@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c1277a04e3a63c09b2ed7f9304bfc482ab9189a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8ae453ca73ae69c34ff785dc619433035257a6a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>Ligar uma aplicação web a uma cache de redis
 
@@ -45,10 +45,10 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, a apl
 | Comando | Notas |
 |---|---|
 | [Criar grupo AZ](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
-| [Criar plano de serviço aplicacional AZ](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano de serviço de aplicações. Trata-se como um farm de servidores para a sua aplicação web do Azure. |
+| [Criar plano de serviço aplicacional AZ](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano de Serviço de Aplicações. Trata-se como um farm de servidores para a sua aplicação web do Azure. |
 | [Criar AZ webapp](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Cria uma aplicação web do Azure. |
-| [Criar AZ redis](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) | Crie uma nova instância da Cache de Redis. Este é onde os dados serão armazenados. |
-| [AZ lista-as chaves de redis](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_list_keys) | Lista as chaves de acesso para a instância da cache de redis. |
+| [Criar AZ redis](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Crie uma nova instância da Cache de Redis. Este é onde os dados serão armazenados. |
+| [AZ lista-as chaves de redis](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) | Lista as chaves de acesso para a instância da cache de redis. |
 | [AZ webapp configuração appsettings conjunto](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Cria ou atualiza uma definição de aplicação para uma aplicação web do Azure. As definições de aplicação são expostas como variáveis de ambiente para a sua aplicação. |
 
 ## <a name="next-steps"></a>Passos seguintes

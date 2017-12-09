@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f1ef4bbc050560287b8638a0f3398e02efec554
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de Máquina Virtual de ciência dados
 
@@ -35,7 +35,7 @@ Seguem-se algumas ferramentas de movimento de dados que fornecemos-na DSVM.
 | Versões suportadas DSVM      | Windows      |
 | Utilizações comuns      | Importar vários blobs storage do Azure para o Azure Data Lake Store.      |
 |  Como utilizar / executá-lo?    |   Abra uma linha de comandos, em seguida, escreva `adlcopy` para obter ajuda.    |
-| Ligações para amostras      | Https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob [utilizando AdlCopy])      |
+| Ligações para amostras      | Https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob [utilizando AdlCopy])      |
 | Ferramentas relacionadas no DSVM      | AzCopy, linha de comandos do Azure     |
 
 ## <a name="azure-command-line"></a>Linha de comandos do Azure
@@ -58,7 +58,7 @@ Seguem-se algumas ferramentas de movimento de dados que fornecemos-na DSVM.
 | Versões suportadas DSVM      | Windows      |
 | Utilizações comuns      | Copiar ficheiros para o blob storage, copiar os blobs entre contas.      |
 |  Como utilizar / executá-lo?    |   Abra uma linha de comandos, em seguida, escreva `azcopy` para obter ajuda.    |
-| Ligações para amostras      | [AzCopy no Windows](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)      |
+| Ligações para amostras      | [AzCopy no Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | Ferramentas relacionadas no DSVM      | AdlCopy     |
 
 
@@ -70,7 +70,7 @@ Seguem-se algumas ferramentas de movimento de dados que fornecemos-na DSVM.
 | Versões suportadas DSVM      | Windows      |
 | Utilizações comuns      | Importar ficheiros de uma VM para CosmosDB, importar dados do table storage do Azure para CosmosDB ou importar dados a partir de uma base de dados do SQL Server para CosmosDB.     |
 |  Como utilizar / executá-lo?    |   Para utilizar a linha de comandos versão, abra uma linha de comandos, em seguida, escreva `dt`. Para utilizar a ferramenta de GUI, abra uma linha de comandos, em seguida, escreva `dtui`.    |
-| Ligações para amostras      | [CosmosDB importar dados](https://docs.microsoft.com/en-us/azure/cosmos-db/import-data)      |
+| Ligações para amostras      | [CosmosDB importar dados](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Ferramentas relacionadas no DSVM      | AzCopy, AdlCopy      |
 
 
@@ -82,7 +82,7 @@ Seguem-se algumas ferramentas de movimento de dados que fornecemos-na DSVM.
 | Versões suportadas DSVM      | Windows      |
 | Utilizações comuns      | Importar um ficheiro CSV para uma tabela do SQL Server, exportar uma tabela do SQL Server para um ficheiro.      |
 |  Como utilizar / executá-lo?    |   Abra uma linha de comandos, em seguida, escreva `bcp` para obter ajuda.    |
-| Ligações para amostras      | [Utilitário de cópia em massa](https://docs.microsoft.com/en-us/sql/tools/bcp-utility)      |
+| Ligações para amostras      | [Utilitário de cópia em massa](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Ferramentas relacionadas no DSVM      | SQL Server, sqlcmd      |
 
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: e1f17f9f4e17a3eebb55e4ec1905aec19a2165a5
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 9b0d37e4f7930389d3399e51de905db2b2ce8c27
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="generate-shared-access-signature"></a>Gerar a assinatura de acesso partilhado
 
-Este artigo mostra um exemplo de política de gestão de API do Azure que demonstra como gerar [assinatura de acesso partilhado](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) utilizando expressões e reencaminhá-los o pedido para o armazenamento do Azure com a política de reescrever-uri. Para definir ou editar um código de política, siga os passos descritos no [conjunto ou editar uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [amostras de política](../policy-samples.md).
+Este artigo mostra um exemplo de política de gestão de API do Azure que demonstra como gerar [assinatura de acesso partilhado](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) utilizando expressões e reencaminhá-los o pedido para o armazenamento do Azure com a política de reescrever-uri. Para definir ou editar um código de política, siga os passos descritos no [conjunto ou editar uma política](../set-edit-policies.md). Para ver outros exemplos, consulte [amostras de política](../policy-samples.md).
 
 ## <a name="policy"></a>Política
 

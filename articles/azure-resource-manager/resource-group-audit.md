@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Ver registos de atividade para auditar as ações em recursos
 Através de registos de atividade, poderá determinar:
@@ -38,10 +38,10 @@ Pode obter informações a partir de registos de atividade através do portal, d
    
     ![Selecione os registos de atividade](./media/resource-group-audit/select-monitor.png)
 
-   Ou, para filtrar automaticamente o registo de atividade para um determinado recurso ou grupo de recursos, selecione **registo de atividade** a partir do painel recurso. Tenha em atenção que o registo de atividade é filtrado automaticamente pelo recurso selecionado.
+   Ou, para filtrar automaticamente o registo de atividade para um determinado recurso ou grupo de recursos, selecione **registo de atividade**. Tenha em atenção que o registo de atividade é filtrado automaticamente pelo recurso selecionado.
    
     ![Filtrar por recurso](./media/resource-group-audit/filtered-by-resource.png)
-2. No **registo de atividade** painel, pode ver um resumo das operações recentes.
+2. No **registo de atividade**, pode ver um resumo das operações recentes.
    
     ![Mostrar ações](./media/resource-group-audit/audit-summary.png)
 3. Para restringir o número de operações, apresentada, selecione condições diferentes. Por exemplo, a imagem seguinte mostra o **Timespan** e **eventos iniciadas pelo** campos alterado para ver as ações executadas por um utilizador específico ou aplicação para o último mês. Selecione **aplicar** para ver os resultados da sua consulta.
@@ -147,4 +147,5 @@ As operações REST para trabalhar com o registo de atividade são parte a [Insi
 * Para saber mais sobre a definição de políticas de segurança, consulte [controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md).
 * Para saber mais sobre os comandos para ver as operações de implementação, consulte [ver as operações de implementação](resource-manager-deployment-operations.md).
 * Para saber como impedir eliminações num recurso para todos os utilizadores, consulte [bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
+* Para ver a lista de operações disponíveis para cada fornecedor do Microsoft Azure Resource Manager, consulte [operações de fornecedor de recursos do Azure Resource Manager](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
 
