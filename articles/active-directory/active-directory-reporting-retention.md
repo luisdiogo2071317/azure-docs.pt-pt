@@ -8,18 +8,18 @@ manager: femila
 editor: 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 12/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 933d251903f4ca74902e984e7a1581a75345ee7f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 6bdc4111267dc967585ba1b336d3e7cbcc6df775
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Políticas de retenção de relatórios do Azure Active Directory
 
@@ -40,8 +40,8 @@ Este tópico fornece respostas às perguntas mais comuns em conjunto com a reten
 
 **R:**
 
-- **Imediatamente** - se de que tem estado a trabalhar com relatórios no portal clássico do Azure
-- **Dentro de 2 horas** - se de que ainda não ativou o Reporting Services no portal clássico do Azure
+- **Imediatamente** - se de que tem estado a trabalhar com relatórios no portal do Azure
+- **Dentro de 2 horas** - se de que ainda não ativou o Reporting Services no portal do Azure
 
 ---
 **P: como é pode obter a coleção de sinais de segurança iniciada?**  

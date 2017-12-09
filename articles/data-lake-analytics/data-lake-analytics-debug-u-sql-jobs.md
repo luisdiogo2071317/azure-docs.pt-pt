@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depurar definido pelo utilizador código c# para as tarefas que falharam U-SQL
 
-U-SQL fornece um modelo de extensibilidade com c#. Em scripts U-SQL, é fácil chamar as funções de c# e executar as funções analíticas que não suporta o idioma declarativo como o SQL Server. Para saber mais extensibilidade do U-SQL, consulte [guia de programação para U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL fornece um modelo de extensibilidade com c#. Em scripts U-SQL, é fácil chamar as funções de c# e executar as funções analíticas que não suporta o idioma declarativo como o SQL Server. Para saber mais extensibilidade do U-SQL, consulte [guia de programação para U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
 Na prática, qualquer código poderá ter de depuração, mas é difícil de uma tarefa distribuída com o código personalizado na nuvem de depuração com ficheiros de registo limitado. [Ferramentas do Azure Data Lake para Visual Studio](http://aka.ms/adltoolsvs) fornece uma funcionalidade denominada **falha vértice depurar**, que ajuda a mais facilmente depurar falhas que ocorrem no seu código personalizado. Quando a tarefa de U-SQL falha, o serviço mantém o estado de falha e a ferramenta ajuda-o a transferir o ambiente de falha de nuvem para o computador local para depuração. A transferência local captura o ambiente de nuvem completo, incluindo quaisquer dados de entrada e o código de utilizador.
 

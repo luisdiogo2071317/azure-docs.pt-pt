@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2e0fb528b22c5696aa46a677199b95ff3fbd6a79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -31,9 +31,13 @@ Atualmente, o Azure Active Directory Deteta seis tipos de eventos de risco:
 - [Deslocação impossível para localizações atípicas](#impossible-travel-to-atypical-locations) 
 - [Inícios de sessão a partir de dispositivos infetados](#sign-ins-from-infected-devices) 
 - [Inícios de sessão de endereços IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Inícios de sessão a partir de localizações desconhecidas](#sign-in-from-unfamiliar-locations) (exclusiva **do Azure Active Directory Premium P2** edições)
+- [Inícios de sessão a partir de localizações desconhecidas](#sign-in-from-unfamiliar-locations) 
+
 
 ![Eventos de risco](./media/active-directory-reporting-risk-events/91.png)
+
+As informações que obtém para um evento de risco detetados está associada à sua subscrição do Azure AD. Se tiver uma edição do Azure AD Premium P1 (incluída no EMS E3 oferta), as deteções que não são abrangidas pelo seu licença são reportadas como **início de sessão com o risco adicional detetado**. Por outras palavras, verá um evento de risco início de sessão com o risco adicional detetado para deteções exclusivas para subscritores do Azure AD Identity Protection.
+
 
 Este tópico fornece-lhe uma descrição detalhada do que eventos de risco são e como pode utilizá-las para proteger as identidades do Azure AD.
 
@@ -165,12 +169,12 @@ Eventos de risco são foundation para proteger as identidades do seu Azure AD. D
 
 | Tipo de evento de risco | Nível de risco | Tipo de deteção |
 | :-- | --- | --- |
-| [Utilizadores com credenciais obtidas ilicitamente](#leaked-credentials) | Alta | Offline |
-| [Inícios de sessão de endereços IP anónimos](#sign-ins-from-anonymous-ip-addresses) | Média | Em tempo real |
-| [Deslocação impossível para localizações atípicas](#impossible-travel-to-atypical-locations) | Média | Offline |
-| [Inícios de sessão a partir de localizações desconhecidas](#sign-in-from-unfamiliar-locations) | Média | Em tempo real |
-| [Inícios de sessão a partir de dispositivos infetados](#sign-ins-from-infected-devices) | Baixa | Offline |
-| [Inícios de sessão de endereços IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) | Média | Offline|
+| [Utilizadores com credenciais obtidas ilicitamente](#leaked-credentials) | Elevado | Offline |
+| [Inícios de sessão de endereços IP anónimos](#sign-ins-from-anonymous-ip-addresses) | Médio | Em tempo real |
+| [Deslocação impossível para localizações atípicas](#impossible-travel-to-atypical-locations) | Médio | Offline |
+| [Inícios de sessão a partir de localizações desconhecidas](#sign-in-from-unfamiliar-locations) | Médio | Em tempo real |
+| [Inícios de sessão a partir de dispositivos infetados](#sign-ins-from-infected-devices) | Baixo | Offline |
+| [Inícios de sessão de endereços IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) | Médio | Offline|
 
 Onde podem encontrar os eventos de risco que foram detetados no seu ambiente?
 Existem dois locais onde rever eventos de risco comunicado:

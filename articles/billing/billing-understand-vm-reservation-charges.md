@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-ms.openlocfilehash: 3fd12bd3c51eeef57c896da030a83e447dc3e8ff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: d476380fa841617f7eb914167ebd7d5b8aa611c2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Compreender a forma como é aplicado o desconto de instância de Máquina Virtual reservado
 Depois de comprar uma instância de VM reservado, o desconto de reserva é aplicado automaticamente a máquinas virtuais, os atributos e a quantidade da reserva de correspondência. Uma reserva abrange os custos de infraestrutura das suas máquinas virtuais. A tabela seguinte ilustra os custos para a máquina virtual depois de comprar uma reserva. Em todos os casos, são-lhe cobrados para armazenamento e redes nas taxas normais.
@@ -28,7 +28,7 @@ Depois de comprar uma instância de VM reservado, o desconto de reserva é aplic
 |VMs com Linux com custos de software (por exemplo, Red Hat) | Reserva abrange os custos de infraestrutura. São-lhe cobrados para o software adicional.|
 |VMs do Windows sem software adicional |Reserva abrange os custos de infraestrutura. São-lhe cobrados de software do Windows.|
 |VMs do Windows com o software adicional (por exemplo, o SQL server) | Reserva abrange os custos de infraestrutura. São-lhe cobrados para software do Windows e para software adicional.|
-|VMs do Windows com [benefício híbridos do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Reserva abrange os custos de infraestrutura. Os custos de software do Windows estão abrangidos pelo benefício de híbrida do Azure. Qualquer software adicional é cobrada separadamente.| 
+|VMs do Windows com [benefício híbridos do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Reserva abrange os custos de infraestrutura. Os custos de software do Windows estão abrangidos pelo benefício de híbrida do Azure. Qualquer software adicional é cobrada separadamente.| 
 
 ## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Aplicação de desconto de reserva para não - VMs do Windows
  O desconto de reserva é aplicado a executar instâncias VM numa base horária. As reservas que que comprou são correspondidas para utilização emitida pelas VMs em execução para aplicar o desconto de reserva. O gráfico seguinte ilustra a aplicação de uma reserva para utilização VM sujeito a faturação. A ilustração é com base na compra de reserva de uma e duas instâncias VM correspondentes.
@@ -43,7 +43,7 @@ Depois de comprar uma instância de VM reservado, o desconto de reserva é aplic
 Compreender e ver a aplicação do seu reservas relatórios de utilização de faturação, consulte [utilização compreender reservado instância de VM](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Aplicação de desconto de reserva para VMs do Windows
-Quando estiver a executar instâncias de VM do Windows, é aplicada a reserva para cobrir os custos de infraestrutura. A aplicação de reserva para os custos de infraestrutura VM para VMs do Windows é o mesmo para não - VMs do Windows. São-lhe cobrados em separado para software do Windows numa base por vCPU. Consulte [os custos de software do Windows com reservas](https://go.microsoft.com/fwlink/?linkid=862756). Pode abranger o Windows os custos com [Azure híbrida benefício para o Windows Server] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) de licenciamento.
+Quando estiver a executar instâncias de VM do Windows, é aplicada a reserva para cobrir os custos de infraestrutura. A aplicação de reserva para os custos de infraestrutura VM para VMs do Windows é o mesmo para não - VMs do Windows. São-lhe cobrados em separado para software do Windows numa base por vCPU. Consulte [os custos de software do Windows com reservas](https://go.microsoft.com/fwlink/?linkid=862756). Pode abranger os custos de licenciamento do Windows com [Azure híbrida benefício para o Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 

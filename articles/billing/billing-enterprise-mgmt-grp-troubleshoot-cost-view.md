@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: eca1ac9ed51e6c2243be451a074792fbec2840d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Resolver problemas empresariais vistas de custos 
 
-Dentro de inscrições de enterprise, existem várias definições que pode fazer com que os utilizadores dentro da inscrição não conseguir ver os custos.  Estas definições são geridas pelo administrador de inscrição ou pelo parceiro de se a inscrição não está a ser adquirida diretamente com a Microsoft.  Este artigo ajuda-o a compreender quais são as definições e forma afetam a inscrição. Estas definições são independentes do [funções do RBAC do Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
+Dentro de inscrições de enterprise, existem várias definições que pode fazer com que os utilizadores dentro da inscrição não conseguir ver os custos.  Estas definições são geridas pelo administrador de inscrição ou pelo parceiro de se a inscrição não está a ser adquirida diretamente com a Microsoft.  Este artigo ajuda-o a compreender quais são as definições e forma afetam a inscrição. Estas definições são independentes do [funções do RBAC do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
 > [!Note]
 > Esta funcionalidade está atualmente a ser uma pré-visualização privada. [Inscrever-se aqui](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) ter a associar a pré-visualização a inscrição.     
@@ -46,5 +46,5 @@ Se receber uma mensagem de erro "este recurso não está disponível" quando ten
 ![recurso não encontrado](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Contacte o administrador dos grupos de gestão ou de subscrição para terem acesso.  
-* Para as subscrições, referência [controlo de acesso em funções do Azure (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) documento para obter ajuda nos quais a função é necessária.
+* Para as subscrições, referência [controlo de acesso em funções do Azure (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) documento para obter ajuda nos quais a função é necessária.
 * Para grupos de gestão, o acesso do RBAC não está disponível e estará disponível em breve. Contacte o seu portal da empresa administrar a ter acesso atribuído.   

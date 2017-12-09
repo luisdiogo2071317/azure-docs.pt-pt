@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 33fd86ce92043e1de5b3d72c9fe4bb7b428b4b03
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteger a sua serviços RESTful, utilizando a autenticação básica de HTTP
 Num [relacionado do Azure AD B2C artigo](active-directory-b2c-custom-rest-api-netfw.md), criar um serviço RESTful (web API) que se integra com o Azure Active Directory B2C percursos de utilizador (Azure AD B2C) sem autenticação. 
 
 Neste artigo, adicionar autenticação básica de HTTP ao seu serviço RESTful, para que apenas verificar os utilizadores, incluindo B2C, pode aceder à sua API. Com a autenticação básica de HTTP, defina as credenciais de utilizador (ID de aplicação e o segredo de aplicação) na sua política personalizada. 
 
-Para obter mais informações, consulte [a autenticação básica na API web do ASP.NET](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication).
+Para obter mais informações, consulte [a autenticação básica na API web do ASP.NET](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Concluir os passos a [integrar o API de REST afirmações trocas da sua viagem do Azure AD B2C utilizador](active-directory-b2c-custom-rest-api-netfw.md) artigo.

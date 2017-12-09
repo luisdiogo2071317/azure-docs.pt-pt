@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e887230a102f5c6289ca2eec0e4700a0e1fdfde
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 06b77ce5b6f15e3dae4a7d4bad76def949774678
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual com acelerados da rede
 
@@ -396,7 +396,7 @@ Criar um Red Hat Enterprise Linux ou VM do CentOS 7.3 requer alguns passos adici
     
     # Specify the base image's VHD URI (from phase one step 5). 
     # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
-    # See more from here: https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption
+    # See more from here: https://docs.microsoft.com/azure/storage/storage-service-encryption
     # This is just an example URI, you will need to replace this when running this script
     $sourceUri="https://myexamplesa.blob.core.windows.net/vhds/CentOS73-Base-Test120170629111341.vhd" 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.openlocfilehash: 9f3d564fd844d982838cc6f29af24399801a62bc
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Procurar e gerir recursos de armazenamento utilizando o Explorador de servidores
 
@@ -162,7 +162,7 @@ A imagem seguinte mostra uma fila que contém duas mensagens:
 Para obter mais informações sobre o armazenamento do filas, consulte [introdução ao armazenamento de filas do Azure através do .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Para obter informações sobre o serviço web para as filas de serviços de armazenamento, consulte o artigo [conceitos do serviço fila](http://go.microsoft.com/fwlink/?LinkId=264788). Para obter informações sobre como enviar mensagens para uma fila de serviços de armazenamento utilizando o Visual Studio, consulte [enviar mensagens para uma fila de serviços de armazenamento](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
 > [!NOTE]
-> As filas de serviços de armazenamento são distintas de filas do Service Bus do Azure. Para obter mais informações sobre as filas do Service Bus, consulte [filas do Service Bus, tópicos e subscrições](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
+> As filas de serviços de armazenamento são distintas de filas do Service Bus do Azure. Para obter mais informações sobre as filas do Service Bus, consulte [filas do Service Bus, tópicos e subscrições](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## <a name="work-with-table-resources"></a>Trabalhar com recursos de tabela
 

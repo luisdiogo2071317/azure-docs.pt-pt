@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: eslesar
-ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e2df8fcbd342012e5e76730a68d9c72ce3264d8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Reencaminhar dados de relatórios ao OMS Log Analytics do Azure Automation DSC
 
@@ -43,7 +43,7 @@ Para começar a enviar os seus relatórios do Automation DSC para análise de re
 
 Para começar a importação de dados do Azure Automation DSC análise de registos, conclua os seguintes passos:
 
-1. Inicie sessão sua conta do Azure no PowerShell. Consulte [iniciar sessão com o Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. Inicie sessão sua conta do Azure no PowerShell. Consulte [iniciar sessão com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Obter o _ResourceId_ da sua conta de automatização, executando o seguinte comando do PowerShell: (se tiver mais do que uma conta de automatização, escolha o _ResourceID_ para a conta que pretende configurar).
 
   ```powershell

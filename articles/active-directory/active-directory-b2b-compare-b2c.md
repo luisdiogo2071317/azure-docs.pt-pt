@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33990e58ffed271b4d6e968b92a5ce16e8bbd287
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparar a colaboração B2B e B2C no Azure Active Directory
 
@@ -35,7 +35,7 @@ Início de sessão único (SSO) para todas as aplicações do Azure AD-ligado é
 Ciclo de vida do parceiro: geridos através do anfitrião/inviting organização.  | Ciclo de vida do cliente: gestão personalizada ou geridos pela aplicação.
 Política de segurança e conformidade: geridos através do anfitrião/inviting organização.  | Política de segurança e conformidade: gerida pela aplicação.
 Imagem corporativa: É utilizada a marca do anfitrião/inviting da organização.  |    Imagem corporativa: Gerida pela aplicação. Normalmente, tende produto imagem corporativa, com o fading organização em segundo plano.
-Obter mais informações: [blogue](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [documentação](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | Obter mais informações: [página de produto](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [documentação](https://docs.microsoft.com/en-us/azure/active-directory-b2c/)
+Obter mais informações: [blogue](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [documentação](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | Obter mais informações: [página de produto](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [documentação](https://docs.microsoft.com/azure/active-directory-b2c/)
 
 
 ### <a name="next-steps"></a>Passos seguintes

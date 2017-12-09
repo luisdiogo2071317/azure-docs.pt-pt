@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: e9a5b6ffdf2a2c30ae1bcb2bd8f91adb12f35266
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 0bc00dd14977e7cf24f5bff6928d09ca67761d3b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar o REST API trocas de afirmações da sua viagem do Azure AD B2C utilizador como a validação da intervenção do utilizador
 Com o Framework de experiência de identidade, subjacente que o Azure Active Directory B2C (Azure AD B2C), pode integrar com uma API RESTful em journey um utilizador. Esta explicação passo a passo, irá aprender como o Azure AD B2C interage com os serviços RESTful do .NET Framework (web API).
@@ -215,7 +215,7 @@ Na API, web um _controlador_ é um objeto que processa os pedidos HTTP. Devolve 
     O **criar App Service** é aberta a janela. Aqui, vai criar todos os recursos do Azure necessários para executar a aplicação web do ASP.NET no Azure.
 
     > [!NOTE]
-    >Para obter mais informações sobre a publicação, consulte [criar uma aplicação web ASP.NET no Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >Para obter mais informações sobre a publicação, consulte [criar uma aplicação web ASP.NET no Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. No **nome da aplicação Web** caixa, escreva um nome de aplicação único (carateres válidos são. a-z, 0-9 e hífenes (-). O URL da aplicação web é http://<app_name>.azurewebsites.NET, onde *APP_NAME>.azurewebsites.NET* é o nome da sua aplicação web. Também pode aceitar o nome gerado automaticamente, que já é exclusivo.
 

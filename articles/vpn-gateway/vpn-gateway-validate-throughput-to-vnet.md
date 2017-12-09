@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 3a1a6e2acd2ff40c2b35a6099f8a9fc7eb104bbc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar o débito da VPN a uma rede virtual
 
@@ -53,7 +53,7 @@ O diagrama seguinte mostra a conectividade lógica de uma rede no local a uma re
 4.  Determine a largura de banda do fornecedor de serviços Internet (ISP).
 5.  Calcular o débito esperado - menos largura de banda de Internet (ISP VM, Gateway,) * 0.8.
 
-Se o débito calculado não cumpre os requisitos de débito de linha de base da sua aplicação, terá de aumentar a largura de banda do recurso que é identificado como valor. Redimensionar um Gateway de VPN do Azure, consulte [alterar um SKU de gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Redimensionar uma máquina virtual, consulte [redimensionar uma VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Se não ocorrerem esperada largura de banda de Internet, também poderá contactar o seu ISP.
+Se o débito calculado não cumpre os requisitos de débito de linha de base da sua aplicação, terá de aumentar a largura de banda do recurso que é identificado como valor. Redimensionar um Gateway de VPN do Azure, consulte [alterar um SKU de gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Redimensionar uma máquina virtual, consulte [redimensionar uma VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Se não ocorrerem esperada largura de banda de Internet, também poderá contactar o seu ISP.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Validar o débito de rede utilizando ferramentas de desempenho
 

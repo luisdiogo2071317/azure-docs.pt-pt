@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 1860ede19202566947b68b715e6bd354f64c1085
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d593b011ce4d0998ef07bc257d3c26f1286e3b0e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Implementar OpenShift origem no Azure
 
@@ -98,7 +98,7 @@ O exemplo seguinte cria um ficheiro de parâmetros com o nome azuredeploy.parame
 
 
 > [!NOTE] 
-> O seguinte comando requer a CLI do Azure 2.0.8 ou posterior. Pode verificar a versão do CLI com o `az --version` comando. Para atualizar a versão do CLI, consulte [instalar o Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> O seguinte comando requer a CLI do Azure 2.0.8 ou posterior. Pode verificar a versão do CLI com o `az --version` comando. Para atualizar a versão do CLI, consulte [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 O exemplo seguinte implementa o cluster de OpenShift e todos os recursos relacionados para um grupo de recursos com o nome myResourceGroup, com um nome de implementação de myOpenShiftCluster. O modelo é referenciado diretamente a partir do repositório GitHub utilizando um ficheiro de parâmetros local com o nome azuredeploy.parameters.json.
 

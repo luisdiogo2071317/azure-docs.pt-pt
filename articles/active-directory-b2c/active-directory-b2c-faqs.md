@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 43c930c18c284a8e6c71174bcf905904001dcde2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
 Esta página respostas a perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para atualizações.
@@ -37,7 +37,7 @@ No inquilino do Azure AD B2C, a maioria das aplicações pretendem que o utiliza
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Os fornecedores de identidade sociais suportam agora? Aqueles planeia suportar no futuro?
 Suportamos atualmente Facebook, Google +, LinkedIn, Amazon, Twitter (pré-visualização), WeChat (pré-visualização), Weibo (pré-visualização) e QQ (pré-visualização). Iremos adicionar suporte para outros fornecedores de identidade de redes sociais populares com base no pedido do cliente.
 
-O Azure AD B2C tenha também adicionado suporte para [políticas personalizadas](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Estes [políticas personalizadas](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) permitir que um programador criar as seus próprios política que com qualquer fornecedor de identidade que suporte [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
+O Azure AD B2C tenha também adicionado suporte para [políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Estes [políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) permitir que um programador criar as seus próprios política que com qualquer fornecedor de identidade que suporte [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
 
 Introdução às políticas personalizadas ao verificar nossos [pacote de arranque de política personalizada](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
@@ -87,7 +87,7 @@ Não, do Azure AD Connect não foi concebida para funcionar com o Azure AD B2C. 
 Não, por motivos de segurança, não não possível abrir as páginas do Azure AD B2C numa iFrame.  O nosso serviço comunica com o browser de modo a proibir iFrames.  A Comunidade de segurança em geral e a especificação do OAUTH2, recomenda-se contra a utilização de iFrames para experiências de identidade devido ao risco de jacking de clique.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C funciona com sistemas CRM como Microsoft Dynamics?
-Integração com o Portal do Microsoft Dynamics 365 está disponível.  Consulte [configurar Portal de 365 Dynamics a utilizar o Azure AD B2C para autenticação](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c).
+Integração com o Portal do Microsoft Dynamics 365 está disponível.  Consulte [configurar Portal de 365 Dynamics a utilizar o Azure AD B2C para autenticação](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C funcionam com o SharePoint no local 2016 ou anterior?
 O Azure AD B2C não destinam-se o SharePoint externo partilhar de parceiro cenário; consulte [do Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) em vez disso.

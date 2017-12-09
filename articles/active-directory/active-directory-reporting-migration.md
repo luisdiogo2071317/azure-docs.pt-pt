@@ -1,37 +1,36 @@
 ---
-title: "Localizar os relatórios de atividade no portal do Azure | Microsoft Docs"
-description: "Saiba como localizar relatórios de atividade do Azure Active Directory no portal do Azure."
+title: "Localizar os relatórios de atividade de utilizador do Azure Active Directory no portal do Azure | Microsoft Docs"
+description: "Saiba onde os relatórios de atividade de utilizador do Azure Active Directory estão no portal do Azure."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: curtand
+manager: michael.tillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/21/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 732a3c376f6e99f6a5b5c3043ef8cb4884a4d468
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar os relatórios de atividade no portal do Azure
 
-Se estiver a mover do portal clássico do Azure no portal do Azure, obtenha uma nova vista de olhos registos de atividade do Azure Active Directory (Azure AD). Num recente [blogue](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/), vamos explicar como pode ver os registos de atividade no contexto do recurso está a trabalhar no portal do Azure. Neste artigo, vamos descrevem como localizar relatórios que utilizou no portal clássico do Azure no portal do Azure.
+Neste artigo, vamos descrevem como localizar relatórios de atividade de utilizador do Azure Active Directory no portal do Azure.
 
 ## <a name="whats-new"></a>Novidades
 
-Relatórios no portal clássico do Azure estão separados em categorias:
-
-1.  Relatórios de segurança
-2.  Relatórios de atividade
-3.  Relatórios de aplicação integrada
+Relatórios no portal clássico do Azure foram separados em categorias:
+* Relatórios de segurança
+* Relatórios de atividade
+* Relatórios de aplicação integrada
 
 ### <a name="activity-and-integrated-app-reports"></a>Atividade e os relatórios de aplicação integrada
 
@@ -43,14 +42,14 @@ Para ver esta vista na **do Azure Active Directory** painel, em **ATIVIDADE**, s
 
 Os seguintes relatórios são consolidados nesta vista:
 
--   Relatório de auditoria
--   Atividade de reposição de palavra-passe
--   Atividade de registo de reposição de palavra-passe
--   Atividade de grupos self-service
--   Alterações de nome de grupo do Office 365
--   Atividade de aprovisionamento de contas
--   Estado de rollover de palavra-passe
--   Erros de aprovisionamento de contas
+* Relatório de auditoria
+* Atividade de reposição de palavra-passe
+* Atividade de registo de reposição de palavra-passe
+* Atividade de grupos self-service
+* Alterações de nome de grupo do Office 365
+* Atividade de aprovisionamento de contas
+* Estado de rollover de palavra-passe
+* Erros de aprovisionamento de contas
 
 
 O relatório de utilização da aplicação foi melhorado e está incluído no **inícios de sessão** vista. Para ver esta vista na **do Azure Active Directory** painel, em **ATIVIDADE**, selecione **inícios de sessão**.
@@ -96,12 +95,12 @@ A seguinte tabela apresenta o Azure AD atividade anómala segurança os relatór
 
 | Relatório de atividade anómala do Azure AD |  Tipo de evento de risco de proteção de identidade|
 | :--- | :--- |
-| Utilizadores com credenciais obtidas ilicitamente | Credenciais obtidas ilicitamente |
+| Utilizadores com fuga de credenciais | Credenciais obtidas ilicitamente |
 | Atividades irregulares de início de sessão | Deslocação impossível para localizações atípicas |
-| Inícios de sessão de dispositivos possivelmente infetados | Inícios de sessão a partir de dispositivos infetados|
+| Inícios de sessão de dispositivos possivelmente infetados | Inícios de sessão de dispositivos infetados|
 | Inícios de sessão de fontes desconhecidas | Inícios de sessão de endereços IP anónimos |
 | Inícios de sessão de endereços IP com atividade suspeita | Inícios de sessão de endereços IP com atividade suspeita |
-| - | Inícios de sessão a partir de localizações desconhecidas |
+| - | Inícios de sessão de localizações desconhecidas |
 
 Relatórios de segurança seguinte para a atividade anómala do Azure AD não são incluídos como eventos de risco no portal do Azure:
 

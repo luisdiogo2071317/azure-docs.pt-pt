@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 94f4dc2afb04d50d3db699eaebd69662c006d8ca
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilar configurações de DSC de automatização do Azure
 
@@ -131,7 +131,7 @@ Para obter informações sobre a transmitir PSCredentials como parâmetros, cons
 
 ## <a name="composite-resources"></a>Recursos compostos
 
-**Recursos compostos** permitem-lhe utilizar configurações de DSC como recursos aninhados dentro de uma configuração.  Isto permite-lhe aplicar configurações com várias para um único recurso.  Consulte [recursos compostos: utilizar uma configuração de DSC como um recurso](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) para saber mais sobre **composto de recursos**
+**Recursos compostos** permitem-lhe utilizar configurações de DSC como recursos aninhados dentro de uma configuração.  Isto permite-lhe aplicar configurações com várias para um único recurso.  Consulte [recursos compostos: utilizar uma configuração de DSC como um recurso](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) para saber mais sobre **composto de recursos**
 
 > [!NOTE]
 > Para que **recursos composto** para compilar corretamente, deve primeiro garantir que quaisquer recursos de DSC que depende o compostos primeiro estão instalados no repositório de módulos de conta de automatização do Azure ou não serão importados corretamente.

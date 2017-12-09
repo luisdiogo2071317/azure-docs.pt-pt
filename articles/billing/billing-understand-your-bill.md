@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Compreender a sua fatura do Microsoft Azure
 Para compreender a fatura do Azure, compare da sua fatura com o ficheiro de utilização diária detalhadas e os relatórios de gestão de custos no portal do Azure.
@@ -31,7 +31,7 @@ Para obter um PDF da sua fatura e uma cópia de detalhado diária utilização f
 
 Para os termos de detalhado e descrições da sua fatura e ficheiros de utilização diária detalhadas, consulte [compreender os termos de licenciamento na sua fatura do Microsoft Azure](billing-understand-your-invoice.md) e [termos de compreender sobre o Microsoft Azure detalhadas utilização](billing-understand-your-usage.md). 
 
-Para obter detalhes sobre os relatórios de gestão de custo, consulte [portal do Azure a gestão de custos](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+Para obter detalhes sobre os relatórios de gestão de custo, consulte [portal do Azure a gestão de custos](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Como torno se de que os encargos na minha fatura corretos?
 <div style="padding-top: 56.25%; position: relative; width: 100%;">
@@ -42,7 +42,7 @@ Se não houver cobrada uma taxa na sua fatura que pretende obter mais detalhes n
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Opção 1: Rever a sua fatura e comparar a utilização e os custos com o ficheiro CSV de utilização detalhada
 
-O ficheiro CSV de utilização detalhada mostra os custos por período de faturação e de utilização diária. Para obter o ficheiro CSV de utilização detalhada, consulte [obter o Azure faturação dados de utilização de uma fatura e diariamente](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+O ficheiro CSV de utilização detalhada mostra os custos por período de faturação e de utilização diária. Para obter o ficheiro CSV de utilização detalhada, consulte [obter o Azure faturação dados de utilização de uma fatura e diariamente](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
 Os custos de utilização são apresentados ao nível do medidor. Os seguintes termos significam a mesma coisa na fatura e o ficheiro de utilização detalhada. Por exemplo, o ciclo de faturação a fatura é equivalente ao período de faturação apresentado no ficheiro de utilização detalhada.
 

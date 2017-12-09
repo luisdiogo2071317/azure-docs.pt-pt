@@ -13,18 +13,18 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed43651c51eaba7112308d7550c2073ccfc5c5ee
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura dos Dashboards do Azure
 Este documento explica a estrutura de um dashboard do Azure, utilizando o dashboard seguinte como exemplo:
 
 ![dashboard de exemplo](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Uma vez que partilhado [dashboards do Azure são recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), este dashboard pode ser representado como JSON.  O JSON seguinte representa o dashboard visualizado acima.
+Uma vez que partilhado [dashboards do Azure são recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), este dashboard pode ser representado como JSON.  O JSON seguinte representa o dashboard visualizado acima.
 
 ```json
 
@@ -294,7 +294,7 @@ Vamos dividir as secções relevantes de JSON.  As propriedades de nível superi
 
 ### <a name="the-id-property"></a>A propriedade de id
 
-O id de recurso do Azure, requerente para o [convenções de recursos do Azure de nomenclatura](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). Quando o portal cria um dashboard escolhe geralmente um id sob a forma de um guid, mas é livres de utilizar um nome válido ao criá-los através de programação. 
+O id de recurso do Azure, requerente para o [convenções de recursos do Azure de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Quando o portal cria um dashboard escolhe geralmente um id sob a forma de um guid, mas é livres de utilizar um nome válido ao criá-los através de programação. 
 
 ### <a name="the-name-property"></a>A propriedade de nome
 O nome é o segmento de recurso Id que não inclua a subscrição, tipo de recurso ou informações do grupo de recursos. Essencialmente, é o último segmento do id do recurso.
@@ -303,7 +303,7 @@ O nome é o segmento de recurso Id que não inclua a subscrição, tipo de recur
 Todos os dashboards são do tipo __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>A propriedade de localização
-Ao contrário de outros recursos, dashboards não tem um componente de tempo de execução.  Para dashboards, a localização indica a localização geográfica primária que armazena a representação JSON do dashboard. O valor deve ser um dos códigos de localização que podem ser obtidos utilizando o [localizações API no recurso de subscrições](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+Ao contrário de outros recursos, dashboards não tem um componente de tempo de execução.  Para dashboards, a localização indica a localização geográfica primária que armazena a representação JSON do dashboard. O valor deve ser um dos códigos de localização que podem ser obtidos utilizando o [localizações API no recurso de subscrições](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>A propriedade de etiquetas
 As etiquetas são uma funcionalidade comum de recursos do Azure que lhe permitem organizar os seus recursos por pares de valor de nome arbitrários. Para dashboards, há um tag especial chamado __título oculto__. Se o dashboard tem esta propriedade preenchida, em seguida, é utilizado como o nome a apresentar para o seu dashboard no portal. Não não possível mudar o nome de Ids de recurso do Azure, mas podem etiquetas. Esta etiqueta dá-lhe uma forma de ter um nome a apresentar renamable para o seu dashboard.
