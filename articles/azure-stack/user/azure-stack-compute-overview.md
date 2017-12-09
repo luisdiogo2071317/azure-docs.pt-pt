@@ -7,11 +7,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introdução às máquinas virtuais de pilha do Azure
 
@@ -94,7 +94,7 @@ Os recursos na tabela seguinte são utilizados pela VM e tem de existir ou ser c
 |Rede virtual|Sim|A VM tem de ser um membro de uma rede virtual.|
 |Endereço IP público|Não|A VM pode ter um endereço IP público atribuído para aceder ao mesmo remotamente.|
 |Interface de rede|Sim|A VM precisa da interface de rede para comunicar na rede.|
-|discos de dados|Não|A VM pode incluir discos de dados para expandir as capacidades de armazenamento.|
+|Discos dos dados|Não|A VM pode incluir discos de dados para expandir as capacidades de armazenamento.|
 
 ## <a name="how-do-i-create-my-first-vm"></a>Como posso criar a minha primeira VM?
 
@@ -121,8 +121,8 @@ A tabela seguinte mostra algumas das formas como pode obter informações sobre 
 |Método|Descrição|
 |---------|---------|
 |Portal de pilha do Azure|No hub menu, clique em máquinas virtuais e, em seguida, selecione a VM na lista. Na página para a VM, tem acesso a informações de descrição geral, os valores de definição e métricas de monitorização.|
-|Azure PowerShell|Gerir VMs é semelhante no Azure e pilha do Azure. Para obter mais informações sobre como utilizar o PowerShell, consulte o tópico seguinte do Azure:<br>[Criar e gerir VMs do Windows com o módulo Azure PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|SDKs do Cliente|Utilizar c# para gerir VMs é semelhante no Azure e pilha do Azure. Para obter mais informações, consulte o tópico seguinte do Azure:<br>[Criar e gerir VMs do Windows no Azure com c#](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Gerir VMs é semelhante no Azure e pilha do Azure. Para obter mais informações sobre como utilizar o PowerShell, consulte o tópico seguinte do Azure:<br>[Criar e gerir VMs do Windows com o módulo Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|SDKs do Cliente|Utilizar c# para gerir VMs é semelhante no Azure e pilha do Azure. Para obter mais informações, consulte o tópico seguinte do Azure:<br>[Criar e gerir VMs do Windows no Azure com c#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-the-vm"></a>Ligar à VM
 

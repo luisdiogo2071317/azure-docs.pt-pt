@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 3d9ec6325e25477bf4ee0475caeca64b75b1f89f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f30042ad8d687db59e1aaa092c46cee371e8c7fb
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorizar fábricas de dados utilizando o Monitor do Azure  
 Aplicações em nuvem são complexas com várias partes mover. A monitorização fornece dados para se certificar de que a aplicação permanece cópias de segurança e em execução em bom estado. Também o ajuda a stave desativar potenciais problemas ou resolver passado aqueles. Além disso, pode utilizar dados de monitorização para obter conhecimentos aprofundados sobre a sua aplicação. Este conhecimento pode ajudar a melhorar o desempenho da aplicação ou maintainability ou automatizar ações que caso contrário necessitem intervenção manual.
 
-Monitor do Azure fornece registos e as métricas de infraestrutura de nível de base para a maioria dos serviços no Microsoft Azure. Para obter mais informações, consulte [descrição geral da monitorização](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Os registos de diagnóstico do Azure são registos emitidos por um recurso que fornecem dados avançados, frequentes sobre o funcionamento desse recurso. Fábrica de dados produz os registos de diagnóstico no Monitor do Azure. 
+Monitor do Azure fornece registos e as métricas de infraestrutura de nível de base para a maioria dos serviços no Microsoft Azure. Para obter mais informações, consulte [descrição geral da monitorização](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Os registos de diagnóstico do Azure são registos emitidos por um recurso que fornecem dados avançados, frequentes sobre o funcionamento desse recurso. Fábrica de dados produz os registos de diagnóstico no Monitor do Azure. 
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [monitorizar e gerir pipelines na fábrica de dados version1](v1/data-factory-monitor-manage-pipelines.md).
@@ -112,7 +112,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | registos| Tipo complexo| Nome de uma categoria de registo de diagnóstico para um tipo de recurso. Para obter a lista de categorias de registo de diagnóstico para um recurso, execute primeiro uma operação de definições de diagnóstico de GET. |
 | categoria| Cadeia| Matriz de categorias de registo e as respetivas políticas de retenção |
 | Intervalo de agregação | Cadeia | A granularidade de métricas que são capturadas num formato de duração ISO 8601. Tem de ser PT1M (um minuto)|
-| ativado| Valor booleano | Especifica se a coleção dessa categoria métrica ou de registo está ativada para este recurso|
+| ativado| Booleano | Especifica se a coleção dessa categoria métrica ou de registo está ativada para este recurso|
 | retentionPolicy| Tipo complexo| Descreve a política de retenção para uma categoria de métrica ou de registo. Utilizado para apenas opção de conta de armazenamento.|
 | dias| Int| Número de dias a manter as métricas ou os registos. Um valor de 0 mantém os registos indefinidamente. Utilizado para apenas opção de conta de armazenamento. |
 
@@ -396,7 +396,7 @@ ADFV2 emite as métricas seguintes
 | TriggerSucceededRuns | Foi concluída com êxito as métricas de execuções do acionador  | Contagem    | Total                | Acionador total é executado com êxito dentro de uma janela de minuto   |
 | TriggerFailedRuns    | Falha de métricas de execução do acionador     | Contagem    | Total                | Acionador total é executado falhada dentro de uma janela de minuto      |
 
-Para aceder às métricas, siga as instruções no artigo - https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Para as métricas de acesso, siga as instruções no artigo - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte [monitorizar e gerir pipelines programaticamente](monitor-programmatically.md) artigo para saber mais sobre como monitorizar e gerir pipelines, executando a aplicação. 

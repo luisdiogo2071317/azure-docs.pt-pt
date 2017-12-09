@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bc77fe59fdb128d28389c43d41c43ca1d393d83c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurar Firewalls de armazenamento do Azure e as redes virtuais (pré-visualização)
 Armazenamento do Azure fornece um modelo de segurança por camadas que permite proteger as contas de armazenamento para um conjunto específico de redes permitidos.  Quando as regras de rede estiverem configuradas, apenas as aplicações permitidas redes podem aceder a uma conta de armazenamento.  Ao chamar a partir de uma rede permitida, as aplicações continuam a exigir autorização adequada (uma chave de acesso válido ou SAS token) para aceder à conta de armazenamento.
@@ -110,7 +110,7 @@ Quando planear a recuperação após desastre durante uma falha regional, deve a
 > Pontos finais de serviço não se aplicam ao tráfego fora da região de rede Virtual e o par de região designado.  Regras de rede conceder acesso de redes virtuais para as contas de armazenamento só podem ser aplicadas para as redes virtuais na região primária de uma conta de armazenamento ou na região emparelhada designada.
 >
 
-### <a name="required-permissions"></a>Permissões necessárias
+### <a name="required-permissions"></a>Permissões obrigatórias
 Para aplicar uma regra de rede Virtual a uma conta de armazenamento, o utilizador tem de ter permissão para *aderir ao serviço a uma sub-rede* para as sub-redes que está a ser adicionadas.  Esta permissão está incluído no *contribuinte de conta de armazenamento* função incorporada e podem ser adicionados à definição de função personalizada.
 
 Conta de armazenamento e as redes virtuais concedido acesso **poderá** ser em subscrições diferentes, mas essas subscrições têm de fazer parte do mesmo inquilino do Azure Active Directory.
@@ -293,13 +293,13 @@ Quando a exceção "Fidedigna serviços da Microsoft" está ativada, os seguinte
 
 |Serviço|Nome do fornecedor de recursos|Objetivo|
 |:------|:---------------------|:------|
-|Azure DevTest Labs|Microsoft.DevTestLab|Instalação de Federação e de criação de imagem personalizada.  [Saiba mais](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-overview).|
-|Azure Event Grid|Microsoft.EventGrid|Ative a publicação de eventos de armazenamento de Blobs.  [Saiba mais](https://docs.microsoft.com/en-us/azure/event-grid/overview).|
-|Azure Event Hubs|Microsoft.EventHub|Dados de arquivo com capturar os Hubs de eventos.  [Saiba mais](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview).|
-|O Azure HDInsight|Microsoft.HDInsight|Aprovisionamento de cluster e a instalação.  [Saiba mais](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
-|Redes do Azure|Microsoft.Networking|Armazenar e analisar registos de tráfego de rede.  [Saiba mais](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Importam e exportar dados.  [Saiba mais](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
-|Azure Backup|Microsoft.RecoveryServices|Cópia de segurança e restauro de discos não geridos.  [Saiba mais](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
+|Azure DevTest Labs|Microsoft.DevTestLab|Instalação de Federação e de criação de imagem personalizada.  [Saiba mais](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
+|Azure Event Grid|Microsoft.EventGrid|Ative a publicação de eventos de armazenamento de Blobs.  [Saiba mais](https://docs.microsoft.com/azure/event-grid/overview).|
+|Azure Event Hubs|Microsoft.EventHub|Dados de arquivo com capturar os Hubs de eventos.  [Saiba mais](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
+|O Azure HDInsight|Microsoft.HDInsight|Aprovisionamento de cluster e a instalação.  [Saiba mais](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
+|Redes do Azure|Microsoft.Networking|Armazenar e analisar registos de tráfego de rede.  [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Azure SQL Data Warehouse|Microsoft.Sql|Importam e exportar dados.  [Saiba mais](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
+|Azure Backup|Microsoft.RecoveryServices|Cópia de segurança e restauro de discos não geridos.  [Saiba mais](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Acesso de dados de análise de armazenamento

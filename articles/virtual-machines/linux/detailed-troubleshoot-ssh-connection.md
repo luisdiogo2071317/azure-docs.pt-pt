@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 07/06/2017
 ms.author: iainfou
-ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 264fe2acbdd393a2f9d349e1522263f1728c5d48
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>SSH detalhada passos para ligar a uma VM com Linux no Azure de problemas de resolução de problemas
 Existem várias razões possíveis para que o cliente SSH poderá não ser capaz de alcançar o serviço SSH na VM. Se seguiu através de mais [SSH geral passos de resolução de problemas](troubleshoot-ssh-connection.md), terá de resolver o problema de ligação. Este artigo orienta-o pelos passos de resolução de problemas detalhados para determinar onde está a falhar a ligação SSH e como resolvê-lo.
@@ -113,7 +113,7 @@ Para eliminar o ponto final como uma origem do problema, remova o ponto final at
 Grupos de segurança de rede permitem-lhe ter controlo mais granular sobre o tráfego de entrada e saída permitido. Pode criar regras que abrangem sub-redes e serviços em nuvem na uma rede virtual do Azure. Verifique as regras de grupo de segurança de rede para se certificar de que o tráfego SSH e para a Internet é permitido.
 Para obter mais informações, consulte [sobre grupos de segurança de rede](../../virtual-network/virtual-networks-nsg.md).
 
-Também pode utilizar o IP verificar para validar a configuração de NSG. Para obter mais informações, consulte [descrição geral da monitorização de rede do Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Também pode utilizar o IP verificar para validar a configuração de NSG. Para obter mais informações, consulte [descrição geral da monitorização de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>Origem 5: Baseado em Linux máquina virtual do Azure
 A origem último informações sobre problemas possíveis é a máquina virtual do Azure em si.

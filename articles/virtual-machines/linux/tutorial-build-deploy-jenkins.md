@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: c96aafeb05293ccdc4c30c2b828cead1dfdb157c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Implementar a sua aplicação para VMs com Linux utilizando Jenkins e serviços da equipa
 
@@ -40,7 +40,7 @@ Irá:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Precisa de acesso a um servidor de Jenkins. Se ainda não criou um servidor de Jenkins, consulte [criar um principal de Jenkins numa máquina virtual do Azure](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
+* Precisa de acesso a um servidor de Jenkins. Se ainda não criou um servidor de Jenkins, consulte [criar um principal de Jenkins numa máquina virtual do Azure](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * Inicie sessão na sua conta Team Services (**https://{youraccount}.visualstudio.com**). 
   Pode obter um [Team Services conta gratuita](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
@@ -48,9 +48,9 @@ Irá:
   > [!NOTE]
   > Para obter mais informações, consulte [ligar aos serviços da equipa](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-*  Precisa de uma máquina virtual Linux para um destino de implementação.  Para obter mais informações, consulte [criar e gerir VMs com Linux com a CLI do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
+*  Precisa de uma máquina virtual Linux para um destino de implementação.  Para obter mais informações, consulte [criar e gerir VMs com Linux com a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Abra a porta de entrada 80 para a máquina virtual. Para obter mais informações, consulte [criar grupos de segurança de rede através do portal do Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Abra a porta de entrada 80 para a máquina virtual. Para obter mais informações, consulte [criar grupos de segurança de rede através do portal do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 ## <a name="get-the-sample-app"></a>Obter a aplicação de exemplo
 
@@ -132,7 +132,7 @@ Um ponto final de serviço permite que os serviços de equipa ligar ao Jenkins.
    > No procedimento seguinte, é necessário instalar os pré-requisitos e *não executar o script com privilégios sudo.*
 
 1. Abra o **versões** separador do **criar &amp; versão** hub, abra **grupos de implementação**e selecione **+ novo**.
-2. Introduza um nome para o grupo de implementação e uma descrição opcional. Em seguida, selecione **criar**.
+2. Introduza um nome para o grupo de implementação e uma descrição opcional. Em seguida, selecione **Criar**.
 3. Escolha o sistema operativo para a máquina de virtual de destino da implementação. Por exemplo, seleccione **Ubuntu 16.04 +**.
 4. Selecione **utilizam um token de acesso pessoal no script para a autenticação**.
 5. Selecione o **pré-requisitos de sistema** ligação. Instale as pré-requisitos para o sistema operativo.

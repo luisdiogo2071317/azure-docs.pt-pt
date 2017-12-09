@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo em execução no Windows Server
 Pode utilizar o Service Fabric do Azure para criar clusters de Service Fabric em qualquer máquinas virtuais ou computadores que executam o Windows Server. Isto significa que pode implementar e executar aplicações de Service Fabric em qualquer ambiente que contém um conjunto de computadores do Windows Server interligados, sê-lo no local ou com qualquer fornecedor de nuvem. O Service Fabric fornece um pacote de configuração para criar clusters de Service Fabric chamados o pacote do Windows Server autónomo.
@@ -36,7 +36,7 @@ Este artigo explica os passos para criar um cluster do Service Fabric autónomo.
 * Peça da Comunidade sobre o pacote de autónoma do Service Fabric para o Windows Server no [fórum do Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Abrir um pedido para [profissional de suporte para o Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Saiba mais sobre o profissional de suporte da Microsoft [aqui](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Também pode obter suporte para este pacote como parte de [suporte do Microsoft Premier](https://support.microsoft.com/en-us/premier).
-* Para obter mais detalhes, consulte [as opções de suporte do Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).
+* Para obter mais detalhes, consulte [as opções de suporte do Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Para recolher registos para fins de suporte, execute o [recoletor de registos de autónoma do Service Fabric](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>

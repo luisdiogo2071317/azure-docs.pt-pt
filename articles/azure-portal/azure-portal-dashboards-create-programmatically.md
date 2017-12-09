@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdbe3c3f2ac7bd6ccb98ef5c1346444ca34e5ac3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Programaticamente Criar Dashboards do Azure
 
@@ -27,7 +27,7 @@ Este documento explica o processo de programaticamente criar e publicar dashboar
 
 ## <a name="overview"></a>Descrição geral
 
-Partilhar dashboards numa tem Azure [recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) tal como máquinas virtuais e contas de armazenamento.  Por conseguinte, podem ser geridos através de programação através de [REST APIs do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api), a [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/overview), [comandos do PowerShell do Azure](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0)e muitas [ Portal do Azure](https://portal.azure.com) funcionalidades criar sobre estas APIs para facilitar a gestão de recursos.  
+Partilhar dashboards numa tem Azure [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tal como máquinas virtuais e contas de armazenamento.  Por conseguinte, podem ser geridos através de programação através de [REST APIs do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), a [CLI do Azure](https://docs.microsoft.com/cli/azure/overview), [comandos do PowerShell do Azure](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0)e muitas [ Portal do Azure](https://portal.azure.com) funcionalidades criar sobre estas APIs para facilitar a gestão de recursos.  
 
 Cada uma destas APIs e ferramentas proporciona formas de criar, listar, obterem, modificar e eliminar recursos.  Uma vez que os dashboards são recursos, pode escolher a API favorita / ferramenta para utilizar.
 
@@ -43,7 +43,7 @@ Para criar um novo dashboard, utilize o comando de dashboard novo no ecrã princ
 
 Em seguida, pode utilizar a galeria do mosaico para localizar e adicione peças de mosaicos. Os mosaicos são adicionados ao arrastar e largá-los. Alguns mosaicos suportam o redimensionamento através de um identificador de arrastar, enquanto outros suporte corrige tamanhos que podem ser vistos no respetivo menu de contexto.
 
-### <a name="drag-handle"></a>Identificador de arrastar
+### <a name="drag-handle"></a>Arraste o identificador
 ![Arraste o identificador](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
 
 ### <a name="fixed-sizes-via-context-menu"></a>Tamanhos fixos através do menu de contexto
@@ -55,7 +55,7 @@ Depois de ter configurado o dashboard para sua liking que são os passos para pu
 
 ![comando de partilha](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Ao clicar no comando partilha mostra uma caixa de diálogo que pede-lhe para escolher o grupo de recursos e subscrição para publicar. Tenha em atenção que [tem de ter acesso de escrita](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) para o grupo de recursos e subscrição que escolher.
+Ao clicar no comando partilha mostra uma caixa de diálogo que pede-lhe para escolher o grupo de recursos e subscrição para publicar. Tenha em atenção que [tem de ter acesso de escrita](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) para o grupo de recursos e subscrição que escolher.
 
 ![acesso e partilha](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,11 +79,11 @@ Não é necessário compreender a estrutura JSON do dashboard para criar um mode
 
 Para publicar este dashboard para qualquer máquina virtual no futuro terá parametrizar cada ocorrência desta cadeia dentro de JSON. 
 
-Existem dois tipos de APIs que criar recursos no Azure. [APIs imperativo](https://docs.microsoft.com/en-us/rest/api/resources/resources) que crie um recurso num momento e um [baseado no modelo de implementação](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) sistema que pode orquestrar a criação de vários recursos dependentes com uma única chamada de API. A última opção suporta nativamente parametrização forced e templating forma podemos utilizá-los para o nosso exemplo.
+Existem dois tipos de APIs que criar recursos no Azure. [APIs imperativo](https://docs.microsoft.com/rest/api/resources/resources) que crie um recurso num momento e um [baseado no modelo de implementação](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) sistema que pode orquestrar a criação de vários recursos dependentes com uma única chamada de API. A última opção suporta nativamente parametrização forced e templating forma podemos utilizá-los para o nosso exemplo.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Programaticamente criar um dashboard a partir do seu modelo com uma implementação de modelo
 
-O Azure oferece a capacidade para orquestrar a implementação de vários recursos. Criar um modelo de implementação que expresse precisa o conjunto de recursos para implementar, bem como as relações entre eles.  O formato JSON de cada recurso é igual à foram criá-los um por um. A diferença é que o [idioma modelo](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) adiciona alguns conceitos como variáveis, parâmetros, funções básicas e muito mais. Isto expandido sintaxe só é suportado no contexto de uma implementação de modelos e não funciona se for utilizado com as APIs imperativo debatidas anteriormente.
+O Azure oferece a capacidade para orquestrar a implementação de vários recursos. Criar um modelo de implementação que expresse precisa o conjunto de recursos para implementar, bem como as relações entre eles.  O formato JSON de cada recurso é igual à foram criá-los um por um. A diferença é que o [idioma modelo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) adiciona alguns conceitos como variáveis, parâmetros, funções básicas e muito mais. Isto expandido sintaxe só é suportado no contexto de uma implementação de modelos e não funciona se for utilizado com as APIs imperativo debatidas anteriormente.
 
 Se estiver a ficar esta rota, em seguida, parametrização forced deve ser feito utilizando a sintaxe do parâmetro do modelo.  Substitua todas as instâncias do id do recurso que encontrámos anterior, conforme mostrado aqui.
 
@@ -119,7 +119,7 @@ Também tem de declarar alguns metadados do modelo necessário e os parâmetros 
 
 __Pode ver o modelo de trabalho completo, no final deste documento.__
 
-Depois de ter crafted o seu modelo pode implementá-la utilizando o [REST APIs](https://docs.microsoft.com/en-us/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), a [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create), ou o [página de implementação do modelo do portal ](https://portal.azure.com/#create/Microsoft.Template).
+Depois de ter crafted o seu modelo pode implementá-la utilizando o [REST APIs](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), a [CLI do Azure](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create), ou o [página de implementação do modelo do portal ](https://portal.azure.com/#create/Microsoft.Template).
 
 Apresentamos a seguir são duas versões do nosso JSON do dashboard de exemplo. A primeira é a versão que foi exportados a partir do portal do que já foi vinculado a um recurso. O segundo é a versão de modelo pode estar vinculada através de programação para qualquer VM e implementadas utilizando o Azure Resource Manager.
 

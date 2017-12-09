@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5a7a58d4c402bcaf639bd255bb7c8b111694e548
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 41b122cdb4dcb836b431004fc162ebe06d0c8b17
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gerir discos do Azure com a CLI do Azure
 
@@ -28,7 +28,7 @@ Máquinas virtuais do Azure utilizar discos para armazenar as VMs do sistema ope
 
 > [!div class="checklist"]
 > * Discos de SO e discos temporários
-> * discos de dados
+> * Discos dos dados
 > * Standard e discos Premium
 > * Desempenho de disco
 > * Anexar e preparar os discos de dados
@@ -233,7 +233,7 @@ Criar um instantâneo de disco cria uma cópia apenas, o ponto no tempo de leitu
 
 ### <a name="create-snapshot"></a>Criar instantâneo
 
-Antes de criar um instantâneo de disco da máquina virtual, é necessário o Id ou nome do disco. Utilize o [mostrar de vm az](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) comando para devolver o id de disco. Neste exemplo, o id de disco é armazenado numa variável, para que possa ser utilizado num passo posterior.
+Antes de criar um instantâneo de disco da máquina virtual, é necessário o Id ou nome do disco. Utilize o [mostrar de vm az](https://docs.microsoft.com/cli/azure/vm#az_vm_show) comando para devolver o id de disco. Neste exemplo, o id de disco é armazenado numa variável, para que possa ser utilizado num passo posterior.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -289,7 +289,7 @@ Neste tutorial, aprendeu sobre os tópicos de discos VM, tais como:
 
 > [!div class="checklist"]
 > * Discos de SO e discos temporários
-> * discos de dados
+> * Discos dos dados
 > * Standard e discos Premium
 > * Desempenho de disco
 > * Anexar e preparar os discos de dados

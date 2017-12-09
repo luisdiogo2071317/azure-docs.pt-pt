@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf5828ecd6b6bd2e862c4d7709014ecac47c6be0
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: b68ceac2056f0a9a7a9c4df7984789858c77a626
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="offline-fairplay-streaming"></a>FairPlay offline de transmissão em fluxo
 Serviços de suporte de dados do Microsoft Azure fornece um conjunto de devidamente concebida [serviços de proteção de conteúdo](https://azure.microsoft.com/services/media-services/content-protection/), que abrangem:
@@ -189,7 +189,7 @@ Algumas perguntas mais frequentes sobre resolução de problemas:
 - **O que o último parâmetro de estar posicionados na API seguinte para o modo offline FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-Pode encontrar a documentação para esta API [aqui](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). O parâmetro representa a duração da rental offline com a hora como a unidade.
+Pode encontrar a documentação para esta API [aqui](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). O parâmetro representa a duração da rental offline com a hora como a unidade.
 - **O que é a estrutura de ficheiros transferidos/offline em dispositivos iOS?** A estrutura de ficheiros transferidos num dispositivo iOS aspeto baixo (captura de ecrã). `_keys`arquivos de pasta transferido licenças FPS, um arquivo de ficheiros para cada anfitrião do serviço de licenciamento. `.movpkg`pasta armazena conteúdo de áudio e vídeo. A primeira pasta com nome que termina com um travessão seguido por uma numérica contém conteúdo de vídeo. O valor numérico é "PeakBandwidth" das vídeos renditions. A segunda pasta com nome que termina com um travessão seguido 0 contém conteúdo de áudio. A terceira pasta com o nome "Dados" contém a lista de reprodução de principal do conteúdo FPS. Boot.XML fornece uma descrição completa do `.movpkg` conteúdo da pasta (consulte abaixo para um ficheiro de boot.xml exemplo).
 
 ![Offline do FairPlay iOS estrutura de ficheiros de aplicação de exemplo](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

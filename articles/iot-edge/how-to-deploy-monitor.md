@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c0a102cac9b5b7bd284de6f5f51b75386c2581fe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implementar e monitorizar os módulos de limite de IoT à escala - pré-visualização
 
@@ -40,7 +40,7 @@ Para obter mais informações sobre dispositivos duplos e etiquetas, consulte [c
 
 ## <a name="create-a-deployment"></a>Criar uma implementação
 
-1. Iniciar sessão para o [portal do Azure] [ lnk-portal] e navegue até ao seu IoT hub. 
+1. No [portal do Azure][lnk-portal], aceda ao seu IoT hub. 
 1. Selecione **IoT Edge (pré-visualização)**.
 1. Selecione **adicionar implementação de limite de IoT**.
 
@@ -61,26 +61,25 @@ Se criar uma implementação com nenhuma módulos, remove quaisquer módulos exi
 >[!NOTE]
 >O Azure Machine Learning e as funções do Azure não suportam a implementação de serviço do Azure automatizada ainda. Utilize a implementação do módulo personalizado para adicionar manualmente esses serviços à sua implementação. 
 
-Para adicionar um módulo a partir de um Azure service, siga estes passos:
-1. Selecione **módulo IoT limite do serviço de Azure adicionar**.
+Para adicionar um módulo do Azure Stream Analytics, siga estes passos:
+1. Selecione **módulo de importação do Azure Stream Analytics IoT Edge**.
 1. Utilize os menus de lista pendente para selecionar as instâncias de serviço do Azure que pretende implementar.
-1. Selecione **guardar** para adicionar os módulos para a implementação. 
+1. Selecione **guardar** para adicionar o módulo para a implementação. 
 
 Para adicionar código personalizado como um módulo ou adicionar manualmente um módulo de serviço do Azure, siga estes passos:
-1. Selecione **Adicionar módulo de limite de IoT personalizado**.
+1. Selecione **módulo de limite de IoT adicionar**.
 1. Atribua o módulo de um **nome**.
-1. Para o **imagem** campo, introduza a imagem de contentor do Docker para este módulo: `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-1. Utilize os menus de lista pendente em **SO** e **arquitetura** para identificar as propriedades do contentor Docker que representa este módulo. 
-1. Especificar qualquer **criar opções** que deve ser transmitido ao contentor. Para obter mais informações, consulte [docker criar][lnk-docker-create].
+1. Para o **URI de imagem** campo, introduza a imagem de contentor do Docker para o módulo. 
+1. Especificar qualquer **contentor criar opções** que deve ser transmitido ao contentor. Para obter mais informações, consulte [docker criar][lnk-docker-create].
 1. Utilize o menu pendente para selecionar um **reiniciar política**. Escolha uma das seguintes opções: 
    * **Sempre** -o módulo for reiniciado sempre se encerrar por qualquer motivo.
    * **Nunca** -o módulo for reiniciado nunca se encerrar por qualquer motivo.
    * **Falha no** -o módulo for reiniciado se falhar, mas não se encerrar corretamente. 
    * **Num mau** -o módulo for reiniciado caso de falhas ou devolve um Estado de mau estado de funcionamento. Está a funcionar para cada módulo para implementar a função do Estado de funcionamento. 
-1. Utilize o menu pendente para selecionar o arranque **estado** para o módulo. Escolha uma das seguintes opções:
+1. Utilize o menu pendente para selecionar o **estado pretendido** para o módulo. Escolha uma das seguintes opções:
    * **Executar** -esta é a opção predefinida. O módulo iniciará a executar imediatamente depois da implementação.
    * **Parado** -depois da implementação, o módulo permanecerá inativo até chamado após a iniciar por utilizador ou outro módulo.
-1. Selecione **duplo de módulo de edição** se pretender adicionar quaisquer etiquetas ou propriedades pretendidas para o módulo. 
+1. Selecione **ativar** se pretender adicionar quaisquer etiquetas ou propriedades pretendidas para o duplo de módulo. 
 1. Selecione **guardar** para adicionar o módulo para a implementação. 
 
 Depois de ter todos os módulos para uma implementação configurado, selecione **seguinte** mover para o terceiro passo.
@@ -172,7 +171,7 @@ Quando elimina uma implementação, todos os dispositivos de colocar as suas imp
 Saiba mais sobre [implementar módulos para dispositivos de limite][lnk-deployments].
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

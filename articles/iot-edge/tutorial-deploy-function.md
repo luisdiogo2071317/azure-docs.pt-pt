@@ -10,11 +10,11 @@ ms.date: 11/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fb295b37819788ed14f54e4123ae0fe1b52d0210
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 9c35410ee1bb67c8ee96eeea6e51601bc29f39aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Implementar a função do Azure como um módulo de limite de IoT – pré-visualização
 Pode utilizar as funções do Azure para implementar o código que implementa a lógica de negócio diretamente nos seus dispositivos de limite de IoT. Este tutorial explica-lhe como criar e implementar uma função do Azure, que filtra os dados de sensores no dispositivo simulado contorno de IoT que criou na implementação do Azure IoT limite num dispositivo simulado no [Windows] [ lnk-tutorial1-win]ou [Linux] [ lnk-tutorial1-lin] tutoriais. Neste tutorial, ficará a saber como:     
@@ -42,7 +42,7 @@ Neste tutorial, utilize a extensão de limite de IoT do Azure para o VS Code par
 
 Pode utilizar qualquer registo compatível com o Docker para este tutorial. Dois populares Docker registo serviços disponíveis na nuvem são **registo de contentor do Azure** e **Docker Hub**:
 
-- [Registo de contentor do Azure](https://docs.microsoft.com/en-us/azure/container-registry/) está disponível com um [subscrição paga](https://azure.microsoft.com/en-us/pricing/details/container-registry/). Para este tutorial, o **básico** subscrição é suficiente. 
+- [Registo de contentor do Azure](https://docs.microsoft.com/azure/container-registry/) está disponível com um [subscrição paga](https://azure.microsoft.com/en-us/pricing/details/container-registry/). Para este tutorial, o **básico** subscrição é suficiente. 
 
 - [Hub de docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) oferece um repositório privado livre se inscreva um ID de Docker (gratuita). 
     1. Para inscrever-se de um ID de Docker, siga as instruções no [registar para um ID de Docker](https://docs.docker.com/docker-id/#register-for-a-docker-id) no site de Docker. 

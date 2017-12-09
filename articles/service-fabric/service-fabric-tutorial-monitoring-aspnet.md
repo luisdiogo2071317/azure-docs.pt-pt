@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 68788efffd27edf2813cf455490b651c2c7106a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce854a3dc41dec69c3f8de245a03d55a2354335f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Monitorizar e diagnosticar uma aplicação ASP.NET Core no Service Fabric
 Este tutorial é parte quatro de uma série. Passa pelos passos para configurar a monitorização e diagnóstico para uma aplicação de ASP.NET Core em execução num cluster de Service Fabric com o Application Insights. Iremos irá recolher telemetria da aplicação desenvolvida na primeira parte do tutorial, [compilar uma aplicação .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
@@ -235,4 +235,4 @@ Neste tutorial, ficou a saber como:
 Agora que concluiu a configuração de monitorização e diagnóstico para a sua aplicação ASP.NET, experimente o seguinte:
 - [Explorar a monitorização e diagnóstico no Service Fabric](service-fabric-diagnostics-overview.md)
 - [Análise de eventos de Service Fabric com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-- Para saber mais sobre o Application Insights, consulte o artigo [documentação do Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/)
+- Para saber mais sobre o Application Insights, consulte o artigo [documentação do Application Insights](https://docs.microsoft.com/azure/application-insights/)

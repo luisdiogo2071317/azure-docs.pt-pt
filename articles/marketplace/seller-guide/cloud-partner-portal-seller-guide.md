@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: divacc@microsoft.com
-ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9a9e9b3116c0d787162284197c8dbbd77374cff3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Guia de vendedor do Azure Marketplace
 
 Bem-vindo ao guia de vendedor do Azure Marketplace. Este guia foi concebido para utilizadores empresariais e gestores de produto em fornecedores independentes de software (ISVs) que estejam interessados em vender respetivos imagens da máquina virtual do Azure certificados e aplicações geridas para os programadores e profissionais de TI. Com o Azure clientes localizados em todo o mundo, [Azure Marketplace](https://azuremarketplace.microsoft.com/) podem fornecer grande alcance e exposição para os produtos.
 
 > [!NOTE]
-> Se estiver interessado em vender sua [aplicações geridas](https://docs.microsoft.com/en-us/azure/managed-applications/overview), deve seguir as instruções para lista-las no Azure Marketplace [aqui](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Se estiver interessado em vender sua [aplicações geridas](https://docs.microsoft.com/azure/managed-applications/overview), deve seguir as instruções para lista-las no Azure Marketplace [aqui](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Se estiver interessado em vender terminar software como um produtos de serviço (SaaS) para _os profissionais de TI e programadores_, pode aceder à saas-on-amp@microsoft.com para saber mais sobre as suas opções.
@@ -100,7 +100,7 @@ Figura 1: Processo para vender no Azure Marketplace
 Consoante a carga de trabalho (máquina virtual ou aplicações geridas) pretende publicar, deve seguir um processo diferente para publicar a sua oferta. O seguinte conteúdo está centrado na publicação _ofertas de máquina virtual_.
 
 > [!NOTE]
-> Se estiver interessado em vender sua [aplicações geridas](https://docs.microsoft.com/en-us/azure/managed-applications/overview), deve seguir as instruções para lista-las no Azure Marketplace [aqui](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Se estiver interessado em vender sua [aplicações geridas](https://docs.microsoft.com/azure/managed-applications/overview), deve seguir as instruções para lista-las no Azure Marketplace [aqui](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Se estiver interessado em vender terminar software como um produtos de serviço (SaaS) para _os profissionais de TI e programadores_, pode aceder à saas-on-amp@microsoft.com para saber mais sobre as suas opções.
@@ -238,7 +238,7 @@ Relatórios detalhados apresentam informações de cliente, como o nome da empre
 - E-mail
 - companyName
 - TransactionDate
-- SubscriptionName
+- Nome da Subscrição
 - AzureSubscriptionId (apenas para clientes PAYG)
 - CloudInstanceName
 - OrderCount

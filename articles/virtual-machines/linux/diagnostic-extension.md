@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilizar a extensão de diagnóstico do Linux para monitorizar métricas e registos
 
@@ -52,7 +52,7 @@ A configuração transferível é apenas um exemplo; Modifique-a para se adequar
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria do Azure VM Linux incluem versão 2.2.7 ou posterior. Executar `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver a executar uma versão mais antiga do agente convidado, siga [estas instruções](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) atualizá-lo.
+* **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria do Azure VM Linux incluem versão 2.2.7 ou posterior. Executar `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver a executar uma versão mais antiga do agente convidado, siga [estas instruções](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) atualizá-lo.
 * **CLI do Azure**. [Configurar o 2.0 CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) ambiente no seu computador.
 * O comando wget, se ainda não tiver: executar `sudo apt-get install wget`.
 * Uma subscrição do Azure existente e uma conta de armazenamento existente dentro da mesma para armazenar os dados.
@@ -301,7 +301,7 @@ Esta secção opcional controla a coleção de métricas. Exemplos não processa
 
 * média
 * mínimo
-* Máximo
+* máximo
 * recolhido o último valor
 * Contagem de amostras em bruto utilizadas para calcular o agregado
 
@@ -309,10 +309,10 @@ Elemento | Valor
 ------- | -----
 sinks | (opcional) Uma lista separada por vírgulas dos nomes do sinks para que LAD envia agregado métricos resultados. Todas as métricas agregadas são publicadas em cada sink listada. Consulte [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
 tipo | Identifica o fornecedor real da métrica.
-Classe | Em conjunto com "contador", identifica a métrica específica no espaço de nomes do fornecedor.
+classe | Em conjunto com "contador", identifica a métrica específica no espaço de nomes do fornecedor.
 Contador | Em conjunto com "class", identifica a métrica específica no espaço de nomes do fornecedor.
 counterSpecifier | Identifica a métrica específica no espaço de nomes métricas do Azure.
-Condição | (opcional) Seleciona uma instância específica do objeto ao qual a métrica aplica-se ou seleciona a agregação em todas as instâncias desse objeto. Para obter mais informações, consulte o [ `builtin` as definições de métrica](#metrics-supported-by-builtin).
+condição | (opcional) Seleciona uma instância específica do objeto ao qual a métrica aplica-se ou seleciona a agregação em todas as instâncias desse objeto. Para obter mais informações, consulte o [ `builtin` as definições de métrica](#metrics-supported-by-builtin).
 sampleRate | É o intervalo de 8601 que define a taxa a que são recolhidos exemplos não processados para esta métrica. Se não definir o intervalo de recolha é definido pelo valor de [sampleRateInSeconds](#ladcfg). A frequência de amostragem suportados mais curta é 15 segundos (PT15S).
 unidade | Deve ser um estas cadeias: "Count", "Bytes", "Segundos", "Percentagem", "CountPerSecond", "BytesPerSecond", "Millisecond". Define a unidade para a métrica. Os consumidores dos dados recolhidos esperar que os valores de dados recolhidos para corresponderem esta unidade. LAD ignora este campo.
 displayName | A etiqueta (no idioma especificado pela definição de região associada) ligado a estes dados no Azure métricas. LAD ignora este campo.
@@ -384,7 +384,7 @@ Elemento | Valor
 ------- | -----
 Espaço de nomes | (opcional) O espaço de nomes OMI, no qual a consulta deve ser executada. Se não for indicado, o valor predefinido é "raiz/scx", implementado pelo [fornecedores de plataforma do System Center](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 consulta | A consulta OMI para ser executada.
-Tabela | (opcional) A tabela de armazenamento do Azure, na conta do storage designada (consulte [protegidos definições](#protected-settings)).
+tabela | (opcional) A tabela de armazenamento do Azure, na conta do storage designada (consulte [protegidos definições](#protected-settings)).
 frequência | (opcional) O número de segundos entre a execução da consulta. Valor predefinido é de 300 (5 minutos) valor mínimo é de 15 segundos.
 sinks | (opcional) Uma lista separada por vírgulas dos nomes do sinks adicionais para que os resultados de métrica de exemplo em bruto devem ser publicados. Nenhuma agregação destes exemplos em bruto é calculada pela extensão ou por métricas do Azure.
 
@@ -407,7 +407,7 @@ Controla a captura de ficheiros de registo. LAD captura novas linhas de texto qu
 Elemento | Valor
 ------- | -----
 ficheiro | Caminho completo do ficheiro de registo sejam observada e capturadas. O nome do caminho tem o nome num único ficheiro; -Não é um diretório de nomes ou conter carateres universais.
-Tabela | (opcional) A tabela de armazenamento do Azure, na conta do storage designada (conforme especificado na configuração protegida), na qual são escritas novas linhas de "seguimento" do ficheiro.
+tabela | (opcional) A tabela de armazenamento do Azure, na conta do storage designada (conforme especificado na configuração protegida), na qual são escritas novas linhas de "seguimento" do ficheiro.
 sinks | (opcional) Uma lista separada por vírgulas dos nomes do sinks adicionais para os quais as linhas de registo enviadas.
 
 O "tabela" ou "sinks" ou ambos, tem de ser especificados.

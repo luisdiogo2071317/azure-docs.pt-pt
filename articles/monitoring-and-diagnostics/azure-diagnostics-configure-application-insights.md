@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: 67dc2d5bbfa2012e4e098616edda593d023c4c1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dd8c6e1fbfba2587aadb3410c3a769b57e06001
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico de serviço em nuvem, a Máquina Virtual ou o Service Fabric para o Application Insights
 Serviços cloud, máquinas virtuais, conjuntos de dimensionamento de Máquina Virtual e Service Fabric todas as utilizam a extensão de diagnóstico do Azure para recolher dados.  Diagnóstico do Azure envia dados para tabelas de armazenamento do Azure.  No entanto, também pode pipe todas ou um subconjunto dos dados para outras localizações utilizando a extensão de diagnóstico do Azure versão 1.5 ou posterior.
@@ -220,6 +220,6 @@ A configuração anterior, as seguintes linhas tem os significados seguintes:
 - **Não é possível enviar os dados de blob recolhidos pela extensão de diagnóstico do Azure ao Application Insights.** Por exemplo, nada especificado sob o *diretórios* nós. Para informações de falhas de informação de falha real é enviada para o armazenamento de BLOBs e apenas uma notificação que foi gerada a informação de falha é enviada para o Application Insights.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba como [veja as suas informações de diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) no Application Insights.
+* Saiba como [veja as suas informações de diagnóstico do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) no Application Insights.
 * Utilize [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) para ativar a extensão de diagnóstico do Azure para a sua aplicação.
 * Utilize [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) para ativar a extensão de diagnóstico do Azure para a sua aplicação

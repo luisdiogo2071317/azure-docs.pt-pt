@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 4e7b3049fff76c86956e08d71b22a0f8dbf55b0e
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 3ab858f98077149983ca12e97a621dac18bb580c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="my-first-python-runbook"></a>O meu primeiro runbook do Python
 
@@ -213,5 +213,5 @@ Clique em **OK** para iniciar o runbook. O runbook é executado e começa a VM q
 * Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
 * Para saber mais sobre os tipos de runbook, as vantagens e limitações, consulte o artigo [Tipos de runbook da Automatização do Azure](automation-runbook-types.md)
-* Para saber mais sobre como desenvolver para o Azure com o Python, consulte [do Azure para programadores do Python](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
-* Para ver os runbooks do exemplo 2 do Python, consulte o [GitHub de automatização do Azure](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
+* Para saber mais sobre como desenvolver para o Azure com o Python, consulte [do Azure para programadores do Python](https://docs.microsoft.com/python/azure/?view=azure-python).
+* Para ver os runbooks do exemplo 2 do Python, consulte o [GitHub de automatização do Azure](https://docs.microsoft.com/python/azure/?view=azure-python).

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4a2ac24442c425e1c2f2e81badef5dbd3a8dcf5e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Aprovisionamento de dispositivos com o serviço de aprovisionamento de dispositivos do Azure IoT Hub (pré-visualização)
 Microsoft Azure fornece um conjunto avançado de serviços de nuvem pública integrada para todas as suas necessidades de solução de IoT. O serviço de aprovisionamento de dispositivos do IoT Hub é um serviço de programa auxiliar para o IoT Hub que permite zero touch, just-in-time aprovisionamento para o IoT hub direito sem necessidade de intervenção humana, permitindo que os clientes aprovisionar milhões de dispositivos segura e escalável forma.
@@ -116,7 +116,7 @@ Para obter mais detalhes sobre os limites de quota:
 * [Limites de serviço de subscrição do Azure](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Componentes do Azure relacionados
-O serviço de aprovisionamento de dispositivos automatiza o aprovisionamento de dispositivos IoT hub do Azure. Saiba mais sobre [IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/).
+O serviço de aprovisionamento de dispositivos automatiza o aprovisionamento de dispositivos IoT hub do Azure. Saiba mais sobre [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
 ## <a name="next-steps"></a>Passos seguintes
 Tem agora uma descrição geral do aprovisionamento de dispositivos de IoT no Azure. O passo seguinte é para experimentar um cenário de IoT ponto-a-ponto.

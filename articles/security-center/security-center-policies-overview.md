@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 60cc65bb94e05da1c0b7ee20930c0530f46e71ec
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-policies-overview"></a>Descrição geral das políticas de segurança
 Este artigo fornece uma descrição geral das políticas de segurança no Centro de segurança.
@@ -29,7 +29,7 @@ As políticas de segurança definem a configuração pretendida para as suas car
 As políticas do Centro de Segurança contêm os componentes seguintes:
 
 - **Recolha de dados**: determina o agente de aprovisionamento e [recolha de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) definições.
-- **Política de segurança**: determina que controla os monitores de centro de segurança e recomenda. Pode editar o [política de segurança](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) no Centro de segurança. Também pode utilizar [política Azure](security-center-azure-policy.md) (em pré-visualização limitada) para criar novas definições, definir políticas adicionais e atribuir políticas em grupos de gestão.
+- **Política de segurança**: determina que controla os monitores de centro de segurança e recomenda. Pode editar o [política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies) no Centro de segurança. Também pode utilizar [política Azure](security-center-azure-policy.md) (em pré-visualização limitada) para criar novas definições, definir políticas adicionais e atribuir políticas em grupos de gestão.
 - **Notificações por correio eletrónico**: determina contactos de segurança, e [notificação de correio electrónico](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) definições.
 - **Escalão de preço**: define gratuita ou standard [preços seleção](https://docs.microsoft.com/azure/security-center/security-center-pricing). A camada que escolha determina as funcionalidades do Centro de segurança estão disponíveis para os recursos no âmbito. Pode especificar uma camada de subscrições, grupos de recursos e áreas de trabalho. 
 

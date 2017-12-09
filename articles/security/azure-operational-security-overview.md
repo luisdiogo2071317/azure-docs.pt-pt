@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 6ee60c5f9a8049523f05a1f3afd6604768dde602
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-overview"></a>Descrição geral de segurança operacionais do Azure
 Segurança operacionais do Azure refere-se os serviços, controlos e funcionalidades disponíveis para os utilizadores para proteger os seus dados, aplicações e outros recursos no Microsoft Azure. [Segurança operacionais do Azure](https://docs.microsoft.com/azure/security/azure-operational-security) é uma estrutura que incorpora o conhecimento adquirida através de uma variedade de capacidades que são exclusivos para a Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), a resposta de segurança da Microsoft Programa do System Center e a deteção de ameaças de segurança informático.
@@ -158,5 +158,5 @@ Verão de DevOps madura adotar várias as seguintes práticas. Estas práticas [
 Para obter mais informações sobre a solução de auditoria e segurança do OMS, consulte os artigos seguintes:
 
 - [Operations Management Suite | Segurança e conformidade](https://www.microsoft.com/cloud-platform/security-and-compliance).
-- [Monitorizar e responder a alertas de segurança no Operations Management Suite segurança e a solução de auditoria](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-responding-alerts).
-- [A monitorização de recursos no Operations Management Suite segurança e a solução de auditoria](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources).
+- [Monitorizar e responder a alertas de segurança no Operations Management Suite segurança e a solução de auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+- [A monitorização de recursos no Operations Management Suite segurança e a solução de auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: f47a855b94a29a2e9bbf4ca509e68612423aa65d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-and-containers"></a>Serviço de recursos de infraestrutura e de contentores
 > [!NOTE]
@@ -61,7 +61,7 @@ A figura seguinte mostra os diferentes tipos de Virtualização e isolamento ní
 ## <a name="scenarios-for-using-containers"></a>Cenários para utilizar contentores
 Seguem-se exemplos típicos onde um contentor é uma boa opção:
 
-* **IIS de comparação de precisão e deslocar**: Se tiver existente [ASP.NET MVC](https://www.asp.net/mvc) aplicações que pretende continuar a utilizar, colocá-los num contentor em vez de a migrá-las para o ASP.NET Core. Estas aplicações de ASP.NET MVC dependem de serviços de informação Internet (IIS). Pode estas aplicações nas imagens de contentor da imagem de IIS precreated do pacote e implementá-los com o Service Fabric. Consulte [imagens do contentor no Windows Server](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server) para obter informações sobre contentores do Windows.
+* **IIS de comparação de precisão e deslocar**: Se tiver existente [ASP.NET MVC](https://www.asp.net/mvc) aplicações que pretende continuar a utilizar, colocá-los num contentor em vez de a migrá-las para o ASP.NET Core. Estas aplicações de ASP.NET MVC dependem de serviços de informação Internet (IIS). Pode estas aplicações nas imagens de contentor da imagem de IIS precreated do pacote e implementá-los com o Service Fabric. Consulte [imagens do contentor no Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) para obter informações sobre contentores do Windows.
 * **Combinar contentores e micro-serviços de Service Fabric**: utilizar uma imagem de contentor existente para a parte da sua aplicação. Por exemplo, poderá utilizar o [contentor NGINX](https://hub.docker.com/_/nginx/) para web front-end da sua aplicação e a serviços com monitorização de estado para o cálculo de back-end mais intensiva.
 * **Reduzir o impacto dos serviços de "vizinhos inúteis"**: pode utilizar a capacidade de governação de recursos de contentores para restringir os recursos que utiliza um serviço num anfitrião. Se os serviços podem consumir muitos recursos e afetar o desempenho de terceiros (como uma operação de execução longa, semelhante de consulta), considere colocar estes serviços ao contentores que tenham a governação de recursos.
 
@@ -90,6 +90,6 @@ Neste artigo, aprendeu sobre contentores, que Service Fabric é orchestrator um 
 
 [Criar a primeira aplicação de contentor do Service Fabric no Linux](service-fabric-get-started-containers-linux.md)
 
-[Saiba mais sobre os contentores do Windows](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
+[Saiba mais sobre os contentores do Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

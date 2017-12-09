@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 85da2a521af0ca92c07d8b2041e92b98f98e9661
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolver problemas de desempenho de SQL Database do Azure com o Insights inteligente
 
@@ -52,7 +52,7 @@ Insights inteligentes Deteta automaticamente os problemas de desempenho com base
 | [Mudança para versão anterior do escalão de preço](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Uma ação de mudança para versão anterior do escalão preço diminuído recursos disponíveis, que afeta o desempenho de base de dados SQL. |
 
 > [!TIP]
-> Para a otimização de desempenho contínuas da base de dados do SQL Server, ativar [otimização automática da base de dados do Azure SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). Esta funcionalidade exclusiva de intelligence incorporada de base de dados SQL continuamente monitoriza a base de dados do SQL Server, automaticamente tunes índices e aplica-se correções de plano de execução de consulta.
+> Para a otimização de desempenho contínuas da base de dados do SQL Server, ativar [otimização automática da base de dados do Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Esta funcionalidade exclusiva de intelligence incorporada de base de dados SQL continuamente monitoriza a base de dados do SQL Server, automaticamente tunes índices e aplica-se correções de plano de execução de consulta.
 >
 
 A secção seguinte descreve os padrões de desempenho detetável listadas anteriormente em mais detalhe.
@@ -63,7 +63,7 @@ A secção seguinte descreve os padrões de desempenho detetável listadas anter
 
 Neste padrão de desempenho detetável combina os problemas de desempenho relacionados com a atingir os limites de recursos disponíveis, os limites de trabalho e limites de sessão. Depois do problema de desempenho é detetado, um campo de descrição do registo de diagnóstico indica se o problema de desempenho está relacionado com recursos, o trabalho ou limites de sessão.
 
-Recursos na base de dados do SQL Server são normalmente denominados [recursos DTU](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu). Estes consistem de uma medida combinada de CPU e e/s recursos (dados transação registo e e/s). O padrão de atingir os limites de recursos é reconhecido quando detetado degradação do desempenho de consulta é causada por atingir qualquer os limites de recursos de medida.
+Recursos na base de dados do SQL Server são normalmente denominados [recursos DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Estes consistem de uma medida combinada de CPU e e/s recursos (dados transação registo e e/s). O padrão de atingir os limites de recursos é reconhecido quando detetado degradação do desempenho de consulta é causada por atingir qualquer os limites de recursos de medida.
 
 O recurso de limites de sessão indica o número de inícios de sessão em simultâneo disponíveis para a base de dados do SQL Server. Neste padrão de desempenho é reconhecido quando as aplicações que estão ligadas a bases de dados do SQL Server atingiu o número de inícios de sessão em simultâneo disponíveis para a base de dados. Se as aplicações tentam utilizar mais sessões que estão disponíveis numa base de dados, o desempenho das consultas é afetado.
 
@@ -75,7 +75,7 @@ O registo de diagnóstico produz hashes de consulta de consultas que afetados o 
 
 Se tiver atingido os limites de sessão disponíveis, pode otimizar as suas aplicações, reduzir o número de inícios de sessão efetuadas à base de dados. Se não for possível reduzir o número de inícios de sessão das suas aplicações para a base de dados, considere aumentar o escalão de preço da base de dados. Ou pode dividir e mover a base de dados para várias bases de dados para uma distribuição mais com balanceamento de carga de trabalho.
 
-Para mais sugestões sobre como resolver os limites de sessão, consulte [como lidar com os limites de inícios de sessão de máximos de base de dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Para saber os limites de recursos disponíveis para o escalão de subscrição, consulte [dos limites de recursos de base de dados SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits).
+Para mais sugestões sobre como resolver os limites de sessão, consulte [como lidar com os limites de inícios de sessão de máximos de base de dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Para saber os limites de recursos disponíveis para o escalão de subscrição, consulte [dos limites de recursos de base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
 
 ## <a name="workload-increase"></a>Aumento de carga de trabalho
 
@@ -145,7 +145,7 @@ A opção de configuração de servidor MAXDOP na base de dados do SQL Server é
 
 O registo de diagnóstico produz relacionados com consultas para as quais a duração de execução aumentado porque estes foram paralelizadas mais do que o se devem ter sido de hashes de consulta. O registo de saídas também CXP tempos de espera. Neste momento representa o tempo de um thread único organizador/coordenador (thread 0) está à espera que todos os outros threads seja concluída antes de intercalação os resultados e mover avançar. Além disso, o registo de diagnóstico produz os tempos de espera que as consultas fraco desempenho em execução geral. Pode utilizar estas informações como base para resolução de problemas.
 
-Em primeiro lugar, otimizar ou simplifique consultas complexas. É boa prática dividir tarefas de lote longo para aqueles mais pequenos. Além disso, certifique-se de que criou índices para suportar as suas consultas. Pode também manualmente impor o grau de paralelismo (MAXDOP) máximo para uma consulta que foi sinalizada como desempenho fraco. Para configurar esta operação através da utilização de T-SQL, consulte [Configure a opção de configuração de servidor MAXDOP](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+Em primeiro lugar, otimizar ou simplifique consultas complexas. É boa prática dividir tarefas de lote longo para aqueles mais pequenos. Além disso, certifique-se de que criou índices para suportar as suas consultas. Pode também manualmente impor o grau de paralelismo (MAXDOP) máximo para uma consulta que foi sinalizada como desempenho fraco. Para configurar esta operação através da utilização de T-SQL, consulte [Configure a opção de configuração de servidor MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Definir o servidor MAXDOP a opção de configuração para zero (0), como um valor predefinido indica que a base de dados do SQL Server pode utilizar todos os núcleos de CPU lógicos disponíveis para parallelize threads para executar uma única consulta. Definição MAXDOP para um (1) indica que apenas um principal pode ser utilizado para uma execução de uma consulta simples. Em termos práticos, isto significa que o paralelismo está desativado. Consoante a base de maiúsculas e minúsculas por caso, informações no registo de núcleos disponíveis para a base de dados e diagnóstico, pode otimizar a opção de MAXDOP para o número de núcleos utilizado para execução paralela da consulta que poderá resolver o problema no seu caso.
 
@@ -191,7 +191,7 @@ O registo de diagnóstico produz hashes de consulta para as consultas que foram 
 > Para a otimização de desempenho contínuas da base de dados do SQL Server, recomendamos que ative [otimização automática da base de dados SQL](sql-database-automatic-tuning.md). Esta funcionalidade exclusiva de intelligence incorporada de base de dados SQL continuamente monitoriza a base de dados do SQL Server e automaticamente tunes e cria índices para as bases de dados.
 >
 
-## <a name="new-query"></a>Nova consulta
+## <a name="new-query"></a>Nova Consulta
 
 ### <a name="what-is-happening"></a>O que acontece
 
@@ -231,7 +231,7 @@ Neste padrão de desempenho detetável indica uma condição de desempenho de ba
 
 O registo de diagnóstico produz detalhes de contenção de tempDB. Pode utilizar as informações como o ponto de partida para resolução de problemas. Existem dois aspetos pode pursue aliviar este tipo de contenção e aumentar o débito da carga de trabalho geral: pode deixar de utilizar as tabelas temporárias. Também é possível utilizar tabelas com otimização de memória. 
 
-Para obter mais informações, consulte [introdução às tabelas com otimização de memória](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+Para obter mais informações, consulte [introdução às tabelas com otimização de memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
 ## <a name="elastic-pool-dtu-shortage"></a>Falta DTU do conjunto elástico
 
@@ -328,10 +328,10 @@ Acesso Insights inteligente através do portal do Azure acedendo a análise de S
 > [!TIP]
 > Selecione o fluxograma para transferir uma versão PDF.
 
-Insights inteligentes normalmente necessita de uma hora de tempo para executar a análise da causa raiz do problema de desempenho. Se não é possível localizar o problema no Insights inteligente e é fundamental para si, utilize o arquivo de consultas manualmente identificar a causa do problema de desempenho. (Normalmente, estes problemas são inferior a um horas depois.) Para obter mais informações, consulte [monitorizar o desempenho ao utilizar o arquivo de consultas](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Insights inteligentes normalmente necessita de uma hora de tempo para executar a análise da causa raiz do problema de desempenho. Se não é possível localizar o problema no Insights inteligente e é fundamental para si, utilize o arquivo de consultas manualmente identificar a causa do problema de desempenho. (Normalmente, estes problemas são inferior a um horas depois.) Para obter mais informações, consulte [monitorizar o desempenho ao utilizar o arquivo de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba [Insights inteligente](sql-database-intelligent-insights.md) conceitos.
 - Utilize o [registo de diagnóstico de desempenho inteligente Insights SQL Database do Azure](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Monitor [SQL Database do Azure utilizando o Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
+- Monitor [SQL Database do Azure utilizando o Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Saiba como [recolher e consumir dados de registo dos seus recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

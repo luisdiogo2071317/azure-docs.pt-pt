@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 867484799020a4e65844523a88240b3d550c69f7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 8ba153cf2775fe76c824e142ed9a181d0e956392
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteger o seu serviço RESTful utilizando certificados de cliente
 Um artigo relacionado, é [criar um serviço RESTful](active-directory-b2c-custom-rest-api-netfw.md) que interage com o Azure Active Directory B2C (Azure AD B2C).
@@ -41,7 +41,7 @@ Detalhes deste artigo como:
 Para configurar **App Service do Azure** para exigir certificados de cliente, definir a aplicação web `clientCertEnabled` definição do site *verdadeiro*. Para efetuar esta alteração, tem de utilizar a API REST. A definição está disponível através de experiência de gestão no portal do Azure. Para localizar a definição na sua aplicação RESTful **definições** menu, em **ferramentas de desenvolvimento**, selecione **Explorador de recursos**.
 
 >[!NOTE]
->Certifique-se de que o plano do App Service do Azure Standard ou superior. Para obter mais informações, consulte [descrição geral dos planos do App Service do Azure](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Certifique-se de que o plano do App Service do Azure Standard ou superior. Para obter mais informações, consulte [descrição geral dos planos do App Service do Azure](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
 
 Utilize [Explorador de recursos do Azure (pré-visualização)](https://resources.azure.com) para definir o **clientCertEnabled** propriedade *verdadeiro*, conforme mostrado na imagem seguinte:
@@ -49,7 +49,7 @@ Utilize [Explorador de recursos do Azure (pré-visualização)](https://resource
 ![Definição clientCertEnabled através do Explorador de recursos do Azure](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
 
 >[!NOTE]
->Para obter mais informações sobre a definição de **clientCertEnabled** propriedade, consulte [autenticação mútua do TLS configurar para aplicações web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Para obter mais informações sobre a definição de **clientCertEnabled** propriedade, consulte [autenticação mútua do TLS configurar para aplicações web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 >[!TIP]
 >Em alternativa, para facilitar o craft a chamada de REST API, pode utilizar o [ARMClient](https://github.com/projectkudu/ARMClient) ferramenta.
@@ -165,7 +165,7 @@ O certificado de cliente do Azure AD B2C envia ao seu serviço RESTful não tem 
 Nesta secção, adicione o código ASP.NET de exemplo que valida as propriedades do certificado para efeitos de autenticação.
 
 > [!NOTE]
->Para obter mais informações sobre como configurar o App Service do Azure para autenticação de certificados de cliente, consulte [autenticação mútua do TLS configurar para aplicações web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Para obter mais informações sobre como configurar o App Service do Azure para autenticação de certificados de cliente, consulte [autenticação mútua do TLS configurar para aplicações web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 ### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 adicionar definições da aplicação para o ficheiro do seu projeto Web. config
 No projeto do Visual Studio que criou anteriormente, adicione as seguintes definições de aplicação para o *Web. config* ficheiro após o `appSettings` elemento:

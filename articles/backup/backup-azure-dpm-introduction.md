@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparar a criação de cópias de segurança de cargas de trabalho para o Azure com o DPM
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Este artigo fornece uma introdução à utilização do Microsoft Azure Backup p
 >
 >
 
-[O System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) efetua cópias de segurança de ficheiros e dados de aplicações. Podem encontrar mais informações sobre cargas de trabalho suportadas [aqui](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix). Dados de cópia de segurança do DPM podem ser armazenados na banda, disco ou uma cópia de segurança para o Azure com cópia de segurança do Microsoft Azure. O DPM interage com o Backup do Azure da seguinte forma:
+[O System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) efetua cópias de segurança de ficheiros e dados de aplicações. Podem encontrar mais informações sobre cargas de trabalho suportadas [aqui](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Dados de cópia de segurança do DPM podem ser armazenados na banda, disco ou uma cópia de segurança para o Azure com cópia de segurança do Microsoft Azure. O DPM interage com o Backup do Azure da seguinte forma:
 
 * **DPM implementado como uma máquina virtual do servidor ou no local física** — se o DPM é implementado como um servidor físico ou como uma máquina de virtual de Hyper-V no local que pode fazer cópias de segurança dados para um cofre dos serviços de recuperação para além do disco e banda cópia de segurança.
 * **DPM implementado como uma máquina virtual do Azure** — do System Center 2012 R2 com Update 3, o DPM pode ser implementado como uma máquina virtual do Azure. Se o DPM for implementado como uma máquina virtual do Azure, que pode fazer uma cópia dos dados nos discos do Azure anexados à máquina virtual do DPM Azure ou pode descarregar o armazenamento de dados através de cópias de até um cofre dos serviços de recuperação.
@@ -66,7 +66,7 @@ Seguem-se algumas definições de chaves para cópia de segurança do Azure para
 
 1. **Credenciais do cofre** — as credenciais do cofre são necessárias para autenticar a máquina para enviar dados de cópia de segurança para um cofre identificado no serviço de cópia de segurança do Azure. Este pode ser transferido a partir do cofre e é válido para 48hrs.
 2. **Frase de acesso** — frase de acesso é utilizado para encriptar as cópias de segurança para a nuvem. Guarde o ficheiro numa localização segura conforme necessário durante uma operação de recuperação.
-3. **Segurança PIN** — se tiver ativado o [definições de segurança](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature) do cofre, de segurança de PIN é necessário para efetuar operações de cópia de segurança críticas. Esta autenticação multifator adiciona outra camada de segurança. 
+3. **Segurança PIN** — se tiver ativado o [definições de segurança](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) do cofre, de segurança de PIN é necessário para efetuar operações de cópia de segurança críticas. Esta autenticação multifator adiciona outra camada de segurança. 
 4. **Pasta de recuperação** — é o frase de acesso que as cópias de segurança da nuvem estão temporariamente transferidas para durante as recuperações de nuvem. O tamanho de aproximadamente deve ser igual ao tamanho dos itens de cópia de segurança que pretende recuperar em paralelo.
 
 

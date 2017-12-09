@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 4eecaf76773927f96f0e4d79d795f0ffe8033a66
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 77c7163b896c2b364039ea6c669ee70cf8be4d9e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Utilize o Toolkit do Azure para o IntelliJ para criar Spark aplicações para um cluster do HDInsight
 
@@ -169,7 +169,7 @@ Para obter instruções de instalação, consulte [instalar o Toolkit do Azure p
       Para saber como resultado da tarefa de acesso, consulte o "acesso e gerir clusters do HDInsight Spark através do Toolkit do Azure para o IntelliJ" secção neste artigo.
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Depurar aplicações do Spark localmente ou remotamente num cluster do HDInsight 
-Recomendamos também outra maneira de submeter a aplicação de Spark para o cluster. Pode fazê-lo também ao definir os parâmetros **configurações de execução/depuração** IDE. Para obter mais informações, consulte [depurar aplicações do Spark localmente ou remotamente num cluster do HDInsight com o Toolkit do Azure para o IntelliJ através de SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+Recomendamos também outra maneira de submeter a aplicação de Spark para o cluster. Pode fazê-lo também ao definir os parâmetros **configurações de execução/depuração** IDE. Para obter mais informações, consulte [depurar aplicações do Spark localmente ou remotamente num cluster do HDInsight com o Toolkit do Azure para o IntelliJ através de SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Aceder e gerir clusters do HDInsight Spark através do Toolkit do Azure para o IntelliJ
 Pode desempenhar várias operações, utilizando o Toolkit do Azure para o IntelliJ.

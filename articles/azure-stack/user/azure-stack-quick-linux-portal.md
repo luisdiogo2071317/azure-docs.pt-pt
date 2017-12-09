@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Criar uma máquina virtual Linux com o portal de pilha do Azure
 
@@ -30,7 +30,7 @@ Máquinas virtuais de pilha do Azure podem ser criadas através do portal do Azu
 
 * **Acesso a um cliente SSH**
 
-   Se estiver a utilizar o Kit de desenvolvimento de pilha do Azure (ASDK), pode não ter acesso a um cliente SSH no seu ambiente. Se for este o caso, pode escolher entre vários pacotes que incluem um cliente SSH. Por exemplo, pode instalar PuTTY que inclui um cliente SSH e o gerador de chaves SSH (puttygen.exe). Para obter mais informações sobre as possíveis opções, consulte os seguintes relacionados com o artigo do Azure: [como chaves de utilizar o SSH com o Windows no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
+   Se estiver a utilizar o Kit de desenvolvimento de pilha do Azure (ASDK), pode não ter acesso a um cliente SSH no seu ambiente. Se for este o caso, pode escolher entre vários pacotes que incluem um cliente SSH. Por exemplo, pode instalar PuTTY que inclui um cliente SSH e o gerador de chaves SSH (puttygen.exe). Para obter mais informações sobre as possíveis opções, consulte os seguintes relacionados com o artigo do Azure: [como chaves de utilizar o SSH com o Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
    Este guia de introdução utiliza o PuTTY para gerar as chaves SSH e ligar à máquina virtual Linux. Para transferir e instalar PuTTY, aceda a [http://www.putty.org/](http://www.putty.org).
 

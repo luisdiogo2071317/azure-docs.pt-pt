@@ -15,19 +15,19 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d423859b299d27472dfa2eb4bbaa7d32d82f2a9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliotecas de autenticação de v 2.0 do Azure Active Directory
-O [ponto final v 2.0 do Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) suporta os protocolos de OAuth 2.0 e o OpenID Connect 1.0 de norma da indústria. Pode utilizar bibliotecas vários da Microsoft e de outras organizações com o ponto final v 2.0.
+O [ponto final v 2.0 do Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) suporta os protocolos de OAuth 2.0 e o OpenID Connect 1.0 de norma da indústria. Pode utilizar bibliotecas vários da Microsoft e de outras organizações com o ponto final v 2.0.
 
 Quando criar uma aplicação que utiliza o ponto final v 2.0, recomendamos a utilização de bibliotecas que são escritas por especialistas de domínio de protocolo que siga uma metodologia Security Development Lifecycle (SDL), como [o seguido pela Microsoft][Microsoft-SDL]. Se optar por suporte de código mão para os protocolos, recomendamos que siga metodologia SDL e preste especial atenção para as considerações de segurança nas especificações normas para cada protocolo.
 
 > [!NOTE]
-> Procurar as bibliotecas de v 1.0 do Azure AD (ADAL)? Finalizar a [guia da biblioteca ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> Procurar as bibliotecas de v 1.0 do Azure AD (ADAL)? Finalizar a [guia da biblioteca ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
 > 
 > 
 
@@ -53,7 +53,7 @@ Para obter uma lista de bibliotecas que funcionam com o ponto final v 2.0, consu
 > [!IMPORTANT]
 > As bibliotecas de pré-visualização MSAL são adequadas para utilização num ambiente de produção. Podemos fornecer o mesmo suporte de nível de produção para estas bibliotecas, tal como estamos nossas bibliotecas de produção atual (ADAL). Durante a pré-visualização, iremos poder efetuar alterações para a API de MSAL, formato da cache interna e outros mecanismos destas bibliotecas sem aviso prévio, será necessário efetuar juntamente com correções de erros ou melhoramentos de funcionalidades. Podem ter impacto na sua aplicação. Por exemplo, uma alteração para o formato de cache pode afetar os seus utilizadores, por exemplo, exigindo que inicie sessão novamente. Uma alteração de API pode necessitar de atualizar o seu código. Quando a versão de disponibilidade geral, que podemos irá requerem que Atualize para a versão de disponibilidade geral dentro de seis meses que fornecemos, como aplicações escritas utilizando uma versão de pré-visualização versão da biblioteca pode deixará de funcionar.
 
-| Plataforma | Biblioteca | Transferência | Código de origem | Exemplo | Referência
+| Plataforma | Biblioteca | Transferência | Código de origem | Sample | Referência
 | --- | --- | --- | --- | --- | --- |
 | Cliente de .NET, Loja Windows, UWP, Xamarin iOS e Android | MSAL .NET (pré-visualização) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Aplicação de ambiente de trabalho](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
 | JavaScript | MSAL.js (pré-visualização) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
@@ -62,7 +62,7 @@ Para obter uma lista de bibliotecas que funcionam com o ponto final v 2.0, consu
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Bibliotecas de middleware suportada do Microsoft server
 
-| Plataforma | Biblioteca | Transferência | Código de origem | Exemplo | Referência
+| Plataforma | Biblioteca | Transferência | Código de origem | Sample | Referência
 | --- | --- | --- | --- | --- | --- |
 | .NET 4. x | Middleware OWIN OpenID Connect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Aplicação MVC](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
 | .NET 4. x | Middleware de portador de OAuth da OWIN para AzureAD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
@@ -73,14 +73,14 @@ Para obter uma lista de bibliotecas que funcionam com o ponto final v 2.0, consu
 | Node.js |Passport do Azure AD |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Aplicação Web](active-directory-v2-devquickstarts-node-web.md)| |
 
 ## <a name="compatible-client-libraries"></a>Bibliotecas de cliente compatível
-| Plataforma | Nome da biblioteca | Versão testada | Código de origem | Exemplo |
+| Plataforma | Nome da biblioteca | Versão testada | Código de origem | Sample |
 |:---:|:---:|:---:|:---:|:---:|
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Exemplo de aplicação nativa](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Exemplo de aplicação nativa](active-directory-v2-devquickstarts-ios.md) |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 
 ## <a name="compatible-server-middleware-libraries"></a>Bibliotecas de middleware servidor compatível
-| Plataforma | Nome da biblioteca | Versão testada | Código de origem | Exemplo |
+| Plataforma | Nome da biblioteca | Versão testada | Código de origem | Sample |
 |:---:|:---:|:---:|:---:|:---:|
 | Java | [Scribejava Scribe Java](https://github.com/scribejava/scribejava) | [Versão 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
 | PHP | [O PHP League oauth2 cliente](https://github.com/thephpleague/oauth2-client) | [Versão 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [cliente de oauth2](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |

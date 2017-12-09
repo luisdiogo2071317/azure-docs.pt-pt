@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: afee79e5081cbc6c217569a9d1bffdd7726e2f61
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7e4cd0b455ab39db01d50943d15f7e138bbd5e4e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Criar chaves conteúdas com REST
 > [!div class="op_single_selector"]
@@ -35,18 +35,18 @@ Quando fornecer recursos aos seus clientes, pode [configurar para ativos seja en
 
 Ativos encriptados têm de ser associado **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
 
-Seguem-se passos gerais para a geração de chaves de conteúdo que irá associar recursos que pretende que sejam encriptados. 
+Seguem-se passos gerais para a geração de chaves de conteúdo que associam os recursos que pretende que sejam encriptados. 
 
 1. Gere aleatoriamente uma chave AES de 16 bytes (para a encriptação comum e envelope) ou uma chave AES de 32-byte (para a encriptação de armazenamento). 
    
-    Esta será a chave de conteúdo para o seu elemento, o que significa que todos os ficheiros associados esse recurso, terá de utilizar a mesma chave de conteúdo durante a desencriptação. 
+    Esta é a chave de conteúdo para o seu elemento, o que significa que todos os ficheiros associados que precisem de recurso a utilizar a mesma chave de conteúdo durante a desencriptação. 
 2. Chamar o [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) métodos para obter o certificado x. 509 correto, que tem de ser utilizado para encriptar a chave de conteúdo.
 3. Encriptar o chave de conteúdo com a chave pública do certificado x. 509. 
    
    SDK .NET dos Media Services utiliza RSA com OAEP ao efetuar a encriptação.  Pode ver um exemplo de [EncryptSymmetricKeyData função](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Crie um valor de soma de verificação (com base no algoritmo de soma de verificação chave PlayReady AES) calculado com o identificador da chave e a chave de conteúdo. Para obter mais informações, consulte a secção de "PlayReady chave AES soma de verificação algoritmo" do objeto de cabeçalho de PlayReady documento localizado [aqui](http://www.microsoft.com/playready/documents/).
    
-   Segue-se um exemplo de .NET que calcula a soma de verificação utilizando o GUID parte do identificador da chave e a chave de limpar conteúdo.
+   O seguinte exemplo de .NET calcula a soma de verificação utilizando o GUID parte do identificador da chave e a chave de limpar conteúdo.
    
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
@@ -68,7 +68,7 @@ Seguem-se passos gerais para a geração de chaves de conteúdo que irá associa
 5. Criar a chave de conteúdo com o **EncryptedContentKey** (em cadeia com codificação base64), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, e **soma de verificação** valores receberam nos passos anteriores.
 6. Associar o **ContentKey** entidade com o seu **Asset** entidade através da operação $links.
 
-Tenha em atenção que este tópico não mostra como gerar uma chave AES, encriptar a chave e calcular a soma de verificação. 
+Este artigo mostra como gerar uma chave AES, encriptar a chave e calcular a soma de verificação. 
 
 >[!NOTE]
 
@@ -92,7 +92,7 @@ Pedido:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 
@@ -124,7 +124,7 @@ Pedido:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -152,7 +152,7 @@ Resposta:
 ## <a name="create-the-contentkey"></a>Criar o ContentKey
 Depois de obter o certificado x. 509 e utilizar a chave pública para encriptar a chave de conteúdo, crie um **ContentKey** entidade e defina a propriedade de valores em conformidade.
 
-Um dos valores que tem de definir quando criar o conteúdo da chave é do tipo. Escolha um dos seguintes valores.
+Um dos valores que tem de definir quando criar o conteúdo da chave é do tipo. Escolha um dos seguintes valores:
 
     public enum ContentKeyType
     {
@@ -179,7 +179,7 @@ Um dos valores que tem de definir quando criar o conteúdo da chave é do tipo. 
     }
 
 
-O exemplo seguinte mostra como criar um **ContentKey** com um **ContentKeyType** definido para a encriptação de armazenamento ("1") e o **ProtectionKeyType** definido como "0" para indicar que a chave de proteção Id é o thumbprint do certificado x. 509.  
+O exemplo seguinte mostra como criar um **ContentKey** com um **ContentKeyType** definido para a encriptação de armazenamento ("1") e o **ProtectionKeyType** definido como "0" para indicar que a chave de proteção ID é o thumbprint do certificado x. 509.  
 
 Pedir
 
@@ -191,7 +191,7 @@ Pedir
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -241,7 +241,7 @@ Pedido:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 

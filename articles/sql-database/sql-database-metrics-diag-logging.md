@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnóstico 
 Base de dados SQL do Azure pode emitir métricas e diagnóstico registos para a monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
@@ -184,7 +184,7 @@ Monitorização de uma frota de base de dados SQL é simple com a análise de re
 
 2. Selecione **monitorização + gestão**.
 
-3. Selecione **Iniciar análise**.
+3. Selecione **Log Analytics**.
 
 4. Preencha o formulário de análise de registos com as informações adicionais que é necessários: nome de área de trabalho, subscrição, grupo de recursos, localização e escalão de preço.
 
@@ -266,7 +266,7 @@ Saiba como [transferir os registos de métricas e diagnóstico do armazenamento]
 |**Recurso**|**Métricas**|
 |---|---|
 |Base de Dados|Percentagem DTU, DTU utilizado, o limite DTU, percentagem de CPU, percentagem de leitura de dados físicos, escrever o registo de percentagem, Successful/falhado/bloqueado por ligações de firewall, percentagem de sessões, percentagem workers, armazenamento, percentagem de armazenamento, a percentagem de armazenamento XTP, e impasses |
-|Conjunto elástico|percentagem de eDTU, eDTU utilizado, o limite de eDTU, percentagem de CPU, percentagem de leitura de dados físicos, registo escrever percentagem, percentagem de sessões, percentagem workers, armazenamento, a percentagem de armazenamento, limite de armazenamento, percentagem de armazenamento XTP |
+|Agrupamento elástico|percentagem de eDTU, eDTU utilizado, o limite de eDTU, percentagem de CPU, percentagem de leitura de dados físicos, registo escrever percentagem, percentagem de sessões, percentagem workers, armazenamento, a percentagem de armazenamento, limite de armazenamento, percentagem de armazenamento XTP |
 |||
 
 ### <a name="query-store-runtime-statistics"></a>Estatísticas de tempo de execução do arquivo de consultas
@@ -318,7 +318,7 @@ Saiba como [transferir os registos de métricas e diagnóstico do armazenamento]
 |query_id_d|ID da consulta no arquivo de consultas.|
 |plan_id_d|ID do plano no arquivo de consultas.|
 
-Saiba mais sobre [dados de estatísticas do arquivo de consultas runtime](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Saiba mais sobre [dados de estatísticas do arquivo de consultas runtime](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### <a name="query-store-wait-statistics"></a>Estatísticas de espera de arquivo de consultas
 
@@ -356,7 +356,7 @@ Saiba mais sobre [dados de estatísticas do arquivo de consultas runtime](https:
 |query_id_d|ID da consulta no arquivo de consultas.|
 |plan_id_d|ID do plano no arquivo de consultas.|
 
-Saiba mais sobre [dados de estatísticas de espera de arquivo de consultas](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Saiba mais sobre [dados de estatísticas de espera de arquivo de consultas](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 ### <a name="errors-dataset"></a>Conjunto de dados de erros
 
@@ -414,7 +414,7 @@ Saiba mais sobre [mensagens de erro do SQL Server](https://msdn.microsoft.com/en
 |delta_wait_time_ms_d|Tempo de espera total no período.|
 |delta_waiting_tasks_count_d|Número de tarefas de espera.|
 
-Saiba mais sobre [base de dados de estatísticas de espera](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Saiba mais sobre [base de dados de estatísticas de espera](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 ### <a name="time-outs-dataset"></a>Conjunto de dados de tempos limite
 

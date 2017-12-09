@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7e25b9a77d5ba7b856c9616c8384a567b7d37bbd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Gestor de recursos do Azure
 
-Este documento, lista as operações disponíveis para cada fornecedor de recursos do Microsoft Azure Resource Manager. Estes podem ser utilizados em funções personalizadas para fornecer permissões de controlo de acesso baseado em funções (RBAC) granulares a recursos no Azure. Tenha em atenção de que não se trata de uma lista completa e operações podem ser adicionadas ou removidas como cada fornecedor está atualizado. Cadeias de operação seguem o formato do `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Para obter uma lista abrangente e atual utilize `Get-AzureRmProviderOperation` (no PowerShell) ou `azure provider operations show` (na CLI do Azure) para operações de lista de fornecedores de recursos do Azure.
+Este documento, lista as operações disponíveis para cada fornecedor de recursos do Microsoft Azure Resource Manager. Estes podem ser utilizados em funções personalizadas para fornecer permissões de controlo de acesso baseado em funções (RBAC) granulares a recursos no Azure. Tenha em atenção de que não se trata de uma lista completa e operações podem ser adicionadas ou removidas como cada fornecedor está atualizado. Cadeias de operação seguem o formato do `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. 
+
+> [!NOTE]
+> Para obter uma lista abrangente e atual utilize `Get-AzureRmProviderOperation` (no PowerShell) ou `az provider operation list` (na CLI do Azure v2) para operações de lista de fornecedores de recursos do Azure.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -87,7 +90,7 @@ Este documento, lista as operações disponíveis para cada fornecedor de recurs
 |/Service/loggers/DELETE|Remover o registo existente|
 |/Service/Users/Read|Obter uma lista de utilizadores registados ou obter os detalhes da conta de utilizador|
 |/Service/Users/Write|Registar um novo utilizador ou detalhes da conta de atualização de um utilizador existente|
-|/Service/Users/DELETE|Remover a conta de utilizador|
+|/Service/Users/DELETE|Remover conta de utilizador|
 |/Service/Users/generateSsoUrl/Action|Gere o URL do SSO. O URL pode ser utilizado para aceder ao portal de administração|
 |/Service/Users/subscriptions/Read|Obter a lista de subscrições do utilizador|
 |/Service/Users/Keys/Read|Obter a lista de chaves de utilizador|
@@ -294,12 +297,12 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 
 | Operação | Descrição |
 |---|---|
-|mapApis/leitura|Operações de leitura|
-|mapApis/escrita|Operação de escrita|
-|mapApis/eliminar|A operação de eliminação|
-|/mapApis/regenerateKey/Action|A chave de gera de novo|
-|/mapApis/listSecrets/Action|Lista os segredos|
-|/mapApis/listSingleSignOnToken/Action|Ler Token de autorização para o recurso de início de sessão único|
+|mapApis/leitura|Operação de Leitura|
+|mapApis/escrita|Operação de Escrita|
+|mapApis/eliminar|Operação de Eliminação|
+|/mapApis/regenerateKey/Action|Regenera a Chave|
+|/mapApis/listSecrets/Action|Listar os Segredos|
+|/mapApis/listSingleSignOnToken/Action|Ler Token de Autorização de Início de Sessão Único para o Recurso|
 |/ Operações/leitura|Descrição da operação.|
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
@@ -309,21 +312,21 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |checknameavailability/ação|Verifica se um nome fica disponível para utilização com uma nova Cache de Redis|
 |registar/ação|Regista o fornecedor de recursos 'Microsoft.Cache' com uma subscrição|
 |ação de anular o registo /|Anula o registo do fornecedor de recursos 'Microsoft.Cache' com uma subscrição|
-|/ redis/escrita|Modificar as definições da Cache de Redis e a configuração no portal de gestão|
-|/redis/Read|Ver definições e a configuração da Cache de Redis no portal de gestão|
+|/ redis/escrita|Modificar as definições e a configuração da Cache de Redis no portal de gestão|
+|/redis/Read|Ver as definições e a configuração da Cache de Redis no portal de gestão|
 |/redis/DELETE|Eliminar a Cache de Redis completa|
 |/redis/listKeys/Action|Ver o valor das chaves de acesso da Cache de Redis no portal de gestão|
-|/redis/regenerateKey/Action|Altere o valor das chaves de acesso da Cache de Redis no portal de gestão|
-|/redis/Import/Action|Importar dados de um formato especificado de vários blobs para Redis|
-|/redis/Export/Action|Exportar dados de Redis para blobs de armazenamento com prefixo no formato especificado|
-|/redis/forceReboot/Action|Force reiniciar uma instância da cache, potencialmente com perda de dados.|
+|/redis/regenerateKey/Action|Alterar o valor das chaves de acesso da Cache de Redis no portal de gestão|
+|/redis/Import/Action|Importar dados de um formato especificado a partir de vários blobs para Redis|
+|/redis/Export/Action|Exportar dados Redis para os blobs de armazenamento com prefixo no formato especificado|
+|/redis/forceReboot/Action|Forçar reinício de uma instância da cache, potencialmente com perda de dados.|
 |/redis/Stop/Action|Pare uma instância da cache.|
 |/redis/Start/Action|Inicie uma instância da cache.|
 |/redis/metricDefinitions/Read|Obtem as métricas disponíveis para uma Cache de Redis|
 |/redis/firewallRules/Read|Obter as regras de firewall IP de uma Cache de Redis|
 |/redis/firewallRules/Write|Editar as regras de firewall IP de uma Cache de Redis|
 |/redis/firewallRules/DELETE|Eliminar as regras de firewall IP de uma Cache de Redis|
-|/redis/listUpgradeNotifications/Read|Liste as notificações de atualização mais recente para o inquilino da cache.|
+|/redis/listUpgradeNotifications/Read|Listar as Notificações de Atualização mais recentes para o inquilino da cache.|
 |/redis/linkedservers/Read|Obter os servidores ligados associado uma cache de redis.|
 |/redis/linkedservers/Write|Adicionar o servidor ligado a uma Cache de Redis|
 |/redis/linkedservers/DELETE|Eliminar o servidor ligado a partir de uma Cache de Redis|
@@ -368,7 +371,7 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/domainNames/Read|Devolva os nomes de domínio dos recursos.|
 |/ domainNames/escrita|Adiciona ou modifica os nomes de domínio dos recursos.|
 |/domainNames/DELETE|Remova os nomes de domínio dos recursos.|
-|/domainNames/swap/Action|Troca a ranhura de teste para a ranhura de produção.|
+|/domainNames/swap/Action|Troca o bloco de teste pelo bloco de produção.|
 |/domainNames/serviceCertificates/Read|Devolve os certificados de serviço utilizados.|
 |/domainNames/serviceCertificates/Write|Adiciona ou modifica os certificados de serviço utilizados.|
 |/domainNames/serviceCertificates/DELETE|Elimine os certificados de serviço utilizados.|
@@ -528,13 +531,13 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 
 | Operação | Descrição |
 |---|---|
-|/Accounts/Read|Lê as contas de API.|
-|contas/escrita|Grava as contas de API.|
-|/Accounts/DELETE|Elimina as contas de API|
-|/Accounts/listKeys/Action|Lista de chaves|
-|/Accounts/regenerateKey/Action|Regeneração da chave|
-|/Accounts/SKUs/Read|Lê SKUs disponíveis para um recurso existente.|
-|/Accounts/usages/Read|Obter a utilização da quota para um recurso existente.|
+|/Accounts/Read|Lê contas da API.|
+|contas/escrita|Escreve Contas da API.|
+|/Accounts/DELETE|Elimina contas da API|
+|/Accounts/listKeys/Action|Listar Chaves|
+|/Accounts/regenerateKey/Action|Regenerar Chave|
+|/Accounts/SKUs/Read|Lê os SKUs disponíveis para um recurso existente.|
+|/Accounts/usages/Read|Obter a utilização de quota para um recurso existente.|
 |/ Operações/leitura|Descrição da operação.|
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
@@ -548,7 +551,7 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 
 | Operação | Descrição |
 |---|---|
-|registar/ação|Regista a subscrição no fornecedor de recursos Microsoft. Compute|
+|registar/ação|Regista a Subscrição no fornecedor de recursos Microsoft.Compute|
 |/restorePointCollections/Read|Obter as propriedades de uma coleção de ponto de restauro|
 |/ restorePointCollections/escrita|Cria uma nova coleção de ponto de restauro ou atualiza um já existente|
 |/restorePointCollections/DELETE|Elimina o restauro do ponto de coleção e contido restaurar pontos|
@@ -556,36 +559,36 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/restorePointCollections/restorePoints/Write|Cria um novo ponto de restauro|
 |/restorePointCollections/restorePoints/DELETE|Elimina o ponto de restauro|
 |/restorePointCollections/restorePoints/retrieveSasUris/Action|Obter as propriedades de um ponto de restauro, juntamente com o URI de SAS do blob|
-|/virtualMachineScaleSets/Read|Obter as propriedades de um conjunto de dimensionamento de máquina virtual|
-|/ virtualMachineScaleSets/escrita|Cria um novo conjunto de dimensionamento de máquina virtual ou atualiza um já existente|
-|/virtualMachineScaleSets/DELETE|Elimina o conjunto de dimensionamento de máquina virtual|
-|/virtualMachineScaleSets/Start/Action|Inicia as instâncias do conjunto de dimensionamento de máquina virtual|
-|/virtualMachineScaleSets/powerOff/Action|Desliga as instâncias do conjunto de dimensionamento de máquina virtual|
-|/virtualMachineScaleSets/Restart/Action|Reinicia as instâncias do conjunto de dimensionamento de máquina virtual|
-|/virtualMachineScaleSets/deallocate/Action|Desliga e liberta os recursos de computação de instâncias do conjunto de dimensionamento de máquina virtual |
-|/virtualMachineScaleSets/manualUpgrade/Action|Atualiza manualmente instâncias para o modelo mais recente do conjunto de dimensionamento de máquina virtual|
+|/virtualMachineScaleSets/Read|Obter as propriedades de um conjunto de dimensionamento da máquina virtual|
+|/ virtualMachineScaleSets/escrita|Cria um novo conjunto de dimensionamento da máquina virtual ou atualiza um já existente|
+|/virtualMachineScaleSets/DELETE|Elimina o conjunto de dimensionamento da máquina virtual|
+|/virtualMachineScaleSets/Start/Action|Inicia as instâncias do conjunto de dimensionamento da máquina virtual|
+|/virtualMachineScaleSets/powerOff/Action|Desliga as instâncias do conjunto de dimensionamento da máquina virtual|
+|/virtualMachineScaleSets/Restart/Action|Reinicia as instâncias do conjunto de dimensionamento da máquina virtual|
+|/virtualMachineScaleSets/deallocate/Action|Desliga e liberta os recursos de computação para as instâncias do conjunto de dimensionamento da máquina virtual |
+|/virtualMachineScaleSets/manualUpgrade/Action|Atualiza manualmente instâncias para o modelo mais recente do conjunto de dimensionamento da máquina virtual|
 |/virtualMachineScaleSets/Scale/Action|Dimensionar de / definir aumentar horizontalmente a contagem de instâncias de um dimensionamento da máquina virtual existente|
-|/virtualMachineScaleSets/instanceView/Read|Obtém a vista de instância do conjunto de dimensionamento de máquina virtual|
-|/virtualMachineScaleSets/SKUs/Read|Lista os SKUs válidos de um conjunto de dimensionamento de máquina virtual existente|
-|/virtualMachineScaleSets/virtualMachines/Read|Obtém as propriedades de uma Máquina Virtual num conjunto de dimensionamento VM|
-|/virtualMachineScaleSets/virtualMachines/DELETE|Elimine uma Máquina Virtual específica num conjunto de dimensionamento VM.|
-|/virtualMachineScaleSets/virtualMachines/Start/Action|Inicia uma instância de Máquina Virtual num conjunto de dimensionamento VM.|
-|/virtualMachineScaleSets/virtualMachines/powerOff/Action|Instância de Powers desligar uma máquina no conjunto de dimensionamento da VM.|
-|/virtualMachineScaleSets/virtualMachines/Restart/Action|Reinicia uma instância de Máquina Virtual num conjunto de dimensionamento VM.|
-|/virtualMachineScaleSets/virtualMachines/deallocate/Action|Desliga e liberta os recursos de computação para uma Máquina Virtual num conjunto de dimensionamento VM.|
-|/virtualMachineScaleSets/virtualMachines/instanceView/Read|Obtém a vista de instância de uma Máquina Virtual num conjunto de dimensionamento VM.|
+|/virtualMachineScaleSets/instanceView/Read|Obtém a vista de instância do conjunto de dimensionamento da máquina virtual|
+|/virtualMachineScaleSets/SKUs/Read|Lista os SKUs válidos de um conjunto de dimensionamento da máquina virtual existente|
+|/virtualMachineScaleSets/virtualMachines/Read|Obtém as propriedades de uma Máquina Virtual num Conjunto de Dimensionamento da VM|
+|/virtualMachineScaleSets/virtualMachines/DELETE|Eliminar uma Máquina Virtual específica num Conjunto de Dimensionamento da VM.|
+|/virtualMachineScaleSets/virtualMachines/Start/Action|Inicia uma instância de Máquina Virtual num Conjunto de Dimensionamento da VM.|
+|/virtualMachineScaleSets/virtualMachines/powerOff/Action|Desativa uma instância de Máquina Virtual num Conjunto de Dimensionamento da VM.|
+|/virtualMachineScaleSets/virtualMachines/Restart/Action|Reinicia uma instância de Máquina Virtual num Conjunto de Dimensionamento da VM.|
+|/virtualMachineScaleSets/virtualMachines/deallocate/Action|Desativa e liberta os recursos de computação de uma Máquina Virtual num Conjunto de Dimensionamento da VM.|
+|/virtualMachineScaleSets/virtualMachines/instanceView/Read|Obtém a vista de instância de uma Máquina Virtual num Conjunto de Dimensionamento da VM.|
 |/Images/Read|Obter as propriedades da imagem|
 |imagens/escrita|Cria uma nova imagem ou atualiza um já existente|
 |/Images/DELETE|Elimina a imagem|
-|/Operations/Read|Lista as operações disponíveis no fornecedor de recursos Microsoft. Compute|
-|/Disks/Read|Obter as propriedades de um disco|
-|discos/escrita|Cria um novo disco ou atualiza um já existente|
-|/Disks/DELETE|Elimina o disco|
-|/Disks/beginGetAccess/Action|Obter o URI de SAS do disco para acesso do blob|
-|/Disks/endGetAccess/Action|Revogar o URI de SAS do disco|
-|/snapshots/Read|Obter as propriedades de um instantâneo|
-|instantâneos/escrita|Criar um novo instantâneo ou atualizar um já existente|
-|/snapshots/DELETE|Eliminar um instantâneo|
+|/Operations/Read|Lista as operações disponíveis no fornecedor de recursos Microsoft.Compute|
+|/Disks/Read|Obter as propriedades de um Disco|
+|discos/escrita|Cria um novo Disco ou atualiza um já existente|
+|/Disks/DELETE|Elimina o Disco|
+|/Disks/beginGetAccess/Action|Obter o URI de SAS do Disco para acesso do blob|
+|/Disks/endGetAccess/Action|Revogar o URI de SAS do Disco|
+|/snapshots/Read|Obter as propriedades de um Instantâneo|
+|instantâneos/escrita|Criar um novo Instantâneo ou atualizar um já existente|
+|/snapshots/DELETE|Eliminar um Instantâneo|
 |/availabilitySets/Read|Obter as propriedades de um conjunto de disponibilidade|
 |/ availabilitySets/escrita|Cria um novo conjunto de disponibilidade ou atualiza um já existente|
 |/availabilitySets/DELETE|Elimina o conjunto de disponibilidade|
@@ -595,19 +598,19 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/virtualMachines/DELETE|Elimina a máquina virtual|
 |/virtualMachines/Start/Action|Inicia a máquina virtual|
 |/virtualMachines/powerOff/Action|Desliga a máquina virtual. Tenha em atenção que a máquina virtual irá continuar a ser faturada.|
-|/virtualMachines/redeploy/Action|Redeploys máquina virtual|
+|/virtualMachines/redeploy/Action|Reimplementa a máquina virtual|
 |/virtualMachines/Restart/Action|Reinicia a máquina virtual|
 |/virtualMachines/deallocate/Action|Desliga a máquina virtual e liberta os recursos de computação|
-|/virtualMachines/generalize/Action|Define o estado da máquina virtual como generalizado e prepara a máquina virtual para captura|
-|/virtualMachines/Capture/Action|Captura a máquina virtual, copiando os discos rígidos virtuais e gera um modelo que pode ser utilizado para criar máquinas virtuais semelhantes|
+|/virtualMachines/generalize/Action|Define o estado da máquina virtual como Generalizado e prepara-a para a captura|
+|/virtualMachines/Capture/Action|Captura a máquina virtual, copiando os discos rígidos virtuais, e gera um modelo que pode ser utilizado para criar máquinas virtuais semelhantes|
 |/virtualMachines/convertToManagedDisks/Action|Converte os discos de baseadas em BLOBs da máquina virtual em discos geridos|
-|/virtualMachines/vmSizes/Read|Apresenta uma lista de tamanhos disponíveis, que a máquina virtual pode ser atualizada para|
-|/virtualMachines/instanceView/Read|Obtém o estado de runtime detalhado da máquina virtual e os respetivos recursos|
+|/virtualMachines/vmSizes/Read|Lista os tamanhos disponíveis para os quais a máquina virtual pode ser atualizada|
+|/virtualMachines/instanceView/Read|Obtém o estado de runtime detalhado da máquina virtual e dos respetivos recursos|
 |/virtualMachines/Extensions/Read|Obter as propriedades de uma extensão da máquina virtual|
-|/virtualMachines/Extensions/Write|Cria uma nova extensão de máquina virtual ou atualiza um já existente|
+|/virtualMachines/Extensions/Write|Cria uma nova extensão da máquina virtual ou atualiza uma já existente|
 |/virtualMachines/Extensions/DELETE|Elimina a extensão da máquina virtual|
-|/Locations/vmSizes/Read|Apresenta uma lista de tamanhos de máquina virtual disponíveis numa localização|
-|/Locations/usages/Read|Obtém os limites de serviço e as quantidades de utilização atual de recursos de computação da subscrição numa localização|
+|/Locations/vmSizes/Read|Lista os tamanhos de máquina virtual disponíveis numa localização|
+|/Locations/usages/Read|Obtém os limites de serviço e as quantidades de utilização atuais dos recursos de computação da subscrição numa localização|
 |/Locations/Operations/Read|Obtém o estado de uma operação assíncrona|
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
@@ -626,11 +629,11 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 
 | Operação | Descrição |
 |---|---|
-|/containerServices/subscriptions/Read|Obter os serviços de contentor especificados com base na subscrição|
-|/containerServices/resourceGroups/Read|Obter os serviços de contentor especificados com base no grupo de recursos|
-|/containerServices/resourceGroups/ContainerServiceName/Read|Obtém o serviço de contentor especificado|
-|/containerServices/resourceGroups/ContainerServiceName/Write|Coloca ou atualiza o serviço de contentor especificado|
-|/containerServices/resourceGroups/ContainerServiceName/DELETE|Elimina o serviço de contentor especificado|
+|/containerServices/subscriptions/Read|Obter os Serviços de Contentor especificados com base na Subscrição|
+|/containerServices/resourceGroups/Read|Obter os Serviços de Contentor especificados com base no Grupo de Recursos|
+|/containerServices/resourceGroups/ContainerServiceName/Read|Obter o Serviço de Contentor especificado|
+|/containerServices/resourceGroups/ContainerServiceName/Write|Coloca ou Atualiza o Serviço de Contentor especificado|
+|/containerServices/resourceGroups/ContainerServiceName/DELETE|Elimina o Serviço de Contentor especificado|
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
@@ -638,11 +641,11 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |---|---|
 |updateCommunicationPreference/ação|Preferência de comunicação de atualização|
 |listCommunicationPreference/ação|Preferência de comunicação de lista|
-|/Applications/Read|Operações de leitura|
-|aplicações/escrita|Operação de escrita|
-|aplicações/escrita|Operação de escrita|
-|/Applications/DELETE|A operação de eliminação|
-|/Applications/listSecrets/Action|Lista os segredos|
+|/Applications/Read|Operação de Leitura|
+|aplicações/escrita|Operação de Escrita|
+|aplicações/escrita|Operação de Escrita|
+|/Applications/DELETE|Operação de Eliminação|
+|/Applications/listSecrets/Action|Listar Segredos|
 |/Applications/listSingleSignOnToken/Action|Início de sessão único Tokens de leitura|
 |/Operations/Read|operações de leitura|
 
@@ -654,8 +657,8 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |hubs/escrita|Criar ou atualizar qualquer Hub de informações de cliente do Azure|
 |/hubs/DELETE|Eliminar o Hub de Insights qualquer cliente do Azure|
 |/hubs/Providers/Microsoft.Insights/metricDefinitions/Read|Obtem as métricas disponíveis para o recurso|
-|/hubs/Providers/Microsoft.Insights/diagnosticSettings/Read|Obtém a definição de diagnóstico do recurso|
-|/hubs/Providers/Microsoft.Insights/diagnosticSettings/Write|Cria ou atualiza a definição do diagnóstico para o recurso|
+|/hubs/Providers/Microsoft.Insights/diagnosticSettings/Read|Obtém a definição de diagnóstico para o recurso|
+|/hubs/Providers/Microsoft.Insights/diagnosticSettings/Write|Cria ou atualiza a definição de diagnóstico para o recurso|
 |/hubs/Providers/Microsoft.Insights/logDefinitions/Read|Obtém os registos disponíveis para o recurso|
 |/hubs/authorizationPolicies/Read|Leia a que política de assinatura de acesso de partilhadas quaisquer informações de cliente do Azure|
 |/hubs/authorizationPolicies/Write|Criar ou atualizar qualquer política de assinatura de acesso partilhado de informações de cliente do Azure|
@@ -767,8 +770,8 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/iotHubs/eventHubEndpoints/consumerGroups/DELETE|Eliminar grupo de consumidores de EventHub|
 |/iotHubs/Routing/routes/$ testall/ação|Testar uma mensagem de todas as rotas existentes|
 |/iotHubs/Routing/routes/$ testnew/ação|Uma mensagem de um teste fornecido rota de teste|
-|/ IotHubs/diagnosticSettings/leitura|Obtém a definição de diagnóstico do recurso|
-|/ IotHubs/diagnosticSettings/escrita|Cria ou atualiza a definição do diagnóstico para o recurso|
+|/ IotHubs/diagnosticSettings/leitura|Obtém a definição de diagnóstico para o recurso|
+|/ IotHubs/diagnosticSettings/escrita|Cria ou atualiza a definição de diagnóstico para o recurso|
 |/iotHubs/SKUs/Read|Obter Skus válidos de IotHub|
 |/iotHubs/Jobs/Read|Obter tarefas detalhes submetidos numa fornecido IotHub|
 |/iotHubs/routingEndpointsHealth/Read|Obtém o estado de funcionamento de todos os pontos finais de encaminhamento para um IotHub|
@@ -910,16 +913,16 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 | Operação | Descrição |
 |---|---|
 |checkNameAvailability/ação|Verificações de disponibilidade de espaço de nomes em dada subscrição.|
-|registar/ação|Regista a subscrição para o fornecedor de recursos de EventHub e permite a criação dos recursos de EventHub|
+|registar/ação|Regista a subscrição do fornecedor de recursos do EventHub e ativa a criação de recursos do EventHub|
 |espaços de nomes/escrita|Crie um recurso de espaço de nomes e Atualize as respetivas propriedades. As etiquetas e estado do espaço de nomes são as propriedades que podem ser atualizadas.|
-|/Namespaces/Read|Obter a lista de descrição de recursos do espaço de nomes|
-|espaços de nomes/eliminar|Eliminar recurso do espaço de nomes|
+|/Namespaces/Read|Obter a lista de Descrição de Recursos de Espaço de nomes|
+|espaços de nomes/eliminar|Eliminar Recurso de Espaço de nomes|
 |/Namespaces/metricDefinitions/Read|Obter a lista de descrições de recursos de métricas de espaço de nomes|
-|/Namespaces/authorizationRules/Read|Obter a lista de descrição de regras de autorização de espaços de nomes.|
+|/Namespaces/authorizationRules/Read|Obter a lista de descrição das Regras de Autorização de Espaços de nomes.|
 |/Namespaces/authorizationRules/Write|Criar regras de autorização ao nível de espaço de nomes e Atualize as respetivas propriedades. Os direitos de acesso de regras de autorização, o site primário e as chaves secundárias podem ser atualizadas.|
 |/Namespaces/authorizationRules/DELETE|Elimine regra de autorização de espaço de nomes. Não é possível eliminar a regra de autorização de espaço de nomes predefinido. |
-|/Namespaces/authorizationRules/listkeys/Action|Obter a cadeia de ligação ao espaço de nomes|
-|/Namespaces/authorizationRules/regenerateKeys/Action|Regenerar a chave primária ou secundária para o recurso|
+|/Namespaces/authorizationRules/listkeys/Action|Obter Cadeia de Ligação para o Espaço de nomes|
+|/Namespaces/authorizationRules/regenerateKeys/Action|Regenerar a chave Primária ou Secundária do Recurso|
 |/Namespaces/eventhubs/Write|Criar ou propriedades de EventHub de atualização.|
 |/Namespaces/eventhubs/Read|Obter a lista de descrições de recursos de EventHub|
 |/Namespaces/eventhubs/DELETE|Operação para eliminar o recurso de EventHub|
@@ -930,7 +933,7 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/Namespaces/eventhubs/authorizationRules/Write|Criar regras de autorização de EventHub e Atualize as respetivas propriedades. Os direitos de acesso de regras de autorização, o site primário e as chaves secundárias podem ser atualizadas.|
 |/Namespaces/eventhubs/authorizationRules/DELETE|Operação para eliminar as regras de autorização de EventHub|
 |/Namespaces/eventhubs/authorizationRules/listkeys/Action|Obter a cadeia de ligação a EventHub|
-|/Namespaces/eventhubs/authorizationRules/regenerateKeys/Action|Regenerar a chave primária ou secundária para o recurso|
+|/Namespaces/eventhubs/authorizationRules/regenerateKeys/Action|Regenerar a chave Primária ou Secundária do Recurso|
 |/Namespaces/diagnosticSettings/Read|Obter a lista de descrições de recursos de definições de diagnóstico de espaço de nomes|
 |/Namespaces/diagnosticSettings/Write|Obter a lista de descrições de recursos de definições de diagnóstico de espaço de nomes|
 |/Namespaces/logDefinitions/Read|Obter a lista de registos de espaço de nomes descrições de recursos|
@@ -955,7 +958,7 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/clusters/Configurations/Read|Obter configurações de Cluster do HDInsight|
 |/clusters/roles/resize/Action|Redimensionar um Cluster do HDInsight|
 |/Locations/Capabilities/Read|Obter as funções da subscrição|
-|/Locations/checkNameAvailability/Read|Verifique a disponibilidade de nome|
+|/Locations/checkNameAvailability/Read|Verificar Disponibilidade do Nome|
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
@@ -968,36 +971,36 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/Jobs/DELETE|Elimina uma tarefa existente.|
 |/Locations/Read|Obtém as propriedades para a localização especificada ou devolve a lista de localizações.|
 
-## <a name="microsoftinsights"></a>Insights
+## <a name="microsoftinsights"></a>Microsoft.Insights
 
 | Operação | Descrição |
 |---|---|
-|/ Register/ação|Registar o fornecedor de informações da microsoft|
-|/ AlertRules/escrita|Escrever uma configuração de regra de alerta|
+|/ Register/ação|Registar o fornecedor de microsoft insights|
+|/ AlertRules/escrita|Escrever numa configuração de regra de alerta|
 |/ AlertRules/eliminar|Eliminar uma configuração de regra de alerta|
 |/ AlertRules/leitura|Ler uma configuração de regra de alerta|
-|/ AlertRules/ativado/ação|Regra de alerta ativada|
-|/ AlertRules/resolvido/ação|Regra de alerta resolvida|
-|/ AlertRules/limitadas/ação|Regra de alerta é limitada|
-|/ AlertRules/incidentes/leitura|Ler uma configuração de incidente de regra de alerta|
-|/ MetricDefinitions/leitura|Definições de métrica de leitura|
-|/eventtypes/Values/Read|Leia o artigo gestão valores do tipo de evento|
-|/eventtypes/digestevents/Read|Resumo de tipo de evento de gestão de leitura|
-|/ Métricas/leitura|Métricas de leitura|
+|/ AlertRules/ativado/ação|Regra de Alerta ativada|
+|/ AlertRules/resolvido/ação|Regra de Alerta resolvida|
+|/ AlertRules/limitadas/ação|A regra de alerta está otimizada|
+|/ AlertRules/incidentes/leitura|Ler uma configuração de incidente da regra de alerta|
+|/ MetricDefinitions/leitura|Ler definições de métricas|
+|/eventtypes/Values/Read|Ler valores do tipo de eventos de gestão|
+|/eventtypes/digestevents/Read|Ler resumo do tipo de eventos de gestão|
+|/ Métricas/leitura|Ler métricas|
 |/ LogProfiles/escrita|Escrever para uma configuração de perfil de registo|
 |/ LogProfiles/eliminar|Eliminar a configuração de perfis de registo|
 |/ LogProfiles/leitura|Perfis de registo de leitura|
-|/ AutoscaleSettings/escrita|Escrever uma configuração de definição de dimensionamento automático|
-|/ AutoscaleSettings/eliminar|Eliminar uma configuração de definição de dimensionamento automático|
-|/ AutoscaleSettings/leitura|Ler uma configuração de definição de dimensionamento automático|
-|/ AutoscaleSettings/Scaleup/ação|Trabalho operação de dimensionamento de dimensionamento automático|
-|/ AutoscaleSettings/Scaledown/ação|Escala de dimensionamento automático para baixo de operação|
-|/AutoscaleSettings/Providers/Microsoft.Insights/MetricDefinitions/Read|Definições de métrica de leitura|
+|/ AutoscaleSettings/escrita|Escrever numa configuração de definição de dimensionamento automático|
+|/ AutoscaleSettings/eliminar|Eliminar a configuração de uma definição de dimensionamento automático|
+|/ AutoscaleSettings/leitura|Ler a configuração de uma definição de dimensionamento automático|
+|/ AutoscaleSettings/Scaleup/ação|Operação de aumento do Dimensionamento Automático|
+|/ AutoscaleSettings/Scaledown/ação|Operação de redução do Dimensionamento Automático|
+|/AutoscaleSettings/Providers/Microsoft.Insights/MetricDefinitions/Read|Ler definições de métricas|
 |/ ActivityLogAlerts/ativado/ação|Acionou o alerta de registo de atividade|
-|/ DiagnosticSettings/escrita|Escrever a configuração de definições de diagnóstico|
-|/ DiagnosticSettings/eliminar|Eliminar a configuração de definições de diagnóstico|
-|/ DiagnosticSettings/leitura|Ler uma configuração de definições de diagnóstico|
-|/ LogDefinitions/leitura|Definições de registo de leitura|
+|/ DiagnosticSettings/escrita|A escrever para a configuração de definições de diagnóstico|
+|/ DiagnosticSettings/eliminar|A eliminar a configuração de definições de diagnóstico|
+|/ DiagnosticSettings/leitura|A ler uma configuração de definições de diagnóstico|
+|/ LogDefinitions/leitura|Ler definições de registo|
 |/ ExtendedDiagnosticSettings/escrita|Escrever a configuração de definições de diagnóstico expandida|
 |/ ExtendedDiagnosticSettings/eliminar|Eliminar a configuração de definições de diagnóstico expandida|
 |/ ExtendedDiagnosticSettings/leitura|Ler uma configuração de definições de diagnóstico expandida|
@@ -1007,14 +1010,14 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 | Operação | Descrição |
 |---|---|
 |registar/ação|Regista uma subscrição|
-|/checkNameAvailability/Read|Verifica se um nome de cofre de chaves é válido e se não está em utilização|
+|/checkNameAvailability/Read|Verifica se um nome do Cofre de chaves é válido e não está em utilização|
 |/vaults/Read|Ver as propriedades de um cofre de chaves|
-|/ cofres/escrita|Criar um novo cofre de chaves ou atualizar as propriedades de um cofre de chaves existente|
+|/ cofres/escrita|Criar um novo cofre de chaves ou atualizar as propriedades de um cofre de chaves|
 |/vaults/DELETE|Eliminar um cofre de chaves|
 |/vaults/Deploy/Action|Permite o acesso ao segredos no Cofre de chaves durante a implementação de recursos do Azure|
-|/vaults/Secrets/Read|Ver as propriedades de um segredo, mas não o seu valor|
-|/vaults/Secrets/Write|Crie um novo segredo ou atualize o valor de um segredo existente|
-|/vaults/accessPolicies/Write|Atualize uma política de acesso existente através da intercalação ou substituição, ou adicione uma nova política de acesso ao cofre.|
+|/vaults/Secrets/Read|Ver as propriedades de um segredo, mas não o valor|
+|/vaults/Secrets/Write|Criar um novo segredo ou Atualize o valor de um segredo existente|
+|/vaults/accessPolicies/Write|Atualizar uma política de acesso existente ao intercalar ou substituir, ou adicionar uma nova política de acesso para um cofre.|
 |/deletedVaults/Read|Ver as propriedades de forma recuperável cofres de chaves eliminados|
 |/Locations/operationResults/Read|Verificar o resultado de uma operação de execução longa|
 |/Locations/deletedVaults/Read|Ver as propriedades de um cofre de chaves eliminado recuperável|
@@ -1029,28 +1032,28 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/workflows/DELETE|Elimina o fluxo de trabalho.|
 |/workflows/Run/Action|Inicia a execução do fluxo de trabalho.|
 |/workflows/disable/Action|Desativa o fluxo de trabalho.|
-|/workflows/Enable/Action|Permite que o fluxo de trabalho.|
+|/workflows/Enable/Action|Ativa o fluxo de trabalho.|
 |/workflows/Validate/Action|Valida o fluxo de trabalho.|
-|/workflows/move/Action|Move o fluxo de trabalho do respetivo existente id de subscrição, grupo de recursos, e/ou nome para um id de subscrição diferente, grupo de recursos, e/ou nome.|
+|/workflows/move/Action|Move o Fluxo de trabalho do ID de subscrição, grupo de recursos e/ou nome existentes para um ID de subscrição, grupo de recursos e/ou nome diferentes.|
 |/workflows/listSwagger/Action|Obtém o fluxo de trabalho definições swagger.|
-|/workflows/regenerateAccessKey/Action|Os segredos de chave de acesso de gera de novo.|
+|/workflows/regenerateAccessKey/Action|Regenera os segredos da chave de acesso.|
 |/workflows/listCallbackUrl/Action|Obtém o URL de chamada de retorno de fluxo de trabalho.|
 |/workflows/versions/Read|Lê a versão de fluxo de trabalho.|
 |/workflows/versions/triggers/listCallbackUrl/Action|Obtém o URL de chamada de retorno de Acionador.|
 |fluxos de trabalho/executa/leitura|Lê a execução do fluxo de trabalho.|
 |/workflows/runs/Cancel/Action|Cancela a execução de um fluxo de trabalho.|
-|/workflows/runs/Actions/Read|Lê o fluxo de trabalho a executar a ação.|
+|/workflows/runs/Actions/Read|Lê a ação de execução do fluxo de trabalho.|
 |/workflows/runs/Operations/Read|Lê o estado da operação de execução do fluxo de trabalho.|
 |/workflows/triggers/Read|Lê o acionador.|
 |/workflows/triggers/Run/Action|Executa o acionador.|
 |/workflows/triggers/listCallbackUrl/Action|Obtém o URL de chamada de retorno de Acionador.|
-|/workflows/triggers/histories/Read|Lê os histories de Acionador.|
+|/workflows/triggers/histories/Read|Lê o histórico do acionador.|
 |/workflows/triggers/histories/resubmit/Action|Resubmits o acionador do fluxo de trabalho.|
 |/workflows/accessKeys/Read|Lê a chave de acesso.|
 |/workflows/accessKeys/Write|Cria ou atualiza a chave de acesso.|
 |/workflows/accessKeys/DELETE|Elimina a chave de acesso.|
-|/workflows/accessKeys/List/Action|Lista os segredos de chave de acesso.|
-|/workflows/accessKeys/Regenerate/Action|Os segredos de chave de acesso de gera de novo.|
+|/workflows/accessKeys/List/Action|Lista os segredos da chave de acesso.|
+|/workflows/accessKeys/Regenerate/Action|Regenera os segredos da chave de acesso.|
 |/Locations/workflows/Validate/Action|Valida o fluxo de trabalho.|
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
@@ -1260,30 +1263,30 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 
 | Operação | Descrição |
 |---|---|
-|registar/ação|Regista a subscrição para o fornecedor de recursos NotifciationHubs e permite a criação de espaços de nomes e Notification hubs|
-|/ CheckNamespaceAvailability/ação|Verifica se um determinado nome de recurso de espaço de nomes está disponível no âmbito do serviço de NotificationHub.|
+|registar/ação|Regista a subscrição do fornecedor de recursos de NotificationHubs e ativa a criação de Espaços de nomes e NotificationHubs|
+|/ CheckNamespaceAvailability/ação|Verifica se determinado nome de recurso do Espaço de nomes está ou não disponível dentro do serviço NotificationHub.|
 |/ Espaços de nomes/escrita|Crie um recurso de espaço de nomes e Atualize as respetivas propriedades. As etiquetas e estado do espaço de nomes são as propriedades que podem ser atualizadas.|
-|/ Espaços de nomes/leitura|Obter a lista de descrição de recursos do espaço de nomes|
-|/ Espaços de nomes/eliminar|Eliminar recurso do espaço de nomes|
-|/ Espaços de nomes/authorizationRules/ação|Obter a lista de descrição de regras de autorização de espaços de nomes.|
-|/ Espaços de nomes/CheckNotificationHubAvailability/ação|Verifica se é ou não um determinado nome de NotificationHub disponível dentro de um espaço de nomes.|
+|/ Espaços de nomes/leitura|Obter a lista de Descrição de Recursos de Espaço de nomes|
+|/ Espaços de nomes/eliminar|Eliminar Recurso de Espaço de nomes|
+|/ Espaços de nomes/authorizationRules/ação|Obter a lista de descrição das Regras de Autorização de Espaços de nomes.|
+|/ Espaços de nomes/CheckNotificationHubAvailability/ação|Verifica se determinado nome do NotificationHub está disponível dentro do Espaço de nomes.|
 |/ Espaços de nomes/authorizationRules/escrita|Criar regras de autorização ao nível de espaço de nomes e Atualize as respetivas propriedades. Os direitos de acesso de regras de autorização, o site primário e as chaves secundárias podem ser atualizadas.|
-|/ Espaços de nomes/authorizationRules/leitura|Obter a lista de descrição de regras de autorização de espaços de nomes.|
+|/ Espaços de nomes/authorizationRules/leitura|Obter a lista de descrição das Regras de Autorização de Espaços de nomes.|
 |/ Espaços de nomes/authorizationRules/eliminar|Elimine regra de autorização de espaço de nomes. Não é possível eliminar a regra de autorização de espaço de nomes predefinido. |
-|/ Espaços de nomes/authorizationRules/listkeys/ação|Obter a cadeia de ligação ao espaço de nomes|
-|/ Espaços de nomes/authorizationRules/regenerateKeys/ação|Espaço de nomes autorização regra regenerar principal/SecondaryKey, especifique a chave tem de ser novamente geradas|
+|/ Espaços de nomes/authorizationRules/listkeys/ação|Obter Cadeia de Ligação para o Espaço de nomes|
+|/ Espaços de nomes/authorizationRules/regenerateKeys/ação|Chave Primária/Secundária de Regeneração de Regra de Autorização de Espaço de nomes, especifica a Chave que tem de ser regenerada|
 |/ Espaços de nomes/NotificationHubs/escrita|Criar um Hub de notificação e atualizar as respetivas propriedades. As respetivas propriedades incluem principalmente PNS credenciais. Regras de autorização e TTL|
-|/ Espaços de nomes/NotificationHubs/leitura|Obter a lista de descrições de recursos de Hub de notificação|
-|/ Espaços de nomes/NotificationHubs/eliminar|Eliminar recurso do Hub de notificação|
-|/ Espaços de nomes/NotificationHubs/authorizationRules/ação|Obter a lista de regras de autorização de Hub de notificação|
+|/ Espaços de nomes/NotificationHubs/leitura|Obter lista de Descrições de Recursos do Hub de Notificações|
+|/ Espaços de nomes/NotificationHubs/eliminar|Eliminar Recurso do Hub de Notificações|
+|/ Espaços de nomes/NotificationHubs/authorizationRules/ação|Obter lista de Regras de Autorização do Hub de Notificações|
 |/ Espaços de nomes/NotificationHubs/pnsCredentials/ação|Obter todas as credenciais PNS do Hub de notificação. Isto inclui as credenciais do WNS, o MPNS, o APNS, o GCM e o Baidu|
-|/ Espaços de nomes/NotificationHubs/debugSend/ação|Envie uma notificação push de teste.|
+|/ Espaços de nomes/NotificationHubs/debugSend/ação|Enviar notificação push de teste.|
 |/ Espaços de nomes/NotificationHubs/metricDefinitions/leitura|Obter a lista de descrições de recursos de métricas de espaço de nomes|
 |/Namespaces/NotificationHubs /<br>authorizationRules/escrita|Criar regras de autorização de Hub de notificação e atualizar as respetivas propriedades. Os direitos de acesso de regras de autorização, o site primário e as chaves secundárias podem ser atualizadas.|
-|/Namespaces/NotificationHubs /<br>authorizationRules/leitura|Obter a lista de regras de autorização de Hub de notificação|
-|/Namespaces/NotificationHubs /<br>authorizationRules/eliminar|Eliminar regras de autorização de Hub de notificação|
-|/Namespaces/NotificationHubs /<br>listkeys/authorizationRules/ação|Obter a cadeia de ligação para o Hub de notificação|
-|/Namespaces/NotificationHubs /<br>regenerateKeys/authorizationRules/ação|SecondaryKey/Hub autorização regra regenerar primário, notificação especifique a chave tem de ser novamente geradas|
+|/Namespaces/NotificationHubs /<br>authorizationRules/leitura|Obter lista de Regras de Autorização do Hub de Notificações|
+|/Namespaces/NotificationHubs /<br>authorizationRules/eliminar|Eliminar Regras de Autorização do Hub de Notificações|
+|/Namespaces/NotificationHubs /<br>listkeys/authorizationRules/ação|Obter Cadeia de Ligação para o Hub de Notificações|
+|/Namespaces/NotificationHubs /<br>regenerateKeys/authorizationRules/ação|Regra de Autorização do Hub de Notificações Regenerar Chave Primária/Secundária, especifica a Chave que tem de ser regenerada|
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
@@ -1350,7 +1353,7 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/vaults/replicationFabrics/renewcertificate/Action||
 |/vaults/replicationFabrics/deployProcessServerImage/Action|Implementar a imagem de servidor de processo|
 |/vaults/replicationFabrics/reassociateGateway/Action|Reassociar Gateway|
-|/ cofres replicationFabrics/replicationRecoveryServicesProviders /<br>Leitura|Ler quaisquer fornecedores de serviços de recuperação|
+|/ cofres replicationFabrics/replicationRecoveryServicesProviders /<br>ler|Ler quaisquer fornecedores de serviços de recuperação|
 |/ cofres replicationFabrics/replicationRecoveryServicesProviders /<br>remover/ação|Remover o fornecedor de serviços de recuperação|
 |/ cofres replicationFabrics/replicationRecoveryServicesProviders /<br>eliminar|Eliminar quaisquer fornecedores de serviços de recuperação|
 |/ cofres replicationFabrics/replicationRecoveryServicesProviders /<br>refreshProvider/ação|Atualize o fornecedor|
@@ -1365,7 +1368,7 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/ cofres replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/leitura|Leia os mapeamentos de rede|
 |/ cofres replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/escrita|Criar ou atualizar quaisquer mapeamentos de rede|
 |/ cofres replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/eliminar|Eliminar quaisquer mapeamentos de rede|
-|/ cofres replicationFabrics/replicationProtectionContainers /<br>Leitura|Leu os contentores de proteção|
+|/ cofres replicationFabrics/replicationProtectionContainers /<br>ler|Leu os contentores de proteção|
 |/ cofres replicationFabrics/replicationProtectionContainers /<br>discoverProtectableItem/ação|Detetar o Item Protegível|
 |/ cofres replicationFabrics/replicationProtectionContainers /<br>escrita|Criar ou atualizar quaisquer contentores de proteção|
 |/ cofres replicationFabrics/replicationProtectionContainers /<br>remover/ação|Remover o contentor de proteção|
@@ -1458,13 +1461,13 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 | Operação | Descrição |
 |---|---|
 |checkNamespaceAvailability/ação|Verificações de disponibilidade de espaço de nomes em dada subscrição.|
-|registar/ação|Regista a subscrição para o fornecedor de recursos de reencaminhamento e permite a criação dos recursos de reencaminhamento|
+|registar/ação|Regista a subscrição do fornecedor de recursos de Reencaminhamento e ativa a criação de recursos de Reencaminhamento|
 |espaços de nomes/escrita|Crie um recurso de espaço de nomes e Atualize as respetivas propriedades. As etiquetas e estado do espaço de nomes são as propriedades que podem ser atualizadas.|
-|/Namespaces/Read|Obter a lista de descrição de recursos do espaço de nomes|
-|espaços de nomes/eliminar|Eliminar recurso do espaço de nomes|
+|/Namespaces/Read|Obter a lista de Descrição de Recursos de Espaço de nomes|
+|espaços de nomes/eliminar|Eliminar Recurso de Espaço de nomes|
 |/Namespaces/authorizationRules/Write|Criar regras de autorização ao nível de espaço de nomes e Atualize as respetivas propriedades. Os direitos de acesso de regras de autorização, o site primário e as chaves secundárias podem ser atualizadas.|
 |/Namespaces/authorizationRules/DELETE|Elimine regra de autorização de espaço de nomes. Não é possível eliminar a regra de autorização de espaço de nomes predefinido. |
-|/Namespaces/authorizationRules/listkeys/Action|Obter a cadeia de ligação ao espaço de nomes|
+|/Namespaces/authorizationRules/listkeys/Action|Obter Cadeia de Ligação para o Espaço de nomes|
 |/Namespaces/HybridConnections/Write|Criar ou atualizar HybridConnection propriedades.|
 |/Namespaces/HybridConnections/Read|Obter a lista de descrições de recurso HybridConnection|
 |/Namespaces/HybridConnections/DELETE|Operação para eliminar recurso HybridConnection|
@@ -1482,8 +1485,8 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 
 | Operação | Descrição |
 |---|---|
-|/ AvailabilityStatuses/leitura|Obtém os Estados de disponibilidade de todos os recursos no âmbito especificado|
-|/ AvailabilityStatuses/atual/leitura|Obtém o estado de disponibilidade para o recurso especificado|
+|/ AvailabilityStatuses/leitura|Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado|
+|/ AvailabilityStatuses/atual/leitura|Obtém o estado de disponibilidade para o recurso especificado.|
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
@@ -1528,17 +1531,17 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 
 | Operação | Descrição |
 |---|---|
-|/jobcollections/Read|Obter a coleção de tarefas|
+|/jobcollections/Read|Obter Coleção de Tarefas|
 |as jobcollections/escrita|Cria ou atualiza a coleção de tarefas.|
 |/jobcollections/DELETE|Elimina a coleção de tarefas.|
-|/jobcollections/Enable/Action|Permite que a coleção de tarefas.|
+|/jobcollections/Enable/Action|Ativa a coleção de tarefas.|
 |/jobcollections/disable/Action|Desativa a coleção de tarefas.|
 |/jobcollections/Jobs/Read|Obtém a tarefa.|
 |/jobcollections/Jobs/Write|Cria ou atualiza a tarefa.|
 |/jobcollections/Jobs/DELETE|Elimina a tarefa.|
-|/jobcollections/Jobs/Run/Action|Tarefa é executada.|
-|/jobcollections/Jobs/generateLogicAppDefinition/Action|Gera a definição da aplicação lógica com base numa tarefa do agendador.|
-|/jobcollections/Jobs/jobhistories/Read|Obtém o histórico de tarefa.|
+|/jobcollections/Jobs/Run/Action|Executa a tarefa.|
+|/jobcollections/Jobs/generateLogicAppDefinition/Action|Gera a definição da Aplicação Lógica com base numa Tarefa do Scheduler.|
+|/jobcollections/Jobs/jobhistories/Read|Obtém o histórico de tarefas.|
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -1602,16 +1605,16 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 | Operação | Descrição |
 |---|---|
 |checkNameAvailability/ação|Verificações de disponibilidade de espaço de nomes em dada subscrição.|
-|registar/ação|Regista a subscrição para o fornecedor de recursos de barramento de serviço e permite a criação dos recursos de barramento de serviço|
+|registar/ação|Regista a subscrição do fornecedor de recursos do ServiceBus e ativa a criação de recursos do ServiceBus|
 |espaços de nomes/escrita|Crie um recurso de espaço de nomes e Atualize as respetivas propriedades. As etiquetas e estado do espaço de nomes são as propriedades que podem ser atualizadas.|
-|/Namespaces/Read|Obter a lista de descrição de recursos do espaço de nomes|
-|espaços de nomes/eliminar|Eliminar recurso do espaço de nomes|
+|/Namespaces/Read|Obter a lista de Descrição de Recursos de Espaço de nomes|
+|espaços de nomes/eliminar|Eliminar Recurso de Espaço de nomes|
 |/Namespaces/metricDefinitions/Read|Obter a lista de descrições de recursos de métricas de espaço de nomes|
 |/Namespaces/authorizationRules/Write|Criar regras de autorização ao nível de espaço de nomes e Atualize as respetivas propriedades. Os direitos de acesso de regras de autorização, o site primário e as chaves secundárias podem ser atualizadas.|
-|/Namespaces/authorizationRules/Read|Obter a lista de descrição de regras de autorização de espaços de nomes.|
+|/Namespaces/authorizationRules/Read|Obter a lista de descrição das Regras de Autorização de Espaços de nomes.|
 |/Namespaces/authorizationRules/DELETE|Elimine regra de autorização de espaço de nomes. Não é possível eliminar a regra de autorização de espaço de nomes predefinido. |
-|/Namespaces/authorizationRules/listkeys/Action|Obter a cadeia de ligação ao espaço de nomes|
-|/Namespaces/authorizationRules/regenerateKeys/Action|Regenerar a chave primária ou secundária para o recurso|
+|/Namespaces/authorizationRules/listkeys/Action|Obter Cadeia de Ligação para o Espaço de nomes|
+|/Namespaces/authorizationRules/regenerateKeys/Action|Regenerar a chave Primária ou Secundária do Recurso|
 |/Namespaces/diagnosticSettings/Read|Obter a lista de descrições de recursos de definições de diagnóstico de espaço de nomes|
 |/Namespaces/diagnosticSettings/Write|Obter a lista de descrições de recursos de definições de diagnóstico de espaço de nomes|
 |/Namespaces/Queues/Write|Criar ou as propriedades da fila de atualização.|
@@ -1621,7 +1624,7 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/Namespaces/Queues/authorizationRules/Read| Obter a lista de regras de autorização de fila|
 |/Namespaces/Queues/authorizationRules/DELETE|Operação para eliminar as regras de autorização de fila|
 |/Namespaces/Queues/authorizationRules/listkeys/Action|Obter a cadeia de ligação para a fila|
-|/Namespaces/Queues/authorizationRules/regenerateKeys/Action|Regenerar a chave primária ou secundária para o recurso|
+|/Namespaces/Queues/authorizationRules/regenerateKeys/Action|Regenerar a chave Primária ou Secundária do Recurso|
 |/Namespaces/logDefinitions/Read|Obter a lista de registos de espaço de nomes descrições de recursos|
 |/Namespaces/topics/Write|Criar ou propriedades de tópico de atualização.|
 |/Namespaces/topics/Read|Obter a lista de descrições de recursos de tópico|
@@ -1630,7 +1633,7 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/Namespaces/topics/authorizationRules/Read| Obter a lista de regras de autorização de tópico|
 |/Namespaces/topics/authorizationRules/DELETE|Operação para eliminar as regras de autorização de tópico|
 |/Namespaces/topics/authorizationRules/listkeys/Action|Obter a cadeia de ligação de tópico|
-|/Namespaces/topics/authorizationRules/regenerateKeys/Action|Regenerar a chave primária ou secundária para o recurso|
+|/Namespaces/topics/authorizationRules/regenerateKeys/Action|Regenerar a chave Primária ou Secundária do Recurso|
 |/Namespaces/topics/subscriptions/Write|Criar ou atualizar TopicSubscription propriedades.|
 |/Namespaces/topics/subscriptions/Read|Obter a lista de descrições de recurso TopicSubscription|
 |/Namespaces/topics/subscriptions/DELETE|Operação para eliminar recurso TopicSubscription|
@@ -1670,8 +1673,8 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/Servers/elasticPools/DELETE|Eliminar conjunto de bases de dados elásticas existente|
 |/Servers/elasticPools/operationResults/Read|Obter detalhes sobre uma operação de agrupamento de base de dados elásticas indicado|
 |/Servers/elasticPools/Providers/Microsoft.Insights/<br>metricDefinitions/leitura|Tipos de retorno de métricas que estão disponíveis para conjuntos de bases de dados elásticas|
-|/Servers/elasticPools/Providers/Microsoft.Insights/<br>diagnosticSettings/leitura|Obtém a definição de diagnóstico do recurso|
-|/Servers/elasticPools/Providers/Microsoft.Insights/<br>diagnosticSettings/escrita|Cria ou atualiza a definição do diagnóstico para o recurso|
+|/Servers/elasticPools/Providers/Microsoft.Insights/<br>diagnosticSettings/leitura|Obtém a definição de diagnóstico para o recurso|
+|/Servers/elasticPools/Providers/Microsoft.Insights/<br>diagnosticSettings/escrita|Cria ou atualiza a definição de diagnóstico para o recurso|
 |/Servers/elasticPools/Metrics/Read|Devolver métricas de utilização de recursos de agrupamento de base de dados elástica|
 |/Servers/elasticPools/elasticPoolDatabaseActivity/Read|Obter as atividades e os detalhes numa determinada base de dados que faz parte do agrupamento de base de dados elástica|
 |/Servers/elasticPools/advisors/Read|Devolve a lista de consultores disponíveis para o conjunto elástico|
@@ -1718,8 +1721,8 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/Servers/Databases/securityAlertPolicies/Read|Obter os detalhes da política de deteção de ameaças configurado numa base de dados indicado|
 |/Servers/Databases/securityAlertPolicies/Write|Alterar a política de deteção de ameaças para uma determinada base de dados|
 |/Servers/Databases/Providers/Microsoft.Insights/<br>metricDefinitions/leitura|Tipos de retorno de métricas que estão disponíveis para bases de dados|
-|/Servers/Databases/Providers/Microsoft.Insights/<br>diagnosticSettings/leitura|Obtém a definição de diagnóstico do recurso|
-|/Servers/Databases/Providers/Microsoft.Insights/<br>diagnosticSettings/escrita|Cria ou atualiza a definição do diagnóstico para o recurso|
+|/Servers/Databases/Providers/Microsoft.Insights/<br>diagnosticSettings/leitura|Obtém a definição de diagnóstico para o recurso|
+|/Servers/Databases/Providers/Microsoft.Insights/<br>diagnosticSettings/escrita|Cria ou atualiza a definição de diagnóstico para o recurso|
 |/Servers/Databases/Providers/Microsoft.Insights/<br>logDefinitions/leitura|Obtém os registos disponíveis para bases de dados|
 |/Servers/Databases/topQueries/Read|Devolve agregar estatísticas de tempo de execução para a consulta selecionada no período de tempo selecionado|
 |/Servers/Databases/topQueries/queryText/Read|Devolve o texto de Transact-SQL para o ID de consulta selecionada|
@@ -1757,20 +1760,20 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 
 | Operação | Descrição |
 |---|---|
-|registar/ação|Regista a subscrição para o fornecedor de recursos de armazenamento e permite a criação de contas do storage.|
-|/checknameavailability/Read|Verifica esse nome de conta é válido e não está em utilização.|
-|/ storageAccounts/escrita|Cria uma conta de armazenamento com os parâmetros especificados ou atualiza as propriedades ou etiquetas ou adiciona um domínio personalizado para a conta de armazenamento especificada.|
+|registar/ação|Regista a subscrição do fornecedor de recursos de armazenamento e ativa a criação de contas de armazenamento.|
+|/checknameavailability/Read|Verifica se o nome da conta é válido e se não está já a ser utilizado.|
+|/ storageAccounts/escrita|Cria uma conta de armazenamento com os parâmetros especificados ou atualiza as propriedades ou etiquetas, ou adiciona um domínio personalizado à conta de armazenamento especificada.|
 |/storageAccounts/DELETE|Elimina uma conta de armazenamento existente.|
-|/storageAccounts/listkeys/Action|Devolve as chaves de acesso para a conta de armazenamento especificada.|
-|/storageAccounts/regeneratekey/Action|As chaves de acesso para a conta de armazenamento especificado gera de novo.|
-|/storageAccounts/Read|Devolve a lista de armazenamento de contas ou obtém as propriedades para a conta de armazenamento especificada.|
-|/storageAccounts/listAccountSas/Action|Devolve o token SAS de conta para a conta de armazenamento especificada.|
-|/storageAccounts/listServiceSas/Action|Token SAS do serviço de armazenamento|
+|/storageAccounts/listkeys/Action|Devolve as chaves de acesso da conta de armazenamento especificada.|
+|/storageAccounts/regeneratekey/Action|Regenera as chaves de acesso da conta de armazenamento especificada.|
+|/storageAccounts/Read|Devolve a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada.|
+|/storageAccounts/listAccountSas/Action|Devolve o token de SAS de Conta para a conta de armazenamento especificada.|
+|/storageAccounts/listServiceSas/Action|Token de SAS de Serviço de Armazenamento|
 |/storageAccounts/Services/diagnosticSettings/Write|Criar/atualizar definições de diagnóstico de conta de armazenamento.|
 |/SKUs/Read|Apresenta uma lista de Skus suportados pela Microsoft.|
-|/usages/Read|Devolve o limite e a contagem de utilização atual dos recursos na subscrição especificada|
+|/usages/Read|Devolve o limite e a contagem de utilização atual de recursos na subscrição especificada|
 |/Operations/Read|Consulta o estado de uma operação assíncrona.|
-|/Locations/deleteVirtualNetworkOrSubnets/Action|Notifica Microsoft que está a ser eliminada uma rede virtual ou de sub-rede|
+|/Locations/deleteVirtualNetworkOrSubnets/Action|Notifica o Microsoft.Storage que a rede ou sub-rede virtual está a ser eliminada|
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
@@ -1824,7 +1827,7 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/managers/Devices/listFailoverSets/Action|Liste os conjuntos de ativação pós-falha de um dispositivo existente.|
 |/managers/Devices/listFailoverTargets/Action|Destinos de ativação pós-falha de lista dos dispositivos|
 |/managers/Devices/publicEncryptionKey/Action|Chave de encriptação pública da lista do Gestor de dispositivos|
-|/ gestores dispositivos/hardwareComponentGroups /<br>Leitura|Lista os grupos de componentes de Hardware|
+|/ gestores dispositivos/hardwareComponentGroups /<br>ler|Lista os grupos de componentes de Hardware|
 |/ gestores dispositivos/hardwareComponentGroups /<br>changeControllerPowerState/ação|Alterar o estado de energia do controlador de grupos de componentes de hardware|
 |/managers/Devices/Metrics/Read|Apresenta uma lista ou obtém as métricas|
 |/managers/Devices/chapSettings/Write|Criar ou atualizar as definições Chap|
@@ -1931,8 +1934,8 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 
 | Operação | Descrição |
 |---|---|
-|registar/ação|Regista para suportar o fornecedor de recursos|
-|/supportTickets/Read|Obtém os detalhes do pedido de suporte (incluindo o estado, gravidade, detalhes de contacto e comunicações) ou obtém a lista de pedidos de suporte nas subscrições.|
+|registar/ação|Regista para o Fornecedor de Recursos de Suporte|
+|/supportTickets/Read|Obtém os detalhes do Pedido de Suporte (incluindo o estado, gravidade, detalhes de contacto e comunicações) ou obtém a lista dos Pedidos de Suporte nas subscrições.|
 |/ supportTickets/escrita|Cria ou atualiza um pedido de suporte. Pode criar um pedido de suporte para técnica, Quotas ou gestão de subscrição de faturação problemas relacionados com. Pode atualizar a gravidade, detalhes de contacto e comunicações para pedidos de suporte existentes.|
 
 ## <a name="microsoftweb"></a>Microsoft. Web
@@ -2194,7 +2197,6 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar uma função personalizada](role-based-access-control-custom-roles.md).
-
 - Reveja o [RBAC funções incorporadas](role-based-access-built-in-roles.md).
-
 - Saiba como gerir atribuições de acesso [por utilizador](role-based-access-control-manage-assignments.md) ou [por recurso](role-based-access-control-configure.md) 
+- Saiba como [ver registos de atividade para auditar as ações em recursos](~/articles/azure-resource-manager/resource-group-audit.md)

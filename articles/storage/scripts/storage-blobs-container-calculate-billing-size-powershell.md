@@ -15,11 +15,11 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: a9d7cc69fbbd037a553e877ca9c26d84c376ccc0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c37b416578a76e9b12e29d68e413d851796ccc6f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total de faturação de um contentor de blob
 
@@ -86,7 +86,7 @@ Segue-se a repartição:
     - Hora da última modificação
     - Tamanho
     - Cache-Control
-    - Tipo de conteúdo
+    - Content-Type
     - Idioma de conteúdo
     - Codificação de conteúdo
     - Content-MD5
@@ -125,6 +125,6 @@ Segue-se a repartição:
 
 - Para obter mais informações sobre faturação de armazenamento do Azure, consulte [compreender o Windows Azure armazenamento faturação](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- Para mais informações sobre o módulo Azure PowerShell, consulte [documentação do Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.4.1).
+- Para mais informações sobre o módulo Azure PowerShell, consulte [documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1).
 
 - Pode encontrar exemplos de script do PowerShell de armazenamento adicionais no [exemplos do PowerShell para o Storage do Azure](../blobs/storage-samples-blobs-powershell.md).

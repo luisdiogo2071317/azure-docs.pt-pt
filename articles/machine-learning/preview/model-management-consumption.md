@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 39023712f72d5ac874de1f20a110bef9703ed5e8
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 64141afe421ace44fe71c04f8a2fba48144633c9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="consuming-web-services"></a>Consumir os serviços web
 Depois de implementar um modelo como um serviço de web em tempo real, pode enviar os dados e obter predições a partir de uma variedade de plataformas e aplicações. O serviço de web em tempo real que expõe uma API REST para obter as predições. Pode enviar dados para o serviço web no formato único ou vários linha obter um ou mais predições no momento.
 
-Com o [serviço Web do Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy), uma aplicação externa comunica em sincronia com um modelo preditivo ao efetuar a chamada de HTTP POST para o URL do serviço. Para efetuar um chamada do serviço web, a aplicação de cliente tem de especificar a chave de API que foi criada quando implementar uma predição e colocar os dados de pedido no corpo do pedido POST.
+Com o [serviço Web do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy), uma aplicação externa comunica em sincronia com um modelo preditivo ao efetuar a chamada de HTTP POST para o URL do serviço. Para efetuar um chamada do serviço web, a aplicação de cliente tem de especificar a chave de API que foi criada quando implementar uma predição e colocar os dados de pedido no corpo do pedido POST.
 
 Tenha em atenção que as chaves de API só estão disponíveis no modo de implementação de cluster. Serviços local web não tem chaves.
 

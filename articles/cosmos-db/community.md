@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/07/2017
 ms.author: andrl
-ms.openlocfilehash: 4be7f077fa5bc03531baf2443c663f1d8bc4a1c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09b59630d9aa8d1adf2f56cde6f8039d6bfe6718
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="community-portal"></a>Portal da comunidade
 ## <a name="community-spotlight"></a>Spotlight de Comunidade
@@ -98,7 +98,7 @@ Pode manter atualizado com as mais recentes notícias de base de dados do Azure 
 
 ## <a name="events-and-recordings"></a>Eventos e gravações
 ### <a name="recent-and-upcoming-events"></a>Eventos recentes e futuros
-| Nome do evento | Orador | Localização | Data | Hashtag |
+| Nome do Evento | Orador | Localização | Data | Hashtag |
 | --- | --- | --- | --- | --- |
 |[Na Florida-Sul Codecamp: NoSQL para programadores de .NET em 10 minutos com o Azure DocumentDB](http://www.fladotnet.com/codecamp/Agenda.aspx)| [Santosh Hari](https://twitter.com/_s_hari)|Davie, FL|11 de Março de 2017|[#sflcc](https://twitter.com/search?q=%23sflcc&ref_src=twsrc%5Etfw)|
 |[Orlando Codecamp: NoSQL para programadores de .NET em 10 minutos com o Azure DocumentDB](http://orlandocodecamp.com/Sessions/Details/20)| [Santosh Hari](https://twitter.com/_s_hari)|Sanford, FL|8 de Abril de 2017|[#OrlandoCC](https://twitter.com/hashtag/OrlandoCC?src=hash&ref_src=twsrc%5Etfw)|
@@ -108,7 +108,7 @@ Pode manter atualizado com as mais recentes notícias de base de dados do Azure 
 *São falando em ou um evento de alojamento? [Informe-nos](mailto:askcosmosdb@microsoft.com) como podemos ajudar!*
 
 ### <a name="previous-events-and-recordings"></a>Gravações e eventos anteriores
-| Nome do evento | Orador | Localização | Data | Gravar |
+| Nome do Evento | Orador | Localização | Data | Gravar |
 | --- | --- | --- | --- | --- |
 |[Ignite Austrália: O DocumentDB Olá: Azure do incrivelmente rápida, a base de dados do dimensionamento planet NoSQL](https://msftignite.com.au/sessions/session-details/2115/hello-documentdb-azures-blazing-fast-planetscale-nosql-database-da224) | [Andrew Liu](https://twitter.com/aliuy8)|Queensland, Austrália|Quarta-feira 15 de Fevereiro de 2017|Lançamento|
 |[Ignite Austrália: Uma descrição profunda com o Azure DocumentDB: criação de partições, Modelling de dados e a Georreplicação](https://msftignite.com.au/sessions/session-details/2116/a-deepdive-with-azure-documentdb-partitioning-data-modelling-and-geo-replication-da335b) | [Andrew Liu](https://twitter.com/aliuy8)|Queensland, Austrália|16 de Fevereiro de 2017|Lançamento|
@@ -167,6 +167,7 @@ Pode manter atualizado com as mais recentes notícias de base de dados do Azure 
 ### <a name="videos-and-podcasts"></a>Vídeos e Podcasts
 | Mostrar | Orador | Data | Episódio |
 | --- | --- | --- | --- |
+| A base de dados NoSQL Podcast | Kirill Gavrylyuk | 16 de Maio de 2017 | [Microsoft DocumentDB para NoSQL na nuvem](http://nosql.libsyn.com/ndp018-microsoft-documentdb-for-nosql-in-the-cloud) |
 | Azure Friday |Kirill Gavrylyuk |31 de Outubro de 2016 |[O que é novo no Azure DocumentDB?](https://channel9.msdn.com/Shows/Azure-Friday/AzureFridayNewinDocumentDB) |
 | Canal 9: Microsoft + Open Source |Blogue Miguel Parrella |14 de Abril de 2016 |[De média para DEAN no Azure com Bitnami, conjuntos de dimensionamento VM e DocumentDB](https://channel9.msdn.com/Blogs/Open/From-MEAN-to-DEAN-in-Azure-with-Bitnami-VM-Scale-Sets-and-DocumentDB) |
 | Wired2WinWebinar |Sai Sankar Kunnathukuzhiyil |9 de Março de 2016 |[Desenvolver soluções com o Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs) |

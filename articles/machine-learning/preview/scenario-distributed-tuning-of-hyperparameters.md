@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuída a otimização de sintonização utilizando o Azure Machine Learning Workbench
 
@@ -36,8 +36,8 @@ Pesquisa de grelha utilizando a validação cruzada pode ser morosa. Se um algor
 * Um [conta do Azure](https://azure.microsoft.com/free/) (gratuitas estão disponíveis).
 * Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) seguintes o [instalar e criar o guia de introdução](./quickstart-installation.md) para instalar o Workbench e criar contas.
 * Este cenário pressupõe que está a executar do Azure ML Workbench no Windows 10 ou MacOS com o motor de Docker instalada localmente. 
-* Para executar o cenário com um contentor de Docker remoto, aprovisionar a Máquina Virtual de ciência de dados do Ubuntu (DSVM), seguindo o [instruções](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Recomendamos que utilize uma máquina virtual pelo menos 8 núcleos e 28 Gb de memória. D4 instâncias de máquinas virtuais têm essa capacidade. 
-* Para executar este cenário com um cluster do Spark, aprovisionar Azure HDInsight cluster seguindo estes [instruções](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Recomenda-se ter, pelo menos, um cluster com o 
+* Para executar o cenário com um contentor de Docker remoto, aprovisionar a Máquina Virtual de ciência de dados do Ubuntu (DSVM), seguindo o [instruções](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Recomendamos que utilize uma máquina virtual pelo menos 8 núcleos e 28 Gb de memória. D4 instâncias de máquinas virtuais têm essa capacidade. 
+* Para executar este cenário com um cluster do Spark, aprovisionar Azure HDInsight cluster seguindo estes [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Recomenda-se ter, pelo menos, um cluster com o 
 - seis nós de trabalho
 - oito núcleos
 - 28 Gb de memória em nós de cabeçalho e de trabalho. D4 instâncias de máquinas virtuais têm essa capacidade. Recomendamos a alteração dos parâmetros seguintes para maximizar o desempenho do cluster.
@@ -45,11 +45,11 @@ Pesquisa de grelha utilizando a validação cruzada pode ser morosa. Se um algor
 - spark.executor.cores
 - spark.executor.Memory 
 
-Pode seguir estes [instruções](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) e editar as definições na secção "predefinições do spark personalizado".
+Pode seguir estes [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) e editar as definições na secção "predefinições do spark personalizado".
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* Crie uma conta de armazenamento do Azure que é utilizada para armazenar o conjunto de dados. Siga o [instruções](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) para criar uma conta de armazenamento.
+* Crie uma conta de armazenamento do Azure que é utilizada para armazenar o conjunto de dados. Siga o [instruções](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para criar uma conta de armazenamento.
 
 ## <a name="data-description"></a>Descrição de dados
 
@@ -320,7 +320,7 @@ Neste cenário, iremos mostrou como utilizar o Azure Machine Learning Workbench 
 
 ## <a name="references"></a>Referências
 
-[1] T. Chen e Guestrin C.. [XGBoost: Árvore dimensionável os aumentos sistema](https://arxiv.org/abs/1603.02754). KDD 2016.
+[1] T. Chen e Guestrin C. [XGBoost: Árvore dimensionável os aumentos sistema](https://arxiv.org/abs/1603.02754). KDD 2016.
 
 
 

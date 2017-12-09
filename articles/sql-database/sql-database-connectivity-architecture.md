@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 26cb1a5dd9b290366307e4026686e65f7afc0523
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de conectividade de base de dados SQL do Azure 
 
@@ -163,7 +163,7 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 ## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script para alterar as definições de ligação através do Azure CLI 2.0
 
 > [!IMPORTANT]
-> Este script requer o [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Este script requer o [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 O script CLI seguinte mostra como alterar a política de ligação.

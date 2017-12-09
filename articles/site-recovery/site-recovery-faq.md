@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 82cec6df5d5d6ecf1147cac29b8fc46966ea57de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>O Azure Site Recovery: Perguntas mais frequentes (FAQ)
 Este artigo inclui perguntas mais frequentes sobre o Azure Site Recovery. Se tiver questões depois de ler este artigo, publique-los no [fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -88,7 +88,7 @@ Recuperação de sites é ISO 27001: 2013, 27018, HIPAA, DPA e está no processo
 Sim. Quando criar um cofre de recuperação de sites numa região, podemos assegurar que todos os metadados que é necessário ativar e orquestrar a replicação e ativação pós-falha permanece dentro dessa região 's geográfica limites.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>A Recuperação de Sites faz encriptação de replicação?
-Para máquinas virtuais e servidores físicos, replicar no local sites encriptação em trânsito é suportada. Para máquinas virtuais e servidores físicos a replicar para o Azure, ambos os encriptação em trânsito e [encriptação em rest (no Azure)](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) são suportados.
+Para máquinas virtuais e servidores físicos, replicar no local sites encriptação em trânsito é suportada. Para máquinas virtuais e servidores físicos a replicar para o Azure, ambos os encriptação em trânsito e [encriptação em rest (no Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) são suportados.
 
 ## <a name="replication"></a>Replicação
 

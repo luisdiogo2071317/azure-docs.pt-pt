@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 208dfa14d5d18e106d654539cd80bafdeb90cdf8
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: f9854172e08785676a7804433d9a559e623a7b05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-stream-analytics-event-order-consideration"></a>Consideração de ordem de eventos do Azure Stream Analytics
 
 ## <a name="understand-arrival-time-and-application-time"></a>Compreenda a hora da chegada e hora da aplicação.
 
-Um fluxo de dados temporal de eventos, cada evento é atribuído a um carimbo. O Azure Stream Analytics atribui timestamp para cada evento utilizando a hora da chegada ou hora da aplicação. A coluna "Timestamp" tem o timestamp atribuído ao evento. Hora da chegada é atribuída na origem de entrada quando o evento chega a origem. Hora da chegada é EventEnqueuedTime para a entrada do Hub de eventos e [blob hora da última modificação](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) para a entrada de blob. Hora da aplicação é atribuída quando o evento é gerado e faz parte do payload. Processar os eventos por hora da aplicação, utilize a cláusula "Timestamp por" a consulta select. Se a cláusula "Timestamp por" estiver ausente, são processados por hora da chegada de eventos. Hora da chegada pode ser acedida utilizando a propriedade de EventEnqueuedTime para o hub de eventos e utilizando a propriedade de BlobLastModified para a entrada de blob. O Azure Stream Analytics produz saída de ordem timestamp e fornece algumas definições para lidar com dados fora de ordem.
+Um fluxo de dados temporal de eventos, cada evento é atribuído a um carimbo. O Azure Stream Analytics atribui timestamp para cada evento utilizando a hora da chegada ou hora da aplicação. A coluna "Timestamp" tem o timestamp atribuído ao evento. Hora da chegada é atribuída na origem de entrada quando o evento chega a origem. Hora da chegada é EventEnqueuedTime para a entrada do Hub de eventos e [blob hora da última modificação](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) para a entrada de blob. Hora da aplicação é atribuída quando o evento é gerado e faz parte do payload. Processar os eventos por hora da aplicação, utilize a cláusula "Timestamp por" a consulta select. Se a cláusula "Timestamp por" estiver ausente, são processados por hora da chegada de eventos. Hora da chegada pode ser acedida utilizando a propriedade de EventEnqueuedTime para o hub de eventos e utilizando a propriedade de BlobLastModified para a entrada de blob. O Azure Stream Analytics produz saída de ordem timestamp e fornece algumas definições para lidar com dados fora de ordem.
 
 
 ## <a name="azure-stream-analytics-handling-of-multiple-streams"></a>Azure Stream Analytics processamento de vários fluxos

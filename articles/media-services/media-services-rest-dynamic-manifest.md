@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 76d2721138668d9f0a908af3fa42840309b068ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98df3b6592ed865fc0eb4b942d298b26e930365f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Criar filtros com Media Services do Azure REST API dos serviços
 > [!div class="op_single_selector"]
@@ -27,11 +27,11 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-A partir da versão 2.11, os Media Services permite-lhe definir os filtros para os elementos. Estes filtros são as regras do lado do servidor que irão permitir que os seus clientes de optar por efetuar ações como: reprodução apenas uma secção de um vídeo (em vez de reproduzir o vídeo todo), ou especifique apenas um subconjunto de áudio e vídeos renditions que pode processar o dispositivo do cliente (em vez de todos os renditions que estão associados com o elemento). Esta filtragem dos seus ativos é arquivado através de **manifesto dinâmica**s que são criados após o pedido do cliente para um vídeo de fluxo com base em filtros especificados.
+A partir da versão 2.17, os Media Services permite-lhe definir os filtros para os elementos. Estes filtros são regras de lado do servidor que permitem que os seus clientes de optar por efetuar ações como: reprodução apenas uma secção de um vídeo (em vez de reproduzir o vídeo todo), ou especifique apenas um subconjunto de áudio e vídeos renditions que processa (em vez do dispositivo do cliente todos os os renditions que estão associados com o elemento). Esta filtragem dos seus ativos é arquivado através de **manifesto dinâmica**s que são criados após o pedido do cliente para um vídeo de fluxo com base em filtros especificados.
 
 Para obter mais informações relacionadas com filtros e manifesto dinâmico, consulte [dinâmico manifestos descrição geral](media-services-dynamic-manifest-overview.md).
 
-Este tópico mostra como utilizar REST APIs para criar, atualizar e eliminar os filtros. 
+Este artigo mostra como utilizar REST APIs para criar, atualizar e eliminar os filtros. 
 
 ## <a name="types-used-to-create-filters"></a>Tipos de utilizados para criar filtros
 Quando criar os filtros, são utilizados os seguintes tipos:  
@@ -49,9 +49,6 @@ Quando criar os filtros, são utilizados os seguintes tipos:
 
 Para obter informações sobre como ligar à API do AMS, consulte [aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Depois de ligar com êxito a https://media.windows.net, receberá um redirecionamento 301 especificando noutro URI de serviços de suporte de dados. Tem de se as chamadas subsequentes para o novo URI.
-
 ## <a name="create-filters"></a>Criar filtros
 ### <a name="create-global-filters"></a>Criar filtros global
 Para criar um filtro global, utilize os seguintes pedidos HTTP:  
@@ -66,7 +63,7 @@ Cabeçalhos de pedido
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host:media.windows.net 
 
@@ -119,7 +116,7 @@ Cabeçalhos de pedido
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net  
 
@@ -169,7 +166,7 @@ Para listar os filtros, utilize o seguinte HTTP pedidos:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     Host: media.windows.net 
 
 ### <a name="get-assetfilters-associated-with-an-asset"></a>Obter **AssetFilter**s associado um recurso
@@ -180,7 +177,7 @@ Para listar os filtros, utilize o seguinte HTTP pedidos:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
@@ -192,14 +189,14 @@ Para listar os filtros, utilize o seguinte HTTP pedidos:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000
 
 
 ## <a name="update-filters"></a>Filtros de atualização
-Utilize corrigir PUT ou MERGE para atualizar um filtro com novos valores de propriedade.  Para obter mais informações sobre estas operações, consulte [PATCH, colocar, intercalar](http://msdn.microsoft.com/library/dd541276.aspx).
+Utilize a intercalação, PUT ou PATCH para atualizar um filtro com novos valores de propriedade.  Para obter mais informações sobre estas operações, consulte [PATCH, colocar, intercalar](http://msdn.microsoft.com/library/dd541276.aspx).
 
-Se atualizar um filtro, pode demorar até 2 minutos para o ponto final de transmissão em fluxo atualizar as regras. Se o conteúdo tiver sido servido com este filtro (e colocados em cache no proxies e CDN caches), ao atualizar este filtro pode resultar em falhas de leitor. É Recomendamos para limpar a cache depois de atualizar o filtro. Se esta opção não for possível, considere utilizar um filtro diferente.  
+Se atualizar um filtro, pode demorar até dois minutos para o ponto final de transmissão em fluxo atualizar as regras. Se o conteúdo tiver sido servido com este filtro (e colocados em cache no proxies e CDN caches), ao atualizar este filtro pode resultar em falhas de leitor. Limpe a cache depois de atualizar o filtro. Se esta opção não for possível, considere utilizar um filtro diferente.  
 
 ### <a name="update-global-filters"></a>Filtros de atualização global
 Para atualizar um filtro global, utilize os seguintes pedidos HTTP: 
@@ -214,7 +211,7 @@ Cabeçalhos de pedido:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
     Content-Length: 384
@@ -254,7 +251,7 @@ Cabeçalhos de pedido:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
@@ -292,7 +289,7 @@ Para eliminar um filtro global, utilize os seguintes pedidos HTTP:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     Host: media.windows.net 
 
 
@@ -306,7 +303,7 @@ Para eliminar um AssetFilter local, utilize os seguintes pedidos HTTP:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     Host: media.windows.net 
 
 ## <a name="build-streaming-urls-that-use-filters"></a>Criar URLs que utilizam filtros de transmissão em fluxo

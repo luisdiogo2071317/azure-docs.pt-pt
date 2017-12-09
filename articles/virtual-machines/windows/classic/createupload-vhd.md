@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: c2540120bcb1eca9f4ba62c7dbc0675343bf4f99
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: fa672fd7811e68368c311ef6a3f57eac4b240a4a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-upload-a-windows-server-vhd-to-azure"></a>Criar e carregar um VHD do Windows Server para o Azure
 Este artigo mostra como carregar as suas próprias imagens VM generalizada como um disco rígido virtual (VHD), pelo que pode ser utilizado para criar máquinas virtuais. Para obter mais detalhes sobre discos e VHDs no Microsoft Azure, consulte [sobre discos e VHD para as máquinas virtuais](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -88,7 +88,7 @@ Necessita de uma conta de armazenamento no Azure, para que tenha um local para c
     ```
 
 ## <a name="step-3-upload-the-vhd-file"></a>Passo 3: Carregar o ficheiro. vhd
-Utilize o [Add-AzureVhd](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevhd) para carregar o VHD.
+Utilize o [Add-AzureVhd](https://docs.microsoft.com/powershell/module/azure/add-azurevhd) para carregar o VHD.
 
 A partir da janela do PowerShell do Azure que utilizou no passo anterior, escreva o seguinte comando e substitua as variáveis no &lsaquo; Retos &rsaquo; pelas suas informações.
 
@@ -97,7 +97,7 @@ Add-AzureVhd -Destination "https://<StorageAccountName>.blob.core.windows.net/<C
 ```
 
 ## <a name="step-4-add-the-image-to-your-list-of-custom-images"></a>Passo 4: Adicione a imagem à sua lista de imagens personalizadas
-Utilize o [adicionar AzureVMImage](https://docs.microsoft.com/en-us/powershell/module/azure/add-azurevmimage) cmdlet para adicionar a imagem à lista de imagens personalizadas.
+Utilize o [adicionar AzureVMImage](https://docs.microsoft.com/powershell/module/azure/add-azurevmimage) cmdlet para adicionar a imagem à lista de imagens personalizadas.
 
 ```powershell
 Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"

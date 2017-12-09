@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 12/07/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 4034fd0aa64627c107a43208dcca766f7f44d5d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
-A partir da versão 2.11, os Media Services permite-lhe definir os filtros para os elementos. Estes filtros são as regras do lado do servidor que irão permitir que os seus clientes de optar por efetuar ações como: reprodução apenas uma secção de um vídeo (em vez de reproduzir o vídeo todo), ou especifique apenas um subconjunto de áudio e vídeos renditions que pode processar o dispositivo do cliente (em vez de todos os renditions que estão associados com o elemento). Esta filtragem dos seus ativos é arquivado através de **manifesto dinâmica**s que são criados após o pedido do cliente para um vídeo de fluxo com base em filtros especificados.
+A partir da versão 2.17, os Media Services permite-lhe definir os filtros para os elementos. Estes filtros são as regras do lado do servidor que irão permitir que os seus clientes de optar por efetuar ações como: reprodução apenas uma secção de um vídeo (em vez de reproduzir o vídeo todo), ou especifique apenas um subconjunto de áudio e vídeos renditions que pode processar o dispositivo do cliente (em vez de todos os renditions que estão associados com o elemento). Esta filtragem dos seus ativos é arquivado através de **manifesto dinâmica**s que são criados após o pedido do cliente para um vídeo de fluxo com base em filtros especificados.
 
 Este tópicos descreve cenários comuns nos quais pode utilizar filtros seria muito vantajoso para os clientes e ligações para tópicos que demonstram como criar filtros programaticamente (atualmente, pode criar filtros com REST APIs apenas).
 
@@ -124,12 +124,12 @@ Os recursos podem incluir várias linguagens de áudio, tais como o inglês, esp
 ![Controla idioma filtragem][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Corte de início de um ativo
-Na maior parte dos eventos de transmissão em fluxo em direto, os operadores executam alguns testes antes do evento real. Por exemplo, podem incluir uma ardósia como esta antes do início do evento: "O programa vai começar momentaneamente". Se o programa é arquivo, o teste ardósia dados também estão arquivados e serão incluídos na apresentação. No entanto, estas informações não devem ser apresentadas aos clientes. Com o manifesto dinâmico, pode criar um filtro de hora de início e remova os dados indesejáveis do manifesto.
+Na maior parte dos eventos de transmissão em fluxo em direto, os operadores executam alguns testes antes do evento real. Por exemplo, podem incluir uma ardósia como esta antes do início do evento: "O programa vai começar momentaneamente". Se o programa é arquivo, o teste e ardósia os dados são também arquivados e incluídos na apresentação. No entanto, estas informações não devem ser apresentadas aos clientes. Com o manifesto dinâmico, pode criar um filtro de hora de início e remova os dados indesejáveis do manifesto.
 
 ![Corte início][trim_filter]
 
-## <a name="creating-sub-clips-views-from-a-live-archive"></a>Criar aplicações de clips secundárias (vistas) de um arquivo em direto
-Muitos eventos em direto são execução longos e arquivo em direto poderão incluir vários eventos. Depois do evento em direto extremidades broadcasters poderão pretender dividir o arquivo em direto no início do programa lógico e parar sequências. Em seguida, publica separadamente estes programas virtuais sem post processamento arquivo em direto e não criar recursos separados (o que não irão receber a vantagem de fragmentos de cache existentes nos CDNs). Exemplos de tais programas virtuais (aplicações de clips secundárias) são trimestres de um futebol ou jogos de basquetebol, innings no baseball ou eventos individuais de um afternoon programa Olympics.
+## <a name="creating-subclips-views-from-a-live-archive"></a>Criar subclips (vistas) de um arquivo em direto
+Muitos eventos em direto são execução longos e arquivo em direto poderão incluir vários eventos. Após termina o evento em direto, poderá pretender broadcasters dividir o arquivo em direto no início do programa lógico e parar sequências. Em seguida, publica separadamente estes programas virtuais sem post processamento arquivo em direto e não criar recursos separados (o que não é obter a vantagem de fragmentos de cache existentes nos CDNs). Exemplos de tais programas virtuais são trimestres de um futebol ou jogos de basquetebol, innings no baseball ou eventos individuais de qualquer programa desporto.
 
 Com o manifesto dinâmico, pode criar filtros utilizando a hora de início/fim e criar vistas virtuais através da parte superior do seu arquivo em direto. 
 
@@ -140,24 +140,24 @@ Asset filtrado:
 ![Skiing][skiing]
 
 ## <a name="adjusting-presentation-window-dvr"></a>Ajustar a janela de apresentação (DVR)
-Atualmente, os Media Services do Azure oferece circular arquivo onde pode ser configurada a duração entre 5 minutos - 25 horas. Filtragem de manifesto pode ser utilizado para criar uma janela DVR graduais ao longo da parte superior do arquivo, sem eliminar o suporte de dados. Existem muitos cenários em que pretende fornecer uma janela DVR limitada que move com o limite em direto e ao mesmo tempo manter uma janela de arquivo maior broadcasters. Um broadcaster poderá querer utilizar os dados que está a janela DVR para realçar clips ou he\she poderá pretender fornecer windows DVR diferentes para diferentes dispositivos. Por exemplo, a maioria dos dispositivos móveis não processa grandes windows DVR (pode ter uma janela DVR de 2 minutos, para dispositivos móveis e de 1 hora para clientes de ambiente de trabalho).
+Atualmente, os Media Services do Azure oferece circular arquivo onde pode ser configurada a duração entre 5 minutos - 25 horas. Filtragem de manifesto pode ser utilizado para criar uma janela DVR graduais ao longo da parte superior do arquivo, sem eliminar o suporte de dados. Existem muitos cenários em que pretende fornecer uma janela DVR limitada para mover com o limite em direto e ao mesmo tempo, manter uma janela de arquivo maior broadcasters. Um broadcaster poderá querer utilizar os dados que está a janela DVR para realçar clips ou he\she poderá pretender fornecer windows DVR diferentes para diferentes dispositivos. Por exemplo, a maioria dos dispositivos móveis não processa grandes windows DVR (pode ter uma janela DVR de 2 minutos, para dispositivos móveis e uma hora para clientes de ambiente de trabalho).
 
 ![Janela DVR][dvr_filter]
 
 ## <a name="adjusting-livebackoff-live-position"></a>Ajustar LiveBackoff (posição em direto)
-Filtragem de manifesto pode ser utilizado para remover o contorno em direto de um programa em direto a vários segundos. Isto permite broadcasters ver a apresentação no ponto de publicação de pré-visualização e criar pontos de inserção de anúncio antes dos visualizadores recebem o fluxo (normalmente, de segurança-desativado por 30 segundos). Broadcasters, em seguida, pode emitir estes anúncios para as estruturas de cliente no tempo para que estes recebido e processar as informações antes da oportunidade de anúncio.
+Filtragem de manifesto pode ser utilizado para remover o contorno em direto de um programa em direto a vários segundos. Filtragem permite broadcasters ver a apresentação no ponto de publicação de pré-visualização e criar pontos de inserção de anúncio antes dos visualizadores recebem o fluxo (cópia-desativado por 30 segundos). Broadcasters, em seguida, pode emitir estes anúncios para as estruturas de cliente no tempo para que estes recebido e processar as informações antes da oportunidade de anúncio.
 
-Para além de suporte anúncio, LiveBackoff pode ser utilizado para ajustar a posição de transferência em direto de cliente para que quando os clientes que se desviam e atingiu o limite em direto, podem obter ainda fragmentos do servidor em vez de a obter erros HTTP 404 ou 412.
+Para além de suporte anúncio, a definição de LiveBackoff pode ser utilizado para ajustar a posição de visualizadores autorizados para que quando os clientes que se desviam e atingiu o limite em direto, podem obter ainda fragmentos do servidor em vez de um HTTP 404 ou erro 412 a obter.
 
 ![livebackoff_filter][livebackoff_filter]
 
 ## <a name="combining-multiple-rules-in-a-single-filter"></a>Combinar várias regras num único filtro
-Pode combinar várias regras de filtragem de um único filtro. Por exemplo, pode definir uma regra de intervalo para remover ardósia de um arquivo em direto e também filtrar disponível de forma. Para múltiplas regras de filtragem, o resultado final é a composição (apenas intersecção), as regras.
+Pode combinar várias regras de filtragem de um único filtro. Por exemplo, pode definir "regra de intervalo" para remover slates de um arquivo em direto e filtrar também disponível de forma. Ao aplicar várias regras de filtragem, o resultado final é a intersecção de todas as regras.
 
 ![regras de vários][multiple-rules]
 
 ## <a name="create-filters-programmatically"></a>Criar filtros através de programação
-O tópico seguinte descreve as entidades de serviços de suporte de dados que estão relacionados com os filtros. O tópico também mostra como programaticamente criar filtros.  
+O seguinte artigo aborda as entidades de serviços de suporte de dados que estão relacionados com os filtros. O artigo mostra também como programaticamente criar filtros.  
 
 [Criar filtros com REST APIs](media-services-rest-dynamic-manifest.md).
 
@@ -166,17 +166,17 @@ Também pode combinar vários filtros num URL único.
 
 O cenário seguinte demonstra por que razão poderá pretender combinar os filtros:
 
-1. Tem de filtrar as vídeos qualities para dispositivos móveis, como Android ou iPAD (para limitar as vídeos qualities). Para remover os qualities indesejáveis, poderá criar um filtro global que é adequado para perfis de dispositivo. Tal como mencionado acima, podem ser utilizados filtros globais para todos os seus recursos sob a mesma conta de media services sem outras associação. 
+1. Tem de filtrar as vídeos qualities para dispositivos móveis, como Android ou iPAD (para limitar as vídeos qualities). Para remover os qualities indesejáveis, poderá criar um filtro global adequado para os perfis de dispositivo. Tal como mencionado anteriormente no artigo, podem ser utilizados filtros globais para todos os seus recursos sob a mesma conta de media services sem outras associação. 
 2. Também pretende compactar a hora de início e de fim de um ativo. Para atingir esse objetivo, teria de criar um filtro local e definir a hora de início/fim. 
-3. Pretende combinar ambos estes filtros (sem combinação que terá de adicionar a filtragem de qualidade de mensagens em fila para o filtro de corte que fará com que a utilização de filtro difícil).
+3. Pretende combinar ambos estes filtros (sem combinação, terá de adicionar a qualidade de filtragem para o filtro de corte que torna mais difícil a utilização de filtro).
 
 Combinar os filtros, tem de definir os nomes de filtro para a manifesto/listas de reprodução URL com ponto e vírgula delimitada. Vamos supor que tem um filtro com o nome *MyMobileDevice* que filtra qualities e tiver outro denominado *MyStartTime* para definir a hora de início específica. Pode combiná-los como esta:
 
     http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
 
-Pode combinar até 3 filtros. 
+Pode combinar os filtros até três. 
 
-Para obter mais informações consulte [isto](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blogue.
+Para obter mais informações, consulte [isto](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blogue.
 
 ## <a name="know-issues-and-limitations"></a>Problemas e limitações
 * O manifesto dinâmico funciona no GOP limites (chave de Frames), por conseguinte, corte tem precisão GOP. 

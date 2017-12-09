@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 3183c61323b1b9ce22b0b64d9021f683b2276d9d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 1e156b2baad0d49c21e852a22d3b149e630b3750
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou desanexar um disco de dados para uma máquina virtual no Azure DevTest Labs
-[Discos do Azure gerida](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview) gere as contas de armazenamento associadas aos discos de dados de máquina virtual. Um utilizador liga um novos dados em disco para uma VM, especifica o tipo e o tamanho de disco necessários e o Azure cria e gere automaticamente o disco. O disco de dados, em seguida, pode ser desligado da VM e um novamente ligado mais tarde para a mesma VM ou anexado a uma VM diferente, que pertence ao mesmo utilizador.
+[Discos do Azure gerida](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gere as contas de armazenamento associadas aos discos de dados de máquina virtual. Um utilizador liga um novos dados em disco para uma VM, especifica o tipo e o tamanho de disco necessários e o Azure cria e gere automaticamente o disco. O disco de dados, em seguida, pode ser desligado da VM e um novamente ligado mais tarde para a mesma VM ou anexado a uma VM diferente, que pertence ao mesmo utilizador.
 
 Esta funcionalidade é útil para a gestão de armazenamento ou de software fora de cada máquina virtual individual. Se o armazenamento ou o software já existe no interior de um disco de dados, este pode ser facilmente ligado, anular a exposição e novamente ligado a qualquer VM que é propriedade de utilizador que é proprietária desse disco de dados.
 
 ## <a name="attach-a-data-disk"></a>Anexar um disco de dados
 Antes de ligar um disco de dados para uma VM, reveja estas sugestões:
 
-- O tamanho da VM controla quantos discos de dados, pode anexar. Para obter mais informações, consulte [tamanhos das virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+- O tamanho da VM controla quantos discos de dados, pode anexar. Para obter mais informações, consulte [tamanhos das virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 - Apenas pode anexar um disco de dados para uma VM que está em execução. Certifique-se que a VM está em execução antes de tentar anexar um disco de dados.
 
 ### <a name="attach-a-new-disk"></a>Anexe um novo disco

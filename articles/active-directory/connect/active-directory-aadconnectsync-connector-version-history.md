@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6699f19f0dbd20ca4bafba16b16b006bb03ec405
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connector-version-release-history"></a>Histórico de Versões do Conector
 Os conectores do Forefront Identity Manager (FIM) e o Microsoft Identity Manager (MIM) são atualizados com frequência.
@@ -44,7 +44,7 @@ Ligações relacionadas:
 
 * Notas de Lotus:
   * Filtragem de opção certifiers personalizado
-  * Importação da classe ImportOperations foi corrigida a definição das operações que podem ser executadas em modo de 'Vistas' e que no modo de "Procurar".
+  * Importação da classe ImportOperations fixo a definição das operações que podem ser executadas em modo de 'Vistas' e que no modo de "Procurar".
 * LDAP genérico:
   * Diretório de OpenLDAP utiliza DN como âncora em vez de entryUUI. Nova opção para o conector GLDAP que permite para modificar âncora
 * SQL genérico:

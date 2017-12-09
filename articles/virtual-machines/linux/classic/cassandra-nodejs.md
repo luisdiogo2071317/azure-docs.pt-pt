@@ -1,5 +1,5 @@
 ---
-title: Executar Cassandra com Linux no Azure | Microsoft Docs
+title: Executar um cluster de Cassandra em Linux no Azure do Node.js
 description: "Como executar um cluster de Cassandra em Linux no Azure as máquinas virtuais a partir de uma aplicação Node.js"
 services: virtual-machines-linux
 documentationcenter: nodejs
@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 176850ff69f8a6f19dda4fc3389bd2b7e022e578
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Executar o Cassandra com o Linux no Azure e Aceder a partir de Node.js
+# <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Executar um cluster de Cassandra em Linux no Azure com o Node.js
+
 > [!IMPORTANT] 
 > O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../resource-manager-deployment-model.md). Este artigo abrange utilizando o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Ver modelos do Resource Manager para [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) e [Spark cluster e Cassandra em CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
@@ -309,7 +310,7 @@ Esta ação irá demorar alguns segundos e a imagem deve estar disponível na se
 <tr><td>Nome</td><td>vnet-cass--EUA oeste</td><td></td></tr>
 <tr><td>Região</td><td>EUA Oeste</td><td></td></tr>
 <tr><td>Servidores DNS</td><td>Nenhuma</td><td>Ignore esta indicação como podemos não estiver a utilizar um servidor DNS</td></tr>
-<tr><td>Espaço de endereços</td><td>10.1.0.0/16</td><td></td></tr>    
+<tr><td>Espaço de Endereços</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>IP inicial</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
@@ -318,7 +319,7 @@ Adicione as seguintes sub-redes:
 
 <table>
 <tr><th>Nome</th><th>IP inicial</th><th>CIDR</th><th>Observações</th></tr>
-<tr><td>Web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Sub-rede para a web farm</td></tr>
+<tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Sub-rede para a web farm</td></tr>
 <tr><td>dados</td><td>10.1.2.0</td><td>/24 (251)</td><td>Sub-rede para os nós de base de dados</td></tr>
 </table>
 
@@ -336,8 +337,8 @@ Dados e sub-redes Web podem ser protegidas através de grupos de segurança de r
 <tr><td>HK-c6--EUA oeste    </td><td>dados    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC = WESTUS bastidor = rack3    </td><td>Não </td></tr>
 <tr><td>HK-c7--EUA oeste    </td><td>dados    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = WESTUS bastidor = rack4    </td><td>Sim</td></tr>
 <tr><td>HK-c8--EUA oeste    </td><td>dados    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC = WESTUS bastidor = rack4    </td><td>Não </td></tr>
-<tr><td>HK-w1--EUA oeste    </td><td>Web    </td><td>10.1.1.4    </td><td>HK-w-aset-1    </td><td>                       </td><td>N/D</td></tr>
-<tr><td>HK-w2--EUA oeste    </td><td>Web    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>N/D</td></tr>
+<tr><td>HK-w1--EUA oeste    </td><td>web    </td><td>10.1.1.4    </td><td>HK-w-aset-1    </td><td>                       </td><td>N/D</td></tr>
+<tr><td>HK-w2--EUA oeste    </td><td>web    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>N/D</td></tr>
 </table>
 
 Criação da lista acima de VMs requer o seguinte processo:
@@ -470,7 +471,7 @@ Inicie sessão no portal clássico do Azure e criar uma rede Virtual com a mostr
 <tr><td>Servidores DNS        </td><td></td><td>Ignore esta indicação como podemos não estiver a utilizar um servidor DNS</td></tr>
 <tr><td>Configurar uma VPN ponto a site</td><td></td><td>        Ignore esta indicação</td></tr>
 <tr><td>Configurar uma rede de VPN</td><td></td><td>        Ignore esta indicação</td></tr>
-<tr><td>Espaço de endereços    </td><td>10.2.0.0/16</td><td></td></tr>
+<tr><td>Espaço de Endereços    </td><td>10.2.0.0/16</td><td></td></tr>
 <tr><td>IP inicial    </td><td>10.2.0.0    </td><td></td></tr>
 <tr><td>CIDR    </td><td>/16 (65531)</td><td></td></tr>
 </table>
@@ -479,7 +480,7 @@ Adicione as seguintes sub-redes:
 
 <table>
 <tr><th>Nome    </th><th>IP inicial    </th><th>CIDR    </th><th>Observações</th></tr>
-<tr><td>Web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Sub-rede para a web farm</td></tr>
+<tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Sub-rede para a web farm</td></tr>
 <tr><td>dados    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Sub-rede para os nós de base de dados</td></tr>
 </table>
 
@@ -489,7 +490,7 @@ Uma rede Local na rede virtual do Azure é um espaço de endereços de proxy que
 
 Crie duas redes locais pelos seguintes detalhes:
 
-| Nome da rede | Endereço de Gateway VPN | Espaço de endereços | Observações |
+| Nome de Rede | Endereço de Gateway VPN | Espaço de Endereços | Observações |
 | --- | --- | --- | --- |
 | HK-lnet-Map-to-East-US |23.1.1.1 |10.2.0.0/16 |Durante a criação da rede Local, atribua um marcador de posição endereço de gateway. O endereço de real gateway é preenchido quando é criado o gateway. Certifique-se de que o espaço de endereços corresponde exatamente a respetiva VNET remota; Neste caso a VNET criada na região EUA Leste. |
 | HK-lnet-Map-to-West-US |23.2.2.2 |10.1.0.0/16 |Durante a criação da rede Local, atribua um marcador de posição endereço de gateway. O endereço de real gateway é preenchido quando é criado o gateway. Certifique-se de que o espaço de endereços corresponde exatamente a respetiva VNET remota; Neste caso a VNET criada na região EUA oeste. |
@@ -532,8 +533,8 @@ Criar a imagem do Ubuntu conforme descrito na implementação de região #1 ao s
 | HK-c6-Leste-nos |dados |10.2.2.9 |HK-c-aset-2 |DC = EASTUS bastidor = rack3 |Não |
 | HK-c7-Leste-nos |dados |10.2.2.10 |HK-c-aset-2 |DC = EASTUS bastidor = rack4 |Sim |
 | HK-c8-Leste-nos |dados |10.2.2.11 |HK-c-aset-2 |DC = EASTUS bastidor = rack4 |Não |
-| HK-w1-Leste-nos |Web |10.2.1.4 |HK-w-aset-1 |N/D |N/D |
-| HK-w2-Leste-nos |Web |10.2.1.5 |HK-w-aset-1 |N/D |N/D |
+| HK-w1-Leste-nos |web |10.2.1.4 |HK-w-aset-1 |N/D |N/D |
+| HK-w2-Leste-nos |web |10.2.1.5 |HK-w-aset-1 |N/D |N/D |
 
 Siga as mesmas instruções como região #1, mas utilize 10.2.xxx.xxx espaço de endereço.
 
