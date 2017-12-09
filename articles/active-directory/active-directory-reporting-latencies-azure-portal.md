@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: f060ddc958a7b266464bd28cee774f6ce065088d
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory latências de relatórios
 
@@ -39,8 +39,8 @@ A tabela seguinte lista as informações de latência para relatórios de ativid
 
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
-| Registos de auditoria             | 30 minutos  | 45 minutos | 1 hora     |
-| Inícios de sessão               | 15 minutos  | 15 minutos | 2 horas *   |
+| Registos de auditoria             | 30 minutos  | 1 hora | 2 horas     |
+| Inícios de sessão               | 15 minutos  | 2 horas * | 24 horas  |
 
 >[!NOTE]
 > No caso de alguns dados de atividade de inícios de sessão provenientes de aplicações legadas do Office, os dados dos relatórios podem demorar até 8 horas a aparecer. 
@@ -69,10 +69,10 @@ A tabela seguinte lista as informações de latência para eventos de risco.
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
 | Inícios de sessão de endereços IP anónimos |5 minutos |15 minutos |2 horas |
-| Inícios de sessão a partir de localizações desconhecidas |5 minutos |15 minutos |2 horas |
-| Utilizadores com credenciais obtidas ilicitamente |2 horas |4 horas |8 horas |
+| Inícios de sessão de localizações desconhecidas |5 minutos |15 minutos |2 horas |
+| Utilizadores com fuga de credenciais |2 horas |4 horas |8 horas |
 | Deslocação impossível para localizações atípicas |5 minutos |1 hora |8 horas  |
-| Inícios de sessão a partir de dispositivos infetados |2 horas |4 horas |8 horas  |
+| Inícios de sessão de dispositivos infetados |2 horas |4 horas |8 horas  |
 | Inícios de sessão de endereços IP com atividade suspeita |2 horas |4 horas |8 horas  |
 
 

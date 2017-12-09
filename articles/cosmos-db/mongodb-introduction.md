@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: anhoh
-ms.openlocfilehash: eca720f365a00070afd2a657829f5b108ab91fb9
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 9acc3268bc6a043852cadfafa40c0a54ecc66e59
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Introdução ao Azure Cosmos DB: API para MongoDB
 
@@ -45,9 +45,9 @@ Bases de dados de base de dados do Cosmos do Azure podem ser utilizados como o a
 
 **Nível de Enterprise**: base de dados do Azure Cosmos suporta várias réplicas locais para fornecer proteção de dados de disponibilidade e de 99,99% face a falhas de locais e regionais. BD do Azure do Cosmos tem de nível empresarial [certificações de conformidade](https://www.microsoft.com/trustcenter) e funcionalidades de segurança. 
 
-Saiba mais neste Azure vídeo com autoria de Scott Hanselman e o Azure Cosmos BD Principal de engenharia Manager, Kirill Gavrylyuk sexta-feira.
+Saiba mais neste vídeo com o Azure Cosmos DB programa sénior, Aleksey Savateyev.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Introducing-Azure-Cosmos-DB/player]
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
 > 
 
 ## <a name="how-to-get-started"></a>Como começar

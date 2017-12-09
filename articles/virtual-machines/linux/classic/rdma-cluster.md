@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configurar um cluster RDMA do Linux para executar aplicações MPI
 Saiba como configurar um cluster de Linux RDMA no Azure com [tamanhos de VM de computação de elevado desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para executar aplicações de Interface de passagem de mensagens (MPI) paralelas. Este artigo fornece os passos para preparar uma imagem de Linux HPC para executar Intel MPI num cluster. Depois de preparação, implementar um cluster de VMs com esta imagem e dos tamanhos de VM do Azure com capacidade RDMA (atualmente H16r, H16mr, A8, A9 ou utilizador). Utilize o cluster para executar aplicações de MPI comunicam de forma eficiente através de uma rede de latência baixa e débito elevado com base na tecnologia de (RDMA) de acesso remoto direto à memória.
@@ -47,7 +47,7 @@ Os passos seguintes mostram como utilizar a CLI do Azure para implementar uma VM
 * **Subscrição do Azure**: Se não tiver uma subscrição, pode criar um [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos. Para clusters maiores, considere uma subscrição pay as you go ou outras opções de compra.
 * **Disponibilidade de tamanho VM**: os tamanhos de instância seguintes são compatíveis com RDMA: H16r, H16mr, A8 e A9. Verifique [produtos disponíveis por região](https://azure.microsoft.com/regions/services/) de disponibilidade em regiões do Azure.
 * **Quota de núcleos**: poderá ter de aumentar a quota de núcleos para implementar um cluster de computação intensiva VMs. Por exemplo, precisa de, pelo menos, 128 núcleos se pretender implementar 8 A9 VMs, conforme mostrado neste artigo. A subscrição também poderá limitar o número de núcleos que pode implementar em determinados famílias de tamanho VM, incluindo a série de H. Para pedir um aumento de quota [abrir um pedido de suporte ao cliente online](../../../azure-supportability/how-to-create-azure-support-request.md) , sem encargos.
-* **CLI do Azure**: [instalar](../../../cli-install-nodejs.md) a CLI do Azure e [ligar à sua subscrição do Azure](../../../xplat-cli-connect.md) do computador cliente.
+* **CLI do Azure**: [instalar](../../../cli-install-nodejs.md) a CLI do Azure e [ligar à sua subscrição do Azure](/cli/azure/authenticate-azure-cli) do computador cliente.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Aprovisionar uma VM do SLES 12 SP1 HPC
 Depois de iniciarem sessão no Azure com a CLI do Azure, execute `azure config list` para confirmar que o resultado mostra o modo de gestão de serviço. Se não existir, defina o modo ao executar o comando:

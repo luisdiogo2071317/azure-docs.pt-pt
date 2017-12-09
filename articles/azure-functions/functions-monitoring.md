@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as funções do Azure
 
@@ -38,7 +38,7 @@ Para uma aplicação de função enviar dados para o Application Insights, tem d
 * [Criar uma instância ligada do Application Insights ao criar a aplicação de função](#new-function-app).
 * [Ligar uma instância do Application Insights para uma aplicação de função existente](#existing-function-app).
  
-### <a name="new-function-app"></a>Nova aplicação de função
+### <a name="new-function-app"></a>Nova aplicação de funções
 
 Ativar o Application Insights na aplicação de função **criar** página:
 
@@ -78,7 +78,7 @@ No [Explorador de métricas](../application-insights/app-insights-metrics-explor
 
 No [falhas](../application-insights/app-insights-asp-net-exceptions.md) separador, pode criar gráficos e alertas com base nas falhas de função e o servidor de exceções. O **nome da operação** é o nome de função. Falhas de dependências não são apresentadas, a menos que implementar [telemetria personalizada](#custom-telemetry-in-c-functions) para dependências.
 
-![falhas](media/functions-monitoring/failures.png)
+![Falhas](media/functions-monitoring/failures.png)
 
 No [desempenho](../application-insights/app-insights-performance-counters.md) separador, pode analisar problemas de desempenho.
 
@@ -486,7 +486,7 @@ Pode transmitir ficheiros de registo para uma sessão de linha de comandos numa 
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Monitorizar os ficheiros de registo de aplicação de função com a CLI do Azure 1.0
 
-Para começar, [instalar a CLI do Azure 1.0](../cli-install-nodejs.md) e [iniciar sessão no Azure](../xplat-cli-connect.md).
+Para começar, [instalar a CLI do Azure 1.0](../cli-install-nodejs.md) e [iniciar sessão no Azure](/cli/azure/authenticate-azure-cli).
 
 Utilize os seguintes comandos para ativar o modo clássico de gestão de serviço, escolha a sua subscrição e transmitir ficheiros de registo:
 

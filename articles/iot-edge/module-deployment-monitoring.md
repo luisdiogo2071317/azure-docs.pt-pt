@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d8688ab2daefd400e9c0948853459dd238fa0d43
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 54c92937c507cabd9053920baef97e745c2300f6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Compreender as implementações de IoT Edge para dispositivos único ou na escala – pré-visualização
 
@@ -57,7 +57,23 @@ Os metadados de configuração para cada módulo incluem:
 
 ### <a name="target-condition"></a>Condição de destino
 
-Condições de filtragem de especificar se um dispositivo de limite de IoT deve estar sob o âmbito de uma implementação. Condições de filtragem são baseadas em etiquetas do dispositivo duplo. 
+A condição de destino é avaliada continuamente para incluir quaisquer novos dispositivos que cumprem os requisitos ou remova os dispositivos que já não fazer através de tempo de vida da implementação. A implementação irá ser reativada se o serviço detetar qualquer alteração de condição de destino. Por exemplo, tem uma implementação de um que tenha um tags.environment de condição de destino = 'prod'. Quando pode iniciar a implementação, existem 10 prod dispositivos. Os módulos são instalados com êxito nestes 10 dispositivos. O estado de agente de limite de IoT é mostrado como 10 total de dispositivos, 10 com êxito as respostas, 0 respostas de falhas e 0 respostas pendentes. Agora adicione 5 dispositivos mais com tags.environment = 'prod'. O serviço Deteta a alteração e o estado do agente Edge IoT torna-se 15 total de dispositivos, 10 com êxito as respostas, respostas de falhas de 0 e 5 respostas pendentes ao tentar implementar a cinco novos dispositivos.
+
+Utilize qualquer condição booleana etiquetas do dispositivos duplos ou deviceId para selecionar os dispositivos de destino. Se pretender utilizar a condição com etiquetas, terá de adicionar "etiquetas" secção :{} no dispositivo duplo sob o mesmo nível de propriedades. [Saiba mais sobre as etiquetas no dispositivo duplo](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+
+Exemplos de condição de destino:
+* deviceId ='linuxprod1
+* tags.Environment = 'prod'
+* tags.Environment = 'prod' e tags.location = 'westus'
+* tags.Environment = 'prod' ou tags.location = 'westus'
+* tags.Operator = 'João' e tags.environment = 'prod' deviceId não = 'linuxprod1'
+
+Seguem-se algumas restringe quando construir uma condição de destino:
+
+* No dispositivo duplo, só pode construir uma condição de destino utilizando as etiquetas ou deviceId.
+* Aspas duplas não são permitidas em qualquer parte da condição de destino. Utilize plicas.
+* Único entre aspas representam os valores de condição de destino. Por conseguinte, tem de escape plicas com outra plicas se faz parte do nome do dispositivo. Por exemplo, a condição de destino: operator'sDevice seria tem de ser escritos como deviceId =' o operador ' sDevice'.
+* Os seguintes carateres, letras e números são permitidos no destino condição values:-:.+%_#*? (),=@;$
 
 ### <a name="priority"></a>Prioridade
 

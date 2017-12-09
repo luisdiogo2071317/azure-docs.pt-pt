@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/31/2017
+ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: ecc81dcfaf8dc158792a3bbcac78ea6da6488822
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicar a partir do Azure para o Azure
 
@@ -90,11 +90,11 @@ O abaixo suporte é aplicável a qualquer carga de trabalho em execução no sis
 - SP3 do SUSE Linux Enterprise Server 11
 - SP4 do SUSE Linux Enterprise Server 11
 
-(Não é suportada a atualização de replicar máquinas do SLES 11 SP3 para SLES 11 SP4. Se uma máquina replicada tiver sido atualizada do SLES 11SP3 para SLES 11 SP4, terá de desativar a replicação e proteger a máquina post novamente a atualização.)
+(Não é suportada a atualização de replicar máquinas do SLES 11 SP3 para SLES 11 SP4. Se uma máquina replicada tiver sido atualizada do SLES 11SP3 para SLES 11 SP4, terá de desativar a replicação e proteger o computador novamente post a atualização.)
 
 >[!NOTE]
 >
-> Servidores de Ubuntu utilizando a palavra-passe com autenticação e início de sessão, utilizando o pacote de nuvem init para configurar máquinas virtuais na nuvem, poderá ter palavra-passe base e início de sessão desativado após a ativação pós-falha (dependendo da configuração de cloudinit.) Início de sessão de palavra-passe com base pode ser novamente ativado na máquina virtual ao repor a palavra-passe no menu de definições (sob a suporte + a resolução de problemas de secção) da máquina virtual no portal do Azure de ativação pós-falha.
+> Ubuntu servidores utilizando a autenticação baseada em palavra-passe e de início de sessão e utilizar o pacote de nuvem init para configurar máquinas virtuais na nuvem, podem ter início de sessão baseada em palavra-passe desativado após a ativação pós-falha (dependendo da configuração de cloudinit.) Início de sessão baseada em palavra-passe pode ser novamente ativado na máquina virtual ao repor a palavra-passe no menu de definições (sob a suporte + a resolução de problemas de secção) da máquina virtual no portal do Azure de ativação pós-falha.
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões suportadas do kernel Ubuntu máquinas virtuais do Azure
 
@@ -122,10 +122,13 @@ América do | Canadá leste, EUA Central Canadá Central, -Sul, EUA Centro Oeste
 Europa | RU oeste, RU Sul, Europa Norte, Europa Ocidental
 Ásia | Sul da Índia, Índia Central, Sudeste asiático, leste do Japão, Ásia Oriental, oeste do Japão, Coreia Central, Coreia South
 Austrália   | Leste da Austrália, Sudeste da Austrália
+Azure Government    | E.u. a US Virginia, E.U.A. us Iowa, E.U.A. us Arizona, E.U.A. us Texas, DOD de e.u. a leste, DOD de e.u. a Central
+Alemanha | Alemanha Central, Alemanha Nordeste
+China | Leste da China, Norte da China
 
 >[!NOTE]
 >
-> Região do Sul do Brasil, pode apenas a replicação e ativação pós-falha para um dos Sul Central dos EUA Central EUA oeste, EUA leste, EUA Leste 2, EUA oeste, EUA oeste 2 e regiões Norte Central-nos e voltar a falhar.
+> Região sul do Brasil, pode apenas replicar e efetuar a ativação pós-falha para um dos Sul Central nos, Central EUA oeste, EUA leste, EUA Leste 2, EUA oeste, EUA oeste, 2 e regiões Norte Central-nos e voltar a falhar.
 
 
 ## <a name="support-for-compute-configuration"></a>Suporte para a configuração de computação

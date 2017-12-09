@@ -11,9 +11,9 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: e4dc4a0bd43f61474692abb8c21e0b6448769f8e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/08/2017
 ---
@@ -36,7 +36,7 @@ Para concluir este tutorial, deve ter o seguinte:
 * Uma aplicação web. Iremos irá ser mostrar os passos para uma aplicação ASP.NET MVC implementado no Azure como uma aplicação Web.
 
 >[!IMPORTANT]
->* Este exemplo depende de uma forma mais antiga do aprovisionamento manualmente as identidades do AAD. Atualmente, não há uma nova funcionalidade de pré-visualização chamado [identidade de serviço geridas (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), que pode aprovisionar automaticamente identidades do AAD. Consulte o exemplo seguinte no [github](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) para obter mais detalhes.
+>* Este exemplo depende de uma forma mais antiga do aprovisionamento manualmente as identidades do AAD. Atualmente, não há uma nova funcionalidade de pré-visualização chamado [identidade de serviço geridas (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), que pode aprovisionar automaticamente identidades do AAD. Consulte o exemplo seguinte no [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) para obter mais detalhes.
 
 > [!NOTE]
 >* É essencial que concluiu os passos apresentados na [introdução ao Cofre de chaves do Azure](key-vault-get-started.md) para este tutorial, de modo a que tem o URI para um segredo e o ID de cliente e o segredo do cliente para uma aplicação web.
@@ -46,7 +46,7 @@ A aplicação web que irão aceder ao Cofre de chaves é aquele que está regist
 
 Este tutorial foi concebido para programadores de web que compreender as noções básicas de criação de aplicações web no Azure. Para obter mais informações sobre as aplicações Web do Azure, consulte [descrição geral das aplicações Web](../app-service/app-service-web-overview.md).
 
-## <a id="packages"></a>Adicionar pacotes Nuget
+## <a id="packages"></a>Adicionar pacotes NuGet
 
 Existem dois pacotes que a aplicação web tem de ter instalado.
 
@@ -147,11 +147,11 @@ Outra forma de autenticar uma aplicação do Azure AD é através de um ID de cl
 Para efeitos de nosso, iremos faz com que um certificado de teste. Eis alguns comandos que pode utilizar na linha de comandos do programador para criar um certificado. Altere o diretório para onde pretende que os ficheiros de certificado criados.  Além disso, para o início e fim de data do certificado, utilize a data atual mais a 1 ano.
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Tome nota da data de fim e a palavra-passe de. pfx (neste exemplo: 31/07/2016 e test123). Vai precisar deles abaixo.
+Tome nota da data de fim e a palavra-passe de. pfx (neste exemplo: 31/07/2017 e test123). Vai precisar deles abaixo.
 
 Para obter mais informações sobre como criar um certificado de teste, consulte [como: criar seu próprio teste certificado](https://msdn.microsoft.com/library/ff699202.aspx)
 

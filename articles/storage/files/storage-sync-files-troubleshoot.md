@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1b8010876a46999d9cfcefc8c3bf537c7a1deb4e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Resolver problemas de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -102,12 +102,10 @@ Para determinar se a sua função de utilizador da conta tem as permissões nece
     * **Atribuição de função** deve ter **leitura** e **escrever** permissões.
     * **Definição de função** deve ter **leitura** e **escrever** permissões.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Falha de eliminação de ponto final da nuvem, com este erro: "MgmtInternalError"**  
-Este problema pode ocorrer se a conta de armazenamento ou de partilha de ficheiros do Azure é eliminada antes de eliminar o ponto final da nuvem. Este problema será resolvido numa atualização futura. Nessa altura, poderá eliminar um ponto final da nuvem depois de eliminar a conta de armazenamento ou de partilha de ficheiros do Azure.
+<a id="server-endpoint-deletejobexpired"></a>**Falha de eliminação de ponto final do servidor, com este erro: "MgmtServerJobExpired"**                
+Este problema ocorre se o servidor está offline ou não tem conectividade de rede. Se o servidor já não estiver disponível, anular o registo do servidor no portal do qual irá eliminar os pontos finais de servidor. Para eliminar os pontos finais de servidor, siga os passos descritos em [anular o registo de um servidor com sincronização de ficheiros do Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
-Entretanto, para impedir que este problema ocorrer, elimine o ponto final da nuvem antes de eliminar a conta de armazenamento ou de partilha de ficheiros do Azure.
-
-## <a name="sync"></a>Sincronizar
+## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Se criar um ficheiro diretamente na minha partilha de ficheiros do Azure através de SMB ou através do portal, quanto tempo demora para o ficheiro a sincronizar para servidores no grupo de sincronização?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -132,7 +130,7 @@ Se os ficheiros individuais falharem a sincronizar:
     > [!NOTE]
     > Sincronização de ficheiros do Azure periodicamente tira instantâneos VSS para sincronizar os ficheiros que tenham identificadores abertos.
 
-## <a name="cloud-tiering"></a>Cloud em camadas 
+## <a name="cloud-tiering"></a>Disposição em camadas na cloud 
 Existem dois caminhos para falhas na nuvem em camadas:
 
 - Os ficheiros podem não conseguir camada, o que significa que sincronização de ficheiros do Azure sem êxito tenta a camada de um ficheiro para ficheiros do Azure.

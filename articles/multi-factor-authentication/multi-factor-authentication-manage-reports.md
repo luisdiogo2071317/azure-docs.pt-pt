@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 76a13467fff23ad62a857a53e0e31865b1a9fe81
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios do multi-factor Authentication do Azure
 
@@ -36,22 +36,20 @@ Multi-factor Authentication do Azure fornece diversos relatórios que podem ser 
 
 ## <a name="view-reports"></a>Ver relatórios
 
-1. Inicie sessão no [Portal Clássico do Azure](https://manage.windowsazure.com).
-2. No lado esquerdo, selecione Active Directory.
-3. Siga uma destas duas opções, consoante utilize ou fornecedores de autenticação:
-   * **Opção 1**: clique no separador de fornecedores de autenticação Multifator. Selecione o seu fornecedor MFA e clique em de **gerir** na parte inferior.
-   * **Opção 2**: selecione o diretório e vá para o **configurar** separador. Na secção da autenticação multifator, selecione **Gerir definições do serviço**. Na parte inferior da página de definições do serviço de MFA, clique a aceda ao link do portal.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores e grupos** > **todos os utilizadores** > **Multifator Autenticação**.
+3. Em **autenticação multifator**, selecione **definições do serviço**. Na parte inferior em **gerir definições e ver relatórios avançadas**, selecione **aceda ao portal do**.
 4. No Portal de gestão do Azure multi-factor Authentication, selecione o tipo de relatório pretendido no **visualizar um relatório** secção no painel de navegação esquerdo.
 
 <center>![Nuvem](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
 ## <a name="powershell-reporting"></a>Relatórios de PowerShell
 
-Identifica os utilizadores se tem registado para MFA através do Powershell que se segue.
+Identifica os utilizadores se tem registado para MFA através do PowerShell que se segue.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
-Identifique os utilizadores que não tenham registado para MFA através do Powershell que se segue.
+Identifique os utilizadores que não tenham registado para MFA através do PowerShell que se segue.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 

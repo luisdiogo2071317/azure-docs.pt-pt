@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7065ceaf87f0cb5ebf46c53c71c6df4b069b2deb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 002c4376c91f4a7176cc9b00a4d6ba275f87dadb
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-helm-with-azure-container-service-aks"></a>Utilizar Helm com o serviço de contentor do Azure (AKS)
 
@@ -50,16 +50,16 @@ Bash completion has been installed to:
 
 ## <a name="configure-helm"></a>Configurar Helm
 
-O [helm init](https://docs.helm.sh/helm/#helm-init) comando é utilizado para instalar componentes de Helm num Kubernetes cluster e efetuar configurações do lado do cliente. Helm está pré-instalado em clusters AKS, por isso, é necessário apenas a configuração do lado do cliente. Execute o seguinte comando para configurar o cliente Helm.
+O [helm init](https://docs.helm.sh/helm/#helm-init) comando é utilizado para instalar componentes de Helm num Kubernetes cluster e efetuar configurações do lado do cliente. Execute o seguinte comando para instalar Helm no seu cluster AKS e configurar o cliente Helm.
 
 ```azurecli-interactive
-helm init --client-only
+helm init
 ```
 
 Saída:
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
+$HELM_HOME has been configured at /Users/user/.helm.
 Not installing Tiller due to 'client-only' flag having been set
 Happy Helming!
 ```

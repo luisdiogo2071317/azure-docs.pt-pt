@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d6681a5b46aa352b1aa0dadedad8a51c9d1e5eaf
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de tráfego perguntas mais frequentes (FAQ)
 
@@ -368,7 +368,7 @@ O número de estado de funcionamento do Gestor de tráfego verifica atingir o po
 
 ### <a name="how-do-i-configure-nested-profiles"></a>Como configurar a perfis aninhados?
 
-Aninhada perfis do Traffic Manager podem ser configuradas com o Azure Resource Manager e clássico do Azure REST APIs, cmdlets do Azure PowerShell e comandos da CLI do Azure de várias plataformas. Também são suportados através do portal do Azure. Não são suportados no portal clássico.
+Aninhada perfis do Traffic Manager podem ser configuradas com o Azure Resource Manager e clássico do Azure REST APIs, cmdlets do Azure PowerShell e comandos da CLI do Azure de várias plataformas. Também são suportados através do portal do Azure.
 
 ### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>Quantas camadas do aninhamento faz o tráfego do Configuration Manager suportam?
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 6ddadad6f5697fed006e3f938ef3c3faedb6a354
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no Azure através do portal do Azure
 > [!div class="op_single_selector"]
@@ -40,9 +40,9 @@ Este é um guia passo a passo que explica os passos de configuração de um clus
 
 Um cluster seguro é um cluster que impede o acesso não autorizado às operações de gestão, que inclui implementar, atualizar e eliminar os dados que contêm, serviços e aplicações. Um cluster não seguro é um cluster que qualquer pessoa pode ligar a qualquer momento e efetuar operações de gestão. Embora seja possível criar um cluster não seguro, é **altamente recomendado para criar um cluster seguro**. Um cluster não seguro **não pode ser protegida mais tarde** -tem de ser criado um novo cluster.
 
-Os conceitos são os mesmos para criação de clusters seguros, se os clusters são clusters do Linux ou clusters do Windows. Para mais informações e do programa auxiliar de scripts para a criação de clusters seguros do Linux, consulte [criação de clusters seguros no Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Os parâmetros obtidos pelo script de programa auxiliar fornecido podem ser introduzidos diretamente no portal, conforme descrito na secção [criar um cluster no portal do Azure](#create-cluster-portal).
+Os conceitos são os mesmos para criação de clusters seguros, se os clusters são clusters do Linux ou clusters do Windows. Para mais informações e do programa auxiliar de scripts para a criação de clusters seguros do Linux, consulte [criação de clusters seguros](service-fabric-cluster-creation-via-arm.md). Os parâmetros obtidos pelo script de programa auxiliar fornecido podem ser introduzidos diretamente no portal, conforme descrito na secção [criar um cluster no portal do Azure](#create-cluster-portal).
 
-## <a name="configure-key-vault"></a>Configurar o Cofre de chaves 
+## <a name="configure-key-vault"></a>Configurar o Key Vault 
 ### <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 Este guia utiliza [Azure PowerShell][azure-powershell]. Quando a partir de uma nova sessão do PowerShell, inicie sessão na sua conta do Azure e selecionar a sua subscrição antes de executar os comandos do Azure.
 
@@ -84,7 +84,7 @@ O primeiro passo é criar um novo grupo de recursos especificamente para o Cofre
 
 ```
 
-#### <a name="create-key-vault"></a>Criar Cofre de chaves
+#### <a name="create-key-vault"></a>Criar Key Vault
 Crie um cofre de chaves no novo grupo de recursos. O Cofre de chaves **tem de estar ativado para a implementação** para permitir que o fornecedor de recursos do Service Fabric obter certificados a partir do mesmo e a instalar em nós de cluster:
 
 ```powershell
@@ -228,7 +228,7 @@ No painel Noções básicas tem de fornecer os detalhes básicos para o cluster.
    > 
 5. Selecione o **região** no qual pretende criar o cluster. Tem de utilizar a mesma região que consta do seu Cofre de chaves.
 
-#### <a name="2-cluster-configuration"></a>2. Configuração de cluster
+#### <a name="2-cluster-configuration"></a>2. Configuração do cluster
 ![Criar um tipo de nó][CreateNodeType]
 
 Configure os nós do cluster. Tipos de nó definem os tamanhos VM, o número de VMs e as respetivas propriedades. O cluster pode ter mais do que um tipo de nó, mas o tipo de nó principal (aquele primeiro por si no portal) tem de ter, pelo menos, cinco VMs, que é o tipo de nó em que os serviços de sistema do Service Fabric são colocados. Não configure **as propriedades de colocação** porque uma propriedade de posicionamento predefinido de "NodeTypeName" é adicionada automaticamente.

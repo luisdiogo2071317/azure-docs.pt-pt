@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: be940b694ba95529b5f5a84acfd789240354dae2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Perguntas mais frequentes sobre Azure Active Directory Connect
 
@@ -35,6 +35,11 @@ Com as compilações de Fevereiro de 2016, isto é suportado.
 Sim. Depois de instalar o agente, pode concluir o processo de registo utilizando o cmdlet PowerShell seguinte: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**P: AADConnect suporta a sincronizar a partir de dois domínios no Azure AD?**</br>
+Sim, esta ação é suportada. Consulte [vários domínios](active-directory-aadconnect-multiple-domains.md)
+ 
+**P: é suportada a ter vários conectores para o mesmo domínio do Active Directory no Azure AD connect?**</br> Não, isto não é suportado 
 
 ## <a name="network"></a>Rede
 **P: Posso tem uma firewall, o dispositivo de rede ou outra coisa que limita as ligações de tempo máximo pode permanecer aberta na minha rede. Quanto tempo os meus limiar de tempo limite de lado do cliente estará ao utilizar o Azure AD Connect?**  
@@ -78,8 +83,6 @@ Não, isto não é atualmente suportado.
 **P: é, suportado para definir manualmente ImmutableId atributo em objetos existentes do Azure AD grupo/contacte rígido corresponder ao que no local objetos de AD grupo/contacto?**  
 Não, isto não é atualmente suportado.
 
-
-
 ## <a name="custom-configuration"></a>Configuração personalizada
 **P: onde estão documentados os cmdlets do PowerShell do Azure AD Connect?**  
 Com exceção dos cmdlets documentados neste site, os outros cmdlets do PowerShell encontrados no Azure AD Connect não são suportados para utilização do cliente.
@@ -95,8 +98,6 @@ Atualmente não suportamos modificar os atributos HTML da página de início de 
 
 **P: existe uma forma de impedir sessões simultâneas?**</br>
 Não.
-
-
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 **P: como posso obter ajuda com o Azure AD Connect?**

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 6533889411c3dbadbbabdbe1239050c941a9c300
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorar as funcionalidades da solução pré-configurada de monitorização remota
 
@@ -43,7 +43,7 @@ Se ainda não implementado a solução de monitorização remota ainda, deve efe
 Pode utilizar a implementação de IoT de exemplo de Contoso para compreender os cenários básicos remoto solução de monitorização fornece out of box. Estes cenários são baseados em implementações de IoT reais. Provavelmente, irá escolher Personalizar a solução de monitorização remota para satisfazer os seus requisitos específicos, mas o exemplo de Contoso ajuda-o a aprender as noções básicas.
 
 > [!NOTE]
-> Se utilizou a CLI para implementar a solução pré-configurada, o ficheiro `deployment-{your deployment name}-output.json` contém informações sobre a implementação, tais como o URL para accss o exemplo implementado.
+> Se utilizou a CLI para implementar a solução pré-configurada, o ficheiro `deployment-{your deployment name}-output.json` contém informações sobre a implementação, tais como o URL para aceder a amostra implementada.
 
 O exemplo de Contoso aprovisiona um conjunto de dispositivos simulados e regras para agir nos mesmos. Assim que compreender os cenários básicos, pode continuar a explorar mais funcionalidades solução [executar avançada de monitorização de dispositivos com a solução de monitorização remota](iot-suite-remote-monitoring-monitor.md).
 

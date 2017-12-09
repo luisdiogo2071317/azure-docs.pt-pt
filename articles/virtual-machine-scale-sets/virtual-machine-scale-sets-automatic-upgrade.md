@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/07/2017
 ms.author: guybo
-ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6fc52bc779dcb58d4f7e6aa90e25c9d8e8ec6011
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>As atualizações automáticas de SO de conjunto de dimensionamento de máquina virtual do Azure
 
@@ -39,10 +39,10 @@ A atualização automática do SO tem as seguintes características:
 ## <a name="preview-notes"></a>Notas de pré-visualização 
 Enquanto na pré-visualização, as seguintes limitações e restrições aplicam-se:
 
-- SO automático atualiza suporte apenas [três SKUs do SO](#supported-os-images). Não há nenhum SLA ou garantias. Recomendamos que utilize as atualizações automáticas em cargas de trabalho críticas produção durante a pré-visualização.
+- SO automático atualiza suporte apenas [quatro SKUs de SO](#supported-os-images). Não há nenhum SLA ou garantias. Recomendamos que utilize as atualizações automáticas em cargas de trabalho críticas produção durante a pré-visualização.
 - Suporte para conjuntos de dimensionamento de clusters de Service Fabric está disponível em breve.
 - A encriptação de disco do Azure (atualmente em pré-visualização) é **não** atualmente suportado com a máquina virtual escala conjunto SO a atualização automática.
-- Experiência do portal estará disponível em breve.
+- Uma experiência de portal estará disponível brevemente.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Registar para utilizar a atualização automática de SO
@@ -78,9 +78,11 @@ Os SKUs seguintes são atualmente suportados (mais serão adicionado):
     
 | Publicador               | Oferta         |  Sku               | Versão  |
 |-------------------------|---------------|--------------------|----------|
+| Canónico               | UbuntuServer  | 16.04 LTS          | mais recente   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | mais recente   |
 | MicrosoftWindowsServer  | WindowsServer | Centro de dados de 2016    | mais recente   |
-| Canónico               | UbuntuServer  | 16.04 LTS          | mais recente   |
+| MicrosoftWindowsServer  | WindowsServer | Smalldisk de centro de dados de 2016 | mais recente   |
+
 
 
 ## <a name="application-health"></a>Estado de funcionamento da aplicação
@@ -90,6 +92,15 @@ Opcionalmente, pode ser configurado um conjunto de dimensionamento com sondas de
 
 Se o conjunto de dimensionamento é configurado para utilizar vários grupos de colocação, as sondas utilizando um [padrão Balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) têm de ser utilizados.
 
+### <a name="important-keep-credentials-up-to-date"></a>Importante: Manter as credenciais atualizado
+Se o conjunto de dimensionamento utiliza as credenciais para aceder a recursos externos, por exemplo, se estiver configurada uma extensão VM que utiliza um token SAS para a conta de armazenamento, terá de certificar-se de que as credenciais são atualizadas. Se as credenciais, incluindo certificados e tokens tem expirado, a atualização falhará e o lote de VMs primeiro irá ser deixado no estado de falha.
+
+Os passos recomendados para recuperar as VMs e volte a ativar a atualização automática do SO, se existir uma falha de autenticação de recursos são:
+
+* Voltar a gerar o token (ou quaisquer outras credenciais) foi transmitidas para a sua extension(s).
+* Certifique-se de que nenhuma credencial utilizado do dentro da VM para comunicar com as entidades externas está atualizado.
+* Atualize extension(s) no modelo de conjunto de dimensionamento com quaisquer novos tokens.
+* Implemente o conjunto de dimensionamento atualizado, o que irá atualizar todas as instâncias VM, incluindo aqueles com falhas. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>A configurar uma sonda de Balanceador de carga do personalizada como a pesquisa de estado de funcionamento da aplicação numa escala definido
 Como melhor prática, crie uma sonda do Balanceador de carga explicitamente para o estado de funcionamento do conjunto de dimensionamento. Pode ser utilizado o mesmo ponto final de uma pesquisa HTTP existente ou uma sonda TCP, mas uma sonda do Estado de funcionamento pode necessitar de um comportamento diferente de uma sonda do Balanceador de carga tradicional. Por exemplo, uma sonda do Balanceador de carga tradicional pode devolver danificada se a carga sobre a instância for demasiado elevada, enquanto que não pode ser apropriada para determinar o estado de funcionamento de instância durante uma atualização automática do SO. Configure a sonda para ter uma elevada taxa de pesquisa de menos de dois minutos.

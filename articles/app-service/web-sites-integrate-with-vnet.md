@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: 72ff0c13319218f8ef91aff9208772fcb0fd9459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d285e63e64d8f4a260c45143f0ae3f7fddd4a2b6
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a sua aplicação com uma Azure Virtual Network
 Este documento descreve a funcionalidade de integração de rede virtual do App Service do Azure e mostra como configurá-lo com aplicações [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Se estiver familiarizado com o Azure redes virtuais (VNets), esta é uma funcionalidade que permite-lhe colocar muitos dos seus recursos do Azure numa rede routeable não internet que controla o acesso a. Estas redes, em seguida, podem ser ligadas a suas redes no local utilizando uma variedade de tecnologias VPN. Para saber mais sobre redes virtuais do Azure, comece com as informações aqui: [descrição geral de rede Virtual do Azure][VNETOverview]. 
@@ -39,7 +39,7 @@ A funcionalidade de integração da VNet:
 * requer um Standard, Premium ou Isolated plano de preços 
 * funciona com clássico ou VNet do Resource Manager 
 * suporta TCP e UDP
-* funciona com aplicações Web, móveis e API
+* funciona com Web, móveis, as API apps e aplicações de função
 * permite que uma aplicação para ligar a VNet apenas 1 numa altura
 * permite até cinco VNets ser integrado num plano do App Service 
 * permite que a mesma VNet a ser utilizado por várias aplicações num plano do App Service
@@ -93,7 +93,7 @@ Se a sua VNet não tem um gateway nem tem ponto a Site, em seguida, tem de confi
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Ativar o ponto a Site de uma VNet do Resource Manager
-Para configurar uma VNet do Resource Manager com um gateway e um ponto a Site, pode utilizar o PowerShell como documentadas aqui, [configurar uma ligação ponto a Site a uma rede virtual com o PowerShell] [ V2VNETP2S] ou utilizar o portal do Azure conforme documentado aqui [configurar uma ligação ponto a Site para uma VNet no portal do Azure][V2VNETPortal]. A IU para efetuar esta capacidade ainda não está disponível. Tenha em atenção que tem de criar os certificados para o ponto de configuração do Site. Isto é configurado automaticamente quando se liga a WebApp para a VNet. 
+Para configurar uma VNet do Resource Manager com um gateway e um ponto a Site, pode utilizar o PowerShell como documentadas aqui, [configurar uma ligação ponto a Site a uma rede virtual com o PowerShell] [ V2VNETP2S] ou utilizar o portal do Azure conforme documentado aqui [configurar uma ligação ponto a Site para uma VNet no portal do Azure][V2VNETPortal]. A IU para efetuar esta capacidade ainda não está disponível. Tenha em atenção que não é necessário criar certificados para o ponto de configuração do Site. Isto é configurado automaticamente quando se liga a WebApp para a VNet. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Criar uma VNet pré-configurada
 Se pretender criar uma nova VNet que está configurada com um gateway e ponto a Site, o serviço de aplicações da IU de rede tem a capacidade de fazê-lo, mas apenas para uma VNet do Resource Manager. Se pretender criar uma VNet clássica com um gateway e o ponto a Site, terá de fazê-lo manualmente através da interface de utilizador de rede. 
@@ -101,11 +101,11 @@ Se pretender criar uma nova VNet que está configurada com um gateway e ponto a 
 Para criar uma VNet do Resource Manager através da IU de integração da VNet, basta selecionar **criar nova rede Virtual** e forneça o:
 
 * Nome da rede virtual
-* Bloco de endereços de rede virtual
-* Nome da sub-rede
-* Bloco de endereços de sub-rede
+* Bloco de Endereços de Rede Virtual
+* Nome da Sub-rede
+* Bloco de Endereços de Sub-rede
 * Bloco de endereços de gateway
-* Bloco de endereços de ponto a Site
+* Bloco de Endereços Ponto a Site
 
 Se pretender que esta VNet para ligar a quaisquer outras redes, em seguida, deve evitar diretriz espaço de endereços IP que se sobreponha essas redes. 
 

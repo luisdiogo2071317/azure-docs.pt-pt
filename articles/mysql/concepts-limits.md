@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/26/2017
-ms.openlocfilehash: b3fba38cacf5b5abcdea7f0def8c1d39e653f0a8
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 12/09/2017
+ms.openlocfilehash: 65dc158a3a8c88a02d66bff7abe34d457cfef10a
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="limitations-in-azure-database-for-mysql-preview"></a>Limitações na base de dados do Azure para MySQL (pré-visualização)
-A base de dados do Azure para o serviço de MySQL está em pré-visualização pública. As secções seguintes descrevem a capacidade e limites funcionais no serviço de base de dados. Consulte também [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicável para o motor de base de dados MySQL.
+# <a name="limitations-in-azure-database-for-mysql"></a>Limitações na base de dados do Azure para MySQL
+A base de dados do Azure para o serviço de MySQL está em pré-visualização pública. As secções seguintes descrevem a capacidade, suporte de motor de armazenamento, suporte de privilégios, suporte de instrução de manipulação de dados e limites funcionais no serviço de base de dados. Consulte também [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicável para o motor de base de dados MySQL.
 
 ## <a name="service-tier-maximums"></a>Valores máximos de camada de serviço
 Base de dados do Azure para MySQL tem vários escalões de serviço à sua escolha durante a criação de um servidor. Para obter mais informações, consulte [compreender o que está disponível em cada camada de serviço](concepts-service-tiers.md).  
@@ -27,7 +27,7 @@ Não há um número máximo de ligações, unidades de computação e armazename
 | :------------------------- | :---------------- |
 | **Máx. ligações**        |                   |
 | Unidades básicas de computação 50     | ligações de 50    |
-| 100 unidades de computação básicas    | ligações de 100   |
+| 100 unidades de computação básicas    | 100 ligações   |
 | Unidades de 100 de computação padrão | ligações de 200   |
 | Unidades padrão de computação de 200 | 400 ligações   |
 | Unidades padrão de 400 de computação | 800 ligações   |
@@ -42,6 +42,31 @@ Não há um número máximo de ligações, unidades de computação e armazename
 Quando são atingidas demasiadas ligações, poderá receber o erro seguinte:
 > Erro 1040 (08004): Demasiadas ligações
 
+## <a name="storage-engine-support"></a>Suporte do motor de armazenamento
+
+### <a name="supported"></a>Suportado
+- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
+- [MEMÓRIA](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+
+### <a name="unsupported"></a>Não suportado
+- [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
+- [BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
+- [ARQUIVO](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [FEDERADO](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
+
+## <a name="privilege-support"></a>Suporte de privilégio
+
+### <a name="unsupported"></a>Não suportado
+- [Privilégio SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)
+
+## <a name="data-manipulation-statement-support"></a>Suporte de instrução de manipulação de dados
+
+### <a name="supported"></a>Suportado
+- CARGA dados INFILE - suportado, mas tem de especificar o parâmetro [LOCAL] que é direcionado para um caminho UNC (montado através de XSMB de armazenamento do Azure).
+
+### <a name="unsupported"></a>Não suportado
+- SELECIONE... PARA OUTFILE
+
 ## <a name="preview-functional-limitations"></a>Limitações de pré-visualização funcionais
 
 ### <a name="scale-operations"></a>Operações de dimensionamento
@@ -52,12 +77,14 @@ Quando são atingidas demasiadas ligações, poderá receber o erro seguinte:
 ### <a name="server-version-upgrades"></a>Atualização de versão do servidor
 - Automatizar a migração entre versões do motor de base de dados principal não é atualmente suportada.
 
-### <a name="subscription-management"></a>Gestão de subscrição
-- Mover dinamicamente servidores previamente criadas na subscrição e grupo de recursos não é atualmente suportada.
-
 ### <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 - Não é permitida a restaurar para a camada de serviço diferente e/ou tamanho de unidades de computação e armazenamento.
-- Restaurar um servidor de ignorados não é suportada.
+- Não é suportado restaurar um servidor eliminado.
+
+## <a name="functional-limitations"></a>Limitações funcionais
+
+### <a name="subscription-management"></a>Gestão de subscrições
+- Mover dinamicamente servidores previamente criadas na subscrição e grupo de recursos não é atualmente suportada.
 
 ## <a name="next-steps"></a>Passos seguintes
 - [O que está disponível em cada camada de serviço](concepts-service-tiers.md)

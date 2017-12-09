@@ -14,18 +14,19 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: de1220e9b5a01429f4eea5c3605f1cf7221f3e1e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Escalões de desempenho do armazém de dados SQL do Azure (pré-visualização)
 O SQL Data Warehouse oferece dois escalões de desempenho que estão otimizados para cargas de trabalho analíticas. Este artigo explica os conceitos das camadas de desempenho para o ajudar a escolher o escalão de desempenho mais adequado para a carga de trabalho. 
 
-
 ## <a name="what-is-a-performance-tier"></a>O que é uma camada de desempenho?
 Um escalão de desempenho é uma opção que determina a configuração do seu armazém de dados. Esta opção é uma das opções de primeiro que efetuar durante a criação de um armazém de dados.  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - O **escalão de desempenho Otimizado para Elasticidade** separa as camadas de armazenamento e computação na arquitetura. Esta opção é ideal para as cargas de trabalho que podem tirar partido da separação entre a computação e o armazenamento ao dimensionar frequentemente para suportar curtos períodos de atividade de pico. Este escalão de computação tem o nível de preço de entrada mais baixo e é dimensionado para suportar a maioria das cargas de trabalho do cliente.
 
@@ -74,7 +75,7 @@ Os níveis de serviço para Optimized para o intervalo de camada de desempenho d
 | DW3000        | 32                     | 30            | 2                              | 12,000                           | 720                                |
 | DW6000        | 32                     | 60            | 1                              | 24,000                           | 1440                               |
 
-### <a name="optimized-for-compute"></a>Otimizado para computação
+### <a name="optimized-for-compute"></a>Otimizado para Computação
 
 Os níveis de serviço para Optimized para o intervalo de camada de desempenho do processamento de DW1000c a DW30000c. 
 
@@ -112,11 +113,11 @@ Cada consulta irá consumir zero, um ou mais ranhuras de concorrência. Consulta
  
 Apenas as consultas de recursos regida consumam ranhuras de concorrência. O número exato de ranhuras de concorrência consumido é determinado pela consulta [classe de recursos](resource-classes-for-workload-management.md).
 
-### <a name="optimized-for-compute"></a>Otimizado para computação
+### <a name="optimized-for-compute"></a>Otimizado para Computação
 A tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de concorrência para cada [classe de recursos dinâmicos](resource-classes-for-workload-management.md).  Estas aplicam-se para Optimized para a camada de desempenho de computação.
 
 **Classes de recursos dinâmicos**
-| Nível de serviço | Consultas em simultâneo máximas | Ranhuras de concorrência disponíveis | Ranhuras utilizadas pelo smallrc | Ranhuras utilizadas pelo mediumrc | Ranhuras utilizadas pelo largerc | Ranhuras utilizadas pelo xlargerc |
+| Nível de Serviço | Consultas em simultâneo máximas | Ranhuras de concorrência disponíveis | Ranhuras utilizadas pelo smallrc | Ranhuras utilizadas pelo mediumrc | Ranhuras utilizadas pelo largerc | Ranhuras utilizadas pelo xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW1000c       | 32                         |   40                        | 1                     |  8                     |  16                   |  32                    |
 | DW1500c       | 32                         |   60                        | 1                     |  8                     |  16                   |  32                    |
@@ -134,7 +135,7 @@ A tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de conc
 
 A tabela seguinte mostra as consultas em simultâneo máximas e ranhuras de concorrência para cada [classe de recursos estático](resource-classes-for-workload-management.md).  
 
-| Nível de serviço | Consultas em simultâneo máximas | Ranhuras de concorrência disponíveis |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Nível de Serviço | Consultas em simultâneo máximas | Ranhuras de concorrência disponíveis |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |

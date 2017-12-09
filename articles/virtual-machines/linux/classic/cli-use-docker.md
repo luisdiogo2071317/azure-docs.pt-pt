@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b276911ecbbf161cb6068c1af7a035850035b98d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Utilizar a Extensão VM do Docker a partir da Interface de Linha de Comandos do Azure (CLI do Azure)
 > [!IMPORTANT] 
@@ -45,7 +45,7 @@ Para instalar e configurar a CLI do Azure, consulte o artigo [como instalar a In
 > 
 
 ### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>Ligar a CLI do Azure para a sua conta do Azure
-Antes de poder utilizar a CLI do Azure tem de associar as credenciais da conta do Azure com a CLI do Azure na sua plataforma. A secção [como ligar à sua subscrição do Azure](../../../xplat-cli-connect.md) explica como para o transferir e importar o **. publishsettings** de ficheiros ou associar a CLI do Azure com o id organizacional.
+Antes de poder utilizar a CLI do Azure tem de associar as credenciais da conta do Azure com a CLI do Azure na sua plataforma. A secção [como ligar à sua subscrição do Azure](/cli/azure/authenticate-azure-cli) explica como para o transferir e importar o **. publishsettings** de ficheiros ou associar a CLI do Azure com o id organizacional.
 
 > [!NOTE]
 > Existem algumas diferenças no comportamento quando utilizar um ou os outros métodos de autenticação, pelo que não se esqueça de ler o documento acima para compreender as diferentes funcionalidades.

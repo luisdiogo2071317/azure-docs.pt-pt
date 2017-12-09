@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 0377baaa4a0db7e3cb2041f3ca018322e379f0df
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de inquilinos de base de dados de SaaS multi-inquilino
 
@@ -165,7 +165,7 @@ No modelo de híbrida, todas as bases de dados tem o identificador de inquilino 
 
 Em qualquer altura, pode mover um determinado inquilino para a sua própria base de dados do multi-inquilino.  E, em qualquer altura, pode mudar de ideias e regresse ao inquilino para uma base de dados que contém vários inquilinos.  Também pode atribuir um inquilino para a nova base de dados de inquilino único quando Aprovisiona a nova base de dados.
 
-O modelo de híbrida shines quando existem diferenças grande entre as necessidades de recursos de grupos de identificação de inquilinos.  Por exemplo, suponha que os inquilinos a participar numa versão de avaliação gratuita não são garantidos que o mesmo nível elevado de desempenho que são de subscrição de inquilinos.  A política pode ser para inquilinos na fase de avaliação gratuita para ser armazenada numa base de dados multi-inquilino que é partilhado entre todos os inquilinos de avaliação gratuitos.  Quando subscreve um inquilino de avaliação gratuito para o nível de serviço básico, inquilino pode ser movido para outra base de dados de multi-inquilino que poderá ter menos de inquilinos.  Um subscritor que pays para o nível de serviço premium foi possível mover a respetiva base de dados único inquilino won novo.
+O modelo de híbrida shines quando existem diferenças grande entre as necessidades de recursos de grupos de identificação de inquilinos.  Por exemplo, suponha que os inquilinos a participar numa versão de avaliação gratuita não são garantidos que o mesmo nível elevado de desempenho que são de subscrição de inquilinos.  A política pode ser para inquilinos na fase de avaliação gratuita para ser armazenada numa base de dados multi-inquilino que é partilhado entre todos os inquilinos de avaliação gratuitos.  Quando subscreve um inquilino de avaliação gratuito para o nível de serviço básico, inquilino pode ser movido para outra base de dados de multi-inquilino que poderá ter menos de inquilinos.  Um subscritor que pays para o nível de serviço premium foi possível mover a sua própria base de dados único inquilino novo.
 
 #### <a name="pools"></a>Conjuntos
 

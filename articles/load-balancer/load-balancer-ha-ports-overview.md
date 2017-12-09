@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="high-availability-ports-overview"></a>Descrição geral de portas de elevada disponibilidade
 
@@ -74,7 +74,7 @@ Participar na pré-visualização da funcionalidade de portas HA no padrão de B
 
 Seguem-se as configurações suportadas ou exceções para a funcionalidade de portas do HA:
 
-- Uma única configuração de IP Front-end pode ter uma única regra de Balanceador de carga DSR com portas HA ou pode ter uma regra de Balanceador de carga não DSR único com portas HA. Não é possível ter ambos.
+- Uma única configuração de IP Front-end pode ter um único devolução direta do servidor (DSR - IP flutuante no Azure) com portas HA a regra de Balanceador de carga, ou pode ter uma regra de Balanceador de carga não DSR único com portas HA. Não é possível ter ambos.
 - Uma configuração de IP da interface de rede única só pode ter um não-DSR com portas HA a regra de Balanceador de carga. Não é possível configurar quaisquer outras regras para este ipconfig.
 - Uma configuração de IP da interface de rede única pode ter um ou mais DSR HA portas, as regras de Balanceador de carga fornecido todas as respetivas configurações de IP Front-end são exclusivas.
 - Se todas a regras de balanceamento de carga forem HA portas (apenas DSR), podem coexistir duas (ou mais) regras de Balanceador de carga que apontam para o mesmo conjunto de back-end. O mesmo se aplica se todas as regras são não-HA portas (DSR e não DSR). Se existir uma combinação de portas HA e regras de não HA portas, no entanto, dois dessas carga balanceamento regras não podem coexistir.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 30574be2d0a803aa162ca225b5c2a66c65cc1eaa
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 03e62d20367544fda1d5abcdb1acef90cdcaa640
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos de máquina virtual com otimização de memória
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="other-sizes"></a>Outros tamanhos de
-- [Fins gerais](../windows/sizes-general.md)
-- [Com otimização de computação](../windows/sizes-compute.md)
+- [Fins gerais](sizes-general.md)
+- [Com otimização de computação](sizes-compute.md)
 - [Com otimização de armazenamento](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-- [Computação de elevado desempenho](../windows/sizes-hpc.md)
+- [Computação de elevado desempenho](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre como [unidades (ACU) de computação do Azure](../windows/acu.md) podem ajudar a comparar o desempenho de computação em SKUs do Azure.
+Saiba mais sobre como [unidades (ACU) de computação do Azure](acu.md) podem ajudar a comparar o desempenho de computação em SKUs do Azure.

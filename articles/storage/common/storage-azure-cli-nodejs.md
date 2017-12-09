@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Utilizar a CLI do Azure 1.0 com o Storage do Azure
 
@@ -95,7 +95,7 @@ Depois do script é executado, é necessário ter uma pasta de destino local que
 
 ## <a name="manage-storage-accounts-with-the-azure-cli"></a>Gerir contas de armazenamento com a CLI do Azure
 ### <a name="connect-to-your-azure-subscription"></a>Ligar à sua subscrição do Azure
-Embora a maioria dos comandos armazenamento irá funcionar sem uma subscrição do Azure, recomendamos que para ligar à sua subscrição a partir da CLI do Azure. Para configurar a CLI do Azure para trabalhar com a sua subscrição, siga os passos em [ligar a uma subscrição do Azure a partir da CLI do Azure](../../xplat-cli-connect.md).
+Embora a maioria dos comandos armazenamento irá funcionar sem uma subscrição do Azure, recomendamos que para ligar à sua subscrição a partir da CLI do Azure. Para configurar a CLI do Azure para trabalhar com a sua subscrição, siga os passos em [ligar a uma subscrição do Azure a partir da CLI do Azure](/cli/azure/authenticate-azure-cli).
 
 ### <a name="create-a-new-storage-account"></a>Criar uma nova conta de armazenamento
 Para utilizar o armazenamento do Azure, terá de uma conta de armazenamento. Pode criar uma nova conta de armazenamento do Azure após ter configurado o computador para ligar à sua subscrição.

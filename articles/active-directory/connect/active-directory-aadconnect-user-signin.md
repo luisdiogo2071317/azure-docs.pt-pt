@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7901d6d5668f62a8df7783d6fb1dfe9fc02ebed3
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções do Azure AD Connect utilizador iniciar sessão
 Ligar do Azure Active Directory (Azure AD) permite aos utilizadores iniciar sessão recursos de nuvem e no local utilizando as mesmas palavras-passe. Este artigo descreve conceitos chave para cada modelo de identidade para o ajudar a escolher a identidade que pretende utilizar para iniciar sessão com o Azure AD.
@@ -28,6 +28,10 @@ Se já estiver familiarizado com o modelo de identidade do Azure AD e pretender 
 * [Sincronização de hash de palavra-passe](#password-synchronization) com [totalmente integrada-início de sessão único (SSO)](active-directory-aadconnect-sso.md)
 * [A autenticação pass-through](active-directory-aadconnect-pass-through-authentication.md) com [totalmente integrada-início de sessão único (SSO)](active-directory-aadconnect-sso.md)
 * [SSO Federado (com serviços de Federação do Active Directory (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> É importante lembrar-se de que ao configurar a Federação para o Azure AD, estabelecer fidedignidade entre os domínios federados e de inquilino do Azure AD. Com este domínio Federado de confiança, os utilizadores terão acesso a recursos de nuvem do Azure AD dentro do inquilino.  
+>
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Escolher o método de início de sessão do utilizador para a sua organização
 Na maioria das organizações que apenas pretende ativar o utilizador iniciar sessão no Office 365, aplicações SaaS e outros recursos do Azure baseada no AD, recomendamos que a opção de sincronização de hash de palavra-passe predefinida. Algumas organizações, no entanto, tem um motivo específico que não estão capazes de utilizar esta opção. Que possam escolher qualquer uma federado início de sessão opção, tais como o AD FS ou a autenticação pass-through. Pode utilizar a seguinte tabela para o ajudar a tornar a escolha certa.
@@ -157,7 +161,7 @@ Se tiver selecionado a opção de início de sessão de utilizador **federação
 ## <a name="changing-the-user-sign-in-method"></a>Alterar o método de início de sessão do utilizador
 Pode alterar o método de início de sessão do utilizador de Federação, a sincronização de hash de palavra-passe ou a autenticação pass-through, utilizando as tarefas que estão disponíveis no Azure AD Connect após a configuração inicial do Azure AD Connect com o assistente. Execute novamente o Assistente do Azure AD Connect, e verá uma lista de tarefas que pode realizar. Selecione **alterar utilizador início de sessão** da lista de tarefas.
 
-![Alterar a sessão do utilizador](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
+![Alterar início de sessão do utilizador](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 Na página seguinte, está a pedido para fornecer as credenciais para o Azure AD.
 
