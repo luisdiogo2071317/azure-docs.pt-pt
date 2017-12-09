@@ -1,6 +1,6 @@
 ---
-title: "Migrar a partir do serviço de controlo de acesso do Azure (ACS)"
-description: "As opções para mover as aplicações e serviços termina sessão do serviço de controlo de acesso do Azure | Microsoft Azure"
+title: "Migrar a partir do serviço de controlo de acesso do Azure | Microsoft Docs"
+description: "Opções para mover as aplicações e serviços a partir do serviço de controlo de acesso do Azure"
 services: active-directory
 documentationcenter: dev-center-name
 author: dstrockis
@@ -14,76 +14,80 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: e32cac7feda929a63c4a80fc0078b221117eb2b5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 8c719f4970303c3ff0dd7e80fbd700cb401d2cc5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="migrating-from-azure-access-control-service-acs"></a>Migrar a partir do serviço de controlo de acesso do Azure (ACS)
+# <a name="migrate-from-the-azure-access-control-service"></a>Migrar a partir do serviço de controlo de acesso do Azure
 
-Microsoft Azure Active Directory controlo de acesso (também conhecido como o serviço de controlo de acesso ou ACS) vai ser reformado no Novembro de 2018.  As aplicações e serviços a utilizar atualmente ACS necessário totalmente migrar para um mecanismo de autenticação diferentes antes desta data. Este documento descreve as recomendações para os clientes atuais, se planear despromover a utilização dos ACS. Se não estiver atualmente a utilizar ACS, não terá de efetuar qualquer ação.
+Controlo de acesso do Azure, um serviço do Azure Active Directory (Azure AD), será descontinuado dentro de Novembro de 2018. Aplicações e serviços que utilizam o controlo de acesso atualmente têm de ser totalmente migrados para um mecanismo de autenticação diferentes até lá. Este artigo descreve as recomendações para os clientes atuais, conforme pretender preterir a utilização do controlo de acesso. Se não utilizar atualmente o controlo de acesso, não precisa de efetuar qualquer ação.
 
 
-## <a name="brief-acs-overview"></a>Breve descrição geral do ACS
+## <a name="overview"></a>Descrição geral
 
-ACS é um serviço de autenticação em nuvem que fornece uma forma fácil de autenticar e autorizar utilizadores para obterem acesso às suas aplicações web e serviços, permitindo que muitas funcionalidades de autenticação e autorização para ser factored fora do seu código. É utilizado principalmente por programadores e arquitetos de clientes .NET, aplicações web ASP.NET e serviços web WCF.
+Controlo de acesso é um serviço de autenticação em nuvem oferece uma forma fácil de autenticar e autorizar utilizadores para o acesso aos seus serviços e aplicações web. Permite que várias funcionalidades de autenticação e autorização para ser factored fora do seu código. Controlo de acesso é principalmente utilizado pelos programadores e arquitetos de clientes do Microsoft .NET, aplicações web ASP.NET e serviços web do Windows Communication Foundation (WCF).
 
-Casos de utilização de ACS podem ser divididos em três categorias principais:
+Casos de utilização para o controlo de acesso podem ser divididos em três categorias principais:
 
-- Autenticar determinadas cloud Services da Microsoft, incluindo o Service Bus do Azure, o Dynamics CRM e outras pessoas. Aplicações de cliente foi possível obter os tokens do ACS que podem ser utilizados para autenticar para estes serviços para efetuar diversas ações.
-- Adicionar autenticação para aplicações web, da variedade de personalizadas incorporadas & de variedade pré-empacotadas (por exemplo, o Sharepoint). Utilizar a autenticação "passiva" dos ACS, aplicações web foi suporta início de sessão com as contas do Google, Facebook, Yahoo, Microsoft (Live ID) de conta, do Azure Active Directory e ADFS.
-- Proteger os serviços web de conceção personalizada com tokens emitidos dos ACS. Utilizar a autenticação "ativa", serviços web foi Certifique-se de que apenas permitem acesso de clientes conhecidos que tenham autenticadas com ACS.
+- Autenticar determinadas cloud Services da Microsoft, incluindo o Service Bus do Azure e o Dynamics CRM. As aplicações cliente obter os tokens de controlo de acesso para se autenticar estes serviços para efetuar diversas ações.
+- Adicionar autenticação para aplicações web, personalizadas e prepackaged (como o SharePoint). Ao utilizar a autenticação "passiva" controlo de acesso, aplicações web podem suportar o início de sessão com uma conta Microsoft (anteriormente Live ID) e com as contas do Facebook, Google, do Azure AD, e Yahoo e serviços de Federação do Active Directory (AD FS).
+- Proteger os serviços web personalizados com tokens emitidos pelo controlo de acesso. Ao utilizar a autenticação "ativa", serviços web podem certificar-se de que permitem acesso apenas aos clientes conhecidos que tenham autenticadas com controlo de acesso.
 
-Cada um destes casos de utilização e as respetivas estratégias de migração recomendada é abordados nas secções seguintes. A vasta maioria dos casos, as alterações de código significativas necessário migrar existentes de aplicações e serviços para tecnologias mais recentes. É recomendado que comece a planear e executar a migração imediatamente para evitar qualquer possibilidade de falhas ou período de indisponibilidade.
+Cada um destes utilizar casos e a respetiva migração recomendada estratégias são abordadas nas secções seguintes. 
 
 > [!WARNING]
-> Na maioria dos casos, as alterações de código importantes são necessários para migrar existentes de aplicações e serviços para tecnologias mais recentes. É recomendado que comece a planear e executar a migração imediatamente para evitar qualquer possibilidade de falhas ou período de indisponibilidade.
+> Na maioria dos casos, as alterações significativas de código são necessários para migrar serviços e aplicações existentes para tecnologias mais recentes. Recomendamos que imediatamente comece a planear e executar a migração para evitar quaisquer potenciais falhas ou período de indisponibilidade.
 
-Em termos de arquitetura, ACS inteiramente inclui os seguintes componentes:
+Controlo de acesso tem os seguintes componentes:
 
-- Um token serviço seguro (STS), que recebe pedidos de autenticação & emite tokens de segurança no return.
-- Portal clássico do Azure, que é utilizado para criar, eliminar e ativação/desativação de espaços de nomes do ACS.
-- Um separado dos ACS portal de gestão, que é utilizado para personalizar e configurar o comportamento de um espaço de nomes do ACS.
-- Um serviço de gestão, que pode ser utilizado para automatizar as funções dos portais.
-- Um motor de regra de transformação token, que pode ser utilizado para definir lógica complexa para manipular o formato de saída de tokens emitidos dos ACS.
+- Um token serviço seguro (STS), que recebe pedidos de autenticação e emite tokens de segurança no return.
+- Portal clássico do Azure, onde pode cria, elimina e ativar e desativar espaços de nomes do controlo de acesso.
+- Um controlo de acesso management portal separado, onde personalizar e configurar os espaços de nomes do controlo de acesso.
+- Um serviço de gestão, que pode utilizar para automatizar as funções dos portais.
+- Um motor de regra de transformação token, que pode utilizar para definir lógica complexa para manipular o formato de saída de tokens que emite o controlo de acesso.
 
-Para utilizar estes componentes, tem de criar um ou mais ACS **espaços de nomes**. Um espaço de nomes é uma instância dedicada do ACS que as aplicações e serviços comunicam com; está isolado de todos os outros clientes de ACS, que utilizam os seus próprios espaços de nomes. Um espaço de nomes em ACS tem um URL dedicado, como:
+Para utilizar estes componentes, tem de criar um ou mais espaços de nomes de controlo de acesso. A *espaço de nomes* é uma instância dedicada do controlo de acesso a aplicações e serviços comunicam com. Um espaço de nomes está isolado de todos os outros clientes de controlo de acesso. Outros clientes de controlo de acesso utilizam os seus próprios espaços de nomes. Um espaço de nomes no controlo de acesso tem um URL dedicado que tem este aspeto:
 
 ```HTTP
-https://mynamespace.accesscontrol.windows.net
+https://<mynamespace>.accesscontrol.windows.net
 ```
 
-Todas as comunicações com o STS e operações de gestão são efetuadas neste URL, com caminhos diferentes para diferentes fins. Para determinar se a aplicações ou serviços utilizam ACS, monitorizar o tráfego para `https://{namespace}.accesscontrol.windows.net`.  Qualquer tráfego para este URL é o tráfego é processado pelo ACS e tem de ser descontinuada.  A única exceção é o tráfego para `https://accounts.accesscontrol.windows.net` -o tráfego para este URL já está a ser processado por um serviço diferente e não é afetado por descontinuação dos ACS.  Deve também não se esqueça de iniciar sessão no portal do Azure clássico e verifique a existência de quaisquer espaços de nomes do ACS em subscrições que é proprietário.  Espaços de nomes do ACS estão listados no **do Active Directory** serviço, sob o **espaços de nomes de controlo de acesso** separador.
+Todas as comunicações com o STS e operações de gestão são efetuadas neste URL. Utilize caminhos diferentes para diferentes fins. Para determinar se a aplicações ou serviços utilizam o controlo de acesso, monitorizar o tráfego para https://\<espaço de nomes\>. accesscontrol.windows.net. Qualquer tráfego para este URL é processado pelo controlo de acesso e tem de ser descontinuada. 
 
-Para obter mais informações sobre ACS, consulte [arquivados esta documentação no MSDN](https://msdn.microsoft.com/library/hh147631.aspx).
+A exceção é qualquer tráfego https://accounts.accesscontrol.windows.net. O tráfego para este URL já está a ser processado por um serviço diferente e não é afetado pela descontinuação do controlo de acesso. 
+
+Também deve iniciar sessão para o portal clássico do Azure e verifique a existência de quaisquer espaços de nomes do controlo de acesso nas subscrições que é proprietário. Espaços de nomes de controlo de acesso são listados no **espaços de nomes de controlo de acesso** separador, sob o **do Active Directory** serviço.
+
+Para obter mais informações sobre o controlo de acesso, consulte [2.0 de serviço de controlo de acesso (arquivado)](https://msdn.microsoft.com/library/hh147631.aspx).
 
 ## <a name="retirement-schedule"></a>Agenda de extinção
 
-A partir de Novembro de 2017, todos os componentes de ACS são totalmente suportadas & operacional. A única restrição é que [não não possível criar novos espaços de nomes do ACS através do portal clássico do Azure](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/).
+A partir de Novembro de 2017, todos os componentes de controlo de acesso são totalmente suportadas e operacional. A única restrição é que lhe [não é possível criar novos espaços de nomes do controlo de acesso através do portal clássico do Azure](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/).
 
-A linha cronológica para preterição destes componentes segue esta agenda:
+Segue-se a agenda para descontinuar a componentes de controlo de acesso:
 
-- **Novembro de 2017**: O administrador do Azure AD no portal clássico do Azure experiência [é retirado](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Neste momento, gestão de espaço de nomes para ACS estarão disponíveis neste novo, URL dedicado: `http://manage.windowsazure.com?restoreClassic=true`. Este procedimento permite-lhe ver os espaços de nomes existentes, ativar/desativá-los e eliminá-los inteiramente se desejar.
-- **De 2018 Abril**: gestão de espaço de nomes do ACS é já não estar disponível neste URL dedicado. Neste ponto no tempo, não é possível ativar/desativar, eliminar ou enumerar os espaços de nomes do ACS. Portal de gestão dos ACS, no entanto, é totalmente funcional e localizado em `https://{namespace}.accesscontrol.windows.net`. Todos os outros componentes do ACS continuam a funcionar normalmente bem.
-- **De 2018 Novembro**: os componentes de todas as ACS são encerrados permanentemente. Isto inclui o portal de gestão dos ACS, o serviço de gestão, STS e o motor de regra de transformação de token. Neste momento, quaisquer pedidos enviados para ACS (localizado em `{namespace}.accesscontrol.windows.net`) falhar. Deve ter migrou todas as aplicações e serviços existentes para outras tecnologias bem antes deste período de tempo.
+- **Novembro de 2017**: O administrador do Azure AD no portal clássico do Azure experiência [é retirado](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Neste momento, a gestão de espaço de nomes para controlo de acesso está disponível um URL dedicado, novo: http://manage.windowsazure.com?restoreClassic=true. Utilize este URl para ver os espaços de nomes existentes, ativar e desativar espaços de nomes e eliminar os espaços de nomes, se optar por.
+- **De 2018 Abril**: gestão de espaço de nomes do controlo de acesso já não está disponível no URL http://manage.windowsazure.com?restoreClassic=true dedicado. Neste momento, não é possível desativar ou ativar, eliminar ou enumerar os espaços de nomes do controlo de acesso. No entanto, o portal de gestão do controlo de acesso será totalmente funcional e localizado em https://\<espaço de nomes\>. accesscontrol.windows.net. Todos os outros componentes de controlo de acesso continuam a funcionar normalmente.
+- **De 2018 Novembro**: controlo de acesso todos os componentes é encerrado permanentemente. Isto inclui o portal de gestão do controlo de acesso, o serviço de gestão, STS e o motor de regra de transformação de token. Neste momento, quaisquer pedidos enviados para o controlo de acesso (localizado em \<espaço de nomes\>. accesscontrol.windows.net) falhar. Deve ter migrou todas as aplicações e serviços existentes para outras tecnologias bem antes desta hora.
 
 
 ## <a name="migration-strategies"></a>Estratégias de migração
 
-As secções seguintes descrevem recomendações de nível elevadas para migrar retire ACS para outras tecnologias da Microsoft.
+As secções seguintes descrevem recomendações de alto nível para migrar de controlo de acesso para outras tecnologias da Microsoft.
 
 ### <a name="clients-of-microsoft-cloud-services"></a>Clientes do cloud services da Microsoft
 
-Cada um dos serviços cloud Microsoft que aceita tokens emitidos pelo ACS agora suporta, pelo menos, uma forma alternativa de autenticação. O mecanismo de autenticação correto varia para cada serviço, pelo que recomendamos que faça referência a documentação específica de cada serviço para obter orientações sobre oficial. Para sua comodidade, cada conjunto de documentação é fornecido aqui:
+Cada serviço em nuvem da Microsoft que aceita tokens que são emitidos pelo controlo de acesso agora suporta, pelo menos, uma forma alternativa de autenticação. Varia consoante o mecanismo de autenticação correta para cada serviço. Recomendamos que consulte a documentação específica para cada serviço para obter orientações sobre oficial. Para sua comodidade, cada conjunto de documentação é fornecido aqui:
 
 | Serviço | Orientação |
 | ------- | -------- |
 | Service Bus do Azure | [Migrar para assinaturas de acesso partilhado](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
-| Reencaminhamento do Azure | [Migrar para assinaturas de acesso partilhado](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Cache do Azure | [Migrar para a Cache de Redis do Azure](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Mercado de dados do Azure | [Migrar para as APIs de serviços cognitivos](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| Serviços BizTalk | [Migrar para as aplicações lógicas do Azure](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Reencaminhamento de barramento de serviço do Azure | [Migrar para assinaturas de acesso partilhado](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
+| Cache de Redis do Azure | [Migrar para a Cache de Redis do Azure](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure DataMarket | [Migrar para as APIs de serviços cognitivos](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Serviços BizTalk | [Migrar para a funcionalidade de Logic Apps do App Service do Azure](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Os Media Services do Azure | [Migrar para a autenticação do Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Azure Backup | [Atualize o agente de cópia de segurança do Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
@@ -95,66 +99,74 @@ Cada um dos serviços cloud Microsoft que aceita tokens emitidos pelo ACS agora 
 <!-- Azure SiteRecovery: TODO -->
 
 
-### <a name="web-applications-using-passive-authentication"></a>Aplicações Web através de autenticação passiva
+### <a name="web-applications-that-use-passive-authentication"></a>Aplicações Web que utilizam autenticação passiva
 
-Para aplicações web através de ACS para autenticação de utilizador, de ACS fornecidas as seguintes funcionalidades e capacidades para programadores e arquitetos de aplicações web:
+Para aplicações web que utilizam o controlo de acesso para a autenticação de utilizador, o controlo de acesso fornece as seguintes funcionalidades e capacidades para programadores de aplicações web e arquitetos de TI:
 
 - A integração com o Windows Identity Foundation (WIF).
-- Federação com o Google, Facebook, Yahoo, Microsoft (Live ID) de conta, do Azure Active Directory e ADFS.
-- Suporte para os seguintes protocolos de autenticação: 13 de rascunho de OAuth 2.0, Ws-Trust e Ws-Federation.
-- Suporte para os seguintes formatos de token: token de web JSON (JWT), SAML 1.1, SAML 2.0 e simples web token (SWT).
-- Uma experiência de deteção de realm inicial, integrada no WIF, que podem os utilizadores escolher o tipo de conta que utilizam para iniciar sessão. Esta experiência encontrava alojada pela aplicação web e totalmente personalizável.
-- Token transformação permitido personalização avançada de afirmações recebidas pela aplicação web de ACS, incluindo:
-    - passar pela afirmações a partir de fornecedores de identidade
-    - a adição de afirmações personalizadas adicionais
-    - lógica depois de se simples para emitir afirmações em determinadas condições
+- Federação com o Google, Facebook, Yahoo, Azure Active Directory, AD FS contas e e contas Microsoft.
+- Suporte para os seguintes protocolos de autenticação: 13 de rascunho de OAuth 2.0, WS-Trust e Web dos serviços de Federação (WS-Federation).
+- Suporte para os seguintes formatos de token: Token Web JSON (JWT), SAML 1.1, SAML 2.0 e simples Web tokens (SWT).
+- Uma experiência de deteção de realm inicial, integrada no WIF, que permite aos utilizadores escolher o tipo de conta que utilizam para iniciar sessão. Esta experiência é alojada pela aplicação web e é totalmente personalizável.
+- Token transformação que permite que a personalização avançada de afirmações recebidas pela aplicação web do controlo de acesso, incluindo:
+    - Pass-through afirmações a partir de fornecedores de identidade.
+    - Adição de afirmações personalizadas adicionais.
+    - Lógica depois de se simples para emitir afirmações em determinadas condições.
 
-Infelizmente, não é não um serviço que fornece todas estas capacidades equivalentes.  Deve avaliar que capacidades de ACS que precisa e, em seguida, escolha entre utilizar [ **do Azure Active Directory** ](https://azure.microsoft.com/develop/identity/signin/) (Azure AD), [ **do Azure AD B2C** ](https://azure.microsoft.com/services/active-directory-b2c/), ou outro serviço de autenticação em nuvem.
+Infelizmente, não é um serviço que oferece todas estas capacidades equivalentes. Deve avaliar que capacidades de controlo de acesso que precisa e, em seguida, escolha entre utilizar [do Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/), [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) (Azure AD B2C), ou outra autenticação na nuvem serviço.
 
-#### <a name="migrating-to-azure-active-directory"></a>Migrar para o Azure Active Directory
+#### <a name="migrate-to-azure-active-directory"></a>Migrar para o Azure Active Directory
 
-Um caminho da ter em consideração é integrar a aplicações e serviços diretamente no Azure Active Directory. Azure AD é o fornecedor de identidade baseada em nuvem para a Microsoft funciona & profissional contas - é o fornecedor de identidade para o Office 365, Azure e muito mais. Fornece semelhante federado capacidades de autenticação para ACS, mas não suporta todas as funcionalidades de ACS. O exemplo primário é federação com fornecedores de identidade de redes sociais, como o Facebook, Google e Yahoo. Se os seus utilizadores iniciar sessão com estes tipos de credenciais, do Azure AD não é para si. Também efetua não necessariamente suporte de protocolos de autenticação do mesma exata como ACS - ao ambas as ACS e suporte do Azure AD OAuth, por exemplo, existem ligeiras diferenças entre cada implementação de exigir que modifique o código como parte da migração.
+Um caminho a ter em consideração é integrar as suas aplicações e serviços diretamente com o Azure AD. Azure AD é o fornecedor de identidade baseada na nuvem do Microsoft profissional ou escolar contas. Azure AD é o fornecedor de identidade para o Office 365, Azure e muito mais. Fornece semelhante federado capacidades de autenticação para o controlo de acesso, mas não suporta todas as funcionalidades de controlo de acesso. 
 
-Azure AD no entanto fornecer várias vantagens potenciais aos clientes do ACS. Nativamente suporta Microsoft trabalha & profissional contas alojadas na nuvem, que são frequentemente utilizadas pelos clientes de ACS.  Também pode ser federado um inquilino do Azure AD para uma ou mais instâncias no local do Active Directory através do ADFS, permitindo que a sua aplicação autenticar utilizadores baseados na cloud e alojados no local de utilizadores.  Também suporta o protocolo Ws-Federation, o que torna relativamente simples integrar com uma aplicação web utilizando o Windows Identity Foundation (WIF).
+O exemplo primário é federação com fornecedores de identidade de redes sociais, como o Facebook, Google e Yahoo. Se os seus utilizadores iniciar sessão com estes tipos de credenciais, do Azure AD não é a solução para si. 
 
-A tabela seguinte compara as funcionalidades do ACS relevantes para as aplicações web com estão disponíveis no Azure AD. Um nível elevado, **do Azure Active Directory é, provavelmente, a opção adequada para a migração se que apenas permitem que os utilizadores início de sessão com o respetivo trabalho Microsoft & profissional contas**.
+Azure AD também não suporta necessariamente os protocolos de autenticação mesmo exato como controlo de acesso. Por exemplo, embora o controlo de acesso e o Azure AD suportarem OAuth, existem ligeiras diferenças entre cada implementação. Diferentes implementações exigem que modifique o código como parte de uma migração.
 
-| Capacidade | Suporte de ACS | Suporte do Azure AD |
+No entanto, do Azure AD fornece várias vantagens potenciais para clientes de controlo de acesso. -Nativamente suporta Microsoft escolar ou profissional contas alojadas na nuvem, que são frequentemente utilizadas pelos clientes de controlo de acesso. 
+
+Também pode ser federado um inquilino do Azure AD para uma ou mais instâncias do Active Directory no local através do AD FS. Desta forma, a aplicação pode autenticar utilizadores baseados na nuvem e os utilizadores que estão alojados no local. Também suporta o protocolo WS-Federation, o que torna relativamente simples integrar com uma aplicação web utilizando WIF.
+
+A tabela seguinte compara as funcionalidades do controlo de acesso que são relevantes para as aplicações web com essas funcionalidades que estão disponíveis no Azure AD. 
+
+Um nível elevado, *do Azure Active Directory, provavelmente, é a melhor opção para a migração se permitir que os utilizadores iniciam sessão no apenas com os respetivos Microsoft profissional ou escolar contas*.
+
+| Capacidade | Suporte de controlo de acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
-| Trabalhar & profissional contas Microsoft | Suportado | Suportado |
-| Contas do Active Directory do Windows Server & ADFS | Suportada através de federação com um inquilino do Azure AD <br /> Suportada através de Federação direta com o AD FS | Só é suportada através de federação com um inquilino do Azure AD | 
-| Contas de outros sistemas de gestão de identidades empresariais | Possível através de federação com um inquilino do Azure AD <br />Suportada através de Federação direta | Possível através de federação com um inquilino do Azure AD |
-| Contas Microsoft para utilização pessoal (Windows Live ID) | Suportado | Suportada através v 2.0 do Azure AD protocolo de OAuth, mas não através de quaisquer outros protocolos. | 
-| Contas do Facebook, Google, Yahoo | Suportado | Não é suportado whatsoever. |
-| **Protocolos de & compatibilidade SDK** | | |
-| Windows Identity Foundation (WIF) | Suportado | Suportado, mas instruções limitadas disponíveis. |
+| Microsoft profissional ou escolar contas | Suportado | Suportado |
+| Contas do Windows Server Active Directory e o AD FS |-Suportadas através de federação com um inquilino do Azure AD <br />-Suportadas através de Federação direta com o AD FS | Só é suportada através de federação com um inquilino do Azure AD | 
+| Contas de outros sistemas de gestão de identidades empresariais |-Possível através de federação com um inquilino do Azure AD <br />-Suportadas através de Federação direta | Possível através de federação com um inquilino do Azure AD |
+| Contas Microsoft para utilização pessoal | Suportado | Suportada através do Azure AD v 2.0 protocolo de OAuth, mas não através de quaisquer outros protocolos | 
+| Contas do Facebook, Google, Yahoo | Suportado | Não é suportado whatsoever |
+| **Protocolos e compatibilidade SDK** | | |
+| WIF | Suportado | Estão disponíveis instruções suportadas, mas limitadas |
 | WS-Federation | Suportado | Suportado |
-| OAuth 2.0 | Suporte para rascunho 13 | Suporte para RFC 6749, a especificação de mais moderna. |
+| OAuth 2.0 | Suporte para rascunho 13 | Suporte para RFC 6749, a especificação de mais moderna |
 | WS-Trust | Suportado | Não suportado |
 | **Formatos de token** | | |
-| JSON Web Tokens (JWTs) | Suportado na versão Beta | Suportado |
-| Tokens de SAML 1.1 | Suportado | Suportado |
-| Tokens de SAML 2.0 | Suportado | Suportado |
-| Tokens Web simples (SWT) | Suportado | Não suportado |
+| JWT | Suportado na versão Beta | Suportado |
+| SAML 1.1 | Suportado | Suportado |
+| SAML 2.0 | Suportado | Suportado |
+| SWT | Suportado | Não suportado |
 | **Personalizações** | | |
-| Realm inicial personalizável/conta de deteção diretriz da IU | Código transferível, que pode ser incorporado nas aplicações | Não suportado |
-| Carregar certificados de assinatura de tokens personalizado | Suportado | Suportado |
-| Personalizar afirmações no | Afirmações de entrada de pass-through a partir de fornecedores de identidade<br />Obtenha o acesso token do fornecedor de identidade como uma afirmação<br />Emitir afirmações de saída com base nos valores de afirmações de entrada<br />Emitir afirmações de saída com valores constantes | Não é possível passthrough afirmações de fornecedores de identidade federada<br />Não é possível obter o token de acesso do fornecedor de identidade como uma afirmação<br />Não é possível emitir afirmações de saída com base nos valores de afirmações de entrada<br />Pode emitir afirmações de saída com valores constantes<br />Podem emitir afirmações de saída com base nas propriedades de utilizadores synched para o Azure AD |
+| Personalizável realm inicial deteção/conta-diretriz IU | Código transferível, que pode ser incorporado nas aplicações | Não suportado |
+| Carregar certificados de assinatura de tokens personalizados | Suportado | Suportado |
+| Personalizar afirmações no |-Pass-through afirmações de entrada a partir de fornecedores de identidade<br />-Obtenha acesso token do fornecedor de identidade como uma afirmação<br />-Emitir afirmações de saída com base nos valores de afirmações de entrada<br />-Emitir afirmações de saída com valores constantes |-Não é possível passar afirmações a partir de fornecedores de identidade federada<br />-Não é possível obter acesso token do fornecedor de identidade como uma afirmação<br />-Não é possível emitir afirmações de saída com base nos valores de afirmações de entrada<br />-Pode emitir afirmações de saída com valores constantes<br />-Podem emitir afirmações de saída com base nas propriedades de utilizadores sincronizados com o Azure AD |
 | **Automatização** | | |
-| Automatizar tarefas de gestão de configuração / | Suportadas através do serviço de gestão dos ACS | Suportadas através do Microsoft Graph & do Azure AD Graph API. |
+| Automatizar tarefas de gestão e configuração | Suportadas através do serviço de gestão do controlo de acesso | Suportada através do Microsoft Graph e do Azure AD Graph API |
 
-Se decidir que do Azure AD é o caminho correto reencaminhar para as aplicações e serviços, deve ter conhecimento de duas formas de integrar a sua aplicação com o Azure AD.
+Se decidir que do Azure AD é o caminho de migração melhor para as suas aplicações e serviços, deve ter conhecimento de duas formas de integrar a sua aplicação com o Azure AD.
 
-Para utilizar o Ws-Federação/WIF para integrar com o Azure AD, recomendamos seguintes [a abordagem descrita neste artigo](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). O artigo refere-se à configuração do Azure AD para baseados em SAML-início de sessão único, mas funciona para a configuração, bem como o Ws-Federation. Seguir esta abordagem é necessária uma licença do Azure AD Premium, mas tem duas vantagens:
+Para utilizar o WS-Federation ou WIF para integrar com o Azure AD, recomendamos o seguinte, a abordagem descrita no [configurar federado-início de sessão único para uma aplicação não galeria](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). O artigo refere-se à configuração do Azure AD para baseados em SAML-início de sessão único, mas também funciona para a configuração de WS-Federation. Seguir esta abordagem requer uma licença do Azure AD Premium. Esta abordagem tem duas vantagens:
 
-- Obter a total flexibilidade de personalização de token do Azure AD. Isto permite-lhe personalizar afirmações emitidas pelo Azure AD para corresponderem às emitido por ACS, especialmente, incluindo a afirmação de identificador de nome ou o ID de utilizador. Tem de se certificar de que o utilizador IDs emitidos por correspondência do Azure AD, os que são emitidos por ACS, para que continuar a receber de identificadores de utilizador consistente para os seus utilizadores, mesmo depois de alterar as tecnologias.
-- Pode configurar um token de assinatura de certificado específico da aplicação, cuja duração pode controlar.
+- Obter a total flexibilidade de personalização de token do Azure AD. Pode personalizar as afirmações que são emitidas pelo Azure AD para corresponder as afirmações que são emitidas pelo controlo de acesso. Isto inclui especialmente a afirmação de identificador de nome ou o ID de utilizador. Para continuar a receber de identificadores de utilizador consistente para os seus utilizadores depois de alterar as tecnologias, certifique-se de que o utilizador IDs emitido por correspondência do Azure AD os emitidos pelo controlo de acesso.
+- Pode configurar um certificado de assinatura de tokens de mensagens em fila que é específico para a aplicação e, com uma duração controlado por si.
 
 <!--
 
-Possible nameIdentifiers from ACS (via AAD or ADFS):
-- ADFS - Whatever ADFS is configured to send (email, UPN, employeeID, what have you)
+Possible nameIdentifiers from Access Control (via AAD or AD FS):
+- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
 - Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
 - Default from AAD using Custom apps nowadays: UPN
 - Kusto can't tell us distribution, it's redacted
@@ -162,75 +174,79 @@ Possible nameIdentifiers from ACS (via AAD or ADFS):
 -->
 
 > [!NOTE]
-> Contínuo com esta abordagem requer uma licença do Azure AD Premium. Se for um cliente de ACS e requerem uma licença de premium para configurar o início de sessão único para uma aplicação, nos entrar e, iremos satisfeitos fornecer licenças de programador para utilização.
+> Esta abordagem requer uma licença do Azure AD Premium. Se for um cliente de controlo de acesso e requerem uma licença de premium para configurar o início de sessão único para uma aplicação, contacte-nos. Iremos irá todo o gosto fornecer licenças de programador para utilização.
 
-Uma abordagem alternativa passa por seguir [este exemplo de código](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), que fornece ligeiramente diferentes instruções sobre como configurar o Ws-Federation. Este exemplo de código não utiliza WIF, mas em vez disso, o middleware de ASP.NET 4.5 OWIN. No entanto, as instruções para o registo de aplicação são válidas para aplicações que utilizam o WIF e não necessitam de uma licença do Azure AD Premium.  Se escolher esta abordagem, heneed compreender [rollover da chave de assinatura no Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Esta abordagem utiliza o Azure AD global de assinatura de tokens de problema a chave. Por predefinição, o WIF não atualiza automaticamente as chaves de assinatura. Quando o Azure AD roda respetivas chaves de assinatura global, a implementação de WIF tem de estar preparado para aceitar as alterações.
+Uma abordagem alternativa passa por seguir [este exemplo de código](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), que dá instruções ligeiramente diferentes para a configuração de WS-Federation. Este exemplo de código não utiliza WIF, mas em vez disso, o middleware de ASP.NET 4.5 OWIN. No entanto, as instruções para o registo de aplicação são válidas para aplicações que utilizam o WIF e não necessitam de uma licença do Azure AD Premium. 
 
-Se integrar com o Azure AD através de protocolos de OpenID Connect ou OAuth, é recomendável fazê-lo.  Temos um vasto conjunto documentação e orientações sobre como integrar o Azure AD na sua aplicação web disponível no nosso [guia para programadores do Azure AD](http://aka.ms/aaddev).
+Se escolher esta abordagem, tem de compreender [rollover da chave de assinatura no Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Esta abordagem utiliza o Azure AD global de assinatura de tokens de problema a chave. Por predefinição, o WIF não atualiza automaticamente as chaves de assinatura. Quando o Azure AD roda respetivas chaves de assinatura global, a implementação de WIF tem de estar preparado para aceitar as alterações.
+
+Se pode integrar com o Azure AD através de protocolos de OpenID Connect ou OAuth, é recomendável fazê-lo. Temos um vasto conjunto documentação e orientações sobre como integrar o Azure AD na sua aplicação web disponível no nosso [guia para programadores do Azure AD](http://aka.ms/aaddev).
 
 <!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
-#### <a name="migrating-to-azure-ad-b2c"></a>Migrar para o Azure AD B2C
+#### <a name="migrate-to-azure-active-directory-b2c"></a>Migrar para o Azure Active Directory B2C
 
-Outro caminho de migração a ter em consideração é o Azure AD B2C.  B2C é uma autenticação na nuvem de serviço, semelhante às ACS, permite aos programadores outsource os respetivos lógica de gestão de identidade e autenticação para um serviço em nuvem.  É um serviço pago (com os escalões gratuitos & premium) concebido para o consumidor com aplicações que podem ter até milhões de utilizadores ativos.
+Outro caminho de migração a ter em consideração é o Azure AD B2C. O Azure AD B2C é um serviço em nuvem autenticação, como o controlo de acesso, permite aos programadores outsource os respetivos lógica de gestão de identidade e autenticação para um serviço em nuvem. É um serviço pago (com escalões gratuitos e premium) que foi concebido para aplicações direcionadas para o consumidor que podem ter até milhões de utilizadores ativos.
 
-Como ACS, uma das funcionalidades do B2C mais apelativo é que suporta vários tipos de contas. Com o B2C, que pode iniciar sessão utilizadores com os respetivos Facebook, Google, Microsoft, LinkedIn, GitHub, contas de Yahoo e muito mais. Além disso B2C suporta "contas locais", ou nome de utilizador e palavras-passe que os utilizadores criam especificamente para a sua aplicação. O Azure AD B2C também oferece extensibilidade avançada que pode utilizar para personalizar os fluxos de início de sessão. Não, no entanto, suporta o leque de protocolos de autenticação & formatos de token que podem necessitar de clientes de ACS. Também não pode ser utilizado para obter os tokens & consultar informações adicionais sobre o utilizador do fornecedor de identidade, Microsoft ou, caso contrário.
+Como o controlo de acesso, é uma das funcionalidades do Azure AD B2C mais apelativo que suporta vários tipos de contas. Com o Azure AD B2C, pode criar uma sessão de segurança de utilizadores utilizando a respetiva conta Microsoft, ou o Facebook, Google, LinkedIn, o GitHub ou Yahoo contas e muito mais. Azure AD B2C suporta também "contas locais", ou nome de utilizador e palavras-passe que os utilizadores criam especificamente para a sua aplicação. O Azure AD B2C também oferece extensibilidade avançada que pode utilizar para personalizar os fluxos de início de sessão. 
 
-A tabela seguinte compara as funcionalidades do ACS relevantes para as aplicações web com os disponíveis no Azure AD B2C. Um nível elevado, **do Azure AD B2C provavelmente é a escolha certa para a migração se consumidor com acesso à sua aplicação, ou se suporta vários tipos de contas.**
+No entanto, Azure AD B2C não suporta o leque de protocolos de autenticação de token de formatos e que os clientes poderão exigir o controlo de acesso. Também é não é possível utilizar Azure AD B2C para obter os tokens e a consulta para obter informações adicionais sobre o utilizador do fornecedor de identidade, Microsoft ou, caso contrário.
 
-| Capacidade | Suporte de ACS | Suporte do Azure AD B2C |
+A tabela seguinte compara as funcionalidades do controlo de acesso que são relevantes para as aplicações web com as que estão disponíveis no Azure AD B2C. Um nível elevado, *do Azure AD B2C provavelmente é a escolha certa para a migração se consumidor com acesso à sua aplicação, ou se suporta vários tipos de contas.*
+
+| Capacidade | Suporte de controlo de acesso | Suporte do Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
-| Trabalhar & profissional contas Microsoft | Suportado | Suportada através de políticas personalizadas  |
-| Contas do Active Directory do Windows Server & ADFS | Suportada através de Federação direta com o AD FS | Suportada através de Federação de SAML através de políticas personalizadas |
-| Contas de outros sistemas de gestão de identidades empresariais | Suportada através de Federação direta através de Ws-Federation | Suportada através de Federação de SAML através de políticas personalizadas |
-| Contas Microsoft para utilização pessoal (Windows Live ID) | Suportado | Suportado | 
-| Contas do Facebook, Google, Yahoo | Suportado | Facebook & Google suportado nativamente, Yahoo suportada através de Federação OpenID Connect utilizando as políticas personalizadas |
-| **Protocolos de & compatibilidade SDK** | | |
-| Windows Identity Foundation (WIF) | Suportado | Não é suportado. |
-| WS-Federation | Suportado | Não é suportado. |
-| OAuth 2.0 | Suporte para rascunho 13 | Suporte para RFC 6749, a especificação de mais moderna. |
-| WS-Trust | Suportado | Não é suportado. |
+| Microsoft profissional ou escolar contas | Suportado | Suportada através de políticas personalizadas  |
+| Contas do Windows Server Active Directory e o AD FS | Suportada através de Federação direta com o AD FS | Suportado através de Federação de SAML utilizando as políticas personalizadas |
+| Contas de outros sistemas de gestão de identidades empresariais | Suportada através de Federação direta através do WS-Federation | Suportado através de Federação de SAML utilizando as políticas personalizadas |
+| Contas Microsoft para utilização pessoal | Suportado | Suportado | 
+| Contas do Facebook, Google, Yahoo | Suportado | Facebook e Google suportado nativamente, Yahoo suportado através de Federação OpenID Connect utilizando as políticas personalizadas |
+| **Protocolos e compatibilidade SDK** | | |
+| Windows Identity Foundation (WIF) | Suportado | Não suportado |
+| WS-Federation | Suportado | Não suportado |
+| OAuth 2.0 | Suporte para rascunho 13 | Suporte para RFC 6749, a especificação de mais moderna |
+| WS-Trust | Suportado | Não suportado |
 | **Formatos de token** | | |
-| JSON Web Tokens (JWTs) | Suportado na versão Beta | Suportado |
-| Tokens de SAML 1.1 | Suportado | Não suportado |
-| Tokens de SAML 2.0 | Suportado | Não suportado |
-| Tokens Web simples (SWT) | Suportado | Não suportado |
+| JWT | Suportado na versão Beta | Suportado |
+| SAML 1.1 | Suportado | Não suportado |
+| SAML 2.0 | Suportado | Não suportado |
+| SWT | Suportado | Não suportado |
 | **Personalizações** | | |
-| Realm inicial personalizável/conta de deteção diretriz da IU | Código transferível, que pode ser incorporado nas aplicações | IU totalmente personalizável através do CSS personalizado. |
-| Carregar certificados de assinatura de tokens personalizado | Suportado | Assinatura chaves personalizadas, certificados, suportadas através de políticas personalizadas. |
-| Personalizar afirmações no | Afirmações de entrada de pass-through a partir de fornecedores de identidade<br />Obtenha o acesso token do fornecedor de identidade como uma afirmação<br />Emitir afirmações de saída com base nos valores de afirmações de entrada<br />Emitir afirmações de saída com valores constantes | Pode afirmações de pass-through a partir de fornecedores de identidade. Políticas personalizadas necessárias para alguns afirmações.<br />Não é possível obter o token de acesso do fornecedor de identidade como uma afirmação<br />Podem emitir afirmações de saída com base nos valores de afirmações de entrada através de políticas personalizadas<br />Pode emitir afirmações de saída com valores constantes através de políticas personalizadas |
+| Personalizável realm inicial deteção/conta-diretriz IU | Código transferível, que pode ser incorporado nas aplicações | IU totalmente personalizável através do CSS personalizado |
+| Carregar certificados de assinatura de tokens personalizados | Suportado | Assinatura chaves personalizadas, certificados, suportadas através de políticas personalizadas |
+| Personalizar afirmações no |-Pass-through afirmações de entrada a partir de fornecedores de identidade<br />-Obtenha acesso token do fornecedor de identidade como uma afirmação<br />-Emitir afirmações de saída com base nos valores de afirmações de entrada<br />-Emitir afirmações de saída com valores constantes |-Pode passar afirmações a partir de fornecedores de identidade políticas personalizadas necessárias para alguns afirmações<br />-Não é possível obter acesso token do fornecedor de identidade como uma afirmação<br />-Podem emitir afirmações de saída com base nos valores de afirmações de entrada através de políticas personalizadas<br />-Pode emitir afirmações de saída com valores constantes através de políticas personalizadas |
 | **Automatização** | | |
-| Automatizar tarefas de gestão de configuração / | Suportadas através do serviço de gestão dos ACS | Criação de utilizadores permitido através do Azure AD Graph API. Não é possível criar inquilinos B2C, aplicações ou políticas através de programação. |
+| Automatizar tarefas de gestão e configuração | Suportadas através do serviço de gestão do controlo de acesso |-Criação de utilizadores permitido através do AD Graph API do Azure<br />-Não é possível criar inquilinos B2C, aplicações ou políticas através de programação |
 
-Se decidir que o Azure AD B2C é o caminho correto reencaminhar para as aplicações e serviços, deve começar com os seguintes recursos:
+Se decidir que o Azure AD B2C é o caminho de migração melhor para as suas aplicações e serviços, começar com os seguintes recursos:
 
 - [Documentação do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
 - [Políticas personalizadas do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
-- [O Azure AD B2C preços](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+- [Preços do Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 
 #### <a name="other-migration-options"></a>Outras opções de migração
 
-Se nem do Azure AD nem do Azure AD B2C satisfaça as necessidades da sua aplicação web, contacte-nos e podemos ajudar a identificar o caminho melhor reencaminhar.
+Se do Azure AD e do Azure AD B2C não satisfazer as necessidades da sua aplicação web, contacte-nos. Podemos ajudar a identificar o caminho de migração melhor.
 
 <!--
 
-#### Migrating to Ping Identity or Auth0
+#### Migrate to Ping Identity or Auth0
 
-In some cases, you may find that neither Azure AD nor Azure AD B2C is sufficient to replace ACS in your web applications without making major code changes.  Some common examples might include:
+In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient to replace Access Control in your web applications without making major code changes. Some common examples might include:
 
-- web applications using WIF and/or WS-Federation for sign-in with social identity providers such as Google or Facebook.
-- web applications performing direct federation to an enterprise IDP over the Ws-Federation protocol.
-- web applications that require the access token issued by a social identity provider (such as Google or Facebook) as a claim in the tokens issued by ACS.
-- web applications with complex token transformation rules that Azure AD or Azure AD B2C cannot reproduce.
+- Web applications that use WIF or WS-Federation for sign-in with social identity providers such as Google or Facebook.
+- Web applications that perform direct federation to an enterprise identify provider over the WS-Federation protocol.
+- Web applications that require the access token issued by a social identity provider (such as Google or Facebook) as a claim in the tokens issued by Access Control.
+- Web applications with complex token transformation rules that Azure AD or Azure AD B2C can't reproduce.
 
-In these cases, you may want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options, as each provides capabilities similar to ACS:
+In these cases, you might want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
 
-- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of ACS](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of ACS vs. Auth0.
-- Enterprise customers should consider [Ping Identity](https://www.pingidentity.com) as well. Reach out to us and we can connect you with a representative from Ping who is prepared to help identify potential solutions.
+- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of Access Control](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of Access Control and Auth0.
+- Enterprise customers also should consider [Ping Identity](https://www.pingidentity.com). If you contact us, we can connect you with a representative from Ping who is prepared to help identify potential solutions.
 
-Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customers have a path forward for their apps & services that minimizes the amount of work required to move off of ACS.
+Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
 
 -->
 
@@ -238,68 +254,70 @@ Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customer
 
 ## Sharepoint 2010, 2013, 2016
 
-TODO: AAD only, use AAD SAML 1.1 tokens, when we bring it back online.
+TODO: Azure AD only, use Azure AD SAML 1.1 tokens, when we bring it back online.
 Other IDPs: use Auth0? https://auth0.com/docs/integrations/sharepoint.
 
 -->
 
-### <a name="web-services-using-active-authentication"></a>Serviços Web através da autenticação do Active Directory
+### <a name="web-services-that-use-active-authentication"></a>Serviços Web que utilizam a autenticação do Active Directory
 
-Para os serviços web protegidos com tokens emitidos pelo ACS, ACS fornecidas as seguintes funcionalidades e capacidades:
+Para os serviços web que estão protegidos com tokens emitidos pelo controlo de acesso, o controlo de acesso oferece as seguintes funcionalidades e capacidades:
 
-- Capacidade de registar um ou mais **identidades do serviço** no seu espaço de nomes do ACS que pode ser utilizado para pedir tokens.
-- Suporte para os protocolos de OAuth MOLDAR &13;de rascunho do OAuth 2.0 para pedir tokens, utilizando os seguintes tipos de credenciais:
-    - Uma palavra-passe simple criada para a identidade de serviço
+- Capacidade de registar um ou mais *identidades do serviço* no seu espaço de nomes do controlo de acesso. Identidades de serviço podem ser utilizadas para pedir tokens.
+- Suporte para o OAuth MOLDAR e OAuth 2.0 rascunho 13 protocolos para pedir tokens, utilizando os seguintes tipos de credenciais:
+    - Uma palavra-passe simple que é criada para a identidade de serviço
     - A sessão iniciada SWT utilizando uma chave simétrica ou X509 certificado
     - Um token SAML emitido por um fornecedor de identidade fidedigna (normalmente, uma instância do AD FS)
-- Suporte para os seguintes formatos de token: token de web JSON (JWT), SAML 1.1, SAML 2.0 e simples web token (SWT).
-- Regras de transformação de token simples
+- Suporte para os seguintes formatos de token: JWT, SAML 1.1, SAML 2.0 e SWT.
+- Regras de transformação de token simples.
 
-Identidades de serviço em ACS são tipicamente usadas para implementar o servidor para servidor (S2S), como a autenticação.  
+Identidades de serviço no controlo de acesso são tipicamente usadas para implementar a autenticação de servidor para servidor.  
 
-#### <a name="migrating-to-azure-active-directory"></a>Migrar para o Azure Active Directory
+#### <a name="migrate-to-azure-active-directory"></a>Migrar para o Azure Active Directory
 
-A nossa recomendação para este tipo de fluxo de autenticação está a migrar para [ **do Azure Active Directory** ](https://azure.microsoft.com/develop/identity/signin/) (Azure AD). Azure AD é o fornecedor de identidade baseada em nuvem para a Microsoft funciona & profissional contas - é o fornecedor de identidade para o Office 365, Azure e muito mais. Mas também pode ser utilizado para autenticação de servidor para servidor através da implementação do Azure AD a concessão de credenciais de cliente OAuth.  A tabela seguinte compara as capacidades do ACS na autenticação de servidor para servidor com estão disponíveis no Azure AD.
+A nossa recomendação para este tipo de fluxo de autenticação está a migrar para [do Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure AD é o fornecedor de identidade baseada na nuvem do Microsoft profissional ou escolar contas. Azure AD é o fornecedor de identidade para o Office 365, Azure e muito mais. 
 
-| Capacidade | Suporte de ACS | Suporte do Azure AD |
+Também pode utilizar o Azure AD para autenticação de servidor para servidor utilizando a implementação do Azure AD de concessão de credenciais de cliente OAuth. A tabela seguinte compara as capacidades do controlo de acesso na autenticação de servidor para servidor com as que estão disponíveis no Azure AD.
+
+| Capacidade | Suporte de controlo de acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
-| Como registar um serviço web | Crie uma entidade confiadora no portal de gestão dos ACS. | Crie uma aplicação web do Azure AD no portal do Azure. |
-| Como registar um cliente | Crie uma identidade de serviço no portal de gestão dos ACS. | Crie outra aplicação web do Azure AD no portal do Azure. |
-| Protocolo utilizado | Protocolo OAuth ENCAPSULAR<br />As credenciais de cliente OAuth 2.0 rascunho 13 conceder | Conceder credenciais de cliente OAuth 2.0 |
-| Métodos de autenticação de cliente | Palavra-passe simples<br />SWT assinado<br />Token SAML do IDP federada | Palavra-passe simples<br />JWT assinado |
-| Formatos de token | JWT<br />SAML 1.1<br />SAML 2.0<br />SWT<br /> | Apenas JWT |
-| Transformação de token | Adicionar afirmações personalizadas<br />Lógica de emissão de afirmações simples de depois de se | Adicionar afirmações personalizadas | 
-| Automatizar tarefas de gestão de configuração / | Suportadas através do serviço de gestão dos ACS | Suportadas através do Microsoft Graph & do Azure AD Graph API. |
+| Como registar um serviço web | Criar uma entidade confiadora no portal de gestão do controlo de acesso | Criar uma aplicação web do Azure AD no portal do Azure |
+| Como registar um cliente | Criar uma identidade de serviço no portal de gestão do controlo de acesso | Criar outra aplicação web do Azure AD no portal do Azure |
+| Protocolo utilizado |-Protocolo de moldagem OAuth<br />-As credenciais de cliente OAuth 2.0 rascunho 13 conceder | Conceder credenciais de cliente OAuth 2.0 |
+| Métodos de autenticação de cliente |-Palavra-passe simples<br />-SWT assinado<br />-Token SAML de um fornecedor de identidade federada |-Palavra-passe simples<br />-JWT assinado |
+| Formatos de token |-JWT<br />-SAML 1.1<br />-SAML 2.0<br />-SWT<br /> | Apenas JWT |
+| Transformação de token |-Adicionar afirmações personalizadas<br />-Lógica de emissão de afirmação simples de depois de se | Adicionar afirmações personalizadas | 
+| Automatizar tarefas de gestão e configuração | Suportadas através do serviço de gestão do controlo de acesso | Suportada através do Microsoft Graph e do Azure AD Graph API |
 
-Para obter orientações sobre a implementação de servidor para servidor de cenários, consulte os seguintes recursos:
+Para obter orientações sobre cenários de servidor para servidor de implementação, consulte os seguintes recursos:
 
-- [Secção de serviços do Guia para programadores do Azure AD](https://aka.ms/aaddev).
+- Secção de serviços a [guia para programadores do Azure AD](https://aka.ms/aaddev)
 - [Exemplo de código do daemon utilizando as credenciais de cliente de palavra-passe simples](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Exemplo de código do daemon utilizando credenciais de certificado de cliente](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
 #### <a name="other-migration-options"></a>Outras opções de migração
 
-Se o Azure AD não satisfazer as necessidades do seu serviço web, deixe um comentário e podemos ajudar a identificar o plano melhor do seu incidente específico.
+Se o Azure AD não satisfazer as necessidades do seu serviço web, deixe um comentário. Podemos ajudar a identificar o plano melhor do seu incidente específico.
 
 <!--
 
-#### Migrating to Ping Identity or Auth0
+#### Migrate to Ping Identity or Auth0
 
-In some cases, you may find that neither Azure AD's client credentials OAuth grant implementation is not sufficient to replace ACS in your architecture without major code changes.  Some common examples might include:
+In some cases, you might find that the Azure AD client credentials and the OAuth grant implementation aren't sufficient to replace Access Control in your architecture without major code changes. Some common examples might include:
 
-- server-to-server authentication using token formats other than JWTs.
-- server-to-server authentication using an input token provided by an external identity provider.
-- server-to-server authentication with token transformation rules that Azure AD cannot reproduce.
+- Server-to-server authentication using token formats other than JWTs.
+- Server-to-server authentication using an input token provided by an external identity provider.
+- Server-to-server authentication with token transformation rules that Azure AD cannot reproduce.
 
-In these cases, you may want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options, as each provides capabilities similar to ACS:
+In these cases, you might consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
 
-- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of ACS](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of ACS vs. Auth0.
-- Enterprise customers should consider [Ping Identity](https://www.pingidentity.com) as well. Reach out to us and we can connect you with a representative from Ping who is prepared to help identify potential solutions.
+- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of Access Control](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of Access Control and Auth0.
+- Enterprise customers should also consider [Ping Identity](https://www.pingidentity.com). If you contact us, we can connect you with a representative from Ping who is prepared to help identify potential solutions.
 
-Our aim in working with Ping Identity & Auth0 is to ensure that all ACS customers have a path forward for their apps & services that minimizes the amount of work required to move off of ACS.
+Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
 
 -->
 
-## <a name="questions-concerns--feedback"></a>Perguntas, preocupações e comentários
+## <a name="questions-concerns-and-feedback"></a>Perguntas, preocupações e comentários
 
-Compreendemos que muitos clientes de ACS não irão encontrar um caminho de migração limpar depois de ler este artigo e poderão ter alguns assistência ou orientações para determinar o plano adequado. Se gostaria de abordar a cenários de migração & perguntas, deixe um comentário nesta página.
+Compreendemos que muitos clientes de controlo de acesso não irão localizar um caminho de migração limpar depois de ler este artigo. Poderá ter alguns assistência ou orientações para determinar o plano adequado. Se gostaria de abordar os cenários de migração e perguntas, deixe um comentário nesta página.

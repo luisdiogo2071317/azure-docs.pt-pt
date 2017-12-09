@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 908bdaf002e42035567974b204f5b39e73e82024
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-overview"></a>Descrição geral de segurança do Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) é uma plataforma de sistemas distribuídos que facilita a pacote, implementar e gerir micro-serviços escaláveis e fiáveis. Service Fabric aborda os desafios significativos de desenvolvimento e gestão de aplicações em nuvem. Permite, assim, que os programadores e administradores evitem problemas complexos de infraestrutura e se concentrem na implementação de cargas de trabalho exigentes e fundamentais que sejam dimensionáveis, fiáveis e geríveis.
@@ -50,7 +50,7 @@ Clusters que estão em execução no Azure ou autónomo clusters que executem Wi
 
 O Service Fabric utiliza certificados de servidor de x. 509 que especificou quando cria um cluster. Para uma descrição geral rápida do que estes certificados são e como pode adquirir ou criá-los, consulte [trabalhar com certificados](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
 
-Configurar a segurança de certificados quando criar o cluster, através do portal do Azure, modelos Azure Resource Manager ou um modelo JSON autónomo. Pode especificar um certificado principal e um certificado secundário opcional que é utilizado para rollovers de certificado. Os certificados primários e secundários que especificar devem ser diferentes do cliente de administrador só de leitura certificados de cliente e que especificar para [segurança de cliente para o nó](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
+Configurar a segurança de certificados quando criar o cluster, através do portal do Azure, modelos Azure Resource Manager ou um modelo JSON autónomo. Pode especificar um certificado principal e um certificado secundário opcional que é utilizado para rollovers de certificado. Os certificados primários e secundários que especificar devem ser diferentes do cliente de administrador só de leitura certificados de cliente e que especificar para [segurança de cliente para o nó](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
 ### <a name="client-to-node-security"></a>Segurança de nó de cliente
 Configurar a segurança de nó de cliente através da utilização de identidades de cliente. Estabelecer confiança entre um cliente e um cluster, tem de configurar o cluster de saber qual cliente identidades pode confiar. Pode fazê-lo de duas formas diferentes:

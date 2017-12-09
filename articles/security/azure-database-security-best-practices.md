@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: b3a9befe5c6607c108e11b583f8b67c483710021
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-database-security-best-practices"></a>Procedimentos de segurança da base de dados do Azure
 
@@ -137,7 +137,7 @@ Se interage com o Storage do Azure através do Portal do Azure, todas as transa�
 
 As organizações que falham para proteger dados em trânsito sejam mais suscetíveis de [ataques man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [escutas](https://technet.microsoft.com/library/gg195641.aspx) e hijacking de sessão. Estes ataques podem ser o primeiro passo na obtendo acesso aos dados confidenciais.
 
-Para obter mais informações sobre a opção de VPN do Azure ao ler o artigo [planeamento e design para o Gateway de VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
+Para obter mais informações sobre a opção de VPN do Azure ao ler o artigo [planeamento e design para o Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ## <a name="enable-database-auditing"></a>Ativar a auditoria de base de dados
 Uma instância do motor de base de dados do SQL Server ou uma base de dados individuais de auditoria envolve controlo e registo de eventos que ocorrem no motor de base de dados. Auditoria de SQL Server permite-lhe criar as auditorias de servidor, que podem conter as especificações de auditoria do servidor para eventos ao nível do servidor e as especificações de auditoria de base de dados de eventos ao nível da base de dados. Eventos auditados podem ser escritos para os registos de eventos ou para os ficheiros de auditoria.

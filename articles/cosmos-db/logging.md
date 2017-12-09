@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 407a9a3be4ae8a9b00a953914e6b4414d8dac8b6
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 608222da9cbe2895914e14c9f76cc5629ef65684
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
@@ -60,7 +60,7 @@ Para concluir este tutorial, tem de ter os seguintes recursos:
 
 3. Clique em **Guardar**.
 
-    Se receber um erro que indica "Falha ao atualizar os diagnósticos para \<nome da área de trabalho >. A subscrição \<id de subscrição > não está registada para utilizar insights. " Siga o [resolver problemas do diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) as instruções para registar a conta, em seguida, repita este procedimento.
+    Se receber um erro que indica "Falha ao atualizar os diagnósticos para \<nome da área de trabalho >. A subscrição \<id de subscrição > não está registada para utilizar insights. " Siga o [resolver problemas do diagnóstico do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) as instruções para registar a conta, em seguida, repita este procedimento.
 
     Se pretender alterar a forma como em que os registos de diagnóstico são guardados no futuro em qualquer momento, pode regressar a esta página em qualquer altura para modificar as definições de registo de diagnóstico para a sua conta.
 

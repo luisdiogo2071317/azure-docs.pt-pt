@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a05a0d28899cc3db11f8fda8aec5bd6ed9bd5f8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação do serviço de armazenamento utilizando o cliente chaves geridas no Cofre de chaves do Azure
 
@@ -50,7 +50,7 @@ Pode ativar SSE para a conta de armazenamento utilizando o [portal do Azure](htt
 ![Portal captura de ecrã com a opção de encriptação](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 <br/>*Ativar SSE para o serviço Blob*
 
-Se pretender programaticamente ativar ou desativar a encriptação do serviço de armazenamento numa conta de armazenamento, pode utilizar o [API de REST do fornecedor de recursos do Azure Storage](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN), a [biblioteca cliente de fornecedor de recursos do armazenamento para .NET ](https://docs.microsoft.com/en-us/dotnet/api/?redirectedfrom=MSDN), [o azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.0.0), ou o [CLI do Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli).
+Se pretender programaticamente ativar ou desativar a encriptação do serviço de armazenamento numa conta de armazenamento, pode utilizar o [API de REST do fornecedor de recursos do Azure Storage](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN), a [biblioteca cliente de fornecedor de recursos do armazenamento para .NET ](https://docs.microsoft.com/dotnet/api/?redirectedfrom=MSDN), [o azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0), ou o [CLI do Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 Neste ecrã, se não vir a caixa de verificação "utilizar a sua própria chave", não foi aprovou para a pré-visualização. Enviar um e-mail para [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) e solicitar a aprovação.
 
@@ -71,10 +71,10 @@ Se a conta de armazenamento não tem acesso ao Cofre de chave, pode executar o s
 Também pode conceder o acesso através do portal do Azure ao ir para o Cofre de chaves do Azure no portal do Azure e conceder acesso à conta de armazenamento.
 
 ## <a name="step-4-copy-data-to-storage-account"></a>Passo 4: Copiar dados para a conta de armazenamento
-Se gostaria de transferência de dados na sua nova conta de armazenamento, de modo a que está encriptada, consulte [passo 3 de introdução na encriptação do serviço de armazenamento para dados Inativos](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
+Se gostaria de transferência de dados na sua nova conta de armazenamento, de modo a que está encriptada, consulte [passo 3 de introdução na encriptação do serviço de armazenamento para dados Inativos](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
 
 ## <a name="step-5-query-the-status-of-the-encrypted-data"></a>Passo 5: Consultar o estado dos dados encriptados
-Para consultar o estado dos dados encriptados, consulte [passo 4 de introdução na encriptação do serviço de armazenamento para dados Inativos](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
+Para consultar o estado dos dados encriptados, consulte [passo 4 de introdução na encriptação do serviço de armazenamento para dados Inativos](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
 
 ## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Perguntas mais frequentes sobre a encriptação do serviço de armazenamento para dados Inativos
 **P: Posso estou a utilizar o Premium storage; Pode utilizar SSE com chaves cliente gerido?**
@@ -91,7 +91,7 @@ R: não há um custo associado para utilizar o Cofre de chaves do Azure. Para ob
 
 **P: posso revogar o acesso às chaves de encriptação?**
 
-R: Sim, pode revogar o acesso em qualquer altura. Existem várias formas para revogar o acesso às suas chaves. Consulte [PowerShell do Cofre de chaves do Azure](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) e [CLI do Azure chave de cofre](https://docs.microsoft.com/en-us/cli/azure/keyvault) para obter mais detalhes. Revogar o acesso eficazmente irá bloquear o acesso a todos os blobs na conta de armazenamento como a chave de encriptação da conta não está acessível ao Storage do Azure.
+R: Sim, pode revogar o acesso em qualquer altura. Existem várias formas para revogar o acesso às suas chaves. Consulte [PowerShell do Cofre de chaves do Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) e [CLI do Azure chave de cofre](https://docs.microsoft.com/cli/azure/keyvault) para obter mais detalhes. Revogar o acesso eficazmente irá bloquear o acesso a todos os blobs na conta de armazenamento como a chave de encriptação da conta não está acessível ao Storage do Azure.
 
 **P: Posso criar uma conta de armazenamento e a chave numa região diferente?**
 
@@ -123,6 +123,6 @@ R: contacto [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com
 
 ## <a name="next-steps"></a>Passos seguintes
 
-*   Para mais informações sobre o conjunto completo de segurança capacidades que ajudam os programadores criem aplicações seguras, consulte o [manual de segurança de armazenamento](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
-*   Para obter informações gerais sobre o Cofre de chaves do Azure, consulte [que é o Cofre de chaves do Azure](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)?
+*   Para mais informações sobre o conjunto completo de segurança capacidades que ajudam os programadores criem aplicações seguras, consulte o [manual de segurança de armazenamento](https://docs.microsoft.com/azure/storage/storage-security-guide).
+*   Para obter informações gerais sobre o Cofre de chaves do Azure, consulte [que é o Cofre de chaves do Azure](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
 *   Para começar a trabalhar no Cofre de chaves do Azure, consulte [introdução ao Cofre de chaves do Azure](../../key-vault/key-vault-get-started.md).

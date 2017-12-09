@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 1e8b8359efb75246e40103ee8cbc2a786bfa6b46
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>O Azure Active Directory B2C: Configurar a IU com conteúdo dinâmico utilizando as políticas personalizadas
 Ao utilizar o Azure Active Directory B2C políticas personalizadas (Azure AD B2C), que pode enviar um parâmetro por uma cadeia de consulta. Transferindo o parâmetro para o ponto final de HTML, pode alterar dinamicamente o conteúdo da página. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou início de sessão do Azure AD B2C, com base num parâmetro que passa a partir do seu web ou aplicação móvel. 
@@ -155,7 +155,7 @@ Localize o `<img>` elemento que contém o `ID` valor *background_background_imag
     O **criar App Service** é aberta a janela. No mesmo pode começar a criar todos os recursos do Azure necessários para executar a aplicação web do ASP.NET no Azure.
 
     > [!NOTE]
-    > Para obter mais informações sobre a publicação, consulte [criar uma aplicação web ASP.NET no Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Para obter mais informações sobre a publicação, consulte [criar uma aplicação web ASP.NET no Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. No **nome da aplicação Web** caixa, escreva um nome de aplicação único (carateres válidos são a-z, A-Z, 0-9 e hífen (-). O URL da aplicação Web é `http://<app_name>.azurewebsites.NET`, onde `<app_name>` é o nome da aplicação Web. Também pode aceitar o nome gerado automaticamente, que já é exclusivo.
 

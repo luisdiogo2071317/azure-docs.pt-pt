@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
 ms.author: samacha
-ms.openlocfilehash: cd8f4e0dd07be8878d6bbb1739fb84a3cc96a186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f434f1fe600877d1a12174ae84aaa47e878a055
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Gestão .NET SDK v1.x: definir a configurar e executar tarefas de análise utilizando a API do Azure Stream Analytics para .NET
 Saiba como configurar e executar tarefas de análise utilizando a API do Stream Analytics para .NET utilizando o SDK .NET de gestão. Configurar um projeto, crie as origens de entrada e saídas, transformações e iniciar e parar tarefas. Para as tarefas de análise, pode transmitir dados de armazenamento de BLOBs ou de um hub de eventos.
@@ -29,7 +29,7 @@ Consulte o [documentação de referência de gestão para a API do Stream Analyt
 O Azure Stream Analytics é um serviço completamente gerido que fornece processamento de eventos de baixa latência, elevada disponibilidade, dimensionáveis, complexo através de transmissão em fluxo de dados na nuvem. Do Stream Analytics permite que os clientes configurar as tarefas de transmissão em fluxo para analisar os fluxos de dados e permite-lhes unidade perto de análise em tempo real.  
 
 > [!NOTE]
-> Código de exemplo neste artigo ainda utiliza a versão de legado (1. x) do SDK do Azure Stream Analytics Management .NET. Para o código de exemplo utilizando a versão atualizada do SDK, consulte [utilizar o SDK .NET de gestão para o Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-dotnet-management-sdk).
+> Código de exemplo neste artigo ainda utiliza a versão de legado (1. x) do SDK do Azure Stream Analytics Management .NET. Para o código de exemplo utilizando a versão atualizada do SDK, consulte [utilizar o SDK .NET de gestão para o Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, tem de ter o seguinte:

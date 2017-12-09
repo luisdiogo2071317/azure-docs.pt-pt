@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c4f0ec95c02116a19f2d69c6fa1e8aa639c56c69
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 61d384cfcfbbd0726faffe2e2ee09faf35c781e3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>O Azure AD Connect: Atualização de uma versão anterior para a versão mais recente
 Este tópico descreve os diferentes métodos que pode utilizar para atualizar a instalação do Connect do Azure Active Directory (Azure AD) para a versão mais recente. Recomendamos que mantenha sozinho atual com as versões do Azure AD Connect. Também é utilizar os passos a [Swing migração](#swing-migration) secção quando fizer uma alteração de configuração significativas.
@@ -48,7 +48,7 @@ Se tiver efetuado alterações para as regras de sincronização de out-of-box, 
 
 Durante a atualização no local, poderão existir alterações introduzidas que necessitam de atividades de sincronização específica (incluindo o passo de importação completa e o passo de sincronização completa) para ser executada após a conclusão da atualização. Para diferir dessas atividades, consulte a secção [como diferir sincronização completa após a atualização](#how-to-defer-full-synchronization-after-upgrade).
 
-Se estiver a utilizar o Azure AD Connect com o conector não padrão (por exemplo, o conector de LDAP genérico e genérico conector do SQL Server), tem de atualizar a configuração do conector correspondente no [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) após a atualização no local. Para obter detalhes sobre como atualizar a configuração do conector, consulte a secção do artigo [histórico de lançamento do conector versão - resolução de problemas](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Se não atualizar a configuração, importação e exportação executar passos não funcionará corretamente para o conector. Irá receber o erro seguinte no registo de eventos de aplicações com a mensagem *"versão de assemblagem na configuração do conector do AAD ("X.X.XXX. X") é anterior à versão real ("X.X.XXX. X)"de"C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
+Se estiver a utilizar o Azure AD Connect com o conector não padrão (por exemplo, o conector de LDAP genérico e genérico conector do SQL Server), tem de atualizar a configuração do conector correspondente no [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) após a atualização no local. Para obter detalhes sobre como atualizar a configuração do conector, consulte a secção do artigo [histórico de lançamento do conector versão - resolução de problemas](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Se não atualizar a configuração, importação e exportação executar passos não funcionará corretamente para o conector. Irá receber o erro seguinte no registo de eventos de aplicações com a mensagem *"versão de assemblagem na configuração do conector do AAD ("X.X.XXX. X") é anterior à versão real ("X.X.XXX. X)"de"C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
 
 ## <a name="swing-migration"></a>Migração rotativa
 Se tiver uma implementação de complexa ou muitos objetos, poderá ser impractical para efetuar uma atualização no local no sistema em direto. Para alguns clientes, este processo poderá demorar vários dias – e durante este período, são processadas sem alterações de delta. Também pode utilizar este método quando pretender efetuar alterações substanciais à sua configuração e pretende experimentá-los antes da enviadas por push para a nuvem.

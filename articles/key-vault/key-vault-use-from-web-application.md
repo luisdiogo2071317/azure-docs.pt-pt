@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 1846305e6834145046cf9903714c68e9a6fd4f7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: e4dc4a0bd43f61474692abb8c21e0b6448769f8e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Utilizar o Cofre de chaves do Azure de uma aplicação Web
 
@@ -107,7 +107,7 @@ public static async Task<string> GetToken(string authority, string resource, str
 ```
 
 > [!NOTE]
->* Atualmente, a funcionalidade nova Managed Service Identity (MSI) é a forma mais fácil de se autenticar. Para obter mais detalhes, veja a ligação seguinte para o exemplo ao utilizar [Key Vault with MSI in an application in .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) (Key Vault com MSI numa aplicação em .NET) e o [tutorial MSI with App Service and Functions tutorial](https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity) (MSI com o Serviço de Aplicações e as Funções). 
+>* Atualmente, a funcionalidade nova Managed Service Identity (MSI) é a forma mais fácil de se autenticar. Para obter mais detalhes, veja a ligação seguinte para o exemplo ao utilizar [Key Vault with MSI in an application in .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) (Key Vault com MSI numa aplicação em .NET) e o [tutorial MSI with App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) (MSI com o Serviço de Aplicações e as Funções). 
 >* A utilização de ID de cliente e o segredo de cliente é outra forma de autenticar uma aplicação do Azure AD. E utilizá-lo na sua aplicação web permite uma separação de deveres e mais controlo sobre a gestão de chaves. Mas dependem de colocar o segredo do cliente nas suas definições de configuração, que, para algumas, podem ser como arriscadas como colocar o segredo que pretende proteger nas suas definições de configuração. Consulte o seguinte procedimento para ver um debate sobre como utilizar um ID de cliente e o certificado em vez de ID de cliente e o segredo de cliente para autenticar a aplicação do Azure AD.
 
 ## <a id="appstart"></a>Obter o segredo em início da aplicação

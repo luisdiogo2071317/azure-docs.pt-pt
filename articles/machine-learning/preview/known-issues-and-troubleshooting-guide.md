@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 1d3ba76336701221484d2879f4b28285936aa656
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - problemas conhecidos e guia de resolução de problemas 
 Este artigo ajuda-o a encontrar e corrija erros ou falhas encontradas como parte da utilização da aplicação do Azure Machine Learning Workbench. 
@@ -198,9 +198,9 @@ Uma correção rápida consiste em remover todas as imagens de Docker que deixar
 $ docker system prune -a
 ```
 
-Também pode adicionar um disco de dados e configurar o motor de Docker para utilizar o disco de dados para armazenar imagens. Eis [como adicionar um disco de dados](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk). Pode, em seguida, [alteração onde Docker armazena imagens](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
+Também pode adicionar um disco de dados e configurar o motor de Docker para utilizar o disco de dados para armazenar imagens. Eis [como adicionar um disco de dados](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Pode, em seguida, [alteração onde Docker armazena imagens](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Ou, pode expandir o disco do SO e não tem de touch de configuração do motor de Docker. Eis [como pode expandir o disco de SO](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
+Ou, pode expandir o disco do SO e não tem de touch de configuração do motor de Docker. Eis [como pode expandir o disco de SO](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ## <a name="sharing-c-drive-on-windows"></a>Partilha de unidade C no Windows
 Se estiver a executar num contentor Docker local no Windows, a definição `sharedVolumes` para `true` no `docker.compute` de ficheiros em `aml_config` pode melhorar o desempenho de execução. No entanto, isto requer a partilha de unidade C a _Docker para Windows ferramenta_. Se não é possível partilhar unidade C, experimente as sugestões seguintes:

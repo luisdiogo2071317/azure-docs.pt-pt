@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: fboylu
-ms.openlocfilehash: aafa395f8c0593d9597f74cd5cd2a41f26897c6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Manual de modelo do Cortana Intelligence solução para manutenção preventiva aeroespacial e outras empresas
 ## <a name="executive-summary"></a>Resumo Executivo
@@ -97,7 +97,7 @@ Motores das aeronaves são muito dispendiosas e confidenciais partes do equipame
 ##### <a name="business-value-of-the-predictive-model"></a>Valor de negócio de modelo preditivo
 Um modelo de classificação de classe multi incorporado que prevê a probabilidade de uma falha devido a um determinado componente no mês seguinte. Ao empregar destas soluções, airlines pode reduzir os custos de reparação de componentes, melhorar a disponibilidade das cotações de componente, reduzir níveis de inventário de recursos relacionados e melhorar o planeamento de manutenção.
 
-### <a name="utilities"></a>Utilitários
+### <a name="utilities"></a>Serviços Públicos
 #### <a name="use-case-1-atm-cash-dispense-failure"></a>Caso de utilização 1: Monetários ATM dispense falha
 ##### <a name="business-problem-and-data-sources"></a>*Origens de problema e os dados de negócio*
 Executivos em indústrias intensiva asset Estados frequentemente que o risco de operacional primário e as respetivas empresas é falhas inesperadas dos respetivos elementos. Por exemplo, a falha de fábrica, tais como ATMs bancária setor é um problema muito comum que ocorre com frequência. Estes tipos de problemas tornam soluções de manutenção preditiva muito desejável para operadores de fábrica, a esse. Neste caso de utilização, problema de predição consiste em calcular a probabilidade de que uma transação de withdrawal monetários ATM obtém interrompida devido a uma falha de parte ou a uma falha no fornecedor de monetários, tais como o papel encravado. Origens de dados principal para este cenário são as leituras dos sensores que recolhem medidas, enquanto estão a ser dispensed notas monetários bem como registos de manutenção recolhidos ao longo do tempo. Dados de sensores incluídas as leituras dos sensores por cada transação foi concluída bem como as leituras dos sensores por cada nota dispensed. Os valores das leituras dos fornecidos sensor, tais como os intervalos entre notas, espessura, tenha em atenção a distância de chegada etc. Dados de manutenção incluído códigos de erro e informações de reparação. Estes foram utilizados para identificar casos de falha.
@@ -165,7 +165,7 @@ Os elementos de dados comum para problemas de manutenção preventiva podem ser 
 
 Alguns exemplos de acima elementos de dados de casos de utilização são:
 
-Histórico de falha: combater atraso datas, datas de falha de componente de aeronave e tipos, falhas de transação do ATM monetários withdrawal, falhas de porta de formação/abordagem, datas de ordem de substituição de disco brake, vento turbine falha datas e falhas de comando disjuntor automático.
+Histórico de falha: voo atraso datas, datas de falha de componente de aeronave e tipos, falhas de transação do ATM monetários withdrawal, falhas de porta de formação/abordagem, datas de ordem de substituição de disco brake, vento turbine falha datas e falhas de comando disjuntor automático.
 
 Histórico de manutenção: registos de erros de voo, registos de erros de transação de ATM, preparar os registos de manutenção, incluindo o tipo de manutenção, a descrição abreviada etc. e registos de manutenção disjuntor automático.
 
@@ -230,7 +230,7 @@ Durante a geração da funcionalidade, devem efetuar outros passos importantes, 
 
 A tabela de funcionalidade final após a funcionalidade de engenharia passos abordados na secção anterior deve assemelhar-se o esquema de dados de exemplo seguintes quando a unidade de tempo é um dia:
 
-| ID de recurso | Hora | Colunas de funcionalidade | Etiqueta |
+| ID do Recurso | Hora | Colunas de funcionalidade | Etiqueta |
 | --- | --- | --- | --- |
 | 1 |1 dia | | |
 | 1 |Dia 2 | | |

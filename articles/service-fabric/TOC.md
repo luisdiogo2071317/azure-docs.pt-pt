@@ -101,7 +101,6 @@
 
 ## Gerir aplicações
 ### [Descrição geral](service-fabric-application-lifecycle.md)
-### [A definição ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Atualização da aplicação
 #### [Descrição geral](service-fabric-application-upgrade.md)
 #### [Configuração](service-fabric-visualstudio-configure-upgrade.md)
@@ -109,6 +108,7 @@
 #### [Serialização de dados em atualizações da aplicação](service-fabric-application-upgrade-data-serialization.md)
 #### [Tópicos avançados das atualizações da aplicação](service-fabric-application-upgrade-advanced.md)
 ### [Descrição geral da análise de falhas](service-fabric-testability-overview.md)
+### [A definição ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
 ## Criar e gerir clusters
 ### [Descrição geral](service-fabric-deploy-anywhere.md)
@@ -136,8 +136,6 @@
 #### [Limitação](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Movimento de serviço](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## [Integrar com a Gestão de API](service-fabric-api-management-overview.md)
-
 ## Monitorizar e diagnosticar
 ### [Monitorizar e diagnosticar aplicações](service-fabric-diagnostics-overview.md)
 ### Gerar eventos
@@ -164,13 +162,14 @@
 #### [Analisar eventos com o OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Resolver problemas do seu cluster local](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [Integrar com a Gestão de API](service-fabric-api-management-overview.md)
+
 # Guias de procedimentos
 ## Configurar o ambiente de desenvolvimento
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Configurar a CLI do Service Fabric](service-fabric-cli.md)
+### [Configurar a CLI do Service Fabric](service-fabric-cli.md)
 
 ## Criar uma aplicação
 ### [Crie a sua primeira aplicação C# no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

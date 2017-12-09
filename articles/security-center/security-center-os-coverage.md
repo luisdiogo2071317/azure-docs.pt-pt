@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: terrylan
-ms.openlocfilehash: c80e78b39b3fba4dcd9523e1e679822758822805
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd238f0b2d877f7f57a27ce495dae8de1ab9c066
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plataformas suportadas no Centro de segurança do Azure
 Monitorização de estado de segurança e as recomendações são disponíveis para máquinas virtuais (VMs) criadas utilizando modelos de implementação do Resource Manager e clássico.
@@ -59,6 +59,6 @@ VMs em execução num serviço em nuvem também são suportadas. Nuvem apenas do
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Guia de operações e planeamento do Centro de segurança do Azure](security-center-planning-and-operations-guide.md) — Saiba como planear e compreender as considerações de conceção para adoção do Centro de segurança do Azure
-- [Alertas de segurança por tipo no Centro de segurança do Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Saiba mais sobre a análise comportamental de máquina virtual e análise de memória de captura no Centro de segurança de falhas
+- [Alertas de segurança por tipo no Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Saiba mais sobre a análise comportamental de máquina virtual e análise de memória de captura no Centro de segurança de falhas
 - [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço
 - [Blogue de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre mensagens do Blogue acerca da segurança do Azure e conformidade

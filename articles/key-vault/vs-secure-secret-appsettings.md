@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 3284f9f9c3cef27cba599238f06b0dcf0f35de78
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Em segurança guardar as definições de aplicação secreta para uma aplicação web
 
@@ -32,7 +32,7 @@ Para certificar-se de que o processo de desenvolvimento é seguro, bibliotecas d
 ## <a name="aspnet-and-net-core-applications"></a>Aplicações de núcleo ASP.NET e o .NET
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Guardar definições secretas no arquivo do segredo do utilizador que está fora da pasta de controlo de origem
-Se estão a fazer o protótipo um rápida ou não tem acesso à internet, comece com mover as definições de secretas fora da pasta de controlo de origem para o arquivo do segredo do utilizador. Arquivo de segredos do utilizador é um ficheiro guardado na pasta do gerador de perfis de utilizador, pelo que não são verificados segredos ao controlo de origem. O diagrama seguinte demonstra como [utilizador segredo](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) funciona.
+Se estão a fazer o protótipo um rápida ou não tem acesso à internet, comece com mover as definições de secretas fora da pasta de controlo de origem para o arquivo do segredo do utilizador. Arquivo de segredos do utilizador é um ficheiro guardado na pasta do gerador de perfis de utilizador, pelo que não são verificados segredos ao controlo de origem. O diagrama seguinte demonstra como [utilizador segredo](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) funciona.
 
 ![Segredo do utilizador mantém as definições de secretas fora do controlo de código fonte](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -45,7 +45,7 @@ Se estiver a desenvolver um projeto de equipa e precisar de partilhar de forma s
 
     ![Criar Cofre de chaves do Azure](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Conceda o acesso de membros de equipa e para o Cofre de chaves. Se tiver uma equipa grande, pode criar um [grupo do Active Directory do Azure](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal) e adicione esse grupo de segurança acesso para o Cofre de chaves. No *segredo permissões* lista pendente, verificação *obter* e *lista* em *operações de gestão do segredo*.
+2. Conceda o acesso de membros de equipa e para o Cofre de chaves. Se tiver uma equipa grande, pode criar um [grupo do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) e adicione esse grupo de segurança acesso para o Cofre de chaves. No *segredo permissões* lista pendente, verificação *obter* e *lista* em *operações de gestão do segredo*.
 
     ![Adicionar política de acesso do Cofre de chaves](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

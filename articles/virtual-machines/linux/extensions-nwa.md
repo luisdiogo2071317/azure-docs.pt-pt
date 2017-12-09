@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: eaadd531b9e05a54446e61f98584ae9d75470a5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de agente do observador de rede para Linux
 
 ## <a name="overview"></a>Descrição geral
 
-[Observador de rede do Azure](https://review.docs.microsoft.com/en-us/azure/network-watcher/) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização de redes do Azure. A extensão de máquina virtual de agente do observador de rede é um requisito para algumas das funcionalidades de observador de rede em máquinas virtuais do Azure. Isto inclui capturar o tráfego de rede a pedido e outras funcionalidades avançadas.
+[Observador de rede do Azure](https://review.docs.microsoft.com/azure/network-watcher/) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização de redes do Azure. A extensão de máquina virtual de agente do observador de rede é um requisito para algumas das funcionalidades de observador de rede em máquinas virtuais do Azure. Isto inclui capturar o tráfego de rede a pedido e outras funcionalidades avançadas.
 
 Este documento fornece detalhes sobre as plataformas suportadas e opções de implementação para a extensão de máquina virtual de agente do observador de rede do Linux.
 
@@ -49,7 +49,7 @@ Tenha em atenção que CoreOS não é suportado neste momento.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-Algumas das funcionalidades do agente do observador de rede requer que a máquina virtual de destino estar ligado à Internet. Sem a capacidade para estabelecer ligações de saída algumas das funcionalidades do agente do observador de rede podem avaria ou ficar indisponíveis. Para obter mais detalhes, consulte o [documentação de observador de rede](https://review.docs.microsoft.com/en-us/azure/network-watcher/).
+Algumas das funcionalidades do agente do observador de rede requer que a máquina virtual de destino estar ligado à Internet. Sem a capacidade para estabelecer ligações de saída algumas das funcionalidades do agente do observador de rede podem avaria ou ficar indisponíveis. Para obter mais detalhes, consulte o [documentação de observador de rede](https://review.docs.microsoft.com/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 

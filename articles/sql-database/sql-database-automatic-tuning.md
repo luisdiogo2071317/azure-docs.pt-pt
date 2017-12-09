@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 50d1548637ecc6862f680f73e333e8d7f8d20e39
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>A otimização automática na SQL Database do Azure
 
@@ -48,7 +48,7 @@ Mecanismos de otimização automáticos são maduros e tem sido perfected em cen
 
 ![Como funciona o trabalho de otimização automático](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-Otimização automática de base de dados do SQL do Azure está a partilhar respetiva lógica principal com o motor de otimização automático do SQL Server. Para obter informações técnicas adicionais o mecanismo de intelligence incorporadas, consulte [otimização automática do SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+Otimização automática de base de dados do SQL do Azure está a partilhar respetiva lógica principal com o motor de otimização automático do SQL Server. Para obter informações técnicas adicionais o mecanismo de intelligence incorporadas, consulte [otimização automática do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 ## <a name="use-automatic-tuning"></a>Utilizar a otimização automática
 
@@ -80,4 +80,4 @@ Automático opções de otimização pode ser independentemente ativado ou desat
 - Para ativar a otimização automática da base de dados do Azure SQL Server para gerir a sua carga de trabalho, consulte [ativar a otimização automática](sql-database-automatic-tuning-enable.md).
 - Para rever e aplicar automático otimização recomendações manualmente, consulte o artigo [localizar e aplicar as recomendações de desempenho](sql-database-advisor-portal.md).
 - Para saber mais sobre intelligence incorporado utilizado na otimização automática, consulte o artigo [Artificial Intelligence tunes bases de dados do Azure SQL](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
-- Para saber mais sobre como automática funciona otimização na SQL Database do Azure e SQL server de 2017, consulte o artigo [otimização automática do SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+- Para saber mais sobre como automática funciona otimização na SQL Database do Azure e SQL server de 2017, consulte o artigo [otimização automática do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Proteger um servidor de ficheiros utilizando o Azure Site Recovery 
 
@@ -145,7 +145,7 @@ Utilizar o serviço de sincronização de ficheiros do Azure, pode replicar os f
 
 O abaixo os detalhes de passos com o serviço de sincronização de ficheiros do Azure:
 
-1. [Criar uma conta de armazenamento no Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se tiver escolhido o armazenamento de georredundante de acesso de leitura (RA-GRS) (recomendado) para as contas do storage, tem acesso de leitura aos seus dados da região secundária em caso de desastre. Consulte o [estratégias de recuperação de desastre de partilha de ficheiros do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter mais informações.
+1. [Criar uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se tiver escolhido o armazenamento de georredundante de acesso de leitura (RA-GRS) (recomendado) para as contas do storage, tem acesso de leitura aos seus dados da região secundária em caso de desastre. Consulte o [estratégias de recuperação de desastre de partilha de ficheiros do Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter mais informações.
 2. [Criar uma partilha de ficheiros](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Implementar a sincronização de ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) no seu servidor de ficheiros no local.
 4. Criar um grupo de sincronização: os pontos finais dentro de um grupo de sincronização serão mantidos sincronizados entre si. Um grupo de sincronização tem de conter pelo menos um ponto final da nuvem, que representa uma partilha de ficheiros do Azure, e um ponto final do servidor, que representa um caminho no Windows Server no local.

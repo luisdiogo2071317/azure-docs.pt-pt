@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0abf2635e08bfc3113e9dec1947b9bb162cd3952
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Para guardar e configurar a configuração do serviço de API Management utilizando o Git
 > 
@@ -157,9 +157,9 @@ git push
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Para implementar alterações de configuração de serviço para a instância do serviço de API Management
 Depois das suas alterações locais são aplicadas e enviadas para o repositório de servidor, pode implementá-las à sua instância do serviço de API Management.
 
-![Implementar][api-management-configuration-deploy]
+![Implementação][api-management-configuration-deploy]
 
-Para informações sobre como efetuar esta operação utilizando a API REST, consulte [Git implementar alterações à base de dados de configuração utilizando a API REST](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
+Para informações sobre como efetuar esta operação utilizando a API REST, consulte [Git implementar alterações à base de dados de configuração utilizando a API REST](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Referência de estrutura de ficheiros e pastas do repositório de Git local
 Os ficheiros e pastas no repositório de local git contém as informações de configuração sobre a instância de serviço.
@@ -188,7 +188,7 @@ Estes ficheiros podem ser criados, eliminados, editados e geridos no seu sistema
 > [!NOTE]
 > As entidades seguintes não estão contidas no repositório de Git e não podem ser configuradas utilizando o Git.
 > 
-> * Utiliz.
+> * Utilizadores
 > * Subscrições
 > * Propriedades
 > * Entidades de portais para programadores que não sejam estilos

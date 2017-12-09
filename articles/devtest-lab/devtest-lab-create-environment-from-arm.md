@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
-ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381b3e5cc82e71dde4fe3a4266678dbd5919290d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes de várias VMS e PaaS recursos com modelos Azure Resource Manager
 
-O [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) permite-lhe facilmente [criar e adicionar uma VM para um laboratório](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). Isto funciona bem para criar uma VM a uma hora. No entanto, se o ambiente contém várias VMs, cada VM tem de ser criadas individualmente. Para cenários como uma aplicação Web de várias camada ou um farm do SharePoint, é necessário um mecanismo para permitir a criação de várias VMs num único passo. Ao utilizar modelos Azure Resource Manager, pode agora definir a infraestrutura e a configuração da sua solução do Azure e implementar repetidamente várias VMs num estado consistente. Esta funcionalidade fornece as seguintes vantagens:
+O [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) permite-lhe facilmente [criar e adicionar uma VM para um laboratório](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Isto funciona bem para criar uma VM a uma hora. No entanto, se o ambiente contém várias VMs, cada VM tem de ser criadas individualmente. Para cenários como uma aplicação Web de várias camada ou um farm do SharePoint, é necessário um mecanismo para permitir a criação de várias VMs num único passo. Ao utilizar modelos Azure Resource Manager, pode agora definir a infraestrutura e a configuração da sua solução do Azure e implementar repetidamente várias VMs num estado consistente. Esta funcionalidade fornece as seguintes vantagens:
 
 - Modelos Azure Resource Manager são carregados diretamente a partir do seu repositório de controlo de origem (GitHub ou equipa de serviços de Git).
 - Depois de ter configurado, os utilizadores podem criar um ambiente por escolher um modelo Azure Resource Manager do portal do Azure como o que podem fazer com outros tipos de [bases de VM](./devtest-lab-comparing-vm-base-image-types.md).

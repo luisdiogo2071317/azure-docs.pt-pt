@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/04/2017
 ms.author: yoelh
-ms.openlocfilehash: f98f1826b492b8596f352b403b3b12775814c399
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 131e475a7f313d5844bb93332da183053f8e604c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Do Azure Active Directory B2C: Migração de utilizador
 Quando migra o fornecedor de identidade para o Azure Active Directory B2C (Azure AD B2C), poderá também ter de migrar a conta de utilizador. Este artigo explica como migrar as contas de utilizador existente a partir de qualquer fornecedor de identidade para o Azure AD B2C. O artigo não se destinar a ser prescritiva, mas, em vez disso, descreve dois várias abordagens. O programador é responsável por à adequação das cada abordagem.
 
 ## <a name="user-migration-flows"></a>Fluxos de migração de utilizador
-Com o Azure AD B2C, pode migrar utilizadores através de [Graph API](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). O processo de migração de utilizador se enquadrar dois fluxos:
+Com o Azure AD B2C, pode migrar utilizadores através de [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). O processo de migração de utilizador se enquadrar dois fluxos:
 
 * **Pré-migração**: este fluxo aplica-se quando tiver ou desmarque acesso às credenciais de um utilizador (nome de utilizador e palavra-passe) ou as credenciais estão encriptadas, mas pode desencriptá-los. O processo de pré-migração envolve a leitura os utilizadores a partir do fornecedor de identidade antiga e criar novas contas no diretório do Azure AD B2C.
 
@@ -100,7 +100,7 @@ Ler e escrever permissões de dados de diretório *não* inclui o direito para e
 > Tem de utilizar uma conta de administrador de inquilino B2C é *local* para o inquilino do B2C. A sintaxe do nome de conta é  *admin@contosob2c.onmicrosoft.com* .
 
 >[!NOTE]
-> Requer o seguinte script do PowerShell [do Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+> Requer o seguinte script do PowerShell [do Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 Este script do PowerShell, efetue o seguinte:
 1. Ligar ao seu serviço online. Para tal, execute o `Connect-AzureAD` cmdlet no Windows PowerShell linha de comandos e forneça as suas credenciais. 
@@ -148,7 +148,7 @@ Para editar o ficheiro JSON, abra o `AADB2C.UserMigration.sln` solução do Visu
 ![Ficheiro de dados do utilizador](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 Como pode ver, o ficheiro contém uma lista de entidades do utilizador. Cada entidade de utilizador tem as seguintes propriedades:
-* Correio eletrónico
+* e-mail
 * displayName
 * Nome próprio
 * Apelido
@@ -278,7 +278,7 @@ Para controlar a alteração de palavra-passe, pode utilizar uma tabela do Azure
     ```
 
 ### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>Passo 4.2: Implementar a aplicação de web no App Service do Azure
-Publica o seu serviço de API no App Service do Azure. Para obter mais informações, consulte [implementar a aplicação no App Service do Azure](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+Publica o seu serviço de API no App Service do Azure. Para obter mais informações, consulte [implementar a aplicação no App Service do Azure](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy).
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>Passo 4.3: Adicionar um perfil técnica e a validação do perfil técnica para a política 
 1. No seu diretório de trabalho, abra o *TrustFrameworkExtensions.xml* ficheiro de política de extensão. 
@@ -384,7 +384,7 @@ Pode ver e monitorizar as informações de registo em tempo quase real.
 
 6. Verifique o resultado da RESTful API.
 
-Para obter mais informações, consulte [a consola e registos de transmissão em fluxo](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console).
+Para obter mais informações, consulte [a consola e registos de transmissão em fluxo](https://docs.microsoft.com/azure/app-service-web/web-sites-streaming-logs-and-console).
 
 > [!IMPORTANT]
 > Utilize os registos de diagnóstico apenas durante o desenvolvimento e teste. O resultado de RESTful API poderá conter informações confidenciais que não devem ser expostas na produção.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 8a4c9d37f0a6d004422fb745ac991f2648d2e255
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: e1c4a507214b9686154fc8311121b56f42f5cd40
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Descrição geral de ciência de dados com o Spark no Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -44,8 +44,8 @@ Estes blocos de notas estão a ser executados no kernel do pySpark do servidor d
 ### <a name="spark-20-notebooks"></a>Blocos de notas do Spark 2.0
 Estes blocos de notas estão a ser executados do kernel pySpark3 do servidor de bloco de notas do Jupyter.
 
-- [Spark2.0-pySpark3-Machine-Learning-data-Science-spark-Advanced-Data-Exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): este ficheiro fornece informações sobre como efetuar a exploração de dados, modelação de e classificação no Spark 2.0 clusters com a viagem NYC Taxi e fare-conjunto de dados descrito [aqui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Este bloco de notas pode ser um ponto de partida para explorar rapidamente o código que forneceu para Spark 2.0. Para um bloco de notas mais detalhado analisa os dados de NYC Taxi, consulte o seguinte bloco de notas nesta lista. Consulte as notas desta lista a seguir e comparam estes blocos de notas. 
-- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): este ficheiro mostra como efetuar dados wrangling (operações de Spark SQL e dataframe), exploração, modelação e a classificação utilizando a viagem NYC Taxi e fare conjunto de dados descritos [aqui ](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3-Machine-Learning-data-Science-spark-Advanced-Data-Exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): este ficheiro fornece informações sobre como efetuar a exploração de dados, modelação de e classificação no Spark 2.0 clusters com a viagem NYC Taxi e fare-conjunto de dados descrito [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Este bloco de notas pode ser um ponto de partida para explorar rapidamente o código que forneceu para Spark 2.0. Para um bloco de notas mais detalhado analisa os dados de NYC Taxi, consulte o seguinte bloco de notas nesta lista. Consulte as notas desta lista a seguir e comparam estes blocos de notas. 
+- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): este ficheiro mostra como efetuar dados wrangling (operações de Spark SQL e dataframe), exploração, modelação e a classificação utilizando a viagem NYC Taxi e fare conjunto de dados descritos [aqui ](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
 - [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): este ficheiro mostra como efetuar dados wrangling (operações de Spark SQL e dataframe), exploração, modelação e a classificação utilizando o distanciamento de tempo companhia aérea bem conhecido conjunto de dados de 2011 e 2012. É integrado o conjunto de dados companhia aérea com os dados de Meteorologia airport (por exemplo, windspeed temperatura, altitude etc.) antes da modelação de para que estas funcionalidades Meteorologia podem ser incluídas no modelo.
 
 <!-- -->

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: shlo
-ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorizar visualmente fábricas de dados do Azure
 O Azure Data Factory é um serviço de integração de dados baseado na cloud que lhe permite criar fluxos de trabalho condicionados por dados na cloud para orquestrar e automatizar o movimento e a transformação de dados. Com o Azure Data Factory, poderá criar e agendar fluxos de trabalho condicionados por dados (denominados pipelines) que são capazes de ingerir dados provenientes de diferentes arquivos de dados, processar/transformar os dados através de serviços de computação, tais como o Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning, e publicar os dados de saída em arquivos de dados como o Azure SQL Data Warehouse para serem consumidos por aplicações de business intelligence (BI).
@@ -45,11 +45,11 @@ Vista de lista que mostram a cada pipeline executar para os seus pipelines de v2
 | Ações | Única ação disponível para ver a atividade é executada. |
 | Executar início | Início da execução de pipeline de tempo de data (MM/DD/AAAA HH: mm: SS AM/PM) |
 | Duração | Duração de execução (hh: mm:) |
-| Acionada por | Acionamento manual, acionador da agenda |
+| Acionada Por | Acionamento manual, acionador da agenda |
 | Estado | Não foi possível, foi concluída com êxito, em curso |
 | Parâmetros | Executar o pipeline parâmetros (nome, pares de valor) |
 | Erro | Pipeline executar erro (se/qualquer) |
-| Execute o ID | ID do pipeline executar |
+| ID de Execução | ID do pipeline executar |
 
 ![Monitorizar o pipeline é executada](media/monitor-visually/pipeline-runs.png)
 
@@ -58,7 +58,7 @@ Vista de lista que mostram a execuções de atividade correspondente a cada exec
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
-| Nome da atividade | Nome da atividade no pipeline. |
+| Nome da Actividade | Nome da atividade no pipeline. |
 | Tipo de atividade | Tipo de atividade ou seja, o cópia, HDInsightSpark, HDInsightHive etc. |
 | Executar início | Início de execução da atividade tempo data (MM/DD/AAAA HH: mm: SS AM/PM) |
 | Duração | Duração de execução (hh: mm:) |
@@ -92,15 +92,15 @@ Pipeline de ordem é executada desc/asc ao iniciar a execução e o pipeline de 
 #### <a name="addremove-columns-to-list-view"></a>Adicionar/remover colunas para a vista de lista
 Clique com o botão direito do rato no cabeçalho de vista de lista e escolha as colunas que pretende que sejam apresentados na vista de lista
 
-![colunas](media/monitor-visually/columns.png)
+![Colunas](media/monitor-visually/columns.png)
 
 #### <a name="reorder-column-widths-in-list-view"></a>Reordenar larguras de coluna na vista de lista
 Aumentar e diminuir as larguras de coluna na vista de lista por cima simplesmente no cabeçalho da coluna
 
-#### <a name="select-data-factory"></a>Selecione a fábrica de dados
+#### <a name="select-data-factory"></a>Selecionar fábrica de dados
 Paire o rato sobre o ícone de fábrica de dados na parte superior esquerda. Clique no ícone de 'seta para' para ver uma lista de fábricas de dados e as subscrições do azure que pode monitorizar.
 
-![Selecione a fábrica de dados](media/monitor-visually/select-datafactory.png)
+![Selecionar fábrica de dados](media/monitor-visually/select-datafactory.png)
 
 #### <a name="guided-tours"></a>Tours orientada
 Clique em 'Ícone informações' na parte inferior esquerda e clique em 'Orientado Tours' para obter instruções passo a passo sobre como monitorizar o pipeline e a atividade executa.
@@ -114,4 +114,4 @@ Clique no ícone 'Comentários' para fornecer comentários em várias funcionali
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte [monitorizar e gerir pipelines programaticamente](https://docs.microsoft.com/en-us/azure/data-factory/monitor-programmatically) artigo para saber mais sobre como monitorizar e gerir pipelines
+Consulte [monitorizar e gerir pipelines programaticamente](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) artigo para saber mais sobre como monitorizar e gerir pipelines

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: db92fdcdad6f6a81d749fd7648d48da53c21479f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com agentes e/ou extensão
 
@@ -34,6 +34,7 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [o agente instalado na VM está desatualizado (para VMs com Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [não é possível obter o estado de instantâneo ou não pode ser obtido um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [a extensão de cópia de segurança não consegue atualizar ou carregar](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>Causa 6: [VMs clássicas do Azure pode necessitar de um passo adicional para concluir o registo](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Operação de instantâneos falhou devido a sem conectividade de rede na máquina virtual
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa ao comunicar com a extensão de cópia de segurança de VM para criar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir o instantâneo de que está a ser acionado, o que por sua vez, pode levar a falhas de cópia de segurança. Siga abaixo passos pela ordem indicada de resolução de problemas e repita a operação.
@@ -69,14 +70,14 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>A configuração de disco especificada não é suportada
 
 > [!NOTE]
-> Temos uma versão de pré-visualização privada para suportar cópias de segurança para VMs com > discos de 1TB não gerido. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Temos uma pré-visualização privada para suportar cópias de segurança de VMs com mais do que 1 TB de discos não geridos. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
 Cópia de segurança do Azure não suporta atualmente os tamanhos de disco [superior a 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Se tiver discos superiores a 1 TB, [anexar novos discos](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) que são inferior a 1 TB <br>
-- Em seguida, copie os dados a partir de disco superior a 1TB para recém-criado discos de tamanho inferior a 1 TB. <br>
-- Certifique-se de que todos os dados foram copiados e remova os discos superiores a 1TB
+- Se tiver discos superiores a 1 TB, [ligue novos discos](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) que sejam inferiores a 1 TB <br>
+- Em seguida, copie os dados do disco superior a 1 TB para o disco ou discos que acabou de criar com um tamanho inferior a 1 TB. <br>
+- Certifique-se de que copiou todos os dados e remova os discos superiores a 1 TB
 - Iniciar a cópia de segurança
 
 ## <a name="causes-and-solutions"></a>Causas e soluções
@@ -115,7 +116,7 @@ O agente de VM poderá ter sido danificado ou o serviço poderá foram parado. R
 6. Em seguida, deve ser capaz de ver os serviços do agente de convidados do Windows nos serviços
 7. Tente executar uma cópia de segurança no-a pedido/adhoc clicando em "cópia de segurança agora' de no portal.
 
-Verifique também se a Máquina Virtual possui  **[.NET 4.5 instalados no sistema](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. É necessário para o agente da VM comunicar com o serviço
+Verifique também se a Máquina Virtual possui  **[.NET 4.5 instalados no sistema](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. É necessário para o agente da VM comunicar com o serviço
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>O agente instalado na VM está desatualizado (para VMs com Linux)
 
@@ -183,4 +184,23 @@ Para desinstalar a extensão, efetue o seguinte:
 6. Clique em **desinstalar**.
 
 Este procedimento faz com que a extensão de ser reinstalado durante a próxima cópia de segurança.
+
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>VMs clássicas do Azure pode necessitar de um passo adicional para concluir o registo
+O agente em VMs clássicas do Azure deve estar registado para estabelecer ligação ao serviço de cópia de segurança e iniciar a cópia de segurança
+
+#### <a name="solution"></a>Solução
+
+Depois de instalar o agente convidado da VM, inicie o Azure PowerShell <br>
+1. No início de sessão na conta do Azure a utilizar <br>
+       `Login-AzureAsAccount`<br>
+2. Certifique-se de que se da VM ProvisionGuestAgent for definida como True, pelo que os seguintes comandos <br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. Se a propriedade está definida como FALSE, siga abaixo comandos para configurá-lo para verdadeiro<br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. Em seguida, execute o seguinte comando para atualizar a VM <br>
+        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
+5. Tente iniciar a cópia de segurança. <br>
+
 

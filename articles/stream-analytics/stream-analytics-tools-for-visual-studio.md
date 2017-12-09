@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sujie
-ms.openlocfilehash: 8e3f1ae6739896dfd1329561dbcede38a6069546
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Utilize as ferramentas do Azure Stream Analytics para o Visual Studio
 Ferramentas de Stream Analytics do Azure para Visual Studio agora são geralmente disponíveis. Estas ferramentas ativar uma experiência mais rica para os utilizadores de Stream Analytics resolver problemas, bem como escrever consultas complexas e até mesmo escrever consultas localmente. Também pode exportar uma tarefa de Stream Analytics para um projeto do Visual Studio.
@@ -40,7 +40,7 @@ Terá dos seguintes pré-requisitos para concluir este tutorial:
 
 * Conclua os passos até "Criar uma tarefa de Stream Analytics" no tutorial [criar uma solução de IoT utilizando o Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Instale Visual Studio 2017, o Visual Studio 2015 ou o Visual Studio 2013 atualização 4. Enterprise (Ultimate/Premium), Professional e Community são suportadas as edições. Não é suportada a edição Express. 
-* Siga o [instruções de instalação](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) instalar as ferramentas de Stream Analytics para o Visual Studio.
+* Siga o [instruções de instalação](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) instalar as ferramentas de Stream Analytics para o Visual Studio.
 
 ## <a name="create-a-stream-analytics-project"></a>Criar um projeto do Stream Analytics
 No Visual Studio, selecione **ficheiro** > **novo projeto**. Na lista de modelos, no lado esquerdo, selecione **Stream Analytics**e, em seguida, selecione **aplicação do Azure Stream Analytics**.
@@ -98,7 +98,7 @@ O projeto **utilização** é gerado no **Explorador de soluções**.
    
 12. Clique com botão direito do **entradas** nós no projeto e, em seguida, siga o mesmo processo para as entradas de fluxo. Para **tipo de origem**, selecione **referência a dados**e para **Alias de entrada**, introduza **registo**.
    
-    ![Definições de registo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
+    ![Definições do registo](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-define-input-06.png)
    
 13. Selecione o **armazenamento** conta que contém a opção com **TollData**. O nome do contentor é **TollData**e o **padrão do caminho** é **registration.json**. Este nome de ficheiro é sensível a maiúsculas e minúsculas e deve estar em minúscula.
 
@@ -137,7 +137,7 @@ Para obter mais detalhes, leia sobre [tempo gestão](https://msdn.microsoft.com/
 
 Agora que tem de escrever a primeira consulta do Stream Analytics, testá-lo através da utilização de ficheiros de dados de exemplo localizados na pasta TollApp no seguinte caminho:
 
-**..\TollApp\TollApp\Data**
+**.. \TollApp\TollApp\Data**
 
 Esta pasta contém os seguintes ficheiros:
 

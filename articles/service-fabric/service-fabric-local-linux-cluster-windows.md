@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: suhuruli
-ms.openlocfilehash: 57f9dae1b353b873fdc0ec5903018d160cfe384f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f21561269e90e3643ef5d8d48ee28712ee7f611c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurar um cluster de Linux Service Fabric no seu computador de programador do Windows
 
@@ -27,7 +27,7 @@ Este documento abrange como configurar uma infraestrutura de serviço local do L
 ## <a name="prerequisites"></a>Pré-requisitos
 Clusters de Service Fabric baseados em Linux não executam nativamente no Windows. Para executar um cluster de Service Fabric local, é fornecida uma imagem de contentor do Docker previamente configurada. Antes de começar, vai precisar do:
 
-* Pelo menos 4 GB de RAM
+* De, pelo menos, 4 GB de RAM
 * Da versão mais recente do [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
 * De acesso à [imagem](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) de contentor do Service Fabric One-box do Docker
 
@@ -37,7 +37,7 @@ Clusters de Service Fabric baseados em Linux não executam nativamente no Window
 
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>Criar um contentor local e configurar o Service Fabric
-Para configurar um contentor de Docker local e tiver um cluster do service fabric em execução no mesmo, execute os seguintes passos:
+Para configurar um contentor do Docker local e executar um cluster do Service Fabric no mesmo, realize os passos seguintes:
 
 1. Extrair a imagem do repositório de hubs do Docker:
 
@@ -45,7 +45,7 @@ Para configurar um contentor de Docker local e tiver um cluster do service fabri
     docker pull servicefabricoss/service-fabric-onebox
     ```
 
-2. Atualize a configuração de daemon de Docker no seu anfitrião com o seguinte e reinicie o daemon de Docker: 
+2. Atualize a configuração do daemon do Docker no seu anfitrião com o seguinte e reinicie-o: 
 
     ```json
     {
@@ -62,9 +62,9 @@ Para configurar um contentor de Docker local e tiver um cluster do service fabri
     ```
     >[!TIP]
     > * Especificar um nome para a instância do contentor permite-lhe processá-la de forma mais legível. 
-    > * Se a aplicação está a escutar determinadas portas, tem de ser especificado utilizando etiquetas -p adicionais. Por exemplo, se a sua aplicação em escuta na porta 8080, execução docker run 8080:8080 de -p de 19080:19080 -p - itd – nome sfonebox servicefabricoss/service-infraestrutura-onebox
+    > * Se a aplicação estiver a escutar em determinadas portas, tem de ser especificada com etiquetas -p adicionais. Por exemplo, se escutar na porta 8080, execute docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox
 
-4. Inicie sessão no contentor de Docker interativa do ssh modo:
+4. Inicie sessão no contentor do Docker no modo ssh interativo:
 
     ```powershell
     docker exec -it sfonebox bash
@@ -83,7 +83,7 @@ Para configurar um contentor de Docker local e tiver um cluster do service fabri
     > O plug-in do Eclipse não é atualmente suportado no Windows. 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Introdução ao [Eclipse](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-eclipse)
+* Introdução ao [Eclipse](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-eclipse)
 * Veja outros [exemplos de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 

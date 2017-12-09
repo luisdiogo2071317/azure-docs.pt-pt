@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: cd7dab8514b41d930d01fd134229cc9da48b18fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 519ac38c484b9631a3fc096a17be026e9378a178
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning a deteção de anomalias API
 ## <a name="overview"></a>Descrição geral
@@ -44,13 +44,13 @@ A oferta de deteção de anomalias inclui ferramentas úteis para ajudar a come�
 >
 
 ## <a name="api-deployment"></a>Implementação de API
-Para utilizar a API, terá de a implementar a sua subscrição do Azure onde será alojado como um serviço web do Azure Machine Learning.  Pode fazê-do [galeria da Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Isto irá implementar dois serviços Web do AzureML (e os respetivos recursos relacionados) à sua subscrição do Azure - uma para deteção de anomalias com deteção de sazonalidade e um sem deteção de sazonalidade.  Depois de concluída a implementação, poderá gerir as suas APIs do [serviços web do AzureML](https://services.azureml.net/webservices/) página.  Nesta página, poderá encontrar as localizações de ponto final, chaves de API, bem como código de exemplo para chamar a API.  Estão disponíveis instruções mais detalhadas [aqui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice).
+Para utilizar a API, terá de a implementar a sua subscrição do Azure onde será alojado como um serviço web do Azure Machine Learning.  Pode fazê-do [galeria da Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Isto irá implementar dois serviços Web do AzureML (e os respetivos recursos relacionados) à sua subscrição do Azure - uma para deteção de anomalias com deteção de sazonalidade e um sem deteção de sazonalidade.  Depois de concluída a implementação, poderá gerir as suas APIs do [serviços web do AzureML](https://services.azureml.net/webservices/) página.  Nesta página, poderá encontrar as localizações de ponto final, chaves de API, bem como código de exemplo para chamar a API.  Estão disponíveis instruções mais detalhadas [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>A API de dimensionamento
 Por predefinição, a sua implementação terá um plano de faturação do programador/teste gratuito que inclui 1.000 transações/mês e horas de computação 2/mês.  Pode atualizar para outro plano de acordo com as suas necessidades.  Estão disponíveis detalhes sobre os preços dos planos diferentes [aqui](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) em "Preços da API de Web de produção".
 
 ## <a name="managing-aml-plans"></a>Gerir AML planos 
-Pode gerir o seu plano de faturação [aqui](https://services.azureml.net/plans/).  O nome do plano será baseado no nome de grupo de recursos que escolheu durante a implementação da API, mais uma cadeia que é exclusiva para a sua subscrição.  Estão disponíveis instruções sobre como atualizar o seu plano [aqui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice) na secção "Gerir planos de faturação".
+Pode gerir o seu plano de faturação [aqui](https://services.azureml.net/plans/).  O nome do plano será baseado no nome de grupo de recursos que escolheu durante a implementação da API, mais uma cadeia que é exclusiva para a sua subscrição.  Estão disponíveis instruções sobre como atualizar o seu plano [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) na secção "Gerir planos de faturação".
 
 ## <a name="api-definition"></a>Definição da API
 O serviço web fornece uma API baseada em REST através de HTTPS, que pode ser utilizada de diversas formas, incluindo um web ou aplicação móvel, R, Python, Excel, etc.  Enviar os dados de séries de tempo para este serviço através de uma chamada de REST API e é executada uma combinação de tipos de três anomalias descrito abaixo.
@@ -108,7 +108,7 @@ A API de pontuação é utilizada para executar a deteção de anomalias nos dad
 ### <a name="detectors"></a>Detetores
 A deteção de anomalias API suporta detetores 3 amplas categorias. Detalhes sobre os parâmetros de entrada específicos e saídas para cada detector podem ser encontrados na seguinte tabela.
 
-| Categoria de detector | Detector | Descrição | Parâmetros de entrada | saídas |
+| Categoria de detector | Detector | Descrição | Parâmetros de entrada | Saídas |
 | --- | --- | --- | --- | --- |
 | Detetores de pico de pedidos |TSpike Detector |Detetar picos e dips com base na proximidade os valores são da primeira e terceira quartiles |*tspikedetector.Sensitivity:* assume o valor de número inteiro no intervalo predefinido de 1 a 10: 3; Valores superiores vai detetar mais extremos valores, por conseguinte, facilitando a menos confidencial |TSpike: valores binários-1 se for detetado um pico pedidos/dip, '0', caso contrário |
 | Detetores de pico de pedidos | ZSpike Detector |Detetar picos e dips com base para datapoints pertencem à respetiva média |*zspikedetector.Sensitivity:* assumir o valor de número inteiro no intervalo predefinido de 1 a 10: 3; Valores superiores vai detetar mais extremos valores tornando menos confidencial |ZSpike: valores binários-1 se for detetado um pico pedidos/dip, '0', caso contrário | |
@@ -131,7 +131,7 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 ### <a name="output"></a>Saída
 A API é executado todos os detetores nos seus dados de séries de tempo e devolve pontuações de anomalias e indicadores de pico de pedidos de binário para cada ponto no tempo. A tabela abaixo lista as saídas da API. 
 
-| saídas | Descrição |
+| Saídas | Descrição |
 | --- | --- |
 | Hora |Carimbos de dados não processados ou dados agregados (e/ou) imputed se agregação (e/ou) em falta imputation de dados é aplicada |
 | Dados |Os valores de dados não processados ou dados agregados (e/ou) imputed se agregação (e/ou) em falta imputation de dados é aplicada |
@@ -166,7 +166,7 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 | negtrenddetector.Sensitivity |Sensibilidade para detector tendência negativo. |3.25 |duplo |Nenhuma |3.25-5 (valores menores significam mais confidencial) |
 | tspikedetector.Sensitivity |Sensibilidade para TSpike Detector |3 |número inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
 | zspikedetector.Sensitivity |Sensibilidade para ZSpike Detector |3 |número inteiro |1-10 |3 a 5 (valores menores significam mais confidencial) |
-| seasonality.Enable |Se a análise de sazonalidade é para ser executada |VERDADEIRO |Valor booleano |TRUE, false |Dependente de séries de tempo |
+| seasonality.Enable |Se a análise de sazonalidade é para ser executada |true |Valor booleano |TRUE, false |Dependente de séries de tempo |
 | seasonality.numSeasonality |Número máximo de ciclos periódicos para ser detetada |1 |número inteiro |1, 2 |1-2 |
 | seasonality.Transform |Se sazonais (e) componentes de tendência deverá ser removidos antes de aplicar a deteção de anomalias |deseason |enumerar |Nenhum, deseason, deseasontrend |N/D |
 | postprocess.tailRows |Número de pontos de dados mais recentes que serão guardadas nos resultados de saída |0 |número inteiro |0 (manter todos os pontos de dados), ou especifique o número de pontos a manter nos resultados |N/D |
@@ -174,7 +174,7 @@ Informações mais detalhadas sobre estes parâmetros de entrada estão listadas
 ### <a name="output"></a>Saída
 A API é executado todos os detetores nos seus dados de séries de tempo e devolve pontuações de anomalias e indicadores de pico de pedidos de binário para cada ponto no tempo. A tabela abaixo lista as saídas da API. 
 
-| saídas | Descrição |
+| Saídas | Descrição |
 | --- | --- |
 | Hora |Carimbos de dados não processados ou dados agregados (e/ou) imputed se agregação (e/ou) em falta imputation de dados é aplicada |
 | OriginalData |Os valores de dados não processados ou dados agregados (e/ou) imputed se agregação (e/ou) em falta imputation de dados é aplicada |

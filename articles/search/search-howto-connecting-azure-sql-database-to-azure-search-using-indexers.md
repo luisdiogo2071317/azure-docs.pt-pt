@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Ligação SQL Database do Azure para a Azure Search utilizando indexadores
 
@@ -44,7 +44,7 @@ Pode configurar e configurar um indexador de SQL do Azure utilizando:
 
 * Assistente de importação de dados no [portal do Azure](https://portal.azure.com)
 * A pesquisa do Azure [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* A pesquisa do Azure [REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations)
+* A pesquisa do Azure [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
 
 Neste artigo, iremos utilizar a API REST para criar **indexadores** e **origens de dados**.
 
@@ -302,8 +302,8 @@ Indexador SQL expõe várias definições de configuração:
 
 | Definição | Tipo de dados | Objetivo | Valor predefinido |
 | --- | --- | --- | --- |
-| queryTimeout |Cadeia |Define o tempo limite para a execução da consulta SQL |5 minutos ("00: 05:00") |
-| disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL utilizada pela política de nível máximo para omita a cláusula ORDER BY. Consulte [política de nível máximo](#HighWaterMarkPolicy) |FALSO |
+| queryTimeout |string |Define o tempo limite para a execução da consulta SQL |5 minutos ("00: 05:00") |
+| disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL utilizada pela política de nível máximo para omita a cláusula ORDER BY. Consulte [política de nível máximo](#HighWaterMarkPolicy) |False |
 
 Estas definições são utilizadas no `parameters.configuration` objeto na definição do indexador. Por exemplo, para definir o tempo limite de consulta para 10 minutos, criar ou atualizar o indexador com a seguinte configuração:
 

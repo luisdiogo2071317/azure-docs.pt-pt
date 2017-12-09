@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 2f1f9f306d7759cbd1202c985da27a2a3b879ebd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicações de .NET
 
@@ -299,6 +299,6 @@ Se ainda não vir uma exceção com esse ID de instantâneo, não foi reportada 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Definir snappoints no seu código](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) obter instantâneos sem aguardar por uma exceção.
+* [Definir snappoints no seu código](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) obter instantâneos sem aguardar por uma exceção.
 * [Diagnosticar exceções nas suas aplicações web](app-insights-asp-net-exceptions.md) explica como tornar mais exceções visíveis para o Application Insights. 
 * [Deteção de smart](app-insights-proactive-diagnostics.md) Deteta automaticamente anomalias de desempenho.

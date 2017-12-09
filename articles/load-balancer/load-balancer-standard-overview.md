@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 08e4e22ae7e5d6f6efad458b4240a6d57090e865
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Descrição geral do padrão de Balanceador de carga do Azure (pré-visualização)
 
@@ -335,7 +335,7 @@ Padrão de Balanceador de carga está atualmente disponível nestas regiões:
 
 ## <a name="sku-service-limits-and-abilities"></a>Limites de serviço SKU e capacidades
 
-Azure [limites de serviço para funcionamento em rede](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) aplicam-se por região por subscrição. 
+Azure [limites de serviço para funcionamento em rede](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) aplicam-se por região por subscrição. 
 
 A tabela seguinte compara os limites e capacidades do Balanceador de carga básico e padrão SKUs:
 

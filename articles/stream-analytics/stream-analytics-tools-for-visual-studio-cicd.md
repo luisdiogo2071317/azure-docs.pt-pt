@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 9/27/2017
 ms.author: sujie
-ms.openlocfilehash: 13fe5e37424704bd5b948d3a6629c28b320025c4
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 0fdc7bd1a98e147bf6c7f7c290f03a878c83a1a9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-stream-analytics-visual-studio-tools-to-set-up-a-continuous-integration-and-deployment-process"></a>Utilizar ferramentas de Stream Analytics Visual Studio para configurar um processo de integração e a implementação contínuo
 Neste tutorial, irá aprender a utilizar as ferramentas do Visual Studio do Azure Stream Analytics para configurar um processo de implementação e a integração contínua.
 
-A versão mais recente (2.3.0000.0 ou superior) de [ferramentas do Stream Analytics para o Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio) adiciona suporte para MSBuild.
+A versão mais recente (2.3.0000.0 ou superior) de [ferramentas do Stream Analytics para o Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) adiciona suporte para MSBuild.
 
 Há também um pacote NuGet recentemente publicado, [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Fornece o MSBuild, execução local e ferramentas de implementação que suportam o processo de integração e a implementação contínuo de projetos do Visual Studio do Stream Analytics. 
 > [!NOTE] 
 O pacote NuGet pode ser utilizado apenas com o 2.3.0000.0 ou acima versão do Stream Analytics Tools para Visual Studio. Se tiver projetos criados em versões anteriores das ferramentas do Visual Studio, basta abri-los com o 2.3.0000.0 ou superior a versão e guardar. Em seguida, as novas funcionalidades estão ativadas. 
 
-Saiba como utilizar o [ferramentas do Stream Analytics para o Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Saiba como utilizar o [ferramentas do Stream Analytics para o Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="msbuild"></a>MSBuild
 Como a experiência de Visual Studio MSBuild padrão, para criar um projeto tem duas opções. Clique com o botão direito no projeto e, em seguida, escolha **criar**. Também pode utilizar **MSBuild** no pacote NuGet na linha de comandos.
@@ -59,7 +59,7 @@ Para todas as credenciais, os valores predefinidos são definidos como nulo. É 
       "value": null
     },
 ```
-Saiba mais sobre como [implementar com um ficheiro de modelo do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy). Saiba mais sobre como [utilizar um objeto como um parâmetro num modelo do Resource Manager](https://docs.microsoft.com/en-us/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Saiba mais sobre como [implementar com um ficheiro de modelo do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Saiba mais sobre como [utilizar um objeto como um parâmetro num modelo do Resource Manager](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 
 ## <a name="command-line-tool"></a>Ferramenta de linha de comandos

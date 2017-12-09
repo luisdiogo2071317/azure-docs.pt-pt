@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 7b768ee5dcb16859e88a0f8c0a0c1d5097498477
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: e1e858b19f9aed680f95ad2f5e84310200340bf9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
-Utilizar o Azure Active Directory (Azure AD), pode designar administradores separados para servir diferentes funções. Os administradores têm acesso a várias funcionalidades no portal do Azure ou portal clássico do Azure e, consoante a respetiva função, podem criar ou editar utilizadores, atribuir funções administrativas a outras pessoas, repor palavras-passe do utilizador, gerir licenças de utilizador e gerir os domínios, entre outros coisas. Um utilizador a quem é atribuído uma função de administrador terá as mesmas permissões em todos os serviços de nuvem que a sua organização tem subscritas, independentemente de atribuir a função no portal do Office 365, ou no portal clássico do Azure ou utilizando o módulo do Azure AD para o Windows PowerShell.
+Utilizar o Azure Active Directory (Azure AD), pode designar administradores separados para servir diferentes funções. Os administradores têm acesso a várias funcionalidades no portal do Azure e, consoante a respetiva função, podem criar ou editar utilizadores, atribuir funções administrativas a outras pessoas, repor palavras-passe do utilizador, gerir licenças de utilizador e gerir os domínios, entre outras coisas. Um utilizador a quem é atribuído uma função de administrador terá as mesmas permissões em todos os serviços de nuvem a que a organização tem subscritas, independentemente de atribuir a função no portal do Office 365, ou no portal do Azure ou utilizando o módulo do Azure AD para Windows PowerShell.
 
 Estão disponíveis as seguintes funções de administrador:
 
@@ -117,7 +117,7 @@ Estão disponíveis as seguintes funções de administrador:
 | --- | --- |
 | <p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Repor palavras-passe do utilizador</p> <p>Repor palavras-passe de outro administrador</p>|<p>Efetuar operações de faturação e compras para produtos do Office</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ver relatórios</p>|
 
-### <a name="service-administrator"></a>Administrador de serviços
+### <a name="service-administrator"></a>Administrador de serviço
 | Pode fazê-lo | Não é possível efetuar |
 | --- | --- |
 | <p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p> |<p>Repor palavras-passe do utilizador</p><p>Efetuar operações de faturação e compras para produtos do Office</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ver registos de auditoria</p> |
@@ -130,14 +130,14 @@ Estão disponíveis as seguintes funções de administrador:
 ### <a name="security-reader"></a>Leitor de segurança
 | No | Pode fazê-lo |
 | --- | --- |
-| Centro de proteção de identidade |Ler todos os relatórios de segurança e informações de definições de funcionalidades de segurança<ul><li>Anti spam<li>Encriptação<li>Prevenção de perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Antiphishing<li>Regras de Mailflow |
+| Identity Protection Center |Ler todos os relatórios de segurança e informações de definições de funcionalidades de segurança<ul><li>Anti spam<li>Encriptação<li>Prevenção de perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Antiphishing<li>Regras de Mailflow |
 | Privileged Identity Management |<p>Tem acesso só de leitura para todas as informações anexados no Azure AD PIM: as políticas e relatórios para atribuições de funções do Azure AD, segurança analisa e acesso aos dados de política e relatórios para cenários para além de atribuição de função do Azure AD de leitura no futuro.<p>**Não é possível** inscrever-se no Azure AD PIM ou efetue as alterações. No portal do PIM ou através do PowerShell, alguém que esta função pode ativar funções adicionais (por exemplo, Administrador Global ou com privilégios de função de administrador), se o utilizador é uma candidata para os mesmos. |
 | <p>O estado de funcionamento do monitor do Office 365 serviço</p><p>Segurança do Office 365 e o Centro de conformidade</p> |<ul><li>Ler e gerir alertas<li>Políticas de segurança de leitura<li>Ler informações sobre ameaças, o Cloud App Discovery e colocam em quarentena na procura e investigar<li>Ler todos os relatórios |
 
 ### <a name="security-administrator"></a>Administrador de segurança
 | No | Pode fazê-lo |
 | --- | --- |
-| Centro de proteção de identidade |<ul><li>Todas as permissões da função de leitor de segurança.<li>Além disso, a capacidade de efetuar todas as operações de IPC exceto repor palavras-passe. |
+| Identity Protection Center |<ul><li>Todas as permissões da função de leitor de segurança.<li>Além disso, a capacidade de efetuar todas as operações de IPC exceto repor palavras-passe. |
 | Privileged Identity Management |<ul><li>Todas as permissões da função de leitor de segurança.<li>**Não é possível** gerir as subscrições de funções do Azure AD ou as definições. |
 | <p>O estado de funcionamento do monitor do Office 365 serviço</p><p>Segurança do Office 365 e o Centro de conformidade |<ul><li>Todas as permissões da função de leitor de segurança.<li>Pode configurar todas as definições na funcionalidade Advanced Threat Protection (proteção de software maligno e vírus, maliciosa URL configuração, o rastreio de URL, etc.). |
 

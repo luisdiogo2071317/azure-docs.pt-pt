@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: pullabhk;markgal;
-ms.openlocfilehash: 696f86f616575364bb65021260daf0c8458fc4e9
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: f75b7540ded85440cf20299836a214337250118e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
@@ -26,15 +26,15 @@ Pode resolver erros encontrados ao utilizar o servidor de cópia de segurança d
 
 ## <a name="invalid-vault-credentials-provided"></a>Credenciais do cofre inválidas fornecidas 
 
-Siga estes [passos de resolução de problemas] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) para resolver este problema.
+Siga estes [passos de resolução de problemas] (https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) para resolver este problema.
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-server"></a>A operação do agente falhou devido a um erro de comunicação com o serviço de coordenador de agente do DPM no servidor 
 
-Siga estes [passos de resolução de problemas] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) para resolver este problema.
+Siga estes [passos de resolução de problemas] (https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues) para resolver este problema.
 
 ## <a name="setup-could-not-update-registry-metadata"></a>A configuração não foi possível atualizar os metadados de registo
 
-Siga estes [passos de resolução de problemas] (https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#installation-issues) para resolver este problema.
+Siga estes [passos de resolução de problemas] (https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#installation-issues) para resolver este problema.
 
 
 ## <a name="installation-issues"></a>Problemas de instalação

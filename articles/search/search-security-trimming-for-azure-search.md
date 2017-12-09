@@ -11,11 +11,11 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-trimming-with-azure-search"></a>Corte de segurança com a pesquisa do Azure
 
@@ -108,13 +108,13 @@ Se precisar de atualizar um documento existente com a lista de grupos, pode util
 }
 ```
 
-Para obter detalhes completos sobre adicionar ou atualizar documentos, pode ler [editar documentos](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
+Para obter detalhes completos sobre adicionar ou atualizar documentos, pode ler [editar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Aplique o filtro de segurança
 
 Para compactar documentos com base na `group_ids` acesso, deve emitir uma consulta de pesquisa com um `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filtro, onde 'group_id1, group_id2,...' são os grupos a que pertence o emissor de pedido de pesquisa.
 Este filtro corresponde a todos os documentos para o qual o `group_ids` campo contém uma dos identificadores indicados.
-Para obter detalhes completos na procura de documentos através da Azure Search, pode ler [documentos sobre pesquisa](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+Para obter detalhes completos na procura de documentos através da Azure Search, pode ler [documentos sobre pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Tenha em atenção que este exemplo mostra como procurar documentos através de um pedido POST.
 
 Emita o pedido de HTTP POST:

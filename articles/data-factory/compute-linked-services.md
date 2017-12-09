@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: shengc
-ms.openlocfilehash: a530b08c276596ddbffafc21e6cffdd9e0e9e3fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: db3be2120c998a0c8973a85d375b526f53e73247
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 Este artigo explica vários ambientes de computação que pode utilizar para o processo ou de transformação de dados. Também fornece detalhes sobre as configurações diferentes (a pedido vs traga o seu próprio) suportados pela fábrica de dados, quando configurar serviços ligados de ligação estes computação ambientes para um Azure data factory.
@@ -106,7 +106,7 @@ O JSON seguinte define um serviço ligado do HDInsight baseado em Linux da pedid
 | clusterResourceGroup         | O cluster do HDInsight é criado neste grupo de recursos. | Sim      |
 | TimeToLive                   | O tempo de inatividade permitido para o cluster do HDInsight a pedido. Especifica o tempo durante o qual o cluster do HDInsight a pedido permanece alive após a conclusão de uma atividade executar se existirem outras tarefas ativas no cluster. Permitido o valor mínimo é 5 minutos (00: 05:00).<br/><br/>Por exemplo, se executar uma atividade demora 6 minutos e timetolive está definido para 5 minutos, o cluster permanece ativo durante 5 minutos após a execução de 6 minutos de atividade de processamento. Se executar de outra atividade é executada com a janela de 6 minutos, é processada pelo mesmo cluster.<br/><br/>Criar um cluster do HDInsight a pedido é uma operação dispendiosa (pode demorar algum tempo), por isso, utilize esta definição como necessários para melhorar o desempenho de uma fábrica de dados através da reutilização de um cluster do HDInsight a pedido.<br/><br/>Se definir o valor de timetolive para 0, o cluster é eliminado, assim que concluir a execução de atividade. Enquanto que, se definir um valor elevado, o cluster pode permanecer inativo para que possa iniciar sessão para algumas resolução de problemas objetivo, mas pode resultar em custos elevados. Por conseguinte, é importante que defina o valor adequado com base nas suas necessidades.<br/><br/>Se o valor da propriedade timetolive adequadamente estiver definido, pipelines vários podem partilhar a instância de cluster do HDInsight a pedido. | Sim      |
 | clusterType                  | O tipo de cluster do HDInsight a ser criado. Valores permitidos são "hadoop" e "spark". Se não for especificado, o valor predefinido é hadoop. | Não       |
-| Versão                      | Versão do cluster do HDInsight. Se não for especificado, está a utilizar a versão atual do HDInsight definido. | Não       |
+| versão                      | Versão do cluster do HDInsight. Se não for especificado, está a utilizar a versão atual do HDInsight definido. | Não       |
 | hostSubscriptionId           | O ID de subscrição do Azure utilizado para criar cluster do HDInsight. Se não for especificado, utiliza o ID de subscrição do contexto de início de sessão do Azure. | Não       |
 | clusterNamePrefix           | O prefixo do nome do cluster HDI, um timestamp será acrescentado automaticamente no fim do nome do cluster| Não       |
 | sparkVersion                 | A versão do spark se o tipo de cluster é "Spark" | Não       |
@@ -136,7 +136,7 @@ O JSON seguinte define um serviço ligado do HDInsight baseado em Linux da pedid
 
 ### <a name="service-principal-authentication"></a>Autenticação do principal de serviço
 
-O serviço ligado de HDInsight a pedido no requer uma autenticação principal de serviço para criar clusters do HDInsight em seu nome. Para utilizar a autenticação principal de serviço, registar uma entidade de aplicação no Azure Active Directory (Azure AD) e conceder a **contribuinte** função de subscrição ou o grupo de recursos no qual o cluster do HDInsight é criado. Para obter passos detalhados, consulte [portal de utilização para criar um Azure Active Directory principal de serviço e aplicação que pode aceder aos recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tome nota dos seguintes valores que utilizar para definir o serviço ligado:
+O serviço ligado de HDInsight a pedido no requer uma autenticação principal de serviço para criar clusters do HDInsight em seu nome. Para utilizar a autenticação principal de serviço, registar uma entidade de aplicação no Azure Active Directory (Azure AD) e conceder a **contribuinte** função de subscrição ou o grupo de recursos no qual o cluster do HDInsight é criado. Para obter passos detalhados, consulte [portal de utilização para criar um Azure Active Directory principal de serviço e aplicação que pode aceder aos recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Tome nota dos seguintes valores que utilizar para definir o serviço ligado:
 
 - ID da aplicação
 - Chave da aplicação 

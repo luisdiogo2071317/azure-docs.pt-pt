@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Proteção de documentos dos dados pessoais com o Azure, as ferramentas de relatórios
 
@@ -90,7 +90,7 @@ Visite o [auditoria do Azure Active Directory referência da API](https://docs.m
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Análise de registo](https://azure.microsoft.com/services/log-analytics/) pode [recolher dados a partir do Azure Monitor](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) para correlacioná-la com outros dados e fornecer análise adicional. Monitor do Azure recolhe e analisa os dados de monitorização para o seu ambiente do Azure. 
+[Análise de registo](https://azure.microsoft.com/services/log-analytics/) pode [recolher dados a partir do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para correlacioná-la com outros dados e fornecer análise adicional. Monitor do Azure recolhe e analisa os dados de monitorização para o seu ambiente do Azure. 
 
 Ferramentas de análise na análise de registos, tais como a procura de registo, vistas e soluções de funcionam com todos os dados recolhidos, fornecendo uma análise centralizada de todo o seu ambiente. Análise de registos pode agregar e analisar registos de eventos do Windows, registos de IIS e auditáveis, que podem ajudar a detetar potenciais falhas de dados pessoais pode expor os dados pessoais para utilizadores não autorizados.
 

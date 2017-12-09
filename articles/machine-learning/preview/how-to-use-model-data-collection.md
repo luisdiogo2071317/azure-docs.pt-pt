@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6a40a85426d2be72fa688548f7ab30e7e5f92146
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Recolher dados do modelo através da utilização de recolha de dados
 
@@ -88,7 +88,7 @@ Para ver os dados recolhidos no armazenamento de BLOBs:
 
     a. Vá para o Azure Machine Learning Workbench, selecione o projeto a trabalhar e, abra uma linha de comandos a **ficheiro** menu.
     
-    b. Introduza `az ml env show -v` e verifique o *storage_account* valor. Este é o nome da conta de armazenamento.
+    b. Introduza `az ml env show -v` e verifique o *storage_account* valor. Este é o nome da sua conta de armazenamento.
 
 5. Selecione **contentores** no recurso de menu do painel e, em seguida, o contentor denominado **modeldata**. Para ver dados iniciar propagar-se à conta de armazenamento, poderá ter de aguardar até 10 minutos após o primeiro pedido de serviço web. Os dados fluem para os blobs com o caminho de contentor seguinte:
 
@@ -98,9 +98,9 @@ Podem ser consumidos dados de blobs do Azure de diversas formas, através do Mic
 - Azure Workbench de aprendizagem máquina: Abra o ficheiro. csv no Azure Machine Learning Workbench adicionando o ficheiro. csv como uma origem de dados.
 - Excel: Abra os ficheiros. csv diária como uma folha de cálculo.
 - [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): criem gráficos com os dados solicitados a partir dos dados. csv em blobs.
-- [O Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-overview): criar um intervalo de dados com uma grande parte dos dados. csv.
+- [O Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): criar um intervalo de dados com uma grande parte dos dados. csv.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
     ```
-- [Ramo de registo](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): dados de carregamento de. csv para um ramo de registo de tabela e executar consultas SQL diretamente no blob.
+- [Ramo de registo](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): dados de carregamento de. csv para um ramo de registo de tabela e executar consultas SQL diretamente no blob.
 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 0ae5d37507bb6e36589e9755faf8bd3471910257
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: d3388643a3d7c38104a4c61f94a8b68a86168846
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Encriptação dinâmica: configurar a política de autorização de chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -28,25 +28,25 @@ Serviços de suporte de dados do Microsoft Azure permitem entregar o conteúdo e
 
 Se pretender que para os serviços de suporte de dados encriptar um recurso, tem de associar uma chave de encriptação (**CommonEncryption** ou **EnvelopeEncryption**) com o elemento (tal como descrito [aqui](media-services-rest-create-contentkey.md)) e também configurar políticas de autorização da chave (como descrito neste artigo).
 
-Quando um fluxo é solicitado por um leitor, os Media Services utiliza a chave especificada dinamicamente encriptar o seu conteúdo através da encriptação AES ou PlayReady. Para desencriptar o fluxo, o leitor solicitará a chave do serviço de entrega de chave. Para decidir se pretende ou não o utilizador está autorizado para obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
+Quando um fluxo é solicitado por um leitor, os Media Services utiliza a chave especificada dinamicamente encriptar o seu conteúdo através da encriptação AES ou PlayReady. Para desencriptar o fluxo, o leitor de pedidos a chave do serviço de entrega de chave. Para decidir se pretende ou não o utilizador está autorizado para obter a chave, o serviço avalia as políticas de autorização que especificou para a chave.
 
 Os Media Services suportam várias formas de autenticar utilizadores que efetuam pedidos de chave. A política de autorização da chave de conteúdo pode ter um ou mais restrições de autorização: **abrir** ou **token** restrição. A política de token restrito tem de ser acompanhada por um token emitido por um Serviço de Token Seguro (STS). Os Media Services suportam tokens no **Web Tokens simples** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) formato e **JSON Web Token** formato (JWT).
 
-Serviços de suporte de dados não fornece serviços de Token seguro. Pode criar um STS personalizado ou tirar partido das ACS do Microsoft Azure para tokens de problema. O STS tem de ser configurado para criar o token assinado com especificado chave e emitir afirmações que especificou na configuração de restrição de token (conforme descrito neste artigo). O serviço de entrega de chave de Media Services irá devolver a chave de encriptação para o cliente se o token é válido e as afirmações no token correspondem às configurado para a chave de conteúdo.
+Serviços de suporte de dados não fornece serviços de Token seguro. Pode criar um STS personalizado ou utilize tokens de problema do Azure Active Directory (AAD). O STS tem de ser configurado para criar o token assinado com especificado chave e emitir afirmações que especificou na configuração de restrição de token (conforme descrito neste artigo). O serviço de entrega de chave de Media Services devolve a chave de encriptação para o cliente se o token é válido e as afirmações no token correspondem às configurado para a chave de conteúdo.
 
 Para obter mais informações, veja os artigos seguintes:
 - [Autenticação de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-- [Integrar a aplicação do Azure Media Services OWIN MVC com base no Azure Active Directory e restringir a entrega de chave de conteúdo com base em afirmações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+- [Integrar a aplicação baseada em MVC de OWIN de serviços de suporte de dados do Azure com o Azure Active Directory e restringir a entrega de chave de conteúdo com base em afirmações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 ### <a name="some-considerations-apply"></a>São aplicáveis algumas considerações:
 * Para poder utilizar o empacotamento dinâmico e a encriptação dinâmica, certifique-se o ponto final de transmissão em fluxo partir do qual pretende transmitir o seu conteúdo está a ser o **executar** estado.
 * O elemento tem de conter um conjunto de MP4s de velocidade de transmissão adaptável ou ficheiros de transmissão em fluxo uniforme de velocidade de transmissão adaptável. Para obter mais informações, consulte [codificar um elemento](media-services-encode-asset.md).
 * Carregar e codificar seus ativos utilizando **AssetCreationOptions.StorageEncrypted** opção.
-* Se planear ter várias chaves de conteúdo que requerem a mesma configuração de política, é vivamente recomendado para criar uma política de autorização único e reutilizá-lo com várias chaves de conteúdo.
-* O serviço de entrega de chave coloca em cache ContentKeyAuthorizationPolicy e os respetivos objetos relacionados (opções de política e restrições) para 15 minutos.  Se criar um ContentKeyAuthorizationPolicy e especifique a utilização de uma restrição "Token", em seguida, testá-lo e, em seguida, atualizar a política a restrição "Abrir", irá demorar cerca de 15 minutos antes da política muda para a versão "Aberta" da política.
+* Se planear ter várias chaves de conteúdo que requerem a mesma configuração de política, é recomendado para criar uma política de autorização único e reutilizá-lo com várias chaves de conteúdo.
+* O serviço de entrega de chave coloca em cache ContentKeyAuthorizationPolicy e os respetivos objetos relacionados (opções de política e restrições) para 15 minutos.  Se criar um ContentKeyAuthorizationPolicy e especifique a utilização de uma restrição "Token", em seguida, testá-lo e, em seguida, atualizar a política a restrição "Abrir", demora cerca de 15 minutos antes da política muda para a versão "Aberta" da política.
 * Se adicionar ou atualizar a sua política de entrega de elementos, tem de eliminar um localizador existente (se aplicável) e criar um novo localizador.
 * Atualmente, não é possível encriptar transferências de transferência progressiva.
-* Ponto final de transmissão em fluxo do AMS define o valor do cabeçalho CORS 'Acesso controlo-permitir-origem' na resposta prévia como caráter universal '\*'. Isto funciona bem com a maioria dos jogadores incluindo nosso Media Player do Azure, Roku e JW e outros. No entanto, algumas jogadores que tiram partido dashjs não funcionar, uma vez, com o conjunto de modo de credenciais para "incluir", XMLHttpRequest no respetivo dashjs não permite carateres universais "\*" como o valor de "' Acesso controlo-permitir-origem". Como uma solução para esta limitação no dashjs, se estiver a alojar o seu cliente de um único domínio, o Media Services do Azure pode especificar esse domínio no cabeçalho de resposta de verificação prévia. Pode entrar, abrindo um pedido de suporte através do portal do Azure.
+* Ponto final de transmissão em fluxo do AMS define o valor do cabeçalho CORS 'Acesso controlo-permitir-origem' na resposta prévia como caráter universal '\*'. Isto funciona bem com a maioria dos jogadores incluindo Azure Media Player, Roku e JW e outros. No entanto, algumas jogadores que tiram partido dashjs não funcionar, uma vez, com o conjunto de modo de credenciais para "incluir", XMLHttpRequest no respetivo dashjs não permite carateres universais "\*" como o valor de "' Acesso controlo-permitir-origem". Como uma solução para esta limitação no dashjs, se estiver a alojar o seu cliente de um único domínio, o Media Services do Azure pode especificar esse domínio no cabeçalho de resposta de verificação prévia. Pode entrar, abrindo um pedido de suporte através do portal do Azure.
 
 ## <a name="aes-128-dynamic-encryption"></a>Encriptação dinâmica AES-128
 > [!NOTE]
@@ -54,12 +54,11 @@ Para obter mais informações, veja os artigos seguintes:
 > 
 > Ao aceder a entidades nos Media Services, tem de definir campos de cabeçalho específicos e os valores no seus pedidos HTTP. Para obter mais informações, consulte [programa de configuração para o desenvolvimento de API de REST de serviços de suporte de dados](media-services-rest-how-to-use.md).
 > 
-> Depois de ligar com êxito a https://media.windows.net, receberá um redirecionamento 301 especificando noutro URI de serviços de suporte de dados. Tem de se as chamadas subsequentes para o novo URI. Para obter informações sobre como ligar à API do AMS, consulte [aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 > 
 > 
 
 ### <a name="open-restriction"></a>Restrição aberta
-Abra restrição significa que o sistema irá fornecer a chave para qualquer pessoa que faz um pedido de chave. Esta restrição poderão ser úteis para fins de teste.
+Abra restrição significa que o sistema disponibiliza a chave de qualquer pessoa que faz um pedido de chave. Esta restrição poderão ser úteis para fins de teste.
 
 O exemplo seguinte cria uma política de autorização aberta e adiciona-o para a chave de conteúdo.
 
@@ -73,7 +72,7 @@ Pedido:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423578086&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lZlyQ2%2bvH73qtJsb42%2fH3xF7r7EvQFR3UXyezuDENFU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: d732dbfa-54fc-474c-99d6-9b46a006f389
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 36
@@ -109,7 +108,7 @@ Pedido:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423580006&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=Ref3EsonGF7fUKCwGwGgiMnZitzIzsDOvvMTeVrVVPg%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: d225e357-e60e-4f42-add8-9d93aba1409a
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 168
@@ -145,7 +144,7 @@ Pedido:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423580006&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=Ref3EsonGF7fUKCwGwGgiMnZitzIzsDOvvMTeVrVVPg%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 9847f705-f2ca-4e95-a478-8f823dbbaa29
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 154
@@ -166,7 +165,7 @@ Pedido:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423581565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=JiNSG3w6r2C0nIyfKvTZj1uPJGjuitD%2b0sbfZ%2b2JDZI%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: e613efff-cb6a-41b4-984a-f4f8fb6e76a4
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 78
@@ -180,7 +179,7 @@ Resposta:
 ### <a name="token-restriction"></a>Restrição de token
 Esta secção descreve como criar uma política de autorização da chave de conteúdo e associe-a com a chave de conteúdo. A política de autorização descreve os requisitos de autorização devem ser cumpridos para determinar se o utilizador está autorizado para receberem a chave (por exemplo, does a lista de "chave de verificação" contém a chave que o token foi assinado com).
 
-Para configurar a opção de restrição de token, terá de utilizar um XML para descrever os requisitos de autorização do token. O XML de configuração de restrição de token tem de estar em conformidade com o esquema XML seguinte.
+Para configurar a opção de restrição de token, terá de utilizar um XML para descrever os requisitos de autorização do token. O XML de configuração de restrição de token tem de estar em conformidade com o esquema XML seguinte:
 
 
 #### <a id="schema"></a>Esquema de restrição de token
@@ -248,7 +247,7 @@ Pedido:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbbef702-e769-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423580720&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=5LsNu%2b0D4eD3UOP3BviTLDkUjaErdUx0ekJ8402xidQ%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 2643d836-bfe7-438e-9ba2-bc6ff28e4a53
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 1079
@@ -286,7 +285,7 @@ Os Media Services permite-lhe configurar os direitos e as restrições que prete
 Quando proteger o conteúdo com PlayReady, uma das ações tem de especificar na sua política de autorização é uma cadeia XML que define o [o modelo de licença PlayReady](media-services-playready-license-template-overview.md). 
 
 ### <a name="open-restriction"></a>Restrição aberta
-Abra restrição significa que o sistema irá fornecer a chave para qualquer pessoa que faz um pedido de chave. Esta restrição poderão ser úteis para fins de teste.
+Abra restrição significa que o sistema disponibiliza a chave de qualquer pessoa que faz um pedido de chave. Esta restrição poderão ser úteis para fins de teste.
 
 O exemplo seguinte cria uma política de autorização aberta e adiciona-o para a chave de conteúdo.
 
@@ -300,7 +299,7 @@ Pedido:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=bbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423581565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=JiNSG3w6r2C0nIyfKvTZj1uPJGjuitD%2b0sbfZ%2b2JDZI%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 9e7fa407-f84e-43aa-8f05-9790b46e279b
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 58
@@ -337,7 +336,7 @@ Pedido:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423581565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=JiNSG3w6r2C0nIyfKvTZj1uPJGjuitD%2b0sbfZ%2b2JDZI%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: f160ad25-b457-4bc6-8197-315604c5e585
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 593
@@ -385,7 +384,7 @@ Pedido:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423583561&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=5eZnkOsSv%2fLLEKmS%2bWObBlsNYyee8BQlp%2bUYbjugcJg%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: ab079b0e-2ba9-4cf1-b549-a97bfa6cd2d3
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 1525
@@ -448,5 +447,5 @@ Adicione AuthorizationPolicy para o ContentKey conforme é mostrado [aqui](#AddA
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que configurou a política de autorização da chave de conteúdo, vá para o [como configurar a política de entrega de elemento](media-services-rest-configure-asset-delivery-policy.md) tópico.
+Agora que configurou a política de autorização da chave de conteúdo, vá para o [como configurar a política de entrega de elemento](media-services-rest-configure-asset-delivery-policy.md) artigo.
 

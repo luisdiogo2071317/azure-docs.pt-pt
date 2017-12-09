@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Descrição geral do Serviço de Aplicações no Azure Stack
 
@@ -37,8 +37,8 @@ São a seguir apresentadas algumas funcionalidades-chave e capacidades do App Se
 
 App Service oferece vários tipos de aplicação, cada um dos quais foi concebida para alojar uma carga de trabalho específica:
 
-- [Aplicações Web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) para o alojamento de Web sites e aplicações web.
-- [API Apps](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) para alojar as APIs RESTful.
+- [Aplicações Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) para o alojamento de Web sites e aplicações web.
+- [API Apps](https://docs.microsoft.com/azure/app-service-api/app-service-api-apps-why-best-platform) para alojar as APIs RESTful.
 - Funções do Azure para alojar o evento orientadas por cargas de trabalho sem servidor.
 
 A aplicação word aqui refere-se ao alojamento de recursos dedicado à execução de uma carga de trabalho. Tendo a “aplicação Web” como exemplo, está provavelmente habituado a pensar numa aplicação Web como os recursos de computação e o código de aplicação que em conjunto fornecem a funcionalidade a um browser. Mas no App Service, uma aplicação web se os recursos de computação que fornece pilha do Azure para alojar o código da aplicação.
@@ -49,7 +49,7 @@ A aplicação pode ser composta por várias aplicações do App Service de difer
 
    ![](media/azure-stack-app-service-overview/image01.png)
 
-## <a name="what-is-an-app-service-plan"></a>O que é um plano de serviço de aplicações?
+## <a name="what-is-an-app-service-plan"></a>O que é um plano do Serviço de Aplicações?
 
 O fornecedor de recursos do serviço de aplicações utiliza o mesmo código que utiliza o App Service do Azure. Como resultado, alguns conceitos comuns merecem que descreve. No App Service, o contentor de preço para aplicações chama-se o plano de serviço de aplicações. Representa o conjunto de máquinas de virtuais dedicados utilizado para conter as suas aplicações. Dentro de uma determinada subscrição, pode ter vários planos de serviço de aplicações.
 

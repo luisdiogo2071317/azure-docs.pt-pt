@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: 7a051e0f35b2dd943f3569391d7ca0f206a9ef02
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7565efd82945f21b83471ee66098cd476b7bb59f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Utilizar Caffe no Azure HDInsight Spark para aprender profunda distribuída
 
@@ -42,7 +42,7 @@ Existem quatro passos principais para obtê-lo a trabalham no HDInsight.
 3. Distribuir as bibliotecas necessárias para todos os nós de trabalho
 4. Componha um modelo de Caffe e executá-lo de forma distribuída.
 
-Uma vez que o HDInsight é uma solução de PaaS, oferece funcionalidades ótimos plataforma - para que seja fácil efetuar algumas tarefas. Uma das funcionalidades que utilizamos descontos elevados nesta mensagem de blogue denomina [ação de Script](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), com o qual pode executar comandos da shell para personalizar nós de cluster (nó principal, nó de trabalho ou nó de extremidade).
+Uma vez que o HDInsight é uma solução de PaaS, oferece funcionalidades ótimos plataforma - para que seja fácil efetuar algumas tarefas. Uma das funcionalidades que utilizamos descontos elevados nesta mensagem de blogue denomina [ação de Script](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux), com o qual pode executar comandos da shell para personalizar nós de cluster (nó principal, nó de trabalho ou nó de extremidade).
 
 ## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>Passo 1: Instalar dependências necessárias em todos os nós
 
@@ -71,14 +71,14 @@ Existem dois passos a ação de script. O primeiro passo é instalar as bibliote
 
 O segundo passo é para transferir, de compilação e instalar protobuf 2.5.0 para Caffe durante o tempo de execução. Protobuf 2.5.0 [é necessário](https://github.com/yahoo/CaffeOnSpark/issues/87); no entanto, esta versão não está disponível como um pacote no Ubuntu 16, pelo que temos de compilá-la a partir do código de origem. Existem também alguns recursos na Internet no como compilá-la. Para obter mais informações, consulte [aqui](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
-Para começar a utilizar, pode apenas executar esta ação de script contra o cluster para todos os nós de trabalho e nós principais (para o HDInsight 3.5). Pode executar as ações de script num cluster existente ou utilize ações do script durante a criação do cluster. Para obter mais informações sobre as ações de script, consulte a documentação [aqui](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
+Para começar a utilizar, pode apenas executar esta ação de script contra o cluster para todos os nós de trabalho e nós principais (para o HDInsight 3.5). Pode executar as ações de script num cluster existente ou utilize ações do script durante a criação do cluster. Para obter mais informações sobre as ações de script, consulte a documentação [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
 
 ![Ações de script para instalar dependências](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
 ## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>Passo 2: Criar Caffe no Spark para o HDInsight no nó principal
 
-O segundo passo é criar Caffe no headnode e, em seguida, distribuir as bibliotecas compiladas para todos os nós de trabalho. Neste passo, terá [ssh no seu headnode](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Depois disso, tem de seguir a [CaffeOnSpark criar processo](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Segue-se o script que pode utilizar para criar CaffeOnSpark com alguns passos adicionais. 
+O segundo passo é criar Caffe no headnode e, em seguida, distribuir as bibliotecas compiladas para todos os nós de trabalho. Neste passo, terá [ssh no seu headnode](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Depois disso, tem de seguir a [CaffeOnSpark criar processo](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Segue-se o script que pode utilizar para criar CaffeOnSpark com alguns passos adicionais. 
 
     #!/bin/bash
     git clone https://github.com/yahoo/CaffeOnSpark.git --recursive

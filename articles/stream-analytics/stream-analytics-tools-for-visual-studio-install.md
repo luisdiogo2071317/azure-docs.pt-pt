@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 9/19/2017
 ms.author: sujie
-ms.openlocfilehash: 80ce672ae91231e432f7ac9da49df29bb03efeca
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 307270a25545a0388e67c37656057f81535d8d3b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="installation-instructions-for-stream-analytics-tools-for-visual-studio"></a>Instruções de instalação para as ferramentas de Stream Analytics para o Visual Studio
 Ferramentas do Azure Stream Analytics suportam agora a Visual Studio 2017. o, 2015 ou 2013. Neste documento, introduzirmos como instalar e desinstalar as ferramentas.
 
-Saiba como utilizar [ferramentas do Stream Analytics para o Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Saiba como utilizar [ferramentas do Stream Analytics para o Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="install"></a>Instalar
 ### <a name="visual-studio-2017"></a>Visual Studio 2017

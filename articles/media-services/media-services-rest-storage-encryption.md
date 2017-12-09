@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 1979f5bf5e8cab88dab5fba49018afacf24504b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c752573be7c07f800b0dce3d12d4dabd7328922
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Encriptar o conteúdo com a encriptação de armazenamento
 
-É altamente recomendado para encriptar o conteúdo localmente utilizando AES 256 bits encriptação e, em seguida, carregue-o no Storage do Azure onde será armazenado encriptados em pausa.
+É altamente recomendado para encriptar o conteúdo localmente utilizando AES 256 bits encriptação e, em seguida, carregue-o no Storage do Azure onde é armazenado encriptados em pausa.
 
 Este artigo fornece uma descrição geral de encriptação de armazenamento do AMS e mostra como carregar o conteúdo do armazenamento encriptado:
 
@@ -31,7 +31,7 @@ Este artigo fornece uma descrição geral de encriptação de armazenamento do A
   
      Ativos encriptados têm de ser associado com chaves de conteúdo.
 * Ligar a chave de conteúdo para o elemento.  
-* Definir a encriptação relacionadas com parâmetros AssetFile entidades.
+* Defina os parâmetros relacionados com a encriptação em entidades AssetFile.
 
 ## <a name="considerations"></a>Considerações 
 
@@ -43,11 +43,8 @@ Ao aceder a entidades nos Media Services, tem de definir campos de cabeçalho es
 
 Para obter informações sobre como ligar à API do AMS, consulte [aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Depois de ligar com êxito a https://media.windows.net, receberá um redirecionamento 301 especificando noutro URI de serviços de suporte de dados. Tem de se as chamadas subsequentes para o novo URI.
-
 ## <a name="storage-encryption-overview"></a>Descrição geral de encriptação de armazenamento
-Aplica-se da encriptação de armazenamento do AMS **AES CTR** encriptação de modo a todo o ficheiro.  O modo de AES CTR é uma cifra de bloco pode encriptar os dados de comprimento arbitrário sem necessidade de preenchimento. Funciona ao encriptar o bloco um contador com o algoritmo de AES e, em seguida, XOR utilize a saída do AES com os dados para encriptar ou desencriptar.  O bloco de contador utilizado é construído ao copiar o valor da InitializationVector para bytes 0 a 7 do valor do contador e bytes 8 a 15 do valor do contador estão definidos como zero. O bloco de contador de bytes de 16 bytes 8 a 15 (ou seja, os menos significativos bytes) são utilizados como um simples de 64 bits número inteiro não assinado que é incrementado por um para cada bloco de dados subsequente processado e é mantido na ordem de bytes de rede. Tenha em atenção que se este número inteiro atingir o valor máximo (0xFFFFFFFFFFFFFFFF) incrementando-repõe o contador de bloqueio para zero (bytes 8 a 15) sem afetar outros 64 bits do contador (ou seja, bytes 0 a 7).   Para poder manter a segurança de encriptação de modo AES CTR, o valor de InitializationVector para um determinado identificador da chave para cada chave de conteúdo deverá ser exclusivo para cada ficheiro e ficheiros deverá ser inferior a 2 ^ 64 blocos de comprimento.  Isto é para garantir que um valor de contador nunca é reutilizado com uma chave especificada. Para mais informações sobre o modo CTR, consulte [nesta página wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (artigo do wiki utiliza o termo "Nonce" em vez de "InitializationVector").
+Aplica-se da encriptação de armazenamento do AMS **AES CTR** encriptação de modo a todo o ficheiro.  O modo de AES CTR é uma cifra de bloco pode encriptar os dados de comprimento arbitrário sem necessidade de preenchimento. Funciona ao encriptar o bloco um contador com o algoritmo de AES e, em seguida, XOR utilize a saída do AES com os dados para encriptar ou desencriptar.  O bloco de contador utilizado é construído ao copiar o valor da InitializationVector para bytes 0 a 7 do valor do contador e bytes 8 a 15 do valor do contador estão definidos como zero. O bloco de 16 bytes contador, os bytes 8 a 15 (ou seja, os menos significativos bytes) são utilizados como um simple 64-bit número inteiro não assinado que é incrementado por um para cada bloco de dados subsequente processado e é mantido na ordem de bytes de rede. Se este número inteiro atingir o valor máximo (0xFFFFFFFFFFFFFFFF), em seguida, incrementando-repõe o contador de bloqueio para zero (bytes 8 a 15) sem afetar as outros 64 bits do contador (ou seja, bytes 0 a 7).   Para poder manter a segurança de encriptação de modo AES CTR, o valor de InitializationVector para um determinado identificador da chave para cada chave de conteúdo deverá ser exclusivo para cada ficheiro e ficheiros deverá ser inferior a 2 ^ 64 blocos de comprimento.  Isto é para garantir que um valor de contador nunca é reutilizado com uma chave especificada. Para mais informações sobre o modo CTR, consulte [nesta página wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (artigo do wiki utiliza o termo "Nonce" em vez de "InitializationVector").
 
 Utilize **encriptação de armazenamento** para encriptar o seu conteúdo transparente localmente utilizando AES 256 bit de encriptação e, em seguida, carregue-o ao Storage do Azure onde é armazenado encriptados em descanso ao. Os elementos protegidos com encriptação do storage são desencriptados automaticamente colocados no sistema de ficheiros encriptados antes da codificação e opcionalmente encriptados novamente antes de serem carregados novamente como um novo elemento de saída. O principal motivo para a encriptação de armazenamento é quando pretender proteger os ficheiros de suporte de dados de entrada de alta qualidade com uma encriptação forte Inativos no disco.
 
@@ -56,11 +53,11 @@ Para fornecer um recurso encriptados de armazenamento, tem de configurar políti
 ## <a name="create-contentkeys-used-for-encryption"></a>Criar ContentKeys utilizada para encriptação
 Ativos encriptados têm de ser associada à chave de encriptação de armazenamento. Tem de criar a chave de conteúdo a ser utilizada para encriptação antes de criar os ficheiros de recurso. Esta secção descreve como criar uma chave de conteúdo.
 
-Seguem-se passos gerais para a geração de chaves de conteúdo que irá associar recursos que pretende que sejam encriptados. 
+Seguem-se passos gerais para a geração de chaves de conteúdo que associam os recursos que pretende que sejam encriptados. 
 
 1. Para a encriptação de armazenamento, gere aleatoriamente uma chave AES de 32-byte. 
    
-    Esta será a chave de conteúdo para o seu elemento, o que significa que todos os ficheiros associados esse recurso, terá de utilizar a mesma chave de conteúdo durante a desencriptação. 
+    Esta é a chave de conteúdo para o seu elemento, o que significa que todos os ficheiros associados que precisem de recurso a utilizar a mesma chave de conteúdo durante a desencriptação. 
 2. Chamar o [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) métodos para obter o certificado x. 509 correto, que tem de ser utilizado para encriptar a chave de conteúdo.
 3. Encriptar o chave de conteúdo com a chave pública do certificado x. 509. 
    
@@ -101,7 +98,7 @@ Seguem-se passos gerais para a geração de chaves de conteúdo que irá associa
     ---|---
     Id | O Id de ContentKey que geramos ourselves utilizando o seguinte formato, "nb:kid:UUID:<NEW GUID>".
     ContentKeyType | Este é o tipo de chave de conteúdo como um valor inteiro para esta chave de conteúdo. Podemos transmitir o valor 1 para a encriptação de armazenamento.
-    EncryptedContentKey | Vamos criar um novo valor de chave conteúdo que é um valor de 256 bits (32 byte). A chave é encriptada utilizando o certificado x. 509 encriptação de armazenamento que obtemos Media Services do Microsoft Azure ao executar um pedido de HTTP GET para o GetProtectionKeyId e GetProtectionKey métodos. Por exemplo, consulte o seguinte código de .NET: o **EncryptSymmetricKeyData** método definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    EncryptedContentKey | Vamos criar um novo valor de chave conteúdo que é um valor de 256 bits (32 bytes). A chave é encriptada utilizando o certificado x. 509 encriptação de armazenamento que obtemos Media Services do Microsoft Azure ao executar um pedido de HTTP GET para o GetProtectionKeyId e GetProtectionKey métodos. Por exemplo, consulte o seguinte código de .NET: o **EncryptSymmetricKeyData** método definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Este é o id de chave de proteção para o certificado x. 509 encriptação de armazenamento que foi utilizado para encriptar o nosso chave de conteúdo.
     ProtectionKeyType | Este é o tipo de encriptação da chave de proteção que foi utilizado para encriptar a chave de conteúdo. Este valor é StorageEncryption(1) para o nosso exemplo.
     Soma de verificação |A MD5 calculada soma de verificação para a chave de conteúdo. Esta é calculada ao encriptar o conteúdo de Id com a chave de conteúdo. O código de exemplo demonstra como calcular a soma de verificação.
@@ -118,7 +115,7 @@ Pedido:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 Resposta:
@@ -149,7 +146,7 @@ Pedido:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -189,7 +186,7 @@ Pedir
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -238,7 +235,7 @@ O exemplo seguinte mostra como criar um recurso.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"BigBuckBunny" "Options":1}
@@ -285,7 +282,7 @@ Pedido:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
@@ -299,7 +296,7 @@ O [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) en
 
 Tenha em atenção que o **AssetFile** instância e o ficheiro de multimédia real são dois objetos distintos. A instância de AssetFile contém metadados sobre o ficheiro de suporte de dados, enquanto o ficheiro de suporte de dados contém o conteúdo de multimédia real.
 
-Depois de carregar o ficheiro de suporte de dados digitais num contentor de blob, irá utilizar o **intercalar** pedido de HTTP para atualizar o AssetFile com as informações sobre o ficheiro de suporte de dados (não mostrado neste tópico). 
+Depois de carregar o ficheiro de suporte de dados digitais num contentor de blob, irá utilizar o **intercalar** pedido de HTTP para atualizar o AssetFile com as informações sobre o ficheiro de suporte de dados (não mostrado neste artigo). 
 
 **Pedido de HTTP**
 
@@ -310,7 +307,7 @@ Depois de carregar o ficheiro de suporte de dados digitais num contentor de blob
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     Content-Length: 164
 

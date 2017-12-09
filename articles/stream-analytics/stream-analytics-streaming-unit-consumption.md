@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as unidades de transmissão em fluxo
 
@@ -27,7 +27,7 @@ O Azure Stream Analytics agrega o desempenho "ponderação" em execução uma ta
 
 Para alcançar a latência baixa processamento de transmissão em fluxo, as tarefas do Azure Stream Analytics executar todo o processamento na memória. Quando executar memória esgotada, falha a tarefa de transmissão em fluxo. Como resultado, para uma tarefa de produção, é importante monitorizar a utilização de recursos de uma tarefa de transmissão em fluxo e certifique-se de que existe suficiente recursos alocados para manter as tarefas em execução 24/7.
 
-A métrica é um número de percentagem vão de % de 0 a 100%. Para uma tarefa de transmissão em fluxo com requisitos de espaço mínimo, a métrica de utilização do SU % é, normalmente, entre 10% a 20%. É melhor manter a métrica inferior a 80% para caber picos ocasionais.  Pode definir um alerta na métrica (consulte [aqui para configurar alertas métricas](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal)).
+A métrica é um número de percentagem vão de % de 0 a 100%. Para uma tarefa de transmissão em fluxo com requisitos de espaço mínimo, a métrica de utilização do SU % é, normalmente, entre 10% a 20%. É melhor manter a métrica inferior a 80% para caber picos ocasionais.  Pode definir um alerta na métrica (consulte [aqui para configurar alertas métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)).
 
 
 
@@ -82,7 +82,7 @@ Para poder ameliorate problemas causados por cardinalidade elevada na consulta a
 
 Quando a consulta estiver particionada, é espalhada por vários nós. Como resultado, o número de clusterid entra em cada nó é reduzido, reduzindo a cardinalidade do grupo pela operadora de rede. 
 
-As partições do Hub de eventos devem ser particionadas pela chave de agrupamento para evitar a necessidade de um passo reduzido. Detalhes adicionais são abordados [aqui](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview). 
+As partições do Hub de eventos devem ser particionadas pela chave de agrupamento para evitar a necessidade de um passo reduzido. Detalhes adicionais são abordados [aqui](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview). 
 #### <a name="temporal-join"></a>Associação temporal
 O tamanho do Estado de uma associação temporal é proporcional ao número de eventos na sala de associação, o que é a taxa de entrada de eventos um múltiplo pelo tamanho de espaço wiggle temporal wiggle. 
 

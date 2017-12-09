@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 07386c2fbb5fe4ce4fe1ca6844f6308cf59cbfb4
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b05dbdcec3cfb5c78115061567bb6229623cd0ff
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Executar consultas do Hive com o Hadoop no HDInsight com REST
 
@@ -122,7 +122,7 @@ Saiba como utilizar a API de REST de WebHCat para executar consultas do Hive com
 
 4. Depois do Estado da tarefa foi alterado para **com êxito**, pode obter os resultados da tarefa do armazenamento de Blobs do Azure. O `statusdir` parâmetro transmitido com a consulta contém a localização do ficheiro de saída; neste caso, **/exemplo/curl**. Este endereço armazena os resultados no **exemplo/curl** diretório no armazenamento de predefinido de clusters.
 
-    Pode listar e transferir estes ficheiros utilizando o [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). Para obter mais informações sobre como utilizar a CLI do Azure com o Storage do Azure, consulte o [utilização do Azure CLI 2.0 com armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli#create-and-manage-blobs) documento.
+    Pode listar e transferir estes ficheiros utilizando o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre como utilizar a CLI do Azure com o Storage do Azure, consulte o [utilização do Azure CLI 2.0 com armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) documento.
 
 5. Utilize as seguintes instruções para criar uma nova tabela 'interna' com o nome **foram**:
 

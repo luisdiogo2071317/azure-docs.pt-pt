@@ -10,17 +10,17 @@ ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 3ad9da6e990fbb2a099bd83627eb36cd5e8f94c6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="password-writeback-overview"></a>Descrição geral de repetição de escrita de palavras-passe
 
@@ -160,7 +160,6 @@ As palavras-passe são gravadas nas seguintes situações:
   * Operação de palavra-passe de alterar quaisquer voluntário administrador de self-service
   * Imposição de self-service qualquer administrador alterar a operação de palavra-passe, por exemplo, a expiração de palavra-passe
   * Qualquer administrador personalizada de palavra-passe de reposição que tem origem o [portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com)
-  * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição do [portal clássico do Azure](https://manage.windowsazure.com)
   * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição do [portal do Azure](https://portal.azure.com)
 
 ### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>Utilizador e administrador de operações que não são suportadas para repetição de escrita de palavras-passe

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
-ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Encriptação de disco do Azure FAQ
 
@@ -119,7 +119,7 @@ Este artigo fornece respostas às perguntas mais frequentes (FAQ) sobre a encrip
 * Encriptar (pode demorar várias horas ou até mesmo dias dependendo das características da vm e o tamanho dos discos de dados anexados)
 * Personalizar e adicione software à imagem, conforme necessário.
 
-Se este fluxo de trabalho não for possível, depender [encriptação do serviço de armazenamento](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) de armazenamento de plataforma camada de conta pode ser uma alternativa à utilização dm-crypt de encriptação de disco completa.
+Se este fluxo de trabalho não for possível, depender [encriptação do serviço de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE) de armazenamento de plataforma camada de conta pode ser uma alternativa à utilização dm-crypt de encriptação de disco completa.
 
 **P:** o que é o disco "Bek Volume" ou "/ mnt/azure_bek_disk"?
 

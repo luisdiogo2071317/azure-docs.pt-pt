@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 413a9df6d224e53ba42313f6dc5e740710d418e3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Conceber de orientações para a utilização de tabelas replicadas no Azure SQL Data Warehouse
 Este artigo fornece recomendações para estruturar tabelas replicadas no seu esquema de armazém de dados do SQL Server. Utilize estas recomendações para melhorar o desempenho de consulta ao reduzir a complexidade de movimento e a consulta de dados.
@@ -47,7 +47,7 @@ Replicadas trabalho tabelas bem para tabelas de pequena dimensão de um esquema 
 
 Considere a utilização de um replicadas tabela quando:
 
-- O tamanho de tabela no disco é inferior a 2 GB, independentemente do número de linhas. Para localizar o tamanho de uma tabela, pode utilizar o [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) comando: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
+- O tamanho de tabela no disco é inferior a 2 GB, independentemente do número de linhas. Para localizar o tamanho de uma tabela, pode utilizar o [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) comando: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - A tabela for utilizada nas associações que necessitem, caso contrário, movimento de dados. Por exemplo, uma associação em tabelas hash distribuída necessita de movimento de dados quando as colunas joining não estão a mesma coluna de distribuição. Se uma das tabelas hash distribuída for pequena, considere uma tabela não replicada. Uma associação numa tabela round robin requer o movimento de dados. Recomendamos que utilize tabelas replicadas em vez de tabelas de round robin na maioria dos casos. 
 
 

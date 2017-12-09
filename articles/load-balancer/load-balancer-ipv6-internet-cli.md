@@ -1,6 +1,6 @@
 ---
-title: "Criar um balanceador de carga com acesso à Internet com o IPv6 - CLI do Azure | Microsoft Docs"
-description: Saiba como criar um Internet com o Balanceador de carga com o IPv6 no Azure Resource Manager utilizando a CLI do Azure
+title: "Criar um balanceador de carga públicos com o IPv6 - CLI do Azure | Microsoft Docs"
+description: "Saiba como criar um balanceador de carga públicos com o IPv6 no Gestor de recursos do Azure utilizando a CLI do Azure."
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3ae62ddd350204d801012b9810aec669abe55817
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3abd47460999f7b059469a58a59a3e297e88effb
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="create-an-internet-facing-load-balancer-with-ipv6-in-azure-resource-manager-using-the-azure-cli"></a>Criar um Internet com o Balanceador de carga com o IPv6 no Azure Resource Manager utilizando a CLI do Azure
+# <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Criar um balanceador de carga público com o IPv6 no Gestor de recursos do Azure, utilizando a CLI do Azure
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
@@ -30,42 +30,43 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Um balanceador de carga do Azure é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece elevada disponibilidade, ao distribuir o tráfego de entrada entre instâncias de serviço com bom estado de funcionamento nos serviços cloud ou máquinas virtuais num conjunto de balanceador de carga. O Balanceador de Carga do Azure pode também apresentar esses serviços em várias portas, vários endereços IP ou ambos.
+Um balanceador de carga do Azure é um balanceador de carga de Camada 4 (TCP, UDP). Balanceadores de carga fornecem elevada disponibilidade através de distribuição de tráfego de entrada entre instâncias de bom estado de funcionamento de serviço nos serviços em nuvem ou de máquinas virtuais num conjunto de Balanceador de carga. Balanceadores de carga podem também apresentar estes serviços em várias portas ou vários endereços IP ou ambos.
 
 ## <a name="example-deployment-scenario"></a>Cenário de implementação de exemplo
 
-O diagrama seguinte ilustra a solução de balanceamento de carga a ser implementado utilizando o modelo de exemplo descrito neste artigo.
+O diagrama seguinte ilustra a solução que é implementada utilizando o modelo de exemplo descrito neste artigo de balanceamento de carga.
 
 ![Cenário do Balanceador de carga](./media/load-balancer-ipv6-internet-cli/lb-ipv6-scenario-cli.png)
 
-Neste cenário, irá criar os seguintes recursos do Azure:
+Neste cenário, crie os seguintes recursos do Azure:
 
 * duas máquinas virtuais (VMs)
 * interface de rede virtual para cada VM com endereços IPv4 e IPv6 atribuído
-* um balanceador de carga com acesso à Internet com o endereço IP público de IPv6 e IPv4
-* um conjunto de disponibilidade para que contém as duas VMs
+* Um balanceador de carga públicos com o endereço IP público IPv6 e IPv4
+* Um conjunto de disponibilidade que contém as duas VMs
 * duas regras para mapear os VIPs públicos para os pontos finais privados de balanceamento de carga
 
-## <a name="deploying-the-solution-using-the-azure-cli"></a>Implementar a solução com a CLI do Azure
+## <a name="deploy-the-solution-by-using-azure-cli"></a>Implementar a solução ao utilizar a CLI do Azure
 
-Os passos seguintes mostram como criar um balanceador de carga com acesso à Internet com o Azure Resource Manager com CLI. Com o Azure Resource Manager, cada recurso é criado e configurado individualmente e, em seguida, colocado em conjunto para criar um recurso.
+Os passos seguintes mostram como criar um balanceador de carga público utilizando o Gestor de recursos do Azure com a CLI do Azure. Com o Azure Resource Manager, criar e configurar cada objeto individualmente e, em seguida, colocá-los em conjunto para criar um recurso.
 
 Para implementar um balanceador de carga, criar e configurar os seguintes objetos:
 
-* Configuração de IP front-end - contém os endereços IP públicos para o tráfego de rede recebido.
-* Conjunto de endereços de back-end - contém interfaces de rede (NICs) para as máquinas virtuais receberem tráfego de rede do balanceador de carga.
-* Regras de balanceamento de carga - contém as regras que mapeiam uma porta pública no balanceador de carga para a porta no conjunto de endereços de back-end.
-* Regras NAT de entrada - contém as regras que mapeiam uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no conjunto de endereços de back-end.
-* Sondas - contém sondas utilizadas para verificar a disponibilidade de instâncias das máquinas virtuais no conjunto de endereços de back-end.
+* **Configuração de IP Front-end**: contém endereços IP públicos para tráfego de rede recebido.
+* **Conjunto de endereços de back-end**: contém interfaces de rede (NICs) para as máquinas virtuais para receber o tráfego de rede do Balanceador de carga.
+* **As regras de balanceamento de carga**: contém regras que mapeiam uma porta pública no balanceador de carga para uma porta no conjunto de endereços de back-end.
+* **Regras NAT de entrada**: contém regras de tradução (NAT) de endereços de rede mapeiam uma porta pública no balanceador de carga para uma porta para uma máquina virtual específica no conjunto de endereços de back-end.
+* **As sondas**: contém sondas de estado de funcionamento que são utilizadas para verificar a disponibilidade das instâncias de máquina virtual no conjunto de endereços de back-end.
 
 Para obter mais informações, veja [Suporte do Azure Resource Manager para o Load Balancer](load-balancer-arm.md).
 
-## <a name="set-up-your-cli-environment-to-use-azure-resource-manager"></a>Configurar o ambiente de CLI para utilizar o Azure Resource Manager
+## <a name="set-up-your-azure-cli-environment-to-use-azure-resource-manager"></a>Configurar o ambiente da CLI do Azure para utilizar o Azure Resource Manager
 
-Neste exemplo, iremos estiver a executar as ferramentas da CLI numa janela de comandos do PowerShell. Não está a utilizar os cmdlets do PowerShell do Azure, mas as capacidades de scripts do PowerShell são utilizadas para melhorar a legibilidade e reutilização.
+Neste exemplo, executar as ferramentas da CLI do Azure numa janela de comandos do PowerShell. Para melhorar a legibilidade e reutilização, utilizar capacidades de scripts do PowerShell, não cmdlets PowerShell do Azure.
 
-1. Se nunca tiver utilizado a CLI do Azure, veja [Install and Configure the Azure CLI (Instalar e Configurar a CLI do Azure)](../cli-install-nodejs.md) e siga as instruções até ao ponto onde poderá selecionar a sua conta e subscrição do Azure.
-2. Execute o **modo de configuração do azure** comando para mudar para o modo Resource Manager.
+1. Se nunca tiver utilizado a CLI do Azure, consulte o artigo [instalar e configurar a CLI do Azure](../cli-install-nodejs.md) e siga as instruções até ao ponto onde poderá selecionar a conta do Azure e a subscrição.
+
+2. Para mudar para modo Resource Manager, execute o **modo de configuração do azure** comando:
 
     ```azurecli
     azure config mode arm
@@ -75,21 +76,21 @@ Neste exemplo, iremos estiver a executar as ferramentas da CLI numa janela de co
 
         info:    New mode is arm
 
-3. Inicie sessão no Azure e obter uma lista de subscrições.
+3. Inicie sessão no Azure e obter uma lista de subscrições:
 
     ```azurecli
     azure login
     ```
 
-    Introduza as credenciais do Azure quando lhe for pedido.
+4. Na linha de comandos, introduza as suas credenciais do Azure:
 
     ```azurecli
     azure account list
     ```
 
-    Escolha a subscrição que pretende utilizar. Anote o Id de subscrição para o passo seguinte.
+5. Selecione a subscrição que pretende utilizar e anote o ID de subscrição para utilizar no próximo passo.
 
-4. Defina variáveis de PowerShell para utilização com os comandos da CLI.
+6. Configure variáveis de PowerShell para utilização com os comandos da CLI do Azure:
 
     ```powershell
     $subscriptionid = "########-####-####-####-############"  # enter subscription id
@@ -107,25 +108,25 @@ Neste exemplo, iremos estiver a executar as ferramentas da CLI numa janela de co
 
 ## <a name="create-a-resource-group-a-load-balancer-a-virtual-network-and-subnets"></a>Criar um grupo de recursos, um balanceador de carga, uma rede virtual e sub-redes
 
-1. Criar um grupo de recursos
+1. Criar um grupo de recursos:
 
     ```azurecli
     azure group create $rgName $location
     ```
 
-2. Criar um balanceador de carga
+2. Crie um balanceador de carga:
 
     ```azurecli
     $lb = azure network lb create --resource-group $rgname --location $location --name $lbName
     ```
 
-3. Crie uma rede virtual (VNet).
+3. Criar uma rede virtual:
 
     ```azurecli
     $vnet = azure network vnet create  --resource-group $rgname --name $vnetName --location $location --address-prefixes $vnetPrefix
     ```
 
-    Crie duas sub-redes desta VNet.
+4. Nesta rede virtual, crie duas sub-redes:
 
     ```azurecli
     $subnet1 = azure network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
@@ -134,14 +135,14 @@ Neste exemplo, iremos estiver a executar as ferramentas da CLI numa janela de co
 
 ## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Crie endereços IP públicos para o conjunto de front-end
 
-1. Configurar as variáveis de PowerShell
+1. Configure as variáveis de PowerShell:
 
     ```powershell
     $publicIpv4Name = "myIPv4Vip"
     $publicIpv6Name = "myIPv6Vip"
     ```
 
-2. Crie o conjunto IP Front-end de um endereço IP público.
+2. Crie um endereço IP público para o conjunto IP Front-end:
 
     ```azurecli
     $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
@@ -149,14 +150,17 @@ Neste exemplo, iremos estiver a executar as ferramentas da CLI numa janela de co
     ```
 
     > [!IMPORTANT]
-    > O balanceador de carga utiliza a etiqueta de domínio do IP público como o respetivo FQDN. Isto uma alteração de implementação clássica, que utiliza o serviço em nuvem nome como o FQDN do Balanceador de carga.
+    > O Balanceador de carga utiliza a etiqueta de domínio do IP público, como o respetivo nome de domínio completamente qualificado (FQDN). Isto uma alteração de implementação clássica, que utiliza o serviço em nuvem nome como o FQDN do Balanceador de carga.
+    >
     > Neste exemplo, o FQDN é *contoso09152016.southcentralus.cloudapp.azure.com*.
 
 ## <a name="create-front-end-and-back-end-pools"></a>Criar conjuntos de front-end e back-end
 
-Este exemplo cria o conjunto IP Front-end que recebe o tráfego de rede de entrada no balanceador de carga e o conjunto IP back-end em que o conjunto de front-end envia o tráfego de rede com balanceamento de carga.
+Nesta secção, crie os seguintes conjuntos IP:
+* O conjunto IP Front-end que recebe o tráfego de rede de entrada no balanceador de carga.
+* O conjunto de IP back-end em que o conjunto de front-end envia o tráfego de rede com balanceamento de carga.
 
-1. Configurar as variáveis de PowerShell
+1. Configure as variáveis de PowerShell:
 
     ```powershell
     $frontendV4Name = "FrontendVipIPv4"
@@ -165,7 +169,7 @@ Este exemplo cria o conjunto IP Front-end que recebe o tráfego de rede de entra
     $backendAddressPoolV6Name = "BackendPoolIPv6"
     ```
 
-2. Crie um conjunto IP de front-end ao associar o IP público criado no passo anterior e o balanceador de carga.
+2. Criar um conjunto IP Front-end e associá-lo com o IP público que criou no passo anterior e o Balanceador de carga.
 
     ```azurecli
     $frontendV4 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-name $publicIpv4Name --lb-name $lbName
@@ -174,18 +178,18 @@ Este exemplo cria o conjunto IP Front-end que recebe o tráfego de rede de entra
     $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
     ```
 
-## <a name="create-the-probe-nat-rules-and-lb-rules"></a>Criar a sonda, regras NAT e LB regras
+## <a name="create-the-probe-nat-rules-and-load-balancer-rules"></a>Criar a sonda, regras NAT e as regras de Balanceador de carga
 
 Este exemplo cria os seguintes itens:
 
-* uma regra de sonda para verificar a conectividade para a porta TCP 80
-* uma regra NAT traduzir todo o tráfego de entrada na porta 3389 à porta 3389 para RDP<sup>1</sup>
-* uma regra NAT traduzir todo o tráfego de entrada na porta 3391 à porta 3389 para RDP<sup>1</sup>
-* Uma regra de balanceador de carga para balancear todo o tráfego de entrada na porta 80 à porta 80 nos endereços do conjunto de back-end.
+* Uma regra de sonda para verificar a conectividade para a porta TCP 80.
+* Uma regra NAT traduzir todo o tráfego de entrada na porta 3389 à porta 3389 para RDP.\*
+* Uma regra NAT traduzir todo o tráfego de entrada na porta 3391 à porta 3389 para o protocolo de ambiente de trabalho remoto (RDP).\*
+* uma regra de Balanceador de carga para equilibrar a todo o tráfego de entrada na porta 80 para a porta 80 nos endereços do conjunto de back-end.
 
-<sup>1</sup> As regras NAT estão associadas a uma instância de máquina virtual específica atrás do balanceador de carga. O tráfego de rede que chegam na porta 3389 é enviado para a máquina virtual específica e a porta associada com a regra NAT. Tem de especificar um protocolo (UDP ou TCP) para uma regra NAT. Ambos os protocolos não podem ser atribuídos à mesma porta.
+\*Regras NAT que estão associadas uma instância específica da máquina virtual por trás do Balanceador de carga. O tráfego de rede que são recebidos na porta 3389 é enviado para a máquina virtual específica e a porta que está associada a regra NAT. Tem de especificar um protocolo (UDP ou TCP) para uma regra NAT. Não é possível atribuir os dois protocolos para a mesma porta.
 
-1. Configurar as variáveis de PowerShell
+1. Configure as variáveis de PowerShell:
 
     ```powershell
     $probeV4V6Name = "ProbeForIPv4AndIPv6"
@@ -195,29 +199,29 @@ Este exemplo cria os seguintes itens:
     $lbRule1V6Name = "LBRuleForIPv6-Port80"
     ```
 
-2. Criar a sonda
+2. Crie a sonda.
 
-    O exemplo seguinte cria uma sonda TCP que verifica a conectividade para a porta TCP 80 back-end a cada 15 segundos. -Serão marcadas como o recurso de back-end disponível após duas falhas consecutivas.
+    O exemplo seguinte cria uma sonda TCP que verifica a conectividade à porta TCP 80 de back-end a cada 15 segundos. Após duas falhas consecutivas, marca o recurso de back-end como indisponíveis.
 
     ```azurecli
     $probeV4V6 = azure network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --count 2 --lb-name $lbName
     ```
 
-3. Criar regras NAT de entrada que permitem ligações do RDP para os recursos de back-end
+3. Crie regras NAT de entrada que permitem ligações do RDP para os recursos de back-end:
 
     ```azurecli
     $inboundNatRuleRdp1 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
     $inboundNatRuleRdp2 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
     ```
 
-4. Criar regras que enviam tráfego para portas de back-end diferentes, consoante o front-end recebeu o pedido de um balanceador de carga
+4. Crie regras de Balanceador de carga que enviam tráfego para as portas de back-end diferentes, consoante o front-end que recebeu o pedido.
 
     ```azurecli
     $lbruleIPv4 = azure network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-address-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
     $lbruleIPv6 = azure network lb rule create --resource-group $rgname --name $lbRule1V6Name --frontend-ip-name $frontendV6Name --backend-address-pool-name $backendAddressPoolV6Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 8080 --lb-name $lbName
     ```
 
-5. Verifique as definições
+5. Verifique as definições:
 
     ```azurecli
     azure network lb show --resource-group $rgName --name $lbName
@@ -265,9 +269,9 @@ Este exemplo cria os seguintes itens:
 
 ## <a name="create-nics"></a>Criar NICs
 
-Criar o NICs e associá-las a regras NAT, as regras de Balanceador de carga e pesquisas.
+Criar o NICs e associá-las com as regras NAT, as regras de Balanceador de carga e pesquisas.
 
-1. Configurar as variáveis de PowerShell
+1. Configure as variáveis de PowerShell:
 
     ```powershell
     $nic1Name = "myIPv4IPv6Nic1"
@@ -280,7 +284,7 @@ Criar o NICs e associá-las a regras NAT, as regras de Balanceador de carga e pe
     $natRule2V4Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/loadbalancers/$lbName/inboundNatRules/$natRule2V4Name"
     ```
 
-2. Crie um NIC para cada back-end e adicione uma configuração de IPv6.
+2. Crie um NIC para cada back-end e adicionar uma configuração de IPv6:
 
     ```azurecli
     $nic1 = azure network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-version "IPv4" --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
@@ -290,11 +294,11 @@ Criar o NICs e associá-las a regras NAT, as regras de Balanceador de carga e pe
     $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 
-## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Criar os recursos VM de back-end e ligue cada NIC
+## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Criar os recursos VM de back-end e anexar a cada NIC
 
-Para criar VMs, tem de ter uma conta de armazenamento. Balanceamento de carga, as VMs têm de ser membros de um conjunto de disponibilidade. Para obter mais informações sobre a criação de VMs, consulte [criar uma VM do Azure com o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+Para criar VMs, tem de ter uma conta de armazenamento. Balanceamento de carga, as VMs têm de ser membros de um conjunto de disponibilidade. Para obter mais informações sobre a criação de VMs, consulte [criar uma VM do Azure utilizando o PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
-1. Configurar as variáveis de PowerShell
+1. Configure as variáveis de PowerShell:
 
     ```powershell
     $storageAccountName = "ps08092016v6sa0"
@@ -313,23 +317,23 @@ Para criar VMs, tem de ter uma conta de armazenamento. Balanceamento de carga, a
     ```
 
     > [!WARNING]
-    > Este exemplo utiliza o nome de utilizador e palavra-passe para as VMs em texto não encriptado. Deve ser colocado cuidado quando utilizar as credenciais do eliminar. Para um método mais seguro de processamento de credenciais no PowerShell, consulte o [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+    > Este exemplo utiliza o nome de utilizador e palavra-passe para as VMs como texto simples. Ter cuidado ao utilizar estas credenciais como texto simples. Para um método mais seguro de processamento de credenciais no PowerShell, consulte o [ `Get-Credential` ](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
 
-2. Criar o conjunto de disponibilidade e da conta de armazenamento
+2. Crie o conjunto de disponibilidade e da conta de armazenamento.
 
-    Pode utilizar uma conta de armazenamento existente quando criar as VMs. O comando seguinte cria uma nova conta de armazenamento.
+    Pode utilizar uma conta de armazenamento existente ao criar as VMs. Criar uma nova conta de armazenamento utilizando o seguinte comando:
 
     ```azurecli
     $storageAcc = azure storage account create $storageAccountName --resource-group $rgName --location $location --sku-name "LRS" --kind "Storage"
     ```
 
-    Em seguida, crie o conjunto de disponibilidade.
+3. Crie o conjunto de disponibilidade:
 
     ```azurecli
     $availabilitySet = azure availset create --name $availabilitySetName --resource-group $rgName --location $location
     ```
 
-3. Criar as máquinas virtuais com os NICs associados
+4. Crie as máquinas virtuais com os NICs associados:
 
     ```azurecli
     $vm1 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm1Name --nic-id $nic1Id --os-disk-vhd $osDisk1Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
@@ -339,8 +343,6 @@ Para criar VMs, tem de ter uma conta de armazenamento. Balanceamento de carga, a
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Começar a configurar um balanceador de carga interno](load-balancer-get-started-ilb-arm-cli.md)
-
-[Configurar um modo de distribuição de balanceador de carga](load-balancer-distribution-mode.md)
-
+[Começar a configurar um balanceador de carga interno](load-balancer-get-started-ilb-arm-cli.md)  
+[Configurar um modo de distribuição de balanceador de carga](load-balancer-distribution-mode.md)  
 [Configurar definições de tempo limite TCP inativo para o balanceador de carga](load-balancer-tcp-idle-timeout.md)

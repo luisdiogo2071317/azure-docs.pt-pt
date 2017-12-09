@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 2687eb022bce0b71c217f0be611c8fabdfb66040
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5a5893df8b734acc2d16f149505ed65c288c9306
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Cenário do mundo real de manutenção preditiva.
 
@@ -30,7 +30,7 @@ Segue-se a ligação para o repositório do GitHub pública: [https://github.com
 
 ## <a name="use-case-overview"></a>Descrição geral de cenário de utilização
 
-Um problema principais deparam por empresas na asset pesado indústrias é os custos significativos que estão associados a atrasos mechanical problemas. A maioria das empresas estão interessadas nas prever quando estes problemas surgem para proativamente impedi-los antes de ocorrem. O objetivo consiste em reduzir os custos ao reduzir o período de indisponibilidade e, possivelmente, aumentar a segurança. Consulte o [manual de comunicação social de manutenção preditiva](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) para uma explicação detalhada de comum utilizar casos, bem como a abordagem de modelação utilizado para manutenção preditiva.
+Um problema principais deparam por empresas na asset pesado indústrias é os custos significativos que estão associados a atrasos mechanical problemas. A maioria das empresas estão interessadas nas prever quando estes problemas surgem para proativamente impedi-los antes de ocorrem. O objetivo consiste em reduzir os custos ao reduzir o período de indisponibilidade e, possivelmente, aumentar a segurança. Consulte o [manual de comunicação social de manutenção preditiva](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance) para uma explicação detalhada de comum utilizar casos, bem como a abordagem de modelação utilizado para manutenção preditiva.
 
 Este cenário tira partido ideias do manual de comunicação social com o objetivo de fornecer os passos para implementar um modelo preditivo para um cenário, o que se baseia num synthesis de vários problemas de empresas do mundo real. Neste exemplo reúne casos de utilização de elementos de dados comuns observados entre muitos manutenção preditiva.
 
@@ -40,7 +40,7 @@ Este cenário tira partido ideias do manual de comunicação social com o objeti
 
 * Um [conta do Azure](https://azure.microsoft.com/en-us/free/) (gratuitas estão disponíveis).
 * Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) seguintes o [guia de instalação de início rápido](./quickstart-installation.md) para instalar o programa e criar uma área de trabalho.
-* Azure Operationalization de aprendizagem máquina requer um ambiente de implementação de local e um [conta de gestão de modelo](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview)
+* Azure Operationalization de aprendizagem máquina requer um ambiente de implementação de local e um [conta de gestão de modelo](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
 
 Neste exemplo, pode ser executado em qualquer contexto de computação AML Workbench. No entanto, recomenda-se a executá-lo com, pelo menos, de 16 GB de memória. Este cenário foi criado e testado num computador Windows 10 com um padrão de DS4_V2 remoto [Máquina Virtual de ciência de dados para Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu).
 
@@ -112,7 +112,7 @@ Este cenário fornece o leitor de uma descrição geral de como construir uma so
 
 Neste caso, utilize foi anteriormente desenvolveu em várias plataformas:
 
-* [Modelo de solução da manutenção preditiva](https://docs.microsoft.com/en-us/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
+* [Modelo de solução da manutenção preditiva](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
 * [Guia de modelação de manutenção preditiva](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 * [Preditiva manutenção modelação Guia utilizando os serviços do SQL Server R](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1)
 * [Bloco de notas do Python guia de modelação de manutenção preditiva](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)

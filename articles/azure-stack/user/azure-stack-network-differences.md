@@ -8,11 +8,11 @@ ms.author: victorh
 ms.date: 9/25/2017
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 7b7bac508a759a1367ac7328840848efe17ea3c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c72c58e63335f1cb440811e283bd742b8124161
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerações para redes de pilha do Azure
 
@@ -34,7 +34,7 @@ Este artigo fornece uma descrição geral das considerações de exclusivas para
 | |Conjuntos de registos DNS por zona|5000 (predefinição)<br>Pode ser aumentado no pedido.|5000|
 ||Servidores de nomes para a delegação de zona|Azure fornecem quatro servidores de nomes para cada zona de utilizador (inquilino) que é criada.|Pilha do Azure fornece dois servidores de nomes para cada zona de utilizador (inquilino) que é criada.|
 | Rede virtual|Peering de rede virtual|Ligar duas redes virtuais na mesma região através da rede principal do Azure.|Ainda não suportado|
-| |Endereços IPv6|Pode atribuir um endereço IPv6 como parte do [configuração de Interface de rede](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|É apenas suportado o IPv4.|
+| |Endereços IPv6|Pode atribuir um endereço IPv6 como parte do [configuração de Interface de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|É apenas suportado o IPv4.|
 |Gateways de VPN|Gateway de VPN de ponto a Site|Suportado|Ainda não suportado|
 | |Gateway de Vnet a Vnet|Suportado|Ainda não suportado|
 | |SKUs do VPN Gateway|Suporte para básico, GW1, GW2, GW3, padrão de elevado desempenho, Ultra-elevado desempenho. |Suporte para básico, Standard e SKUs de elevado desempenho.|

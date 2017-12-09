@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: c7734b8e02b6a2f08f5fc6ebe4b2ec43e34b35c3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de resolução de problemas de encriptação de disco do Azure
 
@@ -36,7 +36,7 @@ Este erro é mais provável acontecer se a encriptação de disco de SO for tent
 - O disco de SO utiliza um esquema de Gestor de Volume lógica (LVM). Embora o suporte de disco de dados do limitado LVM esteja disponível, um disco de SO LVM não é.
 - Requisitos mínimos de memória não são cumpridos (7 GB é sugerida para encriptação de disco do SO).
 - Unidades de dados estão em modo recursivo montado no diretório /mnt/ ou entre si (por exemplo, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Outros Azure Disk Encryption [pré-requisitos](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) para Linux não são cumpridos.
+- Outros Azure Disk Encryption [pré-requisitos](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) para Linux não são cumpridos.
 
 ## <a name="unable-to-encrypt"></a>Não é possível encriptar
 

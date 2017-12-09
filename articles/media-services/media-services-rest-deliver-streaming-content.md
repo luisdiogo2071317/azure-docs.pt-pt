@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: d1e0a112040f6aa4cfa9e8c323507b1c0a223f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9bcd7c099bb46795f6f33c073261c0b949ff536a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicar conteúdo de Media Services do Azure através de REST
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Descrição geral
-Pode transmitir uma velocidade de transmissão adaptável definido MP4 criando um localizador de transmissão em fluxo OnDemand e criação de um URL de transmissão em fluxo. O [um elemento de codificação](media-services-rest-encode-asset.md) tópico mostra como codificar para uma conjunto de MP4 de velocidade de transmissão adaptável. Se o conteúdo é encriptado, configure a política de entrega de elementos (conforme descrito em [isto](media-services-rest-configure-asset-delivery-policy.md) tópico) antes de criar um localizador. 
+Pode transmitir uma velocidade de transmissão adaptável definido MP4 criando um localizador de transmissão em fluxo OnDemand e criação de um URL de transmissão em fluxo. O [um elemento de codificação](media-services-rest-encode-asset.md) artigo mostra como codificar para uma conjunto de MP4 de velocidade de transmissão adaptável. Se o conteúdo é encriptado, configure a política de entrega de elementos (conforme descrito em [isto](media-services-rest-configure-asset-delivery-policy.md) artigo) antes de criar um localizador. 
 
 Também pode utilizar um OnDemand localizador de transmissão em fluxo para criar URLs que apontem para ficheiros MP4 que transferir progressivamente.  
 
-Este tópico mostra como criar um localizador para publicar o elemento e compilar um uniforme, MPEG DASH e URLs de transmissão em fluxo HLS, transmissão em fluxo de OnDemand. Também mostra frequente para criar URLs de transferência progressiva.
+Este artigo mostra como criar um localizador para publicar o elemento e compilar um uniforme, MPEG DASH e URLs de transmissão em fluxo HLS, transmissão em fluxo de OnDemand. Também mostra frequente para criar URLs de transferência progressiva.
 
 O [seguintes](#types) secção mostra os tipos de enumeração cujos valores são utilizados em chamadas a REST.   
 
@@ -49,7 +49,7 @@ Para obter informações sobre como ligar à API do AMS, consulte [aceder à API
 >Depois de ligar com êxito a https://media.windows.net, receberá um redirecionamento 301 especificando noutro URI de serviços de suporte de dados. Tem de se as chamadas subsequentes para o novo URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Criar um OnDemand localizador de transmissão em fluxo
-Para criar OnDemand localizador de transmissão em fluxo e obter os URLs precisa de fazer o seguinte:
+Para criar o OnDemand localizador de transmissão em fluxo e obter os URLs, terá de fazer o seguinte:
 
 1. Se o conteúdo é encriptado, defina uma política de acesso.
 2. Crie um localizador de transmissão em fluxo de OnDemand.
@@ -57,12 +57,12 @@ Para criar OnDemand localizador de transmissão em fluxo e obter os URLs precisa
    
    Se planeia transferir progressivamente, obter os nomes de ficheiros MP4 no elemento. 
 4. Crie URLs para o ficheiro de manifesto ou ficheiros MP4. 
-5. Tenha em atenção que não é possível criar um localizador de transmissão em fluxo utilizando um AccessPolicy que inclui escrever ou eliminar as permissões.
+5. Não é possível criar um localizador de transmissão em fluxo utilizando um AccessPolicy que inclui a escrita ou eliminar as permissões.
 
 ### <a name="create-an-access-policy"></a>Criar uma política de acesso
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Se estiver a utilizar sempre os mesmos dias / as permissões de acesso, por exemplo, políticas para os localizadores destinadas a permanecem no local durante muito tempo (carregamento não políticas), utilize o mesmo ID de política. Para obter mais informações, consulte [isto](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Pedido:
 
@@ -73,7 +73,7 @@ Pedido:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 6bcfd511-a561-448d-a022-a319a89ecffa
     Host: media.windows.net
     Content-Length: 68
@@ -111,7 +111,7 @@ Pedido:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstest1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1424263184&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=NWE%2f986Hr5lZTzVGKtC%2ftzHm9n6U%2fxpTFULItxKUGC4%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: ac159492-9a0c-40c3-aacc-551b1b4c5f62
     Host: media.windows.net
     Content-Length: 181
@@ -142,20 +142,20 @@ Utilize o **caminho** valor devolvido após a criação de localizador para cria
 
 Transmissão em fluxo uniforme: **caminho** + nome de ficheiro de manifesto + "/ manifest"
 
-Exemplo:
+exemplo:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
 
 HLS: **caminho** + nome de ficheiro de manifesto + "/ manifest(format=m3u8-aapl)"
 
-Exemplo:
+exemplo:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 
 TRAÇO: **caminho** + nome de ficheiro de manifesto + "/ manifest(format=mpd-time-csf)"
 
-Exemplo:
+exemplo:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
@@ -165,7 +165,7 @@ Utilize o **caminho** valor devolvido após a criação de localizador para cons
 
 URL: **caminho** + nome do recurso do ficheiro mp4
 
-Exemplo:
+exemplo:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 

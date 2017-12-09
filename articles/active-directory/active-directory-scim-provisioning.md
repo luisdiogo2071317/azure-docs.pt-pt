@@ -16,11 +16,11 @@ ms.date: 07/28/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b84fe16f533db71207effa58b2b596600b4bcd27
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilizar o sistema para a gestão de identidade entre domínios para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory para aplicações
 
@@ -87,7 +87,7 @@ Aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligadas 
 13. Clique em **guardar** para iniciar o Azure AD que o serviço de fornecimento. 
 14. Se apenas a sincronizar atribuídos a utilizadores e grupos (recomendados), é necessário selecionar o **utilizadores e grupos** separador e atribuir utilizadores e/ou grupos que pretende sincronizar.
 
-Depois de é iniciado a sincronização inicial, pode utilizar o **registos de auditoria** separador para monitorize o progresso, que mostra todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação. Para obter mais informações sobre como ler o Azure AD, os registos de aprovisionamento, consulte [relatórios sobre o aprovisionamento da conta de utilizador automáticas](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Depois de é iniciado a sincronização inicial, pode utilizar o **registos de auditoria** separador para monitorize o progresso, que mostra todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação. Para obter mais informações sobre como ler o Azure AD, os registos de aprovisionamento, consulte [relatórios sobre o aprovisionamento da conta de utilizador automáticas](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
 >A sincronização inicial demora mais para efetuar a sincronizações subsequentes, o que ocorrer aproximadamente a cada 20 minutos, desde que o serviço está em execução. 
@@ -159,7 +159,7 @@ Para efetuar este processo mais fácil, um conjunto de [exemplos de código](htt
 13. Clique em **guardar** para iniciar o Azure AD que o serviço de fornecimento. 
 14. Se apenas a sincronizar atribuídos a utilizadores e grupos (recomendados), é necessário selecionar o **utilizadores e grupos** separador e atribuir utilizadores e/ou grupos que pretende sincronizar.
 
-Depois de é iniciado a sincronização inicial, pode utilizar o **registos de auditoria** separador para monitorize o progresso, que mostra todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação. Para obter mais informações sobre como ler o Azure AD, os registos de aprovisionamento, consulte [relatórios sobre o aprovisionamento da conta de utilizador automáticas](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Depois de é iniciado a sincronização inicial, pode utilizar o **registos de auditoria** separador para monitorize o progresso, que mostra todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação. Para obter mais informações sobre como ler o Azure AD, os registos de aprovisionamento, consulte [relatórios sobre o aprovisionamento da conta de utilizador automáticas](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 O passo final na verificação a amostra é para abrir o ficheiro de TargetFile.csv na pasta \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug no seu computador Windows. Depois do processo de aprovisionamento é executado, este ficheiro mostra os detalhes de todas as atribuído e aprovisionamento de utilizadores e grupos.
 
@@ -359,7 +359,7 @@ Grupo de recursos é identificados pelo identificador de esquema, http://schemas
 ### <a name="table-1-default-user-attribute-mapping"></a>1 de tabela: Mapeamento de atributos de utilizador de predefinido
 | Utilizador do Active Directory do Azure | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
-| IsSoftDeleted |Active Directory |
+| IsSoftDeleted |ativo |
 | displayName |displayName |
 | Facsimile TelephoneNumber |.value phoneNumbers [eq "faxes" do tipo] |
 | givenName |name.givenName |
@@ -378,12 +378,12 @@ Grupo de recursos é identificados pelo identificador de esquema, http://schemas
 | utilizador PrincipalName |Nome de utilizador |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>2 da tabela: O mapeamento de atributos de grupo predefinido
-| Grupo do Active Directory do Azure | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
+| Grupo do Azure Active Directory | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
 | displayName |externalId |
 | capacidade de correio |mensagens de correio eletrónico [eq "trabalho" do tipo] .value |
 | mailNickname |displayName |
-| Membros |Membros |
+| membros |membros |
 | objectId |ID |
 | proxyAddresses |mensagens de correio eletrónico [Escreva eq "outro"]. Valor |
 

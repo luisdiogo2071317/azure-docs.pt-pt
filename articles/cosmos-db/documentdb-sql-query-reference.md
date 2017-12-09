@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: mimig
-ms.openlocfilehash: 4907df15fddfb7d8d6128dc994b0920ca601f2c7
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 6fc96dae8c7c6983b1d062c22438344278d478e0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>DocumentDB do Azure do Cosmos DB API: Referência de sintaxe SQL
 
@@ -677,8 +677,8 @@ ORDER BY <sort_specification>
     |'símbolo'|Símbolo literal que faz parte da sintaxe.|  
     |&#124; (barra vertical)|Alternativas para itens de sintaxe. Pode utilizar apenas um dos itens especificados.|  
     |[] /(brackets)|Retos coloque um ou mais itens opcionais.|  
-    |[ ,...n ]|Indica que o item anterior pode ser n repetida diversas vezes. As ocorrências são separadas por vírgulas.|  
-    |[ ...n ]|Indica que o item anterior pode ser n repetida diversas vezes. As ocorrências são separadas por espaços em branco.|  
+    |[,.. n]|Indica que o item anterior pode ser n repetida diversas vezes. As ocorrências são separadas por vírgulas.|  
+    |[.. n]|Indica que o item anterior pode ser n repetida diversas vezes. As ocorrências são separadas por espaços em branco.|  
   
 ##  <a name="bk_built_in_functions"></a>Funções incorporadas  
  BD do Cosmos do Azure fornece várias funções incorporadas do SQL Server. As categorias de funções incorporadas são listadas abaixo.  
@@ -2791,6 +2791,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>Passos seguintes  
  [Sintaxe SQL e consulta SQL para a base de dados do Azure Cosmos](documentdb-sql-query.md)   
- [Documentação do Cosmos BD do Azure](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
+ [Documentação do Cosmos BD do Azure](https://docs.microsoft.com/azure/cosmos-db/)  
   
   

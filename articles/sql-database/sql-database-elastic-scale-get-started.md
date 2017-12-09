@@ -1,6 +1,6 @@
 ---
-title: "Começar a utilizar as ferramentas de base de dados elástica | Microsoft Docs"
-description: "EXPLICAÇÃO básica da funcionalidade de ferramentas de base de dados elástica do SQL Database do Azure, incluindo uma aplicação de exemplo simples para execução."
+title: "Começar a utilizar ferramentas de base de dados elásticas - Azure | Microsoft Docs"
+description: "EXPLICAÇÃO básica da funcionalidade ferramentas de base de dados elástica do SQL Database do Azure, incluindo uma aplicação de exemplo simples para execução."
 services: sql-database
 documentationcenter: 
 manager: jstrauss
@@ -15,45 +15,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: anjangsh
-ms.openlocfilehash: e7e072e310cabc2c4520df7e9f4f9e45b8218998
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 615e5b0bf299a844ea2d37476fc704c48e17b363
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Começar a utilizar as ferramentas de base de dados elástica
-Este documento apresenta-lhe a experiência de programação para [biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md) por ajudar a executar uma aplicação de exemplo. A aplicação de exemplo cria uma aplicação em partição horizontal simples e explicar as principais capacidades de ferramentas de base de dados elásticas. Concentra-se em casos de utilização [gestão de mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md), [encaminhamento de dados dependentes](sql-database-elastic-scale-data-dependent-routing.md), e [consultar várias partições horizontais](sql-database-elastic-scale-multishard-querying.md). A biblioteca de clientes está disponível para .net, bem como de Java. 
+Este documento apresenta-lhe a experiência de programação para o [biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md) por ajudar a executar uma aplicação de exemplo. A aplicação de exemplo cria uma aplicação em partição horizontal simples e explicar capacidades principais da funcionalidade ferramentas de base de dados elástica do SQL Database do Azure. Concentra-se em casos de utilização [gestão de mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md), [encaminhamento de dados dependentes](sql-database-elastic-scale-data-dependent-routing.md), e [consultar várias partições horizontais](sql-database-elastic-scale-multishard-querying.md). A biblioteca de clientes está disponível para .NET, bem como de Java. 
 
 ## <a name="elastic-database-tools-for-java"></a>Ferramentas de base de dados elástica para Java
 ### <a name="prerequisites"></a>Pré-requisitos
-* Um Java Developer Kit (JDK), v 1.8 ou posterior
+* Um Java Developer Kit (JDK), versão 1.8 ou posterior
 * [Maven](http://maven.apache.org/download.cgi)
-* Um servidor lógico no SQL Server local ou do Azure
+* Um servidor lógico no Azure ou uma instância local do SQL Server
 
 ### <a name="download-and-run-the-sample-app"></a>Transferir e executar a aplicação de exemplo
-Siga os passos abaixo para criar os ficheiros JAR e começar a utilizar com o projeto de exemplo: 
+Para criar os ficheiros JAR e começar a utilizar o projeto de exemplo, efetue o seguinte: 
 1. Clone o [repositório do GitHub](https://github.com/Microsoft/elastic-db-tools-for-java) que contém a biblioteca de cliente, juntamente com a aplicação de exemplo. 
-2. Editar o _./sample/src/main/resources/resource.properties_ ficheiro para definir o seguinte.
+
+2. Editar o _./sample/src/main/resources/resource.properties_ ficheiro para definir o seguinte:
     * TEST_CONN_USER
     * TEST_CONN_PASSWORD
     * TEST_CONN_SERVER_NAME
-3. Do _. / exemplo_ diretório, execute o seguinte comando para criar o projeto de exemplo.<br>
+
+3. Para compilar o projeto de exemplo, além de _. / exemplo_ diretório, execute o seguinte comando:
 
     ```
     mvn install
     ```
     
-4. Do _. / exemplo_ diretório, execute o seguinte comando para iniciar o projeto de exemplo. 
+4. Para iniciar o projeto de exemplo no _. / exemplo_ diretório, execute o seguinte comando: 
     
     ```
     mvn -q exec:java "-Dexec.mainClass=com.microsoft.azure.elasticdb.samples.elasticscalestarterkit.Program"
     ```
     
-5. Experimentar as diferentes opções para saber mais sobre as capacidades de biblioteca de cliente. Pode explorar o código para saber mais sobre a implementação de aplicação de exemplo.
+5. Para saber mais sobre as funcionalidades da biblioteca de cliente, experimente as várias opções. Pode explorar o código para saber mais sobre a implementação de aplicação de exemplo.
 
     ![Progresso-java][5]
     
-Parabéns! Criada com êxito e executar a sua primeira aplicação em partição horizontal utilizando ferramentas de base de dados elástica na base de dados do SQL Server. Utilize o Visual Studio ou o SQL Server Management Studio para ligar à base de dados SQL e observe rápida shards criado o exemplo. Vai notar novas bases de dados de partição horizontal de exemplo e uma base de dados manager partições horizontais do mapa que tiver criado o exemplo. Para adicionar a biblioteca de clientes para o seus próprios projeto Maven, adicione a seguinte dependência no seu ficheiro POM.<br>
+Parabéns! Criada com êxito e executar primeiro a aplicação ao utilizar ferramentas de base de dados elásticas em SQL Database do Azure. Utilize o Visual Studio ou o SQL Server Management Studio para ligar à base de dados SQL e observe rápida shards criado o exemplo. Vai notar novas bases de dados de partição horizontal de exemplo e uma base de dados manager partições horizontais do mapa que tiver criado o exemplo. 
+
+Para adicionar a biblioteca de clientes para o seus próprios projeto Maven, adicione a seguinte dependência no seu ficheiro POM:
 
 ```xml
 <dependency> 
@@ -63,7 +67,7 @@ Parabéns! Criada com êxito e executar a sua primeira aplicação em partição
 </dependency> 
 ```
 
-## <a name="elastic-database-tools-for-net"></a>Ferramentas de base de dados elástica para .net 
+## <a name="elastic-database-tools-for-net"></a>Ferramentas de base de dados elástica para .NET 
 ### <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2012 ou posterior com c#. Transferir uma versão gratuita em [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 ou posterior. Para obter a versão mais recente, consulte [instalar NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
@@ -75,17 +79,17 @@ Para transferir e executar o exemplo, siga estes passos:
 
 1. Transferir o [elástico ferramentas DB para SQL do Azure - introdução exemplo](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) da MSDN. Deszipe o exemplo para uma localização que escolher.
 
-2. Para criar um projeto, abra o **ElasticScaleStarterKit.sln** soluções do **c#** diretório.
+2. Para criar um projeto, abra o *ElasticScaleStarterKit.sln* soluções do *c#* diretório.
 
-3. A solução para o projeto de exemplo, abra o **App. config** ficheiro. Em seguida, siga as instruções no ficheiro para adicionar o nome do servidor SQL Database do Azure e as informações início de sessão (nome de utilizador e palavra-passe).
+3. A solução para o projeto de exemplo, abra o *App. config* ficheiro. Em seguida, siga as instruções no ficheiro para adicionar o nome do servidor SQL Database do Azure e as informações início de sessão (nome de utilizador e palavra-passe).
 
-4. Crie e execute a aplicação. Quando lhe for pedido, ative o Visual Studio para restaurar os pacotes de NuGet da solução. Esta ação transfere a versão mais recente da biblioteca de clientes de base de dados elástica do NuGet.
+4. Crie e execute a aplicação. Quando lhe for pedido, ative o Visual Studio para restaurar os pacotes de NuGet da solução. Esta ação transfere a versão mais recente da biblioteca de clientes de base de dados elástica NuGet.
 
-5. Experimentar as diferentes opções para saber mais sobre as capacidades de biblioteca de cliente. Tenha em atenção os passos que a aplicação demora na consola de saída e à vontade explorar o código em segundo plano.
+5. Para saber mais sobre as funcionalidades da biblioteca de cliente, experimente as várias opções. Tenha em atenção os passos que leva a aplicação na consola de saída e à vontade explorar o código em segundo plano.
    
     ![Progresso][4]
 
-Congratulations – tiver com êxito incorporadas e executar a sua primeira aplicação em partição horizontal utilizando ferramentas de base de dados elástica na base de dados do SQL Server. Utilize o Visual Studio ou o SQL Server Management Studio para ligar à base de dados SQL e observe rápida shards criado o exemplo. Vai notar novas bases de dados de partição horizontal de exemplo e uma base de dados manager partições horizontais do mapa que tiver criado o exemplo.
+Parabéns! Criada com êxito e executar primeiro a aplicação ao utilizar ferramentas de base de dados elástica na base de dados do SQL Server. Utilize o Visual Studio ou o SQL Server Management Studio para ligar à base de dados SQL e observe rápida shards criado o exemplo. Vai notar novas bases de dados de partição horizontal de exemplo e uma base de dados manager partições horizontais do mapa que tiver criado o exemplo.
 
 > [!IMPORTANT]
 > Recomendamos que utilize sempre a versão mais recente do Management Studio, para que o se a manter sincronizadas com as atualizações do Azure e a SQL Database. [Atualize o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -93,28 +97,28 @@ Congratulations – tiver com êxito incorporadas e executar a sua primeira apli
 > 
 
 ## <a name="key-pieces-of-the-code-sample"></a>Peças chave de exemplo de código
-* **Gerir shards e partições horizontais mapeia**: O código ilustra como trabalhar com shards, intervalos e mapeamentos no ficheiro **ShardManagementUtils.cs**. Para obter mais informações, consulte [ampliação das bases de dados com o Gestor de mapa de partições horizontais](http://go.microsoft.com/?linkid=9862595).  
+* **Gerir shards e partições horizontais mapeia**: O código ilustra como trabalhar com shards, intervalos e mapeamentos no *ShardManagementUtils.cs* ficheiro. Para obter mais informações, consulte [ampliação das bases de dados com o Gestor de mapa de partições horizontais](http://go.microsoft.com/?linkid=9862595).  
 
-* **Encaminhamento de dados dependentes**: encaminhamento de transações para o ID de partição horizontal direita é apresentado na **DataDependentRoutingSample.cs**. Para obter mais informações, consulte [encaminhamento de dados dependentes](http://go.microsoft.com/?linkid=9862596). 
+* **Encaminhamento de dados dependentes**: encaminhamento de transações para o ID de partição horizontal direita é apresentado no *DataDependentRoutingSample.cs* ficheiro. Para obter mais informações, consulte [encaminhamento de dados dependentes](http://go.microsoft.com/?linkid=9862596). 
 
-* **Consultar o ao longo de vários shards**: consultar em shards é ilustrado no ficheiro **MultiShardQuerySample.cs**. Para obter mais informações, consulte [consultar várias partições horizontais](http://go.microsoft.com/?linkid=9862597).
+* **Consultar o ao longo de vários shards**: consultar em shards situação é ilustrada no *MultiShardQuerySample.cs* ficheiro. Para obter mais informações, consulte [consultar várias partições horizontais](http://go.microsoft.com/?linkid=9862597).
 
-* **Adicionar shards vazios**: A iterativo adição de novos shards vazios é realizada o código no ficheiro **CreateShardSample.cs**. Para obter mais informações, consulte [ampliação das bases de dados com o Gestor de mapa de partições horizontais](http://go.microsoft.com/?linkid=9862595).
+* **Adicionar shards vazios**: iterativo a adição de partições horizontais vazias novo é realizada o código de *CreateShardSample.cs* ficheiro. Para obter mais informações, consulte [ampliação das bases de dados com o Gestor de mapa de partições horizontais](http://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Outras operações de dimensionamento elástico
-* **Divisão de um ID de partição horizontal existente**: A capacidade de dividir shards é fornecida pelo **ferramenta de intercalação de divisão**. Para obter mais informações, consulte [mover dados entre bases de dados de nuvem de escalamento horizontal](sql-database-elastic-scale-overview-split-and-merge.md).
+* **Divisão de um ID de partição horizontal existente**: A capacidade de dividir shards é fornecida pela ferramenta de intercalação de divisão. Para obter mais informações, consulte [mover dados entre bases de dados de nuvem de escalamento horizontal](sql-database-elastic-scale-overview-split-and-merge.md).
 
-* **A intercalação de partições horizontais existentes**: partições horizontais intercala também é efetuada utilizando o **ferramenta de intercalação de divisão**. Para obter mais informações, consulte [mover dados entre bases de dados de nuvem de escalamento horizontal](sql-database-elastic-scale-overview-split-and-merge.md).   
+* **A intercalação de partições horizontais existentes**: partições horizontais intercala também é executada utilizando a ferramenta de intercalação de divisão. Para obter mais informações, consulte [mover dados entre bases de dados de nuvem de escalamento horizontal](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## <a name="cost"></a>Custo
-As ferramentas de base de dados elásticas estão livres. Quando utilizar ferramentas de base de dados elástica, não receberá quaisquer taxas adicionais sobre o custo de utilização da sua do Azure. 
+A biblioteca de ferramentas de base de dados elásticas é gratuita. Quando utilizar ferramentas de base de dados elásticas, pode implicar sem custos adicionais além do custo de utilização do Azure da sua. 
 
-Por exemplo, a aplicação de exemplo cria novas bases de dados. O custo de isto depende a edição da base de dados do SQL Server que escolher e a utilização do Azure da sua aplicação.
+Por exemplo, a aplicação de exemplo cria novas bases de dados. O custo desta capacidade depende da edição de base de dados do SQL Server que escolher e a utilização do Azure da sua aplicação.
 
 Para obter informações sobre preços, consulte [base de dados SQL detalhes de preços](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre as ferramentas de base de dados elásticas, consulte as seguintes páginas:
+Para obter mais informações sobre as ferramentas de base de dados elásticas, consulte os artigos seguintes:
 
 * Exemplos de código: 
   * Ferramentas de base de dados elástica ([.NET](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))

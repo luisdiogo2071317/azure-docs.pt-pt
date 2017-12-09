@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: 15ed35ab3a082db3376890992be3a29b6e042a2f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 4c2d3ba72b768e21a027478dfe912689457049fd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Encriptação de disco do Azure para o Windows e as VMs de Linux IaaS
 Microsoft Azure é vivamente consolidada para assegurar a privacidade dos dados, soberania de dados e permite avançadas, para controlar o Azure alojadas dados através de uma variedade de tecnologias para encriptar, controlar e gerir chaves de encriptação, controlo & auditar o acesso aos dados. Isto proporciona aos clientes do Azure a flexibilidade para escolher a solução que melhor se adeque às suas necessidades de negócio. Neste documento, vamos apresenta-lhe uma nova solução de tecnologia "Do Azure Disk Encryption para o Windows e de Linux IaaS VM" para ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacional. O documento fornece orientações detalhadas sobre como utilizar as funcionalidades de encriptação de disco do Azure, incluindo os cenários suportados e o utilizador experiências.
@@ -199,7 +199,7 @@ Antes de ativar o Azure Disk Encryption em VMs do IaaS do Azure para os cenário
   > [!NOTE]
   > Se a política de segurança limita o acesso a partir de VMs do Azure para a Internet, pode resolver o URI anterior e configurar uma regra para permitir a conectividade de saída para os IPs específica.
   >
-  >Para configurar e aceder ao Cofre de chaves do Azure atrás de uma firewall (https://docs.microsoft.com/en-us/azure/key-vault/key-vault-access-behind-firewall)
+  >Para configurar e aceder ao Cofre de chaves do Azure atrás de uma firewall (https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall)
 
 * Utilize a versão mais recente da versão do SDK do Azure PowerShell para configurar a Azure Disk Encryption. Transfira a versão mais recente do [Azure PowerShell versão](https://github.com/Azure/azure-powershell/releases)
 
@@ -218,9 +218,9 @@ Antes de ativar o Azure Disk Encryption em VMs do IaaS do Azure para os cenário
 * Política do BitLocker em máquinas de virtuais associados a um domínio com a política de grupo personalizado tem de incluir a seguinte definição: `Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key` Azure Disk Encryption irá falhar quando as definições de política de grupo personalizada para o Bitlocker são incompatíveis. Nas máquinas que não tinha a política correta definição, aplicar a nova política, forçando a nova política de atualização (gpupdate.exe /force) e, em seguida, reiniciar poderão ser necessárias.  
 * Para criar uma aplicação do Azure AD, criar um cofre de chaves, ou configurar um cofre de chaves e ativar a encriptação, consulte o [script do PowerShell de pré-requisitos do Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 * Para configurar os pré-requisitos de encriptação de disco com a CLI do Azure, consulte [este script de Bash](https://github.com/ejarvi/ade-cli-getting-started).
-* Para utilizar o serviço de cópia de segurança do Azure para criar cópias de segurança e restaurar VMs encriptadas, quando é ativada a encriptação com o Azure Disk Encryption, encriptar as suas VMs utilizando a configuração de chave de encriptação de disco do Azure. O serviço de cópia de segurança suporta VMs que estão encriptadas com a KEK não ou configurações de KEK. Consulte [como fazer cópias de segurança e restaurar encriptados máquinas virtuais com a encriptação da cópia de segurança do Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+* Para utilizar o serviço de cópia de segurança do Azure para criar cópias de segurança e restaurar VMs encriptadas, quando é ativada a encriptação com o Azure Disk Encryption, encriptar as suas VMs utilizando a configuração de chave de encriptação de disco do Azure. O serviço de cópia de segurança suporta VMs que estão encriptadas com a KEK não ou configurações de KEK. Consulte [como fazer cópias de segurança e restaurar encriptados máquinas virtuais com a encriptação da cópia de segurança do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
 
-* Encriptar um volume com SO Linux, tenha em atenção de que está atualmente necessário no final do processo de um reinício VM. Isto pode ser feito através do portal, o powershell ou a CLI.   Para acompanhar o progresso de encriptação, consulte periodicamente a mensagem de estado devolvida pelo Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Assim que a encriptação estiver concluída, a mensagem de estado devolvida por este comando irá indicar isto.  Por exemplo, "ProgressMessage: disco do SO encriptados com êxito, reinicie a VM" neste momento a VM pode ser reiniciada e utilizada.  
+* Encriptar um volume com SO Linux, tenha em atenção de que está atualmente necessário no final do processo de um reinício VM. Isto pode ser feito através do portal, o powershell ou a CLI.   Para acompanhar o progresso de encriptação, consulte periodicamente a mensagem de estado devolvida pelo Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Assim que a encriptação estiver concluída, a mensagem de estado devolvida por este comando irá indicar isto.  Por exemplo, "ProgressMessage: disco do SO encriptados com êxito, reinicie a VM" neste momento a VM pode ser reiniciada e utilizada.  
 
 * Azure Disk Encryption para Linux necessita de discos de dados para ter um sistema de ficheiros montado no Linux antes de encriptação
 
@@ -396,7 +396,7 @@ Para criar um cofre de chaves, utilize uma das seguintes opções:
 * [Modelo de Gestor de recursos "101-chave-cofre-criar"](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 * [Cmdlets do Cofre de chaves do Azure PowerShell](/powershell/module/azurerm.keyvault/#key_vault)
 * Azure Resource Manager
-* Como [proteger o seu Cofre de chaves](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault)
+* Como [proteger o seu Cofre de chaves](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
 
 > [!NOTE]
 > Se já tiver configurado um cofre de chaves para a sua subscrição, avance para a secção seguinte.

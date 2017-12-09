@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 09/15/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3ca2a26fe47a8f0831a1ce4edf2c35911f3fc1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Carregar dados do Azure Data Lake Store para o SQL Data Warehouse
 Este documento dá-lhe um todos os passos que necessários para carregar os seus próprios dados do Azure Data Lake Store (ADLS) para o armazém de dados do SQL Server utilizando o PolyBase.
@@ -56,7 +56,7 @@ O PolyBase utiliza objetos externos de T-SQL para definir os atributos dos dados
 ###  <a name="create-a-credential"></a>Criar uma credencial
 Para aceder ao Azure Data Lake Store, terá de criar uma chave mestra de base de dados para encriptar o segredo da credencial utilizado no próximo passo.
 Em seguida, criar uma credencial com âmbito de base de dados, que armazena as credenciais de principal de serviço de multimédia no AAD. Os dos que utilizou o PolyBase para ligar ao armazenamento de Blobs do Windows Azure, tenha em atenção que a sintaxe de credencial diferente.
-Para ligar ao Azure Data Lake Store, terá **primeiro** criar uma aplicação do Azure Active Directory, crie uma chave de acesso e conceder o acesso de aplicação para o recurso do Azure Data Lake. As instruções para efetuar estes passos estão localizadas [aqui](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+Para ligar ao Azure Data Lake Store, terá **primeiro** criar uma aplicação do Azure Active Directory, crie uma chave de acesso e conceder o acesso de aplicação para o recurso do Azure Data Lake. As instruções para efetuar estes passos estão localizadas [aqui](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.

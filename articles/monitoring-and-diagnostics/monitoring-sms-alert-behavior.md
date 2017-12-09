@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 3e4eca174209eeb9cbce1d45111d1e5cc30af8b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 012f001356463a8a7d9b95f186111959627f2c28
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento de grupos de ação de alerta de SMS
 ## <a name="overview"></a>Descrição geral ##
@@ -37,15 +37,15 @@ Um recetor SMS, que é configurado como parte de um grupo de ação, irá recebe
 - Título do alerta
 
 ### <a name="unsubscribing-from-sms-alerts-for-one-action-group"></a>Unsubscribing a partir dos alertas SMS de um grupo de ação
-Um utilizador pode anular a subscrição do SMS para alertas para o grupo de uma ação ao responder a shortcode 20873, com as palavras-chave: "DESATIVAR &lt;Shortname do grupo de ação&gt;".
+Um utilizador pode anular a subscrição do SMS para alertas para o grupo de uma ação, responder ao código de curto 29873 com as palavras-chave: "DESATIVAR &lt;Shortname do grupo de ação&gt;".
 
-Ex. Um utilizador novidade anular a subscrição de alertas para um grupo de ação com o shortname "Azure", seriam enviar um SMS para shortcode 20873 que diz "DESATIVAR Azure"
+Ex. Um utilizador novidade anular a subscrição de alertas para um grupo de ação com o shortname "Azure", seriam enviar um SMS para o código curto 29873 que indica "DESATIVAR Azure"
 
 ### <a name="unsubscribing-from-sms-alerts-for-all-action-groups"></a>Unsubscribing a partir dos alertas SMS para todos os grupos de ação
-Um utilizador pode anular todos os alertas SMS para todos os grupos de ação ao responder ao shortcode 20873 com qualquer um dos seguintes palavras-chave:
+Um utilizador pode anular todos os alertas SMS para todos os grupos de ação por responder o código de curto 29873 com qualquer um dos seguintes palavras-chave:
 * PARAR
 
-Ex. Um utilizador novidade anular todos os alertas SMS para todos os grupos de ação, seria enviar um SMS para o shortcode 20873 que diz "Parar"
+Ex. Um utilizador novidade anular todos os alertas SMS para todos os grupos de ação, seria enviar um SMS para o código curto 29873 que indica "Parar"
 
 >[!NOTE]
 >Se um utilizador anulou a subscrição do SMS alertas, mas, em seguida, é adicionado a um novo grupo de ação; estes irão receber alertas SMS para este novo grupo de ação, mas permanecem unsubscribed de todos os grupos de ação anterior.
@@ -53,19 +53,19 @@ Ex. Um utilizador novidade anular todos os alertas SMS para todos os grupos de a
 >
 
 ### <a name="resubscribing-to-sms-alerts-for-one-action-group"></a>Resubscribing a alertas SMS de um grupo de ação
-Um utilizador pode resubscribe para SMS para alertas para o grupo de uma ação ao responder a shortcode 20873, com as palavras-chave: "ATIVAR &lt;Shortname do grupo de ação&gt;".
+Um utilizador pode resubscribe para alertas para o grupo de uma ação para SMS por responder ao código de curto 29873 com as palavras-chave: "ATIVAR &lt;Shortname do grupo de ação&gt;".
 
-Ex. Um utilizador novidade resubscribe alertas para um grupo de ação com o shortname "Azure", seriam enviar um SMS para shortcode 20873 que diz "ATIVAR o Azure"
+Ex. Um utilizador novidade resubscribe alertas para um grupo de ação com o shortname "Azure", seriam enviar um SMS para o código curto 29873 que indica "ATIVAR o Azure"
 
 ### <a name="resubscribing-to-sms-alerts-for-all-action-groups"></a>Resubscribing a alertas SMS para todos os grupos de ação
-Um utilizador pode resubscribe para todas as SMS para alertas para todos os grupos de ação ao responder ao shortcode 20873 com qualquer um dos seguintes palavras-chave:
+Um utilizador pode resubscribe para todas as SMS para alertas para todos os grupos de ação por responder o código de curto 29873 com qualquer um dos seguintes palavras-chave:
 
 * INICIAR
 
-Ex. Um utilizador novidade anular todos os alertas SMS para todos os grupos de ação, seria enviar um SMS para o shortcode 20873 que diz "START"
+Ex. Um utilizador novidade anular todos os alertas SMS para todos os grupos de ação, seria enviar um SMS para o código curto 29873 que indica "START"
 
 ### <a name="requesting-help-via-sms"></a>Pedir ajuda por SMS
-Um utilizador pode pedir para obter mais informações sobre a SMS que receberam por responder ao shortcode 20873 com qualquer um dos seguintes palavras-chave:
+Um utilizador pode pedir para obter mais informações sobre a SMS que receberam por responder o código de curto 29873 com qualquer um dos seguintes palavras-chave:
 * AJUDA
 
 Será enviada uma resposta para o utilizador com uma ligação a este artigo.

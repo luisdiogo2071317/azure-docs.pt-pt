@@ -1,24 +1,22 @@
 ---
-title: "Criar uma área de trabalho do Machine Learning | Microsoft Docs"
+title: "Criar um Machine Learning Studio área de trabalho | Microsoft Docs"
 description: "Como criar uma área de trabalho para o Azure Machine Learning Studio"
 services: machine-learning
-documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: garye;bradsev;ahgyger
-ms.openlocfilehash: 4e1fa0a9abd4721d15a94923263ff2f521bceee8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/07/2017
+ms.author: garye
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Criar e partilhar uma área de trabalho do Azure Machine Learning
 Ligações neste menu para tópicos que descrevem como configurar os vários ambientes de ciência de dados utilizados pelo processo de análise do Cortana (CAPS).
@@ -39,9 +37,9 @@ Para utilizar o Azure Machine Learning Studio, tem de ter uma área de trabalho 
 
 2. Clique em **+ nova**
 
-3. Selecione **Intelligence + análise**, clique em **área de trabalho do Machine Learning**, em seguida, clique em **criar**
+3. Na caixa de pesquisa, escreva **área de trabalho do Machine Learning Studio** e selecione o item correspondente. Em seguida, clique em selecionar **criar** na parte inferior da página.
 
-4. Introduza as informações da sua área de trabalho
+4. Introduza as informações da sua área de trabalho:
 
     - O *nome da área de trabalho* poderá até 260 carateres, não que termine num espaço. O nome não pode incluir os seguintes carateres:`< > * % & : \ ? + /`
     - O *plano de serviço web* escolher (ou crie), juntamente com associada *escalão de preço* selecione, é utilizada se implementar serviços web desta área de trabalho.

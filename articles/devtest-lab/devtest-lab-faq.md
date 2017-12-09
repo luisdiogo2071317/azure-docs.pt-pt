@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
-ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a5e686a7f60b15b55d8f4365b73c71de02c4bad
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas a algumas perguntas mais comuns sobre o Azure DevTest Labs.
@@ -226,11 +226,11 @@ Uma possibilidade é que o nome da sua rede virtual contém pontos finais. Se as
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Por que motivo recebo um erro de "Recurso principal não foi encontrado" quando aprovisionar uma VM a partir do PowerShell?
 Quando um recurso é um elemento principal para outro recurso, o recurso principal tem de existir antes de criar o recurso subordinado. Se o recurso principal não existe, verá um **ParentResourceNotFound** mensagem. Se não especificar uma dependência no recurso principal, o recurso subordinado pode ser implementado antes do elemento principal.
 
-As VMs são recursos subordinados sob um laboratório num grupo de recursos. Quando utilizar modelos do Resource Manager para implementar as VMs com o PowerShell, o nome do grupo de recursos fornecido no PowerShell script deve ser o nome do grupo de recursos do laboratório. Para obter mais informações, consulte [resolver erros comuns de implementação do Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+As VMs são recursos subordinados sob um laboratório num grupo de recursos. Quando utilizar modelos do Resource Manager para implementar as VMs com o PowerShell, o nome do grupo de recursos fornecido no PowerShell script deve ser o nome do grupo de recursos do laboratório. Para obter mais informações, consulte [resolver erros comuns de implementação do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Onde posso encontrar mais informações de erro se falhar de uma implementação de VM?
 Erros de implementação de VM são capturados nos registos de atividade. Pode encontrar registos de atividade VM em laboratório **registos de auditoria** ou **diagnósticos de máquinas virtuais** no menu de recurso no painel VM o laboratório (o painel aparece depois de selecionar VM a partir do **meu virtual máquinas** lista).
 
-Por vezes, o erro de implementação ocorre antes do início da implementação da VM. Um exemplo é quando o limite de subscrição para um recurso que foi criado com a VM é excedido. Neste caso, os detalhes do erro são capturados nos registos de atividade de nível de laboratório. Atividade registos estão localizados na parte inferior do **políticas de configuração e** definições. Para obter mais informações sobre como utilizar a atividade que inicia sessão no Azure, consulte [ver registos de atividade para auditar as ações em recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
+Por vezes, o erro de implementação ocorre antes do início da implementação da VM. Um exemplo é quando o limite de subscrição para um recurso que foi criado com a VM é excedido. Neste caso, os detalhes do erro são capturados nos registos de atividade de nível de laboratório. Atividade registos estão localizados na parte inferior do **políticas de configuração e** definições. Para obter mais informações sobre como utilizar a atividade que inicia sessão no Azure, consulte [ver registos de atividade para auditar as ações em recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

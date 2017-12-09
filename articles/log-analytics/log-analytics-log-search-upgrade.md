@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 1806b70ba0d34f49abfb954abebff8d29ae61291
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: f3bb92335ec8d7d6edc0f10346b9b3a26adf65af
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Análise de registos do Azure atualizar para a nova pesquisa de registo
 
@@ -52,7 +52,7 @@ Se a sua área de trabalho é atualizada automaticamente, em seguida, verá uma 
 As seguintes alterações são efetuadas para a sua área de trabalho quando é convertido:
 
 - Qualquer pesquisas guardadas, regras de alertas e vistas que criou com o estruturador de vistas são automaticamente convertidas para o novo idioma.  Incluído em soluções de procura não é convertida automaticamente, mas está em vez disso, convertidos no momento quando abri-los.  
-- [Dashboard](log-analytics-dashboards.md) está a ser preterido na favor de [estruturador de vistas](log-analytics-view-designer.md) e [Azure Dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Os mosaicos que adicionou à minha Dashboard ainda estão disponíveis, mas está a só de leitura.
+- [Dashboard](log-analytics-dashboards.md) está a ser preterido na favor de [estruturador de vistas](log-analytics-view-designer.md) e [Azure Dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Os mosaicos que adicionou à minha Dashboard ainda estão disponíveis, mas está a só de leitura.
 - [Integração de BI de energia](log-analytics-powerbi.md) é substituída por um processo de novo.  As agendas existentes do Power BI que criou serão desativadas e tem de substituí-los com o processo de novo.
 - As respostas de [ações de alerta](log-analytics-alerts-actions.md) utilizar webhooks e runbooks tem um formato de novo e poderá ter de atualizar as regras de alerta em conformidade.
 - Veja o [FAQ de pesquisa de registo](log-analytics-log-search-faq.md) para perguntas comuns sobre a atualização.

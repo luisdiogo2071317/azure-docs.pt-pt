@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 5c4ea3e3714f6a3989a260937c2c67815a6dd6f7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: f7fc4d367a0594a77d7ee25bbd1e40c4b2949c19
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 > [!div class="op_single_selector"]
@@ -34,14 +34,14 @@ Pode resolver erros encontrados ao utilizar o Backup do Azure com as informaçõ
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Erro: Não é suportada a configuração de disco especificado
 
 > [!NOTE]
-> Temos uma versão de pré-visualização privada para suportar cópias de segurança para VMs com > discos de 1TB não gerido. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Temos uma pré-visualização privada para suportar cópias de segurança de VMs com mais do que 1 TB de discos não geridos. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
 Cópia de segurança do Azure não suporta atualmente os tamanhos de disco [superior a 1023GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Se tiver discos superiores a 1 TB, [anexar novos discos](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) que são inferior a 1 TB <br>
-- Em seguida, copie os dados a partir de disco superior a 1TB para recém-criado discos de tamanho inferior a 1 TB. <br>
-- Certifique-se de que todos os dados foram copiados e remova os discos superiores a 1TB
+- Se tiver discos superiores a 1 TB, [ligue novos discos](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) que sejam inferiores a 1 TB <br>
+- Em seguida, copie os dados do disco superior a 1 TB para o disco ou discos que acabou de criar com um tamanho inferior a 1 TB. <br>
+- Certifique-se de que copiou todos os dados e remova os discos superiores a 1 TB
 - Inicie a cópia de segurança.
 
 | Detalhes do erro | Solução |
@@ -69,7 +69,7 @@ Cópia de segurança do Azure não suporta atualmente os tamanhos de disco [supe
 | Falha na validação como máquina virtual é encriptada com BEK individualmente. As cópias de segurança podem ser ativadas apenas para máquinas virtuais encriptadas com BEK e KEK. |Máquina virtual deve ser encriptada utilizando a chave de encriptação do BitLocker e chave de encriptação de chave. Depois disso, a cópia de segurança deve ser ativada. |
 | Serviço de cópia de segurança do Azure não tem permissões suficientes para o Cofre de chaves para cópia de segurança de encriptados máquinas virtuais. |Serviço de cópia de segurança deve ser fornecido estas permissões no PowerShell utilizando os passos mencionados **ativar Backup** secção [PowerShell documentação](backup-azure-vms-automation.md). |
 |Instalação da extensão falhou com o erro de instantâneos - COM+ não conseguiu comunicar com o coordenador de transações distribuídas da Microsoft | Volte a tentar iniciar o serviço do windows "sistema aplicação COM+" (a partir de uma linha de comandos elevada - _net iniciar COMSysApp_). <br>Se falhar ao iniciar,. Siga os passos abaixo:<ol><li> Confirme que a conta de início de sessão do serviço "Coordenador de transações distribuídas" "Serviço de rede". Se não for, altere "Serviço de rede", reinicie este serviço e, em seguida, tente iniciar o serviço "sistema aplicação COM+". "<li>Se ainda conseguir iniciar, desinstalar/instalar o serviço "Coordenador de transações distribuídas" pelos seguintes passos abaixo:<br> -Parar o serviço MSDTC<br> -Abra uma linha de comandos (cmd) <br> -Execute o comando "msdtc-desinstalar" <br> -Execute o comando "msdtc-instalar" <br> -Inicie o serviço MSDTC<li>Iniciar o serviço do windows "sistema aplicação COM+" e depois de ser iniciado, acionar a cópia de segurança do portal.</ol> |
-|  A operação de instantâneos falhou devido a erro de COM+ | A ação recomendada consiste em reiniciar o serviço de windows "sistema aplicação COM+" (a partir de uma linha de comandos elevada - _net iniciar COMSysApp_). Se o problema persistir, reinicie a VM. Se reiniciar a VM não ajudar, tente [remover a extensão de VMSnapshot](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load) e acionar a cópia de segurança manualmente. |
+|  A operação de instantâneos falhou devido a erro de COM+ | A ação recomendada consiste em reiniciar o serviço de windows "sistema aplicação COM+" (a partir de uma linha de comandos elevada - _net iniciar COMSysApp_). Se o problema persistir, reinicie a VM. Se reiniciar a VM não ajudar, tente [remover a extensão de VMSnapshot](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load) e acionar a cópia de segurança manualmente. |
 | Falha ao parar um ou mais-pontos de montagem da VM para criar um instantâneo consistente de sistema de ficheiros | Utilize os passos seguintes: <ol><li>Verifique o estado do sistema de ficheiros de todos os dispositivos montados com _'tune2fs'_ comando.<br> Ex:, como tune2fs -l/dev/sdb1 \| GREP "Estado do sistema de ficheiros" <li>Desmonte os dispositivos para o sistema de ficheiros Estado não está a utilizar limpa _'umount'_ comando <li> Executar verificação de FileSystemConsistency nestes dispositivos utilizando _'ou a fsck'_ comando <li> Monte novamente os dispositivos e repita a cópia de segurança.</ol> |
 | Operação de instantâneos falhou devido uma falha na criação de canal de comunicação de rede segura | <ol><Li> Abra o Editor de registo ao executar regedit.exe um elevados. <li> Identifique todas as versões do. NetFramework presente no sistema. Estão presentes na hierarquia da chave de registo "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" <li> Para cada. NetFramework presente na chave de registo, adicione a seguinte chave: <br> "SchUseStrongCrypto" = dword:00000001 </ol>|
 | A operação de instantâneos falhou devido uma falha na instalação do Visual C++ Redistributable for Visual Studio 2012 | Navegue para C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instalar vcredist2012_x64. Certifique-se de que o valor da chave de registo para permitir esta instalação do serviço está definido para o valor correto ou seja, o valor da chave de registo _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ está definido para 3 e 4 não. Se ainda estão a enfrentar problemas com a instalação, reinicie o serviço de instalação, executando _MSIEXEC /UNREGISTER_ seguido _MSIEXEC /REGISTER_ da linha de comandos elevada.  |

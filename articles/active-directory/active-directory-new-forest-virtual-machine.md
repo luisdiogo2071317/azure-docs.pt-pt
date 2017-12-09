@@ -1,6 +1,6 @@
 ---
 title: Instalar uma floresta do Active Directory numa rede virtual do Azure | Microsoft Docs
-description: "Um tutorial que explica como criar uma nova floresta do Active Directory numa máquina virtual (VM) numa rede Virtual do Azure."
+description: "Um tutorial que explica como criar uma nova floresta do Active Directory numa máquina virtual (VM) numa rede virtual do Azure."
 services: active-directory, virtual-network
 keywords: "máquinas de virtuais do Active Directory, floresta do Active Directory de instalação, vídeos do azure Active Directory "
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 96020eb305b0a027a2128cdd3e3c8acf998c8e54
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalar uma nova floresta do Active Directory numa rede virtual do Azure
 Este artigo mostra como criar um novo ambiente do Active Directory do Windows Server numa máquina virtual (VM) num [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Neste caso, a rede virtual do Azure não está ligada a uma rede no local.
@@ -45,7 +45,7 @@ Não é muito diferença entre a instalar um controlador de domínio no Azure ve
 | **Armazenamento de base de dados do Active Directory** |Opcionalmente, altere a localização de armazenamento predefinida de C:\ |Terá de alterar a localização de armazenamento predefinida de C:\ |
 
 ## <a name="create-an-azure-virtual-network"></a>Criar uma Azure virtual network
-1. Inicie sessão no Portal Clássico do Azure.
+1. Inicie sessão no Portal do Azure.
 2. Crie uma rede virtual Clique em **redes** > **criar uma rede virtual**. Utilize os valores na tabela seguinte para concluir o assistente.
 
    | Na página do assistente... | Especificar estes valores |
@@ -59,7 +59,7 @@ Repita os passos seguintes para criar as VMs para alojar a função de DC confor
 
 Para criar as VMs através do Windows PowerShell em vez da IU, consulte [utilize o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-1. No portal clássico, clique em **novo** > **computação** > **Máquina Virtual** > **da galeria**. Utilize os seguintes valores para concluir o assistente. Aceite o valor predefinido para uma definição, a menos que outro valor é sugerido ou necessário.
+1. No portal do Azure, selecione **novo** > **computação**e, em seguida, selecione uma máquina virtual. Utilize os seguintes valores para concluir o assistente. Aceite o valor predefinido para uma definição, a menos que outro valor é sugerido ou necessário.
 
    | Na página do assistente... | Especificar estes valores |
    | --- | --- |

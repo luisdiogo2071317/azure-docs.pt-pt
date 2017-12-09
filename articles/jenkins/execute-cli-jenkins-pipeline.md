@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementar no App Service do Azure com Jenkins e a CLI do Azure
 Para implementar uma aplicação web Java no Azure, pode utilizar o CLI do Azure no [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure incluindo como:
@@ -56,7 +56,7 @@ sudo apt-get install -y maven
 É necessária uma credencial do Azure para executar a CLI do Azure.
 
 * No dashboard do Jenkins, clique em **credenciais -> sistema ->**. Clique em **Global credentials(unrestricted)**.
-* Clique em **adicionar credenciais** para adicionar um [principal de serviço do Microsoft Azure](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ao preencher o ID de subscrição, o ID de cliente, o segredo do cliente e o ponto final de tokens do OAuth 2.0. Forneça um ID para utilização num passo subsequente.
+* Clique em **adicionar credenciais** para adicionar um [principal de serviço do Microsoft Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ao preencher o ID de subscrição, o ID de cliente, o segredo do cliente e o ponto final de tokens do OAuth 2.0. Forneça um ID para utilização num passo subsequente.
 
 ![Adicione as credenciais](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 
