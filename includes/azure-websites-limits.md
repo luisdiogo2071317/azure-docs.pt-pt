@@ -18,14 +18,14 @@
 | Domínio personalizado [suporte SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Ilimitados ligações de SNI SSL |Ilimitados SSL SNI e ligações de IP SSL 1 incluídos |Ilimitados SSL SNI e ligações de IP SSL 1 incluídos |
 | Load Balancer Integrado | |X |X |X |X |
 | [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Cópias de segurança agendadas](../articles/app-service/web-sites-backup.md) | | | |12 por dia |Uma vez a cada 5 minutos<sup>8</sup> |
+| [Cópias de segurança agendadas](../articles/app-service/web-sites-backup.md) | | | | Cópias de segurança agendadas cada 2 horas, um máximo de 12 cópias de segurança por dia (manual + agendado) | Cópias de segurança agendadas a cada hora, um máximo de 50 cópias de segurança por dia (manual + agendado) |
 | [Escala automática](../articles/app-service/web-sites-scale.md) | | | |X |X |
-| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
+| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |
 | [O agendador do Azure](https://azure.microsoft.com/services/scheduler/) suportar | |X |X |X |X |
 | [Monitorização de pontos finais](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
 | [Ranhuras de teste](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |
 | Domínios personalizados por aplicação</a> | |500 |500 |500 |500 |
-| SLA | |<p> |99,9% |99.95%<sup>10</sup> |99.95%<sup>10</sup> |
+| SLA | |<p> |99,9% |99.95%<sup>10</sup> |99.95%<sup>9</sup> |
 
 <sup>1</sup>aplicações quotas de armazenamento são e por plano do App Service, a menos que haja aviso em contrário.  
 <sup>2</sup>o número real de aplicações que podem alojar nestas máquinas depende a atividade das aplicações, o tamanho das instâncias da máquina e a utilização de recursos correspondentes.  
@@ -34,7 +34,6 @@
 <sup>5</sup>o limite de armazenamento é o tamanho total do conteúdo em todas as aplicações no mesmo plano de serviço de aplicações. Mais opções de armazenamento estão disponíveis no [ambiente de serviço de aplicações](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>estes recursos estão limitados por recursos físicos nas instâncias do dedicado (o tamanho da instância e o número de instâncias).  
 <sup>7</sup>se pode dimensionar uma aplicação de camada básica para duas instâncias, tiver 350 ligações em simultâneo para cada uma das duas instâncias.  
-<sup>8</sup>escalão premium permite que os intervalos de cópia de segurança para baixo até a cada 5 minutos quando utilizar ambientes do App Service e 50 vezes por dia, caso contrário.  
-<sup>9</sup>executar executáveis personalizados e/ou de scripts a pedido, com base numa agenda, ou instância continuamente como uma tarefa em segundo plano dentro do seu serviço de aplicações. Sempre Ativo é necessário para a execução contínua do WebJobs. É necessário o Azure Scheduler, Gratuito ou Padrão, para WebJobs agendados. Não existe nenhum limite predefinido do número de trabalhos Web que pode ser executado numa instância do serviço de aplicações, mas existem limites práticos que dependem de que o código de aplicação está a tentar fazer.   
-<sup>10</sup>SLA de 99,95% fornecido para implementações que utilizem várias instâncias com o Azure Traffic Manager configurado para ativação pós-falha.  
+<sup>8</sup>executar executáveis personalizados e/ou de scripts a pedido, com base numa agenda, ou instância continuamente como uma tarefa em segundo plano dentro do seu serviço de aplicações. Sempre Ativo é necessário para a execução contínua do WebJobs. É necessário o Azure Scheduler, Gratuito ou Padrão, para WebJobs agendados. Não existe nenhum limite predefinido do número de trabalhos Web que pode ser executado numa instância do serviço de aplicações, mas existem limites práticos que dependem de que o código de aplicação está a tentar fazer.   
+<sup>9</sup>SLA de 99,95% fornecido para implementações que utilizem várias instâncias com o Azure Traffic Manager configurado para ativação pós-falha.  
 

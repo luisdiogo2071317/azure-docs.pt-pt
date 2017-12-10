@@ -6,7 +6,7 @@ Quando já não precisar de um disco de dados que esteja ligado a uma máquina v
 ## <a name="find-the-disk"></a>Localizar o disco
 Para poder desligar um disco de uma VM, precisa de saber o número do LUN, que é um identificador para o disco que vai ser ligado. Para tal, siga estes passos:
 
-1. Abra a CLI do Azure e [ligue-se à sua subscrição do Azure](../articles/xplat-cli-connect.md). Confirme que está no modo Gestão de Serviço do Azure (`azure config mode asm`).
+1. Abra a CLI do Azure e [ligue-se à sua subscrição do Azure](/cli/azure/authenticate-azure-cli). Confirme que está no modo Gestão de Serviço do Azure (`azure config mode asm`).
 2. Descubra que discos estão ligados à sua VM. O exemplo seguinte lista os discos para a VM com o nome `myVM`:
 
     ```azurecli
