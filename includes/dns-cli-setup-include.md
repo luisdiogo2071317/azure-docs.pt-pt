@@ -9,7 +9,7 @@ Antes de iniciar a configuração, verifique se tem os seguintes itens.
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicie sessão na sua conta do Azure
 
-Abra uma janela de consola e autentique com as suas credenciais. Para obter mais informações, veja [Iniciar sessão no Azure a partir da CLI do Azure](../articles/xplat-cli-connect.md)
+Abra uma janela de consola e autentique com as suas credenciais. Para obter mais informações, veja [Iniciar sessão no Azure a partir da CLI do Azure](/cli/azure/authenticate-azure-cli)
 
 ```azurecli
 azure login

@@ -1,5 +1,5 @@
 
-1. Siga os passos listados em [Connect to Azure from the Azure CLI 1.0 (Ligar ao Azure a partir do CLI do Azure 1.0)](../articles/xplat-cli-connect.md) para iniciar sessão na sua subscrição do Azure.
+1. Siga os passos listados em [Connect to Azure from the Azure CLI 1.0 (Ligar ao Azure a partir do CLI do Azure 1.0)](/cli/azure/authenticate-azure-cli) para iniciar sessão na sua subscrição do Azure.
 
 2. Confirme que está no modo de implementação Clássica, da seguinte forma:
 
