@@ -28,10 +28,11 @@
 ### [Portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [CLI do Azure](howto-linkvnet-cli.md)
+## [Configurar uma VPN de site a site através do peering da Microsoft](site-to-site-vpn-over-microsoft-peering.md)
 ## Configurar um gateway de rede virtual para o ExpressRoute
 ### [Portal do Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-## [Configurar ligações coexistentes do ExpressRoute e de Site a Site](expressroute-howto-coexist-resource-manager.md)
+## [Configurar ligações coexistentes do ExpressRoute e de site a site](expressroute-howto-coexist-resource-manager.md)
 ## Configurar filtros de rota para o peering da Microsoft
 ### [Portal do Azure](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
@@ -90,7 +91,7 @@
 ### [Criar um gateway de rede virtual para o ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network/)
 ### [Crie um circuito do ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Desenvolver a sua infraestrutura de rede para fins de conectividade](https://go.microsoft.com/fwlink/p/?LinkId=615124)
-### [Como configurar o Peering Privado para o seu circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
+### [Como configurar o peering privado para o seu circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [Parcerias híbridas: permitir cenários no local](https://go.microsoft.com/fwlink/p/?LinkId=615125)
 ### [Configurar o Peering da Microsoft para o seu circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/)
 ### [Configurar o Peering Público para o seu circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)

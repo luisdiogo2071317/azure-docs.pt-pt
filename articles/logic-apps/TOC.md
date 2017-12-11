@@ -50,6 +50,7 @@
 ### [Validar XML](logic-apps-enterprise-integration-xml-validation.md)
 ### [Adicionar esquemas para a validação de XML](logic-apps-enterprise-integration-schemas.md)
 ### [Transformar XML](logic-apps-enterprise-integration-transform.md)
+### [Transformar JSON](logic-apps-enterprise-integration-liquid-transform.md)
 ### [Adicionar mapas para a transformação XML](logic-apps-enterprise-integration-maps.md)
 ### [Adicionar certificados para segurança B2B](logic-apps-enterprise-integration-certificates.md)
 ### [Armazenar metadados para artefactos](logic-apps-enterprise-integration-metadata.md)

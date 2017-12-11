@@ -38,6 +38,7 @@
 
 ## Integrar
 ### [Descrição geral](sql-data-warehouse-overview-integrate.md)
+### [Consulta elástica de Base de Dados SQL](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
 ## Monitorizar e ajustar
@@ -100,9 +101,8 @@
 
 
 ## Integrar
-###  [Configurar a consulta elástica da Base de Dados SQL](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Configurar consulta elástica de Base de Dados SQL](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ### [Adicionar uma tarefa do Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
-### [Configurar a consulta elástica](how-to-use-elastic-query-with-sql-data-warehouse.md)
 ### [Utilizar a aprendizagem automática](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Visualizar com o Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 

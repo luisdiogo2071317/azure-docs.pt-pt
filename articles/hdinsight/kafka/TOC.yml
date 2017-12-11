@@ -11,6 +11,9 @@
   items:
     - name: Criar um cluster Kafka
       href: apache-kafka-get-started.md
+    - name: Instalar aplicações do HDInsight
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: Planeamento de capacidade
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -50,20 +53,11 @@
         - name: Personalizar clusters com Ação de Script
           href: ../hdinsight-hadoop-customize-cluster-linux.md
           maintainContext: true
-        - name: Ligar o HDInsight à sua rede no local
-          href: ../connect-on-premises-network.md
-          maintainContext: true
         - name: Desenvolver ações de script
           href: ../hdinsight-hadoop-script-actions-linux.md
           maintainContext: true
-        - name: Utilizar Rede virtual
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Criar aplicações do HDInsight
           items:
-            - name: Instalar aplicações do HDInsight
-              href: ../hdinsight-apps-install-applications.md
-              maintainContext: true
             - name: Instalar aplicações personalizadas
               href: ../hdinsight-apps-install-custom-applications.md
               maintainContext: true
@@ -145,20 +139,6 @@
         - name: Aplicação de patches de SO para o cluster do HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: Monitorizar
-      items:
-        - name: Utilizar o Log Analytics do Azure
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Dashboards específicos do cluster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-          maintainContext: true
-        - name: Utilizar consultas com o Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Monitorizar o desempenho do cluster
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
     - name: Resolução de problemas
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -183,6 +163,33 @@
             - name: Ativar captura de área dinâmica para dados de serviços do Hadoop
               href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
               maintainContext: true
+- name: Preparação para empresas
+  items:
+    - name: Proteção de dados
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: Acesso à rede
+      items:
+        - name: HDInsight em VNet do Azure
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: Ligar o HDInsight com a sua rede local
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+    - name: Monitorizar com OMS
+      items:
+        - name: Utilizar o Log Analytics do Azure
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: Dashboards específicos do cluster
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: Utilizar consultas com o Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: Monitorizar o desempenho do cluster
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: Referência
   items:
     - name: Exemplos de código
