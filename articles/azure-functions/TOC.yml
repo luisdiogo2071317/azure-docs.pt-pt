@@ -135,6 +135,8 @@
       items:
         - name: Implementação contínua
           href: functions-continuous-deployment.md
+        - name: Implementação de push zip
+          href: deployment-zip-push.md
         - name: Automatizar a implementação de recursos
           href: functions-infrastructure-as-code.md
         - name: Funções no local
