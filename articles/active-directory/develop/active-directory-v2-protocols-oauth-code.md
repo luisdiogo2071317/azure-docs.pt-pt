@@ -4,7 +4,7 @@ description: "Criar aplicações web utilizando a implementação do Azure AD do
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1cffe40c14b931485cc5cec48a95e02ae770764e
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 06d5000e30850156781496c32ac549ecc0772f46
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos de v 2.0 - fluxo de código de autorização do OAuth 2.0
 A concessão de código de autorização do OAuth 2.0 pode ser utilizada nas aplicações que são instaladas num dispositivo para obter acesso a recursos protegidos, como as APIs web.  Utilizar a implementação de aplicação modelo v 2.0 OAuth 2.0, pode adicionar a iniciar sessão e API aceder às suas aplicações de ambiente de trabalho e móveis.  Este guia é independente de idioma e descreve como enviar e receber mensagens HTTP sem utilizar qualquer uma das nossas bibliotecas de open source.
@@ -66,9 +66,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Âmbito |Necessário |Uma lista separada por espaço de [âmbitos](active-directory-v2-scopes.md) que pretende que o utilizador para autorizar. |
 | response_mode |recomendado |Especifica o método que deve ser utilizado para enviar a cópia de segurança de token resultante para a sua aplicação.  Pode ser `query` ou `form_post`. |
 | state |recomendado |Um valor incluído no pedido de que também vai ser devolvido na resposta token.  Pode ser uma cadeia de todos os conteúdos que pretende.  Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de pedidos entre sites](http://tools.ietf.org/html/rfc6749#section-10.12).  O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista estivessem nas suas. |
-| linha de comandos |Opcional |Indica o tipo de interação do utilizador que é necessário.  Os únicos valores válidos neste momento, são 'início de sessão', 'none' e 'consentimento'.  `prompt=login`irá forçar o utilizador introduza as suas credenciais nesse pedido, a negação início de sessão único.  `prompt=none`é o oposto --irá garantir que o utilizador não é apresentado com qualquer linha de comandos interativa contratutal.  Se o pedido não é possível concluir automaticamente através de início de sessão único, o ponto final v 2.0 devolverá um erro.  `prompt=consent`aciona a caixa de diálogo de consentimento do OAuth depois do utilizador inicia sessão, solicitando ao utilizador para conceder permissões para a aplicação. |
-| login_hint |Opcional |Pode ser utilizado para a pré-preencher o campo de endereço de e-mail/nome de utilizador de início de sessão na página para o utilizador, se souber o nome de utilizador antecedência.  Muitas vezes, as aplicações irão utilizar este parâmetro durante a reautenticação, já ter extraiu o nome de utilizador de uma anterior início de sessão utilizando o `preferred_username` de afirmação. |
-| domain_hint |Opcional |Pode ser um dos `consumers` ou `organizations`.  Caso, irá ignorar o processo de deteção baseada em e-mail esse utilizador passa no sinal v 2.0 na página, originando uma experiência de utilizador ligeiramente mais simplificada.  Aplicações, muitas vezes, irão utilizar este parâmetro durante a reautenticação, extraindo o `tid` de um anterior início de sessão.  Se o `tid` é o valor de afirmação `9188040d-6c67-4c5b-b112-36a304b66dad`, deve utilizar `domain_hint=consumers`.  Caso contrário, utilize `domain_hint=organizations`. |
+| linha de comandos |opcional |Indica o tipo de interação do utilizador que é necessário.  Os únicos valores válidos neste momento, são 'início de sessão', 'none' e 'consentimento'.  `prompt=login`irá forçar o utilizador introduza as suas credenciais nesse pedido, a negação início de sessão único.  `prompt=none`é o oposto --irá garantir que o utilizador não é apresentado com qualquer linha de comandos interativa contratutal.  Se o pedido não é possível concluir automaticamente através de início de sessão único, o ponto final v 2.0 devolverá um erro.  `prompt=consent`aciona a caixa de diálogo de consentimento do OAuth depois do utilizador inicia sessão, solicitando ao utilizador para conceder permissões para a aplicação. |
+| login_hint |opcional |Pode ser utilizado para a pré-preencher o campo de endereço de e-mail/nome de utilizador de início de sessão na página para o utilizador, se souber o nome de utilizador antecedência.  Muitas vezes, as aplicações irão utilizar este parâmetro durante a reautenticação, já ter extraiu o nome de utilizador de uma anterior início de sessão utilizando o `preferred_username` de afirmação. |
+| domain_hint |opcional |Pode ser um dos `consumers` ou `organizations`.  Caso, irá ignorar o processo de deteção baseada em e-mail esse utilizador passa no sinal v 2.0 na página, originando uma experiência de utilizador ligeiramente mais simplificada.  Aplicações, muitas vezes, irão utilizar este parâmetro durante a reautenticação, extraindo o `tid` de um anterior início de sessão.  Se o `tid` é o valor de afirmação `9188040d-6c67-4c5b-b112-36a304b66dad`, deve utilizar `domain_hint=consumers`.  Caso contrário, utilize `domain_hint=organizations`. |
 
 Neste momento, o utilizador será ser-lhe pedido para introduzir as suas credenciais e concluir a autenticação.  O ponto final v 2.0 também vai assegurar que o utilizador consentiu as permissões indicadas a `scope` parâmetro de consulta.  Se o utilizador não se consentiu para qualquer um dessas permissões, pedirá ao utilizador consentimento para as permissões necessárias.  Detalhes de [permissões, consentimento e aplicações de multi-inquilinos são fornecidas aqui](active-directory-v2-scopes.md).
 
@@ -105,7 +105,7 @@ error=access_denied
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de erro para erros de ponto final de autorização
 A tabela seguinte descreve os vários códigos de erro que podem ser devolvidos no `error` parâmetro da resposta de erro.
 
-| Código de erro | Descrição | Ação de cliente |
+| Código de Erro | Descrição | Ação de cliente |
 | --- | --- | --- |
 | invalid_request |Erro de protocolo, como um parâmetro necessário em falta. |Corrija e submeta novamente o pedido. Este é um desenvolvimento erro normalmente é detetado durante o teste inicial. |
 | unauthorized_client |A aplicação de cliente não é permitida para pedir um código de autorização. |Normalmente, isto ocorre quando a aplicação de cliente não está registada no Azure AD ou não é adicionada ao inquilino do Azure AD do utilizador. A aplicação pode pedir ao utilizador com instruções para instalar a aplicação e adicioná-lo para o Azure AD. |
@@ -195,7 +195,7 @@ As respostas de erro terá um aspeto semelhante:
 | correlation_id |Um identificador exclusivo para o pedido que pode ajudar no diagnóstico componentes. |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Códigos de erro para erros de ponto final de tokens
-| Código de erro | Descrição | Ação de cliente |
+| Código de Erro | Descrição | Ação de cliente |
 | --- | --- | --- |
 | invalid_request |Erro de protocolo, como um parâmetro necessário em falta. |Corrija e submeta novamente o pedido |
 | invalid_grant |O código de autorização é inválido ou expirou. |Tente um novo pedido para o `/authorize` ponto final |

@@ -3,8 +3,8 @@ title: "Considerações sobre planeamento para a pilha do Azure integrado sistem
 description: "Saiba o que pode fazer agora a planear e preparar para a pilha do Azure de vários nós."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 90f8fa1a-cace-4bfa-852b-5abe2b307615
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: twooley
-ms.openlocfilehash: 8484f7947f23a00c05b34babf13cd75f9d227740
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: b39b3b8f73f9deef48173c712d7966eb13c6ecc3
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Considerações sobre planeamento para a pilha do Azure integrado sistemas
 
@@ -102,7 +102,7 @@ A tabela seguinte resume estas decisões de nomenclatura de domínio.
 
 | Nome | Descrição | 
 | -------- | ------------- | 
-|nome de região | O nome da sua região do Azure pilha primeiro. Este nome é utilizado como parte do FQDN para os públicos endereços IP virtuais (VIPs) que gere a pilha do Azure. Normalmente, o nome da região é um identificador de localização física, tais como uma localização de centro de dados. | 
+|Nome da região | O nome da sua região do Azure pilha primeiro. Este nome é utilizado como parte do FQDN para os públicos endereços IP virtuais (VIPs) que gere a pilha do Azure. Normalmente, o nome da região é um identificador de localização física, tais como uma localização de centro de dados. | 
 | Nome de domínio externo | O nome da zona de sistema de nomes de domínio (DNS) para pontos finais com acesso externo VIPs. Utilizado no FQDN para estes VIPs públicos. | 
 | Nome de domínio (interno) privada | O nome do domínio (e zona DNS interna) criado na pilha do Azure para a gestão de infraestrutura. 
 | | |

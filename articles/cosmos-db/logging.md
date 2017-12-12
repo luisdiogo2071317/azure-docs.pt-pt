@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 608222da9cbe2895914e14c9f76cc5629ef65684
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1a6e4904252d5eda3ff6aeb0821c81c5845cced0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
@@ -30,7 +30,7 @@ Utilize este tutorial para começar com Azure Cosmos DB registo através do port
 
 ## <a name="what-is-logged"></a>O que é registado?
 
-* Todos os pedidos de REST (SQL do DocumentDB) API autenticados são registados, que inclui os pedidos falhados resultantes de permissões de acesso, erros de sistema ou pedidos incorretos. Suporte para o MongoDB, gráfico e APIs de tabela não está atualmente disponível.
+* Todos os pedidos de API do REST SQL autenticados são registados, que inclui os pedidos falhados resultantes de permissões de acesso, erros de sistema ou pedidos incorretos. Suporte para o MongoDB, gráfico e APIs de tabela não está atualmente disponível.
 * Operações de na base de dados autónomo, que inclui as operações CRUD em todos os documentos, contentores e bases de dados.
 * Operações sobre chaves de conta, que incluem a criar, modificar ou eliminar estas chaves.
 * Pedidos não autenticados que resultam numa resposta 401. Por exemplo, pedidos que não têm um token de portador ou pedidos incorretamente formulados ou expirados ou com um token inválido.
@@ -54,9 +54,9 @@ Para concluir este tutorial, tem de ter os seguintes recursos:
     * **Arquivo para uma conta de armazenamento**. Para utilizar esta opção, terá de uma conta de armazenamento existente para ligar a. Para criar uma nova conta do storage no portal, consulte [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) e siga as instruções para criar uma conta para fins gerais do Resource Manager. Em seguida, regresse a esta página no portal para selecionar a sua conta do storage. Pode demorar alguns minutos para as contas de armazenamento recentemente criada aparece no menu pendente.
     * **Fluxo para um hub de eventos**. Para utilizar esta opção, terá de um existente Hub de eventos espaço de nomes e event hub para ligar a. Para criar um espaço de nomes de Event Hubs, consulte [criar um espaço de nomes de Event Hubs e um hub de eventos no portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, regresse a esta página no portal para selecionar o nome de espaço de nomes e a política de Hub de eventos.
     * **Enviar ao Log Analytics**.     Para utilizar esta opção, utilize uma área de trabalho existente ou crie uma nova área de trabalho de análise de registos, seguindo os passos para [criar uma nova área de trabalho](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre a visualização dos registos na análise de registos, consulte [ver os registos na análise de registos](#view-in-loganalytics).
-    * **Inicie sessão DataPlaneRequests**. Selecione esta opção para registar os diagnósticos para contas do DocumentDB, gráfico e API de tabela. Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
+    * **Inicie sessão DataPlaneRequests**. Selecione esta opção para registar os diagnósticos para contas SQL, gráfico e API de tabela. Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
     * **Inicie sessão MongoRequests**. Selecione esta opção para registar os diagnósticos para contas de API do MongoDB. Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
-    * **Pedidos de métricos**. Selecione esta opção para armazenar dados verbosos no [Azure métricas](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftdocumentdbdatabaseaccounts-cosmosdb). Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
+    * **Pedidos de métricos**. Selecione esta opção para armazenar dados verbosos no [Azure métricas](../monitoring-and-diagnostics/monitoring-supported-metrics.md#cosmosdb). Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
 
 3. Clique em **Guardar**.
 

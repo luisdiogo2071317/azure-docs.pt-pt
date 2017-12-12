@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: edf9f646207ec31730b557e90a6d19a4b69985bc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.custom: mvc
+ms.openlocfilehash: f043ad753560ecac83324a259341a69ffce01fa5
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Implementar um cluster do Service Fabric Windows numa rede virtual do Azure
 Este tutorial faz parte de um de uma série. Ficará a saber como implementar um cluster do Service Fabric com o Windows numa rede virtual do Azure existente (VNET) e subplano net através do PowerShell. Quando tiver terminado, tiver um cluster em execução na nuvem que pode implementar aplicações.  Para criar um cluster de Linux utilizando a CLI do Azure, consulte [criar um cluster com Linux seguro no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).

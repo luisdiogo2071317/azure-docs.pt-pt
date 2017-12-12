@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Moldura de segurança: Dados confidenciais | Mitigações 
 | Produtos/serviços | Artigo |
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 | **Aplicação Web** | <ul><li>[Certifique-se de que o conteúdo confidencial não esteja em cache no browser](#cache-browser)</li><li>[Encriptar secções dos ficheiros de configuração da aplicação Web que contêm dados confidenciais](#encrypt-data)</li><li>[Desativar explicitamente o atributo HTML de conclusão automática no entradas e formulários confidenciais](#autocomplete-input)</li><li>[Certifique-se de que os dados confidenciais apresentados no ecrã de utilizador está oculto](#data-mask)</li></ul> | 
 | **Base de Dados** | <ul><li>[Máscara de dados dinâmicos implementar para limitar os utilizadores de exposição não privilegiado dados confidenciais](#dynamic-users)</li><li>[Certifique-se de que as palavras-passe são armazenadas no formato de salted hash](#salted-hash)</li><li>[Certifique-se de que os dados confidenciais nas colunas de base de dados são encriptados](#db-encrypted)</li><li>[Certifique-se de que a encriptação ao nível da base de dados (TDE) está ativada](#tde-enabled)</li><li>[Certifique-se de que as cópias de segurança da base de dados são encriptadas](#backup)</li></ul> | 
 | **API Web** | <ul><li>[Certifique-se de que os dados confidenciais relevantes à Web API não são armazenados no armazenamento do browser](#api-browser)</li></ul> | 
-| Base de dados de documento do Azure | <ul><li>[Encriptar dados confidenciais armazenados no DocumentDB](#encrypt-docdb)</li></ul> | 
+| Base de dados de documento do Azure | <ul><li>[Encriptar dados confidenciais armazenados na base de dados do Azure Cosmos](#encrypt-docdb)</li></ul> | 
 | **Limite de fidedignidade de VM do IaaS do Azure** | <ul><li>[Utilizar o Azure Disk Encryption para encriptar os discos utilizados por máquinas virtuais](#disk-vm)</li></ul> | 
 | **Limite de fidedignidade de recursos de infraestrutura de serviço** | <ul><li>[Encriptar os segredos em aplicações de Service Fabric](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Efetuar modelação de segurança e utilizar unidades de negócio/equipas quando necessário](#modeling-teams)</li><li>[Minimizar o acesso à partilha funcionalidade entidades crítico](#entities)</li><li>[Preparar os utilizadores sobre os riscos associados a funcionalidade de partilha do Dynamics CRM e práticas de segurança boa](#good-practices)</li><li>[Incluir uma regra de padrões de desenvolvimento proscribing que mostra detalhes de configuração na gestão de exceções](#exception-mgmt)</li></ul> | 

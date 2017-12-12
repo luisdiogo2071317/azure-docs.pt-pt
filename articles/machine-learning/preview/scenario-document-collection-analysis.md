@@ -2,18 +2,17 @@
 title: "Documente a análise de coleção - Azure | Microsoft Docs"
 description: "Como resumir e analisar uma grande coleção de documentos, incluindo técnicas, como a análise de modelo de tópico através do Azure ML Workbench, tópico modelação e learning frase."
 services: machine-learning
-documentationcenter: 
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 49e215e723728f54a34f7c4e3a89217f16250002
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="document-collection-analysis"></a>Análise de coleção de documentos
 
@@ -72,7 +71,7 @@ Crie um novo projeto com este exemplo como um modelo:
 
 ## <a name="data-description"></a>Descrição de dados
 
-O conjunto de dados utilizado neste cenário contém resumos de texto e os dados de metadados associados para cada ação legislative demorar por Congress-nos. Os dados são recolhidos a partir [GovTrack.us](https://www.govtrack.us/), que regista as atividades dos Estados Unidos Congress e ajuda a Americans participar no respetivo processo legislative national. Os dados em massa podem ser transferidos através de [esta ligação](https://www.govtrack.us/data/congress/) através de um script manual, o que não está incluído neste cenário. Foi possível encontrar os detalhes sobre como transferir os dados no [documentação da API de GovTrack](https://www.govtrack.us/developers/api).
+O conjunto de dados utilizado neste cenário contém resumos de texto e os dados de metadados associados para cada legislative ação tomada pelo Congress-nos. Os dados são recolhidos a partir [GovTrack.us](https://www.govtrack.us/), que regista as atividades dos Estados Unidos Congress e ajuda a Americans participar no respetivo processo legislative national. Os dados em massa podem ser transferidos através de [esta ligação](https://www.govtrack.us/data/congress/) através de um script manual, o que não está incluído neste cenário. Foi possível encontrar os detalhes sobre como transferir os dados no [documentação da API de GovTrack](https://www.govtrack.us/developers/api).
 
 ### <a name="data-source"></a>Origem de dados
 
@@ -100,7 +99,7 @@ O exemplo de análise de coleção do documento está organizado por dois tipos 
 
 Os ficheiros neste exemplo estão organizados de forma.
 
-| Nome de ficheiro | Tipo | Descrição |
+| Nome do Ficheiro | Tipo | Descrição |
 |-----------|------|-------------|
 | `aml_config` | Pasta | Pasta de configuração do Azure Machine Learning Workbench, consulte [esta documentação](./experimentation-service-configuration-reference.md) para configuração de execução da experimentação de detalhado |
 | `Code` | Pasta | A pasta de código utilizada para guardar o pacote do Python e Python scripts |

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Artigos DocumentDB API | Microsoft Docs'
-description: "Uma lista de todos os artigos específicos para a criação de bases de dados de documento com a API do DocumentDB do BD Azure Cosmos."
+title: 'Azure Cosmos DB: Artigos de API do SQL Server | Microsoft Docs'
+description: "Uma lista de todos os artigos específicas para criar bases de dados de documento com a API do SQL Server na base de dados do Azure Cosmos."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -13,23 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8d618e00ed274f5d5705346a4ffd8281769de4e3
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: b036c52d4b06d95f701e655308d011cb92aa8780
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-documentation"></a>Do Azure Cosmos DB: Documentação do DocumentDB API
+# <a name="azure-cosmos-db-sql-api-documentation"></a>Do Azure Cosmos DB: Documentação da API de SQL
 
-Este artigo fornece ligações para todos os conteúdos da base de dados do Azure Cosmos específico para a API do DocumentDB.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Este artigo fornece ligações para todos os conteúdos da base de dados do Azure Cosmos específico para a API do SQL Server.
 
 Estes artigos não se aplicam para a Graph API, a API de tabela ou a API do MongoDB. 
 
 ## <a name="introduction-and-concepts"></a>Introdução e conceitos
 
-Estes são tem leia os tópicos e recursos para começar a aprender mais sobre a API do DocumentDB para a base de dados do Azure Cosmos.
+Estes são tem leia os tópicos e recursos para começar a aprender mais sobre a API do SQL Server para a base de dados do Azure Cosmos.
 
-- [Introdução de API do DocumentDB](documentdb-introduction.md)
+- [Introdução de API do SQL Server](documentdb-introduction.md)
 - [Modelo de recursos de base de dados](documentdb-resources.md)
 - Web site: [playground de consulta](https://www.documentdb.com/sql/demo)
 - Cheat folha: [gramática do SQL Server](documentdb-sql-query-cheat-sheet.md)
@@ -109,7 +111,7 @@ BD do Cosmos do Azure fornece um número de SDKs para ativar o desenvolvimento d
 
 ## <a name="samples"></a>Amostras
 
-Estas páginas de exemplo fornecem ligações para o código de exemplo e API fazer referência a conteúdo para as tarefas mais comuns de API do DocumentDB.
+Estas páginas de exemplo fornecem ligações para o código de exemplo e API fazer referência a conteúdo para as tarefas mais comuns de API do SQL Server.
 
 - [.NET](documentdb-dotnet-samples.md)
 - [Node.js](documentdb-nodejs-samples.md)

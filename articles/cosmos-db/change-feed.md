@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e825968981df1aaee4ceb037995209ba48a8f4ec
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhar com a alteração de feed de suporte do BD Azure Cosmos
 
@@ -34,7 +34,7 @@ O **alteração feed suporte** do BD Azure Cosmos permite-lhe criar soluções e
 ![Utilizar base de dados do Azure Cosmos alteração feed análise em tempo real de energia e condicionada por eventos cenários de computação](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Alteração de feed de suporte é fornecida para todos os contentores do BD Azure Cosmos e modelos de dados. No entanto, o feed de alteração de leitura com o cliente do DocumentDB e serializa itens em formato JSON. Devido ao JSON de formatação, MongoDB, os clientes irão sentir um erro de correspondência entre documentos BSON formatado e o JSON com formato alteração feed. 
+> Alteração de feed de suporte é fornecida para todos os contentores do BD Azure Cosmos e modelos de dados. No entanto, o feed de alteração de leitura com o cliente do SQL Server e serializa itens em formato JSON. Devido ao JSON de formatação, MongoDB, os clientes irão sentir um erro de correspondência entre documentos BSON formatado e o JSON com formato alteração feed. 
 
 ## <a name="how-does-change-feed-work"></a>Como a alteração feed trabalho?
 
@@ -90,9 +90,9 @@ Acionadores que podem ser criados no portal das funções do Azure, no portal do
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Utilizando o SDK
 
-O [DocumentDB SDK](documentdb-sdk-dotnet.md) para a BD do Cosmos Azure dá-lhe potência para ler e gerir uma alteração do feed. Mas com energia excelente inclui muitas das responsabilidades, demasiado. Se pretender gerir pontos de verificação, lidar com os números de sequência de documento e ter um controlo granular sobre chaves de partição, em seguida, utilizando o SDK pode estar a abordagem à direita.
+O [SQL SDK](documentdb-sdk-dotnet.md) para a BD do Cosmos Azure dá-lhe potência para ler e gerir uma alteração do feed. Mas com energia excelente inclui muitas das responsabilidades, demasiado. Se pretender gerir pontos de verificação, lidar com os números de sequência de documento e ter um controlo granular sobre chaves de partição, em seguida, utilizando o SDK pode estar a abordagem à direita.
 
-Esta secção explica como utilizar o SDK do DocumentDB para trabalhar com uma alteração do feed.
+Esta secção explica como utilizar o SDK do SQL Server para funcionar com uma alteração do feed.
 
 1. Inicie o lendo os seguintes recursos da appconfig. Instruções sobre como obter a chave de autorização e de ponto final estão disponíveis no [atualizar a cadeia de ligação](create-documentdb-dotnet.md#update-your-connection-string).
 

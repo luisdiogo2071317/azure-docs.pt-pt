@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b596b74f0aec0c561c8ad48647c16cd0f5c58d83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>BD de Cosmos do destino do Azure para a saída JSON a partir do Stream Analytics
 Pode visar do Stream Analytics [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para saída JSON, permitindo consultas de arquivo e baixa latência de dados em dados não estruturados de JSON. Este documento inclui algumas melhores práticas para implementar esta configuração.
@@ -27,7 +27,7 @@ Pode visar do Stream Analytics [Azure Cosmos DB](https://azure.microsoft.com/ser
 Os utilizadores que não está familiarizado com a base de dados do Cosmos, observe [percurso de aprendizagem da BD do Azure Cosmos](https://azure.microsoft.com/documentation/learning-paths/documentdb/) para começar a utilizar. 
 
 > [!Note]
-> Neste momento, o Azure Stream Analytics suporta apenas a ligação para a utilização de CosmosDB **(SQL do DocumentDB) API**.
+> Neste momento, o Azure Stream Analytics suporta apenas a ligação para a utilização de CosmosDB **API do SQL Server**.
 > APIs de BD do Cosmos outros Azure ainda não são suportadas. Se o ponto de Azure Stream Analytics para as contas de base de dados do Azure Cosmos criado com outras APIs, os dados poderão não ser corretamente armazenados. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Noções básicas da BD do Cosmos como um destino de saída
@@ -36,7 +36,7 @@ A saída de BD do Cosmos Azure Stream Analytics permite escrita sua transmissão
 Algumas das opções de recolha de BD do Cosmos detalhadas abaixo.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Otimizar a consistência, disponibilidade e a latência
-Para fazer corresponder os seus requisitos de aplicações, o Cosmos DB permite-lhe ajustar e otimizar a base de dados e coleções compromissos entre consistência, disponibilidade e a latência. Consoante os níveis de consistência de leitura as necessidades de cenário contra ler e escrever latência, que pode escolher um nível de consistência na sua conta de base de dados. Também por predefinição, a base de dados do Cosmos permite indexação síncrona de cada operação CRUD à sua coleção. Esta é outra opção útil para controlar o desempenho de leitura/escrita na base de dados do Cosmos. Para obter mais informações sobre este tópico, reveja o [alterar os níveis de consistência da base de dados e a consulta](../documentdb/documentdb-consistency-levels.md) artigo.
+Para fazer corresponder os seus requisitos de aplicações, o Cosmos DB permite-lhe ajustar e otimizar a base de dados e coleções compromissos entre consistência, disponibilidade e a latência. Consoante os níveis de consistência de leitura as necessidades de cenário contra ler e escrever latência, que pode escolher um nível de consistência na sua conta de base de dados. Também por predefinição, a base de dados do Cosmos permite indexação síncrona de cada operação CRUD à sua coleção. Esta é outra opção útil para controlar o desempenho de leitura/escrita na base de dados do Cosmos. Para obter mais informações sobre este tópico, reveja o [alterar os níveis de consistência da base de dados e a consulta](../cosmos-db/consistency-levels.md) artigo.
 
 ## <a name="upserts-from-stream-analytics"></a>Upserts a partir do Stream Analytics
 Integração de análise de fluxo com base de dados do Cosmos permite-lhe inserir ou atualizar os registos na sua coleção de BD do Cosmos com base numa coluna ID do documento fornecida. Isto também é referido como um *Upsert*.

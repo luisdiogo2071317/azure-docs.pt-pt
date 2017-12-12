@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 8ac45408dab31566be3089cbf2cd7d31d54b1655
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels para bloco de notas do Jupyter nos clusters do Spark no Azure HDInsight 
 
@@ -82,10 +82,10 @@ Seguem-se algumas vantagens de utilizar os novo kernels com o bloco de notas do 
 
    | Magic | Exemplo | Descrição |
    | --- | --- | --- |
-   | Ajuda |`%%help` |Gera uma tabela de todos os a magia disponível com o exemplo e descrição |
+   | ajuda |`%%help` |Gera uma tabela de todos os a magia disponível com o exemplo e descrição |
    | informações |`%%info` |Informações da sessão saídas para o ponto de final Livy atual |
-   | Configurar |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura os parâmetros para a criação de uma sessão. O sinalizador force (-f) é obrigatório se uma sessão já foi criada, que garante que a sessão é removida e recriada. Observe [POST /sessions de Livy corpo do pedido](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Os parâmetros devem ser transmitidos como uma cadeia JSON e tem de estar na linha seguinte após a magia, conforme apresentado na coluna de exemplo. |
-   | SQL Server |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive contra o sqlContext. Se o `-o` parâmetro é transmitido, o resultado da consulta é continuado no % % contexto de Python local como uma [Pandas](http://pandas.pydata.org/) dataframe. |
+   | configurar |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura os parâmetros para a criação de uma sessão. O sinalizador force (-f) é obrigatório se uma sessão já foi criada, que garante que a sessão é removida e recriada. Observe [POST /sessions de Livy corpo do pedido](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Os parâmetros devem ser transmitidos como uma cadeia JSON e tem de estar na linha seguinte após a magia, conforme apresentado na coluna de exemplo. |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive contra o sqlContext. Se o `-o` parâmetro é transmitido, o resultado da consulta é continuado no % % contexto de Python local como uma [Pandas](http://pandas.pydata.org/) dataframe. |
    | local |`%%local`<br>`a=1` |Todos os o código em linhas subsequentes é executado localmente. Código tem de ser válido Python2 código mesmo, independentemente do kernel que está a utilizar. Sim, mesmo se tiver selecionado **PySpark3** ou **Spark** kernels ao criar o bloco de notas, se utilizar o `%%local` mágica numa célula, nessa célula só podem ter código Python2 válido... |
    | registos |`%%logs` |Os registos para a sessão atual do Livy saídas. |
    | eliminar |`%%delete -f -s <session number>` |Elimina uma específica de sessão do ponto final Livy atual. Tenha em atenção que não é possível eliminar a sessão iniciada para o kernel do próprio. |

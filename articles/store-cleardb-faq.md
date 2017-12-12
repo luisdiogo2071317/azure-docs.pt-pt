@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: b0fad1d151799f88c72cfe1359978d69cc1421c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d1e3c826e61b8dee264e1c01fd2d54ba7ebb636
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ sobre as bases de dados do MySql ClearDB com Serviço de Aplicações do Azure
 Estas FAQ responde a questões recorrentes sobre a utilizar e aquisição de bases de dados ClearDB MySQL para Web Apps do Azure.
@@ -68,7 +68,7 @@ Utilize básica ou de um escalão de preço superior para aplicações Web. Para
 No [portal do Azure](https://portal.azure.com), pode dimensionar um ClearDB alojamento base de dados partilhada. Leia este [artigo](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) para obter mais informações. Atualmente não suportamos a atualização para clusters de ClearDB Premium no portal do Azure.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Não é possível vejo o meu base de dados de ClearDB no portal do Azure?
-Se criamos ClearDB base de dados com o Azure Resource Manager ou [novo Portal do Azure](https://portal.azure.com), não serão visível no [antigo Portal do Azure](https://manage.windowsazure.com). Para trabalho-contornar esta situação está a ligar a base de dados manualmente para a aplicação web. Da mesma forma se criar a base de dados de ClearDB no [portal antigo](https://manage.windowsazure.com) não será capaz de ver a sua base de dados no [novo Portal do Azure](https://portal.azure.com). Não há nenhum trabalho-à volta para o cenário anterior será ignorada.
+Se criou uma base de dados de ClearDB no clássico, não será capaz de ver a sua base de dados no [Portal do Azure](https://portal.azure.com). Não há nenhum trabalho-around para este cenário.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Quem posso contacto para suporte quando a minha base de dados está inativo?
 Contacte [ClearDB suporte](https://www.cleardb.com/developers/help/support) para qualquer base de dados problemas relacionados. Esteja preparado para lhes fornecer as suas informações de subscrição do Azure.

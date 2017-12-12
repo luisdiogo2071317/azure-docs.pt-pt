@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mimig
-ms.openlocfilehash: d541bb19ba7e5ecb44c9fe91b1e232d4d9c2170e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69501b07369a8d5da15cf9bc7d75f07999bf0999
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Definir o débito para contentores de base de dados do Azure Cosmos
 
@@ -57,7 +57,7 @@ A tabela seguinte lista o débito disponível para contentores:
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="to-set-the-throughput-by-using-the-documentdb-api-for-net"></a>Para definir o débito, utilizando a API do DocumentDB para .NET
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>Para definir o débito, utilizando a API de SQL para .NET
 
 ```C#
 //Fetch the resource to be updated
@@ -81,7 +81,7 @@ await client.ReplaceOfferAsync(offer);
 
 **Como definir o througput utilizando a API do MongoDB**
 
-Não há nenhuma extensão de API do MongoDB para definir o débito. A recomendação é utilizar a API do DocumentDB, conforme mostrado no [para definir o débito, utilizando a API do DocumentDB para .NET](#set-throughput-sdk).
+Não há nenhuma extensão de API do MongoDB para definir o débito. A recomendação é utilizar a API do SQL Server, conforme mostrado no [para definir o débito, utilizando a API de SQL para .NET](#set-throughput-sdk).
 
 ## <a name="next-steps"></a>Passos seguintes
 

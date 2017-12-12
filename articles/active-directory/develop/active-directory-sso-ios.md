@@ -4,7 +4,7 @@ description: "Como utilizar as funcionalidades do SDK da ADAL para permitir iní
 services: active-directory
 documentationcenter: 
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 73b8ed7e6a153a0790f7eae9bd51bb2e554ae72e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e8b9e61f0417e365fb68a7de7135965ca43ab86
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como ativar a SSO em várias aplicações no iOS utilizam a ADAL
 Fornecer único Sign-On (SSO) para que os utilizadores só têm de introduzir as respetivas credenciais de uma vez e ter essas credenciais automaticamente funciona entre aplicações agora é esperado pelos clientes. Dificuldade em introduzindo o nome de utilizador e palavra-passe um ecrã pequeno, muitas vezes, vezes combinados com um fator adicional (2FA) como uma chamada telefónica ou um código diante, resulta em insatisfação rápida se um utilizador tem de fazer mais do que uma vez para o produto.

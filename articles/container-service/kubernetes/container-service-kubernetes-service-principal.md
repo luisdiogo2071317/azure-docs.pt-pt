@@ -1,26 +1,19 @@
 ---
-title: "Principal de serviço do cluster de Kubernetes do Azure | Microsoft Docs"
+title: "Principal de serviço do cluster de Kubernetes do Azure"
 description: "Criar e gerir um principal de serviço do Azure Active Directory para um cluster de Kubernetes no Azure Container Service"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurar o principal de serviço do Azure AD para um cluster de Kubernetes no Container Service
 
@@ -36,9 +29,9 @@ Este artigo mostra as diferentes opções para configurar um principal de servi�
 
 Pode utilizar um principal de serviço do Azure AD existente que cumpre os seguintes requisitos ou criar um novo.
 
-* **Âmbito**: o grupo de recursos utilizado para implementar o cluster.
+* **Âmbito**: grupo de recursos
 
-* **Função**: **Contribuinte**
+* **Função**: contribuidor
 
 * **Segredo do cliente**: tem de ser uma palavra-passe. Atualmente, não pode utilizar um principal de serviço configurado para autenticação de certificados.
 
@@ -59,7 +52,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 O resultado é semelhante ao seguinte (mostrado aqui):
@@ -126,11 +119,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Quando especificar o principal de serviço **ID de Cliente**, pode utilizar o valor do `appId` (como mostrado neste artigo) ou o principal de serviço correspondente `name` (por exemplo, `https://www.contoso.org/example`).
 
-* Em VMs do agente e mestras no cluster de Kubernetes, as credenciais do principal de serviço são armazenadas no ficheiro /etc/kubernetes/azure.json.
+* Em VMs do agente e mestras no cluster de Kubernetes, as credenciais do principal de serviço são armazenadas no ficheiro `/etc/kubernetes/azure.json`.
 
-* Quando utilizar o comando `az acs create` para gerar automaticamente o principal de serviço, as credenciais do principal de serviço são escritas no ficheiro ~/.azure/acsServicePrincipal.json na máquina utilizada para executar o comando.
+* Quando utilizar o comando `az acs create` para gerar automaticamente o principal de serviço, as credenciais do principal de serviço são escritas no ficheiro `~/.azure/acsServicePrincipal.json` na máquina utilizada para executar o comando.
 
 * Quando utiliza o comando `az acs create` para gerar automaticamente o principal de serviço, o principal de serviço também pode autenticar com um [Azure container registry](../../container-registry/container-registry-intro.md) criado na mesma subscrição.
+
+* As credenciais de principais de serviço podem expirar, fazendo com que os nós do cluster introduzam um estado **NotReady**. Consulte a secção [Expiração de credenciais](#credential-expiration) para obter informações de mitigação.
+
+## <a name="credential-expiration"></a>Expiração de credenciais
+
+A menos que especifique uma janela de validade personalizada com o parâmetro `--years` ao criar um principal de serviço, as suas credenciais são válidas durante 1 ano a partir da hora de criação. Quando a credencial expira, os nós de cluster podem entrar numa estado **NotReady**.
+
+Para verificar a data de expiração de um principal de serviço, execute o comando [az ad app show](/cli/azure/ad/app#az_ad_app_show) com o parâmetro `--debug` e procure o valor `endDate` de `passwordCredentials` junto à parte inferior do resultado:
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+Resultado (aqui apresentado como truncado):
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+Se as credenciais do principal de serviço tiverem expirado, utilize o comando [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) para atualizar as credenciais:
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+Saída:
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+Em seguida, atualize `/etc/kubernetes/azure.json` com as novas credenciais em todos os nós do cluster e reinicie os nós.
 
 ## <a name="next-steps"></a>Passos seguintes
 

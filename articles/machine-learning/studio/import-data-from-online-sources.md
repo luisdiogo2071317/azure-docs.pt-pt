@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: 4c699a8e5a9fafa0fec10bcb731f9ba533e3d283
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: c6185cd240d1c040c993e581c27624e1f170f709
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importar dados para o Azure Machine Learning Studio provenientes de várias origens de dados online com o módulo Importar Dados
 Este artigo descreve o suporte para importar dados online a partir de várias origens e as informações necessárias para mover dados a partir destas origens para uma experimentação do Azure Machine Learning.
@@ -43,7 +43,7 @@ Utilizando o [importar dados] [ import-data] módulo, pode aceder aos dados de u
 * Base de dados SQL do Azure ou do SQL Server numa VM do Azure
 * Base de dados do SQL Server no local
 * Um fornecedor de OData atualmente de feed de dados
-* CosmosDB do Azure (anteriormente denominadas DocumentDB)
+* Azure Cosmos DB
 
 Para aceder a origens de dados online na sua experimentação do Studio, adicione o [importar dados] [ import-data] módulo para o, selecione o **origem de dados**e, em seguida, forneça os parâmetros necessários para aceder a os dados. As origens de dados online são suportadas estão descritas na tabela abaixo. Nesta tabela também resume os formatos de ficheiro suportados e os parâmetros que são utilizados para aceder aos dados.
 

@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -56,10 +56,8 @@ Todas as soluções que utilizam o serviço Batch precisam de alguns dos recurso
 * [Nó de computação](#compute-node)
 * [Conjunto](#pool)
 * [Tarefa](#job)
-
   * [Agendas de tarefas](#scheduled-jobs)
 * [Tarefa](#task)
-
   * [Tarefa de início](#start-task)
   * [Tarefa do gestor de tarefas](#job-manager-task)
   * [Tarefas de preparação e de lançamento da tarefa](#job-preparation-and-release-tasks)
@@ -264,6 +262,9 @@ Quando cria uma tarefa, pode especificar:
 * **Pacotes de aplicações** para implementar o nó de computação no qual a tarefa está agendada para ser executada. Os [pacotes de aplicações](#application-packages) fornecem uma implementação simplificada e o controlo de versões das aplicações que as suas tarefas executam. Os pacotes de aplicações ao nível das tarefas são particularmente úteis em ambientes de conjunto partilhado, em que as diferentes tarefas são executadas num conjunto, e o conjunto não é eliminado quando um trabalho estiver concluído. Se o trabalho tiver menos tarefas do que nós no conjunto, os pacotes de aplicações de tarefas podem minimizar a transferência de dados, uma vez que a aplicação é implementada apenas nos nós que executam tarefas.
 * Referência da **imagem de contentor** no Docker Hub ou num registo privado e as definições adicionais para criar um contentor do Docker no qual a tarefa seja executada no nó. Apenas pode especificar estas informações se o agrupamento tiver uma configuração de contentor.
 
+> [!NOTE]
+> A duração máxima de uma tarefa, a partir da quando é adicionada à tarefa até quando está concluída, é de 7 dias. As tarefas concluídas mantêm-se indefinidamente. Os dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.
+
 Além das tarefas que define para realizar a computação num nó, também são fornecidas pelo serviço Batch as seguintes tarefas especiais:
 
 * [Tarefa de início](#start-task)
@@ -275,7 +276,7 @@ Além das tarefas que define para realizar a computação num nó, também são 
 ### <a name="start-task"></a>Tarefa de início
 Ao associar uma **tarefa de início** a um conjunto, pode preparar o ambiente de funcionamento dos respetivos nós. Por exemplo, pode realizar ações como instalar as aplicações que as suas tarefas vão executar ou começar processos em segundo plano. A tarefa de início é executada sempre que um nó é iniciado enquanto permanecer no conjunto, incluindo quando o nó for adicionado pela primeira vez ao conjunto e quando é reiniciado ou a respetiva imagem recriada.
 
-Uma das principais vantagens da tarefa de início é o facto de poder conter todas as informações necessárias para configurar um nó de computação e instalar as aplicações de que as tarefas precisam para serem executadas. Por conseguinte, aumentar o número de nós num conjunto é tão simples como especificar a nova contagem de nó de destino. A tarefa de início fornece ao serviço do Batch as informações necessárias para configurar novos nós e prepará-los para aceitar tarefas.
+Uma das principais vantagens da tarefa de início é o facto de poder conter todas as informações necessárias para configurar um nó de computação e instalar as aplicações necessárias para a execução de tarefas. Por conseguinte, aumentar o número de nós num conjunto é tão simples como especificar a nova contagem de nó de destino. A tarefa de início fornece ao serviço do Batch as informações necessárias para configurar novos nós e prepará-los para aceitar tarefas.
 
 À semelhança de qualquer tarefa do Batch, pode especificar uma lista de **ficheiros de recursos** no [Armazenamento do Azure][azure_storage], além de uma **linha de comandos** para ser executada. O serviço do Batch começa por copiar os ficheiros de recursos para o nó a partir do Armazenamento do Azure e, depois, executa a linha de comandos. Numa tarefa de início de conjunto, a lista de ficheiros contém, geralmente, a aplicação de tarefa e as respetivas dependências.
 

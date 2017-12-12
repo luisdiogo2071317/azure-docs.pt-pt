@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 1ed64ece4d05dea93fd15e24aaf9921d8614277e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -76,7 +76,7 @@ A tabela seguinte é uma referência de APIs podem suportar outros formatos de d
 API | Formato de dados predefinido | Outros formatos
 --------|---------------------|--------------
 /instance | JSON | Texto
-/scheduledevents | JSON | Nenhum
+/scheduledevents | JSON | nenhum
 
 Para aceder a um formato de resposta não predefinido, especifique o formato de pedido como um parâmetro de cadeia de consulta no pedido. Por exemplo:
 
@@ -286,7 +286,7 @@ nome | Nome da VM | 2017-04-02
 oferta | Disponibilizam informações para a imagem VM. Este valor só está presente para imagens implementadas a partir da Galeria de imagem do Azure. | 2017-04-02
 Fabricante | Publicador de imagem de VM | 2017-04-02
 SKU | SKU específico para a imagem VM | 2017-04-02
-Versão | Versão da imagem VM | 2017-04-02
+versão | Versão da imagem VM | 2017-04-02
 osType | Linux ou do Windows | 2017-04-02
 platformUpdateDomain |  [Domínio de atualização](manage-availability.md) a VM está em execução no | 2017-04-02
 platformFaultDomain | [Domínio de falhas](manage-availability.md) a VM está em execução no | 2017-04-02
@@ -391,7 +391,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.SH
    * O serviço de metadados de instância requer o cabeçalho `Metadata: true` transmitido no pedido. Transmitir este cabeçalho na chamada REST permite o acesso ao serviço de metadados de instância. 
 2. Por que razão estou posso obter não informações de computação para a minha VM?
    * O serviço de metadados de instância só suporta atualmente instâncias criadas com o Azure Resource Manager. No futuro, iremos pode adicionar suporte para as VMs de serviço de nuvem.
-3. Criar um algum volta a minha máquina Virtual através do Azure Resource Manager. Por que razão estou posso não ver as informações de metadados de computação?
+3. Criar um algum volta a minha máquina Virtual através do Azure Resource Manager. Por que razão estou posso não ver informações de metadados de computação?
    * Para quaisquer VMs criadas após Sep 2016, adicione um [Tag](../../azure-resource-manager/resource-group-using-tags.md) para começar a ver metadados de computação. Para VMs anteriores (criadas antes de Sep 2016), adicionar/remover discos de dados ou extensões para a VM para atualizar os metadados.
 4. Não estou a ver todos os dados preenchidos nova versão de 2017-08-01
    * Para quaisquer VMs criadas após Sep 2016, adicione um [Tag](../../azure-resource-manager/resource-group-using-tags.md) para começar a ver metadados de computação. Para VMs anteriores (criadas antes de Sep 2016), adicionar/remover discos de dados ou extensões para a VM para atualizar os metadados.
@@ -402,7 +402,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.SH
 7. Isto seria funcionar para a instância de conjunto de dimensionamento de Máquina Virtual?
    * Sim metadados serviço está disponível para instâncias de conjunto de dimensionamento. 
 8. Como posso obter suporte para o serviço?
-   * Para obter suporte para o serviço, crie um problema de suporte no portal do Azure para a VM em que não é possível obter a resposta de metadados após várias tentativas de longas 
+   * Para obter suporte para o serviço, crie um pedido de suporte no portal do Azure para a VM em que não é possível obter a resposta de metadados após várias tentativas de longas 
 
    ![Suporte de metadados de instância](./media/instance-metadata-service/InstanceMetadata-support.png)
     

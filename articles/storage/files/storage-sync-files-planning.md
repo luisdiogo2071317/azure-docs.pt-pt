@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: cba1dd7e5f7c9f30db5d1dccd41a3262af668bce
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: b5a3537355bef593cc7796af041a53a5eca76b23
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -46,10 +46,12 @@ O agente de sincronização de ficheiros do Azure é um pacote transferível, qu
     - C:\Programas\Microsoft Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Ponto final do servidor
-Um ponto final do servidor representa uma localização específica num servidor registado, tais como uma pasta no volume do servidor.  Tenha em atenção, no presente, a localização específica não pode ser a raiz de um volume (por exemplo, f:\) apesar de isto será suportado numa atualização futura pré-visualização. Vários pontos finais de servidor podem existir no mesmo volume se os espaços de nomes não se sobrepuserem (por exemplo, F:\sync1 e F:\sync2). Pode configurar políticas de camadas na nuvem individualmente para cada ponto final do servidor. Se adicionar uma localização do servidor que tenha um conjunto de ficheiros como um ponto final do servidor a um grupo de sincronização, esses ficheiros são intercalados com outros ficheiros que já estejam nesse outros pontos finais no grupo de sincronização.
+Um ponto final do servidor representa uma localização específica num servidor registado, tais como uma pasta no volume do servidor. Vários pontos finais de servidor podem existir no mesmo volume se os espaços de nomes não se sobrepuserem (por exemplo, `F:\sync1` e `F:\sync2`). Pode configurar políticas de camadas na nuvem individualmente para cada ponto final do servidor. Atualmente, não é possível criar um ponto final do servidor para a raiz de um volume (por exemplo `F:\` ou `C:\myvolume`, se está montado um volume como um ponto de montagem).
 
 > [!Note]  
 > Um ponto final do servidor pode ser localizado no volume de sistema do Windows. Nuvem em camadas não é suportado no volume do sistema.
+
+Se adicionar uma localização do servidor que tenha um conjunto de ficheiros como um ponto final do servidor a um grupo de sincronização, esses ficheiros são intercalados com outros ficheiros que já estejam nesse outros pontos finais no grupo de sincronização.
 
 ### <a name="cloud-endpoint"></a>Ponto final da nuvem
 Um ponto final da nuvem é uma partilha de ficheiros do Azure que faz parte de um grupo de sincronização. As sincronizações de partilha de ficheiros do Azure completa e uma partilha de ficheiros do Azure podem ser um membro do ponto final de uma nuvem apenas. Por conseguinte, uma partilha de ficheiros do Azure pode ser um membro de apenas um grupo de sincronização. Se adicionar uma partilha de ficheiros do Azure que tenha um conjunto de ficheiros como um ponto final da nuvem para um grupo de sincronização, os ficheiros existentes são intercalados com outros ficheiros que já estejam nesse outros pontos finais no grupo de sincronização.

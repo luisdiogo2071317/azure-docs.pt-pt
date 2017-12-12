@@ -1,6 +1,6 @@
 ---
-title: Desenvolver U-SQL com o Python, R e CSharp para o Azure Data Lake Analytics no Visual Studio Code | Microsoft Docs
-description: Saiba como utilizar o code-behind com o Python, R e CSharp ao submeter a tarefa no Azure Data Lake.
+title: Desenvolver U-SQL com o Python, R e c# para o Azure Data Lake Analytics no Visual Studio Code | Microsoft Docs
+description: Saiba como utilizar o code-behind com o Python, R e c# ao submeter a tarefa no Azure Data Lake.
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/22/2017
 ms.author: jejiang
-ms.openlocfilehash: 82f6527388017aadecf761871f5acb25eb100acb
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 8fd8decfde1220be6aaa099c3afb24e8c1eecce4
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="develop-u-sql-with-python-r-and-csharp-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desenvolver U-SQL com o Python, R e CSharp para o Azure Data Lake Analytics no Visual Studio Code
-Saiba como utilizar o Visual Studio Code (VSCode) ao escrever o Python, R CSharp código atrás com U-SQL e submeter tarefas ao serviço de Azure Data Lake. Para obter mais informações sobre as ferramentas do Azure Data Lake VSCode, consulte [utilizar as ferramentas do Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
+# <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desenvolver U-SQL com o Python, R e c# para o Azure Data Lake Analytics no Visual Studio Code
+Saiba como utilizar o Visual Studio Code (VSCode) ao escrever o Python, R c# código atrás com U-SQL e submeter tarefas ao serviço de Azure Data Lake. Para obter mais informações sobre as ferramentas do Azure Data Lake VSCode, consulte [utilizar as ferramentas do Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
 Antes de escrever código personalizado por detrás do código, terá de abrir uma pasta ou uma área de trabalho no VSCode.
 

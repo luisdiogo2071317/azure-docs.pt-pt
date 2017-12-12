@@ -1,0 +1,2 @@
+>[!TIP] 
+> A API de DocumentDB do Azure Cosmos DB ou SQL Server (DocumentDB) API é agora conhecido como a API do Azure Cosmos BD do SQL Server. Não precisa de alterar nada para continuar a executar as aplicações criadas com a API do DocumentDB. A funcionalidade foi alterada.

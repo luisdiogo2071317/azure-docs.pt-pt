@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e0977417ec8678db54d91677b1f9bdc709e196b5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notas de versão para componentes do Hadoop no Azure HDInsight
 
@@ -101,7 +101,7 @@ O Spark 2.0.1 está agora disponível nos clusters do Spark (HDInsight versão 3
 * O URI para acesso de nó de extremidade foi alterada para **clustername**-ed-h
 * R Server no aprovisionamento de cluster de HDInsight foi está mais simples.
 * R Server no HDInsight está agora disponível como regular HDInsight "Servidor R" tipo de cluster e já não está instalado como uma aplicação HDInsight separada. O nó de extremidade e os binários de servidor de R são agora aprovisionados como parte da implementação de cluster do servidor R. Isto melhora a velocidade e fiabilidade de aprovisionamento. Modelo de preços para o servidor R é atualizado em conformidade.
-* Preços de tipo de cluster de servidor R agora é baseado no preço de escalão Standard plus preços de surcharge R Server. Escalão Premium é reservado para as funcionalidades Premium disponíveis em tipos de cluster diferentes e não é utilizado para o tipo de cluster de servidor R. Esta alteração não afeta o preço Efetivo do servidor R; as alterações apenas como os encargos são apresentados na factura. Todos os clusters de servidor R existentes continuem a funcionar e modelos do Resource Manager continuam a funcionar até que o aviso de preterição. **Recomenda-se para atualizar as implementações de script para utilizar o novo modelo do Resource Manager.**
+* Preços de tipo de cluster de servidor R agora é baseado no preço de escalão Standard plus preços de surcharge R Server. Esta alteração não afeta o preço Efetivo do servidor R; as alterações apenas como os encargos são apresentados na factura. Todos os clusters de servidor R existentes continuem a funcionar e modelos do Resource Manager continuam a funcionar até que o aviso de preterição. **Recomenda-se para atualizar as implementações de script para utilizar o novo modelo do Resource Manager.**
 
 
 

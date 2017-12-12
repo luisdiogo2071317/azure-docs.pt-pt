@@ -1,6 +1,6 @@
 ---
 title: "Configurar pontos finais numa VM Windows clássico | Microsoft Docs"
-description: "Saiba como configurar pontos finais para uma VM do Windows no portal clássico do Azure para permitir a comunicação com a máquina virtual do Windows no Azure."
+description: "Saiba como configurar pontos finais para uma VM do Windows clássico no portal do Azure para permitir a comunicação com a máquina virtual do Windows no Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: bea2a30d67e47342616bbe00946b7c559c5e277b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 34bfad1e41037f38e950db085c0c13b7066b3e96
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Como configurar pontos finais na máquina virtual clássico do Windows no Azure
 Todas as janelas de máquinas virtuais que criar no Azure utilizando o modelo de implementação clássica automaticamente pode comunicam através de uma privada canal de rede com outras máquinas virtuais no mesmo serviço em nuvem ou de rede virtual. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos finais para direcionar o tráfego de rede de entrada para uma máquina virtual. Este artigo também está disponível para [máquinas virtuais do Linux](../../linux/classic/setup-endpoints.md).

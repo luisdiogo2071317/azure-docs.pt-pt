@@ -16,11 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Processamento de exceções e registo de erros para aplicações lógicas
 
@@ -45,7 +45,7 @@ O projeto tinha dois requisitos principais:
 
 ## <a name="how-we-solved-the-problem"></a>Como é resolvido o problema
 
-Escolhemos [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") como um repositório para os registos de erro e de registo (Cosmos DB refere-se para registos como documentos). Uma vez Azure Logic Apps tem um modelo padrão para todas as respostas, seria não temos que criar um esquema personalizado. Foi possível criar uma aplicação API para **inserir** e **consulta** para registos de erro e registo. Iremos também definir um esquema para cada na aplicação API.  
+Escolhemos [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") como um repositório para os registos de erro e de registo (Cosmos DB refere-se para registos como documentos). Uma vez Azure Logic Apps tem um modelo padrão para todas as respostas, seria não temos que criar um esquema personalizado. Foi possível criar uma aplicação API para **inserir** e **consulta** para registos de erro e registo. Iremos também definir um esquema para cada na aplicação API.  
 
 Foi outro requisito necessário para remover registos após uma data determinada. BD do cosmos tem uma propriedade denominada [TTL de](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "TTL de") (TTL), que permitido-nos definir um **TTL de** valor para cada registo ou a coleção. Esta capacidade eliminado a necessidade de eliminar manualmente os registos na base de dados do Cosmos.
 
@@ -58,7 +58,7 @@ O primeiro passo é criar a aplicação lógica e abra a aplicação no Designer
 
 Vamos começar porque, vamos iniciar o registo provenientes de Dynamics CRM Online, na parte superior. Iremos tem de utilizar um **pedido** acionar porque a aplicação de lógica principal aciona menor.
 
-### <a name="logic-app-trigger"></a>Acionador de aplicação lógica
+### <a name="logic-app-trigger"></a>Acionador da aplicação lógica
 
 Estamos a utilizar um **pedido** acionar conforme mostrado no exemplo seguinte:
 
@@ -107,7 +107,7 @@ Iremos tem de iniciar a origem (pedido) do registo patient partir do portal do D
    O acionador feitos CRM fornece-nos com o **CRM PatentId**, **tipo de registo**, **novo ou atualizar o registo** (novo ou atualizar o valor booleano), e **SalesforceId**. O **SalesforceId** pode ser nulo porque só é utilizada para uma atualização.
    Vamos obter o registo CRM utilizando o CRM **PatientID** e **tipo de registo**.
 
-2. Em seguida, precisamos de adicionar a nossa aplicação de API do DocumentDB **InsertLogEntry** operação conforme mostrado aqui no Designer de aplicação lógica.
+2. Em seguida, precisamos de adicionar a nossa aplicação de API do SQL Server de base de dados do Azure Cosmos **InsertLogEntry** operação conforme mostrado aqui no Designer de aplicação lógica.
 
    **Inserir entrada de registo**
 
@@ -400,7 +400,7 @@ Depois de obter a resposta, pode passar a resposta de volta para a aplicação d
 
 ## <a name="cosmos-db-repository-and-portal"></a>Portal e do repositório do cosmos DB
 
-A nossa solução adicionada capacidades com [Cosmos DB](https://azure.microsoft.com/services/documentdb).
+A nossa solução adicionada capacidades com [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
 ### <a name="error-management-portal"></a>Portal de gestão de erro
 
@@ -430,14 +430,14 @@ Para ver os registos, também foi criada uma aplicação web MVC. Seguem-se exem
 
 A nossa aplicação de API de gestão do open source Azure Logic Apps exceção fornece uma funcionalidade, conforme descrito aqui – existem dois controladores:
 
-* **ErrorController** insere um registo de erro (documento) numa coleção do DocumentDB.
-* **LogController** insere um registo (documento) numa coleção do DocumentDB.
+* **ErrorController** insere um registo de erro (documento) numa coleção de BD do Cosmos do Azure.
+* **LogController** insere um registo (documento) numa coleção de BD do Cosmos do Azure.
 
 > [!TIP]
-> Utilizam os dois controladores `async Task<dynamic>` operações, permitindo que as operações de resolver em runtime, para que possa criar o esquema do DocumentDB no corpo da operação. 
+> Utilizam os dois controladores `async Task<dynamic>` operações, permitindo que as operações de resolver em runtime, para que possa criar o esquema de base de dados do Azure Cosmos no corpo da operação. 
 > 
 
-Todos os documentos no DocumentDB tem de ter um ID exclusivo. Estamos a utilizar `PatientId` e adicionar um timestamp que é convertida para um valor de timestamp Unix (double). Iremos truncar o valor para remover o valor fracional.
+Todos os documentos do BD Azure Cosmos tem de ter um ID exclusivo. Estamos a utilizar `PatientId` e adicionar um timestamp que é convertida para um valor de timestamp Unix (double). Iremos truncar o valor para remover o valor fracional.
 
 Pode ver o código de origem do nosso controlador Erro API [a partir do GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
@@ -479,7 +479,7 @@ Verifica a expressão do anterior exemplo de código para o *Create_NewPatientRe
 ## <a name="summary"></a>Resumo
 
 * Pode facilmente implementar registo e erros numa aplicação lógica.
-* Pode utilizar o DocumentDB como o repositório para registos de erro e de registo (documentos).
+* Pode utilizar base de dados do Azure Cosmos como o repositório para registos de erro e de registo (documentos).
 * Pode utilizar MVC para criar um portal para apresentar os registos de registo e o erro.
 
 ### <a name="source-code"></a>Código de origem

@@ -4,7 +4,7 @@ description: "Crie aplicações web, utilizando a implementação de v 2.0 do Az
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: d63692f02b3dec50a1e7df034b8915bb450b4cfd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 568c2128a12abd4f3c366eae943e3ea8c1af2532
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v 2.0 e o protocolo OpenID Connect
 OpenID Connect é um protocolo de autenticação incorporado no OAuth 2.0, que pode utilizar a sessão em segurança um utilizador a uma aplicação web. Quando utilizar a implementação do ponto final v 2.0 do OpenID Connect, pode adicionar início de sessão e acesso à API às suas aplicações baseadas na web. Neste artigo, vamos mostrar-lhe como efetuar esta independente de idioma. Iremos descrevem como enviar e receber mensagens HTTP sem utilizar quaisquer bibliotecas de open source de Microsoft.

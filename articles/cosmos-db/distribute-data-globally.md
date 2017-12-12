@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: f09c96aabe637582ef43b863f8381a6ecfbebbf5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4427e65930aaeac6335e31dcfe3479baa6fdb6cd
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Como distribuir dados globalmente com o Azure Cosmos DB
 Azure ubíquo - tem um requisitos de espaço global em 30 + regiões geográficas e continuamente está a expandir. Com a presença em todo o mundo, uma das capacidades de diferenciadas que Azure oferece aos respetivos programadores é a capacidade de criar, implementar e gerir facilmente aplicações distribuídas global. 
@@ -88,7 +88,7 @@ Atualmente, as capacidades de ativação pós-falha automática e manual estão 
 ### <a id="MultiHomingAPIs"></a>APIs multi homing no Azure Cosmos DB
 BD do Cosmos do Azure permite-lhe interagir com a base de dados com uma lógica (agnóstico de região) ou físicos (região específicos) pontos finais. Utilizar pontos finais lógicos garante que a aplicação de forma transparente pode ser multihomed em caso de ativação pós-falha. Os pontos finais de última, físicos, indique um controlo detalhado para a aplicação para redirecionar lê e escreve para regiões específicas.
 
-Pode encontrar informações sobre como configurar as preferências de leitura para o [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md), [Graph API](../cosmos-db/tutorial-global-distribution-graph.md), [API de tabela](../cosmos-db/tutorial-global-distribution-table.md), e [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) os respetivos artigos ligado.
+Pode encontrar informações sobre como configurar as preferências de leitura para o [API do SQL Server](../cosmos-db/tutorial-global-distribution-documentdb.md), [Graph API](../cosmos-db/tutorial-global-distribution-graph.md), [API de tabela](../cosmos-db/tutorial-global-distribution-table.md), e [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) no respetivo respetivos artigos ligados.
 
 ### <a id="TransparentSchemaMigration"></a>Migração de esquema e o índice da base de dados transparente e consistente 
 BD do Azure do Cosmos é totalmente [agnóstico esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). A estrutura exclusiva do seu motor de base de dados permite que seja automaticamente e forma síncrona índice todos os dados que ingere sem necessidade de qualquer esquema ou índices secundários do utilizador. Isto permite-lhe iterar a aplicação distribuída globalmente rapidamente sem ter de se preocupar sobre a migração de esquema e o índice da base de dados ou coordenar a implementação de aplicação de fase multi de alterações ao esquema. BD do Azure do Cosmos garante que as alterações efetuadas nas políticas que tiver realizadas explicitamente a indexação não resultar numa degradação do desempenho ou disponibilidade.  

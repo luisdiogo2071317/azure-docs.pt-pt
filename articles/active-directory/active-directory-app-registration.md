@@ -4,7 +4,7 @@ description: "Este artigo descreve como utilizar o portal do Azure para registar
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registar a aplicação com o seu inquilino do Azure Active Directory
 
@@ -45,7 +45,7 @@ Pode facilmente modificar definições de uma aplicação existente no portal do
   * O **propriedades** página permite modificar as informações gerais para a aplicação. Isto inclui o nome da aplicação, o URL de início de sessão e o URL de fim de sessão.
   * O **URLs de resposta** página permite-lhe adicionar um URL de resposta, o que é onde do Azure AD envia o token respostas.
   * O **proprietários** página permite-lhe adicionar os proprietários da aplicação.
-  * O **permissões** página permite-lhe configurar as permissões para a aplicação. Por exemplo, para aceder a Microsoft Graph API, clique em **adicionar** e selecione **Microsoft Graph** no Seletor de API, em seguida, escolha a permissão necessária, por exemplo **ler dados de diretório**.
+  * O **as permissões necessárias** página permite-lhe configurar as permissões para a aplicação. Por exemplo, para aceder a Microsoft Graph API, clique em **adicionar** e selecione **Microsoft Graph** no Seletor de API, em seguida, escolha a permissão necessária, por exemplo **ler dados de diretório**.
   * O **chaves** página permite-lhe adicionar segredos de aplicação. O segredo só será apresentado depois imediatamente após a criação, por isso, confirme copia para continuar a utilizar.
 
 ## <a name="use-the-inline-manifest-editor"></a>Utilize o editor de manifesto inline

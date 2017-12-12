@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: ab38f6866519aabe1b4740cfaa26d7ff570d78de
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 246032701d97fc7d16e6cb38ee79fbd5470f65d9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planeamento da migração de recursos IaaS do clássico para o Azure Resource Manager
 Enquanto o Azure Resource Manager oferece muitas funcionalidades incrível, é essencial para planear a saída da sua viagem de migração para fazer coisas sure correm. A dedicar muito tempo sobre o planeamento irá garantir que não ocorrerem problemas ao executar atividades de migração. 
@@ -96,7 +96,7 @@ Os seguintes foram problemas detetados em muitos das migrações maior. Não se 
 - **Extensões de VM** -extensões de Máquina Virtual, potencialmente, são uma dos roadblocks maiores para migrar VMs em execução. Remediação de extensões de VM pode demorar upwards of 1-2 dias, por isso planeie em conformidade.  É necessário um trabalho do agente do Azure para informar o estado da extensão de VM de VMs em execução. Se o estado volta como incorreto para uma VM em execução, esta será parado a migração. O próprio agente tem de estar pela ordem de trabalho para permitir a migração, mas se existirem extensões na VM, em seguida, tanto um agente de trabalho e saído acesso à internet (com o DNS) serão necessários para a migração para avançar.
   - Se a conectividade a um servidor DNS se perder durante a migração, todas as extensões de VM, exceto BGInfo v1. \* tem de primeiro removidos cada VM antes de preparar a migração e subsequentemente novamente adicionado novamente à VM após a migração do Gestor de recursos do Azure.  **Esta é apenas para as VMs que estejam a executar.**  Se as VMs estão paradas desalocada, extensões de VM não precisa de ser removido. **Nota:** várias extensões, tal como será monitorização do Centro de segurança e diagnóstico do Azure reinstalar próprios após a migração, por isso, a remover não é um problema.
   - Além disso, certifique-se grupos de segurança de rede não são restringir o acesso de internet de saída. Isto pode acontecer com algumas configurações de grupos de segurança de rede. Acesso de internet de saída (e DNS) é necessário para as extensões de VM a serem migradas para o Azure Resource Manager. 
-  - Existem duas versões da extensão BGInfo: v1 e v2.  Se a VM foi criada utilizando o portal clássico ou o PowerShell, a VM, provavelmente, ter a extensão de v1 no mesmo. Esta extensão não necessita de ser removido e será ignorado (não migrados) pela migração API. No entanto, se as VMS clássicas foi criada com o novo portal do Azure, provavelmente terá baseadas em JSON v2 versão de BGInfo, que pode ser migrada para o Azure Resource Manager fornecido o agente está a funcionar e se tem acesso de internet de saída (e DNS). 
+  - Existem duas versões da extensão BGInfo: v1 e v2.  Se a VM foi criada utilizando o portal do Azure ou o PowerShell, a VM, provavelmente, ter a extensão de v1 no mesmo. Esta extensão não necessita de ser removido e será ignorado (não migrados) pela migração API. No entanto, se as VMS clássicas foi criada com o novo portal do Azure, provavelmente terá baseadas em JSON v2 versão de BGInfo, que pode ser migrada para o Azure Resource Manager fornecido o agente está a funcionar e se tem acesso de internet de saída (e DNS). 
   - **Opção de remediação 1**. Se souber que as suas VMs não terão saída acesso à internet, um serviço DNS de funcionar e, em seguida, os agentes do Azure a trabalhar nas VMs, desinstale todas as extensões VM como parte da migração antes de preparar, em seguida, reinstale as extensões de VM após a migração. 
   - **Opção de remediação 2**. Se forem demasiado grandes de um hurdle extensões VM, outra opção consiste em Desalocação de encerramento/todas as VMs antes da migração. Migrar VMs desalocadas e reiniciá-las no lado do Azure Resource Manager. A vantagem aqui é que as extensões de VM irão migrar. O downside é que todos os público com acesso à IPs virtuais serão perdidas (pode ser um não-starter), e, obviamente VMs serão encerrado a causar um muito maior impacto nas aplicações de trabalho.
 
@@ -114,7 +114,7 @@ Os seguintes foram problemas detetados em muitos das migrações maior. Não se 
     >
 
     - Interfaces de Rede
-    - Balanceadores de carga
+    - Balanceadores de Carga
     - IPs Públicos
     - IPs públicos estáticos
     - Núcleos

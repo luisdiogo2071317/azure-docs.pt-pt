@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: f4f0aa2cfc722a1cc61788a1c6ba7caedf6b4c9b
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 0065874c2f992ad9c18f68303878fb580ee8b391
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Criar um cluster do Service Fabric com o Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -115,7 +115,7 @@ az account set --subscription $subscriptionId
 
 Utilize o seguinte comando para criar um cluster rapidamente, especificando os parâmetros mínimos
 
-O modelo que é utilizado está disponível na [amostras de modelo de recursos de infraestrutura de serviço do azure: modelo de windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e [Ubuntu modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-ubuntu-1-NodeTypes-Secure)
+O modelo que é utilizado está disponível na [amostras de modelo de recursos de infraestrutura de serviço do azure: modelo de windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e [Ubuntu modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 Os comandos abaixo funciona para criação de clusters do Windows e Linux, apenas tem de especificar o SO em conformidade. O powershell / comandos da CLI produz também o certificado do certificado no theCertificateOutputFolder especificado no. O comando aceita outros parâmetros, bem como o SKU de VM.
 
@@ -224,7 +224,7 @@ Se se tratar de um certificado assinado pela AC que irá surgir a utilizar para 
 
 
 #### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>Utilize o modelo de nodetype do predefinida de 5 1 nó que é fornecido no módulo
-O modelo que é utilizado está disponível na [exemplos do azure: modelo de windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e [Ubuntu modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-ubuntu-1-NodeTypes-Secure)
+O modelo que é utilizado está disponível na [exemplos do azure: modelo de windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) e [Ubuntu modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 ```Powershell
 $resourceGroupLocation="westus"
@@ -693,7 +693,7 @@ Neste momento, tiver um cluster seguro com fornecer autenticação de gestão do
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://manage.windowsazure.com
+[azure-classic-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md

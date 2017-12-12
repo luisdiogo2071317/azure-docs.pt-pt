@@ -4,7 +4,7 @@ description: "Explica como efetuar uma alteração à configuração na sincroni
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dc6be73abafb99772ed428bd4f22c1797c9b1bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: como efetuar uma alteração para a configuração predefinida
 O objetivo deste tópico é guiá-lo como efetuar alterações à configuração de predefinição na sincronização do Azure AD Connect. Fornece os passos para alguns cenários comuns. Com este conhecimento, deverá conseguir efetuar algumas alterações simples à sua própria configuração com base nas suas regras de negócio.
@@ -283,7 +283,7 @@ A regra de sincronização de entrada permite que o valor de atributo para o flu
 
 5. Vá para o **Scoping filtro** separador e adicione um **único grupo de filtro de âmbito com a cláusula seguinte**:
  
-    | Atributo | operador | Valor |
+    | Atributo | Operador | Valor |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Utilizador\_ | 
  
@@ -322,7 +322,7 @@ A regra de sincronização de saída permite que o valor de atributo para o flux
 
 5. Vá para o **Scoping filtro** separador e adicione um **único grupo de filtro de âmbito com dois cláusulas**:
  
-    | Atributo | operador | Valor |
+    | Atributo | Operador | Valor |
     | --- | --- | --- |
     | sourceObjectType | IGUAL A | Utilizador |
     | cloudMastered | NOTEQUAL | Verdadeiro |

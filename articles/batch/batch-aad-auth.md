@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: a5dd04e992bd181e512d176fd913a7395fd6b702
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 0581fd4467272469501abf5324b87f84f5f32b9b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço Batch com o Active Directory
 
@@ -314,9 +314,11 @@ public static async Task PerformBatchOperations()
 
 Para saber mais acerca do Azure AD, consulte o [documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Exemplos aprofundados que mostra como utilizar a ADAL estão disponíveis no [exemplos de código do Azure](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteca.
 
-Para obter mais informações sobre principais de serviço, consulte [aplicação e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Para criar um principal de serviço com o portal do Azure, consulte [portal de utilização para criar do Active Directory principal de serviço e aplicação que pode aceder aos recursos](../resource-group-create-service-principal-portal.md). Também pode criar um principal de serviço com o PowerShell ou a CLI do Azure. 
+Para obter mais informações sobre principais de serviço, consulte [aplicação e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Para criar um principal de serviço com o portal do Azure, consulte [portal de utilização para criar do Active Directory principal de serviço e aplicação que pode aceder aos recursos](../resource-group-create-service-principal-portal.md). Também pode criar um principal de serviço com o PowerShell ou a CLI do Azure.
 
-Para autenticar as aplicações de gestão do Batch utilizar o Azure AD, consulte [soluções de gestão de Batch de autenticar com o Active Directory](batch-aad-auth-management.md). 
+Para autenticar as aplicações de gestão do Batch utilizar o Azure AD, consulte [soluções de gestão de Batch de autenticar com o Active Directory](batch-aad-auth-management.md).
+
+Para obter um exemplo de Python de como criar um cliente de Batch autenticado utilizando um token do Azure AD, consulte o [autenticação do Active Directory do Azure](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication) exemplo no Azure SDK para obter documentação de Python.
 
 [aad_about]: ../active-directory/active-directory-whatis.md "O que é o Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

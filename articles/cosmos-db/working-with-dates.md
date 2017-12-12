@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: b6a77e33eea24000037ffb31d7aae3cb1d345ce9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f26aea674eb2317c976af0cb8e81f619a8d64ae
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhar com as datas no Azure Cosmos DB
 BD do Cosmos do Azure oferece flexibilidade de esquema e indexação avançada através de um nativo [JSON](http://www.json.org) modelo de dados. Todos os recursos de BD do Cosmos do Azure, incluindo bases de dados, coleções, documentos e procedimentos armazenados são modelados e armazenados como documentos JSON. Como um requisito para a ser portátil, JSON (e a base de dados do Azure Cosmos) suportam apenas um pequeno conjunto de tipos básicos: cadeia, número, booleano, matriz, objeto e um valor nulo. No entanto, o JSON é flexível e permitir que os programadores e estruturas representar tipos mais complexos utilizando estes primitivos e de composição-los como objetos ou matrizes. 
@@ -75,7 +75,7 @@ Consultas de intervalo são comuns com os valores DateTime. Por exemplo, se prec
 Pode saber mais sobre como configurar as políticas de indexação a [políticas de indexação do Azure Cosmos DB](indexing-policies.md).
 
 ## <a name="querying-datetimes-in-linq"></a>Consultar a DateTime no LINQ
-O SDK do .NET DocumentDB suporta automaticamente ao consultar os dados armazenados na base de dados do Azure Cosmos através de LINQ. Por exemplo, o fragmento seguinte mostra uma consulta LINQ que as ordens de filtros que foram enviadas nos últimos três dias.
+O SDK .NET do SQL Server suporta automaticamente ao consultar os dados armazenados na base de dados do Azure Cosmos através de LINQ. Por exemplo, o fragmento seguinte mostra uma consulta LINQ que as ordens de filtros que foram enviadas nos últimos três dias.
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
@@ -89,5 +89,5 @@ Neste artigo, vamos analisar como armazenar, índice e consultar DATETIME do BD 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Transfira e execute o [exemplos de código no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Saiba mais sobre [consulta de API do DocumentDB](documentdb-sql-query.md)
+* Saiba mais sobre [as consultas SQL](documentdb-sql-query.md)
 * Saiba mais sobre [políticas de indexação do Azure Cosmos DB](indexing-policies.md)

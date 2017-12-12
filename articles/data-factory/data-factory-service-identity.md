@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 4b970341f9511a889bfcc288756b1be6a4f4647e
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 350ce0fd9a10d862e811dd1eaa39e0e90076e1ef
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-data-factory-service-identity"></a>Identidade de serviço do Azure Data Factory
 
@@ -172,3 +172,5 @@ Consulte os tópicos seguintes que introduzem quando e como utilizar a identidad
 
 - [Armazenar credenciais no Cofre de chaves do Azure](store-credentials-in-key-vault.md)
 - [Copiar dados de/para o Azure Data Lake Store utilizando a autenticação de identidade de serviço geridas](connector-azure-data-lake-store.md)
+
+Consulte [descrição geral do MSI](~/articles/active-directory/msi-overview.md) para em segundo plano mais na identidade de serviço geridas, que identidade de serviço de fábrica de dados é baseada no. 

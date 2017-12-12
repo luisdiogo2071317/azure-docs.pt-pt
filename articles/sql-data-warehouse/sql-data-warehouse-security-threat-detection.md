@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f4a2376fe4fb710d031c35ca7fdbf4c7bb0f3caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f5dab6936e8cac10ac7a4a7dc4c3be116de5ad5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-threat-detection"></a>Começar a utilizar a deteção de ameaças
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Por exemplo, a deteção de ameaças Deteta determinadas atividades de base de d
    O e-mail irá fornecer informações sobre o evento de segurança suspeita, incluindo a natureza as atividades anómalas, nome de base de dados, nome do servidor e a hora do evento. Além disso, será fornecem informações sobre as causas possíveis e as ações para investigar e mitigar a potencial ameaça à base de dados recomendadas.<br/>
    
     ![Painel de navegação][4]
-2. No e-mail, clique em de **registo de auditoria de SQL do Azure** ligação, que irá iniciar o Portal clássico do Azure e mostrar os registos de auditoria relevantes perto da hora do evento suspeita.
+2. No e-mail, clique em de **registo de auditoria de SQL do Azure** ligar, que irá iniciar o portal do Azure e mostrar os registos de auditoria relevantes perto da hora do evento suspeita.
    
     ![Painel de navegação][5]
 3. Clique nos registos de auditoria para ver mais detalhes sobre as atividades suspeitas da base de dados, tais como instrução de SQL, IP de cliente e o motivo da falha.

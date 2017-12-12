@@ -1,5 +1,5 @@
 ---
-title: "Métricas de consulta SQL para a API do Azure Cosmos DB DocumentDB | Microsoft Docs"
+title: "Métricas de consulta SQL para a API do SQL Server de base de dados do Azure Cosmos | Microsoft Docs"
 description: "Saiba mais sobre como instrumentar e o desempenho de consulta SQL da base de dados do Azure Cosmos pedidos de depuração."
 keywords: "sintaxe de SQL, consulta sql, as consultas sql, idioma de consulta json, conceitos de base de dados e as consultas de sql, as funções de agregação"
 services: cosmos-db
@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2cb6319356a536aebc1db3122cf80b8736d1fd4f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Otimização de desempenho de consulta com base de dados do Azure Cosmos
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 BD do Cosmos do Azure fornece um [API do SQL Server para consultar os dados](documentdb-sql-query.md), sem necessidade de esquema ou índices secundários. Este artigo fornece as seguintes informações para programadores:
 
 * Detalhes de alto nível sobre como funciona a execução de consulta SQL da BD do Cosmos do Azure
@@ -31,7 +34,7 @@ BD do Cosmos do Azure fornece um [API do SQL Server para consultar os dados](doc
 
 ## <a name="about-sql-query-execution"></a>Sobre a execução da consulta SQL
 
-Na base de dados do Azure Cosmos armazenar dados em contentores, que podem crescer para qualquer [débito de tamanho ou pedido de armazenamento](partition-data.md). BD do Azure do Cosmos dimensiona de forma totalmente integrada dados em partições físicas nos bastidores para processar o crescimento de dados ou aumentar o débito aprovisionado. Pode emitir consultas de SQL Server para qualquer contentor utilizando a API REST ou uma das suportado [SDKs do DocumentDB](documentdb-sdk-dotnet.md).
+Na base de dados do Azure Cosmos armazenar dados em contentores, que podem crescer para qualquer [débito de tamanho ou pedido de armazenamento](partition-data.md). BD do Azure do Cosmos dimensiona de forma totalmente integrada dados em partições físicas nos bastidores para processar o crescimento de dados ou aumentar o débito aprovisionado. Pode emitir consultas de SQL Server para qualquer contentor utilizando a API REST ou uma das suportado [SQL SDKs](documentdb-sdk-dotnet.md).
 
 Uma breve descrição geral da criação de partições: definir uma chave de partição como "Cidade", que determina a forma como dados são divididos em partições físicas. Dados que pertencem a uma chave de partição única (por exemplo, "Cidade" = = "Seattle") são armazenadas dentro de uma partição física, mas normalmente uma única partição física tem várias chaves de partição. Quando uma partição atinge o tamanho de armazenamento, o serviço de forma totalmente integrada divide a partição em duas novas partições e divide a chave de partição uniformemente entre estas partições. Uma vez que as partições são transitórias, as APIs de utilizam uma abstração de um "chave intervalo de partição", que indica que os intervalos de hashes de chave de partição. 
 
@@ -50,7 +53,7 @@ Os SDKs fornecem várias opções para a execução da consulta. Por exemplo, no
 | `EnableScanInQuery` | Tem de ser definida como verdadeira se optou por fora de indexação, mas pretende executar a consulta através de uma verificação mesmo assim. Apenas aplicável se a indexação para o caminho de filtro pedida está desativada. | 
 | `MaxItemCount` | O número máximo de itens a devolver por ida e volta ao servidor. Por definição de -1, pode permitir que o servidor de gerir o número de itens. Em alternativa, pode reduzir este valor para obter apenas um pequeno número de itens por ida e volta. 
 | `MaxBufferedItemCount` | Esta é uma opção do lado do cliente e utilizado para limitar o consumo de memória quando efetuar a partição cruzada ORDER BY. Um valor mais alto ajuda a reduzir a latência de ordenação de partição cruzada. |
-| `MaxDegreeOfParallelism` | Obtém ou define o número de operações simultâneas executar lado do cliente durante a execução paralela da consulta no serviço de base de dados do Azure DocumentDB. Um valor de propriedade positivo limita o número de operações simultâneas para o valor de conjunto. Se estiver definido como inferior a 0, o sistema decide automaticamente o número de operações simultâneas para ser executada. |
+| `MaxDegreeOfParallelism` | Obtém ou define o número de operações simultâneas executar lado do cliente durante a execução paralela da consulta no serviço de base de dados de base de dados do Azure Cosmos. Um valor de propriedade positivo limita o número de operações simultâneas para o valor de conjunto. Se estiver definido como inferior a 0, o sistema decide automaticamente o número de operações simultâneas para ser executada. |
 | `PopulateQueryMetrics` | Tempo de carregamento permite registo detalhado de estatísticas de tempo gasto em várias fases de execução da consulta como tempo de compilação, o tempo de ciclo de índice e o documento. Pode partilhar um resultado de estatísticas de consulta com o suporte do Azure para diagnosticar problemas de desempenho de consulta. |
 | `RequestContinuation` | Pode retomar a execução da consulta mediante a transmissão no token de continuação opaco devolvido por qualquer consulta. O token de continuação encapsula todos os Estados necessários para a execução da consulta. |
 | `ResponseContinuationTokenLimitInKb` | Pode limitar o tamanho máximo do token de continuação devolvido pelo servidor. Poderá ter de definir esta opção se o anfitrião de aplicações tem limites de tamanho de cabeçalho de resposta. Definir este pode aumentar a duração e o RUs consumidos para a consulta global.  |
@@ -137,7 +140,7 @@ Os cabeçalhos de resposta da chave devolvidos da consulta incluem o seguinte:
 | `x-ms-documentdb-query-metrics` | As estatísticas de consulta para a execução. Esta é uma cadeia delimitada que contém as estatísticas de tempo gasto nas fases de execução da consulta. Devolvido se `x-ms-documentdb-populatequerymetrics` está definido como `True`. | 
 | `x-ms-request-charge` | O número de [unidades de pedido](request-units.md) consumidas pela consulta. | 
 
-Para obter detalhes sobre as opções e cabeçalhos de pedido de REST API, consulte [consultar recursos utilizando a API de REST do DocumentDB](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
+Para obter detalhes sobre as opções e cabeçalhos de pedido de REST API, consulte [consultar recursos utilizando a API REST](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Melhores práticas para o desempenho das consultas
 Seguem-se os fatores mais comuns que afetam o desempenho de consulta de base de dados do Azure Cosmos. Iremos aprofundar cada um dos seguintes tópicos neste artigo.
@@ -174,7 +177,7 @@ Para saber mais sobre a criação de partições e chaves de partição, consult
 Consulte [sugestões de desempenho](performance-tips.md) e [teste de desempenho](performance-testing.md) para saber como obter o melhor desempenho do lado do cliente da base de dados do Azure Cosmos. Isto inclui utilizar os SDKs mais recentes, configurações de plataforma específica, como o número predefinido de ligações, frequência de recolha de lixo, a configurar e utilizar opções de conectividade simples como direta/TCP. 
 
 
-#### <a name="max-item-count"></a>Número de itens de máx.
+#### <a name="max-item-count"></a>Contagem Máxima de Itens
 Para consultas, o valor de `MaxItemCount` pode ter um impacto significativo na hora de consulta de ponto a ponto. Cada ida e volta para o servidor irá devolver não mais do que o número de itens na `MaxItemCount` (predefinição de 100 itens). Definir este como um valor mais alto (a -1 é máximo e recomendada) irá melhorar a sua duração de consulta global ao limitar o número de ida e volta entre o servidor e cliente, especialmente para consultas com conjuntos de resultados grande.
 
 ```cs
@@ -212,7 +215,7 @@ Seguem-se implicações da forma como as consultas paralelas comportar-se para v
 * (P > 1) = > tarefas paralelas mín. (P, N) 
 * (P < 1) = > tarefas paralelas mín. (N, D)
 
-Notas de versão do SDK e detalhes sobre classes implementadas e métodos, consulte [SDKs do DocumentDB](documentdb-sdk-dotnet.md)
+Notas de versão do SDK e detalhes sobre classes implementadas e métodos, consulte [SDKs do SQL Server](documentdb-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>Latência de rede
 Consulte [distribuição global da base de dados do Azure Cosmos](tutorial-global-distribution-documentdb.md) como configurar a distribuição global e estabelecer ligação com a região mais próxima. Latência de rede tem um impacto significativo no desempenho das consultas quando precisar de efetuar várias ida e volta ou obter um grande conjunto de resultados da consulta. 
@@ -253,9 +256,9 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | milissegundos | Tempo despendido no carregamento de documentos  | 
 | `systemFunctionExecuteTimeInMs` | milissegundos | Total de tempo gasto em execução (incorporada) das funções de sistemas em milissegundos  | 
 | `userFunctionExecuteTimeInMs` | milissegundos | Total de tempo gasto a executar as funções definidas pelo utilizador em milissegundos | 
-| `retrievedDocumentCount` | Contagem | Número total de documentos obtidos  | 
-| `retrievedDocumentSize` | Bytes | Tamanho total dos documentos obtidos em bytes  | 
-| `outputDocumentCount` | Contagem | Número de documentos de saída | 
+| `retrievedDocumentCount` | contagem | Número total de documentos obtidos  | 
+| `retrievedDocumentSize` | bytes | Tamanho total dos documentos obtidos em bytes  | 
+| `outputDocumentCount` | contagem | Número de documentos de saída | 
 | `writeOutputTimeInMs` | milissegundos | Tempo de execução de consulta em milissegundos | 
 | `indexUtilizationRatio` | rácio (< = 1) | Carregar o rácio do número de documentos correspondidos pelo filtro para o número de documentos  | 
 

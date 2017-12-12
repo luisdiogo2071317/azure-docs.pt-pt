@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -150,7 +150,7 @@ Os endereços IP privados são alocados a partir do intervalo de endereços da s
 Os endereços IP privados podem ser alocados de duas formas:
 
 - **Dinâmica**: o Azure atribui o endereço IP não atribuído ou não reservado seguinte disponível no intervalo de endereços da sub-rede. Por exemplo, o Azure atribui o endereço 10.0.0.10 a um novo recurso caso os endereços 10.0.0.4 a 10.0.0.9 já estejam atribuídos a outros recursos. Dinâmico é o método de alocação predefinido. Após a atribuição, os endereços IP dinâmicos só são lançados se uma interface de rede for eliminada, atribuída a uma sub-rede diferente dentro da mesma rede virtual, ou se o método de alocação for alterado para estático e for especificado um endereço IP diferente. Por predefinição, o Azure atribui o endereço atribuído de forma dinâmica anterior como endereço estático quando o utilizador altera o método de alocação de dinâmico para estático.
-- **Estática**: o utilizador seleciona e atribui um endereço IP não atribuído ou não reservado qualquer do intervalo de endereços da sub-rede. Por exemplo, se o intervalo de endereços de uma sub-rede for 10.0.0.0/16 e os endereços 10.0.0.4 a 10.0.0.9 já estiverem atribuídos a outros recursos, o utilizador pode atribuir qualquer endereço entre 10.0.0.10 e 10.0.255.254. Os endereços estáticos só são lançados se uma interface de rede for eliminada. Se o utilizador alterar o método de alocação para estático, o Azure atribui de forma dinâmica o endereço IP estático atribuído anteriormente como endereço dinâmico, mesmo que o endereço não seja o endereço seguinte disponível do intervalo de endereços da sub-rede. O endereço também muda se a interface de rede for atribuída a uma sub-rede diferente dentro da mesma rede virtual, mas, para atribuir a interface de rede a uma sub-rede diferente, tem, primeiro, de alterar o método de alocação de estático para dinâmico. Assim que tiver atribuído a interface de rede a uma sub-rede diferente, pode alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
+- **Estática**: o utilizador seleciona e atribui um endereço IP não atribuído ou não reservado qualquer do intervalo de endereços da sub-rede. Por exemplo, se o intervalo de endereços de uma sub-rede for 10.0.0.0/16 e os endereços 10.0.0.4 a 10.0.0.9 já estiverem atribuídos a outros recursos, o utilizador pode atribuir qualquer endereço entre 10.0.0.10 e 10.0.255.254. Os endereços estáticos só são lançados se uma interface de rede for eliminada. Se o utilizador alterar o método de alocação para dinâmico, o Azure atribui de forma dinâmica o endereço IP estático atribuído anteriormente como endereço dinâmico, mesmo que o endereço não seja o endereço seguinte disponível do intervalo de endereços da sub-rede. O endereço também muda se a interface de rede for atribuída a uma sub-rede diferente dentro da mesma rede virtual, mas, para atribuir a interface de rede a uma sub-rede diferente, tem, primeiro, de alterar o método de alocação de estático para dinâmico. Assim que tiver atribuído a interface de rede a uma sub-rede diferente, pode alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 

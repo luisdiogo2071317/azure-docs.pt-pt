@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39dea03ef9f42a3ff06dadd94c8d70541cbdc06c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 39286104474ae0f91195ab578a58dacdb2f27d18
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Detetar, identificar e classificar os dados pessoais no Microsoft Azure
 
@@ -185,7 +185,7 @@ Lugar as noções básicas, visite o [BD do Azure CosmosD: como consultar o SQL 
 
 Para obter mais orientações aprofundadas sobre a criação de consultas SQL, visite [as consultas SQL para a API de base de dados de documento do Azure Cosmos DB.](../cosmos-db/documentdb-sql-query.md)
 
-Se estiver familiarizado com a base de dados do Azure Cosmos e gostaria de saber como criar uma base de dados, adicionar uma coleção e adicionar dados, visite o [BD do Azure Cosmos: criar uma aplicação de web API do DocumentDB](../cosmos-db/create-documentdb-dotnet.md) tutorial de início rápido. Se gostaria de fazê-lo num idioma diferente do .NET, tais como o Java ou Python, escolha o idioma preferencial da depois de obter ao site.
+Se estiver familiarizado com a base de dados do Azure Cosmos e gostaria de saber como criar uma base de dados, adicionar uma coleção e adicionar dados, visite o [BD do Azure Cosmos: criar uma aplicação de web API do SQL Server](../cosmos-db/create-documentdb-dotnet.md) tutorial de início rápido. Se gostaria de fazê-lo num idioma diferente do .NET, tais como o Java ou Python, escolha o idioma preferencial da depois de obter ao site.
 
 ## <a name="next-steps"></a>Passos seguintes
 

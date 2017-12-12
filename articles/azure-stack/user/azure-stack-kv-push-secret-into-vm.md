@@ -3,8 +3,8 @@ title: "Implementar uma máquina virtual com um certificado armazenado em segura
 description: "Saiba como implementar uma máquina virtual e emitir um certificado no mesmo, utilizando um cofre de chaves na pilha do Azure"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/03/2017
-ms.author: sngun
-ms.openlocfilehash: 29ccdc9eca9911b2f550f9e09da83d0b1d30f9db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: e319f5c6d27d3a223764b0a5593480f02864ddbe
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Criar uma máquina virtual e incluir o certificado obtido a partir de um cofre de chaves
 
@@ -26,7 +26,7 @@ Este artigo ajuda-o a criar uma máquina virtual na pilha do Azure e certificado
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Tem tem de subscrever uma oferta, que inclui o serviço Cofre de chaves. 
+* Tem de subscrever uma oferta, que inclui o serviço Cofre de chaves. 
 * [Instale o PowerShell para a pilha do Azure.](azure-stack-powershell-install.md)  
 * [Configurar o Azure pilha ambiente do utilizador do PowerShell](azure-stack-powershell-configure-user.md)
 

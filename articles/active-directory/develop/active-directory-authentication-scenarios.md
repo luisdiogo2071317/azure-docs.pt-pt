@@ -4,7 +4,7 @@ description: "Uma descrição geral das cinco cenários mais comuns de autentica
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32077c1e9415dd8be7064a2377ee806ae21d1390
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Cenários de autenticação do Azure AD
 Azure Active Directory (Azure AD) simplifica a autenticação para os programadores, fornecendo identidade como uma origem de serviço, com suporte para protocolos de norma da indústria, como o OAuth 2.0 e o OpenID Connect, bem como abrir bibliotecas para plataformas diferentes para o ajudar a Inicie a codificação rapidamente. Este documento ajuda-o a compreender o várias suporta cenários do Azure AD e irá mostrar como começar a utilizar. É dividido em secções seguintes:
@@ -78,16 +78,16 @@ Os tokens de segurança emitidos pelo Azure AD contêm afirmações ou asserçõ
 | Grupos |Contém os grupos de Ids do Azure AD de objeto que o utilizador é membro. |
 | Fornecedor de Identidade |Regista o fornecedor de identidade autenticado o assunto do token. |
 | Emitido no |Regista o tempo no qual o token foi emitido, utilizado frequentemente para actualização token. |
-| emissor |Identifica o STS que emitidos o token, bem como o inquilino do Azure AD. |
+| Emissor |Identifica o STS que emitidos o token, bem como o inquilino do Azure AD. |
 | Apelido |Fornece o apelido do utilizador conforme definido no Azure AD. |
 | Nome |Fornece um valor de legível humano que identifica o assunto do token. |
-| Id de objeto |Contém um identificador exclusivo, imutável do assunto no Azure AD. |
+| ID de objeto |Contém um identificador exclusivo, imutável do assunto no Azure AD. |
 | Funções |Contém nomes amigáveis de funções da aplicação AD do Azure que tenha sido concedido ao utilizador. |
 | Âmbito |Indica as permissões concedidas à aplicação de cliente. |
 | Assunto |Indica o principal sobre os quais o token de asserções informações. |
 | Id do inquilino |Contém um identificador exclusivo, imutável do inquilino de diretório que emitiu o token. |
 | Duração do token |Define o intervalo de tempo no qual um token é válido. |
-| Nome Principal de utilizador |Contém o nome principal de utilizador do assunto. |
+| Nome do Principal de Utilizador |Contém o nome principal de utilizador do assunto. |
 | Versão |Contém o número de versão do token. |
 
 ## <a name="basics-of-registering-an-application-in-azure-ad"></a>Noções básicas de registar uma aplicação no Azure AD

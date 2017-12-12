@@ -4,7 +4,7 @@ description: "Este artigo descreve a configuração predefinida na sincronizaç�
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 32a693c059a1b4261f33a3d6f50f397365e9dac4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ba1739825a6f0898e417ca37fa6bf370ef17d6c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: entender a configuração predefinida
 Este artigo explica as regras de configuração de out-of-box. -Documentos as regras e como estas regras afetam a configuração. É também explica a configuração predefinida de sincronização do Azure AD Connect. O objetivo é que o leitor compreende a forma como o modelo de configuração com o nome de aprovisionamento declarativo, está a funcionar num exemplo do mundo real. Este artigo pressupõe que já tenha instalado e configurar a sincronização do Azure AD Connect utilizando o Assistente de instalação.
@@ -134,7 +134,7 @@ O SRE é uma ferramenta do kit de recursos e é instalado com a sincronização 
 
 Neste painel, pode ver todas as regras de sincronização criado para a sua configuração. Cada linha na tabela é uma regra de sincronização. Para a esquerda em tipos de regras, são apresentados dois tipos diferentes: entrada e saída. Entrada e saída é da vista do metaverso. Principalmente vai concentrar-se nas regras de entrada nesta descrição geral. A lista de regras de sincronização real depende o esquema detetado no AD. Na imagem acima, a floresta de contas (fabrikamonline.com) não tem quaisquer serviços, como o Exchange e o Lync, e não existem regras de sincronização foram criadas para estes serviços. No entanto, na floresta de recursos (res.fabrikamonline.com) localize as regras de sincronização para estes serviços. O conteúdo das regras é diferente consoante a versão detetada. Por exemplo, uma implementação com o Exchange 2013 existem mais fluxos de atributos configurados que no Exchange 2010/2007.
 
-### <a name="synchronization-rule"></a>Regra de sincronização
+### <a name="synchronization-rule"></a>Regra de Sincronização
 Uma regra de sincronização é um objeto de configuração com um conjunto de atributos que circulam quando uma condição é satisfeita. Também é utilizado para descrever como um objeto num espaço de conector está relacionado com um objeto no metaverso, conhecido como **associação** ou **corresponder**. As regras de sincronização ter um valor de prioridade que indica como se relacionam entre si. Uma regra de sincronização com um valor numérico inferior tem uma precedência superior e num conflito de fluxo de atributos, precedência superior wins a resolução de conflito.
 
 Por exemplo, observe a regra de sincronização **do AD – utilizador AccountEnabled**. Marcar esta linha no SRE e selecione **editar**.
@@ -217,7 +217,7 @@ A precedência para as regras de sincronização está definida em grupos pelo A
 ### <a name="putting-it-all-together"></a>Passar todos os em conjunto
 Sabemos agora suficiente sobre regras de sincronização para ser capaz de compreender como a configuração funciona com as regras de sincronização diferentes. Se observar os atributos que são contribuídos para o metaverso e um utilizador, as regras são aplicadas pela seguinte ordem:
 
-| Nome | Comentário |
+| Nome | Comentar |
 |:--- |:--- |
 | Do AD – associação do utilizador |Regra para efetuar a adesão de objetos de espaço de conector com o metaverso. |
 | Do AD – UserAccount ativada |Os atributos necessários para início de sessão para o Azure AD e o Office 365. Queremos estes atributos da conta ativada. |

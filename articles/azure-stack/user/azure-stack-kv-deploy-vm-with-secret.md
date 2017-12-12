@@ -3,8 +3,8 @@ title: "Implementar uma VM com palavra-passe armazenada em segurança na pilha d
 description: Saiba como implementar uma VM com uma palavra-passe armazenada no Cofre de chaves de pilha do Azure
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2017
-ms.author: sngun
-ms.openlocfilehash: 3292a2dfefc17e5034c66122a3eab24d6c03e694
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 8d9a2cebd7a28ca13cf88518a7c83b217af4c0e1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Criar uma máquina virtual ao obter a palavra-passe armazenada no Cofre de chaves
 
@@ -28,7 +28,7 @@ Neste artigo, iremos orientá-lo pelos passos necessários para implementar uma 
 
 ## <a name="prerequisites"></a>Pré-requisitos
  
-* Tem tem de subscrever uma oferta, que inclui o serviço Cofre de chaves.  
+* Tem de subscrever uma oferta, que inclui o serviço Cofre de chaves.  
 * [Instale o PowerShell para a pilha do Azure.](azure-stack-powershell-install.md)  
 * [Configure o Azure pilha ambiente do utilizador do PowerShell.](azure-stack-powershell-configure-user.md)
 

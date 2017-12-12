@@ -4,7 +4,7 @@ description: Uma lista dos termos de licenciamento para frequentemente utilizada
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 6a657177087ca01f4507b12048a88850aea1a03f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossário de programador do Azure Active Directory
 Este artigo contém definições para alguns dos principais do Azure Active Directory (AD) para programadores conceitos, que são úteis para saber mais sobre o desenvolvimento de aplicações do Azure AD.
@@ -54,7 +54,7 @@ Para permitir que uma aplicação integrar e delegar funções de gestão de ace
 
 Consulte [integrar aplicações com o Azure Active Directory] [ AAD-Integrating-Apps] para obter mais detalhes.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>autenticação
 O ato de um desafio um terceiros legítimos credenciais, que fornece a base para a criação de um principal de segurança a ser utilizada para identidade e controlo de acesso. Durante uma [conceder de autorização de OAuth2](#authorization-grant) por exemplo, o autenticação de terceiros estão a preencher a função do [proprietário do recurso](#resource-owner) ou [aplicação cliente](#client-application), consoante a concessão utilizada.
 
 ## <a name="authorization"></a>Autorização
@@ -147,7 +147,7 @@ Quando lhe registe/atualizar uma aplicação no [portal do Azure][AZURE-portal],
 
 Consulte [aplicação e objetos de principais de serviço] [ AAD-App-SP-Objects] para obter mais informações.
 
-## <a name="sign-in"></a>Início de sessão
+## <a name="sign-in"></a>iniciar sessão
 O processo de um [aplicação cliente](#client-application) iniciar autenticação de utilizador final e capturar relacionados com o estado, para fins de adquirir uma [token de segurança](#security-token) e controlo de âmbito de sessão de aplicação para esse Estado. Pode incluir artefactos, tais como informações de perfil de utilizador e informações derivam do token afirmações de estado.
 
 A função de início de sessão de uma aplicação é normalmente utilizada para implementar o single-sign-on (SSO). -Pode também ser precedido por uma função de "inscrição", como o ponto de entrada para um utilizador final obter acesso a uma aplicação (após a primeira início de sessão). A função de inscrição é utilizada para recolher e manter o estado adicionais específico para o utilizador e pode necessitar de [consentimento do utilizador](#consent).

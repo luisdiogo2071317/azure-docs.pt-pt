@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 006f32ea9dea18f8b8e454a256272ec87bfee7f3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 209e657678b7f300f13fc16181a14d8ef422466d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como utilizar a APIs de comunicação Reliable Services
 Azure Service Fabric, como uma plataforma é completamente agnóstico relativamente sobre a comunicação entre os serviços. Todas as pilhas e protocolos são aceitáveis, do UDP para HTTP. Está a funcionar para o Programador de serviço para escolher a forma como os serviços devem comunicar. A estrutura da aplicação Reliable Services fornece pilhas de comunicação incorporada, bem como as APIs que pode utilizar para criar os componentes de comunicação personalizado.
@@ -121,7 +121,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 >
 >
 
-Por fim, descrevem os pontos finais que são necessários para o serviço no [manifesto serviço](service-fabric-application-model.md) na secção em pontos finais.
+Por fim, descrevem os pontos finais que são necessários para o serviço no [manifesto serviço](service-fabric-application-and-service-manifests.md) na secção em pontos finais.
 
 ```xml
 <Resources>

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: e417458a16a5f23d8b89cbf87ab2713fab352046
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação de eventos e coleção utilizando o Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Tal como explicado [neste artigo](service-fabric-diagnostics-event-generation-in
   * [Eventos do modelo de programação de Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
   * [Serviços fiáveis de eventos do modelo de programação](service-fabric-reliable-services-diagnostics.md)
 
-### <a name="application-events"></a>Eventos de aplicações
+### <a name="application-events"></a>Eventos da aplicação
  Eventos emitidos a partir do código as suas aplicações e dos serviços e escritos utilizando a classe de programa auxiliar de EventSource fornecida nos modelos Visual Studio. Para obter mais informações sobre como escrever registos de EventSource da sua aplicação, consulte [monitorizar e diagnosticar os serviços de uma configuração de desenvolvimento do computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 ## <a name="deploy-the-diagnostics-extension"></a>Implementar a extensão de diagnóstico
@@ -62,7 +62,7 @@ Para implementar a extensão de diagnóstico para as VMs no cluster como parte d
 Quando estiver a criar um cluster utilizando o portal, é vivamente recomendado que transfira o modelo **antes de clicar em OK** para criar o cluster. Para obter detalhes, consulte [configurar um cluster do Service Fabric utilizando um modelo Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Terá do modelo para efetuar as alterações mais tarde, porque não é possível efetuar algumas alterações através do portal.
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Implementar a extensão de diagnóstico como parte da criação do cluster utilizando o Azure Resource Manager
-Para criar um cluster utilizando o Gestor de recursos, terá de adicionar a configuração de diagnósticos JSON para o modelo de Gestor de recursos do cluster completo antes de criar o cluster. Podemos fornecer um modelo de Gestor de recursos de cluster de VM de cinco de exemplo com a configuração de diagnósticos adicionada como parte dos nossos exemplos de modelo do Resource Manager. Pode vê-lo nesta localização na galeria do Azure Samples: [cluster de cinco nós com o exemplo de modelo de Gestor de recursos de diagnóstico](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
+Para criar um cluster utilizando o Gestor de recursos, terá de adicionar a configuração de diagnósticos JSON para o modelo de Gestor de recursos do cluster completo antes de criar o cluster. Podemos fornecer um modelo de Gestor de recursos de cluster de VM de cinco de exemplo com a configuração de diagnósticos adicionada como parte dos nossos exemplos de modelo do Resource Manager. Pode vê-lo nesta localização na galeria do Azure Samples: [cluster de cinco nós com o exemplo de modelo de Gestor de recursos de diagnóstico](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Para ver a definição de diagnóstico no modelo do Resource Manager, abra o ficheiro azuredeploy. JSON e procure **IaaSDiagnostics**. Para criar um cluster utilizando este modelo, selecione o **implementar no Azure** botão disponível na hiperligação anterior.
 

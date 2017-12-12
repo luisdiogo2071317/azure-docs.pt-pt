@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 9bd92e48440ad4edf2261221446ce66718ffea17
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiar dados para ou da base de dados do Cosmos do Azure utilizando o Azure Data Factory
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/08/2017
 > * [Versão 1 - GA](v1/data-factory-azure-documentdb-connector.md)
 > * [Versão 2 - Pré-visualização](connector-azure-cosmos-db.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de origem e de base de dados do Azure Cosmos (API do DocumentDB). Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de origem e de base de dados do Azure Cosmos (API do SQL Server). Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [connnector de base de dados do Azure Cosmos no V1](v1/data-factory-azure-documentdb-connector.md).
@@ -36,7 +36,7 @@ Pode copiar dados da base de dados do Azure Cosmos para qualquer arquivo de dado
 
 Especificamente, este conector de base de dados do Azure Cosmos suporta:
 
-- BD do cosmos [DocumentDB API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- BD do cosmos [API do SQL Server](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
 - Importar/exportar documentos JSON como-está ou copiar dados de/para o conjunto de dados em tabela por exemplo, base de dados do SQL Server, ficheiros CSV, etc.
 
 Para copiar documentos como-é para/de ficheiros JSON ou de outra coleção Cosmos DB, consulte [documentos JSON de importação/exportação](#importexport-json-documents).

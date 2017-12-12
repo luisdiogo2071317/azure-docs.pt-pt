@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Tutorial de introdução da API do DocumentDB | Microsoft Docs"
-description: "Um tutorial que cria uma base de dados online e uma aplicação de consola C# com a API do DocumentDB."
+title: "Azure Cosmos DB: API do SQL Server tutorial de introdução | Microsoft Docs"
+description: "Um tutorial que cria uma base de dados online e a aplicação de consola do c# utilizando a API do SQL Server."
 keywords: "tutorial nosql, base de dados online, aplicações de consola em c#"
 services: cosmos-db
 documentationcenter: .net
@@ -15,13 +15,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: anhoh
-ms.openlocfilehash: e5e6a2e5b7ec4bc9c3c81ff37640c98cae36392d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7a6049ac8d196282f146a60de3a0f0cb05943dd
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB: Tutorial de introdução da API do DocumentDB
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: API do SQL Server tutorial de introdução
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,9 +32,11 @@ ms.lasthandoff: 10/11/2017
 >  
 > 
 
-Bem-vindo ao Azure Cosmos DB: Tutorial de introdução da API do DocumentDB! Depois de seguir este tutorial, terá de uma aplicação de consola que cria e consulta recursos do Cosmos DB.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Iremos abranger:
+Bem-vindo ao API do SQL Server de base de dados do Azure Cosmos tutorial de introdução! Depois de seguir este tutorial, terá de uma aplicação de consola que cria e consulta recursos do Cosmos DB.
+
+Este tutorial abrange:
 
 * Criar e ligar a uma conta do Azure Cosmos DB
 * Configuração da sua Solução Visual Studio
@@ -48,12 +50,9 @@ Iremos abranger:
 
 Não tem tempo? Não se preocupe! A solução completa está disponível em [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). Avance para a [secção Get the complete NoSQL tutorial solution (Obter a solução do tutorial NoSQL completa)](#GetSolution) para instruções rápidas.
 
-De seguida, utiliza os botões de voto na parte superior ou inferior desta página para enviar os seus comentários. Se preferir que entremos diretamente em contacto consigo, não hesite em indicar o seu endereço de e-mail nos seus comentários.
-
 Agora comecemos!
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Certifique-se de que tem o seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/free/). 
 
@@ -62,7 +61,7 @@ Certifique-se de que tem o seguinte:
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)].
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passo 1: Criar uma conta do Azure Cosmos DB
-Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende utilizar, pode avançar diretamente para [Configurar a sua solução do Visual Studio](#SetupVS). Se estiver a utilizar o Emulador da BD do Cosmos do Azure, siga os passos em [Azure Cosmos DB Emulator](local-emulator.md) (Emulador do Azure Cosmos DB) para configurar o emulador e avance para [Setup your Visual Studio Solution](#SetupVS) (Configurar a Solução do Visual Studio).
+Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende utilizar, pode avançar diretamente para [Configurar a sua solução do Visual Studio](#SetupVS). Se estiver a utilizar o emulador de BD do Cosmos do Azure, siga os passos indicados em [emulador de BD do Azure Cosmos](local-emulator.md) para configurar o emulador e avançar diretamente para [configurar a sua solução do Visual Studio](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -74,10 +73,10 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende ut
 4. No **Explorador de Soluções**, clique com o botão direito do rato na sua nova aplicação de consola, que está sob a sua solução Visual Studio e, em seguida, clique em **Gerir Pacotes NuGet...**
     
     ![Captura de ecrã do Menu com Botão do Lado Direito para o Projeto](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-5. No separador **Nuget**, clique em **Procurar**, e escreva **azure documentdb** na caixa de pesquisa.
+5. No **NuGet** separador, clique em **procurar**e escreva **o azure documentdb** na caixa de pesquisa.
 6. Nos resultados, localize **Microsoft.Azure.DocumentDB** e clique em **Instalar**.
-   O ID de pacote para a biblioteca de cliente de API de DocumentDB do Azure Cosmos DB é [biblioteca de cliente do Microsoft Azure DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
-   ![Captura de ecrã do Menu Nuget para encontrar o SDK Cliente do Azure Cosmos DB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   O ID de pacote para a biblioteca de cliente de API do Azure Cosmos BD SQL é [biblioteca de clientes de base de dados do Microsoft Azure Cosmos](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
+   ![Captura de ecrã do NuGet Menu para encontrar o cliente SDK do Azure Cosmos DB](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Se obtiver uma mensagem sobre a revisão das alterações para a solução, clique em **OK**. Se obtiver uma mensagem sobre a aceitação de licença, clique em **Aceito**.
 
@@ -116,7 +115,7 @@ No portal do Azure, navegue até à sua conta de base de dados do Azure Cosmos e
 
 Copie o URI do portal e cole-o em `<your endpoint URL>`, no ficheiro program.cs. Em seguida, copie A CHAVE PRIMÁRIA do portal e cole-a em `<your primary key>`.
 
-![Captura de ecrã do portal do Azure utilizado pelo NoSQL tutorial para criar uma aplicação de consola c#. Mostra uma conta do Azure Cosmos DB, com o ACTIVE hub realçado, o botão CHAVES realçado no painel de conta do Azure Cosmos DB e os valores URI, CHAVE PRIMÁRIA e CHAVE SECUNDÁRIA realçados no painel de Chaves][keys]
+![Captura de ecrã do portal do Azure utilizado pelo NoSQL tutorial para criar uma aplicação de consola c#. Mostra uma conta de base de dados do Azure Cosmos, com o ACTIVE hub realçado, o botão chaves realçado na página de conta de base de dados do Azure Cosmos e os valores URI, chave primária e chave secundária realçados na página de chaves][keys]
 
 Em seguida, iremos começar a aplicação pela criação de uma nova instância do **DocumentClient**.
 

@@ -4,7 +4,7 @@ description: "Uma descrição da autorização no Azure AD ponto final v 2.0, in
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1488e8d2a70f7317c97275b83db3b9f05e9deb4b
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: a93cfd710f89efbd4dab01b84ecdb12b4acb0033
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Âmbitos, permissões e consentimento no ponto final v 2.0 do Azure Active Directory
 As aplicações que se integram com o Azure Active Directory (Azure AD), siga um modelo de autorização que proporciona aos utilizadores controlo sobre a forma como uma aplicação pode aceder aos respetivos dados. A implementação de v 2.0 do modelo de autorização foi atualizada e as alterações como uma aplicação tem de interagir com o Azure AD. Este artigo aborda os conceitos básicos neste modelo de autorização, incluindo âmbitos, permissões e consentimento.

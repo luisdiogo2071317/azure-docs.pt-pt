@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Azure MFA, integrar o Gateway de ambiente de trabalho remoto, Azure Active Directory, a extensão de servidor de políticas de rede"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: fb78d39b04868c9d8790bfd64147f47bdd4125c7
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: fe831dc21f5e91bc2e78a1f38b655205bbc68971
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a sua infraestrutura de Gateway de ambiente de trabalho remoto utilizando a extensão de servidor de políticas de rede (NPS) e o Azure AD
 
@@ -182,7 +182,7 @@ Políticas de autorização de ligações de ambiente de trabalho remoto (CAPs d
 
 3. Do Configuration Manager Gateway de RD, faça duplo clique  **\[nome do servidor\] (Local)**e clique em **propriedades**.
 
-  ![Nome do servidor](./media/nps-extension-remote-desktop-gateway/image9.png)
+  ![Nome do Servidor](./media/nps-extension-remote-desktop-gateway/image9.png)
 
 4. Na caixa de diálogo Propriedades, selecione o **arquivo de CAPs de RD** separador.
 5. No separador arquivo de CAPs de RD, selecione **servidor Central com NPS**. 
@@ -197,7 +197,7 @@ Políticas de autorização de ligações de ambiente de trabalho remoto (CAPs d
  >Segredo partilhado é utilizado para estabelecer fidedignidade entre os servidores RADIUS e clientes. Crie um segredo e complexo.
  >
 
- ![Segredo partilhado](./media/nps-extension-remote-desktop-gateway/image11.png)
+ ![Segredo Partilhado](./media/nps-extension-remote-desktop-gateway/image11.png)
 
 9. Clique em **OK** para fechar a caixa de diálogo.
 

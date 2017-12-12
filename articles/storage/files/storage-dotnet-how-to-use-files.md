@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 66a68a1ca048b50b8e2ba4ac1bb86d367b8a5bb9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11bc2418e439f86a228ff7d5c845caef683d9018
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="develop-for-azure-files-with-net-and-windowsazurestorage"></a>Programar para os Ficheiros do Azure com o .NET e o WindowsAzure.Storage
+# <a name="develop-for-azure-files-with-net"></a>Programar para os Ficheiros do Azure com .NET
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-Este tutorial demonstra noções básicas de utilização do .NET e da API `WindowsAzure.Storage` para programar aplicações que utilizam o serviço [Ficheiros do Azure](storage-files-introduction.md) para armazenar dados de ficheiros. Este tutorial cria uma aplicação de consola simples para executar ações básicas com o .NET e o serviço Ficheiros do Azure:
+Este tutorial demonstra noções básicas de utilização do .NET para programar aplicações que utilizam o serviço [Ficheiros do Azure](storage-files-introduction.md) para armazenar dados de ficheiros. Este tutorial cria uma aplicação de consola simples para executar ações básicas com o .NET e o serviço Ficheiros do Azure:
 
 * Obter os conteúdos de um ficheiro
 * Definir a quota (de tamanho máximo) para a partilha de ficheiros.
@@ -45,9 +45,6 @@ API | Quando utilizar | Notas
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | A sua aplicação: <ul><li>Precisa de ler/escrever ficheiros através de SMB</li><li>Está em execução num dispositivo que tem acesso à sua conta do serviço Ficheiros do Azure através da porta 445</li><li>Não precisa de gerir qualquer definição administrativa da partilha de ficheiros</li></ul> | Codificar a E/S de ficheiros com o serviço Ficheiros do Azure via SMB é, de um modo geral, igual a codificar a E/S com qualquer partilha de ficheiros de rede ou dispositivo de armazenamento local. Veja [este tutorial](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) para obter uma introdução às inúmeras funcionalidades do .NET, incluindo a E/S de ficheiros.
 [WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | A sua aplicação: <ul><li>Não consegue aceder ao serviço Ficheiros do Azure através de SMB na porta 445 devido a restrições de ISP ou a uma firewall</li><li>Precisa de funcionalidade administrativa, como a capacidade de definir a quota de uma partilha de ficheiros ou criar uma assinatura de acesso partilhado</li></ul> | Este artigo demonstra a utilização de `WindowsAzure.Storage` para a E/S de ficheiros através de REST (em vez de SMB) e a gestão da partilha de ficheiros.
-
-> [!TIP]
-> Consoante os requisitos da aplicação, os Blobs do Azure podem constituir uma opção mais adequada em matéria de armazenamento. Para obter mais informações sobre como optar entre o serviço Ficheiros do Azure ou os Blobs do Azure, veja [Decidir quando utilizar Blobs do Azure, Ficheiros do Azure ou Discos do Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Criar a aplicação de consola e obter a assemblagem
 No Visual Studio, crie uma nova aplicação de consola do Windows. Os passos seguintes mostram como criar uma aplicação de consola no Visual Studio 2017, no entanto, os passos são semelhantes em outras versões do Visual Studio.

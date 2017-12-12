@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8feabb464c87032db40a66a67f471d0f41cd98eb
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 313f176a1f33fcd5f627ec2251380e602027f8b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Do Azure Cosmos DB: Documentação do MongoDB API
 
 Este artigo fornece ligações para todos os conteúdos da base de dados do Azure Cosmos específico para a API do MongoDB.
 
-Estes artigos não se aplicam para a API do DocumentDB, a Graph API ou a API de tabela. 
+Estes artigos não se aplicam a API do SQL Server, a Graph API ou a API de tabela. 
 
 ## <a name="introduction-and-concepts"></a>Introdução e conceitos
 

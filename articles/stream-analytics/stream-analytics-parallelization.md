@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 33685152c7e7cb1d066661d85a018d30c25442dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd60026cad9246da8eba141125aebf061ecf7e9d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Tirar partido parallelization de consulta no Azure Stream Analytics
 Este artigo mostra como tirar partido das parallelization do Azure Stream Analytics. Saiba como dimensionar as tarefas do Stream Analytics, deve configurar partições de entrada e otimizar a definição de consulta de análise.
@@ -39,7 +39,7 @@ Todas as entradas de Azure Stream Analytics podem tirar partido da criação de 
 -   IoT Hub (é necessário definir explicitamente a chave de partição)
 -   Armazenamento de blobs
 
-### <a name="outputs"></a>saídas
+### <a name="outputs"></a>Saídas
 
 Quando trabalha com o Stream Analytics, pode tirar partido as saídas de criação de partições:
 -   Armazenamento do Azure Data Lake
@@ -241,7 +241,6 @@ Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analyt
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

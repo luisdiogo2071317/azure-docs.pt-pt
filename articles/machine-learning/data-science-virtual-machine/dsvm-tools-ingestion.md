@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1ef4bbc050560287b8638a0f3398e02efec554
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de Máquina Virtual de ciência dados
 
@@ -62,11 +62,11 @@ Seguem-se algumas ferramentas de movimento de dados que fornecemos-na DSVM.
 | Ferramentas relacionadas no DSVM      | AdlCopy     |
 
 
-## <a name="azure-cosmos-db-documentdb-api-data-migration-tool"></a>Do Azure Cosmos DB: Ferramenta de migração de dados do DocumentDB API
+## <a name="azure-cosmos-db-data-migration-tool"></a>Ferramenta de migração de dados do Cosmos BD do Azure
 
 |    |           |
 | ------------- | ------------- |
-| O que é?   | Ferramenta para importar dados a partir de várias origens, incluindo ficheiros JSON, ficheiros CSV, SQL Server, MongoDB, armazenamento tabelas do Azure, Amazon DynamoDB e API de DocumentDB do Azure Cosmos DB coleções na base de dados do Azure Cosmos ou do Azure DocumentDB.      |
+| O que é?   | Ferramenta para importar dados a partir de várias origens, incluindo ficheiros JSON, ficheiros CSV, coleções de SQL, MongoDB, armazenamento tabelas do Azure, Amazon DynamoDB e da API do Azure Cosmos BD SQL na base de dados do Azure Cosmos.      |
 | Versões suportadas DSVM      | Windows      |
 | Utilizações comuns      | Importar ficheiros de uma VM para CosmosDB, importar dados do table storage do Azure para CosmosDB ou importar dados a partir de uma base de dados do SQL Server para CosmosDB.     |
 |  Como utilizar / executá-lo?    |   Para utilizar a linha de comandos versão, abra uma linha de comandos, em seguida, escreva `dt`. Para utilizar a ferramenta de GUI, abra uma linha de comandos, em seguida, escreva `dtui`.    |

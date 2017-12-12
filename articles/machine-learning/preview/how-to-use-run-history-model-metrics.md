@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 920155b2e70409fe1c7c3569326cc5a1fa01b222
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Como histórico de execução de utilização e métricas de modelo no Azure Machine Learning Workbench
 
@@ -32,7 +32,7 @@ Para seguir este guia de procedimentos, tem de:
 ## <a name="azure-ml-logging-api-overview"></a>Descrição geral da API de registo do Azure ML
 O [API de registo do Azure ML](reference-logging-api.md) está disponível através de **azureml.logging** módulo no Python (que é instalado com o Workbench do Azure ML.) Depois de importar este módulo, pode utilizar o **get_azureml_logger** método ao instanciar um **registador** objeto.
 Em seguida, pode utilizar o registo **registo** método para armazenar pares chave/valor produzido pelos scripts Python.
-Atualmente, as métricas de modelo de escalar, dicionário, lista de registo, dataframe tipos são suportados como mostrado.
+Atualmente, as métricas de modelo do registo de escalar e tipos de lista são suportados como mostrado.
 
 ```Python
 # create a logger instance in already set up environment 

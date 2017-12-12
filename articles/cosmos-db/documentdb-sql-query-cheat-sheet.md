@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ac83f948e367be2006e677d8d56fbd4c4a3ab57
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: Folha de referência de consulta SQL do DocumentDB API PDF
-O **BD do Azure Cosmos: folha de Cheat de consulta do DocumentDB API SQL** ajuda-o a rapidamente consultas de escrita de dados do DocumentDB API, apresentando operadores, funções incorporadas, palavras-chave e consultas de base de dados comuns numa fácil de referência PDF de impressão folha. 
+# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: Folha de referência de consulta SQL PDF
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+O **BD do Azure Cosmos: SQL consulta Cheat folha** ajuda rapidamente escreve consultas para dados de API do SQL Server, apresentando operadores, funções incorporadas, palavras-chave e consultas de base de dados comuns numa fácil imprimir PDF folha de referência. 
 
 BD do cosmos suporta relacionais, hierárquicas e consultar geográficos de JSON documentos utilizando [SQL](documentdb-sql-query.md) sem especificar um esquema ou índices secundários. Além das padrão ANSI SQL as palavras-chave e os operadores, Cosmos DB suporta funções do JavaScript definidas pelo utilizador (UDFs), operadores de JavaScript e uma inúmeras funções incorporadas.
 
@@ -38,7 +41,7 @@ Escreva consultas mais rápidas ao descarregar a cábula de consulta SQL e utili
 
 ## <a name="more-help-with-writing-sql-queries"></a>Obter ajuda com escrever consultas SQL
 * Para uma movimentação pela através das opções de consulta disponíveis na base de dados do Cosmos, consulte [consulta Cosmos DB](documentdb-sql-query.md).
-* Para a documentação de referência relacionadas, consulte [API de DocumentDB do Azure Cosmos DB: referência de sintaxe SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+* Para a documentação de referência relacionadas, consulte [API do SQL Server de base de dados do Azure Cosmos: referência de sintaxe SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
 ## <a name="release-notes"></a>Notas de versão
 Atualizada no 29/7/2016 para incluir a parte superior.

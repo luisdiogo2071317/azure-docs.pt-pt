@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: a9d6ebb2ae92b631d4663b1373c684b2e10a9507
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 36de5ed0cfd0e2b41c9725efe69936e0c985e01a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsão da carga de trabalho dos servidores em terabytes de dados
 
@@ -108,10 +108,10 @@ Número de colunas | Nome do campo| Tipo | Descrição |
 6 | `HTTP1` | Número inteiro|  Sessão utiliza HTTP1 ou HTTP2
 7 |`ServerType` | Número inteiro   |Tipo de servidor
 8 |`SubService_1_Load` | duplo |   Carga subservice 1
-9 | `SubService_1_Load` | duplo |  Carga subservice 2
-10 | `SubService_1_Load` | duplo |     Carga subservice 3
-11 |`SubService_1_Load` | duplo |  Carga subservice 4
-12 | `SubService_1_Load`| duplo |      Carga subservice 5
+9 | `SubService_2_Load` | duplo |  Carga subservice 2
+10 | `SubService_3_Load` | duplo |     Carga subservice 3
+11 |`SubService_4_Load` | duplo |  Carga subservice 4
+12 | `SubService_5_Load`| duplo |      Carga subservice 5
 13 |`SecureBytes_Load`  | duplo | Carga de bytes segura
 14 |`TotalLoad` | duplo | Carga total no servidor
 15 |`ClientIP` | Cadeia|    Endereço IP do cliente
@@ -327,7 +327,7 @@ Na barra lateral à direita do Workbench, navegue até à **executa** para ver o
 
 ### <a name="operationalize-the-model"></a>Operacionalizar o modelo
 
-Nesta secção, operacionalizar o modelo que criou nos passos anteriores, como um serviço web. Também irá aprender a utilizar o serviço web para prever a carga de trabalho. Utilize interfaces de linha de comandos do idioma máquina operationalization (CLIs) para compactar o código e dependências como imagens de Docker e para publicar o modelo como um serviço web de. Para obter mais informações, consulte [esta descrição geral](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md).
+Nesta secção, operacionalizar o modelo que criou nos passos anteriores, como um serviço web. Também irá aprender a utilizar o serviço web para prever a carga de trabalho. Utilize interfaces de linha de comandos do idioma máquina operationalization (CLIs) para compactar o código e dependências como imagens de Docker e para publicar o modelo como um serviço web de.
 
 Pode utilizar a linha de comandos da linha de comandos no Machine Learning Workbench para executar os CLIs.  Também pode executar os CLIs no Ubuntu Linux seguindo o [guia de instalação](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
 

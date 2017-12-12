@@ -1,6 +1,6 @@
 ---
 title: Trabalhar com dados geoespacial do BD Azure Cosmos | Microsoft Docs
-description: "Compreenda como criar, índice e geográficos objetos com base de dados do Azure Cosmos e a API do DocumentDB de consulta."
+description: "Compreenda como criar, índice e consultar geográficos objetos com base de dados do Azure Cosmos e a API do SQL Server."
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c2213f663f539e123f70028fd70bedb1cb6511d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: ba6352704dd0d0322746feb0f6970d95ce7db129
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Trabalhar com dados de localização de GeoJSON do BD Azure Cosmos e geoespacial
 Este artigo é uma introdução para a funcionalidade de geoespacial no [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Depois de ler este artigo, poderá responder às seguintes questões:
@@ -28,10 +28,10 @@ Este artigo é uma introdução para a funcionalidade de geoespacial no [Azure C
 * Como pode consultar os dados geoespacial na base de dados do Azure Cosmos no SQL Server e LINQ?
 * Como ativar ou desativar a indexação geográficos do BD Azure Cosmos?
 
-Este artigo mostra como trabalhar com dados geográficos com a API do DocumentDB. Consulte este [GitHub projeto](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) para exemplos de código.
+Este artigo mostra como trabalhar com dados geográficos com a API do SQL Server. Consulte este [GitHub projeto](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) para exemplos de código.
 
 ## <a name="introduction-to-spatial-data"></a>Introdução aos dados geográficos
-Dados geográficos descreve a posição e a forma de objetos de espaço. Na maioria das aplicações, estas correspondem aos objetos na terra, ou seja, os dados de geoespacial. Dados geográficos podem ser utilizados para representar a localização de uma pessoa, um local de interesse ou limites de uma cidade ou uma lake. Casos de utilização comuns envolvem, muitas vezes, consultas de proximidade, para por exemplo, "encontrar todos os cafés quase meu localização atual". 
+Dados geográficos descreve a posição e a forma de objetos de espaço. Na maioria das aplicações, estas correspondem aos objetos nos dados earth e geoespacial. Dados geográficos podem ser utilizados para representar a localização de uma pessoa, um local de interesse ou limites de uma cidade ou uma lake. Casos de utilização comuns frequentemente envolvem consultas de proximidade, por exemplo, "Localizar cafés todos os quase meu localização atual." 
 
 ### <a name="geojson"></a>GeoJSON
 BD do Cosmos do Azure suporta a indexação e consultar geoespacial ponto de dados de que tem representado utilizando o [GeoJSON especificação](https://tools.ietf.org/html/rfc7946). Estruturas de dados de GeoJSON são sempre objetos JSON válidos, para que podem ser armazenadas e consultados utilizando a base de dados do Azure Cosmos sem quaisquer ferramentas especializadas ou bibliotecas. Os SDKs do Azure Cosmos DB fornecem classes de programa auxiliar e métodos que tornam mais fácil trabalhar com dados geográficos. 
@@ -49,7 +49,7 @@ A **ponto** indica uma posição único no espaço. Dados geoespacial, um ponto 
 ```
 
 > [!NOTE]
-> A especificação de GeoJSON Especifica longitude primeiro e latitude segundo. Como nas outras aplicações de mapeamento, latitude e longitude são os ângulos em representado em termos de graus. Os valores de longitude são avaliados do meridiano de Prime e encontram-se entre-180 e e 180.0 graus e latitude valores são avaliados do Equador e são entre-90.0 e 90.0 graus. 
+> A especificação de GeoJSON Especifica longitude primeiro e latitude segundo. Como nas outras aplicações de mapeamento, latitude e longitude são os ângulos em representado em termos de graus. Os valores de longitude são avaliados do meridiano de Prime e encontram-se entre-180 e graus e graus 180.0 e os valores de latitude são avaliados do Equador e são entre-90.0 graus e 90.0 graus. 
 > 
 > BD do Azure do Cosmos interpreta coordenadas conforme representado pelo sistema de referência de WGS 84. Consulte abaixo para obter mais detalhes sobre os sistemas de referência coordenada.
 > 
@@ -61,7 +61,7 @@ Isto pode ser incorporado um documento de base de dados do Azure Cosmos como o m
 
 ```json
 {
-    "id":"documentdb-profile",
+    "id":"cosmosdb-profile",
     "screen_name":"@CosmosDB",
     "city":"Redmond",
     "topics":[ "global", "distributed" ],
@@ -99,7 +99,7 @@ Para além de pontos, GeoJSON também suporta Multipoints e de polígonos. **Mul
 Para além de ponto, LineString e polígono, GeoJSON também especifica a representação para agrupar várias localizações geoespacial, bem como associar propriedades arbitrários geolocalização como um **funcionalidade**. Uma vez que estes objetos JSON válido, estes podem todos ser armazenadas e processadas do BD Azure Cosmos. No entanto Azure Cosmos DB só suporta a indexação automática de pontos.
 
 ### <a name="coordinate-reference-systems"></a>Coordenar a sistemas de referência
-Uma vez que a forma terrestre dados, coordenadas dos dados geoespacial é representado na muitos sistemas de referência coordenada (CR), cada um com os seus próprios frames de referência e unidades de medida. Por exemplo, o "National grelha de Britain" é um sistema de referência for muito exato para o Reino Unido, mas não fora-lo. 
+Uma vez que a forma terrestre dados, são representadas coordenadas de geoespacial dados em vários sistemas de referência coordenada (CR), cada um com os seus próprios frames de referência e unidades de medida. Por exemplo, o "National grelha de Britain" é um sistema de referência for muito exato para o Reino Unido, mas não fora-lo. 
 
 O CR mais popular em utilização atualmente é o sistema Geodetic mundo [WGS 84](http://earth-info.nga.mil/GandG/wgs84/). Dispositivos GPS e muitas mapeamento serviços, incluindo mapas do Google e APIs do Bing Maps utilizam WGS 84. BD do Cosmos do Azure suporta a indexação e consultar dados geoespacial utilizando apenas a CR de WGS 84. 
 
@@ -110,7 +110,7 @@ Quando criar documentos que contenham valores GeoJSON, eles são automaticamente
 
 ```json
 var userProfileDocument = {
-    "name":"documentdb",
+    "name":"cosmosdb",
     "location":{
         "type":"Point",
         "coordinates":[ -122.12, 47.66 ]
@@ -122,7 +122,7 @@ client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfile
 });
 ```
 
-Se estiver a trabalhar com as APIs do DocumentDB, pode utilizar o `Point` e `Polygon` classes dentro de `Microsoft.Azure.Documents.Spatial` espaço de nomes para incorporar as informações de localização dentro os objetos da aplicação. Estas classes ajudam a simplificar a serialização e a anulação da serialização de dados geográficos para GeoJSON.
+Se estiver a trabalhar com as APIs do SQL Server, pode utilizar o `Point` e `Polygon` classes dentro de `Microsoft.Azure.Documents.Spatial` espaço de nomes para incorporar as informações de localização dentro os objetos da aplicação. Estas classes ajudam a simplificar a serialização e a anulação da serialização de dados geográficos para GeoJSON.
 
 **Criar um documento com dados Geoespacial no .NET**
 
@@ -144,7 +144,7 @@ await client.CreateDocumentAsync(
     UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
     new UserProfile 
     { 
-        Name = "documentdb", 
+        Name = "cosmosdb", 
         Location = new Point (-122.12, 47.66) 
     });
 ```
@@ -220,11 +220,11 @@ Os argumentos polígono ST_WITHIN podem conter apenas um único toque, ou seja, 
     }]
 
 > [!NOTE]
-> Semelhante ao funciona como erros de correspondência de tipos na consulta de base de dados do Azure Cosmos, se o valor da localização especificada no argumento está incorreto ou é inválido, em seguida, que será avaliada como **indefinido** e o documento avaliado ignorada da consulta resultados. Se a consulta devolve não existem resultados, execute ST_ISVALIDDETAILED para depuração por que motivo o tipo de spatail é inválido.     
+> Semelhante ao como erros de correspondência de tipos de trabalho na consulta de base de dados do Azure Cosmos, se o valor da localização especificada no argumento está incorreto ou é inválido, em seguida, avalia a **indefinido** e o documento avaliado ignorada dos resultados de consulta. Se a consulta devolve não existem resultados, execute ST_ISVALIDDETAILED para depuração por que motivo o tipo é inválido.     
 > 
 > 
 
-BD do Azure do Cosmos também suporta a execução de consultas tangente, ou seja, pode indexar polígonos ou linhas na base de dados do Azure Cosmos e consultar as áreas que contenha um ponto especificado. Este padrão é frequentemente utilizado na logística para identificar, por exemplo, quando um camião entra ou sai de uma área designada. 
+BD do Azure do Cosmos também suporta a execução de consultas tangente, ou seja, pode indexar polígonos ou linhas na base de dados do Azure Cosmos e consultar as áreas que contenha um ponto especificado. Este padrão é frequentemente utilizado na logística para identificar por exemplo, quando um camião entra ou sai de uma área designada. 
 
 **Consulta**
 
@@ -273,9 +273,9 @@ Estas funções também podem ser utilizadas para validar polígonos. Por exempl
     }]
 
 ### <a name="linq-querying-in-the-net-sdk"></a>LINQ consultar no SDK do .NET
-O SDK do .NET DocumentDB também fornecedores stub métodos `Distance()` e `Within()` para utilização nas expressões de LINQ. O fornecedor DocumentDB LINQ traduz destas chamadas de método para as chamadas de função incorporada equivalentes do SQL Server (ST_DISTANCE e ST_WITHIN respetivamente). 
+O SDK .NET do SQL Server também fornecedores stub métodos `Distance()` e `Within()` para utilização nas expressões de LINQ. O fornecedor SQL LINQ traduz destas chamadas de método para as chamadas de função incorporada equivalentes do SQL Server (ST_DISTANCE e ST_WITHIN respetivamente). 
 
-Eis um exemplo de uma consulta LINQ localiza todos os documentos na coleção de base de dados do Azure Cosmos cujo valor de "localização" está dentro de um radius de 30km de especificado ponto utilizando LINQ.
+Eis um exemplo de uma consulta LINQ localiza todos os documentos na coleção de base de dados do Azure Cosmos cujo valor de "localização" está dentro de um raio da km 30 de especificado ponto utilizando LINQ.
 
 **Consulta LINQ para distância**
 
@@ -313,7 +313,7 @@ Agora que iremos tiver decorrido ver como consultar documentos utilizando LINQ e
 ## <a name="indexing"></a>Indexação
 Conforme é descrito no [esquema Agnóstico indexação com base de dados do Azure Cosmos](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) documento, vamos concebido motor de base de dados da BD do Azure Cosmos estar verdadeiramente agnóstico de esquema e fornecer suporte de primeira classe para JSON. O motor de base de dados com otimização de escrita da base de dados do Azure Cosmos nativamente compreende dados geográficos (pontos, Multilinestrings e linhas) representados na GeoJSON padrão.
 
-Um nutshell, a geometria é projetada de coordenadas geodetic para um plane 2D, em seguida, dividida progressivamente células utilizando um **quadtree**. Estes células estão mapeadas para 1D com base na localização da célula dentro de um **Hilbert espaço ao preencher em curva**, que ela vai preservando localidade de pontos. Além disso quando os dados de localização estão indexados, passa através de um processo conhecido como **tecelagem**, ou seja, todas as células que intersect uma localização estão identificadas e armazenadas como chaves no índice BD do Cosmos do Azure. No momento da consulta, argumentos, como pontos e de polígonos são também tessellated para extrair os intervalos de ID de célula relevantes, em seguida, utilizados para obter dados do índice.
+Um nutshell, a geometria é projetada de coordenadas geodetic para um plane 2D, em seguida, dividida progressivamente células utilizando um **quadtree**. Estes células estão mapeadas para 1D com base na localização da célula dentro de um **Hilbert espaço ao preencher em curva**, que ela vai preservando localidade de pontos. Além disso quando os dados de localização estão indexados, passa através de um processo conhecido como **tecelagem**, ou seja, todas as células intersect uma localização são identificadas e armazenadas como chaves no índice BD do Cosmos do Azure. No momento da consulta, argumentos, como pontos e de polígonos são também tessellated para extrair os intervalos de ID de célula relevantes, em seguida, utilizados para obter dados do índice.
 
 Se especificar uma política de indexação que inclui o índice geográfico para / * (todos os caminhos), em seguida, todos os pontos de encontrado dentro da coleção são indexados para consultas geográficos eficiente (ST_WITHIN e ST_DISTANCE). Os índices espaciais não ter um valor de precisão e utilize sempre um valor de precisão predefinido.
 
@@ -322,7 +322,7 @@ Se especificar uma política de indexação que inclui o índice geográfico par
 > 
 > 
 
-O fragmento JSON seguinte mostra uma política de indexação com indexação geográficos ativado, ou seja, qualquer ponto GeoJSON encontrado documentos para consultas geográficos de índice. Se estiver a modificar a política de indexação através do Portal do Azure, pode especificar o seguinte JSON de política de indexação para ativar geográficos de indexação na sua coleção.
+O fragmento JSON seguinte mostra uma política de indexação com indexação geográficos ativado, ou seja, qualquer ponto GeoJSON encontrado documentos para consultas geográficos de índice. Se estiver a modificar a política de indexação no portal do Azure, pode especificar o seguinte JSON de política de indexação para ativar geográficos de indexação na sua coleção.
 
 **Coleção JSON de política de indexação com Spatial ativada e de pontos de polígonos**
 
@@ -392,7 +392,7 @@ E Eis como pode modificar uma coleção existente para tirar partido de indexaç
 > 
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora que já learnt sobre como começar com suporte de geoespacial do BD Azure Cosmos, pode:
+Nolearned que tiver learnt sobre como começar com suporte de geoespacial do BD Azure Cosmos, pode:
 
 * Iniciar a codificação com a [exemplos de código Geoespacial .NET no GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Obter às mãos em com geoespacial consultar no [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)

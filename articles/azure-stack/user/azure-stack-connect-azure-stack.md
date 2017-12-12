@@ -3,8 +3,8 @@ title: Ligar a pilha do Azure | Microsoft Docs
 description: Saiba como ligar a pilha do Azure
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
 ms.service: azure-stack
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
-ms.author: sngun
-ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 7479202a8afabf5a84560691a2bccf849206c077
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>Ligar ao Azure Stack
 
-Para gerir recursos, tem de ligar para o Kit de desenvolvimento de pilha do Azure. Detalhes deste tópico os passos necessários para estabelecer ligação com o kit de desenvolvimento. Pode utilizar qualquer uma das seguintes opções de ligação:
+Para gerir recursos, tem de ligar para o Kit de desenvolvimento de pilha do Azure. Detalhes deste artigo os passos necessários para estabelecer ligação com o kit de desenvolvimento. Pode utilizar qualquer uma das seguintes opções de ligação:
 
 * [Ambiente de trabalho remoto](#connect-with-remote-desktop): permite que um único utilizador simultâneo rapidamente ligar a partir do kit de desenvolvimento.
 * [Rede privada virtual (VPN)](#connect-with-vpn): permite ligam vários utilizadores em simultâneo a partir de clientes fora da infraestrutura de pilha do Azure (necessita de configuração).
@@ -51,7 +51,7 @@ Pode estabelecer um ligação de rede privada Virtual (VPN) para um Kit de desen
 
 ### <a name="configure-vpn-connectivity"></a>Configurar a conectividade da VPN
 
-Para criar uma ligação VPN para o kit de desenvolvimento, abra uma sessão do PowerShell elevada do computador baseado em Windows local e execute o seguinte script (Certifique-se de que atualiza o os valores de endereço e a palavra-passe IP para o seu ambiente):
+Para criar uma ligação VPN para o kit de desenvolvimento, abra uma sessão do PowerShell elevada do computador baseado em Windows local e execute o seguinte script (Certifique-se de que atualiza os valores de endereço e a palavra-passe IP para o seu ambiente):
 
 ```PowerShell 
 # Configure winrm if it's not already configured
@@ -82,7 +82,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Se o conjunto de cópias de segurança é concluída com êxito, deverá ver **azurestack** na sua lista de ligações VPN.
+Se a configuração é concluída com êxito, deverá ver **azurestack** na sua lista de ligações VPN.
 
 ![Ligações de rede](media/azure-stack-connect-azure-stack/image3.png)  
 

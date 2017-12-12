@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.date: 12/06/2017
 ms.author: raynew
-ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 448dda89623ca2a1e8de86773c1d6a50e708c151
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detetar e avaliar as VMs de VMware no local para a migração para o Azure
 
@@ -175,7 +175,7 @@ Esta vista mostra o estado de preparação para cada máquina.
 Esta vista mostra a computação total e o custo de armazenamento de executar as VMs no Azure, juntamente com os detalhes para cada máquina. Custos estimativas são calculadas com as recomendações com base no desempenho de tamanho para uma máquina e respetivos discos e as propriedades de avaliação. 
 
 > [!NOTE]
-> A estimativa de custo fornecida pelo Azure migrar é para executar as VMs no local como a infraestrutura do Azure como um VMs de serviço (IaaS). Considere qualquer plataforma como serviço (PaaS) ou de Software como um custos de serviço (SaaS). 
+> A estimativa de custo fornecida pelo Azure migrar é para executar as VMs no local como a infraestrutura do Azure como um VMs de serviço (IaaS). Migrar do Azure não considere qualquer plataforma como serviço (PaaS) ou de Software como um custos de serviço (SaaS). 
 
 Custos de mensais estimados para armazenamento e computação são agregados para todas as VMs no grupo. 
 

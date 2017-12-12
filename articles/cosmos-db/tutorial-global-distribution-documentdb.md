@@ -1,8 +1,8 @@
 ---
-title: "Tutorial de distribuição global Cosmos BD do Azure para a API do DocumentDB | Microsoft Docs"
-description: "Saiba como configurar a base de dados do Azure Cosmos distribuição global utilizando a API do DocumentDB."
+title: "Tutorial de distribuição global do Cosmos BD do Azure para a API do SQL Server | Microsoft Docs"
+description: "Saiba como configurar a base de dados do Azure Cosmos distribuição global utilizando a API do SQL Server."
 services: cosmos-db
-keywords: "distribuição global, o documentdb"
+keywords: "Distribuição global"
 documentationcenter: 
 author: mimig1
 manager: jhubbard
@@ -16,31 +16,33 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: c3d0d46ac12faa6b1e28edbeadd97c1a987bed1e
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 11b6edb811c6e88941db63cb22f1d2308dd31f66
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>Como configurar a base de dados do Azure Cosmos distribuição global utilizando a API do DocumentDB
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Como configurar a base de dados do Azure Cosmos distribuição global utilizando a API do SQL Server
 
-Neste artigo, vamos mostrar como utilizar o portal do Azure para distribuição global do Azure Cosmos DB de configuração e, em seguida, ligue-se utilizando a API do DocumentDB.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Neste artigo, vamos mostrar como utilizar o portal do Azure para distribuição global do Azure Cosmos DB de configuração e, em seguida, ligue-se utilizando a API do SQL Server.
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
 > * Configurar a distribuição global com o portal do Azure
-> * Configurar a distribuição global utilizando o [APIs do DocumentDB](documentdb-introduction.md)
+> * Configurar a distribuição global utilizando o [APIs do SQL Server](documentdb-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-documentdb-api"></a>Ligar a uma região preferencial utilizando a API do DocumentDB
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Ligar a uma região preferencial utilizando a API do SQL Server
 
-Para tirar o máximo partido das [distribuição global](distribute-data-globally.md), aplicações de cliente podem especificar a lista de preferência ordenada de regiões para ser utilizado para executar operações de documento. Isto pode ser feito ao definir a política de ligação. Com base na configuração da conta de base de dados do Azure Cosmos, disponibilidade regional atual e a lista de preferência especificado, o ponto final ideal será selecionado pelo SDK do DocumentDB para efetuar a escrita e operações de leitura.
+Para tirar o máximo partido das [distribuição global](distribute-data-globally.md), aplicações de cliente podem especificar a lista de preferência ordenada de regiões para ser utilizado para executar operações de documento. Isto pode ser feito ao definir a política de ligação. Com base na configuração da conta de base de dados do Azure Cosmos, disponibilidade regional atual e a lista de preferência especificado, o ponto final ideal será selecionado pelo SDK do SQL Server para efetuar a escrita e operações de leitura.
 
-Esta lista de preferência é especificada ao inicializar uma ligação com os SDKs do DocumentDB. Os SDKs aceitam um parâmetro opcional "PreferredLocations" que é uma lista ordenada de regiões do Azure.
+Esta lista de preferência é especificada ao inicializar uma ligação com os SDKs do SQL Server. Os SDKs aceitam um parâmetro opcional "PreferredLocations" que é uma lista ordenada de regiões do Azure.
 
 O SDK irá enviar automaticamente todas as operações de escrita para o atual escrever região.
 
@@ -169,7 +171,7 @@ Neste tutorial, fez o seguinte:
 
 > [!div class="checklist"]
 > * Configurar a distribuição global com o portal do Azure
-> * Configurar a distribuição global com as APIs do DocumentDB
+> * Configurar a distribuição global com as APIs do SQL Server
 
 Agora pode avançar para o próximo tutorial para saber como desenvolver localmente, utilizando o emulador local da base de dados do Azure Cosmos.
 

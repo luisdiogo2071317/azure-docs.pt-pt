@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: Processo EDIFACT faturas utilizando os BizTalk Services do Azure
 
@@ -55,7 +55,7 @@ Para concluir o cenário, iremos utilizar filas do Service Bus para enviar fatur
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Tem de ter um espaço de nomes do Service Bus. Para obter instruções sobre como criar um espaço de nomes, consulte [como: criar ou modificar um espaço de nomes de serviço do Service Bus](https://msdn.microsoft.com/library/azure/hh674478.aspx). Informe-nos partem do princípio de que já tem um espaço de nomes do Service Bus aprovisionado, denominado **edifactbts**.
-* Tem de ter uma subscrição do BizTalk Services. Para obter instruções, consulte [cria um BizTalk Service através do portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=302280). Para este tutorial, vamos assumir tiver uma subscrição do BizTalk Services, denominada **contosowabs**.
+* Tem de ter uma subscrição do BizTalk Services. Para este tutorial, vamos assumir tiver uma subscrição do BizTalk Services, denominada **contosowabs**.
 * Registe a sua subscrição do BizTalk Services no Portal de serviços do BizTalk. Para obter instruções, consulte [registar uma implementação de serviço BizTalk no Portal de serviços BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)
 * Tem de ter o Visual Studio instalado.
 * Tem de ter o SDK dos BizTalk Services instalado. Pode transferir o SDK do [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  

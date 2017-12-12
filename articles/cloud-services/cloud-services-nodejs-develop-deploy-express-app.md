@@ -1,6 +1,6 @@
 ---
-title: "Aplicação rápidas (Node.js) Web | Microsoft Docs"
-description: "Um tutorial que cria o tutorial do serviço de nuvem e demonstra como utilizar o módulo de rápida."
+title: "Criar e implementar uma aplicação Node.js Express Cloud Services do Azure"
+description: "Criar e implementar uma aplicação de Express.js no Node.js Cloud Services do Azure"
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -14,15 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: aa62438732db9e8df129440e6949858d9a61f65f
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Criar uma aplicação de web do Node.js utilizando rápida num serviço em nuvem do Azure
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Criar e implementar uma aplicação de web do Node.js utilizando rápida em serviços de Cloud do Azure
+
 NODE.js inclui um conjunto mínimo de funcionalidades em tempo de execução principal.
-Os programadores utilizam frequentemente 3rd módulos de terceiros para fornecer funcionalidades adicionais quando desenvolver uma aplicação Node.js. Neste tutorial, irá criar uma nova aplicação utilizando o [Express] [ Express] módulo, que fornece uma arquitetura MVC para criar aplicações web do Node.js.
+Os programadores utilizam frequentemente 3rd módulos de terceiros para fornecer funcionalidades adicionais quando desenvolver uma aplicação Node.js. Neste tutorial, irá criar uma nova aplicação utilizando o [Express](https://github.com/expressjs/express) módulo, que fornece uma arquitetura MVC para criar aplicações web do Node.js.
 
 Abaixo é uma captura de ecrã da aplicação concluída:
 

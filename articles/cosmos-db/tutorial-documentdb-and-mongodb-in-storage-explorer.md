@@ -1,7 +1,7 @@
 ---
 title: Gerir o Azure Cosmos DB no Explorador de armazenamento do Azure
 description: Saiba como gerir a base de dados do Azure Cosmos no Explorador de armazenamento do Azure.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, DocumentDB
+Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
 author: Jiaj-Li
@@ -17,22 +17,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: fc7d9494ddce127cb402d756f5fb03f21c5d3e8c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 153369270399efbe38ca2e8b8ab2e05cb7e702f9
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Gerir o Azure Cosmos DB no Explorador de armazenamento do Azure (pré-visualização)
 
-Utilizar base de dados do Azure Cosmos no Explorador de armazenamento do Azure permite aos utilizadores gerir entidades de base de dados do Azure Cosmos, manipular dados, atualizar e acionadores juntamente com outras entidades do Azure como armazenamento de blobs e filas de procedimentos armazenados. Agora pode utilizar a mesma ferramenta para gerir a sua do Azure de entidades diferentes num único local. Neste momento, o Explorador de armazenamento do Azure suporta SQL (DocumentDB) e contas de MongoDB.
+Utilizar base de dados do Azure Cosmos no Explorador de armazenamento do Azure permite aos utilizadores gerir entidades de base de dados do Azure Cosmos, manipular dados, atualizar e acionadores juntamente com outras entidades do Azure como armazenamento de blobs e filas de procedimentos armazenados. Agora pode utilizar a mesma ferramenta para gerir a sua do Azure de entidades diferentes num único local. Neste momento, o Explorador de armazenamento do Azure suporta contas de SQL e MongoDB.
 
 Neste artigo, pode saber como utilizar o Explorador de armazenamento para gerir a base de dados do Azure Cosmos.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma conta de base de dados do Azure Cosmos para um SQL Server (DocumentDB) ou a base de dados de MongoDB. Se não tiver uma conta, pode criar uma no portal do Azure, conforme descrito em [BD do Azure Cosmos: criar uma aplicação de web API do DocumentDB com .NET e o portal do Azure](create-documentdb-dotnet.md).
+Uma conta de base de dados do Azure Cosmos para a API do SQL Server ou a API do MongoDB. Se não tiver uma conta, pode criar uma no portal do Azure, conforme descrito em [BD do Azure Cosmos: criar uma aplicação de web API do SQL Server com o .NET e o portal do Azure](create-documentdb-dotnet.md).
 
 ## <a name="installation"></a>Instalação
 

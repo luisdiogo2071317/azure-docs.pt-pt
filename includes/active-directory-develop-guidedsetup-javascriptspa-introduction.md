@@ -1,4 +1,3 @@
-
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Chamar o Microsoft Graph API a partir de uma aplicação de página de JavaScript única (SPA)
 
 Este guia demonstra como uma aplicação JavaScript página única (SPA) pode iniciar sessão no trabalhos pessoais, e contas escolares, obter um token de acesso e chamar outras APIs que necessitam de tokens de acesso do ponto final v2 do Azure Active Directory ou o Microsoft Graph API.

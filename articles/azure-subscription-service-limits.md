@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 49dc4551f1a1528d30e489d4ba1c974f84cc70b0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento apresenta uma lista algumas dos limites mais comuns de Microsoft Azure, que também por vezes, são chamados quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para cobrir mais da plataforma.
@@ -29,7 +29,7 @@ Visite [descrição geral de preços do Azure](https://azure.microsoft.com/prici
 > [!NOTE]
 > Se pretende aumentar o limite ou acima da quota de **limite predefinido**, [abrir um pedido de suporte online do cliente, sem encargos](azure-supportability/resource-manager-core-quotas-request.md). Não podem ser gerados os limites acima o **limite máximo** valor mostrado nas seguintes tabelas. Se não houver nenhuma **limite máximo** coluna, em seguida, o recurso não têm limites ajustável.
 >
-> As subscrições de avaliação gratuitas não são elegíveis para o limite ou aumenta a quota. Se tiver uma versão de avaliação gratuita, pode atualizar para um [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscrição. Para obter mais informações, consulte [atualizar avaliação gratuita do Azure para pay as you go](billing/billing-upgrade-azure-subscription.md).
+> [Liberte subscrições de avaliação](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumenta de limite ou de quota. Se tiver um [subscrição de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), pode atualizar para um [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscrição. Para obter mais informações, consulte [atualizar avaliação gratuita do Azure para pay as you go](billing/billing-upgrade-azure-subscription.md) e [FAQ de subscrição de avaliação gratuita](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Limites e o Gestor de recursos do Azure

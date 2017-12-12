@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: mimig
-ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 2bbbde3497d8680ba4203049f66ea05005af0d11
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Base de dados sem servidor informática utilizando as funções do Azure
 
@@ -44,7 +44,7 @@ O acionador BD do Cosmos Azure, o enlace de entrada e o enlace de saída podem s
 * Um enlace de entrada para um contentor de BD do Cosmos Azure pode ser utilizado na mesma função que um acionador de base de dados do Azure Cosmos e pode ser utilizado com ou sem uma saída, bem como de enlace. Pode utilizar esta combinação para aplicar as informações de intercâmbio de moeda atualizado (solicitadas com um enlace de entrada para um contentor do exchange) para o feed de alteração das ordens de novo no seu serviço de carrinho de compras. Total carrinho de compras atualizada, com a conversão de moeda atual aplicada, pode ser escrito para um terceiro contentor utilizando um enlace de saída.
 
 > [!NOTE]
-> Neste momento, a base de dados do Azure Cosmos acionador, enlaces de entrada e enlaces de saída funcionam com contas DocumentDB, tabela e Graph API.
+> Neste momento, a base de dados do Azure Cosmos acionador, enlaces de entrada e enlaces de saída funcionam com contas SQL, tabela e Graph API.
 
 ## <a name="use-cases"></a>Casos de utilização
 

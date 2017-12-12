@@ -3,33 +3,33 @@ title: Instale o PowerShell para a pilha do Azure | Microsoft Docs
 description: Saiba como instalar o PowerShell para a pilha do Azure.
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: sngun
-ms.openlocfilehash: 1c4c9aa36836398ad87c3655ff039a9dc8730456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: mabrigg
+ms.openlocfilehash: b5cc53387b6867d776059856b6e7793abbc67c9a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instale o PowerShell para a pilha do Azure  
 
 Pilha do Azure compatíveis módulos do PowerShell do Azure são necessários para funcionar com a pilha do Azure. Neste guia, iremos orientá-lo pelos passos necessários para instalar o PowerShell para a pilha do Azure. Pode utilizar os passos descritos neste artigo do Kit de desenvolvimento de pilha do Azure ou de um cliente externo baseado no Windows, se estiver ligado através de VPN.
 
-Este artigo descreve em pormenor as instruções para instalar o PowerShell para a pilha do Azure. No entanto, se pretender instalar e configurar o PowerShell rapidamente, pode utilizar o script que é fornecido no tópico "Começar a trabalhar com o PowerShell". 
+Este artigo descreve em pormenor as instruções para instalar o PowerShell para a pilha do Azure. No entanto, se pretender instalar e configurar o PowerShell rapidamente, pode utilizar o script que é fornecido no artigo "Começar a trabalhar com o PowerShell". 
 
 > [!NOTE]
 > Os seguintes passos necessitam do PowerShell 5.0. Para verificar a sua versão, execute $PSVersionTable.PSVersion e comparar a versão "Principal".
 
-Comandos do PowerShell para a pilha do Azure são instalados através da galeria do PowerShell. Para o repositório de PSGallery regiser, abra uma sessão do PowerShell elevada do kit de desenvolvimento ou de um cliente externo baseado no Windows se estiverem ligados através de VPN e execute o seguinte comando:
+Comandos do PowerShell para a pilha do Azure são instalados através da galeria do PowerShell. Para registar o repositório de PSGallery, abra uma sessão do PowerShell elevada do kit de desenvolvimento ou de um cliente externo baseado em Windows se estiverem ligados através de VPN e execute o seguinte comando:
 
 ```powershell
 Set-PSRepository `
@@ -78,7 +78,7 @@ Para confirmar a instalação, execute o seguinte comando:
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
-  Se a instalação foi bem-sucedida, os módulos AzureRM e AzureStack são apresentados no resultado.
+  Se a instalação foi bem-sucedida, os módulos AzureRM e pilha do Azure são apresentados no resultado.
 
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Instale o PowerShell num desligado ou um cenário parcialmente ligado (com acesso à internet limitada)
 

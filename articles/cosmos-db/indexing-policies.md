@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 791446fbd7eb025441f051e2d8f8f2b1e6c47ebe
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 8b990d1887551cbe182fe1c38d2cfd02f3af5e78
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como funciona a dados do índice de BD do Cosmos do Azure?
 
@@ -229,7 +229,7 @@ Pode escolher se pretende que a coleção para indexar automaticamente todos os 
 
 Com automática indexação desativada, pode adicionar ainda seletivamente apenas os documentos específicos para o índice. Por outro lado, pode deixar automática de indexação no e escolha seletivamente a excluir apenas a documentos específica. A indexação/desative as configurações são úteis quando tem apenas um subconjunto de documentos que precisam de ser consultado.
 
-Por exemplo, o exemplo seguinte mostra como incluir um documento explicitamente com o [SDK do .NET DocumentDB API](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) e [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) propriedade.
+Por exemplo, o exemplo seguinte mostra como incluir um documento explicitamente com o [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) e [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) propriedade.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -315,7 +315,7 @@ Quando seria são efetuadas alterações de política de indexação a suas cole
 > 
 
 ## <a name="performance-tuning"></a>Otimização do desempenho
-As APIs do DocumentDB fornecem informações sobre as métricas de desempenho, tais como o armazenamento de índice utilizado e o custo de débito (unidades de pedido) para cada operação. Esta informação pode ser utilizada para comparar várias políticas de indexação e de otimização de desempenho.
+As APIs de SQL forneça informações sobre as métricas de desempenho, tais como o armazenamento de índice utilizado e o custo de débito (unidades de pedido) para cada operação. Esta informação pode ser utilizada para comparar várias políticas de indexação e de otimização de desempenho.
 
 Para verificar a quota de armazenamento e a utilização de uma coleção, executar um pedido HEAD ou GET contra o recurso de coleção e inspecionar o x-ms-pedido-quota e os cabeçalhos de x-ms-pedido-utilização. SDK .NET, o [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) propriedades no [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) conter estes valores correspondentes.
 
@@ -409,7 +409,7 @@ Para ver uma comparação prática, segue-se um exemplo personalizado política 
 ## <a name="next-steps"></a>Passos Seguintes
 Siga as ligações abaixo para exemplos de gestão de política de índice e para saber mais sobre a linguagem de consulta da BD do Cosmos do Azure.
 
-1. [Exemplos de código do índice de .NET do DocumentDB API Management](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [Operações de coleção do DocumentDB API REST](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+1. [Exemplos de código de gestão de índice do SQL Server API .NET](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+2. [Operações de coleção do SQL Server API REST](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Consulta com o SQL Server](documentdb-sql-query.md)
 

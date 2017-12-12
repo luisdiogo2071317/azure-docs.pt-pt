@@ -15,25 +15,32 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/) em http://portal.azure.com/.
-2. Na faixa da esquerda, clique em **Procurar tudo**. O **procurar** é apresentado o painel.
-3. Desloque-se e clique em **servidores SQL**. O **servidores SQL** é apresentado o painel.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+
+2. Na lista à esquerda, selecione **procurar**. 
+
+3. Desloque-se e selecione **servidores SQL**. 
    
     ![Localizar o servidor da SQL Database do Azure no portal][b21-FindServerInPortal]
-4. Para sua comodidade, clique no controlo de minimizar o anteriores no **procurar** painel.
+4. Para sua comodidade, minimizar o **procurar** painel.
+
 5. Na caixa de texto de filtro, comece a escrever o nome do seu servidor. A linha é apresentada.
-6. Clique na linha para o servidor. É apresentado um painel para o servidor.
-7. No painel do servidor, clique em **definições**. O **definições** é apresentado o painel.
-8. Clique em **Firewall**. O **as definições da Firewall** é apresentado o painel.
+
+6. Selecione a linha para o servidor. É apresentado um painel para o servidor.
+
+7. No painel do servidor, selecione **definições**. 
+
+8. Selecione **Firewall**. 
    
-    ![Clique em Definições > Firewall][b31-SettingsFirewallNavig]
-9. Clique em **Adicionar cliente IP**. Escreva um nome para a nova regra na primeira caixa de texto.
+    ![Selecione as definições > Firewall][b31-SettingsFirewallNavig]
+9. Selecione **Adicionar cliente IP**. Escreva um nome para a nova regra na primeira caixa de texto.
+
 10. Escreva os valores de endereço IP baixos e alto para o intervalo de que pretende ativar.
     
-    * Pode ser útil ter end valor baixo com **.0** e alta com **.255**.
+    * Pode ser útil ter end valor baixo com **.0** e o valor elevado, terminar com **.255**.
     
     ![Adicionar um intervalo de endereços IP para permitir][b41-AddRange]
-11. Clique em **Guardar**.
+11. Selecione **Guardar**.
 
 <!-- Image references. -->
 

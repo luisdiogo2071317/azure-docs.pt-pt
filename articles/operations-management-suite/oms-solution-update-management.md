@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Solução de Gestão de Atualizações no OMS
 
@@ -57,7 +57,7 @@ Pode criar uma implementação agendada para implementar e instalar atualizaçõ
 Na data e na hora especificadas na implementação de atualização, os computadores de destino executam a implementação em paralelo.  Primeiro, é realizada uma análise para verificar se as atualizações ainda são obrigatórias, que são depois instaladas.  É importante ter em conta que, relativamente a computadores com o cliente WSUS, se as atualizações não forem aprovadas no WSUS, a implementação das atualizações irá falhar.  Os resultados das atualizações aplicadas são reencaminhados para o OMS para serem processados e resumidos nos dashboards ou mediante a pesquisa nos eventos.     
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* A solução suporta a realização de avaliações de atualização do Windows Server 2008 e versões posteriores e implementações de atualizações no Windows Server 2008 R2 SP1 e versões posteriores.  Não são suportadas opções de instalação Server Core e Nano Server.
+* A solução suporta a realização de avaliações de atualização do Windows Server 2008 e versões posteriores e implementações de atualizações no Windows Server 2008 R2 SP1 e versões posteriores.  O Servidor de Nano não é suportado.
 
     > [!NOTE]
     > O suporte para implementar atualizações no Windows Server 2008 R2 SP1 requer o .NET Framework 4.5 e o WMF 5.0 ou posterior.

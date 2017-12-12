@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configurar o serviço de experimentação do Azure Machine Learning
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Serviço experimentação do Azure Machine Learning permite cientistas de dados executar as experimentações através da execução do Azure Machine Learning e executar as capacidades de gestão. Fornece uma arquitetura de experimentação seja ágil com iterações rápidas. Workbench de aprendizagem máquina do Azure permite-lhe começar com local é executado no seu computador e fornece um caminho mais fácil para aumentar verticalmente e horizontalmente a outros ambientes, como VMs de ciência de dados remota com uma GPU ou Clusters do HDInsight com o Spark.
 
 Experimentação de serviço foi concebido para fornecer execuções isoladas, reproduzível e consistentes das suas experimentações. Ajuda a gerir os destinos de computação, ambientes de execução, e execute as configurações. Ao utilizar a execução do Workbench do Azure Machine Learning e capacidades de gestão de execução, é possível mover facilmente entre ambientes diferentes. 
@@ -221,7 +221,8 @@ _**Descrição geral da execução de vm remota para um script de Python:**_
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Executar um script num cluster do HDInsight
 O HDInsight é uma plataforma para a análise de macrodados que suportam o Apache Spark popular. Workbench permite experimentação sobre macrodados com clusters do HDInsight Spark. 
 
->![NOTA] O cluster do HDInsight tem de utilizar o Blob do Azure como armazenamento principal. A utilização do armazenamento do Azure Data Lake ainda não é suportada.
+>[!NOTE]
+>O cluster do HDInsight tem de utilizar BLOBs do Azure como o armazenamento principal. A utilização do armazenamento do Azure Data Lake ainda não é suportada.
 
 Pode criar um destino de computação e execute a configuração para um cluster do Spark do HDInsight utilizando o seguinte comando:
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - Acrescente a chave pública gerada pelo Workbench para o ficheiro de ~/.ssh/authorized_keys no destino ligados de computação. 
 
-[!IMPORTANT] Tem de iniciar sessão no destino computação utilizando o mesmo nome de utilizador que utilizou para criar o destino de computação. 
+>[!IMPORTANT]
+>Tem de iniciar sessão no destino computação utilizando o mesmo nome de utilizador que utilizou para criar o destino de computação. 
 
 - Agora, pode preparar e utilizar o destino de computação que utilizam autenticação baseada em chave SSH.
 

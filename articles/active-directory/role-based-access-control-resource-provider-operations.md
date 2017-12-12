@@ -4,7 +4,7 @@ description: "Fornece detalhes sobre as operações disponíveis nos fornecedore
 services: active-directory
 documentationcenter: 
 author: jboeshart
-manager: 
+manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 7e25b9a77d5ba7b856c9616c8384a567b7d37bbd
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 27880402d377701448d095a1295ece875729cd67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Gestor de recursos do Azure
 
@@ -971,36 +971,36 @@ Este fornecedor não é um fornecedor ARM completo e não fornece quaisquer oper
 |/Jobs/DELETE|Elimina uma tarefa existente.|
 |/Locations/Read|Obtém as propriedades para a localização especificada ou devolve a lista de localizações.|
 
-## <a name="microsoftinsights"></a>Microsoft.Insights
+## <a name="microsoftinsights"></a>Insights
 
 | Operação | Descrição |
 |---|---|
-|/ Register/ação|Registar o fornecedor de microsoft insights|
-|/ AlertRules/escrita|Escrever numa configuração de regra de alerta|
+|/ Register/ação|Registar o fornecedor de informações da microsoft|
+|/ AlertRules/escrita|Escrever uma configuração de regra de alerta|
 |/ AlertRules/eliminar|Eliminar uma configuração de regra de alerta|
 |/ AlertRules/leitura|Ler uma configuração de regra de alerta|
-|/ AlertRules/ativado/ação|Regra de Alerta ativada|
-|/ AlertRules/resolvido/ação|Regra de Alerta resolvida|
-|/ AlertRules/limitadas/ação|A regra de alerta está otimizada|
-|/ AlertRules/incidentes/leitura|Ler uma configuração de incidente da regra de alerta|
-|/ MetricDefinitions/leitura|Ler definições de métricas|
-|/eventtypes/Values/Read|Ler valores do tipo de eventos de gestão|
-|/eventtypes/digestevents/Read|Ler resumo do tipo de eventos de gestão|
-|/ Métricas/leitura|Ler métricas|
+|/ AlertRules/ativado/ação|Regra de alerta ativada|
+|/ AlertRules/resolvido/ação|Regra de alerta resolvida|
+|/ AlertRules/limitadas/ação|Regra de alerta é limitada|
+|/ AlertRules/incidentes/leitura|Ler uma configuração de incidente de regra de alerta|
+|/ MetricDefinitions/leitura|Definições de métrica de leitura|
+|/eventtypes/Values/Read|Leia o artigo gestão valores do tipo de evento|
+|/eventtypes/digestevents/Read|Resumo de tipo de evento de gestão de leitura|
+|/ Métricas/leitura|Métricas de leitura|
 |/ LogProfiles/escrita|Escrever para uma configuração de perfil de registo|
 |/ LogProfiles/eliminar|Eliminar a configuração de perfis de registo|
 |/ LogProfiles/leitura|Perfis de registo de leitura|
-|/ AutoscaleSettings/escrita|Escrever numa configuração de definição de dimensionamento automático|
-|/ AutoscaleSettings/eliminar|Eliminar a configuração de uma definição de dimensionamento automático|
-|/ AutoscaleSettings/leitura|Ler a configuração de uma definição de dimensionamento automático|
-|/ AutoscaleSettings/Scaleup/ação|Operação de aumento do Dimensionamento Automático|
-|/ AutoscaleSettings/Scaledown/ação|Operação de redução do Dimensionamento Automático|
-|/AutoscaleSettings/Providers/Microsoft.Insights/MetricDefinitions/Read|Ler definições de métricas|
+|/ AutoscaleSettings/escrita|Escrever uma configuração de definição de dimensionamento automático|
+|/ AutoscaleSettings/eliminar|Eliminar uma configuração de definição de dimensionamento automático|
+|/ AutoscaleSettings/leitura|Ler uma configuração de definição de dimensionamento automático|
+|/ AutoscaleSettings/Scaleup/ação|Trabalho operação de dimensionamento de dimensionamento automático|
+|/ AutoscaleSettings/Scaledown/ação|Escala de dimensionamento automático para baixo de operação|
+|/AutoscaleSettings/Providers/Microsoft.Insights/MetricDefinitions/Read|Definições de métrica de leitura|
 |/ ActivityLogAlerts/ativado/ação|Acionou o alerta de registo de atividade|
-|/ DiagnosticSettings/escrita|A escrever para a configuração de definições de diagnóstico|
-|/ DiagnosticSettings/eliminar|A eliminar a configuração de definições de diagnóstico|
-|/ DiagnosticSettings/leitura|A ler uma configuração de definições de diagnóstico|
-|/ LogDefinitions/leitura|Ler definições de registo|
+|/ DiagnosticSettings/escrita|Escrever a configuração de definições de diagnóstico|
+|/ DiagnosticSettings/eliminar|Eliminar a configuração de definições de diagnóstico|
+|/ DiagnosticSettings/leitura|Ler uma configuração de definições de diagnóstico|
+|/ LogDefinitions/leitura|Definições de registo de leitura|
 |/ ExtendedDiagnosticSettings/escrita|Escrever a configuração de definições de diagnóstico expandida|
 |/ ExtendedDiagnosticSettings/eliminar|Eliminar a configuração de definições de diagnóstico expandida|
 |/ ExtendedDiagnosticSettings/leitura|Ler uma configuração de definições de diagnóstico expandida|

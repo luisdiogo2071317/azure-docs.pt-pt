@@ -15,15 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a10cbf1d3c8043ddcac9a725373fc30a3ecee20
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar VMs do Amazon Web Services (AWS) para o Azure
 
-Este tutorial informa como migrar Amazon Web Services (AWS) máquinas virtuais (VMs), para VMs do Azure com a recuperação de Site. Quando migrar instâncias de EC2 para o Azure, VMsare tratado como se físico, computadores no local. Neste tutorial, ficará a saber como:
+Este tutorial informa como migrar Amazon Web Services (AWS) máquinas virtuais (VMs), para VMs do Azure com a recuperação de Site. Quando migrar EC2 instâncias no Azure, as VMs são tratados como se físico, computadores no local. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Preparar os recursos do Azure
@@ -186,7 +186,7 @@ Ative a replicação para cada VM que pretende migrar. Quando a replicação est
         
     |  |  |
     |-----|-----|
-    | Destino: | Deixe a predefinição.|
+    | Alvo: | Deixe a predefinição.|
     | Subscrição: | Selecione a subscrição que estiver a utilizar.|
     | Grupo de recursos de pós-falha:| Utilize o grupo de recursos que criou no [recursos Azure preparar](#prepare-azure-resources) secção.|
     | Modelo de implementação de pós-falha: | Escolha **Gestor de recursos**|

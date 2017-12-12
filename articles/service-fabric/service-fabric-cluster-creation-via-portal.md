@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 6ddadad6f5697fed006e3f938ef3c3faedb6a354
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: be880efdcf1276252c76f27c2f2fd99edd606caa
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no Azure através do portal do Azure
 > [!div class="op_single_selector"]
@@ -114,7 +114,15 @@ Crie um cofre de chaves no novo grupo de recursos. O Cofre de chaves **tem de es
     Tags                             :
 ```
 
-Se tiver um cofre de chaves existente, pode ativá-la para implementação utilizando a CLI do Azure:
+Se tiver um cofre de chaves existente, pode ativá-la para implementação utilizando uma das seguintes formas:
+
+##### <a name="azure-powershell"></a>Azure PowerShell
+
+```powershell
+PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
+```
+
+##### <a name="azure-cli"></a>CLI do Azure:
 
 ```cli
 > azure login

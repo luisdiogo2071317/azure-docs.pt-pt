@@ -1,6 +1,6 @@
 ---
-title: API do Azure Cosmos DB Node.js, SDK & recursos | Microsoft Docs
-description: "Saiba tudo sobre Node.js API e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do Azure Cosmos DB Node.js SDK."
+title: 'Azure Cosmos DB: API de Node.js do SQL Server, SDK & recursos | Microsoft Docs'
+description: "Saiba tudo sobre API Node.js do SQL Server e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do Azure Cosmos DB Node.js SDK."
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c53a7bfdcf5105df0ed3d3f70d927fc06cf36cf
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bd50bd37baeac0b06f1b3456637f68544f55f3d5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure SDK Node.js do Cosmos DB: Notas de versão e recursos
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Node.js do Cosmos BD do Azure para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Feed de alteração de .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/29/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 

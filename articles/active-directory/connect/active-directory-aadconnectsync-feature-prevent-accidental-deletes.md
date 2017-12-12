@@ -4,7 +4,7 @@ description: "Este tópico descreve a funcionalidade de impedir eliminações ac
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: a33fb729cff5007e40820af696cfec823a3ecfde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização do Azure AD Connect: impedir eliminações acidentais
 Este tópico descreve a funcionalidade de impedir eliminações acidentais (impedir eliminações acidentais) no Azure AD Connect.
@@ -32,7 +32,7 @@ Cenários comuns quando vir eliminações muitos incluem:
 * Todos os objetos numa UO são eliminados.
 * Uma UO é mudada para que todos os objetos são considerados como sendo fora do âmbito para sincronização.
 
-O valor predefinido de 500 objetos pode ser alterado com PowerShell utilizando `Enable-ADSyncExportDeletionThreshold`. Deve configurar este valor para se ajustar ao tamanho da sua organização. Uma vez que o agendador de sincronização é executada a cada 30 minutos, o valor é o número de eliminações visto dentro de 30 minutos.
+O valor predefinido de 500 objetos pode ser alterado com PowerShell utilizando `Enable-ADSyncExportDeletionThreshold`, que faz parte do módulo AD Sync instalado com o Azure Active Directory Connect. Deve configurar este valor para se ajustar ao tamanho da sua organização. Uma vez que o agendador de sincronização é executada a cada 30 minutos, o valor é o número de eliminações visto dentro de 30 minutos.
 
 Se existirem demasiados eliminações testadas seja exportado para o Azure AD, em seguida, interrompe a exportação e receber uma mensagem de e-mail como esta:
 

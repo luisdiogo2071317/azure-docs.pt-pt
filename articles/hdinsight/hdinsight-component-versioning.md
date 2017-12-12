@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 79f3cfbe5f5603d3c9f42e8af1d4093a5135b267
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Hadoop e versões disponíveis com o HDInsight?
 
@@ -77,7 +77,7 @@ Consulte [notas de versão do HDInsight](hdinsight-release-notes.md) para notas 
 A tabela seguinte lista as versões do HDInsight que estão atualmente disponíveis no portal do Azure. As versões HDP que correspondem a cada versão do HDInsight são listadas juntamente com as datas de versão do produto. As datas de expiração e extinção de suporte também são fornecidas quando se estiver a conhecido.
 
 > [!NOTE]
-> Depois do suporte para uma versão tiver expirado, poderá não ser disponível através do portal clássico do Microsoft Azure. No entanto, as versões de cluster continuem a estar a utilizar disponível o `Version` parâmetro no Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) comando e o SDK .NET até que a data de retirada da versão.
+> Depois do suporte para uma versão tiver expirado, poderá não ser disponível através do portal do Microsoft Azure. No entanto, as versões de cluster continuem a estar a utilizar disponível o `Version` parâmetro no Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) comando e o SDK .NET até que a data de retirada da versão.
 > 
 > Elevada clusters com dois nós principais são implementadas por predefinição para o HDInsight versão 2.1 e posterior. Não estão disponíveis para os clusters do HDInsight versão 1.6.
 
@@ -186,7 +186,7 @@ A tabela seguinte lista os tipos de cluster que são suportados no HDInsight Pre
 | HBase |Sim |Não |
 | Storm |Sim |Não |
 | R Server |Sim |Não |
-| Consulta interativa |Sim |Não |
+| Interactive Query |Sim |Não |
 | Kafka (pré-visualização) |Sim |Não | 
 
 ### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>Suporte para o Azure Data Lake Store no HDInsight Premium

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 85157f3f0bcf86ae049c0bec76afb0ca33797b11
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chaves exclusivas do BD Azure Cosmos
 
 Chaves exclusivas fornecem os programadores a capacidade de adicionar uma camada de integridade dos dados para a respetiva base de dados. Criar uma política de chave exclusiva quando é criado um contentor, certifique-se a exclusividade de um ou mais valores por [chave de partição](partition-data.md). Depois de criar um contentor com a política de chave exclusiva, impede a criação de quaisquer itens de novas ou atualizadas com valores duplicados valores especificados pela restrição de chave exclusiva.   
 
 > [!NOTE]
-> Chaves exclusivas são suportadas por versões mais recentes do [.NET](documentdb-sdk-dotnet.md) e [.NET Core](documentdb-sdk-dotnet-core.md) SDKs do DocumentDB (SQL) e o [MongoDB API](mongodb-feature-support.md#unique-indexes). A API de tabela e a Graph API não suportam chaves exclusivas neste momento. 
+> Chaves exclusivas são suportadas por versões mais recentes do [.NET](documentdb-sdk-dotnet.md) e [.NET Core](documentdb-sdk-dotnet-core.md) SDKs de SQL e o [MongoDB API](mongodb-feature-support.md#unique-indexes). A API de tabela e a Graph API não suportam chaves exclusivas neste momento. 
 > 
 >
 
@@ -38,7 +38,7 @@ Se pretende que os utilizadores para conseguir criar vários registos com o mesm
 
 **Valores de chave exclusiva do e-mail, firstName e lastName permitidos**
 
-|Nome próprio|Apelido|Endereço de correio eletrónico|
+|Nome próprio|Apelido|Endereço de e-mail|
 |---|---|---|
 |Gaby|Duperre|gaby@contoso.com |
 |Gaby|Duperre|gaby@fabrikam.com|
@@ -54,7 +54,7 @@ Chaves exclusivas tem de ser definidas quando o contentor é criado e tem um âm
 
 Não não possível atualizar os contentores existentes a utilizar chaves exclusivas.
 
-Depois de um contentor é criado com uma política de chave exclusiva, não é possível alterar a política, a menos que recriar o contentor. Se tiver dados existentes que gostaria de implementar chaves exclusivas, criar o novo contentor e, em seguida, utilize a ferramenta de migração de dados adequada para mover os dados para o novo contentor. Para os contentores do DocumentDB (SQL), utilize o [ferramenta de migração de dados](import-data.md). Para os contentores do MongoDB, utilize [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md).
+Depois de um contentor é criado com uma política de chave exclusiva, não é possível alterar a política, a menos que recriar o contentor. Se tiver dados existentes que gostaria de implementar chaves exclusivas, criar o novo contentor e, em seguida, utilize a ferramenta de migração de dados adequada para mover os dados para o novo contentor. Para os contentores do SQL Server, utilize o [ferramenta de migração de dados](import-data.md). Para os contentores do MongoDB, utilize [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md).
 
 Um máximo de 16 valores do caminho (por exemplo /firstName /lastName, /address/zipCode, etc.) pode ser incluído em cada chave exclusiva. 
 
@@ -64,9 +64,9 @@ Pedir unidade encargos de criar, atualizar, e eliminar um item são ligeiramente
 
 As chaves exclusivas dispersas não são suportadas. Se os valores para algumas caminhos exclusivos estão em falta, são tratadas como um valor nulo especial, que demora a parte na restrição de exclusividade.
 
-## <a name="documentdb-sql-api-sample"></a>Exemplo de DocumentDB (SQL) API
+## <a name="sql-api-sample"></a>Exemplo de API do SQL Server
 
-O exemplo de código seguinte mostra como criar um novo contentor do DocumentDB (SQL) com dois restrições de chave exclusivas. A restrição primeiro é o nome próprio, apelido, descrita no exemplo anterior de restrição de e-mail. A restrição segundo é o endereço/zipCode de utilizadores. Um ficheiro JSON de exemplo que utiliza os caminhos nesta política de chave exclusivo segue o exemplo de código. 
+O exemplo de código seguinte mostra como criar um novo contentor do SQL Server com dois restrições de chave exclusivas. A restrição primeiro é o nome próprio, apelido, descrita no exemplo anterior de restrição de e-mail. A restrição segundo é o endereço/zipCode de utilizadores. Um ficheiro JSON de exemplo que utiliza os caminhos nesta política de chave exclusivo segue o exemplo de código. 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,

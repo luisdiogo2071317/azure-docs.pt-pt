@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 7c741deba180af56414b0711de94ba110aeea9b8
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 232d695421a417286c30dc05b35f084c551a443d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Descrição geral de tarefas de bases de dados elásticas instalar
-[**As tarefas de base de dados elásticas** ](sql-database-elastic-jobs-overview.md) podem ser instalados através do PowerShell ou através de Portal.You clássico do Azure pode obter acesso ao criar e gerir tarefas utilizando a API de PowerShell apenas se instalar o pacote do PowerShell. Além disso, as APIs do PowerShell proporcionar significativamente mais funcionalidade que o portal, neste ponto no tempo.
+[**As tarefas de base de dados elásticas** ](sql-database-elastic-jobs-overview.md) podem ser instalados através do PowerShell ou através do portal do Azure. Pode obter acesso ao criar e gerir tarefas utilizando a API de PowerShell apenas se instalar o pacote do PowerShell. Além disso, as APIs do PowerShell proporcionar significativamente mais funcionalidade que o portal, neste ponto no tempo.
 
 Se já tiver instalado **tarefas de bases de dados elásticas** através do Portal existente de um **conjunto elástico**, a pré-visualização mais recente do Powershell inclui scripts para atualizar a instalação existente. É altamente recomendado para atualizar a instalação para a versão mais recente **tarefas de bases de dados elásticas** componentes para tirar o máximo partido das novas funcionalidades de expostas através das APIs do PowerShell.
 

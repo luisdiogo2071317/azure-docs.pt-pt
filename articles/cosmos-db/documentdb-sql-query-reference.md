@@ -1,6 +1,6 @@
 ---
-title: 'DocumentDB do Azure do Cosmos DB API: Sintaxe SQL | Microsoft Docs'
-description: "Documentação de referência para o idioma de consulta de SQL de API do DocumentDB do Azure Cosmos DB."
+title: "Do Azure Cosmos DB: Referência de consulta de sintaxe SQL | Microsoft Docs"
+description: "Documentação de referência para o idioma de consulta de base de dados SQL do Azure Cosmos."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: mimig
-ms.openlocfilehash: 6fc96dae8c7c6983b1d062c22438344278d478e0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 73d20826f24d233653fcf4a2c16e3d14486d9eb2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>DocumentDB do Azure do Cosmos DB API: Referência de sintaxe SQL
+# <a name="azure-cosmos-db-sql-syntax-reference"></a>Referência de sintaxe Cosmos BD SQL do Azure
 
-A API de DocumentDB do Azure Cosmos DB suporta consulta de documentos através de um familiar SQL (Structured Query Language) como gramática através de documentos JSON hierárquicos sem necessidade de um esquema explícito ou criação de índices secundários. Este tópico fornece documentação de referência para o idioma de consulta de SQL de API do DocumentDB.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Para obter instruções sobre o idioma de consulta de SQL de API do DocumentDB, consulte [as consultas SQL para a API de DocumentDB do Azure Cosmos DB](documentdb-sql-query.md).  
+Azure suporta a BD do Cosmos consultar documentos através de um familiar SQL (Structured Query Language) como gramática através de documentos JSON hierárquicos sem necessidade de um esquema explícito ou criação de índices secundários. Este tópico fornece documentação de referência para o idioma de consulta do SQL Server, que são compatível com as contas de API do SQL Server.
+
+Para obter instruções sobre o idioma de consulta SQL, consulte [as consultas SQL para a base de dados do Azure Cosmos](documentdb-sql-query.md).  
   
 Também Convidamo-lo para visitar o [Query Playground](http://www.documentdb.com/sql/demo) onde pode tentar BD do Cosmos do Azure e executar consultas SQL no nosso conjunto de dados.  
   
@@ -663,7 +665,7 @@ ORDER BY <sort_specification>
   
      **Convenções de sintaxe**  
   
-     A tabela seguinte descreve as convenções de utilizados para descrever a sintaxe de referência de linguagem de consulta do DocumentDB API.  
+     A tabela seguinte descreve as convenções de utilizados para descrever a sintaxe de referência seguinte do SQL Server.  
   
     |**Convenção**|**Utilizado para**|  
     |-|-|    

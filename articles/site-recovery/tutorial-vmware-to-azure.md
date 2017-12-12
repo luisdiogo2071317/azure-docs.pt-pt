@@ -9,22 +9,22 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configure a recuperação de desastre para o Azure para as VMs de VMware no local
 
-Este tutorial mostra como configurar a recuperação após desastre para o Azure para a VM de VMware no local Windows em execução. Neste tutorial, ficará a saber como:
+Este tutorial mostra como configurar a recuperação após desastre para o Azure para as VMs de VMware no local com o Windows. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar um cofre dos serviços de recuperação para a recuperação de sites
-> * Configurar a origem e ambientes de replicação de destino
+> * Especifique a origem de replicação e de destino.
+> * Configure o ambiente de replicação de origem, incluindo os componentes da recuperação de Site no local e o ambiente de replicação de destino.
 > * Criar uma política de replicação
 > * Ativar a replicação para uma VM
 
@@ -35,37 +35,28 @@ Este é o terceiro tutorial uma série. Este tutorial parte do princípio de que
 
 Antes de começar, é útil [rever a arquitetura](concepts-vmware-to-azure-architecture.md) para cenário de recuperação após desastre.
 
-## <a name="configure-vmware-account-permissions"></a>Configurar permissões de conta de VMware
 
-1. Crie uma função ao nível do vCenter. Atribua o nome de função de **Azure_Site_Recovery**.
-2. Atribuir as permissões seguintes para o **Azure_Site_Recovery** função.
+## <a name="select-a-replication-goal"></a>Selecione um objetivo de replicação
 
-   **Tarefa** | **Permissões de função /** | **Detalhes**
-   --- | --- | ---
-   **Deteção VM** | Objeto de centro de dados –> Propagate ao objeto do subordinado função = só de leitura | Pelo menos um utilizador só de leitura.<br/><br/> Utilizador atribuído ao nível do datacenter e tem acesso a todos os objetos no Centro de dados.<br/><br/> Para restringir o acesso, atribua o **sem acesso** função com o **Propagate para subordinado** objeto, para os objetos subordinados (anfitriões vSphere, datastores, VMs e as redes).
-   **Total de replicação, a ativação pós-falha, a reativação pós-falha** |  Objeto de centro de dados –> Propagate ao objeto do subordinado função = Azure_Site_Recovery<br/><br/> Arquivo de dados -> atribuir espaço em, procurar o arquivo de dados, as operações de baixo nível de ficheiro, remova o ficheiro, atualizar ficheiros de máquina virtual<br/><br/> Rede -> atribuição de rede<br/><br/> Recursos -> VM atribuir ao agrupamento de recursos, migrar alimentado desligar a VM, migrar alimentado na VM<br/><br/> Tarefas -> tarefas de criação, a tarefa de atualização<br/><br/> Configuração -> de máquina virtual<br/><br/> Máquina virtual -> interagir -> pergunta de resposta, a ligação de dispositivos, configurar suporte de dados do CD, configurar o suporte de dados de disquetes, desligar, ligar, instalação de ferramentas do VMware<br/><br/> Máquina virtual -> inventário -> criar, registar, anular o registo<br/><br/> Máquina virtual -> aprovisionamento -> Permitir transferências de máquina virtual, permitem carregar ficheiros de máquina virtual<br/><br/> Máquina virtual -> instantâneos -> Remover instantâneos | Utilizador atribuído ao nível do datacenter e tem acesso a todos os objetos no Centro de dados.<br/><br/> Para restringir o acesso, atribua o **sem acesso** função com o **Propagate para subordinado** objeto, para os objetos subordinados (anfitriões vSphere, datastores, VMs e as redes).
-
-3. Crie um utilizador no anfitrião do servidor ou vSphere do vCenter. Atribua a função ao utilizador.
-
-## <a name="specify-what-you-want-to-replicate"></a>Especifique que pretende replicar
-
-O serviço de mobilidade tem de ser instalado em cada VM que pretende replicar. Recuperação de site instala automaticamente este serviço ao ativar a replicação para a VM. Para a instalação automática, terá de preparar uma conta que a recuperação de sites irá utilizar para aceder a VM.
-
-Pode utilizar um domínio ou conta local. Para VMs com Linux, a conta deve ser raiz no servidor de Linux de origem. Para VMs do Windows, se não estiver a utilizar uma conta de domínio, desative o controlo de acesso de utilizador remoto no computador local:
-
-  - No registery, sob **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy** e defina o valor para 1.
+1. No **cofres dos serviços de recuperação**, clique no nome do cofre, **ContosoVMVault**.
+2. No **introdução**, clique em recuperação de sites. Em seguida, clique em **preparar infraestrutura**.
+3. No **objetivo de proteção** > **onde estão as máquinas localizadas**, selecione **no local**.
+4. No * * onde pretende replicar as máquinas, selecione **para o Azure**.
+5. No **são as máquinas virtualizadas**, selecione **Sim, com o VMware vSphere hipervisor**. Em seguida, clique em **OK**.
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
-Configurar o ambiente de origem é composta por transferir a configuração do Site Recovery unificado, configurar o servidor de configuração e registando-a no cofre e detetar VMs.
+Para configurar o ambiente de origem, transfira o ficheiro de configuração do Unified Site Recovery. Execute a configuração para instalar os componentes da recuperação de Site no local, registar os servidores do VMware no cofre e detetar VMs no local.
 
-O servidor de configuração é um único local VM de VMware para alojar todos os componentes do Site Recovery. Esta VM é executado o servidor de configuração, o servidor de processos e o servidor de destino principal.
+### <a name="verify-on-premises-site-recovery-requirements"></a>Certifique-se requisitos de recuperação de sites no local
+
+Precisa de uma VM de VMware único, elevada disponibilidade, no local para componentes de recuperação de sites no local do anfitrião. Componentes incluem o servidor de configuração, o servidor de processos e o servidor de destino principal.
 
 - O servidor de configuração coordena as comunicações entre o local e o Azure, e gere a replicação de dados.
-- O servidor de processos atua como um gateway de replicação. Recebe dados de replicação, otimiza-os com a colocação em cache, compressão e encriptação, e envia-os para o armazenamento do Azure. O servidor de processos também instala o serviço de mobilidade em VMs que pretende replicar, e efetua a descoberta automática de VMs nos servidores do VMware no local.
+- O servidor de processos atua como um gateway de replicação. Recebe dados de replicação, otimiza-os com a colocação em cache, compressão e encriptação, e envia-os para o armazenamento do Azure. O servidor de processos também instala o serviço de mobilidade em VMs que pretende replicar, e efetua a descoberta automática de VMs de VMware no local.
 - O servidor de destino mestre processa dados de replicação durante a reativação pós-falha a partir do Azure.
 
-O servidor de configuração VM deve ser uma VM de VMware altamente disponível que cumpre os seguintes requisitos:
+A VM deve cumprir os seguintes requisitos.
 
 | **Requisito** | **Detalhes** |
 |-----------------|-------------|
@@ -82,30 +73,25 @@ O servidor de configuração VM deve ser uma VM de VMware altamente disponível 
 | Tipo de endereço IP | Estático |
 | Portas | 443 (Canal de controlo e orquestração)<br/>9443 (Transporte de dados)|
 
-O servidor de configuração de VM, certifique-se de que o relógio do sistema está sincronizado com um servidor de tempo.
-Tempo têm de ser sincronizado para em 15 minutos. Se a diferença de tempo é superior a 15 minutos, o programa de configuração falha.
+Além disso: 
+- Certifique-se de que o relógio do sistema na VM está sincronizado com um servidor de tempo. Tempo têm de ser sincronizado para em 15 minutos. Se for superior a configuração falha.
+a configuração falha.
+- Certifique-se de que o servidor de configuração VM pode aceder a estes URLs:
 
-Certifique-se de que o servidor de configuração pode aceder a estes URLs:
-
-   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-    - Quaisquer regras de firewall baseadas no endereço IP devem permitir a comunicação com o Azure.
-
-- Permita os [Intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).
+- Certifique-se de que as regras de firewall baseadas no endereço IP permitem a comunicação com o Azure.
+    - Permitir o [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), a porta 443 (HTTPS) e porta 9443 (replicação de dados).
     - Permita intervalos de endereços IP para a região do Azure da sua subscrição e para EUA oeste (utilizado para gestão de identidade e controlo de acesso).
 
-Quaisquer regras de firewall baseadas no endereço IP devem permitir a comunicação para [intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653)e as portas 443 (HTTPS) e 9443 (replicação de dados). Lembre-se de que permitir intervalos de endereços IP para a região do Azure da sua subscrição e para EUA oeste (utilizado para gestão de identidade e controlo de acesso).
 
-### <a name="download-the-site-recovery-unified-setup"></a>Transferir o Site de recuperação Unified programa de configuração
+### <a name="download-the-site-recovery-unified-setup-file"></a>Transfira o ficheiro de configuração do Unified Site Recovery
 
-1. Abra o [portal do Azure](https://portal.azure.com) e clique em **todos os recursos**.
-2. Clique no cofre do serviço de recuperação com o nome **ContosoVMVault**.
-3. Clique em **recuperação de Site** > **preparar infraestrutura** > **objetivo de proteção**.
-4. Selecione **no local** para onde as máquinas estão localizadas, **para o Azure** para onde pretende replicar as máquinas e **Sim, com o VMware vSphere hipervisor**. Em seguida, clique em **OK**.
-5. No painel de origem de preparação, clique em **+ o servidor de configuração**.
-6. No **Adicionar servidor**, verifique se **servidor de configuração** aparece no **tipo de servidor**.
-7. Transfira o ficheiro de instalação de configuração do Unified Site Recovery.
-8. Transferir a chave de registo do cofre. Isto tem quando executar a configuração do Unified. A chave é válida durante cinco dias depois de gerá-la.
+1. No cofre > **preparar infraestrutura**, clique em **origem**.
+1. No **preparar a origem**, clique em **+ o servidor de configuração**.
+2. No **Adicionar servidor**, verifique se **servidor de configuração** aparece no **tipo de servidor**.
+3. Transfira o ficheiro de instalação de configuração do Unified Site Recovery.
+4. Transferir a chave de registo do cofre. Isto tem quando executar a configuração do Unified. A chave é válida durante cinco dias depois de gerá-la.
 
    ![Configurar a origem](./media/tutorial-vmware-to-azure/source-settings.png)
 
@@ -146,9 +132,11 @@ Quaisquer regras de firewall baseadas no endereço IP devem permitir a comunica�
 
 ### <a name="configure-automatic-discovery"></a>Configurar a deteção automática
 
-Detetar VMs, o servidor de configuração tem de ligar aos servidores do VMware no local. Para efeitos deste tutorial, adicione o servidor vCenter ou anfitriões vSphere, utilizando uma conta que tenha privilégios de administrador no servidor.
+Detetar VMs, o servidor de configuração tem de ligar aos servidores do VMware no local. Para efeitos deste tutorial, adicione o servidor vCenter ou anfitriões vSphere, utilizando uma conta que tenha privilégios de administrador no servidor. Criou nesta conta na [tutorial anterior](tutorial-prepare-on-premises-vmware.md). 
 
-1. No seu servidor de configuração, iniciar **CSPSConfigtool.exe**. Está disponível como um atalho no ambiente de trabalho e encontra-se na pasta *localização de instalação*\home\svsystems\bin.
+Para adicionar a conta:
+
+1. O servidor de configuração de VM, iniciar **CSPSConfigtool.exe**. Está disponível como um atalho no ambiente de trabalho e encontra-se na pasta *localização de instalação*\home\svsystems\bin.
 
 2. Clique em **Gerir Contas** > **Adicionar Conta**.
 
@@ -158,12 +146,12 @@ Detetar VMs, o servidor de configuração tem de ligar aos servidores do VMware 
 
    ![Detalhes](./media/tutorial-vmware-to-azure/credentials2.png)
 
-Para adicionar um servidor:
+Para adicionar o servidor VMware:
 
 1. Abra o [portal do Azure](https://portal.azure.com) e clique em **todos os recursos**.
 2. Clique no cofre do serviço de recuperação com o nome **ContosoVMVault**.
 3. Clique em **recuperação de sites** > **preparar infraestrutura** > **origem**
-4. Selecione **+ vCenter** para ligar ao vCenter server ou vSphere ESXi anfitrião.
+4. Selecione **+ vCenter**, para ligar ao vCenter server ou vSphere ESXi anfitrião.
 5. No **adicionar vCenter**, especifique um nome amigável para o servidor. Em seguida, especifique o endereço IP ou FQDN.
 6. Deixe a porta definida como 443, a menos que os servidores do VMware escutam os pedidos numa porta diferente.
 7. Selecione a conta a utilizar para ligar ao servidor. Clique em **OK**.
