@@ -4,7 +4,7 @@ description: "Compreenda o separador de conectores no Gestor de serviço de sinc
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c0fae4b1755ca95466eeffb5ce61c1c7855d7381
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12c78b1baf1f2117b6c960784c133268fec4b2bb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>A utilização de conectores com o Azure AD Connect sincronização do Service Manager
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 O separador de conectores é utilizado para gerir todos os sistemas que o motor de sincronização está ligado.
 
 ## <a name="connector-actions"></a>Ações de conector
-| Ação | Comentário |
+| Ação | Comentar |
 | --- | --- |
 | Criar |Não utilize. Para ligar a florestas adicionais do AD, utilize o Assistente de instalação. |
 | Propriedades |Utilizado para o domínio e a filtragem de UO. |
@@ -39,7 +39,7 @@ O separador de conectores é utilizado para gerir todos os sistemas que o motor 
 | Conector de exportação |Não utilize. |
 | Importar o conector |Não utilize. |
 | Conector de atualização |Não utilize. |
-| Atualizar o esquema |Atualiza o esquema em cache. É preferencial para utilizar a opção no Assistente de instalação em vez disso, desde que também as atualizações de sincronizar as regras. |
+| Actualizar Esquema |Atualiza o esquema em cache. É preferencial para utilizar a opção no Assistente de instalação em vez disso, desde que também as atualizações de sincronizar as regras. |
 | [Espaço de conector de pesquisa](#search-connector-space) |Utilizado para localizar objetos e [siga um objeto e os respetivos dados através do sistema](#follow-an-object-and-its-data-through-the-system). |
 
 ### <a name="delete"></a>Eliminar

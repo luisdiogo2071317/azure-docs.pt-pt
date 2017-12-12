@@ -4,7 +4,7 @@ description: "Crie aplicações web, utilizando a implementação do Azure AD do
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28616657c5aae4f6ada1ec592a2a6287e8607b6a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v 2.0 e o fluxo de credenciais de cliente OAuth 2.0
 Pode utilizar o [conceder credenciais de cliente OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), por vezes chamado *legged de dois OAuth*, para aceder a recursos alojados em web utilizando a identidade de uma aplicação. Este tipo de conceder normalmente é utilizado para o servidor para servidor interações que devem ser executada em segundo plano, sem interação imediata com um utilizador. Estes tipos de aplicações, muitas vezes, são denominados *daemons* ou *às contas de serviço*.
@@ -52,7 +52,7 @@ Em vez de utilizar as ACLs, pode utilizar os APIs para expor um conjunto de perm
 * Ler correio em todas as caixas de correio
 * Ler e escrever correio em todas as caixas de correio
 * Enviar e-mails como um utilizador qualquer
-* Ler dados de diretório
+* Ler dados do diretório
 
 Para obter mais informações sobre as permissões de aplicação, aceda a [Microsoft Graph](https://graph.microsoft.io).
 

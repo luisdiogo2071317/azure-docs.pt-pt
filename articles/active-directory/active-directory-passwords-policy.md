@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Gestão de palavras-passe do Active Directory, gestão de palavras-passe, do Azure AD Self-repor a palavra-passe do serviço"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ae1e6c34b610aff245e051454269f0b8619b54c7
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: b099abb27fbd2adf78b65123a62048967406d401
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -47,7 +47,7 @@ Com a política de porta de dois, os administradores não têm a capacidade de u
   * Administrador global ou de administrador da empresa
   * Administrador de serviço do SharePoint
   * Administrador de compatibilidade
-  * Administrador de aplicações
+  * Administrador da aplicação
   * Administrador de segurança
   * Administrador com função privilegiada
   * Administrador de serviços do Microsoft Intune

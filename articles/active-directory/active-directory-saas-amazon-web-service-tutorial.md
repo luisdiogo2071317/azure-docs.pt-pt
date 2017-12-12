@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 0fb9c8f428368271b548e3f174726fa01ea910c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1678d44fc7769c2015c3779ce713870af7a40de9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Azure Active Directory com o Amazon Web Services (AWS)
 
@@ -129,7 +129,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributos token SAML, conforme mostrado na imagem acima e execute os seguintes passos:
     
-    | Nome do atributo  | Valor do atributo | Espaço de nomes |
+    | Nome do Atributo  | Valor do Atributo | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | User.userPrincipalName | https://AWS.amazon.com/SAML/Attributes |
     | Função            | User.assignedroles |  https://AWS.amazon.com/SAML/Attributes |

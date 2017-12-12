@@ -15,29 +15,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: ce7cfdfa4695283c588bc5c73791b1c04cd2f772
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 012acd2b53fc9205511530d3cc30803dceef88a0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Bibliotecas de conectividade e estruturas para Microsoft SQL Server
+# <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Bibliotecas de conectividade e estruturas para o SQL Server
 
-Consulte a nossa [obter tutoriais iniciado](http://aka.ms/sqldev) introdução à programação idiomas, como c#, Java, Node.js, PHP e Python e criar uma aplicação utilizando o SQL Server no Linux ou Windows ou Docker no macOS rapidamente.
+Consulte a nossa [obter iniciado tutoriais](http://aka.ms/sqldev) para começar rapidamente com programação idiomas, como c#, Java, Node.js, PHP e Python. Em seguida, crie uma aplicação utilizando o SQL Server no Linux ou Windows ou Docker no macOS.
 
-A tabela abaixo lista as bibliotecas de conetividade ou *controladores* que aplicações cliente podem utilizar a partir de uma variedade de idiomas para ligar a e utilizar o Microsoft SQL Server em execução no local ou na nuvem, no Linux, Windows ou Docker e também a SQL Database do Azure e Azure SQL Data Warehouse. 
+A tabela seguinte apresenta uma lista de bibliotecas de conetividade ou *controladores* que aplicações cliente podem utilizar a partir de uma variedade de idiomas para ligar a e utilizar o SQL Server em execução no local ou na nuvem. Pode utilizá-los no Linux, Windows ou Docker e utilizá-los para estabelecer ligação à SQL Database do Azure e Azure SQL Data Warehouse. 
 
 | Idioma | Plataforma | Recursos adicionais | Transferência | Introdução |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET para o SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Transferência](https://www.microsoft.com/net/download/) | [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Controlador Microsoft JDBC para SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Transferência](https://go.microsoft.com/fwlink/?linkid=852460) |  [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
+| Java | Windows, Linux, macOS | [Controlador Microsoft JDBC para o SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Transferência](https://go.microsoft.com/fwlink/?linkid=852460) |  [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [Controlador do SQL do PHP para SQL Server](http://msdn.microsoft.com/library/dn865013.aspx) | Sistema operativo: <br/> \*[Windows](https://www.microsoft.com/download/details.aspx?id=20098) <br/> \*[Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \*[macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu)
 | Node.js | Windows, Linux, macOS | [Controlador de node.js para o SQL Server](http://msdn.microsoft.com/library/mt652093.aspx) | [Instalar](https://msdn.microsoft.com/library/mt652094.aspx) |  [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, macOS | [Controlador do SQL de Python](http://msdn.microsoft.com/library/mt652092.aspx) | Instale opções: <br/> \*[pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \*[pyodbc](http://msdn.microsoft.com/library/mt763257.aspx) |  [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, macOS | [Ruby controlador para o SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Instalar](https://msdn.microsoft.com/library/mt711041.aspx) | [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
-| C++ | Windows, Linux, macOS | [Microsoft ODBC Driver para SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Transferência](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
+| C++ | Windows, Linux, macOS | [Microsoft ODBC driver para SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Transferência](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
 
-A tabela abaixo lista alguns exemplos de estruturas de mapeamento relacional objeto (ORM) e estruturas web que aplicações cliente podem utilizar com o Microsoft SQL Server em execução no local ou na nuvem, no Linux, Windows ou Docker e também a SQL Database do Azure e Azure SQL Data Warehouse. 
+A tabela seguinte lista os exemplos de estruturas de mapeamento de objetos relacionais (ORM) e estruturas web que aplicações cliente podem utilizar com o SQL Server em execução no local ou na nuvem. Pode utilizar as estruturas no Linux, Windows ou Docker e utilizá-los para ligar à base de dados SQL e do armazém de dados do SQL Server. 
 
 | Idioma | Plataforma | ORM(s) |
 | :-- | :-- | :-- |
@@ -50,7 +50,7 @@ A tabela abaixo lista alguns exemplos de estruturas de mapeamento relacional obj
 ||||
 
 ## <a name="related-links"></a>Ligações relacionadas
-- [SQL Server controladores](http://msdn.microsoft.com/library/mt654049.aspx) para ligar a partir de aplicações de cliente
+- [Controladores de SQL Server](http://msdn.microsoft.com/library/mt654049.aspx) que são utilizadas para ligar a partir de aplicações de cliente
 - Ligar à base de dados do SQL Server:
     - [Ligar à Base de Dados SQL com o .NET (C#)](sql-database-connect-query-dotnet.md)
     - [Ligar à Base de Dados SQL com PHP](sql-database-connect-query-php.md)

@@ -4,7 +4,7 @@ description: "Como remover a atribuição de acesso de um utilizador ou grupo a 
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7b2d365b-ae92-477f-9702-353cc6acc5ea
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 99cbc54b4daa988dbf741275ce92d1c863af6720
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8459f9a890f6f57e8c93da9b1d703449b09ba666
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Remover uma atribuição de utilizador ou grupo a partir de uma aplicação empresarial no Azure Active Directory
 É fácil remover um utilizador ou um grupo de que está a ser atribuído o acesso a uma das suas aplicações da empresa no Azure Active Directory (Azure AD). Tem de ter as permissões adequadas para gerir a aplicação da empresa e tem de ser administrador global do diretório.

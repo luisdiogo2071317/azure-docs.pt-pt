@@ -4,7 +4,7 @@ description: "Este tópico descreve como utilizar ligar quando tiver um inquilin
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a7df154748a4ce8ac592a41f2a3d6b10ac359113
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b3efcdd8c3f7173711c005e0fe4d7080bd902663
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>O Azure AD Connect: Se tiver um inquilino existente
 A maioria dos tópicos para saber como utilizar o Azure AD Connect parte do princípio de que começa com um novo Azure inquilino do AD e de que não existe nenhum utilizador ou outros objetos não existe. Mas se tiver iniciado com um inquilino do Azure AD, preenchido este com utilizadores e outros objetos e agora pretende utilizar Connect, em seguida, este tópico é que o utilizador.

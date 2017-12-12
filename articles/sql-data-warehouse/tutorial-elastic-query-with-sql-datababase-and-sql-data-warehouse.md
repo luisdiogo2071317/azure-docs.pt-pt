@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 11/03/2017
 ms.author: elbutter
-ms.openlocfilehash: a13b81213b7a47cb7209bc914f514fa10aede5c4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-elastic-query-with-sql-data-warehouse"></a>Configurar consulta elástica com o SQL Data Warehouse
 
@@ -39,9 +39,9 @@ Antes de começar o tutorial, tem de ter os seguintes pré-requisitos:
 
 2. Crie um início de sessão e o utilizador que representa a base de dados do SQL Server para a ligação do armazém de dados.
 
-  ```sql
-  CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
-  ```
+   ```sql
+   CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
+   ```
 
 3. Com o SSMS ou de outro cliente de consulta, abra uma nova consulta para o **instância de armazém de dados do SQL Server** no seu servidor lógico.
 
@@ -75,14 +75,14 @@ Antes de começar o tutorial, tem de ter os seguintes pré-requisitos:
 
 9. Crie uma origem de dados externa que aponta para a instância de armazém de dados.
 
-  ```sql
-  CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
-      (TYPE = RDBMS, 
-      LOCATION = '<SERVER NAME>.database.windows.net', 
-      DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
-      CREDENTIAL = SalesDBElasticCredential, 
-  ) ;
-  ```
+   ```sql
+   CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
+       (TYPE = RDBMS, 
+       LOCATION = '<SERVER NAME>.database.windows.net', 
+       DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
+       CREDENTIAL = SalesDBElasticCredential, 
+   ) ;
+   ```
 
 10. Agora, pode criar as tabelas externas que referenciam esta origem de dados externa. Nessas tabelas a utilizar as consultas são enviadas para a instância de armazém de dados a processar e enviadas para a instância de base de dados.
 

@@ -1,4 +1,3 @@
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Adicionar informações de registo da aplicação para a sua aplicação
 
 Neste passo, terá de configurar o URL de redirecionamento das suas informações de registo de aplicação e, em seguida, adicione o Id da aplicação para a aplicação do JavaScript SPA.

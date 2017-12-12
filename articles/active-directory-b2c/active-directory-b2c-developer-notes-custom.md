@@ -4,7 +4,7 @@ description: "Notas para os programadores na configuração e manutenção do Az
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: rojasja
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 4fa4665115e0682df7c3fe3d8e2664a0f7a77a07
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de versão de pré-visualização pública do Azure Active Directory B2C política personalizada
 O conjunto de funcionalidades de política personalizada está agora disponível para avaliação em pré-visualização pública para todas as do Azure Active Directory B2C clientes (Azure AD B2C). Este conjunto de funcionalidades é direcionado para programadores de identidades avançada criar soluções de identidade mais complexas.  

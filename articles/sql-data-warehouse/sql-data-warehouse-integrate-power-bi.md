@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Utilizar o Power BI com o SQL Data Warehouse
 Como com a base de dados SQL do Azure, SQL Server dados armazém direta estabelecer a ligação permite ao utilizador tirar partido do poderoso pushdown lógica juntamente com as capacidades analíticas do Power BI.  Com ligação direta, as consultas são enviadas para o Azure SQL Data Warehouse em tempo real como explorar os dados.  Isto, combinada com a escala do SQL Data Warehouse, permite aos utilizadores criar relatórios dinâmicos em minutos contra terabytes de dados.  Além disso, a introdução do abrir no botão do Power BI permite aos utilizadores ligar diretamente o Power BI ao seu SQL Data Warehouse sem recolher informações a partir de outras partes do Azure.
@@ -39,7 +39,7 @@ Estas restrições e notas podem alterar como continuar a melhorar as experiênc
 ## <a name="using-the-open-in-power-bi-button"></a>Com o botão 'Abrir no Power BI'
 A forma mais fácil para alternar entre o armazém de dados do SQL Server e o Power BI está aberta no botão do Power BI. Este botão permite-lhe perfeitamente começar a criar novos dashboards no Power BI.  
 
-1. Para começar a utilizar navegue até à sua instância do SQL Data Warehouse no Portal clássico do Azure.
+1. Para começar a utilizar navegue até à sua instância do SQL Data Warehouse no portal do Azure.
 2. Clique no botão “Abrir no Power BI”.
 3. Se não estamos a conseguir iniciar sessão diretamente ou se não tiver uma conta do Power BI, terá de início de sessão.  
 4. Será direcionado para a página de ligação do SQL Data Warehouse, com as informações do seu SQL Data Warehouse pré-preenchido.

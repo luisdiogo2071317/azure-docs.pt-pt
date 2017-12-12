@@ -5,7 +5,7 @@ services: active-directory
 keywords: "o que é o Roaming de estado empresarial, a sincronização de enterprise, windows na nuvem"
 documentationcenter: 
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: b3c01f8d332d26e92dc3052681a4b2c95142d440
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1ebf5a9bfc4a1f0f92ff85f9406ecc7d538819
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enterprise-state-roaming-overview"></a>Descrição geral do Roaming de Estado Empresarial
 Com o Windows 10, [Azure Active Directory (Azure AD)](active-directory-whatis.md) os utilizadores obtêm a capacidade de forma segura sincronizar os seus dados de definições de aplicação para a nuvem e de definições do utilizador. Roaming de estado empresarial fornece aos utilizadores uma experiência unificada entre os respetivos dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo. Roaming de estado empresarial funciona semelhante para a norma [sincronização de definições de consumidor](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) que foi introduzida pela primeira vez no Windows 8. Além disso, proporciona Roaming de estado empresarial:

@@ -4,7 +4,7 @@ description: "Resolver problemas relacionados com a razão pela qual um objeto n
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 491a920ceeaac62dd37b1def3f02234056aebfb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 585b49addee7fe8ded2a047939f4b5412ba4163b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Resolver problemas de um objeto que não está a sincronizar com o Azure AD
 
@@ -40,7 +40,7 @@ A metade superior mostra todas as execuções chronic ordem. Por predefinição,
 
 O **estado** coluna são as informações mais importantes e mostra o problema mais grave para execução. Eis um resumo rápido dos Estados mais comuns por ordem de prioridade para investigar (onde * indicar vários cadeias de erro possíveis).
 
-| Estado | Comentário |
+| Estado | Comentar |
 | --- | --- |
 | parado-* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto não está disponível e não pode ser contactado. |
 | parado-erro-limite |Existem mais de 5.000 erros. A executar automaticamente foi parada devido ao elevado número de erros. |

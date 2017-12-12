@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 7a9fa8f3-d611-4ffe-8d50-04e9586b24da
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: ef26a16e79d9c9b0654634960b57dc59827b2c24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fde1d2c5d1a90092ec4528f727dc7af672f80917
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: Integração do Azure Active Directory com LinkedIn navegador de vendas
 
@@ -136,9 +136,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
 9. No **atributos de utilizador** secção, clique em **ver e editar todos os outros atributos de utilizador** e definir os atributos. O utilizador tem de adicionar quatro afirmações com o nome **e-mail**, **departamento**, **firstname**, e **lastname** e o valor deve ser mapeado com **user.mail**, **user.department**, **user.givenname**, e **user.surname** respetivamente
 
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | --- | --- |    
-    | Correio eletrónico| User.Mail |
+    | e-mail| User.Mail |
     | Departamento| User.Department |
     | nome próprio| User.givenName |
     | Apelido| User.Surname |

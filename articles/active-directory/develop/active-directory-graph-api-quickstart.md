@@ -4,7 +4,7 @@ description: "O Active Directory Graph API do Azure fornece acesso programático
 services: active-directory
 documentationcenter: n/a
 author: viv-liu
-manager: mbaldwin
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: viviali
 ms.custom: aaddev
-ms.openlocfilehash: fad5c315a247673b7a2ad52b4a78b49c567a997a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2dc65598dd9a73e24a2f961027554bb10b961397
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Início rápido para o Azure AD Graph API
 A Graph API do Azure Active Directory (AD) fornece acesso programático para o Azure AD através de pontos finais da API de REST de OData. As aplicações podem utilizar a Graph API para efetuar a criar, ler, atualizar e eliminar operações (CRUD) em dados de diretório e objetos. Por exemplo, pode utilizar a Graph API para criar um novo utilizador, ver ou atualizar propriedades do utilizador, altere a palavra-passe do utilizador, selecione a associação a grupos de acesso baseado em funções, desative ou elimine o utilizador. Para obter mais informações sobre as funcionalidades de Graph API e cenários de aplicações, consulte [AD Graph API do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e [pré-requisitos do Azure AD Graph API](https://msdn.microsoft.com/library/hh974476.aspx). 

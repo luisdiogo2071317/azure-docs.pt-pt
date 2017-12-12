@@ -4,7 +4,7 @@ description: "Como desativar uma aplicação empresarial para que nenhum utiliza
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: a27562f9-18dc-42e8-9fee-5419566f8fd7
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 4f587eb96aaa41ba2034eb9eaeb904f72c501abe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d31aa3b1399bab2b1dcfdb2eb6ece393610c769f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Desativar o utilizador inícios de sessão para uma aplicação empresarial no Azure Active Directory
 É fácil desativar uma aplicação empresarial para que nenhum utilizador pode iniciar sessão no-lo no Azure Active Directory (Azure AD). Tem de ter as permissões adequadas para gerir a aplicação da empresa e tem de ser administrador global do diretório.

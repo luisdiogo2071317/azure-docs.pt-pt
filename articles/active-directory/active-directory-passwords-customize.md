@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e8cf0ce8ed154a7e42b885e605dcdf37827a6447
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 36fc674ffcb8167a918f928d8821707d81198423
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade do Azure AD para a reposição de palavra-passe self-service
 
@@ -112,7 +112,7 @@ Pode alterar o atributo de nome de diretório em **do Azure Active Directory** >
 * [Como posso concluir uma implementação com êxito da SSPR?](active-directory-passwords-best-practices.md)
 * [Repor ou alterar a palavra-passe](active-directory-passwords-update-your-own-password.md)
 * [Registar-se na reposição personalizada de palavra-passe](active-directory-passwords-reset-register.md)
-* [Tem uma pergunta licenciamento?](active-directory-passwords-licensing.md)
+* [Tem alguma pergunta sobre licenciamento?](active-directory-passwords-licensing.md)
 * [Que dados são utilizados pela SSPR e que dados devem ser preenchidos por si para os seus utilizadores?](active-directory-passwords-data.md)
 * [Que métodos de autenticação estão disponíveis para os utilizadores?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [Quais são as opções de política da SSPR?](active-directory-passwords-policy.md)

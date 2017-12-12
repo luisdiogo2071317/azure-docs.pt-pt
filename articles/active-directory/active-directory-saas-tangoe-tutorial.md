@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 2b0b544c-9c2c-49cd-862b-ec2ee9330126
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 595541e7248a7486e58123927389c552af0e50f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 930150c07d84f886796208d7e745bdaec78966f5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Tutorial: Integração do Azure Active Directory com Tangoe comando Premium Mobile
 
@@ -101,7 +101,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
  
-    ![Baseados em SAML início de sessão](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_samlbase.png)
+    ![Inicio de sessão baseado em SAML](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_samlbase.png)
 
 3. No **Tangoe comando Premium Mobile domínio e os URLs** secção, execute os seguintes passos:
 

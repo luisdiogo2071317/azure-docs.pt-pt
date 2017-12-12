@@ -4,7 +4,7 @@ description: Os tipos de tokens emitidos no Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: parakhj
-ms.openlocfilehash: 92087e4553580a5fe14e647d014e493bc7e47b67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce82fcc82cf411d1596fea56ff368d96eceeff38
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Do Azure AD B2C: Referência de Token
 
@@ -74,7 +74,7 @@ Tenha em atenção que as afirmações no ID não são devolvidas por qualquer o
 | Nome | Afirmação | Valor de exemplo | Descrição |
 | --- | --- | --- | --- |
 | Audiência |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Uma afirmação de audiência identifica o destinatário do token. Para o Azure AD B2C, o público-alvo é o ID da aplicação da sua aplicação, consoante atribuído à sua aplicação no portal de registo de aplicação. A aplicação deve validar este valor e rejeitar o token, se não corresponde. |
-| emissor |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Esta afirmação identifica o serviço de token de segurança (STS) que constrói e devolve o token. Também identifica o diretório do Azure AD em que o utilizador foi autenticado. A aplicação deve validar a afirmação de emissor para se certificar de que o token provém de ponto final v 2.0 do Azure Active Directory. |
+| Emissor |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Esta afirmação identifica o serviço de token de segurança (STS) que constrói e devolve o token. Também identifica o diretório do Azure AD em que o utilizador foi autenticado. A aplicação deve validar a afirmação de emissor para se certificar de que o token provém de ponto final v 2.0 do Azure Active Directory. |
 | emitido no |`iat` |`1438535543` |Esta afirmação é o tempo no qual o token foi emitido, representado na hora de época. |
 | hora de expiração |`exp` |`1438539443` |Hora de expiração da afirmação é a hora em que o token passa a ser inválido, representado na hora de época. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
 | não antes |`nbf` |`1438535543` |Esta afirmação é a hora em que o token passa a ser representado na hora de época, válido. Isto é normalmente o mesmo que o tempo que o token foi emitido. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |

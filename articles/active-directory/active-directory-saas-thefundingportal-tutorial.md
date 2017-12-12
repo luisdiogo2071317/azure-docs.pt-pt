@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 4663cc8a-976a-4c6c-b3b4-1e5df9b66744
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: d0bfc793bb26c551f85706eaec857962a3415e1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5413aece242b27cb09454cab649b7c35a24e60c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Tutorial: Integração do Azure Active Directory com o Portal financiar
 
@@ -123,7 +123,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 5. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributo token SAML, conforme mostrado na imagem e efetuar os seguintes passos:
 
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ------------------- | ---------------- |
     | externalId1 | User.extensionattribute1 |
 

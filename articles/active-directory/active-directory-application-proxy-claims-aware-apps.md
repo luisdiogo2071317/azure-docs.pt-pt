@@ -4,7 +4,7 @@ description: "Como publicar as aplicações de ASP.NET que aceitam afirmações 
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 editor: harshja
 ms.assetid: 91e6211b-fe6a-42c6-bdb3-1fff0312db15
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: kgremban
-ms.openlocfilehash: 5784222608b01509fc4ff84b1a8792cbcfea89e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4546f194e570282d331dde98cab98dd2f0981b72
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalhar com aplicações com suporte para afirmações no Proxy de aplicações
 [Aplicações com suporte para afirmações](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) efetuar um redirecionamento para serviço de Token segurança (STS). O STS os pedidos de credenciais do utilizador in exchange for um token e, em seguida, redireciona o utilizador para a aplicação. Existem algumas formas de ativar o Proxy da aplicação trabalhar com estes redirecionamentos. Utilize este artigo para configurar a sua implementação para aplicações com suporte para afirmações. 

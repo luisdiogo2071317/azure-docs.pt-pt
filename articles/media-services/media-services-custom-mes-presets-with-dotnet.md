@@ -12,27 +12,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b4d25f07349043da8cb745930fde3371c98f9960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Predefinições personalizar codificador de multimédia Standard
 
 ## <a name="overview"></a>Descrição geral
 
-Este tópico mostra como realizar avançadas encoding com Media codificador padrão (MES) com uma predefinição personalizada. O tópico utiliza o .NET para criar uma tarefa de codificação e uma tarefa que executa esta tarefa.  
+Este artigo mostra como realizar avançadas encoding com Media codificador padrão (MES) com uma predefinição personalizada. O artigo utiliza o .NET para criar uma tarefa de codificação e uma tarefa que executa esta tarefa.  
 
-Este tópico, verá como personalizar uma predefinição, efetuando a [H264 múltipla 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) predefinido e reduzir o número de camadas. O [predefinições personalizar codificador de multimédia Standard](media-services-advanced-encoding-with-mes.md) tópico demonstra predefinições personalizadas que podem ser utilizadas para efetuar tarefas de codificação avançadas.
+Este artigo mostra como personalizar uma predefinição, efetuando a [H264 múltipla 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) predefinido e reduzir o número de camadas. O [predefinições personalizar codificador de multimédia Standard](media-services-advanced-encoding-with-mes.md) artigo demonstra predefinições personalizadas que podem ser utilizadas para efetuar tarefas de codificação avançadas.
 
 ## <a id="customizing_presets"></a>Personalizar uma predefinição MES
 
 ### <a name="original-preset"></a>Predefinição original
 
-Guardar o JSON definido no [H264 múltipla 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) tópico alguns ficheiros com extensão. JSON. Por exemplo, **CustomPreset_JSON.json**.
+Guardar o JSON definido no [H264 múltipla 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) artigo no algum ficheiro com extensão. JSON. Por exemplo, **CustomPreset_JSON.json**.
 
 ### <a name="customized-preset"></a>Predefinição personalizada
 
@@ -122,7 +122,7 @@ Exemplo de código seguinte utiliza o SDK .NET dos Media Services para realizar 
 
 - Adicione uma tarefa de codificação à tarefa. 
 - Especifique o elemento de entrada para ser codificado.
-- Crie um elemento de saída que irá conter o elemento codificado.
+- Crie um elemento de saída que contém o elemento codificado.
 - Adicione um processador de eventos para verificar o progresso da tarefa.
 - Submeta a tarefa.
    
@@ -132,22 +132,27 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 #### <a name="example"></a>Exemplo   
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace CustomizeMESPresests
+namespace CustomizeMESPresests
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
@@ -160,7 +165,11 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -213,26 +222,26 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -242,13 +251,14 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
 
-        }
     }
+}
+```
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

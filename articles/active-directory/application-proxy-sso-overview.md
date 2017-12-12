@@ -4,7 +4,7 @@ description: "Saiba mais sobre as noções básicas do início de sessão com o 
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1deb3d91049d45fe26791783e13bd23e0a7d9f95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3f2ed6f019760fd4109c6fc3d8449d95c4959a9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Como Proxy de aplicações do Azure AD fornece o início de sessão único?
 
@@ -38,13 +38,13 @@ Para ver as opções de início de sessão único, siga estes passos:
 
 O menu pendente mostra as opções de cinco para início de sessão à sua aplicação:
 
-* Azure AD-início de sessão único desativada
+* Início de sessão único do Azure AD desativado
 * Baseado em palavra-passe de início de sessão
 * O início de sessão ligado
-* Autenticação integrada do Windows
+* Autenticação Integrada do Windows
 * Com base no cabeçalho de início de sessão
 
-## <a name="azure-ad-single-sign-on-disabled"></a>Azure AD-início de sessão único desativada
+## <a name="azure-ad-single-sign-on-disabled"></a>Início de sessão único do Azure AD desativado
 
 Se não quiser utilizar a integração do Azure Active Directory para início de sessão à sua aplicação, escolha **do Azure AD-início de sessão único desativada**. Com esta opção selecionada, os utilizadores podem autenticar-se duas vezes. Em primeiro lugar, autenticar-se ao Azure Active Directory e, em seguida, iniciar sessão para a própria aplicação. 
 
@@ -62,7 +62,7 @@ Se já tiver uma único início de sessão solução estar configurada para as i
 
 Para obter informações sobre ligado início de sessão (formally conhecido como existente-início de sessão único), consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-## <a name="integrated-windows-authentication"></a>Autenticação integrada do Windows
+## <a name="integrated-windows-authentication"></a>Autenticação Integrada do Windows
 
 Se as suas aplicações no local utilizar Authentication(IWA) integrada do Windows ou se quiser utilizar a delegação restrita de Kerberos (KCD) para início de sessão, escolha **autenticação integrada do Windows**. Com esta opção, os utilizadores só precisam para autenticar para o Azure Active Directory e, em seguida, o conector do Proxy de aplicações representa o utilizador tem de obter um token de Kerberos e iniciar sessão para a aplicação. 
 

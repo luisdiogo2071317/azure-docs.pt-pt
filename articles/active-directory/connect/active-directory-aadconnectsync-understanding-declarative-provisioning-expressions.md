@@ -4,7 +4,7 @@ description: "Explica as expressões de aprovisionamento declarativas."
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e3a03a97b10e04fb85261620879b2102e1db8465
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83fe949468a67318c766f0070498c35300af4deb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: Noções sobre expressões de aprovisionamento declarativo
 Sincronização do Azure AD Connect baseia-se aprovisionamento declarativo introduzida pela primeira vez no Forefront Identity Manager 2010. Permite-lhe implementar a lógica de negócio de integração de identidade concluída sem a necessidade de escrever código compilado.
@@ -50,7 +50,7 @@ Um parâmetro está definido por um conector ou por um administrador através do
 
 O conector do Active Directory fornecidos os seguintes parâmetros para regras de sincronização de entrada:
 
-| Nome do Parâmetro | Comentário |
+| Nome do Parâmetro | Comentar |
 | --- | --- |
 | Domain.Netbios |Formato de NetBIOS do domínio a ser importado, por exemplo FABRIKAMSALES |
 | Domain.FQDN |Formato FQDN do domínio a ser importado, por exemplo sales.fabrikam.com |

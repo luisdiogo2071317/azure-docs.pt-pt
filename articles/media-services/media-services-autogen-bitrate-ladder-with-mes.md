@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: b5616aa9f8b15ab576d914fbae89a56f64c27f4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ffced8e11f05d214995f9fc8506dd7c6c7deaa5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Utilizar o Azure codificador de multimédia Standard para gerar automaticamente um ladder de velocidade de transmissão
 
 ## <a name="overview"></a>Descrição geral
 
-Este tópico mostra como utilizar suportes de dados codificador padrão (MES) para gerar automaticamente um ladder de velocidade de transmissão (pares de resolução de velocidade de transmissão) com base na entrada de resolução e velocidade de transmissão. A predefinição de geração automática nunca irá exceder a entrada de resolução e velocidade de transmissão. Por exemplo, se a entrada é 720p em 3 Mbps, será de saída permanecem 720p, melhor e iniciará às taxas de inferiores a 3 Mbps.
+Este artigo mostra como utilizar suportes de dados codificador padrão (MES) para gerar automaticamente um ladder de velocidade de transmissão (pares de resolução de velocidade de transmissão) com base na entrada de resolução e velocidade de transmissão. A predefinição de geração automática nunca irá exceder a entrada de resolução e velocidade de transmissão. Por exemplo, se a entrada é 720p 3 Mbps, saída permanece 720p, melhor e iniciará às taxas de inferiores a 3 Mbps.
 
 ### <a name="encoding-for-streaming-only"></a>Codificação de transmissão em fluxo só
 
-Se a sua intenção for codificar o seu vídeo de origem apenas para transmissão em fluxo, shoud utilize o "transmissão em fluxo adaptável" quando criar uma tarefa de codificação da configuração predefinida. Ao utilizar o **transmissão em fluxo adaptável** da configuração predefinida, o codificador MES será inteligentemente cap ladder uma velocidade de transmissão. No entanto, não será possível controlar a codificação de custos, uma vez que o serviço determina quantas camadas para utilizar e em que resolução. Pode ver os exemplos de camadas de saída produzidas pela MES como resultado de codificação com a **transmissão em fluxo adaptável** predefinido no final deste tópico. Não são interleaved a saída Asset irá conter ficheiros MP4 onde áudio e vídeo.
+Se a sua intenção for codificar o seu vídeo de origem apenas para transmissão em fluxo, em seguida, deve utilizar o "transmissão em fluxo adaptável" quando criar uma tarefa de codificação da configuração predefinida. Ao utilizar o **transmissão em fluxo adaptável** da configuração predefinida, o codificador MES será inteligentemente cap ladder uma velocidade de transmissão. No entanto, não será possível controlar a codificação de custos, uma vez que o serviço determina quantas camadas para utilizar e em que resolução. Pode ver os exemplos de camadas de saída produzidas pela MES como resultado de codificação com a **transmissão em fluxo adaptável** predefinido no final deste artigo. Não é interleaved a saída do que recurso contém ficheiros MP4 onde áudio e vídeo.
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>Codificação de transmissão em fluxo e transferência progressiva
 
-Se a sua intenção for para codificar o seu vídeo de origem para transmissão em fluxo, bem como para produzir ficheiros MP4 para transferência progressiva, shoud utilize o "conteúdo adaptável vários velocidade de transmissão MP4" quando criar uma tarefa de codificação da configuração predefinida. Ao utilizar o **conteúdo MP4 de velocidade de transmissão adaptável vários** da configuração predefinida, o codificador MES será aplicada a mesma lógica de codificação, conforme apresentado acima, mas agora o elemento de saída conterá os ficheiros MP4 onde áudio e vídeo são interleaved. Pode utilizar um destes ficheiros MP4 (por exemplo, a versão de velocidade de transmissão mais recente) como um ficheiro de transferência progressiva.
+Se a sua intenção for para codificar o seu vídeo de origem para transmissão em fluxo, bem como para produzir ficheiros MP4 para transferência progressiva, deve utilizar o "conteúdo adaptável vários velocidade de transmissão MP4" quando criar uma tarefa de codificação da configuração predefinida. Ao utilizar o **conteúdo MP4 de velocidade de transmissão adaptável vários** da configuração predefinida, o codificador MES aplica-se a mesma lógica de codificação, conforme apresentado acima, mas agora o elemento de saída irá conter ficheiros MP4 onde áudio e vídeo está interleaved. Pode utilizar um destes ficheiros MP4 (por exemplo, a versão de velocidade de transmissão mais recente) como um ficheiro de transferência progressiva.
 
 ## <a id="encoding_with_dotnet"></a>Encoding com Media Services .NET SDK
 
@@ -41,7 +40,7 @@ Exemplo de código seguinte utiliza o SDK .NET dos Media Services para realizar 
 - Crie uma tarefa de codificação.
 - Obter uma referência ao codificador codificador de multimédia Standard.
 - Adicionar uma tarefa de codificação para a tarefa e especifique a utilização de **transmissão em fluxo adaptável** predefinidas. 
-- Crie um elemento de saída que irá conter o elemento codificado.
+- Crie um elemento de saída que contém o elemento codificado.
 - Adicione um processador de eventos para verificar o progresso da tarefa.
 - Submeta a tarefa.
 
@@ -51,28 +50,37 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 #### <a name="example"></a>Exemplo
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace AdaptiveStreamingMESPresest
+namespace AdaptiveStreamingMESPresest
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -122,26 +130,26 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
         private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -150,12 +158,13 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
-        }
     }
+}
+```
 
 ## <a id="output"></a>Saída
 

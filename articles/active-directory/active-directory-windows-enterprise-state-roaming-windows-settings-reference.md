@@ -5,7 +5,7 @@ services: active-directory
 keywords: roaming de estado empresarial, na nuvem do windows
 documentationcenter: 
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência das definições de roaming do Windows 10
 Segue-se uma lista completa de todas as definições que serão movidos ou uma cópia de segurança no Windows 10. 
@@ -27,7 +27,7 @@ Segue-se uma lista completa de todas as definições que serão movidos ou uma c
 ## <a name="devices-and-endpoints"></a>Dispositivos e os pontos finais
 Consulte a tabela seguinte para obter um resumo dos dispositivos e tipos de conta que são suportados por uma cópia de segurança, a sincronização e restaurar framework no Windows 10.
 
-| Tipo de conta e a operação | Ambiente de trabalho | Telemóvel |
+| Tipo de conta e a operação | Ambiente de Trabalho | Telemóvel |
 | --- | --- | --- |
 | Azure Active Directory: sincronização |Sim |Não |
 | Azure Active Directory: cópia de segurança/restauro |Não |Não |
@@ -59,7 +59,7 @@ A tabela seguinte, outras entradas na coluna grupo de definições de refere-se 
 Internas entradas na coluna grupo de definições de fazer referência a definições e aplicações que só podem ser desativadas da aplicação em si ou através da desativação de sincronização para o dispositivo completo utilizando a gestão de dispositivos móveis (MDM) ou definições de política de grupo.
 As definições que não sejam acedidas remotamente ou sincronização não irão pertencer a um grupo.
 
-| Definições | Ambiente de trabalho | Telemóvel | Grupo |
+| Definições | Ambiente de Trabalho | Telemóvel | Grupo |
 | --- | --- | --- | --- |
 | **Contas**: imagem de conta |Sincronização |X |Tema |
 | **Contas**: outras definições de conta |X |X | |

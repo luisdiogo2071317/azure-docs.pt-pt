@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 4d77390e-898c-4258-a562-a1181dfe2880
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 0d3f17b86caaf781ab8825b047853f2949828e9e
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: ade4076917988c5747a0d10a99578b49c917e1db
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Tutorial: Integração do Azure Active Directory com o Gestor de risco IMPAC
 
@@ -113,9 +113,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
     | Ambiente | Padrão de URL |
     | ---------------|--------------- |    
-    | Para produção |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
+    | Para Produção |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | Para teste e formação  |`https://staging.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
-    | Para o desenvolvimento  |`https://dev.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
+    | Para Desenvolvimento  |`https://dev.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | Para a pergunta e resposta |`https://QA.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | Para teste |`https://test.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
 
@@ -126,9 +126,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:
     | Ambiente | Padrão de URL |
     | ---------------|--------------- |    
-    | Para produção |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
+    | Para Produção |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | Para teste e formação  |`https://staging.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
-    | Para o desenvolvimento  |`https://dev.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
+    | Para Desenvolvimento  |`https://dev.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | Para a pergunta e resposta |`https://QA.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | Para teste |`https://test.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
 

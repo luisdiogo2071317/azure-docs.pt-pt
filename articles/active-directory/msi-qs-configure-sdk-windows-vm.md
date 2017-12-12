@@ -4,7 +4,7 @@ description: "Passo por instruções passo para configurar e utilizar uma identi
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
 ms.author: bryanla
-ms.openlocfilehash: 25bbe7bbfbc32441cd3dbbb1e213fdce556b410b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d5fb9decd1417a51c85f23d6b178c8a86cf292bd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>Configurar uma VM geridos serviço de identidade (MSI) utilizando um SDK do Azure
 
@@ -35,7 +35,7 @@ Neste artigo, irá aprender a ativar e remover MSI para uma VM do Azure, utiliza
 
 Azure suporta várias plataformas de programação através de uma série de [Azure SDKs](https://azure.microsoft.com/downloads). Muitos dos mesmos foram atualizados para suportar o MSI e fornecem exemplos correspondentes para demonstrar a utilização. Esta lista é atualizada como obter suporte adicional for adicionado:
 
-| SDK | Exemplo |
+| SDK | Sample |
 | --- | ------ | 
 | .NET   | [Gerir recursos a partir de uma VM MSI-ativado](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
 | Java   | [Gerir o armazenamento a partir de uma VM MSI-ativado](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|

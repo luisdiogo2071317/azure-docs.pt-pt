@@ -4,7 +4,7 @@ description: "Depois de instalar a extensão NPS, utilize estes passos de config
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 98c29b4124b31868ef118c39941cf9c3829e2b26
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 23e72fdb2ed063f416e65d34727ca9babc143a26
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançadas para a extensão NPS para o multi-factor Authentication
 
@@ -35,9 +35,9 @@ Para configurar os IDs de início de sessão alternativo, aceda a `HKLM\SOFTWARE
 
 | Nome | Tipo | Valor predefinido | Descrição |
 | ---- | ---- | ------------- | ----------- |
-| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | Cadeia | vazio | Designe o nome de atributo do Active Directory que pretende utilizar em vez do UPN. Este atributo é utilizado como o atributo AlternateLoginId. Se este valor de registo está definido como um [atributo do Active Directory válido](https://msdn.microsoft.com/library/ms675090.aspx) (por exemplo, correio ou displayName), em seguida, valor o atributo é utilizado em vez de UPN do utilizador para autenticação. Se este valor de registo está vazio ou não configurado, em seguida, AlternateLoginId está desativada e UPN do utilizador é utilizado para autenticação. |
+| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Vazio | Designe o nome de atributo do Active Directory que pretende utilizar em vez do UPN. Este atributo é utilizado como o atributo AlternateLoginId. Se este valor de registo está definido como um [atributo do Active Directory válido](https://msdn.microsoft.com/library/ms675090.aspx) (por exemplo, correio ou displayName), em seguida, valor o atributo é utilizado em vez de UPN do utilizador para autenticação. Se este valor de registo está vazio ou não configurado, em seguida, AlternateLoginId está desativada e UPN do utilizador é utilizado para autenticação. |
 | LDAP_FORCE_GLOBAL_CATALOG | Valor booleano | Falso | Utilize este sinalizador para forçar a utilização de Catálogo Global para pesquisas LDAP ao procurar o AlternateLoginId. Configurar um controlador de domínio como um Catálogo Global, adicione o atributo de AlternateLoginId para o Catálogo Global e, em seguida, ative este sinalizador. <br><br> Se LDAP_LOOKUP_FORESTS estiver configurada (não vazia), **este sinalizador é imposta como verdadeiro**, independentemente do valor da definição de registo. Neste caso, a extensão NPS requer o Catálogo Global estar configurado com o atributo AlternateLoginId para cada floresta. |
-| LDAP_LOOKUP_FORESTS | Cadeia | vazio | Forneça uma lista de ponto e vírgula separada de florestas para procurar. Por exemplo, *contoso.com;foobar.com*. Se este valor de registo estiver configurada, a extensão NPS procura iteratively todas as florestas pela ordem que foram apresentados e devolve o primeiro valor AlternateLoginId com êxito. Se este valor de registo não estiver configurado, está limitada a pesquisa de AlternateLoginId para o domínio atual.|
+| LDAP_LOOKUP_FORESTS | string | Vazio | Forneça uma lista de ponto e vírgula separada de florestas para procurar. Por exemplo, *contoso.com;foobar.com*. Se este valor de registo estiver configurada, a extensão NPS procura iteratively todas as florestas pela ordem que foram apresentados e devolve o primeiro valor AlternateLoginId com êxito. Se este valor de registo não estiver configurado, está limitada a pesquisa de AlternateLoginId para o domínio atual.|
 
 Para resolver problemas relacionados com os IDs de início de sessão alternativo, utilize os passos recomendados para [alternativa erros de ID de início de sessão](multi-factor-authentication-nps-errors.md#alternate-login-id-errors).
 
@@ -49,7 +49,7 @@ Para configurar uma lista branca de IP, aceda a `HKLM\SOFTWARE\Microsoft\AzureMf
 
 | Nome | Tipo | Valor predefinido | Descrição |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | Cadeia | vazio | Forneça uma lista de ponto e vírgula separada de endereços IP. Inclua os endereços IP de máquinas onde os pedidos de serviço têm origem, como o servidor NAS/VPN. Os intervalos IP são sub-redes não são suportadas. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | string | Vazio | Forneça uma lista de ponto e vírgula separada de endereços IP. Inclua os endereços IP de máquinas onde os pedidos de serviço têm origem, como o servidor NAS/VPN. Os intervalos IP são sub-redes não são suportadas. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
 Quando um pedido é apresentada de um endereço IP que existe na lista branca, a verificação é ignorada. A lista branca de IP é comparado com o endereço IP que é fornecido no *ratNASIPAddress* atributos do pedido RADIUS. Se um pedido RADIUS é apresentada sem o atributo ratNASIPAddress, é registado o seguinte aviso: "Está a ser ignorada lista branca de P_WHITE_LIST_WARNING::IP como IP de origem está em falta no pedido RADIUS no atributo NasIpAddress."
 

@@ -4,7 +4,7 @@ description: "Este artigo descreve o protocolo de SAML Sign-Out único no Azure 
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: 45e4705f53d80b5fe852c484b5e64d18a8e24f09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77bf15d69a4c7749567f53df96c91a1d329a466
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML fim de sessão único
 Perfil de início de sessão único de browser web do Azure suporta do Active Directory (Azure AD) SAML 2.0. Para único fim de sessão funcione corretamente, o **LogoutURL** para a aplicação tem de ser explicitamente registada com o Azure AD durante o registo de aplicação. AD do Azure utiliza o LogoutURL para redirecionar os utilizadores depois de terminada.
@@ -45,7 +45,7 @@ O `LogoutRequest` elemento enviado para o Azure AD requer os seguintes atributos
 * `Version`: Definir o valor deste elemento para **2.0**. Este valor é preciso.
 * `IssueInstant`: Este é um `DateTime` cadeia com um valor de hora Universal Coordenada (UTC) e [formato reportadas round-trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD espera um valor deste tipo, mas não impõe.
 
-### <a name="issuer"></a>emissor
+### <a name="issuer"></a>Emissor
 O `Issuer` elemento um `LogoutRequest` deve corresponder exatamente um do **ServicePrincipalNames** no serviço em nuvem no Azure AD. Normalmente, isto estiver definido como o **URI de ID de aplicação** que é especificado durante o registo de aplicação.
 
 ### <a name="nameid"></a>NameID
@@ -66,7 +66,7 @@ Azure AD envia um `LogoutResponse` em resposta a um `LogoutRequest` elemento. O 
 ### <a name="logoutresponse"></a>LogoutResponse
 Conjuntos do Azure AD a `ID`, `Version` e `IssueInstant` valores no `LogoutResponse` elemento. Define também o `InResponseTo` elemento para que o valor da `ID` atributo do `LogoutRequest` elicited que a resposta.
 
-### <a name="issuer"></a>emissor
+### <a name="issuer"></a>Emissor
 Azure AD define este valor como `https://login.microsoftonline.com/<TenantIdGUID>/` onde <TenantIdGUID> é o ID de inquilino do inquilino do Azure AD.
 
 Para avaliar o valor da `Issuer` elemento, utilize o valor do **URI de ID de aplicação** fornecido durante o registo de aplicação.

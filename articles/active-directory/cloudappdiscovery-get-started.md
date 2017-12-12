@@ -5,7 +5,7 @@ services: active-directory
 keywords: "o cloud app discovery, gestão de aplicações"
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 tags: ignite
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: a3593611c7a2467de1c1639f8b5c6b0eb6f1ecbf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configurar a Cloud App Discovery no Azure AD
 
@@ -106,7 +106,7 @@ Se o início de sessão não é suportado, selecione **outros** como o **origem 
 
 ## <a name="data-attributes-according-to-vendor-documentation"></a>Atributos de dados (em conformidade com a documentação do fornecedor)
 
-| Origem de dados         | URL da aplicação de destino | Endereço de IP de aplicações visado | Nome de utilizador | Origem do endereço IP | Total de tráfego | Bytes carregados |
+| Origem de dados         | URL da aplicação de destino | Endereço de IP de aplicações visado | Nome de utilizador | Origem do endereço IP | Tráfego total | Bytes carregados |
 |-----------------------------------------|----------------|---------------|----------|-----------|---------------|----------------|
 | Barracuda                               | **Sim**        | **Sim**       | **Sim**  | **Sim**   | Não            | Não             |
 | Blue Coat                               | **Sim**        | Não            | **Sim**  | **Sim**   | **Sim**       | **Sim**        |

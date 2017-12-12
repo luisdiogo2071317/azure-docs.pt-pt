@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9815e01dffb0342979f17974527b559de8146fed
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utilização do Azure Webhooks para monitorizar as notificações de tarefa de Media Services com .NET
-Quando executar tarefas, muitas vezes, necessitam de uma forma de controlar o progresso da tarefa. Pode monitorizar as notificações de tarefa de Media Services utilizando o Azure Webhooks ou [armazenamento de filas do Azure](media-services-dotnet-check-job-progress-with-queues.md). Este tópico mostra como trabalhar com webhooks.
+Quando executar tarefas, muitas vezes, necessitam de uma forma de controlar o progresso da tarefa. Pode monitorizar as notificações de tarefa de Media Services utilizando o Azure Webhooks ou [armazenamento de filas do Azure](media-services-dotnet-check-job-progress-with-queues.md). Este artigo mostra como trabalhar com webhooks.
 
-Este tópico mostra como
+Este artigo mostra como
 
 *  Defina uma função do Azure personalizado para responder a webhooks. 
     
@@ -33,9 +33,9 @@ Este tópico mostra como
     >Antes de continuar, certifique-se de que compreende como [enlaces HTTP de funções do Azure e webhook](../azure-functions/functions-bindings-http-webhook.md) funcione.
     >
     
-* Adicionar um webhook para a tarefa de codificação e especifique o URL do webhook e a chave secreta que webhook responde a. Irá encontrar um exemplo que adiciona um webhook para a tarefa de codificação no final do tópico.  
+* Adicionar um webhook para a tarefa de codificação e especifique o URL do webhook e a chave secreta que webhook responde a. Irá encontrar um exemplo que adiciona um webhook para a tarefa de codificação no final do artigo.  
 
-Pode encontrar as definições de vários suportes de dados dos serviços de .NET das funções do Azure (incluindo o mostrado neste tópico) [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Pode encontrar as definições de vários suportes de dados dos serviços de .NET das funções do Azure (incluindo o mostrado neste artigo) [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +54,7 @@ O seguinte é necessário para concluir o tutorial:
 
 Quando desenvolver as funções de Media Services, é útil para adicionar as variáveis de ambiente que serão utilizadas em toda as suas funções. Para configurar as definições de aplicação, clique na hiperligação de configurar as definições de aplicação. 
 
-O [definições da aplicação](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) secção define os parâmetros que são utilizados no webhook definido neste tópico. Adicione também os parâmetros seguintes para as definições da aplicação. 
+O [definições da aplicação](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) secção define os parâmetros que são utilizados no webhook definido neste artigo. Adicione também os parâmetros seguintes para as definições da aplicação. 
 
 |Nome|Definição|Exemplo| 
 |---|---|---|
@@ -72,7 +72,7 @@ Assim que a sua aplicação de função é implementada, pode encontrá-lo entre
 
 ### <a name="files"></a>Ficheiros
 
-A função do Azure está associada com ficheiros de código e outros ficheiros que são descritos nesta secção. Por predefinição, está associada uma função **function.json** e **run.csx** ficheiros (c#). Terá de adicionar um **project.json** ficheiro. O resto desta secção mostra as definições para estes ficheiros.
+A função do Azure está associada com ficheiros de código e outros ficheiros que são descritos nesta secção. Por predefinição, está associada uma função **function.json** e **run.csx** ficheiros (c#). Tem de adicionar um **project.json** ficheiro. O resto desta secção mostra as definições para estes ficheiros.
 
 ![Ficheiros](./media/media-services-azure-functions/media-services-azure-functions003.png)
 

@@ -4,7 +4,7 @@ description: "Modelo do e-mail de convite de colaboração do Azure Active Direc
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 458a2cab13b7e83f120e0926a95d454070181dfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Os elementos do e-mail de convite de colaboração B2B
 
@@ -36,7 +36,7 @@ O assunto do e-mail segue o padrão seguinte: está convidado para o &lt;tenantn
 ### <a name="from-address"></a>Endereço de
 Podemos utilizar um padrão como o LinkedIn para o endereço.  Deve ser claro que seja o inviter e endereço de e-mail da empresa e também esclarecer que o e-mail é proveniente de um Microsoft. O formato é: &lt;nome a apresentar do inviter&gt; de &lt;tenantname&gt; (através do Microsoft) <invites@microsoft.com&gt;
 
-### <a name="reply-to"></a>Responda a
+### <a name="reply-to"></a>Responder A
 O e-mail de resposta é definido ao e-mail a inviter se estiver disponível, para que a resposta para o e-mail envia um e-mail para o inviter.
 
 ### <a name="branding"></a>Imagem corporativa

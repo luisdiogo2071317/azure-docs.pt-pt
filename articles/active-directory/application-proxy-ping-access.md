@@ -4,7 +4,7 @@ description: "Publica aplicações com PingAccess e o Proxy de aplicação para 
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f6e6bb39164f9b3dea206ebcf850ee98e2506dcf
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 7c2e56a5f747aa2a37fc4bed0e3f3877b64f2be2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada no cabeçalho para início de sessão com o Proxy de aplicações e PingAccess
 
@@ -106,7 +106,7 @@ Siga estes passos para publicar a aplicação. Para um mais detalhadas instruç�
 
 16. Selecione **Adicionar**. Para a API, escolha **Windows Azure Active Directory**, em seguida, **selecione**. Para conhecer as permissões, escolha **leitura e escrita todas as aplicações** e **iniciar sessão e ler o perfil de utilizador**, em seguida, **selecione** e **feito**.  
 
-  ![Selecione as permissões](./media/application-proxy-ping-access/select-permissions.png)
+  ![Selecionar permissões](./media/application-proxy-ping-access/select-permissions.png)
 
 17. Conceder permissões antes de fechar o ecrã de permissões. 
 ![Conceder permissões](media/application-proxy-ping-access/grantperms.png)
@@ -127,7 +127,7 @@ Siga estes passos para publicar a aplicação. Para um mais detalhadas instruç�
 
   Guarde agora, este valor como não conseguir vê-lo novamente depois de fechar esta janela.
 
-  ![Criar uma nova chave](./media/application-proxy-ping-access/create-keys.png)
+  ![Criar uma chave nova](./media/application-proxy-ping-access/create-keys.png)
 
 6. Feche o painel de registos de aplicação ou desloque-se até à esquerda para regressar ao menu do Azure Active Directory.
 7. Selecione **propriedades**.

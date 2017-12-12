@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: c199073f-02ce-45c2-b515-8285d4bbbca2
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: ad2c3999ac8bfc8dfe0fc662ee37b41fff38444f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 892055728ccc35690b19edf708997e9f104f75b8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutorial: Integração do Azure Active Directory nuvem criativos Adobe
 
@@ -131,7 +131,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 7. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributos token SAML, conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ---------------| ----------------|
     | Nome próprio |User.givenName |
     | Apelido |User.Surname |

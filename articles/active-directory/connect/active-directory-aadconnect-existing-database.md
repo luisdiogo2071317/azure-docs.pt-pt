@@ -4,7 +4,7 @@ description: "Este tópico descreve como utilizar uma base de dados ADSync exist
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.reviewer: cychua
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d65e12350e6302b0f95091f48f71cdc7d4610e2c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect, utilizando uma base de dados ADSync
 O Azure AD Connect requer uma base de dados do SQL Server para armazenar dados. Pode utilizar o predefinido do que SQL Server 2012 Express LocalDB instalado com o Azure AD Connect ou utilizar a sua própria versão completa do SQL Server. Anteriormente, quando tiver instalado o Azure AD Connect, uma nova base de dados com o nome ADSync sempre foi criado. Com o Azure AD Connect versão 1.1.613.0 (ou após), tem a opção para instalar o Azure AD Connect-lo a apontar para uma base de dados ADSync existente.

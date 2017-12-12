@@ -4,7 +4,7 @@ description: "Um tópico demonstrar como configurar o self-service reposição p
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: curtand
 ms.assetid: c87ed86e-1520-42b1-8c31-46cd44ed5310
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: beaf7dc6260db7509b2202c7801bcc0d2dd2c69e
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 27bc191c66b195692e324d1a10ab276b561ef129
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>O Azure Active Directory B2C: Configurar o self-service reposição palavra-passe para os consumidores
 Com a funcionalidade de reposição de palavra-passe self-service, os consumidores (que tenham efetuado a inscrição para contas locais) podem repor as palavras-passe por si próprios. Esta opção reduz significativamente a carga sobre a sua equipa de suporte, especialmente se a sua aplicação tiver milhões de consumidores utilizá-lo regularmente. Atualmente, é apenas suportado utilizando um endereço de correio eletrónico verificado como um método de recuperação. Iremos adicionar métodos de recuperação adicionais (número de telefone verificado, perguntas de segurança, etc.) no futuro.

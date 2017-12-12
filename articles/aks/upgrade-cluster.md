@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 40b55309ee4c52743b30682d8751e6e432f9bb4a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 92c4850f623aea331e9834b5c8da66a7de34107f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Atualizar um cluster do Azure Container Service (AKS)
 
@@ -35,7 +35,7 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-Existem três versões disponíveis para atualização: 1.7.9, 1.8.1 e 1.8.2. Podemos utilizar o comando `az aks upgrade` para atualizar para a versão mais recente disponível.  Durante o processo de atualização, os nós são cuidadosamente [isolados e drenados](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) para minimizar a interrupção das aplicações em execução.  Antes de iniciar uma atualização dos clusters, certifique-se de que tem capacidade de computação adicional suficiente para processar a carga de trabalho à medida que são adicionados e removidos nós de cluster.
+Existem três versões disponíveis para atualização: 1.7.9, 1.8.1 e 1.8.2. Podemos utilizar o comando `az aks upgrade` para atualizar para a versão mais recente disponível.  Durante o processo de atualização, nós são cuidadosamente [cordoned e drained] [ kubernetes-drain] para minimizar perturbações para as aplicações em execução.  Antes de iniciar uma atualização dos clusters, certifique-se de que tem capacidade de computação adicional suficiente para processar a carga de trabalho à medida que são adicionados e removidos nós de cluster.
 
 ```azurecli-interactive
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
@@ -116,4 +116,10 @@ myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded        
 Saiba mais sobre como implementar e gerir AKS com os tutoriais de AKS.
 
 > [!div class="nextstepaction"]
-> [Tutorial de AKS](./tutorial-kubernetes-prepare-app.md)
+> [Tutorial AKS][aks-tutorial-prepare-app]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

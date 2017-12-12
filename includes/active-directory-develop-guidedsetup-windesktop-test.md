@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testar o seu código
 
 Para testar a aplicação no Visual Studio, prima **F5** para executar o projeto. O **MainWindow** para a aplicação é apresentada:

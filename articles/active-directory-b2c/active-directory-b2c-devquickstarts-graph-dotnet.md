@@ -4,7 +4,7 @@ description: "Como chamar Graph API para um inquilino do B2C ao utilizar uma ide
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: 127159084fc99866881a93b16fd2b7faebeb3588
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d7d809570012b292877813c7350e55edf509183b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>O Azure AD B2C: Utilizar o Azure AD Graph API
 

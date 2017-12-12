@@ -4,7 +4,7 @@ description: "Conceitos de gestão e how-tos para gerir um nome de domínio no A
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 64c1be4358305a736ac1dd8a1b7194c80100d256
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gerir nomes de domínio personalizados no Azure Active Directory
 Um nome de domínio é uma parte importante do identificador de vários recursos de diretório: faz parte de um utilizador nome ou endereço de e-mail para um utilizador, parte do endereço de um grupo e podem fazer parte da aplicação do ID de URI para uma aplicação. Um recurso no Azure Active Directory (Azure AD) pode incluir um nome de domínio que já é verificado como pertencentes ao diretório que contém o recurso. Apenas um administrador global pode efetuar tarefas de gestão do domínio no Azure AD.
@@ -66,5 +66,5 @@ Também pode ser concluída a maioria das tarefas de gestão para nomes de domí
 * [Graph API a utilizar para gerir nomes de domínio no Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Adicionar nomes de domínio personalizado](add-custom-domain.md)
+* [Adicionar nomes de domínio personalizados](add-custom-domain.md)
 

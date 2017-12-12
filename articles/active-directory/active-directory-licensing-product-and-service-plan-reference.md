@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Azure Active Directory planos de serviço de licenciamento"
 documentationcenter: 
 author: piotrci
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/26/2017
 ms.author: piotrci
-ms.openlocfilehash: b2c540c69a95f0912a71c25ddc70061fa8043aa4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 421c7472442c0f01a99ac2ae8c49417b26724573
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomes de produtos e os identificadores de plano de serviço para licenciamento
 
@@ -33,7 +33,7 @@ Gestão de licenças por [portal do Azure](https://portal.azure.com/#blade/Micro
 >[!NOTE]
 >Esta informação é atualizada 11 de Outubro de 2017.
 
-| Nome do produto | ID de cadeia | GUID | Planos de serviço incluídos |
+| Nome do Produto | ID de cadeia | GUID | Planos de serviço incluídos |
 | --- | --- | --- |--- |
 | BASIC DO AZURE ACTIVE DIRECTORY  | AAD_BASIC | 2b9c8e7c-319c-43A2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe)
 | AZURE ACTIVE DIRECTORY PREMIUM P1 | AAD_PREMIUM   | 078d2b04-f1bd-4111-bbd4-b4b1b354cef4  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0)

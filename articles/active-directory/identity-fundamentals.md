@@ -3,7 +3,7 @@ title: "Noções básicas sobre a gestão de identidades do Azure | Microsoft Do
 description: "Identidades baseado na nuvem estão agora a melhor forma de manter o controlo sobre e visibilidade, como e quando os utilizadores aceder a aplicações e dados empresariais."
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewr: jsnow
 ms.author: jeffgilb
 ms.date: 07/05/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 52f05ee8a5c07fc008da40aef12d1ad8e8136429
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b77fc9e6c9dbb5fde2e2f0d153f348bb553b9f79
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Noções básicas sobre a gestão de identidades do Azure
 Como mais recursos digitais da empresa em direto fora da rede empresarial na nuvem e em dispositivos, uma excelente baseado na nuvem identidades e acessos solução de gestão está a tornar-se uma necessidade. Identidades baseado na nuvem estão agora a melhor forma de manter o controlo sobre e visibilidade, como e quando os utilizadores aceder a aplicações e dados empresariais.

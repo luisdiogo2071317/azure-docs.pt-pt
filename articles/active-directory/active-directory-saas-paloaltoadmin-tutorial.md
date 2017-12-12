@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: a826eaec-15af-4c85-8855-8a3374d1efb9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e73739588f1422e1e5b724784eedd6f25d71bf9
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integração do Azure Active Directory com redes da Palo Alto - Admin IU
 
@@ -121,7 +121,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
 5. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributos token SAML, conforme mostrado na imagem acima e execute os seguintes passos: tenha em atenção que os valores de atributo são apenas de exemplo mapa os valores adequados para o nome de utilizador e adminrole. Não há outro atributo opcional "accessdomain", que é utilizado para restringir o acesso de administrador para sistemas virtuais específicos na firewall.
         
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | --- | --- |    
     | o nome de utilizador | User.userPrincipalName |
     | adminrole | customadmin |

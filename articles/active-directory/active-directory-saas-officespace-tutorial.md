@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 95d8413f-db98-4e2c-8097-9142ef1af823
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 43d2ecfe851d8f6c43cd4ce7fc4bd872818f4137
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7b456fe08db7c4e4cc71c635e405a20c24516cf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Tutorial: Integração do Azure Active Directory com OfficeSpace Software
 
@@ -121,9 +121,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 5. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, selecione **user.mail** como **identificador de utilizador** e para cada linha mostrada na tabela abaixo, execute os seguintes passos:
     
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | --- | --- |    
-    | Correio eletrónico | User.Mail |
+    | e-mail | User.Mail |
     | nome | User.DisplayName |
     | first_name | User.givenName |
     | last_name | User.Surname |

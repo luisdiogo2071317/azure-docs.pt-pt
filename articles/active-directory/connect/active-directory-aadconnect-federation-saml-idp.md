@@ -3,7 +3,7 @@ title: "Azure AD Connect: Utilizar um fornecedor de identidade 2.0 para início 
 description: "Este tópico descreve a utilizar um Idp compatível de SAML 2.0 para início de sessão único no."
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 ms.custom: it-pro
 ms.service: active-directory
 ms.workload: identity
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 048697f87383662506fb851bb3ea510c2cddf043
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utilize um fornecedor de identidade 2.0 (IdP) para início de sessão único na
 
@@ -78,7 +78,7 @@ Esta tabela mostra os requisitos de atributos específicos na mensagem de SAML 2
 | ----- | ----- |
 |NameID|O valor desta asserção tem de ser o mesmo que ImmutableID o utilizador do Azure AD. Pode ser até 64 carateres alfa numérico. Tem de estar codificados caracteres HTML não seguros, por exemplo um caráter "+" é apresentado como ".2B".|
 |IDPEmail|O nome Principal de utilizador (UPN) está listado na resposta SAML como um elemento com o nome IDPEmail este é UserPrincipalName (UPN o utilizador) no Azure AD/Office 365. O UPN está no formato de endereço de correio eletrónico. Valor UPN no Windows Office 365 (Azure Active Directory).|
-|emissor|Isto é necessário ser um URI de fornecedor de identidade. Não deve reutilizar o emissor de mensagens de exemplo. Se tiver vários domínios de nível superior na sua inquilinos do Azure AD o emissor tem de corresponder a definição de URI especificada configurada por domínio.|
+|Emissor|Isto é necessário ser um URI de fornecedor de identidade. Não deve reutilizar o emissor de mensagens de exemplo. Se tiver vários domínios de nível superior na sua inquilinos do Azure AD o emissor tem de corresponder a definição de URI especificada configurada por domínio.|
 
 >[!IMPORTANT]
 >Azure AD atualmente suporta o seguinte formato de URI do NameID para SAML 2.0:urn:oasis:names:tc:SAML:2.0:nameid-formato: persistente.

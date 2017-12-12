@@ -4,7 +4,7 @@ description: Obter um guia abrangente para recursos orientadas para programadore
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 4f6806cde52ce965a8f78a5cce8a24c3d1248594
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 51adb13e15312130841c065f5678209508457559
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de imagem corporativa para aplicações
 Este tópico descreve as diretrizes de imagem corporativa que deve utilizar quando desenvolver aplicações com o Azure Active Directory (Azure AD). Estas diretrizes irão ajudá-lo a direcionar os seus clientes quando se pretendem utilizar a respetiva conta escolar ou profissional, gerida no Azure AD, ou os respetivos pessoal de contas para inscrição e o início de sessão à sua aplicação.

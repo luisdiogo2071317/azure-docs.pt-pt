@@ -4,7 +4,7 @@ description: "Saiba como gerir o aprovisionamento da conta de utilizador para ap
 services: active-directory
 documentationcenter: 
 author: asmalser
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 44476bbf0e878e347d176077e08706d1afd44479
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerir a conta de utilizador de aprovisionamento de aplicações da empresa no portal do Azure
 Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir o aprovisionamento da conta de utilizador automáticas e anular o aprovisionamento de aplicações que suportem-lo, particularmente as que foram adicionados a categoria do "emdestaque"[ Galeria de aplicações do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Para saber mais sobre o aprovisionamento da conta de utilizador automáticas e como funciona, consulte [automatizar utilizador aprovisionamento e desaprovisionamento para aplicações de SaaS no Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -44,12 +44,12 @@ O **aprovisionamento** painel começa com um **modo** menu, que mostra os modos 
 ## <a name="configuring-automatic-user-account-provisioning"></a>Configurar o aprovisionamento da conta de utilizador automáticas
 Selecionar o **automática** opção apresenta um ecrã que é dividido em quatro secções:
 
-### <a name="admin-credentials"></a>Credenciais de administrador
+### <a name="admin-credentials"></a>Credenciais de Administrador
 Este é onde as credenciais necessárias para o Azure AD ligar a gestão de utilizadores da aplicação API são introduzidos. A entrada necessária varia dependendo da aplicação. Para saber mais sobre os tipos de credenciais e os requisitos para aplicações específicas, consulte o [tutorial de configuração para essa aplicação específica](active-directory-saas-app-provisioning.md).
 
 Selecionar o **Testar ligação** botão permite-lhe testar as credenciais, fazendo com que o Azure AD tentar estabelecer ligação com a aplicação do aprovisionamento de aplicação utilizando as credenciais fornecidas.
 
-### <a name="mappings"></a>Mapeamentos de
+### <a name="mappings"></a>Mapeamentos
 Este é onde os administradores podem ver e editar o fluxo de atributos de utilizador entre o Azure AD e a aplicação de destino, quando as contas de utilizador são aprovisionadas ou atualizadas.
 
 Não há um conjunto de mapeamentos entre objetos de utilizador do Azure AD e objetos de utilizador de cada aplicação SaaS pré-configurada. Algumas aplicações, gerir outros tipos de objetos, tais como grupos ou contactos. Selecionar uma destes mapeamentos na tabela mostra o editor de mapeamento para a direita, onde podem ser visualizadas e personalizados.
@@ -71,7 +71,7 @@ Alterar o **estado de aprovisionamento** para **desativar** simplesmente interro
 
 Selecionar o **limpar o estado atual e reiniciar a sincronização** caixa de verificação e guardar para o serviço de aprovisionamento, capturas os dados em cache sobre as contas do Azure AD está a gerir, reinicia os serviços e efetua inicial sincronização de novo. Esta opção permite aos administradores para iniciar o processo de implementação aprovisionamento através de novo.
 
-### <a name="synchronization-details"></a>Detalhes de sincronização
+### <a name="synchronization-details"></a>Detalhes da Sincronização
 Esta secção fornece detalhes adicionais sobre o funcionamento do serviço do aprovisionamento, incluindo as primeira e últimas vezes que o serviço de aprovisionamento executou a aplicação e objetos de grupo e utilizador quantas estão a ser geridos.
 
 São fornecidas hiperligações para a **relatório de atividade de aprovisionamento**, que fornece um registo de todos os utilizadores e grupos criados, removido entre e atualizado do Azure AD e a aplicação de destino e o **derelatóriodeerrosdeaprovisionamento** que fornece mais mensagens de erro para o utilizador e objetos de grupo que falharam ao ser lidas, criado, atualizado ou removido. 

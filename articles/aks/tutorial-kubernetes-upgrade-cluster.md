@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: aa457c97292fc9f97d3bc4769ca45d55dd5829a6
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5fd9a1890c1940cdd4e79cc32e0b3984edd043e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Atualizar Kubernetes no serviço de contentor do Azure (AKS)
 
-Um cluster do serviço de contentor do Azure (AKS) possa ser atualizado utilizando a CLI do Azure. Durante o processo de atualização, Kubernetes nós são cuidadosamente [cordoned e drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) para minimizar perturbações para as aplicações em execução.
+Um cluster do serviço de contentor do Azure (AKS) possa ser atualizado utilizando a CLI do Azure. Durante o processo de atualização, Kubernetes nós são cuidadosamente [cordoned e drained] [ kubernetes-drain] para minimizar perturbações para as aplicações em execução.
 
 Neste tutorial, parte oito de oito, um cluster de Kubernetes é atualizado. As tarefas que concluir incluem:
 
@@ -30,12 +30,12 @@ Neste tutorial, parte oito de oito, um cluster de Kubernetes é atualizado. As t
 
 Tutoriais anteriores, uma aplicação foi compactada uma imagem de contentor, esta imagem carregada para o registo de contentor do Azure e um cluster de Kubernetes criada. A aplicação, em seguida, foi executada no Kubernetes cluster.
 
-Se não o fez estes passos e gostaria de acompanhar, voltar para o [Tutorial 1 – criar imagens de contentor](./tutorial-kubernetes-prepare-app.md).
+Se não o fez estes passos e gostaria de acompanhar, voltar para o [Tutorial 1 – criar imagens de contentor][aks-tutorial-prepare-app].
 
 
 ## <a name="get-cluster-versions"></a>Obter versões de cluster
 
-Antes de atualizar um cluster, utilize o `az aks get-versions` comando para verificar qual Kubernetes versões estão disponíveis para atualização.
+Antes de atualizar um cluster, utilize o comando `az aks get-versions` para verificar que versões do Kubernetes estão disponíveis para atualização.
 
 ```azurecli-interactive
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
@@ -115,7 +115,7 @@ Saída:
 
 ## <a name="validate-upgrade"></a>Validar a atualização
 
-Agora pode confirmar a atualização foi concluída com êxito com o `az aks show` comando.
+Agora, pode confirmar se a atualização foi concluída com êxito com o comando `az aks show`.
 
 ```azurecli-interactive
 az aks show --name myK8sCluster --resource-group myResourceGroup --output table
@@ -141,4 +141,11 @@ Neste tutorial, atualizado Kubernetes num AKS cluster. As tarefas seguintes fora
 Siga esta ligação para obter mais informações sobre AKS.
 
 > [!div class="nextstepaction"]
-> [Descrição geral AKS](./intro-kubernetes.md)
+> [Descrição geral AKS][aks-intro]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-intro]: ./intro-kubernetes.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

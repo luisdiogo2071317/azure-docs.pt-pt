@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 6ea45c40bc428282faf24b4a08f8b0d345adb3fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteger uma base de dados no armazém de dados do SQL Server
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Existem formas de limitar ainda mais o que um utilizador pode fazer com a Base d
 * [Funções de base de dados] [ Database roles] diferentes db_datareader e db_datawriter podem ser utilizados para criar contas de utilizador de aplicação mais potentes ou menos poderosas contas de gestão. As funções de base de dados fixa incorporadas fornecem uma forma fácil para conceder permissões, mas podem resultar em conceder mais permissões que são necessários.
 * [Procedimentos armazenados] [ Stored procedures] pode ser utilizado para limitar as ações que podem ser executadas na base de dados.
 
-A gestão de bases de dados e servidores lógicos no Portal Clássico do Azure ou com a API do Azure Resource Manager é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este tópico, consulte [controlo de acesso baseado em funções no Portal do Azure][Role-based access control in Azure Portal].
+Gerir bases de dados e servidores lógicas do portal do Azure ou utilizar a API do Azure Resource Manager é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este tópico, consulte [controlo de acesso baseado em funções no Portal do Azure][Role-based access control in Azure Portal].
 
 ## <a name="encryption"></a>Encriptação
 Do Azure SQL Data Warehouse transparente dados encriptação (TDE) ajuda a proteger contra a ameaça de atividade maliciosa efetuando em tempo real encriptação e desencriptação de dados inativos.  Ao encriptar a base de dados, sem necessidade de alterações às suas aplicações encriptados de cópias de segurança associadas e ficheiros de registo de transações. TDE encripta o armazenamento de uma base de dados completa através de uma chave simétrica chamada a chave de encriptação da base de dados. Base de dados SQL a chave de encriptação da base de dados está protegida por um certificado de servidor incorporada. O certificado de servidor incorporada é exclusivo para cada servidor de base de dados SQL. Microsoft roda automaticamente estes certificados, pelo menos, todos os 90 dias. O algoritmo de encriptação utilizado pelo SQL Data Warehouse é AES 256. Para obter uma descrição geral de TDE, consulte [encriptação transparente de dados][Transparent Data Encryption].

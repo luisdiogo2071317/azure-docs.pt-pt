@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: a5c1822b7304c0360da866ddb504483f5a53432f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f5d6bb066f9cee0d072ddb3129867cefefe3e66f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Utilizar a Extensão VM do Docker com o portal clássico do Azure
+# <a name="using-the-docker-vm-extension-with-the-azure-portal"></a>Utilizando a extensão de VM de Docker com o portal do Azure
 > [!IMPORTANT] 
 > O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../resource-manager-deployment-model.md). Este artigo abrange utilizando o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]

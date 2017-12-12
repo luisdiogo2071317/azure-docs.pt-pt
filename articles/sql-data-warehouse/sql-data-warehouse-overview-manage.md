@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Gerir bases de dados no Azure SQL Data Warehouse
 O SQL Data Warehouse automatiza vários aspetos da gestão de bases de dados. Por exemplo, para aumentar o desempenho apenas terá de ajustar e paga para o nível adequado de recursos de computação e, em seguida, permita que o SQL Data Warehouse fazer todo o trabalho de ampliar e dimensionamento novamente.
@@ -47,7 +47,7 @@ Para começar a utilizar com o portal do Azure, consulte o artigo [criar um SQL 
 ### <a name="sql-server-data-tools-in-visual-studio"></a>Ferramentas de dados do SQL Server no Visual Studio
 [SQL Server Data Tools] [ SQL Server Data Tools] (SSDT) no Visual Studio permite-lhe ligar, gerir e desenvolver as bases de dados. Se tiver um programador de aplicações familiarizado com o Visual Studio ou outros ambientes de desenvolvimento integrado (IDEs), experimente utilizar SSDT no Visual Studio.
 
-SSDT inclui o SQL Server Object Explorer, que permite-lhe visualizar, ligar e executar scripts em bases de dados do armazém de dados do SQL Server. Para ligar-se rapidamente ao SQL Data Warehouse, pode simplesmente clicar o **abrir no Visual Studio** botão no comando barra quando visualizar a base de dados os detalhes no Portal clássico do Azure.  
+SSDT inclui o SQL Server Object Explorer, que permite-lhe visualizar, ligar e executar scripts em bases de dados do armazém de dados do SQL Server. Para ligar-se rapidamente ao SQL Data Warehouse, pode simplesmente clicar o **abrir no Visual Studio** botão no comando barra quando visualizar a base de dados os detalhes no portal do Azure.  
 
 Para começar a utilizar com SSDT no Visual Studio, consulte o artigo [consultar o Azure SQL Data Warehouse com o Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 

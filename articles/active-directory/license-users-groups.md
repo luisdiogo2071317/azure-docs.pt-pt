@@ -4,7 +4,7 @@ description: Saiba mais sobre como licenciar si e aos utilizadores no Azure Acti
 services: active-directory
 documentationcenter: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeffgilb
 custom: it-pro
-ms.openlocfilehash: c4509cdb003687083d0456c1957b19cf35ee056a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc210b83a9eeb947a15b60548e43096bd9e11c45
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Início rápido: Licenciar utilizadores no Azure Active Directory
 Baseada no licenciamento do Azure AD serviços trabalho por ativar uma subscrição do Azure Active Directory (Azure AD) no seu inquilino do Azure. Depois da subscrição está ativa, capacidades de serviço são geridas por administradores do Azure AD e utilizadas pelos utilizadores licenciados. Ao adquirir o Enterprise Mobility + de segurança, Azure AD Premium ou Basic do Azure AD, o inquilino é atualizado com a subscrição, incluindo o respetivo período de validade e licenças pré-pago. Informações da sua subscrição, incluindo o número de licenças atribuídas ou disponíveis, estão disponíveis através do portal do Azure em **do Azure Active Directory** abrindo o **licenças** mosaico. O **licenças** painel também é o melhor local para gerir a suas atribuições de licenças.

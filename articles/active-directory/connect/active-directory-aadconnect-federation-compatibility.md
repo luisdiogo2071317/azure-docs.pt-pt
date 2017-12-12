@@ -4,7 +4,7 @@ description: "Esta página tem de fornecedores de identidade de terceiros que po
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 22c8693e-8915-446d-b383-27e9587988ec
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: billmath
-ms.openlocfilehash: ed1e9276425b2c8577275e7ec6b57f54e5f7ae92
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 86c247b6a9d197e89040109ac6b8686e3310dbf5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Lista de compatibilidades de federação do Azure AD
 Azure Active Directory fornece o início de sessão único em e modulação de segurança de acesso de aplicação para Office 365 e outros serviços Online da Microsoft para implementações de apenas na nuvem e de híbrida sem necessidade de qualquer solução de terceiros. Office 365, como a maioria dos Serviços Online da Microsoft, está integrado com o Azure Active Directory para serviços de diretório, autenticação e autorização. Azure Active Directory também fornece início de sessão único a milhares de aplicações SaaS e no local as aplicações web. Consulte Galeria de aplicações do Azure Active Directory para aplicações SaaS suportadas.
@@ -255,7 +255,7 @@ Segue-se a matriz de suporte de cenário para esta experiência de início de se
 | Cliente | Suporte | Exceções |
 | --- | --- | --- |
 | Clientes baseados na Web, tais como o acesso Web do Exchange e ao SharePoint Online |Suportado |Autenticação integrada do Windows requer a configuração do servidor web adicional e aplicação de Okta. |
-| Aplicações de clientes avançados, tais como o Lync, a subscrição do Office, CRM |Suportado |Autenticação integrada do Windows |
+| Aplicações de clientes avançados, tais como o Lync, a subscrição do Office, CRM |Suportado |Autenticação Integrada do Windows |
 | Clientes de e-mail Avançada, tais como o Outlook e ActiveSync |Suportado |Nenhuma |
 
 Para mais informações sobre Okta, consulte [Okta](https://www.okta.com/).
@@ -266,8 +266,8 @@ Segue-se a matriz de suporte de cenário para esta experiência de início de se
 
 | Cliente | Suporte | Exceções |
 | --- | --- | --- |
-| Clientes baseados na Web, tais como o acesso Web do Exchange e ao SharePoint Online |Suportado |Autenticação integrada do Windows |
-| Aplicações de clientes avançados, tais como o Lync, a subscrição do Office, CRM |Suportado |Autenticação integrada do Windows |
+| Clientes baseados na Web, tais como o acesso Web do Exchange e ao SharePoint Online |Suportado |Autenticação Integrada do Windows |
+| Aplicações de clientes avançados, tais como o Lync, a subscrição do Office, CRM |Suportado |Autenticação Integrada do Windows |
 | Clientes de e-mail Avançada, tais como o Outlook e ActiveSync |Suportado |Nenhuma |
 
 Para mais informações sobre OneLogin, consulte [OneLogin](https://www.onelogin.com/).
@@ -279,7 +279,7 @@ Segue-se o cenário de suportar a matriz esta experiência de início de sessão
 | Cliente | Suporte | Exceções |
 | --- | --- | --- |
 | Clientes baseados na Web, tais como o acesso Web do Exchange e ao SharePoint Online |Suportado |Nenhuma |
-| Aplicações de clientes avançados, tais como o Lync, a subscrição do Office, CRM |Suportado |Autenticação integrada do Windows |
+| Aplicações de clientes avançados, tais como o Lync, a subscrição do Office, CRM |Suportado |Autenticação Integrada do Windows |
 | Clientes de e-mail Avançada, tais como o Outlook e ActiveSync |Suportado |
 
 Para obter mais informações sobre o acesso de cliente políticas Consulte [limitar o acesso ao Office 365 serviços com base na localização do cliente](https://technet.microsoft.com/library/hh526961.aspx).
@@ -311,7 +311,7 @@ Segue-se a matriz de suporte de cenário para esta experiência de início de se
 | Cliente | Suporte | Exceções |
 | --- | --- | --- |
 | Clientes baseados na Web, tais como o acesso Web do Exchange e ao SharePoint Online |Suportado |Nenhuma |
-| Aplicações de clientes avançados, tais como o Lync, a subscrição do Office, CRM |Suportado |Autenticação integrada do Windows |
+| Aplicações de clientes avançados, tais como o Lync, a subscrição do Office, CRM |Suportado |Autenticação Integrada do Windows |
 | Clientes de e-mail Avançada, tais como o Outlook e ActiveSync |Suportado |Nenhuma |
 
 Para obter mais informações sobre RadiantOne CFS, consulte [RadiantOne CFS](http://www.radiantlogic.com/products/radiantone-cfs/).

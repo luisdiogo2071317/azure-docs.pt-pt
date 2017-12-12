@@ -4,7 +4,7 @@ description: "Propriedades do utilizador convidado são configuráveis na colabo
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
 ms.author: sasubram
-ms.openlocfilehash: ba782270f3280e52235bc13148d232284b55762a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 315cc3bcab1909b385b98138c971b2c7d405da2b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e relatórios de um utilizador de colaboração B2B
 Com os utilizadores convidados, tem capacidades semelhantes de auditoria com utilizadores de membro. Eis um exemplo do convite e resgate o histórico de invitee Sam Oogle:
 
-![Registo de auditoria](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
+![registo de Auditoria](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
 
 Pode começar em cada um destes eventos para obter os detalhes. Por exemplo, vamos ver os detalhes de aceitação.
 

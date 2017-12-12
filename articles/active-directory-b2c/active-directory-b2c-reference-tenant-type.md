@@ -4,7 +4,7 @@ description: "Um tópico sobre os tipos de inquilinos do Azure Active Directory 
 services: active-directory-b2c
 documentationcenter: 
 author: gsacavdm
-manager: krassk
+manager: mtillman
 editor: bryanla
 ms.assetid: 8a0644da-b825-4edc-8ce9-541c3c976afb
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: gsacavdm
-ms.openlocfilehash: facd66f0324e382ea7609a035de8129ba433846f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 752a98ca7f3c77c434de296461790f2cf37e2d5c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Do Azure Active Directory B2C: Residency de disponibilidade & dados da região
 Disponibilidade de região e residency de dados são dois conceitos muito diferentes que aplicam de forma diferente para o Azure AD B2C do resto do Azure. Este artigo irá explicam as diferenças entre estes dois conceitos e comparar como se aplicam ao Azure versus do Azure AD B2C.
@@ -54,7 +54,7 @@ As restantes países/regiões estão a ser adicionado à lista.  Por agora, pode
 
 > Afeganistão, Argentina, Austrália, Brasil, subordinado, Colombia, Ecuador, RAE de Hong Kong, Índia, Indonesia, Iraq, Japão, Coreia, Malaysia, Nova Zelândia, Paraguay, Peru, Filipinas, Singapura, Sri Lanca, Taiwan, Thailand, Uruguay e Venezuela.
 
-## <a name="preview-tenant"></a>Inquilino de pré-visualização
+## <a name="preview-tenant"></a>Pré-visualizar inquilino
 Se criou um inquilino do B2C durante o período de pré-visualização do Azure AD B2C, é provável que o **inquilino tipo** indica **inquilino de pré-visualização**. Se for este o caso, tem de utilizar o inquilino apenas para desenvolvimento e fins de teste e não para aplicações de produção.
 
 > [!IMPORTANT]

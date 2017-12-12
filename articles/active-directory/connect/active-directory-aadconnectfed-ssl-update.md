@@ -4,7 +4,7 @@ description: Este documento detalhes os passos para atualizar o certificado SSL 
 services: active-directory
 keywords: "do Azure ad connect, atualização de ssl do AD FS, atualização de certificados do AD FS, certificado do adfs de alteração, novo certificado do AD FS, certificado do adfs, atualização adfs certificado ssl, adfs do certificado de ssl de atualização, configure o certificado de ssl do AD FS, adfs, ssl, certificado, o serviço de adfs certificado de comunicação, Federação de atualização, configurar a Federação, aad connect"
 authors: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: eca5a61369c1653d8d3e04d191adfe4b54a11248
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2bd3d537761ec78ebcaab722e7928a88e90498d8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Atualizar o certificado SSL para um farm de serviços de Federação do Active Directory (AD FS)
 

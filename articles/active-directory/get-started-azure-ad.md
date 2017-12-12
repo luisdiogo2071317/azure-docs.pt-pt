@@ -3,7 +3,7 @@ title: "Introdução ao Azure Active Directory | Microsoft Docs"
 description: "Obter licenças, adicione o nome de domínio, criar uma página de início de sessão personalizada e adicionar self-service reposição palavra-passe no Diretory Active Directory do Azure"
 keywords: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
@@ -15,11 +15,11 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: dd745869494a1ed740a0a05a5508363334aa7360
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-azure-ad"></a>Introdução ao Azure AD
 Gestão de identidades moderna requer reliablity scaleable e consistente para garantir a disponibilidade da a das aplicações e serviços apenas aos utilizadores autenticados. Para suportar adequadamente as necessidades de gestão de identidades de utilizadores, TI precisam de uma forma de fornecer acesso ao software aprovado, público como um serviço (SaaS) de aplicações, uma forma de anfitrião interno aplicações de linha de negócio e até mesmo formas de melhorar no local desenvolvimento da aplicação e a utilização. Todos estes requisitos apontam para a necessidade de uma solução de gestão de identidade baseada na nuvem.      

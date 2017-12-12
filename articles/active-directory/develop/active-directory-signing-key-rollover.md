@@ -4,7 +4,7 @@ description: "Este artigo aborda as assinatura rollover de chave melhores práti
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: krassk
+manager: mtillman
 editor: 
 ms.assetid: ed964056-0723-42fe-bb69-e57323b9407f
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 228bb9058537af1e4eb38207c376c2eb86aee68c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac68839795dfd69daba16a0f7a01fc9ff16f616e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Iniciar o rollover da chave no Azure Active Directory
 Este tópico descreve o que precisa de saber sobre as chaves públicas que são utilizadas para assinar os tokens de segurança no Azure Active Directory (Azure AD). É importante ter em atenção que estas rollover de chaves periodicamente e, numa emergência, pode ser feito imediatamente. Todas as aplicações que utilizam o Azure AD devem ser capazes de lidar com o processo de rollover de chave ou estabelecer um processo manual de rollover periódica de através de programação. Continuar a ler para compreender como funcionam as chaves, como a avaliar o impacto de rollover à sua aplicação e como atualizar a sua aplicação ou estabelecer um processo manual de rollover periódica para processar o rollover da chave, se necessário.

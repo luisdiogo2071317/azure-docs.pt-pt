@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 0b8ca505-61ea-487c-9a3e-fa50c936df0c
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: jeedes
-ms.openlocfilehash: c2b7638e99fa46ff41a7f2202bdf0e7a2b017c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c0cd547a9a33ee83883058623e4905ea0af4031
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Tutorial: Integração do Azure Active Directory com Blackboard Saiba mais
 
@@ -124,7 +124,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 5. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributos token SAML, conforme mostrado na imagem e efetuar os seguintes passos. Podemos ter mapeado Userprincipalname como o atributo de utilizador exclusivo aqui, mas pode mapeá-lo para o valor adequado, que distingue exclusivamente o utilizador na organização, que mapeia para o campo de nome de utilizador Blackboard saber mais.
            
-    | Nome do atributo | Valor do atributo |   
+    | Nome do atributo | Valor do Atributo |   
     | ---------------| ----------------|
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 |User.userPrincipalName |
 

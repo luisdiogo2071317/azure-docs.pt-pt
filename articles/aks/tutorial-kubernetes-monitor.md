@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 084c6bf3855bdc757c3f2926b35eaf7bba0ef389
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d10f9ce965e832c826e2b27b4746231b47be83d0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-container-service-aks"></a>Serviço de contentor do Azure do monitor (AKS)
 
 O Kubernetes cluster e contentores de monitorização é essencial, especialmente quando executar um cluster de produção em escala, com várias aplicações.
 
-Neste tutorial, configurar a monitorização do seu cluster AKS utilizando o [solução de contentores para análise de registos](../log-analytics/log-analytics-containers.md).
+Neste tutorial, configurar a monitorização do seu cluster AKS utilizando o [solução de contentores para análise de registos][log-analytics-containers].
 
 Neste tutorial, parte sete oito, abrange as seguintes tarefas:
 
@@ -32,7 +32,7 @@ Neste tutorial, parte sete oito, abrange as seguintes tarefas:
 
 Tutoriais anteriores, uma aplicação foi compactada imagens de contentor, estas imagens carregadas para o registo de contentor do Azure e um cluster de Kubernetes criada.
 
-Se não o fez estes passos e gostaria de acompanhar, regresse ao [Tutorial 1 – criar imagens de contentor](./tutorial-kubernetes-prepare-app.md).
+Se não o fez estes passos e gostaria de acompanhar, regresse ao [Tutorial 1 – criar imagens de contentor][aks-tutorial-prepare-app].
 
 ## <a name="configure-the-monitoring-solution"></a>Configurar a solução de monitorização
 
@@ -58,7 +58,7 @@ Para obter estes valores, selecione **área de trabalho OMS** do contentor solu�
 
 ## <a name="configure-monitoring-agents"></a>Configurar os agentes de monitorização
 
-O ficheiro de manifesto Kubernetes seguinte pode ser utilizado para configurar o agentes num Kubernetes cluster de monitorização do contentor. Cria um Kubernetes [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), que é executada uma única pod em cada nó de cluster.
+O ficheiro de manifesto Kubernetes seguinte pode ser utilizado para configurar o agentes num Kubernetes cluster de monitorização do contentor. Cria um Kubernetes [DaemonSet][kubernetes-daemonset], que é executada uma única pod em cada nó de cluster.
 
 Guarde o seguinte texto num ficheiro denominado `oms-daemonset.yaml`e substitua os valores de marcador de posição para `WSID` e `KEY` com o ID de área de trabalho de análise do registo e a chave.
 
@@ -153,7 +153,7 @@ No portal do Azure, selecione a área de trabalho de análise de registos foi af
 
 ![Dashboard](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Consulte o [documentação Log Analytics do Azure](../log-analytics/index.yml) para orientações detalhadas sobre a consultar e analisar dados de monitorização.
+Consulte o [documentação Log Analytics do Azure] [ log-analytics-docs] para orientações detalhadas sobre a consultar e analisar dados de monitorização.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -167,4 +167,14 @@ Neste tutorial, monitorizados o cluster de Kubernetes com o OMS. Tarefas abrangi
 Avançar para o próximo tutorial para saber mais sobre a atualização Kubernetes para uma nova versão.
 
 > [!div class="nextstepaction"]
-> [Atualizar Kubernetes](./tutorial-kubernetes-upgrade-cluster.md)
+> [Atualizar Kubernetes][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

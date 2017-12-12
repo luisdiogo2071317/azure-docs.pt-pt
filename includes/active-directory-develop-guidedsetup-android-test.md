@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testar o seu código
 
 1. Implemente o código para o dispositivo/emulador.

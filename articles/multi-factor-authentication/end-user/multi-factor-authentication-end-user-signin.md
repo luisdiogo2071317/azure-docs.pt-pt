@@ -5,7 +5,7 @@ keywords: "autenticação de utilizador, o início de sessão experiência, iní
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 04/02/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: f4e67815cfe03c775dae83d214aea4f2ac37fcdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c47356b7b84e38a1db9259304c2a975958b1977c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de início de sessão com o multi-factor Authentication do Azure
 > [!NOTE]
@@ -70,7 +70,7 @@ Se utilizar a aplicação Authenticator da Microsoft para obter códigos de veri
 1. Inicie sessão para uma aplicação ou serviço como o Office 365, utilizando o seu nome de utilizador e palavra-passe.
 2. Microsoft pede-lhe um código de verificação.
 
-  ![Introduza o código de verificação](./media/multi-factor-authentication-end-user-signin/verify3.png)
+  ![Introduzir código de verificação](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Abra a aplicação Microsoft Authenticator no seu telemóvel e introduza o código na caixa de onde está a iniciar sessão.
 

@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 6b4b0e3ab126e70e4b27b971b15127aae0486bed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 309415a68308943f638195303ceb236569519472
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integração do Azure Active Directory com a plataforma de nuvem do SAP
 
@@ -218,7 +218,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | --- | --- |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |nome próprio |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |Apelido |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |Correio eletrónico |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |e-mail |
    
      >[!NOTE]
      >A configuração dos atributos depende da forma como a aplicação (ões) no SCP é desenvolvidas, ou seja, os atributos pode esperar da resposta SAML e sob o nome (atributo Principal) acederem a este atributo com o código.

@@ -1,6 +1,6 @@
 ---
 title: "Carregar um certificado da API de gestão do Azure | Microsoft Docs"
-description: "Saiba como carregar o certificado da API de gestão de athe para o Portal clássico do Azure."
+description: "Saiba como carregar o certificado da API de gestão para o portal do Azure."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: 89c08f2d1e0e244503e3fc4355cad0b4391618e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad55d71a56657e9cf33c1d33e09c58295206a2ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upload-an-azure-management-api-management-certificate"></a>Carregar um certificado de gestão de API de gestão do Azure
 Certificados de gestão permitem-lhe autenticar com o modelo de implementação clássico fornecido pelo Azure. Muitos programas e ferramentas (tais como o Visual Studio ou o SDK do Azure) utilizam estes certificados para automatizar a configuração e implementação de vários serviços do Azure. 
 
 > [!WARNING]
-> Tenha cuidado! Estes tipos de certificados permite que qualquer pessoa que efetua a autenticação com os mesmos para gerir a subscrição que se encontram associados.
+> Cuidado! Estes tipos de certificados permite que qualquer pessoa que efetua a autenticação com os mesmos para gerir a subscrição que se encontram associados.
 >
 >
 

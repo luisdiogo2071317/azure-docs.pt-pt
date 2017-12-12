@@ -4,7 +4,7 @@ description: "Identifica necessidades de negócio da empresa que irão originar 
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 6503034b3f5a17a2a42338c73329eef0b01f2f27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d88648731ef021f2705a15a544d23359e65c64f6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de identidade para a sua solução de identidade híbrida
 O primeiro passo para conceber uma solução de identidade híbrido consiste em determinar os requisitos da organização de negócio que irá tirar partido desta solução.  Identidade híbrida é iniciada como uma função de suporte (suporta todas as outras soluções de nuvem, fornecer autenticação) e entra para fornecer capacidades novas e interessantes que desbloquear novas cargas de trabalho para os utilizadores.  Estas cargas de trabalho ou serviços que pretende que adotar para os seus utilizadores vai ditar os requisitos para a estrutura de identidade híbrida.  Estes serviços e cargas de trabalho necessário tirar partido de identidade híbrida no local e na nuvem.  

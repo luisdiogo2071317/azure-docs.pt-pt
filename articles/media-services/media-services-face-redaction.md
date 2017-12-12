@@ -6,35 +6,34 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redact faces análise de multimédia do Azure
 ## <a name="overview"></a>Descrição geral
 **Azure Media Redactor** é um [análise de multimédia do Azure](media-services-analytics-overview.md) processador de multimédia (MP) que oferece redaction enfrentam dimensionável na nuvem. Enfrentam redaction permite-lhe modificar o vídeo para blur faces de indivíduos selecionados. Poderá pretender utilizar o serviço de redaction de rostos em cenários de segurança e de suporte de dados de notícias públicos. Alguns minutos de imagens que contém vários faces podem demorar horas a redact manualmente, mas com este serviço, o processo de redaction enfrentam necessitarão de apenas alguns passos simples. Para obter mais informações, consulte [isto](https://azure.microsoft.com/blog/azure-media-redactor/) blogue.
 
-Este tópico fornece detalhes sobre **Redactor de suporte de dados do Azure** e mostra como utilizá-la com o SDK de Media Services para .NET.
+Este artigo fornece detalhes sobre **Redactor de suporte de dados do Azure** e mostra como utilizá-la com o SDK de Media Services para .NET.
 
 ## <a name="face-redaction-modes"></a>Modos de redaction de rostos em
-Facial redaction funciona ao detetar faces em cada período de vídeo e ao controlar o objeto de rostos em ambos os forwards e para trás no tempo, para que o mesmo individuais podem ser blurred de outros ângulos bem. O processo automatizado redaction é muito complexo e não sempre produzir 100% de saída pretendida, por este motivo, análise de multimédia fornece duas formas de modificar o resultado final.
+Facial redaction funciona ao detetar faces em cada período de vídeo e ao controlar o objeto de rostos em ambos os forwards e para trás no tempo, para que o mesmo individuais podem ser blurred de outros ângulos bem. O processo automatizado redaction é complexo e não sempre produzir 100% de saída pretendida, por este motivo, análise de multimédia fornece duas formas de modificar o resultado final.
 
-Para além de um modo totalmente automático, há um fluxo de trabalho de passagem de dois que lhe permite a seleção/de-selection de faces encontrados através de uma lista de IDs. Além disso fazer arbitrários por ajustes de moldura o pacote de gestão utiliza um ficheiro de metadados no formato JSON. Este fluxo de trabalho é dividido em **analisar** e **Redact** modos. Pode combinar os dois modos numa única passagem, que é executado ambas as tarefas numa tarefa; Este modo é chamado **Combined**.
+Para além de um modo totalmente automático, há um fluxo de trabalho da passagem de dois, que permite a seleção/de-selection de faces encontrados através de uma lista de IDs. Além disso fazer arbitrários por ajustes de moldura o pacote de gestão utiliza um ficheiro de metadados no formato JSON. Este fluxo de trabalho é dividido em **analisar** e **Redact** modos. Pode combinar os dois modos numa única passagem, que é executado ambas as tarefas numa tarefa; Este modo é chamado **Combined**.
 
 ### <a name="combined-mode"></a>Modo combinado
-Isto produzirá um mp4 redacted automaticamente sem qualquer manual de entrada.
+Isto produz um mp4 redacted automaticamente sem qualquer manual de entrada.
 
-| Fase | Nome de ficheiro | Notas |
+| Fase | Nome do Ficheiro | Notas |
 | --- | --- | --- |
 | Recurso de entrada |foo.bar |Vídeo no formato WMV, MOV ou MP4 |
 | Configuração de entrada |Configuração de tarefa da configuração predefinida |{'version':'1.0 ', 'Opções': {'mode': 'combinado'}} |
@@ -49,7 +48,7 @@ Isto produzirá um mp4 redacted automaticamente sem qualquer manual de entrada.
 ### <a name="analyze-mode"></a>Analisar modo
 O **analisar** passagem do fluxo de trabalho de passagem de dois assume um vídeo de entrada e produz um ficheiro JSON das localizações de rostos em e jpg imagens de cada detetado enfrentam reside.
 
-| Fase | Nome de ficheiro | Notas |
+| Fase | Nome do Ficheiro | Notas |
 | --- | --- | --- |
 | Recurso de entrada |foo.bar |Vídeo no formato WMV, MPV ou MP4 |
 | Configuração de entrada |Configuração de tarefa da configuração predefinida |{'version':'1.0 ', 'Opções': {'mode': 'Analisar'}} |
@@ -112,7 +111,7 @@ Isto inclui uma lista de IDs de blur, o vídeo original e as anotações JSON. E
 
 O resultado da passagem de analisar não inclui o vídeo original. O vídeo tem de ser carregada para o elemento de entrada para a tarefa de modo Redact e selecionada como ficheiro principal.
 
-| Fase | Nome de ficheiro | Notas |
+| Fase | Nome do Ficheiro | Notas |
 | --- | --- | --- |
 | Recurso de entrada |foo.bar |Vídeo no formato WMV, MPV ou MP4. Mesmo vídeo como no passo 1. |
 | Recurso de entrada |foo_annotations.JSON |ficheiro de metadados de anotações da primeira fase, com modificações opcionais. |
@@ -172,7 +171,7 @@ O pacote de gestão Redaction fornece deteção de localização de rostos em pr
 O seguinte programa mostra como:
 
 1. Criar um elemento e carregue um ficheiro de suporte de dados para o elemento.
-2. Crie uma tarefa com uma tarefa de redaction enfrentam baseada num ficheiro de configuração que contém a seguinte predefinição de json. 
+2. Crie uma tarefa com uma tarefa de redaction enfrentam baseada num ficheiro de configuração que contém a predefinição de json seguinte: 
    
         {'version':'1.0', 'options': {'mode':'combined'}}
 3. Transferir os ficheiros JSON de saída. 
@@ -183,30 +182,39 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 #### <a name="example"></a>Exemplo
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
-    using System.Threading.Tasks;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
+using System.Threading.Tasks;
 
-    namespace FaceRedaction
+namespace FaceRedaction
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -265,11 +273,11 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
             // for error state and exit if needed.
             if (job.State == JobState.Error)
             {
-            ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-            Console.WriteLine(string.Format("Error: {0}. {1}",
-                            error.Code,
-                            error.Message));
-            return null;
+                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+                Console.WriteLine(string.Format("Error: {0}. {1}",
+                                error.Code,
+                                error.Message));
+                return null;
             }
 
             return job.OutputMediaAssets[0];
@@ -289,7 +297,7 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
         {
             foreach (IAssetFile file in asset.AssetFiles)
             {
-            file.Download(Path.Combine(outputDirectory, file.Name));
+                file.Download(Path.Combine(outputDirectory, file.Name));
             }
         }
 
@@ -302,8 +310,8 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
             .LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor",
-                                   mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor",
+                                       mediaProcessorName));
 
             return processor;
         }
@@ -316,30 +324,31 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished.");
-                Console.WriteLine();
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
-                // Display or log error details as needed.
-                // LogJobStop(job.Id);
-                break;
-            default:
-                break;
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished.");
+                    Console.WriteLine();
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
+                    // Display or log error details as needed.
+                    // LogJobStop(job.Id);
+                    break;
+                default:
+                    break;
             }
         }
-        }
     }
+}
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

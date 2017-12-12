@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: c64417c136340b3ffa5d67c618c6fe037d2992b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56df0048a2dea9d09392f6c39b001f0ae1f6c05c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integração do Azure Active Directory com Klue
 
@@ -129,11 +129,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributos token SAML, conforme mostrado na imagem anterior e execute os seguintes passos:
     
-    | Nome do atributo      | Valor do atributo      |
+    | Nome do Atributo      | Valor do Atributo      |
     | ------------------- | -------------------- |
     | first_name          | User.givenName |
     | last_name           | User.Surname |
-    | Correio eletrónico               | User.userPrincipalName|
+    | e-mail               | User.userPrincipalName|
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 

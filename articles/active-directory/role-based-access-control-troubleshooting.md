@@ -4,7 +4,7 @@ description: "Obter ajuda com problemas ou questões sobre os recursos de contro
 services: azure-portal
 documentationcenter: na
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 407c030ea159915d4d7ac21760a3d17ec2204372
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7155ed7613d46329229d8e572c75400041022ce
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Resolução de problemas de controlo de acesso baseado em funções
 
@@ -41,7 +41,7 @@ Se conceder um acesso de só de leitura de utilizador para uma aplicação web �
 * Configuração de registos de diagnóstico
 * Consola (linha de comandos)
 * Implementações de Active Directory e recentes (para a implementação contínua de local git)
-* Estimado gastam
+* Gastos estimados
 * Testes Web
 * Rede virtual (visível apenas para um leitor se anteriormente tiver sido configurada uma rede virtual por um utilizador com acesso de escrita).
 
@@ -63,7 +63,7 @@ Estes itens requerem **escrever** acesso a **plano do App Service** que correspo
 Estes itens requerem **escrever** acesso a totalidade **grupo de recursos** que contém o seu Web site:  
 
 * Certificados SSL e os enlaces (certificados SSL podem ser partilhados entre sites no mesmo grupo de recursos e geolocalização)  
-* Regras de alertas  
+* Regras de alerta  
 * Definições de dimensionamento automático  
 * Componentes do Application insights  
 * Testes Web  
@@ -84,7 +84,7 @@ Esses requisitos requerem **escrever** acesso a ambos os **Máquina Virtual**e o
 
 * Conjunto de disponibilidade  
 * Conjunto com balanceamento de carga  
-* Regras de alertas  
+* Regras de alerta  
 
 Se não é possível aceder a qualquer um destes mosaicos, peça ao seu administrador de acesso de contribuinte ao grupo de recursos.
 

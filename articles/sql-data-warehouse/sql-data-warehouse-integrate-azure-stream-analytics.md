@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 14783f0464764a11d7f03a5db1c2d63728a4cb50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5c0450cba541a9346f023057345c5fc9b147903
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Utilizam o Azure Stream Analytics com o SQL Data Warehouse
 O Azure Stream Analytics é um serviço completamente gerido que fornece processamento de eventos complexos baixa latência, elevada disponibilidade e dimensionável através de transmissão em fluxo de dados na nuvem. Pode aprender as noções básicas através da leitura [introdução ao Azure Stream Analytics][Introduction to Azure Stream Analytics]. Em seguida, pode saber como criar uma solução ponto-a-ponto Stream Analytics, seguindo o [começar a utilizar o Azure Stream Analytics] [ Get started using Azure Stream Analytics] tutorial.
@@ -53,7 +53,7 @@ Introduza os seguintes valores na página seguinte:
   * Se a base de dados do armazém de dados do SQL Server na mesma subscrição que a tarefa de Stream Analytics, selecione utilizar base de dados do SQL da subscrição atual.
   * Se a base de dados está numa subscrição diferente, selecione base de dados de SQL de utilizar outra subscrição.
 * *Base de dados*: Especifique o nome de uma base de dados de destino.
-* *Nome do servidor*: Especifique o nome do servidor da base de dados que acabou de especificar. Pode utilizar o Portal clássico do Azure pode encontrá-lo.
+* *Nome do servidor*: Especifique o nome do servidor da base de dados que acabou de especificar. Pode utilizar o portal do Azure pode encontrá-lo.
 
 ![][server-name]
 

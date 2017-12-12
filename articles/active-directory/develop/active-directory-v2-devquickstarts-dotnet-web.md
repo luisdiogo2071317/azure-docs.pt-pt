@@ -4,7 +4,7 @@ description: "Como criar uma aplicação Web MVC do .NET que assina os utilizado
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: c8b97ac6-0a06-4367-81b6-7d1d98152b14
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ba5bdf7daba6086b70aec54ebe25d4445fa708c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 44691f7c06aede764c3bf0dcc99848a4f22ce08d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Adicionar início de sessão a uma aplicação de web de MVC do .NET
 Com o ponto final v 2.0, pode adicionar rapidamente a autenticação para as suas aplicações web com suporte para ambas as contas pessoais da Microsoft e contas profissionais ou escolares.  Nas web apps do ASP.NET, isto é possível utilizar o middleware OWIN da Microsoft incluído no .NET Framework 4.5.

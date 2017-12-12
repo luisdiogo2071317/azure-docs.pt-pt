@@ -4,7 +4,7 @@ description: "Saiba como definir durações para tokens emitidos pelo Azure AD."
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 8f1c601f5de440346d35e25299f6f800f3e3c10d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durações de token configuráveis no Azure Active Directory (pré-visualização pública)
 Pode especificar a duração de um token emitido pelo Azure Active Directory (Azure AD). Pode definir token durações para todas as aplicações na sua organização, para uma aplicação de (multi organização) de multi-inquilino ou para um principal de serviço específicos na sua organização.
@@ -474,7 +474,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Políticas de principais de serviço
+### <a name="service-principal-policies"></a>Políticas de principal de serviço
 Pode utilizar os seguintes cmdlets para políticas de principal de serviço.
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>AzureADServicePrincipalPolicy adicionar

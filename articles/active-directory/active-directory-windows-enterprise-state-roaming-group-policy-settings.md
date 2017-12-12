@@ -5,7 +5,7 @@ services: active-directory
 keywords: "quais são o grupo de política e definições de MDM para o Roaming de estado empresarial Roaming de estado empresarial, a nuvem do windows"
 documentationcenter: 
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 71dd5281a618fe7367eab3e97daac069f77ab491
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 588084481ffc5cbbeed34e9527271179fa359ed5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="group-policy-and-mdm-settings"></a>Definições de política de grupo e MDM
 Utilize estas política de grupo e definições de gestão (MDM) de dispositivos móveis apenas em dispositivos pertencentes à empresa porque estas políticas são aplicadas para o dispositivo do utilizador todo. Aplicar uma política MDM para desativar a sincronização de definições para um pessoal, dispositivos propriedade do utilizador irão afetar negativamente a utilização desse dispositivo. Além disso, outras contas de utilizador no dispositivo também serão afetadas pela política.

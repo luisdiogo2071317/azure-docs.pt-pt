@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.openlocfilehash: 181ad8471c0d0cb24d8f4eae6bddd9d750b4ee61
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6ca04cf773fc337694626f21ab785baecf68858b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="securing-your-sql-database"></a>Proteger a sua Base de Dados SQL
 
@@ -31,7 +31,7 @@ Para obter uma descrição geral completa das funcionalidades de segurança disp
 A Base de Dados SQL protege os seus dados ao fornecer encriptação para dados em movimento com [Transport Layer Security](https://support.microsoft.com/kb/3135244), para dados inativos com [Encriptação de Dados Transparente](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) e para dados em utilização com [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
->Todas as ligações à Base de Dados SQL do Azure precisam de encriptação (SSL/TLS) em todos os momentos enquanto os dados se encontram "em trânsito" para e a partir da base de dados. Na cadeia de ligação da sua aplicação, tem de especificar parâmetros para encriptar a ligação e *não* para confiar no certificado de servidor (isto é feito por si se copiar a cadeia de ligação fora do Portal Clássico do Azure), caso contrário, a ligação não irá verificar a identidade do servidor e estará suscetível a ataques man-in-the-middle. Para o controlador ADO.NET, por exemplo, estes parâmetros da cadeia de ligação são **Encrypt=True** e **TrustServerCertificate=False**. 
+>Todas as ligações à Base de Dados SQL do Azure precisam de encriptação (SSL/TLS) em todos os momentos enquanto os dados se encontram "em trânsito" para e a partir da base de dados. Na cadeia de ligação da sua aplicação, tem de especificar parâmetros para encriptar a ligação e *não* para de confiar no certificado de servidor (isto é feito automaticamente se copiar a cadeia de ligação fora do portal do Azure), caso contrário, o ligação não irá verificar a identidade do servidor e vai ser susceptível a ataques "man-in-the-middle". Para o controlador ADO.NET, por exemplo, estes parâmetros da cadeia de ligação são **Encrypt=True** e **TrustServerCertificate=False**. 
 
 Para outras formas de encriptar os seus dados, considere:
 

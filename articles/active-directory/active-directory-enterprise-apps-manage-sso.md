@@ -4,7 +4,7 @@ description: "Gerir definições de início de sessão único para aplicações 
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 882180a553fffee05a612cf70ddd9a0f30108415
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gerir o início de sessão para aplicações da empresa
 
@@ -58,12 +58,12 @@ Este é onde todos os detalhes sobre o domínio e os URLs da aplicação são ad
 * **URL de resposta** -o URL de resposta é onde a aplicação de espera receber o token SAML. Este é também referido como o URL do serviço de consumidor da asserção (ACS). Depois de estes serem introduzidas, clique em seguinte para avançar para o ecrã seguinte. Este ecrã fornece informações sobre o que tem de ser configurado no lado de aplicação para ativá-la aceitar um token SAML do Azure AD.
 * **Estado de reencaminhamento** -o estado de reencaminhamento é um parâmetro opcional que pode ajudar a informar a aplicação onde redirecionar o utilizador depois de concluída a autenticação. Normalmente, o valor é um URL válido, a aplicação, no entanto, algumas aplicações usam este campo de forma diferente (consulte único início de sessão documentação a aplicação para obter detalhes). A capacidade de definir o estado de reencaminhamento é uma funcionalidade que é exclusiva para o novo portal do Azure.
 
-### <a name="user-attributes"></a>Atributos de utilizador
+### <a name="user-attributes"></a>Atributos do Utilizador
 Este é onde os administradores podem visualizar e editar os atributos que são enviados no token SAML que o Azure AD emite à aplicação cada sessão de utilizadores.
 
 O atributo só editável suportado é o **identificador de utilizador** atributo. O valor deste atributo é o campo no Azure AD que identifica exclusivamente cada utilizador na aplicação. Por exemplo, se a aplicação foi implementada utilizando o "endereço de E-Mail" como o nome de utilizador e o identificador exclusivo, em seguida, o valor seria definido para o campo "user.mail" no Azure AD.
 
-### <a name="saml-signing-certificate"></a>Certificado de assinatura de SAML
+### <a name="saml-signing-certificate"></a>Certificado de Assinatura de SAML
 Esta secção apresenta os detalhes do certificado utilizado pelo Azure AD para assinar os tokens SAML que são emitidos para a aplicação sempre que o utilizador é autenticado. Permite que as propriedades do certificado atual possível inspecioná-los, incluindo a data de expiração.
 
 ### <a name="application-configuration"></a>Configuração da aplicação

@@ -4,7 +4,7 @@ description: "Como utilizar grupos no Azure Active Directory Premium ou Basic at
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ab8dee63-bedc-46ca-8852-234f5c16ae98
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 09/12/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: 818f4b515926c35078b3118978f3accbf3bbb65b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 49a2c86516f0882f341597876d2a44ea3a312ea8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Utilizar um grupo para gerir o acesso a aplicações SaaS
 Utilizar o Azure Active Directory (Azure AD) com uma licença do Azure AD Premium ou Basic do Azure AD, pode utilizar grupos para atribuir acesso a uma aplicação SaaS que está integrada com o Azure AD. Por exemplo, se pretender atribuir acesso para o departamento de marketing utilizar cinco diferentes aplicações SaaS, pode criar um grupo que contenha os utilizadores do departamento de marketing e, em seguida, atribuir esse grupo a estas cinco aplicações SaaS que são necessários pelo departamento de marketing. Desta forma, que pode poupar tempo ao gerir a associação do departamento de marketing num único local. Os utilizadores, em seguida, são atribuídos à aplicação quando estes são adicionados como membros do grupo de marketing, e as respetivas atribuições removidas da aplicação quando os mesmos serão removidos do grupo de marketing. Esta capacidade pode ser utilizada com centenas de aplicações que pode adicionar a partir de dentro da Galeria de aplicações do Azure AD.
