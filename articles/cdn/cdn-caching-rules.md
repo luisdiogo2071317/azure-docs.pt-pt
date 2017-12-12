@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8f89ef5a1763d5fc4ad09a9aeae89ccf683138c7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Controlo do Azure conteúdo rede de entrega de colocação em cache comportamento com colocação em cache as regras
 
@@ -40,13 +40,19 @@ Para obter informações sobre predefinição comportamento de colocação em ca
 Como definir CDN regras a colocação em cache:
 
 1. Abra o portal do Azure, selecione um perfil da CDN e, em seguida, selecione um ponto final.
-2. No painel esquerdo em definições, clique em **Cache**.
-3. Crie uma regra de colocação em cache global da seguinte forma:
+2. No painel esquerdo em definições, clique em **regras a colocação em cache**.
+
+   ![Botão de regras de colocação em cache de CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+
+1. Crie uma regra de colocação em cache global da seguinte forma:
    1. Em **Global regras a colocação em cache**, defina **comportamento de colocação em cache de cadeia de consulta** para **ignorar cadeias de consulta**.
    2. Definir **comportamento de colocação em cache** para **definir se estiverem em falta**.
+       
    3. Para **duração de expiração da Cache**, introduza 10 no **dias** campo.
 
        A regra de colocação em cache global afeta todos os pedidos para o ponto final. Esta regra honra os cabeçalhos de cache diretiva de origem, caso existam (`Cache-Control` ou `Expires`); caso contrário, se não forem especificadas, define a cache de 10 dias. 
+
+     ![Regras globais de colocação em cache](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 4. Crie uma regra personalizada de colocação em cache da seguinte forma:
     1. Em **personalizada de colocação em cache regras**, defina **correspondem à condição** para **caminho** e **corresponde ao valor** para `/images/*.jpg`.
@@ -54,7 +60,7 @@ Como definir CDN regras a colocação em cache:
        
        Esta regra de colocação em cache personalizada define uma duração da cache de 30 dias em qualquer `.jpg` ficheiros de imagem de `/images` pasta com o ponto final. Substitui qualquer `Cache-Control` ou `Expires` cabeçalhos de HTTP são enviados pelo servidor de origem.
 
-  ![Caixa de diálogo de regras colocação em cache](./media/cdn-caching-rules/cdn-caching-rules-dialog.png)
+    ![Regras personalizadas de colocação em cache](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
 > [!NOTE] 
 > Os ficheiros que estão em cache antes de uma alteração de regra mantêm a respetiva definição de duração de cache de origem. Para repor o respetivas durações de cache, tem de [remover o ficheiro](cdn-purge-endpoint.md). Para **CDN do Azure da Verizon** pontos finais, pode demorar até 90 minutos para colocar em cache as regras serem aplicadas.
@@ -106,5 +112,5 @@ As regras de colocação em cache de global e personalizadas são processadas pe
    - Comportamento de colocação em cache: **definir se estiverem em falta**
    - Duração de expiração da cache: 3 dias
 
-Quando estas regras estiverem definidas, um pedido para `<endpoint>.azureedge.net/home/index.html` acionadores de colocação em cache personalizada da regra 2 #, a qual está definido como: **definir se estiverem em falta** e 3 dias. Por conseguinte, se o `index.html` ficheiro tem `Cache-Control` ou `Expires` cabeçalhos HTTP, são honrados; caso contrário, se estes cabeçalhos não estiver definidos, o ficheiro é colocado em cache para 3 dias.
+Quando estas regras estiverem definidas, um pedido para `<endpoint>.azureedge.net/home/index.html` acionadores de colocação em cache personalizada da regra &#2;, a qual está definido como: **definir se estiverem em falta** e 3 dias. Por conseguinte, se o `index.html` ficheiro tem `Cache-Control` ou `Expires` cabeçalhos HTTP, são honrados; caso contrário, se estes cabeçalhos não estiver definidos, o ficheiro é colocado em cache para 3 dias.
 

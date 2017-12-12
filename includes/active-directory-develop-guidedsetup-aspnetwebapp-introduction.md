@@ -1,4 +1,3 @@
-
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Adicionar início de sessão com a Microsoft para uma aplicação web ASP.NET
 
 Este guia demonstra como implementar o início de sessão com a Microsoft através de uma solução de ASP.NET MVC com uma aplicação de baseada no browser tradicional web com OpenID Connect. 

@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: c9a67644ff2922875de486b2a2b671f8e82e9449
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9dabf666c633b59c7d1f9478b0e9cfe9d313e129
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatizar a implementação de máquinas virtuais do Azure com o Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef é uma ótima ferramenta para entrega de automatização e pretender configurações de estado.
 
-Com a nossa versão mais recente da api de nuvem, Chef fornece integração totalmente integrada com o Azure, que lhe confere a capacidade de aprovisionar e implementar os Estados de configuração através de um único comando.
+Com a versão mais recente na nuvem api versão, Chef fornece integração totalmente integrada com o Azure, que lhe confere a capacidade de aprovisionar e implementar os Estados de configuração através de um único comando.
 
-Neste artigo, posso irá mostrar-lhe como configurar o ambiente de Chef para aprovisionar máquinas virtuais do Azure e guiá-lo através de criar uma política ou "Manual" e, em seguida, implementar este manual para uma máquina virtual do Azure.
+Neste artigo, configure o ambiente de Chef para aprovisionar máquinas virtuais do Azure e guiá-criar uma política ou "Manual" e, em seguida, implementar este manual para uma máquina virtual do Azure.
 
 Vamos começar!
 
 ## <a name="chef-basics"></a>Noções básicas de chef
-Antes de começar, posso sugerimos que reveja os conceitos básicos do Chef. Há uma grande material <a href="http://www.chef.io/chef" target="_blank">aqui</a> e recomenda se tiver uma leitura rápida antes de tentar esta explicação passo a passo. No entanto, posso será recap as noções básicas antes Vamos começar.
+Antes de começar, [reveja os conceitos básicos do Chef](http://www.chef.io/chef). 
 
 O diagrama seguinte ilustra uma arquitetura de alto nível Chef.
 
@@ -41,24 +41,23 @@ O diagrama seguinte ilustra uma arquitetura de alto nível Chef.
 
 Chef tem três componentes principais de arquitetura: servidor Chef, Chef cliente (nó) e Chef estação de trabalho.
 
-O servidor de Chef é nossa ponto de gestão e existem duas opções para o servidor de Chef: uma solução alojada ou uma solução no local. Vamos utilizar uma solução alojada.
+O servidor de Chef é o ponto de gestão e existem duas opções para o servidor de Chef: uma solução alojada ou uma solução no local. Vamos utilizar uma solução alojada.
 
 O cliente Chef (nó) é o agente que se encontra em servidores que está a gerir.
 
-A estação de trabalho Chef é nossa estação de trabalho do administrador onde iremos criar nossas políticas e executar nosso comandos de gestão. Iremos executar o **knife** comando da estação de trabalho Chef para gerir a nossa infraestrutura.
+A estação de trabalho Chef é a estação de trabalho do administrador para onde podemos criar políticas e executar comandos de gestão. Iremos executar o **knife** comando da estação de trabalho Chef para gerir a infraestrutura.
 
-Também é o conceito de "Cookbooks" e "Receitas". Estes são eficazmente as políticas que definir e aplicar aos nossos servidores.
+Também é o conceito de "Cookbooks" e "Receitas". Estes são eficazmente as políticas que definir e aplicam-se aos servidores.
 
 ## <a name="preparing-the-workstation"></a>A preparar a estação de trabalho
-Em primeiro lugar, permite prep a estação de trabalho. Estou a utilizar uma estação de trabalho do Windows padrão. É necessário criar um diretório para armazenar a nossa cookbooks e ficheiros de configuração.
+Em primeiro lugar, permite prep a estação de trabalho. Estou a utilizar uma estação de trabalho do Windows padrão. É necessário criar um diretório para armazenar os ficheiros de configuração e cookbooks.
 
 Em primeiro lugar, crie um diretório denominado C:\chef.
 
 Em seguida, crie um diretório segundo chamado c:\chef\cookbooks.
 
-Agora é necessário transferir o nosso ficheiro de definições do Azure para que Chef possa comunicar com a nossa subscrição do Azure.
+Agora é necessário transferir o ficheiro de definições do Azure para que Chef pode comunicar com a subscrição do Azure.
 
-<!--Download your publish settings from [here](https://manage.windowsazure.com/publishsettings/).-->
 Transferir a publicar as definições utilizando o PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) comando. 
 
 Guarde o ficheiro de definições de publicação na C:\chef.
@@ -147,13 +146,13 @@ Se está tudo configurado corretamente, verá uma lista de deslocamento de image
 Parabéns! A estação de trabalho está configurada!
 
 ## <a name="creating-a-cookbook"></a>Criar um Cookbook
-Um manual é utilizado pelo Chef para definir um conjunto de comandos que pretende executar no seu cliente gerido. Criar um Cookbook é simples e utilizamos o **chef gerar cookbook** comando para gerar o nosso modelo Cookbook. Posso irá chamar meu servidor de web Cookbook como gostaria de uma política que implementa automaticamente o IIS.
+Um manual é utilizado pelo Chef para definir um conjunto de comandos que pretende executar no seu cliente gerido. Criar um Cookbook é simples e utilizamos o **chef gerar cookbook** comando para gerar o modelo do manual. Posso irá chamar meu servidor de web Cookbook como gostaria de uma política que implementa automaticamente o IIS.
 
 No seu diretório C:\Chef execute o seguinte comando.
 
     chef generate cookbook webserver
 
-Esta ação irá gerar um conjunto de ficheiros no diretório de C:\Chef\cookbooks\webserver. Agora é preciso definir o conjunto de comandos que Gostaríamos nosso cliente Chef a executar no nosso máquina virtual gerida.
+Esta ação irá gerar um conjunto de ficheiros no diretório de C:\Chef\cookbooks\webserver. Agora é preciso definir o conjunto de comandos que Gostaríamos cliente Chef para ser executado na máquina virtual gerida.
 
 Os comandos são armazenados no default.rb ficheiro. Neste ficheiro, posso irá definir um conjunto de comandos que instala o IIS, inicia o IIS e copia um ficheiro de modelo para a pasta de wwwroot.
 
@@ -176,7 +175,7 @@ Modificar o ficheiro C:\chef\cookbooks\webserver\recipes\default.rb e adicione a
 Quando tiver terminado, guarde o ficheiro.
 
 ## <a name="creating-a-template"></a>Criar um modelo
-Como foi mencionado anteriormente, é necessário gerar um ficheiro de modelo que será utilizado como a nossa página default.html.
+Como foi mencionado anteriormente, é necessário gerar um ficheiro de modelo que será utilizado como a página de default.html.
 
 Execute o seguinte comando para gerar o modelo.
 
@@ -185,14 +184,14 @@ Execute o seguinte comando para gerar o modelo.
 Agora, navegue para o ficheiro de C:\chef\cookbooks\webserver\templates\default\Default.htm.erb. Edite o ficheiro ao adicionar algum código "Olá mundo" HTML simple e, em seguida, guarde o ficheiro.
 
 ## <a name="upload-the-cookbook-to-the-chef-server"></a>Carregar o Cookbook para o servidor de Chef
-Neste passo, vamos são colocar uma cópia manual que foi criado no nosso computador local e carregá-lo para o servidor de alojado Chef. Assim que seja carregado, o Cookbook será apresentado sob o **política** separador.
+Neste passo, vamos são colocar uma cópia manual que foi criado no computador local e carregá-lo para o servidor de alojado Chef. Assim que seja carregado, o Cookbook será apresentado sob o **política** separador.
 
     knife cookbook upload webserver
 
 ![][9]
 
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Implementar uma máquina virtual com o Knife Azure
-Iremos agora implementar uma máquina virtual do Azure e aplicar a Cookbook "Webserver", que irá instalar o nosso IIS predefinido e do serviço web página web.
+Iremos agora implementar uma máquina virtual do Azure e aplicar a Cookbook "Webserver", que irá instalar o IIS predefinido e do serviço web página web.
 
 Para tal, utilize o **knife azure servidor criar** comando.
 

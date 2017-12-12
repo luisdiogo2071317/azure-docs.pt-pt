@@ -4,7 +4,7 @@ description: "Este artigo descreve como utilizar mensagens HTTP para implementar
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Serviço para chamadas de serviço com o delegado de fluxo em-nome-de identidade do utilizador
 On-Behalf-Of de 2.0 OAuth fluxo funciona o caso de utilização onde uma aplicação invoca uma serviço/API web, que por sua vez tem de chamar outro serviço/API web. A ideia é para propagar a identidade do delegado de utilizador e as permissões através da cadeia de pedidos. Para o serviço de camada média fazer pedidos autenticados para o serviço a jusante, tem de proteger um token de acesso do Azure Active Directory (Azure AD), em nome do utilizador.
@@ -80,7 +80,7 @@ Quando utilizar um segredo partilhado, um pedido de token de acesso de serviço 
 | Asserção |Necessário | O valor do token utilizado no pedido. |
 | client_id |Necessário | O ID da aplicação atribuída para este serviço de chamada durante o registo com o Azure AD. Para localizar o ID da aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório e, em seguida, clique no nome de aplicação. |
 | client_secret |Necessário | A chave registada para o serviço de chamada no Azure AD. Este valor deve ter foi indicado o momento de registo. |
-| Recursos |Necessário | O URI de ID de aplicação do serviço de receção (recursos protegidos). Para obter o URI de ID de aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório, clique no nome de aplicação, clique em **todas as definições** e, em seguida, clique em **propriedades**. |
+| Recurso |Necessário | O URI de ID de aplicação do serviço de receção (recursos protegidos). Para obter o URI de ID de aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório, clique no nome de aplicação, clique em **todas as definições** e, em seguida, clique em **propriedades**. |
 | requested_token_use |Necessário | Especifica a forma como o pedido deve ser processado. No fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
 | Âmbito |Necessário | Lista de âmbitos para o pedido de token valores separados por um espaço. Para OpenID Connect, o âmbito **openid** tem de ser especificado.|
 
@@ -113,7 +113,7 @@ Um pedido de token de acesso de serviços com um certificado contém os seguinte
 | client_id |Necessário | O ID da aplicação atribuída para este serviço de chamada durante o registo com o Azure AD. Para localizar o ID da aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório e, em seguida, clique no nome de aplicação. |
 | client_assertion_type |Necessário |O valor tem de ser`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Necessário | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação.  Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para aprender a registar o certificado e o formato da asserção.|
-| Recursos |Necessário | O URI de ID de aplicação do serviço de receção (recursos protegidos). Para obter o URI de ID de aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório, clique no nome de aplicação, clique em **todas as definições** e, em seguida, clique em **propriedades**. |
+| Recurso |Necessário | O URI de ID de aplicação do serviço de receção (recursos protegidos). Para obter o URI de ID de aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório, clique no nome de aplicação, clique em **todas as definições** e, em seguida, clique em **propriedades**. |
 | requested_token_use |Necessário | Especifica a forma como o pedido deve ser processado. No fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
 | Âmbito |Necessário | Lista de âmbitos para o pedido de token valores separados por um espaço. Para OpenID Connect, o âmbito **openid** tem de ser especificado.|
 
@@ -148,7 +148,7 @@ Uma resposta de êxito for uma resposta de JSON OAuth 2.0 com os seguintes parâ
 | Âmbito |O âmbito de acesso concedido no token. |
 | expires_in |O período de tempo do token de acesso é válido (em segundos). |
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até que a hora de expiração. Este valor é utilizado para determinar a duração de tokens em cache. |
-| Recursos |O URI de ID de aplicação do serviço de receção (recursos protegidos). |
+| Recurso |O URI de ID de aplicação do serviço de receção (recursos protegidos). |
 | access_token |O token de pedido de acesso. O serviço de chamada pode utilizar este token para se autenticar o serviço de receção. |
 | id_token |O token de id pedido. O serviço de chamada pode utilizar este para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. |
 | refresh_token |O token de atualização para o token de acesso solicitado. O serviço de chamada pode utilizar este token para pedir outro token de acesso após o atual token de acesso expira. |

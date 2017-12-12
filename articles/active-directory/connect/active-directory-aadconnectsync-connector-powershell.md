@@ -4,7 +4,7 @@ description: Este artigo descreve como configurar o conector do Microsoft Window
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0e5ccf5a38072e31d85bbc63eb0c608b0c34cfc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Referência técnica do conector do Windows PowerShell
 Este artigo descreve o conector do Windows PowerShell. O artigo aplica-se os seguintes produtos:
@@ -59,10 +59,10 @@ Pode configurar os seguintes parâmetros de conectividade:
 
 **Conetividade**
 
-| Parâmetro | Valor predefinido | Objetivo |
+| Parâmetro | Valor Predefinido | Objetivo |
 | --- | --- | --- |
 | Servidor |<Blank> |Nome do servidor que o conector, deve ligar a. |
-| domínio |<Blank> |Domínio da credencial para armazenar para utilização quando o conector é executado. |
+| Domínio |<Blank> |Domínio da credencial para armazenar para utilização quando o conector é executado. |
 | Utilizador |<Blank> |Nome de utilizador da credencial para armazenar para utilização quando o conector é executado. |
 | Palavra-passe |<Blank> |Palavra-passe da credencial para armazenar para utilização quando o conector é executado. |
 | Representar a conta do conector |Falso |Quando verdadeiro, o serviço de sincronização executa os scripts do Windows PowerShell no contexto das credenciais fornecidas. Sempre que possível, recomenda-se que o **$Credentials** parâmetro é transmitido para cada script é utilizado em vez de representação. Para obter mais informações sobre permissões adicionais que são necessárias para utilizar esta opção, consulte [configuração adicional para representação](#additional-configuration-for-impersonation). |
@@ -88,7 +88,7 @@ O Script de validação é um script do Windows PowerShell opcional que pode ser
 
 O script de validação recebe os seguintes parâmetros de conector:
 
-| Nome | Tipo de dados | Descrição |
+| Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | ConfigParameterPage |[ConfigParameterPage][cpp] |O separador de configuração ou a caixa de diálogo que acionou o pedido de validação. |
 | ConfigParameters |[KeyedCollection] [ keyk] [cadeia, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
@@ -101,7 +101,7 @@ O script de deteção de esquema é obrigatório. Este script devolve os tipos d
 
 O script de deteção do esquema recebe os seguintes parâmetros de conector:
 
-| Nome | Tipo de dados | Descrição |
+| Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection] [ keyk] [cadeia, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais introduzidas pelo administrador no separador de conectividade. |
@@ -148,7 +148,7 @@ Uma partição é um espaço de nomes separado dentro de um esquema partilhado. 
 
 O script de deteção de partição recebe os seguintes parâmetros de conector:
 
-| Nome | Tipo de dados | Descrição |
+| Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][cadeia, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais introduzidas pelo administrador no separador de conectividade. |
@@ -160,7 +160,7 @@ O script de deteção de hierarquia só é utilizado quando a capacidade de esti
 
 O script de deteção de hierarquia recebe os seguintes parâmetros de conector:
 
-| Nome | Tipo de dados | Descrição |
+| Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][cadeia, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais introduzidas pelo administrador no separador de conectividade. |
@@ -176,12 +176,12 @@ O script de importação de begin é executado no início de um passo de importa
 
 O script de importação de begin recebe os seguintes parâmetros de conector:
 
-| Nome | Tipo de dados | Descrição |
+| Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][cadeia, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais introduzidas pelo administrador no separador de conectividade. |
 | OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |Informa o script sobre o tipo de partição de importação executar (delta ou completo), hierarquia, marca d'água e tamanho da página esperado. |
-| Tipos de |[Esquema][schema] |Esquema para o espaço de conector que é importado. |
+| Tipos |[Esquema][schema] |Esquema para o espaço de conector que é importado. |
 
 O script tem de devolver um único [OpenImportConnectionResults] [ oicres] objeto para o pipeline, por exemplo:`Write-Output (New-Object Microsoft.MetadirectoryServices.OpenImportConnectionResults)`
 
@@ -190,13 +190,13 @@ O script de dados de importação é chamado pelo conector até que o script nã
 
 O script de dados de importação recebe os seguintes parâmetros de conector:
 
-| Nome | Tipo de dados | Descrição |
+| Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][cadeia, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais introduzidas pelo administrador no separador de conectividade. |
 | GetImportEntriesRunStep |[ImportRunStep][irs] |Contém marca de água (CustomData) que pode ser utilizada durante a paginada importações e importa delta. |
 | OpenImportConnectionRunStep |[OpenImportConnectionRunStep][oicrs] |Informa o script sobre o tipo de partição de importação executar (delta ou completo), hierarquia, marca d'água e tamanho da página esperado. |
-| Tipos de |[Esquema][schema] |Esquema para o espaço de conector que é importado. |
+| Tipos |[Esquema][schema] |Esquema para o espaço de conector que é importado. |
 
 O script de dados de importação tem de escrever uma lista [[CSEntryChange][csec]] para o pipeline. Esta coleção é composta por CSEntryChange atributos que representam a cada objeto que está a ser importado. Durante uma importação completa, esta coleção deve ter um conjunto completo de objetos de CSEntryChange que têm todos os atributos para cada objeto. Durante um Delta importar o objeto de CSEntryChange está deve conter as diferenças de nível de atributo para cada objeto para importar ou uma representação completa dos objetos que tenham sido alterados (modo de substituir).
 
@@ -205,7 +205,7 @@ A conclusão da execução de importação, é execute o script de importar do f
 
 O script de importação de fim recebe os seguintes parâmetros do conector do:
 
-| Nome | Tipo de dados | Descrição |
+| Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][cadeia, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais introduzidas pelo administrador no separador de conectividade. |
@@ -222,12 +222,12 @@ O script de exportação de begin é executado no início de um passo de execuç
 
 O script de exportação de begin recebe os seguintes parâmetros de conector:
 
-| Nome | Tipo de dados | Descrição |
+| Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][cadeia, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais introduzidas pelo administrador no separador de conectividade. |
 | OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |Informa o script sobre o tipo de partição de execução de exportação (delta ou completo), a hierarquia e o tamanho da página esperado. |
-| Tipos de |[Esquema][schema] |Esquema para o espaço de conector que seja exportado. |
+| Tipos |[Esquema][schema] |Esquema para o espaço de conector que seja exportado. |
 
 O script não deve devolver quaisquer dados para o pipeline.
 
@@ -236,13 +236,13 @@ O serviço de sincronização chama o script de exportar dados tantas vezes quan
 
 O script de dados de exportação recebe os seguintes parâmetros de conector:
 
-| Nome | Tipo de dados | Descrição |
+| Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][cadeia, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais introduzidas pelo administrador no separador de conectividade. |
 | CSEntries |IList[CSEntryChange][csec] |Lista de todo o espaço de conector objetos com pendentes exporta a serem processados durante este passo. |
 | OpenExportConnectionRunStep |[OpenExportConnectionRunStep][oecrs] |Informa o script sobre o tipo de partição de execução de exportação (delta ou completo), a hierarquia e o tamanho da página esperado. |
-| Tipos de |[Esquema][schema] |Esquema para o espaço de conector que seja exportado. |
+| Tipos |[Esquema][schema] |Esquema para o espaço de conector que seja exportado. |
 
 O script de dados de exportação tem de devolver um [PutExportEntriesResults] [ peeres] para o pipeline. Este objeto não é necessário incluir informações de resultado para cada conector exportado ocorra um erro ou uma alteração ao atributo âncora. Por exemplo, para devolver um objeto de PutExportEntriesResults para o pipeline:`Write-Output (New-Object Microsoft.MetadirectoryServices.PutExportEntriesResults)`
 
@@ -251,7 +251,7 @@ Na conclusão da exportação executar, o script de exportação do fim a execut
 
 O script de exportação de fim recebe os seguintes parâmetros do conector do:
 
-| Nome | Tipo de dados | Descrição |
+| Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][cadeia, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais introduzidas pelo administrador no separador de conectividade. |
@@ -260,12 +260,12 @@ O script de exportação de fim recebe os seguintes parâmetros do conector do:
 
 O script não deve devolver quaisquer dados para o pipeline.
 
-#### <a name="password-synchronization"></a>Sincronização de palavra-passe
+#### <a name="password-synchronization"></a>Sincronização de Palavras-passe
 Conectores do Windows PowerShell podem ser utilizados como um destino para as alterações/reposições de palavra-passe.
 
 O script de palavra-passe recebe os seguintes parâmetros de conector:
 
-| Nome | Tipo de dados | Descrição |
+| Nome | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | ConfigParameters |[KeyedCollection][keyk][cadeia, [ConfigParameter][cp]] |Tabela de parâmetros de configuração para o conector. |
 | Credencial |[PSCredential][pscred] |Contém as credenciais introduzidas pelo administrador no separador de conectividade. |

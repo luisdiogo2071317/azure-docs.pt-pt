@@ -14,13 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 5ab36a16ca87ae7a3e7b26571fc6aadd108841c9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c6cfe5c3282064573542050ecc477903ded20467
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Criar aplicações móveis com o Xamarin e base de dados do Azure Cosmos
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 As aplicações móveis mais necessitam para armazenar dados na nuvem e base de dados do Azure Cosmos é uma base de dados de nuvem para aplicações móveis. Tem tudo que necessita de um para programadores móveis. É uma base de dados completamente gerido como um serviço que dimensiona a pedido. -Pode colocar os dados para a aplicação de forma transparente, os seus utilizadores estão localizados em torno de todo o mundo. Utilizando o [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md), pode ativar a aplicações móveis do Xamarin interaja diretamente com a BD do Cosmos do Azure, sem uma camada média.
 
 Este artigo fornece um tutorial para a criação de aplicações móveis com o Xamarin e base de dados do Azure Cosmos. Pode encontrar o código de origem completo para o tutorial em [Xamarin e BD do Cosmos do Azure no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin), incluindo como gerir utilizadores e permissões.

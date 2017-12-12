@@ -2,7 +2,7 @@
 title: "Introdução ao Azure Cosmos DB gráfico APIs | Microsoft Docs"
 description: "Saiba como pode utilizar o Azure Cosmos DB armazenar, consulta, e atravessar enormes gráficos com baixa latência, utilizando o idioma de consulta de gráfico Gremlin do Apache TinkerPop."
 services: cosmos-db
-author: dennyglee
+author: luisbosquez
 documentationcenter: 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: lbosq
+ms.openlocfilehash: 45169394bed2287896ddc93ad56657f7394366f8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introdução ao Azure Cosmos DB: Graph API
 
@@ -98,7 +98,7 @@ BD do Azure do Cosmos oferece as seguintes capacidades diferenciadas quando comp
 
 * Níveis de consistência ajustáveis pelo
 
- Selecione de cinco níveis de consistência bem definidos para alcançar o compromisso ideal entre a consistência e desempenho. Para consultas e operações de leitura, o Azure Cosmos DB oferece cinco níveis de consistência distintos: forte, consistência vinculada, sessão, prefixo de consistência e eventual. Estes níveis de consistência granular e bem definidos permitem-lhe efetuar fala som entre consistência, disponibilidade e a latência. Saiba mais em [Utilizar níveis de consistência para maximizar a disponibilidade e desempenho no DocumentDB](consistency-levels.md).
+ Selecione de cinco níveis de consistência bem definidos para alcançar o compromisso ideal entre a consistência e desempenho. Para consultas e operações de leitura, o Azure Cosmos DB oferece cinco níveis de consistência distintos: forte, consistência vinculada, sessão, prefixo de consistência e eventual. Estes níveis de consistência granular e bem definidos permitem-lhe efetuar fala som entre consistência, disponibilidade e a latência. Saiba mais em [níveis de consistência Sincronizáveis dados na base de dados do Azure Cosmos](consistency-levels.md).
 
 BD do Azure do Cosmos também pode utilizar vários modelos, como o documento e do graph, dentro do mesmos contentores/bases de dados. Pode utilizar uma coleção de documentos para armazenar dados de gráfico side by side with documentos. Pode utilizar consultas de SQL Server em JSON e consultas de Gremlin para consultar os mesmos dados que um gráfico.
 
@@ -113,7 +113,7 @@ A tabela seguinte mostra controladores Gremlin populares, que pode utilizar em r
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin-JavaScript no Github](https://github.com/jbmusso/gremlin-javascript) |
 | [Consola gremlin](https://tinkerpop.apache.org/downloads.html) |[TinkerPop docs](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-BD do Azure do Cosmos também fornece uma biblioteca de .NET que possui métodos de extensão Gremlin do [SDKs de BD do Azure Cosmos](documentdb-sdk-dotnet.md) através do NuGet. Esta biblioteca fornece um servidor de Gremlin "no processo" que pode utilizar para ligar diretamente a partições de dados do DocumentDB.
+BD do Azure do Cosmos também fornece uma biblioteca de .NET que possui métodos de extensão Gremlin do [SDKs de BD do Azure Cosmos](documentdb-sdk-dotnet.md) através do NuGet. Esta biblioteca fornece um servidor de Gremlin "no processo" que pode utilizar para ligar diretamente a partições de dados.
 
 | Transferência | Documentação |
 | --- | --- |

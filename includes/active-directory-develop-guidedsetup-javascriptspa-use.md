@@ -1,4 +1,3 @@
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Utilizar a biblioteca de autenticação da Microsoft (MSAL) para início de sessão do utilizador
 
 1.  Crie um ficheiro denominado `app.js`. Se estiver a utilizar o Visual Studio, selecione o projeto (pasta raiz do projeto), clique com o botão direito e selecione: `Add`  >  `New Item`  >  `JavaScript File`:

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 863277294fc0462e9221edffab1dd4e2001d7493
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Soluções de armazenamento do Azure para o servidor R no HDInsight
 
@@ -43,19 +43,25 @@ Para obter orientações sobre a selecionando a opção de armazenamento mais ad
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>Utilizar contas de armazenamento de Blobs do Azure com o servidor de R
 
-Se necessário, pode aceder a várias contas de armazenamento do Azure ou contentores com o cluster HDI. Para tal, tem de especificar as contas de armazenamento adicional na IU ao criar o cluster e, em seguida, siga estes passos para utilizá-los com o servidor R.
+Se tiver especificado mais do que uma conta de armazenamento ao criar o cluster de servidor R, as instruções seguintes explicam como utilizar uma conta secundária para o acesso a dados e operações no servidor do R. Assumir as seguintes contas de armazenamento e o contentor: **storage1** e um contentor predefinido denominada **container1**, e **storage2**.
 
 > [!WARNING]
 > Por motivos de desempenho, o cluster do HDInsight é criado no mesmo centro de dados como a conta de armazenamento primário que especificar. Não é suportada a utilização de uma conta de armazenamento numa localização diferente que o cluster do HDInsight.
 
-1. Criar um cluster do HDInsight com um nome de conta de armazenamento de **storage1** e um contentor predefinido denominada **container1**.
-2. Especifique uma conta de armazenamento adicional chamada **storage2**.  
-3. Copie o ficheiro mycsv.csv para o diretório de /share e executar uma análise em que o ficheiro.  
+1. Utilizar um cliente SSH, estabeleça ligação ao nó de extremidade do cluster como remoteuser.  
+
+  + No portal do Azure > página de serviço de cluster HDI > Descrição geral, clique em **Secure Shell (SSH)**.
+  + No nome de anfitrião, selecione o nó de extremidade (inclui *ed-h* no nome).
+  + Copie o nome do anfitrião.
+  + Abra um cliente SSH PutTY ou SmartTY e introduza o nome do anfitrião.
+  + Introduza remoteuser para o nome de utilizador, seguido da palavra-passe do cluster.
+  
+2. Copie o ficheiro de mycsv.csv para o diretório de /share. 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-4. No código do R, defina o nó de nome **predefinido,** e definir o diretório e o ficheiro a processar.  
+3. Mudar para o R Studio ou outra consola R e escrever o código de R ao definir o nó de nome para o **predefinido** e a localização do ficheiro que pretende aceder.  
 
         myNameNode <- "default"
         myPort <- 0
@@ -64,7 +70,7 @@ Se necessário, pode aceder a várias contas de armazenamento do Azure ou conten
         bigDataDirRoot <- "/share"  
 
         #Define Spark compute context:
-        mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
         #Set compute context:
         rxSetComputeContext(mySparkCluster)

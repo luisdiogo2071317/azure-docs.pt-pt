@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 32d4b4a7db134975158e53fc964c24b52b14a1e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 259ce894b9b0e4a1b2dda2bff387f97bf68ad32b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="_Toc395783175"></a>Build a Node.js web application using Azure Cosmos DB (Criar uma aplicação Web Node.js com o Azure Cosmos DB)
 > [!div class="op_single_selector"]
@@ -30,7 +30,9 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Este tutorial Node.js mostra-lhe como utilizar a base de dados do Azure Cosmos e a API do DocumentDB para armazenar e aceder a dados a partir de uma aplicação Node.js Express alojada em sites Web do Azure. Crie uma aplicação de gestão de tarefas simples baseada na Web, uma aplicação ToDo que lhe permite criar, obter e concluir tarefas. As tarefas são armazenadas como documentos JSON no Azure Cosmos DB. Este tutorial orienta-o durante a criação e a implementação da aplicação e explica o que acontece em cada fragmento.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Este tutorial Node.js mostra-lhe como utilizar a base de dados do Azure Cosmos e a API do SQL Server para armazenar e aceder a dados a partir de uma aplicação Node.js Express alojada em sites Web do Azure. Crie uma aplicação de gestão de tarefas simples baseada na Web, uma aplicação ToDo que lhe permite criar, obter e concluir tarefas. As tarefas são armazenadas como documentos JSON no Azure Cosmos DB. Este tutorial orienta-o durante a criação e a implementação da aplicação e explica o que acontece em cada fragmento.
 
 ![Faça uma captura de ecrã da aplicação My Todo List criada neste tutorial Node.js](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
 
@@ -534,7 +536,7 @@ Tal deverá ser o suficiente para que a nossa aplicação funcione.
 * Pretende testar o dimensionamento e desempenho com o Azure Cosmos DB? Consulte o artigo [Performance and Scale Testing with Azure Cosmos DB](performance-testing.md) (Testar o Desempenho e o Dimensionamento com o Azure Cosmos DB)
 * Saiba como [monitorizar uma conta do Azure Cosmos DB](monitor-accounts.md).
 * Execute consultas no nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).
-* Explore a [Documentação do Azure Cosmos DB](https://docs.microsoft.com/azure/documentdb/).
+* Explore a [Documentação do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 598e7c0c60c82c6f752ec37676dae52488cccb21
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4feed2537a45784bc8aa19de05bdc18533dd64d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados de Redshift Amazon utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -207,7 +207,7 @@ Para este exemplo de utilizar as maiúsculas e minúsculas, copiar atividade efe
 
 ## <a name="data-type-mapping-for-amazon-redshift"></a>Mapeamento de tipo de dados para o Amazon Redshift
 
-Quando copiar dados de Teradata, os seguintes mapeamentos são utilizados Teradata tipos de dados para tipos de dados intermédio do Azure Data Factory. Consulte [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
+Quando copiar dados do Amazon Redshift, os seguintes mapeamentos são utilizados Amazon Redshift tipos de dados para tipos de dados intermédio do Azure Data Factory. Consulte [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
 
 | Tipo de dados do Amazon Redshift | Tipo de dados intermédio de fábrica de dados |
 |:--- |:--- |
@@ -218,7 +218,7 @@ Quando copiar dados de Teradata, os seguintes mapeamentos são utilizados Terada
 | DECIMAL |Decimal |
 | PRECISÃO DUPLA |duplo |
 | NÚMERO INTEIRO |Int32 |
-| REAL |Único |
+| REAL |Solteiro |
 | SMALLINT |Int16 |
 | TEXTO |Cadeia |
 | TIMESTAMP |DateTime |

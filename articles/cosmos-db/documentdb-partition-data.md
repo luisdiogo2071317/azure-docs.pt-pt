@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b721f66ef4d453b5c5f0faf40f5eb2b8913a848
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>A criação de partições na base de dados do Cosmos do Azure utilizando a API do DocumentDB
+# <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>A criação de partições na base de dados do Cosmos do Azure utilizando a API do SQL Server
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Base de dados do Microsoft Azure Cosmos](../cosmos-db/introduction.md) é um serviço de base de dados distribuída, com vários modelo global concebido para ajudar a alcançar o desempenho previsível, rápido e dimensionamento de forma totalmente integrada, juntamente com a aplicação à medida que o que aumenta. 
 
-Este artigo fornece uma descrição geral de como trabalhar com a criação de partições de contentores de BD do Cosmos com a API do DocumentDB. Consulte [criação de partições e dimensionamento horizontal](../cosmos-db/partition-data.md) para uma descrição geral dos conceitos e procedimentos recomendados para a criação de partições com qualquer API de BD do Cosmos do Azure. 
+Este artigo fornece uma descrição geral de como trabalhar com a criação de partições de contentores de BD do Cosmos com a API do SQL Server. Consulte [criação de partições e dimensionamento horizontal](../cosmos-db/partition-data.md) para uma descrição geral dos conceitos e procedimentos recomendados para a criação de partições com qualquer API de BD do Cosmos do Azure. 
 
 Para começar a utilizar com o código, transfira o projeto de [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
@@ -44,7 +46,7 @@ Para começar a utilizar com o código, transfira o projeto de [Azure Cosmos DB 
 
 ## <a name="partition-keys"></a>Chaves de partição
 
-Na API do DocumentDB, especifique a definição de chave de partição sob a forma de um caminho JSON. A tabela seguinte mostra exemplos de definições de chave de partição e os valores correspondentes para cada um. A chave de partição está especificada como um caminho, por exemplo, `/department` representa o departamento de propriedade. 
+Na API do SQL Server, especifique a definição de chave de partição sob a forma de um caminho JSON. A tabela seguinte mostra exemplos de definições de chave de partição e os valores correspondentes para cada um. A chave de partição está especificada como um caminho, por exemplo, `/department` representa o departamento de propriedade. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -106,7 +108,7 @@ await client.CreateDocumentCollectionAsync(
 Este método permite uma API de REST a chamada para a base de dados do Cosmos e o serviço irá aprovisionar um número de partições com base no débito pedido. Pode alterar o débito de um contentor à medida que o desempenho das necessidades evoluem. 
 
 ### <a name="reading-and-writing-items"></a>Ler e escrever itens
-Agora, vamos inserir dados na base de dados do Cosmos. Segue-se uma classe de exemplo que contém um dispositivo ao ler e chamar CreateDocumentAsync para inserir um novo dispositivo ler num contentor. Este é um exemplo tirar partido da API do DocumentDB:
+Agora, vamos inserir dados na base de dados do Cosmos. Segue-se uma classe de exemplo que contém um dispositivo ao ler e chamar CreateDocumentAsync para inserir um novo dispositivo ler num contentor. Este é um exemplo tirar partido da API do SQL Server:
 
 ```csharp
 public class DeviceReading
@@ -223,7 +225,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 Na secção seguinte, vamos ver como pode mover a contentores particionadas de contentores de partição única.
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste artigo, fornecemos-lhe uma descrição geral de como trabalhar com a criação de partições de contentores de BD do Cosmos do Azure com a API do DocumentDB. Consulte também [criação de partições e dimensionamento horizontal](../cosmos-db/partition-data.md) para uma descrição geral dos conceitos e procedimentos recomendados para a criação de partições com qualquer API de BD do Cosmos do Azure. 
+Neste artigo, fornecemos-lhe uma descrição geral de como trabalhar com a criação de partições de contentores de BD do Cosmos do Azure com a API do SQL Server. Consulte também [criação de partições e dimensionamento horizontal](../cosmos-db/partition-data.md) para uma descrição geral dos conceitos e procedimentos recomendados para a criação de partições com qualquer API de BD do Cosmos do Azure. 
 
 * Efetue o dimensionamento e desempenho de teste com base de dados do Azure Cosmos. Consulte [desempenho e dimensionamento de teste com base de dados do Azure Cosmos](performance-testing.md) para um exemplo.
 * Introdução à programação com o [SDKs](documentdb-sdk-dotnet.md) ou [REST API](/rest/api/documentdb/)

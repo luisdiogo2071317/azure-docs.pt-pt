@@ -3,7 +3,7 @@ title: "Notas de versão do Kit de desenvolvimento de pilha do Microsoft Azure |
 description: "Melhoramentos, correções e problemas conhecidos do Kit de desenvolvimento de pilha do Azure."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: mattbriggs
 manager: femila
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2017
-ms.author: andredm
-ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.date: 11/02/2017
+ms.author: mabrigg
+ms.openlocfilehash: ca966dd4664861f476401c5691ab73b95d3f5a2b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Kit de desenvolvimento de pilha do Azure
 
@@ -60,7 +60,7 @@ Estas notas de versão fornecem informações sobre os melhoramentos, correçõe
 - A eliminar os resultados de subscrições do utilizador em recursos órfãos. Como solução, primeiro eliminar recursos de utilizador ou grupo de recursos completo e, em seguida, eliminar subscrições de utilizador.
 - Não é possível ver permissões à sua subscrição através da utilização de portais de pilha do Azure. Como solução, pode verificar as permissões com o PowerShell.
  
-#### <a name="marketplace"></a>Mercado
+#### <a name="marketplace"></a>Marketplace
 - Quando tentar adicionar itens para o mercado de pilha do Azure utilizando o **adicionar a partir do Azure** opção, nem todos os itens podem ser visíveis para transferência.
 - Os utilizadores podem procurar o mercado completo sem uma subscrição e podem ver itens administrativos como planos e ofertas. Estes itens estão não funcional para os utilizadores.
  
@@ -70,7 +70,7 @@ Estas notas de versão fornecem informações sobre os melhoramentos, correçõe
 - Não há nenhum experiência marketplace para criar conjuntos de dimensionamento de máquina virtual. Pode criar um conjunto, utilizando um modelo de dimensionamento.
 - Definições de dimensionamento para conjuntos de dimensionamento de máquina virtual não estão disponíveis no portal. Como solução, pode utilizar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Devido às diferenças de versão do PowerShell, tem de utilizar o `-Name` parâmetro em vez de `-VMScaleSetName`.
 
-#### <a name="networking"></a>Rede
+#### <a name="networking"></a>Redes
 - Não é possível criar um balanceador de carga com um endereço IP público utilizando o portal. Como solução, pode utilizar o PowerShell para criar o Balanceador de carga.
 - Tem de criar uma regra de tradução (NAT) de endereço de rede quando cria um balanceador de carga de rede. Caso contrário, receberá um erro ao tentar adicionar uma regra NAT após a criação do Balanceador de carga.
 - Em **redes**, se clicar em **ligação** para configurar uma ligação VPN, **VNet a VNet** está listado como um tipo de ligação possíveis. Não selecione esta opção. Atualmente, apenas o **Site a site (IPsec)** opção é suportada.
@@ -134,7 +134,7 @@ Além disso, foram efetuadas as correções seguintes:
 - A eliminar os resultados de subscrições do utilizador em recursos órfãos. Como solução, primeiro eliminar recursos de utilizador ou grupo de recursos completo e, em seguida, eliminar subscrições de utilizador.
 - Não é possível ver permissões à sua subscrição através da utilização de portais de pilha do Azure. Como solução, pode verificar as permissões com o PowerShell.
  
-#### <a name="marketplace"></a>Mercado
+#### <a name="marketplace"></a>Marketplace
 - Quando tentar adicionar itens para o mercado de pilha do Azure utilizando o **adicionar a partir do Azure** opção, nem todos os itens podem ser visíveis para transferência.
 - Os utilizadores podem procurar o mercado completo sem uma subscrição e podem ver itens administrativos como planos e ofertas. Estes itens estão não funcional para os utilizadores.
  
@@ -144,7 +144,7 @@ Além disso, foram efetuadas as correções seguintes:
 - Não há nenhum experiência marketplace para criar conjuntos de dimensionamento de máquina virtual. Pode criar um conjunto, utilizando um modelo de dimensionamento.
 - Definições de dimensionamento para conjuntos de dimensionamento de máquina virtual não estão disponíveis no portal. Como solução, pode utilizar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Devido às diferenças de versão do PowerShell, tem de utilizar o `-Name` parâmetro em vez de `-VMScaleSetName`.
 
-#### <a name="networking"></a>Rede
+#### <a name="networking"></a>Redes
 - Não é possível criar um balanceador de carga com um endereço IP público utilizando o portal. Como solução, pode utilizar o PowerShell para criar o Balanceador de carga.
 - Tem de criar uma regra de tradução (NAT) de endereço de rede quando cria um balanceador de carga de rede. Caso contrário, receberá um erro ao tentar adicionar uma regra NAT após a criação do Balanceador de carga.
 - Em **redes**, se clicar em **ligação** para configurar uma ligação VPN, **VNet a VNet** está listado como um tipo de ligação possíveis. Não selecione esta opção. Atualmente, apenas o **Site a site (IPsec)** opção é suportada.
@@ -184,7 +184,7 @@ Além disso, foram efetuadas as correções seguintes:
 - A eliminar os resultados de subscrições do utilizador em recursos órfãos. Como solução, primeiro eliminar recursos de utilizador ou grupo de recursos completo e, em seguida, eliminar subscrições de utilizador.
 - Não é possível ver permissões à sua subscrição utilizando os portais de pilha do Azure. Como solução, pode verificar as permissões com o Powershell.
   
-#### <a name="marketplace"></a>Mercado
+#### <a name="marketplace"></a>Marketplace
 - Os utilizadores podem procurar o mercado completo sem uma subscrição e podem ver itens administrativos como planos e ofertas. Estes itens estão não funcional para os utilizadores.
  
 #### <a name="compute"></a>Computação
@@ -192,7 +192,7 @@ Além disso, foram efetuadas as correções seguintes:
 - Pode configurar uma conjunto apenas com um domínio de falhas de um e um domínio de atualização de um de disponibilidade de máquina virtual.
 - Não há nenhum experiência marketplace para criar conjuntos de dimensionamento de máquina virtual. Pode criar um conjunto, utilizando um modelo de dimensionamento.
 
-#### <a name="networking"></a>Rede
+#### <a name="networking"></a>Redes
 - Não é possível criar um balanceador de carga com um endereço IP público utilizando o portal. Como solução, pode utilizar o PowerShell para criar o Balanceador de carga.
 - Tem de criar uma regra de tradução (NAT) de endereço de rede quando cria um balanceador de carga de rede. Caso contrário, receberá um erro ao tentar adicionar uma regra NAT após a criação do Balanceador de carga.
 - Em **redes**, se clicar em **ligação** para configurar uma ligação VPN, **VNet a VNet** está listado como um tipo de ligação possíveis. Não selecione esta opção. Atualmente, apenas o **Site a site (IPsec)** opção é suportada.

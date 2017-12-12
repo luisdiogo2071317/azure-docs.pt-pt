@@ -1,6 +1,6 @@
 ---
 title: Como a consulta com o SQL na base de dados do Azure Cosmos? | Microsoft Docs
-description: Saiba como consultar com dados do DocumentDB com o SQL na base de dados do Azure Cosmos
+description: Saiba como consultar com SQL na base de dados do Azure Cosmos
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,15 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 61a2516ec9f51df4ac88beaf55108208c7b8c6bc
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 6e159ba7988801b274feb0d7c15a292b3b3b3126
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: Como consultar o SQL Server a utilizar?
 
-A BD do Cosmos Azure [DocumentDB API](documentdb-introduction.md) suporta consultar documentos utilizando o SQL Server. Este artigo fornece um documento de exemplo e dois exemplos de consultas SQL e os resultados.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+A BD do Cosmos Azure [API do SQL Server](documentdb-introduction.md) suporta consultar documentos utilizando o SQL Server. Este artigo fornece um documento de exemplo e dois exemplos de consultas SQL e os resultados.
 
 Este artigo abrange as seguintes tarefas: 
 

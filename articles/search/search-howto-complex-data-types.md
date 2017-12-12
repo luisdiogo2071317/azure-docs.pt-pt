@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Como modelo tipos de dados complexas na Azure Search
 Conjuntos de dados externos utilizados para preencher um índice da Azure Search, por vezes, incluem substructures hierárquicas ou aninhadas que não quebrar neatly um conjunto de linhas de tabela. Exemplos de tais estruturas podem incluir várias localizações e números de telefone para um único cliente, vários cores e tamanhos de um SKU único, vários autores de um livro único e assim sucessivamente. Em termos de modelação, poderá ver estas estruturas que referida como *tipos de dados complexos*, *composta tipos de dados*, *tipos de dados composto*, ou *agregar os tipos de dados*, algumas o nome.
@@ -66,7 +66,7 @@ Normalmente, os dados em questão residem como um conjunto de documentos JSON ou
 Embora os campos com o nome 'id' 'name' e 'empresa' podem facilmente ser mapeadas um para um como campos dentro de um índice da Azure Search, o campo 'localizações' contém uma matriz de localizações, ter ambos um conjunto de IDs de localização, bem como as descrições de localização. Dado que a Azure Search não tem um tipo de dados que suporta isto, temos de forma diferente para modelar isto na Azure Search. 
 
 > [!NOTE]
-> Esta técnica também está descrita pelo Kirk Evans um blogue [indexação DocumentDB do Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), que mostra uma técnica chamada "pelos dados," whereby que teria um campo chamado `locationsID` e `locationsDescription` que são ambos [coleções](https://msdn.microsoft.com/library/azure/dn798938.aspx) (ou uma matriz de cadeias).   
+> Esta técnica também está descrita pelo Kirk Evans um blogue [indexação BD do Azure Cosmos a Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), que mostra uma técnica chamada "pelos dados," whereby que teria um campo chamado `locationsID` e `locationsDescription` que são ambos [coleções](https://msdn.microsoft.com/library/azure/dn798938.aspx) (ou uma matriz de cadeias).   
 > 
 > 
 

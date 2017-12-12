@@ -12,23 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 12/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ac72190ddf01301eba595995d2167904ba4b0c05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementar várias instâncias de um recurso ou a propriedade de modelos Azure Resource Manager
-Este tópico mostra como iterar no seu modelo do Azure Resource Manager para criar várias instâncias de um recurso, ou várias instâncias de uma propriedade num recurso.
+Este artigo mostra-lhe como implementar condicionalmente um recurso e como iterar no modelo Azure Resource Manager para criar várias instâncias de um recurso.
 
-Se precisar de adicionar lógica para o modelo que lhe permite especificar se um recurso é implementado, consulte [condicionalmente implementar recursos](#conditionally-deploy-resource).
+## <a name="conditionally-deploy-resource"></a>Implementar condicionalmente recursos
 
-Para obter um exemplo de criação de vários elementos de uma variável de matriz, consulte [variáveis](resource-group-authoring-templates.md#variables).
+Quando tem de decidir durante a implementação para criar uma instância ou não existem instâncias de um recurso, utilize o `condition` elemento. O valor para este elemento é resolvido para true ou false. Quando o valor for VERDADEIRO, o recurso é implementado. Quando o valor for FALSO, o recurso não está implementado. Por exemplo, para especificar se for implementada uma nova conta de armazenamento ou uma conta de armazenamento existente é utilizada, utilize:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
 
 ## <a name="resource-iteration"></a>Iteração de recursos
-Para criar várias instâncias de um tipo de recurso, adicione um `copy` elemento para que o tipo de recurso. No elemento de cópia, especifique o número de iterações e um nome para este ciclo. O valor da contagem tem de ser um número inteiro positivo e não pode exceder 800. Gestor de recursos cria os recursos em paralelo. Por conseguinte, não é garantida a ordem em que são criados. Para criar recursos iterated na sequência, consulte [cópia série](#serial-copy). 
+Quando tem de decidir durante a implementação para criar uma ou mais instâncias de um recurso, adicione um `copy` elemento para que o tipo de recurso. No elemento de cópia, especifique o número de iterações e um nome para este ciclo. O valor da contagem tem de ser um número inteiro positivo e não pode exceder 800. 
 
 O recurso para criar várias vezes assume o formato seguinte:
 
@@ -112,151 +127,40 @@ Cria estes nomes de:
 * storagefabrikam
 * storagecoho
 
-## <a name="serial-copy"></a>Cópia de série
+Por predefinição, o Gestor de recursos cria os recursos em paralelo. Por conseguinte, não é garantida a ordem em que são criados. No entanto, pode pretender especificar que os recursos são implementados numa sequência. Por exemplo, ao atualizar um ambiente de produção, poderá pretender escalonar as atualizações, por isso, apenas um determinado número são atualizadas ao mesmo tempo.
 
-Quando utiliza o elemento de cópia para criar várias instâncias de um tipo de recurso, o Resource Manager, por predefinição, implementa as instâncias em paralelo. No entanto, pode pretender especificar que os recursos são implementados numa sequência. Por exemplo, ao atualizar um ambiente de produção, poderá pretender escalonar as atualizações, por isso, apenas um determinado número são atualizadas ao mesmo tempo.
+Para implementar serialmente várias instâncias de um recurso, defina `mode` para **série** e `batchSize` para o número de instâncias para implementar cada vez. Com o modo de série, o Gestor de recursos cria uma dependência em instâncias anteriores no ciclo de, pelo que não for iniciado um batch até que o lote anterior seja concluída.
 
-O Resource Manager fornece propriedades no elemento de cópia que lhe permite implementar serialmente várias instâncias. O elemento de cópia, defina `mode` para **série** e `batchSize` para o número de instâncias para implementar cada vez. Com o modo de série, o Gestor de recursos cria uma dependência em instâncias anteriores no ciclo de, pelo que não for iniciado um batch até que o lote anterior seja concluída.
-
-```json
-"copy": {
-    "name": "iterator",
-    "count": "[parameters('numberToDeploy')]",
-    "mode": "serial",
-    "batchSize": 2
-},
-```
-
-A propriedade de modo também aceita **paralelas**, que é o valor predefinido.
-
-Para testar cópia série sem criar recursos reais, utilize o modelo seguinte, que implementa modelos aninhados vazios:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "numberToDeploy": {
-      "type": "int",
-      "minValue": 2,
-      "defaultValue": 5
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "type": "Microsoft.Resources/deployments",
-      "name": "[concat('loop-', copyIndex())]",
-      "copy": {
-        "name": "iterator",
-        "count": "[parameters('numberToDeploy')]",
-        "mode": "serial",
-        "batchSize": 1
-      },
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [],
-          "outputs": {
-          }
-        }
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
-
-No histórico de implementação, tenha em atenção que as implementações aninhadas são processadas em sequência.
-
-![implementação de série](./media/resource-group-create-multiple/serial-copy.png)
-
-Num cenário mais realistas, o exemplo seguinte implementa duas instâncias em vez de uma VM com Linux a partir de um modelo aninhado:
+Por exemplo, para implementar serialmente contas do storage dois num momento, utilize:
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-                "description": "User name for the Virtual Machine."
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-                "description": "Password for the Virtual Machine."
-            }
-        },
-        "dnsLabelPrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-            }
-        },
-        "ubuntuOSVersion": {
-            "type": "string",
-            "defaultValue": "16.04.0-LTS",
-            "allowedValues": [
-                "12.04.5-LTS",
-                "14.04.5-LTS",
-                "15.10",
-                "16.04.0-LTS"
-            ],
-            "metadata": {
-                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
-            }
-        }
-    },
-    "variables": {
-        "templatelink": "https://raw.githubusercontent.com/rjmax/Build2017/master/Act1.TemplateEnhancements/Chapter03.LinuxVM.json"
-    },
     "resources": [
         {
-            "apiVersion": "2015-01-01",
-            "name": "[concat('nestedDeployment',copyIndex())]",
-            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
             "copy": {
-                "name": "myCopySet",
+                "name": "storagecopy",
                 "count": 4,
                 "mode": "serial",
                 "batchSize": 2
-            },
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('templatelink')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "adminUsername": {
-                        "value": "[parameters('adminUsername')]"
-                    },
-                    "adminPassword": {
-                        "value": "[parameters('adminPassword')]"
-                    },
-                    "dnsLabelPrefix": {
-                        "value": "[parameters('dnsLabelPrefix')]"
-                    },
-                    "ubuntuOSVersion": {
-                        "value": "[parameters('ubuntuOSVersion')]"
-                    },
-                    "index":{
-                        "value": "[copyIndex()]"
-                    }
-                }
             }
         }
-    ]
+    ],
+    "outputs": {}
 }
-```
+``` 
+
+A propriedade de modo também aceita **paralelas**, que é o valor predefinido.
 
 ## <a name="property-iteration"></a>Iteração de propriedade
 
@@ -352,50 +256,56 @@ Pode utilizar iteração do recurso e a propriedade em conjunto. Referência da 
 }
 ```
 
-Só pode incluir um elemento de cópia nas propriedades de cada recurso. Para especificar um ciclo de iteração para a mais do que uma propriedade, defina vários objetos na matriz da cópia. Cada objeto é iterated separadamente. Por exemplo, para criar várias instâncias de ambos os `frontendIPConfigurations` propriedade e o `loadBalancingRules` propriedade num Balanceador de carga, definir ambos os objetos num elemento cópia única: 
+## <a name="variable-iteration"></a>Iteração variável
+
+Para criar várias instâncias de uma variável, utilize o `copy` elemento na secção de variáveis. Pode criar várias instâncias de objetos com os valores relacionados e, em seguida, atribuir esses valores para as instâncias do recurso. Pode utilizar a cópia para criar o objeto com uma propriedade de matriz ou uma matriz. Ambas as abordagens são mostradas no exemplo seguinte:
 
 ```json
 {
-    "name": "[variables('loadBalancerName')]",
-    "type": "Microsoft.Network/loadBalancers",
-    "properties": {
-        "copy": [
-          {
-              "name": "frontendIPConfigurations",
-              "count": 2,
-              "input": {
-                  "name": "[concat('loadBalancerFrontEnd', copyIndex('frontendIPConfigurations', 1))]",
-                  "properties": {
-                      "publicIPAddress": {
-                          "id": "[variables(concat('publicIPAddressID', copyIndex('frontendIPConfigurations', 1)))]"
-                      }
-                  }
-              }
-          },
-          {
-              "name": "loadBalancingRules",
-              "count": 2,
-              "input": {
-                  "name": "[concat('LBRuleForVIP', copyIndex('loadBalancingRules', 1))]",
-                  "properties": {
-                      "frontendIPConfiguration": {
-                          "id": "[variables(concat('frontEndIPConfigID', copyIndex('loadBalancingRules', 1)))]"
-                      },
-                      "backendAddressPool": {
-                          "id": "[variables('lbBackendPoolID')]"
-                      },
-                      "protocol": "tcp",
-                      "frontendPort": "[variables(concat('frontEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "backendPort": "[variables(concat('backEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "probe": {
-                          "id": "[variables('lbProbeID')]"
-                      }
-                  }
-              }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
           }
-        ],
-        ...
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
     }
+  }
 }
 ```
 
@@ -435,7 +345,7 @@ Especifique a que um recurso é implementado depois de outro recurso utilizando 
 }
 ```
 
-## <a name="create-multiple-instances-of-a-child-resource"></a>Criar várias instâncias de um recurso de subordinados
+## <a name="iteration-for-a-child-resource"></a>Iteração para um recurso de subordinados
 Não é possível utilizar um ciclo de cópia para um recurso subordinado. Para criar várias instâncias de um recurso que normalmente definir como aninhada dentro de outro recurso, em vez disso, tem de criar o recurso de como um recurso de nível superior. É possível definir a relação com o recurso principal através de propriedades de tipo e nome.
 
 Por exemplo, suponha que, normalmente, é possível definir um conjunto de dados como um recurso subordinado dentro de uma fábrica de dados.
@@ -485,28 +395,140 @@ O exemplo seguinte mostra a implementação:
 }]
 ```
 
-## <a name="conditionally-deploy-resource"></a>Implementar condicionalmente recursos
+## <a name="deploy-example-templates"></a>Implementar modelos de exemplo
 
-Para especificar se um recurso é implementado, utilize o `condition` elemento. O valor para este elemento é resolvido para true ou false. Quando o valor for VERDADEIRO, o recurso é implementado. Quando o valor for FALSO, o recurso não está implementado. Por exemplo, para especificar se for implementada uma nova conta de armazenamento ou uma conta de armazenamento existente é utilizada, utilize:
+### <a name="resource-iteration"></a>Iteração de recursos
 
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
+O [copiar armazenamento](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) modelo implementa múltiplas contas de armazenamento com um número de índice no nome.
+
+Para o PowerShell, utilize:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
 ```
 
-Para obter um exemplo de utilização de um recurso novo ou existente, consulte [novo ou existente de condição de modelo](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
+Para a CLI do Azure, utilize:
 
-Para obter um exemplo de utilização de uma palavra-passe ou chave SSH para implementar a máquina virtual, consulte [modelo de condição de nome de utilizador ou SSH](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
+```
+
+### <a name="serial-resource-iteration"></a>Iteração de série de recursos
+
+O [armazenamento da cópia série](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) modelo implementa múltiplas contas de armazenamento um momento. O nome inclui o número de índice.
+
+Para o PowerShell, utilize:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
+```
+
+Para a CLI do Azure, utilize:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
+```
+
+### <a name="resource-iteration-from-array"></a>Iteração de recursos de matriz
+
+O [copiar armazenamento com matriz](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) modelo implementa múltiplas contas de armazenamento. O nome inclui um valor de uma matriz.
+
+Para o PowerShell, utilize:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
+```
+
+Para a CLI do Azure, utilize:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
+```
+
+### <a name="conditionally-deploy-resources"></a>Implementar condicionalmente recursos
+
+O [VM com uma rede Virtual novo ou existente, o armazenamento e o IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) modelo implementa recursos novos ou existentes com uma máquina virtual.
+
+Para o PowerShell, utilize:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
+```
+
+Para a CLI do Azure, utilize:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
+```
+
+### <a name="property-iteration"></a>Iteração de propriedade
+
+O [a implementação da VM com um número de discos de dados variável](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) modelo implementa vários discos de dados com uma máquina virtual.
+
+Para o PowerShell, utilize:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
+```
+
+Para a CLI do Azure, utilize:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
+```
+
+### <a name="variable-iteration"></a>Iteração variável
+
+O [copiar variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) modelo demonstra as diferentes formas de iterating em variáveis.
+
+Para o PowerShell, utilize:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
+```
+
+Para a CLI do Azure, utilize:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
+```
+
+### <a name="variable-iteration-to-create-resources"></a>Variável iteração criar recursos
+
+O [várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) modelo implementa múltiplas regras de segurança para um grupo de segurança de rede. -Constrói as regras de segurança de um parâmetro.
+
+Para o PowerShell, utilize:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json `
+  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 * Se pretender saber mais sobre as secções de um modelo, consulte [criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).

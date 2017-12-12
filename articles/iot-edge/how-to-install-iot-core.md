@@ -7,18 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d3ff260b4ac238ce7aaa2a63538dede7bd21a19c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Instalar o runtime de limite de IoT no Windows IoT Core - pré-visualização
 
-Pode executar o tempo de execução do limite de IoT do Azure, mesmo em dispositivos muito pequena do único quadro computador (SBC) que são muito prevalente atualmente da indústria de IoT. Este artigo explica o tempo de execução de aprovisionamento num [MinnowBoard Turbot] [ lnk-minnow] quadro de desenvolvimento com o Windows IoT Core.
+Limite de IoT do Azure e [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) funcionam em conjunto para ativar o limite de computação nos dispositivos, mesmo pequenos. Pode executar o tempo de execução do limite de IoT do Azure, mesmo em dispositivos muito pequena do único quadro computador (SBC) que são muito prevalente atualmente da indústria de IoT. 
+
+Este artigo explica o tempo de execução de aprovisionamento num [MinnowBoard Turbot] [ lnk-minnow] quadro de desenvolvimento com o Windows IoT Core. Windows IoT Core suporta o Azure IoT Edge apenas nos processadores baseados em x64 do Intel. 
 
 ## <a name="install-the-runtime"></a>Instalar o runtime
 

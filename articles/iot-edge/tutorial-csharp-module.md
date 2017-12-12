@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b8afc266cd416f39a895285d05b8ff323fb46330
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: bf57fa11c63930c594c63043ab4b695f586d9e1b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Desenvolver e implementar um módulo de limite de IoT c# para o seu dispositivo simulado – pré-visualização
 
@@ -219,7 +219,7 @@ A mostrar os passos seguintes, como criar um módulo de limite de IoT com base n
         
    Utilize o nome de utilizador, a palavra-passe e o servidor de início de sessão que copiou do seu registo de contentor do Azure quando o criou.
 
-3. A imagem de emissão para o seu repositório de Docker. Selecione **vista** > **paleta de comando** e procure o **Edge: imagem de Docker do módulo de limite de Push de IoT** comandos de menu. Introduza o nome da imagem na caixa de texto de pop-up na parte superior da janela VS Code. Utilize o mesmo nome de imagem utilizada no passo 1.d.
+3. A imagem de emissão para o seu repositório de Docker. Selecione **vista** > **paleta de comando** e procure o **Edge: imagem de Docker do módulo de limite de Push de IoT** comandos de menu. Introduza o nome da imagem na caixa de texto de pop-up na parte superior da janela VS Code. Utilize o mesmo nome de imagem utilizada no passo 4.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Adicionar credenciais de registo ao tempo de execução do contorno
 Adicione as credenciais para o registo para o tempo de execução do Edge no computador onde está a executar o dispositivo de limite. Estas credenciais conceder o acesso de tempo de execução para o contentor de extração. 

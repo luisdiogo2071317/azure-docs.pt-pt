@@ -1,7 +1,7 @@
 ---
 title: "Tutorial de desenvolvimento de aplicações Java utilizando o Azure Cosmos DB | Microsoft Docs"
-description: "Este tutorial de aplicação web do Java mostra-lhe como utilizar a base de dados do Cosmos do Azure e a API do DocumentDB para armazenar e aceder a dados a partir de uma aplicação Java alojada em Web sites do Azure."
-keywords: "Desenvolvimento de aplicações, tutorial sobre bases de dados, aplicação java, tutorial sobre aplicações web java, documentdb, azure, Microsoft azure"
+description: "Este tutorial de aplicação web do Java mostra-lhe como utilizar a base de dados do Cosmos do Azure e a API do SQL Server para armazenar e aceder a dados a partir de uma aplicação Java alojada em Web sites do Azure."
+keywords: "Desenvolvimento de aplicações, tutorial de base de dados, aplicação java, tutorial de aplicação web java, do azure, do Microsoft azure"
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 7b1053a7ec879294cb2240c9d6b4cd32f923ef9c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0081a080e33b0377516f99d6cdeb9fcc38bc10da
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Criar uma aplicação de web de Java utilizando a base de dados do Azure Cosmos e a API do DocumentDB
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Criar uma aplicação de web de Java utilizando a base de dados do Azure Cosmos e a API do SQL Server
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
@@ -29,6 +29,8 @@ ms.lasthandoff: 10/11/2017
 > * [python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Este tutorial de aplicação web do Java mostra-lhe como utilizar o [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) serviço para armazenar e aceder a dados a partir de uma aplicação Java alojada em Web Apps do Azure App Service. Neste tópico, irá aprender:
 
@@ -86,8 +88,8 @@ Para criar a aplicação JSP:
    
     ![Olá, Mundo – Tutorial de Aplicações Java](./media/documentdb-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Passo 3: instalar o SDK de Java do DocumentDB
-A forma mais fácil para obter o SDK do DocumentDB Java e as respetivas dependências é através do [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK"></a>Passo 3: Instalar o Java do SQL Server SDK
+A forma mais fácil para obter o SDK Java do SQL Server e as respetivas dependências é através de [Apache Maven](http://maven.apache.org/).
 
 Para tal, terá de converter o seu projeto em projeto maven, realizando os seguintes passos:
 
@@ -101,12 +103,12 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
    * No **Id do artefacto** box, introduza azure documentdb.
    * No **versão** box, introduza 1.5.1.
      
-   ![Instale o SDK da aplicação de Java DocumentDB](./media/documentdb-java-application/image13.png)
+   ![Instalar a aplicação de Java do SQL Server SDK](./media/documentdb-java-application/image13.png)
      
    * Ou adicione a dependência XML para o Id de grupo e o Id do artefacto diretamente no pom.xml através de um editor de texto:
      
         <dependency><groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version></dependency>
-6. Clique em **OK** e Maven irá instalar o SDK de Java DocumentDB.
+6. Clique em **OK** e Maven irá instalar o SDK Java do SQL Server.
 7. Guarde o ficheiro pom.xml.
 
 ## <a id="UseService"></a>Passo 4: utilizar o serviço do Azure Cosmos DB numa aplicação de Java
@@ -279,7 +281,7 @@ Para tal, terá de converter o seu projeto em projeto maven, realizando os segui
                 return null;
             }
         }
-7. Também podemos utilizar o DocumentClient para obter uma coleção ou uma lista de TodoItems com o SQL do DocumentDB:
+7. Também podemos utilizar o DocumentClient para obter uma coleção ou uma lista de TodoItems com o SQL Server:
    
         @Override
         public List<TodoItem> readTodoItems() {

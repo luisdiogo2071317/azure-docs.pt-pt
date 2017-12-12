@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8a772680355a62c13dbe0361b5b58029642cf84d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 54cb7a9630a64be1a3012604929613fe0a843666
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com o PowerShell
 
@@ -39,15 +39,23 @@ Os passos deste artigo aplicam-se ao modelo de implementação Resource Manager 
 
 ## <a name="about"></a>Sobre a ligação de VNets
 
-Ligar uma rede virtual a outra com o tipo de ligação VNet a VNet (VNet2VNet) é semelhante a criar uma ligação IPsec a uma localização de site no local. Ambos os tipos de conectividade utilizam um gateway de VPN para fornecer um túnel seguro através de IPsec/IKE e funcionam da mesma forma quando estão a comunicar. A diferença entre os tipos de ligação é a forma como o gateway de rede local é configurado. Quando cria uma ligação VNet a VNet, não vê o espaço de endereços do gateway de rede local. Este é criado e preenchido automaticamente. Se atualizar o espaço de endereços de uma VNet, a outra VNet reconhece automaticamente que deve efetuar o encaminhamento para o espaço de endereços atualizado.
+Existem múltiplas formas de ligar VNets. As secções abaixo descrevem as diferentes formas de ligar redes virtuais.
 
-Caso esteja a trabalhar com configurações complexas, pode ser preferível utilizar tipos de ligações IPsec, em vez de ligações VNet a VNet. Desta forma, pode especificar um espaço de endereços adicional para o gateway de rede local, de modo a encaminhar o tráfego. Se ligar as suas VNets com o tipo de ligação IPsec, tem de criar e configurar o gateway de rede local manualmente. Para obter mais informações, veja [Site-to-Site configurations](vpn-gateway-create-site-to-site-rm-powershell.md) (Configurações de Site a Site).
+### <a name="vnet-to-vnet"></a>VNet a VNet
 
-Além disso, se as suas VNets estiverem na mesma região, poderá ponderar ligá-las através de VNet Peering. O VNet peering não utiliza um gateway de VPN e os preços e as funcionalidades são ligeiramente diferentes. Para obter mais informações, veja [VNet peering](../virtual-network/virtual-network-peering-overview.md).
+Configurar uma ligação VNet a VNet é uma boa forma de ligar facilmente as VNets. Ligar uma rede virtual a outra com o tipo de ligação VNet a VNet (VNet2VNet) é semelhante a criar uma ligação IPsec Site a Site a uma localização no local.  Ambos os tipos de conectividade utilizam um gateway de VPN para fornecer um túnel seguro através de IPsec/IKE e funcionam da mesma forma quando estão a comunicar. A diferença entre os tipos de ligação é a forma como o gateway de rede local é configurado. Quando cria uma ligação VNet a VNet, não vê o espaço de endereços do gateway de rede local. Este é criado e preenchido automaticamente. Se atualizar o espaço de endereços de uma VNet, a outra VNet reconhece automaticamente que deve efetuar o encaminhamento para o espaço de endereços atualizado. Criar uma ligação VNet a VNet é, normalmente, mais rápido e fácil do que criar uma ligação Site a Site entre VNets.
 
-### <a name="why"></a>Porquê criar uma ligação VNet a VNet?
+### <a name="site-to-site-ipsec"></a>Site a Site (IPsec)
 
-Poderá pretender ligar redes virtuais pelos seguintes motivos:
+Se estiver a trabalhar com uma configuração de rede mais complicada, poderá preferir ligar as VNets utilizando os passos [Site a Site](vpn-gateway-create-site-to-site-rm-powershell.md), em vez de utilizar os passos de VNet a VNet. Quando utilizar os passos de Site a Site, pode criar e configurar manualmente os gateways de rede local. O gateway de rede local para cada VNet trata a outra VNet como um site local. Desta forma, pode especificar um espaço de endereços adicional para o gateway de rede local, de modo a encaminhar o tráfego. Se o espaço de endereço para uma VNet for alterado, terá de atualizar o gateway de rede local correspondente para refletir a alteração. Não será atualizado automaticamente.
+
+### <a name="vnet-peering"></a>VNet peering
+
+Poderá querer considerar ligar às VNets utilização o VNet Peering. O VNet peering não utiliza um gateway de VPN e tem restrições de diferentes. Além disso, o [preço do VNet peering](https://azure.microsoft.com/pricing/details/virtual-network) é calculado de forma diferente que os [preços dos Gateways VPN de VNet a VNet](https://azure.microsoft.com/pricing/details/vpn-gateway). Para obter mais informações, veja [VNet peering](../virtual-network/virtual-network-peering-overview.md).
+
+## <a name="why"></a>Porquê criar uma ligação VNet a VNet?
+
+Poderá pretender ligar redes virtuais utilizando uma ligação VNet a VNet pelos seguintes motivos:
 
 * **Geopresença e georredundância entre várias regiões**
 
@@ -59,7 +67,7 @@ Poderá pretender ligar redes virtuais pelos seguintes motivos:
 
 A comunicação VNet a VNet pode ser combinada com configurações multilocal. Este procedimento permite-lhe estabelecer topologias de rede que combinam uma conetividade em vários locais com uma conetividade de rede intervirtual.
 
-## <a name="which-set-of-steps-should-i-use"></a>Que conjunto de passos devo utilizar?
+## <a name="steps"></a>Que passos de VNet a VNet devo utilizar?
 
 Neste artigo, verá dois conjuntos de passos diferentes. Um conjunto de passos para [VNets que residem na mesma subscrição](#samesub) e outro para [VNets que residem em diferentes subscrições](#difsub).
 A principal diferente entre ambos os conjuntos é que tem de utilizar sessões do PowerShell separadas quando configurar as ligações para VNets que residem em subscrições diferentes. 

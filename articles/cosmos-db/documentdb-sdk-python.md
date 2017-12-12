@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB Python API, SDK & recursos | Microsoft Docs
-description: "Saiba tudo sobre Python API e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do Azure Cosmos DB Python SDK."
+title: 'Do Azure Cosmos DB: API de Python do SQL Server, SDK & recursos | Microsoft Docs'
+description: "Saiba tudo sobre a API de Python do SQL Server e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do Azure Cosmos DB Python SDK."
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6aecdce1de2e852c8683df0ec29e91de940ba25
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 891af14f347c798d7c661e19d110b5c0a2d8982c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>SDK de Python Cosmos BD do Azure: Notas de versão e recursos
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python do Cosmos BD do Azure para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Feed de alteração de .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/15/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -82,7 +84,7 @@ ms.lasthandoff: 11/15/2017
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
 * Suporte de política de repetição adicionado para pedidos otimizados. (Pedidos otimizados recebem uma pedido taxa demasiado grande exceção, o código de erro 429.) Por predefinição, base de dados do Azure Cosmos repete nove vezes para cada pedido quando for detetado o código de erro 429, para respeitar o tempo de retryAfter no cabeçalho de resposta. Um período de tempo do intervalo de repetição fixo pode agora ser definido como parte da propriedade RetryOptions no objeto ConnectionPolicy se pretender ignorar a hora de retryAfter devolvida pelo servidor entre as repetições. BD do Azure do Cosmos aguarda agora um máximo de 30 segundos para cada pedido que está a ser limitado (independentemente da contagem de repetições) e devolve a resposta com o código de erro 429. Neste momento também pode ser substituído na propriedade RetryOptions ConnectionPolicy objeto.
-* BD do cosmos devolve agora x-ms-limitação--contagem de repetições e x-ms-throttle-retry-wait-time-ms como cabeçalhos de resposta de cada pedido para indicar a limitação de Repetir contagem e a hora de cummulative aguardaram o pedido entre as repetições.
+* BD do cosmos devolve agora x-ms-limitação--contagem de repetições e x-ms-throttle-retry-wait-time-ms como cabeçalhos de resposta de cada pedido para indicar a limitação de Repetir contagem e a hora cumulativa aguardaram o pedido entre as repetições.
 * Remover a classe de RetryPolicy e a propriedade correspondente (retry_policy) exposta na classe document_client e introduzidas em vez disso, uma classe de RetryOptions exposição a propriedade RetryOptions na classe ConnectionPolicy que pode ser utilizada para substituir o algumas das opções predefinidas de repetição.
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
@@ -92,7 +94,7 @@ ms.lasthandoff: 11/15/2017
 * Foi adicionado o suporte para a funcionalidade de tempo para Live(TTL) para documentos.
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
-* Correções de erros relacionados com o servidor lado a criação de partições para permitir carateres especiais no caminho de partitionkey.
+* Correções de erros relacionados com a criação de partições do lado do servidor para permitir carateres especiais no caminho da chave de partição.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Implementado [particionada coleções](partition-data.md) e [níveis de desempenho definido pelo utilizador](performance-levels.md). 
@@ -119,14 +121,14 @@ ms.lasthandoff: 11/15/2017
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>Versão & extinção datas
-A Microsoft vai fornecer pelo menos notificação **12 meses** previamente extinguir um SDK para smooth a transição para uma versão mais recente/suportado.
+A Microsoft disponibiliza notificação, pelo menos, **12 meses** previamente extinguir um SDK para smooth a transição para uma versão mais recente/suportado.
 
 Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas ao SDK atual, como tal, recomendamos que atualize sempre para a versão mais recente SDK como antecipadamente quanto possível. 
 
-Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo serviço.
+Qualquer pedido de BD do Cosmos utilizando um SDK extinto são rejeitados pelo serviço.
 
 > [!WARNING]
-> Todas as versões do Azure DocumentDB SDK para Python anteriores à versão **1.0.0** serão descontinuados no **29 de Fevereiro de 2016**. 
+> Todas as versões do SQL Azure SDK para Python anteriores à versão **1.0.0** foram descontinuados no **29 de Fevereiro de 2016**. 
 > 
 > 
 

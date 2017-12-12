@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 2fb989d1fd9ee76ee1d21323574971438d607238
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Introdução ao Microsoft Azure
 Microsoft Azure é plataforma de aplicações da Microsoft para a nuvem pública.  O objetivo deste artigo é para lhe fornecer uma Fundação para compreender as noções básicas do Azure, mesmo se não souber nada sobre nuvem informática.
@@ -40,7 +40,7 @@ Este artigo irá utilizar um **organização diferente** para falar sobre os ser
  *Figura: O Azure oferece acessível através da Internet serviços de aplicações em execução nos centros de dados do Azure.*
 
 ## <a name="management-portal"></a>Portal de Gestão
-O Azure tem uma interface web chamada o [Portal de gestão](http://manage.windowsazure.com) que permite aos administradores de acesso e administrar funcionalidades mais, mas não todas as do Azure.  Microsoft versões, normalmente, o portal de IU mais recente na versão beta antes de o extinguir antigo. Denomina-se a uma mais recente do ["Portal de pré-visualização do Azure"](https://portal.azure.com/).
+O Azure tem uma interface web chamada o [Portal de gestão](http://manage.windowsazure.com) que permite aos administradores de acesso e administrar funcionalidades mais, mas não todas as do Azure.  Microsoft versões, normalmente, o portal de IU mais recente na versão beta antes de o extinguir antigo. Denomina-se a uma mais recente do ["Portal do Azure"](https://portal.azure.com/).
 
 Se, normalmente, uma sobreposição longa ambos os portais estão ativos. Enquanto os serviços principais irão aparecer em ambos os portais, nem todas as funcionalidades podem estar disponíveis em ambas. Mais recentes serviços podem aparecer na mais recentes do portais primeiro e mais antigos serviços e funcionalidades apenas podem existir no mais antigos.  A mensagem aqui é que se não encontrar algo no portal do anterior, verifique a uma mais recente e vice-versa.
 
@@ -228,7 +228,7 @@ Estes SDKs ajudam a criar, implementar e gerir aplicações do Azure. Estiverem 
 Juntamente com ajudando-o a criar aplicações do Azure, estes SDKs também fornecem bibliotecas de cliente que o ajudam a criar software que utiliza serviços do Azure. Por exemplo, poderá criar uma aplicação que lê e escreve os blobs do Azure ou criar uma ferramenta que implementa as aplicações do Azure através da interface de gestão do Azure.
 
 ### <a name="visual-studio-team-services"></a>Visual Studio Team Services
-Visual Studio Team Services é um nome de marketing que abrangem um número dos serviços de que o ajudar a desenvolver aplicações do Azure.
+Visual Studio Team Services é um nome de marketing que abrangem um número dos serviços de que o ajudar a desenvolver aplicações no Azure.
 
 Para evitar confusões - não fornece uma versão alojada ou baseadas na Web do Visual Studio. Ainda tem sua cópia local em execução do Visual Studio. Mas fornece muitas outras ferramentas que podem ser muito úteis.
 
@@ -347,7 +347,7 @@ Hubs de notificação foi concebido para trabalhar com qualquer back-end. Pode u
 
 Pode enviar notícias de última hora, sporting eventos e notificações de anúncio de produto para milhões de utilizadores com baixa latência. As empresas podem notificar os seus empregados sobre a nova hora confidenciais as comunicações, como vendas potenciais, para que os funcionários não têm constantemente verificar e-mail ou outras aplicações para se manter informado sobre. Também pode enviar one-time-palavras-passe necessária para a autenticação multifator.
 
-## <a name="back-up"></a>Cópia de segurança
+## <a name="back-up"></a>Fazer cópia de Segurança
 Cada empresa tem de criar cópias de segurança e restaurar dados. Pode utilizar o Azure para cópia de segurança e restaurar a aplicação na nuvem ou no local. O Azure oferece diferentes opções para ajudar a dependendo do tipo de cópia de segurança.
 
 ### <a name="site-recovery"></a>Site Recovery
@@ -368,7 +368,7 @@ Dados é mais seguro porque as cópias de segurança são encriptadas antes da t
 
 **Cenários de cópia de segurança do Azure**
 
-Se tiver já a utilizar o Windows Server ou o System Center, cópia de segurança do Azure é uma solução natural para fazer uma cópia de segurança do sistema de ficheiros de servidores, máquinas virtuais e bases de dados do SQL Server.  Funciona com ficheiros encriptados, comprimidos e dispersos. Existem algumas limitações, pelo que deve [verificar os pré-requisitos de cópia de segurança do Azure](http://technet.microsoft.com/library/dn296608.aspx) primeiro.
+Se já estiver a utilizar o Windows Server ou o System Center, o backup do Azure é uma solução natural para fazer uma cópia de segurança do sistema de ficheiros de servidores, máquinas virtuais e bases de dados do SQL Server.  Funciona com ficheiros encriptados, comprimidos e dispersos. Existem algumas limitações, pelo que deve [verificar os pré-requisitos de cópia de segurança do Azure](http://technet.microsoft.com/library/dn296608.aspx) primeiro.
 
 ## <a name="messaging-and-integration"></a>Mensagens e Integração
 Independentemente do que este está a fazer, código frequentemente tem de interagir com outro código.  Em algumas situações, tudo o que precisa é de mensagens em fila básicas. Noutros casos, são necessárias as interações mais complexas. O Azure oferece várias formas para resolver estes problemas. Figura 5 ilustra as opções.
@@ -424,11 +424,11 @@ Em qualquer altura estiver a configurar em que existem muitas mensagens de todas
 ![Serviços BizTalk](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
  *Figura: BizTalk Services fornece a capacidade de transformação XML formatos de mensagens na nuvem.*
 
-Por vezes, precisa de ligar sistemas que comunicam com diferentes formatos de mensagens. É comum para empresas XML mensagens formatos, mesmo quando um padrão comum está disponível e de esquemas de base de dados diferente. Em vez de escrever uma grande quantidade de código personalizado, pode utilizar o BizTalk Server no local para integrar vários sistemas.  BizTalk Services do Azure fornece o mesmo tipo de serviço, mas na nuvem. Pode paga apenas o que utiliza e não se preocupe escala como tiver no local.
+Por vezes, precisa de ligar sistemas que comunicam com diferentes formatos de mensagens. É comum para as empresas têm esquemas de base de dados diferente e XML mensagens formatos, mesmo quando um padrão comum está disponível. Em vez de escrever uma grande quantidade de código personalizado, pode utilizar o BizTalk Server no local para integrar vários sistemas.  BizTalk Services do Azure fornece o mesmo tipo de serviço, mas na nuvem. Pode paga apenas o que utiliza e não se preocupe escala como tiver no local.
 
 **Cenários de serviços BizTalk**
 
-Interações de empresa-empresa (B2B) necessitam, normalmente, este tipo de conversão.  Por exemplo, uma empresa de criação de airplanes tem ordenar partes de vários fornecedores de partes. Pode ter vários fornecedores de partes.  Esses ordens devem ser automatizadas para aceder diretamente a partir de sistemas de construtores avião para os sistemas de fornecedores.  Nenhuma das empresas pretende alterar os respetivos sistemas de núcleos e formatos de mensagem e não é muito provável que esses formatos são os mesmos. BizTalk Services podem demorar mensagens e traduzir entre os formatos de nova ambas as direções. O fornecedor de avião, pode efetuar o trabalho traduzir ou podem de vários fornecedores, dependendo do que quiser ter maior controlo e a quantidade de tradução necessária.     
+Interações de empresa-empresa (B2B) necessitam, normalmente, este tipo de conversão.  Por exemplo, uma empresa de criação de airplanes tem de partes de ordem do respetivos vários fornecedores de partes. Pode ter vários fornecedores de partes.  Esses ordens devem ser automatizadas para aceder diretamente a partir de sistemas de construtores avião para os sistemas de fornecedores.  Nenhuma das empresas pretende alterar os respetivos sistemas de núcleos e formatos de mensagem e não é muito provável que esses formatos são os mesmos. BizTalk Services podem demorar mensagens e traduzir entre os formatos de nova ambas as direções. O fornecedor de avião, pode efetuar o trabalho traduzir ou podem de vários fornecedores, dependendo do que quiser ter maior controlo e a quantidade de tradução necessária.     
 
 ## <a name="compute-assistance"></a>Assistência de computação
 O Azure oferece assistência para serviços que não é necessário executar sempre.  
@@ -437,7 +437,7 @@ O Azure oferece assistência para serviços que não é necessário executar sem
 ![Azure Scheduler](./media/fundamentals-introduction-to-azure/SchedulerIntroNew.png)   
 *Figura: o agendador do Azure fornece uma forma para agendar trabalhos num momento específico durante um período específico.*
 
-Por vezes, as aplicações só tem de executar um determinado período de tempo. No Azure, pode poupar dinheiro com este tipo de aplicação em vez de permitir que uma aplicação apenas continuará a ser executada 24x7 aguardar dados a processar. O agendador do Azure permite-lhe agendar quando uma aplicação deve executar com base num intervalo de tempo ou num calendário. É fiável e irá verificar que é executado um processo, mesmo se houver falhas de centro de dados, de máquina e de rede. Utilize a API de REST do agendador para gerir estas ações.
+Por vezes, as aplicações só tem de executar um determinado período de tempo. No Azure, pode poupar dinheiro com este tipo de aplicação em vez de permitir que uma aplicação apenas continuará a ser executada 24x7 aguardar dados a processar. O agendador do Azure permite-lhe agendar quando uma aplicação deve executar com base num intervalo de tempo ou um calendário. É fiável e irá verificar que é executado um processo, mesmo se houver falhas de centro de dados, de máquina e de rede. Utilize a API de REST do agendador para gerir estas ações.
 
 Quando ocorre um alarme agendada, o agendador envia mensagens HTTP ou HTTPS para um ponto final específico ou pode colocar uma mensagem numa fila de armazenamento.  Por isso, tem de ter a sua aplicação tiver um ponto final acessível ou que o monitorizar uma fila de armazenamento. Em seguida, uma vez, obtém a mensagem, pode efetuar qualquer ação que está programado para.
 
@@ -493,7 +493,7 @@ O HDInsight é o nome do serviço de baseado no Apache Hadoop do Azure. HDInsigh
 HDinsight suporta outros componentes do ecossistema do Hadoop, incluindo Hive e Pig. Microsoft também tiver criado componentes que tornam mais fácil trabalhar com dados produzidos pelo HDInsight utilizando as ferramentas de BI tradicionais, como o adaptador de HiveODBC e Explorador de dados que funcionam com o Excel.
 
 ### <a name="high-performance-computing-big-compute"></a>Elevado desempenho (Macrocomputação) de computação
-Uma das formas mais apelativo para utilizar uma plataforma em nuvem está a executar elevado desempenho (HPC) de computação e de outras aplicações "De Macrocomputação". Os exemplos incluem aplicações de engenharia especializadas incorporadas a utilizar o padrão da indústria MPI Message Passing Interface (), bem como aplicações constrangedoramente paralelas so-called, esses modelos de riscos financeiros.
+Uma das formas mais apelativo para utilizar uma plataforma em nuvem está a executar elevado desempenho (HPC) de computação e de outras aplicações "De Macrocomputação". Os exemplos incluem aplicações de engenharia especializadas incorporadas a utilizar o padrão da indústria MPI Message Passing Interface (), bem como aplicações constrangedoramente paralelas so-called, tais como modelos de riscos financeiros.
 
 Essence de Macrocomputação está a executar o código em várias máquinas em simultâneo. No Azure, isto significa que a executar muitos virtual as máquinas em simultâneo, tudo a funcionar em paralelo para resolver um problema. Fazê-lo requer alguma forma aos recursos e agendar as aplicações, ou seja, para distribuir o respetivo trabalho entre estas instâncias. HPC Pack gratuita da Microsoft e outras soluções de cluster de computação podem executar também no Azure, tendo partido dos serviços de computação e de infraestrutura do Azure para adicionar capacidade a pedido a um cluster de computação no local ou executar aplicações de Macrocomputação inteiramente na nuvem.
 
@@ -515,7 +515,7 @@ Como mostra a figura, os Media Services fornecem um conjunto de componentes para
 
 As aplicações que utilizam esta plataforma podem ser executados no Azure ou noutro local. Por exemplo, uma aplicação de ambiente de trabalho para a próxima um vídeo de produção pode permitir que utilizadores carregar as vídeo aos Media Services, em seguida, processá-lo de várias formas. Em alternativa, um serviço de gestão de conteúdo baseado na nuvem em execução no Azure poderá baseiam-se nos serviços de multimédia para processar e distribuir as vídeo. Onde quer que é executado e que faz, cada aplicação escolhe que componentes tem de utilizar, aceder às mesmas através de RESTful interfaces.
 
-Para distribuir o que produz, uma aplicação pode utilizar a CDN do Azure, outro CDN, ou enviar apenas bits diretamente aos utilizadores. No entanto, existe obtém, vídeo criado utilizando os Media Services pode ser utilizado por vários sistemas de cliente, incluindo Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash e Silverlight. O objetivo é tornar mais fácil criar aplicações modernas do suporte de dados.
+Para distribuir o que produz, uma aplicação pode utilizar a CDN do Azure, outro CDN, ou enviar apenas bits diretamente aos utilizadores. No entanto, quando existe obtém, vídeo criado utilizando os Media Services pode ser consumidos pelos próprios vários sistemas de cliente, incluindo Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash e Silverlight. O objetivo é tornar mais fácil criar aplicações modernas do suporte de dados.
 
 **Referências**
 

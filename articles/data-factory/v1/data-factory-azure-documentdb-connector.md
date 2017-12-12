@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 32b72577002962f049f446d6f3c2353189867e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe6612e8c3fb557097866b23bad32d7edc45492f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados para e da base de dados do Cosmos do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [conector de base de dados do Azure Cosmos no V2](../connector-azure-cosmos-db.md).
 
-Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados do Azure Cosmos BD (API do DocumentDB). Baseia-se no [atividades de movimentos de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma descrição geral do movimento de dados com a atividade de cópia. 
+Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados do Azure Cosmos BD (API do SQL Server). Baseia-se no [atividades de movimentos de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma descrição geral do movimento de dados com a atividade de cópia. 
 
 Pode copiar dados a partir de qualquer arquivo de dados de origem suportada para a base de dados do Azure Cosmos ou da base de dados do Azure Cosmos qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados suportados como origens ou sinks pela atividade de cópia, consulte o [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. 
 
 > [!IMPORTANT]
-> Conector Cosmos BD Azure suportam apenas a API do DocumentDB.
+> Conector do Cosmos BD do Azure suporta apenas a API do SQL Server.
 
 Para copiar dados como-é para/de ficheiros JSON ou de outra coleção Cosmos DB, consulte [documentos JSON de importação/exportação](#importexport-json-documents).
 

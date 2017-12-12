@@ -4,7 +4,7 @@ description: "Este artigo descreve como utilizar mensagens HTTP para autorizar o
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1bb944997caa0c43354e82bf9b1a70e3e104a476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a813d73dc8a80c46e1b7500ec72ccb2a47bc6d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso a aplicações web com OpenID Connect e o Azure Active Directory
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) é uma camada de identidade simples desenvolvida com o protocolo OAuth 2.0. OAuth 2.0 define os mecanismos de obter e utilizar **tokens de acesso** para aceder a recursos protegidos, mas não definir métodos padrão para fornecer informações de identidade. OpenID Connect implementa a autenticação como uma extensão para o processo de autorização do OAuth 2.0. Fornece informações sobre o utilizador final sob a forma de um `id_token` que verifica a identidade do utilizador e fornece informações de perfil básicas sobre o utilizador.
@@ -90,8 +90,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |recomendado |Redirect_uri da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação.  Este deve corresponder exatamente um dos redirect_uris registado no portal, exceto tem de ser codificados de url. |
 | response_mode |recomendado |Especifica o método que deve ser utilizado para enviar o authorization_code resultante para a sua aplicação.  Os valores suportados são `form_post` para *HTTP post de formulário* ou `fragment` para *fragmento de URL*.  Para aplicações web, recomendamos que utilize `response_mode=form_post` para garantir que a transferência mais segura de tokens para a aplicação. |
 | state |recomendado |Um valor incluído no pedido de que é devolvido na resposta token.  Pode ser uma cadeia de todos os conteúdos que pretende.  Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de pedidos entre sites](http://tools.ietf.org/html/rfc6749#section-10.12).  O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista estivessem nas suas. |
-| linha de comandos |Opcional |Indica o tipo de interação do utilizador que é necessário.  Atualmente, os únicos valores válidos são 'início de sessão', 'none' e 'consentimento'.  `prompt=login`força o utilizador introduza as suas credenciais nesse pedido, a negação início de sessão único.  `prompt=none`é o oposto - assegura que o utilizador não é apresentado com qualquer linha de comandos interativa contratutal.  Se o pedido não é possível concluir automaticamente através de início de sessão único, o ponto final devolve um erro.  `prompt=consent`Depois do utilizador inicia sessão, solicitando ao utilizador para conceder permissões para a aplicação de acionadores a OAuth consentimento caixa de diálogo. |
-| login_hint |Opcional |Pode ser utilizado para a pré-preencher o campo de endereço de e-mail/nome de utilizador da página de início de sessão do utilizador, se souber o nome de utilizador antecedência.  Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação rápida, já ter extraiu o nome de utilizador de uma anterior início de sessão utilizando o `preferred_username` de afirmação. |
+| linha de comandos |opcional |Indica o tipo de interação do utilizador que é necessário.  Atualmente, os únicos valores válidos são 'início de sessão', 'none' e 'consentimento'.  `prompt=login`força o utilizador introduza as suas credenciais nesse pedido, a negação início de sessão único.  `prompt=none`é o oposto - assegura que o utilizador não é apresentado com qualquer linha de comandos interativa contratutal.  Se o pedido não é possível concluir automaticamente através de início de sessão único, o ponto final devolve um erro.  `prompt=consent`Depois do utilizador inicia sessão, solicitando ao utilizador para conceder permissões para a aplicação de acionadores a OAuth consentimento caixa de diálogo. |
+| login_hint |opcional |Pode ser utilizado para a pré-preencher o campo de endereço de e-mail/nome de utilizador da página de início de sessão do utilizador, se souber o nome de utilizador antecedência.  Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação rápida, já ter extraiu o nome de utilizador de uma anterior início de sessão utilizando o `preferred_username` de afirmação. |
 
 Neste momento, é pedido ao utilizador para introduzir as suas credenciais e concluir a autenticação.
 
@@ -130,7 +130,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de erro para erros de ponto final de autorização
 A tabela seguinte descreve os vários códigos de erro que podem ser devolvidos no `error` parâmetro da resposta de erro.
 
-| Código de erro | Descrição | Ação de cliente |
+| Código de Erro | Descrição | Ação de cliente |
 | --- | --- | --- |
 | invalid_request |Erro de protocolo, como um parâmetro necessário em falta. |Corrija e submeta novamente o pedido. Este é um erro de desenvolvimento e, normalmente é detetada durante o teste inicial. |
 | unauthorized_client |A aplicação de cliente não é permitida para pedir um código de autorização. |Normalmente, isto ocorre quando a aplicação de cliente não está registada no Azure AD ou não é adicionada ao inquilino do Azure AD do utilizador. A aplicação pode pedir ao utilizador com instruções para instalar a aplicação e adicioná-lo para o Azure AD. |

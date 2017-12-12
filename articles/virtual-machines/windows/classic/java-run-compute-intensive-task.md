@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Como executar uma tarefa de computação intensiva em Java numa máquina virtual
 > [!IMPORTANT] 
@@ -51,7 +51,7 @@ Segue-se um exemplo de aplicação Java a tarefa de computação intensivas de m
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Para criar uma máquina virtual
-1. Inicie sessão no [Portal Clássico do Azure](https://manage.windowsazure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Clique em **novo**, clique em **computação**, clique em **Máquina Virtual**e, em seguida, clique em **da galeria**.
 3. No **selecione de imagem de Máquina Virtual** caixa de diálogo, selecione **JDK 7 do Windows Server 2012**.
    Tenha em atenção que **JDK 6 Windows Server 2012** está disponível no caso de ter aplicações antigas que ainda não estão prontas ser executada no JDK 7.
@@ -74,7 +74,7 @@ Segue-se um exemplo de aplicação Java a tarefa de computação intensivas de m
    2. Clique em **Concluído**.
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Para iniciar sessão remotamente no sua máquina virtual
-1. Inicie sessão no [portal clássico do Azure](https://manage.windowsazure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 2. Clique em **máquinas virtuais**.
 3. Clique no nome da máquina virtual que pretende iniciar sessão.
 4. Clique em **Ligar**.
@@ -87,15 +87,15 @@ Para começar a utilizar as filas do Service Bus no Azure, deve começar por cri
 
 Para criar um espaço de nomes de serviço:
 
-1. Inicie sessão no [portal clássico do Azure](https://manage.windowsazure.com).
-2. No painel de navegação inferior esquerdo do portal clássico do Azure, clique em **Service Bus, controlo de acesso e colocação em cache**.
-3. No painel de canto superior esquerdo do portal clássico do Azure, clique o **Service Bus** nó e, em seguida, clique o **novo** botão.  
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+2. No painel de navegação inferior esquerdo do portal do Azure, clique em **Service Bus, controlo de acesso e colocação em cache**.
+3. No painel de canto superior esquerdo do portal do Azure, clique o **Service Bus** nó e, em seguida, clique o **novo** botão.  
    ![Captura de ecrã do nó de barramento de serviço][svc_bus_node]
 4. No **criar um novo espaço de nomes de serviço** caixa de diálogo, introduza um **espaço de nomes**e, em seguida, para se certificar de que é exclusiva, clique em de **verificar disponibilidade** botão.  
    ![Criar uma captura de ecrã do novo espaço de nomes][create_namespace]
 5. Após certificar-se de que o nome de espaço de nomes está disponível, escolha o país ou região na qual será alojado o espaço de nomes e, em seguida, clique em de **criar espaço de nomes** botão.  
    
-   O espaço de nomes que criou, em seguida, será apresentada no portal clássico do Azure e demora alguns minutos a ativar. Aguarde enquanto o estado for **Active Directory** antes de continuar com o passo seguinte.
+   O espaço de nomes que criou, em seguida, será apresentada no portal do Azure e demora alguns minutos a ativar. Aguarde enquanto o estado for **Active Directory** antes de continuar com o passo seguinte.
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Obter as credenciais de gestão predefinido para o espaço de nomes
 Para efetuar operações de gestão, tais como criar uma fila, no novo espaço de nomes, terá de obter as credenciais de gestão para o espaço de nomes.

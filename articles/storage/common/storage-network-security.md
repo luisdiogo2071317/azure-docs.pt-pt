@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: bc77fe59fdb128d28389c43d41c43ca1d393d83c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurar Firewalls de armazenamento do Azure e as redes virtuais (pré-visualização)
 Armazenamento do Azure fornece um modelo de segurança por camadas que permite proteger as contas de armazenamento para um conjunto específico de redes permitidos.  Quando as regras de rede estiverem configuradas, apenas as aplicações permitidas redes podem aceder a uma conta de armazenamento.  Ao chamar a partir de uma rede permitida, as aplicações continuam a exigir autorização adequada (uma chave de acesso válido ou SAS token) para aceder à conta de armazenamento.
@@ -298,7 +298,6 @@ Quando a exceção "Fidedigna serviços da Microsoft" está ativada, os seguinte
 |Azure Event Hubs|Microsoft.EventHub|Dados de arquivo com capturar os Hubs de eventos.  [Saiba mais](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |O Azure HDInsight|Microsoft.HDInsight|Aprovisionamento de cluster e a instalação.  [Saiba mais](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Redes do Azure|Microsoft.Networking|Armazenar e analisar registos de tráfego de rede.  [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Importam e exportar dados.  [Saiba mais](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
 |Azure Backup|Microsoft.RecoveryServices|Cópia de segurança e restauro de discos não geridos.  [Saiba mais](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.openlocfilehash: d66c6760cd2414e377d9c0cf55835a21b4bc5051
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f678bba89adf1450bd6a08909fdad51424a210e8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com a monitorização do Azure
 Monitor do Azure fornece várias formas para interagir com métricas, incluindo charting-las no portal, aceder às mesmas através da API REST ou consultá-los utilizando o PowerShell ou a CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis no pipeline de métrico do Monitor do Azure.
@@ -519,7 +519,9 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |DeviceAssignments|Dispositivos atribuídos|Contagem|Total|Número de dispositivos atribuídos a um IoT hub|ProvisioningServiceName, IotHubName|
 |AttestationAttempts|Tentativas de atestado|Contagem|Total|Número de tentativa de attestations de dispositivo|Protocolo ProvisioningServiceName, estado,|
 
-## <a name="microsoftdocumentdbdatabaseaccounts-cosmosdb"></a>Microsoft.DocumentDB/databaseAccounts (CosmosDB)
+<a id="cosmosdb"></a>
+
+## <a name="microsoftdocumentdbdatabaseaccounts-azure-cosmos-db"></a>Microsoft.DocumentDB/databaseAccounts (Azure Cosmos DB)
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |TotalRequests|Total de Pedidos|Contagem|Contagem|Número de pedidos efetuados|DatabaseAccount CollectionName, DatabaseName, região, StatusCode|
@@ -910,7 +912,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Pedidos|Pedidos|Contagem|Total|Pedidos|Instância|
 |BytesReceived|Entrada de Dados|Bytes|Total|Entrada de Dados|Instância|
 |BytesSent|Saída de Dados|Bytes|Total|Saída de Dados|Instância|
-|Http101|Http 101|Contagem|Total|Http 101|Instância|
+|Http101|HTTP 101|Contagem|Total|HTTP 101|Instância|
 |Http2xx|Http 2xx|Contagem|Total|Http 2xx|Instância|
 |Http3xx|Http 3xx|Contagem|Total|Http 3xx|Instância|
 |Http401|Http 401|Contagem|Total|Http 401|Instância|
@@ -922,7 +924,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
 |AverageMemoryWorkingSet|Média do conjunto de trabalho de memória|Bytes|Média|Média do conjunto de trabalho de memória|Instância|
 |AverageResponseTime|Tempo de Resposta Médio|Segundos|Média|Tempo de Resposta Médio|Instância|
-|FunctionExecutionUnits|Unidades de Execução de Funções|Contagem|Média|Unidades de Execução de Funções|Instância|
+|FunctionExecutionUnits|Unidades de execução de função|Contagem|Média|Unidades de execução de função|Instância|
 |FunctionExecutionCount|Contagem de Execuções de Função|Contagem|Média|Contagem de Execuções de Função|Instância|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funções)
@@ -934,7 +936,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Http5xx|Erros de Servidor http|Contagem|Total|Erros de Servidor http|Instância|
 |MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
 |AverageMemoryWorkingSet|Média do conjunto de trabalho de memória|Bytes|Média|Média do conjunto de trabalho de memória|Instância|
-|FunctionExecutionUnits|Unidades de Execução de Funções|Contagem|Média|Unidades de Execução de Funções|Instância|
+|FunctionExecutionUnits|Unidades de execução de função|Contagem|Média|Unidades de execução de função|Instância|
 |FunctionExecutionCount|Contagem de Execuções de Função|Contagem|Média|Contagem de Execuções de Função|Instância|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
@@ -945,7 +947,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Pedidos|Pedidos|Contagem|Total|Pedidos|Instância|
 |BytesReceived|Entrada de Dados|Bytes|Total|Entrada de Dados|Instância|
 |BytesSent|Saída de Dados|Bytes|Total|Saída de Dados|Instância|
-|Http101|Http 101|Contagem|Total|Http 101|Instância|
+|Http101|HTTP 101|Contagem|Total|HTTP 101|Instância|
 |Http2xx|Http 2xx|Contagem|Total|Http 2xx|Instância|
 |Http3xx|Http 3xx|Contagem|Total|Http 3xx|Instância|
 |Http401|Http 401|Contagem|Total|Http 401|Instância|
@@ -957,7 +959,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |MemoryWorkingSet|Conjunto de trabalho de memória|Bytes|Média|Conjunto de trabalho de memória|Instância|
 |AverageMemoryWorkingSet|Média do conjunto de trabalho de memória|Bytes|Média|Média do conjunto de trabalho de memória|Instância|
 |AverageResponseTime|Tempo de Resposta Médio|Segundos|Média|Tempo de Resposta Médio|Instância|
-|FunctionExecutionUnits|Unidades de Execução de Funções|Contagem|Média|Unidades de Execução de Funções|Instância|
+|FunctionExecutionUnits|Unidades de execução de função|Contagem|Média|Unidades de execução de função|Instância|
 |FunctionExecutionCount|Contagem de Execuções de Função|Contagem|Média|Contagem de Execuções de Função|Instância|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
@@ -967,7 +969,7 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |Pedidos|Pedidos|Contagem|Total|Pedidos|Instância|
 |BytesReceived|Entrada de Dados|Bytes|Total|Entrada de Dados|Instância|
 |BytesSent|Saída de Dados|Bytes|Total|Saída de Dados|Instância|
-|Http101|Http 101|Contagem|Total|Http 101|Instância|
+|Http101|HTTP 101|Contagem|Total|HTTP 101|Instância|
 |Http2xx|Http 2xx|Contagem|Total|Http 2xx|Instância|
 |Http3xx|Http 3xx|Contagem|Total|Http 3xx|Instância|
 |Http401|Http 401|Contagem|Total|Http 401|Instância|
@@ -983,17 +985,17 @@ Monitor do Azure fornece várias formas para interagir com métricas, incluindo 
 |HttpQueueLength|Comprimento da Fila de http|Contagem|Total|Comprimento da Fila de http|Instância|
 |ActiveRequests|Pedidos Ativos|Contagem|Total|Pedidos Ativos|Instância|
 |TotalFrontEnds|Total de Front Ends|Contagem|Média|Total de Front Ends|Instância|
-|SmallAppServicePlanInstances|Trabalhadores do Plano de Serviço de Aplicações de Pequena Dimensão|Contagem|Média|Trabalhadores do Plano de Serviço de Aplicações de Pequena Dimensão|Instância|
-|MediumAppServicePlanInstances|Trabalhadores do Plano de Serviço de Aplicações de Média Dimensão|Contagem|Média|Trabalhadores do Plano de Serviço de Aplicações de Média Dimensão|Instância|
-|LargeAppServicePlanInstances|Trabalhadores do Plano de Serviço de Aplicações de Grande Dimensão|Contagem|Média|Trabalhadores do Plano de Serviço de Aplicações de Grande Dimensão|Instância|
+|SmallAppServicePlanInstances|Trabalhadores de plano de serviço de aplicações pequeno|Contagem|Média|Trabalhadores de plano de serviço de aplicações pequeno|Instância|
+|MediumAppServicePlanInstances|Trabalhadores de plano de serviço de aplicações médio|Contagem|Média|Trabalhadores de plano de serviço de aplicações médio|Instância|
+|LargeAppServicePlanInstances|Trabalhadores de plano de serviço de aplicações grande|Contagem|Média|Trabalhadores de plano de serviço de aplicações grande|Instância|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |Métrica|Nome a apresentar métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|WorkersTotal|Trabalhadores Totais|Contagem|Média|Trabalhadores Totais|Instância|
-|WorkersAvailable|Trabalhadores Disponíveis|Contagem|Média|Trabalhadores Disponíveis|Instância|
-|WorkersUsed|Trabalhadores Utilizados|Contagem|Média|Trabalhadores Utilizados|Instância|
+|WorkersTotal|Trabalhadores totais|Contagem|Média|Trabalhadores totais|Instância|
+|WorkersAvailable|Trabalhadores disponíveis|Contagem|Média|Trabalhadores disponíveis|Instância|
+|WorkersUsed|Trabalhadores utilizados|Contagem|Média|Trabalhadores utilizados|Instância|
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Leia sobre as métricas no Monitor do Azure](monitoring-overview-metrics.md)

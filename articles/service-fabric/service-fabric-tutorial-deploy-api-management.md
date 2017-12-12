@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: da1f2c3170aba9dc13d77a8729a98e7b655edea8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.custom: mvc
+ms.openlocfilehash: 722a3f0f428bb972b2835df65a67707bf4d8e7d7
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Implementar a gestão de API com o Service Fabric
 Este tutorial é parte quatro de uma série.  Implementar a gestão de API do Azure com o Service Fabric é um cenário avançado.  Gestão de API é útil quando tem de publicar APIs com um vasto conjunto de regras de encaminhamento para os serviços de recursos de infraestrutura do serviço de back-end. Aplicações em nuvem, normalmente, precisam de um gateway de front-end para fornecer um único ponto de entrada para os utilizadores, dispositivos ou outras aplicações. No Service Fabric, um gateway pode ser qualquer serviço sem estado concebido para a entrada de tráfego, como uma aplicação APP.NET núcleos, os Event Hubs, IoT Hub ou API Management do Azure. 

@@ -1,9 +1,9 @@
 ---
 title: "Azure Cosmos DB: Desenvolver com o gráfico de API no .NET | Microsoft Docs"
-description: "Saiba como desenvolver com a API do Azure Cosmos base de dados DocumentDB através do .NET"
+description: "Saiba como desenvolver com a API do SQL Server da BD do Cosmos do Azure através do .NET"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: denlee
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ab2ee7dc91dbcb5c933554eea6cd239750885e22
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Desenvolver com o gráfico de API no .NET
 BD do Azure do Cosmos é serviço de base de dados com múltiplos modelo global distribuída da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
@@ -44,7 +44,7 @@ Gremlin é uma linguagem de programação funcional que suporta escrever operaç
 Certifique-se de que tem o seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/free/). 
-    * Em alternativa, pode utilizar o [Emulador do Azure DocumentDB](local-emulator.md) para este tutorial.
+    * Em alternativa, pode utilizar o [emulador local](local-emulator.md) para este tutorial.
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-database-account"></a>Criar conta de base de dados
@@ -96,7 +96,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Criar uma base de dados 
 
-Agora, crie uma base de dados do Azure Cosmos [base de dados](documentdb-resources.md#databases) utilizando o [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) método ou [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) método o  **DocumentClient** classe a partir de [SDK do .NET DocumentDB](documentdb-sdk-dotnet.md).  
+Agora, crie uma base de dados do Azure Cosmos [base de dados](documentdb-resources.md#databases) utilizando o [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) método ou [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) método o  **DocumentClient** classe do [SQL .NET SDK](documentdb-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 

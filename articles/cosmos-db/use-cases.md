@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 660c0fbe80af125a840ef9ae324a72261c8adc24
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de utilização de base de dados do Azure Cosmos comuns
 Este artigo fornece uma descrição geral de vários casos de utilização comuns para a base de dados do Azure Cosmos.  As recomendações neste artigo, servem como um ponto de partida, como desenvolver a sua aplicação com a base de dados do Cosmos.   
@@ -33,9 +33,7 @@ Depois de ler este artigo, poderá responder às seguintes questões:
 ## <a name="introduction"></a>Introdução
 [BD do Azure do Cosmos](../cosmos-db/introduction.md) é serviço de base de dados globalmente distribuída da Microsoft. O serviço foi concebido para permitir aos clientes aprovisionadas (e independentemente) Dimensionar débito e o armazenamento em qualquer número de regiões geográficas. BD do Azure do Cosmos é o primeiro serviço de base de dados globalmente distribuída no mercado hoje para oferecer abrangente [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/cosmos-db/) que abrange o débito, latência, disponibilidade e consistência. 
 
-O projeto de base de dados do Azure Cosmos iniciado em 2011 como "Projeto Florence" para o endereço programador-pontos de tensão que são confrontadas por aplicações de Internet escala grandes dentro da Microsoft. Observar que estes problemas não são exclusivos para aplicações da Microsoft, decidimos disponibilizar Azure Cosmos DB geralmente aos programadores externos no 2015 no formato [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). O serviço é utilizado ubiquitously internamente na Microsoft e é um dos serviços de mais rápido crescente utilizados pelos programadores do Azure externamente. 
-
-BD do Cosmos do Azure é global distribuído, com vários modelo base de dados que é utilizada numa vasta gama de aplicações e casos de utilização. É uma boa opção para qualquer [sem servidor](http://azure.com/serverless) aplicação que necessita de tempos de resposta de ordem de milissegundo baixa e tem de dimensionar rapidamente e global. Suporta vários modelos de dados (chave-valor, documentos, gráficos e columnar) e muitas APIs para dados de acesso, incluindo [MongoDB API](mongodb-introduction.md), [API (SQL do DocumentDB)](documentdb-introduction.md), [Graph API (Gremlin)](graph-introduction.md), e [tabelas API](table-introduction.md) nativamente e de forma extensível. 
+BD do Cosmos do Azure é global distribuído, com vários modelo base de dados que é utilizada numa vasta gama de aplicações e casos de utilização. É uma boa opção para qualquer [sem servidor](http://azure.com/serverless) aplicação que necessita de tempos de resposta de ordem de milissegundo baixa e tem de dimensionar rapidamente e global. Suporta vários modelos de dados (chave-valor, documentos, gráficos e columnar) e muitas APIs para dados de acesso, incluindo [MongoDB API](mongodb-introduction.md), [API do SQL Server](documentdb-introduction.md), [Graph API (Gremlin)](graph-introduction.md), e [tabelas API](table-introduction.md) nativamente e de forma extensível. 
 
 Seguem-se alguns atributos de base de dados do Azure Cosmos que torna adequada para aplicações de elevado desempenho com global ambition.
 

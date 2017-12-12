@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory para programadores | Microsoft Docs
-description: "Este artigo fornece uma descrição geral sobre o início de sessão nas contas profissionais e escolares da Microsoft através do Azure Active Directory."
+description: "Este artigo fornece uma descrição geral sobre o início de sessão nas contas profissionais e escolares da Microsoft através da utilização do Azure Active Directory."
 services: active-directory
 author: dstrockis
 manager: mbaldwin
@@ -14,54 +14,54 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1baf98616eb48bd3ae45b78ab1ac31e711fa655d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 1614e37693adad268965e586f919a842c8f42e6a
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para programadores
-O Azure Active Directory é um serviço de identidade em cloud que permite que os programadores iniciem a sessão de qualquer utilizador de forma segura com uma conta profissional ou escolar ,segura pela Microsoft.  A documentação presente mostra-lhe como adicionar suporte do Azure AD à aplicação através de protocolos de autenticação padrão da indústria, o OAuth e o OpenID Connect.
+O Azure Active Directory (Azure AD) é um serviço de identidade em cloud que permite que os programadores iniciem a sessão dos utilizadores de forma segura com uma conta profissional ou escolar da Microsoft. Esta documentação mostra-lhe como adicionar suporte do Azure AD à aplicação através da utilização de protocolos padrão da indústria: o OAuth e o OpenID Connect.
 
 | | |
 | --- | --- |
-|[Noções básicas da autenticação](active-directory-authentication-scenarios.md) | Introdução à autenticação com o Azure AD |
-|[Tipos de aplicações](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Descrição geral dos cenários autenticação suportado pelo Azure AD |                                
+|[Noções básicas de autenticação](active-directory-authentication-scenarios.md) | Introdução à autenticação com o Azure AD. |
+|[Tipos de aplicações](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Descrição geral dos cenários autenticação que são suportado pelo Azure AD. |                                
                                                                               
 ## <a name="get-started"></a>Introdução
-Estas configurações assistidas vão guiá-lo através da utilização das bibliotecas de autenticação para iniciar a sessão dos utilizadores do Azure Active Directory.
+As seguintes configurações assistidas vão guiá-lo através da utilização das bibliotecas de autenticação da Microsoft para iniciar a sessão dos utilizadores do Azure AD.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| <center>![Aplicações Móveis e de Ambiente de Trabalho](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />Aplicações Móveis e de Ambiente de Trabalho</center> | [Descrição geral](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET](active-directory-devquickstarts-dotnet.md)<br /><br />[Windows](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md)<br /><br />[OAuth 2.0](active-directory-protocols-oauth-code.md) |
-| <center>![Aplicações Web](./media/active-directory-developers-guide/Web_app.png)<br />Aplicações Web</center> | [Descrição geral](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)<br /><br />[OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) |  |
-| <center>![Aplicações de Página Única](./media/active-directory-developers-guide/SPA.png)<br />Aplicações de Página Única</center> | [Descrição geral](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |  |
-| <center>![APIs da Web](./media/active-directory-developers-guide/Web_API.png)<br />APIs da Web</center> | [Descrição geral](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[NodeJS](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
-| <center>![Serviço a serviço](./media/active-directory-developers-guide/Service_App.png)<br />Serviço a serviço</center> | [Descrição geral](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[Credenciais de Cliente OAuth 2.0](active-directory-protocols-oauth-service-to-service.md) |  |
+| <center>![Aplicações móveis e de ambiente de trabalho](./media/active-directory-developers-guide/NativeApp_Icon.png)<br />Aplicações móveis e de ambiente de trabalho</center> | [Descrição geral](active-directory-authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](active-directory-devquickstarts-ios.md)<br /><br />[Android](active-directory-devquickstarts-android.md) | [.NET](active-directory-devquickstarts-dotnet.md)<br /><br />[Windows](active-directory-devquickstarts-windowsstore.md)<br /><br />[Xamarin](active-directory-devquickstarts-xamarin.md) | [Cordova](active-directory-devquickstarts-cordova.md)<br /><br />[OAuth 2.0](active-directory-protocols-oauth-code.md) |
+| <center>![Aplicações Web](./media/active-directory-developers-guide/Web_app.png)<br />Aplicações Web</center> | [Descrição geral](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)<br /><br />[OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) |  |
+| <center>![Aplicações de página única](./media/active-directory-developers-guide/SPA.png)<br />Aplicações de página única</center> | [Descrição geral](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |  |
+| <center>![APIs da Web](./media/active-directory-developers-guide/Web_API.png)<br />APIs da Web</center> | [Descrição geral](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
+| <center>![Serviço a serviço](./media/active-directory-developers-guide/Service_App.png)<br />Serviço a Serviço</center> | [Descrição geral](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[Credenciais de cliente OAuth 2.0](active-directory-protocols-oauth-service-to-service.md) |  |
 
-## <a name="guides"></a>Guias
-Estes artigos informam-no sobre como realizar tarefas comuns com o Azure Active Directory.
+## <a name="how-to-guides"></a>Guias de procedimentos
+As seguintes guias informam-no sobre como realizar tarefas comuns com o Azure AD.
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
-|[Registo da aplicação](active-directory-integrating-applications.md)           | Como registar uma aplicação no Azure AD |
-|[Aplicações multi-inquilino](active-directory-devhowto-multi-tenant-overview.md)    | Como iniciar sessão numa conta profissional Microsoft |
-|[OAuth e OpenID Connect](active-directory-protocols-openid-connect-code.md)| Como iniciar a sessão de utilizadores e chamar APIs Web utilizando protocolos de autenticação moderna |
-|[Mais guias...](active-directory-developers-guide-index.md#guides)        |     |
+|[Registo da aplicação](active-directory-integrating-applications.md)           | Como registar uma aplicação no Azure AD. |
+|[Aplicações multi-inquilino](active-directory-devhowto-multi-tenant-overview.md)    | Como iniciar sessão numa conta profissional Microsoft. |
+|[Protocolos OAuth e OpenID Connect](active-directory-protocols-openid-connect-code.md)| Como iniciar a sessão de utilizadores e chamar as APIs de web utilizando os protocolos de autenticação da Microsoft. |
+|[Guias de adicionais](active-directory-developers-guide-index.md#guides)        |  Uma lista de guias de que estão disponíveis para o Azure AD.   |
 
-## <a name="reference"></a>Referência
-Estes artigos fornecem informações detalhadas sobre APIs, mensagens de protocolo e termos utilizados no Azure Active Directory.
+## <a name="reference-topics"></a>Tópicos de referência
+Os seguintes artigos fornecem informações detalhadas sobre APIs, mensagens de protocolo e termos que são utilizados no Azure AD.
 
 |                                                                                   | |
 | ----------------------------------------------------------------------------------| --- |
-| [Bibliotecas de Autenticação (ADAL)](active-directory-authentication-libraries.md)   | Descrição geral de bibliotecas e SDKs fornecidos pelo Azure AD |
-| [Exemplos de Código](active-directory-code-samples.md)                                  | Lista de todos os exemplos de código do Azure AD |
-| [Glossário](active-directory-dev-glossary.md)                                      | Terminologia e definições de palavras utilizadas nesta documentação |
-| [Mais m...](active-directory-developers-guide-index.md#reference)|     |
+| [Bibliotecas de Autenticação (ADAL)](active-directory-authentication-libraries.md)   | Descrição geral de bibliotecas e SDKs que são fornecidos pelo Azure AD. |
+| [Exemplos de código](active-directory-code-samples.md)                                  | Uma lista de todos os exemplos de código do Azure AD. |
+| [Glossário](active-directory-dev-glossary.md)                                      | Terminologia e definições de palavras que são utilizadas nesta documentação. |
+| [Tópicos de referência adicionais](active-directory-developers-guide-index.md#reference)| Uma lista de tópicos de referência que estão disponíveis para o Azure AD.   |
 
 
 > [!NOTE]
-> Caso precise de iniciar sessão em contas pessoais Microsoft, poderá querer considerar a utilização do [ponto final do Azure AD v2.0](active-directory-appmodel-v2-overview.md).  O ponto final do Azure ADv 2.0 é unificação de contas pessoais e contas profissionais da Microsoft (a partir do Azure AD) num sistema de autenticação único.
+> Caso precise de iniciar sessão em contas pessoais Microsoft, poderá querer considerar a utilização do [ponto final do Azure AD v2.0](active-directory-appmodel-v2-overview.md). O ponto final do Azure ADv 2.0 é unificação de contas pessoais e contas profissionais da Microsoft (a partir do Azure AD) num sistema de autenticação único.
 
 
-[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

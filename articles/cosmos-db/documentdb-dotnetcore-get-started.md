@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Tutorial de introdução da API do DocumentDB com NET Core | Microsoft Docs"
-description: "Um tutorial que cria uma base de dados online e uma aplicação de consola em C# com o SDK do DocumentDB do Azure Cosmos DB para a API .NET Core."
+title: "Do Azure Cosmos DB: API de SQL introdução tutorial de .NET Core | Microsoft Docs"
+description: "Um tutorial que cria uma base de dados online e a aplicação de consola do c# utilizando o SDK de núcleo do Azure Cosmos BD SQL API .NET."
 services: cosmos-db
 documentationcenter: .net
 author: arramac
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 2bf77f1df1dfaea8978f0f1b046baf58f4c9f8d5
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 974869cf4176bcb5cc0f7a67f23f9df66e910aab
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core"></a>Azure Cosmos DB: Introdução à API do DocumentDB e .NET Core
+# <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: Introdução a API do SQL Server e o .NET Core
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,9 +32,11 @@ ms.lasthandoff: 10/20/2017
 >  
 > 
 
-Bem-vindo à API do DocumentDB do Azure Cosmos DB introdução tutorial de .NET Core! Depois de seguir este tutorial, terá de uma aplicação de consola que cria e consulta recursos do Cosmos DB.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Iremos abranger:
+Bem-vindo à API do SQL do Azure Cosmos DB introdução tutorial de .NET Core! Depois de seguir este tutorial, terá de uma aplicação de consola que cria e consulta recursos do Cosmos DB.
+
+Este tutorial abrange:
 
 * Criar e ligar a uma conta do Azure Cosmos DB
 * Configuração da sua Solução Visual Studio
@@ -48,7 +50,7 @@ Iremos abranger:
 
 Não tem tempo? Não se preocupe! A solução completa está disponível em [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started). Avance para a [secção Obter a solução completa](#GetSolution) para instruções rápidas.
 
-Pretende compilar um Xamarin iOS, Android ou formulários de aplicação utilizando a API do DocumentDB e SDK do .NET Core? Consulte [criar aplicações móveis com o Xamarin e base de dados do Azure Cosmos](mobile-apps-with-xamarin.md).
+Pretende compilar um Xamarin iOS, Android ou formulários de aplicação utilizando a API do SQL Server e o SDK do .NET Core? Consulte [criar aplicações móveis com o Xamarin e base de dados do Azure Cosmos](mobile-apps-with-xamarin.md).
 
 > [!NOTE]
 > O SDK do Azure Cosmos DB .NET Core utilizado neste tutorial ainda não é compatível com as aplicações da plataforma Universal do Windows (UWP). Para obter uma versão de pré-visualização do .NET Core SDK que suporta as aplicações UWP, envie um e-mail para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
@@ -56,19 +58,18 @@ Pretende compilar um Xamarin iOS, Android ou formulários de aplicação utiliza
 Agora comecemos!
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Certifique-se de que tem o seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/free/). 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
-    * Se estiver a trabalhar no MacOS ou em Linux, pode desenvolver aplicações .NET Core a partir da linha de comandos ao instalar o [SDK para .NET Core](https://www.microsoft.com/net/core#macos) para uma plataforma à sua escolha. 
-    * Se estiver a trabalhar em Windows, pode desenvolver aplicações .NET Core a partir da linha de comandos ao instalar o [SDK para .NET Core](https://www.microsoft.com/net/core#windows). 
-    * Pode utilizar o seu próprio editor ou transferir o [Visual Studio Code](https://code.visualstudio.com/), que é gratuito e funciona em Windows, Linux e MacOS. 
+    * Se estiver a trabalhar no MacOS ou Linux, pode desenvolver aplicações de .NET Core na linha de comandos instalando o [.NET Core SDK](https://www.microsoft.com/net/core#macos) para a plataforma da sua preferência. 
+    * Se estiver a trabalhar no Windows, pode desenvolver aplicações de .NET Core na linha de comandos instalando o [.NET Core SDK](https://www.microsoft.com/net/core#windows). 
+    * Pode utilizar o seus próprios editor ou transferir [Visual Studio Code](https://code.visualstudio.com/), que está livre e funciona no Windows, Linux e MacOS. 
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passo 1: Criar uma conta do Azure Cosmos DB
-Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende utilizar, pode avançar diretamente para [Configurar a sua solução do Visual Studio](#SetupVS). Se estiver a utilizar o Emulador da BD do Cosmos do Azure, siga os passos em [Azure Cosmos DB Emulator](local-emulator.md) (Emulador do Azure Cosmos DB) para configurar o emulador e avance para [Setup your Visual Studio Solution](#SetupVS) (Configurar a Solução do Visual Studio).
+Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende utilizar, pode avançar diretamente para [Configurar a sua solução do Visual Studio](#SetupVS). Se estiver a utilizar o emulador de BD do Cosmos do Azure, siga os passos indicados em [emulador de BD do Azure Cosmos](local-emulator.md) para configurar o emulador e avançar diretamente para [configurar a sua solução do Visual Studio](#SetupVS).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -84,10 +85,10 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende ut
    ![Captura de ecrã do Menu com Botão do Lado Direito para o Projeto](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. No separador **NuGet**, clique em **Procurar** na parte superior da janela, e escreva **azure documentdb** na caixa de pesquisa.
 7. Nos resultados, localize **Microsoft.Azure.DocumentDB.Core** e clique em **Instalar**.
-   O ID de pacote da Biblioteca de Cliente do DocumentDB para .NET Core é [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Se tiver como destino uma versão do .NET Framework (como net461) que não é suportada por este pacote.NET Core NuGet, utilize o [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) que suporta todas as versões do .NET Framework, desde o .NET Framework 4.5.
+   O ID de pacote para a biblioteca é [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core). Se tiver como destino uma versão do .NET Framework (como net461) que não é suportada por este pacote.NET Core NuGet, utilize o [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB) que suporta todas as versões do .NET Framework, desde o .NET Framework 4.5.
 8. Nos pedidos, aceite as instalações de pacotes NuGet e o contrato de licença.
 
-Ótimo! Agora que concluímos a configuração, comecemos a escrever certos códigos. Pode encontrar um projeto de código completo deste tutorial em [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
+Ótimo! Agora que a configuração estiver concluída, comecemos a escrever certos códigos. Pode encontrar um projeto de código completo deste tutorial em [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started).
 
 ## <a id="Connect"></a>Passo 3: Ligar a uma conta do Azure Cosmos DB
 Primeiro, adicione estas referências ao início da sua aplicação C#, no ficheiro Program.cs:
@@ -124,7 +125,7 @@ No portal do Azure, navegue até à sua conta de base de dados do Azure Cosmos e
 
 Copie o URI do portal e cole-o em `<your endpoint URI>`, no ficheiro program.cs. Em seguida, copie A CHAVE PRIMÁRIA do portal e cole-a em `<your key>`. Se estiver a utilizar o Emulador do Azure Cosmos DB, utilize `https://localhost:8081` como o ponto final e a chave de autorização definida especificamente de [How to develop using the Azure Cosmos DB Emulator](local-emulator.md) (Como programar com o Emulador do Azure Cosmos DB). Certifique-se de que remove o < and >, mas deixe as aspas no ponto final e na chave.
 
-![Captura de ecrã do portal do Azure utilizado pelo NoSQL tutorial para criar uma aplicação de consola c#. Mostra uma conta do Azure Cosmos DB, com o ACTIVE hub realçado, o botão CHAVES realçado no painel de conta do Azure Cosmos DB e os valores URI, CHAVE PRIMÁRIA e CHAVE SECUNDÁRIA realçados no painel de Chaves][keys]
+![Captura de ecrã do portal do Azure utilizado pelo NoSQL tutorial para criar uma aplicação de consola c#. Mostra uma conta de base de dados do Azure Cosmos, com o ACTIVE hub realçado, o botão chaves realçado na página de conta de base de dados do Azure Cosmos e os valores URI, chave primária e chave secundária realçados na página de chaves][keys]
 
 Iremos começar a aplicação de introdução pela criação de uma nova instância do **DocumentClient**.
 
@@ -142,7 +143,7 @@ private async Task GetStartedDemo()
 }
 ```
 
-Adicione o seguinte código para executar a tarefa assíncrona a partir do seu método **Principal**. O método **Principal** irá capturar as exceções e escrevê-las na consola.
+Adicione o seguinte código para executar a tarefa assíncrona a partir do seu método **Principal**. O **Main** método intercete exceções e escrevê-las na consola.
 
 ```csharp
 static void Main(string[] args)
@@ -191,7 +192,7 @@ private void WriteToConsoleAndPromptToContinue(string format, params object[] ar
 
 A base de dados do Azure Cosmos [base de dados](documentdb-resources.md#databases) podem ser criados utilizando o [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) método do **DocumentClient** classe. Uma base de dados é o contentor lógico do armazenamento de documentos JSON particionado em coleções.
 
-Copie e cole o seguinte código no seu método **GetStartedDemo**, por baixo da criação de cliente. Esta ação irá criar uma base de dados designada *FamilyDB*.
+Copie e cole o seguinte código no seu método **GetStartedDemo**, por baixo da criação de cliente. Esta ação cria uma base de dados com o nome *FamilyDB*.
 
 ```csharp
 private async Task GetStartedDemo()
@@ -208,11 +209,11 @@ Parabéns! Criou uma base de dados do Azure Cosmos DB com êxito.
 
 ## <a id="CreateColl"></a>Passo 5: Criar uma coleção
 > [!WARNING]
-> **CreateDocumentCollectionAsync** irá criar uma nova coleção com débito reservado, tendo repercussões sobre os preços. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
+> **CreateDocumentCollectionAsync** cria uma nova coleção com débito reservado, implicações de preços. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 Pode criar uma [coleção](documentdb-resources.md#collections) utilizando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) da classe **DocumentClient**. Uma coleção é um contentor de documentos JSON e a lógica da aplicação associada JavaScript.
 
-Copie e cole o seguinte código no seu método **GetStartedDemo**, por baixo da criação da base de dados. Desta forma, é criada uma coleção de documentos com o nome *FamilyCollection_oa*.
+Copie e cole o seguinte código no seu método **GetStartedDemo**, por baixo da criação da base de dados. Esta ação cria uma coleção de documentos designada *FamilyCollection_oa*.
 
 ```csharp
     this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
@@ -228,7 +229,7 @@ Prima o botão **DocumentDBGettingStarted** para executar a aplicação.
 Parabéns! Criou uma coleção de documentos do Azure Cosmos DB com êxito.  
 
 ## <a id="CreateDoc"></a>Passo 6: Criar documentos JSON
-Pode criar um [documento](documentdb-resources.md#documents) utilizando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdos (arbitrários) JSON definidos pelo utilizador. Podemos agora inserir um ou mais documentos. Se já tiver dados que pretende armazenar na sua base de dados, pode utilizar da BD do Azure Cosmos [ferramenta de migração de dados](import-data.md).
+Pode criar um [documento](documentdb-resources.md#documents) utilizando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdos JSON (arbitrários) definidos pelo utilizador. Podemos agora inserir um ou mais documentos. Se já tiver dados que pretende armazenar na sua base de dados, pode utilizar da BD do Azure Cosmos [ferramenta de migração de dados](import-data.md).
 
 Em primeiro lugar, temos de criar uma classe **Família** que irá representar objetos armazenados no Azure Cosmos DB neste exemplo. Também iremos criar subclasses **Principal**, **Subordinado**, **Animal de estimação** e **Endereço** utilizadas dentro da **Família**. Tenha em atenção que os documentos têm de ter um **Id** propriedade serializado como **id** no JSON. Crie estas classes ao adicionar as seguintes subclasses internas a seguir ao método **GetStartedDemo**.
 
@@ -452,7 +453,7 @@ O seguinte diagrama ilustra como a sintaxe de consulta do Azure Cosmos DB SQL é
 
 ![Diagrama que ilustra o âmbito e o significado da consulta utilizada pelo tutorial NoSQL para criar uma aplicação de consola C#](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-O [FROM](documentdb-sql-query.md#FromClause) palavra-chave é opcional na consulta porque as consultas de base de dados do Azure Cosmos já estão confinadas a uma única coleção. Por conseguinte, "FROM Families f" pode ser trocada por "FROM root r" ou qualquer outra variável de nome escolher. Por predefinição, o DocumentDB irá inferir essas Famílias, raiz ou o nome da variável que escolheu, referenciar a atual coleção.
+O [FROM](documentdb-sql-query.md#FromClause) palavra-chave é opcional na consulta porque as consultas de base de dados do Azure Cosmos já estão confinadas a uma única coleção. Por conseguinte, "FROM Families f" pode ser trocada por "FROM root r" ou qualquer outra variável de nome escolher. BD do Azure do Cosmos infere as famílias, raiz ou o nome da variável que escolheu, referência a atual coleção por predefinição.
 
 ## <a id="ReplaceDocument"></a>Passo 8: Substituir um documento JSON
 O Azure Cosmos DB suporta a substituição de documentos JSON.  
@@ -587,11 +588,11 @@ Para criar a solução GetStarted que contém todos os exemplos deste artigo, de
 * Um [conta de base de dados do Azure Cosmos][create-documentdb-dotnet.md#create-account].
 * A solução [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) está disponível no GitHub.
 
-Para restaurar as referências à API do DocumentDB para Cosmos DB SDK .NET da Azure núcleos no Visual Studio, clique com botão direito do **GetStarted** solução no Explorador de soluções e, em seguida, clique **ativar restauro do pacote NuGet**. Em seguida, no ficheiro Program.cs, atualize os valores EndpointUrl e authorizationkey, conforme descrito em [ligar a uma conta de base de dados do Azure Cosmos](#Connect).
+Para restaurar as referências à API do SQL Server para o Azure Cosmos DB .NET Core SDK no Visual Studio, clique com botão direito do **GetStarted** solução no Explorador de soluções e, em seguida, clique **ativar restauro do pacote NuGet**. Em seguida, no ficheiro Program.cs, atualize os valores EndpointUrl e authorizationkey, conforme descrito em [ligar a uma conta de base de dados do Azure Cosmos](#Connect).
 
 ## <a name="next-steps"></a>Passos seguintes
 * Quer um tutorial ASP.NET MVC mais complexo? Consulte [Tutorial de ASP.NET MVC: programação de aplicações com a base de dados do Azure Cosmos Web](documentdb-dotnet-application.md).
-* Pretende desenvolver um Xamarin iOS, Android ou formulários de aplicação utilizando a API do DocumentDB para Azure Cosmos DB .NET Core SDK? Consulte [criar aplicações móveis com o Xamarin e base de dados do Azure Cosmos](mobile-apps-with-xamarin.md).
+* Pretende desenvolver um Xamarin iOS, Android ou formulários de aplicação utilizando a API do SQL Server para o Azure Cosmos DB .NET Core SDK? Consulte [criar aplicações móveis com o Xamarin e base de dados do Azure Cosmos](mobile-apps-with-xamarin.md).
 * Pretende testar o dimensionamento e desempenho com o Azure Cosmos DB? Consulte [desempenho e dimensionamento de teste com base de dados do Azure Cosmos](performance-testing.md)
 * Saiba como [pedidos, utilização e armazenamento de base de dados do Monitor Azure Cosmos](monitor-accounts.md).
 * Execute consultas no nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).

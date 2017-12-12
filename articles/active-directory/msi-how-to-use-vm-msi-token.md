@@ -4,7 +4,7 @@ description: "Passo a passo instruções e exemplos de utilização de um MSI de
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 20ab8c9ceeb28c92b02a50ab03c9a7fa3fb7c7b7
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 9d80e0e4dbaa010aabd0e7aad91ac79cf2d433d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Como utilizar um Azure VM geridos serviço de identidade (MSI) para a aquisição do token 
 
@@ -261,7 +261,7 @@ Se ocorrer um erro, o corpo da resposta correspondente HTTP contém um JSON com 
 
 Esta secção documenta as respostas de erro possíveis. A "200 OK" estado é uma resposta com êxito e o token de acesso está contido no corpo da resposta JSON, no elemento access_token.
 
-| Código de estado | Erro | Descrição de Erro | Solução |
+| Código de estado | Erro | Descrição de erro | Solução |
 | ----------- | ----- | ----------------- | -------- |
 | Pedido de 400 incorreta | invalid_resource | AADSTS50001: A aplicação com o nome  *\<URI\>*  não foi encontrado no inquilino com o nome  *\<ID do INQUILINO\>*. Isto pode acontecer se a aplicação não foi instalada pelo administrador do inquilino ou autorizada por qualquer utilizador no inquilino. Poderá ter enviado o pedido de autenticação para o inquilino incorreto. \ | (Apenas Linux) |
 | Pedido de 400 incorreta | bad_request_102 | Cabeçalho de metadados necessários não especificado | Ambos os `Metadata` campo de cabeçalho do pedido está em falta o pedido ou está formatado incorretamente. O valor tem de ser especificado como `true`, em todas as letras maiúsculas e minúsculas. Consulte o "exemplo de pedido" no [anterior a secção REST](#rest) para obter um exemplo.|

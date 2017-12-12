@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utilizar o PowerShell para Criar uma VM do Azure com um Servidor de Relatórios no Modo Nativo
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ Este tópico descreve e orienta-o através da implementação e configuração d
 ## <a name="prerequisites-and-assumptions"></a>Pré-requisitos e pressupostos
 * **Subscrição do Azure**: verificar o número de núcleos disponíveis na sua subscrição do Azure. Se criar o tamanho da VM recomendado de **A3**, terá de **4** núcleos disponíveis. Se utilizar um tamanho VM de **A2**, terá de **2** núcleos disponíveis.
   
-  * Para verificar o limite de núcleos da sua subscrição, no portal clássico do Azure, clique em definições no painel esquerdo e, em seguida, clique em utilização no menu superior.
+  * Para verificar o limite de núcleos da sua subscrição, no portal do Azure, clique em definições no painel esquerdo e, em seguida, clique em utilização no menu superior.
   * Para aumentar a quota de núcleos, contacte [suporte do Azure](https://azure.microsoft.com/support/options/). Para informações de tamanho VM, consulte [tamanhos de Máquina Virtual do Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Scripting do Windows PowerShell**: O tópico pressupõe que tem um conhecimento básico de trabalho do Windows PowerShell. Para obter mais informações sobre como utilizar o Windows PowerShell, consulte o seguinte:
   
@@ -43,7 +43,7 @@ Este tópico descreve e orienta-o através da implementação e configuração d
   * [Introdução ao Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>Passo 1: Aprovisionar uma Máquina Virtual do Azure
-1. Navegue até ao portal clássico do Azure.
+1. Navegue até ao portal do Azure.
 2. Clique em **máquinas virtuais** no painel esquerdo.
    
     ![máquinas virtuais do Microsoft azure](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
@@ -80,7 +80,7 @@ Este tópico descreve e orienta-o através da implementação e configuração d
      * **HTTPS**: portas públicas e privadas predefinidas são **443**. É melhor prática de segurança alterar a porta privada e configurar a firewall e o servidor de relatórios para utilizar a porta privada. Para obter mais informações sobre os pontos finais, consulte [como cópia de segurança comunicação com uma Máquina Virtual](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenha em atenção que se utilizar uma porta diferente da 443, alterar o parâmetro **$HTTPsport = 443** no script de HTTPS.
    * Clique em seguinte. ![seguinte](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. Na última página do assistente, mantenha a predefinição **instale o agente VM** selecionado. Os passos neste tópico não utilizar o agente da VM, mas se pretender manter esta VM, o agente da VM e as extensões permite-lhe melhorá-lo CM.  Para obter mais informações sobre o agente da VM, consulte [extensões – parte 1 e o agente da VM](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Um dos ad extensões instaladas predefinido em execução é a extensão "BGINFO" que é apresentada no ambiente de trabalho VM, as informações do sistema, tais como IP internos e espaço no disco livre.
-9. Clique em Concluir. ![OK](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+9. Clique em Concluir. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. O **estado** da VM, apresenta como **inicial (aprovisionamento)** durante o processo de aprovisionamento e, em seguida, é apresentado como **executar** quando a VM está aprovisionado e pronta a utilizar.
 
 ## <a name="step-2-create-a-server-certificate"></a>Passo 2: Criar um certificado de servidor
@@ -117,7 +117,7 @@ Um certificado autoassinado foi criado na VM quando a VM foi aprovisionada. O ce
 
 1. Para confiar na AC de raiz do certificado da VM Local, adicionar o certificado para o **autoridades de certificação de raiz fidedigna**. Segue-se um resumo dos passos necessários. Para obter passos detalhados sobre como fidedigna a AC, consulte [instalar um certificado de servidor](https://technet.microsoft.com/library/cc740068).
    
-   1. A partir do portal clássico do Azure, selecione a VM e clique em ligar. Consoante a configuração do browser, poderá ser-lhe pedido para guardar um ficheiro. rdp para ligar à VM.
+   1. A partir do portal do Azure, selecione a VM e clique em ligar. Consoante a configuração do browser, poderá ser-lhe pedido para guardar um ficheiro. rdp para ligar à VM.
       
        ![ligar à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Utilize o nome VM de utilizador, o nome de utilizador e a palavra-passe que configurou quando criou a VM. 
       
@@ -153,7 +153,7 @@ Para obter mais passos, consulte a secção [ligar à máquina Virtual e iniciar
 ### <a name="use-script-to-configure-the-report-server-and-http"></a>Utilizar um script para configurar o servidor de relatórios e HTTP
 Para utilizar o script do Windows PowerShell para configurar o servidor de relatórios, execute os seguintes passos. A configuração inclui HTTP, HTTPS não:
 
-1. A partir do portal clássico do Azure, selecione a VM e clique em ligar. Consoante a configuração do browser, poderá ser-lhe pedido para guardar um ficheiro. rdp para ligar à VM.
+1. A partir do portal do Azure, selecione a VM e clique em ligar. Consoante a configuração do browser, poderá ser-lhe pedido para guardar um ficheiro. rdp para ligar à VM.
    
     ![ligar à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Utilize o nome VM de utilizador, o nome de utilizador e a palavra-passe que configurou quando criou a VM. 
    
@@ -287,7 +287,7 @@ Para utilizar o script do Windows PowerShell para configurar o servidor de relat
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>Utilizar um script para configurar o servidor de relatórios e o HTTPS
 Para utilizar o Windows PowerShell para configurar o servidor de relatórios, conclua os seguintes passos. A configuração inclui HTTPS, não HTTP.
 
-1. A partir do portal clássico do Azure, selecione a VM e clique em ligar. Consoante a configuração do browser, poderá ser-lhe pedido para guardar um ficheiro. rdp para ligar à VM.
+1. A partir do portal do Azure, selecione a VM e clique em ligar. Consoante a configuração do browser, poderá ser-lhe pedido para guardar um ficheiro. rdp para ligar à VM.
    
     ![ligar à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Utilize o nome VM de utilizador, o nome de utilizador e a palavra-passe que configurou quando criou a VM. 
    
@@ -495,10 +495,10 @@ O resultado incluirá o seguinte:
 ### <a name="use-configuration-manager-to-configure-the-report-server"></a>Utilize o Gestor de configuração para configurar o servidor de relatórios
 Se não pretender executar o script do PowerShell para configurar o servidor de relatórios, siga os passos nesta secção para utilizar o Gestor de configuração de modo nativo do Reporting Services para configurar o servidor de relatórios.
 
-1. A partir do portal clássico do Azure, selecione a VM e clique em ligar. Utilize o nome de utilizador e palavra-passe que configurou quando criou a VM.
+1. A partir do portal do Azure, selecione a VM e clique em ligar. Utilize o nome de utilizador e palavra-passe que configurou quando criou a VM.
    
     ![ligar à máquina virtual do azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
-2. Execute o Windows update e instalar atualizações para a VM. Se for necessário um reinício da VM, reiniciar a VM e voltar a ligar à VM do portal clássico do Azure.
+2. Execute o Windows update e instalar atualizações para a VM. Se for necessário um reinício da VM, reiniciar a VM e voltar a ligar à VM do portal do Azure.
 3. A partir do menu Iniciar na VM, escreva **Reporting Services** e abra **Reporting Services Configuration Manager**.
 4. Deixe os valores predefinidos para **nome do servidor** e **instância do servidor de relatórios**. Clique em **Ligar**.
 5. No painel esquerdo, clique em **URL do serviço Web**.
@@ -546,7 +546,7 @@ Para verificar que a porta é aberta, abra uma janela do Windows PowerShell e ex
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a>Verificar a configuração
+## <a name="verify-the-configuration"></a>Verifique a configuração
 Para verificar se a funcionalidade de servidor de relatório básico agora está a funcionar, abra o browser com privilégios administrativos e, em seguida, navegue até à seguinte relatório Gestor de servidor ad relatório URLS:
 
 * Na VM, navegue para o URL do servidor de relatório:
@@ -593,7 +593,7 @@ A tabela seguinte resume algumas das opções disponíveis para publicar relató
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>Minimizar os custos se não estiver a utilizar a VM
 > [!NOTE]
-> Para minimizar os custos para as máquinas de virtuais do Azure quando não está em utilização, encerre a VM a partir do portal clássico do Azure. Se utilizar as opções de energia do Windows dentro de uma VM para encerre a VM, ainda lhe serem cobrados mesma quantidade para a VM. Para reduzir os custos, tem de encerrar a VM no portal clássico do Azure. Se já não precisar de VM, lembre-se ao eliminar a VM e os ficheiros. vhd associados, para evitar custos de armazenamento. Para obter mais informações, consulte a secção de FAQ [detalhes de preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
+> Para minimizar os custos para as máquinas de virtuais do Azure quando não está em utilização, encerre a VM a partir do portal do Azure. Se utilizar as opções de energia do Windows dentro de uma VM para encerre a VM, ainda lhe serem cobrados mesma quantidade para a VM. Para reduzir os custos, tem de encerrar a VM no portal do Azure. Se já não precisar de VM, lembre-se ao eliminar a VM e os ficheiros. vhd associados, para evitar custos de armazenamento. Para obter mais informações, consulte a secção de FAQ [detalhes de preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## <a name="more-information"></a>Mais Informações
 ### <a name="resources"></a>Recursos

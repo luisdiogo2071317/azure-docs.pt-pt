@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: b7ce6f353cf8cf48d5fb038ee77b0d3fdae16fb7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0d90f7c6ad136cd1a558f6158cf734de51b9538
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Moldura de segurança: Validação de entrada | Mitigações 
 | Produtos/serviços | Artigo |
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 | **Aplicação Web** | <ul><li>[Desativar o XSLT scripting para todas as transformações utilizando folhas de estilo não fidedignos](#disable-xslt)</li><li>[Certifique-se de que cada página que pode conter conteúdo controllable utilizador evita interceção de MIME automática](#out-sniffing)</li><li>[Proteger ou desativar a resolução de entidade XML](#xml-resolution)</li><li>[As aplicações que a utilização de http.sys efetuar verificação de colocação em forma canónica de URL](#app-verification)</li><li>[Certifique-se de que os controlos adequados estão em vigor quando os ficheiros dos utilizadores a aceitar](#controls-users)</li><li>[Certifique-se de que os parâmetros de tipo seguro são utilizados na aplicação Web para acesso a dados](#typesafe)</li><li>[Utilize as classes de enlace do modelo separadas ou apresenta uma lista de filtro de enlace para impedir a vulnerabilidade de atribuição em massa do MVC](#binding-mvc)</li><li>[Codificar o resultado da web não fidedignos antes da composição](#rendering)</li><li>[Efetuar a validação de entrada e filtrar no tipo de cadeia todas as propriedades de modelo](#typemodel)</li><li>[Sanitização deve ser aplicada em campos de formulário que aceitam todos os carateres, por exemplo, o editor de texto formatado](#richtext)</li><li>[Não atribua elementos DOM para sinks que não têm a codificação integradas](#inbuilt-encode)</li><li>[Validar se todos os redireccionamentos na aplicação são fechados ou feitos de forma segura](#redirect-safe)</li><li>[Implementar a validação de entrada em todos os parâmetros de tipo de cadeia aceites pelos métodos de controlador](#string-method)</li><li>[Definir limite de tempo limite superior para a expressão regular de processamento para evitar DoS devido a expressões regulares incorretas](#dos-expression)</li><li>[Evite utilizar Html.Raw nas vistas de Razor](#html-razor)</li></ul> | 
 | **Base de Dados** | <ul><li>[Não utilize consultas dinâmicas em procedimentos armazenados](#stored-proc)</li></ul> |
 | **API Web** | <ul><li>[Certifique-se de que a validação do modelo é efetuada em métodos de Web API](#validation-api)</li><li>[Implementar a validação de entrada em todos os parâmetros de tipo de cadeia aceites pelos métodos de Web API](#string-api)</li><li>[Certifique-se de que os parâmetros de tipo seguro são utilizados na Web API para acesso a dados](#typesafe-api)</li></ul> | 
-| **Base de dados de documento do Azure** | <ul><li>[Utilizar consultas SQL parametrized para o DocumentDB](#sql-docdb)</li></ul> | 
+| **Base de dados de documento do Azure** | <ul><li>[Utilizar consultas SQL parametrized para base de dados do Azure Cosmos](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[Validação de entrada de WCF através de vinculação ao esquema](#schema-binding)</li><li>[Validação de WCF - entrada através do parâmetro Inspetores](#parameters)</li></ul> |
 
 ## <a id="disable-xslt"></a>Desativar o XSLT scripting para todas as transformações utilizando folhas de estilo não fidedignos
@@ -660,8 +660,8 @@ No exemplo de código anterior, o valor de entrada não pode ser superior a 11 c
 | **Fase SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
-| **Referências**              | [Anunciar SQL parametrização Forced no DocumentDB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| **Passos** | Embora o DocumentDB suporta apenas consultas de só de leitura, injeção de SQL é possível se as consultas são construídas por concatenar com a intervenção do utilizador. Poderá ser possível que um utilizador obtenha acesso aos dados que não devem estar a aceder aos dentro da mesma coleção por maliciosas consultas SQL de composição. Utilize consultas parametrizadas do SQL Server se as consultas são construídas com base na entrada de utilizador. |
+| **Referências**              | [Anunciar Parameterization de SQL no Azure Cosmos DB](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+| **Passos** | Embora a base de dados do Azure Cosmos só suporta consultas de só de leitura, injeção de SQL é possível se as consultas são construídas por concatenar com a intervenção do utilizador. Poderá ser possível que um utilizador obtenha acesso aos dados que não devem estar a aceder aos dentro da mesma coleção por maliciosas consultas SQL de composição. Utilize consultas parametrizadas do SQL Server se as consultas são construídas com base na entrada de utilizador. |
 
 ## <a id="schema-binding"></a>Validação de entrada de WCF através de vinculação ao esquema
 

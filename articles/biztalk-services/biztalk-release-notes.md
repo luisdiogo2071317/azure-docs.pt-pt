@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão do BizTalk Services do Azure
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 As notas de versão para o BizTalk Services do Microsoft Azure contêm problemas conhecidos desta versão.
 
@@ -34,8 +36,8 @@ As notas de versão para o BizTalk Services do Microsoft Azure contêm problemas
 * As contas organizacionais são suportadas:  
   * **Cenário**: registada uma implementação de BizTalk Service utilizando uma conta Microsoft (como user@live.com). Neste cenário, apenas os utilizadores do Microsoft Account podem gerir o BizTalk Service através do portal do BizTalk Services. Não é possível utilizar uma conta organizacional.  
   * **Cenário**: registada uma implementação de BizTalk Service utilizando uma conta organizacional num Azure Active Directory (como user@fabrikam.com ou user@contoso.com). Neste cenário, apenas os utilizadores do Active Directory do Azure dentro da mesma organização podem gerir o BizTalk Service através do portal do BizTalk Services. Não é possível utilizar uma conta Microsoft.  
-* Quando cria um BizTalk Service no portal clássico do Azure, estão registados automaticamente no Portal de serviços do BizTalk.
-  * **Cenário**: A iniciar sessão no portal clássico do Azure, cria um BizTalk Service e, em seguida, selecione **gerir** durante o período de tempo relativo ao primeiro. Quando abre o portal do BizTalk Services, o BizTalk Service regista automaticamente e está pronto para as implementações.  
+* Quando cria um BizTalk Service, estão registados automaticamente no Portal de serviços do BizTalk.
+  * **Cenário**: A iniciar sessão no Azure, cria um BizTalk Service e, em seguida, selecione **gerir** durante o período de tempo relativo ao primeiro. Quando abre o portal do BizTalk Services, o BizTalk Service regista automaticamente e está pronto para as implementações.  
     Consulte [registar e atualizar uma implementação de serviço BizTalk o BizTalk Services Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>Atualização 14 de Agosto

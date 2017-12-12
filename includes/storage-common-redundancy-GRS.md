@@ -1,13 +1,13 @@
-Armazenamento georredundante (GRS) replica os dados para uma região secundária centenas de quilómetros região primária. Se a sua conta do storage tiver GRS ativada, em seguida, os dados são duráveis mesmo em caso de uma falha regional completa ou de um desastre no qual a região primária não é recuperável.
+Armazenamento georredundante (GRS) foi concebido para fornecer, pelo menos, 99.99999999999999% (16 do 9) durabilidade dos objetos através de um ano fornecido pelo replicar os dados para uma região secundária que é centenas de quilómetros região primária. Se a sua conta do storage tiver GRS ativada, em seguida, os dados são duráveis mesmo em caso de uma falha regional completa ou de um desastre no qual a região primária não é recuperável.
 
-Para uma conta de armazenamento com a GRS ativada, uma atualização pela primeira vez é consolidada na região primária, em que estes são replicados três vezes. Em seguida, a atualização é replicada de forma assíncrona para a região secundária, onde também são replicado três vezes.
+Para uma conta de armazenamento com a GRS ativada, uma atualização pela primeira vez é consolidada na região primária. Em seguida, a atualização é replicada de forma assíncrona para a região secundária, onde também são replicado.
 
 Com a GRS, regiões primários e secundários gerir réplicas em vários domínios de falhas separada e atualizar domínios dentro de uma unidade de escala de armazenamento, conforme descrito com LRS.
 
 Considerações:
 
 * Uma vez que a replicação assíncrona envolve um atraso, na eventualidade de ocorrer um desastre regional é possível que as alterações que ainda não tem sido replicadas para a região secundária serão perdidas se não não possível recuperar os dados da região primária.
-* A réplica não está disponível, a menos que a Microsoft inicia a ativação pós-falha para a região secundária. Se o Microsoft inicie uma ativação pós-falha para a região secundária, será leu e acesso de escrita para que os dados após a ativação pós-falha foi concluída. Para obter mais informações, consulte [orientações de recuperação após desastre](../articles/storage/common/storage-disaster-recovery-guidance.md). 
+* A réplica não está disponível, a menos que a Microsoft inicia a ativação pós-falha para a região secundária. Se o Microsoft inicie uma ativação pós-falha para a região secundária, será leu e acesso de escrita para que os dados após a ativação pós-falha foi concluída. Para obter mais informações, consulte [orientações de recuperação após desastre](../articles/storage/common/storage-disaster-recovery-guidance.md).
 * Se pretender uma aplicação ao ler a partir da região secundária, o utilizador deve ativar RA-GRS.
 
 Quando cria uma conta de armazenamento, selecione a região primária para a conta. A região secundária é determinada com base na região primária e não pode ser alterada. A tabela seguinte mostra os emparelhamentos região primária e secundária.
@@ -44,12 +44,12 @@ Quando cria uma conta de armazenamento, selecione a região primária para a con
 | Reino Unido Sul | Reino Unido Oeste |
 | Alemanha Central | Alemanha Nordeste |
 | Alemanha Nordeste | Alemanha Central |
-| Oeste dos E.U.A 2 | EUA Centro-Oeste |
-| EUA Centro-Oeste | Oeste dos E.U.A 2 |
+| EUA Oeste 2 | EUA Centro-Oeste |
+| EUA Centro-Oeste | EUA Oeste 2 |
 
 Para obter informações atualizadas sobre regiões suportadas pelo Azure, consulte [regiões do Azure](https://azure.microsoft.com/regions/).
 
 >[!NOTE]  
-> Região secundária do US Virginia EUA é Texas us-nos. Anteriormente, US-nos Virginia utilizados Iowa us-nos de como uma região secundária. As contas do Storage ainda tirar partido dos EUA us Iowa como uma região secundária estão a ser migradas para Texas us-nos como uma região secundário;. 
-> 
-> 
+> Região secundária do US Virginia EUA é Texas us-nos. Anteriormente, US-nos Virginia utilizados Iowa us-nos de como uma região secundária. As contas do Storage ainda tirar partido dos EUA us Iowa como uma região secundária estão a ser migradas para Texas us-nos como uma região secundária.
+>
+>

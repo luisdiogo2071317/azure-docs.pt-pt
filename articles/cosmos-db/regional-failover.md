@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b530cd6f12c08124d9483c6c4898ee4d69b8e5a2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Ativação pós-falha regional automática para a continuidade do negócio do BD Azure Cosmos
 BD do Azure do Cosmos simplifica a distribuição dos dados global por de oferta totalmente gerido, [contas de base de dados de multirregião](distribute-data-globally.md) que fornecem limpar responsabilidades entre consistência, disponibilidade e desempenho, tudo com garantias correspondentes. Contas do cosmos DB oferecem elevada disponibilidade, latências de ms único dígito, [níveis de consistência bem definidos](consistency-levels.md), ativação pós-falha regional transparente com APIs multi homing e a capacidade e dimensionar débito e armazenamento no globo. 
@@ -46,7 +46,7 @@ O fragmento seguinte mostra como iniciar uma aplicação de multirregião. Aqui,
 * Configurado com `West US` como a região preferencial primeiro de latência baixa lê
 * Configurado com `North Europe` como a região preferencial segundo (para elevada disponibilidade durante falhas regionais)
 
-Na API do DocumentDB, esta configuração se pareça com o seguinte fragmento:
+Na API do SQL Server, esta configuração se pareça com o seguinte fragmento:
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -141,6 +141,6 @@ Neste artigo, vamos rever o trabalho de ativações pós-falha de forma manual e
 ## <a id="NextSteps"></a>Passos Seguintes
 * Saiba mais sobre como base de dados do Cosmos suporta [distribuição global](distribute-data-globally.md)
 * Saiba mais sobre [global consistência com a base de dados do Azure Cosmos](consistency-levels.md)
-* Desenvolver com várias regiões através da BD do Azure Cosmos [API do DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md)
-* Saiba como compilar [arquiteturas de escritor de multirregião](multi-region-writers.md) com o Azure DocumentDB
+* Desenvolver com várias regiões através da BD do Azure Cosmos [API do SQL Server](tutorial-global-distribution-documentdb.md)
+* Saiba como compilar [arquiteturas de escritor de multirregião](multi-region-writers.md) com base de dados do Azure Cosmos
 

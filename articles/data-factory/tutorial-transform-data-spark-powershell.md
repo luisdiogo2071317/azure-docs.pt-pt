@@ -13,21 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shengc
-ms.openlocfilehash: b2ec609da51c753ab14685b735f022513ce5809e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 74bff33edd738642ea88ca9b3430aac0ff32bc6f
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformar dados na cloud através da atividade do Spark no Azure Data Factory
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Este tutorial
-
-> [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja a [documentação da versão 1 do Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 Neste tutorial, vai utilizar o Azure PowerShell para criar um pipeline do Data Factory que transforma dados com a Atividade do Spark e um serviço ligado do HDInsight a pedido. Vai executar os seguintes passos neste tutorial:
 
 > [!div class="checklist"]
@@ -36,6 +28,9 @@ Neste tutorial, vai utilizar o Azure PowerShell para criar um pipeline do Data F
 > * Criar e implementar um pipeline. 
 > * Iniciar uma execução de pipeline.
 > * Monitorizar a execução do pipeline.
+
+> [!NOTE]
+> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja a [documentação da versão 1 do Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -193,10 +188,18 @@ Criou definições de serviço ligado e de pipeline em ficheiros JSON. Agora, va
 
 1. Defina as variáveis uma a uma.
 
+    **Nome do Grupo de Recursos**
     ```powershell
-    $subscriptionID = "<subscription ID>" # Your Azure subscription ID
-    $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
-    $dataFactoryName = "MyDataFactory09102017" # Globally unique name of the data factory
+    $resourceGroupName = "ADFTutorialResourceGroup" 
+    ```
+
+    **Nome do Data Factory. Tem de ser globalmente exclusivo** 
+    ```powershell
+    $dataFactoryName = "MyDataFactory09102017"
+    ```
+    
+    **Nome do Pipeline**
+    ```powershell
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
     ```
 2. Inicie o **Azure PowerShell**. Mantenha o Azure PowerShell aberto até ao fim deste início rápido. Se o fechar e reabrir, terá de executar os comandos novamente. Atualmente, o Data Factory V2 só permite criar fábricas de dados nas regiões E.U.A. Leste, E.U.A. Leste 2 e Europa Ocidental. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.

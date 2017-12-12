@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: eda3b0d37f670f179804442710784e18f46bd848
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5ff52449414a6c9796b66195c33721553220f6bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Premium Storage, utilizando o Azure Site Recovery
 
@@ -202,7 +202,7 @@ Recuperação de sites irá criar uma instância VM cujo tipo é o mesmo como ou
    * Para uma VM criada através do modelo de implementação clássica: adicionar a VM para a conjunto de disponibilidade no portal do Azure. Para obter passos detalhados, aceda a [adicionar uma máquina virtual existente para um conjunto de disponibilidade](../linux/classic/configure-availability.md#addmachine).
    * Para uma VM criada através do modelo de implementação Resource Manager: guardar a configuração da VM e, em seguida, eliminar e voltar a criar as VMs no conjunto de disponibilidade. Para tal, utilize o script em [definir do Azure Resource Manager VM conjunto de disponibilidade](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Antes de executar este script, verifique o respetivas limitações e planear os períodos de indisponibilidade.
 
-2. **Eliminar antigo VMs e discos**. Certifique-se de que os discos Premium são consistentes com discos de origem e que as VMs novas executem a mesma função que as VMs de origem. No modelo de implementação Resource Manager, elimine a VM e elimine os discos das suas contas de armazenamento de origem no portal do Azure. No modelo de implementação clássica, pode eliminar a VM e os discos no portal clássico ou no portal do Azure. Se não existir um problema em que o disco não é eliminada, apesar de eliminar a VM, consulte [resolver erros ao eliminar os VHDs](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Eliminar antigo VMs e discos**. Certifique-se de que os discos Premium são consistentes com discos de origem e que as VMs novas executem a mesma função que as VMs de origem. Elimine a VM e elimine os discos das suas contas de armazenamento de origem no portal do Azure. Se não existir um problema em que o disco não é eliminada, apesar de eliminar a VM, consulte [resolver erros ao eliminar os VHDs](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
 
 3. **Limpar a infraestrutura do Azure Site Recovery**. Se a recuperação de sites já não for necessário, pode apagar a respetiva infraestrutura. Eliminar itens replicados, o servidor de configuração e a política de recuperação e, em seguida, elimine o cofre do Azure Site Recovery.
 

@@ -4,7 +4,7 @@ description: "Como utilizar atributos personalizados no Azure Active Directory B
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 055ffb0a-197b-4716-8dad-1fd8a01e174f
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 356aaeff3a78fc7b682d621e8e0de9312582b2fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e2c8b3ab223cf269129d7723c37d98c24f0653c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>O Azure Active Directory B2C: Utilizar atributos personalizados para recolher informações sobre os consumidores
 Diretório do Azure Active Directory (Azure AD) B2C é fornecido com um conjunto de informações (atributos) incorporado: nome próprio, apelido, cidade, Código Postal e outros atributos. No entanto, todas as aplicações direcionadas para o consumidor tem requisitos exclusivos nos quais atributos para recolher dos consumidores. Com o Azure AD B2C, pode expandir o conjunto de atributos armazenados em cada conta de consumidor. Pode criar atributos personalizados no [portal do Azure](https://portal.azure.com/) e utilizá-lo nas políticas de inscrição, conforme mostrado abaixo. Também pode ler e escrever estes atributos utilizando o [AD Graph API do Azure](active-directory-b2c-devquickstarts-graph-dotnet.md).
@@ -35,7 +35,7 @@ Diretório do Azure Active Directory (Azure AD) B2C é fornecido com um conjunto
 4. Forneça um **nome** para o atributo personalizado (por exemplo, "ShoeSize") e, opcionalmente, um **Descrição**. Clique em **Criar**.
    
    > [!NOTE]
-   > Apenas a "cadeia" **tipo de dados** está atualmente disponível.
+   > Apenas o "Cadeia", "Booleano" e "Int" **tipos de dados** estão atualmente disponíveis.
    > 
    > 
 

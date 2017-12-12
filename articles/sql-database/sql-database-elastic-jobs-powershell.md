@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Criar e gerir tarefas elásticas da base de dados do SQL Server através do PowerShell (pré-visualização)
 
@@ -42,7 +42,7 @@ A tabela seguinte lista os todos os tipos de objeto de **tarefas de bases de dad
 
 <table style="width:100%">
   <tr>
-    <th>Tipo de objeto</th>
+    <th>Tipo de Objeto</th>
     <th>Descrição</th>
     <th>APIs de PowerShell relacionados</th>
   </tr>
@@ -203,7 +203,7 @@ Abra uma ligação para as tarefas de bases de dados elásticas:
 ## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Credenciais encriptadas nas tarefas de base de dados elástica
 As credenciais da base de dados podem ser inseridas nas tarefas *base de dados de controlo* com a respetiva palavra-passe encriptada. É necessário armazenar credenciais para ativar as tarefas ser executada num momento posterior, (utilizando as agendas de tarefas).
 
-Encriptação funciona através de um certificado criado como parte do script de instalação. O script de instalação cria e carrega o certificado para o serviço de nuvem do Azure para a desencriptação das palavras-passe armazenadas encriptadas. O serviço de nuvem do Azure armazena mais tarde a chave pública nas tarefas *base de dados de controlo* que permite que a interface de API do PowerShell ou o Portal clássico do Azure encriptar uma palavra-passe fornecida sem necessidade do certificado seja localmente instalado.
+Encriptação funciona através de um certificado criado como parte do script de instalação. O script de instalação cria e carrega o certificado para o serviço de nuvem do Azure para a desencriptação das palavras-passe armazenadas encriptadas. O serviço de nuvem do Azure armazena mais tarde a chave pública nas tarefas *base de dados de controlo* que permite a API do PowerShell ou do Azure interface do portal encriptar uma palavra-passe fornecida sem necessidade do certificado para ser instalada localmente .
 
 As palavras-passe de credencial são encriptadas e seguros a partir de utilizadores com acesso só de leitura para objetos de tarefas de bases de dados elásticas. Mas é possível que um utilizador mal intencionado com acesso de leitura / escrita para objetos de tarefas de base de dados elásticas extrair uma palavra-passe. As credenciais foram concebidas para ser reutilizadas em execuções de tarefa. As credenciais são transmitidas para bases de dados de destino quando estabelecer ligações. Não existem atualmente sem restrições nas bases de dados de destino utilizados para cada credencial, o utilizador mal intencionado pode adicionar um destino de base de dados para uma base de dados sob o controlo de utilizador mal intencionado. O utilizador, subsequentemente, foi possível iniciar uma tarefa direcionada para esta base de dados para obter a palavra-passe da credencial.
 

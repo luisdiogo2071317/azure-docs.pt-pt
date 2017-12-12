@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 7922a9561369acf3c4299e1cadc0dc9f8f8eadb1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Como instalar e configurar o Trend Micro Deep Security como Serviço numa VM do Windows
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ Este artigo mostra como instalar e configurar a segurança avançada do tendênc
 
 O cliente é instalado como uma extensão de segurança através do agente da VM. Numa nova máquina virtual, instalar o agente de segurança avançadas, como o agente da VM é automaticamente criado pelo portal do Azure.
 
-VM existente criada utilizando o portal clássico, a CLI do Azure ou o PowerShell não pode ter um agente VM. Para uma máquina virtual existente que não tem o agente da VM, tem de transferir e instalá-lo primeiro. Este artigo abrange ambas as situações.
+VM existente criada no portal do Azure, a CLI do Azure ou o PowerShell não pode ter um agente VM. Para uma máquina virtual existente que não tem o agente da VM, tem de transferir e instalá-lo primeiro. Este artigo abrange ambas as situações.
 
 Se tiver uma subscrição atual de tendência Micro para uma solução no local, pode utilizá-lo para ajudar a proteger as máquinas virtuais do Azure. Se ainda não estiver um cliente, pode inscrever-se para uma subscrição de avaliação. Para obter mais informações sobre esta solução, consulte a mensagem de blogue de tendência Micro [Microsoft Azure VM extensão para a segurança do agente](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 

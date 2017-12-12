@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: API de Java do DocumentDB, SDK & recursos | Microsoft Docs'
-description: "Saiba tudo sobre Java API e o SDK, incluindo as datas de versão, datas de extinção e as alterações efetuadas entre cada versão do SDK de Java do Azure Cosmos DB DocumentDB."
+title: 'Do Azure Cosmos DB: API de Java do SQL Server, SDK & recursos | Microsoft Docs'
+description: "Saiba tudo sobre API Java do SQL Server e o SDK, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão do SDK de Java do Azure Cosmos BD SQL."
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38737c8a296e27a4256e19b8c45cab17fc71b81a
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: c0d3bdfb607d2bbea669d2b0a76f610d42f31b33
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: SDK de DocumentDB Java notas de versão e recursos
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [Feed de alteração de .NET](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/16/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -173,7 +175,7 @@ Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas
 Qualquer pedido de BD do Cosmos utilizando um SDK extinto será rejeitado pelo serviço.
 
 > [!WARNING]
-> Todas as versões do SDK para Java DocumentDB anteriores à versão **1.0.0** serão descontinuados no **29 de Fevereiro de 2016**.
+> Todas as versões do SQL Server SDK para Java anteriores à versão **1.0.0** foram descontinuados no **29 de Fevereiro de 2016**.
 > 
 > 
 

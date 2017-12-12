@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3d3c6c95763bc8eb67f092bda61bb58c7af9daf2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicar uma aplicação do catálogo de serviço através do portal do Azure
 
@@ -60,7 +60,6 @@ O ficheiro. zip que contém a definição de aplicação gerida deve estar dispo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução para aplicações geridas, consulte [descrição geral de aplicações gerido](overview.md).
+* Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
 * Para obter exemplos de aplicações geridas, consulte [projetos de exemplo para o Azure geridos aplicações](sample-projects.md).
-* Para obter informações sobre a publicação de aplicações geridas no Azure Marketplace, consulte [Azure geridos aplicações no mercado](publish-marketplace-app.md).
-* Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, consulte [começar com CreateUiDefinition](create-uidefinition-overview.md).
+* Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, veja [Introdução a CreateUiDefinition](create-uidefinition-overview.md).

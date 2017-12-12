@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: raynew
-ms.openlocfilehash: d3d5a3bcd3be55d1915ff7fdc6d82aebbb992fc7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -32,15 +32,17 @@ O serviço do Azure Migrate avalia as cargas de trabalho no local para migraçã
 O Azure Migrate ajuda-o a:
 
 - **Avaliar a preparação do Azure**: avaliar se as suas máquinas no local são adequadas para execução no Azure. 
-- **Obter recomendações de tamanho**: dimensionamento recomendado para as VMs do Azure após a migração, com base no histórico de desempenho das VMs no local. 
-- **Estimar custos mensais**: custos estimados para executar máquinas no local no Azure.
-- **Migrar com confiança elevada**: se agrupar máquinas no local para avaliação, pode aumentar a confiança da avaliação ao visualizar as dependências. Pode ver com precisão as dependências de uma máquina específica ou de todas as máquinas de um grupo.
+- **Obter recomendações de tamanho**: obtenha recomendações de tamanho para as VMs do Azure, com base no histórico de desempenho das VMs no local. 
+- **Estimar custos mensais**: obtenha custos estimados para executar máquinas no local no Azure.  
+- **Migrar com confiança elevada**: visualize as dependências de máquinas no local para criar grupos de computadores que vai avaliar e migrar em conjunto. Pode ver com precisão as dependências de uma máquina específica ou de todas as máquinas de um grupo.
 
 ## <a name="current-limitations"></a>Limitações atuais
 
 - Atualmente, pode avaliar máquinas virtuais (VMs) do VMware no local para migração para VMs do Azure.
+
 > [!NOTE]
 > O suporte para o Hyper-V está nas previsões e será ativado dentro de alguns meses. Até lá, recomendamos que utilize o Planeador de Implementações do Azure Site Recovery para planear a migração de cargas de trabalho do Hyper-V. 
+
 - Pode avaliar até mil VMs numa única avaliação e até 1500 máquinas num projeto do Azure Migrate individual. Se precisar de avaliar mais máquinas, pode aumentar o número de projetos ou de avaliações. [Saiba mais](how-to-scale-assessment.md).
 - A VM que for avaliar tem de ser gerida por um vCenter Server, versão 5.5, 6.0 ou 6.5.
 - Só pode criar projetos do Azure Migrate na região E.U.A. Centro-Oeste. No entanto, esta limitação não afeta a possibilidade de planear a sua migração para outra localização de destino do Azure. A localização do projeto de migração é utilizada apenas para armazenar os metadados detetados a partir do ambiente no local.
@@ -54,11 +56,11 @@ O Azure Migrate está disponível sem custos adicionais. No entanto, durante a p
 
 ## <a name="whats-in-an-assessment"></a>Novidades nas avaliações
 
-As avaliações do Azure Migrate têm por base as definições resumidas na tabela.
+Uma avaliação ajuda-o a identificar a adequabilidade do Azure de VMs no local, obter recomendações de tamanho adequado e estimativas de custo para executar as VMs no Azure. As avaliações têm por base as definições resumidas na tabela abaixo. Pode modificar estas propriedades no portal do Azure Migrate. 
 
-**Definição** | **Detalhes**
+**Propriedade** | **Detalhes**
 --- | ---
-**Localização de destino** | A localização do Azure para a qual pretende migrar. Por predefinição, esta é a localização na qual vai criar o projeto do Azure Migrate. Pode modificar esta definição.   
+**Localização de destino** | A localização do Azure para a qual pretende migrar. Por predefinição, a localização de destino está definida para E.U.A. Oeste 2. 
 **Redundância do armazenamento** | O tipo de armazenamento que as VMs do Azure vão utilizar após a migração. A predefinição é LRS.
 **Planos de preços** | A avaliação tem em conta se está inscrito no Software Assurance e se pode utilizar o [Benefício de Utilização Híbrida do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Também considera que ofertas do Azure serão aplicáveis e permite-lhe indicar descontos (%) específicos de subscrições, que pode acumular relativamente à oferta. 
 **Escalão de preço** | Pode especificar o [escalão de preços (básico/standard)](../virtual-machines/windows/sizes-general.md) das VMs do Azure. Desta forma, pode migrar para uma família de VMs do Azure tendo em conta o facto de estar ou não num ambiente de produção. Por predefinição, é utilizado o escalão [standard](../virtual-machines/windows/sizes-general.md).
@@ -69,12 +71,12 @@ As avaliações do Azure Migrate têm por base as definições resumidas na tabe
 ## <a name="how-does-azure-migrate-work"></a>Como funciona o Azure Migrate?
 
 1.  Cria um projeto do Azure Migrate.
-2.  O Azure Migrate utiliza uma VM no local, denominada aplicação recoletora, para detetar informações sobre as suas máquinas no local. Para criar a aplicação, transfira o ficheiro de configuração no formato Open Virtualization Appliance (.ova) e importe-o como VM no seu vCenter Server no local.
-3.  Para ligar à VM, vai utilizar as credenciais só de leitura do vCenter Server e executar o recoletor.
+2.  O Azure Migrate utiliza uma VM no local, denominada aplicação recoletora, para detetar informações sobre as suas máquinas no local. Para criar a aplicação, transfira um ficheiro de configuração no formato Open Virtualization Appliance (.ova) e importe-o como VM no seu vCenter Server no local.
+3.  Ao ligar-se à VM através da ligação de consola no vCenter Server, especifique uma nova palavra-passe para a VM durante a ligação e, em seguida, execute a aplicação de recoletor na VM para iniciar a deteção.
 4.  O recoletor utiliza cmdlets do VMware PowerCLI para recolher os metadados da VM. A deteção é feita sem agentes e não instala nada nos anfitriões do VMware nem nas VMs. Os metadados recolhidos incluem informações da VM (núcleos, memória, discos, tamanhos de discos e adaptadores de rede). Também recolhe dados de desempenho das VMs, incluindo utilização da CPU e de memória, IOPS de disco, débito de disco (MBps) e saída de rede (MBps).
 5.  Os metadados são enviados para o projeto do Azure Migrate. Pode vê-los no portal do Azure.
-6.  Para efeitos da avaliação, agrupa as VMs em grupos. Por exemplo, pode agrupar VMs que executem a mesma aplicação. Para agrupar as VMs, pode utilizar a etiquetagem no vCenter ou o portal do mesmo. Utilize a visualização para verificar as dependências de uma máquina específica ou de todas as máquinas de um grupo.
-7.  Cria uma avaliação para um grupo.
+6.  Para efeitos da avaliação, agrupa as VMs detetadas em grupos. Por exemplo, pode agrupar VMs que executem a mesma aplicação. Pode agrupar as VMs no portal do Azure Migrate ou utilizar a marcação no vCenter Server. Além disso, pode utilizar a visualização de dependência para ver as dependências de uma máquina específica ou para todas as máquinas de um grupo e refinar o grupo.
+7.  Assim que o grupo é formado, crie uma avaliação para o grupo. 
 8.  Depois de concluída a avaliação, pode vê-la no portal ou transferi-la no formato Excel.
 
 
@@ -88,8 +90,8 @@ A tabela resume as portas necessárias para as comunicações do Azure Migrate.
 |Componente          |Para comunicar com     |Porta necessária  |Razão   |
 |-------------------|------------------------|---------------|---------|
 |Recoletor          |Serviço do Azure Migrate   |TCP 443        |O recoletor liga-se ao serviço através da porta SSL 443|
-|Recoletor          |vCenter Server          |Predefinição 9443   | Por predefinição, o recoletor liga-se ao vCenter Server na porta 9443. Se os servidores escutarem noutra porta, esta deve ser configurada como porta de saída na VM do recoletor. |
-|VM no local     | Área de trabalho do OMS          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |O agente MMA utiliza a TCP 443 para ligar ao Log Analytics. Só precisa desta porta se estiver a utilizar a funcionalidade de visualização de dependências e a instalar o agente MMA. |
+|Recoletor          |vCenter Server          |Predefinição 9443   | Por predefinição, o recoletor liga-se ao vCenter Server na porta 9443. Se o servidore escutar noutra porta, esta deve ser configurada como porta de saída na VM do recoletor. |
+|VM no local     | Área de trabalho do Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |O agente MMA utiliza a TCP 443 para ligar ao Log Analytics. Só precisa desta porta se estiver a utilizar a funcionalidade de visualização de dependências e a instalar o MMA (Microsoft Monitoring Agent). |
 
 
   

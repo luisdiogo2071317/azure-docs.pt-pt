@@ -1,6 +1,6 @@
 ---
-title: "Níveis de desempenho de API do DocumentDB | Microsoft Docs"
-description: "Saiba mais sobre como níveis de desempenho do DocumentDB API permitem-lhe reservar débito numa base por contentor."
+title: "Extinto níveis de desempenho de base de dados do Azure Cosmos | Microsoft Docs"
+description: "Saiba mais sobre os níveis de desempenho S1, S2 e S3 anteriormente disponíveis do BD Azure Cosmos."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 01b44169349d8b79cf5861328170916a57df6811
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Extinguir os níveis de desempenho S1, S2 e S3
 
 > [!IMPORTANT] 
-> Os níveis de desempenho S1, S2 e S3 abordados neste artigo estão a ser extinto e já não estão disponíveis para novas contas de API do DocumentDB.
+> Os níveis de desempenho S1, S2 e S3 abordados neste artigo estão a ser extinto e já não estão disponíveis para novas contas de base de dados do Azure Cosmos.
 >
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Este artigo fornece uma descrição geral dos níveis de desempenho S1, S2 e S3 e descreve a forma como as coleções que utilizam estes níveis de desempenho serão migradas para coleções de partições únicas de 2017. Depois de ler este artigo, poderá responder às seguintes questões:
 
@@ -44,7 +46,7 @@ Este artigo fornece uma descrição geral dos níveis de desempenho S1, S2 e S3 
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Por que razão são o desempenho S1, S2 e S3 níveis vai ser reformado?
 
-Os níveis de desempenho S1, S2 e S3 não oferecem a flexibilidade que oferta de coleções de API do DocumentDB. Com S1, S2, S3 níveis de desempenho, capacidade de débito e de armazenamento foram previamente definido e não foi possível oferecem elasticidade. BD do Azure do Cosmos oferece a capacidade para personalizar o débito e armazenamento, oferta muito mais flexibilidade na sua capacidade para dimensionar conforme alterar às suas necessidades.
+Os níveis de desempenho S1, S2 e S3 não oferecem flexibilidade que fornece a oferta da base de dados do Azure Cosmos padrão. Com S1, S2, S3 níveis de desempenho, capacidade de débito e de armazenamento foram previamente definido e não foi possível oferecem elasticidade. BD do Azure do Cosmos oferece a capacidade para personalizar o débito e armazenamento, oferta muito mais flexibilidade na sua capacidade para dimensionar conforme alterar às suas necessidades.
 
 <a name="compare"></a>
 
@@ -141,7 +143,7 @@ Pode migrar de níveis de desempenho S1, S2 e S3 para coleções de partições 
 
 **Para migrar para coleções de partições únicas utilizando o SDK .NET**
 
-Outra opção para alterar os níveis de desempenho dos seus coleções é através dos SDKs do Azure Cosmos DB. Esta secção abrange apenas a alterar o desempenho de uma coleção de nível de utilizar o [API .NET do DocumentDB](documentdb-sdk-dotnet.md), mas o processo é semelhante para os nossos SDKs outros.
+Outra opção para alterar os níveis de desempenho dos seus coleções é através dos SDKs do Azure Cosmos DB. Esta secção abrange apenas a alterar o desempenho de uma coleção de nível de utilização a [.NET API do SQL Server](documentdb-sdk-dotnet.md), mas o processo é semelhante para os nossos SDKs outros.
 
 Eis um fragmento de código para alterar o débito de coleção para 5000 unidades de pedido por segundo:
     

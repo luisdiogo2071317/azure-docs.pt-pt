@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: chackdan
-ms.openlocfilehash: f7c4a00d2c9be2d6b4d3d0b4dfb152deb2d0e217
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, o planeamento de capacidade é um passo importante. Seguem-se alguns dos itens que terá de considerar como parte do processo.
@@ -107,7 +107,7 @@ Utilizar Silver ou Gold durabilidade para todos os tipos de nó serviços com mo
 
 
 > [!WARNING]
-> Alterar o tamanho do SKU de VM para conjuntos de dimensionamento de VM não está em execução, pelo menos, prata durabilidade não é recomendados. Alterar tamanho da VM SKU é uma operação de infraestrutura do destrutivas de dados no local. Sem, pelo menos, alguma capacidade de atraso ou monitorizar esta alteração, é possível que a operação pode fazer com que dataloss para serviços com monitorização de estado ou fazer com que outros problemas operacionais unforseen, mesmo para cargas de trabalho sem monitorização de estado. 
+> Alterar o tamanho da VM SKU de conjuntos de dimensionamento de VM não está em execução, pelo menos, prata durabilidade não é recomendada. Alterar tamanho da VM SKU é uma operação de infraestrutura do destrutivas de dados no local. Sem, pelo menos, alguma capacidade de atraso ou monitorizar esta alteração, é possível que a operação pode causar a perda de dados para os serviços com monitorização de estado ou fazer com que outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem monitorização de estado. 
 > 
     
 3. Mantenha uma contagem mínima de cinco nós para qualquer conjunto do dimensionamento de Máquina Virtual tem um nível de durabilidade de ouro ou Silver ativado
@@ -142,8 +142,8 @@ Eis a recomendação sobre como escolher o escalão de fiabilidade.
 | --- | --- |
 | 1 |Especifique o parâmetro de escalão de fiabilidade, o sistema calcula-la |
 | 3 |Bronze |
-| 5 ou 6|Silver |
-| 7 ou 8 |Gold |
+| 5 ou 6|Prata |
+| 7 ou 8 |Dourado |
 | 9 e até |Platinum |
 
 

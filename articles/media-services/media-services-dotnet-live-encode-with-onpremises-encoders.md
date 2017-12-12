@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 3ef6065f5b9e05e0ea5716548699943a2c877bc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 49246df64372939288354acce768cdc366a85440
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Como realizar uma transmissão em fluxo em direto com codificadores no local através do .NET
 > [!div class="op_single_selector"]
@@ -65,22 +65,23 @@ Exemplo de código seguinte demonstra como atingir as seguintes tarefas:
 >Certifique-se de que o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo está no estado **Em execução**. 
     
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, consulte [isto](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Para obter informações sobre como configurar um codificador em direto, consulte [suporte de RTMP de serviços de suporte de dados do Azure e codificadores em direto](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Linq;
-    using System.Net;
-    using System.Security.Cryptography;
-    using Microsoft.WindowsAzure.MediaServices.Client;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Net;
+using System.Security.Cryptography;
+using Microsoft.WindowsAzure.MediaServices.Client;
 
-    namespace AMSLiveTest
+namespace AMSLiveTest
+{
+    class Program
     {
-        class Program
-        {
         private const string StreamingEndpointName = "streamingendpoint001";
         private const string ChannelName = "channel001";
         private const string AssetlName = "asset001";
@@ -88,15 +89,23 @@ Para obter informações sobre como configurar um codificador em direto, consult
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -125,9 +134,9 @@ Para obter informações sobre como configurar um codificador em direto, consult
             IChannel channel = _context.Channels.Create(
             new ChannelCreationOptions
             {
-            Name = ChannelName,
-            Input = CreateChannelInput(),
-            Preview = CreateChannelPreview()
+                Name = ChannelName,
+                Input = CreateChannelInput(),
+                Preview = CreateChannelPreview()
             });
 
             //Starting and stopping Channels can take some time to execute. To determine the state of operations after calling Start or Stop, query the IChannel.State .
@@ -141,10 +150,10 @@ Para obter informações sobre como configurar um codificador em direto, consult
         {
             return new ChannelInput
             {
-            StreamingProtocol = StreamingProtocol.RTMP,
-            AccessControl = new ChannelAccessControl
-            {
-                IPAllowList = new List<IPRange>
+                StreamingProtocol = StreamingProtocol.RTMP,
+                AccessControl = new ChannelAccessControl
+                {
+                    IPAllowList = new List<IPRange>
                     {
                     new IPRange
                     {
@@ -155,7 +164,7 @@ Para obter informações sobre como configurar um codificador em direto, consult
                     SubnetPrefixLength = 0
                     }
                 }
-            }
+                }
             };
         }
 
@@ -163,9 +172,9 @@ Para obter informações sobre como configurar um codificador em direto, consult
         {
             return new ChannelPreview
             {
-            AccessControl = new ChannelAccessControl
-            {
-                IPAllowList = new List<IPRange>
+                AccessControl = new ChannelAccessControl
+                {
+                    IPAllowList = new List<IPRange>
                 {
                     new IPRange
                     {
@@ -176,7 +185,7 @@ Para obter informações sobre como configurar um codificador em direto, consult
                     SubnetPrefixLength = 0
                     }
                 }
-            }
+                }
             };
         }
 
@@ -245,24 +254,24 @@ Para obter informações sobre como configurar um codificador em direto, consult
             IStreamingEndpoint streamingEndpoint = null;
             if (createNew)
             {
-            var options = new StreamingEndpointCreationOptions
-            {
-                Name = StreamingEndpointName,
-                ScaleUnits = 1,
-                AccessControl = GetAccessControl(),
-                CacheControl = GetCacheControl()
-            };
+                var options = new StreamingEndpointCreationOptions
+                {
+                    Name = StreamingEndpointName,
+                    ScaleUnits = 1,
+                    AccessControl = GetAccessControl(),
+                    CacheControl = GetCacheControl()
+                };
 
-            streamingEndpoint = _context.StreamingEndpoints.Create(options);
+                streamingEndpoint = _context.StreamingEndpoints.Create(options);
             }
             else
             {
-            streamingEndpoint = _context.StreamingEndpoints.FirstOrDefault();
+                streamingEndpoint = _context.StreamingEndpoints.FirstOrDefault();
             }
 
 
             if (streamingEndpoint.State == StreamingEndpointState.Stopped)
-            streamingEndpoint.Start();
+                streamingEndpoint.Start();
 
             return streamingEndpoint;
         }
@@ -271,7 +280,7 @@ Para obter informações sobre como configurar um codificador em direto, consult
         {
             return new StreamingEndpointAccessControl
             {
-            IPAllowList = new List<IPRange>
+                IPAllowList = new List<IPRange>
                 {
                 new IPRange
                 {
@@ -281,7 +290,7 @@ Para obter informações sobre como configurar um codificador em direto, consult
                 }
                 },
 
-            AkamaiSignatureHeaderAuthenticationKeyList = new List<AkamaiSignatureHeaderAuthenticationKey>
+                AkamaiSignatureHeaderAuthenticationKeyList = new List<AkamaiSignatureHeaderAuthenticationKey>
                 {
                 new AkamaiSignatureHeaderAuthenticationKey
                 {
@@ -298,7 +307,7 @@ Para obter informações sobre como configurar um codificador em direto, consult
             var bytes = new byte[length];
             using (var rng = new RNGCryptoServiceProvider())
             {
-            rng.GetBytes(bytes);
+                rng.GetBytes(bytes);
             }
 
             return bytes;
@@ -308,7 +317,7 @@ Para obter informações sobre como configurar um codificador em direto, consult
         {
             return new StreamingEndpointCacheControl
             {
-            MaxAge = TimeSpan.FromSeconds(1000)
+                MaxAge = TimeSpan.FromSeconds(1000)
             };
         }
 
@@ -346,38 +355,39 @@ Para obter informações sobre como configurar um codificador em direto, consult
         {
             if (streamingEndpoint != null)
             {
-            streamingEndpoint.Stop();
-            if(streamingEndpoint.Name != "default")
-                streamingEndpoint.Delete();
+                streamingEndpoint.Stop();
+                if (streamingEndpoint.Name != "default")
+                    streamingEndpoint.Delete();
             }
 
             IAsset asset;
             if (channel != null)
             {
 
-            foreach (var program in channel.Programs)
-            {
-                asset = _context.Assets.Where(se => se.Id == program.AssetId)
-                            .FirstOrDefault();
-
-                program.Stop();
-                program.Delete();
-
-                if (asset != null)
+                foreach (var program in channel.Programs)
                 {
-                foreach (var l in asset.Locators)
-                    l.Delete();
+                    asset = _context.Assets.Where(se => se.Id == program.AssetId)
+                                .FirstOrDefault();
 
-                asset.Delete();
+                    program.Stop();
+                    program.Delete();
+
+                    if (asset != null)
+                    {
+                        foreach (var l in asset.Locators)
+                            l.Delete();
+
+                        asset.Delete();
+                    }
                 }
-            }
 
-            channel.Stop();
-            channel.Delete();
+                channel.Stop();
+                channel.Delete();
             }
-        }
         }
     }
+}
+```
 
 ## <a name="next-step"></a>Passo seguinte
 Reveja os caminhos de aprendizagem dos Media Services

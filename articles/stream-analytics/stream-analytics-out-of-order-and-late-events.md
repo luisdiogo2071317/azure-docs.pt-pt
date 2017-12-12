@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: f9854172e08785676a7804433d9a559e623a7b05
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b4ce26fbbb2a494004e9c80462881dd754531497
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stream-analytics-event-order-consideration"></a>Consideração de ordem de eventos do Azure Stream Analytics
 
@@ -78,7 +78,7 @@ Para reordenar os eventos recebidos "período de tolerância fora de ordem", o r
    * Evento 4 _hora da aplicação_ = 00:09:00, _hora da chegada_ = 00:10:03, _Timestamp_ = 00:09:00, aceite com original timestamp como hora da aplicação está dentro do limite de tolerância de ordem.
    * Evento 5 _hora da aplicação_ = 00:06:00, _hora da chegada_ = 00:10:04, _Timestamp_ = 00:07:00, tendo em conta porque a hora da aplicação é mais antiga do que o fora de ordem tolerância.
 
-## <a name="practical-considerations"></a>Considerações práticas
+### <a name="practical-considerations"></a>Considerações práticas
 Tal como mencionado acima, *tolerância de chegada de enlace tardio* é a diferença entre a hora da aplicação e a hora da chegada máxima.
 Também quando processamento pela aplicação de tempo, os eventos que são posteriores à configurada *tolerância de chegada de enlace tardio* são tendo em conta antes do *tolerância fora de ordem* definição é aplicada. Por isso, eficaz fora de ordem é o mínimo de enlace tardio tolerância de chegada e tolerância fora de ordem.
 
@@ -94,22 +94,33 @@ Ao configurar *tolerância de chegada de enlace tardio* e *tolerância fora de o
 
 Seguem-se alguns exemplos
 
-### <a name="example-1"></a>Exemplo 1: 
+#### <a name="example-1"></a>Exemplo 1: 
 Consulta tem a cláusula "Partição por PartitionId" e dentro de uma única partição, os eventos são enviados através de métodos de envio síncronas. Bloco de métodos de envio síncrona até que os eventos são enviados.
 Neste caso, fora de ordem for zero porque os eventos são enviados pela ordem com confirmação explícita antes de enviar o evento seguinte. Chegada de enlace tardio é um atraso máximo entre o evento a gerar e enviar o evento + latência máxima entre o remetente e origem de entrada
 
-### <a name="example-2"></a>Exemplo 2:
+#### <a name="example-2"></a>Exemplo 2:
 Consulta tem a cláusula "Partição por PartitionId" e dentro de uma única partição, os eventos são enviados utilizando o método de envio assíncrono. Métodos de envio assíncrono podem iniciar vários envia ao mesmo tempo, que pode fazer com que os eventos fora de ordem.
 Neste caso, a chegada de fora de ordem e enlace tardio são atraso máximo, pelo menos, entre o evento a gerar e enviar o evento + latência máxima entre o remetente e origem de entrada.
 
-### <a name="example-3"></a>Exemplo 3:
+#### <a name="example-3"></a>Exemplo 3:
 Consulta não tem "Partição por PartitionId" e não existirem, pelo menos, duas partições.
 Configuração de é igual ao exemplo 2. No entanto, ausência de uma das partições de dados pode atrasar o resultado pelo adicional * tolerância de chegada de enlace tardio "janela.
+
+## <a name="handling-event-producers-with-differing-timelines"></a>Produtores de eventos de processamento com linhas cronológicas diferentes
+Um fluxo de eventos de entrada único frequentemente irá conter eventos provenientes de vários produtores de eventos (tais como os dispositivos individuais).  Estes eventos poderão chegarem fora de ordem devido a razões debatidas anteriormente. Nestes cenários, enquanto o disorder em produtores de eventos pode ser grande, disorder dentro de eventos a partir de um produtor único será pequeno (ou mesmo inexistente).
+Enquanto o Azure Stream Analytics fornece gerais mecanismos para lidar com eventos fora de ordem, o resultado desses mecanismos em qualquer um dos atrasos de processamento (enquanto aguardava a existência de eventos straggling alcançar o sistema), removido ou ajustado, ou ambos.
+Ainda em vários cenários, a consulta pretendida está a processar eventos de produtores de eventos diferentes independentemente.  Por exemplo, este pode ser agregar eventos por janela por do dispositivo.  Nestes casos, não é necessário para atrasar a saída produtor de um evento correspondente ao aguardar que os outros produtores de eventos detetar a cópia de segurança.  Por outras palavras, não é necessário para lidar com a hora dissimetrias entre os produtores e pode ser simplesmente ignorado.
+Obviamente, isto significa que os eventos de saída próprios será fora de ordem no que respeita à respetiva carimbos; o consumidor a jusante tem de ser capaz de lidar com esse comportamento.  Mas cada evento na saída correto.
+
+O Azure Stream Analytics implementa esta funcionalidade utilizando o [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) cláusula.
+
+
 
 ## <a name="to-summarize"></a>Para resumir
 * Enlace tardio tolerância de chegada e janela fora de ordem devem ser configurados com base no que está correto, requisitos de latência e também devem considerar a forma como os eventos são enviados.
 * Recomenda-se que é inferior a tolerância de chegada de enlace tardio tolerância fora de ordem.
 * Ao combinar várias linhas cronológicas, falta de um dos partições ou origens de dados pode atrasar a saída por um período de tolerância de chegada enlace tardio adicionais.
+* Quando a ordem só é importante dentro da evento produtor a linha cronológica, é possível utilizar a cláusula TIMESTAMP BY OVER para processar cada produtor de eventos como um substream independente.
 
 ## <a name="get-help"></a>Obter ajuda
 Para obter assistência adicional, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).

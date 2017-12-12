@@ -4,7 +4,7 @@ description: "Lista os atributos que são sincronizados com o Azure Active Direc
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08663916214cf2d34704ef2a355464bc6df9b138
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 1fb5772f58511b33d6927c3d0ff155980ed756ad
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos que estão sincronizados com a sincronização do Azure AD Connect.  
@@ -83,7 +83,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | givenName |X |X | | |
 | HomePhone |X |X | | |
 | informações |X |X |X |Atualmente, este atributo é consumido não para grupos. |
-| iniciais |X |X | | |
+| Iniciais |X |X | | |
 | l |X |X | | |
 | LegacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
@@ -248,7 +248,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | thumbnailphoto |X |X | | |
 | Título |X |X | | |
 | unauthOrig |X |X |X | |
-| URL |X |X | | |
+| url |X |X | | |
 | usageLocation |X | | |propriedade mechanical. País do utilizador. Utilizado para a atribuição de licença. |
 | userPrincipalName |X | | |UPN é o ID de início de sessão do utilizador. Mais frequentemente é o valor igual a [correio]. |
 | wWWHomePage |X |X | | |

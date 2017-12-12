@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8789f08a37466862120dda88a0bce7da3e9a91
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6b72bdc546c824515867daa062c4a94f7326d7fb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Executar uma tarefa Apache Hive, Pig ou Hadoop, utilizando a BD do Cosmos do Azure e o HDInsight
 Este tutorial mostra como executar [Apache Hive][apache-hive], [Apache Pig][apache-pig], e [do Apache Hadoop] [ apache-hadoop] As tarefas do MapReduce no Azure HDInsight com o conector de Hadoop da BD do Cosmos. Conector de Hadoop da BD do cosmos permite BD do Cosmos agir como uma origem e o sink para tarefas do Hive, Pig e MapReduce. Este tutorial irá utilizar BD do Cosmos como a origem de dados e de destino para tarefas do Hadoop.
@@ -86,7 +86,7 @@ Este tutorial utiliza a ação de Script do Portal do Azure para personalizar o 
         <tr><td>Nome do cluster</td><td>Nome do cluster.<br/>
 Tem de nome de DNS iniciar e terminar com um caráter numérico alpha e pode conter traços.<br/>
 O campo tem de ser uma cadeia entre 3 e 63 carateres.</td></tr>
-        <tr><td>Nome da subscrição</td>
+        <tr><td>Nome da Subscrição</td>
             <td>Se tiver mais do que uma subscrição do Azure, selecione a subscrição que irá alojar o cluster do HDInsight. </td></tr>
     </table>
 5.Clique em **selecionar tipo de Cluster** e defina as propriedades seguintes aos valores especificados.
@@ -178,7 +178,7 @@ Introduza: </br> <strong>https://portalcontent.blob.Core.Windows.NET/scriptactio
         $clusterName = "<HDInsightClusterName>"
 2. <p>Vamos começar a construir a cadeia de consulta. Iremos irá escrever uma consulta do Hive, que demora a todos os documentos gerada pelo sistema carimbos (_ts) e os ids exclusivos (_rid) de uma coleção de base de dados do Azure Cosmos, tallies todos os documentos por minuto e, em seguida, armazena os resultados novamente para uma nova coleção de BD do Cosmos do Azure.</p>
 
-    <p>Em primeiro lugar, vamos criar uma tabela do Hive da nossa coleção da base de dados do Azure Cosmos. Adicione o seguinte fragmento de código para o painel de Script do PowerShell <strong>depois</strong> o fragmento de código de #1. Certifique-se de que incluem o t de parâmetro de DocumentDB.query opcional compactação nosso documentos _ts apenas e _rid.</p>
+    <p>Em primeiro lugar, vamos criar uma tabela do Hive da nossa coleção da base de dados do Azure Cosmos. Adicione o seguinte fragmento de código para o painel de Script do PowerShell <strong>depois</strong> o fragmento de código de #1. Certifique-se de que inclui o parâmetro de consulta opcional cortar documentos _ts apenas e _rid.</p>
 
    > [!NOTE]
    > **Nomenclatura DocumentDB.inputCollections não era um erro.** Sim, iremos permitir a adição de várias coleções como entrada: </br>
@@ -276,7 +276,7 @@ Introduza: </br> <strong>https://portalcontent.blob.Core.Windows.NET/scriptactio
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
 2. <p>Vamos começar a construir a cadeia de consulta. Iremos irá escrever uma consulta de Pig que demora a todos os documentos gerada pelo sistema carimbos (_ts) e os ids exclusivos (_rid) de uma coleção de base de dados do Azure Cosmos, tallies todos os documentos por minuto e, em seguida, armazena os resultados novamente para uma nova coleção de BD do Cosmos do Azure.</p>
-    <p>Em primeiro lugar, carregar documentos da base de dados do Cosmos para o HDInsight. Adicione o seguinte fragmento de código para o painel de Script do PowerShell <strong>depois</strong> o fragmento de código de #1. Certifique-se de que adiciona uma consulta do DocumentDB para o parâmetro de consulta do DocumentDB opcional cortar nosso documentos _ts apenas e _rid.</p>
+    <p>Em primeiro lugar, carregar documentos da base de dados do Cosmos para o HDInsight. Adicione o seguinte fragmento de código para o painel de Script do PowerShell <strong>depois</strong> o fragmento de código de #1. Certifique-se de que adiciona uma consulta para o parâmetro de consulta do DocumentDB opcional cortar nosso documentos _ts apenas e _rid.</p>
 
    > [!NOTE]
    > Sim, iremos permitir a adição de várias coleções como entrada: </br>

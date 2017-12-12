@@ -4,7 +4,7 @@ description: "Passo a passo instruções para a criação de uma aplicação que
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/26/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b409aa762b60c6bed0ee26f4b9fa7c347d9eb997
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6d8d2c07c2860059c4e9deb75d0bc4a876e057b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>Como iniciar sessão em qualquer utilizador do Azure Active Directory (AD) através do padrão de aplicação multi-inquilino
 Se oferecer um Software como uma aplicação de serviço para muitas organizações, pode configurar a sua aplicação para aceitar inícios de sessão de qualquer inquilino do Azure AD.  Esta configuração denomina-no Azure AD, tornando o multi-inquilino de aplicação.  Os utilizadores em qualquer inquilino do Azure AD será possível iniciar sessão na sua aplicação após consenting para utilizar a respetiva conta com a sua aplicação.  

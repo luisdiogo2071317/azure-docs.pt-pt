@@ -4,7 +4,7 @@ description: "Saiba como configurar a base de dados do Azure Cosmos distribuiç�
 services: cosmos-db
 keywords: "distribuição global, gráfico, gremlin"
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: denlee
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: eb55bdee60400b4b14f47a6a0b1d0682b267d26f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 12e1ab5f57d217537ba14183500efb099985ff1e
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Como configurar a base de dados do Azure Cosmos distribuição global utilizando a API do gráfico
 
@@ -37,7 +37,7 @@ Este artigo abrange as seguintes tarefas:
 
 ## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Ligar a uma região preferencial a utilizar a Graph API utilizando o SDK .NET
 
-A Graph API é exposta como uma biblioteca de extensão sobre o SDK do DocumentDB.
+A Graph API é exposta como uma biblioteca de extensão sobre a API do SQL Server.
 
 Para tirar o máximo partido das [distribuição global](distribute-data-globally.md), aplicações de cliente podem especificar a lista de preferência ordenada de regiões para ser utilizado para executar operações de documento. Isto pode ser feito ao definir a política de ligação. Com base na configuração da conta de base de dados do Azure Cosmos, disponibilidade regional atual e a lista de preferência especificado, o ponto final ideal será selecionado pelo SDK para efetuar a escrita e operações de leitura.
 
@@ -87,7 +87,7 @@ Neste tutorial, fez o seguinte:
 
 > [!div class="checklist"]
 > * Configurar a distribuição global com o portal do Azure
-> * Configurar a distribuição global com as APIs do DocumentDB
+> * Configurar a distribuição global com as APIs do SQL Server
 
 Agora pode avançar para o próximo tutorial para saber como desenvolver localmente, utilizando o emulador local da base de dados do Azure Cosmos.
 

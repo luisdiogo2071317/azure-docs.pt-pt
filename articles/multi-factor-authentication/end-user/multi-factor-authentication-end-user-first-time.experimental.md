@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: como utilizar o azure, active directory na nuvem, tutorial do Active Directory
 documentationcenter: 
 author: barlanmsft
-manager: angrobe
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: e0f7b08f7ad00679434992874ff5215f2b2c9dd3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7754aac27381e25fca126f7cdd2e07bfa1dcf380
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar a minha conta para a verificação de dois passos
 Verificação de dois passos é um passo de segurança adicional que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas para entrar na. Se estiver a ler este artigo, provavelmente, recebeu uma mensagem de e-mail do administrador de conta escolar ou profissional sobre multi-factor Authentication. Ou, talvez tentou iniciar sessão e recebeu uma mensagem a pedir-lhe configurar a verificação de segurança adicional. Se for esse o caso, **não pode iniciar sessão depois de concluir o processo de inscrição automática**.

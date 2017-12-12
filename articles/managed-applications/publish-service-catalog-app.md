@@ -1,6 +1,6 @@
 ---
 title: "Criar e publicar uma aplicação gerida do catálogo de serviço do Azure | Microsoft Docs"
-description: "Mostra como criar um Azure geridos aplicação destina-se a membros da sua organização."
+description: "Mostra como criar uma aplicação gerida do Azure que se destina aos membros da sua organização."
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: fd2c60cbc237f6d302616723c745563a3e1afecb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7f00fe304cc4a9de7727882bb2c38f85713bd521
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicar uma aplicação gerida para consumo interno
 
@@ -32,7 +32,7 @@ Para este artigo, a sua aplicação gerida contém apenas uma conta de armazenam
 
 ## <a name="create-the-resource-template"></a>Criar o modelo de recursos
 
-Cada definição de aplicações geridas contém um ficheiro denominado **mainTemplate.json**. Aqui, defina os recursos do Azure para aprovisionar. O modelo é não diferente de um modelo do Resource Manager regular.
+Cada definição de aplicações geridas contém um ficheiro denominado **mainTemplate.json**. Aqui, defina os recursos do Azure para aprovisionar. O modelo é igual aos modelos normais do Resource Manager.
 
 Crie um ficheiro denominado **mainTemplate.json**. O nome é maiúsculas e minúsculas.
 
@@ -83,7 +83,7 @@ Guarde o ficheiro mainTemplate.json.
 
 ## <a name="create-the-user-interface-definition"></a>Criar a definição de interface de utilizador
 
-O portal do Azure utiliza o **createUiDefinition.json** ficheiro para gerar a interface de utilizador para os utilizadores que criar a aplicação gerida. Definir a forma como os utilizadores forneçam entrada para cada parâmetro. Pode utilizar as opções, como uma lista pendente, caixa de texto, a caixa de palavra-passe e outras ferramentas de entrada. Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, consulte [começar com CreateUiDefinition](create-uidefinition-overview.md).
+O portal do Azure utiliza o **createUiDefinition.json** ficheiro para gerar a interface de utilizador para os utilizadores que criar a aplicação gerida. Definir a forma como os utilizadores forneçam entrada para cada parâmetro. Pode utilizar as opções, como uma lista pendente, caixa de texto, a caixa de palavra-passe e outras ferramentas de entrada. Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, veja [Introdução a CreateUiDefinition](create-uidefinition-overview.md).
 
 Crie um ficheiro denominado **createUiDefinition.json**. O nome é maiúsculas e minúsculas.
 
@@ -164,7 +164,7 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
   -Context $ctx 
 ```
 
-## <a name="create-the-managed-application-definition"></a>Criar a definição de aplicações geridas
+## <a name="create-the-managed-application-definition"></a>Criar a definição da aplicação gerida
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Criar um grupo de utilizadores do Azure Active Directory ou a aplicação
 
@@ -176,13 +176,13 @@ O passo seguinte consiste em selecionar um grupo de utilizadores ou aplicações
 
 ### <a name="get-the-role-definition-id"></a>Obter o ID de definição de função
 
-Em seguida, terá do ID de definição de função da função incorporada do RBAC que pretende conceder acesso para a aplicação, utilizador ou grupo de utilizadores. Normalmente, utiliza a função de proprietário ou contribuinte ou leitor. O comando seguinte mostra como obter o ID de definição de função para a função de proprietário:
+Em seguida, terá do ID de definição de função da função incorporada do RBAC que pretende conceder acesso para a aplicação, utilizador ou grupo de utilizadores. Normalmente, utiliza a função de proprietário ou contribuinte ou leitor. O comando seguinte mostra como obter o ID da definição da função da função Proprietário:
 
 ```powershell
 $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 ```
 
-### <a name="create-the-managed-application-definition"></a>Criar a definição de aplicações geridas
+### <a name="create-the-managed-application-definition"></a>Criar a definição da aplicação gerida
 
 Se ainda não tiver um grupo de recursos para armazenar a definição da aplicação gerida, crie uma agora:
 
@@ -190,7 +190,7 @@ Se ainda não tiver um grupo de recursos para armazenar a definição da aplica�
 New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
-Agora, crie o recurso de definição de aplicações geridas.
+Agora, crie o recurso de definição da aplicação gerida.
 
 ```powershell
 $blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
@@ -242,7 +242,6 @@ Após a conclusão da implementação, a aplicação gerida existe num grupo de 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para uma introdução para aplicações geridas, consulte [descrição geral de aplicações gerido](overview.md).
+* Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
 * Por exemplo projetos, consulte [projetos de exemplo para o Azure geridos aplicações](sample-projects.md).
-* Para obter informações sobre a publicação de aplicações geridas no Azure Marketplace, consulte [Azure geridos aplicações no mercado](publish-marketplace-app.md).
-* Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, consulte [começar com CreateUiDefinition](create-uidefinition-overview.md).
+* Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, veja [Introdução a CreateUiDefinition](create-uidefinition-overview.md).

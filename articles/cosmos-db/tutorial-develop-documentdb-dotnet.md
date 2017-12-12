@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Desenvolver com o DocumentDB API no .NET | Microsoft Docs'
-description: "Saiba como desenvolver com a API do Azure Cosmos base de dados DocumentDB através do .NET"
+title: 'Azure Cosmos DB: Desenvolver com a API do SQL Server no .NET | Microsoft Docs'
+description: "Saiba como desenvolver com a API do SQL Server da BD do Cosmos do Azure através do .NET"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -16,19 +16,21 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 106eaa1eb64dffd6c8362b13b4edb6452d536965
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f019ae72e380f1c8e5b1ec67bd5177144ce1b345
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure CosmosDB: Desenvolver com o DocumentDB API no .NET
+# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: Desenvolver com a API do SQL Server no .NET
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
-Este tutorial demonstra como criar uma conta de base de dados do Azure Cosmos no portal do Azure e, em seguida, criar uma base de dados de documento e a coleção com um [chave de partição](documentdb-partition-data.md#partition-keys) utilizando o [API .NET do DocumentDB](documentdb-introduction.md). Definir uma chave de partição quando cria uma coleção, a aplicação está preparada para dimensionamento effortlessly à medida que aumenta os dados. 
+Este tutorial demonstra como criar uma conta de base de dados do Azure Cosmos no portal do Azure e, em seguida, criar uma base de dados de documento e a coleção com um [chave de partição](documentdb-partition-data.md#partition-keys) utilizando o [.NET API do SQL Server](documentdb-introduction.md). Definir uma chave de partição quando cria uma coleção, a aplicação está preparada para dimensionamento effortlessly à medida que aumenta os dados. 
 
-Este tutorial abrange as seguintes tarefas utilizando o [API .NET do DocumentDB](documentdb-sdk-dotnet.md):
+Este tutorial abrange as seguintes tarefas utilizando o [.NET API do SQL Server](documentdb-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * Criar uma conta do Azure Cosmos DB
@@ -79,7 +81,7 @@ Vamos começar por criar uma conta de base de dados do Azure Cosmos no portal do
     Se obtiver uma mensagem sobre a revisão das alterações para a solução, clique em **OK**. Se obtiver uma mensagem sobre a aceitação de licença, clique em **Aceito**.
 
 ## <a id="Connect"></a>Adicione referências ao seu projeto
-Os passos restantes neste tutorial fornecem os fragmentos de código da API do DocumentDB necessários para criar e atualizar a base de dados do Azure Cosmos recursos no seu projeto.
+Os passos restantes neste tutorial fornecem os fragmentos de código da API do SQL Server necessários para criar e atualizar a base de dados do Azure Cosmos recursos no seu projeto.
 
 Primeiro, adicione estas referências à sua aplicação.
 <!---These aren't added by default when you install the pkg?--->
@@ -119,7 +121,7 @@ DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
 ## <a id="create-database"></a>Criar uma base de dados
 
-Em seguida, crie uma base de dados do Azure Cosmos [base de dados](documentdb-resources.md#databases) utilizando o [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) método ou [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) método do **DocumentClient** classe do [SDK do .NET DocumentDB](documentdb-sdk-dotnet.md). Uma base de dados é o contentor lógico do armazenamento de documentos JSON particionado em coleções.
+Em seguida, crie uma base de dados do Azure Cosmos [base de dados](documentdb-resources.md#databases) utilizando o [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) método ou [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) método o  **DocumentClient** classe do [SQL .NET SDK](documentdb-sdk-dotnet.md). Uma base de dados é o contentor lógico do armazenamento de documentos JSON particionado em coleções.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -259,7 +261,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## <a name="parallel-query-execution"></a>Execução paralela da consulta
-Os SDKs do Azure Cosmos DB DocumentDB 1.9.0 e acima opções de execução paralela da consulta de suporte, que permitem-lhe executar consultas de latência baixa contra coleções particionadas, mesmo quando precisar de touch um grande número de partições. Por exemplo, a seguinte consulta está configurada para ser executado em paralelo em partições.
+Os SDKs do Azure Cosmos BD SQL 1.9.0 e acima opções de execução paralela da consulta de suporte, que permitem-lhe executar consultas de latência baixa contra coleções particionadas, mesmo quando precisar de touch um grande número de partições. Por exemplo, a seguinte consulta está configurada para ser executado em paralelo em partições.
 
 ```csharp
 // Cross-partition Order By queries
@@ -275,7 +277,7 @@ Pode gerir a execução paralela da consulta por otimização os seguintes parâ
 * Por definição `MaxDegreeOfParallelism`, pode controlar o grau de paralelismo ou seja, o número máximo de ligações de rede em simultâneo para partições da coleção. Se definir esta opção como -1, o grau de paralelismo é gerido pelo SDK. Se o `MaxDegreeOfParallelism` não está especificado ou foi definido para 0, o qual é o valor predefinido, existirá uma ligação de rede único para partições da coleção.
 * Por definição `MaxBufferedItemCount`, pode comprometido a utilização de memória de latência e do lado do cliente de consulta. Se omitir este parâmetro ou defina esta opção como -1, o número de itens em memória intermédia durante a execução paralela da consulta é gerido pelo SDK.
 
-Tendo em conta o mesmo Estado da coleção, uma consulta paralela irá devolver resultados pela mesma ordem como em execução série. Quando executar uma consulta de partição cruzada que inclui a ordenação (ORDER BY e/ou superior), o SDK DocumentDB emite a consulta em paralelo em partições e intercala parcialmente ordenados resultados no lado do cliente para produzir resultados globalmente ordenados.
+Tendo em conta o mesmo Estado da coleção, uma consulta paralela irá devolver resultados pela mesma ordem como em execução série. Quando executar uma consulta de partição cruzada que inclui a ordenação (ORDER BY e/ou superior), o SDK de SQL emite a consulta em paralelo em partições e intercala parcialmente ordenados resultados no lado do cliente para produzir resultados globalmente ordenados.
 
 ## <a name="execute-stored-procedures"></a>Executar procedimentos armazenados
 Por último, pode executar transações atómicas contra documentos com o mesmo ID de dispositivo, por exemplo, se estiver a manter os agregados ou o estado mais recente de um dispositivo de um único documento adicionando o seguinte código ao projeto.

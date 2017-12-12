@@ -1,6 +1,6 @@
 ---
-title: 'NoSQL tutorial: DocumentDB API para o Azure Cosmos DB Java SDK | Microsoft Docs'
-description: "Um tutorial NoSQL que cria uma base de dados online e a aplicação de consola Java utilizando a API do DocumentDB para a base de dados do Azure Cosmos. O Azure DocumentDB é uma base de dados NoSQL para JSON."
+title: 'NoSQL tutorial: API do SQL Server para o Azure Cosmos DB Java SDK | Microsoft Docs'
+description: "Um tutorial NoSQL que cria uma base de dados online e a aplicação de consola Java utilizando a API do SQL Server para a base de dados do Azure Cosmos. SQL do Azure é uma base de dados NoSQL para JSON."
 keywords: "tutorial nosql, base de dados online, aplicação de consola java"
 services: cosmos-db
 documentationcenter: Java
@@ -15,13 +15,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
-ms.openlocfilehash: ea667a889bc6eaed08619ee5e141d8e3e9add7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38595b18817b4034c08fa0e0ec7c5dc8cde1fbb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="nosql-tutorial-build-a-documentdb-api-java-console-application"></a>NoSQL tutorial: criar uma aplicação de consola Java de API do DocumentDB
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL tutorial: criar uma aplicação de consola Java de API do SQL Server
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,7 +32,9 @@ ms.lasthandoff: 10/11/2017
 >  
 > 
 
-Bem-vindo ao NoSQL tutorial para a API de DocumentDB do Azure Cosmos DB Java SDK! Depois de seguir este tutorial, terá de uma aplicação de consola que cria e consulta recursos do Cosmos DB.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Bem-vindo ao NoSQL tutorial para a API de SQL do Azure Cosmos DB Java SDK! Depois de seguir este tutorial, terá de uma aplicação de consola que cria e consulta recursos do Cosmos DB.
 
 Abordamos:
 
@@ -73,7 +75,7 @@ Pode começar clonando o repositório do GitHub para [Get Started with Azure Cos
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-O diretório contém um `pom.xml` para o projeto e um `src` pasta que contém o código de origem de Java, incluindo `Program.java` que mostra como realizar operações simples com base de dados do Azure Cosmos como criar documentos e consultar os dados dentro de uma coleção . O `pom.xml` inclui uma dependência no [DocumentDB Java SDK no Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+O diretório contém um `pom.xml` para o projeto e um `src` pasta que contém o código de origem de Java, incluindo `Program.java` que mostra como realizar operações simples com base de dados do Azure Cosmos como criar documentos e consultar os dados dentro de uma coleção . O `pom.xml` inclui uma dependência no [Azure Cosmos DB Java SDK no Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -192,6 +194,5 @@ Parabéns! Concluiu este tutorial NoSQL e a sua aplicação de consola Java est�
 * Quer um tutorial de aplicação Web de Java? Veja [Criar uma aplicação Web de Java utilizando o Azure Cosmos DB](documentdb-java-application.md).
 * Saiba como [monitorizar uma conta do Azure Cosmos DB](monitor-accounts.md).
 * Execute consultas no nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).
-* Saiba mais sobre o modelo de programação na secção Desenvolver da [página de documentação do Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

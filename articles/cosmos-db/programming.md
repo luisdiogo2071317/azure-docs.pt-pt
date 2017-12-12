@@ -1,7 +1,7 @@
 ---
 title: "Programação de JavaScript do lado do servidor de base de dados do Azure Cosmos | Microsoft Docs"
 description: "Saiba como utilizar a base de dados do Azure Cosmos para escrever e procedimentos armazenados, acionadores de base de dados, funções definidas pelo utilizador (UDFs) em JavaScript. Obter sugestões de programing de base de dados e muito mais."
-keywords: Acionadores de base de dados, procedimento armazenado, procedimentos armazenados, o programa de base de dados, sproc, documentdb, azure, do Microsoft azure
+keywords: Base de dados de acionadores de procedimento armazenado, procedimento armazenado, o programa de base de dados, sproc, do azure, do Microsoft azure
 services: cosmos-db
 documentationcenter: 
 author: aliuy
@@ -13,15 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2016
+ms.date: 12/07/2017
 ms.author: andrl
-ms.openlocfilehash: ef191c3c8d85afa389859956d30b5ac0275053d2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2fbf716422df324ad15c9400fe1f2e88b1415620
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor de base de dados do Cosmos do Azure: e procedimentos armazenados, acionadores de base de dados, UDFs
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Saiba como idioma da BD do Azure Cosmos integrados, execução transacional do JavaScript permite aos programadores escrever **procedimentos armazenados**, **acionadores** e **(UDFs)defunçõesdefinidaspeloutilizador** nativamente num [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Isto permite-lhe escrever a lógica de aplicação de programa de base de dados que pode ser fornecida e executada diretamente nas partições de armazenamento de base de dados. 
 
 Recomendamos que comece por ver o vídeo seguinte, onde Andrew Liu fornece uma breve introdução ao modelo de programação de base de dados do lado do servidor da BD do Cosmos. 
@@ -53,7 +56,7 @@ Esta abordagem de *"JavaScript sendo um dia moderno T-SQL"* liberta os programad
   * Adiciona uma camada de abstração sobre os dados não processados, que permite a arquitetos de dados evoluir as aplicações de forma independente a partir dos dados. Isto é particularmente vantajoso quando os dados sem esquema, devido aos pressupostos brittle que poderão ter de ser integrada na aplicação, se tiverem que lidar com os dados diretamente.  
   * Esta abstração permite que as empresas a manter os seus dados segura, simplificando o acesso a partir de scripts.  
 
-A criação e a execução de acionadores de base de dados, o procedimento armazenado e operadores de consulta personalizada é suportada através de [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), e [cliente SDKs](documentdb-sdk-dotnet.md)em muitas plataformas, incluindo .NET, Node.js e JavaScript.
+A criação e a execução de acionadores de base de dados, o procedimento armazenado e operadores de consulta personalizada é suportada através de [portal do Azure](https://portal.azure.com), a [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), e [SDKs de cliente](documentdb-sdk-dotnet.md) em muitas plataformas, incluindo .NET, Node.js e JavaScript.
 
 Este tutorial utiliza o [SDK Node.js com Q Promises](http://azure.github.io/azure-documentdb-node-q/) para ilustrar a sintaxe e a utilização de procedimentos armazenados, acionadores e UDFs.   
 
@@ -437,7 +440,7 @@ Este acionador consulta para o documento de metadados e atualiza-o com detalhes 
 É a única coisa que é importante ter em conta o **transacional** execução de acionadores na base de dados do Cosmos. Este acionador pós-implementação executado como parte da mesma transação como a criação do documento original. Por conseguinte, se podemos acionar uma excepção de pós-acionador (indiquem se estamos não é possível atualizar o documento de metadados), a transação toda falhará e ser revertida. Nenhum documento será criado e será devolvida uma exceção.  
 
 ## <a id="udf"></a>Funções definidas pelo utilizador
-As funções definidas pelo utilizador (UDFs) são utilizadas para expandir a gramática de idioma de consulta do DocumentDB SQL de API e implementar a lógica de negócio personalizado. Só podem ser chamados de dentro de consultas. Estes não têm acesso ao objeto de contexto e se destinam a ser utilizado como só de computação JavaScript. Por conseguinte, UDFs podem ser executadas em réplicas secundárias do serviço base de dados do Cosmos.  
+As funções definidas pelo utilizador (UDFs) são utilizadas para expandir a gramática de idioma de consulta de base de dados SQL do Azure Cosmos e implementar a lógica de negócio personalizado. Só podem ser chamados de dentro de consultas. Estes não têm acesso ao objeto de contexto e se destinam a ser utilizado como só de computação JavaScript. Por conseguinte, UDFs podem ser executadas em réplicas secundárias do serviço base de dados do Cosmos.  
 
 O exemplo seguinte cria um UDF para calcular a dedução dos impostos receitas com base nas tarifas para vários Retos de receitas e, em seguida, utiliza-o no interior de uma consulta para encontrar todas as pessoas que paga mais de 20.000 $ no taxas.
 
@@ -479,7 +482,7 @@ UDF, subsequentemente, pode ser utilizado em consultas, como no seguinte exemplo
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>API de consulta de linguagem integrada de JavaScript
-Para além de emitir consultas através de gramática do SQL do DocumentDB, o SDK do lado do servidor permite-lhe efetuar consultas otimizadas com uma interface de JavaScript fluent sem qualquer conhecimento do SQL Server. A consulta de JavaScript que API permite-lhe para programaticamente criar consultas através da transmissão de predicado funções para a função de chainable chama, com uma sintaxe familiar do ECMAScript5 built-ins de matriz e populares bibliotecas de JavaScript como lodash. As consultas são analisadas pelo runtime JavaScript para ser executada de forma eficiente com índices da BD do Cosmos do Azure.
+Para além de emitir consultas através de gramática do SQL da BD do Cosmos do Azure, o SDK do lado do servidor permite-lhe efetuar consultas otimizadas com uma interface de JavaScript fluent sem qualquer conhecimento do SQL Server. A consulta de JavaScript que API permite-lhe para programaticamente criar consultas através da transmissão de predicado funções para a função de chainable chama, com uma sintaxe familiar do ECMAScript5 built-ins de matriz e populares bibliotecas de JavaScript como lodash. As consultas são analisadas pelo runtime JavaScript para ser executada de forma eficiente com índices da BD do Cosmos do Azure.
 
 > [!NOTE]
 > `__`(double-caráter de sublinhado) é um alias para `getContext().getCollection()`.
@@ -642,7 +645,7 @@ As seguintes descrições explicam cada consulta na tabela acima.
 
 
 ## <a name="runtime-support"></a>Suporte de tempo de execução
-[API de lado de servidor do DocumentDB JavaScript](http://azure.github.io/azure-documentdb-js-server/) fornece suporte para a maioria das funcionalidades de idioma base do JavaScript como padronizado por [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+A BD do Cosmos Azure [API de lado do servidor de JavaScript](http://azure.github.io/azure-documentdb-js-server/) fornece suporte para a maioria das funcionalidades de idioma base do JavaScript como padronizado por [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Segurança
 Procedimentos armazenados do JavaScript e acionadores são um forma que os efeitos de um script não escapem para outro sem passar o isolamento de transação de instantâneo ao nível da base de dados. Os ambientes do tempo de execução são agrupados mas limpos do contexto após cada execução. Por conseguinte, são garantidos segurança de quaisquer efeitos secundários indesejados uns dos outros.
@@ -651,7 +654,7 @@ Procedimentos armazenados do JavaScript e acionadores são um forma que os efeit
 Os procedimentos armazenados, acionadores e UDFs são implicitamente pré-compilados para o formato de código de byte para evitar o custo de compilação no momento da cada invocação de script. Isto garante invocações de procedimentos armazenados são rápidas e tem um reduzidos.
 
 ## <a name="client-sdk-support"></a>Suporte SDK do cliente
-Para além da API do DocumentDB para [Node.js](documentdb-sdk-node.md) tem de cliente, base de dados do Azure Cosmos [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [ JavaScript](http://azure.github.io/azure-documentdb-js/), e [Python SDKs](documentdb-sdk-python.md) para o API do DocumentDB. Procedimentos armazenados, acionadores e UDFs podem ser criados e executado utilizando qualquer um destes SDKs bem. O exemplo seguinte mostra como criar e executar um procedimento armazenado com o cliente do .NET. Tenha em atenção a como os tipos .NET são transmitidos para o procedimento armazenado como JSON e ler novamente.
+Para além da base de dados do Azure Cosmos [Node.js](documentdb-sdk-node.md) API, base de dados do Azure Cosmos tem [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), e [Python SDKs](documentdb-sdk-python.md) para a API do SQL Server. Procedimentos armazenados, acionadores e UDFs podem ser criados e executado utilizando qualquer um destes SDKs bem. O exemplo seguinte mostra como criar e executar um procedimento armazenado com o cliente do .NET. Tenha em atenção a como os tipos .NET são transmitidos para o procedimento armazenado como JSON e ler novamente.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -684,7 +687,7 @@ Para além da API do DocumentDB para [Node.js](documentdb-sdk-node.md) tem de cl
     Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 
-Este exemplo mostra como utilizar o [API .NET do DocumentDB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) para criar um acionador de pré-lançamento e criar um documento com o acionador ativado. 
+Este exemplo mostra como utilizar o [.NET API do SQL Server](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) para criar um acionador de pré-lançamento e criar um documento com o acionador ativado. 
 
     Trigger preTrigger = new Trigger()
     {
@@ -705,7 +708,7 @@ Este exemplo mostra como utilizar o [API .NET do DocumentDB](/dotnet/api/overvie
         });
 
 
-E o exemplo seguinte mostra como criar uma função definida pelo utilizador (UDF) e utilizá-la num [consulta SQL do DocumentDB API](documentdb-sql-query.md).
+E o exemplo seguinte mostra como criar uma função definida pelo utilizador (UDF) e utilizá-la num [consulta SQL](documentdb-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {

@@ -4,7 +4,7 @@ description: "Um guia para compreender e avaliar as afirmações no SAML 2.0 e J
 documentationcenter: na
 author: dstrockis
 services: active-directory
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 2151ed6c95e8cb65917654e54133e98912011c00
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-token-reference"></a>Referência de token do Azure AD
 Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento do cada fluxo de autenticação. Este documento descreve o formato, características de segurança e conteúdo de cada tipo de token.

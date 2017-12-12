@@ -4,7 +4,7 @@ description: "Os tipos de tokens e afirmações emitidas pelo ponto final v 2.0 
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referência de tokens de v 2.0 do Azure Active Directory
 O ponto de final de v 2.0 do Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança em cada [fluxo de autenticação](active-directory-v2-flows.md). Esta referência descreve o formato, características de segurança e conteúdo de cada tipo de token.
@@ -61,13 +61,13 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | emitido no |`iat` |`1452285331` |A hora em que o token foi emitido, representado na hora de época. |
 | hora de expiração |`exp` |`1452289231` |A hora em que o token passa a ser inválido, representado na hora de época. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
 | não antes |`nbf` |`1452285331` |A hora em que o token passa a ser válido, representado na hora de época. Normalmente, é o mesmo que o tempo de emissão. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
-| Versão |`ver` |`2.0` |A versão do token de ID, conforme definido pelo Azure AD. Para o ponto final v 2.0, o valor é `2.0`. |
+| versão |`ver` |`2.0` |A versão do token de ID, conforme definido pelo Azure AD. Para o ponto final v 2.0, o valor é `2.0`. |
 | ID do inquilino |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Um GUID que representa o inquilino do Azure AD que o utilizador. Para contas profissionais e escolares, o GUID é o ID de inquilino imutável da organização que o utilizador pertence. Para contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O `profile` âmbito é necessário para receber esta afirmação. |
 | hash de código |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |O hash de código está incluído em tokens de ID apenas quando o token de ID é emitido com um código de autorização do OAuth 2.0. Pode ser utilizado para validar a autenticidade de um código de autorização. Para obter mais informações sobre como efetuar esta validação, consulte o [OpenID Connect especificação](http://openid.net/specs/openid-connect-core-1_0.html). |
 | hash de token de acesso |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |O hash do token está incluído no ID de acesso tokens apenas quando o token de ID é emitido com um token de acesso de OAuth 2.0. Pode ser utilizado para validar a autenticidade de um token de acesso. Para obter mais informações sobre como efetuar esta validação, consulte o [OpenID Connect especificação](http://openid.net/specs/openid-connect-core-1_0.html). |
 | nonce |`nonce` |`12345` |O nonce é uma estratégia para mitigar ataques de repetição de token. A aplicação pode especificar um nonce num pedido de autorização utilizando a `nonce` parâmetro de consulta. O valor terá de fornecer no pedido é emitido no token de ID `nonce` afirmação, não modificada. A aplicação pode verificar o valor em relação ao valor que esta especificada no pedido, o que associa sessão da aplicação um token de ID específico. A aplicação deverá efetuar esta validação durante o processo de validação de token de ID. |
 | nome |`name` |`Babe Ruth` |A afirmação de nome fornece um valor legível por humanos que identifica o assunto do token. O valor não é garantido ser exclusivo, é mutável e foi concebido para ser utilizado apenas para efeitos de apresentação. O `profile` âmbito é necessário para receber esta afirmação. |
-| Correio eletrónico |`email` |`thegreatbambino@nyy.onmicrosoft.com` |O endereço de correio eletrónico principal associado com a conta de utilizador, se existir. O valor é mutável e pode ser alterados ao longo do tempo. O `email` âmbito é necessário para receber esta afirmação. |
+| e-mail |`email` |`thegreatbambino@nyy.onmicrosoft.com` |O endereço de correio eletrónico principal associado com a conta de utilizador, se existir. O valor é mutável e pode ser alterados ao longo do tempo. O `email` âmbito é necessário para receber esta afirmação. |
 | nome de utilizador preferencial |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |O nome de utilizador primário que representa o utilizador no ponto final v 2.0. Poderia ser um endereço de e-mail, número de telefone ou um nome de utilizador genérico sem um formato especificado. O valor é mutável e pode ser alterados ao longo do tempo. Uma vez que é mutável, este valor não deve ser utilizado para tomar decisões de autorização. O `profile` âmbito é necessário para receber esta afirmação. |
 | Requerente |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | O principal sobre os quais o token de asserções informações, tais como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizada. Este pode ser utilizado para efetuar verificações de autorização com segurança, tal como quando o token é utilizado para aceder a um recurso e pode ser utilizado como uma chave nas tabelas de base de dados. Porque o requerente é sempre apresente os tokens que problemas do Azure AD, recomendamos que utilize este valor num sistema de autorização para fins gerais. O requerente é, no entanto, um identificador pairwise - é exclusivo num ID de aplicação em particular.  Por conseguinte, se um único utilizador inicia sessão duas aplicações diferentes com dois IDs de cliente diferente, essas aplicações receberá dois valores diferentes para a afirmação de assunto.  Esta pode ou não pode ser pretendida dependendo dos requisitos de privacidade e arquitetura. |
 | ID de objeto |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | O identificador imutável para um objeto de sistema de identidade Microsoft, neste caso, uma conta de utilizador.  Também pode ser utilizado para efetuar verificações de autorização segura e como uma chave nas tabelas de base de dados. Este ID identifica exclusivamente o utilizador em todas as aplicações - duas aplicações diferentes assinatura no mesmo utilizador irão receber o mesmo valor no `oid` de afirmação.  Isto significa que pode ser utilizado quando efetuar consultas para o Microsoft online services, como o Microsoft Graph.  O Microsoft Graph devolverá este ID de como o `id` propriedade para uma determinada conta de utilizador.  Porque o `oid` permite que várias aplicações correlacionar os utilizadores, a `profile` âmbito é necessário para receber esta afirmação. Tenha em atenção que, se existir um único utilizador na vários inquilinos, o utilizador irá conter um ID de objeto diferentes cada inquilino - que são consideradas diferentes contas, apesar do utilizador iniciar sessão cada conta com as mesmas credenciais. |

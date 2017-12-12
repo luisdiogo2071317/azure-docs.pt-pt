@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: d7148d34978a2da53cc5a51460e0b33c38760e33
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 812b6f323e2ddaee9095a7bdf221d6a8ebd69fd2
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight com o portal do Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -64,7 +64,7 @@ O portal do Azure expõe a maior parte das propriedades do cluster. Utilizar o m
         * **Sistema Operativo**: selecione **Linux**.
         
         * **Versão**: utilize a versão predefinida se não souber o que escolher. Para obter mais informações, veja [HDInsight cluster versions (Versões de clusters HDInsight)](hdinsight-component-versioning.md).
-        * **Escalão do Cluster**: o Azure HDInsight disponibiliza as ofertas de nuvem de macrodados em duas categorias -- escalão Standard e escalão Premium. Para obter mais informações, veja [Escalões de Clusters](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+        
 
     * Para **nome de utilizador de início de sessão de Cluster** e **palavra-passe de início de sessão do Cluster**, forneça o nome de utilizador e palavra-passe para o utilizador de admin.
 

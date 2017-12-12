@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e o dimensionamento do BD Azure Cosmos
 
@@ -41,7 +41,7 @@ Como funciona a criação de partições? Cada item tem de ter uma chave de part
 
 * Aprovisionar um contentor de base de dados do Azure Cosmos com `T` débito de pedidos/s.
 * Nos bastidores, base de dados do Azure Cosmos Aprovisiona partições necessárias para servir `T` pedidos/s. Se `T` é superior ao débito máximo por partição `t`, em seguida, a base de dados do Azure Cosmos Aprovisiona `N`  =  `T/t` partições.
-* BD do Azure do Cosmos aloca uniformemente across hashes de chaves de espaço de chave de partição a `N` partições. Por isso, cada partição (partição física) aloja valores de chave de partição de 1-N (partições lógicas).
+* BD do Azure do Cosmos aloca uniformemente across hashes de chaves de espaço de chave de partição a `N` partições. Deste modo, anfitriões cada partição (partição física) `1/N` (partições lógicas) de valores de chave de partição.
 * Quando uma partição física `p` atingir o limite de armazenamento, base de dados do Azure Cosmos perfeitamente divide `p` em duas novas partições `p1` e `p2`. Distribui-lo valores que correspondem a meio aproximadamente as chaves para cada uma das partições. Dividir a operação é invisível à sua aplicação.
 * Da mesma forma, quando aprovisionar débito superior `t*N`, base de dados do Azure Cosmos divide uma ou mais das suas partições para suportar um maior débito.
 
@@ -49,10 +49,10 @@ A semântica para as chaves de partição é ligeiramente diferente para corresp
 
 | API | Chave de partição | Chave de linha |
 | --- | --- | --- |
-| Azure Cosmos DB | caminho da chave de partição personalizado | fixo`id` | 
-| MongoDB | Chave partilhada personalizada  | fixo`_id` | 
-| Graph | propriedade de chave de partição personalizado | fixo`id` | 
-| Tabela | fixo`PartitionKey` | fixo`RowKey` | 
+| Azure Cosmos DB | caminho da chave de partição personalizado | `id` corrigido | 
+| MongoDB | Chave partilhada personalizada  | `_id` corrigido | 
+| Graph | propriedade de chave de partição personalizado | `id` corrigido | 
+| Tabela | `PartitionKey` corrigido | `RowKey` corrigido | 
 
 BD do Azure do Cosmos utiliza a criação de partições com base em hash. Quando escreve um item, base de dados do Azure Cosmos codifica o valor da chave de partição e utiliza o resultado com hash para determinar que partição que pretende armazenar no item. BD do Azure do Cosmos armazena todos os itens com a mesma chave de partição na mesma partição física. A escolha da chave de partição é uma decisão importante que terá de fazer no momento da concepção. Tem de escolher um nome de propriedade que tenha uma vasta gama de valores e tem o mesmo padrões de acesso.
 

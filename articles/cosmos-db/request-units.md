@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: fc544a776293e94114d8c07d89df588a17aa1962
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no Azure Cosmos DB de pedido
 Agora disponível: BD do Azure do Cosmos [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner). Saiba mais em [estimar o débito tem](request-units.md#estimating-throughput-needs).
@@ -26,7 +26,7 @@ Agora disponível: BD do Azure do Cosmos [Calculadora de unidade de pedido](http
 ![Calculadora de débito][5]
 
 ## <a name="introduction"></a>Introdução
-[BD do Azure do Cosmos](https://azure.microsoft.com/services/cosmos-db/) é globalmente múltiplos modelo base de dados distribuída da Microsoft. Com base de dados do Azure Cosmos, não terá alugar máquinas virtuais, implementar software ou monitorizar bases de dados. BD do Azure do Cosmos é operada e monitorizado continuamente por engenheiros superiores da Microsoft para fornecer proteção de dados, desempenho e disponibilidade de classe do mundo. Pode aceder os dados através de APIs à sua escolha, tal como o SQL Server através do [DocumentDB API](documentdb-introduction.md), APIs do MongoDB, [API de tabela](table-introduction.md)e Gremlin através o [Graph API](graph-introduction.md) -são todos os nativamente suportado. A moeda de base de dados do Azure Cosmos é o pedido unidade (RU). Com RUs, não terá as capacidades de leitura/escrita ou o aprovisionar da CPU, memória e IOPS de reserva.
+[BD do Azure do Cosmos](https://azure.microsoft.com/services/cosmos-db/) é globalmente múltiplos modelo base de dados distribuída da Microsoft. Com base de dados do Azure Cosmos, não terá alugar máquinas virtuais, implementar software ou monitorizar bases de dados. BD do Azure do Cosmos é operada e monitorizado continuamente por engenheiros superiores da Microsoft para fornecer proteção de dados, desempenho e disponibilidade de classe do mundo. Pode aceder a dados utilizando APIs à sua escolha, tal como o [API do SQL Server](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [API de tabela](table-introduction.md)e Gremlin através de [Graph API](graph-introduction.md) - são suportados nativamente todos. A moeda de base de dados do Azure Cosmos é o pedido unidade (RU). Com RUs, não terá as capacidades de leitura/escrita ou o aprovisionar da CPU, memória e IOPS de reserva.
 
 BD do Azure do Cosmos suporta um número de APIs com operações diferentes de leituras simples e escreve consultas complexas de gráfico. Uma vez que nem todos os pedidos são iguais, são atribuídas uma quantidade normalizada de **unidades de pedido** com base na quantidade de computação necessária para servir o pedido. O número de unidades de pedido de uma operação é determinista e pode controlar o número de unidades de pedido utilizada por todas as operações do BD Azure Cosmos através de um cabeçalho de resposta. 
 

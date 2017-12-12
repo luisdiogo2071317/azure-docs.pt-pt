@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 870dab3770f4595aa8b98e7f2dd18cf666b6dc67
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com os Proxies de funções do Azure
 
@@ -60,7 +60,7 @@ Atualmente, não há nenhum experiência do portal para modificar as respostas. 
 
 ## <a name="using-variables"></a>Utilizar variáveis
 
-A configuração para um proxy não precisa de ser estático. Pode condição-a para utilizar variáveis do pedido original, a resposta de back-end ou as definições da aplicação.
+A configuração para um proxy não precisa de ser estático. Pode condição-a para utilizar variáveis de pedido do cliente original, a resposta de back-end ou as definições da aplicação.
 
 ### <a name="request-parameters"></a>Parâmetros do pedido de referência
 
@@ -93,7 +93,7 @@ Também pode referenciar [definições da aplicação definidas para a aplicaç�
 Por exemplo, um URL de back-end de *https://%ORDER_PROCESSING_HOST%/api/orders* teria aos "% ORDER_PROCESSING_HOST %" substituída pelo valor da definição de ORDER_PROCESSING_HOST.
 
 > [!TIP] 
-> Utilize as definições da aplicação para os anfitriões de back-end, se tiver múltiplas implementações ou ambientes de teste. Dessa forma, pode certificar-se que estamos a falar sempre para o direito back-end nesse ambiente.
+> Utilize as definições da aplicação para os anfitriões de back-end, se tiver múltiplas implementações ou ambientes de teste. Dessa forma, pode certificar-se que estamos a falar sempre para o back-end à direita nesse ambiente.
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 

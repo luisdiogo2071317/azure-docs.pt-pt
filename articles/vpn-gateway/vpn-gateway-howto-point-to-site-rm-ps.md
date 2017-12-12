@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 12/04/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8c4b2d578a8a586fc63c972ab5da694b2dd9d571
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurar uma ligação Ponto a Site a uma VNet com a autenticação de certificados nativa do Azure: PowerShell
 
@@ -36,7 +36,7 @@ Um gateway de VPN Ponto a Site (P2S) permite-lhe criar uma ligação segura à s
 
 Os clientes que se ligam podem utilizar os seguintes métodos de autenticação:
 
-* Servidor RADIUS - atualmente em Pré-visualização
+* Servidor RADIUS
 * Autenticação de certificados nativa do Azure do Gateway de VPN
 
 Este artigo ajuda-o a configurar uma configuração P2S com autenticação através da autenticação de certificados nativa do Azure. Se quiser utilizar RADIUS para autenticar os utilizadores que se ligam, veja [P2S através da autenticação RADIUS](point-to-site-how-to-radius-ps.md).
@@ -45,13 +45,9 @@ Este artigo ajuda-o a configurar uma configuração P2S com autenticação atrav
 
 As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço IP destinado ao público. A P2S cria a ligação VPN através de SSTP (Secure Socket Tunneling Protocol) ou de IKEv2.
 
-* SSTP é um túnel VPN baseado em SSL que é suportado apenas nas plataformas de cliente Windows. Consegue penetrar firewalls, pelo que é uma opção ideal para ligar ao Azure a partir de qualquer lugar. No lado do servidor, suportamos as versões 1.0, 1.1 e 1.2 do SSTP. O cliente decide que versão irá utilizar. Para o Windows 8.1 e versões posteriores, o SSTP utiliza 1.2 por predefinição.
+* SSTP é um túnel VPN baseado em SSL que é suportado apenas nas plataformas de cliente Windows. Consegue penetrar firewalls, pelo que é uma opção ideal para ligar ao Azure a partir de qualquer lugar. No lado do servidor, são suportadas as versões 1.0, 1.1 e 1.2 do SSTP. O cliente decide que versão irá utilizar. Para o Windows 8.1 e versões posteriores, o SSTP utiliza 1.2 por predefinição.
 
-* VPN IKEv2, uma solução de VPN IPsec baseada em normas. A VPN IKEv2 pode ser utilizada para ligar a partir de dispositivos Mac (versões de OSX 10.11 e superiores). O IKEv2 encontra-se em Pré-visualização.
-
->[!NOTE]
->O IKEv2 para P2S encontra-se em Pré-visualização.
->
+* VPN IKEv2, uma solução de VPN IPsec baseada em normas. A VPN IKEv2 pode ser utilizada para ligar a partir de dispositivos Mac (versões de OSX 10.11 e superiores).
 
 As ligações de autenticação de certificados nativa do Azure Ponto a Site precisam do seguinte:
 
@@ -69,10 +65,10 @@ Para obter mais informações sobre ligações Ponto a Site, veja [Acerca das li
 
 ### <a name="example"></a>Valores de exemplo
 
-Pode utilizar os valores de exemplo para criar um ambiente de teste ou consultá-los para compreender melhor os exemplos neste artigo. Definimos as variáveis na secção [1](#declare) do artigo. Pode utilizar os passos como orientação e utilizar os valore sem os alterar ou alterá-los de modo a refletir o seu ambiente.
+Pode utilizar os valores de exemplo para criar um ambiente de teste ou consultá-los para compreender melhor os exemplos neste artigo. As variáveis estão definidas na secção [1](#declare) do artigo. Pode utilizar os passos como orientação e utilizar os valore sem os alterar ou alterá-los de modo a refletir o seu ambiente.
 
 * **Nome: VNet1**
-* **Espaço de endereços: 192.168.0.0/16** e **10.254.0.0/16**<br>Para este exemplo, utilizamos mais do que um espaço de endereço para ilustrar que esta configuração funciona com vários espaços de endereço. No entanto, vários espaços de endereços não são precisos para esta configuração.
+* **Espaço de endereços: 192.168.0.0/16** e **10.254.0.0/16**<br>Este exemplo utiliza mais do que um espaço de endereço para ilustrar que esta configuração funciona com vários espaços de endereço. No entanto, vários espaços de endereços não são precisos para esta configuração.
 * **Nome da sub-rede: FrontEnd**
   * **Intervalo de endereços da sub-rede: 192.168.1.0/24**
 * **Nome da sub-rede: BackEnd**
@@ -143,7 +139,7 @@ Nesta secção, vai iniciar sessão e declarar os valores utilizados para esta c
   ```
 3. Criar a rede virtual.
 
-  Neste exemplo, o parâmetro de servidor -DnsServer é opcional. A especificação de um valor não cria um novo servidor DNS. O endereço IP do servidor DNS que especificar deve ser um servidor DNS que consiga resolver os nomes dos recursos a que se está a ligar a partir da sua VNet. Para este exemplo, foi utilizado um endereço IP privado, mas é provável que este não seja o endereço IP do servidor DNS. Certifique-se de que utiliza os seus próprios valores. O valor que especificar será utilizado pelos recursos que implementa na VNet, não pela ligação P2S ou o cliente VPN.
+  Neste exemplo, o parâmetro de servidor -DnsServer é opcional. A especificação de um valor não cria um novo servidor DNS. O endereço IP do servidor DNS que especificar deve ser um servidor DNS que consiga resolver os nomes dos recursos a que se está a ligar a partir da sua VNet. Este exemplo utiliza um endereço IP privado, mas é provável que este não seja o endereço IP do servidor DNS. Certifique-se de que utiliza os seus próprios valores. O valor que especificar será utilizado pelos recursos que implementa na VNet, não pela ligação P2S ou o cliente VPN.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
@@ -167,14 +163,14 @@ Nesta secção, vai iniciar sessão e declarar os valores utilizados para esta c
 
 Configure e crie o gateway de rede virtual da sua VNet.
 
-* O *-GatewayType* tem de ser **Vpn** e o *-VpnType* tem de ser **RouteBased**.
-* -VpnClientProtocols é utilizado para especificar os tipos de túnel que quer ativar. As duas opções de túnel são **SSTP** e **IKEv2**. Pode optar por ativar uma ou ambas as opções. Se quiser ativar ambas, especifique ambos os nomes separados por vírgula. O cliente Strongswan no Android e Linux e o cliente VPN IKEv2 nativo em dispositivos iOS e OSX utilizarão apenas o túnel IKEv2 para estabelecer a ligação. Os clientes Windows, primeiro, experimentam o IKEv2 e, se não conseguirem estabelecer a ligação, voltam ao SSTP.
-* Um gateway de VPN pode demorar até 45 minutos a concluir, consoante a [sku do gateway](vpn-gateway-about-vpn-gateway-settings.md) que selecionar. Neste exemplo, utilizamos o IKEv2, que está atualmente disponível em Pré-visualização.
+* O -GatewayType tem de ser **Vpn** e o -VpnType tem de ser **RouteBased**.
+* O -VpnClientProtocol é utilizado para especificar os tipos de túnel que quer ativar. As duas opções de túnel são **SSTP** e **IKEv2**. Pode optar por ativar uma ou ambas as opções. Se quiser ativar ambas, especifique ambos os nomes separados por vírgula. O cliente Strongswan no Android e Linux e o cliente VPN IKEv2 nativo em dispositivos iOS e OSX utilizarão apenas o túnel IKEv2 para estabelecer a ligação. Os clientes Windows, primeiro, experimentam o IKEv2 e, se não conseguirem estabelecer a ligação, voltam ao SSTP.
+* Um gateway de VPN pode demorar até 45 minutos a concluir, consoante a [sku do gateway](vpn-gateway-about-vpn-gateway-settings.md) que selecionar. Este exemplo utiliza o IKEv2, que está atualmente disponível em Pré-visualização.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocols "IKEv2"
+-VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 ```
 
 ## <a name="addresspool"></a>4. Adicione um conjunto de endereços do cliente VPN

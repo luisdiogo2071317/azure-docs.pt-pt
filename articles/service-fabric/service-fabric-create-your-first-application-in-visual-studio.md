@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
-ms.openlocfilehash: a4bada3c099e348e2aa188fe08a67ef170ad50ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Criar a sua primeira aplicação Reliable Services sem monitorização de estado do Service Fabric em C#
 
@@ -84,7 +84,7 @@ Uma vez iniciada a aplicação, o Visual Studio apresentará automaticamente o *
 
 O modelo de serviço com estado que utilizámos mostra simplesmente um valor de contador que se incrementa no método `RunAsync` de **MyStatefulService.cs**.
 
-Expanda um dos eventos para ver mais detalhes, incluindo o nó em que se executa o código. Neste caso, é \_Nó\_, embora possa ser diferente no seu computador.
+Expanda um dos eventos para ver mais detalhes, incluindo o nó em que se executa o código. Neste caso, é \_Nó\_0, embora possa ser diferente no seu computador.
    
 ![Detalhe do visualizador de eventos de diagnóstico][6]
 

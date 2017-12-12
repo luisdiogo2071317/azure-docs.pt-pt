@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,rajak
+editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/3/2017
+ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para coleções fiável no Azure Service Fabric
 Esta secção fornece orientações para utilizar o Gestor de estado fiável e fiável de coleções. O objetivo é ajudar os utilizadores a evitar pitfalls comuns.
@@ -33,6 +33,7 @@ As diretrizes são organizadas como recomendações simples, o prefixo com os te
 * Não criar uma transação dentro de outra transação `using` instrução porque pode causar impasses.
 * Certifique-se de que o `IComparable<TKey>` implementação está correta. O sistema demora dependência `IComparable<TKey>` para pontos de verificação e linhas de intercalação.
 * Utilize o bloqueio de atualização durante a leitura de um item com uma intenção atualizá-la para impedir que uma determinada classe de impasses.
+* Considere o número de manutenção de coleções fiável por partição seja inferior a 1000. Prefere fiável coleções com mais itens através de mais fiável coleções com menos de itens.
 * Considere a manter os itens (por exemplo, TKey + TValue para fiável dicionário) de mensagens em fila abaixo 80 KBytes: mais pequeno melhores. Isto reduz a quantidade de requisitos de e/s de utilização, bem como o disco e rede de pilha de objetos grandes. Muitas vezes, reduz a replicar dados duplicados, quando está a ser atualizada apenas uma pequena parte do valor. É comum forma de alcançar isto no dicionário fiável, entrar as linhas várias linhas.
 * Considere a utilização da cópia de segurança e restaurar a funcionalidade para que a recuperação após desastre.
 * Evitar a mistura de operações de entidade única e operações de multientidade (por exemplo `GetCountAsync`, `CreateEnumerableAsync`) na mesma transação devido aos níveis de isolamento diferentes.

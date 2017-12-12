@@ -4,7 +4,7 @@ description: Este artigo descreve como configurar Lotus Domino Connector da Micr
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 15155fd9e1ab2dd6d58bcaf85a465c0585d3bc41
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Referência técnica do Lotus Domino Connector
 Este artigo descreve o conector do Lotus Domino. O artigo aplica-se os seguintes produtos:
@@ -265,7 +265,7 @@ Quando configurar o conector do Lotus Domino, ignore esta página de caixa de di
 Quando configurar partições e hierarquias, tem de selecionar o livro de endereços primário denominado NAB=names.nsf. Para além do livro de endereços primário, pode selecionar livros de endereços secundária caso existam.  
 ![Partições](./media/active-directory-aadconnectsync-connector-domino/partitions.png)
 
-### <a name="select-attributes"></a>Selecionar atributos
+### <a name="select-attributes"></a>Seleccionar Atributos
 Quando configura os atributos, tem de selecionar todos os atributos que têm o prefixo  **\_MMS\_**. Estes atributos são necessários quando aprovisionar novos objetos para Lotus Domino
 
 ![Atributos](./media/active-directory-aadconnectsync-connector-domino/attributes.png)
@@ -410,13 +410,13 @@ O conector do Lotus Domino suporta principalmente estes tipos de objetos (tipos 
 
 Esta secção lista os atributos que são obrigatórios para cada objeto a exportar para um servidor de Domino suportado.
 
-| Tipo de objeto | Atributos obrigatórios |
+| Tipo de Objeto | Atributos obrigatórios |
 | --- | --- |
 | Grupo |<li>ListName necessário</li> |
 | Principal na base de dados |<li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 | Pessoa |<li>Apelido</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | Contacte (pessoa com nenhuma certifier) |<li>\_MMS_IDRegType</li> |
-| Recurso |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>site</li><li>displayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| Recurso |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>Nome a Apresentar</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>Problemas e questões comuns
 ### <a name="schema-detection-does-not-work"></a>Deteção de esquema não funciona

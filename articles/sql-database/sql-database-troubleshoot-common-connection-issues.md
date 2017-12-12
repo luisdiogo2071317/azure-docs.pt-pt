@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: cc9b1e1474e67628857dd80a63850634469ca5e8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1d756aa023ae143608acc988ddd0ae8acee1a113
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Resolver problemas de ligação à SQL Database do Azure
 Quando a falha a ligação à SQL Database do Azure, receber [mensagens de erro](sql-database-develop-error-messages.md). Este artigo é um tópico centralizado que o ajuda a resolver problemas de conectividade da SQL Database do Azure. Introduz [as causas comuns](#cause) dos problemas de ligação, recomenda [uma ferramenta de resolução de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que ajuda a identidade o problema e fornece passos de resolução de problemas para resolver [transitório erros](#troubleshoot-transient-errors) e [persistentes ou não transitório erros](#troubleshoot-persistent-errors). 
@@ -77,7 +77,7 @@ Se a aplicação de forma permanente não for possível ligar à SQL Database do
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passos de resolução de problemas de conectividade persistente
 1. Configurar [regras de firewall](sql-database-configure-firewall-settings.md) para permitir que o cliente do endereço IP. Para fins de teste temporários, configure uma regra de firewall utilizando 0.0.0.0 como o intervalo de endereços IP inicial e utilizar 255.255.255.255 como o intervalo de endereços IP final. Esta ação irá abrir o servidor para todos os endereços IP. Se este procedimento resolve o problema de conectividade, remover esta regra e criar uma regra de firewall para um endereço IP adequadamente limitado ou intervalo de endereços. 
 2. Em todas as firewalls entre o cliente e a Internet, certifique-se de que a porta 1433 está aberta para ligações de saída. Reveja [configurar a Firewall do Windows para permitir o acesso do SQL Server](https://msdn.microsoft.com/library/cc646023.aspx) e [híbrida identidade necessários portas e protocolos](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) para apontadores adicionais relacionados com portas adicionais que é necessário abrir para o Azure Autenticação do Active Directory.
-3. Certifique-se de que a cadeia de ligação e outras definições de ligação. Consulte a secção de cadeia de ligação no [tópico de problemas de conectividade](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
+3. Certifique-se de que a cadeia de ligação e outras definições de ligação. Consulte a secção de cadeia de ligação no [tópico de problemas de conectividade](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Verifique o estado de funcionamento do serviço no dashboard. Se considerar que não há uma falha regional, consulte [recuperar a partir de uma falha](sql-database-disaster-recovery.md) para obter passos para recuperar para uma região de novo.
 
 ## <a name="next-steps"></a>Passos seguintes

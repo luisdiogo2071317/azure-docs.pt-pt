@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275c0fdfecac558e4f10d36eee71d38528f34679
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>Configurar o grupo de disponibilidade Always On em Virtual Machines do Azure (clássica)
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Este tutorial assume o seguinte:
 > 
 
 ## <a name="create-the-virtual-network-and-domain-controller-server"></a>Criar o servidor de controlador de domínio e de rede virtual
-Começar com uma nova conta de avaliação do Azure. Depois de configurar a sua conta, deve estar no ecrã inicial do portal clássico do Azure.
+Começar com uma nova conta de avaliação do Azure. Depois de configurar a sua conta, deve estar no ecrã inicial do portal do Azure.
 
 1. Clique em de **novo** botão no canto esquerdo da parte inferior da página, conforme mostrado na captura de ecrã seguinte.
    
@@ -87,9 +87,9 @@ Começar com uma nova conta de avaliação do Azure. Depois de configurar a sua 
    | Selecione o sistema operativo da máquina virtual |Windows Server 2012 R2 Datacenter |
    | Configuração da máquina virtual |**DATA de lançamento da versão** = (mais recentes)<br/>**NOME da máquina VIRTUAL** = ContosoDC<br/>**CAMADA** = PADRÃO<br/>**TAMANHO** = A2 (2 núcleos)<br/>**NOVO nome de utilizador** = AzureAdmin<br/>**NOVA palavra-passe** = Contoso! 000<br/>**Confirmar** = Contoso! 000 |
    | Configuração da máquina virtual |**SERVIÇO em NUVEM** = criar um novo serviço em nuvem<br/>**NOME de DNS do serviço de NUVEM** = um nome de serviço de nuvem exclusivo<br/>**NOME DNS** = um nome exclusivo (ex: ContosoDC123)<br/>**REGIÃO/grupo de AFINIDADE de rede VIRTUAL** = ContosoNET<br/>**SUB-redes da rede VIRTUAL** = Back(10.10.2.0/24)<br/>**CONTA de armazenamento** = utilizar uma conta de armazenamento gerado automaticamente<br/>**CONJUNTO de disponibilidade** = (nenhum) |
-   | Opções de máquina virtual |Utilize as predefinições |
+   | Opções de máquina virtual |Utilizar predefinições |
 
-Depois de configurar a nova máquina virtual, aguarde que a máquina virtual para ser provsioned. Este processo demora algum tempo a concluir. Se clicar no **Máquina Virtual** separador no portal clássico do Azure, pode ver ContosoDC Estados de ciclos de **inicial (aprovisionamento)** para **parado**, **inicial**, **em execução (aprovisionamento)**e, finalmente, **executar**.
+Depois de configurar a nova máquina virtual, aguarde que a máquina virtual para ser provsioned. Este processo demora algum tempo a concluir. Se clicar no **Máquina Virtual** separador no portal do Azure, pode ver ContosoDC Estados de ciclos de **inicial (aprovisionamento)** para **parado**,  **Iniciar**, **em execução (aprovisionamento)**e, finalmente, **executar**.
 
 O servidor DC com êxito está agora aprovisionado. Em seguida, irá configurar o domínio do Active Directory neste servidor DC.
 
@@ -171,7 +171,7 @@ Crie três máquinas virtuais. Um é um nó de cluster e dois estão para o SQL 
 | Selecione o sistema operativo da máquina virtual |**O Centro de dados do Windows Server 2012 R2** |**Enterprise do SQL Server 2014 RTM** |**Enterprise do SQL Server 2014 RTM** |
 | Configuração da máquina virtual |**DATA de lançamento da versão** = (mais recentes)<br/>**NOME da máquina VIRTUAL** = ContosoWSFCNode<br/>**CAMADA** = PADRÃO<br/>**TAMANHO** = A2 (2 núcleos)<br/>**NOVO nome de utilizador** = AzureAdmin<br/>**NOVA palavra-passe** = Contoso! 000<br/>**Confirmar** = Contoso! 000 |**DATA de lançamento da versão** = (mais recentes)<br/>**NOME da máquina VIRTUAL** = ContosoSQL1<br/>**CAMADA** = PADRÃO<br/>**TAMANHO** = A3 (4 núcleos)<br/>**NOVO nome de utilizador** = AzureAdmin<br/>**NOVA palavra-passe** = Contoso! 000<br/>**Confirmar** = Contoso! 000 |**DATA de lançamento da versão** = (mais recentes)<br/>**NOME da máquina VIRTUAL** = ContosoSQL2<br/>**CAMADA** = PADRÃO<br/>**TAMANHO** = A3 (4 núcleos)<br/>**NOVO nome de utilizador** = AzureAdmin<br/>**NOVA palavra-passe** = Contoso! 000<br/>**Confirmar** = Contoso! 000 |
 | Configuração da máquina virtual |**SERVIÇO em NUVEM** = nome DNS do serviço de nuvem exclusivo criado anteriormente (ex: ContosoDC123)<br/>**REGIÃO/grupo de AFINIDADE de rede VIRTUAL** = ContosoNET<br/>**SUB-redes da rede VIRTUAL** = Back(10.10.2.0/24)<br/>**CONTA de armazenamento** = utilizar uma conta de armazenamento gerado automaticamente<br/>**CONJUNTO de disponibilidade** = criar um disponibilidade definido<br/>**NOME DO CONJUNTO DE DISPONIBILIDADE** = SQLHADR |**SERVIÇO em NUVEM** = nome DNS do serviço de nuvem exclusivo criado anteriormente (ex: ContosoDC123)<br/>**REGIÃO/grupo de AFINIDADE de rede VIRTUAL** = ContosoNET<br/>**SUB-redes da rede VIRTUAL** = Back(10.10.2.0/24)<br/>**CONTA de armazenamento** = utilizar uma conta de armazenamento gerado automaticamente<br/>**CONJUNTO de disponibilidade** = SQLHADR (também pode configurar o conjunto depois de criada a máquina de disponibilidade. As três máquinas devem ser atribuídas ao conjunto de disponibilidade SQLHADR.) |**SERVIÇO em NUVEM** = nome DNS do serviço de nuvem exclusivo criado anteriormente (ex: ContosoDC123)<br/>**REGIÃO/grupo de AFINIDADE de rede VIRTUAL** = ContosoNET<br/>**SUB-redes da rede VIRTUAL** = Back(10.10.2.0/24)<br/>**CONTA de armazenamento** = utilizar uma conta de armazenamento gerado automaticamente<br/>**CONJUNTO de disponibilidade** = SQLHADR (também pode configurar o conjunto depois de criada a máquina de disponibilidade. As três máquinas devem ser atribuídas ao conjunto de disponibilidade SQLHADR.) |
-| Opções de máquina virtual |Utilize as predefinições |Utilize as predefinições |Utilize as predefinições |
+| Opções de máquina virtual |Utilizar predefinições |Utilizar predefinições |Utilizar predefinições |
 
 <br/>
 
@@ -257,7 +257,7 @@ Utilize os seguintes passos para concluir as tarefas que configurar totalmente o
    
    | Página | Definições |
    | --- | --- |
-   | Antes de começar |Utilize as predefinições |
+   | Antes de começar |Utilizar predefinições |
    | Selecionar servidores |Tipo **ContosoSQL1** no **introduza o nome de servidor** e clique em **adicionar** |
    | Aviso de validação |Selecione **um número não precisar do suporte da Microsoft para este cluster e, por conseguinte, não pretender executar testes de validação. Quando posso clicar em seguinte, continue a criar o cluster**. |
    | Ponto de acesso para administrar o Cluster |Tipo **Cluster1** no **nome do Cluster** |

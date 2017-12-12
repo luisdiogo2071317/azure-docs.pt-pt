@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 2a20ee1df23df683c49444e8fb3ffdb2085b174f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 355151ee6c3507d8e2fd2ab6cc5127324b3a6d7c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão do Cloud Services do Azure: Perguntas mais frequentes sobre (FAQ)
 
@@ -182,7 +182,7 @@ Utilizar uma das abordagens acima, os respetivos certificados (*.pfx) para os no
 
 Serviço em nuvem é um recurso de clássico. Apenas os recursos criados através de etiquetas de suporte do Azure Resource Manager. Não é possível aplicar etiquetas a recursos de clássico, como o serviço em nuvem. 
 
-## <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Quais são as capacidades futuras do serviço em nuvem no Portal do Azure que pode ajudar a gerir e monitorizar as aplicações?
+## <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Quais são as capacidades futuras do serviço em nuvem no portal do Azure que pode ajudar a gerir e monitorizar as aplicações?
 
 * Capacidade de gerar um novo certificado para o protocolo de ambiente de trabalho remoto (RDP) está disponível em breve. Em alternativa, pode executar este script:
 
@@ -221,3 +221,65 @@ Assim que tiver sido realizada, pode verificar se foi ativado HTTP/2 ou não uti
 - Ativar a ferramenta do programador F12 no Internet Explorer/Edge e mude para o separador de rede para verificar o protocolo. 
 
 Para obter mais informações, consulte [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2).
+
+## <a name="the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that"></a>O portal do Azure não apresenta a versão do SDK do meu serviço em nuvem. Como posso obter que?
+
+Estamos a trabalhar arduamente esta funcionalidade no portal do Azure. Entretanto, pode utilizar os seguintes comandos do PowerShell para obter a versão do SDK:
+
+    Get-AzureService -ServiceName "<Cloud service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+
+## <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Não é o ambiente de trabalho remoto para a VM de serviço de nuvem utilizando o ficheiro RDP. Obter a seguir o erro: Ocorreu um erro de autenticação (código: 0x80004005)
+
+Este erro pode ocorrer se utilizar o ficheiro RDP a partir de uma máquina que está associado ao Azure Active Directory. Para resolver este problema, siga estes passos:
+
+1. O ficheiro RDP que transferiu com o botão direito e, em seguida, selecione **editar**.
+2. Adicionar "&#92;" como prefixo antes do nome de utilizador. Por exemplo, utilizar **. \Username.** em vez de **username**.
+
+## <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Pretende encerrar o serviço em nuvem para vários meses. Como reduzir o custo de faturação do serviço em nuvem sem perder o endereço IP?
+
+Um serviço em nuvem já implementado obtém cobrado de computação e de armazenamento que utiliza. Por isso, mesmo que desligar a VM do Azure, que lhe será ainda obter cobrados para o armazenamento. 
+
+Eis o que pode fazer para reduzir a faturação sem perder o endereço IP para o seu serviço:
+
+1. [O endereço IP de reserva](../virtual-network/virtual-networks-reserved-public-ip.md) antes de eliminar as implementações.  Será faturado apenas para este endereço IP. Para obter mais informações sobre faturação de endereço IP, consulte [endereços IP preços](https://azure.microsoft.com/pricing/details/ip-addresses/).
+2. Elimine as implementações. Não elimine xxx.cloudapp.net, para que pode utilizá-lo para o futuro.
+3. Se pretender voltar a implementar o serviço em nuvem utilizando o mesmo IP de reserva que reservado na sua subscrição, consulte [endereços IP reservados para máquinas virtuais e serviços em nuvem](https://azure.microsoft.com/blog/reserved-ip-addresses/).
+
+## <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>O meu certificado de gestão do serviço de nuvem está prestes a expirar. Como renová-lo?
+
+Pode utilizar os seguintes comandos do PowerShell para renovar os certificados de gestão:
+
+    Add-AzureAccount
+    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+    Get-AzurePublishSettingsFile
+
+O **Get-AzurePublishSettingsFile** irá criar um novo certificado de gestão no **subscrição** > **certificados de gestão** no portal do Azure. O nome do novo certificado aspeto "YourSubscriptionNam]-[CurrentDate] - credenciais".
+
+## <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Como configurar o dimensionamento automático com base nas métricas de memória?
+
+Escala automática com base nas métricas de memória para dos serviços cloud não é atualmente suportada. 
+
+Para contornar este problema, pode utilizar o Application Insights, para que o agente de diagnóstico seria encaminhar as métricas para o Application Insights. Escala automática suporta Application Insights como uma origem de métricas e pode dimensionar a contagem de instâncias de função com base numa métrica de convidado, como "Memória".  Tem de configurar o Application Insights no seu ficheiro de pacote de projeto de serviço em nuvem (. cspkg) e ativar a extensão de diagnóstico do Azure no serviço para implementar este feat.
+
+Para obter mais detalhes sobre como utilizar uma métrica personalizada através do Application Insights para configurar o dimensionamento automático nos serviços de nuvem, consulte [começar com uma escala automática da métrica personalizada no Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+
+
+Para obter mais informações sobre como integrar o diagnóstico do Azure com o Application Insights para serviços em nuvem, consulte [enviar serviço de nuvem, a Máquina Virtual ou o Service Fabric dados de diagnóstico para o Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+
+Para mais informações sobre como ativar o Application Insights para serviços em nuvem, consulte [Application Insights para Cloud Services do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+
+Para obter mais informações sobre como ativar o registo de diagnóstico do Azure para serviços em nuvem, consulte [configurar diagnósticos para máquinas virtuais e serviços Cloud do Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+
+## <a name="how-to-automate-the-main-ssl-certificatepfx-and-intermediate-certificatep7b-cert-installation"></a>Como automatizar a instalação de certificados de certificate(.p7b) intermédio e principal SSL devendo?
+
+Pode automatizar esta tarefa utilizando um script de arranque (cmd/batch/PowerShell) e registar esse script de arranque no ficheiro de definição de serviço. Adicione o script de arranque e de certificado (. p7b ficheiro) na pasta do projeto do mesmo diretório de script de arranque.
+
+Para obter mais informações, veja os artigos seguintes:
+- [Como configurar e executar tarefas de arranque para um serviço em nuvem](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
+- [Tarefas comuns de arranque do serviço em nuvem](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
+
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Por que motivo é que o portal do Azure-me fornecer uma conta de armazenamento para a implementação requerem?
+
+No portal clássico, o pacote foi carregado para a camada de API de gestão diretamente e, em seguida, a camada de API seria temporariamente colocar o pacote para uma conta de armazenamento interno.  Este processo faz com que problemas de desempenho e escalabilidade porque a camada de API não foi concebida para ser um serviço de carregamento de ficheiros.  No portal do Azure (modelo de implementação do Resource Manager), podemos ter ignorada o passo intermédio de carregar primeiro para a camada de API, resultando em implementações mais rápidas e mais fiáveis.
+ 
+Para o custo, é muito pequeno e pode reutilizar a mesma conta de armazenamento em todas as implementações. Pode utilizar o [Calculadora de custo de armazenamento](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) para determinar o custo para carregar o pacote de serviço (. CSPKG), transfira o CSPKG, em seguida, elimine o CSPKG.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 22e1768257524400f341cf881dfebfb35115a43b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure
 Segue-se uma lista completa de todas as verificações executadas através do Estado de funcionamento de recursos por tipos de recursos.
@@ -73,7 +73,7 @@ Segue-se uma lista completa de todas as verificações executadas através do Es
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Verificações executadas|
 |---|
-|<ul><li>Ter ocorrido quaisquer pedidos de base de dados ou de coleção não servidos devido a uma indisponibilidade de serviço do DocumentDB?</li><li>Ter ocorrido quaisquer pedidos de documento não servidos devido a uma indisponibilidade de serviço do DocumentDB?</li></ul>|
+|<ul><li>Ter ocorrido quaisquer pedidos de base de dados ou de coleção não servidos devido a uma indisponibilidade do serviço de base de dados do Azure Cosmos?</li><li>Ter ocorrido quaisquer pedidos de documento não servidos devido a uma indisponibilidade do serviço de base de dados do Azure Cosmos?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
 |Verificações executadas|

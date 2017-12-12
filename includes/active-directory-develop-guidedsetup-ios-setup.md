@@ -1,4 +1,3 @@
-
 ## <a name="setting-up-your-ios-application"></a>Configurar a sua aplicação iOS
 
 Esta secção fornece instruções passo a passo para saber como criar um novo projeto para demonstrar como integrar uma aplicação iOS (Swift) com *início de sessão com a Microsoft* que possa consultar APIs da Web que necessitam de um token.

@@ -4,7 +4,7 @@ description: "Este tópico descreve a incorporado em funções para o controlo d
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff900ef2064c077fe75228c191e580e7531a9aa2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas para controlo de acesso baseado em funções do Azure
 Inclui as seguintes funções incorporadas que podem ser atribuídas a utilizadores, grupos e serviços do Azure baseada em funções controlo de acesso (RBAC). Não é possível modificar as definições de funções incorporadas. No entanto, pode criar [funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md) para satisfazer as necessidades específicas da sua organização.
@@ -55,7 +55,7 @@ Este artigo aborda apenas as diferentes funções que existe atualmente. Quando 
 | [Contribuinte da fábrica de dados](#data-factory-contributor) |Pode criar e gerir as fábricas de dados e recursos subordinados dentro delas. |
 | [DevTest Labs utilizador](#devtest-labs-user) |Pode ver tudo e estabelecer ligação, início, reiniciar e encerrar as máquinas virtuais |
 | [Contribuinte de zona DNS](#dns-zone-contributor) |Pode gerir registos e zonas DNS |
-| [Contribuinte de conta do Azure Cosmos DB](#documentdb-account-contributor) |Pode gerir contas de base de dados do Azure Cosmos |
+| [Conta do DocumentDB contribuinte](#documentdb-account-contributor) |Pode gerir contas de base de dados do Azure Cosmos |
 | [Contribuinte de conta de sistemas inteligentes](#intelligent-systems-account-contributor) |Pode gerir contas de sistemas inteligentes |
 | Contribuinte de aplicação lógica | Pode gerir todos os aspetos de uma aplicação lógica, mas não criar um novo. |
 | Operador de aplicação lógica |Pode iniciar e parar os fluxos de trabalho definidos no âmbito de uma aplicação lógica. |
@@ -88,7 +88,7 @@ Este artigo aborda apenas as diferentes funções que existe atualmente. Quando 
 ## <a name="role-permissions"></a>Permissões de função
 As tabelas seguintes descrevem as permissões específicas para cada função. Isto pode incluir **ações**, que atribua permissões, e **NotActions**, que restringi-los.
 
-### <a name="api-management-service-contributor"></a>Contribuinte de serviço de gestão de API
+### <a name="api-management-service-contributor"></a>Contribuinte de Serviços de Gestão de API
 Pode gerir os serviços de gestão de API
 
 | **Ações** |  |
@@ -135,7 +135,7 @@ Pode gerir os serviços de gestão de API
 | Microsoft.Resources/subscriptions/resourceGroups/read |Funções de leitura e atribuições de função |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="application-insights-component-contributor"></a>Contribuinte de componentes do Application Insights
+### <a name="application-insights-component-contributor"></a>Contribuinte de Componentes do Application Insights
 Pode gerir componentes do Application Insights
 
 | **Ações** |  |
@@ -274,7 +274,7 @@ Pode ver todas as informações de faturação
 | Microsoft.Billing/*/read |Ler as informações de faturação |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="biztalk-contributor"></a>Contribuinte de BizTalk
+### <a name="biztalk-contributor"></a>Contribuinte do BizTalk
 Pode gerir os BizTalk services
 
 | **Ações** |  |
@@ -287,7 +287,7 @@ Pode gerir os BizTalk services
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="cleardb-mysql-db-contributor"></a>Contribuidor ClearDB MySQL DB
+### <a name="cleardb-mysql-db-contributor"></a>Contribuinte de Base de Dados MySQL ClearDB
 Pode gerir bases de dados ClearDB MySQL
 
 | **Ações** |  |
@@ -312,7 +312,7 @@ Pode gerir tudo, exceto acesso
 | Microsoft.Authorization/*/Delete |Não é possível eliminar funções e atribuições de função |
 | Microsoft.Authorization/*/Write |Não é possível criar funções e atribuições de função |
 
-### <a name="data-factory-contributor"></a>Contribuinte da fábrica de dados
+### <a name="data-factory-contributor"></a>Contribuinte do Data Factory
 Criar e gerir as fábricas de dados e recursos subordinados dentro delas.
 
 | **Ações** |  |
@@ -371,20 +371,20 @@ Pode gerir zonas DNS e registos.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/\* |Criar e gerir pedidos de suporte |
 
-### <a name="azure-cosmos-db-account-contributor"></a>Contribuinte de conta do Azure Cosmos DB
-Pode gerir contas de base de dados do Azure Cosmos
+### <a name="documentdb-account-contributor"></a>Conta do DocumentDB contribuinte
+Pode gerir contas de base de dados do Azure Cosmos. BD do Azure do Cosmos anteriormente é conhecido como DocumentDB.
 
 | **Ações** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Funções de leitura e atribuições de função |
-| Microsoft.DocumentDb/databaseAccounts/* |Criar e gerir contas do DocumentDB |
+| Microsoft.DocumentDb/databaseAccounts/* |Criar e gerir contas de base de dados do Azure Cosmos |
 | Microsoft.Insights/alertRules/* |Criar e gerir regras de alertas |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Ler o estado de funcionamento dos recursos |
 | Microsoft.Resources/deployments/* |Criar e gerir implementações do grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="intelligent-systems-account-contributor"></a>Contribuinte de conta de sistemas inteligentes
+### <a name="intelligent-systems-account-contributor"></a>Contribuinte de Conta de Sistemas Inteligentes
 Pode gerir contas de sistemas inteligentes
 
 | **Ações** |  |
@@ -427,7 +427,7 @@ Pode ler todos os dados de monitorização e editar as definições de monitoriz
 | Microsoft.OperationalInsights/workspaces/sharedKeys/action |Listar chaves para uma área de trabalho de análise de registos. |
 | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* |Configurações de conhecimentos aprofundados de armazenamento de análise de registos de leitura/escrita/eliminar. |
 
-### <a name="network-contributor"></a>Contribuinte de rede
+### <a name="network-contributor"></a>Contribuinte de Rede
 Pode gerir todos os recursos de rede
 
 | **Ações** |  |
@@ -440,7 +440,7 @@ Pode gerir todos os recursos de rede
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="new-relic-apm-account-contributor"></a>Contribuidor de Conta APM do New Relic
+### <a name="new-relic-apm-account-contributor"></a>Novo contribuinte de conta APM Relic
 Pode gerir contas de gestão de desempenho de aplicações do novo Relic e as aplicações
 
 | **Ações** |  |
@@ -467,7 +467,7 @@ Pode ver tudo, mas não é possível efetuar alterações
 | --- | --- |
 | * / leitura |Ler os recursos de todos os tipos, exceto os segredos. |
 
-### <a name="redis-cache-contributor"></a>Contribuinte de Cache de redis
+### <a name="redis-cache-contributor"></a>Contribuinte de Cache de Redis
 Pode gerir caches de Redis
 
 | **Ações** |  |
@@ -480,7 +480,7 @@ Pode gerir caches de Redis
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="scheduler-job-collections-contributor"></a>Contribuinte de coleções de tarefa do agendador
+### <a name="scheduler-job-collections-contributor"></a>Contribuinte de Coleções de Tarefas do Agendador
 Pode gerir coleções de tarefas do Programador
 
 | **Ações** |  |
@@ -493,7 +493,7 @@ Pode gerir coleções de tarefas do Programador
 | Microsoft.Scheduler/jobcollections/* |Criar e gerir coleções de tarefas |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="search-service-contributor"></a>Contribuinte de serviço de pesquisa
+### <a name="search-service-contributor"></a>Contribuinte de Serviços de Pesquisa
 Pode gerir os serviços de pesquisa
 
 | **Ações** |  |
@@ -506,7 +506,7 @@ Pode gerir os serviços de pesquisa
 | Microsoft.Search/searchServices/* |Criar e gerir serviços de pesquisa |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="security-manager"></a>Gestor de segurança
+### <a name="security-manager"></a>Gestor de Segurança
 Pode gerir os componentes de segurança, as políticas de segurança e as máquinas virtuais
 
 | **Ações** |  |
@@ -647,7 +647,7 @@ Pode monitorizar o estado de recuperação de sites no Cofre de serviços de rec
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Lê os detalhes de utilização de um cofre dos serviços de recuperação |
 | Microsoft.Support/*  |  Criar e gerir pedidos de suporte |
 
-### <a name="sql-db-contributor"></a>Contribuinte da BD SQL
+### <a name="sql-db-contributor"></a>Contribuinte de Base de Dados SQL
 Pode gerir bases de dados SQL, mas não as respetivas políticas relacionadas com segurança
 
 | **Ações** |  |
@@ -671,7 +671,7 @@ Pode gerir bases de dados SQL, mas não as respetivas políticas relacionadas co
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* |Não é possível editar as políticas de alerta de segurança |
 | Microsoft.Sql/servers/databases/securityMetrics/* |Não é possível editar as métricas de segurança |
 
-### <a name="sql-security-manager"></a>Gestor de segurança do SQL Server
+### <a name="sql-security-manager"></a>Gestor de Segurança SQL
 Pode gerir as políticas relacionadas com a segurança de bases de dados e servidores SQL
 
 | **Ações** |  |
@@ -698,7 +698,7 @@ Pode gerir as políticas relacionadas com a segurança de bases de dados e servi
 | Microsoft.Sql/servers/securityAlertPolicies/* |Criar e gerir políticas de alerta de segurança do SQL server |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="sql-server-contributor"></a>SQL Server contribuinte
+### <a name="sql-server-contributor"></a>Contribuinte do SQL Server
 Pode gerir servidores SQL e de bases de dados, mas não as respetivas políticas relacionadas com segurança
 
 | **Ações** |  |
@@ -724,7 +724,7 @@ Pode gerir servidores SQL e de bases de dados, mas não as respetivas políticas
 | Microsoft.Sql/servers/databases/securityMetrics/* |Não é possível editar as métricas de segurança de base de dados do SQL server |
 | Microsoft.Sql/servers/securityAlertPolicies/* |Não é possível editar as políticas de alerta de segurança do SQL server |
 
-### <a name="classic-storage-account-contributor"></a>Contribuinte de conta de armazenamento clássico
+### <a name="classic-storage-account-contributor"></a>Contribuinte de Conta de Armazenamento Clássica
 Pode gerir contas de armazenamento clássicas
 
 | **Ações** |  |
@@ -737,7 +737,7 @@ Pode gerir contas de armazenamento clássicas
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="storage-account-contributor"></a>Contribuinte de conta de armazenamento
+### <a name="storage-account-contributor"></a>Contribuinte de Conta de Armazenamento
 Pode gerir as contas de armazenamento, mas não aceder aos mesmos.
 
 | **Ações** |  |
@@ -769,7 +769,7 @@ Pode gerir o acesso de utilizador nos recursos do Azure
 | Microsoft.Authorization/* |Gerir autorização |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="classic-virtual-machine-contributor"></a>Contribuidor clássico Máquina Virtual
+### <a name="classic-virtual-machine-contributor"></a>Contribuinte de Máquina Virtual Clássica
 Pode gerir as máquinas virtuais clássicas, mas não o armazenamento de rede ou conta virtual ao qual estão ligados
 
 | **Ações** |  |
@@ -792,7 +792,7 @@ Pode gerir as máquinas virtuais clássicas, mas não o armazenamento de rede ou
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="virtual-machine-contributor"></a>Contribuinte de máquina virtual
+### <a name="virtual-machine-contributor"></a>Contribuinte de Máquina Virtual
 Pode gerir máquinas virtuais, mas não o armazenamento de rede ou conta virtual ao qual estão ligados
 
 | **Ações** |  |
@@ -823,7 +823,7 @@ Pode gerir máquinas virtuais, mas não o armazenamento de rede ou conta virtual
 | Microsoft.Storage/storageAccounts/read |Contas de armazenamento de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="classic-network-contributor"></a>Contribuinte de rede clássico
+### <a name="classic-network-contributor"></a>Contribuinte de Rede Clássica
 Pode gerir redes virtuais clássicas e IPs reservados
 
 | **Ações** |  |
@@ -836,7 +836,7 @@ Pode gerir redes virtuais clássicas e IPs reservados
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="web-plan-contributor"></a>Plano de contribuinte da Web
+### <a name="web-plan-contributor"></a>Contribuinte de Plano Web
 Pode gerir planos de web
 
 | **Ações** |  |

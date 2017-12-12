@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
-ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>Criar um gateway de aplicação utilizando a com base no caminho de encaminhamento
 
@@ -55,7 +55,7 @@ Pedidos para http://contoso.com/image * são encaminhados para o agrupamento de 
 
 ## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-A diferença entre utilizar o portal clássico do Azure e o Azure Resource Manager é a ordem pela qual criar o gateway de aplicação e os itens que devem ser configurados.
+A diferença entre utilizar o modelo de implementação clássica e o Azure Resource Manager é a ordem pela qual criar o gateway de aplicação e os itens que devem ser configurados.
 
 Com o Resource Manager, todos os itens que irão constituir um gateway de aplicação serão configurados individualmente e, em seguida, reunidos para criar o recurso do gateway de aplicação.
 

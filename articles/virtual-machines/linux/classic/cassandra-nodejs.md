@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 176850ff69f8a6f19dda4fc3389bd2b7e022e578
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3d552ae8593773fbf17cd19344f1ddb4d3a49fba
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Executar um cluster de Cassandra em Linux no Azure com o Node.js
 
@@ -134,7 +134,7 @@ Neste passo do processo de iremos criar Ubuntu imagem com o software de pré-req
 Azure tem uma chave pública que é PEM ou DER codificado o momento de aprovisionamento de X509. Gere um par de chaves públicas/privadas utilizando as instruções localizadas como utilizar o SSH com o Linux no Azure. Se planeia utilizar putty.exe como um cliente SSH no Windows ou Linux, tem de converter PEM codificado RSA a chave privada formato PPK utilizando puttygen.exe; as instruções para isto podem ser encontradas na página web acima.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>PASSO 2: Criar o modelo de Ubuntu VM
-Para criar o modelo de VM, inicie sessão no portal clássico do Azure e utilize a seguinte sequência: clique em novo, COMPUTAÇÃO, máquina VIRTUAL, FROM GALERIA, UBUNTU, Ubuntu Server 14.04 LTS e, em seguida, clique na seta à direita. Para um tutorial que descreve como criar uma VM com Linux, consulte Criar uma Linux em execução de Máquina Virtual.
+Para criar o modelo de VM, inicie sessão no portal do Azure e utilize a seguinte sequência: clique em novo, COMPUTAÇÃO, máquina VIRTUAL, FROM GALERIA, UBUNTU, Ubuntu Server 14.04 LTS e, em seguida, clique na seta à direita. Para um tutorial que descreve como criar uma VM com Linux, consulte Criar uma Linux em execução de Máquina Virtual.
 
 Introduza as seguintes informações no ecrã "configuração de Máquina Virtual" #1:
 

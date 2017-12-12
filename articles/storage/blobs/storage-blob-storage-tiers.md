@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/05/2017
 ms.author: mihauss
-ms.openlocfilehash: 544b11d74a926fe62b8ceca51570ce9d2ee7e6e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 501fc59efb8bacf58fea2825752d3a33c6ea5963
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-preview-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivos (pré-visualização)
 
 ## <a name="overview"></a>Descrição geral
 
-O Armazenamento do Azure disponibiliza três camadas de armazenamento para o Armazenamento de objetos de blobs, para que possa armazenar os seus dados de forma mais económica consoante o modo como os utiliza. A **camada de armazenamento de acesso frequente** do Azure está otimizada para armazenar dados que são acedidos com frequência. A **camada de armazenamento de acesso esporádico** do Azure está otimizada para armazenar dados que são acedidos com pouca frequência e armazenados durante um mês, pelo menos. A [camada de armazenamento de arquivos (pré-visualização)](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering) está otimizada para armazenar dados que são raramente acedidos e armazenados durante, pelo menos, seis meses, com requisitos de latência flexíveis (na ordem das horas). A camada de armazenamento de *arquivos* só pode ser utilizada ao nível dos blobs e não ao nível de toda a conta de armazenamento. Os dados na camada de armazenamento de acesso esporádico podem tolerar disponibilidade ligeiramente inferior, mas ainda requerem uma durabilidade elevada, bem como tempo de acesso e características de débito semelhantes aos dados de acesso frequente. Relativamente aos dados de acesso esporádico e de arquivo, os custos de acesso superiores e um SLA com uma disponibilidade ligeiramente inferior são perdas aceitáveis face aos custos de armazenamento muito mais reduzidos.
+O Armazenamento do Azure disponibiliza três camadas de armazenamento para o Armazenamento de objetos de blobs, para que possa armazenar os seus dados de forma mais económica consoante o modo como os utiliza. A **camada de armazenamento de acesso frequente** do Azure está otimizada para armazenar dados que são acedidos com frequência. A **camada de armazenamento de acesso esporádico** do Azure está otimizada para armazenar dados que são acedidos com pouca frequência e armazenados durante 30 dias, pelo menos. A **camada de armazenamento de arquivos** do Azure (pré-visualização) está otimizada para armazenar dados que são raramente acedidos e armazenados durante, pelo menos, 180 dias, com requisitos de latência flexíveis (na ordem das horas). A camada de armazenamento de arquivo só está disponível ao nível do blob e não ao nível de conta de armazenamento. Os dados na camada de armazenamento de acesso esporádico podem tolerar disponibilidade ligeiramente inferior, mas ainda requerem uma durabilidade elevada, bem como tempo de acesso e características de débito semelhantes aos dados de acesso frequente. Para os dados de acesso esporádico, um SLA de disponibilidade ligeiramente inferior e custos de acesso superiores comparados com frequentes são compromissos aceitáveis em troca de custos de armazenamento inferiores. O armazenamento de arquivos está offline e oferece custos de armazenamento mais baixos, mas também custos de acesso mais elevados.
 
-Atualmente, os dados armazenados na nuvem estão a crescer a um ritmo exponencial. Para gerir os custos das suas necessidades de armazenamento em expansão, é recomendável organizar os dados com base em atributos como a frequência de acesso e o período de retenção planeado. Os dados armazenados na nuvem podem ser diferentes em termos da forma como são gerados, processados e acedidos ao longo da respetiva duração. Alguns dados são ativamente acedidos e modificados durante o seu ciclo de vida. Alguns dados são acedidos frequentemente no início da sua vida, mas o acesso diminui significativamente à medida que a sua idade aumenta. Alguns dados permanecem inativos na nuvem e são raramente acedidos após serem armazenados ou não são acedidos de todo.
+Atualmente, os dados armazenados na nuvem estão a crescer a um ritmo exponencial. Para gerir os custos das suas necessidades de armazenamento em expansão, é recomendável organizar os dados com base em atributos como a frequência de acesso e o período de retenção planeado para otimizar os custos. Os dados armazenados na nuvem podem ser diferentes em termos da forma como são gerados, processados e acedidos ao longo da respetiva duração. Alguns dados são ativamente acedidos e modificados durante o seu ciclo de vida. Alguns dados são acedidos frequentemente no início da sua vida, mas o acesso diminui significativamente à medida que a sua idade aumenta. Alguns dados permanecem inativos na nuvem e são raramente acedidos após serem armazenados ou não são acedidos de todo.
 
-Cada um destes cenários de acesso a dados beneficia de uma camada diferenciada de armazenamento, otimizada para um padrão de acesso específico. Com as camadas de armazenamento frequente, esporádico e de arquivo, o Armazenamento de blobs do Azure dá resposta a esta necessidade de camadas de armazenamento diferenciadas com modelos de preços distintos.
+Cada um destes cenários de acesso a dados beneficia de uma camada de armazenamento diferente, otimizada para um padrão de acesso específico. Com as camadas de armazenamento frequente, esporádico e de arquivo, o Armazenamento de blobs do Azure dá resposta a esta necessidade de camadas de armazenamento diferenciadas com modelos de preços distintos.
 
 ## <a name="blob-storage-accounts"></a>Contas do Blob Storage
 
-As **Contas do Blob Storage** são contas do Storage especializadas para armazenar os dados não estruturados como blobs (objetos) no Storage do Azure. Com as contas do Armazenamento de blobs, pode agora escolher as camadas de armazenamento frequente e esporádico ao nível da conta, ou as camadas frequentes, esporádicas e de arquivo ao nível do blob, com base nos padrões de acesso. Armazene os dados inativos e raramente acedidos ao custo de armazenamento mais baixo, os dados inativos acedidos com menos frequência a um custo de armazenamento inferior face aos dados frequentes e armazene os dados ativos acedidos mais frequentemente ao custo de acesso mais baixo. As contas de Armazenamento de blobs são semelhantes às contas de armazenamento para fins gerais existentes e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100 por cento de consistência com a API dos blobs de blocos e dos blobs de acréscimo.
+As **Contas do Blob Storage** são contas do Storage especializadas para armazenar os dados não estruturados como blobs (objetos) no Storage do Azure. Com as contas do Armazenamento de blobs, pode agora escolher as camadas de armazenamento frequente e esporádico ao nível da conta, ou as camadas frequentes, esporádicas e de arquivo ao nível do blob com base nos padrões de acesso. Armazene dados acedidos raramente, com pouca frequência e frequentemente e em camadas de armazenamento de arquivo de acesso frequente e esporádico, respetivamente, para otimizar os custos. As contas de Armazenamento de blobs são semelhantes às contas de armazenamento para fins gerais existentes e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100 por cento de consistência com a API dos blobs de blocos e dos blobs de acréscimo.
 
 > [!NOTE]
 > As contas de armazenamento de Blobs suportam apenas blobs de blocos e blobs de acréscimo e não suportam blobs de páginas.
 
-As contas do Armazenamento de Blobs expõem o atributo **Access Tier**, que permite especificar a camada de armazenamento como de acesso **Frequente** ou **Esporádico**, consoante os dados armazenados na conta. Se o padrão de utilização dos dados sofrer uma alteração, pode também alternar entre estas camadas de armazenamento em qualquer altura. A camada de arquivo (pré-visualização) só pode ser aplicada ao nível do blob.
+As contas de armazenamento de blobs expõem o atributo da **Camada de Acesso** ao nível da conta, que especifica a camada da conta de armazenamento predefinida como **Frequente** ou **Esporádico**. A camada da conta de armazenamento predefinida é aplicada a qualquer blob que não tenha uma camada explícita definida ao nível do blob. Se o padrão de utilização dos dados sofrer uma alteração, pode também alternar entre estas camadas de armazenamento em qualquer altura. A **camada de arquivo** (pré-visualização) só pode ser aplicada ao nível do blob.
 
 > [!NOTE]
 > A alteração da camada de armazenamento poderá resultar em encargos adicionais. Veja a secção [Preços e faturação](#pricing-and-billing) para obter mais detalhes.
 
 ### <a name="hot-access-tier"></a>Escalão de acesso frequente
 
-Os exemplos de cenários de utilização da camada de armazenamento frequente incluem:
+O armazenamento frequente tem custos de armazenamento superiores que o armazenamento de arquivo e esporádico, mas custos de acesso mais baixos. Os exemplos de cenários de utilização da camada de armazenamento frequente incluem:
 
 * Dados que estão a ser utilizados ativamente ou que deverão ser acedidos (para operações de leitura e escrita) com frequência.
 * Dados preparados para processamento e eventual migração para a camada de armazenamento de acesso esporádico.
 
 ### <a name="cool-access-tier"></a>Escalão de acesso esporádico
 
-Os exemplos de cenários de utilização da camada de armazenamento esporádico incluem:
+A camada de armazenamento esporádico tem custos de armazenamento inferiores e custos de acesso superiores em comparação com armazenamento frequente. Esta camada destina-se de dados que permanecem na camada de acesso esporádico durante, pelo menos, 30 dias. Os exemplos de cenários de utilização da camada de armazenamento esporádico incluem:
 
 * Conjuntos de dados de cópia de segurança e recuperação após desastre de curto prazo.
 * Conteúdo de multimédia mais antigo que já não é visualizado com frequência, mas que deverá estar disponível de imediato quando acedido.
@@ -59,9 +59,12 @@ Os exemplos de cenários de utilização da camada de armazenamento esporádico 
 
 ### <a name="archive-access-tier-preview"></a>Camada de acesso de arquivo (pré-visualização)
 
-O [armazenamento de arquivos](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering) tem o custo de armazenamento mais baixo e os custos de obtenção de dados mais altos em comparação com o armazenamento frequente e esporádico.
+O armazenamento de arquivos tem o custo de armazenamento mais baixo e os custos de obtenção de dados mais altos em comparação com o armazenamento frequente e esporádico. Esta camada destina-se de dados que podem tolerar a várias horas de latência de obtenção e irão permanecer na camada de arquivo, pelo menos, 180 dias.
 
-Enquanto os blobs estão no armazenamento de arquivo, não podem ser lidos, copiados, substituídos ou modificados. Do mesmo modo, também não pode criar instantâneos de blobs no armazenamento de arquivo. Contudo, pode utilizar operações existentes para eliminar, listar, obter propriedades/metadados de blobs ou alterar a camada dos seus blobs. Para ler os dados no armazenamento de arquivo, tem de, primeiro, alterar a camada do blob para frequente ou esporádica. Este processo é conhecido como “reidratação” e pode demorar até 15 horas a entrar em vigor para blobs com menos de 50 GB. O tempo necessário para blobs maiores varia consoante o limite de débito dos mesmos.
+Enquanto um blob está num armazenamento de arquivo, está offline e não pode ser lido (exceto os metadados, que estão online e disponíveis), copiado, substituído ou modificado. Do mesmo modo, também não pode criar instantâneos de blobs no armazenamento de arquivo. Contudo, pode utilizar operações existentes para eliminar, listar, obter propriedades/metadados de blobs ou alterar a camada dos seus blobs.
+
+#### <a name="blob-rehydration"></a>Reidratação de blobs
+Para ler os dados no armazenamento de arquivo, tem de, primeiro, alterar a camada do blob para frequente ou esporádica. Este processo é conhecido como “reidratação” e pode demorar até 15 horas a entrar em vigor para blobs com menos de 50 GB. O tempo necessário para blobs maiores varia consoante o limite de débito dos mesmos.
 
 Durante a “reidratação”, pode verificar a propriedade “estado do arquivo” do blob para confirmar se a camada foi alterada. Consoante a camada de destino, o estado mostra “rehydrate-pending-to-hot” (“reidratação para frequenet pendente”) ou “rehydrate-pending-to-cool” (“reidratação para esporádica pendente). Após a conclusão, a propriedade “estado do arquivo” do blob é removida e a propriedade “camada de acesso” reflete a frequente ou esporádica.  
 
@@ -77,7 +80,7 @@ Consulte [Acerca das contas do Storage do Azure](../common/storage-create-storag
 
 Para as aplicações que requerem apenas o Blob Storage de blocos ou de acréscimo, recomendamos que utilize contas do Blob Storage, de modo a tirar partido do modelo de preços diferenciado do armazenamento em camadas. No entanto, compreendemos que tal pode não ser possível em determinadas circunstâncias em que a utilização de contas do Storage para fins gerais seria mais adequada, tais como:
 
-* Tem de utilizar tabelas, filas ou ficheiros e pretende que os blobs estejam armazenados na mesma conta do Storage. Tenha em atenção que o armazenamento destes elementos na mesma conta não tem qualquer vantagem técnica além da utilização das mesmas chaves partilhadas.
+* Tem de utilizar tabelas, filas ou ficheiros e pretende que os blobs estejam armazenados na mesma conta do Storage. O armazenamento destes elementos na mesma conta não tem qualquer vantagem técnica além da utilização das mesmas chaves partilhadas.
 
 * Ainda tem de utilizar o modelo de implementação clássica. As contas do Blob Storage estão disponíveis apenas através do modelo de implementação Azure Resource Manager.
 
@@ -87,17 +90,26 @@ Para as aplicações que requerem apenas o Blob Storage de blocos ou de acrésci
 
 > [!NOTE]
 > Atualmente, as contas do armazenamento de Blobs são suportadas em todas as regiões do Azure.
- 
+
 
 ## <a name="blob-level-tiering-feature-preview"></a>Funcionalidade de camadas ao nível de blobs (pré-visualização)
 
-Agora, as camadas ao nível do blob permitem-lhe alterar a camada dos seus dados ao nível do objeto através de uma operação individual, chamada [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Pode alterar facilmente a camada de acesso de um blob de entre as camadas frequente, esporádica ou de arquivo à medida que os padrões de utilização se modificam, sem ter de mover dados entre contas. Todas as alterações às camadas entram em vigor imediatamente, exceto se um blob estiver a ser reidratado do arquivo. Podem coexistir na mesma conta blobs nas três camadas de armazenamento. Um blob que não tenha uma camada atribuída explicitamente herda a camada da definição da camada de acesso da conta.
+As camadas ao nível do blob permitem-lhe alterar a camada dos seus dados ao nível do objeto através de uma operação individual, chamada [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Pode alterar facilmente a camada de acesso de um blob de entre as camadas frequente, esporádica ou de arquivo à medida que os padrões de utilização se modificam, sem ter de mover dados entre contas. Todas as alterações às camadas entram em vigor imediatamente, exceto se um blob estiver a ser reidratado do arquivo. A hora da última alteração da camada de blob está exposta através do atributo **Tempo de Alteração da Camada de Acesso** nas propriedades do blob. Se um blob estiver na camada de arquivo, não pode ser substituído e, por conseguinte, carregar o mesmo blob não é permitido neste cenário. Pode substituir um blob frequente e esporádico e, neste caso, o novo blob herda a camada do blob antigo que foi substituído.
+
+Podem coexistir na mesma conta blobs nas três camadas de armazenamento. Um blob que não tenha uma camada atribuída explicitamente infere a camada da definição da camada de acesso da conta. Se a camada de acesso da conta for inferida, pode ver que o atributo **Camada de Acesso Inferida** está definido como "true" e que o atributo de blob **Camada de Acesso** corresponde à camada da conta. No portal do Azure, a propriedade da camada de acesso inferido é apresentada com a camada de acesso do blob (por exemplo, acesso frequente (inferido) ou esporádico (inferido)).
+
+> [!NOTE]
+> O armazenamento de arquivo e a criação de camadas ao nível de blobs suportam apenas blobs de blocos. Também não é possível alterar a camada de um blob de bloco que tem instantâneos.
+
+### <a name="blob-level-tiering-billing"></a>Faturação da criação de camadas ao nível de blobs
+
+Quando um blob é movido para uma camada esporádica (Frequente -> Esporádico, Frequente -> Arquivo ou Esporádico -> Arquivo), a operação é faturada como uma operação de escrita para a camada de destino e a operação de escrita (por 10 000) e os encargos de escrita de dados (por GB) da camada de destino são aplicáveis. Quando um blob é movido para uma camada mais frequente (Arquivo -> Esporádico, Arquivo -> Frequente ou Esporádico -> Frequente), a operação é faturada como uma leitura da camada de origem e a operação de leitura (por 10 000) e os encargos de obtenção de dados (por GB) da camada de origem são aplicáveis.
 
 Para utilizar estas funcionalidades em pré-visualização, siga as instruções no [anúncio do blogue Azure Archive and Blob-Level Tiering](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering) (Camadas de Arquivo e ao Nível do Blob do Azure).
 
 Abaixo, encontram-se algumas restrições que se aplicam durante a pré-visualização da camada ao nível do blob:
 
-* O armazenamento de arquivo só é suportado em contas do Armazenamento de blobs novas criadas na região E.U.A. Leste 2 após inscrição bem-sucedida na pré-visualização.
+* O armazenamento de arquivo só é suportado em contas do Armazenamento de blobs novas criadas na região E.U.A. Leste 2, E.U.A. Leste ou E.U.A. Oeste após inscrição bem-sucedida na pré-visualização.
 
 * A camada ao nível do blob só é suportada em contas do Armazenamento de blobs novas criadas em regiões públicas após inscrição bem-sucedida na pré-visualização.
 
@@ -111,41 +123,41 @@ Abaixo, encontram-se algumas restrições que se aplicam durante a pré-visualiz
 
 A tabela seguinte mostra uma comparação das camadas de armazenamento frequente e esporádico. A camada ao nível do blob de arquivo está em pré-visualização, pelo que não existe nenhum SLA para a mesma.
 
-| | **Camada de armazenamento frequente** | **Camada de armazenamento esporádico** |
-| ---- | ----- | ----- |
-| **Disponibilidade** | 99,9% | 99% |
-| **Disponibilidade** <br> **(leituras RA-GRS)**| 99,99% | 99,9% |
-| **Custos de utilização** | Custos de armazenamento superiores, custos de acesso e transação mais baixos | Custos de armazenamento inferiores, custos de acesso e transação superiores |
-| **Tamanho mínimo do objeto** | N/D | N/D |
-| **Duração mínima do armazenamento** | N/D | N/D |
-| **Latência** <br> **(Tempo até ao primeiro byte)** | milissegundos | milissegundos |
-| **Metas de escalabilidade e desempenho** | Igual às contas do Storage para fins gerais | Igual às contas do Storage para fins gerais |
+| | **Camada de armazenamento frequente** | **Camada de armazenamento esporádico** | **Camada de armazenamento de arquivo**
+| ---- | ----- | ----- | ----- |
+| **Disponibilidade** | 99,9% | 99% | N/D |
+| **Disponibilidade** <br> **(leituras RA-GRS)**| 99,99% | 99,9% | N/D |
+| **Custos de utilização** | Custos de armazenamento superiores, custos de acesso e transação mais baixos | Custos de armazenamento inferiores, custos de acesso e transação superiores | Custos de armazenamento inferiores, custos de acesso e transação superiores |
+| **Tamanho mínimo do objeto** | N/D | N/D | N/D |
+| **Duração mínima do armazenamento** | N/D | N/D | 180 dias
+| **Latência** <br> **(Tempo até ao primeiro byte)** | milissegundos | milissegundos | < 15 hrs
+| **Metas de escalabilidade e desempenho** | Igual às contas do Storage para fins gerais | Igual às contas do Storage para fins gerais | Igual às contas do Storage para fins gerais |
 
 > [!NOTE]
 > As contas do Blob Storage suportam as mesmas metas de desempenho e escalabilidade que as contas do Storage para fins gerais. Consulte [Metas de Desempenho e Escalabilidade do Storage do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obter mais informações.
 
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
-As contas do Armazenamento de blobs utilizam um modelo de preços para o armazenamento de blobs com base na camada de armazenamento. Ao utilizar uma conta do Blob Storage, aplicam-se as seguintes considerações de faturação:
+As contas do Armazenamento de blobs utilizam um modelo de preços para o armazenamento de blobs com base na camada de cada blob. Ao utilizar uma conta do Blob Storage, aplicam-se as seguintes considerações de faturação:
 
-* **Custos de armazenamento**: para além da quantidade de dados armazenados, o custo do armazenamento de dados varia consoante a camada de armazenamento. O custo por gigabyte é menor para a camada de armazenamento esporádico do que para a camada de armazenamento frequente.
+* **Custos de armazenamento**: para além da quantidade de dados armazenados, o custo do armazenamento de dados varia consoante a camada de armazenamento. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
 
-* **Custos do acesso a dados**: para os dados na camada de armazenamento esporádico, é cobrada uma taxa de acesso a dados por gigabyte pelas operações de leitura e escrita.
+* **Custos de acesso a dados**: os custos de acesso a dados aumenta conforme a camada se torna mais esporádica. Para os dados na camada frequente e de armazenamento de arquivo, é cobrada uma taxa de acesso a dados por gigabyte pelas operações de leitura.
 
-* **Custos de transação**: é cobrada uma taxa por transação para ambas as camadas. No entanto, o custo por transação para a camada de armazenamento esporádico é superior ao da camada de armazenamento frequente.
+* **Custos de transação**: há um encargo por transação para todas as camadas que aumenta cada vez que a camada é mais esporádica.
 
 * **Custos de transferência de dados de georreplicação**: aplica-se apenas às contas que têm a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
 
 * **Custos de transferência de dados de saída**: as transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) estão sujeitas a uma cobrança pela utilização de largura de banda por gigabyte, tal como as contas do Storage para fins gerais.
 
-* **Alteração da camada de armazenamento**: a alteração da camada de armazenamento esporádico para armazenamento frequente está sujeita à cobrança de uma taxa igual à leitura de todos os dados existentes na conta do armazenamento para cada transição. Por outro lado, a alteração da camada de armazenamento frequente para armazenamento esporádico é gratuita.
+* **Alteração da camada de armazenamento**: a alteração da camada de armazenamento de conta esporádica para armazenamento frequente está sujeita à cobrança de uma taxa igual à leitura de todos os dados existentes na conta do armazenamento. No entanto, a alteração da camada de armazenamento de conta de frequente para esporádica incorre um encargo igual à escritura de todos os dados na camada esporádica.
 
 > [!NOTE]
 > Para obter mais detalhes sobre o modelo de preços das contas do Armazenamento de blobs, veja a página [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). Para obter mais detalhes sobre as taxas aplicáveis às transferências de dados de saída, veja a página [Detalhes de Preços das Transferências de Dados](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="quickstart"></a>Início Rápido
+## <a name="quick-start"></a>Início rápido
 
-Nesta secção, vamos demonstrar os seguintes cenários através do portal do Azure:
+Nesta secção os seguintes cenários são demonstrados através do portal do Azure:
 
 * Como criar uma conta do Blob Storage
 * Como gerir uma conta do Blob Storage.
@@ -159,26 +171,26 @@ Nos exemplos seguintes, não pode definir a camada de acesso como arquivo porque
 2. No menu Hub, selecione **Novo** > **Dados + Armazenamento** > **Conta do Storage**.
 
 3. Introduza um nome para a conta do Storage.
-   
+
     Este nome tem de ser globalmente exclusivo; é utilizado como parte do URL utilizado para aceder aos objetos na conta de armazenamento.  
 
 4. Selecione **Resource Manager** como o modelo de implementação.
-   
+
     O armazenamento em camadas só pode ser utilizado com contas de armazenamento do Resource Manager; este é o modelo de implementação recomendado para novos recursos. Para obter mais informações, veja [Descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).  
 
 5. Na lista pendente Tipo de Conta, selecione **Armazenamento de Blobs**.
-   
+
     É aqui que pode seleciona o tipo de conta de armazenamento. O armazenamento em camadas não está disponível no armazenamento para fins gerais; só está disponível na conta de tipo de Armazenamento de Blobs.     
-   
-    Tenha em atenção que, quando seleciona esta opção, a camada de desempenho fica definida como Standard. O armazenamento em camadas não está disponível com a camada de desempenho Premium.
+
+    Quando seleciona esta opção, a camada de desempenho fica definida como Standard. O armazenamento em camadas não está disponível com a camada de desempenho Premium.
 
 6. Selecione a opção de replicação para a conta do Storage: **LRS**, **GRS** ou **RA-GRS**. A predefinição é **RA-GRS**.
-   
-    LRS = armazenamento localmente redundante; GRS = armazenamento georredundante (2 regiões); RA-GRS é armazenamento georredundante com acesso de leitura (2 regiões com acesso de leitura para a segunda).
-   
+
+    LRS = armazenamento localmente redundante; GRS = armazenamento georredundante (duas regiões); RA-GRS é armazenamento georredundante com acesso de leitura (2 regiões com acesso de leitura para a segunda).
+
     Consulte [Azure Storage replication (Replicação do Armazenamento do Azure)](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obter detalhes adicionais sobre as opções de replicação do Armazenamento do Azure.
 
-7. Selecione a camada de armazenamento correta para as suas necessidades: defina a **Camada de acesso** como **Esporádica** ou **Frequente**. A predefinição é **Frequente**. 
+7. Selecione a camada de armazenamento correta para as suas necessidades: defina a **Camada de acesso** como **Esporádica** ou **Frequente**. A predefinição é **Frequente**.
 
 8. Selecione a subscrição na qual pretende criar a nova conta do Storage.
 
@@ -197,6 +209,16 @@ Nos exemplos seguintes, não pode definir a camada de acesso como arquivo porque
 3. No painel Definições, clique em**Configuração** para ver e/ou alterar a configuração da conta.
 
 4. Selecione a camada de armazenamento correta para as suas necessidades: defina a **Camada de acesso** como **Esporádica** ou **Frequente**.
+
+5. Clique em Guardar na parte superior do painel.
+
+### <a name="change-the-storage-tier-of-a-blob-using-the-azure-portal"></a>Alterar a camada de armazenamento de um blob através do portal do Azure
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+
+2. Para navegar para o blob na conta de armazenamento, selecione Todos os Recursos, selecione a conta de armazenamento, selecione o contentor e, em seguida, selecione o blob.
+
+3. No painel de propriedades do Blob, clique no menu pendente **Camada de Acesso** para selecionar a camada de armazenamento **Frequente**, **Esporádica** ou **Arquivo**.
 
 5. Clique em Guardar na parte superior do painel.
 
@@ -237,7 +259,7 @@ Para monitorizar o padrão de acesso a dados do serviço de Armazenamento de blo
 > [!NOTE]
 > No caso de ter uma conta de armazenamento para fins gerais em que tem armazenados blobs de páginas e discos da máquina virtual em conjunto com dados de blob de blocos e de acréscimo, este processo de estimativa não é aplicável. Isto acontece porque não há um modo de distinguir as métricas de capacidade das de transação com base no tipo de blob apenas para blobs de blocos e de acréscimo que podem ser migrados para uma conta do Armazenamento de blobs.
 
-Para obter uma boa aproximação do seu consumo de dados e padrão de acesso, recomendamos que escolha um período de retenção para as métricas que seja representativo da sua utilização normal e o utilize para tirar conclusões. Uma opção é manter os dados das métricas durante 7 dias e recolher os dados todas as semanas, para análise no fim do mês. Outra opção é manter os dados das métricas para os últimos 30 dias e recolher e analisar os dados no final desse período de 30 dias.
+Para obter uma boa aproximação do seu consumo de dados e padrão de acesso, recomendamos que escolha um período de retenção para as métricas que seja representativo da sua utilização normal e o utilize para tirar conclusões. Uma opção é manter os dados das métricas durante sete dias e recolher os dados todas as semanas, para análise no fim do mês. Outra opção é manter os dados das métricas para os últimos 30 dias e recolher e analisar os dados no final desse período de 30 dias.
 
 Para obter detalhes sobre como ativar, recolher e ver dados de métricas, veja [Enabling Azure Storage metrics and viewing metrics data)](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Ativar as métricas do Armazenamento do Azure e visualizar os dados das mesmas).
 
@@ -268,7 +290,7 @@ Para estimar os custos de transação para contas de armazenamento para fins ger
 
 Embora a análise de armazenamento não forneça a quantidade de dados lidos e escritos numa conta de armazenamento, esta pode ser aproximadamente estimada ao consultar a tabela de métricas de transação. A soma de *'TotalIngress'* de todas as entradas de uma API na tabela de métricas de transação indica a quantidade total de dados de entrada em bytes para essa API específica. Do mesmo modo, a soma de *'TotalEgress'* indica a quantidade total de dados de saída, em bytes.
 
-Para que possa estimar os custos de acesso a dados para as contas do Armazenamento de blobs, precisa de dividir as transações em dois grupos. 
+Para que possa estimar os custos de acesso a dados para as contas do Armazenamento de blobs, precisa de dividir as transações em dois grupos.
 
 * A quantidade de dados obtidos a partir da conta de armazenamento pode ser estimada ao ver a soma de *'TotalEgress'* para, principalmente, as operações *'GetBlob'* e *'CopyBlob'*.
 
@@ -278,7 +300,7 @@ Também pode ser calculado o custo de transferência de dados de georreplicaçã
 
 > [!NOTE]
 > Para obter um exemplo mais detalhado sobre o cálculo dos custos de utilização da camada de armazenamento frequente ou esporádico, veja as perguntas mais frequentes com o nome *“O que são as camadas de acesso Frequente e Esporádico e como posso determinar qual delas utilizar?”* na [Página de Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
- 
+
 ## <a name="migrating-existing-data"></a>Migração de dados existentes
 
 Uma conta do Blob Storage é especializada para o armazenamento apenas de blobs de blocos e de acréscimo. Não é possível converter as contas de armazenamento para fins gerais existentes, que lhe permitem armazenar tabelas, filas, ficheiros, discos e também blobs, em contas do Armazenamento de blobs. Para utilizar as camadas de armazenamento, tem de criar contas do Armazenamento de blobs novas e migrar os dados existentes para as mesmas.
@@ -305,49 +327,49 @@ Para obter mais detalhes, consulte [Introdução ao Blob Storage do Azure](stora
 
 > [!NOTE]
 > Os blobs encriptados através de encriptação do lado do cliente armazenam os metadados relacionados com a encriptação armazenados com o blob. É fundamental que os mecanismos de cópia utilizados assegurem que os metadados do blob, e, em especial, os metadados relacionados com a encriptação, são preservados. Se copiar os blobs sem estes metadados, não será possível obter novamente o conteúdo do mesmo. Para obter mais detalhes acerca dos metadados relacionados com a encriptação, consulte [Encriptação do Lado do Cliente do Armazenamento do Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
- 
+
 ## <a name="faq"></a>FAQ
 
 1. **As contas de armazenamento existentes continuam disponíveis?**
-   
+
     Sim, as contas do Storage existentes continuam disponíveis e permanecem inalteradas em termos de preços e funcionalidade.  Não têm a capacidade de escolher uma camada de armazenamento e não terão capacidades de camadas no futuro.
 
 2. **Por que razão devo começar a utilizar as contas de armazenamento de Blobs e quando o devo fazer?**
-   
-    As contas do Blob Storage são especializadas para armazenar blobs e permitem-nos introduzir novas funcionalidades centradas em blobs. Doravante, as contas do Blob Storage são a forma recomendada de armazenar blobs, uma vez que serão introduzidas capacidades futuras tais como o armazenamento hierárquico e capacidades de camadas com base neste tipo de conta. No entanto, o momento de migração fica ao seu critério com base nos seus requisitos empresariais.
+
+    As contas do Blob Storage são especializadas para armazenar blobs e introduzir novas funcionalidades centradas em blobs. Doravante, as contas do Blob Storage são a forma recomendada de armazenar blobs, uma vez que serão introduzidas capacidades futuras tais como o armazenamento hierárquico e capacidades de camadas com base neste tipo de conta. No entanto, o momento de migração fica ao seu critério com base nos seus requisitos empresariais.
 
 3. **Posso converter a minha conta de armazenamento existente numa conta de armazenamento de Blobs?**
-   
+
     Não. A conta do Armazenamento de blobs é um tipo de conta de armazenamento diferente e tem de criá-la de raiz e migrar os dados tal como explicado anteriormente.
 
 4. **Posso armazenar objetos em ambas as camadas de armazenamento na mesma conta?**
-   
-    O atributo *“Access Tier”* indica o valor da camada de armazenamento definido ao nível da conta e aplica-se a todos os objetos nessa conta. No entanto, a funcionalidade de camada ao nível do blob (pré-visualização) permitir-lhe-á definir a camada de acesso em blobs específicos, o que substitui a definição da camada de acesso da conta. 
+
+    Sim. O atributo *"Access Tier"* definido ao nível de uma conta é a camada predefinida que se aplica a todos os objetos nessa conta sem uma camada de conjunto explícita. No entanto, a criação de camadas ao nível do blob (pré-visualização) permite-lhe definir a camada de acesso ao nível do objeto, independentemente de qual é a definição de camada de acesso da conta. Os blobs em qualquer uma das três camadas de armazenamento (frequente, esporádico ou arquivo) podem existir na mesma conta.
 
 5. **Posso alterar a camada de armazenamento da minha conta de armazenamento de Blobs?**
-   
-    Sim. Pode definir o atributo *“Access Tier”* na conta de armazenamento para alterar a camada de armazenamento. A alteração da camada de armazenamento aplica-se a todos os objetos armazenados na conta. A alteração da camada de armazenamento de frequente para esporádico é gratuita, ao passo que a alteração de esporádico para frequente está sujeita a um custo por GB para a leitura de todos os dados da conta.
+
+    Sim, pode definir o atributo *“Access Tier”* na conta de armazenamento para alterar a camada de armazenamento. A alteração da camada de armazenamento aplica-se a todos os objetos armazenados na conta que não têm uma camada explícita definida. A alteração da camada de armazenamento de frequente para esporádico implica que ambas as operações de escrita (por 10 000) e a escrita de dados (por GB) sejam cobradas (contas do armazenamento Blob apenas), enquanto a alteração de esporádico para frequente implica que as operações de leitura (por 10 000) e obtenção de dados (por GB) seja cobrado pela leitura todos os dados na conta.
 
 6. **Com que frequência posso alterar a camada de armazenamento da minha conta de armazenamento de Blobs?**
-   
-    Apesar de não impormos uma limitação à frequência com que é possível alterar a camada de armazenamento, tenha em atenção que a alteração da camada de esporádica para frequente resulta em encargos significativos. Não recomendamos que altere a camada de armazenamento com frequência.
+
+    Apesar de não impormos uma limitação à frequência com que é possível alterar a camada de armazenamento, tenha em atenção que a alteração da camada de esporádica para frequente resulta em encargos significativos. Não é recomendada uma alteração da camada de armazenamento frequentemente.
 
 7. **O comportamento dos blobs na camada de armazenamento esporádico é diferente dos blobs na camada de armazenamento frequente?**
-   
-    Os blobs na camada de armazenamento frequente têm a mesma latência que os blobs em contas de armazenamento para fins gerais. Os blobs na camada de armazenamento esporádico têm uma latência semelhante (em milissegundos) aos blobs em contas do armazenamento para fins gerais.
-   
+
+    Os blobs na camada de armazenamento frequente têm a mesma latência que os blobs em contas de armazenamento para fins gerais. Os blobs na camada de armazenamento esporádico têm uma latência semelhante (em milissegundos) aos blobs em contas do armazenamento para fins gerais. Os blobs na camada de armazenamento de arquivo têm várias horas de latência.
+
     Os blobs na camada de armazenamento esporádico têm um nível de serviço (SLA) de disponibilidade ligeiramente inferior ao dos blobs armazenados na camada de armazenamento frequente. Para obter mais detalhes, consulte [SLA para o armazenamento](https://azure.microsoft.com/support/legal/sla/storage).
 
 8. **Posso armazenar blobs de páginas e discos de máquinas virtuais em contas de armazenamento de Blobs?**
-   
+
     As contas do Blob Storage suportam apenas blobs de blocos e de acréscimo e não suportam blobs de páginas. Os discos de Virtual Machines do Azure são apoiados por blobs de páginas e, como consequência, não é possível utilizar contas do Blob Storage para armazenar discos de máquinas virtuais. No entanto, é possível armazenar cópias de segurança dos discos de máquinas virtuais como blobs de blocos numa conta do Blob Storage.
 
 9. **Tenho de alterar as minhas aplicações existentes para utilizar as contas do Armazenamento de blobs?**
-   
+
     As contas do Blob Storage são 100% consistentes com a API com as contas do Storage para fins gerais para blobs de blocos e de acréscimo. Desde que a aplicação utilize blobs de blocos ou blobs de acréscimo e esteja a utilizar a versão de 14/02/2014 da [API REST dos Serviços do Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx) ou superior, a aplicação deverá funcionar normalmente. Se estiver a utilizar uma versão mais antiga do protocolo, tem de atualizar a sua aplicação para utilizar a versão nova, de modo a trabalhar de forma totalmente integrada com ambos os tipos de contas de armazenamento. Em geral, recomendamos sempre que utilize a versão mais recente, independentemente da conta do Storage utilizada.
 
-10. **Vai haver alterações à experiência do utilizador?**
-    
+10. **Existem alterações relativas à experiência do utilizador?**
+
     As contas do Blob Storage são muito semelhantes às contas do Storage para fins gerais para armazenar blobs de blocos e de acréscimo e suportam todas as principais funcionalidades do Storage do Azure, incluindo elevada durabilidade e disponibilidade, escalabilidade, desempenho e segurança. Com exceção das funcionalidades e restrições específicas das contas do Armazenamento de Blobs e das respetivas camadas de armazenamento que foram descritas acima, tudo o resto permanece igual.
 
 ## <a name="next-steps"></a>Passos seguintes
