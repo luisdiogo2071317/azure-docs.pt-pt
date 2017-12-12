@@ -219,7 +219,6 @@
 ### [Configurar o Início de Sessão Automático-Acelerado através da Política de HRD](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Gerir o acesso a aplicações](active-directory-managing-access-to-apps.md)
-#### [Acesso ao Self-service](active-directory-self-service-application-access.md)
 #### [Acesso SSO](active-directory-appssoaccess-whatis.md)
 #### [Certificados para SSO](active-directory-sso-certs.md)
 #### [Restrições de inquilino](active-directory-tenant-restrictions.md)
