@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/11/2017
 ms.author: raynew
-ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Recuperação de continuidade e desastre de negócio (BCDR): Azure emparelhado regiões
 
@@ -39,6 +39,7 @@ Figura 1 – diagrama par regional do Azure
 | Canadá |Canadá Central |Leste do Canadá |
 | China |China Norte |Leste da China|
 | Índia |Índia Central |Sul da Índia |
+| Índia |(1) oeste da Índia |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
 | Coreia |Coreia Central |Coreia do Sul |
 | América do Norte |EUA Centro-Norte |EUA Centro-Sul |
@@ -47,9 +48,9 @@ Figura 1 – diagrama par regional do Azure
 | América do Norte |EUA Oeste 2 |EUA Centro-Oeste |
 | Europa |Europa do Norte |Europa Ocidental |
 | Japão |Leste do Japão |Oeste do Japão |
-| Brasil |Sul do Brasil (1) |EUA Centro-Sul |
-| Governo dos Estados Unidos da América |E.u. a US Iowa (2) |Gov (US) - Virginia |
-| Governo dos Estados Unidos da América |E.u. a US Virginia (3) |Gov (US) - Texas |
+| Brasil |Sul do Brasil (2) |EUA Centro-Sul |
+| Governo dos Estados Unidos da América |E.u. a US Iowa (3) |Gov (US) - Virginia |
+| Governo dos Estados Unidos da América |E.u. a US Virginia (4) |Gov (US) - Texas |
 | Governo dos Estados Unidos da América |Gov (US) - Arizona |Gov (US) - Texas |
 | E.u. a departamento da defesa |US DoD Leste |US DoD Centro |
 | RU |Reino Unido Oeste |Reino Unido Sul |
@@ -57,11 +58,10 @@ Figura 1 – diagrama par regional do Azure
 
 Tabela 1 - mapeamento de pares de regionais do Azure
 
-> (1) sul do Brasil é exclusivo, porque esta se encontra emparelhada com uma região fora da sua própria geografia. Região secundária do Sul do Brasil for Sul Central dos EUA, mas da Sul Central-nos região secundária não sul do Brasil.
->
-> (2) região secundária da e.u. a US Iowa for Virginia us-nos, mas região secundária de US-nos Virginia não Iowa us-nos.
-> 
-> (3) região secundária de Virginia us e.u. a for us-nos Texas, mas região secundária dos EUA us Texas não Virginia us-nos.
+- > (1) Índia Ocidental é diferente porque esta se encontra emparelhada com outro região em apenas uma direção. É de região secundária do oeste da Índia sul da Índia, mas região secundária sul da Índia Índia Central.
+- > (2) sul do Brasil é exclusivo, porque esta se encontra emparelhada com uma região fora da sua própria geografia. Região secundária do Sul do Brasil for Sul Central dos EUA, mas da Sul Central-nos região secundária não sul do Brasil.
+- > (3) região secundária da e.u. a US Iowa for us-nos Virginia, mas região secundária de US-nos Virginia não Iowa us-nos.
+- > (4) região secundária de Virginia us e.u. a for us-nos Texas, mas região secundária dos EUA us Texas não Virginia us-nos.
 
 
 Recomendamos que replicar as cargas de trabalho em pares regionais beneficiar das políticas de isolamento e de disponibilidade do Azure. Por exemplo, as atualizações do sistema do Azure planeada são implementadas sequencialmente (e não ao mesmo tempo) em regiões emparelhadas. Isto significa que mesmo no evento raro de uma atualização defeituoso, ambas as regiões não serão afetadas em simultâneo. Além disso, na improvável eventualidade de uma falha de abrangente, recuperação de, pelo menos, uma região sem cada par é definida.
@@ -94,7 +94,7 @@ Como referido na figura 2.
 **replicação plataforma fornecidos pelo** -alguns serviços, como o armazenamento Georredundante proporciona replicação automática para a região emparelhada.
 
 ![Recuperação](./media/best-practices-availability-paired-regions/7Orange.png)
-**ordem de recuperação de região** – nos eventos de uma falha de abrangente, a recuperação de uma região é definida fora cada par. As aplicações que são implementadas em regiões emparelhadas garantidas ter uma das regiões recuperadas com prioridade. Se uma aplicação é implementada em regiões que não estão emparelhadas, recuperação pode sofrer um atraso – na pior das hipóteses que as regiões escolhidas poderão ser as duas última ser recuperados.
+**ordem de recuperação de região** – nos eventos de uma falha de abrangente, a recuperação de uma região é definida fora cada par. As aplicações que são implementadas em regiões emparelhadas garantidas ter uma das regiões recuperadas com prioridade. Se uma aplicação é implementada em regiões que não estão emparelhadas, poderá ser atrasada recuperação – na pior das hipóteses que as regiões escolhidas poderão ser as duas última serão recuperados.
 
 ![Atualizações](./media/best-practices-availability-paired-regions/8Orange.png)
 **atualizações sequenciais** – atualizações do sistema planeada do Azure estiverem implementadas para regiões emparelhadas sequencialmente (e não ao mesmo tempo) para minimizar o período de indisponibilidade, o efeito de erros e falhas lógicas no evento raro de uma atualização incorreta.

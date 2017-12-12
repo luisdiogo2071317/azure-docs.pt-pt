@@ -4,7 +4,7 @@ description: "Saiba como utilizar TOPdesk - seguro com o Azure Active Directory 
 services: active-directory
 author: jeevansd
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 8e149d2d-7849-48ec-9993-31f4ade5fdb4
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 28f0542dbe87bb34c83a7852db7c3a9fef055ce9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e165a18c5a24071d52838ca95edbb5e6b39e63a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Integração do Azure Active Directory com TOPdesk - segura
 O objetivo deste tutorial é mostrar a integração do Azure e TOPdesk - segura.  

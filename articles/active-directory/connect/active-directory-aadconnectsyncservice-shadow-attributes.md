@@ -4,7 +4,7 @@ description: "Descreve como funcionam os atributos de sombra de volumes no servi
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 0b6a7f22d744480a40a878c979986cdd7667109c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00488391c496f06cfcad12e67f5a874313c57e08
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos do sombra de volumes de serviço de sincronização do Azure AD Connect
 A maioria dos atributos são representados da mesma forma no Azure AD, dado que estão no Active Directory no local. Mas alguns atributos têm alguns tratamento especial e o valor do atributo no Azure AD pode ser diferente da que sincroniza o Azure AD Connect.

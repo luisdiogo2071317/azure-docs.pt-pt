@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: a38394d825c9a9b3007b30f598b37caa08f7325f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781a3b71c35cb48e40202e3b1acc8edbbaf865c4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Tarefas do Stream Analytics do Azure para aumentar o débito de escala
 Este artigo mostra como otimizar a uma consulta do Stream Analytics para aumentar o débito para as tarefas de análise de transmissão em fluxo. Pode utilizar o guia seguinte para dimensionar a sua tarefa para processar uma carga maior e tirar partido de mais recursos do sistema (por exemplo, mais largura de banda, mais recursos de CPU, memória mais).
@@ -170,7 +170,6 @@ Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analyt
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

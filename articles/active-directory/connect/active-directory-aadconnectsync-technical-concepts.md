@@ -4,7 +4,7 @@ description: "Explica os conceitos técnicos de sincronização do Azure AD Conn
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: e178c5fa453c753aabdc38449273f46a90e1194a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: c852e33621ba7f4280858f3990380b518535b514
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: Conceitos Técnicos
 Este artigo é um resumo do tópico [arquitetura de compreender](active-directory-aadconnectsync-technical-concepts.md).
@@ -31,13 +31,13 @@ Criar após MIIS, ILM e FIM, os serviços de sincronização do Active Directory
 
 As secções seguintes fornecem mais detalhes sobre os seguintes aspetos do serviço de sincronização do FIM:
 
-* conector
+* Conector
 * Fluxo de atributos
 * Espaço de conector
 * Metaverso
 * Aprovisionamento
 
-## <a name="connector"></a>conector
+## <a name="connector"></a>Conector
 Os módulos de código que são utilizados para comunicar com um diretório ligado são denominados conectores (anteriormente conhecidos como agentes de gestão (MAs)).
 
 Estes estão instalados no computador que executa a sincronização do Azure AD Connect. Os conectores permitem sem agente converse ao utilizar protocolos de sistema remoto em vez de depender da implementação de agentes especializados. Isto significa menor risco e tempos de implementação, especialmente quando lidar com sistemas e aplicações críticas.

@@ -4,7 +4,7 @@ description: "Este artigo descreve como utilizar mensagens HTTP para implementar
 services: active-directory
 documentationcenter: 
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 356083fbaabfcd2ec7581adf319fa22b810df0d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c03c6cb78fd020b7574a8cd9f924b513bacaf10
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v 2.0 e fluxo de OAuth 2.0 On-Behalf-Of
 On-Behalf-Of de 2.0 OAuth fluxo funciona o caso de utilização onde uma aplicação invoca uma serviço/API web, que por sua vez tem de chamar outro serviço/API web. A ideia é para propagar a identidade do delegado de utilizador e as permissões através da cadeia de pedidos. Para o serviço de camada média fazer pedidos autenticados para o serviço a jusante, tem de proteger um token de acesso do Azure Active Directory (Azure AD), em nome do utilizador.

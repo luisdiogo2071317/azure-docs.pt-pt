@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: fdee02fb60b633c26704fc1774dfc3a7825b5e0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e534f96b908d2aa1f4d7c48655509ece8dcf43e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desenvolver operadores definido pelo utilizador U-SQL (UDOs)
 Saiba como desenvolver operadores definido pelo utilizador para processar os dados numa tarefa U-SQL.
@@ -130,6 +130,5 @@ Para obter instruções sobre como desenvolver para fins gerais assemblagens U-S
 2. Expanda amostras, expanda saídas e, em seguida, faça duplo clique em **Drivers.csv**.
 
 ## <a name="see-also"></a>Consultar também
-* [Introdução ao Data Lake Analytics com o PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Introdução ao Data Lake Analytics com o portal do Azure](data-lake-analytics-get-started-portal.md)
+* [Expandir as expressões de U-SQL com o código de utilizador](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
 * [Utilizar as ferramentas do Data Lake para Visual Studio para desenvolver aplicações U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

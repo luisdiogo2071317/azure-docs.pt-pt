@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 71ba93c64657725b48ad5915c6bb26dc32e5434d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Criar e carregar um VHD de FreeBSD para o Azure
 Este artigo mostra como criar e carregar um disco rígido virtual (VHD) que contém o sistema de operativo FreeBSD. Depois de carregá-lo, pode utilizá-lo como a sua própria imagem para criar uma máquina virtual (VM) no Azure.
@@ -133,7 +133,7 @@ Ao carregar o ficheiro. vhd, pode colocá-lo em qualquer lugar no seu armazename
 
 * **BlobStorageURL** é o URL para a conta de armazenamento que criou no passo 2.
 * **YourImagesFolder** é o contentor no armazenamento de BLOBs de onde pretende armazenar as imagens.
-* **VHDName** é a etiqueta que aparece no portal clássico do Azure para identificar o disco rígido virtual.
+* **VHDName** é a etiqueta que aparece no portal do Azure para identificar o disco rígido virtual.
 * **PathToVHDFile** é o caminho completo e nome do ficheiro. vhd.
 
 A partir da janela do PowerShell do Azure que utilizou no passo anterior, escreva:

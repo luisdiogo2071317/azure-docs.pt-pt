@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: b23eba91-7698-47e7-ae75-0ceafd739965
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/6/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d7e5692945961fb2b90f86b2aa775c13939bd8c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 2948b3df7e2258b6d842f9d9d5f632e531929676
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>Tutorial: Integração do Azure Active Directory com Apptio
 
@@ -123,11 +123,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
 6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributo token SAML, conforme mostrado na imagem e efetuar os seguintes passos:
 
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | -------------- | -------------------- |    
     | FullName       | User.DisplayName |
     | capacidade de correio           | User.Mail |
-    | Função           | User.assignedrole |
+    | função           | User.assignedrole |
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 

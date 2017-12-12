@@ -12,19 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: fb39b6a737aab3fe5ba477cc4aee601954d16247
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: b3f574e174a763e9a03b21d15755989d3e8a4297
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utilizar Media Services do Azure para fornecer licenças DRM ou chaves AES
 Serviços de suporte de dados do Azure (AMS) permite-lhe inserir, codificar, adicionar proteção de conteúdos e transmitir o seu conteúdo (consulte [isto](media-services-protect-with-playready-widevine.md) artigo para obter detalhes). No entanto, existem que os clientes pretendem apenas utilizar AMS para fornecer licenças e/ou as chaves e efetuar codificação, encriptação e de transmissão em fluxo utilizando os seus servidores no local. Este artigo descreve como pode utilizar AMS para fornecer licenças PlayReady e/ou Widevine mas fazer o resto com os servidores no local. 
 
 ## <a name="overview"></a>Descrição geral
-Os Media Services fornecem um serviço para entrega PlayReady e Widevine DRM licenças e chaves AES-128. Os Media Services também fornecem APIs que permitem configurar os direitos e restrições que pretende para o tempo de execução DRM a impor quando um utilizador reproduz o DRM conteúdo protegido. Quando um utilizador solicita o conteúdo protegido, a aplicação de leitor solicitará uma licença do serviço de licença do AMS. O serviço de licença do AMS irá emitir a licença para o leitor (se está autorizado). Licenças PlayReady e Widevine contém a chave de desencriptação que pode ser utilizada pelo leitor de cliente para desencriptar e transmitir em fluxo o conteúdo.
+Os Media Services fornecem um serviço para entrega PlayReady e Widevine DRM licenças e chaves AES-128. Os Media Services também fornecem APIs que permitem configurar os direitos e restrições que pretende para o tempo de execução DRM a impor quando um utilizador reproduz o DRM conteúdo protegido. Quando um utilizador solicita o conteúdo protegido, a aplicação de leitor solicita uma licença do serviço de licença do AMS. O serviço de licença do AMS emite a licença para o leitor (se está autorizado). Licenças PlayReady e Widevine contém a chave de desencriptação que pode ser utilizada pelo leitor de cliente para desencriptar e transmitir em fluxo o conteúdo.
 
 Os Media Services suportam várias formas de autorização de utilizadores que efetuam pedidos de chaves ou de licença. Configurar política de autorização da chave de conteúdo e a política pode ter um ou mais restrições: aberto ou token restrito. A política de token restrito tem de ser acompanhada por um token emitido por um Serviço de Token Seguro (STS). Os Media Services suportam tokens no formato simples Web Tokens (SWT) e formato JSON Web tokens (JWT).
 
@@ -43,236 +43,245 @@ Pode transferir a amostra descrita neste artigo [aqui](https://github.com/Azure/
     <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
 
 ## <a name="net-code-example"></a>Exemplo de código do .NET
-Exemplo de código seguinte mostra como criar uma chave de conteúdo comuns e obter URLs de aquisição de licença PlayReady ou Widevine. Tem de obter os seguintes tipos de informações do AMS e configurar o servidor no local: **chave de conteúdo**, **id de chave**, **URL de aquisição de licença**. Depois de configurar o servidor no local, foi de fluxo do seu próprio servidor de transmissão em fluxo. Uma vez que os pontos de fluxo encriptada de AMS o servidor de licenças, o seu leitor solicitará uma licença do AMS. Se escolher a autenticação com token, o servidor de licença do AMS irá validar o token enviados através de HTTPS e (se forem válidas) irá fornecer a licença para o leitor. (O exemplo de código apenas mostra como criar uma chave de conteúdo comuns e obter URLs de aquisição de licença PlayReady ou Widevine. Se pretender chaves de entrega AES-128, terá de criar uma chave de conteúdo do envelope e obter um URL de aquisição de chave e [isto](media-services-protect-with-aes128.md) artigo mostra como fazê-lo).
+Exemplo de código seguinte mostra como criar uma chave de conteúdo comuns e obter URLs de aquisição de licença PlayReady ou Widevine. Tem de obter os seguintes tipos de informações do AMS e configurar o servidor no local: **chave de conteúdo**, **id de chave**, **URL de aquisição de licença**. Depois de configurar o servidor no local, foi de fluxo do seu próprio servidor de transmissão em fluxo. Uma vez que os pontos de fluxo encriptada de AMS o servidor de licenças, o leitor de pedidos de uma licença do AMS. Se escolher a autenticação com token, o servidor de licença do AMS valida o token enviados através de HTTPS e (se forem válidas) irá fornecer a licença para o leitor. (O exemplo de código apenas mostra como criar uma chave de conteúdo comuns e obter URLs de aquisição de licença PlayReady ou Widevine. Se pretender chaves de entrega AES-128, terá de criar uma chave de conteúdo do envelope e obter um URL de aquisição de chave e [isto](media-services-protect-with-aes128.md) artigo mostra como fazê-lo).
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-    using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
-    using Newtonsoft.Json;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
+using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
+using Newtonsoft.Json;
 
-    namespace DeliverDRMLicenses
+namespace DeliverDRMLicenses
+{
+    class Program
     {
-        class Program
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
+        private static readonly Uri _sampleIssuer =
+            new Uri(ConfigurationManager.AppSettings["Issuer"]);
+        private static readonly Uri _sampleAudience =
+            new Uri(ConfigurationManager.AppSettings["Audience"]);
+
+        // Field for service context.
+        private static CloudMediaContext _context = null;
+
+        static void Main(string[] args)
         {
-            // Read values from the App.config file.
-            private static readonly string _AADTenantDomain =
-                ConfigurationManager.AppSettings["AADTenantDomain"];
-            private static readonly string _RESTAPIEndpoint =
-                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
 
-            private static readonly Uri _sampleIssuer =
-                new Uri(ConfigurationManager.AppSettings["Issuer"]);
-            private static readonly Uri _sampleAudience =
-                new Uri(ConfigurationManager.AppSettings["Audience"]);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-            // Field for service context.
-            private static CloudMediaContext _context = null;
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-            static void Main(string[] args)
+            bool tokenRestriction = true;
+            string tokenTemplateString = null;
+
+
+            IContentKey key = CreateCommonTypeContentKey();
+
+            // Print out the key ID and Key in base64 string format
+            Console.WriteLine("Created key {0} with key value {1} ",
+                key.Id, System.Convert.ToBase64String(key.GetClearKeyValue()));
+
+            Console.WriteLine("PlayReady License Key delivery URL: {0}",
+                key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense));
+
+            Console.WriteLine("Widevine License Key delivery URL: {0}",
+                key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine));
+
+            if (tokenRestriction)
+                tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
+            else
+                AddOpenAuthorizationPolicy(key);
+
+            Console.WriteLine("Added authorization policy: {0}",
+                key.AuthorizationPolicyId);
+            Console.WriteLine();
+            Console.ReadLine();
+        }
+
+        static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
+        {
+
+            // Create ContentKeyAuthorizationPolicy with Open restrictions 
+            // and create authorization policy          
+
+            List<ContentKeyAuthorizationPolicyRestriction> restrictions =
+                new List<ContentKeyAuthorizationPolicyRestriction>
             {
-                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
-                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
-                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
-                bool tokenRestriction = true;
-                string tokenTemplateString = null;
-
-
-                IContentKey key = CreateCommonTypeContentKey();
-
-                // Print out the key ID and Key in base64 string format
-                Console.WriteLine("Created key {0} with key value {1} ",
-                    key.Id, System.Convert.ToBase64String(key.GetClearKeyValue()));
-
-                Console.WriteLine("PlayReady License Key delivery URL: {0}",
-                    key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense));
-
-                Console.WriteLine("Widevine License Key delivery URL: {0}",
-                    key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine));
-
-                if (tokenRestriction)
-                    tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
-                else
-                    AddOpenAuthorizationPolicy(key);
-
-                Console.WriteLine("Added authorization policy: {0}",
-                    key.AuthorizationPolicyId);
-                Console.WriteLine();
-                Console.ReadLine();
-            }
-
-            static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
-            {
-
-                // Create ContentKeyAuthorizationPolicy with Open restrictions 
-                // and create authorization policy          
-
-                List<ContentKeyAuthorizationPolicyRestriction> restrictions =
-                    new List<ContentKeyAuthorizationPolicyRestriction>
-                {
                         new ContentKeyAuthorizationPolicyRestriction
                         {
                             Name = "Open",
                             KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
                             Requirements = null
                         }
-                };
+            };
 
-                // Configure PlayReady and Widevine license templates.
-                string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
+            // Configure PlayReady and Widevine license templates.
+            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
 
-                string WidevineLicenseTemplate = ConfigureWidevineLicenseTemplate();
+            string WidevineLicenseTemplate = ConfigureWidevineLicenseTemplate();
 
-                IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
-                    _context.ContentKeyAuthorizationPolicyOptions.Create("",
-                        ContentKeyDeliveryType.PlayReadyLicense,
-                            restrictions, PlayReadyLicenseTemplate);
+            IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
+                _context.ContentKeyAuthorizationPolicyOptions.Create("",
+                    ContentKeyDeliveryType.PlayReadyLicense,
+                        restrictions, PlayReadyLicenseTemplate);
 
-                IContentKeyAuthorizationPolicyOption WidevinePolicy =
-                    _context.ContentKeyAuthorizationPolicyOptions.Create("",
-                        ContentKeyDeliveryType.Widevine,
-                        restrictions, WidevineLicenseTemplate);
+            IContentKeyAuthorizationPolicyOption WidevinePolicy =
+                _context.ContentKeyAuthorizationPolicyOptions.Create("",
+                    ContentKeyDeliveryType.Widevine,
+                    restrictions, WidevineLicenseTemplate);
 
-                IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
-                            ContentKeyAuthorizationPolicies.
-                            CreateAsync("Deliver Common Content Key with no restrictions").
-                            Result;
+            IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
+                        ContentKeyAuthorizationPolicies.
+                        CreateAsync("Deliver Common Content Key with no restrictions").
+                        Result;
 
 
-                contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
-                contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
-                // Associate the content key authorization policy with the content key.
-                contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
-                contentKey = contentKey.UpdateAsync().Result;
-            }
+            contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
+            contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
+            // Associate the content key authorization policy with the content key.
+            contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
+            contentKey = contentKey.UpdateAsync().Result;
+        }
 
-            public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
+        public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
+        {
+            string tokenTemplateString = GenerateTokenRequirements();
+
+            List<ContentKeyAuthorizationPolicyRestriction> restrictions =
+                new List<ContentKeyAuthorizationPolicyRestriction>
             {
-                string tokenTemplateString = GenerateTokenRequirements();
-
-                List<ContentKeyAuthorizationPolicyRestriction> restrictions =
-                    new List<ContentKeyAuthorizationPolicyRestriction>
-                {
                         new ContentKeyAuthorizationPolicyRestriction
                         {
                             Name = "Token Authorization Policy",
                             KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
                             Requirements = tokenTemplateString,
                         }
-                };
+            };
 
-                // Configure PlayReady and Widevine license templates.
-                string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
+            // Configure PlayReady and Widevine license templates.
+            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
 
-                string WidevineLicenseTemplate = ConfigureWidevineLicenseTemplate();
+            string WidevineLicenseTemplate = ConfigureWidevineLicenseTemplate();
 
-                IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
-                    _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
-                        ContentKeyDeliveryType.PlayReadyLicense,
-                            restrictions, PlayReadyLicenseTemplate);
+            IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
+                _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
+                    ContentKeyDeliveryType.PlayReadyLicense,
+                        restrictions, PlayReadyLicenseTemplate);
 
-                IContentKeyAuthorizationPolicyOption WidevinePolicy =
-                    _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
-                        ContentKeyDeliveryType.Widevine,
-                            restrictions, WidevineLicenseTemplate);
+            IContentKeyAuthorizationPolicyOption WidevinePolicy =
+                _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
+                    ContentKeyDeliveryType.Widevine,
+                        restrictions, WidevineLicenseTemplate);
 
-                IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
-                            ContentKeyAuthorizationPolicies.
-                            CreateAsync("Deliver Common Content Key with token restrictions").
-                            Result;
+            IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
+                        ContentKeyAuthorizationPolicies.
+                        CreateAsync("Deliver Common Content Key with token restrictions").
+                        Result;
 
-                contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
-                contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
+            contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
+            contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
 
-                // Associate the content key authorization policy with the content key
-                contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
-                contentKey = contentKey.UpdateAsync().Result;
+            // Associate the content key authorization policy with the content key
+            contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
+            contentKey = contentKey.UpdateAsync().Result;
 
-                return tokenTemplateString;
-            }
+            return tokenTemplateString;
+        }
 
-            static private string GenerateTokenRequirements()
+        static private string GenerateTokenRequirements()
+        {
+            TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+
+            template.PrimaryVerificationKey = new SymmetricVerificationKey();
+            template.AlternateVerificationKeys.Add(new SymmetricVerificationKey());
+            template.Audience = _sampleAudience.ToString();
+            template.Issuer = _sampleIssuer.ToString();
+            template.RequiredClaims.Add(TokenClaim.ContentKeyIdentifierClaim);
+
+            return TokenRestrictionTemplateSerializer.Serialize(template);
+        }
+
+        static private string ConfigurePlayReadyLicenseTemplate()
+        {
+            // The following code configures PlayReady License Template using .NET classes
+            // and returns the XML string.
+
+            //The PlayReadyLicenseResponseTemplate class represents the template 
+            //for the response sent back to the end user. 
+            //It contains a field for a custom data string between the license server 
+            //and the application (may be useful for custom app logic) 
+            //as well as a list of one or more license templates.
+
+            PlayReadyLicenseResponseTemplate responseTemplate =
+                new PlayReadyLicenseResponseTemplate();
+
+            // The PlayReadyLicenseTemplate class represents a license template 
+            // for creating PlayReady licenses
+            // to be returned to the end users. 
+            // It contains the data on the content key in the license 
+            // and any rights or restrictions to be 
+            // enforced by the PlayReady DRM runtime when using the content key.
+            PlayReadyLicenseTemplate licenseTemplate = new PlayReadyLicenseTemplate();
+
+            // Configure whether the license is persistent 
+            // (saved in persistent storage on the client) 
+            // or non-persistent (only held in memory while the player is using the license).  
+            licenseTemplate.LicenseType = PlayReadyLicenseType.Nonpersistent;
+
+            // AllowTestDevices controls whether test devices can use the license or not.  
+            // If true, the MinimumSecurityLevel property of the license
+            // is set to 150.  If false (the default), 
+            // the MinimumSecurityLevel property of the license is set to 2000.
+            licenseTemplate.AllowTestDevices = true;
+
+            // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
+            // It grants the user the ability to playback the content subject to the zero or more restrictions 
+            // configured in the license and on the PlayRight itself (for playback specific policy). 
+            // Much of the policy on the PlayRight has to do with output restrictions 
+            // which control the types of outputs that the content can be played over and 
+            // any restrictions that must be put in place when using a given output.
+            // For example, if the DigitalVideoOnlyContentRestriction is enabled, 
+            //then the DRM runtime will only allow the video to be displayed over digital outputs 
+            //(analog video outputs won’t be allowed to pass the content).
+
+            // IMPORTANT: These types of restrictions can be very powerful 
+            // but can also affect the consumer experience. 
+            // If the output protections are configured too restrictive, 
+            // the content might be unplayable on some clients. 
+            // For more information, see the PlayReady Compliance Rules document.
+
+            // For example:
+            //licenseTemplate.PlayRight.AgcAndColorStripeRestriction = new AgcAndColorStripeRestriction(1);
+
+            responseTemplate.LicenseTemplates.Add(licenseTemplate);
+
+            return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
+        }
+
+
+        private static string ConfigureWidevineLicenseTemplate()
+        {
+            var template = new WidevineMessage
             {
-                TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
-
-                template.PrimaryVerificationKey = new SymmetricVerificationKey();
-                template.AlternateVerificationKeys.Add(new SymmetricVerificationKey());
-                template.Audience = _sampleAudience.ToString();
-                template.Issuer = _sampleIssuer.ToString();
-                template.RequiredClaims.Add(TokenClaim.ContentKeyIdentifierClaim);
-
-                return TokenRestrictionTemplateSerializer.Serialize(template);
-            }
-
-            static private string ConfigurePlayReadyLicenseTemplate()
-            {
-                // The following code configures PlayReady License Template using .NET classes
-                // and returns the XML string.
-
-                //The PlayReadyLicenseResponseTemplate class represents the template 
-                //for the response sent back to the end user. 
-                //It contains a field for a custom data string between the license server 
-                //and the application (may be useful for custom app logic) 
-                //as well as a list of one or more license templates.
-
-                PlayReadyLicenseResponseTemplate responseTemplate =
-                    new PlayReadyLicenseResponseTemplate();
-
-                // The PlayReadyLicenseTemplate class represents a license template 
-                // for creating PlayReady licenses
-                // to be returned to the end users. 
-                // It contains the data on the content key in the license 
-                // and any rights or restrictions to be 
-                // enforced by the PlayReady DRM runtime when using the content key.
-                PlayReadyLicenseTemplate licenseTemplate = new PlayReadyLicenseTemplate();
-
-                // Configure whether the license is persistent 
-                // (saved in persistent storage on the client) 
-                // or non-persistent (only held in memory while the player is using the license).  
-                licenseTemplate.LicenseType = PlayReadyLicenseType.Nonpersistent;
-
-                // AllowTestDevices controls whether test devices can use the license or not.  
-                // If true, the MinimumSecurityLevel property of the license
-                // is set to 150.  If false (the default), 
-                // the MinimumSecurityLevel property of the license is set to 2000.
-                licenseTemplate.AllowTestDevices = true;
-
-                // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
-                // It grants the user the ability to playback the content subject to the zero or more restrictions 
-                // configured in the license and on the PlayRight itself (for playback specific policy). 
-                // Much of the policy on the PlayRight has to do with output restrictions 
-                // which control the types of outputs that the content can be played over and 
-                // any restrictions that must be put in place when using a given output.
-                // For example, if the DigitalVideoOnlyContentRestriction is enabled, 
-                //then the DRM runtime will only allow the video to be displayed over digital outputs 
-                //(analog video outputs won’t be allowed to pass the content).
-
-                // IMPORTANT: These types of restrictions can be very powerful 
-                // but can also affect the consumer experience. 
-                // If the output protections are configured too restrictive, 
-                // the content might be unplayable on some clients. 
-                // For more information, see the PlayReady Compliance Rules document.
-
-                // For example:
-                //licenseTemplate.PlayRight.AgcAndColorStripeRestriction = new AgcAndColorStripeRestriction(1);
-
-                responseTemplate.LicenseTemplates.Add(licenseTemplate);
-
-                return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
-            }
-
-
-            private static string ConfigureWidevineLicenseTemplate()
-            {
-                var template = new WidevineMessage
+                allowed_track_types = AllowedTrackTypes.SD_HD,
+                content_key_specs = new[]
                 {
-                    allowed_track_types = AllowedTrackTypes.SD_HD,
-                    content_key_specs = new[]
-                    {
                             new ContentKeySpecs
                             {
                                 required_output_protection =
@@ -281,48 +290,49 @@ Exemplo de código seguinte mostra como criar uma chave de conteúdo comuns e ob
                                 track_type = "SD"
                             }
                         },
-                    policy_overrides = new
-                    {
-                        can_play = true,
-                        can_persist = true,
-                        can_renew = false
-                    }
-                };
-
-                string configuration = JsonConvert.SerializeObject(template);
-                return configuration;
-            }
-
-
-            static public IContentKey CreateCommonTypeContentKey()
-            {
-                // Create envelope encryption content key
-                Guid keyId = Guid.NewGuid();
-                byte[] contentKey = GetRandomBuffer(16);
-
-                IContentKey key = _context.ContentKeys.Create(
-                                        keyId,
-                                        contentKey,
-                                        "ContentKey",
-                                        ContentKeyType.CommonEncryption);
-
-                return key;
-            }
-
-            static private byte[] GetRandomBuffer(int length)
-            {
-                var returnValue = new byte[length];
-
-                using (var rng =
-                    new System.Security.Cryptography.RNGCryptoServiceProvider())
+                policy_overrides = new
                 {
-                    rng.GetBytes(returnValue);
+                    can_play = true,
+                    can_persist = true,
+                    can_renew = false
                 }
+            };
 
-                return returnValue;
+            string configuration = JsonConvert.SerializeObject(template);
+            return configuration;
+        }
+
+
+        static public IContentKey CreateCommonTypeContentKey()
+        {
+            // Create envelope encryption content key
+            Guid keyId = Guid.NewGuid();
+            byte[] contentKey = GetRandomBuffer(16);
+
+            IContentKey key = _context.ContentKeys.Create(
+                                    keyId,
+                                    contentKey,
+                                    "ContentKey",
+                                    ContentKeyType.CommonEncryption);
+
+            return key;
+        }
+
+        static private byte[] GetRandomBuffer(int length)
+        {
+            var returnValue = new byte[length];
+
+            using (var rng =
+                new System.Security.Cryptography.RNGCryptoServiceProvider())
+            {
+                rng.GetBytes(returnValue);
             }
+
+            return returnValue;
         }
     }
+}
+```
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

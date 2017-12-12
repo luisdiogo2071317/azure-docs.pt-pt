@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 83a83d07-ff9c-46c4-b5ba-25fe2b2cd003
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jeedes
-ms.openlocfilehash: d6f0570f7a98fc9f703c37eed4219990dac4d370
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 03a6eb581dae88e9789b73c04d5424c0ed14cf62
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Tutorial: Integração do Azure Active Directory com Achieve3000
 
@@ -125,7 +125,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributo token SAML, conforme mostrado na imagem e efetuar os seguintes passos:
     
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |    
     | studentID               | User.Mail |
 

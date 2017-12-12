@@ -5,7 +5,7 @@ services: active-directory
 keywords: Licenciamento do Azure AD
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa16cf14def7c6b4555d6624b25e267ef01d5adb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bd28eeb8d67dc0dcb3303fdb0e3c20b32f7c431
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licença para um grupo no Azure Active Directory
 
@@ -52,7 +52,7 @@ Quando estiver a utilizar com base no grupo de licenciamento, podem ocorrer os e
 
 As secções seguintes fornecem uma descrição de cada potencial problema e a forma de resolvê-lo.
 
-## <a name="not-enough-licenses"></a>Licenças não suficientes
+## <a name="not-enough-licenses"></a>Não existem licenças suficientes
 
 **Problema:** não sabemos de licenças suficientes disponíveis para um dos produtos que é especificada no grupo. Terá de adquirir mais licenças para o produto ou liberte licenças por utilizar de outros utilizadores ou grupos.
 
@@ -62,7 +62,7 @@ Para ver que utilizadores e grupos que estão a consumir licenças, selecione um
 
 **PowerShell:** cmdlets do PowerShell comunique este erro como _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Planos de serviços em conflito
+## <a name="conflicting-service-plans"></a>Planos de serviço em conflito
 
 **Problema:** contém um dos produtos que é especificado no grupo de um plano de serviço está em conflito com outro plano de serviço já está atribuído ao utilizador através de um produto diferente. Alguns planos de serviço são configurados de forma a que não é possível atribuir o mesmo utilizador plano de serviço de outra, relacionados.
 
@@ -77,7 +77,7 @@ A decisão sobre como resolver sempre as licenças de produtos em conflito perte
 
 **PowerShell:** cmdlets do PowerShell comunique este erro como _MutuallyExclusiveViolation_.
 
-## <a name="other-products-depend-on-this-license"></a>Outros produtos dependem esta licença
+## <a name="other-products-depend-on-this-license"></a>Outros produtos dependem desta licença
 
 **Problema:** contém um dos produtos que é especificado no grupo de um plano de serviço que deve estar ativado para outro plano de serviço, no outro produto, para a função. Este erro ocorre quando tenta do Azure AD remover o plano de serviço subjacente. Por exemplo, isto pode acontecer se remover o utilizador do grupo.
 

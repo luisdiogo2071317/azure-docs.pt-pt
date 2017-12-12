@@ -4,7 +4,7 @@ description: Saiba como configurar dispositivos do Azure Active Directory associ
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41ae5d019e303246d7c7c2b06cf73280f6472b6e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Dispositivos associados ao conjunto de cópias de segurança do Azure Active Directory
 
@@ -87,7 +87,7 @@ Esta secção fornece os passos para associar o seu dispositivo Windows 10 para 
 
 6. No **palavra-passe de Enter** caixa de diálogo, introduza a palavra-passe e, em seguida, clique em **sessão**.
 
-    ![Introduza a palavra-passe](./media/device-management-azuread-joined-devices-setup/05.png)
+    ![Introduzir palavra-passe](./media/device-management-azuread-joined-devices-setup/05.png)
 
 
 7. No **certificar-se de que esta é a sua organização** caixa de diálogo, clique em **associar**.

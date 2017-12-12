@@ -4,7 +4,7 @@ description: "Como criar uma aplicação de ambiente de trabalho do Windows que 
 services: active-directory-b2c
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 9da14362-8216-4485-960e-af17cd5ba3bd
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 8e2b5c704230ee2ba1395dc76a1551aaa8e7af7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 62b1a34f2380446b9f5cbadda7eab8c698f1a92f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>O Azure AD B2C: Criar uma aplicação de ambiente de trabalho do Windows
 Ao utilizar o Azure Active Directory (Azure AD) B2C, pode adicionar as funcionalidades de gestão de identidade poderosas self-service para a sua aplicação de ambiente de trabalho em poucos passos. Este artigo irá mostrar como criar uma aplicação de "lista de tarefas".NET Windows Presentation Foundation (WPF) que inclui a inscrição, início de sessão de utilizador e gestão de perfis. A aplicação irá incluir suporte para inscrição e o início de sessão utilizando um nome de utilizador ou o e-mail. Irá também inclui suporte para inscrição e o início de sessão através da utilização de contas de redes sociais como o Facebook e Google.

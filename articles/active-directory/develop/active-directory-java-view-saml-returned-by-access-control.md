@@ -4,7 +4,7 @@ description: "Saiba como ver SAML devolvido pelo serviço de controlo de acesso 
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: mtillman
 editor: 
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: 1552e624a4703138ab82f7133ceaec3dbd04e1db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Como ver SAML devolvido pelo serviço de controlo de acesso do Azure
 Este guia irá mostrar como visualizar o subjacente Security Assertion Markup Language (SAML) devolvida para a aplicação por acesso Control Service (ACS) do Azure. O guia baseia-se a [como autenticar utilizadores Web com o Eclipse de através de serviço de controlo de acesso do Azure](active-directory-java-authenticate-users-access-control-eclipse.md) tópico, fornecendo o código que apresenta as informações de SAML. A aplicação concluída terá um aspeto semelhante ao seguinte.

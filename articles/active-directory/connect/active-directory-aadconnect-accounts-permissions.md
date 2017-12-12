@@ -4,7 +4,7 @@ description: "Este tópico descreve as contas utilizadas e criado e as permissõ
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Do Azure AD Connect: Contas e permissões
 O Assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:
@@ -75,8 +75,8 @@ O Azure AD Connect versão 1.1.524.0 e posterior, tem a opção para permitir qu
 | Ligar ao Azure AD |Credenciais de diretório do Azure AD |Função de administrador global no Azure AD |<li>Ativar a sincronização no diretório do Azure AD.</li>  <li>A criação do [conta do Azure AD](#azure-ad-service-account) que é utilizada para operações de sincronização em curso no Azure AD.</li> |
 | Ligar os diretórios |Credenciais do Active Directory no local para cada floresta que está ligado ao Azure AD |As permissões dependem as funcionalidades que pode ativa e pode ser encontrado na [criar a conta do AD DS](#create-the-ad-ds-account) |Esta conta é utilizada para ler e escrever informações de diretório durante a sincronização. |
 | Servidores do AD FS |Para cada servidor na lista, o assistente recolhe as credenciais quando as credenciais de início de sessão do utilizador a executar o assistente não são suficientes estabelecer a ligação |Administrador de domínio |Instalação e configuração da função de servidor do AD FS. |
-| Servidores de proxy de aplicações Web |Para cada servidor na lista, o assistente recolhe as credenciais quando as credenciais de início de sessão do utilizador a executar o assistente não são suficientes estabelecer a ligação |Administrador local no computador de destino |Instalação e configuração da função de servidor do WAP. |
-| Credenciais de fidedignidade do proxy |As credenciais (as credenciais de proxy utiliza para inscrever um certificado de confiança do FS de confiança do serviço de Federação |Conta de domínio que seja um administrador local do servidor do AD FS |Inscrição inicial do certificado de confiança FS WAP. |
+| Servidores proxy de aplicações Web |Para cada servidor na lista, o assistente recolhe as credenciais quando as credenciais de início de sessão do utilizador a executar o assistente não são suficientes estabelecer a ligação |Administrador local no computador de destino |Instalação e configuração da função de servidor do WAP. |
+| Credenciais de confiança do proxy |As credenciais (as credenciais de proxy utiliza para inscrever um certificado de confiança do FS de confiança do serviço de Federação |Conta de domínio que seja um administrador local do servidor do AD FS |Inscrição inicial do certificado de confiança FS WAP. |
 | Página de conta de serviço FS AD, "Utilizar uma opção de conta de utilizador de domínio" |Credenciais de conta de utilizador do AD |Utilizador de domínio |A conta de utilizador do AD cujas credenciais são fornecidas é utilizada como a conta de início de sessão do serviço do AD FS. |
 
 ### <a name="create-the-ad-ds-account"></a>Criar a conta do AD DS

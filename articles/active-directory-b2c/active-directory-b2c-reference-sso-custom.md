@@ -4,7 +4,7 @@ description: "Saiba como gerir sessões SSO utilizando as políticas personaliza
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 809f6000-2e52-43e4-995d-089d85747e1f
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: parja
-ms.openlocfilehash: ff767993eaf0305168176d0ad6e15c068b8c85eb
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 676b277ae3fbf4554838eee70c5d3e2d8e12c33d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>O Azure AD B2C: Início de sessão (SSO) sessão gestão único
 
@@ -96,10 +96,10 @@ Este fornecedor é utilizado para gerir as sessões SAML do Azure AD B2C entre a
 
 Existem dois itens de metadados no perfil de técnico:
 
-| Item | Valor predefinido | Valores Possíveis | Descrição
+| Item | Valor Predefinido | Valores Possíveis | Descrição
 | --- | --- | --- | --- |
-| IncludeSessionIndex | VERDADEIRO | Verdadeiro/Falso | Indica ao fornecedor de que o índice de sessão deve ser armazenado. |
-| RegisterServiceProviders | VERDADEIRO | Verdadeiro/Falso | Indica que o fornecedor deve registar todos os fornecedores de serviços SAML que foram emitidos uma asserção. |
+| IncludeSessionIndex | verdadeiro | Verdadeiro/Falso | Indica ao fornecedor de que o índice de sessão deve ser armazenado. |
+| RegisterServiceProviders | verdadeiro | Verdadeiro/Falso | Indica que o fornecedor deve registar todos os fornecedores de serviços SAML que foram emitidos uma asserção. |
 
 Ao utilizar o fornecedor para armazenar uma sessão de fornecedor de identidade SAML, os itens acima deverão ser falsos. Ao utilizar o fornecedor para armazenar a sessão de SAML do B2C, os itens acima devem ser VERDADEIRO ou omitido as predefinições são verdadeiras.
 

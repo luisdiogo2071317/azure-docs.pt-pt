@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 51e8695f-31e1-4d09-8eb3-13241999d99f
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 932f5f12c75299e532d3fa2c31f1805a7df30158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aca50fedb44f25f4d98e4a893ac55783263ba52b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Tutorial: Integração do Azure Active Directory com Learningpool Act
 
@@ -131,7 +131,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributo token SAML, conforme mostrado na imagem e efetuar os seguintes passos:
     
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |
     | urn: oid:1.2.840.113556.1.4.221 | User.userPrincipalName |
     | urn: oid:2.5.4.42 | User.givenName |

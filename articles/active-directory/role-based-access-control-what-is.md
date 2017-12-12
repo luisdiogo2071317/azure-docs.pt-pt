@@ -4,7 +4,7 @@ description: "Introdução à gestão de acessos com controlo de acesso baseado 
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 0462fe8ff75bdda397decb301c459795886e9e58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7df1ebcc65998a2078f5f215277eef351e48ca1b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introdução ao controlo de acesso baseado em funções no portal do Azure
 Segurança e orientado para empresas devem focar-se em fornecer aos funcionários as permissões exatas que precisam. Demasiados permissões podem expor uma conta para os atacantes. Permissões insuficientes significa que os funcionários não é possível obter o trabalho feito de forma eficiente. Azure baseada em funções controlo de acesso (RBAC) ajuda a resolver este problema, oferecendo gestão de acesso detalhada para o Azure.

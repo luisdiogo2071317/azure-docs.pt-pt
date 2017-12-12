@@ -4,7 +4,7 @@ description: "Explica os diferentes métodos para atualizar para a versão mais 
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 61d384cfcfbbd0726faffe2e2ee09faf35c781e3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: acce2e8f0c875d0211f132efab5f55d77a0def67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>O Azure AD Connect: Atualização de uma versão anterior para a versão mais recente
 Este tópico descreve os diferentes métodos que pode utilizar para atualizar a instalação do Connect do Azure Active Directory (Azure AD) para a versão mais recente. Recomendamos que mantenha sozinho atual com as versões do Azure AD Connect. Também é utilizar os passos a [Swing migração](#swing-migration) secção quando fizer uma alteração de configuração significativas.

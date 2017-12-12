@@ -3,7 +3,7 @@ title: "Afirmações mapeamento no Azure Active Directory (pré-visualização p
 description: "Esta página descreve o mapeamento de afirmações de Azure Active Directory."
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 78dbbe085fca26ad529c6262ba852f3c06ace404
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f5ca44e08c783fdf22a14d71c56c3019cc2bb52
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Afirmações mapeamento no Azure Active Directory (pré-visualização pública)
 
@@ -95,7 +95,7 @@ Não não possível modificar afirmações restritas utilizando a política. Nã
 |domain_dns_name|
 |domain_netbios_name|
 |e_exp|
-|Correio eletrónico|
+|e-mail|
 |ponto final|
 |enfpolids|
 |EXP|
@@ -154,8 +154,8 @@ Não não possível modificar afirmações restritas utilizando a política. Nã
 |refresh_token|
 |refreshtoken|
 |request_nonce|
-|Recursos|
-|Função|
+|Recurso|
+|função|
 |funções|
 |Âmbito|
 |SCP|
@@ -283,11 +283,11 @@ O elemento ID identifica cuja propriedade na origem fornece o valor para a afirm
 |Origem|ID|Descrição|
 |-----|-----|-----|
 |Utilizador|Apelido|Nome de família|
-|Utilizador|givenName|Nome fornecido|
-|Utilizador|DisplayName|Nome a apresentar|
+|Utilizador|givenName|Nome Próprio|
+|Utilizador|DisplayName|Nome a Apresentar|
 |Utilizador|ObjectId|ObjectID|
-|Utilizador|capacidade de correio|Endereço de correio eletrónico|
-|Utilizador|userPrincipalName|Nome Principal de utilizador|
+|Utilizador|capacidade de correio|Endereço de E-mail|
+|Utilizador|userPrincipalName|Nome do Principal de Utilizador|
 |Utilizador|Departamento|Departamento|
 |Utilizador|onpremisessamaccountname|No nome da conta de Sam local|
 |Utilizador|netbiosname|Nome NetBios|
@@ -295,7 +295,7 @@ O elemento ID identifica cuja propriedade na origem fornece o valor para a afirm
 |Utilizador|onpremisesecurityidentifier|Identificador de segurança no local|
 |Utilizador|companyname|Nome da Organização|
 |Utilizador|streetAddress|Morada|
-|Utilizador|postalcode|Código postal|
+|Utilizador|postalcode|Código Postal|
 |Utilizador|preferredlanguange|Idioma preferencial|
 |Utilizador|onpremisesuserprincipalname|UPN no local|
 |Utilizador|mailNickname|Alcunha de correio|
@@ -319,9 +319,9 @@ O elemento ID identifica cuja propriedade na origem fornece o valor para a afirm
 |Utilizador|city|Cidade|
 |Utilizador|state|Estado|
 |Utilizador|jobtitle|Cargo|
-|Utilizador|Campo IDdeEmpregado|ID de empregado|
+|Utilizador|Campo IDdeEmpregado|ID do Empregado|
 |Utilizador|facsimiletelephonenumber|Número de telefone facsimile|
-|aplicação, recursos, público-alvo|DisplayName|Nome a apresentar|
+|aplicação, recursos, público-alvo|DisplayName|Nome a Apresentar|
 |aplicação, recursos, público-alvo|objeto|ObjectID|
 |aplicação, recursos, público-alvo|etiquetas|Etiqueta de Principal de serviço|
 |Empresa|tenantcountry|País do inquilino|
@@ -380,10 +380,10 @@ Com base no método escolhido, é esperado um conjunto de entradas e saídas. Es
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como origem de dados para SAML NameID
 |Origem|ID|Descrição|
 |-----|-----|-----|
-|Utilizador|capacidade de correio|Endereço de correio eletrónico|
-|Utilizador|userPrincipalName|Nome Principal de utilizador|
+|Utilizador|capacidade de correio|Endereço de E-mail|
+|Utilizador|userPrincipalName|Nome do Principal de Utilizador|
 |Utilizador|onpremisessamaccountname|No nome da conta de Sam local|
-|Utilizador|Campo IDdeEmpregado|ID de empregado|
+|Utilizador|Campo IDdeEmpregado|ID do Empregado|
 |Utilizador|extensionattribute1|Atributo de extensão 1|
 |Utilizador|extensionattribute2|Atributo de extensão 2|
 |Utilizador|extensionattribute3|Atributo de extensão 3|

@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 3934f814a9060adf275a4bdcc83403da4b2a4075
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Active Directory com o Software de RH Cezanne
 
@@ -125,25 +125,29 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. No **Cezanne HR Software configuração** secção, clique em **configurar Cezanne HR Software** para abrir **configurar início de sessão** janela. Copiar o **ID de entidade de SAML e único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. No **Cezanne HR Software configuração** secção, clique em **configurar Cezanne HR Software** para abrir **configurar início de sessão** janela.
 
-    ![Configuração do Software Cezanne HR](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    ![Configuração do Software Cezanne HR](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. Numa janela do browser web diferente, início de sessão no seu inquilino Cezanne HR Software como um administrador.
+7. Desloque para baixo até o **referência rápida** secção. Copiar o **único início de sessão no URL do serviço SAML e o ID de entidade de SAML** do **secção de referência rápida.**
 
-8. No painel de navegação esquerdo, clique em **a configuração do sistema**. Aceda a **definições de segurança**. Em seguida, navegue para **configuração de início de sessão único**.
+    ![Configuração do Software Cezanne HR](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+
+8. Numa janela do browser web diferente, início de sessão no seu inquilino Cezanne HR Software como um administrador.
+
+9. No painel de navegação esquerdo, clique em **a configuração do sistema**. Aceda a **definições de segurança**. Em seguida, navegue para **configuração de início de sessão único**.
 
     ![Configurar lado único início de sessão na aplicação](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. No **permitem aos utilizadores iniciar sessão com o seguinte serviço único Sign-On (SSO)** painel, verifique o **SAML 2.0** caixa e selecione o **configuração avançada** opção.
+10. No **permitem aos utilizadores iniciar sessão com o seguinte serviço único Sign-On (SSO)** painel, verifique o **SAML 2.0** caixa e selecione o **configuração avançada** opção.
 
     ![Configurar lado único início de sessão na aplicação](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-10. Clique em **adicionar novo** botão.
+11. Clique em **adicionar novo** botão.
 
     ![Configurar lado único início de sessão na aplicação](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-11. Execute os seguintes passos no **fornecedores de identidade SAML 2.0** secção.
+12. Execute os seguintes passos no **fornecedores de identidade SAML 2.0** secção.
 
     ![Configurar lado único início de sessão na aplicação](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -161,7 +165,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     g. Clique no botão **OK**. 
 
-12. Clique em **guardar** botão.
+13. Clique em **guardar** botão.
 
     ![Configurar lado único início de sessão na aplicação](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 

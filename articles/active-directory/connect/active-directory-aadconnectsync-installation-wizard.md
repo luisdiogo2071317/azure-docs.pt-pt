@@ -5,7 +5,7 @@ keywords: "O Assistente de instalação do Azure AD Connect permite-lhe configur
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 42855b785c0ab334e33a622c8db912ce2438c627
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5688175f5277139b09b648bedbedd7e91e1478f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronização do Azure AD Connect: executar o Assistente de instalação de uma segunda vez
 Na primeira vez que executar o Assistente de instalação do Azure AD Connect, explica como configurar a sua instalação. Se executar novamente o Assistente de instalação, oferece opções de manutenção.
@@ -41,14 +41,14 @@ Selecione uma das tarefas e clique em **seguinte** para continuar.
 >
 >
 
-## <a name="view-current-configuration"></a>Ver a configuração atual
+## <a name="view-current-configuration"></a>Ver configuração atual
 Esta opção fornece-lhe uma vista rápida do que as suas opções atualmente configuradas.
 
 ![Página com uma lista de todas as opções e o respetivo estado](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
 
 Clique em **anterior** para voltar atrás. Se selecionar **saída**, feche o Assistente de instalação.
 
-## <a name="customize-synchronization-options"></a>Personalizar opções de sincronização
+## <a name="customize-synchronization-options"></a>Personalizar as opções de sincronização
 Esta opção é utilizada para efetuar alterações à configuração de sincronização. Verá um subconjunto das opções do caminho de instalação de configuração personalizada. Ver esta opção, mesmo se tiver utilizado inicialmente instalação rápida.
 
 * [Adicionar mais diretórios](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Para remover um diretório, consulte [eliminar um conector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
@@ -62,7 +62,7 @@ As outras opções da instalação inicial não podem ser alteradas e não estã
 * Altere o método joining para objetos de floresta diferente.
 * Ative a filtragem baseada no grupo.
 
-## <a name="refresh-directory-schema"></a>Atualizar o esquema de diretório
+## <a name="refresh-directory-schema"></a>Atualizar esquema do diretório
 Esta opção é utilizada se tiver alterado o esquema de uma das seguintes no local florestas do AD DS. Por exemplo, poderá ter instalado o Exchange ou atualizado para um esquema do Windows Server 2012 com objetos de dispositivo. Neste caso, terá de ao instruir o Azure AD Connect, leia o esquema novamente do AD DS e atualize a cache. Esta ação gera também de novo as regras de sincronização. Se adicionar o esquema do Exchange, por exemplo, são adicionadas as regras de sincronização para o Exchange para a configuração.
 
 Quando seleciona esta opção, são listados todos os diretórios na sua configuração. Pode manter a predefinição e atualizar todas as florestas ou anule a seleção de algumas delas.
@@ -78,7 +78,7 @@ A opção mostra se o teste está atualmente ativada ou desativada:
 Para alterar o estado, selecione esta opção e selecione ou desmarque a caixa de verificação.  
 ![Opção que também está a ser mostrado o estado atual do modo de teste](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
-## <a name="change-user-sign-in"></a>Alterar a sessão do utilizador
+## <a name="change-user-sign-in"></a>Alterar início de sessão do utilizador
 Esta opção permite-lhe alterar a partir da sincronização de palavra-passe para Federação ou o inverso. Não é possível alterar a **não configurar**.
 
 Para obter mais informações sobre esta opção, consulte [sessão do utilizador](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).

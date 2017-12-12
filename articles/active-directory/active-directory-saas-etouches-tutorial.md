@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 76cccaa8-859c-4c16-9d1d-8a6496fc7520
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 3cd9e9d6aae924369065ca492b1f6380c0ddc5fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc111d6805af9e4f86ab91b6673a0d52dca78223
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Tutorial: Integração do Azure Active Directory com etouches
 
@@ -117,17 +117,17 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 4. aplicação de etouches espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos do **atributo de utilizador** da aplicação. A seguinte captura de ecrã mostra um exemplo para este. 
 
-    ![Atributo de utilizador](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_attribute.png) 
+    ![Atributo de Utilizador](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_attribute.png) 
 
 5. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributo token SAML, conforme mostrado na imagem e efetuar os seguintes passos:
     
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |
     | E-mail | User.Mail |    
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
-    ![Adicionar atributo](./media/active-directory-saas-etouches-tutorial/tutorial_attribute_04.png)
+    ![Adicionar Atributo](./media/active-directory-saas-etouches-tutorial/tutorial_attribute_04.png)
 
     ![Atributo caixa de diálogo Adicionar](./media/active-directory-saas-etouches-tutorial/tutorial_attribute_05.png)
 

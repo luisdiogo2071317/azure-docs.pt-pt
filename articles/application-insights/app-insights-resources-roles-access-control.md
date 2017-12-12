@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: e3aa1d432cf2c510c09b13d4f07833edcb1e9b53
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6e811c9b427469fa781cf1f5b7c7deff3a8e6eb3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controlo de acesso no Application Insights
 Pode controlar quem tem ler e atualizar o acesso aos seus dados no Azure [Application Insights][start], utilizando [controlo de acesso baseado em funções no Microsoft Azure](../active-directory/role-based-access-control-configure.md).
@@ -42,7 +42,7 @@ Primeiro, algumas definições:
 
     ![Escolha procurar, grupos de recursos, em seguida, escolha um grupo](./media/app-insights-resources-roles-access-control/11-group.png)
 
-* [**Subscrição** ](https://manage.windowsazure.com) - para utilizar o Application Insights ou outros recursos do Azure, pode iniciar sessão para uma subscrição do Azure. Cada grupo de recursos pertence a uma subscrição do Azure, onde escolher o seu pacote de preços e, se se tratar de uma subscrição de organização, escolha os membros e as respetivas permissões de acesso.
+* [**Subscrição** ](https://portal.azure.com) - para utilizar o Application Insights ou outros recursos do Azure, pode iniciar sessão para uma subscrição do Azure. Cada grupo de recursos pertence a uma subscrição do Azure, onde escolher o seu pacote de preços e, se se tratar de uma subscrição de organização, escolha os membros e as respetivas permissões de acesso.
 * [**Conta Microsoft** ] [ account] -o nome de utilizador e palavra-passe que utiliza para iniciar sessão Microsoft Azure subscrições, XBox Live, Outlook.com e outros serviços Microsoft.
 
 ## <a name="access"></a>Controlo de acesso no grupo de recursos
@@ -67,7 +67,7 @@ Adicione o utilizador não existe.
 
 Ou foi aceda a cópia de segurança outro nível e adicionar o utilizador à subscrição.
 
-#### <a name="select-a-role"></a>Selecione uma função
+#### <a name="select-a-role"></a>Selecionar uma função
 ![Selecione uma função para o novo utilizador](./media/app-insights-resources-roles-access-control/03-role.png)
 
 | Função | No grupo de recursos |

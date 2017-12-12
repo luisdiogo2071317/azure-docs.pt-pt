@@ -5,7 +5,7 @@ services: active-directory
 keywords: "proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança, Glossário"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5b6d2db0a8df31fd159053cceab6b9b320ffd8cb
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário de proteção de identidade do Azure Active Directory
 ### <a name="at-risk-user"></a>Em risco (utilizador)
@@ -142,7 +142,7 @@ Um evento de risco acionado quando um utilizador com êxito inicia sessão a par
 ### <a name="sign-in-risk"></a>Risco de início de sessão
 Consulte o risco ao nível (início de sessão)
 
-### <a name="sign-in-risk-policy"></a>Política de início de sessão risco
+### <a name="sign-in-risk-policy"></a>Política de risco de início de sessão
 Uma política de acesso condicional que avalia o risco um específico início de sessão e aplica-se mitigações com base nas condições predefinidas e as regras.
 
 ### <a name="user-compromise-risk"></a>Risco de compromisso do utilizador
@@ -151,10 +151,10 @@ Consulte o risco ao nível (compromisso do utilizador)
 ### <a name="user-risk"></a>Risco de utilizador
 Consulte o risco ao nível (compromisso do utilizador).
 
-### <a name="user-risk-policy"></a>Política de risco do utilizador
+### <a name="user-risk-policy"></a>Política de risco de utilizador
 Uma política de acesso condicional que considera o início de sessão e aplica-se mitigações com base nas condições predefinidas e as regras.
 
-### <a name="users-flagged-for-risk"></a>Utilizadores sinalizados para risco
+### <a name="users-flagged-for-risk"></a>Utilizadores marcados em risco
 Utilizadores que têm de eventos de risco que são remediados ou Active Directory
 
 ### <a name="vulnerability"></a>Vulnerabilidade

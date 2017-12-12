@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: bba95df3-75a4-4a93-8805-b3a8aa3d4861
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 5706ba9f4e7c92de77a0edc5146aa150de379c9f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b043d2ce9fd689b700ea2067f320600cde008fd7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutorial: Integração do Azure Active Directory com inovação colaboração
 
@@ -123,7 +123,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
 5. Clique em **ver e editar todos os outros atributos de utilizador** caixa de verificação no **atributos de utilizador** secção para expandir os atributos. Execute os seguintes passos em cada um dos atributos apresentadas-
 
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ---------------| --------------- |    
     | givenName | User.givenName |
     | Apelido | User.Surname |

@@ -4,7 +4,7 @@ description: "Como criar uma aplicação de Web de MVC do .NET que web de chamad
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 56be906e-71de-469d-9a5c-9fc08aae4223
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: dc3162ae8e6ce622139125c2e78fa45d2e90d534
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 185780da206e4d0ed0d8e5f8b24a546e3d9b3800
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Chamar uma API web a partir de uma aplicação web do .NET
 Com o ponto final v 2.0, pode adicionar autenticação para as suas aplicações web e APIs web com suporte para ambas as contas pessoais da Microsoft e contas profissionais ou escolares rapidamente.  Aqui, iremos irá criar uma aplicação web MVC que assina os utilizadores utilizando o OpenID Connect, com algumas ajuda middleware OWIN da Microsoft.  A aplicação web irá obter os tokens de acesso de OAuth 2.0 para uma web api protegidos por OAuth 2.0, que permite criar, ler e eliminar um determinado utilizador "lista de tarefas".

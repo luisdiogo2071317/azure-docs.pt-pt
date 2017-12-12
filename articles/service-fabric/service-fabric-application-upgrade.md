@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Atualização de aplicação do Service Fabric
-Uma aplicação de Service Fabric do Azure é uma coleção de serviços. Durante uma atualização, o Service Fabric compara o novo [manifesto da aplicação](service-fabric-application-model.md#describe-an-application) com a versão anterior e determina qual serviços nas atualizações de requerem a aplicação. Service Fabric compara a versão números no serviço de manifestos com os números de versão na versão anterior. Se não tiver sido alterado um serviço, esse serviço não está atualizado.
+Uma aplicação de Service Fabric do Azure é uma coleção de serviços. Durante uma atualização, o Service Fabric compara o novo [manifesto da aplicação](service-fabric-application-and-service-manifests.md) com a versão anterior e determina qual serviços nas atualizações de requerem a aplicação. Service Fabric compara a versão números no serviço de manifestos com os números de versão na versão anterior. Se não tiver sido alterado um serviço, esse serviço não está atualizado.
 
 ## <a name="rolling-upgrades-overview"></a>A descrição geral de atualizações
 Numa atualização aplicação graduais, a atualização é executada em fases. Em cada fase, a atualização é aplicada a um subconjunto de nós no cluster, chamado um domínio de atualização. Como resultado, a aplicação permanece disponível durante a atualização. Durante a atualização, o cluster pode conter uma combinação das versões antigas e novas.
@@ -47,14 +47,14 @@ O modo que recomendamos para atualização da aplicação é o monitorizados, qu
 Modo manual não monitorizado tem de intervenção manual após cada atualização num domínio de atualização, para iniciar a atualização no domínio de atualização seguinte. São efetuadas verificações de estado de funcionamento não Service Fabric. O administrador executa as verificações de estado ou de estado de funcionamento antes de iniciar a atualização no domínio de atualização seguinte.
 
 ## <a name="upgrade-default-services"></a>Serviços de atualização predefinido
-Serviços de predefinição na aplicação de Service Fabric podem ser atualizados durante o processo de atualização de uma aplicação. Serviços predefinidas estão definidos no [manifesto da aplicação](service-fabric-application-model.md#describe-an-application). As regras padrão de atualização predefinido services são:
+Serviços de predefinição na aplicação de Service Fabric podem ser atualizados durante o processo de atualização de uma aplicação. Serviços predefinidas estão definidos no [manifesto da aplicação](service-fabric-application-and-service-manifests.md). As regras padrão de atualização predefinido services são:
 
-1. Predefinida de serviços na nova [manifesto da aplicação](service-fabric-application-model.md#describe-an-application) que não existe no cluster são criados.
+1. Predefinida de serviços na nova [manifesto da aplicação](service-fabric-application-and-service-manifests.md) que não existe no cluster são criados.
 > [!TIP]
 > [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) tem de ser definido como verdadeiro para ativar as regras seguintes. Esta funcionalidade é suportada a partir v5.5.
 
-2. Predefinida de serviços existente no anterior [manifesto da aplicação](service-fabric-application-model.md#describe-an-application) e são atualizados a nova versão. Descrições de serviço na nova versão substituiria os já no cluster. Atualização da aplicação seria reversão automaticamente após a atualização falha do serviço predefinido.
-3. Predefinida de serviços na anterior [manifesto da aplicação](service-fabric-application-model.md#describe-an-application) , mas não na nova versão são eliminados. **Tenha em atenção que não é possível reverter esta eliminar serviços de predefinição.**
+2. Predefinida de serviços existente no anterior [manifesto da aplicação](service-fabric-application-and-service-manifests.md) e são atualizados a nova versão. Descrições de serviço na nova versão substituiria os já no cluster. Atualização da aplicação seria reversão automaticamente após a atualização falha do serviço predefinido.
+3. Predefinida de serviços na anterior [manifesto da aplicação](service-fabric-application-and-service-manifests.md) , mas não na nova versão são eliminados. **Tenha em atenção que não é possível reverter esta eliminar serviços de predefinição.**
 
 Em caso de uma aplicação atualização é revertida, predefinição serviços são revertidos para o estado antes de iniciar a atualização. Mas eliminados serviços nunca podem ser criados.
 

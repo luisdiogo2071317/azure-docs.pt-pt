@@ -1,6 +1,6 @@
 ---
 title: "Configurar pontos finais de uma VM com Linux clássico | Microsoft Docs"
-description: "Saiba como configurar pontos finais para uma VM com Linux no portal clássico do Azure para permitir a comunicação com uma máquina virtual Linux no Azure"
+description: "Saiba como configurar pontos finais para uma VM com Linux no portal do Azure para permitir a comunicação com uma máquina virtual Linux no Azure"
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: ec95f2eb1dfee728192dee325110728a7d079c67
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: bb82bfc4c5c85b9cacce907578326cab4e518766
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-set-up-endpoints-on-a-linux-classic-virtual-machine-in-azure"></a>Como configurar pontos finais numa máquina virtual clássico Linux no Azure
 Todas as máquinas virtuais do Linux que criar no Azure utilizando o modelo de implementação clássica automaticamente podem comunicar através de um canal de rede privada com outras máquinas virtuais no mesmo serviço em nuvem ou de rede virtual. No entanto, os computadores na Internet ou outras redes virtuais requerem pontos finais para direcionar o tráfego de rede de entrada para uma máquina virtual. Este artigo também está disponível para [máquinas virtuais Windows](../../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

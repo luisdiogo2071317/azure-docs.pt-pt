@@ -4,7 +4,7 @@ description: "Este artigo descreve o protocolo de início de sessão único no S
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: f41402fc2cb282975b93071d998365fdb0a21941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo de SAML do início de sessão único
 Este artigo abrange os pedidos de autenticação SAML 2.0 e as respostas que suporta o Azure Active Directory (Azure AD) para Single Sign-On.
@@ -47,15 +47,15 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | ID |Necessário |Azure AD utiliza este atributo para preencher o `InResponseTo` atributo da resposta devolvida. ID não tem de começar com um número, pelo que é uma estratégia de comuns preceder uma cadeia como "id" para a representação de cadeia de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é um ID válido. |
 | Versão |Necessário |Deve ser **2.0**. |
 | IssueInstant |Necessário |Esta é uma cadeia de DateTime com um valor de UTC e [formato reportadas round-trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD espera um valor de DateTime deste tipo, mas não avaliar ou utilize o valor. |
-| AssertionConsumerServiceUrl |Opcional |Se for indicado, este tem de corresponder à `RedirectUri` do serviço de nuvem no Azure AD. |
-| ForceAuthn |Opcional | Este é um valor booleano. Se for VERDADEIRO, isto significa que o utilizador ser forçado a autenticar novamente, mesmo que tenha uma sessão válida com o Azure AD. |
-| IsPassive |Opcional |Este é um valor booleano que especifica se do Azure AD deve autenticar o utilizador silenciosamente, sem interação do utilizador, utilizando o cookie de sessão, se existir. Se for VERDADEIRO, o Azure AD irá tentar autenticar o utilizador utilizando o cookie de sessão. |
+| AssertionConsumerServiceUrl |opcional |Se for indicado, este tem de corresponder à `RedirectUri` do serviço de nuvem no Azure AD. |
+| ForceAuthn |opcional | Este é um valor booleano. Se for VERDADEIRO, isto significa que o utilizador ser forçado a autenticar novamente, mesmo que tenha uma sessão válida com o Azure AD. |
+| IsPassive |opcional |Este é um valor booleano que especifica se do Azure AD deve autenticar o utilizador silenciosamente, sem interação do utilizador, utilizando o cookie de sessão, se existir. Se for VERDADEIRO, o Azure AD irá tentar autenticar o utilizador utilizando o cookie de sessão. |
 
 Todos os outros `AuthnRequest` atributos, tais como o consentimento, destino, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex e ProviderName são **ignoradas**.
 
 Azure AD também ignora a `Conditions` elemento `AuthnRequest`.
 
-### <a name="issuer"></a>emissor
+### <a name="issuer"></a>Emissor
 O `Issuer` elemento um `AuthnRequest` deve corresponder exatamente um do **ServicePrincipalNames** no serviço em nuvem no Azure AD. Normalmente, isto estiver definido como o **URI de ID de aplicação** que é especificado durante o registo de aplicação.
 
 Um exemplo SAML excerpt que contém o `Issuer` elemento tem o seguinte aspeto:
@@ -148,7 +148,7 @@ O `Response` elemento inclui o resultado do pedido de autorização. Conjuntos d
 * `Destination`: Quando o início de sessão for concluída com êxito, é definida o `RedirectUri` do fornecedor de serviço (serviço de nuvem).
 * `InResponseTo`: Este é definido como o `ID` atributo do `AuthnRequest` elemento que iniciou a resposta.
 
-### <a name="issuer"></a>emissor
+### <a name="issuer"></a>Emissor
 Conjuntos do Azure AD a `Issuer` elemento `https://login.microsoftonline.com/<TenantIDGUID>/` onde <TenantIDGUID> é o ID de inquilino do inquilino do Azure AD.
 
 Por exemplo, uma resposta de exemplo com o elemento de emissor foi este aspeto:
@@ -180,7 +180,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 ### <a name="assertion"></a>Asserção
 Para além de `ID`, `IssueInstant` e `Version`, do Azure AD define os elementos seguintes `Assertion` elemento da resposta.
 
-#### <a name="issuer"></a>emissor
+#### <a name="issuer"></a>Emissor
 Isto está definido como `https://sts.windows.net/<TenantIDGUID>/`onde <TenantIDGUID> é o ID de inquilino do inquilino do Azure AD.
 
 ```

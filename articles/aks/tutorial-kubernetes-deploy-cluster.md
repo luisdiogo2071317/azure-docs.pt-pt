@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a03bbfbdedd418216c26379e9d8dbd780fa89fd8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2c2318d9a5f72800f9cfbd430dca448fd1e5746f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementar um cluster do serviço de contentor do Azure (AKS)
 
@@ -28,7 +28,7 @@ Nos tutoriais subsequentes, a aplicação de voto do Azure é implementada para 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nos tutoriais anteriores, uma imagem do contentor foi criada e carregada para uma instância de registo de contentor do Azure. Se não o fez estes passos e gostaria de acompanhar, regresse ao [Tutorial 1 – criar imagens de contentor](./tutorial-kubernetes-prepare-app.md).
+Nos tutoriais anteriores, uma imagem do contentor foi criada e carregada para uma instância de registo de contentor do Azure. Se não o fez estes passos e gostaria de acompanhar, regresse ao [Tutorial 1 – criar imagens de contentor][aks-tutorial-prepare-app].
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Ativar a pré-visualização AKS para a sua subscrição do Azure
 Enquanto AKS está em pré-visualização, a criação de novos clusters requer um sinalizador de funcionalidade na sua subscrição. Pode solicitar esta funcionalidade para qualquer número de subscrições de que pretende utilizar. Utilize o `az provider register` comando para registar o fornecedor AKS:
@@ -41,7 +41,7 @@ Depois de registar, agora está pronto para criar um cluster de Kubernetes com A
 
 ## <a name="create-kubernetes-cluster"></a>Criar cluster do Kubernetes
 
-O exemplo seguinte cria um cluster com o nome `myK8sCluster` num grupo de recursos com o nome `myResourceGroup`. Este grupo de recursos foi criado no [tutorial anterior](./tutorial-kubernetes-prepare-acr.md).
+O exemplo seguinte cria um cluster com o nome `myK8sCluster` num grupo de recursos com o nome `myResourceGroup`. Este grupo de recursos foi criado no [tutorial anterior][aks-tutorial-prepare-acr].
 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
@@ -51,7 +51,7 @@ Após vários minutos, a implementação estiver concluída e formatado de json 
 
 ## <a name="install-the-kubectl-cli"></a>Instalar o kubectl CLI
 
-Para ligar ao Kubernetes cluster do computador cliente, utilize [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), o cliente de linha de comandos Kubernetes.
+Para ligar ao Kubernetes cluster do computador cliente, utilize [kubectl][kubectl], o cliente de linha de comandos Kubernetes.
 
 Se estiver a utilizar o Azure CloudShell, kubectl já está instalado. Se pretender instalá-la localmente, execute o seguinte comando:
 
@@ -67,7 +67,7 @@ Para configurar kubectl para ligar ao Kubernetes cluster, execute o seguinte com
 az aks get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Para verificar a ligação ao cluster, execute o [kubectl obter nós](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) comando.
+Para verificar a ligação ao cluster, execute o [kubectl obter nós] [ kubectl-get] comando.
 
 ```azurecli
 kubectl get nodes
@@ -94,4 +94,13 @@ Neste tutorial, um cluster de Kubernetes foi implementado no AKS. Foram efetuado
 Avançar para o próximo tutorial para saber mais sobre a execução da aplicação no cluster.
 
 > [!div class="nextstepaction"]
-> [Implementar a aplicação no Kubernetes](./tutorial-kubernetes-deploy-application.md)
+> [Implementar a aplicação no Kubernetes][aks-tutorial-deploy-app]
+
+<!-- LINKS - external -->
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

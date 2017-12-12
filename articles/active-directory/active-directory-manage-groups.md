@@ -4,7 +4,7 @@ description: "Como utilizar grupos no Azure Active Directory para gerir o acesso
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 714120d0-cdf9-465d-afee-39bef591c6b3
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 6f43b722b0c9a31c8c7da4361e415673f3721b31
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: aaccc501526d313a572692ff8f2f5c9da38849d3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Gerir o acesso a recursos com grupos do Active Directory do Azure
 Azure Active Directory (Azure AD) é uma solução de gestão identidades e acessos abrangente que fornece um conjunto robusto de funcionalidades para gerir o acesso a recursos, incluindo os serviços online da Microsoft como o Office 365 e aplicações em nuvem e no local e um mundo de aplicações SaaS não Microsoft. Este artigo fornece uma descrição geral, mas se pretender começar a utilizar o Azure AD grupos neste momento, siga as instruções em [gerir grupos de segurança no Azure AD](active-directory-groups-create-azure-portal.md). Se quiser ver como pode utilizar o PowerShell para gerir grupos no Azure Active directory pode ler mais em [cmdlets do Azure Active Directory para gestão de grupo](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).

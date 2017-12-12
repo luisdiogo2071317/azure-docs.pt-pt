@@ -1,4 +1,3 @@
-
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Testar a consultar o Microsoft Graph API da sua aplicação iOS
 
 Para executar o código no simulador do, prima **comando** + **R**.

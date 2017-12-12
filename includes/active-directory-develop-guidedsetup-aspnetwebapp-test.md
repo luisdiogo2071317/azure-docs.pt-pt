@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testar o seu código
 
 Para testar a aplicação no Visual Studio, prima **F5** para executar o projeto. O browser abre o http://<span></span>localhost: localização {porta} e ver o **iniciar sessão com a Microsoft** botão. Selecione o botão para iniciar o processo de início de sessão.

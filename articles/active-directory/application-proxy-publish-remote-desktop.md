@@ -4,7 +4,7 @@ description: "Abrange as noções básicas sobre conectores de Proxy de aplicaç
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 11/03/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5eb681e5f5c3b5944ff2d101056ae7c7cd60fac2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f2d7387f03757afb0b51105f02068d4aada8f9f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD
 
@@ -116,7 +116,7 @@ A configuração descrita neste artigo é para os utilizadores no Windows 7 ou 1
 | Método de autenticação | Configuração de cliente suportados |
 | --------------------- | ------------------------------ |
 | Pré-autenticação    | Windows 7/10 utilizando o Internet Explorer + suplemento ActiveX de RDS |
-| Pass-through | Qualquer outro sistema operativo que suporte a aplicação de ambiente de trabalho remoto |
+| Passthrough | Qualquer outro sistema operativo que suporte a aplicação de ambiente de trabalho remoto |
 
 O fluxo de pré-autenticação oferece vantagens de segurança mais que o fluxo de pass-through. Com a pré-autenticação pode utilizar as funcionalidades de autenticação do Azure AD, como o início de sessão único, acesso condicional e verificação de dois passos para os seus recursos no local. É também assegurar que apenas autenticado atingir o tráfego da rede.
 

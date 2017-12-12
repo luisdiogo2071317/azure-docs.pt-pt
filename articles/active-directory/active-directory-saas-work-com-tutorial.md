@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 98e6739e-eb24-46bd-9dd3-20b489839076
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 7cfec8e9ac12d43095483696a15c0580776d3114
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7aa04faab5da9ee7dae977be3a8c040c3aed0b9c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integração do Azure Active Directory com Work.com
 
@@ -104,7 +104,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
  
-    ![Baseados em SAML início de sessão](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_samlbase.png)
+    ![Inicio de sessão baseado em SAML](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_samlbase.png)
 
 3. No **Work.com domínio e os URLs** secção, efetue o seguinte:
 

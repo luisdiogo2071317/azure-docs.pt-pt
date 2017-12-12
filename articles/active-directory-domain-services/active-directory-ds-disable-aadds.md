@@ -4,7 +4,7 @@ description: Desativar o Azure Active Directory Domain Services no portal do Azu
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: maheshu
-ms.openlocfilehash: 32db916b319c531816a935fcfe3bc4fe82997fdd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f61f6df85e47bec32e147990d956a4409429a60c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Desativar o Azure Active Directory Domain Services no portal do Azure
 Este artigo mostra como utilizar o portal do Azure para desativar os serviços de domínio do Azure Active Directory (AD) para o diretório do Azure AD.
@@ -41,7 +41,7 @@ Execute os seguintes passos para eliminar o seu domínio gerido dos serviços de
 
 3. No **descrição geral** página, clique em de **eliminar** botão.
 
-    ![Eliminar o domínio](./media/getting-started/domain-services-delete-domain.png)
+    ![Eliminar domínio](./media/getting-started/domain-services-delete-domain.png)
 
 4. Para confirmar a eliminação, escreva o nome de domínio DNS do domínio gerido. Clique em de **eliminar** botão quando tiver terminado.
 

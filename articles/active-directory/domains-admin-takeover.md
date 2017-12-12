@@ -4,7 +4,7 @@ description: "Como assumir um nome de domínio DNS num diretório não gerido (i
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ee100fa86d78840a3b6a6bbf9453954c054931c2
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: f18e5883fca9291eb1447c1eebfe0883936fe84f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assuma um diretório não gerido como administrador no Azure Active Directory
 Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório no Azure Active Directory (Azure AD) não gerido. Quando um utilizador self-service se inscreve num serviço em nuvem que utiliza o Azure AD, são adicionadas a um Azure não gerido diretório AD com base no respetivo domínio de correio eletrónico. Para mais informações sobre o Self-Service ou inscrever "viral" para um serviço, consulte [que é a inscrição self-service do Azure Active Directory?]()

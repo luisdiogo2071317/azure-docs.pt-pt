@@ -4,7 +4,7 @@ description: "Este artigo é walking, através de um sistema simples de RH passo
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 3fdc1b405b95180d031aa4ad45b406f7fc149d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 311ef784497310b5605e25daf13102e3ff4bb08c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Conector do SQL genérico passo a passo
 Este tópico é um guia passo a passo. Cria uma base de dados de RH de exemplo simples e utilizá-lo para importar alguns utilizadores e a respetiva associação a grupos.

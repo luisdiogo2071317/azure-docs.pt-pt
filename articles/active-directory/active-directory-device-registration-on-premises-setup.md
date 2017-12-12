@@ -4,7 +4,7 @@ description: "Um guia passo a passo para ativar o acesso condicional para aplica
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2342690d983b6e27fa008b5c72a736a9ecda8f47
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 4117414f4605b73d8aab8acc2e788720deff8b99
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurar o acesso condicional no local utilizando o registo de dispositivos do Azure Active Directory
 Quando necessitar que os utilizadores a associação à área de trabalho os seus dispositivos pessoais para o serviço de registo de dispositivos do Azure Active Directory (Azure AD), os respetivos dispositivos podem ser marcados como conhecida para a sua organização. Segue-se um guia passo a passo para ativar o acesso condicional para aplicações no local através da utilização de serviços de Federação do Active Directory (AD FS) no Windows Server 2012 R2.

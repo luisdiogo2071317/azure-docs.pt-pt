@@ -4,7 +4,7 @@ description: "Como criar uma aplicação de página única de JS angular para qu
 services: active-directory
 documentationcenter: 
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 6a341781-278f-461b-92ca-7572a06e6852
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c68180c0ecabf5c0732f0db77ef1f3cc93be965b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2a2108fb2205f646b2ac807922a90939bdee9f6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Adicionar início de sessão a uma aplicação de página única de AngularJS - .NET
 Neste artigo adicionaremos inicie sessão com contas Microsoft ligada a uma aplicação de AngularJS utilizando o ponto de final de v 2.0 do Azure Active Directory.  O ponto final v 2.0 permite-lhe executar uma única integração na sua aplicação e autenticar os utilizadores com contas pessoais e trabalho/escola.
@@ -92,7 +92,7 @@ Enquanto que estiver a configurar coisas, vamos abordar o trabalho de REST API d
 
 É sempre que vamos gaste debater como funciona a API REST.  Não hesite poke em torno no código, mas se pretender saber mais sobre como proteger web APIs com o Azure AD, veja [neste artigo](active-directory-v2-devquickstarts-dotnet-api.md). 
 
-## <a name="sign-users-in"></a>Utilizadores de início de sessão no
+## <a name="sign-users-in"></a>Iniciar sessão dos utilizadores
 Tempo até ao escrever alguns códigos de identidade.  Poderá ter já reparado que adal.js contém um fornecedor AngularJS, que desempenha corretamente com angular para mecanismos de encaminhamento.  Comece por adicionar o módulo de adal para a aplicação:
 
 ```js

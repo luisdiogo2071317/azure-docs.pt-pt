@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 333394c1-b5a7-489c-8f7b-d1a5b4e782ea
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: f8cf8ceabcb3fea7c22f08ec86155f60527297eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25d99ad3048612722b75cf6ec9b8d07729770c8d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Tutorial: Integração do Azure Active Directory com Benefitsolver
 
@@ -123,7 +123,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 5. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributo token SAML, conforme mostrado na imagem e efetuar os seguintes passos:
     
-    | Nome do atributo| Valor do atributo|
+    | Nome do Atributo| Valor do Atributo|
     |---------------|----------------|
     | ID de cliente | Tem de obter este valor a partir da sua [equipa de suporte de cliente Benefitsolver](https://www.businessolver.com/contact).|
     | ClientKey | Tem de obter este valor a partir da sua [equipa de suporte de cliente Benefitsolver](https://www.businessolver.com/contact).|

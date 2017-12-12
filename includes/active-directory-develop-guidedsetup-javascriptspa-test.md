@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Testar o seu código
 
 ### <a name="test-with-visual-studio"></a>Testar com o Visual Studio

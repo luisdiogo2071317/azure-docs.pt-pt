@@ -5,7 +5,7 @@ services: active-directory
 keywords: "proteção de identidade do Azure Active Directory, o cloud app discovery, gestão de aplicações, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5479981ed4c017e6953ef616588ca0e4060ce3b2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: e274a9364dcb7bf4d220159e1f906bbd015369aa
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection manual de comunicação social
 Este manual de comunicação social ajuda-o a:
@@ -47,7 +47,7 @@ Este tipo de eventos de risco identifica os utilizadores que têm sessão com ê
 
 O início de sessão irá aparecer no dashboard do Identity Protection dentro de 5 minutos. 
 
-### <a name="sign-ins-from-unfamiliar-locations"></a>Inícios de sessão a partir de localizações desconhecidas
+### <a name="sign-ins-from-unfamiliar-locations"></a>Inícios de sessão de localizações desconhecidas
 O risco de localizações desconhecidas é um mecanismo de avaliação de início de sessão em tempo real que considera decorridos desde o início de sessão localizações (IP, Latitude / Longitude e ASN) para determinar as localizações de nova / familiarizadas. O sistema armazena IPs anterior, Latitude / Longitude e ASNs de um utilizador e considera que estas sejam familiares localizações. Uma localização de início de sessão é considerada familiarizada se a localização de início de sessão não corresponde a qualquer das localizações familiares existentes.
 
 Proteção de identidade do Azure Active Directory:  

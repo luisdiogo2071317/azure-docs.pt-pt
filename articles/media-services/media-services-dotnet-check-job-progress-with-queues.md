@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5ee89d0ae4c3c56d164aff4e321ee99f015ba4fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b5b1d7723b57db2614dc889282f98e9673b4bbd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Utilizar o armazenamento de filas do Azure para monitorizar as notificações de tarefa de Media Services com .NET
 Quando executar tarefas de codificação, muitas vezes, necessitam de uma forma de controlar o progresso da tarefa. Pode configurar os serviços de suporte de dados para a entrega de notificações para [armazenamento de filas do Azure](../storage/storage-dotnet-how-to-use-queues.md). Pode monitorizar o progresso da tarefa por a obter notificações do armazenamento de filas. 
@@ -27,7 +27,7 @@ Mensagens entregues para o armazenamento de filas podem ser acedidas de qualquer
 
 Um cenário comum para a escuta notificações de Media Services é que se estiver a desenvolver um sistema de gestão de conteúdos que precisa de realizar algumas tarefas adicionais após a conclusão de uma tarefa de codificação (por exemplo, para acionar o seguinte passo num fluxo de trabalho ou para publicar conteúdo).
 
-Este tópico mostra como obter mensagens de notificação do armazenamento de filas.  
+Este artigo mostra como obter mensagens de notificação do armazenamento de filas.  
 
 ## <a name="considerations"></a>Considerações
 Quando desenvolver as aplicações de Media Services que utilizam o armazenamento de filas, considere o seguinte:
@@ -54,7 +54,7 @@ O exemplo de código nesta secção faz o seguinte:
 9. Elimina a fila e o ponto final de notificação.
 
 > [!NOTE]
-> A forma recomendada para monitorizar o estado da tarefa é a escutar mensagens de notificação, conforme mostrado no exemplo seguinte.
+> A forma recomendada para monitorizar o estado da tarefa é a escutar mensagens de notificação, conforme mostrado no exemplo seguinte:
 >
 > Em alternativa, pode verificar os Estado da tarefa utilizando o **IJob.State** propriedade.  Uma mensagem de notificação sobre a conclusão de uma tarefa pode chegam aos antes do estado **IJob** está definido como **concluído**. O **IJob.State** propriedade reflete o estado exato com um ligeiro atraso.
 >
@@ -63,7 +63,8 @@ O exemplo de código nesta secção faz o seguinte:
 ### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
 1. Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento de Serviços de Multimédia com .NET). 
-2. Crie uma nova pasta (a pasta pode estar em qualquer local na unidade local) e copie um ficheiro .mp4 que pretende codificar e transmitir ou transferir progressivamente. Neste exemplo, é utilizado o caminho "C:\Media".
+2. Crie uma nova pasta (pasta pode estar em qualquer local no disco local) e copie um ficheiro mp4 que pretende codificar e transmitir ou transferir progressivamente. Neste exemplo, é utilizado o caminho "C:\Media".
+3. Adicione uma referência para o **System** biblioteca.
 
 ### <a name="code"></a>Código
 
@@ -120,9 +121,14 @@ namespace JobNotification
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
         private static readonly string _StorageConnectionString = 
             ConfigurationManager.AppSettings["StorageConnectionString"];
 
@@ -138,11 +144,15 @@ namespace JobNotification
             string endPointAddress = Guid.NewGuid().ToString();
 
             // Create the context.
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
+            
             // Create the queue that will be receiving the notification messages.
             _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 
@@ -326,7 +336,8 @@ namespace JobNotification
     }
 }
 ```
-O exemplo anterior provocou o seguinte resultado. Os valores variam.
+
+O exemplo anterior provocou o seguinte resultado: os valores variam.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

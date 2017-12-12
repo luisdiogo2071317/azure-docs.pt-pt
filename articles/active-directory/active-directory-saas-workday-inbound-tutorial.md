@@ -4,7 +4,7 @@ description: Saiba como utilizar Workday como origem de dados de identidade do A
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Tutorial: Configurar Workday para automática aprovisionamento de utilizadores no local do Active Directory e do Azure Active Directory
 O objetivo deste tutorial é mostrar-lhe os passos que necessários para efetuar para importar as pessoas do Workday para o Active Directory e o Azure Active Directory, com repetição de escrita opcional de alguns atributos ao Workday. 
@@ -93,9 +93,9 @@ No entanto, ao trabalhar com Workday e o Active Directory, existem vários siste
 
 | Sistema de origem | Sistema de destino | Notas |
 | ---------- | ---------- | ---------- |
-| Workday | Florestas do Active Directory | Cada floresta é tratada como um sistema de destino distintos |
+| Workday | Floresta do Active Directory | Cada floresta é tratada como um sistema de destino distintos |
 | Workday | Inquilino do Azure AD | Conforme necessário para os utilizadores apenas na nuvem |
-| Florestas do Active Directory | Inquilino do Azure AD | Este fluxo é processado pelo AAD Connect hoje |
+| Floresta do Active Directory | Inquilino do Azure AD | Este fluxo é processado pelo AAD Connect hoje |
 | Inquilino do Azure AD | Workday | Para a repetição de escrita de endereços de e-mail |
 
 Para facilitar a estes fluxos de trabalho vários para vários sistemas de origem e de destino, o Azure AD fornece várias aplicações de aprovisionamento conector que pode adicionar a partir da Galeria de aplicações do Azure AD:

@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: c415fc55-6dc1-49f2-a8a2-2fc6e3790d65
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e97c365383ecdb72cc1cd449b522b75875fc1db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0fad672f9337f7bd10b154dc6ece76879da68fbd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>Tutorial: Integração do Azure Active Directory com Allocadia
 
@@ -135,7 +135,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     | ------------------- | -------------------- |    
     | nome próprio | User.givenName |
     | Apelido | User.Surname |
-    | Correio eletrónico | User.Mail |
+    | e-mail | User.Mail |
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 

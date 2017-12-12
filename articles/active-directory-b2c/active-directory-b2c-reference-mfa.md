@@ -4,7 +4,7 @@ description: "Como ativar a multi-factor Authentication nas aplicações direcio
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 62ec48ab067cf02bc8409aca6da704a5418ec270
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fc6c43a0197c203cda5b2200e0a5c01258d1613
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>O Azure Active Directory B2C: Ativar a multi-factor Authentication nas aplicações direcionadas para o consumidor
 Azure Active Directory (Azure AD) B2C integra-se diretamente [Azure multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) para que possa adicionar uma segunda camada de segurança para experiências de inscrição e o início de sessão nas aplicações direcionadas para o consumidor. E pode fazê-lo sem ter de escrever uma única linha de código. Atualmente, fornecemos suporte verificação de mensagem de texto e de chamada telefónica. Se já tiver criado políticas de inscrição e o início de sessão, ainda pode ativar a multi-factor Authentication.

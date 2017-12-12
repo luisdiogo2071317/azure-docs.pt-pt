@@ -4,7 +4,7 @@ description: "Saiba como personalizar afirmações emitidas no token SAML para a
 services: active-directory
 documentationcenter: 
 author: jeevansd
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: a1a33705648a982631315439f99425bab59ad1d1
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7394857f55493b072e6ea549c8eeec54a808f5e5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalizar afirmações emitidas no token SAML para aplicações da empresa no Azure Active Directory
 Hoje em dia do Azure Active Directory suporta o início de sessão único com a maioria das aplicações da empresa, incluindo ambas as aplicações previamente integradas na Galeria de aplicações do Azure AD, bem como as aplicações personalizadas. Quando um utilizador efetua a autenticação para uma aplicação através do Azure AD através do protocolo SAML 2.0, AD do Azure envia um token para a aplicação (através de um HTTP POST). E, em seguida, a aplicação valida e utiliza o token para iniciar a sessão do utilizador em vez de pedir um nome de utilizador e palavra-passe. Estes tokens SAML contém informações sobre o utilizador ao conhecido como "afirmações".

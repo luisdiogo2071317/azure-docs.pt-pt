@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: bab73fda-6754-411d-9288-f73ecdaa486d
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: c6c5d01a831a76c497f42fe4af3d90f8c5dc5903
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d0efcae50b18dc2626af5510bd47ff36a27ba718
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configurar o Salesforce Sandbox para o aprovisionamento de utilizador automáticas
 
@@ -65,7 +65,7 @@ O objetivo desta secção consiste em descrevem como ativar o aprovisionamento d
 
 4. Definir o **modo de aprovisionamento** para **automática**.
 
-    ![a aprovisionar](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
+    ![Aprovisionamento](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 5. Sob o **credenciais de administrador** secção, forneça as seguintes definições de configuração:
    

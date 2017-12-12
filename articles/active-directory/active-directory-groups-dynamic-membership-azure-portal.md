@@ -4,7 +4,7 @@ description: "Como criar regras avançadas para a associação de grupo dinâmic
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: 
 ms.assetid: fb434cc2-9a91-4ebf-9753-dd81e289787e
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 4b3ef48fbec734d3aea1e04dc77b2ad329f637fe
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributos para filiação dinâmica em grupos no Azure Active Directory
 No Azure Active Directory (Azure AD), pode criar regras avançadas para ativar complexas baseadas em atributos filiação dinâmica para grupos. Este artigo fornece detalhes sobre os atributos e a sintaxe para criar regras de associação dinâmica para utilizadores ou dispositivos.

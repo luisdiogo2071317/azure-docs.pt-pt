@@ -4,7 +4,7 @@ description: "Sugestões de resolução de problemas para a filiação dinâmica
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 89bb04b6-a379-49c2-8465-fe386641816a
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: 49a1dad57a6c8cd4b25e0e55e367839c760236e4
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 0bb4c294cc6a4e1c9c2f1ad405c539854b6bcf5b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Resolver problemas de associações dinâmicas a grupos
 **Posso configurar uma regra num grupo, mas não associações for atualizadas no grupo**<br/>Verifique os valores para os atributos de utilizador na regra: existem utilizadores que satisfazem a regra? Se tudo procura boa, aguarde algum tempo para preencher o grupo. Dependendo do tamanho do seu inquilino, o grupo pode demorar até 24 horas a ser preenchido pela primeira vez, ou após uma alteração de regra.

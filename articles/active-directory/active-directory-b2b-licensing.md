@@ -4,7 +4,7 @@ description: "B2B de diretório Active Directory do Azure não necessita de cola
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -17,11 +17,11 @@ ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: sasubram
 ms.custom: it-pro
-ms.openlocfilehash: dfef32c05af157ae8d3a5434016f87f488a35051
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 664398eb71501ff450b785928992729f91740a19
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Orientação de licenciamento de colaboração do Azure Active Directory B2B
 

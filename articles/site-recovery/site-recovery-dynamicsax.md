@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/11/2017
 ms.author: asgang
-ms.openlocfilehash: aa8a79cd152a532ef8989e61c2ec9609b826634b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicar uma aplicação com várias camadas do Dynamics AX através da utilização do Azure Site Recovery
 
@@ -31,7 +31,6 @@ Hoje em dia, Dynamics AX não fornece qualquer desastre out of box funcionalidad
 
 Este artigo explica como pode criar uma solução de recuperação após desastre para a sua aplicação Dynamics AX utilizando [do Azure Site Recovery](site-recovery-overview.md). Também inclui as ativações pós-falha de teste planeadas/imprevistas através da utilização de um plano de recuperação de um clique, pré-requisitos e configurações suportadas.
 
-Uma solução de recuperação baseados no Site de recuperação após desastre totalmente é testada, certificada e recomendada pela Dynamics AX.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos

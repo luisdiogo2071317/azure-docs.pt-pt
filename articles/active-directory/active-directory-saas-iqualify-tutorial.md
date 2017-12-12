@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 8a3caaff-dd8d-4afd-badf-a0fd60db3d2c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: cab1ce3694372c137667e0179caf8d3523147f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f8a7b7fd155a6ad0df7cb1f9026b4acca2401cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Azure Active Directory com iQualify LMS
 
@@ -139,9 +139,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 6. No **atributos de utilizador** secção no **de sessão único-** diálogo execute os seguintes passos para cada linha mostrada na tabela abaixo:
     
-    | Nome do atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | --- | --- |    
-    | Correio eletrónico | User.userPrincipalName |
+    | e-mail | User.userPrincipalName |
     | first_name | User.givenName |
     | last_name | User.Surname |
     | person_id | "o atributo" | 
@@ -179,7 +179,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 11. Depois de iniciarem sessão, clique no seu avatar no canto superior direito, em seguida, clique em **"Definições da conta".**
 
-    ![Definições da conta](./media/active-directory-saas-iqualify-tutorial/setting1.png) 
+    ![Definições de conta](./media/active-directory-saas-iqualify-tutorial/setting1.png) 
 12. Na área de definições de conta, clique no menu do friso à esquerda e clique em **"INTEGRAÇÕES."**
     
     ![INTEGRAÇÕES](./media/active-directory-saas-iqualify-tutorial/setting2.png)

@@ -4,7 +4,7 @@ description: "Descreve como o Azure Active Directory permite às organizações 
 services: active-directory
 documentationcenter: 
 author: femila
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b0829f18-9e57-4107-925d-5f0457d81671
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: 6170b78f888679ab358198d940c82a00fa5e43a1
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 363478cb1bb2637a8c4f9cf36505817b163df781
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-access-to-apps"></a>Gerir o acesso a aplicações
 Gestão de acesso em curso, avaliação de utilização e relatórios continuam a ser um desafio depois de uma aplicação está integrada no sistema de identidade da sua organização. Em muitos casos, os administradores de TI ou suporte técnico tem de efetuar uma função ativa em curso gerir o acesso às suas aplicações. Por vezes, a atribuição é efetuada por uma equipa de TI por divisões ou geral. Muitas vezes, a decisão de atribuição se destina a ser delegados para o negócio decisor, os respetivos aprovação antes de IT torna a atribuição.  Outras organizações investem na integração com um existente automatizada identidades e acessos sistema de gestão, como o controlo de acesso baseado em funções (RBAC) ou o controlo de acesso baseado em atributos (ABAC). A integração e o desenvolvimento de regra tendem a ser especializados e dispendioso. Monitorização ou relatórios sobre a abordagem de gestão são o seu próprio investimento separado, dispendioso e complexo.
