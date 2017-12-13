@@ -17,15 +17,15 @@ ms.date: 11/20/2017
 ms.author: mimig
 ms.openlocfilehash: b36de6bce597569b4e1eaa615860acdf28dfa798
 ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar uma base de dados de documentos com Java e o portal do Azure
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Utilizar base de dados do Azure Cosmos, pode rapidamente criar e consultar documento gerido, tabela e bases de dados do gráfico.
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Com o Azure Cosmos DB, pode criar e consultar rapidamente documentos geridos, tabelas e bases de dados de gráfico.
 
-Este guia de início rápido cria uma base de dados de documentos através de ferramentas do portal do Azure para o Azure Cosmos DB. Este guia de início rápido mostra também como criar rapidamente uma aplicação de consola de Java através da [DocumentDB Java API](documentdb-sdk-java.md). As instruções deste guia de início rápido podem ser seguidas em qualquer sistema operativo capaz de executar Java. Por concluir este guia de introdução estará familiarizado com a criar e modificar recursos de base de dados de documento na IU ou através de programação, optando-se a sua preferência.
+Este guia de início rápido cria uma base de dados de documentos através de ferramentas do portal do Azure para o Azure Cosmos DB. Este guia de início rápido mostra também como criar rapidamente uma aplicação de consola de Java através da [DocumentDB Java API](documentdb-sdk-java.md). As instruções deste guia de início rápido podem ser seguidas em qualquer sistema operativo capaz de executar Java. Quando concluir este guia de introdução, estará familiarizado com a criação e modificação de recursos de bases de dados de documentos na IU ou programaticamente, conforme a sua preferência.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,11 +57,11 @@ Antes de poder criar uma base de dados de documentos, tem de criar uma conta de 
 
 Pode agora utilizar o Data Explorer para adicionar dados à sua coleção nova.
 
-1. Expanda o **itens** coleção, clique em **documentos** > **novo documento**.
+1. Expanda a coleção **Itens**, clique em **Documentos** > **Novo Documento**.
 
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-documentdb-java/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Agora, adicione um documento para a coleção com a estrutura seguinte e clique **guardar**.
+2. Agora, adicione um documento à coleção com a seguinte estrutura e clique em **Guardar**.
 
      ```json
      {
@@ -75,23 +75,23 @@ Pode agora utilizar o Data Explorer para adicionar dados à sua coleção nova.
 
     ![Copie os dados json e clique em Guardar no Data Explorer no portal do Azure](./media/create-documentdb-java/azure-cosmosdb-data-explorer-save-document.png)
 
-3.  Criar e guardar um documento mais onde alterar `id` 2 e alterar as outras propriedades como ver ajustam. Agora, os documentos podem ter qualquer estrutura que queira criar, uma vez que o Azure Cosmos DB não impõe qualquer esquema aos seus dados.
+3.  Crie e guarde mais um documento onde altera `id` a 2, e altere as outras propriedades conforme necessário. Agora, os documentos podem ter qualquer estrutura que queira criar, uma vez que o Azure Cosmos DB não impõe qualquer esquema aos seus dados.
 
-## <a name="query-your-data"></a>Consultar os dados
+## <a name="query-your-data"></a>Consultar os seus dados
 
-Agora, pode utilizar consultas no Explorador de dados para obter e filtre os dados.
+Pode utilizar agora consultas no Data Explorer para obter e filtrar os seus dados.
 
-1. Consulte o artigo que, por predefinição, a consulta está definida para `SELECT * FROM c`. Esta consulta predefinida obtém e apresenta todos os documentos na coleção. 
+1. Veja-o por predefinição, a consulta está definida para `SELECT * FROM c`. Esta consulta predefinida obtém e apresenta todos os documentos na coleção. 
 
-    ![A consulta no Explorador de dados predefinido é "SELECIONAR * do c'](./media/create-documentdb-java/azure-cosmosdb-data-explorer-query.png)
+    ![A consulta predefinida no Data Explorer é "SELECT * FROM c"](./media/create-documentdb-java/azure-cosmosdb-data-explorer-query.png)
 
-2. Alterar a consulta, clicando a **Editar filtro** no botão Adicionar `ORDER BY c._ts DESC` para a caixa de predicado de consulta e, em seguida, clicando em **aplicar filtro**.
+2. Altere a consulta ao clicar no botão **Editar Filtro**, adicione `ORDER BY c._ts DESC` à caixa de predicado de consulta e, em seguida, clique em **Aplicar Fltro**.
 
-    ![Alterar a consulta predefinida adicionando ORDER BY c. TS DESC e clicar em filtro aplicar](./media/create-documentdb-java/azure-cosmosdb-data-explorer-edit-query.png)
+    ![Altere a consulta predefinida ao adicionar ORDER BY c._ts DESC e clique em Aplicar Filtro](./media/create-documentdb-java/azure-cosmosdb-data-explorer-edit-query.png)
 
-Alterar esta definição de listas de consulta os documentos por ordem, com base no respetivo carimbo de hora, por isso, agora o segundo documento descendente está listado primeiro. Se estiver familiarizado com a sintaxe do SQL Server, pode introduzir qualquer um dos suportado [as consultas SQL](documentdb-sql-query.md) nesta caixa. 
+Esta consulta modificada lista os documentos por ordem decrescente com base no respetivo carimbo de data/hora, por isso agora o segundo documento está listado primeiro. Se estiver familiarizado com a sintaxe do SQL, pode introduzir quaisquer [consultas SQL](documentdb-sql-query.md) suportadas nesta caixa. 
 
-Que conclui o nosso trabalho no Explorador de dados. Antes de iremos avançar para trabalhar com o código, tenha em atenção que também pode utilizar o Explorador de dados para criar procedimentos armazenados, UDFs e acionadores para efetuar a lógica de negócio do lado do servidor, bem como aumentar o débito. O Data Explorer expõe todos os acessos a dados programáticos incorporados que estão disponíveis nas APIs, mas disponibiliza acesso fácil aos seus dados no portal do Azure.
+Esta ação conclui o nosso trabalho no Data Explorer. Antes de continuarmos para o trabalho com código, note que também pode utilizar o Data Explorer para criar procedimentos armazenados, UDFs e acionadores, para realizar lógica empresarial do lado do servidor, bem como débito de escala. O Data Explorer expõe todos os acessos a dados programáticos incorporados que estão disponíveis nas APIs, mas disponibiliza acesso fácil aos seus dados no portal do Azure.
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
@@ -103,7 +103,7 @@ Agora, vamos trabalhar com código. Vamos clonar uma aplicação de DocumentDB A
     md "C:\git-samples"
     ```
 
-2. Abra uma janela de terminal do git, tais como o git bash e utilize o `cd` comando para alterar para a nova pasta para instalar a aplicação de exemplo. 
+2. Abra uma janela de terminal do git, como o git bash e utilize o comando `cd` para alterar para uma nova pasta e instalar a aplicação de exemplo. 
 
     ```bash
     cd "C:\git-samples"
@@ -117,9 +117,9 @@ Agora, vamos trabalhar com código. Vamos clonar uma aplicação de DocumentDB A
 
 ## <a name="review-the-code"></a>Rever o código
 
-Este passo é opcional. Se estiver interessado em aprender a forma como os recursos de base de dados são criados no código, pode rever os seguintes fragmentos. Os fragmentos são obtidos a partir do `Program.java` ficheiro instalado na pasta C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted. Caso contrário, pode avançar diretamente para [atualizar a cadeia de ligação](#update-your-connection-string). 
+Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Os fragmentos são obtidos a partir do ficheiro `Program.java` instalado na pasta C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string). 
 
-* `DocumentClient`inicialização. O [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) fornece representação lógica do lado do cliente para o serviço de base de dados de base de dados do Azure Cosmos. Este cliente é utilizado para configurar e executar pedidos contra o serviço.
+* `DocumentClient` inicialização. O [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) oferece representação lógica do lado do cliente para o serviço de base de dados do Azure Cosmos DB. Este cliente serve para configurar e executar pedidos contra o serviço.
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.com",
@@ -128,7 +128,7 @@ Este passo é opcional. Se estiver interessado em aprender a forma como os recur
             ConsistencyLevel.Session);
     ```
 
-* [Base de dados](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._database) criação.
+* Criação da [base de dados](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._database).
 
     ```java
     Database database = new Database();
@@ -137,7 +137,7 @@ Este passo é opcional. Se estiver interessado em aprender a forma como os recur
     this.client.createDatabase(database, null);
     ```
 
-* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_collection) criação.
+* Criação de [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_collection).
 
     ```java
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -148,7 +148,7 @@ Este passo é opcional. Se estiver interessado em aprender a forma como os recur
     this.client.createCollection(databaseLink, collectionInfo, requestOptions);
     ```
 
-* Criação de documentos utilizando o [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdocument) método.
+* Criação de documentos com o método [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.createdocument).
 
     ```java
     // Any Java object within your code can be serialized into JSON and written to Azure Cosmos DB
@@ -161,7 +161,7 @@ Este passo é opcional. Se estiver interessado em aprender a forma como os recur
     this.client.createDocument(collectionLink, family, new RequestOptions(), true);
     ```
 
-* As consultas SQL através de JSON são efetuadas utilizando o [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) método.
+* As consultas SQL sobre JSON são realizadas com o método [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments).
 
     ```java
     FeedOptions queryOptions = new FeedOptions();
@@ -181,21 +181,21 @@ Este passo é opcional. Se estiver interessado em aprender a forma como os recur
 
 ## <a name="update-your-connection-string"></a>Atualizar a cadeia de ligação
 
-Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. Isto permite que a aplicação comunicar com a base de dados alojada.
+Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. Isto permite à aplicação comunicar com a base de dados alojada.
 
-1. No [portal do Azure](http://portal.azure.com/), clique em **chaves**. 
+1. No [portal do Azure](http://portal.azure.com/), clique em **Chaves**. 
 
-    Utilize os botões de cópia no lado direito do ecrã para copiar o valor superior, o URI.
+    Utilize os botões de cópia à direita do ecrã, para copiar o valor superior, o URI.
 
-    ![Ver e copiar uma chave de acesso na página do portal, as chaves do Azure](./media/create-documentdb-java/keys.png)
+    ![Ver e copiar uma chave de acesso no portal do Azure, página Chaves](./media/create-documentdb-java/keys.png)
 
-2. Abra o `Program.java` ficheiro a partir da pasta C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted. 
+2. Abra o ficheiro `Program.java` da pasta C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted. 
 
-3. Colar o valor do URI do portal através de `https://FILLME.documents.azure.com` linha 45.
+3. Cole o valor do URI do portal em `https://FILLME.documents.azure.com` na linha 45.
 
-4. Volte ao portal e copie o valor de chave primária, conforme mostrado na captura de ecrã. Colar o valor de chave primária do portal através de `FILLME` linha 46.
+4. Volte ao portal e copie o valor da CHAVE PRIMÁRIA, conforme mostrado na captura de ecrã. Cole o valor da CHAVE PRIMÁRIA do portal em `FILLME` na linha 46.
 
-    O método getStartedDemo deve agora ter um aspeto semelhante a isto: 
+    O método getStartedDemo deve agora ter um aspeto semelhante a este: 
     
     ```java
     private void getStartedDemo() throws DocumentClientException, IOException {
@@ -215,27 +215,27 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
     ```
 
-2. Na janela de terminal do git, utilize o seguinte comando para instalar os pacotes necessários do Java.
+2. Na janela de terminal do git, utilize o seguinte comando para instalar os pacotes Java necessários.
 
     ```
     mvn package
     ```
 
-3. Na janela de terminal do git, utilize o seguinte comando para iniciar a aplicação de Java.
+3. Na janela de terminal do git, utilize o seguinte comando para iniciar a aplicação do Java.
 
     ```
     mvn exec:java -D exec.mainClass=GetStarted.Program
     ```
 
-    A janela de terminal apresenta uma notificação de que a base de dados FamilyDB foi criado. 
+    A janela do terminal apresenta uma notificação que a base de dados FamilyDB tinha criado. 
     
 4. Prima uma tecla para criar a coleção. 
 
-5. Voltar ao Explorador de dados e verá que agora contém uma base de dados FamilyDB.
+5. Volte para o Data Explorer e verá que contém agora uma base de dados FamilyDB.
     
-6. Continue a prima chaves na janela da consola com o código criar documentos e executar uma consulta.
+6. Continue a premir as teclas na janela da consola para que o código crie documentos e execute uma consulta.
     
-    No final do programa, todos os recursos desta aplicação são eliminados da sua conta para que não cobrado qualquer custo. 
+    No final do programa, todos os recursos desta aplicação são eliminados da sua conta, para que não seja cobrado qualquer encargo. 
 
     ![Saída da consola](./media/create-documentdb-java/console-output.png)
 
@@ -250,7 +250,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, aprendeu a criar uma conta do Azure Cosmos DB, uma base de dados de documentos e uma coleção com o Data Explorer, bem como a executar uma aplicação para fazer o mesmo programaticamente. Agora pode importar dados adicionais para a coleção de BD do Cosmos do Azure. 
+Neste guia de início rápido, aprendeu a criar uma conta do Azure Cosmos DB, uma base de dados de documentos e uma coleção com o Data Explorer, bem como a executar uma aplicação para fazer o mesmo programaticamente. Agora, pode importar dados adicionais para a sua coleção do Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).

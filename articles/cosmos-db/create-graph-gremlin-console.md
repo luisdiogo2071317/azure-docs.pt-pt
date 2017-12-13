@@ -15,7 +15,7 @@ ms.date: 07/27/2017
 ms.author: denlee
 ms.openlocfilehash: 9755446d2c01313db9fd80b4f2a7f46f8bec500c
 ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/25/2017
 ---
@@ -46,7 +46,7 @@ Também tem de instalar a [consola Gremlin](http://tinkerpop.apache.org/). Utili
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>Ligar ao seu serviço de aplicações
-1. Antes de iniciar a consola Gremlin, criar ou modificar o ficheiro de configuração de remoto secure.yaml no `apache-tinkerpop-gremlin-console-3.2.5/conf` diretório.
+1. Antes de iniciar a Consola Gremlin, crie ou modifique o ficheiro de configuração remote-secure.yaml no diretório `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Preencha as configurações de *anfitrião*, *porta*, *nome de utilizador*, *palavra-passe*, *connectionPool* e *serializador*:
 
     Definição|Valor sugerido|Descrição
@@ -62,7 +62,7 @@ Também tem de instalar a [consola Gremlin](http://tinkerpop.apache.org/). Utili
 
     No valor Palavra-passe, copie a **Chave Primária** a partir da página **Chaves**: ![Ver e copiar a chave primária no portal do Azure, página Chaves](./media/create-graph-gremlin-console/keys.png)
 
-O ficheiro remoto secure.yaml deve ter o seguinte aspeto:
+O ficheiro remote-secure.yaml deve ter o seguinte aspeto:
 
 ```
 hosts: [your_database_server.graphs.azure.com]

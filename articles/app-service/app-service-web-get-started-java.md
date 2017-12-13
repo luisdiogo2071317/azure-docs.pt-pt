@@ -17,15 +17,15 @@ ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
 ms.openlocfilehash: d44fff1e59198d662356c4d7739c05e538ba57b9
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Criar a primeira aplicação Web Java no Azure
 
-Azure [Web Apps](app-service-web-overview.md) fornece uma serviço de alojamento na web altamente dimensionável e aplicação de patches personalizada. Este guia de introdução mostra como implementar uma aplicação Web Java no Serviço de Aplicações com o [IDE do Eclipse para Programadores de Java EE](http://www.eclipse.org/).
+As [Aplicações Web](app-service-web-overview.md) do Azure dispõem de um serviço de alojamento na Web, altamente dimensionável e com correção automática. Este guia de introdução mostra como implementar uma aplicação Web Java no Serviço de Aplicações com o [IDE do Eclipse para Programadores de Java EE](http://www.eclipse.org/).
 
-Quando tiver concluído este guia de introdução, a aplicação terá um aspeto semelhante à ilustração seguinte quando vê-la num browser:
+Quando tiver concluído este guia de introdução, a aplicação terá um aspeto semelhante à ilustração seguinte quando a vir num browser:
 
 !["Olá, Azure!” aplicação Web de exemplo](./media/app-service-web-get-started-java/browse-web-app-1.png)
 

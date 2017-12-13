@@ -18,13 +18,13 @@ ms.author: glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 638c3bfb5a312c196d09216f3f7bf95bbc983c10
 ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
-As funções do Azure permite-lhe executar o código num [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) ambiente sem ter de comece por criar uma VM ou publicar uma aplicação web. Neste tópico, aprenda a utilizar as Funções para criar uma função “hello world” no portal do Azure.
+As Funções do Azure permitem-lhe executar o seu código num ambiente [sem servidor](https://azure.microsoft.com/overview/serverless-computing/), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web. Neste tópico, aprenda a utilizar as Funções para criar uma função “hello world” no portal do Azure.
 
 ![Criar uma aplicação de função no portal do Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 

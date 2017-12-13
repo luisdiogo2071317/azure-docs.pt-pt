@@ -17,7 +17,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: ee3b53f9e68a739a39478045debbb45dff9d7ed9
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2017
 ---
@@ -99,7 +99,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## <a name="browse-to-the-app"></a>Navegar para a aplicação
 
-Num browser, vá para o URL da aplicação web do Azure: `http://<app_name>.azurewebsites.net`.
+Num browser, aceda ao URL da aplicação Web do Azure: `http://<app_name>.azurewebsites.net`.
 
 A página está a ser executada como uma aplicação Web do Serviço de Aplicações do Azure.
 
@@ -111,7 +111,7 @@ A página está a ser executada como uma aplicação Web do Serviço de Aplicaç
 
 Abra o ficheiro *index.html* num editor de texto e faça uma alteração da marcação. Por exemplo, altere o cabeçalho H1 "Serviço de aplicações do Azure – exemplo estático do site HTML" simplesmente para -"serviço de aplicações do Azure".
 
-Na janela de terminal do local, consolidar as alterações no Git e, em seguida, emita as alterações de código para o Azure.
+Na janela terminal local, consolide as suas alterações no Git e envie as alterações ao código para o Azure.
 
 ```bash
 git commit -am "updated HTML"

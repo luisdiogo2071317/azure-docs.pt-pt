@@ -1,7 +1,7 @@
 ---
-title: "Criar uma aplicação Ruby e implementar no App Service no Linux | Microsoft Docs"
-description: "Saiba como criar aplicações Ruby com o serviço de aplicações no Linux."
-keywords: "serviço de aplicações do Azure, linux, oss, ruby"
+title: "Criar uma Aplicação Ruby e implementar no Serviço de Aplicações no Linux | Microsoft Docs"
+description: "Saiba como criar aplicações Ruby com o Serviço de Aplicações no Linux."
+keywords: "serviço de aplicações do azure, linux, oss, ruby"
 services: app-service
 documentationcenter: 
 author: SyntaxC4
@@ -16,17 +16,17 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: a54ef1ae40ba6ea9ad604a29c67e41228c0d5946
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: b609756f6fcea2a57210889d8082ffb45cbc92de
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Criar uma aplicação Ruby no serviço de aplicações no Linux
+# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Criar uma Aplicação Ruby no Serviço de Aplicações no Linux
 
-[Serviço de aplicações no Linux](app-service-linux-intro.md) fornece uma serviço de alojamento na web altamente dimensionável e aplicação de patches personalizada. Este guia de introdução mostra como criar um Ruby básica na aplicação Rails, em seguida, implementá-lo para o Azure como uma aplicação Web no Linux.
+[O Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este guia de introdução mostra como criar uma aplicação básica no Ruby on Rails e, em seguida, implementá-la no Azure como uma Aplicação Web no Linux.
 
-![Olá mundo](./media/quickstart-ruby/hello-world-updated.png)
+![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/22/2017
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-Na janela de terminal, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o computador local:
+Numa janela do terminal, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local:
 
 ```bash
 git clone https://github.com/Azure-Samples/ruby-docs-hello-world
@@ -45,20 +45,20 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## <a name="run-the-application-locally"></a>Executar a aplicação localmente
 
-Execute o servidor de rails por ordem para a aplicação funcione. Mude para o *Olá mundo* diretório e o `rails server` comando inicia o servidor.
+Execute o servidor de rails para a aplicação funcionar. Mude para o diretório *hello-world* e o comando `rails server` inicia o servidor.
 
 ```bash
 cd hello-world\bin
 rails server
 ```
 
-Utilizando o seu browser, navegue para `http://localhost:3000` para testar a aplicação localmente.
+Com o seu browser, navegue para `http://localhost:3000` para testar a aplicação localmente.
 
-![Olá mundo](./media/quickstart-ruby/hello-world.png)
+![Hello-world](./media/quickstart-ruby/hello-world.png)
 
 ## <a name="modify-app-to-display-welcome-message"></a>Modificar a aplicação para apresentar a mensagem de boas-vindas
 
-Modificar a aplicação, pelo que é apresentada uma mensagem de boas-vindas. Em primeiro lugar, tem de configurar uma rota modificando o *~/workspace/ruby-docs-hello-world/config/routes.rb* ficheiro para incluir uma rota chamada `hello`.
+Modifique a aplicação para apresentar uma mensagem de boas-vindas. Em primeiro lugar, tem de configurar uma rota ao modificar o ficheiro *~/workspace/ruby-docs-hello-world/config/routes.rb* para incluir uma rota chamada `hello`.
 
   ```ruby
   Rails.application.routes.draw do
@@ -67,9 +67,9 @@ Modificar a aplicação, pelo que é apresentada uma mensagem de boas-vindas. Em
   end
   ```
 
-Altere o controlador da aplicação, de modo que devolva a mensagem como HTML no browser. 
+Altere o controlador da aplicação, de modo a que devolva a mensagem como HTML no browser. 
 
-Abra *~/workspace/hello-world/app/controllers/application_controller.rb* para edição. Modificar o `ApplicationController` classe serve como o exemplo de código seguinte:
+Abra *~/workspace/hello-world/app/controllers/application_controller.rb* para editar. Modifique a classe `ApplicationController` para se parecer ao exemplo de código seguinte:
 
   ```ruby
   class ApplicationController > ActionController :: base
@@ -80,49 +80,49 @@ Abra *~/workspace/hello-world/app/controllers/application_controller.rb* para ed
   end
   ```
 
-A aplicação está agora configurada. Utilizando o seu browser, navegue para `http://localhost:3000` para confirmar a página de destino de raiz.
+A sua aplicação está agora configurada. No browser, navegue para `http://localhost:3000` para confirmar a página de destino de raiz.
 
-![Olá, mundo configurado](./media/quickstart-ruby/hello-world-configured.png)
+![Hello World configurado](./media/quickstart-ruby/hello-world-configured.png)
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Criar uma aplicação Ruby web no Azure
+## <a name="create-a-ruby-web-app-on-azure"></a>Criar uma aplicação Web Ruby no Azure
 
-É necessário um grupo de recursos que contém os recursos necessários para a sua aplicação web. Para criar um grupo de recursos, utilize o [criar grupo az]() comando.
+É preciso um grupo de recursos que contém os elementos precisos para a sua aplicação Web. Para criar um grupo de recursos, utilize o comando [az group create]().
 
 ```azurecli-interactive
 az group create --location westeurope --name myResourceGroup
 ```
 
-Utilize o [criar plano de serviço aplicacional az](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) comando para criar um plano do app service para a sua aplicação web.
+Utilize o comando [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) para criar um plano do serviço de aplicações para a sua aplicação Web.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Em seguida, emita o [az webapp criar](https://docs.microsoft.com/cli/azure/webapp) comando para criar a aplicação web que utiliza o plano de serviço criado recentemente. Tenha em atenção que o tempo de execução está definido como `ruby|2.3`. Não se esqueça de substituir `<app name>` com um nome de aplicação único.
+Em seguida, emita o comando [az webapp create](https://docs.microsoft.com/cli/azure/webapp) para criar a aplicação Web que utiliza o plano do serviço criado recentemente. Note que o runtime está definido como `ruby|2.3`. Não se esqueça de substituir `<app name>` por um nome de aplicação único.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
 --runtime "ruby|2.3" --deployment-local-git
 ```
 
-O resultado do comando revela informações sobre a aplicação web recentemente criada, bem como o URL de implementação. Deve ser semelhante ao seguinte exemplo. Copie o URL para utilização posterior neste tutorial.
+O resultado do comando revela informações sobre a aplicação Web recentemente criada, bem como o URL de implementação. Deve ter um aspeto semelhante ao exemplo seguinte. Copie o URL para utilização posterior neste tutorial.
 
 ```bash
 https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
 ```
 
-Assim que a aplicação web for criada, um **descrição geral** página está disponível para ver. Navegue para a mesma. É apresentada a página inicial que se segue:
+Assim que a aplicação Web for criada, pode ver a página **Descrição geral**. Navegue até à mesma. É apresentada a página inicial que se segue:
 
 ![Página inicial](./media/quickstart-ruby/splash-page.png)
 
 
 ## <a name="deploy-your-application"></a>Implementar a sua aplicação
 
-Execute os seguintes comandos para implementar a aplicação local ao seu Web site do Azure:
+Execute os seguintes comandos para implementar a aplicação local no seu site do Azure:
 
 ```bash
 git remote add azure <Git deployment URL from above>
@@ -131,7 +131,7 @@ git commit -m "Initial deployment commit"
 git push azure master
 ```
 
-Certifique-se de que as operações de implementação remota reportam sucesso. Os comandos produzem o resultado semelhante para o seguinte texto:
+Certifique-se de que as operações de implementação remota são bem-sucedidas. Os comandos produzem um resultado semelhante ao seguinte texto:
 
 ```bash
 remote: Using sass-rails 5.0.6
@@ -147,26 +147,26 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Depois de concluída a implementação, reinicie a aplicação web para a implementação tenha efeito, utilizando o [reinício de webapp az](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) comando, conforme mostrado aqui:
+Assim que a implementação é concluída, reinicie a aplicação Web para a implementação ter efeito, ao utilizar o comando [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart), conforme mostrado aqui:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
 ```
 
-Navegue para o site e verificar os resultados.
+Navegue para o site e verifique os resultados.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
 
-![aplicação web atualizadas](./media/quickstart-ruby/hello-world-updated.png)
+![aplicação Web atualizada](./media/quickstart-ruby/hello-world-updated.png)
 
 > [!NOTE]
-> Enquanto a aplicação está a ser reiniciado, a tentar procurar os resultados de site num código de estado HTTP `Error 503 Server unavailable`. Pode demorar alguns minutos para reiniciar completamente.
+> Enquanto a aplicação está a reiniciar, tente procurar os resultados do site num código de estado HTTP `Error 503 Server unavailable`. Pode demorar alguns minutos a reiniciar completamente.
 >
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[App Service do Azure no Linux FAQ](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)
+[FAQ do Serviço de Aplicações do Azure no Linux](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq)

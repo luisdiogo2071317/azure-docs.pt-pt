@@ -1,6 +1,6 @@
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre como desenvolver as funções do Azure localmente, utilizando as ferramentas de núcleos de funções do Azure.
+Saiba mais sobre o desenvolvimento das Funções do Azure localmente com as Ferramentas de Núcleo das Funções do Azure.
 
 > [!div class="nextstepaction"] 
-> [Código e teste das funções do Azure localmente](../articles/azure-functions/functions-run-local.md)
+> [Criar código e testar as Funções do Azure localmente](../articles/azure-functions/functions-run-local.md)

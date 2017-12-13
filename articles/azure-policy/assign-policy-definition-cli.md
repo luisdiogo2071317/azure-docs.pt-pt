@@ -11,15 +11,15 @@ ms.service: azure-policy
 ms.custom: mvc
 ms.openlocfilehash: 6ea39618a24249d92b77afdf5cb0ea284b180223
 ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Criar uma atribuição de política para identificar recursos incompatíveis no seu ambiente do Azure com a CLI do Azure
 
-O primeiro passo na conformidade de compreender no Azure é saber onde tem de estar posicionados com os seus próprios recursos atuais. Este guia de introdução os passos do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos.
+O primeiro passo para compreender a conformidade no Azure é saber onde está posicionado com os seus próprios recursos atuais. Este guia de introdução acompanha-o ao longo do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos.
 
-No final deste processo, irá com êxito identificou que máquinas virtuais não estiver a utilizar discos geridos e estão, por conseguinte, *incompatíveis*.
+No final deste processo, terá identificado com êxito as máquinas virtuais que não estão a utilizar discos geridos e são, por conseguinte, *incompatíveis*.
 .
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -28,69 +28,69 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="opt-in-to-azure-policy"></a>Escolher a política do Azure
+## <a name="opt-in-to-azure-policy"></a>Participar no Azure Policy
 
-Política do Azure está agora disponível em pré-visualização pública e tem de registar para pedir acesso.
+O Azure Policy está agora disponível em Pré-visualização Pública e tem de se registar para pedir acesso.
 
-1. Aceda a política do Azure em https://aka.ms/getpolicy e selecione **inscrever-se** no painel esquerdo.
+1. Aceda ao Azure Policy em https://aka.ms/getpolicy e selecione **Inscrever** no painel esquerdo.
 
-   ![Pesquisa para a política](media/assign-policy-definition/sign-up.png)
+   ![Pesquisar política](media/assign-policy-definition/sign-up.png)
 
-2. Optar ativamente por participar na política do Azure ao selecionar as subscrições no **subscrição** lista que gostaria de trabalhar com. Em seguida, selecione **registar**.
+2. Participe no Azure Policy ao selecionar as subscrições na lista de **Subscrições**com que gostaria de trabalhar. Em seguida, selecione **Registar**.
 
-   ![Optar ativamente por participar em utilizar a política do Azure](media/assign-policy-definition/preview-opt-in.png)
+   ![Participar no Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   O pedido é aprovado automaticamente para a pré-visualização. Aguarde até 30 minutos para o sistema processe o registo.
+   O seu pedido é aprovado automaticamente para a Pré-visualização. Aguarde até 30 minutos para o sistema processar o registo.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Este guia de introdução, iremos criar uma atribuição de política e atribuir as máquinas virtuais de auditoria sem uma definição discos geridos. Esta definição de política identifica recursos que não está em conformidade com as condições definidas na definição de política.
+Neste guia de introdução iremos criar uma atribuição de política e atribuir as Máquinas Virtuais de Auditoria sem uma definição de Discos Geridos. Esta definição de política identifica recursos que não estão em conformidade com as condições definidas na definição de política.
 
 Siga estes passos para criar uma nova atribuição de política.
 
-Ver todas as definições de política e localizar a definição de política "Máquinas virtuais dos auditoria sem discos geridos":
+Veja todas as definições de política e encontre a definição de política "Máquinas Virtuais de Auditoria sem Discos Geridos":
 
 ```azurecli
 az policy definition list
 ```
 
-Política do Azure vem com já incorporada nas definições de política, pode utilizar. Poderá ver definições de política incorporados, tais como:
+O Azure Policy já inclui as definições de política incorporada que pode utilizar. Verá as definições de política incorporada, tais como:
 
-- Impor a etiqueta e o respetivo valor
-- Aplicar a etiqueta e o respetivo valor
-- Requer a versão do SQL Server 12.0
+- Impor etiqueta e o respetivo valor
+- Aplicar etiqueta e o respetivo valor
+- Requer a Versão do SQL Server 12.0
 
-Em seguida, forneça as seguintes informações e execute o seguinte comando para atribuir a definição de política:
+Em seguida, apresente as seguintes informações e execute o seguinte comando para atribuir a definição de política:
 
-- Apresentar **nome** para a atribuição de política. Neste caso, vamos utilizar *auditoria máquinas de virtuais sem discos geridos*.
-- **Política** – esta é a definição de política, com base desativado que estiver a utilizar para criar a atribuição. Neste caso, é a definição de política – *auditoria máquinas de virtuais sem discos geridos*
-- A **âmbito** - um âmbito determina que recursos ou agrupamento de recursos de atribuição de política obtém imposta. Podem ir de uma subscrição para grupos de recursos.
+- Apresente o **Nome** da atribuição de política. Neste caso, vamos utilizar *Máquinas de Virtuais de Auditoria sem Discos Geridos*.
+- **Política** – Esta é a definição de política, com base na qual está a utilizar para criar a atribuição. Neste caso, é a definição de política – *Máquinas Virtuais de Auditoria sem Discos Geridos*
+- O **âmbito** - Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos.
 
-  Utilizar a subscrição (ou grupo de recursos) que registou anteriormente quando optado política do Azure, neste exemplo, estamos a utilizar este ID de subscrição - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** e o nome do grupo de recursos - **FabrikamOMS**. Lembre-se de que alterá-las para o ID da subscrição e o nome do grupo de recursos que está a funcionar.
+  Utilize a subscrição (ou grupo de recursos) que registou anteriormente quando optou pelo Azure Policy, neste exemplo, estamos a utilizar este ID de subscrição - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** e o nome do grupo de recursos - **FabrikamOMS**. Lembre-se de alterá-los para o ID da subscrição e o nome do grupo de recursos em que está a trabalhar.
 
-Este é o que o comando deve ter o seguinte aspeto:
+O comando deve estar da seguinte forma:
 
 ```azurecli
 az policy assignment create --name Audit Virtual Machines without Managed Disks Assignment --policy Audit Virtual Machines without Managed Disks --scope /subscriptions/
 bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
-Uma atribuição de política é uma política que tenha sido atribuída para ocorrer dentro de um âmbito específico. Este âmbito também pode ir desde um grupo de gestão para um grupo de recursos.
+Uma atribuição de política é uma política que foi atribuída para ter lugar num âmbito específico. Este âmbito também pode ir desde um grupo de gestão a um grupo de recursos.
 
-## <a name="identify-non-compliant-resources"></a>Identificar recursos incompatíveis
+## <a name="identify-non-compliant-resources"></a>Identificar recursos não compatíveis
 
-Para ver os recursos que não são compatíveis com esta nova atribuição de:
+Para ver os recursos que não são compatíveis com esta nova atribuição:
 
-1. Navegue de volta para a página de política do Azure.
-2. Selecione **conformidade** no painel esquerdo e procure o **atribuição de política** que criou.
+1. Navegue de volta para a página do Azure Policy.
+2. Selecione **Conformidade** no painel esquerdo e procure a **Atribuição de Política** que criou.
 
    ![Conformidade com a política](media/assign-policy-definition/policy-compliance.png)
 
-   Se existirem quaisquer recursos existentes que não são compatíveis com esta nova atribuição, são apresentados no **recursos não compatível** separador, conforme mostrado acima.
+   Se existirem quaisquer recursos existentes que não sejam compatíveis com esta nova atribuição, estes são apresentados no separador **Recursos não compatíveis**, conforme mostrado acima.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Noutros guias de nesta coleção baseiam-se este guia de introdução. Se pretender continuar a trabalhar nos tutoriais subsequentes, não limpeza até os recursos criados neste guia de introdução. Se não pretender continuar, elimine a atribuição de que criou ao executar o comando:
+Outros guias desta coleção têm por base este guia de introdução. Se quiser continuar a trabalhar com os tutoriais subsequentes, não limpe os recursos criados neste guia de introdução. Se não pretender continuar, elimine a atribuição que criou ao executar este comando:
 
 ```azurecli
 az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852 resourceGroups/ FabrikamOMS
@@ -98,9 +98,9 @@ az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este guia de introdução, é atribuído a uma definição de política para identificar recursos incompatíveis no seu ambiente do Azure.
+Neste guia de introdução, atribuiu uma definição de política para identificar recursos incompatíveis no seu ambiente do Azure.
 
-Para saber mais sobre a atribuição de políticas, para se certificar de que recursos cria no **futuras** estão em conformidade, avance para o tutorial para:
+Para saber mais sobre a atribuição de políticas, de forma a certificar-se de que os recursos que cria no **futuro** estão em conformidade, avance para o tutorial:
 
 > [!div class="nextstepaction"]
 > [Criar e gerir políticas](./create-manage-policy.md)

@@ -1,6 +1,6 @@
 ---
 title: "Guia de início rápido – Cluster do Azure Kubernetes para Linux | Microsoft Docs"
-description: Saiba mais rapidamente criar um cluster de Kubernetes para contentores de Linux no AKS com a CLI do Azure.
+description: Aprenda rapidamente a criar um cluster do Kubernetes para contentores do Linux no AKS com a CLI do Azure.
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -19,30 +19,30 @@ ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: 84f542340f62194a31817a8e358d75c0d0f103ee
 ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/15/2017
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementar um cluster do serviço de contentor do Azure (AKS)
+# <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementar um cluster do Azure Container Service (AKS)
 
-Este guia de introdução, um cluster AKS é implementado utilizando a CLI do Azure. Uma aplicação de contentor multi constituída front-end web e uma instância de Redis, em seguida, é executada no cluster. Depois de concluída, a aplicação está acessível através da Internet.
+Neste guia de introdução, é implementado um cluster do AKS com a CLI do Azure. Depois, é executada no cluster uma aplicação de vários contentores que consiste num front-end da Web e numa instância de Redis. Depois de concluída, a aplicação está acessível através da Internet.
 
 ![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-Este guia de introdução pressupõe um conhecimento básico dos conceitos de Kubernetes, para obter informações detalhadas, consulte Kubernetes o [Kubernetes documentação]( https://kubernetes.io/docs/home/).
+Este guia de introdução pressupõe um conhecimento básico dos conceitos do Kubernetes. Para obter informações detalhadas sobre o Kubernetes, veja a [documentação do Kubernetes]( https://kubernetes.io/docs/home/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este guia de introdução requer que está a executar a CLI do Azure versão 2.0.21 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, este guia de introdução requer a execução da versão 2.0.21 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Ativar a pré-visualização AKS para a sua subscrição do Azure
-Enquanto AKS está em pré-visualização, a criação de novos clusters requer um sinalizador de funcionalidade na sua subscrição. Pode solicitar esta funcionalidade para qualquer número de subscrições de que pretende utilizar. Utilize o `az provider register` comando para registar o fornecedor AKS:
+## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Ativar a pré-visualização do AKS para a sua subscrição do Azure
+Enquanto o AKS está em pré-visualização, a criação de novos clusters exige um sinalizador de funcionalidade na sua subscrição. Pode pedir esta funcionalidade para qualquer número de subscrições que pretende utilizar. Utilize o comando `az provider register` para registar o fornecedor do AKS:
 
 ```azurecli-interactive
 az provider register -n Microsoft.ContainerService
 ```
 
-Depois de registar, agora está pronto para criar um cluster de Kubernetes com AKS.
+Depois de registar, está pronto para criar um cluster do Kubernetes com o AKS.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -69,7 +69,7 @@ Saída:
 }
 ```
 
-## <a name="create-aks-cluster"></a>Criar AKS cluster
+## <a name="create-aks-cluster"></a>Criar um cluster do AKS
 
 O exemplo seguinte cria um cluster com o nome *myK8sCluster* com um nó.
 
@@ -83,14 +83,14 @@ Ao fim de vários minutos, o comando é concluído e devolve informações sobre
 
 Para gerir um cluster de Kubernetes, utilize [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), o cliente de linha de comandos do Kubernetes.
 
-Se estiver a utilizar a Shell de nuvem do Azure, kubectl já está instalado. Se pretender instalá-la localmente, execute o seguinte comando.
+Se estiver a utilizar o Azure CloudShell, o kubectl já está instalado. Se pretender instalá-lo localmente, execute o seguinte comando.
 
 
 ```azurecli
 az aks install-cli
 ```
 
-Para configurar kubectl para ligar ao Kubernetes cluster, execute o seguinte comando. Este passo transfere credenciais e configura a CLI do Kubernetes para as utilizar.
+Para configurar o kubectl para se ligar ao seu cluster do Kubernetes, execute o comando seguinte. Este passo transfere credenciais e configura a CLI do Kubernetes para as utilizar.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myK8sCluster
@@ -113,7 +113,7 @@ k8s-myk8scluster-36346190-0   Ready     agent     2m        v1.7.7
 
 Um ficheiro de manifesto do Kubernetes define um estado pretendido para o cluster, incluindo que imagens de contentor devem estar em execução. Neste exemplo, é utilizado um manifesto para criar todos os objetos necessários para executar a aplicação Azure Vote.
 
-Crie um ficheiro denominado `azure-vote.yml` e copie para o seguinte código YAML. Se estiver a trabalhar no Azure Cloud Shell, este ficheiro pode ser criado através de vi ou Nano, como se estivesse a trabalhar num sistema físico ou virtual.
+Crie um ficheiro com o nome `azure-vote.yml` e copie-o para o código YAML seguinte. Se estiver a trabalhar no Azure Cloud Shell, este ficheiro pode ser criado através de vi ou Nano, como se estivesse a trabalhar num sistema físico ou virtual.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -208,7 +208,7 @@ NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Uma vez a *IP externo* endereço foi alterado de *pendente* para um *endereço IP*, utilize `CTRL-C` parar o processo de veja kubectl.
+Quando o endereço *EXTERNAL-IP* mudar de *pendente* para *Endereço IP*, utilize `CTRL-C` para parar o processo de observação do kubectl.
 
 ```
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -227,7 +227,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Obter o código
 
-Neste guia de introdução, contentor pré-criadas imagens foram utilizadas para criar uma implementação de Kubernetes. O código da aplicação relacionado, o Dockerfile, e o ficheiro de manifesto do Kubernetes, estão disponíveis no GitHub.
+Neste guia de introdução, foram utilizadas imagens de contentores pré-criadas para criar uma implementação de Kubernetes. O código da aplicação relacionado, o Dockerfile, e o ficheiro de manifesto do Kubernetes, estão disponíveis no GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
@@ -235,7 +235,7 @@ Neste guia de introdução, contentor pré-criadas imagens foram utilizadas para
 
 Neste guia de início rápido, implementou um cluster do Kubernetes e implementou uma aplicação de vários contentores no mesmo.
 
-Para saber mais sobre AKS e guiá-lo através de um código de conclusão exemplo de implementação, avance para o tutorial de cluster Kubernetes.
+Para saber mais sobre o AKS e ver um exemplo completo de código para implementação, avance para o tutorial dos clusters de Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Gerir um cluster AKS](./tutorial-kubernetes-prepare-app.md)
+> [Gerir um cluster do AKS](./tutorial-kubernetes-prepare-app.md)

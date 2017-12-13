@@ -17,7 +17,7 @@ ms.date: 05/10/2017
 ms.author: mimig
 ms.openlocfilehash: b8ab132a3e90032c4d70c310a2dd88f7441c4f0a
 ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/11/2017
 ---
@@ -107,7 +107,7 @@ Vamos fazer uma breve revisão do que está a acontecer à aplicação. Abra o f
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* Uma nova coleção é criada na linha 112.
+* É criada uma nova coleção na linha 112.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(

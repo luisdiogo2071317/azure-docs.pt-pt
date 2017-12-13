@@ -18,7 +18,7 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
 ---
@@ -51,7 +51,7 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
     ![Início rápido das funções no portal do Azure](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Selecione o **GitHub WebHook** modelo para o idioma pretendido. **Atribua um nome à função** e selecione **Criar**.
+2. Selecione o modelo **GitHub WebHook** para o idioma desejado. **Atribua um nome à função** e selecione **Criar**.
 
      ![Criar uma função acionada de um webhook do GitHub no portal do Azure](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 

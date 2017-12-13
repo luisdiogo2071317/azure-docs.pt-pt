@@ -1,5 +1,5 @@
 ---
-title: "Armazenar dados não estruturados e funções de base de dados do Azure Cosmos | Microsoft Docs"
+title: "Armazenar dados não estruturados com o Azure Cosmos DB e as Funções | Microsoft Docs"
 description: "Armazenar dados não estruturados usando as funções do Azure e o Cosmos DB"
 services: functions
 documentationcenter: functions
@@ -19,11 +19,11 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: b64d994dbc8f53418981e33a1dcd3cf513838b92
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Armazenar dados não estruturados com as funções do Azure e Azure Cosmos DB
+# <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Armazenar dados não estruturados usando as funções do Azure e o Azure Cosmos DB
 
 O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é uma ótima forma de armazenar dados não estruturados e dados JSON. Combinado com funções do Azure, o Cosmos DB torna o armazenamento de dados rápido e fácil, sendo necessário menos códigos para armazenar dados numa base de dados relacional.
 
@@ -56,7 +56,7 @@ Para concluir este tutorial:
     | **Nome da coleção** | TaskCollection | Nome da coleção da base de dados. |
     | **Se o valor for verdadeiro, cria a coleção e a base de dados do Cosmos DB** | Assinalado | A coleção ainda não existe, como tal, deve ser criada. |
 
-4. Selecione **novo** junto a **ligação de documento de base de dados do Azure Cosmos** etiqueta e selecione **+ criar nova**. 
+4. Selecione **Novo** junto à etiqueta **Ligação ao documento do Azure Cosmos DB** e selecione **+ Criar novo**. 
 
 5. Utilize as definições de **Nova conta** conforme especificado na tabela: 
 
@@ -64,13 +64,13 @@ Para concluir este tutorial:
 
     | Definição      | Valor sugerido  | Descrição                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **ID** | Nome da base de dados | ID exclusivo para a base de dados de base de dados do Azure Cosmos  |
+    | **ID** | Nome da base de dados | ID exclusivo para a base de dados do Azure Cosmos DB  |
     | **API** | SQL (DocumentDB) | Selecione a API da base de dados de documentos.  |
     | **Subscrição** | Subscrição do Azure | Subscrição do Azure  |
     | **Grupo de Recursos** | myResourceGroup |  Utilize o grupo de recursos existente que contém a aplicação de funções. |
     | **Localização**  | WestEurope | Selecione uma localização perto da sua aplicação de funções ou de outras aplicações que utilizam os documentos armazenados.  |
 
-6. Clique em **OK** para criar a base de dados. A criação da base de dados pode demorar alguns minutos. Depois de a base de dados ser criada, a cadeia de ligação da base de dados é armazenada como uma definição da aplicação de funções. O nome desta definição de aplicação é inserido no **ligação de conta de base de dados do Azure Cosmos**. 
+6. Clique em **OK** para criar a base de dados. A criação da base de dados pode demorar alguns minutos. Depois de a base de dados ser criada, a cadeia de ligação da base de dados é armazenada como uma definição da aplicação de funções. O nome desta definição de aplicação é inserido na **ligação à conta do Azure Cosmos DB**. 
  
 8. Depois de a cadeia de ligação ser definida, selecione **Guardar** para criar o enlace.
 
@@ -128,13 +128,13 @@ Este exemplo de código lê as cadeias de consulta do Pedido de HTTP e atribui-a
 
     ![Procurar o serviço Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. Escolha a sua conta de base de dados do Azure Cosmos, em seguida, selecione o **Explorador de dados**. 
+2. Escolha a sua conta do Azure Cosmos DB e, em seguida, selecione o **Data Explorer**. 
 
 3. Expanda os nós **Coleções**, selecione o novo documento e confirme se o documento contém os valores da cadeia de consulta, juntamente com alguns metadados adicionais. 
 
     ![Verifique a entrada no Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-Adicionou com êxito um enlace para o acionador HTTP que armazena dados não estruturados numa base de dados do Azure Cosmos.
+Adicionou um enlace com êxito ao acionador de HTTP que armazena os dados não estruturados numa Azure Cosmos DB.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

@@ -18,13 +18,13 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: 6ac6ed21f3cf363137381b82835a11d0920aee3b
 ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Criar uma máquina virtual Linux com o portal do Azure
 
-As máquinas virtuais podem ser criadas através do portal do Azure. Este método fornece uma interface de utilizador baseada no browser para criar e configurar máquinas virtuais e todos os recursos relacionados. Este passos de início rápido através da criação de uma máquina virtual e instalar um servidor Web na VM.
+As máquinas virtuais podem ser criadas através do portal do Azure. Este método fornece uma interface de utilizador baseada no browser para criar e configurar máquinas virtuais e todos os recursos relacionados. Este início rápido explica como criar uma máquina virtual e como instalar um servidor Web na VM.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -108,13 +108,13 @@ Um Grupo de segurança de rede (NSG) protege os tráfegos de entrada e de saída
 
 ## <a name="view-the-nginx-welcome-page"></a>Ver a página de boas-vindas do NGINX
 
-Com o NGINX instalado e a porta 80 aberta para a VM, torna-se possível aceder ao servidor Web a partir da Internet. Abra um browser e introduza o endereço IP público da VM. O endereço IP público pode ser encontrado no propriedades da VM no portal do Azure.
+Com o NGINX instalado e a porta 80 aberta para a VM, torna-se possível aceder ao servidor Web a partir da Internet. Abra um browser e introduza o endereço IP público da VM. Pode encontrar o endereço IP público nas propriedades da VM no portal do Azure.
 
 ![Site predefinido do NGINX](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual e clique em **eliminar**.
+Quando já não for necessário, elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para fazê-lo, selecione o grupo de recursos para a máquina virtual e clique em **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: "Comparação do serviço de aplicações, as máquinas virtuais, Service Fabric e serviços em nuvem do Azure | Microsoft Docs"
-description: "Saiba como escolher entre o App Service do Azure, as máquinas virtuais, Service Fabric e serviços em nuvem para alojar aplicações web."
+title: "Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud | Microsoft Docs"
+description: "Saiba como escolher entre o Serviço de Aplicações do Azure, as Máquinas Virtuais, o Service Fabric e os Serviços Cloud para alojar aplicações Web."
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: 
 author: ggailey777
@@ -17,155 +17,155 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
 ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/18/2017
 ---
-# <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação do serviço de aplicações, as máquinas virtuais, Service Fabric e serviços em nuvem do Azure
+# <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud
 ## <a name="overview"></a>Descrição geral
-O Azure disponibiliza várias formas de anfitrião web sites: [App Service do Azure][Azure App Service], [máquinas virtuais][Virtual Machines], [Service Fabric][Service Fabric], e [serviços em nuvem][Cloud Services]. Este artigo ajuda-o a compreender as opções e efetue a escolha certa para a sua aplicação web.
+O Azure oferece várias formas para alojar sites: [Serviço de Aplicações do Azure][Azure App Service], [Máquinas Virtuais][Virtual Machines], [Service Fabric][Service Fabric] e [Serviços Cloud][Cloud Services]. Este artigo ajuda-o a compreender as opções e a fazer a escolha certa para a sua aplicação Web.
 
-App Service do Azure é a melhor opção para a maioria das aplicações web. Implementação e gestão estão integradas com a plataforma, sites podem rapidamente Dimensionar para processar cargas de tráfego elevado e o Gestor de tráfego e balanceamento de carga incorporadas fornecem elevada disponibilidade. Pode mover sites existentes para o Azure App Service facilmente com um [ferramenta de migração online](https://www.migratetoazure.net/), utiliza uma aplicação de open source da Galeria de aplicações Web, ou crie um novo site utilizando as ferramentas da sua preferência e framework. O [WebJobs] [ WebJobs] funcionalidade torna mais fácil adicionar o processamento da tarefa em segundo plano a sua aplicação web do app Service.
+O Serviço de Aplicações do Azure é a melhor escolha para a maioria das aplicações Web. A implementação e a gestão estão integradas na plataforma, os sites podem ser dimensionados rapidamente para lidar com cargas elevadas de tráfego e o balanceamento de carga e o gestor de tráfego incorporados proporcionam elevada disponibilidade. Pode mover sites existentes para o Serviço de Aplicações do Azure facilmente com uma [ferramenta de migração online](https://www.migratetoazure.net/), utilizar uma aplicação de código aberto da Galeria de Aplicações Web ou criar um novo site com as ferramentas e a arquitetura da sua preferência. A funcionalidade [WebJobs][WebJobs] possibilita adicionar de forma fácil processamento de trabalhos em segundo plano à sua aplicação Web do Serviço de Aplicações.
 
-Service Fabric é uma boa opção se estiver a criar uma nova aplicação ou volte a escrever uma aplicação existente para utilizar uma arquitetura de microsserviço. As aplicações que são executadas num agrupamento partilhado de máquinas, podem começar por algo pequenas e aumentar de grande escala com centenas ou milhares de máquinas conforme necessário. Serviços com monitorização de estado facilitam a consistentemente e fiável armazenar o estado da aplicação e o Service Fabric gere automaticamente a criação de partições de serviço, dimensionamento e disponibilidade para si.  Serviço de recursos de infraestrutura também suporta end WebAPI com Open Web Interface para .NET (OWIN) e o ASP.NET Core.  Em comparação com serviço de aplicações, o Service Fabric também fornece mais controlo sobre ou acesso direto à infraestrutura subjacente. Pode remoto em servidores ou configurar tarefas de arranque do servidor. Serviços cloud é semelhante ao Service Fabric no grau de controlo versus facilidade de utilização, mas agora é um serviço de legado e Service Fabric é recomendada para um novo desenvolvimento.
+O Service Fabric é uma boa opção se pretender criar uma aplicação nova ou reescrever uma já existente para utilizar uma arquitetura de microsserviço. As aplicações, que são executadas num conjunto partilhado de máquinas, podem começar por ser pequenas e dimensionar-se para escalas massivas com centenas ou milhares de máquinas, consoante as suas necessidades. Com os serviços com estado, é fácil armazenar de forma consistente e fiável o estado das aplicações e o Service Fabric gere automaticamente a criação de partições, o dimensionamento e a disponibilidade do serviço.  O Service Fabric também suporta WebAPI com Open Web Interface para .NET (OWIN) e ASP.NET Core.  Comparando com o Serviço de Aplicações, o Service Fabric também proporciona acesso direto ou mais controlo sobre a infraestrutura subjacente. Pode aceder remotamente aos seus servidores ou configurar tarefas de arranque de servidores. Os Serviços Cloud são semelhantes ao Service Fabric quanto ao nível de controlo versus facilidade de utilização, mas são agora um serviço legado, sendo que se recomenda o Service Fabric para implementações novas.
 
-Se tiver uma aplicação existente que necessitem de alterações substanciais para execução no serviço de aplicações ou de Service Fabric, pode escolher máquinas virtuais para simplificar a migração para a nuvem. No entanto, corretamente configurar, proteger e VMs manutenção requer muito mais tempo e conhecimentos IT comparado com o App Service do Azure e o Service Fabric. Se estiver a considerar Virtual Machines do Azure, certifique-se de que ter em consideração o esforço manutenções correntes para aplicar o patch, atualizar e gerir o ambiente de VM. Máquinas virtuais do Azure é infraestrutura-como-um-serviço (IaaS), enquanto serviço de aplicações e recursos de infraestrutura de serviço são plataforma-como-um-serviço (Paas). 
+Se tiver uma aplicação existente que precise de alterações substanciais para ser executada no Serviço de Aplicações ou no Service Fabric, pode escolher as Máquinas Virtuais para simplificar a migração para a cloud. No entanto, configurar, proteger e manter VMs corretamente exige muito mais tempo e conhecimentos de TI em comparação com o Serviço de Aplicações do Azure e o Service Fabric. Se estiver a considerar as Máquinas Virtuais do Azure, é muito importante ter em conta os esforços de manutenção contínuos necessários para aplicar correções, atualizar e gerir o seu ambiente de VMs. As Máquinas Virtuais do Azure são uma Infraestrutura como Serviço (IaaS), ao passo que o Serviço de Aplicações e o Service Fabric são Plataforma como Serviço (PaaS). 
 
-## <a name="features"></a>Comparação de funcionalidades
-A tabela seguinte compara as capacidades do serviço de aplicações, serviços em nuvem, máquinas virtuais e recursos de infraestrutura de serviço para o ajudar a tornar a melhor opção. Para obter informações atuais sobre o SLA para cada opção, consulte [contratos de nível de serviço do Azure](https://azure.microsoft.com/support/legal/sla/).
+## <a name="features"></a>Comparação de Funcionalidades
+A tabela seguinte compara as capacidades do Serviço de Aplicações, dos Serviços Cloud, das Máquinas Virtuais e do Service Fabric para o ajudar a tomar a melhor decisão. Para obter informações atuais sobre o SLA de cada opção, veja [Contratos de Nível de Serviço do Azure](https://azure.microsoft.com/support/legal/sla/).
 
-| Funcionalidade | Serviço de aplicações (aplicações web) | Serviços cloud (funções da web) | Virtual Machines | Service Fabric | Notas |
+| Funcionalidade | Serviço de Aplicações (Aplicações Web) | Serviços Cloud (funções da Web) | Virtual Machines | Service Fabric | Notas |
 | --- | --- | --- | --- | --- | --- |
-| Implementação de perto instantâneas |X | | |X |Implementar uma aplicação ou uma atualização da aplicação para um serviço em nuvem ou criar uma VM, demora vários minutos, pelo menos, implementar uma aplicação numa aplicação web demora alguns segundos. |
-| Aumentar verticalmente para máquinas maiores sem a implementar |X | | |X | |
-| Instâncias de servidor Web partilham conteúdo e a configuração, o que significa que não tem de voltar a implementar ou reconfigurar, à medida que. |X | | |X | |
-| Vários ambientes de implementação (produção e teste) |X |X | |X |Recursos de infraestrutura de serviço permite-lhe ter vários ambientes para as suas aplicações ou implementar versões diferentes da sua aplicação do lado do lado a lado. |
-| Gestão de atualização automática do SO |X |X | | |Parcialmente através da orquestração Patch aplicação (POA) e totalmente no futuro. |
-| Mudar de plataforma totalmente integrada (mover facilmente entre 32 bits e 64 bits) |X |X | | | |
-| Implementar código com o GIT, FTP |X | |X | | |
-| Implementar código com o Web Deploy |X | |X | |Serviços cloud suporta a utilização do Web Deploy para implementar atualizações para instâncias de função individuais. No entanto, não é possível utilizá-lo para a implementação inicial de uma função e, se utilizar o Web Deploy para uma atualização tem de implementar em separado para cada instância de uma função. Várias instâncias são necessárias para se qualificar para o SLA do serviço de nuvem para ambientes de produção. |
-| Suporte do WebMatrix |X | |X | | |
-| Acesso aos serviços do Service Bus, armazenamento, base de dados SQL |X |X |X |X | |
-| Anfitrião web ou de camada de serviços web de uma arquitetura de várias camada |X |X |X |X | |
-| Camada média do anfitrião de uma arquitetura de várias camada |X |X |X |X |Web apps do App Service podem facilmente alojar a camada média de REST API e o [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) funcionalidade pode alojar as tarefas de processamento em segundo plano. Pode executar WebJobs no Web site dedicado para alcançar a escalabilidade independente para a camada. |
-| Suporte integrado MySQL-como-um-serviço |X |X | | | |
-| Suporte para clássico, ASP.NET, ASP, Node.js, PHP, Python |X |X |X |X |Serviço de recursos de infraestrutura suporta a criação de um web front-end utilizando [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) ou pode implementar qualquer tipo de aplicação (Node.js, Java, etc.) como um [executável de convidado](../service-fabric/service-fabric-deploy-existing-app.md). |
-| Aumentar horizontalmente a várias instâncias sem a implementar |X |X |X |X |Máquinas virtuais pode ampliar a várias instâncias, mas os serviços em execução nos mesmos têm de ser escritos para processar este Escalamento horizontal. Tem de configurar um balanceador de carga para encaminhar pedidos entre as máquinas e criar um grupo de afinidade para impedir que os reinícios simultâneos de todas as instâncias devido a falhas de manutenção ou do hardware. |
-| Suporte para SSL |X |X |X |X |Para web apps do App Service, o SSL para nomes de domínio personalizados só é suportada para o modo de base e padrão. Para obter informações sobre como utilizar SSL com as web apps, consulte [configurar um certificado SSL para um Web site Azure](app-service-web-tutorial-custom-ssl.md). |
-| Integração do Visual Studio |X |X |X |X | |
-| Depuração remota |X |X |X | | |
-| Implementar código com o TFS |X |X |X |X | |
-| Rede isolamento com [Azure Virtual Network](/azure/virtual-network/) |X |X |X |X |Consulte também [integração de rede de Web sites virtuais do Azure](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
-| Suporte para [Traffic Manager do Azure](/azure/traffic-manager/) |X |X |X |X | |
+| Implementação quase imediata |X | | |X |A implementação de aplicações ou de atualizações a implementações num Serviço Cloud ou a criação de VMs demora, no mínimo, vários minutos; a implementação de aplicações numa aplicação Web demora segundos. |
+| Aumentar verticalmente para máquinas maiores sem reimplementar |X | | |X | |
+| As instâncias dos servidores Web partilham conteúdos e a configuração, o que significa que não tem de reimplementar nem reconfigurar quando dimensionar. |X | | |X | |
+| Vários ambientes de implementação (produção e teste) |X |X | |X |O Service Fabric permite-lhe ter vários ambientes para as suas aplicações ou implementar diferentes versões das mesmas lado a lado. |
+| Gestão de atualizações do SO automática |X |X | | |Parcialmente através de Patch Orchestration Application (POA) e integralmente no futuro. |
+| Alternância de plataformas simples (alternar entre 32 bits e 64 bits facilmente) |X |X | | | |
+| Implementar código com GIT, FTP |X | |X | | |
+| Implementar código com Web Deploy |X | |X | |Os Serviços Cloud suportam a utilização da Implementação Web para implementar atualizações em instâncias de função individuais. No entanto, não pode utilizá-lo para a implementação inicial de uma função e, se utilizar o Web Deploy para uma atualização, tem de implementar separadamente em cada instância de uma função. Para elegibilidade para o SLA dos Serviços Cloud para ambientes de produção, são necessárias múltiplas instâncias. |
+| Suporte de WebMatrix |X | |X | | |
+| Acesso a serviços, como Service Bus, Armazenamento e Base de Dados SQL |X |X |X |X | |
+| Alojar a camada Web ou a camada dos serviços Web de uma arquitetura com várias camadas |X |X |X |X | |
+| Alojar a camada média de uma arquitetura com várias camadas |X |X |X |X |As aplicações Web do Serviço de Aplicações podem alojar facilmente uma camada intermédia da API REST e a funcionalidade [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode alojar trabalhos de processamento em segundo plano. Pode executar o WebJobs num site dedicado para obter escalabilidade independente para a camada. |
+| Suporte integrado para MySQL como serviço |X |X | | | |
+| Suporte para ASP.NET, ASP clássico, Node.js, PHP, Python |X |X |X |X |O Service Fabric suporta a criação de front-ends da Web através de [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) ou a implementação de qualquer tipo de aplicação (Node.js, Java, etc.) como [executável convidado](../service-fabric/service-fabric-deploy-existing-app.md). |
+| Aumentar horizontalmente para várias instâncias sem reimplementar |X |X |X |X |As Máquinas Virtuais podem ser aumentadas horizontalmente para várias instâncias, mas os serviços que estão em execução nas mesmas têm de ser escritos de forma a suportar esse aumento horizontal. Tem de configurar um balanceador de carga para encaminhar os pedidos entre as máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a falhas de manutenção ou do hardware. |
+| Suporte para SSL |X |X |X |X |Nas aplicações Web do Serviço de Aplicações, o SSL para nomes de domínios personalizados só é suportado nos modos Básico e Standard. Para obter informações sobre como utilizar o SSL com as aplicações Web, veja [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md) (Configurar certificados SSL para sites do Azure). |
+| Integração com o Visual Studio |X |X |X |X | |
+| Depuração Remota |X |X |X | | |
+| Implementar código com TFS |X |X |X |X | |
+| Isolamento de rede com a [Rede Virtual do Azure](/azure/virtual-network/) |X |X |X |X |Veja também [Azure Websites Virtual Network Integration](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) (Integração da Rede Virtual dos Web Sites do Azure) |
+| Suporte para o [Gestor de Tráfego do Azure](/azure/traffic-manager/) |X |X |X |X | |
 | Monitorização de pontos finais integrada |X |X |X | | |
-| Acesso de ambiente de trabalho remoto para servidores | |X |X |X | |
-| Instalar qualquer MSI personalizado | |X |X |X |Recursos de infraestrutura de serviço permite-lhe alojar qualquer ficheiro executável como uma [executável convidado](../service-fabric/service-fabric-deploy-existing-app.md) ou pode instalar qualquer aplicação nas VMs. |
+| Acesso de ambiente de trabalho remoto aos servidores | |X |X |X | |
+| Instalar qualquer MSI personalizado | |X |X |X |O Service Fabric permite-lhe alojar qualquer ficheiro executável como [executável convidado](../service-fabric/service-fabric-deploy-existing-app.md) ou pode instalar qualquer aplicação nas VMs. |
 | Capacidade de definir/executar tarefas de arranque | |X |X |X | |
-| Pode escutar Eventos ETW | |X |X |X | |
+| Pode escutar eventos do ETW | |X |X |X | |
 
 ## <a name="scenarios"></a>Cenários e recomendações
-Seguem-se alguns cenários comuns de aplicação com base em recomendações relativamente a qual poderá mais adequada para cada opção de alojamento na web.
+Eis alguns cenários de aplicações comuns com recomendações sobre qual a opção de alojamento na Web do Azure mais adequada para cada um.
 
-* [Preciso de um front-end de publicação na web ' com o backend do processamento e a base de dados em segundo plano para executar aplicações empresariais integradas com recursos no local.](#onprem)
-* [Preciso de uma forma fiável para alojar o meu site empresarial que dimensiona bem e alcancem ofertas global.](#corp)
+* [Preciso de um front-end da Web com processamento em segundo plano e de um back-end de base de dados para executar aplicações empresariais integradas em recursos no local.](#onprem)
+* [Preciso de uma forma fiável para alojar o meu site empresarial e que se dimensione bem e ofereça um alcance global.](#corp)
 * [Tenho uma aplicação de IIS6 em execução no Windows Server 2003.](#iis6)
-* [Sou um proprietário de pequenas empresas e preciso de uma forma económico para alojar o meu site, mas com o crescimento futuro em mente.](#smallbusiness)
-* [Sou um web ou um designer gráfico e pretender conceber e criar web sites para os meus clientes.](#designer)
-* [Estou a migrar a minha aplicação multicamada com uma web front-end para a nuvem.](#multitier)
-* [A minha aplicação depende Windows altamente personalizada ou ambientes de Linux e posso pretende movê-la para a nuvem.](#custom)
-* [O meu site utiliza o software de código aberto e pretender alojá-la no Azure.](#oss)
-* [Tenho uma aplicação de linha de negócio que necessita para se ligar à rede empresarial.](#lob)
-* [Pretende alojar uma REST API ou o serviço web de clientes móveis.](#mobile)
+* [Sou proprietário de uma pequena empresa e preciso de uma forma económica para alojar o meu site, mas com crescimento futuro em mente.](#smallbusiness)
+* [Sou Web designer ou designer gráfico e quero desenhar e criar sites para os meus clientes.](#designer)
+* [Estou a migrar a minha aplicação multicamadas com um front-end da Web para a Cloud.](#multitier)
+* [A minha aplicação depende de ambientes do Windows ou do Linux altamente personalizados e quero movê-la para a cloud.](#custom)
+* [O meu site utiliza software de código aberto e quero alojá-lo no Azure.](#oss)
+* [Tenho uma aplicação de linha de negócio que tem de se ligar à rede empresarial.](#lob)
+* [Quero alojar uma API REST ou um serviço Web para clientes móveis.](#mobile)
 
-### <a id="onprem"></a>Preciso de um front-end de publicação na web ' com o backend do processamento e a base de dados em segundo plano para executar aplicações empresariais integradas com recursos no local.
-App Service do Azure é uma excelente solução para aplicações complexas empresariais. Permite-lhe desenvolver aplicações que Dimensionar automaticamente numa plataforma com balanceamento de carga, são protegidas com o Active Directory e liguem aos seus recursos no local. Permite gerir essas aplicações fácil através de um trabalho portal e APIs e permite-lhe obter conhecimentos aprofundados sobre como os clientes estão a utilizá-los com ferramentas de conhecimentos aprofundados da aplicação. O [Webjobs] [ Webjobs] funcionalidade permite-lhe executar processos em segundo plano e fazer uma cópia de tarefas como parte da sua camada web, enquanto conectividade híbrida e funcionalidades VNET tornam mais fácil ligar aos recursos no local. App Service do Azure fornece três 9 SLA para aplicações web e permite-lhe:
+### <a id="onprem"></a>Preciso de um front-end da Web com processamento em segundo plano e de um back-end de base de dados para executar aplicações empresariais integradas em recursos no local.
+O Serviço de Aplicações do Azure é uma ótima solução para aplicações empresariais complexas. Permite-lhe desenvolver aplicações que se dimensionam automaticamente numa plataforma com balanceamento de carga, que são protegidas com o Active Directory e que se ligam aos seus recursos no local. Faz com que gerir estas aplicações seja fácil através de um portal e de APIs de qualidade superior e permite-lhe obter informações sobre de que forma é que os clientes as estão a utilizar mediante a utilização de ferramentas de informações de aplicações. A funcionalidade [Webjobs][Webjobs] possibilita-lhe executar processos e tarefas em segundo plano como parte da sua camada da Web, ao passo que as funcionalidades de conectividade híbrida e de VNET simplificam a ligação de volta aos recursos no local. O Serviço de Aplicações do Azure oferece SLAs com garantia de 99,9% de tempo de atividade para as aplicações Web e permite-lhe:
 
-* Execute as suas aplicações fiável numa plataforma de nuvem autorrecuperação, aplicação de patches automática.
-* Dimensionar automaticamente através de uma rede global de datacenters.
-* Cópia de segurança e restauro para recuperação após desastre.
-* Estar ISO, SOC2 e PCI em conformidade.
-* Integrar com o Active Directory
+* Executar as aplicações de forma fiável numa plataforma cloud de recuperação e aplicação de correções automáticas.
+* Dimensionar automaticamente numa rede global de datacenters.
+* Criar cópias de segurança e restaurar, para recuperação após desastre.
+* Estar em conformidade com ISO, SOC2 e PCI
+* Integrar no Active Directory
 
-### <a id="corp"></a>Preciso de uma forma fiável para alojar o meu site empresarial que dimensiona bem e alcancem ofertas global.
-App Service do Azure é uma excelente solução para o alojamento de Web sites empresariais. Permite que as aplicações web de dimensionamento de forma rápida e fácil para satisfazer o pedido através de uma rede global de datacenters. Oferece alcance local, a tolerância a falhas e a gestão de tráfego inteligente. Todos os numa plataforma que fornece ferramentas de gestão de trabalho, permitindo-lhe obter conhecimentos aprofundados sobre o estado de funcionamento do site e o tráfego do site forma rápida e fácil. App Service do Azure fornece três 9 SLA para aplicações web e permite-lhe:
+### <a id="corp"></a>Preciso de uma forma fiável para alojar o meu site empresarial e que se dimensione bem e ofereça um alcance global.
+O Serviço de Aplicações do Azure é uma excelente solução para o alojamento de sites empresariais. Permite que as aplicações Web se dimensionem de forma rápida e fácil para satisfazer a procura numa rede global de datacenters. Oferece alcance local, tolerância a falhas e gestão de tráfego inteligente. E tudo isto numa plataforma que disponibiliza ferramentas de gestão de qualidade superior, através das quais pode obter informações sobre o estado de funcionamento e o tráfego do site rápida e facilmente. O Serviço de Aplicações do Azure oferece SLAs com garantia de 99,9% de tempo de atividade para as aplicações Web e permite-lhe:
 
-* Execute os Web sites fiável numa plataforma de nuvem autorrecuperação, aplicação de patches automática.
-* Dimensionar automaticamente através de uma rede global de datacenters.
-* Cópia de segurança e restauro para recuperação após desastre.
-* Gerir registos e o tráfego com ferramentas integradas.
-* Estar ISO, SOC2 e PCI em conformidade.
-* Integrar com o Active Directory
+* Executar os seus sites de forma fiável numa plataforma cloud de recuperação e aplicação de correções automáticas.
+* Dimensionar automaticamente numa rede global de datacenters.
+* Criar cópias de segurança e restaurar, para recuperação após desastre.
+* Gerir registos e tráfego com ferramentas integradas.
+* Estar em conformidade com ISO, SOC2 e PCI
+* Integrar no Active Directory
 
-### <a id="iis6"></a>Tenho uma aplicação de IIS6 em execução no Windows Server 2003.
-App Service do Azure torna mais fácil evitar os custos de infraestrutura associados migrar aplicações IIS6 mais antigas. Microsoft criou [orientações detalhadas de migração e ferramentas de migração fáceis de utilizar](https://www.migratetoazure.net/) que lhe permite verificar a compatibilidade e identificar quaisquer alterações que precisam de ser efetuadas. Integração com o Visual Studio, TFS e as ferramentas de CMS comuns torna mais fácil de implementar aplicações de IIS6 diretamente para a nuvem. Depois de implementada, o Portal do Azure fornece ferramentas de gestão robusta que permitem-lhe reduzir verticalmente para gerir os custos e até cumprem exigem conforme necessário. Com a ferramenta de migração, pode:
+### <a id="iis6"></a>Tenho uma aplicação IIS6 em execução no Windows Server 2003.
+Com o Serviço de Aplicações do Azure, é fácil evitar os custos de infraestrutura associados à migração de aplicações IIS6. A Microsoft criou [ferramentas de migração fáceis de utilizar e orientações de migração detalhadas](https://www.migratetoazure.net/) que lhe permitem verificar a compatibilidade e identificar eventuais alterações que tenham de ser feitas. A integração no Visual Studio, o TFS e as ferramentas de CMS comuns fazem com que seja mais fácil implementar aplicações IIS6 diretamente na cloud. Depois de implementadas, o portal do Azure proporciona ferramentas de gestão robustas que lhe permitem reduzir verticalmente, para gerir os custos, e aumentar verticalmente, para satisfazer a procura, conforme necessário. Com a ferramenta de migração, pode:
 
-* Rápida e facilmente migre a sua aplicação de web do Windows Server 2003 legada para a nuvem.
-* Optar por deixar anexado SQL da base de dados no local para criar uma aplicação híbrida.
-* Mover automaticamente a base de dados do SQL Server juntamente com a aplicação legada.
+* Migrar, de forma rápida e fácil, a sua aplicação Web legada do Windows Server 2003 para a cloud.
+* Optar por deixar a base de dados SQL ligada no local, para criar uma aplicação híbrida.
+* Mover automaticamente a base de dados SQL juntamente com a aplicação legada.
 
-### <a id="smallbusiness"></a>Sou um proprietário de pequenas empresas e preciso de uma forma económico para alojar o meu site, mas com o crescimento futuro em mente.
-App Service do Azure é uma excelente solução para este cenário, porque pode começar a utilizá-la gratuitamente e, em seguida, adicionar capacidades mais quando que precisar. Cada aplicação web livre é fornecido com um domínio fornecido pelo Azure (*your_company*. azurewebsites.net), e a plataforma inclui ferramentas de implementação e gestão integradas, bem como uma galeria de aplicações que tornam mais fácil começar a utilizar. Existem muitos outros serviços e as opções de dimensionamento que permitir que o site de evoluir com o pedido do utilizador de aumento. Com o App Service do Azure, pode:
+### <a id="smallbusiness"></a>Sou proprietário de uma pequena empresa e preciso de uma forma económica para alojar o meu site, mas com crescimento futuro em mente.
+O Serviço de Aplicações do Azure é uma excelente solução para este cenário, porque pode começar a utilizá-la gratuitamente e, em seguida, adicionar mais capacidades quando precisar. Cada aplicação Web gratuita inclui um domínio fornecido pelo Azure (*a_sua_empresa*. azurewebsites.net) e a plataforma inclui ferramentas de implementação e gestão integradas, bem como uma galeria de aplicações que faz com que seja mais fácil começar a utilizá-las. Existem muitos outros serviços e opções de dimensionamento que possibilitam a evolução dos sites à medida que a procura dos utilizadores aumenta. Com o Serviço de Aplicações do Azure, pode:
 
-* Começar com o escalão gratuito e, em seguida, aumentar verticalmente, conforme necessário.
-* Utilize a Galeria de aplicações para configurar rapidamente a aplicações web populares, tais como o WordPress.
-* Adicione funcionalidades e serviços do Azure adicionais à sua aplicação conforme necessário.
-* Proteger a sua aplicação web com HTTPS.
+* Começar com o escalão gratuito e, depois, aumentar verticalmente, conforme necessário.
+* Utilizar a Galeria de Aplicações para configurar rapidamente aplicações Web populares, como o WordPress.
+* Adicionar mais funcionalidades e serviços do Azure à aplicação, conforme necessário.
+* Proteger a sua aplicação Web com HTTPS.
 
-### <a id="designer"></a>Sou um web ou um designer gráfico e pretender conceber e criar os Web sites para os meus clientes
-Para programadores de web e designers, App Service do Azure integra-se facilmente com uma variedade de ferramentas e estruturas, inclui suporte de implementação de Git e FTP e oferece uma integração sólida com as ferramentas e serviços como o Visual Studio e a base de dados SQL. Com o Serviço de aplicações, pode:
+### <a id="designer"></a>Sou Web designer ou designer gráfico e quero desenhar e criar sites para os meus clientes.
+Para os programadores e Web designers, o Serviço de Aplicações do Azure integra-se facilmente com diversas arquiteturas e ferramentas, inclui suporte de implementação para Git e FTP e oferece uma estreita integração com ferramentas e serviços, como o Visual Studio e a Base de Dados SQL. Com o Serviço de aplicações, pode:
 
-* Utilize as ferramentas da linha de comandos para [tarefas automatizadas][scripting].
-* Trabalhar com idiomas populares, tais como [.Net][dotnet], [PHP][PHP], [Node.js][nodejs], e [Python][Python].
-* Selecione as três diferentes níveis de dimensionamento para como aumentar verticalmente as capacidades muito elevadas.
-* Integrar com outros serviços do Azure, tal como [base de dados SQL][sqldatabase], [Service Bus] [ servicebus] e [armazenamento][Storage], ou o parceiro de ofertas do [arquivo Azure][azurestore], tais como o MySQL e MongoDB.
-* Integre com ferramentas como o Visual Studio, Git, o WebMatrix, WebDeploy, TFS e FTP.
+* Utilizar as ferramentas da linha de comandos para [tarefas automatizadas][scripting].
+* Trabalhar com linguagens populares, tais como [.Net][dotnet], [PHP][PHP], [Node.js][nodejs] e [Python][Python].
+* Selecionar três níveis de dimensionamento diferentes para aumentar verticalmente para capacidades muito elevadas.
+* Integrar noutros serviços do Azure, como a [Base de Dados SQL][sqldatabase], o [Service Bus][servicebus] e o [Armazenamento][Storage], ou em ofertas de parceiros da [Loja Azure][azurestore], como MySQL e MongoDB.
+* Integrar em ferramentas como Visual Studio, Git, WebMatrix, WebDeploy, TFS e FTP.
 
-### <a id="multitier"></a>Estou a migrar a minha aplicação multicamada com uma web front-end para a nuvem
-Se estiver a executar uma aplicação de várias camadas, como um servidor web que estabelece ligação à base de dados, o App Service do Azure é uma boa opção oferece uma integração sólida com a SQL Database do Azure. E pode utilizar a funcionalidade de WebJobs para processos de back-end em execução.
+### <a id="multitier"></a>Estou a migrar a minha aplicação multicamadas com um front-end da Web para a Cloud.
+Se estiver a executar uma aplicação multicamadas, como um servidor Web que se liga a uma base de dados, o Serviço de Aplicações do Azure é uma boa opção que oferece uma integração sólida com a Base de Dados SQL do Azure. E pode utilizar a funcionalidade WebJobs para executar processos de back-end.
 
-Escolha o Service Fabric para um ou mais dos seus escalões se precisar de mais controlam sobre o ambiente de servidor, tais como a capacidade de remoto para o servidor ou configurar tarefas de arranque do servidor.
+Escolha o Service Fabric para uma ou mais das suas camadas se precisar de ter mais controlo sobre o ambiente de servidores, como a capacidade de aceder remotamente aos servidores ou de configurar tarefas de arranque dos mesmos.
 
-Escolha as máquinas virtuais para um ou mais dos seus camadas se pretender utilizar a sua própria imagem de máquina ou execute o software de servidor ou serviços que não é possível configurar o Service Fabric.
+Escolha as Máquinas Virtuais para uma ou mais das suas camadas se quiser utilizar a sua própria imagem de máquina ou executar software de servidor ou serviços que não possam ser configurados no Service Fabric.
 
-### <a id="custom"></a>A minha aplicação depende Windows altamente personalizada ou ambientes de Linux e posso pretende movê-la para a nuvem.
-Se a sua aplicação requer a instalação complexa ou de configuração de software e o sistema operativo, as máquinas virtuais é, provavelmente, a melhor solução. Máquinas virtuais, pode:
+### <a id="custom"></a>A minha aplicação depende de ambientes do Windows ou do Linux altamente personalizados e quero movê-la para a cloud.
+Se a sua aplicação exigir instalações ou configurações complexas de software e do sistema operativo, as Máquinas Virtuais são, provavelmente, a melhor solução. Com as Máquinas Virtuais, pode:
 
-* Utilizar a galeria da Máquina Virtual para começar com um sistema operativo, tais como o Windows ou Linux e, em seguida, personalizá-lo para os requisitos da aplicação.
-* Criar e carregar uma imagem personalizada de um servidor no local existentes para executar numa máquina virtual no Azure.
+* Utilizar a galeria da Máquina Virtual para começar com um sistema operativo, como Windows ou Linux, e depois personalizá-lo de acordo com os requisitos da aplicação.
+* Criar e carregar uma imagem personalizada de um servidor no local existente para execução numa máquina virtual no Azure.
 
-### <a id="oss"></a>O meu site utiliza o software de código aberto e pretender alojá-la no Azure
-Se a sua arquitetura de código aberto é suportada no App Service, os idiomas e estruturas necessárias pela sua aplicação são automaticamente configuradas para si. Serviço de aplicações permite-lhe:
+### <a id="oss"></a>O meu site utiliza software de código aberto e quero alojá-lo no Azure.
+Se a sua arquitetura de código aberto for suportada no Serviço de Aplicações, as linguagens e as arquiteturas de que a aplicação precisa são configuradas automaticamente. O Serviço de Aplicações permite-lhe:
 
-* Utilizar muitos abra origem idiomas populares, tais como [.NET][dotnet], [PHP][PHP], [Node.js][nodejs], e [Python][Python].
-* Configure WordPress, Drupal, Umbraco, DNN e muitas outras aplicações web de terceiros.
-* Migrar uma aplicação existente ou crie um novo a partir da Galeria de aplicações.
+* Utilizar muitas linguagens de código aberto populares, tais como [.NET][dotnet], [PHP][PHP], [Node.js][nodejs] e [Python][Python].
+* Configurar WordPress, Drupal, Umbraco, DNN e muitas outras aplicações Web de terceiros.
+* Migrar uma aplicação existente ou criar uma nova a partir da Galeria de Aplicações.
 
-Se a sua arquitetura de código aberto não é suportada no App Service, pode executá-lo dos outro web do Azure que aloja as opções. Com máquinas virtuais, instalar e configurar o software à imagem de máquina, que pode ser o Windows ou baseado em Linux.
+Se o Serviço de Aplicações não suportar a sua arquitetura de código aberto, pode recorrer a uma das outras opções de alojamento Web do Azure. Com as Máquinas Virtuais, o software é instalado e configurado na imagem da máquina, que pode ser baseada no Windows ou no Linux.
 
-### <a id="lob"></a>Tenho uma aplicação de linha de negócio que necessita para se ligar à rede empresarial
-Se pretender criar uma aplicação de linha de negócio, o seu Web site poderá requerem acesso direto aos serviços ou dados na rede empresarial. Isto é possível no serviço de aplicações, o Service Fabric e máquinas virtuais utilizando o [serviço de rede Virtual do Azure](/azure/virtual-network/). No App Service pode utilizar o [funcionalidade de integração de VNET](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite que as aplicações do Azure executar como se estivessem na sua rede empresarial.
+### <a id="lob"></a>Tenho uma aplicação de linha de negócio que tem de se ligar à rede empresarial.
+Se pretender criar uma aplicação de linha de negócio, o seu site poderá precisar de acesso direto aos serviços ou dados na rede empresarial. Isto é possível no Serviço de Aplicações, no Service Fabric e nas Máquinas Virtuais mediante a utilização do [serviço de Rede Virtual do Azure](/azure/virtual-network/). No Serviço de Aplicações, pode utilizar a [funcionalidade de integração de VNET](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite que as aplicações do Azure sejam executadas como se estivessem na sua rede empresarial.
 
-### <a id="mobile"></a>Pretender alojar uma REST API ou o serviço web de clientes móveis
-Serviços web baseados em HTTP permitem-lhe suportar uma grande variedade de clientes, incluindo clientes móveis. Estruturas, como a API Web do ASP.NET integram com o Visual Studio para o tornar mais fácil de criar e consumir os serviços REST.  Estes serviços são expostos a partir de um ponto final da web, pelo que é possível utilizar qualquer técnica no Azure de alojamento na web para suportar este cenário. No entanto, o serviço de aplicações é uma escolha ideal para o alojamento de REST APIs. Com o Serviço de aplicações, pode:
+### <a id="mobile"></a>Quero alojar uma API REST ou um serviço Web para clientes móveis.
+Com os serviços Web baseados em HTTP, pode suportar uma grande variedade de clientes, incluindo clientes móveis. Algumas arquiteturas, como a API Web ASP.NET, integram-se no Visual Studio para permitir criar e consumir serviços REST mais facilmente.  Estes serviços são expostos a partir de um ponto final da Web, pelo que é possível utilizar qualquer técnica de alojamento Web no Azure, de modo a suportar este cenário. No entanto, o Serviço de Aplicações é uma escolha ideal para alojar APIs REST. Com o Serviço de Aplicações, pode:
 
-* Criar rapidamente um [aplicação móvel](../app-service-mobile/app-service-mobile-value-prop.md) ou aplicação API para alojar o serviço web HTTP do Azure globalmente distribuído centros de dados.
+* Criar rapidamente uma [aplicação móvel](../app-service-mobile/app-service-mobile-value-prop.md) ou uma aplicação API para alojar o serviço Web HTTP num dos datacenters globalmente distribuídos do Azure.
 * Migrar os serviços existentes ou criar novos.
-* Alcançar o SLA de disponibilidade com uma única instância, ou aumentar horizontalmente para várias máquinas dedicadas.
-* Utilize o site publicado para fornecer REST APIs para os clientes HTTP, incluindo clientes móveis.
+* Obter o SLA para disponibilidade com uma única instância ou aumentar horizontalmente para várias máquinas dedicadas.
+* Utilizar o site publicado para fornecer APIs REST para clientes HTTP, incluindo clientes móveis.
 
 > [!NOTE]
-> Se pretender começar a utilizar o App Service do Azure antes de inscrever-se para uma conta, aceda a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, onde, pode criar imediatamente uma aplicação de arranque de curta duração no App Service do Azure gratuitamente. Sem cartões de crédito, sem compromissos.
+> Se pretender começar a utilizar o Serviço de Aplicações do Azure antes de se inscrever numa conta, aceda a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, onde pode criar imediatamente uma aplicação de início de curta duração grátis no Serviço de Aplicações do Azure. Sem necessidade de cartões de crédito, sem compromissos.
 > 
 > 
 
-## <a id="nextsteps"></a>Passos seguintes
-Para obter mais informações sobre as três opções de alojamento de web, consulte [introdução ao Azure](../fundamentals-introduction-to-azure.md).
+## <a id="nextsteps"></a>Passos Seguintes
+Para obter mais informações sobre as três opções de alojamento Web, veja [Introducing Azure](../fundamentals-introduction-to-azure.md) (Introdução ao Azure).
 
-Para começar a utilizar com as opções que escolheu para a sua aplicação, consulte os seguintes recursos:
+Para começar a utilizar as opções que escolheu para a sua aplicação, veja os recursos seguintes:
 
 * [Serviço de Aplicações do Azure](/azure/app-service/)
 * [Azure Cloud Services](/azure/cloud-services/)
-* [Máquinas virtuais do Azure](/azure/virtual-machines/)
+* [Máquinas Virtuais do Azure](/azure/virtual-machines/)
 * [Service Fabric](/azure/service-fabric/)
 
 <!-- URL List -->

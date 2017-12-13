@@ -17,7 +17,7 @@ ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 3639bd568fbad69f65fe933aa871f4effdab9a17
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2017
 ---
@@ -63,7 +63,7 @@ Execute a aplicação localmente ao abrir uma janela de terminal e utilizar o sc
 npm start
 ```
 
-Abra um browser e navegue para a aplicação de exemplo no `http://localhost:1337`.
+Abra um browser e navegue para a aplicação de exemplo em `http://localhost:1337`.
 
 Pode ver a mensagem **Hello World** da aplicação de exemplo apresentada na página.
 
@@ -141,7 +141,7 @@ Utilizando um editor de texto, abra o ficheiro `index.js` na aplicação Node.js
 response.end("Hello Azure!");
 ```
 
-Na janela de terminal do local, consolidar as alterações no Git e, em seguida, emita as alterações de código para o Azure.
+Na janela terminal local, consolide as suas alterações no Git e envie as alterações ao código para o Azure.
 
 ```bash
 git commit -am "updated output"

@@ -17,7 +17,7 @@ ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: a17ff3ca73a824f4aa4b45a7cae9428a0fbc96d4
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2017
 ---
@@ -66,7 +66,7 @@ Execute a aplicação localmente ao abrir uma janela do terminal e utilizar o `P
 python main.py
 ```
 
-Abra um browser e navegue para a aplicação de exemplo no `http://localhost:5000`.
+Abra um browser e navegue para a aplicação de exemplo em `http://localhost:5000`.
 
 Pode ver a mensagem **Hello Wordl** da aplicação de exemplo apresentada na página.
 
@@ -86,7 +86,7 @@ Na janela do terminal, prima **Ctrl+C** para sair do servidor Web.
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-python-no-h.md)]
 
-Navegue até à sua aplicação web recentemente criada. Substitua  _&lt;nome da aplicação >_ com um nome de aplicação único.
+Navegue para a sua aplicação Web recentemente criada. Substitua _&lt;nome da aplicação>_ por um nome único da aplicação.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -160,7 +160,7 @@ Através de um editor de texto local, abra o ficheiro `main.py` na aplicação P
 return 'Hello, Azure!'
 ```
 
-Na janela de terminal do local, consolidar as alterações no Git e, em seguida, emita as alterações de código para o Azure.
+Na janela terminal local, consolide as suas alterações no Git e envie as alterações ao código para o Azure.
 
 ```bash
 git commit -am "updated output"

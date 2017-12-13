@@ -1,6 +1,6 @@
 ---
-title: "Descrição geral do Azure Application Insights para DevOps | Microsoft Docs"
-description: Saiba como utilizar o Application Insights num ambiente de desenvolvimento Ops.
+title: "Descrição geral do Azure Application Insights para DevOps | Microsoft Azure"
+description: Saiba como utilizar o Application Insights num ambiente de DevOps.
 author: mrbullwinkle
 services: application-insights
 documentationcenter: 
@@ -16,99 +16,99 @@ ms.date: 06/26/2017
 ms.author: mbullwin
 ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
 ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/01/2017
 ---
-# <a name="overview-of-application-insights-for-devops"></a>Descrição geral do Application Insights para DevOps
+# <a name="overview-of-application-insights-for-devops"></a>Descrição Geral do Application Insights para DevOps
 
-Com [Application Insights](app-insights-overview.md), pode rapidamente descobrir como a aplicação está a funcionar e a ser utilizado quando se encontra em direto. Se existir um problema, permite-lhe saber sobre, ajuda a avaliar o impacto e ajuda a determinar a causa.
+Com o [Application Insights](app-insights-overview.md), pode ver rapidamente o desempenho da sua aplicação e saber como está a ser utilizada depois de ser publicada. Se existir um problema, informa-o do mesmo e ajuda-o a avaliar o impacto e a determinar a causa.
 
-Segue-se uma conta de um agrupamento que desenvolvidas pela organização aplicações web:
+Esta é uma conta de uma equipa que desenvolve aplicações Web:
 
-* *"Alguns há dias, foi implementada uma correção 'secundária'. Iremos não foram executados uma passagem de teste abrangente, mas Infelizmente alguma alteração inesperada obteve intercalada na payload, fazendo com que incompatibilidade entre o front-end e back-ends. Imediatamente, desencadeou o nosso alerta surged exceções de servidor, e foram efetuadas em consideração a situação. Alguns cliques ausente no portal do Application Insights, iremos obteve informações suficientes da exceção callstacks para restringir o problema. Foi revertida imediatamente e limitada os danos. Application Insights efetuou esta parte do devops ciclo muito fácil e acionáveis."*
+* *"Há alguns dias, implementámos uma correção ‘menor’. Não realizámos uma fase de testes minuciosa, mas, infelizmente, uma alteração inesperada foi incluída no payload, o que provocou uma incompatibilidade entre o front-end e o back-end. De imediato, surgiram exceções do servidor, o nosso alerta disparou e ficámos a par da situação. Ao fim de alguns cliques no portal do Application Insights, obtivemos informações suficientes das callstacks de exceção, o que nos permitiu restringir o problema. Revertemos imediatamente e limitámos os danos. O Application Insights tornou esta parte do ciclo de DevOps muito fácil e valiosa”.*
 
-Neste artigo, vamos siga uma equipa na Fabrikam Bank que desenvolvidas pela organização do sistema de banca online (OBS) para ver como podem utilizar o Application Insights para responder a clientes e efetuar atualizações rapidamente.  
+Neste artigo, vamos acompanhar uma equipa do Fabrikam Bank que desenvolve o sistema de banca online (OBS) e ver de que forma é que utilizam o Application Insights para responder rapidamente a clientes e fazer atualizações.  
 
-A equipa funciona num ciclo de DevOps representado na ilustração seguinte:
+A equipa trabalha num ciclo de DevOps representado na ilustração seguinte:
 
 ![Ciclo de DevOps](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
-Requisitos do feed no respetivo registo de segurança do desenvolvimento (lista de tarefas). Funcionam em suma sprints, que frequentemente disponibilizar software trabalhar - normalmente, sob a forma de melhoramentos e extensões para a aplicação existente. A aplicação em direto é atualizada frequentemente com novas funcionalidades. Enquanto estiver em direto, a equipa monitoriza-lo para utilização com a ajuda do Application Insights e desempenho. Estes dados APM feeds no respetivo registo de segurança de desenvolvimento.
+Os requisitos alimentam a lista de tarefas pendentes de desenvolvimento da equipa. Esta trabalha em breves sprints, os quais, muitas vezes, entregam software funcional, geralmente na forma de melhorias e extensões da aplicação existente. A aplicação publicada é atualizada frequentemente com novas funcionalidades. Enquanto está publicada, a equipa monitoriza-a relativamente ao desempenho e à utilização com a ajuda do Application Insights. Estes dados da monitorização de desempenho das aplicações (APM) voltam a alimentar o registo de tarefas pendentes de desenvolvimento.
 
-A equipa utiliza o Application Insights para monitorizar a aplicação web em direto rigorosamente para:
+A equipa utiliza o Application Insights para monitorizar de perto a aplicação Web publicada quanto a:
 
-* Desempenho. Pretendem compreender como tempos de resposta variar de acordo com a contagem de pedido quanto CPU, rede, disco e outros recursos estão a ser utilizados; o código da aplicação abrandado desempenho; e onde estão os congestionamentos.
-* Falhas. Se existirem exceções ou falha pedidos, ou se um contador de desempenho ficar fora do intervalo familiarizado, a equipa precisa de saber rapidamente, para que o podem tomar medidas.
-* Utilização. Sempre que for lançada uma nova funcionalidade, a equipa querem saber até que ponto é utilizado e se os utilizadores têm dificuldades com o mesmo.
+* Desempenho. Quer saber como variam os tempos de resposta por contagem de pedidos; a quantidade de CPU, rede, disco e outros recursos utilizada; que código da aplicação abrandou o desempenho e onde estão os congestionamentos.
+* Falhas. A equipa tem de ter conhecimento imediato na eventualidade de surgirem exceções, pedidos com falha ou se um contador de desempenho sair do intervalo de conforto, para poder tomar medidas.
+* Utilização. Sempre que for lançada uma funcionalidade nova, a equipa quer saber até que ponto é utilizada e se os utilizadores têm dificuldades com a mesma.
 
-Vamos concentrar-se na peça de comentários do ciclo:
+Vamos debruçar-nos na parte do feedback do ciclo:
 
-![Detetar-triagem-diagnosticar](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
+![Detect-Triage-Diagnose](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
 ## <a name="detect-poor-availability"></a>Detetar disponibilidade fraca
-Marcela Markova é um programador sénior na equipa de OBS e demora as oportunidades potenciais na monitorização do desempenho online. A Joana configura vários [testes de disponibilidade](app-insights-monitor-web-app-availability.md):
+Marcela Markova é programadora sénior na equipa da OBS e é a responsável máxima pela monitorização do desempenho online. A Marcela configura vários [testes de disponibilidade](app-insights-monitor-web-app-availability.md):
 
-* Um teste de URL único para a página de destino principal da aplicação, http://fabrikambank.com/onlinebanking/. A Joana define os critérios de texto e o código de HTTP 200 'Bem-vindo!'. Se este teste falhar, não há um muito a sério problema com a rede ou os servidores ou pode ser um problema de implementação. (Ou alguém mudou o bem-vindo! mensagem na página sem que o respetivo know.)
-* Um mais profundo teste com vários passos, que inicia sessão e obtém uma conta atual listagem, alguns detalhes chaves em cada página de verificação. Este teste verifica se a ligação para a base de dados de contas está a funcionar. Ela utiliza um id de cliente fictícios: alguns deles são mantidas para fins de teste.
+* Um teste de URL exclusivo para a página de destino principal da aplicação, http://fabrikambank.com/onlinebanking/. Define os critérios do código HTTP 200 e o texto “Bem-vindo!”. Se o teste falhar, significa que há um problema grave com a rede ou os servidores ou, talvez, com a implementação. (Ou alguém mudou a mensagem “Bem-vindo!” na página e não avisou a Marcela.)
+* Um teste com vários passos e mais detalhado, que inicia sessão e obtém uma lista de contas atuais, verificando alguns detalhes vitais em cada página. Este teste verifica se a ligação para a base de dados de contas está a funcionar. A Marcela utiliza um id de cliente fictício; são mantidos alguns ids destes para fins de teste.
 
-Com estes testes, configurar, Marcela é certeza de que a equipa rapidamente ficará a saber sobre qualquer interrupção.  
+Com estes testes configurados, está confiante de que a equipa terá conhecimento atempado de qualquer interrupção.  
 
-Falhas de apareçam como vermelhos pontos no gráfico de teste web:
+As falhas aparecem como pontos vermelhos no gráfico dos testes Web:
 
-![Apresentação de testes web que foram executados durante o período anterior](./media/app-insights-detect-triage-diagnose/04-webtests.png)
+![Apresentação dos testes Web que foram executados durante o período anterior](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
-Mas, mais importante ainda, um alerta sobre qualquer falha é enviado por e-mail à equipa de desenvolvimento. Dessa forma, que já estão habituados acerca do mesmo antes de quase todos os clientes.
+Mas mais importante, é enviado por e-mail um alerta de qualquer falha para a equipa de desenvolvimento. Desta forma, os membros já estão a par da mesma antes de quase todos os clientes.
 
-## <a name="monitor-performance"></a>Monitorizar o desempenho
-Na página de descrição geral do Application Insights, está um gráfico que mostra uma variedade de [chave métricas](app-insights-web-monitor-performance.md).
+## <a name="monitor-performance"></a>Monitorizar o Desempenho
+Na página de descrição geral do Application Insights, está um gráfico que mostra uma variedade de [métricas-chave](app-insights-web-monitor-performance.md).
 
 ![Várias métricas](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-Tempo de carregamento de página do browser é derivado de telemetria enviada diretamente a partir de páginas web. Tempo de resposta do servidor, a contagem de pedidos do servidor e a contagem de pedidos falhados são todos medidas no servidor web e enviados para o Application Insights a partir daí.
+O tempo de carregamento das páginas do browser deriva da telemetria enviada diretamente pelas páginas Web. O tempo de resposta do servidor, a contagem de pedidos do servidor e a contagem de pedidos com falha são medidos no servidor Web e enviados daí para o Application Insights.
 
-Marcela é ligeiramente preocupado com o gráfico de resposta do servidor. Este gráfico mostra o tempo médio entre quando o servidor recebe um pedido de HTTP a partir do browser de um utilizador e, quando se retomam a resposta. Não se encontra invulgar Consulte uma variação neste gráfico, como varia de carga no sistema. Mas neste caso, parece haver que uma correlação entre pequeno aumenta a contagem de pedidos e grande aumenta o tempo de resposta. Que pode indicar que o sistema está a funcionar apenas na respetivos limites.
+A Marcela está ligeiramente preocupada com o gráfico de respostas do servidor. Este gráfico mostra o tempo médio entre quando o servidor recebe um pedido HTTP do browser de um utilizador e quando devolve a resposta. Não é invulgar ver uma variação neste gráfico, uma vez que a carga no sistema varia. Contudo, neste caso, parece haver uma correlação entre pequenos aumentos na contagem de pedidos e grandes aumentos no tempo de resposta. Isto pode indicar que o sistema está a funcionar no limite.
 
-Abre os gráficos de servidores:
+A Marcela abre os gráficos dos Servidores:
 
 ![Várias métricas](./media/app-insights-detect-triage-diagnose/06.png)
 
-Parece não haver nenhum sinal de limitação de recursos, talvez que bumps nos gráficos de resposta do servidor são apenas um coincidence.
+Parece não haver nenhum sinal de limitação de recursos, pelo que é possível que os picos nos gráficos de resposta do servidor sejam apenas coincidência.
 
-## <a name="set-alerts-to-meet-goals"></a>Alertas de conjunto para atingir os objetivos
-Contudo, a Joana gostaria de manter a par os tempos de resposta. Se avançam demasiado elevados, que pretende saber sobre-lo imediatamente.
+## <a name="set-alerts-to-meet-goals"></a>Definir alertas para atingir objetivos
+Contudo, a Marcela quer manter os tempos de resposta debaixo de olho. Se subirem demasiado, quer saber imediatamente.
 
-Para que ela define um [alerta](app-insights-metrics-explorer.md), para tempos de resposta maiores do que um limiar normal. Isto permite que a confiança de que ela vai conhecê-lo se tempos de resposta são lentos.
+Por isso, define um [alerta](app-insights-metrics-explorer.md) para tempos de resposta superiores a um limiar comum. Assim, está segura de que terá conhecimento caso os tempos de resposta sejam lentos.
 
-![Adicionar o painel de alerta](./media/app-insights-detect-triage-diagnose/07-alerts.png)
+![Painel Adicionar alerta](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
-Alertas podem ser definidos numa ampla variedade de outras métricas. Por exemplo, pode receber mensagens de correio eletrónico se a contagem de exceção torna elevada ou a memória disponível for baixa, ou se houver um horário de pico nos pedidos de cliente.
+Os alertas podem ser definidos para uma grande variedade de outras métricas. Por exemplo, pode receber e-mails se a contagem de exceções se tornar elevada, se a memória disponível diminuir ou se houver um pico nos pedidos de cliente.
 
-## <a name="stay-informed-with-smart-detection-alerts"></a>Manter-se informado com alertas de deteção inteligente
-Dia seguinte, uma mensagem de e-mail de alerta chegam do Application Insights. Mas, quando abre-lo, ela localiza não se encontra o alerta de tempo de resposta que ela definidas. Em vez disso, se lhe indica tiver ocorrido um aumento súbito repentino no pedidos falhados - ou seja, pedidos de tem devolvido códigos de falha de 500 ou mais.
+## <a name="stay-informed-with-smart-detection-alerts"></a>Estar informado com os Alertas de Deteção Inteligente
+No dia seguinte, é recebido um e-mail de alerta do Application Insights. No entanto, quando o abre, a Marcela repara que não é o alerta de tempo de resposta que tinha definido. Em vez disso, o alerta diz-lhe que houve um aumento repentino nos pedidos com falha, ou seja, pedidos que devolveram os códigos de falha 500 ou superiores.
 
-Pedidos falhados são onde os utilizadores têm visto um erro - normalmente, seguindo uma excepção iniciada no código. Talvez veem uma mensagem a indicar "Lamentamos mas não foi possível atualizar os detalhes da sua neste momento." Em alternativa, na pior embarrassing absoluto, as informações de pilha aparece no ecrã do utilizador, courtesy of o servidor web.
+Os pedidos com falha são aqueles em que os utilizadores se depararam com um erro, geralmente seguindo-se de uma exceção emitida no código. Podem ver uma mensagem a dizer “Lamentamos, mas não foi possível atualizar os seus detalhes neste momento”. Ou num cenário absolutamente embaraçoso, é apresentada a memória de pilha no ecrã do utilizador, cortesia do servidor Web.
 
-Este alerta é um surprise, porque a última vez que ela consultou, a contagem de pedidos falhados foi encouragingly baixa. É um pequeno número de falhas esperadas num servidor ocupado.
+Este alerta é uma surpresa, porque a última vez que a Marcela viu, a contagem de pedidos com falha era tranquilamente baixa. Em servidores ocupados, é previsível um pequeno número de falhas.
 
-Foi também um bits de um surprise para lhe porque ela não tem de configurar este alerta. Application Insights incluem a deteção inteligente. Automaticamente ajustável à sua aplicação padrão falha habitual e falhas "é utilizado para" a uma página específica ou em carga elevada ou ligadas a outras métricas. Gera o alarme apenas se existir um aumento súbito acima que se trata de esperar.
+Também foi algo surpreendente, pois não teve de configurar este alerta. O Application Insights inclui a Deteção Inteligente. Ajusta-se automaticamente ao padrão de falhas habitual da sua aplicação e “habitua-se” a falhas numa determinada página, com uma carga elevada ou ligados a outras métricas. Só aciona o alarme se o aumento for superior ao que é esperado.
 
-![o diagnóstico de e-mail](./media/app-insights-detect-triage-diagnose/21.png)
+![e-mail de diagnósticos proativos](./media/app-insights-detect-triage-diagnose/21.png)
 
-Este é um e-mail muito úteis. Apenas se não elevar um alarme. Faz muito a triagem e diagnóstico work, que é demasiado.
+Este é um e-mail muito útil. Não se limita a acionar um alarme. Também faz grande parte do trabalho de triagem e diagnóstico.
 
-Mostra o número de clientes serem afetado e que as páginas web ou operações. Marcela pode decidir se ela precisa de obter a equipa de toda a funcionar neste como um exercício fire, ou se pode ser ignorado até próximas semanas.
+Mostra o número de clientes, de páginas Web e de operações afetados. A Marcela pode decidir se deve pôr toda a equipa a trabalhar no alerta como um “exercício de simulação de incêndio” ou se pode ser ignorado até à próxima seguinte.
 
-A mensagem de e-mail também mostra que um determinado exceção ocorreu e - mesmo mais interessante - que a falha está associada a chamadas de falha para uma determinada base de dados. Isto explica por que motivo o índice de falhas apareceu subitamente, apesar de equipa do Marcela não implementada quaisquer atualizações recentemente.
+O e-mail também mostra que ocorreu uma determina exceção e, ainda mais interessante, que a falha está associada a chamadas com falha a uma base de dados específica. Isto explica porque motivo a falha apareceu de repente, apesar de a equipa da Marcela não ter implementado atualizações recentemente.
 
-Marcella faz o ping leader da equipa de base de dados com base neste e-mail. A Joana aprende que eles lançada uma correção frequente na meia hora anterior; e UPS, talvez poderá tiver ocorrido uma alteração de esquema secundárias...
+A Marcela entra em contacto com o líder da equipa de bases de dados com base neste e-mail. Fica a saber que aquela equipa lançou uma correção na última meia hora e... ao que parece, poderá ter havido uma alteração menor ao esquema...
 
-Por isso, se o problema de forma a ser corrigido, antes dos registos a investigar e, em 15 minutos-resultantes. No entanto, Marcela clica na ligação para abrir o Application Insights. Abre-se diretamente para um pedido falhado e ela consegue ver a base de dados falhada chamar na lista associada de chamadas de dependência.
+Assim, o problema está a ser resolvido, mesmo antes de se investigarem os registos e ao fim de 15 minutos de ter surgido. No entanto, a Marcela clica na ligação para abrir o Application Insights. Abre-se diretamente num pedido com falha e pode ver a chamada para a base de dados com falha na lista associada de chamadas de dependência.
 
-![pedidos falhados](./media/app-insights-detect-triage-diagnose/23.png)
+![pedido com falha](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## <a name="detect-exceptions"></a>Detetar exceções
-Com um pouco de configuração, [exceções](app-insights-asp-net-exceptions.md) são comunicados ao Application Insights automaticamente. Estes podem também ser capturadas explicitamente através da inserção de chamadas para [trackexception ()](app-insights-api-custom-events-metrics.md#trackexception) no código:  
+Com um pouco de configuração, as [exceções](app-insights-asp-net-exceptions.md) são reportadas automaticamente ao Application Insights. Também podem ser capturadas explicitamente ao inserir chamadas para [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) no código:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -129,9 +129,9 @@ Com um pouco de configuração, [exceções](app-insights-asp-net-exceptions.md)
     }
 
 
-A equipa de Fabrikam banco evoluiu e deu lugar tem a prática sempre que envia a telemetria uma exceção, a menos que exista uma recuperação óbvias.  
+A equipa do Fabrikam Bank desenvolveu a prática de enviar sempre telemetria sobre as exceções, a não ser que a recuperação seja óbvia.  
 
-Na verdade, a respetiva estratégia é mesmo mais abrangente do que: enviam telemetria em cada caso em que o cliente é frustrado no que pretendiam fazer, se corresponde a uma exceção no código ou não. Por exemplo, se o sistema externo banco entre transferência devolve uma mensagem "não é possível concluir esta transação", por algum motivo operacional (sem falhas do cliente), em seguida, eles monitorizam esse evento.
+De facto, a estratégia da equipa é ainda mais ampla do que isto. Envia telemetria em todos os casos nos quais o cliente se sente frustrado com o resultado do que queria fazer, quer corresponda ou não a uma exceção no código. Por exemplo, se o sistema de transferências interbancárias externo devolver a mensagem “não é possível concluir esta transação” devido a um motivo operacional (sem culpa do cliente), a equipa monitoriza esse evento.
 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
@@ -143,96 +143,96 @@ Na verdade, a respetiva estratégia é mesmo mais abrangente do que: enviam tele
        telemetry.TrackEvent("transfer failed", properties, measurements);
     }
 
-TrackException é utilizada para comunicar exceções porque envia uma cópia da pilha. TrackEvent é utilizada para outros eventos de relatório. Pode anexar quaisquer propriedades que poderão ser úteis para diagnósticos adicionais.
+É utilizado TrackException para reportar exceções porque envia uma cópia da pilha. É utilizado TrackEvent para reportar outros eventos. Pode ligar quaisquer propriedades que possam ser úteis aos diagnósticos.
 
-Exceções e eventos de apareçam no [pesquisa de diagnóstico](app-insights-diagnostic-search.md) painel. Pode explorá-los para ver as propriedades adicionais e rastreio da pilha.
+As exceções e os eventos aparecem no painel [Pesquisa de Diagnósticos](app-insights-diagnostic-search.md). Pode explorá-los para ver as propriedades adicionais e o rastreio da pilha.
 
-![Na pesquisa de diagnóstico, utilize os filtros para mostrar a tipos específicos de dados](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
+![Na Pesquisa de Diagnósticos, utilize os filtros para mostrar tipos específicos de dados](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
 
 ## <a name="monitor-proactively"></a>Monitorizar proativamente
-Marcela não manter-se apenas à volta a aguardar para alertas. Logo após cada reimplementação, ela demora uma vista de olhos [tempos de resposta](app-insights-web-monitor-performance.md) -a figura geral e a tabela de pedidos mais lentos, bem como contagens de exceção.  
+A Marcela não se limita a ficar de braços cruzados à espera dos alertas. Logo após cada implementação, olha para os [tempos de resposta](app-insights-web-monitor-performance.md), quer para a imagem geral e a tabela dos pedidos mais lentos, bem como para as contagens de exceções.  
 
-![Gráfico de tempo de resposta e grelha dos tempos de resposta do servidor.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Gráfico de tempos de resposta e grelha dos tempos de resposta do servidor.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
 
-Ela pode avaliar o efeito de desempenho de todas as implementações, normalmente comparar cada semana com a última. Se existir um worsening repentino, ela gera que com os programadores relevantes.
+Pode comparar cada semana com a anterior para avaliar o efeito de cada implementação sobre o desempenho. Se houver um agravamento repentino, a Marcela avisa os programadores relevantes.
 
-## <a name="triage-issues"></a>Problemas de triagem
-Triagem - avaliar a gravidade e a extensão de um problema - é o primeiro passo após deteção. Deve chamamos a saída da equipa de à meia-noite? Ou pode ser deixado até que o intervalo da conveniente seguinte no registo de segurança? Existem algumas questões-chave no triagem.
+## <a name="triage-issues"></a>Triagem de problemas
+A triagem - avaliar a gravidade e a extensão de um problema - é o primeiro passo após a deteção. Será que devemos chamar a equipa à meia-noite? Ou pode ficar para um momento mais conveniente na lista de tarefas? A triagem pressupõe algumas perguntas relevantes.
 
-Frequência acontece? Os gráficos no painel de descrição geral dê algum perspetiva a um problema. Por exemplo, a aplicação da Fabrikam gerados alertas de teste web quatro um noite. Observar o gráfico da manhã, a equipa foi Consulte que ocorreram, de facto, alguns pontos vermelhos, embora ainda maior parte dos testes foram verde. Desagregação no gráfico de disponibilidade, estava claro que todos estes problemas intermitentes foram da localização de um teste. Obviamente foi um problema de rede que afetam apenas uma rota e provavelmente pretende limpar próprio.  
+Com que frequência acontece? Os gráficos do painel Descrição Geral dão alguma perspetiva aos problemas. Por exemplo, a aplicação da Fabrikam gerou quatro alertas de teste Web numa noite. De manhã, quando a equipa vê o gráfico, apercebe-se de que existiram realmente alguns pontos vermelhos, embora a maioria dos testes tenham sido verdes. Ao analisar o gráfico detalhadamente, ficou claro que todos estes problemas intermitentes ocorreram numa localização de teste. Este foi obviamente um problema de rede que afetou apenas uma rota e que, provavelmente, se resolveria por si só.  
 
-Por outro lado, um aumento súbito enormes e estável no gráfico de vezes que contagens ou resposta de exceção obviamente é algo para panic sobre.
+Por oposição, um aumento significativo e estável no gráfico de contagem de exceções ou de tempos de resposta seria motivo para alarme.
 
-Tática uma triagem útil é tente-lo por si. Caso se depare com o mesmo problema, sabe é real.
+Uma tática de triagem útil é “Experimente Você Mesmo”. Caso se depare com o mesmo problema, sabe que é real.
 
-Que fração de utilizadores são afetados? Para obter uma resposta aproximada, divida a taxa de falhas por número de sessões.
+Que quantidade de utilizadores são afetados? Para obter uma resposta aproximada, divida a taxa de falhas por contagem de sessões.
 
-![Gráficos de pedidos falhados e sessões](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
+![Gráficos de pedidos com falha e sessões](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
-Quando existem lentas, compare a tabela de pedidos mais lentos responder com a frequência de utilização de cada página.
+Em caso de respostas lentas, compare a tabela de pedidos com resposta lenta com a frequência de utilização de cada página.
 
-Como importante é o cenário de bloqueados? Se este for um problema funcional bloquear uma história de utilizador em particular,-importa muito? Se os clientes não é possível pagar os respetivos faturas, esta é grave; Se não podem alterar as respetivas preferências de cor do ecrã, talvez-lo pode aguardar. Detalhe de exceção ou o evento ou a identidade de páginas lento, indica onde os clientes com dificuldades.
+Até que ponto é importante o cenário bloqueado? Se este for um problema funcional que estiver a bloquear uma determinada história de utilizador, é muito importante? Se os clientes não conseguirem pagar as faturas, é sério; se não conseguirem alterar as preferências de cor do ecrã, talvez possa esperar. Os detalhes do evento ou da exceção, ou a identidade da página lenta, dizem-lhe onde é que os clientes estão com problemas.
 
 ## <a name="diagnose-issues"></a>Diagnosticar problemas
-Diagnóstico não é bastante igual a depuração. Antes de iniciar o rastreio através de código, deve ter uma ideia aproximada do motivo, onde e quando o problema está a ocorrer.
+Os diagnósticos não são exatamente o mesmo que a depuração. Antes de iniciar o rastreio através de código, deve ter uma ideia aproximada do motivo, do local e do problema está a ocorrer.
 
-**Quando se acontecer?** A vista histórico fornecida pelos gráficos de eventos e a métrica torna mais fácil correlacionar os efeitos com as causas possíveis. Se existirem picos intermitentes taxas de exceção ou tempo de resposta, observe a contagem de pedido: se este picos ao mesmo tempo, em seguida, se parece com um problema de recurso. Necessita de atribuir mais CPU ou memória? Ou é uma dependência que não é possível gerir a carga?
+**Quando acontece?** A vista histórica proporcionada pelos gráficos de eventos e de métricas permitem correlacionar facilmente os efeitos às possíveis causas. Se houver picos intermitentes nas taxas de tempos de resposta ou de exceções, veja a contagem de pedidos; se tiverem um pico ao mesmo tempo, parece tratar-se de um problema de recurso. Tem de atribuir mais CPU ou memória? Ou é uma dependência que não consegue gerir a carga?
 
-**É-nos?**  Se tiver uma redução repentino no desempenho de um determinado tipo de pedido - por exemplo quando o cliente pretende uma instrução de conta -, em seguida, é possível pode ser um subsistema externo em vez da aplicação web. No Explorador de métricas, selecione a taxa de falhas de dependência e taxas de duração da dependência e comparar os respetivos histories através da passado algumas horas ou dias com o problema que tiver detetado. Se é correlacionando que são as alterações, poderá ser um subsistema externo de blame.  
+**O problema está do nosso lado?**  Se o desempenho de um determinado tipo de pedido sofrer uma queda repentina, por exemplo, se o cliente quiser um extrato de conta, é possível que o problema esteja num subsistema externo e não na sua aplicação Web. No Explorador de Métricas, selecione a taxa de Falhas de Dependências e a taxa de Duração das Dependências e compare os históricos de ambas durante as últimas horas ou dias com o problema que detetou. Se houver alterações correlacionadas, a causa poderá ser um subsistema externo.  
 
 
-![Gráficos de falha de dependência e duração das chamadas para dependências](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
+![Gráficos de falhas de dependências e duração das chamadas às dependências](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
-Alguns problemas de dependência lenta são problemas de geolocalização. Fabrikam banco utiliza máquinas virtuais do Azure e detetados que que tinham inadvertidamente localizados os seus servidor web e o servidor de conta em diferentes países. Uma melhoria enormes foi colocada ao migrar um deles.
+Alguns problemas de dependência lenta são problemas de geolocalização. O Fabrikam Bank utiliza as Máquinas Virtuais do Azure e descobriu que pôs, inadvertidamente, o servidor Web e o servidor de contas em diferentes países. A migração de um destes resultou numa melhoria drástica.
 
-**O que podemos fazer?** Se o problema não for apresentada uma dependência de ser e, se não sempre existe, é provavelmente provocado por uma alteração recente. Perspetiva histórica fornecida pelos gráficos de métricas e eventos torna mais fácil correlacionar quaisquer alterações repentino com as implementações. Que restringe-se para baixo a pesquisa para o problema. Para identificar quais as linhas no código da aplicação abrandado o desempenho, ative o gerador de perfis do Application Insights. Consulte [aplicações web do Azure em direto de criação de perfis com o Application Insights](./app-insights-profiler.md). Depois de ativar o gerador de perfis, verá um rastreio semelhante ao seguinte. Neste exemplo, é fácil considerável que o método *GetStorageTableData* causou o problema.  
+**O que é que fizemos?** Se o problema parecer não estar relacionado com uma dependência e se nunca tiver ocorrido, é provavelmente provocado por uma alteração recente. A perspetiva histórica que os gráficos de métricas e eventos disponibilizam permitem correlacionar facilmente todas as alterações repentinas com as implementações. Desta forma, restringe-se o âmbito da procura do problema. Para identificar que linhas do código da aplicação abrandaram o desempenho, ative o Application Insights Profiler. Veja [Profiling live Azure web apps with Application Insights](./app-insights-profiler.md) (Criar perfis de aplicações Web do Azure com o Application Insights). Depois de ativado o Profiler, verá um rastreio semelhante ao seguinte. Neste exemplo, é fácil ver que o método *GetStorageTableData* causou o problema.  
 
-![Rastreio de gerador de perfis do App Insights](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
+![Rastreio do App Insights Profiler](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
-**Que está a suceder?** Alguns problemas ocorrem raramente e podem ser difíceis de identificar testando offline. Todos os podemos fazer está a tentar capturar os erros quando ocorrer em direto. Pode inspecionar as capturas de pilha nos relatórios de exceção. Além disso, pode escrever chamadas de rastreio, com a arquitetura de registo favorita ou com tracktrace () ou trackevent ().  
+**O que está a acontecer?** Alguns problemas ocorrem raramente e podem ser difíceis de identificar mediante a realização de testes offline. Tudo o que podemos fazer é tentar capturar o erro quando ocorrer ao vivo. Pode inspecionar a memória de pilha nos relatórios de exceções. Além disso, pode escrever chamadas de rastreio com a sua arquitetura de registo favorita ou com tracktrace() ou trackevent().  
 
-Fabrikam teve um problema intermitente faça com conta entre transferências, mas apenas com determinados tipos de conta. Para compreender melhor que estava a acontecer, estes inseridos chamadas tracktrace () na chaves pontos no código, para cada chamada a expor o tipo de conta como uma propriedade. Que efetuada, fácil de filtrar apenas esses rastreios na pesquisa de diagnóstico. Ligados também os valores dos parâmetros como propriedades e as medidas para as chamadas de rastreio.
+O Fabrikam teve um problema intermitente com transferências para contas de outro banco, mas apenas em determinados tipos de contas. Para compreender melhor o que estava a acontecer, a equipa inseriu chamadas TrackTrace() em pontos vitais do código, associando o tipo de conta como propriedade a cada chamada. Desta forma, foi mais fácil filtrar apenas os rastreios na Pesquisa de Diagnósticos. Também associaram valores de parâmetros como propriedades e medidas às chamadas de rastreio.
 
 ## <a name="respond-to-discovered-issues"></a>Responder a problemas detetados
-Assim que tiver diagnosticado o problema, pode efetuar um plano para o corrigir. Talvez terá de reverter uma alteração recente ou, talvez pode apenas avançar e corrigir. Depois de corrigir é concluído, o Application Insights indica se é concluída com êxito.  
+Depois de diagnosticar o problema, pode criar um plano para corrigi-lo. Talvez tenha de reverter uma alteração recente ou possa simplesmente corrigi-lo. Depois de corrigido o problema, o Application Insights diz-lhe se foi bem-sucedido.  
 
-Equipa de desenvolvimento da Fabrikam banco adotar uma abordagem mais estruturada para medição de desempenho que são utilizaram para antes de poderem utilizaram o Application Insights.
+A equipa de desenvolvimento do Fabrikam Bank segue uma abordagem mais estruturada à medição do desempenho relativamente ao que fazia antes de utilizar o Application Insights.
 
-* Configuram metas de desempenho em termos de medidas específicas na página de descrição geral do Application Insights.
-* Estas medidas de desempenho de design para a aplicação a partir do início, tais como as métricas que medem o progresso do utilizador através de 'funnels'.  
+* Define objetivos de desempenho em termos de medidas específicas na página de descrição geral do Application Insights.
+* Integra medidas de desempenho ma aplicação desde o início, como as métricas que medem o progresso do utilizador através de “funis”.  
 
 
 ## <a name="monitor-user-activity"></a>Monitorizar a atividade do utilizador
-Quando o tempo de resposta é boa consistentemente e existem algumas exceções, a equipa de desenvolvimento pode passar para facilidade de utilização. Estes podem pensar sobre como melhorar a experiência dos utilizadores e como encorajar mais utilizadores para atingir os objetivos pretendidos.
+Se o tempo de resposta for consistentemente bom e as exceções forem poucas, a equipa de desenvolvimento pode avançar para a capacidade de utilização. Pode pensar em melhorar a experiência do utilizador e como encorajar mais utilizadores a atingirem os objetivos pretendidos.
 
-Também podem ser utilizados o Application Insights para saber o que fazem os utilizadores com uma aplicação. Assim que estiver a executar facilmente, a equipa gostaria de saber as funcionalidades que são mais populares, que os utilizadores, como ou tem dificuldade em com e a frequência voltar atrás. Que irá ajudá-los a dar prioridade ao seu trabalho futuros. E se podem planear medir o sucesso de cada funcionalidade como parte do ciclo de desenvolvimento.
+O Application Insights também pode ser utilizado para saber o que os utilizadores fazem com as aplicações. Quando estiver a funcionar sem problemas, a equipa talvez queira saber que funcionalidades são mais utilizadas, do que é que os utilizadores gostam ou com o que é que têm dificuldades e quantas vezes regressam. Isto ajuda a priorizar as próximas tarefas. Também pode planear medir o sucesso de cada funcionalidade como parte do ciclo de desenvolvimento.
 
-Por exemplo, um journey típica de utilizador através do web site tem um limpar "funil." Ver as taxas de diferentes tipos de loan muitos clientes. Um número mais pequeno avance para preencher o formulário de aspas. De quem obter uma aspas, algumas avançar em remova o loan.
+Por exemplo, o percurso típico dos utilizadores através do site têm um “funil” claro. Muitos clientes olham para os juros de diferentes tipos de empréstimos. Alguns desses clientes avançam e preenchem o formulário de adesão. Dos que recebem o formulário de adesão, alguns decidem contrair o empréstimo.
 
-![Contagens de vista de página](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Contagens de visualizações de página](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-Ao considerar onde o número maior de clientes drop, as empresas e podem trabalhar como chegar a mais utilizadores para o fim do funil. Em alguns casos, poderá haver uma falha de experiência (UX) do utilizador - por exemplo, o botão 'Seguinte' é difícil localizar ou as instruções não são evidentes. Mais provavelmente, existem mais significativas razões comerciais para largar outs: talvez as taxas de loan são demasiado elevadas.
+Ao saber em que ponto é que a maioria dos clientes desistiu, a empresa pode pensar numa forma de encorajar os utilizadores a irem mais longe enquanto exploram o site. Em alguns casos, poderá haver uma falha na experiência do utilizador (UX), por exemplo, é difícil encontrar o botão “seguinte” ou as instruções não são óbvias. O mais provável é haver motivos mais significativos para as desistências. Talvez as taxas de juro sejam demasiado altas.
 
-Seja qual for os motivos, os dados ajuda-o a equipa de descobrir que os utilizadores estão a fazer. Mais controlo chamadas podem ser inseridas para descobrir mais detalhes. Trackevent () podem ser utilizados para a contagem de ações de utilizador, de detalhe de cliques de botão individuais, para feitos significativos, tal como pagar desativar um loan.
+Independentemente dos motivos, os dados ajudam a equipa a saber o que os utilizadores estão a fazer. Podem ser inseridas mais chamadas de acompanhamento para descobrir mais detalhes. Pode ser utilizado TrackEvent() para contar ações do utilizador, desde o pequeno detalhe de cliques em botões individuais, a coisas mais relevantes, como o pagamento de um empréstimo.
 
-A equipa é obter utilizada para ter informações sobre a atividade do utilizador. Nowadays, sempre que o se estruturar uma nova funcionalidade, funcionam enviados como que irão obter comentários sobre a sua utilização. Estruture a chamadas de registo para a funcionalidade de início. Podem utilizar os comentários para melhorar a funcionalidade em cada ciclo de desenvolvimento.
+A equipa começa a habituar-se a ter informações sobre a atividade dos utilizadores. Hoje em dia, sempre que cria uma funcionalidade nova, tenta perceber como pode obter feedback sobre a utilização da mesma. Integra chamadas de acompanhamento na funcionalidade desde o início. Utiliza o feedback para melhorar a funcionalidade em cada ciclo de desenvolvimento.
 
-[Saiba mais sobre o controlo da utilização](app-insights-usage-overview.md).
+[Saiba mais sobre o acompanhamento da utilização](app-insights-usage-overview.md).
 
 ## <a name="apply-the-devops-cycle"></a>Aplicar o ciclo de DevOps
-Por isso que é como uma equipa utilização Application Insights, não apenas para corrigir problemas individuais, mas para melhorar o respetivo ciclo de vida de desenvolvimento. Posso hope-lhe forneceu algumas ideias sobre como Application Insights pode ajudá-lo com a gestão de desempenho de aplicações nas suas próprias aplicações.
+É então assim que uma equipa utiliza o Application Insights não só para corrigir problemas individuais, mas também para melhorar o ciclo de vida de desenvolvimento. Esperamos que lhe tenhamos dado algumas ideias quanto às formas como o Application Insights o pode ajudar a gerir o desempenho das suas próprias aplicações.
 
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Passos seguintes
-Pode começar a utilizar de várias formas, consoante as características da sua aplicação. Escolha o adequado para si:
+Pode começar de várias formas, consoante as características da sua aplicação. Escolha o mais adequado para si:
 
-* [Aplicação web ASP.NET](app-insights-asp-net.md)
-* [Aplicação web em Java](app-insights-java-get-started.md)
-* [Aplicação web node.js](app-insights-nodejs.md)
-* Já implementada aplicações, alojadas no [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md), ou [Azure](app-insights-azure.md).
-* [Páginas Web](app-insights-javascript.md) -única página aplicação ou página comum de web - utilizá-lo no seu próprio ou além disso, para qualquer uma das opções de servidor.
-* [Testes de disponibilidade](app-insights-monitor-web-app-availability.md) para testar a aplicação da internet pública.
+* [Aplicação Web ASP.NET](app-insights-asp-net.md)
+* [Aplicação Web Java](app-insights-java-get-started.md)
+* [Aplicação Web Node.js](app-insights-nodejs.md)
+* Aplicações já implementadas, alojadas no [IIS](app-insights-monitor-web-app-availability.md), no [J2EE](app-insights-java-live.md) ou no [Azure](app-insights-azure.md).
+* [Páginas Web](app-insights-javascript.md) - aplicação de uma só página ou página Web comum. Utilize esta opção por si só ou como acrescento a qualquer uma das opções do servidor.
+* [Testes de disponibilidade](app-insights-monitor-web-app-availability.md) para testar a sua aplicação a partir da Internet pública.
