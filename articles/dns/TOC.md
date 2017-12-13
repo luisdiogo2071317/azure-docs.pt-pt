@@ -11,7 +11,6 @@
 ## Criar uma zona e registo DNS
 ### [Portal do Azure](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [CLI do Azure 1.0](dns-getstarted-cli-nodejs.md)
 ### [CLI do Azure](dns-getstarted-cli.md)
 
 ## Criar uma zona e um registo DNS privados
@@ -24,13 +23,11 @@
 ## Gerir zonas DNS
 ### [Portal do Azure](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
-### [CLI do Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
 ### [CLI do Azure](dns-operations-dnszones-cli.md)
 
 ## Gerir registos DNS
 ### [Portal do Azure](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [CLI do Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
 ### [CLI do Azure](dns-operations-recordsets-cli.md)
 
 ## Gerir DNS inverso
