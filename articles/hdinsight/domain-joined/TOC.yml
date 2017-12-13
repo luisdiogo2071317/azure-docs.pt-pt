@@ -4,18 +4,18 @@
   items:
     - name: Descrição geral
       href: apache-domain-joined-introduction.md
-    - name: Planear para segurança empresarial
+    - name: Planear clusters associados a um domínio
       href: apache-domain-joined-architecture.md
-    - name: Configurar a segurança empresarial no HDInsight
+    - name: Configurar o ambiente sandbox associado a um domínio
       href: apache-domain-joined-configure.md
-    - name: Configurar a segurança empresarial no HDInsight com o Azure AD DS
+    - name: Configurar os clusters associados a um domínio com o Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Configure políticas do Hive
       href: apache-domain-joined-run-hive.md
     - name: Planeamento de capacidade
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-    - name: Gerir clusters com a segurança empresarial
+    - name: Gerir clusters associados a um domínio
       href: apache-domain-joined-manage.md
 - name: Proteção de dados
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md

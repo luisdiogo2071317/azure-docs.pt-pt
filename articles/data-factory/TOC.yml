@@ -74,6 +74,8 @@
           href: how-to-read-write-partitioned-data.md
         - name: Conectores
           items:
+            - name: Serviço Web do Amazon Marketplace
+              href: connector-amazon-marketplace-web-service.md
             - name: Amazon Redshift
               href: connector-amazon-redshift.md
             - name: Amazon S3
@@ -86,6 +88,8 @@
               href: connector-azure-data-lake-store.md
             - name: Base de Dados do Azure para MySQL
               href: connector-azure-database-for-mysql.md
+            - name: Base de Dados do Azure para PostgreSQL
+              href: connector-azure-database-for-postgresql.md
             - name: Armazenamento de Ficheiros do Azure
               href: connector-azure-file-storage.md
             - name: Azure Search
@@ -98,8 +102,14 @@
               href: connector-azure-table-storage.md
             - name: Cassandra
               href: connector-cassandra.md
+            - name: Concur
+              href: connector-concur.md
+            - name: Couchbase
+              href: connector-couchbase.md
             - name: DB2
               href: connector-db2.md
+            - name: Drill
+              href: connector-drill.md
             - name: Dynamics 365
               href: connector-dynamics-crm-office-365.md
             - name: Dynamics CRM
@@ -110,12 +120,30 @@
               href: connector-ftp.md
             - name: GE Historian
               href: 'connector-odbc.md#ge-historian-source'
+            - name: Google BigQuery
+              href: connector-google-bigquery.md
+            - name: Greenplum
+              href: connector-greenplum.md
+            - name: HBase
+              href: connector-hbase.md
             - name: HDFS
               href: connector-hdfs.md
+            - name: Hive
+              href: connector-hive.md
             - name: HTTP
               href: connector-http.md
+            - name: HubSpot
+              href: connector-hubspot.md
+            - name: Impala
+              href: connector-impala.md
             - name: Informix
               href: 'connector-odbc.md#ibm-informix-source'
+            - name: Jira
+              href: connector-jira.md
+            - name: Magento
+              href: connector-magento.md
+            - name: MariaDB
+              href: connector-mariadb.md
             - name: Microsoft Access
               href: 'connector-odbc.md#microsoft-access-source'
             - name: MongoDB
@@ -128,26 +156,50 @@
               href: connector-odbc.md
             - name: Oracle
               href: connector-oracle.md
+            - name: Oracle Eloqua
+              href: connector-oracle-eloqua.md
+            - name: Paypal
+              href: connector-paypal.md
+            - name: Phoenix
+              href: connector-phoenix.md
             - name: PostgreSQL
               href: connector-postgresql.md
+            - name: Presto
+              href: connector-presto.md
+            - name: QuickBooks
+              href: connector-quickbooks.md
             - name: Salesforce
               href: connector-salesforce.md
             - name: Salesforce Service Cloud
               href: connector-salesforce.md
             - name: SAP Business Warehouse
               href: connector-sap-business-warehouse.md
+            - name: SAP Cloud for Customer
+              href: connector-sap-cloud-for-customer.md
             - name: SAP HANA
               href: connector-sap-hana.md
+            - name: ServiceNow
+              href: connector-servicenow.md
             - name: SFTP
               href: connector-sftp.md
+            - name: Shopify
+              href: connector-shopify.md
+            - name: Spark
+              href: connector-spark.md
             - name: SQL Server
               href: connector-sql-server.md
+            - name: Square
+              href: connector-square.md
             - name: Sybase
               href: connector-sybase.md
             - name: Teradata
               href: connector-teradata.md
             - name: Tabela Web
               href: connector-web-table.md
+            - name: Xero
+              href: connector-xero.md
+            - name: Zoho
+              href: connector-zoho.md
         - name: Suporte de formato e compressão
           href: supported-file-formats-and-compression-codecs.md
         - name: Mapeamento de esquemas e tips
@@ -233,8 +285,6 @@
           href: create-self-hosted-integration-runtime.md
         - name: Runtime de integração de SSIS do Azure
           href: create-azure-ssis-integration-runtime.md
-        - name: Associar o runtime de integração de SSIS do Azure a uma VNET
-          href: join-azure-ssis-integration-runtime-virtual-network.md
     - name: Executar pacotes do SSIS no Azure
       items:
         - name: Criar o runtime de integração de SSIS do Azure
@@ -243,8 +293,14 @@
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Gerir o runtime de integração de SSIS do Azure
           href: manage-azure-ssis-integration-runtime.md
-        - name: Configurar o desempenho de runtime de integração do SSIS do Azure
+        - name: Configurar o desempenho de integração do SSIS do Azure
           href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Invocar pacotes SSIS com a atividade de procedimento armazenado
+          href: how-to-invoke-ssis-package-stored-procedure-activity.md
+    - name: Criar acionadores
+      items:
+        - name: Criar um acionador de agenda
+          href: how-to-create-schedule-trigger.md
 - name: Referência
   items:
     - name: .NET

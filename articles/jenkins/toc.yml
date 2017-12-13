@@ -26,6 +26,9 @@
     - name: Dimensionar com os agentes de VM do Azure
       href: /azure/jenkins/jenkins-azure-vm-agents
       maintainContext: true
+    - name: Crie com o Azure Container Instances
+      href: /azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent
+      maintainContext: true
 - name: Procedimentos
   items:
     - name: Proteger o Jenkins no Azure
