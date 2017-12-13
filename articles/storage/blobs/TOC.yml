@@ -24,6 +24,8 @@
       href: storage-quickstart-blobs-python.md
     - name: Trabalhar com blobs - Node.js
       href: storage-quickstart-blobs-nodejs.md
+    - name: Trabalhar com blobs - Explorador de Armazenamento
+      href: storage-quickstart-blobs-storage-explorer.md
 - name: Tutoriais
   items:
     - name: Carregar e processar imagens

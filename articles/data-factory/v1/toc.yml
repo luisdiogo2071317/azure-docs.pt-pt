@@ -179,6 +179,8 @@
           href: data-factory-troubleshoot.md
         - name: Utilizar o Data Management Gateway para resolver problemas
           href: data-factory-troubleshoot-gateway-issues.md
+    - name: Invocar pacotes SSIS com a atividade de procedimento armazenado
+      href: how-to-invoke-ssis-package-stored-procedure-activity.md
 - name: Referência
   items:
     - name: Exemplos de código
