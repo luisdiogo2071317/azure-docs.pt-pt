@@ -1,11 +1,11 @@
 ---
 title: "Migrar políticas clássicas no portal do Azure | Microsoft Docs"
-description: "Migre políticas clássicas no portal do Azure."
+description: "Saiba o que precisa de saber para migrar políticas clássicas no portal do Azure."
 services: active-directory
 keywords: "acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, as políticas de acesso condicional"
 documentationcenter: 
 author: MarkusVi
-manager: mtillman
+manager: femila
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -13,162 +13,156 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 416ae171564fa23473d09bad950d149e201bcc98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Migrar políticas clássicas no portal do Azure 
 
 
-[Acesso condicional](active-directory-conditional-access-azure-portal.md) é uma funcionalidade do Azure Active directory (Azure AD), que lhe permite controlar como autorizado os utilizadores acedam as aplicações na nuvem. Enquanto o objetivo ainda for o mesmo, a versão do portal do Azure também trouxe melhorias significativas para condicional como funciona o acesso. As políticas de acesso condicional que configurou fora do portal do Azure podem coexistir com as novas políticas que está a criar no portal do Azure. Desde que não são desativação ou removê-los, ainda são aplicadas no seu ambiente. No entanto, recomendamos que migre as políticas de clássicas para o novo Azure AD condicional políticas de acesso porque:
+[Acesso condicional](active-directory-conditional-access-azure-portal.md) é uma funcionalidade do Azure Active directory (Azure AD), que lhe permite controlar como autorizado os utilizadores acedam as aplicações na nuvem. Enquanto o objetivo ainda for o mesmo, a versão do portal do Azure tem introduzidas melhorias significativas para condicional como funciona o acesso.
 
-- As novas políticas permitem-lhe para cenários de endereço que não foi possível processar com as políticas de clássicas.
+Deve considerar a migrar as políticas que não tiver criado no portal do Azure porque:
+
+- Agora que pode abordar cenários que não foi possível processar antes.
 
 - Pode reduzir o número de políticas, que tem de gerir por consolidá-los.   
 
-Este tópico ajuda a a migração das políticas de clássicas existentes para o novo novo Azure políticas de acesso condicional do AD.
+- Pode gerir todas as políticas de acesso condicional numa localização central.
 
+- Portal clássico do Azure será descontinuado.   
 
+Este artigo explica o que precisa de saber para migrar as políticas de acesso condicional existentes para a estrutura de novo.
+ 
 ## <a name="classic-policies"></a>Políticas clássicas
 
-As políticas de acesso condicional para o Azure AD e o Intune não tiver criado no portal do Azure são também conhecidos como **políticas clássicas**. Para migrar as suas políticas clássicas, não precisa de ter acesso ao portal clássico do Azure. O portal do Azure fornece-lhe um [ **políticas clássico (pré-visualização)** vista](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) que permite-lhe rever as suas políticas clássicas.
+No [portal do Azure](https://portal.azure.com), a [acesso condicional - políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) página é o ponto de entrada para o acesso condicional políticas. No entanto, no seu ambiente, poderá também ter políticas de acesso condicional que não tiver criado utilizando esta página. Estas políticas são conhecidas como *políticas clássicas*. As políticas de clássicas são políticas de acesso condicional, que criou:
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+- portal clássico do Azure
+- Portal clássico do Intune
+- O portal de proteção de aplicação do Intune
 
 
-### <a name="open-a-classic-policy"></a>Abra uma política clássica
+No **acesso condicional** página, pode aceder as políticas clássicas clicando [ **políticas clássico (pré-visualização)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) no **gerir** secção. 
 
-**Para abrir uma política clássica:**
 
-1. No [portal do Azure](https://portal.azure.com), navbar esquerdo, clique em **do Azure Active Directory**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
 
-2. No **do Azure Active Directory** na página de **gerir** secção, clique em **acesso condicional**.
+O **políticas clássico** vista disponibiliza uma opção para:
 
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/02.png)
+- Filtre as políticas clássicas.
  
-2. No **acesso condicional - políticas** na página de **gerir** secção, clique em **políticas clássico (pré-visualização)**.
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/72.png)
 
-3. Na lista de políticas clássicas, selecione a política que mais lhe interessam.   
+- Desative políticas clássicas.
 
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/34.png)
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/73.png)
+   
+- Reveja as definições de políticas de clássico (e desativá-los).
+
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/74.png)
+
+
+Se tiver desativado a uma política clássica, não é possível reverter este passo já. Esta é a razão pode modificar a associação a grupos numa política clássica através de **detalhes** vista. 
+
+![Azure Active Directory](./media/active-directory-conditional-access-migration/75.png)
+
+Alterando os grupos selecionados ou excluindo grupos específicos, pode testar o efeito de uma política desativada clássico para alguns utilizadores de teste antes de desativar a política para incluídos todos os utilizadores e grupos. 
 
 
 
 ## <a name="azure-ad-conditional-access-policies"></a>Políticas de acesso condicional do Azure AD
 
-Este tópico fornece-lhe os passos detalhados que lhe permite migrar as suas políticas clássicas sem estar familiarizado com acesso condicional do Azure AD políticas. No entanto, que está a ser familiarizado com os conceitos básicos e terminologia do Azure AD ajuda-o acesso condicional para melhorar a sua experiência de migração.
+Com o acesso condicional no portal do Azure, pode gerir todas as políticas numa única localização central. Porque a implementação de acesso condicional como significativamente foi alterada, deverá familiarizar-se com os conceitos básicos antes de migrar as suas políticas clássicas.
 
 Consulte:
 
-- [Acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md) para saber mais sobre os conceitos básicos e a terminologia
+- [Acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md) para saber mais sobre os conceitos básicos e a terminologia.
 
-- [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) para se familiarizar com a interface de utilizador no portal do Azure
+- [Melhores práticas para acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md) para obter algumas orientações sobre como implementar o acesso condicional na sua organização.
+
+- [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) para se familiarizar com a interface de utilizador no portal do Azure.
 
 
  
+## <a name="migration-considerations"></a>Considerações sobre a migração
+
+Neste artigo, políticas de acesso condicional do Azure AD são também conhecidas como *novas políticas*.
+As políticas clássicas continuam a trabalhar side by side with as novas políticas até que desative ou elimine-os. 
+
+Os seguintes aspetos são importantes no contexto de uma consolidação de política:
+
+- Enquanto clássicas políticas estão associadas a uma aplicação de nuvem específicas, pode selecionar como muitas aplicações na nuvem que precisar para numa política de novo.
+
+- Controlos de uma política clássica e uma nova política para uma aplicação de nuvem necessitam de todos os controlos (*e*) para ser concluído. 
+
+
+- Uma nova política, pode:
+ 
+    - Combine várias condições se requerida pelo seu cenário. 
+
+    - Selecione vários conceder requisitos de acesso controlarem e combinam-os com uma lógica *ou* (exigir um dos controlos selecionados) ou com uma lógica *e* (exigir todos os controlos selecionados).
+
+        ![Azure Active Directory](./media/active-directory-conditional-access-migration/25.png)
 
 
 
 
+### <a name="office-365-exchange-online"></a>Office 365 Exchange online
 
-## <a name="multi-factor-authentication-policy"></a>Política de autenticação multifator 
+Se pretender migrar políticas clássicas para **Exchange online do Office 365** que incluam **Exchange Active Sync** como condição de aplicações de cliente, poderá não conseguir consolidá-los para uma nova política. 
 
-Este exemplo mostra como a migração de uma política de clássica requer **autenticação multifator** para uma aplicação de nuvem. 
+Isto é, por exemplo, caso se pretender suportar todos os tipos de aplicação de cliente. Numa política nova que tenha **Exchange Active Sync** como condição de aplicações de cliente, não é possível selecionar outras aplicações de cliente.
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/64.png)
 
+Uma consolidação para uma nova política também não é possível se as políticas clássicas contêm várias condições. Uma nova política tem **Exchange Active Sync** como aplicações de cliente condição configurada não suporta a outras condições:   
 
-**Para migrar uma política clássica:**
+![Azure Active Directory](./media/active-directory-conditional-access-migration/08.png)
 
-1. [Abrir a política clássica](#open-a-classic-policy) para obter as definições de configuração.
-2. Criar uma nova política de acesso condicional do Azure AD para substituir a política de clássica. 
+Se tiver uma política nova que tenha **Exchange Active Sync** como aplicações de cliente condição configurada, terá de certificar-se de que todas as outras condições não estão configuradas. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/16.png)
+ 
 
-### <a name="create-a-new-conditional-access-policy"></a>Criar uma nova política de acesso condicional
+[Com base na aplicação](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) clássicas políticas para o Exchange Online do Office 365 que inclua **Exchange Active Sync** como condição de aplicações de cliente permitem **suportado** e **não suportado** [plataformas de dispositivos](active-directory-conditional-access-technical-reference.md#device-platform-condition). Embora não é possível configurar plataformas de dispositivos individuais numa política nova relacionada, pode limitar o suporte para [plataformas de dispositivos suportadas](active-directory-conditional-access-technical-reference.md#device-platform-condition) apenas. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/65.png)
 
-1. No [portal do Azure](https://portal.azure.com), navbar esquerdo, clique em **do Azure Active Directory**.
+Pode consolidar várias políticas clássicas que incluem **Exchange Active Sync** como condição de aplicações de cliente se tiverem:
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
+- Apenas **Exchange Active Sync** como condição 
 
-2. No **do Azure Active Directory** na página de **gerir** secção, clique em **acesso condicional**.
+- Vários requisitos para a concessão de acesso configurado
 
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/02.png)
+Um cenário comum é a consolidação de:
 
+- Uma política clássica baseado nos dispositivos do portal clássico do Azure 
+- Uma política clássica com base na aplicação no portal de proteção da aplicação do Intune 
+ 
+Neste caso, pode consolidar as políticas do clássicas para uma nova política, que tem ambos os requisitos selecionados.
 
-
-3. No **acesso condicional** página, para abrir o **novo** página, na barra de ferramentas na parte superior, clique em **adicionar**.
-
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/03.png)
-
-4. No **novo** na página de **nome** caixa de texto, escreva um nome para a sua política.
-
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/29.png)
-
-5. No **atribuições** secção, clique em **utilizadores e grupos**.
-
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/05.png)
-
-    a. Se tiver de todos os utilizadores selecionados na sua política clássica, clique em **todos os utilizadores**. 
-
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/35.png)
-
-    b. Se tiver selecionados na sua política clássica de grupos, clique em **selecionar utilizadores e grupos**e, em seguida, selecione os utilizadores necessários e grupos.
-
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/36.png)
-
-    c. Se tiver os grupos excluídos, clique em de **excluir** separador e, em seguida, selecione os utilizadores necessários e grupos. 
-
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/37.png)
-
-6. No **novo** página, para abrir o **aplicações em nuvem** na página de **atribuição** secção, clique em **aplicações em nuvem**.
-
-    ![Acesso condicional](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
-
-8. No **aplicações em nuvem** página, execute os seguintes passos:
-
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/08.png)
-
-    a. Clique em **selecionar aplicações**.
-
-    b. Clique em **Selecionar**.
-
-    c. No **selecione** página, selecione a sua aplicação de nuvem e, em seguida, clique em **selecione**.
-
-    d. No **aplicações em nuvem** página, clique em **feito**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/62.png)
 
 
 
-9. Se tiver **requer autenticação multifator** selecionado:
+### <a name="device-platforms"></a>Plataformas de dispositivos
 
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/26.png)
+Políticas clássicas com [controlos de aplicação](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) são previamente configurada com o iOS e Android, como o [condição de plataforma de dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
-    a. No **controlos de acesso** secção, clique em **conceder**.
+Uma nova política, terá de selecionar o [plataformas de dispositivos](active-directory-conditional-access-technical-reference.md#device-platform-condition) que pretende suportar individualmente.
 
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/27.png)
-
-    b. No **conceder** página, clique em **conceder acesso**e, em seguida, clique em **requer autenticação multifator**.
-
-    c. Clique em **Selecionar**.
-
-
-10. Clique em **no** para ativar a política.
-
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/30.png)
-
-11. Desative a política clássica. 
-
-    ![Acesso condicional](./media/active-directory-conditional-access-migration/38.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/41.png)
 
 
 
+ 
  
 
 

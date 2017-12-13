@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 812b6f323e2ddaee9095a7bdf221d6a8ebd69fd2
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 80e797c1b53d62b08c3c7fce99ec961fe26f1f4c
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight com o portal do Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -52,25 +52,18 @@ O portal do Azure expõe a maior parte das propriedades do cluster. Utilizar o m
 
     * Do **subscrição** pendente, selecione a subscrição do Azure que será utilizada para o cluster.
 
-    * Clique em **tipo de Cluster**e, em seguida, selecione:
-   
-        * **Tipo de Cluster**: se não sabe o que escolher, selecione **Hadoop**. É o tipo de cluster mais popular.
+    * Clique em **tipo de Cluster**e, em seguida, selecione o tipo de cluster (Hadoop, Spark, etc.) que pretende criar. Para **sistema operativo**, clique em **Linux** e, em seguida, selecione uma versão. Utilize a versão predefinida se não souber o que escolher. Para obter mais informações, veja [HDInsight cluster versions (Versões de clusters HDInsight)](hdinsight-component-versioning.md).
      
-            > [!IMPORTANT]
-            > HDInsight clusters vêm numa variedade de tipos, que correspondem à carga de trabalho ou tecnologia que o cluster está otimizado para. Não há nenhum método suportado para criar um cluster que combina vários tipos, por exemplo, Storm e HBase num cluster. 
-            > 
-            > 
+        > [!IMPORTANT]
+        > HDInsight clusters vêm numa variedade de tipos, que correspondem à carga de trabalho ou tecnologia que o cluster está otimizado para. Não há nenhum método suportado para criar um cluster que combina vários tipos, por exemplo, Storm e HBase num cluster. 
+        > 
+        > 
         
-        * **Sistema Operativo**: selecione **Linux**.
-        
-        * **Versão**: utilize a versão predefinida se não souber o que escolher. Para obter mais informações, veja [HDInsight cluster versions (Versões de clusters HDInsight)](hdinsight-component-versioning.md).
-        
-
     * Para **nome de utilizador de início de sessão de Cluster** e **palavra-passe de início de sessão do Cluster**, forneça o nome de utilizador e palavra-passe para o utilizador de admin.
 
     * Introduza um **nome de utilizador SSH** e se pretende que a palavra-passe do SSH mesma que a palavra-passe de admin especificado anteriormente, selecione o **utilizar a mesma palavra-passe como início de sessão do cluster** caixa de verificação. Se não estiver, forneça um **palavra-passe** ou **chave pública**, que será utilizado para autenticar o utilizador SSH. A abordagem recomendada é utilizar uma chave pública. Clique em **Selecionar**, na parte inferior, para guardar a configuração das credenciais.
    
-        Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     * Para **grupo de recursos**, especifique se pretende criar um novo grupo de recursos ou utilize uma já existente.
 

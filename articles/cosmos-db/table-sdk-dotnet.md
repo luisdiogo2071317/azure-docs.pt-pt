@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 02bb5d23ee9468ab1f74396877cdcd6bdd8b8fba
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Cosmos Azure API de .NET de tabela de base de dados: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/20/2017
 |**Arquitetura suportada atual**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 > [!IMPORTANT]
-> Se tiver criado uma conta de API de tabela durante a pré-visualização, crie um [nova conta de API de tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs de API de tabela geralmente disponível.
+> Se tiver criado uma conta de API de Tabela durante a pré-visualização, crie uma [nova conta de API de Tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs de API de Tabela disponíveis geralmente.
 >
 
 ## <a name="release-notes"></a>Notas de versão
@@ -50,6 +50,8 @@ ms.lasthandoff: 11/20/2017
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
 A Microsoft disponibiliza notificação, pelo menos, **12 meses** previamente extinguir um SDK para smooth a transição para uma versão mais recente/suportado.
 
+O [Windowsazure PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) foi preterido e substituído pelo pacote de pré-visualização do [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) pacote. O SDK Windowsazure PremiumTable será descontinuado no dia 15 de Novembro de 2018, em que momento pedidos para o SDK extinto não será permitido.
+
 Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas ao SDK atual, como tal, recomenda-se que atualize sempre para a versão mais recente SDK como antecipadamente quanto possível. 
 
 Todos os pedidos de BD do Cosmos do Azure utilizando um SDK extinto são rejeitados pelo serviço.
@@ -58,7 +60,7 @@ Todos os pedidos de BD do Cosmos do Azure utilizando um SDK extinto são rejeita
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 de Novembro de 2017|--- |
-| [0.9.0-Preview](#0.1.0-preview) |11 de Novembro de 2017 |--- |
+| [0.9.0-Preview](#0.9.0-preview) |11 de Novembro de 2017 |--- |
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

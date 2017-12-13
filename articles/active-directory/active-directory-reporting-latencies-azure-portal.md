@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/11/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f4b3e59cb6cec5ac4ca771818e5eca8509a43d82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory latências de relatórios
 
@@ -37,13 +37,15 @@ Existem duas áreas de criação de relatórios de atividade:
 
 A tabela seguinte lista as informações de latência para relatórios de atividade.
 
-| Relatório | Mínimo | Média | Máximo |
-| :-- | --- | --- | --- |
-| Registos de auditoria             | 30 minutos  | 1 hora | 2 horas     |
-| Inícios de sessão               | 15 minutos  | 2 horas * | 24 horas  |
+| Relatório | Mínimo | Média |
+| :-- | --- | --- |
+| Registos de auditoria | 30 minutos  | 1 hora  |
+| Inícios de sessão | 15 minutos  | 2 horas |
 
->[!NOTE]
-> No caso de alguns dados de atividade de inícios de sessão provenientes de aplicações legadas do Office, os dados dos relatórios podem demorar até 8 horas a aparecer. 
+Em alguns casos de limite, pode efetuar:
+
+- 2 horas para auditoria de dados de atividade para apresentar.
+- 24 horas para os dados de atividade de início de sessão apresentar. Isto inclui dados de atividade de inícios de sessão provenientes das aplicações do office legado. 
 
 
 ## <a name="security-reports"></a>Relatórios de segurança

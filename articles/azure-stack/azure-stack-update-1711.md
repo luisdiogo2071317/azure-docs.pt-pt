@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: b9f45462fb108ff9cc9039cdb0d0a9ef318fc218
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 3c51348be75a11419c12bc517ab7131323016a55
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-stack-1711-update"></a>Atualização de pilha 1711 do Azure
 
@@ -108,7 +108,7 @@ Esta secção contém pós-instalação problemas conhecidos com compilação **
 
 - Se reiniciar o computador de uma instância de função de infraestrutura, poderá receber uma mensagem a indicar que o reinício falhou. No entanto, o reinício, na verdade, com êxito.
 
-#### <a name="marketplace"></a>Mercado
+#### <a name="marketplace"></a>Marketplace
 - Quando tentar adicionar itens para o mercado de pilha do Azure utilizando o **adicionar a partir do Azure** opção, nem todos os itens podem ser visíveis para transferência.
 - Os utilizadores podem procurar o mercado completo sem uma subscrição e podem ver itens administrativos como planos e ofertas. Estes itens estão não funcional para os utilizadores.
 
@@ -118,11 +118,12 @@ Esta secção contém pós-instalação problemas conhecidos com compilação **
 - Não há nenhum experiência marketplace para criar conjuntos de dimensionamento de máquina virtual. Pode criar um conjunto, utilizando um modelo de dimensionamento.
 - Definições de dimensionamento para conjuntos de dimensionamento de máquina virtual não estão disponíveis no portal. Como solução, pode utilizar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Devido às diferenças de versão do PowerShell, tem de utilizar o `-Name` parâmetro em vez de `-VMScaleSetName`.
  
-#### <a name="networking"></a>Rede
+#### <a name="networking"></a>Redes
 - Não é possível criar um balanceador de carga com um endereço IP público utilizando o portal. Como solução, pode utilizar o PowerShell para criar o Balanceador de carga.
 - Tem de criar uma regra de tradução (NAT) de endereço de rede quando cria um balanceador de carga de rede. Caso contrário, receberá um erro ao tentar adicionar uma regra NAT após a criação do Balanceador de carga.
 - Não é possível desassociar um endereço IP público de uma máquina virtual (VM) depois da VM foi criada e associada a esse endereço IP. Desassociação irá aparecer funcionar, mas o endereço IP público anteriormente atribuído permanece associado a VM original. Este comportamento ocorre mesmo reatribuir o endereço IP para uma nova VM (normalmente denominado como um *alternância de VIP*). Todas as futuras tenta estabelecer ligação através deste resultado de endereço IP numa ligação para a VM originalmente associada e não para a nova. Atualmente, tem de utilizar os novos endereços IP públicos apenas para a criação de nova VM.
 - Os operadores do Azure da pilha poderão não ser possível implementar, eliminar, modificar VNETs ou grupos de segurança de rede. Este problema é principalmente utilizado em tentativas de atualização subsequentes do mesmo pacote. Isto é causado por um problema de empacotamento com uma atualização que está atualmente a ser investigação.
+- Balanceamento de carga interno (ILB) processa incorretamente endereços MAC para VMs do back-end que quebra instâncias do Linux.
  
 #### <a name="sqlmysql"></a>SQL Server/MySQL
 - Pode demorar até uma hora até os inquilinos podem criar bases de dados num novo SQL Server ou MySQL SKU. 

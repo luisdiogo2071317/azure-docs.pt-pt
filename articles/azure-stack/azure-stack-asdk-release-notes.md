@@ -3,7 +3,7 @@ title: "Notas de versão do Kit de desenvolvimento de pilha do Microsoft Azure |
 description: "Melhoramentos, correções e problemas conhecidos do Kit de desenvolvimento de pilha do Azure."
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: andredm7
 manager: femila
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
-ms.author: mabrigg
-ms.openlocfilehash: ca966dd4664861f476401c5691ab73b95d3f5a2b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 12/11/2017
+ms.author: andredm
+ms.openlocfilehash: 49d26defef56e6fc174cda57b24a126cd77227e4
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Kit de desenvolvimento de pilha do Azure
 
@@ -76,6 +76,7 @@ Estas notas de versão fornecem informações sobre os melhoramentos, correçõe
 - Em **redes**, se clicar em **ligação** para configurar uma ligação VPN, **VNet a VNet** está listado como um tipo de ligação possíveis. Não selecione esta opção. Atualmente, apenas o **Site a site (IPsec)** opção é suportada.
 - Não é possível desassociar um endereço IP público de uma máquina virtual (VM) depois da VM foi criada e associada a esse endereço IP. Desassociação irá aparecer funcionar, mas o endereço IP público anteriormente atribuído permanece associado a VM original. Este comportamento ocorre mesmo reatribuir o endereço IP para uma nova VM (normalmente denominado como um *alternância de VIP*). Todas as futuras tenta estabelecer ligação através deste resultado de endereço IP numa ligação para a VM originalmente associada e não para a nova. Atualmente, tem de utilizar os novos endereços IP públicos apenas para a criação de nova VM.
 - Os operadores do Azure da pilha poderão não ser possível implementar, eliminar, modificar VNETs ou grupos de segurança de rede. Este problema é principalmente utilizado em tentativas de atualização subsequentes do mesmo pacote. Isto é causado por um problema de empacotamento com uma atualização que está atualmente a ser investigação.
+- Balanceamento de carga interno (ILB) processa incorretamente endereços MAC para VMs do back-end que quebra instâncias do Linux.
  
 #### <a name="sqlmysql"></a>SQL Server/MySQL 
 - Pode demorar até uma hora até os inquilinos podem criar bases de dados num novo SQL Server ou MySQL SKU. 

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Cópia de segurança de máquinas virtuais do Windows no Azure
 
@@ -78,7 +78,7 @@ Neste exemplo, mostramos como recuperar o ficheiro de imagem que é utilizado na
     ![IIS predefinido de página web](./media/tutorial-backup-vms/iis-broken.png)
 
 5. No computador local, abra um novo separador e aceda ao [portal do Azure](https://portal.azure.com).
-6. No menu à esquerda, selecione **máquinas virtuais** e selecione a forma VM na lista.
+6. No menu à esquerda, selecione **máquinas virtuais** e selecione a VM a partir da lista.
 8. No painel de VM, no **definições** secção, clique em **cópia de segurança**. O **cópia de segurança** abre o painel. 
 9. No menu na parte superior do painel, selecione **recuperação de ficheiros**. O **recuperação de ficheiros** abre o painel.
 10. No **passo 1: selecione o ponto de recuperação**, selecione um ponto de recuperação da lista pendente.

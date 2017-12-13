@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c626d6415a27f8495304eeaab480ab62606102ea
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação de arquitetura das notificações push empresariais
 As empresas hoje em dia pautam gradualmente mover para criar aplicações móveis para qualquer os respetivos utilizadores finais (externo) ou para os empregados (internos). Têm existente back-end sistemas no local seja mainframes ou algumas aplicações de LoB que tem de ser integradas na arquitetura de aplicações móveis. Este guia irá falar sobre como melhor efetuar esta integração Recomendamos possíveis soluções para cenários comuns.
@@ -212,7 +212,7 @@ O código de exemplo completa está disponível em [amostras de Hub de notifica�
    
     ![][3]
    
-    g. Configurar a tarefa ser "Executar continuamente", para que quando iniciar sessão a [Portal clássico do Azure] deverá ver algo semelhante ao seguinte:
+    g. Configurar a tarefa ser "Executar continuamente", para que quando iniciar sessão a [portal do Azure] deverá ver algo semelhante ao seguinte:
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -245,7 +245,7 @@ O código de exemplo completa está disponível em [amostras de Hub de notifica�
 3. Execute o **EnterprisePushBackendSystem** mensagens da aplicação de consola que irá simular o back-end de LoB e começar a enviar e deverá ver notificações de alerta apresentação semelhante ao seguinte:
    
     ![][5]
-4. As mensagens foram originalmente enviadas para tópicos do Service Bus que estava a ser monitorizado pelo subscrições do Service Bus na sua tarefa de Web. Depois de uma mensagem foi recebida, uma notificação foi criada e enviada para a aplicação móvel. Pode examine os registos de WebJob para confirmar o processamento quando acede a hiperligação de registos no [Portal clássico do Azure] a tarefa de Web:
+4. As mensagens foram originalmente enviadas para tópicos do Service Bus que estava a ser monitorizado pelo subscrições do Service Bus na sua tarefa de Web. Depois de uma mensagem foi recebida, uma notificação foi criada e enviada para a aplicação móvel. Pode examine os registos de WebJob para confirmar o processamento quando acede a hiperligação de registos no [portal do Azure] a tarefa de Web:
    
     ![][6]
 
@@ -264,4 +264,4 @@ O código de exemplo completa está disponível em [amostras de Hub de notifica�
 [programação do Service Bus Pub/Sub]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [trabalho Web do Azure]: ../app-service/web-sites-create-web-jobs.md
 [Notification Hubs – tutorial Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Portal clássico do Azure]: https://manage.windowsazure.com/
+[portal do Azure]: https://portal.azure.com/

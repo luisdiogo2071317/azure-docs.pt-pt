@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: f6496fb62670c480ce543a51225856f0fb5d89b5
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: de71c03784571f4adab9b8936ec1968373c9ac3e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Aceder a registos de diagnóstico para o Azure Data Lake Store
 Saiba mais ativar o diagnóstico de registo para a sua conta do Data Lake Store e ver os registos recolhidos para a sua conta.
@@ -47,7 +47,7 @@ As organizações podem ativar o registo de diagnóstico para a conta do Azure D
         
         * Selecione a opção para **fluxo para um hub de eventos** aos dados de registo de fluxo para um Hub de eventos do Azure. Provavelmente irá utilizar esta opção se tiver um pipeline de processamento a jusante para analisar os registos de entrada em tempo real. Se selecionar esta opção, tem de fornecer os detalhes para o Hub de eventos do Azure que pretende utilizar.
 
-        * Selecione a opção para **enviar ao Log Analytics** para utilizar o serviço de análise de registos do Azure para analisar os dados de registo gerado. Se selecionar esta opção, tem de fornecer os detalhes para a área de trabalho do Operations Management Suite que teria de utilizar a análise de registos de executar.
+        * Selecione a opção para **enviar ao Log Analytics** para utilizar o serviço de análise de registos do Azure para analisar os dados de registo gerado. Se selecionar esta opção, tem de fornecer os detalhes para a área de trabalho do Operations Management Suite que teria de utilizar a análise de registos de executar. Consulte [vista ou analisar os dados recolhidos com a pesquisa de registo de análise de registos](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre como utilizar a análise de registos.
      
    * Especifique se pretende obter registos de auditoria ou registos de pedidos ou ambos.
    * Especifique o número de dias para o qual os dados devem ser retidos. Retenção só é aplicável se estiver a utilizar a conta de armazenamento do Azure para arquivar dados de registo.
@@ -122,7 +122,7 @@ Eis uma entrada de exemplo no registo de pedido formatada em JSON. Cada blob tem
 | operationName |Cadeia |Nome da operação que tem sessão iniciada. Por exemplo, getfilestatus. |
 | resultType |Cadeia |O estado da operação, por exemplo, 200. |
 | callerIpAddress |Cadeia |O endereço IP do cliente que efetua o pedido |
-| correlationId |Cadeia |O id do registo que podem ser utilizado para agrupar um conjunto de entradas de registo relacionados |
+| correlationId |Cadeia |O ID do registo que podem ser utilizado para agrupar um conjunto de entradas de registo relacionados |
 | identidade |Objeto |A identidade que gerou o registo |
 | propriedades |JSON |Consulte abaixo para obter detalhes |
 
@@ -132,7 +132,7 @@ Eis uma entrada de exemplo no registo de pedido formatada em JSON. Cada blob tem
 | httpMethod |Cadeia |O método de HTTP utilizado para a operação. Por exemplo, GET. |
 | Caminho |Cadeia |O caminho a operação foi efetuado em |
 | RequestContentLength |Int |O comprimento do conteúdo do pedido HTTP |
-| clientRequestId |Cadeia |O Id que identifica exclusivamente este pedido |
+| clientRequestId |Cadeia |O ID que identifica exclusivamente este pedido |
 | StartTime |Cadeia |A hora em que o servidor recebeu o pedido |
 | endTime |Cadeia |A hora em que o servidor enviou uma resposta |
 
@@ -167,7 +167,7 @@ Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob 
 | categoria |Cadeia |A categoria de registo. Por exemplo, **auditoria**. |
 | operationName |Cadeia |Nome da operação que tem sessão iniciada. Por exemplo, getfilestatus. |
 | resultType |Cadeia |O estado da operação, por exemplo, 200. |
-| correlationId |Cadeia |O id do registo que podem ser utilizado para agrupar um conjunto de entradas de registo relacionados |
+| correlationId |Cadeia |O ID do registo que podem ser utilizado para agrupar um conjunto de entradas de registo relacionados |
 | identidade |Objeto |A identidade que gerou o registo |
 | propriedades |JSON |Consulte abaixo para obter detalhes |
 
@@ -177,6 +177,15 @@ Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob 
 | StreamName |Cadeia |O caminho a operação foi efetuado em |
 
 ## <a name="samples-to-process-the-log-data"></a>Exemplos para processar os dados de registo
+Ao enviar os registos do Azure Data Lake Store para monitorização do Azure (consulte [vista ou analisar os dados recolhidos com a pesquisa de registo de análise de registos](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre a análise de registos de utilização), a consulta seguinte irá devolver uma tabela que contém uma lista de utilizador nomes a apresentar, a hora dos eventos e a contagem de eventos para a hora do evento, juntamente com um gráfico de visual. Pode ser modificado facilmente para mostrar o GUID de utilizador ou outros atributos:
+
+```
+search *
+| where ( Type == "AzureDiagnostics" )
+| summarize count(TimeGenerated) by identity_s, TimeGenerated
+```
+
+
 O Azure Data Lake Store fornece um exemplo sobre como processar e analisar os dados de registo. Pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Consultar também

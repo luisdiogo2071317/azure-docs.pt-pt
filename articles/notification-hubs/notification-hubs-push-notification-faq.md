@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push notificações com Notification Hubs do Azure: Perguntas mais frequentes
 ## <a name="general"></a>Geral
@@ -179,14 +179,14 @@ Se não tiver um back-end, quando a aplicação for iniciada em dispositivos de 
 Haverá um período de tempo quando os dispositivos com aplicações não abertas não irão receber notificações.
 
 ### <a name="is-there-audit-log-capability"></a>Existe capacidade do registo de auditoria?
-Todas as operações de gestão de Notification Hubs Ir para os registos de operações, que estão expostos no [portal clássico do Azure].
+Todas as operações de gestão de Notification Hubs Ir para os registos de operações, que estão expostos no [portal do Azure].
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitorização e resolução de problemas
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Estão disponíveis que capacidades de resolução de problemas?
 Os Hubs de notificação do Azure fornece várias funcionalidades para resolução de problemas, especialmente para o cenário mais comuns de notificações ignorados. Para obter mais informações, consulte o [resolução de problemas de Notification Hubs] documento técnico.
 
 ### <a name="what-telemetry-features-are-available"></a>Quais as funcionalidades de telemetria estão disponíveis?
-Azure Notification Hubs ativa a ver dados de telemetria no [portal clássico do Azure]. Estão disponíveis detalhes das métricas no [métricas de Hubs de notificação] página.
+Azure Notification Hubs ativa a ver dados de telemetria no [portal do Azure]. Estão disponíveis detalhes das métricas no [métricas de Hubs de notificação] página.
 
 > [!NOTE]
 > Notificações de êxito significam simplesmente que foi entregar notificações push o PNS externo (por exemplo, APNS para Apple) ou o GCM para o Google. É da responsabilidade do PNS para fornecer as notificações para os dispositivos de destino. Normalmente, o PNS não expõe as métricas de entrega para terceiros.  
@@ -195,7 +195,7 @@ Azure Notification Hubs ativa a ver dados de telemetria no [portal clássico do 
 
 Fornecemos também a capacidade para exportar os dados de telemetria programaticamente (no escalão Standard). Para obter mais informações, consulte o [exemplo de Notification Hubs métricas].
 
-[portal clássico do Azure]: https://manage.windowsazure.com
+[portal do Azure]: https://portal.azure.com
 [preços de Hubs de notificação]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Caso prático: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -215,7 +215,7 @@ Fornecemos também a capacidade para exportar os dados de telemetria programatic
 [métricas de Hubs de notificação]: https://msdn.microsoft.com/library/dn458822.aspx
 [exemplo de Notification Hubs métricas]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [exportação/importação de registos]: https://msdn.microsoft.com/library/dn790624.aspx
-[portal do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
 [preços do App Service]: https://azure.microsoft.com/pricing/details/app-service/

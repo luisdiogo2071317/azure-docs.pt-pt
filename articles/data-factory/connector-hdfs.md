@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: a81d3264964b2433a2c93034ab815493548f0753
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Copiar dados de origem e de HDFS utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ As seguintes propriedades são suportadas para o serviço ligado do HDFS:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **Hdfs**. | Sim |
-| URL |URL para o HDFS |Sim |
+| url |URL para o HDFS |Sim |
 | authenticationType | Valores permitidos são: **anónimo**, ou **Windows**. <br><br> Para utilizar **a autenticação Kerberos** para o conector do HDFS, consulte [nesta secção](#use-kerberos-authentication-for-hdfs-connector) para configurar o seu ambiente no local em conformidade. |Sim |
 | Nome de utilizador |Autenticação de nome de utilizador do Windows. Para a autenticação Kerberos, especifique `<username>@<domain>.com`. |Sim (para autenticação do Windows) |
 | palavra-passe |Palavra-passe para autenticação do Windows. Marcar este campo como SecureString. |Sim (para autenticação do Windows) |
@@ -162,7 +162,7 @@ Para copiar dados de HDFS, defina o tipo de origem na atividade de cópia para *
 | Recursiva | Indica se os dados é lida a recursivamente partir das pastas sub ou apenas a partir da pasta especificada.<br/>Valores permitidos são: **verdadeiro** (predefinição), **false** | Não |
 | distcpSettings | Grupo de propriedade ao utilizar o HDFS DistCp. | Não |
 | resourceManagerEndpoint | O ponto final Yarn ResourceManager | Sim, se utilizar o DistCp |
-| tempScriptPath | Um caminho de pasta utilizado para armazenar o script de comando DistCp temp. O ficheiro de script é gerado pelo ADF e será removido após a conclusão da tarefa de cópia. | Sim, se utilizar o DistCp |
+| tempScriptPath | Um caminho de pasta utilizado para armazenar o script de comando DistCp temp. O ficheiro de script é gerado pelo Data Factory e será removido após a conclusão da tarefa de cópia. | Sim, se utilizar o DistCp |
 | distcpOptions | Opções adicionais fornecidas ao comando DistCp. | Não |
 
 **Exemplo: Origem do HDFS na atividade de cópia com o descarregamento**

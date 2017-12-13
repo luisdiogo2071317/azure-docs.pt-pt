@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b3fc05cfec2b20501a28f3d76f474ccd49e27e8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Utilizar Notification Hubs para enviar notícias de última hora
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -278,7 +278,7 @@ A aplicação está agora concluída e pode armazenar um conjunto de categorias 
 2. Ativar uma ou mais categorias mudanças de modo email, em seguida, clique em **subscrever**.
    
     A aplicação converte as categorias selecionadas etiquetas e os pedidos de um novo registo de dispositivo para as etiquetas selecionados do hub de notificação. As categorias registadas são devolvidas e apresentadas numa notificação de alerta.
-3. Envie uma notificação nova ao executar a aplicação de consola .NET.  Em alternativa, pode enviar notificações de modelo marcado utilizando o separador de depuração do notification hub no [Portal clássico do Azure].
+3. Envie uma notificação nova ao executar a aplicação de consola .NET.  Em alternativa, pode enviar notificações de modelo marcado utilizando o separador de depuração do notification hub no [portal do Azure].
    
     As notificações para as categorias selecionadas são apresentados como notificações de alerta.
 
@@ -302,5 +302,5 @@ Neste tutorial, aprendeu a difusão notícias de última hora por categoria. Con
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Portal clássico do Azure]: https://manage.windowsazure.com
+[portal do Azure]: https://portal.azure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

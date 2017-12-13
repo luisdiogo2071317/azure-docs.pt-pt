@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 03/08/2017
+ms.date: 12/12/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8e6adf0c4b8273facce609c9e162969cdd2afaaa
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: fdc5e03350783fb8c3e30b6c9a40af45a5925ba8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cli-samples"></a>Exemplos da CLI do Azure
 
@@ -29,6 +29,7 @@ A tabela seguinte inclui ligações para bash scripts compiladas com a CLI do Az
 | | |
 |-|-|
 |**Criar aplicação**||
+| [Criar uma aplicação web e implementar os ficheiros com FTP](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma aplicação web do Azure e implementa-lo a utilizar FTP um ficheiro. |
 | [Criar uma aplicação Web e implementar código a partir do GitHub](./scripts/app-service-cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma aplicação web do Azure e implementa o código de um repositório do GitHub público. |
 | [Criar uma aplicação Web com implementação contínua do GitHub](./scripts/app-service-cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Cria uma aplicação web do Azure com a publicação contínua de um repositório do GitHub que possui. |
 | [Criar uma aplicação Web e implementar código a partir de um repositório do Git local](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma aplicação web do Azure e configura o push de código do repositório de Git local. |

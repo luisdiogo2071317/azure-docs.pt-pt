@@ -13,13 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 09b146740413e74e3030bf3a6cb660a3cfabd239
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d9dfd856a95d0b1f925487f4ca9d27e617093405
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar a forma como a solução de fábrica ligado apresenta dados dos seus servidores de OPC UA
 
@@ -48,7 +48,7 @@ A solução de fábrica ligado apresenta os dados dos servidores de OPC UA ligad
 
 Pode procurar os itens de dados que pode enviar um servidor de OPC UA ligado à sua solução no dashboard:
 
-1. Navegue para o **selecione um servidor de OPC UA** vista:
+1. Escolha **Browser** para navegar para o **selecione um servidor de OPC UA** vista:
 
     ![Navegue para selecionar uma vista do servidor de OPC UA][img-select-server]
 
@@ -57,7 +57,7 @@ Pode procurar os itens de dados que pode enviar um servidor de OPC UA ligado à 
     > [!NOTE]
     > Este aviso só é apresentada uma vez para cada servidor e estabelece uma relação de confiança entre o dashboard de solução e o servidor.
 
-1. Pode procurar os itens de dados que o servidor pode enviar para a solução. Os itens que estão a ser enviados para a solução têm uma marca de verificação verde:
+1. Pode procurar os itens de dados que o servidor pode enviar para a solução. Os itens que estão a ser enviados para a solução têm uma marca de verificação:
 
     ![Itens publicados][img-published]
 
@@ -65,7 +65,7 @@ Pode procurar os itens de dados que pode enviar um servidor de OPC UA ligado à 
 
 ## <a name="map-the-data"></a>Os dados do mapa
 
-A solução de fábrica ligado mapeia e agrega os itens de dados publicados do servidor de OPC UA para as várias vistas na solução. Implementa a solução de fábrica ligado à sua conta do Azure, quando Aprovisiona a solução. Um ficheiro JSON na solução de fábrica do Visual Studio ligado armazena estas informações de mapeamento. Pode ver e modificar este ficheiro de configuração JSON na fábrica de ligado solução do Visual Studio. Pode implementar a solução pode ser novamente depois de efetuar uma alteração.
+A solução de fábrica ligado mapeia e agrega os itens de dados publicados do servidor de OPC UA para as várias vistas na solução. Implementa a solução de fábrica ligado à sua conta do Azure, quando Aprovisiona a solução. Um ficheiro JSON na solução de fábrica ligado do Visual Studio armazena estas informações de mapeamento. Pode ver e modificar este ficheiro de configuração JSON na fábrica de ligado solução do Visual Studio. Pode implementar a solução pode ser novamente depois de efetuar uma alteração.
 
 Pode utilizar o ficheiro de configuração para:
 

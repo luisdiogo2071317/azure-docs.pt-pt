@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 313f176a1f33fcd5f627ec2251380e602027f8b6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Do Azure Cosmos DB: Documentação do MongoDB API
 
@@ -31,16 +31,18 @@ Estes são tem leia os tópicos e recursos para começar a aprender mais sobre a
 
 - [Introdução de API do MongoDB](mongodb-introduction.md)
 - [Ligar à sua conta MongoDB](connect-mongodb-account.md)
+- [Suporte para a sintaxe e funcionalidades do MongoDB](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>Inícios rápidos
 
 Os tópicos do guia de introdução são a forma mais rápida para criar uma aplicação de trabalho com base de dados do Azure Cosmos. Cada guia de introdução, irá aprender a utilizar baseadas na IU do portal do Azure e o favorito linguagem de programação para criar soluções de base de dados com base de dados do Azure Cosmos. Aplicações web clonáveis da área de GitHub disponível para cada início rápido. 
 
 
-- [MongoDB + rápida + AngularJS + Node.js + aplicações Web](create-mongodb-nodejs.md)
+- [NODE.js + rápida + AngularJS + aplicações Web](create-mongodb-nodejs.md)
 - [.NET + portal do azure + aplicações Web](create-mongodb-dotnet.md)
 - [Java + portal do Azure + aplicações Web](create-mongodb-java.md)
 - [Aceda + portal do Azure + aceda](create-mongodb-golang.md)
+- [Python + Flask + portal do Azure](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>Tutoriais
 

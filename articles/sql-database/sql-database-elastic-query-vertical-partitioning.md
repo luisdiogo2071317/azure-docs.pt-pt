@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: d57f45066387f451463a38d76d3fe6adab77e41f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd5bd82a35c5a2ba72cffe35138311322714a1c0
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar em bases de dados de nuvem com diferentes esquemas (pré-visualização)
 ![Consultar em tabelas de bases de dados diferentes][1]
@@ -43,7 +43,7 @@ Verticalmente particionada bases de dados utilizam conjuntos diferentes de tabel
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Criar chave mestra de base de dados no âmbito e as credenciais
 A credencial é utilizada pela consulta elástica para estabelecer a ligação para as bases de dados remotas.  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
@@ -155,14 +155,14 @@ A seguinte consulta executa uma associação de três vias entre duas tabelas lo
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procedimento para execução remota de T-SQL armazenado: sp\_execute_remote
-Consulta elástica também apresenta um procedimento armazenado que fornece acesso direto para os shards. O procedimento armazenado é chamado [sp\_executar \_remoto](https://msdn.microsoft.com/library/mt703714) e podem ser utilizados para executar os procedimentos armazenados remotos ou um código de T-SQL nas bases de dados remotas. Demora os seguintes parâmetros: 
+Consulta elástica também apresenta um procedimento armazenado que fornece acesso direto à base de dados remota. O procedimento armazenado é chamado [sp\_executar \_remoto](https://msdn.microsoft.com/library/mt703714) e pode ser utilizada ao executar procedimentos armazenados remotos ou um código de T-SQL na base de dados remota. Demora os seguintes parâmetros: 
 
 * Nome da origem de dados (nvarchar): O nome da origem de dados externas do tipo RDBMS. 
-* Consulta (nvarchar): consulta o T-SQL para ser executada em cada partição horizontal. 
+* Consulta (nvarchar): consulta o T-SQL para ser executado na base de dados remota. 
 * Declaração de parâmetro (nvarchar) - opcional: de cadeia com definições de tipo de dados para os parâmetros utilizados no parâmetro de consulta (como sp_executesql). 
 * Lista de valores de parâmetro - opcional: lista de valores separados por vírgulas de valores de parâmetros (por exemplo, sp_executesql).
 
-O sp\_executar\_remoto utiliza a origem de dados externa fornecida nos parâmetros de invocação para executar a instrução de T-SQL indicada nas bases de dados remotas. Utiliza a credencial da origem de dados externos a ligar a base de dados do Gestor de shardmap e as bases de dados remotas.  
+O sp\_executar\_remoto utiliza a origem de dados externa fornecida nos parâmetros de invocação para executar a instrução de T-SQL fornecida na base de dados remota. Utiliza a credencial da origem de dados externo para ligar à base de dados remota.  
 
 Exemplo: 
 

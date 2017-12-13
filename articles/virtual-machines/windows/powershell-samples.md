@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/20/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9d0db50e5dcf6af97e15019c11fdeafb209de639
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 042b2b4a5c4ccb573b0d1d13abe7855aea779348
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Exemplos do PowerShell de Máquina Virtual do Azure
 
@@ -29,6 +29,7 @@ A tabela seguinte inclui ligações para exemplos de scripts do PowerShell que c
 | | |
 |---|---|
 |**Criar máquinas virtuais**||
+| [Criar rapidamente uma máquina virtual](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria um grupo de recursos, a máquina virtual e recursos de todos os relacionados com o mínimo de avisos.|
 | [Criar uma máquina virtual totalmente configurada](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria um grupo de recursos, a máquina virtual e todos os recursos relacionados.|
 | [Criar máquinas virtuais altamente disponíveis](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria várias máquinas virtuais da elevada disponibilidade e a configuração de balanceamento de carga.|
 | [Criar uma VM e executar o script de configuração](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria uma máquina virtual e utiliza a extensão de Script de personalizada do Azure para instalar o IIS. |

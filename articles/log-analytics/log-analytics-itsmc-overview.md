@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gerir centralmente a itens de trabalho ITSM utilizando o conector de gestão de serviços de TI (pré-visualização)
 
@@ -106,10 +106,10 @@ ServiceDeskWorkItemType_s = "Incidente"
 - Categoria
 - Título
 - Descrição
-- Data de criação
+- Data de Criação
 - Data de fecho
 - Data de resolução
-- Data da última modificação
+- Data da Última Modificação
 - Computador
 
 
@@ -135,9 +135,9 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 - Risco
 - Impacto
 - Atribuído a
-- Data de criação
+- Data de Criação
 - Data de fecho
-- Data da última modificação
+- Data da Última Modificação
 - Data de pedido
 - Data de início planeada
 - A ser planeada a data de fim
@@ -292,9 +292,11 @@ Quando a criação/edição de uma regra de alerta do Azure, utilize um grupo de
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Resolver problemas de ligações de ITSM no OMS
 1.  Se a ligação falhar da IU da origem ligados com um **erro na ligação de guardar** da mensagem, siga os passos seguintes:
- - Para ligações de ServiceNow, Cherwell e Provance,-certifique-se corretamente introduziu o nome de utilizador, palavra-passe, ID de cliente e segredo do cliente para cada uma das ligações.
-        -Verifique se tem privilégios suficientes no produto ITSM correspondente para efetuar a ligação.
- - Para ligações do Service Manager,-certifique-se de que a aplicação Web é implementada com êxito e é criada a ligação híbrida. Para verificar a ligação é estabelecida com êxito com a máquina do Service Manager no local, visite o URL da aplicação Web como detalhadas da documentação para efetuar o [da ligação híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+ - Para ligações de ServiceNow, Cherwell e Provance,  
+        -Certifique-se corretamente introduziu o nome de utilizador, palavra-passe, ID de cliente e segredo do cliente para cada uma das ligações.  
+        -Verifique se tem privilégios suficientes no produto ITSM correspondente para efetuar a ligação.  
+ - Para ligações do Service Manager,  
+        -Certifique-se de que a aplicação Web é implementada com êxito e é criada a ligação híbrida. Para verificar a ligação é estabelecida com êxito com a máquina do Service Manager no local, visite o URL da aplicação Web como detalhadas da documentação para efetuar o [da ligação híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Se não está a obter sincronizados dados a partir do ServiceNow ao Log Analytics, certifique-se de que o ServiceNow instância não está suspenso. Instâncias de desenvolvimento do ServiceNow, por vezes, aceda a suspensão quando inativo durante um longo período. Relatório de outra forma, o problema.
 3.  Se OMS alertas acionados mas funcionar itens não são criados no produto ITSM ou itens de configuração não são criados/ligados a itens de trabalho ou para outras informações genéricos, procure nos seguintes locais:

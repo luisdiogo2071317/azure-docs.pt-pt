@@ -1,24 +1,16 @@
 ---
 title: "Dimensionar a deteção e a avaliação com o Azure migrar | Microsoft Docs"
 description: "Descreve como avaliar grande número de máquinas no local com o serviço Azure migrar."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: dde0d07f-94b7-4b6a-a158-a89aa9324a35
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 930ec182cf329e7dda072dc49bd7f70abb413f2d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e28a2144dd102fcd2ec05531432cac0df250ae01
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar num ambiente VMware grande
 
@@ -144,7 +136,7 @@ Para cada deteção terá de efetuar, execute o recoletor para deteção de VMs 
     - No **âmbito de coleção**, selecione um âmbito de deteção VM. O recoletor só pode detetar a VMs dentro do âmbito especificado. Âmbito pode ser definido para uma pasta específica, o Centro de dados ou o cluster. Esta não deve conter mais de 1000 VMs. 
     - n **Categoria da etiqueta para agrupamento**, selecione **nenhum**.
 
-        ![Selecionar âmbito](./media/how-to-scale-assessment/select-scope.png)
+        ![Selecione o âmbito](./media/how-to-scale-assessment/select-scope.png)
 
 1. No **selecione projeto**, especifique o ID e a chave para o projeto. Se não tiver copiá-los, abra o portal do Azure do recoletor VM. No projeto **descrição geral** página, clique em **detetar máquinas**e copie os valores.  
 No **deteção concluída**, monitorizar o processo de deteção e verificar esses metadados recolhidos a partir de VMs se encontra no âmbito. O recoletor fornece um período de tempo aproximado de deteção.

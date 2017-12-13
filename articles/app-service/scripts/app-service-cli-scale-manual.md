@@ -13,24 +13,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 06/19/2017
+ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: a8e9dc2d7767459fafe80a4986f5ac87e95e6e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 961805842e9beca0ee2e34abcd0c1355f502a46b
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="scale-a-web-app-manually"></a>Dimensionar manualmente uma aplicação web
 
-Neste cenário, irá aprender a criar um grupo de recursos, a aplicação serviço plano e a aplicação web. Em seguida, irá aumentar o plano do App Service de uma única instância para várias instâncias.
+Este script de exemplo cria um grupo de recursos, um plano de serviço de aplicações e uma aplicação web. -Dimensiona, em seguida, o plano de serviço de aplicações de uma única instância para várias instâncias.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI localmente, terá da CLI do Azure versão 2.0 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -44,10 +44,10 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 
 | Comando | Notas |
 |---|---|
-| [Criar grupo AZ](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
-| [Criar plano de serviço aplicacional AZ](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano de serviço de aplicações. Trata-se como um farm de servidores para a sua aplicação web do Azure. |
-| [Criar AZ webapp](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Cria uma aplicação web do Azure. |
-| [atualização de plano de serviço aplicacional AZ](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_update) | Atualiza as propriedades do plano do App Service. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Cria um plano de Serviço de Aplicações. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Cria uma aplicação web do Azure. |
+| [`az appservice plan update`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_update) | Atualiza as propriedades do plano do App Service. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7d6e8f123dd04b98df10b5a941396d7140bcc023
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="using-linked-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados ao implementar os recursos do Azure
 
@@ -478,59 +478,13 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
-### <a name="hello-world-from-linked-template"></a>Olá, mundo a partir do modelo ligado
+Os exemplos seguintes mostram utilizações comuns dos modelos ligados.
 
-Para implementar o [modelo principal](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) e [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json), utilizar o PowerShell:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/helloworldparent.json
-```
-
-Em alternativa, CLI do Azure:
-
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/helloworldparent.json
-```
-
-### <a name="load-balancer-with-public-ip-address-in-linked-template"></a>O Balanceador de carga com o endereço IP público do modelo ligado
-
-Para implementar o [modelo principal](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) e [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json), utilizar o PowerShell:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json
-```
-
-Em alternativa, CLI do Azure:
-
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json
-```
-
-### <a name="multiple-public-ip-addresses-in-linked-template"></a>Vários endereços IP públicos no modelo ligado
-
-Para implementar o [modelo principal](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) e [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json), utilizar o PowerShell:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json
-```
-
-Em alternativa, CLI do Azure:
-
-```azurecli-interactive
-az group deployment create \
-  -g examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json
-```
+|Modelo de principal  |Modelo ligado |Descrição  |
+|---------|---------| ---------|
+|[Olá Mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Devolve a cadeia do modelo ligado. |
+|[O Balanceador de carga com o endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado conjuntos e que o valor do Balanceador de carga. |
+|[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos no modelo ligado.  |
 
 ## <a name="next-steps"></a>Passos seguintes
 
