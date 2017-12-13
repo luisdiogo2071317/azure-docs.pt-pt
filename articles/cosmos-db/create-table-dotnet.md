@@ -1,6 +1,6 @@
 ---
-title: "Início rápido: Tabela API com .NET - Cosmos BD do Azure | Microsoft Docs"
-description: "Este guia de introdução mostra como utilizar a API de tabela de base de dados do Azure Cosmos para criar uma aplicação com o portal do Azure e o .NET"
+title: "Guia de introdução: API de Tabela com .NET - Azure Cosmos DB | Microsoft Docs"
+description: "Este guia de introdução mostra como utilizar a API de Tabela do Azure Cosmos DB para criar uma aplicação com o portal do Azure e .NET"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -17,13 +17,13 @@ ms.date: 11/20/2017
 ms.author: mimig
 ms.openlocfilehash: e0f0a95ea086e83ef0c46145b33b348071407aa5
 ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2017
 ---
-# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Início rápido: Criar uma tabela de aplicação de API com .NET e do Azure Cosmos DB 
+# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Guia de Introdução: Criar uma aplicação de API de Tabela com .NET e Azure Cosmos DB 
 
-Este guia de introdução mostra como utilizar o Java e a base de dados do Azure Cosmos [API de tabela](table-introduction.md) para criar uma aplicação através da clonagem de um exemplo do GitHub. Este guia de introdução mostra também como criar uma conta de base de dados do Azure Cosmos e como utilizar o Explorador de dados para criar tabelas e entidades no portal do Azure baseada na web.
+Este guia de introdução mostra como utilizar o Java e a [API de Tabela](table-introduction.md) do Azure Cosmos DB para criar uma aplicação através da clonagem de um exemplo do GitHub. Este guia de introdução mostra também como criar uma conta do Azure Cosmos DB e como utilizar o Data Explorer para criar tabelas e entidades no portal do Azure baseado na Web.
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
@@ -36,7 +36,7 @@ Se ainda não tiver o Visual Studio 2017 instalado, pode transferir e utilizar a
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
 > [!IMPORTANT] 
-> Terá de criar uma nova conta de API de tabela para trabalhar com os SDKs de API de tabela geralmente disponível. As contas de API de tabela criadas durante a pré-visualização não são suportadas pelos SDKs geralmente disponíveis.
+> Tem de criar uma nova conta da API de Tabela para trabalhar com os SDKs de API de Tabela geralmente disponíveis. As contas de API de Tabela criadas durante a pré-visualização não são suportadas pelos SDKs geralmente disponíveis.
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
@@ -52,7 +52,7 @@ Pode agora utilizar o Data Explorer para adicionar dados à sua tabela nova.
 1. No Data Explorer, expanda **sample-table**, clique em **Entidades** e, em seguida, clique em **Adicionar Entidade**.
 
    ![Criar novas entidades no Data Explorer no portal do Azure](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Agora, adicione os dados para a caixa de valor PartitionKey e caixas de valor de RowKey e clique **adicionar entidade**.
+2. Agora, adicione dados à caixa de valores PartitionKey e RowKey e clique em **Adicionar Entidade**.
 
    ![Definir a Chave de Partição e a Chave de Linha para uma nova entidade](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
@@ -62,7 +62,7 @@ Pode agora utilizar o Data Explorer para adicionar dados à sua tabela nova.
 
 Agora, vamos clonar uma aplicação de Tabela a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente. 
 
-1. Abra uma janela de terminal do git, tais como o git bash e utilize o `cd` comando para alterar para uma pasta para instalar a aplicação de exemplo. 
+1. Abra uma janela de terminal do git, como o git bash e utilize o comando `cd` para alterar para uma pasta e instalar a aplicação de exemplo. 
 
     ```bash
     cd "C:\git-samples"
@@ -74,70 +74,70 @@ Agora, vamos clonar uma aplicação de Tabela a partir do GitHub, definir a cade
     git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
-3. Em seguida, abra o ficheiro de solução TableStorage no Visual Studio. 
+3. Em seguida, abra o ficheiro da solução do TableStorage no Visual Studio. 
 
 ## <a name="update-your-connection-string"></a>Atualizar a cadeia de ligação
 
-Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. Isto permite que a aplicação comunicar com a base de dados alojada. 
+Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. Isto permite à aplicação comunicar com a base de dados alojada. 
 
-1. No [portal do Azure](http://portal.azure.com/), clique em **cadeia de ligação**. 
+1. No [portal do Azure](http://portal.azure.com/), clique em **Cadeia de ligação**. 
 
-    Utilize os botões de cópia no lado direito do ecrã para copiar a cadeia de ligação principal.
+    Utilize os botões de cópia à direita do ecrã, para copiar a CADEIA DE LIGAÇÃO PRIMÁRIA.
 
-    ![Ver e copiar a cadeia de ligação principal no painel de cadeia de ligação](./media/create-table-dotnet/connection-string.png)
+    ![Ver e copiar a CADEIA DE LIGAÇÃO PRIMÁRIA no painel Cadeia de Ligação](./media/create-table-dotnet/connection-string.png)
 
-2. No Visual Studio, abra o ficheiro App. config. 
+2. No Visual Studio, abra o ficheiro App.config. 
 
-3. Anule o comentário StorageConnectionString na linha 8 e comente a StorageConnectionString na linha 7 como este tutorial não utiliza o emulador de armazenamento. Linha 7 e 8 deve agora ter o seguinte aspeto:
+3. Anule o comentário StorageConnectionString na linha 8 e comente em StorageConnectionString na linha 7, uma vez que este tutorial não utiliza o Emulador de Armazenamento. As linhas 7 e 8 devem agora ter o seguinte aspeto:
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. Cole a cadeia de ligação principal do portal o valor de StorageConnectionString na linha 8. Cole a cadeia dentro de aspas. 
+4. Cole a CADEIA DE LIGAÇÃO PRIMÁRIA do portal no valor de StorageConnectionString na linha 8. Cole a cadeia dentro de aspas. 
 
     > [!IMPORTANT]
-    > Se o ponto final utiliza documents.azure.com, o que significa que tem uma conta de pré-visualização, e tem de criar um [nova conta de API de tabela](#create-a-database-account) para trabalhar com o SDK de API de tabela geralmente disponível. 
+    > Se o Ponto final utilizar documents.azure.com, significa que tem uma conta de pré-visualização, e tem de criar uma [nova conta de API de Tabela](#create-a-database-account) para trabalhar com o SDK de API de Tabela geralmente disponível. 
     > 
 
-    Linha 8 deve agora ter um aspeto semelhante a:
+    A linha 8 deve ter agora um aspeto semelhante a:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-5. Guarde o ficheiro App. config.
+5. Guarde o ficheiro App.config.
 
 Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
 
 ## <a name="build-and-deploy-the-app"></a>Criar e implementar a aplicação
 
-1. No Visual Studio, clique com botão direito no **TableStorage** projeto no **Explorador de soluções** e, em seguida, clique em **gerir pacotes NuGet**. 
+1. No Visual Studio, clique com o botão direito do rato no projeto **TableStorage** no **Explorador de Soluções** e clique em **Gerir Pacotes NuGet**. 
 
-2. Do NuGet **procurar** caixa, escreva *Microsoft.Azure.CosmosDB.Table*.
+2. Na caixa **Procurar** do NuGet, escreva *Microsoft.Azure.CosmosDB.Table*.
 
-3. Na lista de resultados, instale o **Microsoft.Azure.CosmosDB.Table** biblioteca. Esta ação instala o pacote de API de tabela do Azure Cosmos DB, bem como todas as dependências.
+3. Nos resultados, instale a biblioteca **Microsoft.Azure.CosmosDB.Table**. Esta ação instala o pacote da API de Tabela do Azure Cosmos DB, bem como todas as dependências do mesmo.
 
-4. Abra BasicSamples.cs e adicione um ponto de interrupção linha 30 e linha 52.
+4. Abra BasicSamples.cs e adicione um ponto de interrupção na linha 30 e na linha 52.
 
 5. Clique em CTRL + F5 para executar a aplicação.
 
-    A janela de consola apresenta os dados da tabela a ser adicionados para a nova base de dados de tabela na base de dados do Azure Cosmos. 
+    A janela da consola apresenta os dados da tabela adicionados para a nova base de dados de tabela no Azure Cosmos DB. 
     
-    Se obtiver um erro sobre dependências, consulte [resolução de problemas](table-sdk-dotnet.md#troubleshooting).
+    Se obtiver um erro sobre dependências, veja [Resolução de problemas](table-sdk-dotnet.md#troubleshooting).
 
-    Quando atingiu o primeiro ponto de interrupção, volte atrás para Explorador de dados no portal do Azure e expanda a tabela demonstração * e clique em **entidades**. O **entidades** separador no lado direito apresenta a nova entidade que tenha sido adicionada, tenha em atenção o número de telefone para o utilizador é 425-555-0101.
+    Quando atingir o primeiro ponto de interrupção, volte para Data Explorer no portal do Azure, expanda a tabela demonstração* e clique em **Entidades**. O separador **Entidades** no lado direito apresenta a nova entidade que foi adicionada, tenha em atenção que o número de telefone do utilizador é 425-555-0101.
     
-6. Feche o separador de entidades no Explorador de dados.
+6. Feche o separador Entidades no Data Explorer.
     
 7. Continue a executar a aplicação para o ponto de interrupção seguinte.
 
-    Quando atingiu o ponto de interrupção, mude novamente para o portal, clique em entidades novamente para abrir o separador de entidades e tenha em atenção que o número de telefone foi atualizado para 425-555-0105.
+    Quando atingir o ponto de interrupção, mude novamente para o portal, clique em Entidades novamente para abrir o separador Entidades e tenha em atenção que o número de telefone foi atualizado para 425-555-0105.
 
 8. Na janela da consola, prima CTRL + C para terminar a execução da aplicação. 
 
-    Agora pode voltar ao Explorador de dados e adicionar ou modificar o entitites e consultar os dados.
+    Agora pode voltar ao Data Explorer e adicionar ou modificar as entidades e consultar os dados.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
@@ -152,5 +152,5 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 Neste guia de introdução, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma tabela com o Data Explorer e a executar uma aplicação.  Agora, pode consultar os dados com a API de Tabela.  
 
 > [!div class="nextstepaction"]
-> [Importar dados de tabela para a API de tabela](table-import.md)
+> [Importar dados da tabela para a API de Tabela](table-import.md)
 

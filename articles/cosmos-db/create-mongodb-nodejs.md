@@ -17,7 +17,7 @@ ms.date: 06/19/2017
 ms.author: mimig
 ms.openlocfilehash: 335c271f3e46d3b6b23e1fcac53e39b89ece796c
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
 ---
@@ -27,7 +27,7 @@ O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distr
 
 Este guia de introdução demonstra como utilizar uma aplicação [MongoDB](mongodb-introduction.md) existente escrita em Node.js e como ligá-la à base de dados do Azure Cosmos DB, que suporta ligações de cliente da MongoDB. Por outras palavras, a aplicação Node.js sabe apenas que está a ligar a uma base de dados através das APIs MongoDB. É transparente para a aplicação onde os dados são armazenados no Azure Cosmos DB.
 
-Quando tiver terminado, terá uma média da aplicação (MongoDB, Express, Angular e Node.js) em execução no [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
+Quando terminar, terá uma aplicação MEAN (MongoDB, Express, Angular e Node.js) em execução no [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
 ![Aplicação MEAN.js em execução no Serviço de Aplicações do Azure](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 
@@ -63,7 +63,7 @@ cd mean
 npm install
 npm start
 ```
-A aplicação irá tentar ligar a uma origem de MongoDB falhar, avançar e sair da aplicação quando devolve o resultado "[MongoError: ligar ECONNREFUSED 127.0.0.1:27017]".
+A aplicação irá tentar ligar a uma origem do MongoDB e falhar, saia da aplicação quando devolver o resultado "[MongoError: connect ECONNREFUSED 127.0.0.1:27017]".
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 

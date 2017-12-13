@@ -17,7 +17,7 @@ ms.author: cephalin;cfowler
 ms.custom: mvc
 ms.openlocfilehash: 2f5c295468e5bb54d14b81d52b9ad4b41fcafa81
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2017
 ---
@@ -55,7 +55,7 @@ Execute a aplicação localmente ao abrir uma janela do terminal e utilizar o co
 php -S localhost:8080
 ```
 
-Abra um browser e navegue para a aplicação de exemplo no `http://localhost:8080`.
+Abra um browser e navegue para a aplicação de exemplo em `http://localhost:8080`.
 
 Pode ver a mensagem **Olá, mundo!** da aplicação de exemplo apresentada na página.
 
@@ -75,7 +75,7 @@ Na janela do terminal, prima **Ctrl+C** para sair do servidor Web.
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
 
-Navegue até à sua aplicação web recentemente criada. Substitua  _&lt;nome da aplicação >_ com um nome de aplicação único.
+Navegue para a sua aplicação Web recentemente criada. Substitua _&lt;nome da aplicação>_ por um nome único da aplicação.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -132,7 +132,7 @@ Utilizando um editor de texto local, abra o ficheiro `index.php` na aplicação 
 echo "Hello Azure!";
 ```
 
-Na janela de terminal do local, consolidar as alterações no Git e, em seguida, emita as alterações de código para o Azure.
+Na janela terminal local, consolide as suas alterações no Git e envie as alterações ao código para o Azure.
 
 ```bash
 git commit -am "updated output"

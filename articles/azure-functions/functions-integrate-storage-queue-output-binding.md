@@ -1,5 +1,5 @@
 ---
-title: "Adicionar mensagens de uma fila de armazenamento do Azure utilizando funções | Microsoft Docs"
+title: "Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure | Microsoft Docs"
 description: "Utilize as Funções do Azure para criar uma função sem servidores que é invocada por mensagens que são submetidas para filas do Armazenamento do Azure."
 services: azure-functions
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 822879861ee8189cdd413f0061f26fb91819d88d
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
 ---
@@ -38,7 +38,7 @@ Nas Funções do Azure, os enlaces de entrada e saída proporcionam uma forma de
  
 1. Expanda a aplicação Function App e a função.
 
-2. Selecione **integrar** e **+ nova saída**, em seguida, escolha **armazenamento de filas do Azure** e escolha **selecione**.
+2. Selecione **Integrar** e **+ Nova saída**, escolha **Armazenamento de Filas do Azure** e escolha **Selecionar**.
     
     ![Adicione um enlace de saída do Armazenamento de filas a uma função no portal do Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -60,7 +60,7 @@ Agora que tem um enlace de saída definido, tem de atualizar o código para util
 
 1. Selecione a sua função para apresentar o código da mesma no editor. 
 
-2. Para uma função de c#, atualizar a definição de função da seguinte forma para adicionar o **outputQueueItem** parâmetro de enlace de armazenamento. Ignore este passo para funções JavaScript.
+2. Para funções C#, atualize a definição da função da seguinte forma, para adicionar o parâmetro de enlace de armazenamento **outputQueueItem**. Ignore este passo para funções JavaScript.
 
     ```cs   
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
@@ -99,7 +99,7 @@ Em seguida, ligue à sua conta de armazenamento para verificar a fila nova e a m
 
 Ignore os três primeiros passos se já tiver instalado o Storage Explorer e ligado à sua conta de armazenamento.    
 
-1. Na sua função, escolha **integrar** e o novo **armazenamento de filas do Azure** vínculo de saída, em seguida, expanda **documentação**. Copie o **Nome da conta** e a **Chave da conta**. Vai utilizar estas credenciais para ligar à conta de armazenamento.
+1. Na sua função, escolha em **Integrar** e no enlace de saída do **Armazenamento de Filas do Azure** novo e expanda **Documentação**. Copie o **Nome da conta** e a **Chave da conta**. Vai utilizar estas credenciais para ligar à conta de armazenamento.
  
     ![Obtenha as credenciais de ligação da conta de Armazenamento.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
@@ -111,7 +111,7 @@ Ignore os três primeiros passos se já tiver instalado o Storage Explorer e lig
   
     ![Cole as credenciais de armazenamento e ligue-se.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. Expanda a conta de armazenamento ligado, expanda **filas** e certifique-se de que existe uma fila com o nome **myqueue itens** existe. Também deverá ver uma mensagem já na fila.  
+4. Expanda a conta de armazenamento anexada, expanda as **Filas** e confirme se existe uma fila com o nome **myqueue itens**. Também deverá ver uma mensagem já na fila.  
  
     ![Crie uma fila de armazenamento.](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  

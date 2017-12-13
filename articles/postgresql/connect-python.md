@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.date: 11/03/2017
 ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
 ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/06/2017
 ---
@@ -50,23 +50,23 @@ Instale o pacote [psycopg2](http://initd.org/psycopg/docs/install.html), que lhe
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para PostgreSQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. No menu da esquerda no portal do Azure, clique em **todos os recursos** e procure **mypgserver 20170401** (o servidor que criou).
+2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e procure pelo **mypgserver-20170401** (o servidor que criou).
 3. Clique no nome do servidor **mypgserver 20170401**.
 4. Selecione a página de **Descrição geral** e, em seguida, tome nota do **Nome do servidor** e **Nome de início de sessão de administração do servidor**.
  ![Base de Dados do Azure para o PostgreSQL – Início de sessão de administrador do servidor](./media/connect-python/1-connection-string.png)
 5. Caso se tenha esquecido das informações de início de sessão do seu servidor, navegue até à página **Descrição geral** para visualizar o nome de início de sessão de administrador do servidor e, se necessário, repor a palavra-passe.
 
 ## <a name="how-to-run-python-code"></a>Como executar o código do Python
-Este artigo contém um total de quatro exemplos de código, cada um dos quais efetua uma função específica. As instruções seguintes indicam como criar um ficheiro de texto, inserir um bloco de código e, em seguida, guardar o ficheiro de modo a que pode executá-lo mais tarde. Certifique-se de que cria quatro ficheiros separados, um para cada bloco de código.
+Este artigo contém um total de quatro exemplos de código, cada um dos quais realiza uma função específica. As instruções seguintes indicam como criar um ficheiro de texto, inserir um bloco de código e, em seguida, guardar o ficheiro de modo a que pode executá-lo mais tarde. Certifique-se de que cria quatro ficheiros separados, um para cada bloco de código.
 
 - Através do seu editor de texto favorito, crie um novo ficheiro.
 - Copie e cole um dos exemplos de código nas secções seguintes no ficheiro de texto. Substitua os parâmetros de **anfitrião**, **dbname**, **utilizador** e **palavra-passe** pelos valores que especificou quando criou o servidor e a base de dados.
-- Guarde o ficheiro com a extensão .py (por exemplo postgres.py) na pasta do projeto. Se estiver a executar no Windows, lembre-se de que selecione a codificação UTF-8 quando guardar o ficheiro. 
-- Inicie a shell de linha de comandos, Terminal ou Bash e, em seguida, por exemplo, altere o diretório para a pasta do projeto, `cd postgres`.
+- Guarde o ficheiro com a extensão .py (por exemplo postgres.py) na pasta do projeto. Se estiver a utilizar o Windows, certifique-se de que seleciona a codificação UTF-8 ao guardar o ficheiro. 
+- Inicie a Linha de Comandos, Terminal ou shell do Bash e, em seguida, por exemplo, altere o diretório para a pasta do projeto, `cd postgres`.
 -  Para executar o código, escreva o comando do Python seguido do nome de ficheiro, por exemplo `Python postgres.py`.
 
 > [!NOTE]
-> A partir de Python versão 3, poderá ver o erro `SyntaxError: Missing parentheses in call to 'print'` ao executar os seguintes blocos de código: Se isto acontecer, substitua cada chamada para o comando `print "string"` com uma chamada de função utilizando parênteses, tais como `print("string")`.
+> A partir do Python versão 3, poderá ver o erro `SyntaxError: Missing parentheses in call to 'print'` ao executar os seguintes blocos de código: se isto acontecer, substitua cada chamada para o comando `print "string"` por uma chamada de função com parênteses, como `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Ligar, criar tabela e inserir dados
 Utilize o código seguinte para se ligar e carregar os dados com a função [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) e a instrução SQL **INSERT**. A função [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) é utilizada para executar a consulta SQL na base de dados PostgreSQL. Substitua os parâmetros do sistema anfitrião, nome da base de dados, utilizador e palavra-passe pelos valores que especificou ao criar o servidor e a base de dados.

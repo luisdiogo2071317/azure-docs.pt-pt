@@ -18,13 +18,13 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: c10f4c575c7b9a68e7a1ff8fedf0f17f4fb8599d
 ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual Linux com a CLI do Azure
 
-A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este detalhes de início rápido, utilizando a CLI do Azure para implementar uma máquina virtual com Ubuntu server. Quando o servidor estiver implementado, uma ligação SSH é criada e um servidor NGINX Web é instalado.
+A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este guia de introdução detalha a utilização da CLI do Azure para implementar uma máquina virtual que executa o servidor Ubuntu. Quando o servidor estiver implementado, uma ligação SSH é criada e um servidor NGINX Web é instalado.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -85,7 +85,7 @@ ssh <publicIpAddress>
 
 ## <a name="install-nginx"></a>Instalar o NGINX
 
-Utilize os seguintes comandos para atualizar as origens de pacote e instalar o pacote NGINX mais recente. 
+Utilize os comandos seguintes para atualizar as origens de pacotes e instalar o pacote NGINX mais recente. 
 
 ```bash 
 # update package source
@@ -104,7 +104,7 @@ Com o NGINX instalado e a porta 80 agora aberta na sua VM a partir da Internet, 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#delete) para remover o Grupo de Recursos, a VM e todos os recursos relacionados. Sair sessão SSH para a VM, em seguida, elimine os recursos da seguinte forma:
+Quando já não for necessário, pode utilizar o comando [az group delete](/cli/azure/group#delete) para remover o Grupo de Recursos, a VM e todos os recursos relacionados. Encerre a sessão SSH da VM e, em seguida, elimine os recursos da seguinte forma:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

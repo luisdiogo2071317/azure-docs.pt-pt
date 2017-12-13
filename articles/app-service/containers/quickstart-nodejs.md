@@ -1,6 +1,6 @@
 ---
-title: Criar um Node.js no App Service do Azure no Linux | Microsoft Docs
-description: "Implemente a sua primeira Node.js Olá, mundo no Azure App Service no Linux em minutos."
+title: "Criar um Node.js no Serviço de Aplicações do Azure no Linux | Microsoft Docs"
+description: "Implemente em minutos o seu primeiro Node.js Hello World no Serviço de Aplicações do Azure no Linux."
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -17,13 +17,13 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2017
 ---
-# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação web Node.js no Azure App Service no Linux
+# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web Node.js no Serviço de Aplicações do Azure no Linux
 
-[Serviço de aplicações no Linux](app-service-linux-intro.md) fornece uma serviço utilizando o sistema operativo Linux de alojamento na web altamente dimensionável e aplicação de patches personalizada. Este guia de introdução mostra como implementar uma aplicação Node.js no App Service no Linux utilizando uma imagem incorporada. Criar a aplicação web com a utilização de imagem incorporada a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), e utilizar o Git para implementar o código Node.js para a aplicação web.
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de introdução mostra como implementar uma aplicação Node.js no Serviço de Aplicações no Linux com uma imagem incorporada. Crie a aplicação Web com a imagem incorporada com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e utilize o Git para implementar o código Node.js na aplicação Web.
 
 ![Aplicação de exemplo em execução no Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -40,7 +40,7 @@ Para concluir este guia de início rápido:
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-Na janela de terminal no seu computador, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o computador local.
+Numa janela do terminal do seu computador, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
@@ -62,7 +62,7 @@ Execute a aplicação localmente ao abrir uma janela de terminal e utilizar o sc
 npm start
 ```
 
-Abra um browser e navegue para a aplicação de exemplo no `http://localhost:1337`.
+Abra um browser e navegue para a aplicação de exemplo em `http://localhost:1337`.
 
 Pode ver a mensagem **Hello World** da aplicação de exemplo apresentada na página.
 
@@ -82,7 +82,7 @@ Na janela do terminal, prima **Ctrl+C** para sair do servidor Web.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Navegue até à sua aplicação web recentemente criada. Substitua  _&lt;nome da aplicação >_ com o nome da aplicação web.
+Navegue para a sua aplicação Web recentemente criada. Substitua _&lt;nome da aplicação>_ pelo nome da sua aplicação Web.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -134,15 +134,15 @@ Utilize o browser para navegar para a aplicação implementada.
 http://<app_name>.azurewebsites.net
 ```
 
-O código de exemplo do Node.js está em execução numa aplicação web com a imagem incorporada.
+O código Node.js de exemplo está em execução numa aplicação Web com imagem incorporada.
 
 ![Aplicação de exemplo em execução no Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-**Parabéns!** Implementou a sua primeira aplicação Node.js no App Service no Linux.
+**Parabéns!** Implementou a sua primeira aplicação Node.js no Serviço de Aplicações no Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>Atualizar e voltar a implementar o código
 
-No diretório local, abra o `index.js` ficheiro na aplicação Node.js e efetuar uma alteração de pequeno para o texto na chamada para `response.end`:
+No diretório local, abra o ficheiro `index.js` na aplicação Node.js e faça uma pequena alteração ao texto na chamada para `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");

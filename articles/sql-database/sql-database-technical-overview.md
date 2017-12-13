@@ -18,7 +18,7 @@ ms.date: 09/20/2017
 ms.author: carlrab
 ms.openlocfilehash: 884935074dd19304f72fc761c89fc7ae8fd5b3a3
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/22/2017
 ---
@@ -84,20 +84,20 @@ O contrato de nível de serviço [(SLA)](http://azure.microsoft.com/support/lega
 
 Com a Base de Dados SQL, pode tirar partido da inteligência incorporada que o ajuda a reduzir significativamente os custos de execução e gestão de bases de dados e que maximiza, tanto o desempenho, como a segurança, da sua aplicação. Executando milhões de cargas de trabalho dos clientes ininterruptamente, a Base de Dados SQL recolhe e processa uma gigantesca quantidade de dados de telemetria, respeitando também totalmente a privacidade dos clientes em segundo plano. Vários algoritmos avaliam continuamente os dados de telemetria, de modo a que o serviço possa aprender e adaptar-se com a sua aplicação. Com babe nestas análises, o serviço oferece recomendações de melhoria do desempenho, personalizadas à medida da sua carga de trabalho específica. 
 
-### <a name="automatic-performance-monitoring-and-tuning"></a>Monitorização de desempenho automático e Otimização
+### <a name="automatic-performance-monitoring-and-tuning"></a>Monitorização e otimização de desempenho automático
 
-A Base de Dados SQL disponibiliza informações detalhadas sobre as consultas que tem de monitorizar. Aprende os padrões da sua base de dados e permite-lhe adaptar o esquema da mesma à carga de trabalho. Base de dados do SQL Server fornece [recomendações de otimização do desempenho](sql-database-advisor.md), onde pode consultar as ações de Otimização e aplicá-las. 
+A Base de Dados SQL disponibiliza informações detalhadas sobre as consultas que tem de monitorizar. Aprende os padrões da sua base de dados e permite-lhe adaptar o esquema da mesma à carga de trabalho. A Base de Dados SQL disponibiliza [recomendações de otimização de desempenho](sql-database-advisor.md), onde pode ver as ações de otimização e aplicá-las. 
 
-No entanto, a monitorização contínua de bases de dados é uma tarefa difícil e entediante, especialmente se forem muitas. [Insights inteligentes](sql-database-intelligent-insights.md) não esta tarefa para si por automaticamente monitorização do desempenho de base de dados SQL em escala e informa dos problemas de degradação de desempenho, identifica a causa do problema e fornece melhorias de desempenho recomendações sempre que possível.
+No entanto, a monitorização contínua de bases de dados é uma tarefa difícil e entediante, especialmente se forem muitas. As [Informações inteligentes](sql-database-intelligent-insights.md) realizam esta tarefa para si, ao monitorizar automaticamente o desempenho da Base de Dados SQL em escala e ainda o informa sobre os problemas de degradação de desempenho, identifica a causa do problema e oferece recomendações de melhorias de desempenho, sempre que possível.
 
-Pode ser impossível gerir eficazmente um grande número de bases de dados, mesmo tendo em conta todas as ferramentas e relatórios que a Base de Dados SQL e o Azure proporcionam. Em vez de monitorização e otimizar a sua base de dados manualmente, poderá considerar delegar algumas da monitorização e otimização de ações a base de dados do SQL Server utilizar [otimização automática](sql-database-automatic-tuning.md). A Base de Dados SQL aplica recomendações, testa e verifica automaticamente todas as ações de otimização, para garantir que o desempenho continua a melhorar. Desta forma, a Base de Dados SQL adapta-se automaticamente à sua carga de trabalho de forma controlada e segura. A otimização automática significa que o desempenho da sua base de dados é cuidadosamente monitorizado e comparado antes e depois de cada ação de otimização e, caso não melhore, as ações são revertidas.
+Pode ser impossível gerir eficazmente um grande número de bases de dados, mesmo tendo em conta todas as ferramentas e relatórios que a Base de Dados SQL e o Azure proporcionam. Em vez de monitorizar e otimizar a sua base de dados manualmente, pode considerar utilizar a [otimização automática](sql-database-automatic-tuning.md) para delegar algumas das ações de monitorização e otimização à Base de Dados SQL. A Base de Dados SQL aplica recomendações, testa e verifica automaticamente todas as ações de otimização, para garantir que o desempenho continua a melhorar. Desta forma, a Base de Dados SQL adapta-se automaticamente à sua carga de trabalho de forma controlada e segura. A otimização automática significa que o desempenho da sua base de dados é cuidadosamente monitorizado e comparado antes e depois de cada ação de otimização e, caso não melhore, as ações são revertidas.
 
 Hoje em dia, muitos dos nossos parceiros que executam [aplicações SaaS multi-inquilino](sql-database-design-patterns-multi-tenancy-saas-applications.md) tendo a Base de Dados SQL como base confiam na otimização de desempenho automática, para garantir que as aplicações têm sempre um desempenho estável e previsível. Para estes parceiros, esta funcionalidade reduz significativamente o risco de ocorrência de incidentes de desempenho a meio da noite. Além disso, uma vez que parte da base de clientes deles também utiliza o SQL Server, os parceiros utilizam as mesmas recomendações de indexação disponibilizadas pela Base de Dados SQL para ajudar os clientes do SQL Server.
 
-Existem dois aspetos de otimização automáticos, que são [disponíveis na base de dados do SQL Server](sql-database-automatic-tuning.md):
+Estão disponíveis dois aspetos de otimização automática na [Base de Dados SQL](sql-database-automatic-tuning.md):
 
-- **A gestão automática de índices**: identifica os índices devem ser adicionados na base de dados e índices que devem ser removidos.
-- **Correção automática plano**: identifica problemáticos planos e corrige os problemas de desempenho do plano SQL (disponível em breve, já disponível no SQL Server 2017).
+- **Gestão de índices automática**: identifica os índices que devem ser adicionados à sua base de dados e os que devem ser removidos.
+- **Correção de planos automática**: identifica planos problemáticos e corrige problemas de desempenho dos planos do SQL (brevemente; já disponível no SQL Server 2017).
 
 ### <a name="adaptive-query-processing"></a>Processamento de consultas adaptável
 
@@ -133,7 +133,7 @@ A [segurança ao nível da linha](https://docs.microsoft.com/sql/relational-data
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator
 
-A Base de Dados SQL permite-lhe gerir centralmente identidades de utilizadores de bases de dados e outros serviços Microsoft com a [integração do Azure Active Directory](sql-database-aad-authentication.md). Esta capacidade simplifica a gestão de permissões e melhora a segurança. Azure Active Directory suporta [autenticação multifator](sql-database-ssms-mfa-authentication.md) (MFA) para aumentar a segurança de dados e de aplicações ao suporte de um processo de início de sessão único.
+A Base de Dados SQL permite-lhe gerir centralmente identidades de utilizadores de bases de dados e outros serviços Microsoft com a [integração do Azure Active Directory](sql-database-aad-authentication.md). Esta capacidade simplifica a gestão de permissões e melhora a segurança. O Azure Active Directory suporta a [autenticação multifator](sql-database-ssms-mfa-authentication.md) (MFA), para aumentar a segurança de dados e aplicações, suportando, ao mesmo tempo, um processo de início de sessão único.
 
 ### <a name="compliance-certification"></a>Certificação de conformidade
 

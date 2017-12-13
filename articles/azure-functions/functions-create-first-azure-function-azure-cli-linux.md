@@ -1,6 +1,6 @@
 ---
-title: "Criar a sua primeira função em Linux a partir da CLI do Azure (pré-visualização) | Microsoft Docs"
-description: "Saiba como criar a sua primeira função do Azure em execução numa imagem predefinida do Linux utilizando a CLI do Azure."
+title: "Criar a sua primeira função no Linux a partir da CLI do Azure (pré-visualização) | Microsoft Docs"
+description: "Saiba como criar a sua primeira Função do Azure em execução numa imagem do Linux predefinida com a CLI do Azure."
 services: functions
 keywords: 
 author: ggailey777
@@ -13,15 +13,15 @@ ms.devlang: azure-cli
 manager: cfowler
 ms.openlocfilehash: d04e2000f2043e8bb11e15f6b9d7fd06ef5b9da3
 ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/16/2017
 ---
-# <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Criar a sua primeira função em execução no Linux utilizando a CLI do Azure (pré-visualização)
+# <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Criar a sua primeira função em execução no Linux com a CLI do Azure (pré-visualização)
 
-As funções do Azure permite-lhe alojar as suas funções no Linux num contentor predefinido App Service do Azure. Esta funcionalidade está atualmente em pré-visualização. Também pode [traga a sua própria contentor personalizado](functions-create-function-linux-custom-image.md). 
+As Funções do Azure permitem-lhe alojar as suas funções no Linux num contentor predefinido do Serviço de Aplicações do Azure. Atualmente, esta funcionalidade está em pré-visualização. Também pode [trazer o seu próprio contentor personalizado](functions-create-function-linux-custom-image.md). 
 
-Este tópico de início rápido explica como utilizar as funções do Azure com a CLI do Azure para criar a sua primeira aplicação de função no Linux alojado no contentor do serviço de aplicações predefinido. O código de função em si é implementado para a imagem de um repositório de exemplo do GitHub.    
+Este tópico do guia de introdução explica como utilizar as Funções do Azure com a CLI do Azure para criar a sua primeira aplicação de funções no Linux alojada no contentor do Serviço de Aplicações predefinido. O código da função propriamente dito é implementado na imagem a partir de um repositório de exemplos do GitHub.    
 
 São suportados os seguintes passos num computador Mac, Windows ou Linux. 
 
@@ -35,29 +35,29 @@ Para concluir este guia de início rápido, necessita de:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tópico requer a CLI do Azure versão 2.0.21 ou posterior. Executar `az --version` para localizar a versão do. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.21 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>Criar um plano de serviço de aplicações do Linux
+## <a name="create-a-linux-app-service-plan"></a>Criar um plano do Serviço de Aplicações do Linux
 
-Linux que alojam funções de está atualmente só é suportado um plano de serviço de aplicações. Ainda, o consumo plano de alojamento não é suportado. Para saber mais acerca de alojamento, consulte o artigo [que alojam as funções do Azure planos de comparação](functions-scale.md). 
+O alojamento do Linux para Funções é atualmente suportado apenas num plano do Serviço de Aplicações. O alojamento do plano de consumo ainda não é suportado. Para saber mais sobre o alojamento, veja [Azure Functions hosting plans comparison (Comparação dos planos de alojamento das Funções do Azure)](functions-scale.md). 
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-## <a name="create-a-function-app-on-linux"></a>Criar uma aplicação de função no Linux
+## <a name="create-a-function-app-on-linux"></a>Criar uma aplicação de funções no Linux
 
-Tem de ter uma aplicação de função para alojar a execução das suas funções no Linux. A aplicação de função fornece um ambiente de execução do seu código de função. Permite-lhe agrupar funções como unidades lógicas para uma gestão, implementação e partilha de recursos mais fácil. Criar uma aplicação de função utilizando o [az functionapp criar](/cli/azure/functionapp#create) comando com um plano de serviço de aplicações do Linux. 
+Precisa de uma aplicação de funções para alojar a execução das suas funções no Linux. A aplicação de funções proporciona um ambiente para a execução do código da sua função. Permite-lhe agrupar funções como unidades lógicas para uma gestão, implementação e partilha de recursos mais fácil. Utilize o comando [az functionapp create](/cli/azure/functionapp#create) para criar uma aplicação de funções com um plano do Serviço de Aplicações do Linux. 
 
-O seguinte comando, substitua um nome de aplicação de função exclusivo onde vir o `<app_name>` marcador de posição e a conta de armazenamento de nome para `<storage_name>`. O `<app_name>` vai ser utilizado como o domínio DNS predefinido para a aplicação Function App, daí que o nome tenha de ser exclusivo em todas as aplicações no Azure. O _url de origem de implementação_ parâmetro é um repositório de exemplo no GitHub que contém uma função de "Olá mundo" HTTP acionado.
+No comando seguinte, substitua o nome da sua aplicação de funções exclusivo onde vir o marcador de posição `<app_name>` e o nome da conta de armazenamento para `<storage_name>`. O `<app_name>` vai ser utilizado como o domínio DNS predefinido para a aplicação Function App, daí que o nome tenha de ser exclusivo em todas as aplicações no Azure. O parâmetro _deployment-source-url_ é um repositório de exemplo no GitHub que contém uma função acionada por HTTP "Hello World".
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
 --plan myAppServicePlan --deployment-source-url https://github.com/Azure-Samples/functions-quickstart-linux
 ```
-Depois da função de aplicação foi criada e implementada, a CLI do Azure mostra informações semelhante ao seguinte exemplo:
+Depois de a aplicação de funções ter sido criada e implementada, a CLI do Azure mostra informações semelhantes às do exemplo seguinte:
 
 ```json
 {
@@ -78,10 +78,10 @@ Depois da função de aplicação foi criada e implementada, a CLI do Azure most
 }
 ```
 
-Porque `myAppServicePlan` é um plano de Linux, a imagem de docker incorporado é utilizada para criar o contentor que executa a aplicação de função no Linux. 
+Uma vez que `myAppServicePlan` é um plano do Linux, a imagem do docker incorporada é utilizada para criar o contentor que executa a aplicação de funções no Linux. 
 
 >[!NOTE]  
->O repositório de exemplo inclui atualmente dois ficheiros de scripts, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) e [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). O ficheiro .deployment informa o processo de implementação a utilizar deploy.sh como o [script de implementação personalizada](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). Na versão de pré-visualização atual, os scripts são necessários para implementar a aplicação de função numa imagem de Linux.  
+>O repositório de exemplo inclui atualmente dois ficheiros de scripts, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) e [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). O ficheiro .deployment indica ao processo de implementação para utilizar o deploy.sh como o [script de implementação personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). Na versão de pré-visualização atual, os scripts são precisos para implementar a aplicação de funções numa imagem do Linux.  
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

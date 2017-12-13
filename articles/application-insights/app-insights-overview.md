@@ -16,12 +16,12 @@ ms.date: 05/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 2e2a9e8491ad56bcbc42be64729715016f7ed17b
 ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
-O Application Insights é um serviço de Gestão de Desempenho de Aplicações (APM) extensível para programadores Web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para aplicações em diversas plataformas, incluindo .NET, Node.js e J2EE, alojadas no local ou na cloud. Integra-se com o processo de DevOps e pontos de ligação a uma variedade de ferramentas de desenvolvimento. Pode monitorizar e analisar a telemetria de aplicações móveis através da integração com o Centro de aplicação do Visual Studio e o HockeyApp.
+O Application Insights é um serviço de Gestão de Desempenho de Aplicações (APM) extensível para programadores Web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para aplicações em diversas plataformas, incluindo .NET, Node.js e J2EE, alojadas no local ou na cloud. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Centro de Aplicações do Visual Studio e o HockeyApp.
 
 ![Crie gráficos com estatísticas de atividades dos utilizadores ou analise pormenorizadamente eventos específicos.](./media/app-insights-overview/00-sample.png)
 
@@ -117,7 +117,7 @@ Existem várias formas de começar. Comece com a que funcionar melhor para si. P
   * [Node.js](app-insights-nodejs.md)
   * [Outras plataformas](app-insights-platforms.md)
 * **[Instrumente as suas páginas Web](app-insights-javascript.md)** para visualização de páginas, AJAX e outra telemetria do lado do cliente.
-* **[Analisar a utilização de aplicações móveis](app-insights-mobile-center-quickstart.md)**  através da integração com o Centro de aplicação do Visual Studio.
+* **[Analise a utilização da aplicação móvel](app-insights-mobile-center-quickstart.md)** ao integrar com o Centro de Aplicações do Visual Studio.
 * **[Testes de disponibilidade](app-insights-monitor-web-app-availability.md)** - envie um ping ao seu Web site regularmente a partir dos nossos servidores.
 
 

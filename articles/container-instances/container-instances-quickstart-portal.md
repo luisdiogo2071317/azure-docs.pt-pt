@@ -1,5 +1,5 @@
 ---
-title: "Guia de introdução - criar o primeiro contentor de instâncias de contentor do Azure com o portal do Azure"
+title: "Guia de introdução - Criar o seu primeiro contentor do Azure Container Instances com o portal do Azure"
 description: "Implementar e começar a utilizar o Azure Container Instances"
 services: container-instances
 documentationcenter: 
@@ -19,13 +19,13 @@ ms.author: marsma
 ms.custom: mvc
 ms.openlocfilehash: 0179107ece1e150246ab40836783d810425be3ca
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Criar o seu primeiro contentor no Azure Container Instances
 
-O Azure Container Instances permite criar e gerir facilmente contentores no Azure. Este guia de introdução, criar um contentor no Azure e expô-la à internet com um endereço IP público. Esta operação foi concluída através do portal do Azure. Com apenas alguns cliques, verá isto no seu browser:
+O Azure Container Instances permite criar e gerir facilmente contentores no Azure. Neste guia de introdução, cria um contentor no Azure e expõe-no na Internet com um endereço IP público. Esta operação foi concluída com o portal do Azure. Com apenas alguns cliques, verá isto no seu browser:
 
 ![Aplicação implementada com o Azure Container Instances vista no browser][aci-app-browser]
 
@@ -35,37 +35,37 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 ## <a name="create-a-container-instance"></a>Criar uma instância de contentor
 
-Selecione o **novo** > **contentores** > **instâncias de contentor do Azure (pré-visualização)**.
+Selecione **Novo** > **Contentores** > **Azure Container Instances (pré-visualização)**.
 
 ![Começar a criar uma nova instância do contentor no portal do Azure][aci-portal-01]
 
-Introduza os seguintes valores no **nome do contentor**, **imagem contentor**, e **grupo de recursos** caixas de texto. Deixe os outros valores as predefinições, em seguida, clique em **OK**.
+Introduza os seguintes valores nas caixas de texto **Nome do contentor**, **Imagem do contentor** e **Grupo de recursos**. Deixe os outros valores nas predefinições e, em seguida, clique em **OK**.
 
-* Nome do contentor:`mycontainer`
-* Imagem do contentor:`microsoft/aci-helloworld`
-* Grupo de recursos:`myResourceGroup`
+* Nome do contentor: `mycontainer`
+* Imagem de contentor: `microsoft/aci-helloworld`
+* Grupo de recursos: `myResourceGroup`
 
 ![Configurar definições básicas para uma nova instância do contentor no portal do Azure][aci-portal-03]
 
-Pode criar contentores de Windows e Linux em instâncias de contentor do Azure. Neste guia de introdução, iremos irá deixe a predefinição de **Linux** , uma vez que especificamos um contentor baseado em Linux (`microsoft/aci-helloworld`) no passo anterior.
+Pode criar contentores Windows e Linux no Azure Container Instances. Neste guia de introdução, iremos deixar a predefinição do **Linux**, uma vez que especificámos um contentor baseado em Linux (`microsoft/aci-helloworld`) no passo anterior.
 
-Deixe as outras definições no **configuração** nas predefinições, em seguida, clique em **OK** para validar a configuração.
+Deixe as outras predefinições da **Configuração** e, em seguida, clique em **OK** para validar a configuração.
 
 ![Configurar uma nova instância do contentor no portal do Azure][aci-portal-04]
 
-Quando a validação é concluída, são apresentadas um resumo das definições de contentor. Selecione **OK** para submeter o pedido de implementação do contentor.
+Quando a validação é concluída, é apresentado um resumo das definições de contentor. Selecione **OK** para submeter o pedido de implementação do contentor.
 
-![Resumo das definições para uma nova instância de contentor no portal do Azure][aci-portal-05]
+![Resumo das definições para uma nova instância do contentor no portal do Azure][aci-portal-05]
 
-Quando inicia a implementação, é colocado um mosaico no dashboard do portal do que indica o progresso da implementação. Uma vez concluída a implementação, o mosaico é atualizado para apresentar o novo **mycontainer myc1** grupo contentor.
+Quando inicia a implementação, é colocado um mosaico no dashboard do portal que indica o progresso da implementação. Uma vez concluída a implementação, o mosaico é atualizado para apresentar o seu novo grupo de contentores **mycontainer-myc1**.
 
-![Progresso da criação de uma nova instância de contentor no portal do Azure][aci-portal-08]
+![Progresso da criação de uma nova instância do contentor no portal do Azure][aci-portal-08]
 
-Selecione o **mycontainer myc1** grupo contentor para apresentar as propriedades de grupo do contentor. Tome nota do **endereço Ip** do grupo contentor, bem como o **estado** do seu contentor.
+Selecione o grupo de contentores **mycontainer-myc1** para apresentar as propriedades do grupo do contentor. Tome nota do **endereço Ip** do grupo de contentores, bem como o **ESTADO** do seu contentor.
 
-![Descrição geral de grupo do contentor no portal do Azure][aci-portal-06]
+![Descrição geral do grupo de contentores no portal do Azure][aci-portal-06]
 
-Depois do contentor é movido para o **executar** de estado, navegue para o endereço IP que anotou no passo anterior para apresentar a aplicação alojada no contentor de novo.
+Assim que o contentor é movido para o estado **Em execução**, navegue para o endereço IP que anotou no passo anterior para apresentar a aplicação alojada no novo contentor.
 
 ![Aplicação implementada com o Azure Container Instances vista no browser][aci-app-browser]
 
@@ -81,7 +81,7 @@ Depois do contentor é movido para o **executar** de estado, navegue para o ende
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este guia de introdução, criou uma instância de contentor do Azure a partir de uma imagem num repositório Docker Hub público. Se gostaria de tentar criar um contentor de si e implementá-la para instâncias de contentor do Azure com o registo de contentor do Azure, continue para o tutorial de instâncias de contentor do Azure.
+Neste guia de introdução criou uma Instância do Contentor do Azure a partir de uma imagem num repositório do Docker Hub público. Se quiser tentar criar um contentor sozinho e implementá-lo no Azure Container Instances com o Azure Container Registry, avance para o tutorial do Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorials](./container-instances-tutorial-prepare-app.md) (Tutoriais do Azure Container Instances)

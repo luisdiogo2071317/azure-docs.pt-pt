@@ -32,4 +32,4 @@ Clique com o botão direito do rato num tipo de recurso e selecione **Entidades 
 
 ![entidades de custos e serviços](./media/cost-management-create-account-view-data/actual-cost-05.png)
 
-Para ver um vídeo tutorial sobre a visualização da sua nuvem dados de faturação, consulte o artigo [análise da sua nuvem faturação dados com o Azure custo Management Cloudyn](https://youtu.be/G0pvI3iLH-Y).
+Para ver um vídeo tutorial sobre a visualização dos dados de faturação da cloud, veja [Analyzing your cloud billing data with Azure Cost Management by Cloudyn (Analisar os dados de faturação da cloud com o Azure Cost Management da Cloudyn)](https://youtu.be/G0pvI3iLH-Y).

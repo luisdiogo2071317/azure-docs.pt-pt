@@ -1,6 +1,6 @@
 ---
-title: "Dimensionar um cluster do serviço de contentor do Azure (AKS) | Microsoft Docs"
-description: "Dimensione um cluster do serviço de contentor do Azure (AKS)."
+title: Dimensionar um cluster do Azure Container Service (AKS) | Microsoft Docs
+description: Dimensionar um cluster do Azure Container Service (AKS).
 services: container-service
 documentationcenter: 
 author: gabrtv
@@ -19,17 +19,17 @@ ms.author: gamonroy
 ms.custom: mvc
 ms.openlocfilehash: b2fa3ebb7a22b9d19678d45cc50806627ab80e90
 ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/15/2017
 ---
-# <a name="scale-an-azure-container-service-aks-cluster"></a>Dimensionar um cluster do serviço de contentor do Azure (AKS)
+# <a name="scale-an-azure-container-service-aks-cluster"></a>Dimensionar um cluster do Azure Container Service (AKS)
 
-É fácil de dimensionar um cluster AKS para um número diferente de nós.  Selecione o número de nós pretendido e execute o `az aks scale` comando.  Quando o dimensionamento para baixo, nós será cuidadosamente [cordoned e drained](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) para minimizar perturbações para as aplicações em execução.  Quando o dimensionamento, o `az` comando aguarda até que nós estão marcados `Ready` pelo Kubernetes cluster.
+É fácil dimensionar um cluster do AKS para um número diferente de nós.  Selecione o número de nós pretendido e execute o comando `az aks scale`.  Ao reduzir verticalmente, os nós serão cuidadosamente [isolados e drenados](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) para minimizar a interrupção das aplicações em execução.  Ao aumentar verticalmente, o comando `az` aguarda até que os nós estejam marcados `Ready` pelo cluster do Kubernetes.
 
-## <a name="scale-the-cluster-nodes"></a>Dimensionar os nós de cluster
+## <a name="scale-the-cluster-nodes"></a>Dimensionar nós de cluster
 
-Utilize o `az aks scale` comando dimensionar os nós do cluster. O exemplo seguinte dimensiona um cluster com o nome *myK8SCluster* para um único nó.
+Utilize o comando `az aks scale` para dimensionar os nós de cluster. O exemplo seguinte dimensiona um cluster com o nome *myK8SCluster* para um único nó.
 
 ```azurecli-interactive
 az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
@@ -93,7 +93,7 @@ Saída:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre como implementar e gerir AKS com os tutoriais AKS.
+Saiba mais sobre como implementar e gerir AKS com os tutoriais de AKS.
 
 > [!div class="nextstepaction"]
-> [Tutorial AKS](./tutorial-kubernetes-prepare-app.md)
+> [Tutorial de AKS](./tutorial-kubernetes-prepare-app.md)

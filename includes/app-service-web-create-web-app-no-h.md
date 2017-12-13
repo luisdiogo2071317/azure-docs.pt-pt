@@ -1,6 +1,6 @@
-No Cloud Shell, crie uma [aplicação Web](../articles/app-service/app-service-web-overview.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#create). 
+No Cloud Shell, crie uma [aplicação Web](../articles/app-service/app-service-web-overview.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#az_webapp_create). 
 
-No exemplo seguinte, substitua  *\<APP_NAME>.azurewebsites.NET >* com um nome de aplicação exclusivo global (carateres válidos são `a-z`, `0-9`, e `-`). 
+No exemplo a seguir, substitua *\<app_name>* com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -24,13 +24,13 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-Criou uma aplicação web em branco, com a implementação de git ativada.
+Criou uma aplicação Web vazia, com a implementação de git ativada.
 
 > [!NOTE]
-> O URL do Git remoto é apresentado no `deploymentLocalGitUrl` propriedade, com o formato `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Guarde este URL como precisará dela mais tarde.
+> O URL do Git remoto é apresentado na propriedade `deploymentLocalGitUrl`, com o formato `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Guarde este URL, uma vez que vai precisar dele mais tarde.
 >
 
-Navegue para a aplicação web recentemente criada.
+Navegue para a aplicação Web recentemente criada.
 
 ```bash
 http://<app_name>.azurewebsites.net
