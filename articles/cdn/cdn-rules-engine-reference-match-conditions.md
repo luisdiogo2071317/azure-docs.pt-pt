@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0abbcf8508cb95d0fb8a9c8e5243426752efe590
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de corresponder ao motor de regras CDN do Azure
 Este tópico lista as descrições detalhadas das condições de correspondência de rede de entrega de conteúdos (CDN) do Azure disponíveis [motor de regras](cdn-rules-engine.md).
@@ -34,7 +34,7 @@ A condição de correspondência de sempre foi concebida para aplicar um conjunt
 ## <a name="device"></a>Dispositivo
 
 A condição de correspondência de dispositivo identifica os pedidos efetuados a partir de um dispositivo móvel com base nas respetivas propriedades.  Deteção de dispositivos móveis é conseguida através de [WURFL](http://wurfl.sourceforge.net/).  Capacidades WURFL e as respetivas variáveis do motor de regras de CDN são listados abaixo.
-
+<br>
 > [!NOTE] 
 > As variáveis abaixo são suportadas o **modificar cabeçalho de pedido do cliente** e **modificar cabeçalho de resposta de cliente** funcionalidades.
 
@@ -42,21 +42,21 @@ Capacidade | Variável | Descrição | Valores de exemplo
 -----------|----------|-------------|----------------
 Nome de marca | % {wurfl_cap_brand_name} | Uma cadeia que indica o nome de marca do dispositivo. | Samsung
 SO do dispositivo | % {wurfl_cap_device_os} | Uma cadeia que indica o sistema operativo instalado no dispositivo. | IOS
-Versão do SO do dispositivo | % {wurfl_cap_device_os_version} | Uma cadeia que indica o número de versão do SO instalado no dispositivo. | 1.0.1
-Orientação dupla | % {wurfl_cap_dual_orientation} | Um valor boleano que indica se o dispositivo suporta orientação dupla. | VERDADEIRO
-HTML preferencial DTD | % {wurfl_cap_html_preferred_dtd} | Uma cadeia que indica documento preferencial definição o dispositivo móvel (DTD) para o conteúdo HTML. | Nenhum<br/>xhtml_basic<br/>HTML5
-Imagem Inlining | % {wurfl_cap_image_inlining} | Um valor boleano que indica se o dispositivo suporta Base64 codificado imagens. | FALSO
-É Android | % {wurfl_vcap_is_android} | Um valor boleano que indica se o dispositivo utiliza o SO Android. | VERDADEIRO
-É IOS | % {wurfl_vcap_is_ios} | Um valor boleano que indica se o dispositivo utiliza iOS. | FALSO
-É TV inteligente | % {wurfl_cap_is_smarttv} | Um valor boleano que indica se o dispositivo é um Televisor inteligente. | FALSO
-É Smartphone | % {wurfl_vcap_is_smartphone} | Um valor boleano que indica se o dispositivo é um smartphone. | VERDADEIRO
-É Tablet | % {wurfl_cap_is_tablet} | Um valor boleano que indica se o dispositivo é um tablet. Esta é uma descrição de SO independentes. | VERDADEIRO
-É dispositivo sem fios | % {wurfl_cap_is_wireless_device} | Um valor boleano que indica se o dispositivo é considerado um dispositivo sem fios. | VERDADEIRO
+Versão do SO do Dispositivo | % {wurfl_cap_device_os_version} | Uma cadeia que indica o número de versão do SO instalado no dispositivo. | 1.0.1
+Orientação dupla | % {wurfl_cap_dual_orientation} | Um valor boleano que indica se o dispositivo suporta orientação dupla. | true
+HTML preferencial DTD | % {wurfl_cap_html_preferred_dtd} | Uma cadeia que indica documento preferencial definição o dispositivo móvel (DTD) para o conteúdo HTML. | nenhum<br/>xhtml_basic<br/>HTML5
+Imagem Inlining | % {wurfl_cap_image_inlining} | Um valor boleano que indica se o dispositivo suporta Base64 codificado imagens. | False
+É Android | % {wurfl_vcap_is_android} | Um valor boleano que indica se o dispositivo utiliza o SO Android. | true
+É IOS | % {wurfl_vcap_is_ios} | Um valor boleano que indica se o dispositivo utiliza iOS. | False
+É TV inteligente | % {wurfl_cap_is_smarttv} | Um valor boleano que indica se o dispositivo é um Televisor inteligente. | False
+É Smartphone | % {wurfl_vcap_is_smartphone} | Um valor boleano que indica se o dispositivo é um smartphone. | true
+É Tablet | % {wurfl_cap_is_tablet} | Um valor boleano que indica se o dispositivo é um tablet. Esta é uma descrição de SO independentes. | true
+É dispositivo sem fios | % {wurfl_cap_is_wireless_device} | Um valor boleano que indica se o dispositivo é considerado um dispositivo sem fios. | true
 Nome de marketing | % {wurfl_cap_marketing_name} | Uma cadeia que indica o nome do dispositivo de marketing. | Pearl blackBerry 8100
 Browser móvel | % {wurfl_cap_mobile_browser} | Uma cadeia que indica o browser utilizado para pedir conteúdo a partir do dispositivo. | Chrome
 Versão do Browser móveis | % {wurfl_cap_mobile_browser_version} | Uma cadeia que indica a versão do browser utilizado para pedir conteúdo a partir do dispositivo. | 31
 Nome do modelo | % {wurfl_cap_model_name} | Uma cadeia que indica o nome do modelo do dispositivo. | S3
-Transferência progressiva | % {wurfl_cap_progressive_download} | Um valor boleano que indica se o dispositivo suporta a reprodução de áudio/vídeo enquanto ainda está a ser transferido. | VERDADEIRO
+Transferência progressiva | % {wurfl_cap_progressive_download} | Um valor boleano que indica se o dispositivo suporta a reprodução de áudio/vídeo enquanto ainda está a ser transferido. | true
 Data da versão | % {wurfl_cap_release_date} | Uma cadeia que indica o ano e mês em que o dispositivo foi adicionado à base de dados WURFL.<br/><br/>Formato:`yyyy_mm` | 2013_december
 Altura de resolução | % {wurfl_cap_resolution_height} | Um número inteiro que indica a altura do dispositivo em pixels. | 768
 Largura de resolução | % {wurfl_cap_resolution_width} | Um número inteiro que indica a largura do dispositivo em pixéis. | 1024
@@ -71,6 +71,36 @@ Nome | Objetivo
 COMO número | Identifica pedidos provenientes de uma rede específico.
 País | Identifica pedidos provenientes de países/regiões especificados.
 
+### <a name="as-number"></a>COMO número 
+Esta rede é definida pelo seu sistema ASN (número autónomo). É fornecida uma opção para indicar se esta condição irá ser cumprida quando um cliente de rede "Corresponde a" ou "Does não corresponde a" especificado como número.
+
+**Informações da chave**
+- Especificar os números de AS várias por delimiting cada um com um único espaço. Por exemplo, 64514 64515 corresponde pedidos que chegam de 64514 ou 64515.
+- Determinados pedidos não podem devolver um número válido. Um ponto de interrogação (ou seja,?) corresponderá pedidos para o qual válido como número não foi possível determinar.
+- Todo o como número para a rede pretendido tem de ser especificado. Não serão possível corresponder valores parciais.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
+
+### <a name="country"></a>País
+Um país podem ser especificado através do respetivo código de país. É fornecida uma opção para indicar se esta condição será preenchido quando o país/região do que um pedido tem origem "Correspondências" ou "Does não corresponde a" o valor especificado (es).
+
+
+**Informações da chave**
+- Especificar vários indicativos de país, delimiting cada um com um único espaço.
+- Carateres universais não são suportados quando especificar um código de país.
+- Os indicativos de país "EU" e "Da Ásia-Pacífico" não abranger todos os endereços IP nessas regiões.
+- Determinados pedidos não podem devolver um código de país válido. Um ponto de interrogação (ou seja,?) corresponderá pedidos para o qual não foi possível determinar um código de país válido.
+- Indicativos de país diferenciam maiúsculas de minúsculas.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
 
 ## <a name="origin"></a>Origem
 
@@ -81,6 +111,25 @@ Nome | Objetivo
 Origem da CDN | Identifica os pedidos para o conteúdo armazenado no armazenamento do CDN.
 Origem de cliente | Identifica os pedidos de conteúdo armazenado num servidor de origem do cliente específico.
 
+### <a name="cdn-origin"></a>Origem da CDN
+Esta condição de correspondência é preenchida quando ambas as condições seguintes forem cumpridas:
+- Foi pedido ao conteúdo do armazenamento da CDN.
+- O URI do pedido tira partido do ponto de acesso ao conteúdo (por exemplo, /000001) definido nesta condição de correspondência.
+  - URL de CDN: O URI do pedido tem de conter o ponto de acesso ao conteúdo selecionado.
+  - URL de CNAME Edge: A configuração de CNAME correspondente do contorno tem de apontar para o ponto de acesso ao conteúdo selecionado.
+  
+*Notas:*
+ - O ponto de acesso ao conteúdo identifica o serviço que deverá servir os conteúdos solicitados.
+ - Uma instrução se e não deve ser utilizada para combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de origem de CDN com uma condição de correspondência de origem do cliente criaria um padrão de correspondência de que nunca foi possível corresponder. Por este motivo muito mesmo, duas condições de correspondência de origem da CDN não podem ser combinadas através de uma instrução e se.
+ 
+### <a name="customer-origin"></a>Origem de cliente
+
+**Informações da chave** 
+- Esta condição de correspondência irá ser satisfeita independentemente se solicitados utilizando uma CDN ou contorno URL de CNAME que aponta para a origem de cliente selecionado.
+- Uma configuração de origem do cliente referenciada por uma regra não pode ser eliminada da página de origem do cliente. Antes de tentar eliminar uma configuração de origem do cliente, certifique-se de que as seguintes configurações não referencie-o:
+  - Condição de correspondência de origem do cliente
+  - Uma configuração de CNAME edge.
+- Uma instrução se e não deve ser utilizada para combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de origem do cliente com uma condição de correspondência de origem da CDN criaria um padrão de correspondência de que nunca foi possível corresponder. Por este motivo muito mesmo, duas condições de correspondência de origem do cliente não podem ser combinadas através de uma instrução e se.
 
 ## <a name="request"></a>Pedir
 
@@ -98,6 +147,193 @@ Regex de cabeçalho de pedido | Identifica os pedidos que contêm o cabeçalho e
 Caráter universal de cabeçalho de pedido | Identifica os pedidos que contêm o cabeçalho especificado definido como um valor que corresponde ao padrão especificado.
 Método de pedido | Identifica pedidos pelo respetivo método HTTP.
 Esquema de pedido | Identifica pedidos pelo respetivo protocolo HTTP.
+
+### <a name="client-ip-address"></a>Endereço IP do cliente
+É fornecida uma opção para indicar se esta condição irá ser cumprida quando um cliente 's IP endereço "Corresponde a" ou "Does não corresponde a", os endereços IP especificado.
+
+**Informações da chave:**
+- Certifique-se de que utilizam a notação CIDR.
+- Especifique vários endereços IP e/ou blocos de endereços IP por delimiting cada um com um único espaço.
+  - **Exemplo de IPv4:** 1.2.3.4 10.20.30.40 corresponde a quaisquer pedidos que chegam de 1.2.3.4 ou 10.20.30.40.
+  - **Exemplo de IPv6:** 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 corresponde a quaisquer pedidos que chegam de 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
+- A sintaxe para um bloco de endereços IP é o endereço IP base seguido por uma barra e o tamanho de prefixo.
+  - **Exemplo de IPv4:** 5.5.5.64/26 corresponde a quaisquer pedidos que chegam de 5.5.5.64 através de 5.5.5.127.
+  - **Exemplo de IPv6:** 1:2:3: / 48 corresponde a quaisquer pedidos que chegam de 1:2:3:0:0:0:0:0 através de 1:2:3:ffff:ffff:ffff:ffff:ffff.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
+
+### <a name="cookie-parameter"></a>Parâmetro de cookie
+O **corresponde / não corresponde ao** opção determina as condições em que esta correspondem à condição irá ser satisfeito.
+- **Correspondências:** requer um pedido para conter o cookie especificado com um valor que corresponde a, pelo menos, um dos valores definidos nesta condição de correspondência.
+- **Não corresponde à:** requer que o pedido de satisfazer um dos seguintes critérios:
+  - Não contém o cookie especificado.
+  - Contém o cookie especificado, mas o respetivo valor não corresponde a nenhum dos valores definidos nesta condição de correspondência.
+  
+**Informações da chave:**
+- **Nome do cookie:** 
+  - Não são suportados os carateres especiais, incluindo um asterisco, quando especificar um nome de cookie. Isto significa que apenas correspondências de nome de cookie exato são elegíveis para comparação.
+  - Pode ser especificado apenas um nome de cookie único por instância desta condição de correspondência.
+  - Comparações de nome de cookie são sensível.
+- **Valor do cookie:** 
+  - Especificar vários valores de cookie, delimiting cada um com um único espaço.
+  - Um valor de cookie pode tirar partido de carateres especiais. 
+  - Se não tiver sido especificado um caráter universal, apenas uma correspondência exata satisfazer esta condição de correspondência. 
+   - **Exemplo:** especificação de "Valor" corresponderá a "Valor", mas não "Value1" ou "Value2."
+  - O **ignorar caso** opção determina se será efetuada uma comparação de maiúsculas e minúsculas com um valor de cookie do pedido.
+  - Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+   - Concluir o preenchimento da Cache
+   - Idade de máx. de interno predefinida
+   - Forçar interna de atribuição de idade máxima
+   - Ignorar a Cache não de origem
+   - Interna obsoleta máx.
+
+### <a name="cookie-parameter-regex"></a>Cookie parâmetro Regex
+Esta condição de correspondência define um valor e o nome do cookie. As expressões regulares podem ser utilizadas para definir o valor do cookie pretendido. 
+
+O **corresponde / não corresponde ao** opção determina as condições sob as quais vai ser satisfeita esta condição de correspondência.
+- **Correspondências:** requer um pedido para conter o cookie especificado com um valor que corresponde à expressão regular especificada.
+- **Não corresponde à:** requer que o pedido de satisfazer um dos seguintes critérios:
+  - Não contém o cookie especificado.
+  - Contém o cookie especificado, mas o respetivo valor não corresponde a expressão regular especificada.
+  
+**Informações da chave:**
+- **Nome do cookie:** 
+  - As expressões regulares e carateres especiais, incluindo um asterisco, não são suportados quando especificar um nome de cookie. Isto significa que apenas correspondências de nome de cookie exato são elegíveis para comparação.
+  - Pode ser especificado apenas um nome de cookie único por instância desta condição de correspondência.
+  - Comparações de nome de cookie são sensível.
+- **Valor do cookie:** 
+  - Um valor de cookie pode tirar partido de expressões regulares.
+  - O **ignorar caso** opção determina se será efetuada uma comparação de maiúsculas e minúsculas com um valor de cookie do pedido.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
+
+### <a name="edge-cname"></a>Limite Cname
+**Informações da chave** 
+- A lista de limite disponível CNAMEs está limitada às que foram configuradas na página de Edge CNAMEs correspondente para a plataforma em que o motor de regras de HTTP está a ser configurado.
+- Antes de tentar eliminar uma configuração de CNAME edge, certifique-se de que uma condição de correspondência de Edge Cname não referencie-o. As configurações de CNAME de limite que foram definidas numa regra não não possível eliminar a partir da página de Edge CNAMEs. 
+- Uma instrução se e não deve ser utilizada para combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de limite Cname com uma condição de correspondência de origem do cliente criaria um padrão de correspondência de que nunca foi possível corresponder. Por este motivo muito mesmo, duas condições de correspondência de limite Cname não podem ser combinadas através de uma instrução e se.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
+
+### <a name="referring-domain"></a>Referência de domínio
+O nome de anfitrião associado referência através do qual o conteúdo foi pedido determina se esta condição for satisfeita. É fornecida uma opção para indicar se esta condição irá ser cumprida ao referente o nome do anfitrião "Corresponde a" ou "Não corresponde a" o valor especificado (es).
+**Informações da chave:**
+- Especificar vários nomes de anfitrião, delimiting cada um com um único espaço.
+- Esta condição de correspondência suporta carateres especiais.
+- Se o valor especificado não contém um asterisco, em seguida, tem de ser uma correspondência exata para nome de anfitrião de referência. Por exemplo, a especificação de "mydomain.com" não corresponde a "www.mydomain.com."
+- A opção de ignorar caso determina se será efetuada uma comparação de maiúsculas e minúsculas.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
+  
+ ### <a name="request-header-literal"></a>Literal de cabeçalho de pedido
+O **corresponde / não corresponde ao** opção determina as condições em que esta correspondem à condição irá ser satisfeito.
+- **Correspondências:** precisa do pedido para conter especificado cabeçalho e o respetivo valor tem de corresponder a um definidos nesta condição de correspondência.
+- **Não corresponde à:** requer que o pedido de satisfazer um dos seguintes critérios:
+  - Não contém o cabeçalho especificado.
+  - Contém o cabeçalho especificado, mas o respetivo valor não corresponde ao definido nesta condição de correspondência.
+  
+**Informações da chave:**
+- Comparações de nome de cabeçalho são sempre sensível. Sensibilidade de comparações de valor de cabeçalho é determinada pela opção de ignorar maiúsculas e minúsculas.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
+  
+### <a name="request-header-regex"></a>Regex de cabeçalho de pedido
+**Nota:** esta capacidade requer que o motor de regras - as regras avançadas que tem de ser adquirida separadamente. Contacte o seu Gestor de conta da CDN para a ativar. 
+
+O **corresponde / não corresponde ao** opção determina as condições em que esta correspondem à condição irá ser satisfeito.
+- **Correspondências:** precisa do pedido para conter especificado cabeçalho e o respetivo valor tem de coincidir com o padrão definido na expressão regular especificada.
+- **Não corresponde à:** requer que o pedido de satisfazer um dos seguintes critérios:
+  - Não contém o cabeçalho especificado.
+  - Contém o cabeçalho especificado, mas o respetivo valor não corresponde a expressão regular especificada.
+
+**Informações da chave:**
+- Nome do cabeçalho: 
+  - Comparações de nome de cabeçalho são sensível.
+  - Os espaços no nome do cabeçalho devem ser substituídos com "% 20". 
+- Valor de cabeçalho: 
+  - Um valor de cabeçalho pode tirar partido de expressões regulares.
+  - Sensibilidade de comparações de valor de cabeçalho é determinada pela opção de ignorar maiúsculas e minúsculas.
+  - Apenas cabeçalho exato valor corresponde a pelo menos uma os padrões especificados irá satisfazer esta condição.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx. 
+
+### <a name="request-header-wildcard"></a>Caráter universal de cabeçalho de pedido
+O **corresponde / não corresponde ao** opção determina as condições em que esta correspondem à condição irá ser satisfeito.
+- **Correspondências:** precisa do pedido para conter especificado cabeçalho e o respetivo valor devem coincidir com, pelo menos, um dos valores definidos nesta condição de correspondência.
+- **Não corresponde à:** requer que o pedido de satisfazer um dos seguintes critérios:
+  - Não contém o cabeçalho especificado.
+  - Contém o cabeçalho especificado, mas o respetivo valor não corresponde a nenhum dos valores especificados.
+  
+**Informações da chave:**
+- Nome do cabeçalho: 
+  - Comparações de nome de cabeçalho são sensível.
+  - Os espaços no nome do cabeçalho devem ser substituídos com "% 20". Este valor também pode ser utilizado para especificar um valor de cabeçalho espaços.
+- Valor de cabeçalho: 
+  - Um valor de cabeçalho pode tirar partido de carateres especiais.
+  - Sensibilidade de comparações de valor de cabeçalho é determinada pela opção de ignorar maiúsculas e minúsculas.
+  - Apenas cabeçalho exato valor corresponde a pelo menos uma os padrões especificados irá satisfazer esta condição.
+  - Especificar vários valores, delimiting cada um com um único espaço.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
+
+### <a name="request-method"></a>Método de pedido
+Apenas os recursos que são pedidos utilizando o método de pedido seleccionado irão satisfazer esta condição. Os métodos de pedido disponíveis são:
+- INTRODUÇÃO
+- CABEÇALHO 
+- POST 
+- OPÇÕES 
+- COLOCAR 
+- ELIMINAR 
+- RASTREIO 
+- LIGAR 
+
+**Informações da chave:**
+- Por predefinição, apenas o método de pedido GET pode gerar o conteúdo em cache na nossa rede. Todos os outros métodos de pedido são simplesmente efetuados através da nossa rede.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
+
+### <a name="request-scheme"></a>Esquema de pedido
+Apenas os recursos que são pedidos utilizando o protocolo selecionado irão satisfazer esta condição. Os protocolos disponíveis são HTTP e HTTPS.
+
+**Informações da chave:**
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
 
 ## <a name="url"></a>URL
 

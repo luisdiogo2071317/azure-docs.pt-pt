@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/30/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 80af63d2f2abd65da6ded4e48e5bd0bc9a7837a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Ligar a uma Máquina Virtual do SQL Server no Azure
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Este tópico descreve como ligar à sua instância do SQL Server em execução numa máquina virtual do Azure. Abrange alguns [cenários de conectividade](#connection-scenarios) e, em seguida, fornece [os passos no portal para alterar as definições de conetividade](#change). Se precisar de resolver ou configurar a conectividade fora do portal, consulte o [configuração manual](#manual) no final deste tópico. 
 
@@ -114,11 +114,11 @@ Se alterar as definições de conectividade do SQL Server, Azure automaticamente
 
 Em primeiro lugar, ligue a máquina do SQL Server com o ambiente de trabalho remoto.
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
 Em seguida, ative o protocolo de TCP/IP com **Gestor de configuração do SQL Server**.
 
-> [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
+[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ## <a name="connect-with-ssms"></a>Ligar com o SSMS
 

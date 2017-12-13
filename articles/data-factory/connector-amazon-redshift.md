@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 4feed2537a45784bc8aa19de05bdc18533dd64d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados de Redshift Amazon utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -130,7 +130,7 @@ Para copiar dados do Amazon Redshift, defina o tipo de origem na atividade de c�
 | tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **AmazonRedshiftSource** | Sim |
 | consulta |Utilize a consulta personalizada para ler os dados. |Cadeia de consulta SQL. Por exemplo: selecionar * de MyTable. |Não (se for especificado "tableName" no conjunto de dados) |
 | redshiftUnloadSettings | Grupo de propriedade ao utilizar o Amazon Redshift UNLOAD. | Não |
-| s3LinkedServiceName | Refere-se a um Amazon S3 to-be-utilizado como um arquivo intermédio, especificando um nome de serviço ligado do ADF do tipo "AmazonS3". | Sim, se utilizar o descarregamento |
+| s3LinkedServiceName | Refere-se a um Amazon S3 to-be-utilizado como um arquivo intermédio, especificando um nome de serviço ligado do tipo "AmazonS3". | Sim, se utilizar o descarregamento |
 | bucketName | Indique o registo de S3 para armazenar os dados intermédio. Se não for indicado, serviço Data Factory gera automaticamente.  | Sim, se utilizar o descarregamento |
 
 **Exemplo: Origem do Amazon Redshift na atividade de cópia com o descarregamento**

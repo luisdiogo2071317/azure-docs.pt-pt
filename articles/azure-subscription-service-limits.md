@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: 49dc4551f1a1528d30e489d4ba1c974f84cc70b0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento apresenta uma lista algumas dos limites mais comuns de Microsoft Azure, que também por vezes, são chamados quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para cobrir mais da plataforma.
@@ -85,6 +85,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças n
 * [Service Bus](#service-bus-limits)
 * [Site Recovery](#site-recovery-limits)
 * [Base de Dados SQL](#sql-database-limits)
+* [SQL Data Warehouse](#sql-data-warehouse-limits)
 * [Armazenamento](#storage-limits)
 * [Sistema StorSimple](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
@@ -308,6 +309,9 @@ Para obter mais informações sobre limites de um nível mais granular, tais com
 
 ### <a name="sql-database-limits"></a>Limites de base de dados SQL
 Para os limites de base de dados SQL, consulte [dos limites de recursos de base de dados do SQL Server](sql-database/sql-database-resource-limits.md).
+
+### <a name="sql-data-warehouse-limits"></a>Limites do SQL Data Warehouse
+Para os limites do SQL Data Warehouse, consulte [limites de recursos de armazém de dados SQL](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="see-also"></a>Consultar também
 [Compreender os limites do Azure e aumenta](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)

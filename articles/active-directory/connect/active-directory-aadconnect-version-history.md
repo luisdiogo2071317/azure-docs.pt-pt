@@ -12,28 +12,93 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5a47d7f589d4d2dcd40ebb6ff551f2c77fc8a8aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f2d4c3007fb8474da11587973e7623143bf118b1
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Do Azure AD Connect: Histórico de lançamento de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funções. Nem todas as adições são aplicáveis a todos os público.
-
-Este artigo foi concebido para ajudar a manter um registo das versões que tenham sido publicadas e para compreender se tem de atualizar para a versão mais recente ou não.
+' Este artigo foi concebido para ajudar a manter um registo das versões que tenham sido publicadas e para compreender se tem de atualizar para a versão mais recente ou não.
 
 Esta é uma lista de tópicos relacionados:
+
 
 
 Tópico |  Detalhes
 --------- | --------- |
 Passos para atualizar a partir do Azure AD Connect | Métodos diferentes para [atualizar de uma versão anterior para a versão mais recente](active-directory-aadconnect-upgrade-previous-version.md) versão do Azure AD Connect.
 Permissões obrigatórias | Para as permissões necessárias para aplicar uma atualização, consulte [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
-Transferência| [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116540"></a>1.1.654.0
+Estado: 12 de Dezembro de 2017
+
+>[!NOTE]
+>Esta é uma segurança correção relacionada do Azure AD Connect
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+Quando instalar pela primeira vez o Azure AD Connect, pode ser criada uma nova conta que é utilizada para executar o serviço do Azure AD Connect. Antes desta versão, a conta foi criada com definições que permitidas adminsitrator direitos de saber a capacidade de alterar a palavra-passe para um valor-los de um utilizador com palavra-passe.  Isto permitido que inicie sessão com esta conta e, isto seria constituem uma elevação de violação de segurança de privilégio. Esta versão tightens a definição da conta que é criado e remove esta vulnerabilidade.
+
+>[!NOTE]
+>Nesta versão apenas remove a vulnerabilidade para novas instalações do Azure AD Connect, onde a conta de serviço é criada pelo processo de instalação. Para instalações de exisating ou em casos onde pode fornecer a conta de si próprio, sould, certifique-se de que esta vulnerabilidade não existe.
+
+Para reforçar às definições para a conta de serviço, pode executar [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Será reforçar as definições da conta de serviço para remover a vulnerabilidade para o abaixo valores:
+
+*   Desativar a herança de objeto especificado
+*   Remova todas as ACEs do objeto específico, exceto ACEs específicas para si. Queremos manter as permissões predefinidas intactos quando for necessário para si.
+*   Atribua estas permissões específicas:
+
+Tipo     | Nome                          | Access               | Aplica-se A
+---------|-------------------------------|----------------------|--------------|
+Permitir    | SISTEMA                        | Controlo Total         | Este objeto  |
+Permitir    | Admins de empresa             | Controlo Total         | Este objeto  |
+Permitir    | Admins do domínio                 | Controlo Total         | Este objeto  |
+Permitir    | Administradores                | Controlo Total         | Este objeto  |
+Permitir    | Controladores de domínio de empresa | Listar conteúdo        | Este objeto  |
+Permitir    | Controladores de domínio de empresa | Ler todas as propriedades  | Este objeto  |
+Permitir    | Controladores de domínio de empresa | Permissões de Leitura     | Este objeto  |
+Permitir    | Utilizadores autenticados           | Listar conteúdo        | Este objeto  |
+Permitir    | Utilizadores autenticados           | Ler todas as propriedades  | Este objeto  |
+
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Script do PowerShell para reforçar a uma conta de serviço já existente
+
+Para utilizar o script do PowerShell para aplicar estas definições, para uma conta de serviço já existente, (ether fornecidos pela sua organização ou criado por uma instalação anterior do Azure AD Connect transfira o script a partir da hiperligação fornecida acima.
+
+##### <a name="usage"></a>Utilização:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+onde 
+
+$ObjectDN = a conta do Active Directory cujas permissões têm de ser tightened.
+$Credential = a credencial utilizada para autenticar o cliente quando se fala ao Active Directory. Isto é, geralmente, as credenciais de administrador de empresa utilizadas para criar a conta cujas tightening necessita de permissões.
+
+>[!NOTE] 
+>$credential. Nome de utilizador deve estar no formato domínio ome de utilizador.  
+
+##### <a name="example"></a>Exemplo:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>Este vulnerabilidade foi utilizada para obter acesso não autorizado?
+
+Para ver se esta vulnerabilidade foi utilizada para comprometer o seu Azure AD configuração Connect, deverá certificar-se a palavra-passe última reposição data da conta de serviço.  Se a timestamp no inesperado, uma investigação mais aprofundada, através do registo de eventos, para essa palavra-passe de reposição de evento, deve ser undertaken.
+
+                                                                                                               
+
+## <a name="116490"></a>1.1.649.0
+Estado: de 2017 27 de Outubro
+
+>[!NOTE]
+>Este compilação não está disponível para clientes através da funcionalidade do Azure AD Connect automática atualizar
 
 ## <a name="116490"></a>1.1.649.0
 Estado: de 2017 27 de Outubro

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: a3593611c7a2467de1c1639f8b5c6b0eb6f1ecbf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configurar a Cloud App Discovery no Azure AD
 
@@ -79,6 +79,7 @@ Para gerar com êxito um relatório de Cloud App Discovery, os registos de tráf
 * Barracuda - Firewall de aplicação Web (W3C)
 * Blue Coat Proxy SG - registo de acesso (W3C)
 * Check Point
+* Cisco ASA FirePOWER
 * Firewall ASA da Cisco (Cisco ASA firewalls, definir o nível de informações para 6)
 * IronPort WSA da Cisco
 * Scansafe da Cisco

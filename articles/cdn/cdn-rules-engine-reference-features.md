@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 35bae19deb6d4a79367c171aea5d74b6698e023b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f60b858d76dd021a158a62b32199be9b1c4ed822
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funcionalidades do motor de regras CDN do Azure
 Este artigo apresenta uma lista de descrições detalhadas das funcionalidades disponíveis para a rede de entrega de conteúdos (CDN) do Azure [motor de regras](cdn-rules-engine.md).
@@ -162,6 +162,7 @@ Nome | Objetivo
 -----|--------
 [Métodos de HTTP colocáveis](#cacheable-http-methods) | Determina o conjunto de métodos HTTP adicionais que podem ser colocadas em cache na rede.
 [Tamanho do corpo do pedido colocáveis](#cacheable-request-body-size) | Define o limiar para determinar se uma resposta POST pode ser colocadas em cache.
+[Variável de utilizador](#user-variable) | Utilizado primarity com Lua scripts.
 
  
 ## <a name="url-features"></a>Funcionalidades de URL
@@ -178,6 +179,7 @@ Nome | Objetivo
 
 ## <a name="azure-cdn-rules-engine-features-reference"></a>Referência de funcionalidades do motor de regras CDN do Azure
 
+---
 ### <a name="age-response-header"></a>Cabeçalho de resposta de antiguidade
 **Objetivo**: determina se um cabeçalho de resposta de idade será incluído na resposta enviada para o autor do pedido.
 Valor|Resultado
@@ -187,6 +189,11 @@ Desativado | O cabeçalho de resposta de idade foi excluído da resposta enviada
 
 **Comportamento de predefinido**: desativado.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="bandwidth-parameters"></a>Parâmetros de largura de banda
 **Objetivo:** determina se os parâmetros (por exemplo, ec_rate e ec_prebuf) de limitação de largura de banda estará ativa.
 
@@ -198,7 +205,12 @@ Ativado|Permite que os servidores edge que respeite pedidos de limitação de la
 Desativado|Faz com que os servidores edge ignorar os parâmetros de limitação de largura de banda. Os conteúdos solicitados serão servido normalmente (ou seja, sem limitação de largura de banda).
 
 **Comportamento predefinido:** ativada.
+ 
+[Voltar ao início](#azure-cdn-rules-engine-features)
 
+</br>
+
+---
 ### <a name="bandwidth-throttling"></a>Limitação de largura de banda
 **Objetivo:** acelera a largura de banda para a resposta fornecida pelos servidores edge.
 
@@ -207,10 +219,15 @@ Ambas as opções seguintes tem de ser definidas para configurar corretamente a 
 Opção|Descrição
 --|--
 KBytes por segundo|Defina esta opção para a largura de banda máxima (Kb por segundo) que pode ser utilizada para fornecer a resposta.
-Segundos de Prebuf|Defina esta opção para o número de segundos que os servidores edge aguarda até que a limitação de largura de banda. É o objetivo deste período de tempo de largura de banda sem restrições impedir que um leitor de suporte de dados com problemas de memória intermédia de stuttering ou devido à limitação de largura de banda.
+Segundos de Prebuf|Defina esta opção para o número de segundos para os servidores de limite a aguardar até que a largura de banda é limitada. É o objetivo deste período de tempo de largura de banda sem restrições impedir que um leitor de suporte de dados com problemas de memória intermédia de stuttering ou devido à limitação de largura de banda.
 
 **Comportamento predefinido:** desativado.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="bypass-cache"></a>Ignorar a Cache
 **Objetivo:** determina se o pedido deve ignorar a colocação em cache.
 
@@ -225,21 +242,31 @@ Desativado|Faz com que servidores edge aos recursos da cache, de acordo com a po
 
 <!---
 - **ADN:** Enabled
+
 --->
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cacheable-http-methods"></a>Métodos de HTTP colocáveis
 **Objetivo:** determina o conjunto de métodos HTTP adicionais que podem ser colocadas em cache na rede.
 
 Informações da chave:
 
 - Esta funcionalidade parte do princípio de que GET respostas devem sempre ser colocado em cache. Como resultado, o método HTTP obter não deve estar incluído quando definir esta funcionalidade.
-- Esta funcionalidade só suporta o método de POST HTTP. Ativar o caching de resposta POST ao definir esta funcionalidade para: POST 
-- Por predefinição, apenas os pedidos cujo corpo é menor do que 14 Kb irão ser colocadas em cache. Utilize a funcionalidade de tamanho de corpo do pedido colocáveis para definir o tamanho do corpo pedido máximo.
+- Esta funcionalidade suporta apenas o método de POST HTTP. Ativar o caching de resposta POST ao definir esta funcionalidade para `POST`.
+- Por predefinição, apenas os pedidos cujo corpo é menor do que 14 Kb estão em cache. Utilize a funcionalidade de tamanho de corpo do pedido colocáveis para definir o tamanho do corpo pedido máximo.
 
-**Comportamento predefinido:** apenas respostas GET serão colocadas em cache.
+**Comportamento predefinido:** apenas obter respostas são colocadas em cache.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cacheable-request-body-size"></a>Tamanho do corpo do pedido colocáveis
-
 **Objetivo:** define o limiar para determinar se uma resposta POST pode ser colocadas em cache.
 
 Este limiar é determinado através da especificação de um tamanho do corpo do pedido máximo. Não serão possível em cache pedidos que contêm um grande corpo do pedido.
@@ -256,6 +283,11 @@ Informações da chave:
 
 **Comportamento predefinido:** 14 Kb
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cache-control-header-treatment"></a>Tratamento de cabeçalho de Cache-Control
 **Objetivo:** controla a geração de `Cache-Control` cabeçalhos pelo servidor edge quando a funcionalidade de idade máxima externo está ativa.
 
@@ -263,13 +295,18 @@ A forma mais fácil para alcançar este tipo de configuração é colocar a idad
 
 Valor|Resultado
 --|--
-Substituir|Garante que as seguintes ações irão ocorrer:<br/> -Substitui o cabeçalho de Cache-Control gerado pelo servidor de origem. <br/>-Adiciona o `Cache-Control` cabeçalho produzidos pela funcionalidade de idade de máxima externo para a resposta.
-Pass-Through|Garante que o `Cache-Control` cabeçalho produzido pela funcionalidade de idade de máxima externo nunca é adicionado à resposta. <br/> Se o servidor de origem produz um `Cache-Control` cabeçalho, este irá percorrer para o utilizador final. <br/> Se o servidor de origem não produz um `Cache-Control` cabeçalho, em seguida, esta opção pode fazer com que o cabeçalho de resposta que não contém um `Cache-Control` cabeçalho.
-Adicionar se estiverem em falta|Se um `Cache-Control` cabeçalho não foi recebido do servidor de origem, em seguida, esta opção adiciona o `Cache-Control` cabeçalho produzidos pela funcionalidade de idade de máxima externo. Esta opção é útil para assegurar que todos os elementos serão atribuídos um `Cache-Control` cabeçalho.
+Substituir|Garante que as ações seguintes ocorrem:<br/> -Substitui o cabeçalho de Cache-Control gerado pelo servidor de origem. <br/>-Adiciona o `Cache-Control` cabeçalho produzidos pela funcionalidade de idade de máxima externo para a resposta.
+Pass-Through|Garante que o `Cache-Control` cabeçalho produzido pela funcionalidade de idade de máxima externo nunca é adicionado à resposta. <br/> Se o servidor de origem produz um `Cache-Control` cabeçalho, estes passam por para o utilizador final. <br/> Se o servidor de origem não produz um `Cache-Control` cabeçalho, em seguida, esta opção pode fazer com que o cabeçalho de resposta que não contém um `Cache-Control` cabeçalho.
+Adicionar se estiverem em falta|Se um `Cache-Control` cabeçalho não foi recebido do servidor de origem, em seguida, esta opção adiciona o `Cache-Control` cabeçalho produzidos pela funcionalidade de idade de máxima externo. Esta opção é útil para assegurar que todos os recursos serão atribuídos um `Cache-Control` cabeçalho.
 Remover| Esta opção garante que uma `Cache-Control` cabeçalho não está incluído com a resposta de cabeçalho. Se um `Cache-Control` já foi atribuído um cabeçalho, em seguida, irá ser eliminado da resposta de cabeçalho.
 
 **Comportamento predefinido:** substituir.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cache-key-query-string"></a>Cadeia de consulta de chave da cache
 **Objetivo:** determina se a chave de cache irá incluir ou excluir os parâmetros de cadeia de consulta associados a um pedido.
 
@@ -338,6 +375,11 @@ Este tipo de configuração irá gerar a seguinte cadeia parâmetro cache-chave 
 
     /800001/Origin/folder/asset.htm
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="cache-key-rewrite"></a>Chave da cache reescrever
 **Objetivo:** reescreve chave da cache associado a um pedido.
 
@@ -351,6 +393,11 @@ Caminho original| Defina o caminho relativo para os tipos de pedidos cuja chave 
 Novo caminho|Defina o caminho relativo para a nova chave de cache. Pode ser definido um caminho relativo ao selecionar um caminho de base de origem e, em seguida, definir um padrão de expressão regular. Este caminho relativo que pode ser construído dinamicamente através da utilização de variáveis HTTP
 **Comportamento predefinido:** -chave um pedido da cache é determinado pelo URI do pedido.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="comment"></a>Comentar
 **Objetivo:** permite uma nota a adicionar dentro de uma regra.
 
@@ -362,12 +409,18 @@ Informações da chave:
 - Utilize apenas caracteres alfanuméricos.
 - Esta funcionalidade não afeta o comportamento da regra. Destina-se apenas para fornecer uma área onde pode fornecer informações para referência futura ou que podem ajudar ao resolver problemas com a regra.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="complete-cache-fill"></a>Concluir o preenchimento da Cache
 **Objetivo:** determina o que acontece quando um pedido resulta numa falha de acerto na cache parciais num servidor edge.
 
 Uma falha de acerto na cache parciais descreve o estado de cache para um recurso que não foi completamente transferido para um servidor edge. Se um recurso é colocado em cache apenas parcialmente num servidor edge, em seguida, o pedido seguinte para esse recurso será reencaminhado novamente para o servidor de origem.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
+
 --->
 Uma falha de acerto na cache parcial ocorre normalmente depois de um utilizador cancela uma transferência ou para recursos de que apenas são pedidos através de pedidos de intervalo HTTP. Esta funcionalidade é mais útil para grandes ativos onde os utilizadores serão não normalmente transferi-los do início ao fim (por exemplo, vídeos). Como consequência, esta funcionalidade está ativada por predefinição na plataforma grande de HTTP. Está desativada em todas as outras plataformas.
 
@@ -382,6 +435,11 @@ Desativado|Impede que um servidor edge efetuar uma obtenção de fundo para o el
 
 **Comportamento predefinido:** ativada.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="compress-file-types"></a>Comprima os tipos de ficheiro
 **Objetivo:** define os formatos de ficheiro que irão ser comprimidos no servidor.
 
@@ -402,12 +460,17 @@ Informações da chave:
 - Carateres universais, tais como a série de asteriscos, não são suportadas.
 - Antes de adicionar esta funcionalidade a uma regra, certifique-se de que defina a opção de compressão desativado na página de compressão para a plataforma para os quais será aplicada esta regra.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="custom-log-field-1"></a>Campo de registo personalizado 1
 **Objetivo:** determina o formato e o conteúdo que será atribuído para o campo de registo personalizado num ficheiro de registo não processados.
 
-O objetivo principal atrás este campo personalizado é permitir-lhe determinar qual o pedido e os valores de cabeçalho de resposta serão armazenados nos seus ficheiros de registo.
+Este campo personalizado permite-lhe determinar os valores de cabeçalho de pedido e resposta são armazenados nos seus ficheiros de registo.
 
-Por predefinição, o campo de registo personalizado é designado por "x-ec_custom-1." No entanto, o nome deste campo pode ser personalizado do [página de definições de registo em bruto]().
+Por predefinição, o campo de registo personalizado é designado por "x-ec_custom-1." No entanto, o nome deste campo pode ser personalizado a partir da página de definições de registo não processados.
 
 A formatação que deve utilizar para especificar os cabeçalhos de pedido e resposta está definida abaixo.
 
@@ -426,6 +489,11 @@ Informações da chave:
 
 **Valor predefinido:** -
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="debug-cache-response-headers"></a>Cabeçalhos de resposta de Cache de depuração
 **Objetivo:** determina se uma resposta pode incluir o cabeçalho de resposta de EC-X-Debug que fornece informações sobre a política de cache para o recurso pedido.
 
@@ -449,6 +517,11 @@ Desativado|O cabeçalho de resposta EC-X-Debug será excluído da resposta.
 
 **Comportamento predefinido:** desativado.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="default-internal-max-age"></a>Idade de máx. de interno predefinida
 **Objetivo:** determina o intervalo de idade máxima de predefinido para o servidor edge a revalidação de cache do servidor de origem. Por outras palavras, a quantidade de tempo que irá passar antes de um servidor edge irá verificar se um recurso em cache corresponde ao elemento armazenado no servidor de origem.
 
@@ -474,6 +547,11 @@ Informações da chave:
 
 **Valor predefinido:** 7 dias
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="deny-access-403"></a>Negar o acesso (403)
 **Objetivo**: determina se a todos os pedidos são rejeitados com resposta 403 Proibido.
 
@@ -487,6 +565,11 @@ Desativado| Restaura o comportamento predefinido. O comportamento predefinido é
 > [!TIP]
    > Uma utilização possíveis para esta funcionalidade é a associar a uma condição de correspondência de cabeçalho de pedido para bloquear o acesso ao referrers HTTP que estão a utilizar ligações inline ao seu conteúdo.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="expires-header-treatment"></a>Tratamento de cabeçalho de expirar
 **Objetivo:** controla a geração dos cabeçalhos de expira por um servidor edge, quando a funcionalidade de idade de máxima externo está ativa.
 
@@ -501,6 +584,11 @@ Remover| Garante que um cabeçalho de expira não está incluído com a resposta
 
 **Comportamento predefinido:** substituir
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="external-max-age"></a>Externa de atribuição de idade máxima
 **Objetivo:** determina o intervalo de idade máxima de browser de modo a revalidação de cache do servidor edge. Por outras palavras, pode verificar a quantidade de tempo que irá passar antes de um browser para uma nova versão de um ativo de um servidor edge.
 
@@ -515,6 +603,11 @@ Informações da chave:
 
 **Comportamento predefinido:** desativado
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="follow-redirects"></a>Seguir redirecionamentos
 **Objetivo:** determina se os pedidos podem ser redirecionados para o nome de anfitrião definida no cabeçalho de localização devolvido por um servidor de origem do cliente.
 
@@ -529,6 +622,11 @@ Desativado|Pedidos não serão redirecionados.
 
 **Comportamento predefinido:** desativado.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="force-internal-max-age"></a>Forçar interna de atribuição de idade máxima
 **Objetivo:** determina o intervalo de idade máxima para o servidor edge revalidação de cache do servidor de origem. Por outras palavras, a quantidade de tempo que irá passar antes de um servidor edge, pode verificar se um recurso em cache corresponde ao elemento armazenado no servidor de origem.
 
@@ -553,6 +651,11 @@ Informações da chave:
 
 **Comportamento predefinido:** desativado
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="h264-support-http-progressive-download"></a>Suporte de 264 (transferência progressiva HTTP)
 **Objetivo:** determina os tipos de formatos de ficheiro 264 que podem ser utilizados para transmitir o conteúdo.
 
@@ -563,6 +666,11 @@ Informações da chave:
 
 **Comportamento predefinido:** HTTP transferência progressiva transferir suporta MP4 e F4V suporte de dados por predefinição.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="honor-no-cache-request"></a>Pedido de Cache não honor
 **Objetivo:** determina se um cliente HTTP's não cache serão reencaminhados pedidos para o servidor de origem.
 
@@ -579,6 +687,11 @@ O estado da cache que será reportado para um pedido que tem permissão para ser
 
 **Comportamento predefinido:** desativado.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="ignore-origin-no-cache"></a>Ignorar a Cache não de origem
 **Objetivo:** determina se a CDN irá ignorar as diretivas de seguintes servidas a partir de um servidor de origem:
 
@@ -603,6 +716,11 @@ Informações da chave:
 
 **Comportamento predefinido:** o comportamento predefinido é que respeite as diretivas acima.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="ignore-unsatisfiable-ranges"></a>Ignorar intervalos Unsatisfiable 
 **Objetivo:** determina a resposta que será devolvida aos clientes quando um pedido gera um código de estado 416 pedido intervalo não satisfatório.
 
@@ -615,6 +733,11 @@ Desativado|Restaura o comportamento predefinido. O comportamento predefinido é 
 
 **Comportamento predefinido:** desativado.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="internal-max-stale"></a>Interna obsoleta máx.
 **Objetivo:** controlos quanto posterior à hora de expiração normal um recurso em cache poderão ser servido de um servidor edge, quando o servidor edge não consegue revalidate o elemento em cache com o servidor de origem.
 
@@ -644,6 +767,11 @@ Informações da chave:
 
 **Comportamento predefinido:** dois minutos
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="log-query-string"></a>Cadeia de consulta de registo
 **Objetivo:** determina se uma cadeia de consulta será armazenada juntamente com o URL nos registos de acesso.
 
@@ -654,6 +782,11 @@ Desativado|Restaura o comportamento predefinido. É o comportamento predefinido 
 
 **Comportamento predefinido:** desativado.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="maximum-keep-alive-requests"></a>Máximo de pedidos de ligação Keep-Alive
 **Objetivo:** define o número máximo de pedidos para uma ligação Keep-Alive antes de que está fechado.
 
@@ -666,6 +799,11 @@ Informações da chave:
 
 **Valor predefinido:** 10 000 pedidos
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="modify-client-request-header"></a>Modificar o cabeçalho de pedido de cliente
 **Objetivo:** cada pedido contém um conjunto de cabeçalhos de pedido que descrevem-lo. Esta funcionalidade pode optar por:
 
@@ -699,6 +837,11 @@ Informações da chave:
     - x-reencaminhados-para
     - Todos os nomes de cabeçalho que começam por "x-ec" estão reservados.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="modify-client-response-header"></a>Modificar o cabeçalho de resposta do cliente
 Cada resposta contém um conjunto de cabeçalhos de resposta que descrevem-lo. Esta funcionalidade pode optar por:
 
@@ -740,6 +883,11 @@ Informações da chave:
     - aviso
     - Todos os nomes de cabeçalho que começam por "x-ec" estão reservados.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="partial-cache-sharing"></a>Partilha de Cache parciais
 **Objetivo:** determina se um pedido pode gerar o conteúdo parcialmente em cache.
 
@@ -752,6 +900,11 @@ Desativado|Pedidos só é possível gerar uma versão totalmente em cache do con
 
 **Comportamento predefinido:** desativado.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="prevalidate-cached-content"></a>Prevalidate conteúdos em cache
 **Objetivo:** determina se o conteúdo em cache vai ser elegível para revalidação antecipada antes do valor de TTL expire.
 
@@ -763,6 +916,11 @@ Informações da chave:
 
 **Comportamento predefinido:** desativado. Revalidação pode apenas ocorrer depois de TTL o conteúdo em cache expirou.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="proxy-special-headers"></a>Cabeçalhos especiais de proxy
 **Objetivo:** define o conjunto de cabeçalhos de pedido de CDN específicos que serão reencaminhados de um servidor edge para um servidor de origem.
 
@@ -773,6 +931,11 @@ Informações da chave:
 
 **Comportamento predefinido:** todos os cabeçalhos de pedido específicos da CDN serão reencaminhados para o servidor de origem.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="refresh-zero-byte-cache-files"></a>Atualizar os ficheiros de Cache de Zero bytes
 **Objetivo:** determina como o pedido de um cliente HTTP para um elemento de cache de 0 bytes é processado pelos servidores edge.
 
@@ -788,6 +951,11 @@ para esse conteúdo, em seguida, esta funcionalidade pode impedir que estes tipo
 
 **Comportamento predefinido:** desativado.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="set-cacheable-status-codes"></a>Códigos de estado colocáveis de conjunto
 **Objetivo:** define o conjunto de códigos de estado que podem resultar num conteúdos em cache.
 
@@ -803,6 +971,11 @@ Informações da chave:
 
 **Comportamento predefinido:** colocação em cache está ativada apenas para as respostas que geram um código de estado OK 200.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="set-client-ip-custom-header"></a>Cabeçalho IP do conjunto de cliente personalizado
 **Objetivo:** adiciona um cabeçalho personalizado que identifica o cliente efetuou por endereço IP para o pedido.
 
@@ -822,6 +995,11 @@ Certifique-se de que o nome de cabeçalho especificado não corresponde a nenhum
     - x-reencaminhados-para
     - Todos os nomes de cabeçalho que começam por "x-ec" estão reservados.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="stale-content-delivery-on-error"></a>Entrega de conteúdos obsoleta com o erro
 **Objetivo:** determina se o conteúdo em cache expirado serão entregues quando ocorre um erro durante a revalidação de cache ou ao obter os conteúdos solicitados a partir do servidor de origem do cliente.
 
@@ -832,6 +1010,11 @@ Desativado|Erro do servidor de origem seja reencaminhado para o autor do pedido.
 
 **Comportamento predefinido:** desativado
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="stale-while-revalidate"></a>Obsoleta ao Revalidate
 **Objetivo:** melhora o desempenho ao permitir que os servidores edge servir conteúdo obsoleto para o autor do pedido, enquanto a revalidação ocorre.
 
@@ -844,6 +1027,11 @@ Informações da chave:
 
 **Comportamento predefinido:** desativado. Revalidação tem ocorrer antes dos conteúdos solicitados podem ser fornecidos.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth"></a>Autenticação de token
 **Objetivo:** determina se a autenticação baseada em tokens será aplicada a um pedido.
 
@@ -858,6 +1046,11 @@ Desativado| Restaura o comportamento predefinido. O comportamento predefinido é
 
 **Comportamento predefinido:** desativado.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth-denial-code"></a>Código de recusa de token de autenticação
 **Objetivo:** determina o tipo de resposta que vai ser devolvido para um utilizador quando um pedido é negado devido a autenticação baseada em tokens.
 
@@ -898,6 +1091,11 @@ A configuração de acima pode ser alcançada, efetuando os seguintes passos:
 
 O cabeçalho WWW-Authenticate só é aplicável para 401 códigos de resposta.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth-ignore-url-case"></a>Autenticação de token ignorar URL maiúsculas / minúsculas
 **Objetivo:** determina se comparações de URL, efetuadas pela autenticação baseada em tokens são maiúsculas e minúsculas.
 
@@ -915,7 +1113,12 @@ Ativado|Faz com que o servidor edge Ignorar maiúsculas / minúsculas ao compara
 Desativado|Restaura o comportamento predefinido. O comportamento predefinido é de comparações de URL para a autenticação de Token estar maiúsculas e minúsculas.
 
 **Comportamento predefinido:** desativado.
- 
+
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="token-auth-parameter"></a>Parâmetro de autenticação de token
 **Objetivo:** determina se o parâmetro de cadeia de consulta baseado em tokens de autenticação deve ser alterado.
 
@@ -932,6 +1135,11 @@ Desativado|Um token pode ser especificado como um parâmetro de cadeia de consul
 
 **Comportamento predefinido:** desativado. Um token pode ser especificado como um parâmetro de cadeia de consulta não definido no URL do pedido.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="url-redirect"></a>URL de redirecionamento
 **Objetivo:** redireciona pedidos através do cabeçalho de localização.
 
@@ -967,7 +1175,12 @@ Redirecionamento este URL pode ser conseguido através da configuração seguint
         - O URL de pedido (após o redirecionamento): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - A variável de esquema pedido (% {esquema}) foi utilizada na opção de destino. Isto garante que permanece inalterada esquema o pedido após o redirecionamento.
 - Os segmentos de URL que foram capturados do pedido são acrescentados para o novo URL através de "$1."
- 
+
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
 ### <a name="url-rewrite"></a>URL reescrever
 **Objetivo:** reescreve o URL do pedido.
 
@@ -1021,6 +1234,14 @@ Esta funcionalidade inclui correspondentes aos critérios que devem ser satisfei
 - Parâmetro de consulta de URL
 - Regex de consulta de URL
 - Consulta de URL com carateres universais
+
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
+
+---
+### <a name="user-variable"></a>Variável de utilizador
+**Objetivo:** utilizado primarity com Lua scripts. Com a funcionalidade de variável de utilizador, pode utilizar a funcionalidade de hash semelhantes para proteger os URLs de transferência com um script de Lua.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

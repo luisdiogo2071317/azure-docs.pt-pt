@@ -3,7 +3,7 @@ title: Gerir zonas DNS no DNS do Azure - Azure CLI 2.0 | Microsoft Docs
 description: Pode gerir zonas DNS a utilizar o Azure CLI 2.0. Este artigo mostra como atualizar, eliminar e criar zonas DNS no DNS do Azure.
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,30 +12,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: gwallace
-ms.openlocfilehash: 988f6ff5158eb754cbedeb58a45fcc31f0026f03
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: kumud
+ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Como gerir zonas DNS no DNS do Azure utilizando o 2.0 CLI do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [CLI do Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [CLI 2.0 do Azure](dns-operations-dnszones-cli.md)
 
 
 Este guia mostra como gerir as zonas DNS, utilizando a CLI do Azure de várias plataformas, que está disponível para o Windows, Mac e Linux. Também pode gerir as zonas DNS utilizando [Azure PowerShell](dns-operations-dnszones.md) ou o portal do Azure.
-
-## <a name="cli-versions-to-complete-the-task"></a>Versões CLI para concluir a tarefa
-
-Pode concluir a tarefa utilizando uma das seguintes versões CLI:
-
-* [CLI 1.0 do Azure](dns-operations-dnszones-cli-nodejs.md) - CLI para os modelos de implementação de gestão clássica e de recursos.
-* [CLI 2.0 do Azure](dns-operations-dnszones-cli.md) - CLI de próxima geração para o modelo de implementação de gestão de recursos.
 
 ## <a name="introduction"></a>Introdução
 

@@ -1,24 +1,16 @@
 ---
 title: "Visualização de dependência no Azure migrar | Microsoft Docs"
 description: "Fornece uma descrição geral de cálculos de avaliação no serviço Azure migrar."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 78e52157-edfd-4b09-923f-f0df0880e0e0
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: conceptual
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: a8a8cee327dac8adfb0ae53d101c382ef20599d2
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -37,7 +29,7 @@ Azure migrar utiliza o [mapa de serviço](../operations-management-suite/operati
 - Navegue para a área de trabalho de análise de registos do **Essentials** secção do projeto **descrição geral** página.
 - A área de trabalho criada é etiquetada com a chave **MigrateProject**e o valor **nome do projeto**. Pode utilizá-las para procurar no portal do Azure.  
 
-    ![Área de trabalho de análise de registo](./media/concepts-dependency-visualization/oms-workspace.png)
+    ![Área de trabalho do Log Analytics](./media/concepts-dependency-visualization/oms-workspace.png)
 
 Para utilizar a visualização de dependência, terá de transferir e instalar agentes em cada máquina no local que pretende analisar.  
 

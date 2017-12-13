@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0b86be1c1b26079aee33bcf8e861f679f4cbe11e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Do Azure autenticação do Active Directory pass-through: Limitações atuais
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/11/2017
 Os cenários seguintes são totalmente suportados:
 
 - Utilizador inícios de sessão para todas as aplicações baseadas no browser do web
-- Utilizador inícios de sessão para aplicações de cliente do Office 365 que suportam [autenticação moderna](https://aka.ms/modernauthga)
-- Office 2016 ou Office 2013 _com_ autenticação moderna
+- Utilizador inícios de sessão para aplicações do Office que suportam [autenticação moderna](https://aka.ms/modernauthga): Office 2016 ou Office 2013 _com_ autenticação moderna
+- Utilizador inícios de sessão ao Skype para empresas que suporte a autenticação moderna, incluindo topologias Online e híbrida. Obter mais informações sobre topologias suportadas [aqui](https://technet.microsoft.com/library/mt803262.aspx).
 - Associações de domínio do Azure AD para dispositivos Windows 10
 - Suporte do Exchange ActiveSync
 
@@ -40,14 +40,14 @@ Os cenários seguintes são totalmente suportados:
 Os cenários seguintes são _não_ suportados:
 
 - Utilizador inícios de sessão para aplicações de cliente legados do Office: Office 2010 e Office 2013 _sem_ autenticação moderna. As organizações são encouraged para mudar para a autenticação moderna, se possível. Permite a autenticação moderna para o suporte de autenticação pass-through. Também o ajuda a proteger as contas de utilizador utilizando [acesso condicional](../active-directory-conditional-access-azure-portal.md) funcionalidades, tais como o Azure multi-factor Authentication.
-- Utilizador inícios de sessão ao Skype para aplicações de cliente de negócio, incluindo o Skype para empresas 2016.
+- Utilizador inícios de sessão ao Skype para as aplicações de cliente de negócio _sem_ autenticação moderna.
 - Utilizador inícios de sessão para o PowerShell na versão 1.0. Recomendamos que utilize o PowerShell versão 2.0.
-- Serviços de domínio do Azure Active Directory.
 - Palavras-passe de aplicação para o multi-factor Authentication.
 - Deteção de utilizadores com [fuga credenciais](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Serviços de domínio do Azure AD tem de sincronização de Hash de palavra-passe para ser ativada no inquilino. Por conseguinte, os inquilinos que utilizam a autenticação pass-through _apenas_ não funcionam para cenários que precisam de serviços de domínio do Azure AD.
 
 >[!IMPORTANT]
->Como uma solução para cenários não suportados _apenas_, ativar a sincronização de hash de palavra-passe no [funcionalidades opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) página do Assistente do Azure AD Connect.
+>Como uma solução para cenários não suportados _apenas_, ativar a sincronização de Hash de palavra-passe no [funcionalidades opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) página do Assistente do Azure AD Connect.
 
 >[!NOTE]
 Ativar a sincronização de hash de palavra-passe dá-lhe a opção de autenticação de ativação pós-falha se a sua infraestrutura no local é interrompida. Esta ativação pós-falha de autenticação pass-through para a sincronização de hash de palavra-passe do Active Directory não é automática. Terá de mudar o método de início de sessão manualmente utilizando o Azure AD Connect. Se o servidor que executa o Azure AD Connect ficar inativo, irá necessitar de ajuda do Support da Microsoft para desativar a autenticação pass-through.

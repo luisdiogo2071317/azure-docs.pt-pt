@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 12/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: d785c70dff331f2c5050fd07c65812a4cbc983b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Quais são palavras-passe de aplicação no Azure multi-factor Authentication?
-Determinadas aplicações não baseadas no browser, por exemplo, o cliente de e-mail nativa Apple que utiliza o Exchange Active Sync, atualmente não suportam autenticação multifator. Autenticação multifator é ativada por utilizador. Isto significa que se um utilizador tiver sido ativado para autenticação multifator e estão a tentar utilizar aplicações não baseadas no browser, será possível fazê-lo. Uma palavra-passe de aplicação permite tal utilização.
+Determinadas aplicações não baseadas no browser, por exemplo, o cliente de e-mail nativa Apple que utiliza o Exchange Active Sync, atualmente não suportam autenticação multifator. Autenticação multifator é ativada por utilizador. Isto significa que se um utilizador tiver sido ativado para autenticação multifator e estão a tentar utilizar aplicações não baseadas no browser, será possível fazê-lo. Uma palavra-passe de aplicação permite tal utilização. Se impor a multi-factor Authentication através de políticas de acesso condicional e não através de MFA por utilizador, não é possível criar palavras-passe de aplicação. As aplicações que utilizam políticas de acesso condicional para controlar o acesso não precisam de palavras-passe de aplicação.
 
 Assim que tiver uma palavra-passe de aplicação, utilize esta em vez da palavra-passe original com estas aplicações não baseadas no browser. Isto acontece porque ao registar para a verificação de dois passos, está a informar Microsoft para não permitir que qualquer pessoa que inicie sessão com a palavra-passe se estes também não é possível efetuar a verificação de segundo. O cliente de e-mail nativa Apple no seu telemóvel não pode iniciar sessão como porque não é possível pedir a verificação. A solução para este consiste em criar uma mais segura palavra-passe de aplicação não utilizar diárias, mas apenas para essas aplicações que não suportem a verificação de dois passos. Utilize a palavra-passe de aplicação para que as aplicações podem ignorar multi-factor authentication e continuar a funcionar.
 

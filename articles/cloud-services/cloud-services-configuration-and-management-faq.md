@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 355151ee6c3507d8e2fd2ab6cc5127324b3a6d7c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 35c8e2a2029b3f29b45004c1308de8b3a108f698
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão do Cloud Services do Azure: Perguntas mais frequentes sobre (FAQ)
 
@@ -257,9 +257,9 @@ O **Get-AzurePublishSettingsFile** irá criar um novo certificado de gestão no 
 
 ## <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Como configurar o dimensionamento automático com base nas métricas de memória?
 
-Escala automática com base nas métricas de memória para dos serviços cloud não é atualmente suportada. 
+Escala automática com base nas métricas de memória para dos serviços Cloud não é atualmente suportada. 
 
-Para contornar este problema, pode utilizar o Application Insights, para que o agente de diagnóstico seria encaminhar as métricas para o Application Insights. Escala automática suporta Application Insights como uma origem de métricas e pode dimensionar a contagem de instâncias de função com base numa métrica de convidado, como "Memória".  Tem de configurar o Application Insights no seu ficheiro de pacote de projeto de serviço em nuvem (. cspkg) e ativar a extensão de diagnóstico do Azure no serviço para implementar este feat.
+Para contornar este problema, pode utilizar o Application Insights. Escala automática suporta Application Insights como uma origem de métricas e pode dimensionar a contagem de instâncias de função com base numa métrica de convidado, como "Memória".  Tem de configurar o Application Insights no seu ficheiro de pacote de projeto de serviço em nuvem (. cspkg) e ativar a extensão de diagnóstico do Azure no serviço para implementar este feat.
 
 Para obter mais detalhes sobre como utilizar uma métrica personalizada através do Application Insights para configurar o dimensionamento automático nos serviços de nuvem, consulte [começar com uma escala automática da métrica personalizada no Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
 
@@ -270,16 +270,10 @@ Para mais informações sobre como ativar o Application Insights para serviços 
 
 Para obter mais informações sobre como ativar o registo de diagnóstico do Azure para serviços em nuvem, consulte [configurar diagnósticos para máquinas virtuais e serviços Cloud do Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
-## <a name="how-to-automate-the-main-ssl-certificatepfx-and-intermediate-certificatep7b-cert-installation"></a>Como automatizar a instalação de certificados de certificate(.p7b) intermédio e principal SSL devendo?
+## <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Como automatizar a instalação do principal devendo SSL e certificate(.p7b) intermédio?
 
 Pode automatizar esta tarefa utilizando um script de arranque (cmd/batch/PowerShell) e registar esse script de arranque no ficheiro de definição de serviço. Adicione o script de arranque e de certificado (. p7b ficheiro) na pasta do projeto do mesmo diretório de script de arranque.
 
 Para obter mais informações, veja os artigos seguintes:
 - [Como configurar e executar tarefas de arranque para um serviço em nuvem](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
 - [Tarefas comuns de arranque do serviço em nuvem](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
-
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Por que motivo é que o portal do Azure-me fornecer uma conta de armazenamento para a implementação requerem?
-
-No portal clássico, o pacote foi carregado para a camada de API de gestão diretamente e, em seguida, a camada de API seria temporariamente colocar o pacote para uma conta de armazenamento interno.  Este processo faz com que problemas de desempenho e escalabilidade porque a camada de API não foi concebida para ser um serviço de carregamento de ficheiros.  No portal do Azure (modelo de implementação do Resource Manager), podemos ter ignorada o passo intermédio de carregar primeiro para a camada de API, resultando em implementações mais rápidas e mais fiáveis.
- 
-Para o custo, é muito pequeno e pode reutilizar a mesma conta de armazenamento em todas as implementações. Pode utilizar o [Calculadora de custo de armazenamento](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) para determinar o custo para carregar o pacote de serviço (. CSPKG), transfira o CSPKG, em seguida, elimine o CSPKG.

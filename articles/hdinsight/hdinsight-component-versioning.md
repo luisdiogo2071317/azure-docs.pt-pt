@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 79f3cfbe5f5603d3c9f42e8af1d4093a5135b267
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b6afcad6f838170d83f90a2cef8ccab0e2cfc9a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Hadoop e versões disponíveis com o HDInsight?
 
@@ -206,28 +206,28 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) predefinido de 
 
 * Regiões todos suportadas exceto sul do Brasil e oeste do Japão:
 
-  | Tipo de cluster | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | HEAD: tamanho da VM predefinido |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-  | HEAD: recomendado tamanhos de VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Trabalho: tamanho VM de predefinido |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Trabalho: tamanhos de VM de recomendada |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-  | ZooKeeper: tamanho da VM predefinido | |A3 |A2 | | |
-  | ZooKeeper: recomendado tamanhos de VM | |A3, A4, A5 |A2, A3, A4 | | |
-  | Limite: tamanho da VM predefinição | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Limite: recomendado tamanho da VM | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Tipo de cluster | Hadoop | HBase | Interactive Query | Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | HEAD: tamanho da VM predefinido |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
+  | HEAD: recomendado tamanhos de VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | Trabalho: tamanho VM de predefinido |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | Trabalho: tamanhos de VM de recomendada |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: tamanho da VM predefinido | |A3 | |A2 | | |
+  | ZooKeeper: recomendado tamanhos de VM | |A3, A4, A5 | | A2, A3, A4 | | |
+  | Limite: tamanho da VM predefinição | | | | | |Windows: D12 v2; Linux: D4 v2 |
+  | Limite: recomendado tamanho da VM | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Sul do Brasil e apenas oeste do Japão (tamanhos de v2):
 
-  | Tipo de cluster | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | HEAD: tamanho da VM predefinido |D3 |D3 |A3 |D12 |D12 |
-  | HEAD: recomendado tamanhos de VM |D12 D3, D4, |D12 D3, D4, |A3, A4, A5 |D14 D12, D13, |D14 D12, D13, |
-  | Trabalho: tamanho VM de predefinido |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Trabalho: tamanhos de VM de recomendada |D12 D3, D4, |D12 D3, D4, |D12 D3, D4, |Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
-  | ZooKeeper: tamanho da VM predefinido | |A2 |A2 | | |
-  | ZooKeeper: recomendado tamanhos de VM | |A2, A3, A4 |A2, A3, A4 | | |
-  | Limite: tamanhos de VM de predefinição | | | | |Windows: D12; Linux: D4 |
-  | Limite: recomendado tamanhos de VM | | | | |Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
+  | Tipo de cluster | Hadoop | HBase | Interactive Query |Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | HEAD: tamanho da VM predefinido |D3 |D3  | D13, D14 |A3 |D12 |D12 |
+  | HEAD: recomendado tamanhos de VM |D12 D3, D4, |D12 D3, D4,  | D13, D14 |A3, A4, A5 |D14 D12, D13, |D14 D12, D13, |
+  | Trabalho: tamanho VM de predefinido |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | Trabalho: tamanhos de VM de recomendada |D12 D3, D4, |D12 D3, D4,  | D13, D14 |D12 D3, D4, |Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
+  | ZooKeeper: tamanho da VM predefinido | |A2 | | A2 | | |
+  | ZooKeeper: recomendado tamanhos de VM | |A2, A3, A4 | |A2, A3, A4 | | |
+  | Limite: tamanhos de VM de predefinição | | | | | |Windows: D12; Linux: D4 |
+  | Limite: recomendado tamanhos de VM | | | | | |Windows: D12, D13, D14; Linux: D4, D14 D12, D13, |
 
 > [!NOTE]
 > - HEAD é conhecido como *Nimbus* o Storm para o tipo de cluster.

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 2bbbde3497d8680ba4203049f66ea05005af0d11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Base de dados sem servidor informática utilizando as funções do Azure
 
@@ -44,7 +44,7 @@ O acionador BD do Cosmos Azure, o enlace de entrada e o enlace de saída podem s
 * Um enlace de entrada para um contentor de BD do Cosmos Azure pode ser utilizado na mesma função que um acionador de base de dados do Azure Cosmos e pode ser utilizado com ou sem uma saída, bem como de enlace. Pode utilizar esta combinação para aplicar as informações de intercâmbio de moeda atualizado (solicitadas com um enlace de entrada para um contentor do exchange) para o feed de alteração das ordens de novo no seu serviço de carrinho de compras. Total carrinho de compras atualizada, com a conversão de moeda atual aplicada, pode ser escrito para um terceiro contentor utilizando um enlace de saída.
 
 > [!NOTE]
-> Neste momento, a base de dados do Azure Cosmos acionador, enlaces de entrada e enlaces de saída funcionam com contas SQL, tabela e Graph API.
+> Neste momento, a base de dados do Azure Cosmos acionador, enlaces de entrada e enlaces de saída funcionam com apenas a contas de API do SQL Server e do Graph API.
 
 ## <a name="use-cases"></a>Casos de utilização
 
@@ -86,14 +86,14 @@ As imagens seguintes mostram o código no portal do Azure para este cenário.
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Jogos utilizar maiúsculas e minúsculas - acionador de base de dados do Azure Cosmos e enlace de saída
 
-No jogos, quando é criado um novo utilizador pode procurar outros utilizadores que poderão saber utilizando o [Graph API do Azure Cosmos DB](graph-introduction.md). Em seguida, pode escrever os resultados para um [base de dados de tabela de base de dados do Azure Cosmos](table-introduction.md) para obtenção fácil.
+No jogos, quando é criado um novo utilizador pode procurar outros utilizadores que poderão saber utilizando o [Graph API do Azure Cosmos DB](graph-introduction.md). Em seguida, pode escrever os resultados para uma [Cosmos BD SQL database do Azure] para obtenção fácil.
 
 **Implementação:** utilizar um acionador de base de dados do Azure Cosmos e um enlace de saída
 
 1. Utilizar uma base de dados do Azure Cosmos [base de dados do gráfico](graph-introduction.md) para armazenar todos os utilizadores, pode criar uma nova função com um acionador de base de dados do Azure Cosmos. 
 2. Sempre que é inserido um novo utilizador, a função é invocada e, em seguida, o resultado é armazenado utilizando um **vínculo de saída**.
 3. A função de consulta a base de dados do gráfico para procurar todos os utilizadores que estão diretamente relacionadas com o novo utilizador e devolve esse conjunto de dados para a função.
-4. Estes dados, em seguida, são armazenados na base de dados do Cosmos Azure [base de dados de tabela](table-introduction.md) como um conjunto de chave-valor de pares, que, em seguida, pode ser facilmente obtido por qualquer aplicação front-end que mostra o novo utilizador os amigos ligados.
+4. Estes dados, em seguida, são armazenados num Cosmos do BD Azure que, em seguida, pode ser facilmente obtido por qualquer aplicação front-end que mostra o novo utilizador os amigos ligados.
 
 ### <a name="retail-use-case---multiple-functions"></a>Caso de utilização de revenda - várias funções
 

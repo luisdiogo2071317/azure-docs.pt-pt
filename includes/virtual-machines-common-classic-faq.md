@@ -58,7 +58,7 @@ Se tiver problemas com o Ambiente de Trabalho Remoto ou o SSH, instale e utilize
 
 Para VMs do Windows, as opções adicionais incluem:
 
-* No portal clássico do Azure, localize a VM e, em seguida, clique em **Repor o Acesso Remoto** na barra de comando.
+* No portal do Azure, localize a VM, em seguida, clique em **repor o acesso remoto** na barra de comando.
 * Reveja [Resolução de problemas de ligações ao Ambiente de Trabalho Remoto para uma Máquina Virtual do Azure baseada no Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Utilize a comunicação remota do Windows PowerShell para ligar à VM ou criar pontos finais adicionais para que outros recursos liguem à VM. Para obter mais detalhes, veja [Como Configurar Pontos Finais para uma Máquina Virtual](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -85,7 +85,7 @@ Caso se tenha esquecido do nome de utilizador ou palavra-passe e tiver instalado
 
 Detalhes adicionais:
 
-* Para as imagens do Linux, se utilizar o portal clássico do Azure, “azureuser” é fornecido como um nome de utilizador predefinido, mas pode alterá-lo utilizando “Da Galeria” em vez de “Criação Rápida” como a forma para criar a máquina virtual. Utilizar “Da galeria” também lhe permite decidir se deve utilizar uma palavra-passe, uma chave SSH ou ambas para iniciar a sessão. A conta de utilizador é de um utilizador sem privilégios que tenha acesso “sudo” para executar comandos com privilégios. A conta “raiz” está desativada.
+* Para as imagens de Linux, se utilizar o portal do Azure, 'azureuser' é fornecido como um nome de utilizador predefinido, mas pode alterar esta utilizando 'Da galeria' em vez de 'Criação rápida' como a forma para criar a máquina virtual. Utilizar “Da galeria” também lhe permite decidir se deve utilizar uma palavra-passe, uma chave SSH ou ambas para iniciar a sessão. A conta de utilizador é de um utilizador sem privilégios que tenha acesso “sudo” para executar comandos com privilégios. A conta “raiz” está desativada.
 * Para as imagens do Windows, terá de fornecer um nome de utilizador e palavra-passe quando criar a VM. A conta é adicionada ao grupo de Administradores.
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>O Azure pode executar antivírus nas minhas máquinas virtuais?
@@ -105,7 +105,7 @@ O Azure cobra um preço por hora com base no tamanho da VM e do sistema operativ
 
 É-lhe cobrado quando o estado da VM está Em execução ou Parado, mas não lhe é cobrado quando o estado da VM está Parado (Desalocado). Para colocar uma VM no estado Parado (Desalocado), efetue um dos seguintes procedimentos:
 
-* Encerre ou elimine a VM do portal clássico do Azure.
+* Encerrar ou eliminar a VM a partir do portal do Azure.
 * Utilize o cmdlet Stop-AzureVM disponível no módulo Azure PowerShell.
 * Utilize a operação Função de Encerramento na API REST da Gestão de Serviços e especifique StoppedDeallocated para o elemento PostShutdownAction.
 
@@ -118,7 +118,7 @@ Os eventos de manutenção não planeada podem ocorrer quando o Azure deteta um 
 
 Para qualquer VM autónoma (ou seja, em que a VM não faz parte de um conjunto de disponibilidade), o Azure notifica o Administrador de Serviços da subscrição por e-mail, pelo menos, uma semana antes da manutenção planeada, porque as VMs poderiam ser reiniciadas durante a atualização. As aplicações em execução nas VMs poderão passar por períodos de indisponibilidade.
 
-Também pode utilizar o portal clássico do Azure ou do Azure PowerShell para ver os registos de reinício quando o reinício ocorreu devido a manutenção planeada. Para obter detalhes, veja [Ver Registos de Reinício da VM](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Também pode utilizar o portal do Azure ou o Azure PowerShell para ver os registos de reinício quando o reinício ocorreu devido a manutenção planeada. Para obter detalhes, veja [Ver Registos de Reinício da VM](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Para fornecer redundância, coloque duas ou mais VMs configuradas de forma semelhante no mesmo conjunto de disponibilidade. Isto ajuda a garantir que pelo menos uma VM está disponível durante a manutenção planeada ou não planeada. O Azure garante determinados níveis de disponibilidade de VM para esta configuração. Para obter detalhes, veja [Gerir a disponibilidade das máquinas virtuais](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

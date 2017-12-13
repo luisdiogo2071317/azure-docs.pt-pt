@@ -4,25 +4,25 @@ description: "Utilize o armazenamento georredundante com acesso de leitura para 
 services: storage
 documentationcenter: 
 author: georgewallace
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 547ca7843f53bd11fdb922af8e0ae77e38f813d9
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 286013aaa5335689206514027bef80b250643be1
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Tornar os dados da aplicação de elevada disponibilidade com armazenamento do Azure
 
-Este tutorial faz parte de um de uma série. Este tutorial mostra como disponibilizar os dados da aplicação altamente no Azure. Quando tiver terminado, que tem uma aplicação de consola que carrega e obtém um blob para um [acesso de leitura georredundante](../common/storage-redundancy.md#read-access-geo-redundant-storage) conta de armazenamento (RA-GRS). RA-GRS funciona ao replicar as transações do primário para a região secundária. Este processo de replicação garante que os dados na região secundária são eventualmente consistentes. A aplicação utiliza o [disjuntor](/azure/architecture/patterns/circuit-breaker.md) padrão para determinar o ponto final para ligar a. A aplicação muda para o ponto final secundário quando uma falha é simulada.
+Este tutorial faz parte de um de uma série. Este tutorial mostra como disponibilizar os dados da aplicação altamente no Azure. Quando tiver terminado, tem uma aplicação de consola do .NET core que carrega e obtém um blob para um [acesso de leitura georredundante](../common/storage-redundancy.md#read-access-geo-redundant-storage) conta de armazenamento (RA-GRS). RA-GRS funciona ao replicar as transações do primário para a região secundária. Este processo de replicação garante que os dados na região secundária são eventualmente consistentes. A aplicação utiliza o [disjuntor](/azure/architecture/patterns/circuit-breaker.md) padrão para determinar o ponto final para ligar a. A aplicação muda para o ponto final secundário quando uma falha é simulada.
 
 Na parte de uma série, saiba como:
 
@@ -63,7 +63,7 @@ Siga estes passos para criar uma conta de armazenamento georredundante com acess
    | Definição       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome** | mystorageaccount | Um valor exclusivo para a sua conta de armazenamento |
-   | **Modelo de implementação** | Resource Manager  | Gestor de recursos contém funcionalidades mais recentes.  |
+   | **Modelo de implementação** | Resource Manager  | Gestor de recursos contém funcionalidades mais recentes.|
    | **Tipo de conta** | Fins gerais | Para obter detalhes sobre os tipos de contas, consulte [tipos de contas de armazenamento](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Desempenho** | Standard | Padrão é suficiente para o cenário de exemplo. |
    | **Replicação**| Armazenamento georredundante com acesso de leitura (RA-GRS) | Isto é necessário para o exemplo funcionar. |
@@ -83,17 +83,29 @@ O projeto de exemplo contém uma aplicação de consola.
 
 ## <a name="set-the-connection-string"></a>Definir a cadeia de ligação
 
-Abra o *storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs* consola aplicação no Visual Studio.
+Na aplicação, tem de fornecer a cadeia de ligação para a sua conta de armazenamento. Recomenda-se para armazenar esta cadeia de ligação dentro de uma variável de ambiente no computador local que executa a aplicação. Siga um dos exemplos abaixo, dependendo do sistema operativo para criar a variável de ambiente.
 
-Sob o **appSettings** no nó a **App. config** ficheiro, substitua o valor da _StorageConnectionString_ com a cadeia de ligação da conta de armazenamento. Este valor é obtido selecionando **chaves de acesso** em **definições** na sua conta do storage no portal do Azure. Copiar o **cadeia de ligação** do site primário ou secundário da chave e cole-a no **App. config** ficheiro. Selecione **guardar**, para guardar o ficheiro quando terminar.
+No portal do Azure, navegue até à sua conta de armazenamento. Selecione **chaves de acesso** em **definições** na sua conta de armazenamento. Copiar o **cadeia de ligação** partir da chave primária ou secundária. Substitua \<yourconnectionstring\> com a ligação real cadeia executando um dos seguintes comandos com base no seu sistema operativo. Este comando guarda uma variável de ambiente para o computador local. No Windows, a variável de ambiente não está disponível até recarregar o **linha de comandos** ou shell estiver a utilizar. Substitua  **\<storageConnectionString\>**  no seguinte exemplo:
+
+### <a name="linux"></a>Linux
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+### <a name="windows"></a>Windows
+
+```cmd
+setx storageconnectionstring "<yourconnectionstring>"
+```
 
 ![ficheiro de configuração de aplicação](media/storage-create-geo-redundant-storage/figure2.png)
 
 ## <a name="run-the-console-application"></a>Executar a aplicação de consola
 
-No Visual Studio, prima **F5** ou selecione **iniciar** para iniciar a depuração da aplicação. Visual studio automaticamente restauros em falta pacotes Nuget se configurado, visitam para [instalar e reinstalar pacotes com o restauro de pacote](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) para obter mais informações. 
+No Visual Studio, prima **F5** ou selecione **iniciar** para iniciar a depuração da aplicação. Visual studio automaticamente restauros em falta pacotes NuGet se configurado, visitam para [instalar e reinstalar pacotes com o restauro de pacote](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) para obter mais informações.
 
-Uma janela da consola é iniciado e começa a aplicação em execução. A aplicação carrega o **HelloWorld.png** imagem da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicado para o ponto final RA-GRS secundário. Em seguida, inicia a transferência da imagem 999 vezes. Cada leitura é representated por um **P** ou um **S**. Onde **P** representa o ponto final principal e **S** representa o ponto final secundário.
+Uma janela da consola é iniciado e começa a aplicação em execução. A aplicação carrega o **HelloWorld.png** imagem da solução para a conta de armazenamento. A aplicação verifica para garantir que a imagem foi replicado para o ponto final RA-GRS secundário. Em seguida, inicia a transferência da imagem 999 vezes. Cada leitura é representada por um **P** ou um **S**. Onde **P** representa o ponto final principal e **S** representa o ponto final secundário.
 
 ![Aplicação de consola em execução](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -101,10 +113,10 @@ No código de exemplo, o `RunCircuitBreakerAsync` de tarefas no `Program.cs` fic
 
 ### <a name="retry-event-handler"></a>Repita o processador de eventos
 
-O `Operation_context_Retrying` processador de eventos é chamado quando a transferência da imagem de falha e é definido para rety. Se o número máximo de tentativas que são definidas na aplicação é atingido, o [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) do pedido é alterado para `SecondaryOnly`. Esta definição força o tentar transferir a imagem do ponto final secundário da aplicação. Esta configuração reduz o tempo decorrido para a imagem de pedidos, como o ponto final principal não for repetido indefinidamente.
+O `OperationContextRetrying` processador de eventos é chamado quando a transferência da imagem de falha e é definido para rety. Se o número máximo de tentativas, o que são definidas na aplicação é atingido, o [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) do pedido é alterado para `SecondaryOnly`. Esta definição força o tentar transferir a imagem do ponto final secundário da aplicação. Esta configuração reduz o tempo decorrido para a imagem de pedidos, como o ponto final principal não for repetido indefinidamente.
 
 ```csharp
-private static void Operation_context_Retrying(object sender, RequestEventArgs e)
+private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
     retryCount++;
     Console.WriteLine("Retrying event because of failure reading the primary. RetryCount = " + retryCount);
@@ -129,10 +141,10 @@ private static void Operation_context_Retrying(object sender, RequestEventArgs e
 
 ### <a name="request-completed-event-handler"></a>Processador de eventos de pedido concluído
 
-O `Operation_context_RequestCompleted` processador de eventos é chamado quando a transferência da imagem é efetuada com êxito. Se a aplicação estiver a utilizar o ponto final secundário, a aplicação continua a utilizar este ponto final até 20 vezes. Após 20 vezes a aplicação define ao [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) para `PrimaryThenSecondary` e repete as tentativas o ponto final principal. Se um pedido é efetuada com êxito a aplicação continua a ler a partir do ponto final principal.
+O `OperationContextRequestCompleted` processador de eventos é chamado quando a transferência da imagem é efetuada com êxito. Se a aplicação estiver a utilizar o ponto final secundário, a aplicação continua a utilizar este ponto final até 20 vezes. Após 20 vezes, os conjuntos de aplicação a [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) para `PrimaryThenSecondary` e repete as tentativas o ponto final principal. Se um pedido for bem-sucedida, continua a aplicação de ler a partir do ponto final principal.
 
 ```csharp
-private static void Operation_context_RequestCompleted(object sender, RequestEventArgs e)
+private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
     if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
     {

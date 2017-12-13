@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: jingwang
-ms.openlocfilehash: d0db2bd3a7e4d93a8d0690fcb4535c4552cef7ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: d5bad9a3be9c3165e5d26001353b8955ff81a764
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Copiar dados de/para Salesforce utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +65,8 @@ As seguintes propriedades são suportadas para o serviço ligado do Salesforce:
 | tipo |A propriedade de tipo tem de ser definida: **Salesforce**. |Sim |
 | environmentUrl | Especifique a instância do URL do Salesforce. <br> -Predefinição é `"https://login.salesforce.com"`. <br> -Para copiar dados a partir de sandbox, especifique `"https://test.salesforce.com"`. <br> -Para copiar dados de domínio personalizado, especificar, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
 | o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
-| palavra-passe |Especifique uma palavra-passe da conta de utilizador.<br/><br/>Pode escolher para marcar este campo como um SecureString armazena de forma segura na ADF ou armazenar a palavra-passe no Cofre de chaves do Azure e permitir que ADF copiar concentre solicitação a partir daí, quando efetuar a cópia de dados – Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). |Sim |
-| securityToken |Especifique um token de segurança para a conta de utilizador. Consulte [obtenha o token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como repor/obter um token de segurança. Para saber mais sobre os tokens de segurança em geral, consulte [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Pode escolher para marcar este campo como um SecureString armazena de forma segura na ADF ou armazenar o token de segurança no Cofre de chaves do Azure e permitir que ADF copiar concentre solicitação a partir daí, quando efetuar a cópia de dados – Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). |Sim |
+| palavra-passe |Especifique uma palavra-passe da conta de utilizador.<br/><br/>Pode escolher marcar este campo como um SecureString armazena de forma segura na ADF ou armazenar a palavra-passe no Cofre de chaves do Azure e permitir que o concentre cópia solicitar a partir daí quando efetuar a cópia de dados - Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). |Sim |
+| securityToken |Especifique um token de segurança para a conta de utilizador. Consulte [obtenha o token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como repor/obter um token de segurança. Para saber mais sobre os tokens de segurança em geral, consulte [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Pode escolher marcar este campo como um SecureString armazena de forma segura na ADF ou armazenar o token de segurança no Cofre de chaves do Azure e permitir que o concentre cópia solicitar a partir daí quando efetuar a cópia de dados - Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não para a origem, Sim para sink |
 
 >[!IMPORTANT]

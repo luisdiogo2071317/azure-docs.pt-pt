@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 91958b14d3e73677b30bbc8f46eb9eada3afde84
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Resolver problemas de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -101,6 +101,9 @@ Para determinar se a sua função de utilizador da conta tem as permissões nece
 4. No **fornecedor de recursos** lista, selecione **Microsoft Authorization**. 
     * **Atribuição de função** deve ter **leitura** e **escrever** permissões.
     * **Definição de função** deve ter **leitura** e **escrever** permissões.
+
+<a id="server-endpoint-createjobfailed"></a>**Falha de criação do ponto final de servidor, com este erro: "MgmtServerJobFailed" (código de erro:-2134375898)**                                                                                                                           
+Este problema ocorre se o caminho do ponto final de servidor estiver num volume de sistema e na nuvem em camadas está ativada. Nuvem em camadas não é suportado no volume do sistema. Para criar um ponto final do servidor no volume do sistema, desative a criação de camadas ao criar o ponto final do servidor de nuvem.
 
 <a id="server-endpoint-deletejobexpired"></a>**Falha de eliminação de ponto final do servidor, com este erro: "MgmtServerJobExpired"**                
 Este problema ocorre se o servidor está offline ou não tem conectividade de rede. Se o servidor já não estiver disponível, anular o registo do servidor no portal do qual irá eliminar os pontos finais de servidor. Para eliminar os pontos finais de servidor, siga os passos descritos em [anular o registo de um servidor com sincronização de ficheiros do Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).

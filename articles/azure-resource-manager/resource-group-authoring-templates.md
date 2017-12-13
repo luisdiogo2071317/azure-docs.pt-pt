@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: b8d1988a8705e0708e412c24fb5b49f5ece31429
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 73d3397ac6527a216eadd6d0d013c97b86c55e6b
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 Este artigo descreve a estrutura de um modelo Azure Resource Manager. Apresente as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação. Para um tutorial passo a passo sobre como criar um modelo, consulte [criar o primeiro modelo Azure Resource Manager](resource-manager-create-first-template.md).
@@ -159,227 +159,33 @@ Para obter a lista completa de funções de modelo, consulte [funções de model
 ## <a name="parameters"></a>Parâmetros
 Na secção de parâmetros do modelo, especifique os valores que pode introduzir quando implementar os recursos. Estes valores de parâmetros permitem-lhe personalizar a implementação, fornecendo valores que são adaptados para um ambiente específico (por exemplo, o desenvolvimento, teste e produção). Não é necessário fornecer os parâmetros no modelo, mas sem parâmetros do modelo implementaria sempre os mesmos recursos com os mesmos nomes, localizações e as propriedades.
 
-Definir os parâmetros com a estrutura seguinte:
+O exemplo seguinte mostra uma definição do parâmetro simples:
 
 ```json
 "parameters": {
-    "<parameter-name>" : {
-        "type" : "<type-of-parameter-value>",
-        "defaultValue": "<default-value-of-parameter>",
-        "allowedValues": [ "<array-of-allowed-values>" ],
-        "minValue": <minimum-value-for-int>,
-        "maxValue": <maximum-value-for-int>,
-        "minLength": <minimum-length-for-string-or-array>,
-        "maxLength": <maximum-length-for-string-or-array-parameters>,
-        "metadata": {
-            "description": "<description-of-the parameter>" 
-        }
+  "siteNamePrefix": {
+    "type": "string",
+    "metadata": {
+      "description": "The name prefix of the web app that you wish to create."
     }
-}
+  },
+},
 ```
 
-| Nome do elemento | Necessário | Descrição |
-|:--- |:--- |:--- |
-| parameterName |Sim |Nome do parâmetro. Tem de ser um identificador de JavaScript válido. |
-| tipo |Sim |Tipo do valor de parâmetro. Ver a lista de tipos permitidos após esta tabela. |
-| DefaultValue |Não |Valor predefinido para o parâmetro se não for fornecido nenhum valor para o parâmetro. |
-| allowedValues |Não |Matriz de valores permitidos para o parâmetro para se certificar de que é fornecido o valor correto. |
-| MinValue |Não |O valor mínimo de parâmetros de tipo int, este valor é inclusive. |
-| MaxValue |Não |O valor máximo de parâmetros de tipo int, este valor é inclusive. |
-| minLength |Não |O comprimento mínimo de cadeia, secureString e parâmetros de tipo de matriz, este valor é inclusive. |
-| maxLength |Não |O comprimento máximo da cadeia, secureString e parâmetros de tipo de matriz, este valor é inclusive. |
-| descrição |Não |Descrição do parâmetro que é apresentada aos utilizadores através do portal. |
-
-Os valores e os tipos permitidos são:
-
-* **cadeia**
-* **secureString**
-* **Int**
-* **bool**
-* **objeto** 
-* **secureObject**
-* **matriz**
-
-Para especificar um parâmetro opcional como, forneça um defaultValue (pode ser uma cadeia vazia). 
-
-Se especificar um nome de parâmetro no modelo que corresponda a um parâmetro de comando para implementar o modelo, não há ambiguidade potencial sobre os valores que fornecer. Gestor de recursos resolve este confusão ao adicionar o sufixo **FromTemplate** para o parâmetro de modelo. Por exemplo, se incluir um parâmetro com o nome **ResourceGroupName** no seu modelo, está em conflito com o **ResourceGroupName** parâmetro o [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Durante a implementação, lhe for pedido para fornecer um valor para **ResourceGroupNameFromTemplate**. Em geral, deve evitar este confusão ao nomear não parâmetros com o mesmo nome de parâmetros utilizada para operações de implementação.
-
-> [!NOTE]
-> Todas as palavras-passe, chaves e outros segredos devem utilizar o **secureString** tipo. Se passar dados confidenciais num objeto JSON, utilize o **secureObject** tipo. Não não possível ler os parâmetros do modelo tipos secureString ou secureObject após a implementação de recursos. 
-> 
-> Por exemplo, a seguinte entrada do histórico de implementação mostra o valor para uma cadeia e objeto, mas não para secureString e secureObject.
->
-> ![Mostrar valores de implementação](./media/resource-group-authoring-templates/show-parameters.png)  
->
-
-O exemplo seguinte mostra como definir parâmetros:
-
-```json
-"parameters": {
-    "siteName": {
-        "type": "string",
-        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
-    },
-    "hostingPlanName": {
-        "type": "string",
-        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
-    },
-    "skuName": {
-        "type": "string",
-        "defaultValue": "F1",
-        "allowedValues": [
-          "F1",
-          "D1",
-          "B1",
-          "B2",
-          "B3",
-          "S1",
-          "S2",
-          "S3",
-          "P1",
-          "P2",
-          "P3",
-          "P4"
-        ]
-    },
-    "skuCapacity": {
-        "type": "int",
-        "defaultValue": 1,
-        "minValue": 1
-    }
-}
-```
-
-Para saber como os valores de parâmetros de entrada durante a implementação, consulte [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md). 
+Para obter informações sobre como definir parâmetros, consulte [secção de parâmetros de modelos Azure Resource Manager](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Variáveis
 Na secção de variáveis, construir valores que podem ser utilizados em todo o seu modelo. Não é necessário definir as variáveis, mas são, muitas vezes, simplificam o modelo ao reduzir as expressões complexas.
 
-Definir variáveis com a estrutura seguinte:
+O exemplo seguinte mostra uma definição de variável simple:
 
 ```json
 "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-name>": { 
-        <variable-complex-type-value> 
-    }
-}
-```
-
-O exemplo seguinte mostra como definir uma variável que foi construída a partir de dois valores de parâmetro:
-
-```json
-"variables": {
-    "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
-}
-```
-
-O exemplo seguinte mostra uma variável que é um tipo JSON complexo e as variáveis construídas a partir de outras variáveis:
-
-```json
-"parameters": {
-    "environmentName": {
-        "type": "string",
-        "allowedValues": [
-          "test",
-          "prod"
-        ]
-    }
-},
-"variables": {
-    "environmentSettings": {
-        "test": {
-            "instancesSize": "Small",
-            "instancesCount": 1
-        },
-        "prod": {
-            "instancesSize": "Large",
-            "instancesCount": 4
-        }
-    },
-    "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-    "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
-    "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
-}
-```
-
-Pode utilizar o **cópia** sintaxe para criar uma variável com uma matriz de vários elementos. Forneça uma contagem do número de elementos. Cada elemento contém as propriedades dentro de **entrada** objeto. Pode utilizar a cópia dentro de uma variável ou para criar a variável. Ambas as abordagens são mostradas no exemplo seguinte:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {
-    "disk-array-on-object": {
-      "copy": [
-        {
-          "name": "disks",
-          "count": 5,
-          "input": {
-            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-            "diskSizeGB": "1",
-            "diskIndex": "[copyIndex('disks')]"
-          }
-        }
-      ]
-    },
-    "copy": [
-      {
-        "name": "disks-top-level-array",
-        "count": 5,
-        "input": {
-          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-          "diskSizeGB": "1",
-          "diskIndex": "[copyIndex('disks-top-level-array')]"
-        }
-      }
-    ]
-  },
-  "resources": [],
-  "outputs": {
-    "exampleObject": {
-      "value": "[variables('disk-array-on-object')]",
-      "type": "object"
-    },
-    "exampleArrayOnObject": {
-      "value": "[variables('disk-array-on-object').disks]",
-      "type" : "array"
-    },
-    "exampleArray": {
-      "value": "[variables('disks-top-level-array')]",
-      "type" : "array"
-    }
-  }
-}
-```
-
-Também pode especificar mais de um objeto ao utilizar a cópia para criar variáveis. O exemplo seguinte define duas matrizes como variáveis. Um nome **discos top-nível matriz** e tem cinco elementos. O outro é denominado **a diferentes matriz** e tem três elementos.
-
-```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
+  "webSiteName": "[concat(parameters('siteNamePrefix'), uniqueString(resourceGroup().id))]",
 },
 ```
+
+Para obter informações sobre como definir variáveis, consulte [secção de variáveis de modelos Azure Resource Manager](resource-manager-templates-variables.md).
 
 ## <a name="resources"></a>Recursos
 Na secção de recursos, é possível definir os recursos que são implementados ou atualizados. Nesta secção pode obter complicada porque tem de compreender os tipos que está a implementar para fornecer os valores corretos. Para os recurso valores específicos (apiVersion, tipo e propriedades) que tem de definir, consulte [definir recursos em modelos do Azure Resource Manager](/azure/templates/). 
@@ -427,14 +233,14 @@ Definir recursos com a estrutura seguinte:
 
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
-| Condição | Não | Valor booleano que indica se o recurso é implementado. |
+| condição | Não | Valor booleano que indica se o recurso é implementado. |
 | apiVersion |Sim |Versão da API REST para utilizar para criar o recurso. |
 | tipo |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nomes do fornecedor de recursos e o tipo de recurso (tais como **Storage/storageaccounts**). |
 | nome |Sim |Nome do recurso. O nome tem de seguir as restrições de componente URI definidas no RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso para fora entidades validar o nome para se certificar de não é uma tentativa de spoof de identidade de outra. |
 | localização |varia |Georreplicação-localizações suportadas do recurso fornecido. Pode selecionar qualquer uma das localizações disponíveis, mas normalmente faz sentido para escolher aquele que está próximo os seus utilizadores. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos necessitam de uma localização, mas alguns tipos (por exemplo, uma atribuição de função) não necessitam de uma localização. Consulte [Definir localização do recurso na modelos Azure Resource Manager](resource-manager-template-location.md). |
 | etiquetas |Não |Etiquetas que estão associadas o recursos. Consulte [Etiquetar recursos em modelos do Azure Resource Manager](resource-manager-template-tags.md). |
 | comentários |Não |As notas para documentar recursos no seu modelo |
-| Copiar |Não |Se for necessário mais do que uma instância, o número de recursos para criar. O modo predefinido é paralelo. Especifique o modo de série quando não pretender que todos os ou os recursos a implementar em simultâneo. Para obter mais informações, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
+| copiar |Não |Se for necessário mais do que uma instância, o número de recursos para criar. O modo predefinido é paralelo. Especifique o modo de série quando não pretender que todos os ou os recursos a implementar em simultâneo. Para obter mais informações, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Não |Recursos a que tem de ser implementados antes de implementar este recurso. O Resource Manager avalia as dependências entre os recursos e implementa-los na ordem correta. Quando os recursos não são dependentes entre si, que são implementados em paralelo. O valor pode ser uma lista separada por vírgulas de um recurso nomes ou identificadores exclusivos de recursos. Apenas lista os recursos que são implementados neste modelo. Recursos que não estão definidos neste modelo tem de existir. Evite adicionar dependências desnecessárias à medida que estes possam lenta a implementação e criar dependências circulares. Para obter orientações sobre as dependências de definição, consulte [definir dependências nos modelos Azure Resource Manager](resource-group-define-dependencies.md). |
 | propriedades |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são os mesmos que os valores que fornecem no corpo do pedido para a operação de REST API (método PUT) criar o recurso. Também pode especificar uma matriz de cópia para criar várias instâncias de uma propriedade. Para obter mais informações, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
 | recursos |Não |Recursos subordinados que dependem do recurso que está a ser definido. Fornece apenas tipos de recursos que são permitidos pelo esquema do recurso principal. O tipo completamente qualificado do recurso subordinado inclui o tipo de recurso principal, tal como **Microsoft.Web/sites/extensions**. Dependência no recurso principal não está implícita. Tem de definir explicitamente que dependência. |

@@ -13,18 +13,18 @@ ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 06/19/2017
+ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ab4e211bc2c3f7e99ab0246e7abba57795318245
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0f6f70749c5a0f22ee015d199be490863e38738
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>Vincular um certificado SSL personalizado para uma aplicação web
 
-Este script de exemplo cria uma aplicação web no App Service com os respetivos recursos relacionados, em seguida, vincula o certificado SSL de um nome de domínio personalizado ao mesmo. Para este exemplo, necessitará de:
+Este script de exemplo cria uma aplicação web no App Service com os respetivos recursos relacionados, em seguida, vincula o certificado SSL de um nome de domínio personalizado ao mesmo. Para este exemplo, precisa de:
 
 * Acesso à página de configuração de DNS do seu domínio da entidade de registo.
 * Válido. Ficheiro PFX e a respetiva palavra-passe do certificado SSL que pretende carregar e vincular.
@@ -33,8 +33,7 @@ Este script de exemplo cria uma aplicação web no App Service com os respetivos
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
-
+Se optar por instalar e utilizar a CLI localmente, terá da CLI do Azure versão 2.0 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -48,12 +47,12 @@ Este script utiliza os seguintes comandos. Cada comando nas ligações de tabela
 
 | Comando | Notas |
 |---|---|
-| [Criar grupo AZ](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
-| [Criar plano de serviço aplicacional AZ](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano de serviço de aplicações. |
-| [Criar AZ webapp](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Cria uma aplicação web do Azure. |
-| [Adicione o nome de anfitrião do AZ webapp configuração](https://docs.microsoft.com/cli/azure/webapp/config/hostname#az_webapp_config_hostname_add) | Mapeia um domínio personalizado para uma aplicação web. |
-| [carregamento de ssl de configuração do AZ webapp](https://docs.microsoft.com/cli/azure/webapp/config/ssl#az_webapp_config_ssl_upload) | Carrega um certificado SSL para uma aplicação web. |
-| [enlace de ssl de configuração do AZ webapp](https://docs.microsoft.com/cli/azure/webapp/config/ssl#az_webapp_config_ssl_bind) | Vincula um certificado SSL carregado para uma aplicação web. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Cria um plano de Serviço de Aplicações. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Cria uma aplicação web do Azure. |
+| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az_webapp_config_hostname_add) | Mapeia um domínio personalizado para uma aplicação web. |
+| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az_webapp_config_ssl_upload) | Carrega um certificado SSL para uma aplicação web. |
+| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az_webapp_config_ssl_bind) | Vincula um certificado SSL carregado para uma aplicação web. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

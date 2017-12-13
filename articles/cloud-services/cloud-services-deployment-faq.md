@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementação do Cloud Services do Azure: Perguntas mais frequentes sobre (FAQ)
 
@@ -75,3 +75,8 @@ Uma vez que o serviço em nuvem é um recurso de clássico que não é diretamen
 
     Isto irá trabalhar a partir de [portal do Azure](https://portal.azure.com) a chamada realiza uma proxy/shim que permite a comunicação entre os recursos do Azure Resource Manager e clássico. 
  
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Por que motivo é que o portal do Azure-me fornecer uma conta de armazenamento para a implementação requerem? 
+
+No portal clássico, o pacote foi carregado para a camada de API de gestão diretamente e, em seguida, a camada de API seria temporariamente colocar o pacote para uma conta de armazenamento interno.  Este processo faz com que problemas de desempenho e escalabilidade porque a camada de API não foi concebida para ser um serviço de carregamento de ficheiros.  No portal do Azure (modelo de implementação do Resource Manager), podemos ter ignorada o passo intermédio de carregar primeiro para a camada de API, resultando em implementações mais rápidas e mais fiáveis. 
+
+Para o custo, é muito pequeno e pode reutilizar a mesma conta de armazenamento em todas as implementações. Pode utilizar o [Calculadora de custo de armazenamento](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) para determinar o custo para carregar o pacote de serviço (. CSPKG), transfira o CSPKG, em seguida, elimine o CSPKG. 

@@ -1,31 +1,33 @@
 ---
 title: "Resolver problemas de migração do Azure | Microsoft Docs"
 description: "Fornece uma descrição geral dos problemas conhecidos no serviço Azure migrar, resolução de problemas e sugestões para erros comuns."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 40faffa3f-1f44-4a72-94bc-457222ed7ac8
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: troubleshooting
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 8c7c79a23ee09a7de35252d7819d1f0e5b1d98c5
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure migrar
+# <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
 ## <a name="troubleshoot-common-errors"></a>Resolver erros comuns
 
 [Migrar do Azure](migrate-overview.md) avalia cargas de trabalho no local para a migração para o Azure. Utilize este artigo para resolver problemas quando implementar e utilizar a migração do Azure.
 
+
+**Recoletor não é possível estabelecer ligação à internet**
+
+Isto pode acontecer quando a máquina que está a utilizar se encontrar atrás de um proxy. Certifique-se de que fornecer as credenciais de autorização se o proxy precise.
+Se estiver a utilizar qualquer proxy firewall baseada no URL para controlar a conectividade de saída, certifique-se a lista branca que estes necessários URLs:
+
+**URL** | **Objetivo**  
+--- | ---
+*. portal.azure.com | Necessário para verificar a conectividade com o serviço do Azure e validar a sincronização de hora problemas.
+*. oneget.org | Necessário para transferir o powershell com base vCenter PowerCLI módulo.
 
 **O recoletor não é possível ligar ao projeto com o ID de projeto e chave posso copiada a partir do portal.**
 

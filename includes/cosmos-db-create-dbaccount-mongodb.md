@@ -5,7 +5,7 @@
 
 3. No painel **Nova conta**, especifique a configuração pretendida para a conta do Azure Cosmos DB. 
 
-    Com o Azure Cosmos DB, pode escolher um de quatro modelos de programação: Gremlin (gráficos), MongoDB, SQL (DocumentDB) e Table (chave-valor). 
+    Com base de dados do Azure Cosmos, pode escolher um dos quatro modelos de programação: Gremlin (gráfico), MongoDB, SQL e a tabela (chave-valor). 
        
     Neste guia de introdução, vamos programar com a API MongoDB, pelo que vai escolher **MongoDB** quando preencher o formulário. Contudo, se tiver dados de gráficos para aplicações de redes sociais, dados de documentos de aplicações de catálogos ou dados de chaves-valores (tabela), tenha em conta que o Azure Cosmos DB pode proporcionar uma plataforma de serviço de bases de dados de elevada disponibilidade e distribuída globalmente para todas as aplicações críticas para a sua atividade.
 

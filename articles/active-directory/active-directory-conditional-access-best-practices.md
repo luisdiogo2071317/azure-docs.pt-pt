@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 119189415e75134ff0c77a551536559b81116fc6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Azure Active Directory
 
@@ -100,86 +100,18 @@ No seu ambiente, deve evitar as seguintes configurações:
 
 ## <a name="policy-migration"></a>Migração de política
 
-Se tiver políticas no portal clássico do Azure configurado, deve migrar para o portal do Azure porque:
+Deve considerar a migrar as políticas que não tiver criado no portal do Azure porque:
+
+- Agora que pode abordar cenários que não foi possível processar antes.
+
+- Pode reduzir o número de políticas, que tem de gerir por consolidá-los.   
+
+- Pode gerir todas as políticas de acesso condicional numa localização central.
+
+- Portal clássico do Azure será descontinuado.   
 
 
-- Um utilizador que está a ser uma política de portal clássica do Azure e uma política de portal do Azure tem de cumprir os requisitos em ambas as políticas 
-
-- Se não migrar as políticas existentes, não poderá implementar políticas que são conceder acesso
-
-
-### <a name="migration-from-the-azure-classic-portal"></a>Migração a partir do portal clássico do Azure
-
-Neste cenário: 
-
-- No seu [portal clássico do Azure](https://manage.windowsazure.com), configurou:
-
-    - SharePoint Online
-
-    ![Acesso condicional](./media/active-directory-conditional-access-best-practices/14.png)
-
-    - Uma política de acesso condicional baseado no dispositivo
-
-    ![Acesso condicional](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Se quiser configurar uma política de acesso condicional de gestão de aplicações móveis no portal do Azure 
- 
-
-#### <a name="configuration"></a>Configuração 
-
-- Reveja as suas políticas de acesso condicional baseado no dispositivo
-
-- Migrar para o portal do Azure 
-
-- Adicionar políticas de acesso condicional de gestão de aplicações móveis
-
-
-### <a name="migrating-from-intune"></a>Migrar a partir do Intune 
-
-Neste cenário:
-
-- No [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), tem uma política de acesso condicional de gestão de aplicações móveis para o Exchange Online ou SharePoint Online configurado
-
-    ![Acesso condicional](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Pretende migrar para utilizar o acesso condicional de gestão de aplicações móveis no portal do Azure
-
-
-#### <a name="configuration"></a>Configuração 
- 
-- Reveja as suas políticas de acesso condicional baseado no dispositivo
-
-- Migrar para o portal do Azure 
-
-- Reveja a políticas de acesso condicional de gestão de aplicações móveis configuradas para o Exchange Online ou o SharePoint Online no Intune
-
-- Adicionar controlo de **requerem aprovados aplicações** além do controlo baseado nos dispositivos 
- 
-
-### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migrar a partir do portal clássico do Azure e o Intune
-
-Neste cenário:
-
-- Tem de ter o seguinte configurado:
-
-    - **Portal clássico do Azure:** condicional baseado no dispositivo 
-
-    - **Intune:** políticas de acesso condicional de gestão de aplicações móveis 
-    
-- Pretende migrar ambas as políticas ao utilizar políticas de acesso condicional de gestão de aplicações móveis no portal do Azure
-
-
-#### <a name="configuration"></a>Configuração
-
-- Reveja as suas políticas de acesso condicional baseado no dispositivo
-
-- Migrar para o portal do Azure 
-
-- Rever a política de acesso condicional de gestão de aplicações móveis configurada para o Exchange Online ou o SharePoint Online no Intune
-
-- Adicionar controlo de **requerem aprovados aplicações** para além de baseado nos dispositivos 
-
-
+Para obter mais informações, consulte [migrar políticas clássicas no portal do Azure](active-directory-conditional-access-migration.md).
 
 
 ## <a name="next-steps"></a>Passos seguintes

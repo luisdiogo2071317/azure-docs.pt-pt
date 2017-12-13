@@ -4,7 +4,7 @@ description: Saiba como gerir a base de dados do Azure Cosmos no Explorador de a
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
-author: Jiaj-Li
+author: jejiang
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
-ms.author: Jiaj-Li
-ms.openlocfilehash: 153369270399efbe38ca2e8b8ab2e05cb7e702f9
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.author: Jejiang
+ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Gerir o Azure Cosmos DB no Explorador de armazenamento do Azure (pré-visualização)
 
-Utilizar base de dados do Azure Cosmos no Explorador de armazenamento do Azure permite aos utilizadores gerir entidades de base de dados do Azure Cosmos, manipular dados, atualizar e acionadores juntamente com outras entidades do Azure como armazenamento de blobs e filas de procedimentos armazenados. Agora pode utilizar a mesma ferramenta para gerir a sua do Azure de entidades diferentes num único local. Neste momento, o Explorador de armazenamento do Azure suporta contas de SQL e MongoDB.
+Utilizar base de dados do Azure Cosmos no Explorador de armazenamento do Azure permite aos utilizadores gerir entidades de base de dados do Azure Cosmos, manipular dados, atualizar e acionadores juntamente com outras entidades do Azure como armazenamento de blobs e filas de procedimentos armazenados. Agora pode utilizar a mesma ferramenta para gerir a sua do Azure de entidades diferentes num único local. Neste momento, o Explorador de armazenamento do Azure suporta contas de SQL e MongoDB. O Explorador de armazenamento do Azure não funciona com o emulador Local do Azure Cosmos DB. 
 
 Neste artigo, pode saber como utilizar o Explorador de armazenamento para gerir a base de dados do Azure Cosmos.
 

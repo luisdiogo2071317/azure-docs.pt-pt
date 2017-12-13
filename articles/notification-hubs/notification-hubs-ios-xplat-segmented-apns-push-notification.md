@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8aec171b46df3e0e7f2a2d3cc9d44084d064e6fd
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Utilizar Notification Hubs para enviar notícias de última hora
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -207,7 +207,7 @@ O primeiro passo consiste em adicionar os elementos de IU para o seu guião grá
 A aplicação agora pode armazenar um conjunto de categorias no armazenamento local do dispositivo utilizado para registar o notification hub sempre que a aplicação for iniciada.  O utilizador pode alterar a seleção das categorias em tempo de execução e clique em de **subscrever** método para atualizar o registo para o dispositivo. Em seguida, irá atualizar a aplicação para enviar notificações de notícias de última diretamente na aplicação em si.
 
 ## <a name="optional-sending-tagged-notifications"></a>(opcional) Enviar notificações marcadas
-Se não tiver acesso para Visual Studio, pode avançar para a secção seguinte e enviar notificações a partir da aplicação em si. Também pode enviar a notificação de modelo adequada do [Portal clássico do Azure] utilizando o separador de depuração do notification hub. 
+Se não tiver acesso para Visual Studio, pode avançar para a secção seguinte e enviar notificações a partir da aplicação em si. Também pode enviar a notificação de modelo adequada do [portal do Azure] utilizando o separador de depuração do notification hub. 
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -331,4 +331,4 @@ Neste tutorial, aprendeu a difusão notícias de última hora por categoria. Con
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
-[Portal clássico do Azure]: https://manage.windowsazure.com
+[portal do Azure]: https://portal.azure.com

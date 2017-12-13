@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06b77ce5b6f15e3dae4a7d4bad76def949774678
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 233e0449bc0803709f0aa369a446c2ec5d3f177e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual com acelerados da rede
 
@@ -46,13 +46,13 @@ As vantagens do funcionamento em rede na melhoria só se aplicam à VM que está
 Existem as seguintes limitações ao utilizar esta capacidade:
 
 * **Criação de interface de rede:** Accelerated redes só podem ser ativada para uma NIC de novo. Não pode ser ativada para uma NIC que existente.
-* **A criação de VM:** A NIC com redes na melhoria ativada só podem ser anexado a uma VM quando é criada a VM. O NIC não pode ser ligado a uma VM existente.
-* **Regiões:** VMs do Windows com redes na melhoria são disponibilizadas em regiões mais do Azure. VMs com Linux com redes na melhoria são disponibilizadas em várias regiões. As regiões esta capacidade está disponível no está a expandir. Consulte o blogue de atualizações de rede Virtual do Azure abaixo para obter as informações mais recentes.   
+* **A criação de VM:** A NIC com redes na melhoria ativada só podem ser anexado a uma VM quando é criada a VM. O NIC não pode ser ligado a uma VM existente. Se adicionar a VM para um disponibilidade existente, todas as VMs no conjunto de disponibilidade tem também de ter acelerados rede ativada.
+* **Regiões:** VMs do Windows com redes na melhoria são disponibilizadas em regiões mais do Azure. VMs com Linux com redes na melhoria são disponibilizadas em várias regiões. As regiões a capacidade está disponível no está a expandir. Para informações mais recentes, consulte o [atualizações de rede Virtual do Azure](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blogue.   
 * **Sistemas operativos suportados:** Windows: Centro de dados do Microsoft Windows Server 2012 R2 e Windows Server 2016. Linux: Ubuntu Server 16.04 LTS com 4.4.0-77 de kernel ou superior, SLES 12 SP2, RHEL 7.3 e CentOS 7.3 (publicado por "Não autorizado Wave Software").
 * **Tamanho da VM:** fins gerais e os tamanhos de instância com otimização de computação com oito ou vários núcleos. Para obter mais informações, consulte o [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artigos de tamanhos de VM. O conjunto de tamanhos de instância VM suportados irá expandir no futuro.
 * **Apenas a implementação através do Azure Resource Manager (ARM):** acelerados redes não está disponível para implementação através da ASM/RDFE.
 
-As alterações a estas limitações sejam anunciadas através do [a rede Virtual do Azure atualiza](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/) página.
+As alterações a estas limitações sejam anunciadas através do [a rede Virtual do Azure atualiza](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) página.
 
 ## <a name="create-a-windows-vm"></a>Criar uma VM do Windows
 Pode utilizar o portal do Azure ou o Azure [PowerShell](#windows-powershell) para criar a VM.
@@ -164,7 +164,7 @@ Depois de criar a VM no Azure, tem de instalar o controlador de rede na melhoria
 9. Na melhoria de redes está agora ativada para a VM.
 
 ## <a name="create-a-linux-vm"></a>Criar uma VM do Linux
-Pode utilizar o portal do Azure ou o Azure [PowerShell](#linux-powershell) para criar um Ubuntu ou SLES VM. Para RHEL e CentOS VMs é um fluxo de trabalho diferentes.  Consulte as instruções abaixo.
+Pode utilizar o portal do Azure ou o Azure [PowerShell](#linux-powershell) para criar um Ubuntu ou SLES VM. Para obter instruções RHEL e CentOS, consulte [RHEL e CentOS](#rhel-and-centos).
 
 ### <a name="linux-portal"></a>Portal
 1. Registar o funcionamento em rede na melhoria para pré-visualização do Linux, efetuando os passos 1 a 5 do [criar uma VM com Linux - PowerShell](#linux-powershell) secção deste artigo.  Não é possível registar para a pré-visualização no portal.
@@ -183,7 +183,7 @@ Pode utilizar o portal do Azure ou o Azure [PowerShell](#linux-powershell) para 
 2. Iniciar uma sessão do PowerShell ao clicar no botão Iniciar do Windows, escrevendo **powershell**, em seguida, clicar em **PowerShell** de resultados da pesquisa.
 3. Na janela do PowerShell, introduza o `login-azurermaccount` comando para iniciar sessão com o Azure [conta](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Se ainda não tiver uma conta, pode inscrever-se para obter um [avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Registar-se a rede na melhoria do Azure pré-visualização, efetuando os seguintes passos:
-    - Envie um e-mail para [ axnpreview@microsoft.com ](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) com o ID de subscrição do Azure e a utilização pretendida. Aguarde um e-mail de confirmação da Microsoft sobre a sua subscrição que está a ser ativada.
+    - Envie um e-mail para [ axnpreview@microsoft.com ](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) com o ID de subscrição do Azure e a utilização pretendida. Não conclua os seguintes passos até depois de receber um e-mail de confirmação da Microsoft que a sua subscrição tiver sido ativada para redes na melhoria.
     - Introduza o seguinte comando para confirmar que está registados para a pré-visualização:
     
         ```powershell
@@ -201,7 +201,7 @@ Pode utilizar o portal do Azure ou o Azure [PowerShell](#linux-powershell) para 
       >[!NOTE]
       >Se participaram na rede de Accelerated para pré-visualização de VMs do Windows (já não é necessário registar a utilizar Accelerated redes para VMs do Windows), a não automaticamente registada para o funcionamento em rede Accelerated para VMs com Linux de pré-visualização. Tem de registar o Accelerated funcionamento em rede para a pré-visualização de VMs com Linux participar no mesmo.
       >
-5. No seu browser, copie o script seguinte, substituindo Ubuntu ou SLES conforme pretendido.  Novamente, VM de Redhat e CentOS têm um fluxo de trabalho diferentes descrito abaixo:
+5. No seu browser, copie o script seguinte, substituindo Ubuntu ou SLES conforme pretendido.  Novamente, VM de Redhat e CentOS tem um fluxo de trabalho diferentes detalhado [RHEL e CentOS](#rhel-and-centos):
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -309,18 +309,18 @@ Neste momento, as instruções variam em função de distribuição que está a 
      chmod +x ./configure_hv_sriov.sh
      sudo ./configure_hv_sriov.sh
      ```
-3. Depois de executar o script, a VM será reiniciado depois de um segundo 60 colocar em pausa.
+3. Depois de executar o script, a VM irá reiniciar após uma pausa de 60 segundo.
 4. Assim que a VM é reiniciada, restabeleça a ligação ao mesmo, efetuando os passos 5 a 7 novamente.
 5. Execute o `ifconfig` comando e confirme que bond0 ficar cópias de segurança e a interface está a ser mostrada como cópia de segurança. 
  
  >[!NOTE]
       >As aplicações que utilizam na melhoria de rede têm de comunicar através de *bond0* interface, não *eth0*.  O nome da interface podem ser alteradas antes de rede na melhoria atinge disponibilidade geral.
 
-#### <a name="rhelcentos"></a>RHEL/CentOS
+#### <a name="rhel-and-centos"></a>RHEL e CentOS
 
 Criar um Red Hat Enterprise Linux ou VM do CentOS 7.3 requer alguns passos adicionais para carregar os controladores mais recentes necessários para a SR-IOV e o controlador de função Virtual (VF) para a placa de rede. A primeira fase das instruções prepara uma imagem que pode ser utilizada para tornar um ou mais máquinas virtuais que tem os controladores previamente carregados.
 
-##### <a name="phase-one-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>A primeira fase: preparar uma imagem de base do Red Hat Enterprise Linux ou CentOS 7.3. 
+##### <a name="phase-1-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>Fase 1: Preparar uma imagem de base do Red Hat Enterprise Linux ou CentOS 7.3 
 
 1.  Aprovisionar um não - SRIOV CentOS 7.3 VM no Azure
 
@@ -352,9 +352,9 @@ Criar um Red Hat Enterprise Linux ou VM do CentOS 7.3 requer alguns passos adici
 
 5.  No portal do Azure, parar esta VM; e aceda a "Discos" da VM, capturar a OSDisk URI de VHD. Este URI contém o nome do VHD a imagem de base e a respetiva conta de armazenamento. 
  
-##### <a name="phase-two-provision-new-vms-on-azure"></a>Fase dois: aprovisionar novas VMs no Azure
+##### <a name="phase-2-provision-new-vms-on-azure"></a>Fase 2: Aprovisionar novas VMs no Azure
 
-1.  Aprovisionar novas VMs com base com o New-AzureRMVMConfig utilizando a imagem de base de VHD capturado na primeira fase, com AcceleratedNetworking ativado o vNIC:
+1.  Aprovisionar novas VMs baseia-se com o New-AzureRMVMConfig utilizando a imagem de base ativado de VHD capturado na fase 1, com AcceleratedNetworking no vNIC:
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -394,7 +394,7 @@ Criar um Red Hat Enterprise Linux ou VM do CentOS 7.3 requer alguns passos adici
      -PublicIpAddressId $Pip.Id `
      -EnableAcceleratedNetworking
     
-    # Specify the base image's VHD URI (from phase one step 5). 
+    # Specify the base image's VHD URI (from phase 1, step 5). 
     # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
     # See more from here: https://docs.microsoft.com/azure/storage/storage-service-encryption
     # This is just an example URI, you will need to replace this when running this script
@@ -430,7 +430,7 @@ Criar um Red Hat Enterprise Linux ou VM do CentOS 7.3 requer alguns passos adici
      -VM $VmConfig
     ```
 
-2.  Depois de VMs efetuar o arranque, verifique o dispositivo VF por "lspci" e verifique a entrada de Mellanox. Por exemplo, deveremos ver este item na saída lspci:
+2.  Depois de VMs efetuar o arranque, verifique o dispositivo VF por "lspci" e verifique a entrada de Mellanox. Por exemplo, deverá ver o seguinte texto no resultado lspci:
     
     ```
     0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]

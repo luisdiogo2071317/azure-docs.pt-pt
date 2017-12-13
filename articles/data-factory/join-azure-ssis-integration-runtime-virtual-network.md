@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: spelluru
-ms.openlocfilehash: 8a58f55bd627594145661e1c8d5c1da360cd1e30
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: aa570379890023c83383d291aa5d57fb79b2d5aa
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aderir a um tempo de execução de integração do Azure-SSIS a uma rede virtual
 Tem de associar o tempo de execução de integração do Azure-SSIS (IR) a uma rede virtual do Azure (VNet) se uma das seguintes condições for verdadeira: 
@@ -25,15 +25,15 @@ Tem de associar o tempo de execução de integração do Azure-SSIS (IR) a uma r
 - Está a alojar a base de dados do Catálogo de SSIS numa Instância Gerida do SQL Server (pré-visualização privada) que faz parte de uma VNet.
 - Pretende ligar a arquivos de dados no local a partir de pacotes de SSIS em execução no integration runtime do Azure-SSIS.
 
- O Azure Data Factory versão 2 (Pré-visualização) permite-lhe associar o seu runtime de integração Azure-SSIS a uma VNet clássica. Atualmente, VNet do Azure Resource Manager ainda não é suportado. No entanto, pode trabalhá-lo em torno conforme indicado na secção seguinte. 
+ O Azure Data Factory versão 2 (Pré-visualização) permite-lhe associar o seu runtime de integração Azure-SSIS a uma VNet clássica. Atualmente, a VNet do Azure Resource Manager não é suportada. No entanto, pode trabalhá-lo em torno conforme indicado na secção seguinte. 
 
  > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja [Data Factory version 1 documentation](v1/data-factory-introduction.md) (Documentação da versão 1 do Data Factory).
 
-Se acedem a pacotes SSIS arquivos de dados de nuvem pública apenas, não precisa de associar Azure SSIS IR para uma VNet. Se acedem a pacotes SSIS arquivos de dados no local, tem de associar Azure SSIS IR para uma VNet que está ligada à rede no local. Se o catálogo de SSIS está alojado na base de dados do SQL do Azure que não esteja na VNet, terá de abrir as portas adequadas. Se o catálogo de SSIS estiver alojado no Azure geridos instância do SQL que está a ser uma VNet clássica, pode associar Azure SSIS IR para a mesma VNet clássica (ou) uma VNet clássica diferente que tenha uma ligação de VNet de classe para clássico com um que tenha a instância de gerida do Azure SQL. As secções seguintes fornecem mais detalhes.  
-
 ## <a name="access-on-premises-data-stores"></a>Acesso local arquivos de dados
-Se os pacotes SSIS aceder aos arquivos de dados no local, associe o seu tempo de execução de integração do Azure SSIS para uma VNet que está ligada à sua rede no local. Eis alguns pontos importantes a ter em atenção: 
+Se acedem a pacotes SSIS arquivos de dados de nuvem pública apenas, não precisa de associar Azure SSIS IR para uma VNet. Se acedem a pacotes SSIS arquivos de dados no local, tem de associar Azure SSIS IR para uma VNet que está ligada à rede no local. Se o catálogo de SSIS está alojado na base de dados do SQL do Azure que não esteja na VNet, terá de abrir as portas adequadas. Se o catálogo de SSIS estiver alojado no Azure geridos instância do SQL que está a ser uma VNet clássica, pode associar Azure SSIS IR para a mesma VNet clássica (ou) uma VNet clássica diferente que tenha uma ligação de VNet de classe para clássico com um que tenha a instância de gerida do Azure SQL. As secções seguintes fornecem mais detalhes.
+
+Eis alguns pontos importantes a ter em atenção: 
 
 - Se não existir nenhum VNet existente ligados à sua rede no local, primeiro crie um [VNet clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para o tempo de execução de integração do Azure-SSIS associar. Em seguida, configure um site para site [ligação de gateway VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md)/[ExpressRoute](../expressroute/expressroute-howto-linkvnet-classic.md) ligação a partir desse VNet à sua rede no local.
 - Se existir uma VNet clássica existente à sua rede no local na mesma localização do seu tempo de execução de integração de SSIS do Azure, pode associar o tempo de execução de integração do Azure SSIS ao mesmo.
@@ -52,11 +52,28 @@ Se precisar de implementar o grupo de segurança de rede (NSG) numa VNet associa
 | 443 | Saída | TCP | Os nós do seu tempo de execução de integração do Azure-SSIS na VNet utilizam esta porta para aceder aos serviços do Azure, por exemplo, de armazenamento do Azure, Hub de eventos, etc. | INTERNET | 
 | 1433<br/>11000-11999<br/>14000-14999  | Saída | TCP | Os nós do seu tempo de execução de integração do Azure-SSIS na VNet utilizam estas portas para aceder a SSISDB alojada pelo seu servidor de SQL Database do Azure (não aplicável a SSISDB hospedada geridos instância do SQL do Azure). | Internet | 
 
-## <a name="script-to-configure-vnet"></a>Script para configurar a VNet 
-Pode utilizar o script do PowerShell orientado [neste artigo](create-azure-ssis-integration-runtime.md) para aprovisionar um tempo de execução de integração do Azure-SSIS numa VNet. O script configura automaticamente definições e as permissões de VNet, para que possa juntar-Azure-SSIS integração runtime para a VNet.  
+## <a name="configure-vnet"></a>Configurar a VNet
+Terá primeiro de configurar a VNet com uma das seguintes formas (vs de script. Portal do Azure) antes de pode associar uma resposta a incidentes SSIS do Azure para a VNet. 
 
+### <a name="script-to-configure-vnet"></a>Script para configurar a VNet 
+Adicione o seguinte script para configurar automaticamente a VNet/definições de permissões para o tempo de execução de integração do Azure-SSIS associar a VNet.
 
-## <a name="use-portal-to-configure-vnet"></a>Utilize o portal para configurar a VNet
+```powershell
+# Register to Azure Batch resource provider
+if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
+{
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    {
+    Start-Sleep -s 10
+    }
+    # Assign VM contributor role to Microsoft.Batch
+    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+}
+```
+
+### <a name="use-portal-to-configure-vnet"></a>Utilize o portal para configurar a VNet
 Executar o script é a forma mais fácil de configurar a VNet. Se não tiver acesso para configurar que a configuração automática de VNet a falhar, o proprietário dessa VNet / pode configurá-las manualmente nos passos seguintes:
 
 ### <a name="find-the-resource-id-for-your-azure-vnet"></a>Localize o ID de recurso para o seu Azure VNet.
@@ -75,7 +92,7 @@ Executar o script é a forma mais fácil de configurar a VNet. Se não tiver ace
     1. Clique em controlo de acesso (IAM), no menu da esquerda e clique em **adicionar** na barra de ferramentas.
     
         ![Controlo de acesso -> Adicionar](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png) 
-    2. No **adicionar permissões** página, selecione **clássico contribuinte de Máquina Virtual** para **função**. Tipo **MicrosoftAzureBatch** no **selecione** caixa de texto e, em seguida, selecione **MicrosoftAzureBatch** da lista de resultados da pesquisa. 
+    2. No **adicionar permissões** página, selecione **clássico contribuinte de Máquina Virtual** para **função**. Copie/cole **ddbf3205-c6bd-46ae-8127-60eb93363864** no **selecione** caixa de texto e, em seguida, selecione **do Microsoft Azure Batch** da lista de resultados da pesquisa. 
     
         ![Adicionar permissões – pesquisa](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
     3. Clique em Guardar para guardar as definições e fechar a página.
@@ -92,8 +109,79 @@ Executar o script é a forma mais fácil de configurar a VNet. Se não tiver ace
         ![confirmação-batch-registado](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
     Se não vir `Microsoft.Batch` está na lista, para registá-lo, [criar uma conta do Azure Batch vazia](../batch/batch-account-create-portal.md) na sua subscrição. Pode eliminá-lo mais tarde. 
-         
 
+## <a name="create-an-azure-ssis-ir-and-join-it-to-a-vnet"></a>Criar uma resposta a incidentes SSIS do Azure e associar a uma VNet
+Pode criar uma resposta a incidentes SSIS do Azure e associar a VNet ao mesmo tempo. Para o script completa e instruções para criar uma resposta a incidentes SSIS do Azure e associar a uma VNet ao mesmo tempo, consulte [criar IR de Azure SSIS](create-azure-ssis-integration-runtime.md).
+
+## <a name="join-an-existing-azure-ssis-ir-to-a-vnet"></a>Associar uma resposta a incidentes SSIS do Azure existente para uma VNet
+O script no [runtime de integração do Azure-SSIS criar](create-azure-ssis-integration-runtime.md) artigo mostra-lhe como criar uma resposta a incidentes SSIS do Azure e associar a uma VNet no mesmo script. Se tiver um SSIS de Azure existente, execute os seguintes passos para associar à VNet. 
+
+1. Parar o IR. SSIS do Azure
+2. Configure o Azure SSIS IR para associar a VNet. 
+3. Iniciar o IR. SSIS do Azure 
+
+## <a name="define-the-variables"></a>Definir as variáveis
+
+```powershell
+$ResourceGroupName = "<Azure resource group name>"
+$DataFactoryName = "<Data factory name>" 
+$AzureSSISName = "<Specify Azure-SSIS IR name>"
+# Get the following information from the properties page for your Classic Virtual Network in the Azure portal
+# It should be in the format: 
+# $VnetId = "/subscriptions/<Azure Subscription ID>/resourceGroups/<Azure Resource Group>/providers/Microsoft.ClassicNetwork/virtualNetworks/<Class Virtual Network Name>"
+$VnetId = "<Name of your Azure classic virtual netowrk>"
+$SubnetName = "<Name of the subnet in VNet>"
+```
+
+### <a name="stop-the-azure-ssis-ir"></a>Parar a resposta a incidentes SSIS do Azure
+Interrompa o tempo de execução de integração do Azure-SSIS antes de a poder associar a uma VNet. Este comando disponibiliza todos os respetivos nós e deixa de faturação.
+
+```powershell
+Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+                                             -DataFactoryName $DataFactoryName `
+                                             -Name $AzureSSISName `
+                                             -Force 
+```
+### <a name="configure-vnet-settings-for-the-azure-ssis-ir-to-join"></a>Configurar definições da VNet para o Azure SSIS IR associar
+Registar para o fornecedor de recursos do Azure Batch:
+
+```powershell
+if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
+{
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    {
+        Start-Sleep -s 10
+    }
+    # Assign VM contributor role to Microsoft.Batch
+    New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+}
+```
+
+### <a name="configure-the-azure-ssis-ir"></a>Configurar a resposta a incidentes SSIS do Azure
+Execute o comando Set-AzureRmDataFactoryV2IntegrationRuntime para configurar o tempo de execução de integração do Azure-SSIS para associar a VNet: 
+
+```powershell
+Set-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $ResourceGroupName `
+                                            -DataFactoryName $DataFactoryName `
+                                            -Name $AzureSSISName `
+                                            -Type Managed `
+                                            -VnetId $VnetId `
+                                            -Subnet $SubnetName
+```
+
+## <a name="start-the-azure-ssis-ir"></a>Iniciar a resposta a incidentes SSIS do Azure
+Execute o seguinte comando para iniciar o integration runtime do Azure-SSIS: 
+
+```powershell
+Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+                                             -DataFactoryName $DataFactoryName `
+                                             -Name $AzureSSISName `
+                                             -Force
+
+```
+Este comando demora entre **20 e 30 minutos** a concluir.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para mais informações sobre o tempo de execução de SSIS do Azure, consulte os tópicos seguintes: 
