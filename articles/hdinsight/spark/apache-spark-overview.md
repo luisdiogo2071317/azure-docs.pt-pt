@@ -15,17 +15,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2017
+ms.date: 12/13/2017
 ms.author: nitinme
-ms.openlocfilehash: 5ab6adb1cc3afb5733307cfb52029f9358904859
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: b52f896c0d2a023a0a371668c4f6ce55060c2cfd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Introdução ao Spark no HDInsight
 
 Este artigo fornece uma introdução ao Spark no HDInsight. O <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> é uma arquitetura de processamento paralelo open source que suporta o processamento dentro da memória para melhorar o desempenho de aplicações de análise de macrodados. O cluster do Spark no HDInsight é compatível com o Armazenamento do Azure (WASB), bem como com o Azure Data Lake Store. Por conseguinte, os dados existentes armazenados no Azure podem ser facilmente processados através de um cluster do Spark.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 Quando cria um cluster do Spark no HDInsight, está a criar recursos de computação do Azure com o Spark instalado e configurado. Demora apenas cerca de dez minutos para criar um cluster do Spark no HDInsight. Os dados a serem processados são armazenados no Armazenamento do Azure ou no Azure Data Lake Store. Veja [Use Azure Blob Storage with HDInsight (Utilizar o Armazenamento de Blobs do Azure com o HDInsight)](../hdinsight-hadoop-use-blob-storage.md).
 

@@ -3,7 +3,7 @@ title: "O que é a Automatização do Azure | Microsoft Docs"
 description: "Saiba que valor fornece a Automatização do Azure e obtenha respostas a perguntas comuns para que pode começar a criar, utilizando runbooks e o Automation DSC do Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "o que é a automatização, automatização do azure, exemplos de automatização do azure"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae2b607be9a02e688a6b513d593f79eeb985ca93
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-overview"></a>Descrição geral da Automatização do Azure
 A Automatização do Microsoft Azure fornece uma forma de os utilizadores automatizarem as tarefas manuais, de execução longa, propensas ao erro e frequentemente repetidas que normalmente são executadas num ambiente de nuvem e empresarial. Poupa tempo, aumenta a fiabilidade das tarefas administrativas normais e agenda-as para serem executadas automaticamente em intervalos regulares. Pode automatizar os processos utilizando runbooks ou automatizar a gestão de configuração utilizando a Configuração de Estado Pretendido. Este artigo fornece uma breve descrição geral de Automatização do Azure e responde a algumas perguntas comuns. É possível consultar outros artigos nesta biblioteca para informações mais detalhadas sobre os diferentes tópicos.

@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: "servidor de autenticação, página de ativação da aplicação multi factor authentication do azure, transferência do servidor de autenticação"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: a164dfa23a0bd8a598eb8871a160ced4158b172a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introdução ao Servidor Multi-Factor Authentication do Azure
 
@@ -89,7 +89,7 @@ Se não estiver a utilizar a funcionalidade Confirmação de Eventos e os seus u
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-mfa-server---public-preview"></a>Transferir o Servidor MFA - pré-visualização pública
+## <a name="download-the-mfa-server"></a>Transferir o Servidor MFA
 
 Siga estes passos para transferir o Servidor Multi-Factor Authentication do Azure a partir do portal do Azure:
 
@@ -101,28 +101,6 @@ Siga estes passos para transferir o Servidor Multi-Factor Authentication do Azur
    ![Transferir o Servidor MFA](./media/multi-factor-authentication-get-started-server/downloadportal.png)
 
 5. Mantenha esta página aberta, uma vez que iremos referi-la depois de executar o instalador.
-
-
-## <a name="download-the-mfa-server"></a>Transferir o Servidor MFA
-
-Siga estes passos para transferir o Servidor Multi-Factor Authentication do Azure a partir do portal pfweb:
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-2. No lado esquerdo, selecione **Active Directory**
-3. Selecionar **Utilizadores e grupos**
-4. Selecionar **Todos os utilizadores**
-5. Selecionar **Multi-Factor Authentication**
-6. Na secção **autenticação multifator**, selecione **definições de serviço**
-
-   ![Página de definições de serviço](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-
-6. Na página de definições do serviço, na parte inferior do ecrã, clique em **Ir para o portal**. Uma nova página é aberta.
-7. Selecione **Transferências**.
-8. Clique na ligação **Transferir** e guarde o instalador.
-
-   ![Transferir o Servidor MFA](./media/multi-factor-authentication-get-started-server/download4.png)
-
-9. Mantenha esta página aberta, uma vez que iremos referi-la depois de executar o instalador.
 
 ## <a name="install-and-configure-the-mfa-server"></a>Instalar e configurar o Servidor MFA
 

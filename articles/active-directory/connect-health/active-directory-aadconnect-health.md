@@ -4,7 +4,7 @@ description: "Esta é a página do Azure AD Connect Health que descreve o que é
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: 82798ea6-5cd3-4f30-93ae-d56536f8d8e3
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 24552ef153f5aa601b2998129a7bbacc8f9da6bf
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Monitorizar a infraestrutura de identidade no local e os serviços de sincronização na nuvem
 O Azure Active Directory (Azure AD) Connect Health ajuda a monitorizar e a obter informações sobre a sua infraestrutura de identidade no local, bem como sobre os serviços de sincronização. Permite-lhe manter uma ligação fiável ao Office 365 e aos Microsoft Online Services ao fornecer capacidades de monitorização para os componentes de identidade chave, como servidores de Serviços de Federação do Active Directory (AD FS), servidores do Azure AD Connect (também conhecido como Motor de Sincronização), controladores de domínio do Active Directory, etc. Torna também facilmente acessíveis os pontos de dados chave sobre estes componentes, para que possa obter informações sobre a utilização e outras informações importantes para tomar decisões informadas.

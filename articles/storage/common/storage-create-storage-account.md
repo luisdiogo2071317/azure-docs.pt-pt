@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6e20cf37f039f6bec32aee712a4d3c564d54cfc6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Acerca das contas do Storage do Azure
 
@@ -99,7 +99,7 @@ Depois de criar a sua conta do Storage, pode modificar a respetiva configuraçã
 
 A alteração da opção de replicação irá alterar também os preços que lhe são cobrados. Para obter mais detalhes, consulte a página [Preços do Storage do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Para as contas do Blob Storage, a alteração da camada de acesso poderá resultar em encargos adicionais, para além de alterar os seus preços. Consulte [Contas do Blob Storage – Preços e Faturação](../blobs/storage-blob-storage-tiers.md#pricing-and-billing) para obter mais detalhes.
+Para as contas do Blob Storage, a alteração da camada de acesso poderá resultar em encargos adicionais, para além de alterar os seus preços. Consulte [Contas do Blob Storage – Preços e Faturação](../blobs/storage-account-options.md#pricing-and-billing) para obter mais detalhes.
 
 ### <a name="manage-your-storage-access-keys"></a>Gerir as chaves de acesso ao armazenamento
 Quando cria uma conta do Storage, o Azure gera duas chaves de acesso ao armazenamento de 512 bits, que são utilizadas para autenticação quando a conta do Storage é acedida. Ao fornecer duas chaves de acesso ao armazenamento, o Azure permite que volte a gerar as chaves sem quaisquer interrupções ao seu serviço de armazenamento ou ao acesso a esse serviço.
