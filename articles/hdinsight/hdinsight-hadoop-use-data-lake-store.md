@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: jgao
-ms.openlocfilehash: e139db13cf943723a498158870627fd66cdd6e0f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ff9bf262fecd7307a1150dd6ea59f0f7c4b87258
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Utilizar o Data Lake Store com clusters do Azure HDInsight
 
@@ -51,7 +51,6 @@ A partir de agora, apenas alguns tipos/versões de clusters do HDInsight suporta
 | HDInsight versão 3.4 | Não | Sim | |
 | HDInsight versão 3.3 | Não | Não | |
 | HDInsight versão 3.2 | Não | Sim | |
-| HDInsight Premium (escalão)| Não | Não | |
 | Storm | | |Pode utilizar o Data Lake Store para escrever dados de uma topologia Storm. Também pode utilizar o Data Lake Store para dados de referência que podem então ser lidos por uma topologia Storm.|
 
 A utilização do Data Lake Store como uma conta de armazenamento adicional não afeta o desempenho ou a capacidade de leitura ou escrita no armazenamento do Azure a partir do cluster.
@@ -139,7 +138,7 @@ Utilize as hiperligações seguintes para obter instruções detalhadas sobre co
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a utilizar o Azure Data Lake Store compatível com HDFS, através do HDInsight. Isto permite-lhe criar soluções de aquisição de dados para arquivo de longo prazo dimensionáveis e utilizar o HDInsight para aceder às informações contidas nos dados estruturados e não estruturados armazenados.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Get started with Azure HDInsight (Introdução ao Azure HDInsight)][hdinsight-get-started]
 * [Introdução ao Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)

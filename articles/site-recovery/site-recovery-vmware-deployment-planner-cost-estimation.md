@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 62308b4ab6c9aedf2f7f7e5a40ff476cce171988
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 36309eb85244435a853013448c83d125420c001c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custos do Planeador de Implementações do Azure Site Recovery  
+# <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custos do planeador de implementações do Azure Site Recovery  
 
 O relatório do Planeador de Implementações fornece o resumo da estimativa de custos em folhas de [Recomendações](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) e a análise detalhada de custos na folha Estimativa de Custos. Inclui a análise detalhada de custos por VM. 
 
@@ -38,9 +38,9 @@ Pode ver o custo mensalmente ou anualmente. Saiba mais sobre as [regiões de des
 
 **Custo por estados** O custo total da recuperação após desastre (DR) é baseado em categorias em dois estados diferentes - Replicação e exploração de DR. 
 
-**Custo de replicação**: O custo que será incorrido durante a replicação. Abrange o custo de armazenamento, rede e licença do Azure Site Recovery. 
+**Custo de replicação**: o custo que será incorrido durante a replicação. Abrange o custo de armazenamento, rede e licença do Azure Site Recovery. 
 
-**Custo de Exploração de DR**: O custo que será incorrido durante as ativações pós-falha de teste. O Azure Site Recovery acelera as VMS durante a ativação pós-falha de teste. O custo de exploração da DR abrange o custo de armazenamento e computação das máquinas virtuais em execução. 
+**Custo de Exploração de DR**: o custo que será incorrido durante as ativações pós-falha de teste. O Azure Site Recovery acelera as VMS durante a ativação pós-falha de teste. O custo de exploração da DR abrange o custo de armazenamento e computação das máquinas virtuais em execução. 
 
 **Custo de armazenamento do Azure por Mês/Ano** Mostra o custo total de armazenamento que será incorrido para armazenamento premium e standard para a replicação e exploração de DR.
 
@@ -166,4 +166,4 @@ O Planeador de Implementações do Azure Site Recovery pode gerar o relatório d
 |TRY|Lira Turca (TL)||USD| Dólar Norte-Americano ($)||ZAR|Rand da África do Sul (R)|
 
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre como proteger [VMs de VMware para o Azure com o Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-vmware-to-azure).
+Saiba mais sobre como proteger [VMs de VMware para o Azure com o Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure).

@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 3c56719d99a5a3cc3e650b72ecd2e92438533448
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Java
 
@@ -30,7 +30,7 @@ Para concluir este guia de início rápido:
 - Instale o [Eclipse IDE for Java EE Developers gratuito](http://www.eclipse.org/downloads/). Este início rápido utiliza o Eclipse Oxygen (4.7)
 - Irá precisar de uma Subscrição do Azure e de um Projeto Web Dinâmico Java existente
  
-Se não tiver um Projeto Web Dinâmico Java, pode criar um com o [Início rápido Criar uma aplicação Web Java](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java).
+Se não tiver um Projeto Web Dinâmico Java, pode criar um com o [Início rápido Criar uma aplicação Web Java](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -138,4 +138,4 @@ Se quiser continuar a trabalhar com inícios rápidos subsequentes ou com os tut
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Encontrar e diagnosticar problemas de desempenho](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Encontrar e diagnosticar problemas de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

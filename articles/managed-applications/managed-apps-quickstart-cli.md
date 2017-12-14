@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 10/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: e104778db445d078ffca7a9ddb9d28fc84a93c81
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 062e6b4d9edd9ca9220b8d11336f1a3ff544a1dd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Criar e implementar uma aplicação gerida do Azure com a CLI do Azure
 
@@ -121,5 +121,4 @@ Após a conclusão da implementação, vai ver que a aplicação gerida é criad
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
 * Para obter exemplos dos ficheiros, veja [Managed application samples](https://github.com/Azure/azure-managedapp-samples/tree/master/samples) (Exemplos de aplicações geridas).
-* Para obter informações sobre a publicação de aplicações geridas no Azure Marketplace, veja [Criar aplicação do Marketplace](publish-marketplace-app.md).
 * Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, veja [Introdução a CreateUiDefinition](create-uidefinition-overview.md).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa55df0c4d5291834035ea5cae58fa3d75de7e02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Encriptar uma Máquina Virtual do Azure
 O Centro de Segurança do Azure alerta-o se tiver máquinas virtuais que não estão encriptadas. Estes alertas serão apresentados como de Gravidade Alta e a recomendação é de encriptar estas máquinas virtuais.
@@ -26,7 +26,7 @@ O Centro de Segurança do Azure alerta-o se tiver máquinas virtuais que não es
 ![Recomendação de encriptação de disco](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> As informações neste documento aplicam-se à encriptação de máquinas virtuais sem utilizar uma Chave de Encriptação de Chave (que é necessária para criar cópias de máquinas virtuais utilizando o Azure Backup). Veja o artigo [Azure Disk Encryption para Máquinas Virtuais do Azure Windows e Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) para obter informações sobre como utilizar uma Chave de Encriptação de Chave para suportar o Azure Backup para Máquinas Virtuais do Azure encriptadas.
+> As informações neste documento aplicam-se à encriptação de máquinas virtuais sem utilizar uma Chave de Encriptação de Chave (que é necessária para criar cópias de máquinas virtuais utilizando o Azure Backup). Veja o artigo [Azure Disk Encryption para Máquinas Virtuais do Azure Windows e Linux](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) para obter informações sobre como utilizar uma Chave de Encriptação de Chave para suportar o Azure Backup para Máquinas Virtuais do Azure encriptadas.
 >
 >
 

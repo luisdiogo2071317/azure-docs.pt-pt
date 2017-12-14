@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2017
 ms.author: ramical
-ms.openlocfilehash: 38c240ed1608b2e99bde78f3633e722f8e2fa30b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4900e47084256ad6c85886f7ba363399678da9aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Utilizar a API de Relatórios do Azure AD com certificados para obter dados
 Este artigo explica como utilizar a API de Relatórios do Azure AD com credenciais de certificados para obter dados de diretórios sem intervenção do utilizador. 
@@ -89,7 +89,7 @@ Agora, pode criar o script. Segue-se um exemplo que utiliza o cmdlet Invoke-Azur
 Agora, está pronto para exportar para um CSV e guardar num sistema SIEM. Também pode encapsular o script numa tarefa agendada para obter dados do Azure AD a partir do seu inquilino periodicamente, sem ter de armazenar chaves de aplicação no código de origem. 
 
 ## <a name="next-steps"></a>Passos seguintes
-[The fundamentals of Azure identity management](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity) (As noções básicas da gestão de identidades do Azure)<br>
+[The fundamentals of Azure identity management](https://docs.microsoft.com/azure/active-directory/fundamentals-identity) (As noções básicas da gestão de identidades do Azure)<br>
 
 
 
