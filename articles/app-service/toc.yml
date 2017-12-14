@@ -89,6 +89,8 @@
       items:
         - name: Implementar a aplicação
           items:
+            - name: Implementar o ficheiro ZIP
+              href: app-service-deploy-zip.md
             - name: Implementar através de FTP
               href: app-service-deploy-ftp.md
             - name: Implementar através da sincronização da cloud

@@ -150,7 +150,7 @@
         - name: Rostos
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/
-        - name: Serviço Inteligente para Compreensão de Idiomas (LUIS)
+        - name: Compreensão de Idiomas (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
         - name: Análise de Texto
