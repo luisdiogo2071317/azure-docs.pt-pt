@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: yurid
-ms.openlocfilehash: 0e0a0ce5c0795cec0e47cd5f729099f4762381a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d61bf2af5eb7ca5d1da1aac406f4b8fe55c7f75b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de Resolução de Problemas do Centro de Segurança do Azure
 Este guia destina-se a profissionais de tecnologias da informação (TI), analistas de segurança de informações e administradores da cloud cujas organizações utilizam o Centro de Segurança do Azure e que precisam de resolver problemas relacionados com o Centro de Segurança.
@@ -66,7 +66,7 @@ Existem dois cenários de instalação que podem produzir resultados diferentes 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Requisitos de resolução de problemas de rede do agente de monitorização
 Para os agentes se ligarem e registarem no Centro de Segurança, precisam de ter acesso aos recursos de rede, incluindo os números de porta e os URLs de domínio.
 
-- Para servidores proxy, tem de assegurar que os recursos do servidor proxy apropriados estão configurados nas definições do agente. Leia este artigo para obter mais informações sobre [como alterar as definições de proxy](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
+- Para servidores proxy, tem de assegurar que os recursos do servidor proxy apropriados estão configurados nas definições do agente. Leia este artigo para obter mais informações sobre [como alterar as definições de proxy](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
 - Para as firewalls que restringem o acesso à Internet, tem de configurar a firewall para permitir o acesso ao OMS. Não é necessária nenhuma ação nas definições do agente.
 
 A tabela seguinte mostra os recursos necessários para a comunicação.

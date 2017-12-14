@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
-ms.openlocfilehash: 5bd5952a72b3511eecf3d336e7740578338ba18b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 832a859e70e382eb2eeb41560d1b880f7b87de53
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introdução ao Azure Data Lake Analytics com o Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -29,12 +29,12 @@ Saiba como utilizar o Azure PowerShell para criar contas do Azure Data Lake Anal
 
 Antes de começar este tutorial, tem de ter as seguintes informações:
 
-* **Uma conta do Azure Data Lake Analytics**. Consulte [Introdução ao Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
+* **Uma conta do Azure Data Lake Analytics**. Consulte [Introdução ao Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
 * **Uma estação de trabalho com o Azure PowerShell**. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Este tutorial pressupõe que já esteja familiarizado com a utilização do Azure PowerShell. Em especial, precisa de saber como iniciar sessão no Azure. Se precisar de ajuda, consulte [Get started with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps) (Introdução ao Azure PowerShell).
+Este tutorial pressupõe que já esteja familiarizado com a utilização do Azure PowerShell. Em especial, precisa de saber como iniciar sessão no Azure. Se precisar de ajuda, consulte [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introdução ao Azure PowerShell).
 
 Iniciar sessão com um nome de subscrição:
 

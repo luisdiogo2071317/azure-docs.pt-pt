@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integrar o System Center Configuration Manager com a Gestão de Atualizações do OMS
 
@@ -41,7 +41,7 @@ A forma de gerir os clientes alojados no IaaS do Azure com o seu ambiente existe
 
 Se pretender continuar a gerir implementações de atualizações a partir do Configuration Manager, execute os passos seguintes.  O OMS liga ao Configuration Manager para aplicar atualizações aos computadores cliente ligados à sua área de trabalho do Log Analytics. O conteúdo da atualização está disponível na cache do computador cliente como se a implementação fosse gerida pelo Configuration Manager.  
 
-1. Crie uma implementação de atualização de software a partir do site de nível superior na hierarquia do Configuration Manager com o processo descrito em [Implementar o processo de atualização de software](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  A única definição que tem de ser configurada de forma diferente de uma implementação padrão é a opção **Não instalar atualizações de software** para controlar o comportamento de transferência do pacote de implementação. Este comportamento é gerido pela solução de Gestão de Atualizações do OMS através da criação de uma implementação de atualização agendada no passo seguinte.  
+1. Crie uma implementação de atualização de software a partir do site de nível superior na hierarquia do Configuration Manager com o processo descrito em [Implementar o processo de atualização de software](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates).  A única definição que tem de ser configurada de forma diferente de uma implementação padrão é a opção **Não instalar atualizações de software** para controlar o comportamento de transferência do pacote de implementação. Este comportamento é gerido pela solução de Gestão de Atualizações do OMS através da criação de uma implementação de atualização agendada no passo seguinte.  
 
 1. No portal do OMS, abra o dashboard Gestão de Atualizações.  Crie uma nova implementação, seguindo os passos descritos na secção [Criar uma Implementação de Atualização](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) e selecione a coleção do Configuration Manager adequada representada como um grupo de computadores do OMS na lista pendente.  Tenha em consideração os seguintes pontos importantes:
     1. Se uma janela de manutenção estiver definida na coleção de dispositivos selecionada do Configuration Manager, os membros da coleção honram-na em vez da definição **Duração** especificada na implementação agendada no OMS.

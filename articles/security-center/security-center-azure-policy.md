@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrar políticas de segurança do Centro de Segurança no Azure Policy
 Este artigo ajuda-o a configurar políticas de segurança do Centro de Segurança do Azure, que têm tecnologia Azure Policy. 
@@ -30,7 +30,7 @@ O Centro de Segurança cria automaticamente uma política de segurança predefin
 * Monitorizar a conformidade com a política.
 
 > [!NOTE]
-> O Azure Policy está em pré-visualização limitada. Para aderir, aceda a [Sign up for Azure Policy (Inscrever-se no Azure Policy)](https://aka.ms/getpolicy). Para obter mais informações sobre o Azure Policy, veja [Criar e gerir políticas para impor a conformidade](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
+> O Azure Policy está em pré-visualização limitada. Para aderir, aceda a [Sign up for Azure Policy (Inscrever-se no Azure Policy)](https://aka.ms/getpolicy). Para obter mais informações sobre o Azure Policy, veja [Criar e gerir políticas para impor a conformidade](http://docs.microsoft.com/azure/azure-policy/create-manage-policy).
 
 ## <a name="edit-security-policies"></a>Editar as políticas de segurança
 Pode editar a política de segurança predefinida para cada uma das suas subscrições do Azure no Centro de Segurança. Para modificar uma política de segurança, tem de ser proprietário, contribuidor ou administrador de segurança dessa subscrição ou do grupo de gestão que a contém. Para ver as suas políticas de segurança no Centro de Segurança, faça o seguinte:

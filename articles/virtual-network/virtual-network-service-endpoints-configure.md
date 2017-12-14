@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 9c953e697d5d1c6e53df8eaf72c4e4fbd83ca286
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurar Pontos Finais do Serviço de Rede Virtual
 
@@ -385,7 +385,7 @@ Os pontos finais de serviço podem ser configurados de forma independente por um
 
 Para obter os recursos de serviço do Azure para uma VNet, o utilizador tem de ter permissão para "Microsoft.Network/JoinServicetoaSubnet" para as sub-redes que estão a ser adicionadas. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
 
-Saiba mais sobre [funções incorporadas](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) e a atribuição de permissões específicas a [funções personalizadas](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles).
+Saiba mais sobre [funções incorporadas](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) e a atribuição de permissões específicas a [funções personalizadas](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
 As VNets e os recursos de serviço do Azure podem pertencer às mesmas subscrições ou a subscrições diferentes. Se pertencerem a subscrições diferentes, os recursos devem existir abaixo do inquilino do Active Directory (AD) aquando desta pré-visualização.
 

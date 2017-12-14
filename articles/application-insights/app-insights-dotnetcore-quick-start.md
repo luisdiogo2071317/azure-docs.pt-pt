@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 558c3c65a811a228f9d8ecae7ce41798ac8178c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065638c1d724865f45b0c1e2691041848f90ad00
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
@@ -32,7 +32,7 @@ Para concluir este guia de início rápido:
 - [Instale o SDK .NET Core 2.0](https://www.microsoft.com/net/core)
 - Irá precisar de uma subscrição do Azure e de uma aplicação Web .NET Core existente.
 
-Se não tiver uma aplicação Web ASP.NET Core, pode criar uma ao seguir o [Guia de Criação de uma Aplicação Web ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+Se não tiver uma aplicação Web ASP.NET Core, pode criar uma ao seguir o [Guia de Criação de uma Aplicação Web ASP.NET Core](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -126,4 +126,4 @@ Se quiser continuar a trabalhar com inícios rápidos subsequentes ou com os tut
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Encontrar e diagnosticar exceções de runtime](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [Encontrar e diagnosticar exceções de runtime](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)
