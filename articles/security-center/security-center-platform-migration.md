@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migração da plataforma do centro de segurança do Azure
 
@@ -36,7 +36,7 @@ O centro de segurança utiliza o agente de monitorização da Microsoft – é o
 
 ## <a name="agent"></a>Agente
 
-Como parte da transição, o agente de monitorização da Microsoft (para [Windows](../log-analytics/log-analytics-windows-agents.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md)) é instalado em todas as VM do Azure, nas quais os dados estão a ser recolhidos no momento.  Se a VM já tiver instalado o agente de monitorização da Microsoft, o centro de segurança irá tirar partido do agente atualmente instalado.
+Como parte da transição, o agente de monitorização da Microsoft (para [Windows](../log-analytics/log-analytics-windows-agent.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md)) é instalado em todas as VM do Azure, nas quais os dados estão a ser recolhidos no momento.  Se a VM já tiver instalado o agente de monitorização da Microsoft, o centro de segurança irá tirar partido do agente atualmente instalado.
 
 Durante um período de tempo (normalmente de alguns dias), os dois agentes serão executados lado a lado para garantir uma transição suave e sem qualquer perda de dados. Isto permitirá que a Microsoft confirme se o novo pipeline de dados está a funcionar antes de interromper a utilização do pipeline atual. Depois dessa confirmação, o agente de monitorização do Azure será removido das suas VM. Não é necessário qualquer trabalho da sua parte. Receberá um e-mail quando todos os clientes tiverem sido migrados.
  

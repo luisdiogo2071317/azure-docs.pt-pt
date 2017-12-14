@@ -60,9 +60,8 @@
 - name: Conceitos
   items:
     - name: Funcionalidades do serviço
+      href: sql-database-servers-databases.md
       items:
-        - name: Descrição geral
-          href: sql-database-servers-databases.md
         - name: Escalões de serviço
           href: sql-database-service-tiers.md
         - name: Limites de recursos
@@ -106,9 +105,8 @@
         - name: Funcionalidades comuns do SQL Server
           href: sql-database-features.md
     - name: Segurança
+      href: sql-database-security-overview.md
       items:
-        - name: Descrição geral
-          href: sql-database-security-overview.md
         - name: Controlo de acesso
           href: sql-database-control-access.md
         - name: Azure AD
@@ -121,10 +119,11 @@
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Máscara de dados
           href: sql-database-dynamic-data-masking-get-started.md
+    - name: Elevada disponibilidade
+      href: sql-database-high-availability.md
     - name: Continuidade do negócio
+      href: sql-database-business-continuity.md
       items:
-        - name: Descrição geral
-          href: sql-database-business-continuity.md
         - name: Recuperação da base de dados
           href: sql-database-recovery-using-backups.md
         - name: Configurar a segurança
@@ -140,9 +139,8 @@
         - name: Realizar teste de recuperação
           href: sql-database-disaster-recovery-drills.md
     - name: Migrar para a Base de Dados SQL
+      href: sql-database-cloud-migrate.md
       items:
-        - name: Migrar BD do SQL Server
-          href: sql-database-cloud-migrate.md
         - name: Alterações de T-SQL
           href: sql-database-transact-sql-information.md
         - name: Gerir a base de dados após a migração
@@ -158,9 +156,8 @@
         - name: Sincronizar dados
           href: sql-database-sync-data.md
     - name: Monitorizar e ajustar
+      href: sql-database-troubleshoot-performance.md
       items:
-        - name: Descrição geral
-          href: sql-database-troubleshoot-performance.md
         - name: Monitorização de desempenho
           href: sql-database-single-database-monitor.md
         - name: Recomendações de desempenho
@@ -180,9 +177,8 @@
         - name: Monitorizar dentro da memória
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Aumentar horizontalmente
+      href: sql-database-elastic-scale-introduction.md
       items:
-        - name: Descrição geral
-          href: sql-database-elastic-scale-introduction.md
         - name: Mapas de partições horizontais
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Encaminhamento da consulta
@@ -220,9 +216,8 @@
         - name: Configurar Dentro da Memória
           href: sql-database-in-memory-oltp-migration.md
     - name: Programar aplicações
+      href: sql-database-develop-overview.md
       items:
-        - name: Descrição geral
-          href: sql-database-develop-overview.md
         - name: Conectividade
           href: sql-database-libraries.md
         - name: Autenticar aplicação

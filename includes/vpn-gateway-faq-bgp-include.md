@@ -10,7 +10,7 @@ Sim, pode utilizar os seus próprios ASNs públicos ou privados para as suas red
 ### <a name="are-there-asns-reserved-by-azure"></a>Existem ASNs reservados pelo Azure?
 Sim, os seguintes ASNs são reservados pelo Azure para peerings internos e externos:
 
-* ASNs públicos: 8075, 8076, 12076
+* ASNs públicos: 8074, 8075, 12076
 * ASNs privados: 65515 65517, 65518, 65519, 65520
 
 Não pode especificar estes ASNs para os seus dispositivos VPN no local quando se liga a gateways de VPN do Azure.

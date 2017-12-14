@@ -3,7 +3,7 @@ title: "Introdução à autenticação na Automatização do Azure | Microsoft D
 description: "Este artigo fornece uma descrição geral da segurança de Automatização e os métodos de autenticação diferentes disponíveis para as Contas de Automatização na Automatização do Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: "segurança de automatização, automatização segura; autenticação de automatização"
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6ff47272da2fdafa4b346d62225ecdcddac5a236
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79e049d7bfe66c31c0e5854614bfbeb492d16ef3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Introdução à Autenticação na Automatização do Azure  
 A Automatização do Azure permite-lhe automatizar tarefas relativamente aos recursos no Azure, no local e outros fornecedores de serviços em nuvem, tais como os Amazon Web Services (AWS).  Para um runbook efetuar as ações necessárias, tem de ter permissões para aceder de forma segura aos recursos com os direitos mínimos necessários dentro da subscrição.

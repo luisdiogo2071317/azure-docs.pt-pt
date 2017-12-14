@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>Solução Funcionamento de Agente no OMS
 A solução Funcionamento de Agente no OMS ajuda-o a determinar que agentes não respondem e que agentes estão a submeter dados operacionais, relativamente a todos os agentes que reportam diretamente à área de trabalho do OMS ou a um grupo de gestão do System Center Operations Manager ligado ao OMS.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de implementar esta solução, confirme que tem integrados na sua área de trabalho [agentes do Windows](../log-analytics/log-analytics-windows-agents.md) que reportam à área de trabalho do OMS ou a um [grupo de gestão do Operations Manager](../log-analytics/log-analytics-om-agents.md) atualmente suportados.    
+Antes de implementar esta solução, confirme que tem integrados na sua área de trabalho [agentes do Windows](../log-analytics/log-analytics-windows-agent.md) que reportam à área de trabalho do OMS ou a um [grupo de gestão do Operations Manager](../log-analytics/log-analytics-om-agents.md) atualmente suportados.    
 
 ## <a name="solution-components"></a>Componentes da solução
 Esta solução consiste nos recursos seguintes que são adicionados à sua área de trabalho e a agentes ligados diretamente ou a grupos de gestão ligados do Operations Manager.
