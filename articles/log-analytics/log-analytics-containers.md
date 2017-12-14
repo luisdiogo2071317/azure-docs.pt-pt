@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: d200587e211758ade85b14cbeb206ebce9291f1d
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização do contentor no Log Analytics
 
@@ -52,7 +52,7 @@ A tabela seguinte descreve a orquestração de Docker e o sistema operativo de s
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Serviço<br>Recursos de infraestrutura | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Red Hat aberta<br>SHIFT | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Red Hat aberta<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autónomo) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Servidor Linux<br>(autónomo) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
@@ -113,7 +113,7 @@ Reveja o [motor de Docker no Windows](https://docs.microsoft.com/virtualization/
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalar e configurar os anfitriões de contentor do Linux
 
-Depois de instalar Docker, utilize as seguintes definições para o anfitrião de contentor para configurar o agente para utilização com o Docker. Primeiro terá do ID da área de trabalho OMS e a chave, o que pode encontrar no portal do Azure. Na área de trabalho, clique em **início rápido** > **computadores** para ver o **ID da área de trabalho** e **chave primária**.  Copie e cole-o no seu editor favorito.
+Depois de instalar Docker, utilize as seguintes definições para o anfitrião de contentor para configurar o agente para utilização com o Docker. Primeiro terá do ID da área de trabalho OMS e a chave, o que pode encontrar no portal do Azure. Na área de trabalho, clique em **início rápido** > **computadores** para ver o **ID da área de trabalho** e **chave primária**.  Copie e cole ambos no seu editor favorito.
 
 **Para todos os anfitriões de contentor de Linux, exceto CoreOS:**
 
@@ -137,7 +137,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Mudar de utilizar um agente Linux instalado para um num contentor**
 
-Se utilizar o agente diretamente instalados anteriormente e pretende utilizar em vez disso, um agente em execução num contentor, tem primeiro de remover o agente do OMS Linux. Consulte [desinstalar o agente do OMS para Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux) para compreender como desinstalar com êxito o agente.  
+Se utilizar o agente diretamente instalados anteriormente e pretende utilizar em vez disso, um agente em execução num contentor, tem primeiro de remover o agente do OMS Linux. Consulte [desinstalar o agente do OMS para Linux](log-analytics-agent-linux.md) para compreender como desinstalar com êxito o agente.  
 
 #### <a name="configure-an-oms-agent-for-docker-swarm"></a>Configurar um agente do OMS para Docker Swarm
 
@@ -515,9 +515,9 @@ Para obter mais informações sobre a configuração de daemon de Docker utiliza
 
 #### <a name="install-windows-agents"></a>Instalar agentes do Windows
 
-Para ativar a monitorização de contentor do Windows e Hyper-V, instale o Microsoft Monitoring Agent (MMA) em computadores com Windows que os anfitriões de contentor. Para computadores com Windows no seu ambiente no local, consulte [computadores Windows ligar ao Log Analytics](log-analytics-windows-agents.md). Para máquinas virtuais em execução no Azure, ligue-a utilização de análise de registos a [extensão da máquina virtual](log-analytics-azure-vm-extension.md).
+Para ativar a monitorização de contentor do Windows e Hyper-V, instale o Microsoft Monitoring Agent (MMA) em computadores com Windows que os anfitriões de contentor. Para computadores com Windows no seu ambiente no local, consulte [computadores Windows ligar ao Log Analytics](log-analytics-windows-agent.md). Para máquinas virtuais em execução no Azure, ligue-a utilização de análise de registos a [extensão da máquina virtual](log-analytics-azure-vm-extension.md).
 
-Pode monitorizar os contentores de Windows em execução no Service Fabric. No entanto, apenas [máquinas virtuais em execução no Azure](log-analytics-azure-vm-extension.md) e [computadores com Windows no seu ambiente no local](log-analytics-windows-agents.md) atualmente são suportadas para o Service Fabric.
+Pode monitorizar os contentores de Windows em execução no Service Fabric. No entanto, apenas [máquinas virtuais em execução no Azure](log-analytics-azure-vm-extension.md) e [computadores com Windows no seu ambiente no local](log-analytics-windows-agent.md) atualmente são suportadas para o Service Fabric.
 
 Pode verificar que a solução de monitorização do contentor está corretamente definida para o Windows. Para verificar se o pacote de gestão foi transferência corretamente, procure *ContainerManagement.xxx*. Os ficheiros devem estar na pasta C:\Program Files\Microsoft monitorização Agent\Agent\Health serviço State\Management pacotes.
 
@@ -534,7 +534,7 @@ A solução de monitorização do contentor recolhe diversos dados de métricas 
 Dados são recolhidos a cada três minutos pelos seguintes tipos de agente.
 
 - [Agente do OMS para Linux](log-analytics-linux-agents.md)
-- [Agente do Windows](log-analytics-windows-agents.md)
+- [Agente do Windows](log-analytics-windows-agent.md)
 - [Extensão de VM de análise do registo](log-analytics-azure-vm-extension.md)
 
 

@@ -3,7 +3,7 @@ title: "Execução do Runbook na automatização do Azure | Microsoft Docs"
 description: "Descreve os detalhes da forma como é processado um runbook na automatização do Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 22852fed184022b4eae298d6cc531fd383eff552
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: c883421c6fc79b233b2d47afde9cbe6edb909a51
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução do Runbook na automatização do Azure
 Quando inicia um runbook na automatização do Azure, é criada uma tarefa. Uma tarefa é uma instância de execução individual de um runbook. Um trabalho de automatização do Azure é atribuído para executar cada tarefa. Enquanto trabalhadores são partilhados por várias contas do Azure, a diferentes contas de automatização de tarefas estão isoladas entre si. Pode não ter controlar ao longo do que trabalho processa o pedido para a tarefa. Um único runbook pode ter várias tarefas em execução em simultâneo.  O ambiente de execução para a mesma conta de automatização de tarefas pode ser reutilizado. Ao ver a lista de runbooks no portal do Azure, lista o estado de todas as tarefas que foram iniciadas para cada runbook. Pode ver a lista de tarefas para cada runbook para poder controlar o estado de cada. Para obter uma descrição dos Estados de tarefa diferente [Estados das tarefas](#job-statuses).
@@ -39,7 +39,7 @@ A tabela seguinte descreve os diferentes Estados possíveis das tarefas.
 | Estado | Descrição |
 |:--- |:--- |
 | Concluído |A tarefa foi concluída com êxito. |
-| Com Falhas |Para [runbooks gráfico e o fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook não conseguiu compilar.  Para [runbooks de Script do PowerShell](automation-runbook-types.md), Falha ao iniciar o runbook ou a tarefa encontrou uma exceção. |
+| Falhou |Para [runbooks gráfico e o fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook não conseguiu compilar.  Para [runbooks de Script do PowerShell](automation-runbook-types.md), Falha ao iniciar o runbook ou a tarefa encontrou uma exceção. |
 | Falha ao aguardar a recursos |A tarefa falhou porque atingiu o [fração justa](#fairshare) limitar três vezes e iniciadas a partir do ponto de verificação mesmo ou desde o início do runbook cada vez. |
 | Em Fila |A tarefa está aguardar recursos num trabalho de automatização fique disponível para que as que possa ser iniciado. |
 | A Iniciar |A tarefa foi atribuída a uma função de trabalho e o sistema está a iniciá-la. |
@@ -49,7 +49,7 @@ A tabela seguinte descreve os diferentes Estados possíveis das tarefas.
 | Parada |A tarefa foi parada pelo utilizador antes de estar concluído. |
 | A Parar |O sistema está a parar a tarefa. |
 | Suspenso |A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Uma tarefa suspensa pode ser iniciada novamente e retomar a partir do último ponto de verificação ou a partir do início do runbook não tem pontos de verificação. O runbook apenas será suspenso pelo sistema quando ocorre uma exceção. Por predefinição, ErrorActionPreference está definido como **continuar**, significado que mantém a executar a tarefa de um erro. Se esta variável de preferência estiver definida como **parar**, em seguida, a tarefa suspende a um erro.  Aplica-se a [runbooks gráfico e o fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
-| A suspensão |O sistema está a tentar suspender a tarefa o pedido do utilizador. O runbook tem de atingir o próximo ponto de verificação antes de poder ser suspenso. Se já passado o último ponto de verificação, em seguida, concluir antes de poder ser suspenso.  Aplica-se a [runbooks gráfico e o fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
+| A suspender |O sistema está a tentar suspender a tarefa o pedido do utilizador. O runbook tem de atingir o próximo ponto de verificação antes de poder ser suspenso. Se já passado o último ponto de verificação, em seguida, concluir antes de poder ser suspenso.  Aplica-se a [runbooks gráfico e o fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visualizar o estado de tarefa do portal do Azure
 Pode ver um Estado de todas as tarefas de runbook resumido ou explorar detalhes de uma tarefa de runbook específico no portal do Azure ou ao configurar a integração com a sua área de trabalho de análise de registos do Microsoft Operations Management Suite (OMS) para reencaminhar o estado da tarefa de runbook e tarefa fluxos.  Para obter mais informações sobre a integração com a análise de registos do OMS, consulte [reencaminhar estado da tarefa e fluxos de trabalho da automatização para análise de registos (OMS)](automation-manage-send-joblogs-log-analytics.md).  

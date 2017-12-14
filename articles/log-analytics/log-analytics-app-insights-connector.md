@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: banders
-ms.openlocfilehash: fe6c003e095b25cf3ec3430fc68dcd399150b3ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1f543d3379b7f6a29cb57b5d41825abaacabfc3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="application-insights-connector-solution-preview-in-operations-management-suite-oms"></a>Solução de conector das informações da aplicação (pré-visualização) no Operations Management Suite (OMS)
 
@@ -39,7 +39,7 @@ Ao contrário da maioria dos outros soluções de análise de registos, não se 
 
 | Origem Ligada | Suportado | Descrição |
 | --- | --- | --- |
-| [Agentes do Windows](log-analytics-windows-agents.md) | Não | A solução não recolhe informações de agentes do Windows. |
+| [Agentes do Windows](log-analytics-windows-agent.md) | Não | A solução não recolhe informações de agentes do Windows. |
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não | A solução não recolhe informações de agentes Linux. |
 | [Grupo de gestão do SCOM](log-analytics-om-agents.md) | Não | A solução não recolhe informações de agentes num grupo de gestão do SCOM ligado. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | A solução não não as informações de recolha do armazenamento do Azure. |
@@ -187,7 +187,7 @@ Um registo com um *tipo* de *ApplicationInsights* é criada para cada tipo de da
 | isSynthetic | Indica se o pedido foi criado por um utilizador ou pelo método automatizado. = TRUE gerados pelo utilizador ou = false método automatizado |
 | SamplingRate | Percentagem de telemetria gerada pelo SDK que é enviado para o portal. Intervalo entre 0,0 e 100,0. |
 | SampledCount | 100/(SamplingRate). Por exemplo, 4 =&gt; 25% |
-| IsAuthenticated | VERDADEIRO ou FALSO |
+| IsAuthenticated | Verdadeiro ou falso |
 | OperationID | Itens que tenham a mesma operação ID são apresentadas como itens relacionados no portal. Normalmente, o ID do pedido |
 | ParentOperationID | ID da operação principal |
 | OperationName |   |

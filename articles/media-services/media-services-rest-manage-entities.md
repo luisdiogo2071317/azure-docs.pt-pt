@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: e322e79c0a11278a6a7d186cfab6b6d6c271ce1a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 645d417e22b32e6da978e8d94e67f9615100ea89
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Gestão de entidades de Media Services com REST 
 > [!div class="op_single_selector"]
@@ -41,9 +41,6 @@ Ao aceder a entidades nos Media Services, tem de definir campos de cabeçalho es
 ## <a name="connect-to-media-services"></a>Ligar aos Media Services
 
 Para obter informações sobre como ligar à API do AMS, consulte [aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Depois de ligar com êxito a https://media.windows.net, receberá um redirecionamento 301 especificando noutro URI de serviços de suporte de dados. Tem de se as chamadas subsequentes para o novo URI.
 
 ## <a name="adding-entities"></a>A adição de entidades
 Cada entidade nos serviços de suporte de dados é adicionada a um conjunto de entidades, tais como recursos, através de um pedido de POST HTTP.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 7e4cd0b455ab39db01d50943d15f7e138bbd5e4e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ff8e5ccdc7e14ed39466b4525fdbae86fdc4e9a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Criar chaves conteúdas com REST
 > [!div class="op_single_selector"]
@@ -77,9 +77,6 @@ Este artigo mostra como gerar uma chave AES, encriptar a chave e calcular a soma
 ## <a name="connect-to-media-services"></a>Ligar aos Media Services
 
 Para obter informações sobre como ligar à API do AMS, consulte [aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Depois de ligar com êxito a https://media.windows.net, receberá um redirecionamento 301 especificando noutro URI de serviços de suporte de dados. Tem de se as chamadas subsequentes para o novo URI.
 
 ## <a name="retrieve-the-protectionkeyid"></a>Obter o ProtectionKeyId
 O exemplo seguinte mostra como obter ProtectionKeyId, um thumbprint de certificado, para o certificado que tem de utilizar ao encriptar a chave de conteúdo. Execute este passo para se certificar de que já tenha o certificado adequado no seu computador.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2017
 ms.author: terrylan
-ms.openlocfilehash: 69d0c368eb11953d1a6e954990a3be10df7044f0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Migração de plataforma do Centro de segurança FAQ
 No precoce de Junho de 2017, o Centro de segurança do Azure começou a utilizar o Microsoft Monitoring Agent para recolher e armazenar dados. Para obter mais informações, consulte [migração de plataforma de centro de segurança do Azure](security-center-platform-migration.md). Estas perguntas mais frequentes respondem a dúvidas sobre a migração de plataforma.
@@ -175,7 +175,7 @@ Poderá pretender ativamente aprovisionamento automático, se o seguinte aplica-
 Após a conclusão da migração, o Centro de segurança não consegue recolher dados de segurança a VM e algumas recomendações de segurança e alertas não estão disponíveis. Se optar por, deve instalar manualmente o Microsoft Monitoring Agent. Consulte [recomendado passos quando desativar](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Quais são os passos recomendados quando desativar aprovisionamento automático fora?
-Deve instalar manualmente o Microsoft Monitoring Agent para que o Centro de segurança pode recolher dados de segurança das suas VMs e fornecer recomendações e alertas. Consulte [computadores Windows ligar para o serviço de análise de registos do Azure](../log-analytics/log-analytics-windows-agents.md) para obter orientações sobre a instalação.
+Deve instalar manualmente o Microsoft Monitoring Agent para que o Centro de segurança pode recolher dados de segurança das suas VMs e fornecer recomendações e alertas. Consulte [computadores Windows ligar para o serviço de análise de registos do Azure](../log-analytics/log-analytics-windows-agent.md) para obter orientações sobre a instalação.
 
 Pode ligar o agente para qualquer área de trabalho personalizada existente ou centro de segurança criado área de trabalho. Se uma área de trabalho personalizada não tem as soluções de 'Security' ou 'SecurityCenterFree' ativadas, terá de aplicar uma solução. Para aplicar, selecione a área de trabalho personalizada ou de subscrição e aplicar um escalão de preço através de **política de segurança – o escalão de preço** painel.
 

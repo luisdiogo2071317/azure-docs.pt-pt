@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Geração de registo e evento nível no plataforma
 
@@ -105,7 +105,7 @@ Para obter uma lista de contadores de desempenho para recolher ao utilizar o Ser
 
 Seguem-se duas formas comuns na qual pode configurar a recolha de dados de desempenho para o cluster:
 
-* Através de um agente: Esta é a forma de recolha de desempenho de uma máquina, uma vez que os agentes têm, normalmente, uma lista de possíveis métricas de desempenho que podem ser recolhidas preferencial e é um processo é relativamente fácil para escolher as métricas que pretende recolher ou alterá-los. Leia sobre [como configurar o OMS de Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) e [como configurar o agente do OMS Windows](../log-analytics/log-analytics-windows-agents.md) artigos para saber mais sobre o agente do OMS, que é um desse agente de monitorização que consegue recolher desempenho dados para as VMs do cluster e contentores implementados.
+* Através de um agente: Esta é a forma de recolha de desempenho de uma máquina, uma vez que os agentes têm, normalmente, uma lista de possíveis métricas de desempenho que podem ser recolhidas preferencial e é um processo é relativamente fácil para escolher as métricas que pretende recolher ou alterá-los. Leia sobre [como configurar o OMS de Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) e [como configurar o agente do OMS Windows](../log-analytics/log-analytics-windows-agent.md) artigos para saber mais sobre o agente do OMS, que é um desse agente de monitorização que consegue recolher desempenho dados para as VMs do cluster e contentores implementados.
 
 * Configurar diagnósticos para escrever os contadores de desempenho na tabela: para os clusters no Azure, isto significa que a alteração da configuração de diagnósticos do Azure para recolher os contadores de desempenho adequadas de VMs do cluster e, permitindo-lhe recolher estatísticas de docker se for implementar quaisquer contentores. Leia sobre como configurar [os contadores de desempenho WAD](service-fabric-diagnostics-event-aggregation-wad.md) no Service Fabric para configurar a recolha do contador de desempenho.
 

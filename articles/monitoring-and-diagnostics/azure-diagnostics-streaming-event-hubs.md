@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: 1c05bd6dc4c4d394aa043b9995de9c184e4f14c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmissão em fluxo de dados de diagnóstico do Azure no caminho de acesso frequente ao utilizar os Hubs de eventos
 Diagnóstico do Azure fornece opções flexíveis para recolher métricas e registos de máquinas de virtuais de serviços de nuvem (VMs) e transferir os resultados para o Storage do Azure. A partir de um período de tempo de Março de 2016 (SDK 2.9), pode enviar diagnósticos para origens de dados personalizados e transferir os dados de caminho frequente em segundos, utilizando [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -104,7 +104,7 @@ O sink de Event Hubs tem também de ser declarado e definido no **PrivateConfig*
 }
 ```
 
-O `SharedAccessKeyName` tem de corresponder ao valor de uma chave de assinatura de acesso partilhado (SAS) e a política que foi definida no **Event Hubs** espaço de nomes. Navegue para o dashboard de Event Hubs no [portal do Azure](https://manage.windowsazure.com), clique em de **configurar** separador e configurar uma política com o nome (por exemplo, "SendRule") que tenha *enviar* permissões. O **StorageAccount** também está declarado no **PrivateConfig**. Não é necessário para alterar os valores aqui se estiverem a funcionar. Neste exemplo, vamos deixar os valores vazio, que é um início de sessão que um recurso a jusante irá definir os valores. Por exemplo, o *Serviceconfiguration* ficheiro de configuração do ambiente define os nomes de ambiente adequadas e as chaves.  
+O `SharedAccessKeyName` tem de corresponder ao valor de uma chave de assinatura de acesso partilhado (SAS) e a política que foi definida no **Event Hubs** espaço de nomes. Navegue para o dashboard de Event Hubs no [portal do Azure](https://portal.azure.com), clique em de **configurar** separador e configurar uma política com o nome (por exemplo, "SendRule") que tenha *enviar* permissões. O **StorageAccount** também está declarado no **PrivateConfig**. Não é necessário para alterar os valores aqui se estiverem a funcionar. Neste exemplo, vamos deixar os valores vazio, que é um início de sessão que um recurso a jusante irá definir os valores. Por exemplo, o *Serviceconfiguration* ficheiro de configuração do ambiente define os nomes de ambiente adequadas e as chaves.  
 
 > [!WARNING]
 > A chave de SAS de Hubs de eventos é armazenada em texto simples no *.wadcfgx* ficheiro. Muitas vezes, esta chave é verificada para controlo de código fonte ou está disponível como um recurso no servidor de compilação, pelo que deve protegê-lo conforme apropriado. Recomendamos que utilize uma chave SAS aqui com *enviar apenas* permissões para que um utilizador mal intencionado pode escrever o hub de eventos, mas não escutar ao mesmo ou geri-lo.

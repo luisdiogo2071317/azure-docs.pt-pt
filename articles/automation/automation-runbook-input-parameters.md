@@ -3,7 +3,7 @@ title: "Parâmetros de entrada do Runbook | Microsoft Docs"
 description: "Os parâmetros de entrada do Runbook aumentam a flexibilidade de runbooks, permitindo-lhe transmitir dados para um runbook quando é iniciada. Este artigo descreve os diferentes cenários onde os parâmetros de entrada são utilizados em runbooks."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 4d3dff2c-1f55-498d-9a0e-eee497e5bedb
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-ms.openlocfilehash: e5a2afdc0dbe6171b27c11400f460eac46147f37
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 889d1ac1597bd88ae7455ac98bfdb34f4013e0de
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-input-parameters"></a>Parâmetros de entrada do runbook
 
@@ -97,7 +97,7 @@ Pode utilizar o [ **Write-Output** ](https://technet.microsoft.com/library/hh849
    | Descrição |Opcional. Descrição sobre a finalidade do parâmetro de entrada. |
    | Tipo |Opcional. O tipo de dados que é esperado para o valor do parâmetro. Tipos de parâmetros suportados são **cadeia**, **Int32**, **Int64**, **Decimal**, **booleano**,  **DateTime**, e **objeto**. Se um tipo de dados não estiver selecionado, assume como **cadeia**. |
    | Obrigatório |Opcional. Especifica se deve ser fornecido um valor para o parâmetro. Se optar por **Sim**, em seguida, tem de ser fornecido um valor quando o runbook é iniciado. Se optar por **não**, em seguida, é necessário um valor não quando o runbook é iniciado e pode ser definido um valor predefinido. |
-   | Valor predefinido |Opcional. Especifica um valor que será utilizado para o parâmetro se não for passado um valor no quando o runbook é iniciado. Pode ser definido um valor predefinido para um parâmetro que não é obrigatório. Para definir um valor predefinido, escolher **personalizada**. Este valor é utilizado, a menos que outro valor é fornecido quando o runbook é iniciado. Escolha **nenhum** se não quiser fornecer qualquer valor predefinido. |
+   | Valor Predefinido |Opcional. Especifica um valor que será utilizado para o parâmetro se não for passado um valor no quando o runbook é iniciado. Pode ser definido um valor predefinido para um parâmetro que não é obrigatório. Para definir um valor predefinido, escolher **personalizada**. Este valor é utilizado, a menos que outro valor é fornecido quando o runbook é iniciado. Escolha **nenhum** se não quiser fornecer qualquer valor predefinido. |
    
     ![Adicionar a entrada de novo](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
 4. Criar dois parâmetros com as seguintes propriedades que serão utilizadas pelo **Get-AzureRmVm** atividade:

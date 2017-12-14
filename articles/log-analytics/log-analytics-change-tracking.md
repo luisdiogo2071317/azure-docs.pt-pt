@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações de software no seu ambiente com a solução de controlo de alterações
 
@@ -32,7 +32,7 @@ Instale a solução para atualizar o tipo de agente que tenha instalado. As alte
 ## <a name="installing-and-configuring-the-solution"></a>Instalar e configurar a solução
 Utilize as seguintes informações para instalar e configurar a solução.
 
-* Tem de ter um [Windows](log-analytics-windows-agents.md), [do Operations Manager](log-analytics-om-agents.md), ou [Linux](log-analytics-linux-agents.md) agente em cada computador em que pretende monitorizar as alterações.
+* Tem de ter um [Windows](log-analytics-windows-agent.md), [do Operations Manager](log-analytics-om-agents.md), ou [Linux](log-analytics-linux-agents.md) agente em cada computador em que pretende monitorizar as alterações.
 * Adicionar a solução de controlo de alterações à sua área de trabalho do OMS do [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Em alternativa, pode adicionar a solução utilizando as informações [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md). Não é necessária nenhuma configuração adicional.
 
 ### <a name="configure-linux-files-to-track"></a>Configurar ficheiros de Linux para controlar
@@ -87,7 +87,7 @@ A solução de controlo de alterações não suporta atualmente os seguintes ite
 * Os carateres universais para o controlo de ficheiro do Windows
 * Variáveis de caminho
 * Sistemas de ficheiros de rede
-* Conteúdo do Ficheiro
+* Conteúdo do ficheiro
 
 Outras limitações:
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec66c322550ac3a7729dc1fddc8c026fb4ec1895
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimizar o seu ambiente do SQL Server com a solução de verificação de estado de funcionamento do SQL Server na análise de registos
 
@@ -52,7 +52,7 @@ Depois de acrescentar a solução e uma avaliação estiver concluída, resumo i
 
 Para efetuar a verificação de estado de funcionamento nos seus servidores do SQL Server, necessitam de um agente e a conectividade ao Log Analytics utilizando um dos seguintes métodos suportados:
 
-1. Instalar o [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) se o servidor já não é monitorizado pelo System Center 2016 - Operations Manager ou do Operations Manager 2012 R2.
+1. Instalar o [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) se o servidor já não é monitorizado pelo System Center 2016 - Operations Manager ou do Operations Manager 2012 R2.
 2. Se é monitorizado com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2 e o grupo de gestão não estiver integrado com o serviço de análise de registos, o servidor pode ser multihomed com a análise de registos para recolher dados e reencaminhá-los para o serviço e ainda ser monitorizados pelo Operations Manager.  
 3. Caso contrário, se o grupo de gestão do Operations Manager está integrado com o serviço, tem de adicionar controladores de domínio para recolha de dados pelo serviço de seguir os passos em [adicionar computadores geridos por agente](log-analytics-om-agents.md#connecting-operations-manager-to-oms) depois de ativar a solução na sua área de trabalho.  
 
@@ -164,7 +164,7 @@ Ver as avaliações de conformidade resumidos para a sua infraestrutura e, em se
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver as recomendações para uma área de foco e tomar medidas corretivas
 1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
-2. No portal do Azure, clique em **mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Iniciar análise**.
+2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 3. No painel de subscrições de análise de registos, selecione uma área de trabalho e, em seguida, clique em de **Portal do OMS** mosaico.  
 4. No **descrição geral** página, clique em de **verificação de estado de funcionamento do SQL Server** mosaico. 
 5. No **verificação do Estado de funcionamento** página, reveja as informações de resumo de uma das seguintes painéis de área de foco e, em seguida, clique num para ver as recomendações para essa área de foco.
