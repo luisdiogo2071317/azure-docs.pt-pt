@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Criar registo pesquisas na análise de registos do Azure utilizando o portal de registo de pesquisa
 
@@ -34,7 +34,7 @@ Para criar pesquisas no portal da análise avançada em vez do portal de pesquis
 Este tutorial parte do princípio de que já tem uma área de trabalho de análise de registos com pelo menos uma origem ligada que gera dados para as consultas analisar.  
 
 - Se não tiver uma área de trabalho, pode criar um livre utilizando o procedimento em [começar com uma área de trabalho de análise de registos](log-analytics-get-started.md).
-- Ligar pelo menos, um [agente do Windows](log-analytics-windows-agents.md) ou um [agente Linux](log-analytics-linux-agents.md) à área de trabalho.  
+- Ligar pelo menos, um [agente do Windows](log-analytics-windows-agent.md) ou um [agente Linux](log-analytics-linux-agents.md) à área de trabalho.  
 
 ## <a name="open-the-log-search-portal"></a>Abra o portal de registo de pesquisa
 Comece por abrir o portal de registo de pesquisa.  Pode aceder no portal do Azure ou o portal do OMS.

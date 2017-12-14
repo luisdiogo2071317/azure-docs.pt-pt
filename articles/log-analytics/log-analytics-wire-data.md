@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 3bb4c82268fe7805227c213000dc803307876fe7
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Durante a transmissão 2.0 de dados (pré-visualização) solução na análise de registos
 
@@ -58,7 +58,7 @@ Dados por fio obtém os dados do agente de dependência do Microsoft. O agente d
 
 | **Origem ligada** | **Suportado** | **Descrição** |
 | --- | --- | --- |
-| Agentes do Windows | Sim | Dados por fio analisa e recolhe dados de computadores de agente do Windows. <br><br> Para além de [agente do OMS](log-analytics-windows-agents.md), agentes Windows requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
+| Agentes do Windows | Sim | Dados por fio analisa e recolhe dados de computadores de agente do Windows. <br><br> Para além de [agente do OMS](log-analytics-windows-agent.md), agentes Windows requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
 | Agentes do Linux | Sim | Dados por fio analisa e recolhe dados de computadores de agente do Linux.<br><br> Para além de [agente do OMS](log-analytics-quick-collect-linux-computer.md), agentes Linux requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
 | Grupo de gestão do System Center Operations Manager | Sim | Dados por fio analisa e recolhe dados do Windows e Linux agentes num ligado [grupo de gestão do System Center Operations Manager](log-analytics-om-agents.md). <br><br> Não é necessária uma ligação direta do computador de agente do System Center Operations Manager para análise de registos. Dados seja reencaminhados do grupo de gestão para análise de registos. |
 | Conta de armazenamento do Azure | Não | Dados por fio recolhe dados de computadores de agente, pelo que não existem dados a partir do mesmo para recolher do armazenamento do Azure. |
@@ -208,7 +208,7 @@ O agente de dependência é instalado em computadores com o Windows através do 
 
 Utilize os seguintes passos para instalar o agente de dependência em cada computador com o Windows:
 
-1. Instalar o agente do OMS seguir os passos em [recolher dados de computadores com o Windows alojados no seu ambiente](log-analytics-windows-agents.md).
+1. Instalar o agente do OMS seguir os passos em [recolher dados de computadores com o Windows alojados no seu ambiente](log-analytics-windows-agent.md).
 2. Transferir o agente de dependência do Windows através da ligação na secção anterior e, em seguida, execute-o utilizando o seguinte comando:`InstallDependencyAgent-Windows.exe`
 3. Siga o Assistente para instalar o agente.
 4. Se o agente de dependência não conseguir iniciar, verifique os registos para obter informações de erro detalhadas. Para agentes do Windows, o diretório de registo é %Programfiles%\Microsoft Agent\logs de dependência.

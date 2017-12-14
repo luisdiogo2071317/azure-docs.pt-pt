@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: bwren
-ms.openlocfilehash: 4a394ead09794c52e92dbd2db8be8166d1fab83b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>Solução de gestão de alerta no Operations Management Suite (OMS)
 
@@ -49,7 +49,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 | Origem Ligada | Suporte | Descrição |
 |:--- |:--- |:--- |
-| [Agentes do Windows](log-analytics-windows-agents.md) | Não |Agentes diretos do Windows não gerar alertas.  É possível criar alertas de análise do registo de eventos e dados de desempenho recolhidos a partir do Windows, os agentes. |
+| [Agentes do Windows](log-analytics-windows-agent.md) | Não |Agentes diretos do Windows não gerar alertas.  É possível criar alertas de análise do registo de eventos e dados de desempenho recolhidos a partir do Windows, os agentes. |
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não |Diretos agentes Linux não gerar alertas.  Alertas de análise do registo podem ser criadas de eventos e os dados de desempenho recolhidas de agentes Linux.  Alertas da Nagios e da Zabbix são recolhidas a partir desses servidores que requerem o agente Linux. |
 | [Grupo de gestão do System Center Operations Manager](log-analytics-om-agents.md) |Sim |Alertas que são gerados agentes do Operations Manager são fornecidos para o grupo de gestão e, em seguida, reencaminhados para a análise de registos.<br><br>Não é necessária uma ligação direta de agentes do Operations Manager para análise de registos. Dados de alerta são reencaminhados do grupo de gestão para o repositório de análise de registos. |
 

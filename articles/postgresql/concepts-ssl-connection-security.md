@@ -10,14 +10,14 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 3173964f0315559b0839fd7e659f8f3bd2c30b2a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurar a conectividade SSL na base de dados do Azure para PostgreSQL
-Base de dados do Azure para PostgreSQL prefers ligar as aplicações de cliente para o serviço de PostgreSQL utilizando Secure Sockets Layer (SSL). Imposição de ligações de SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man no meio" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
+Base de dados do Azure para PostgreSQL prefers ligar as aplicações de cliente para o serviço de PostgreSQL utilizando Secure Sockets Layer (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
 
 Por predefinição, o serviço de base de dados PostgreSQL está configurado para exigir a ligação SSL. Opcionalmente, pode desativar exigir o SSL ligar ao seu serviço de base de dados se a aplicação de cliente não suporta a conectividade SSL. 
 
@@ -110,10 +110,6 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Ligar à base de dados do Azure para PostgreSQL com autenticação de certificado SSL
 Agora que tem de descodificar com êxito o certificado, pode agora ligar ao seu servidor de base de dados em segurança através de SSL. Para permitir a verificação de certificado de servidor, o certificado tem de ser colocado numa ~/.postgresql/root.crt ficheiro no diretório raiz do utilizador. (No Microsoft Windows o ficheiro é denominado % APPDATA%\postgresql\root.crt.). O seguinte fornece instruções para ligar à base de dados do Azure para PostgreSQL.
-
-> [!NOTE]
-> Atualmente, não há um problema conhecido se utilizar "sslmode = completo verificar" na sua ligação ao serviço, a ligação irá falhar com o seguinte erro: _certificado de servidor para "&lt;região&gt;. Control.Database.Windows.NET"(e 7 outros nomes) não corresponde ao nome de anfitrião"&lt;servername&gt;. postgres.database.azure.com "._
-> Se "sslmode = completo Certifique-se de" é necessário, utilize a Convenção de nomenclatura de servidor  **&lt;servername&gt;. database.windows.net** como o nome do anfitrião da cadeia de ligação. Planeamos remover esta limitação no futuro. Ligações utilizando outros [modos SSL](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) deve continuar a utilizar a Convenção de nomenclatura de anfitrião preferencial  **&lt;servername&gt;. postgres.database.azure.com**.
 
 #### <a name="using-psql-command-line-utility"></a>Utilizar o utilitário de linha de comandos psql
 O exemplo seguinte mostra como ligar com êxito ao servidor utilizando o utilitário de linha de comandos psql PostgreSQL. Utilize o `root.crt` ficheiro criado e a `sslmode=verify-ca` ou `sslmode=verify-full` opção.

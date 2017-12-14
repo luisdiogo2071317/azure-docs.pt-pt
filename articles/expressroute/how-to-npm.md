@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurar o Monitor de desempenho de rede para o ExpressRoute (pré-visualização)
 
@@ -109,7 +109,7 @@ Se já estiver a utilizar o Monitor de desempenho de rede para monitorizar os ou
 Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação ExpressRoute (ou seja, no local, as VNETs do Azure) para redundância. Utilize os seguintes passos para instalar agentes:
 
 1. Executar **configuração** para instalar o agente em cada servidor que pretende utilizar para a monitorização do ExpressRoute. O servidor que utiliza para a monitorização pode ser uma VM ou no local e tem de ter acesso à Internet. Terá de instalar pelo menos um agente no local e um agente em cada segmento de rede que pretende monitorizar no Azure.
-2. No **boas-vindas** página, clique em **seguinte**.
+2. Na página **Bem-vindo**, clique em **Seguinte**.
 3. No **termos de licenciamento** página, leia a licença e, em seguida, clique em **concordo**.
 4. No **pasta de destino** página, altere ou mantenha a pasta de instalação predefinida e, em seguida, clique em **seguinte**.
 5. No **opções de configuração do agente** página, pode optar por ligar o agente à análise de registos do Azure (OMS) ou o Operations Manager. Em alternativa, pode deixar as escolhas em branco se pretender configurar o agente mais tarde. Depois de efetuar o selection(s), clique em **seguinte**.
@@ -124,12 +124,12 @@ Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação Exp
 
     ![Conta](.\media\how-to-npm\10.png)
 6. No **pronto para instalar** página, reveja as suas opções e, em seguida, clique em **instalar**.
-7. No **configuração concluída com sucesso** página, clique em **concluir**.
+7. Na página **Configuração Concluída com Êxito**, clique em **Concluir**.
 8. Quando terminar, o Microsoft Monitoring Agent é apresentado no painel de controlo. Pode rever a configuração não existe e certifique-se de que o agente está ligado ao Operational Insights (OMS). Quando estiver ligado à OMS, o agente apresenta uma mensagem a indicar: **o Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite**.
 
 ### <a name="proxy"></a>2.3: Configurar definições de proxy (opcionais)
 
-Se estiver a utilizar um proxy web para aceder à Internet, utilize os seguintes passos para configurar definições de proxy para o Microsoft Monitoring Agent. Execute estes passos para cada servidor. Se tiver vários servidores que necessita configurar, poderá considerar mais fácil utilizar um script para automatizar este processo. Se Sim, consulte [para configurar definições de proxy para o Microsoft Monitoring Agent utilizando um script](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Se estiver a utilizar um proxy web para aceder à Internet, utilize os seguintes passos para configurar definições de proxy para o Microsoft Monitoring Agent. Execute estes passos para cada servidor. Se tiver vários servidores que necessita configurar, poderá considerar mais fácil utilizar um script para automatizar este processo. Se Sim, consulte [para configurar definições de proxy para o Microsoft Monitoring Agent utilizando um script](../log-analytics/log-analytics-windows-agent.md).
 
 Para configurar definições de proxy para o Microsoft Monitoring Agent através do painel de controlo:
 
@@ -200,7 +200,7 @@ Depois de concluir as secções anteriores e certifique-se de que foram na lista
   ![configuração de funcionalidade](.\media\how-to-npm\npm2.png)
 3. Na página de configuração, navegue até ao separador 'ExpressRoute Peerings', localizado no painel do lado esquerdo. Clique em **detetar agora**.
 
-  ![Detetar](.\media\how-to-npm\13.png)
+  ![detetar](.\media\how-to-npm\13.png)
 4. Quando tiver concluído a deteção, consulte as regras para o nome exclusivo do circuito e nome da VNet. Inicialmente, estas regras estão desativadas. Ative as regras de, em seguida, selecione os agentes de monitorização e os valores de limiar.
 
   ![regras](.\media\how-to-npm\14.png)

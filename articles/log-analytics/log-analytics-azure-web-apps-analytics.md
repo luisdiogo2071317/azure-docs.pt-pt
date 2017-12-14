@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Ver dados analíticos métricas em todos os recursos de aplicação Web do Azure
 
@@ -39,7 +39,7 @@ Ao contrário da maioria dos outros soluções de análise de registos, os dados
 
 | Origem Ligada | Suportado | Descrição |
 | --- | --- | --- |
-| [Agentes do Windows](log-analytics-windows-agents.md) | Não | A solução não recolhe informações de agentes do Windows. |
+| [Agentes do Windows](log-analytics-windows-agent.md) | Não | A solução não recolhe informações de agentes do Windows. |
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não | A solução não recolhe informações de agentes Linux. |
 | [Grupo de gestão do SCOM](log-analytics-om-agents.md) | Não | A solução não recolhe informações de agentes num grupo de gestão do SCOM ligado. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | A solução não não as informações de recolha do armazenamento do Azure. |
@@ -58,8 +58,8 @@ Execute os seguintes passos para configurar a solução de análise de aplicaç�
 A solução de análise de aplicações Web do Azure recolhe dois conjuntos de métricas do Azure:
 
 - Métricas de Web Apps do Azure
-  - Memória média conjunto de trabalho
-  - Tempo de resposta médio
+  - Média da Memória do Conjunto de Trabalho
+  - Tempo de Resposta Médio
   - Bytes recebidos/enviados
   - Tempo de CPU
   - Pedidos
@@ -70,7 +70,7 @@ A solução de análise de aplicações Web do Azure recolhe dois conjuntos de m
   - Percentagem de CPU
   - Comprimento da fila de disco
   - Comprimento da fila de HTTP
-  - Percentagem de memória
+  - Percentagem de Memória
 
 Métricas de plano do App Service apenas são recolhidas se estiver a utilizar um plano de serviço dedicada. Isto não se aplica a planos de serviço de aplicações gratuitos ou partilhados.
 

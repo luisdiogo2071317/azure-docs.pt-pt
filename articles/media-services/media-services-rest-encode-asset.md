@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: c7650fe4e10b9dcfe6068152398922723587a658
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a58cf1402d31538cb4d9753a66846f683839810c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um elemento com o codificador de multimédia Standard
 > [!div class="op_single_selector"]
@@ -57,8 +57,6 @@ Para obter informações sobre como ligar à API do AMS, consulte [aceder à API
 > Quando estiver a trabalhar com a API de REST de serviços de suporte de dados, aplicam as seguintes considerações:
 >
 > Ao aceder a entidades nos Media Services, tem de definir campos de cabeçalho específicos e os valores no seus pedidos HTTP. Para obter mais informações, consulte [programa de configuração para o desenvolvimento de API de REST dos serviços de suporte de dados](media-services-rest-how-to-use.md).
->
-> Depois de ligar com êxito a https://media.windows.net, receberá um redirecionamento 301 especificando noutro URI de serviços de suporte de dados. Tem de se as chamadas subsequentes para o novo URI. Para obter informações sobre como ligar à API do AMS, consulte [aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 >
 > Quando utilizando JSON e especificando a utilizar o **METADATA** palavra-chave no pedido (por exemplo, para um objeto ligado referência), tem de definir o **aceitar** cabeçalho para [formato JSON verboso](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Aceite: application/json; odata = verboso.
 >
