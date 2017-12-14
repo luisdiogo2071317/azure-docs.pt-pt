@@ -3,7 +3,7 @@ title: "Recursos de variável na automatização do Azure | Microsoft Docs"
 description: "Recursos de variável são valores que estão disponíveis para todos os runbooks e configurações de DSC na automatização do Azure.  Este artigo explica os detalhes de variáveis e como trabalhar com os mesmos no texto e gráficos de criação."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: b880c15f-46f5-4881-8e98-e034cc5a66ec
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: d3b04dcc856d4637cf7029701a5e169d3096d15c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e642a63486317387d66a9403b8276d2e0bd38fb6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="variable-assets-in-azure-automation"></a>Recursos de variável na automatização do Azure
 
@@ -48,7 +48,7 @@ Seguem-se uma lista de variáveis tipos disponíveis na automatização:
 * Cadeia
 * Número inteiro
 * DateTime
-* Valor booleano
+* Booleano
 * Valor nulo
 
 ## <a name="scripting-the-creation-and-management-of-variables"></a>A criação e gestão das variáveis de processamento de scripts

@@ -3,7 +3,7 @@ title: "Aprendizagem de fluxo de trabalho do PowerShell para a automatização d
 description: "Este artigo destina-se como um lesson rápida para autores familiarizados com o PowerShell para compreender as diferenças entre o PowerShell e fluxo de trabalho do PowerShell e conceitos aplicáveis para runbooks de automatização específicas."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 6dce88bdd85a28ce05e1621b08a0f4b148b02627
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: caa13099b22311502f7a527e4fa017aefeee73c7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Conceitos chave do fluxo de trabalho do Windows PowerShell para runbooks de automatização de aprendizagem 
 Os Runbooks na automatização do Azure são implementados como fluxos de trabalho do Windows PowerShell.  Um fluxo de trabalho do Windows PowerShell é semelhante a um script do Windows PowerShell, mas com algumas diferenças significativas que podem ser confusas para um novo utilizador.  Embora este artigo destina-se para o ajudar a escrever runbooks com o fluxo de trabalho do PowerShell, recomendamos que escrever runbooks com o PowerShell, a menos que precisa de pontos de verificação.  Existem várias diferenças de sintaxe durante a criação de runbooks do fluxo de trabalho do PowerShell e estas diferenças requerem um pouco mais trabalho escrever fluxos de trabalho efetivos.  
@@ -198,7 +198,7 @@ O exemplo seguinte é semelhante ao anterior exemplo copiar ficheiros em paralel
 > Não recomendamos a execução de runbooks subordinados em paralelo, uma vez que tal tem foi apresentado para dar resultados pouco fiáveis.  O resultado do runbook subordinado, por vezes, não for apresentada, e definições no subordinado de um runbook podem afetar outros runbooks subordinados paralela
 >
 
-## <a name="checkpoints"></a>Pontos de verificação
+## <a name="checkpoints"></a>Pontos de Verificação
 A *ponto de verificação* é um instantâneo do estado atual do fluxo de trabalho que inclui o valor atual para variáveis e qualquer resultado gerado até esse ponto. Se um fluxo de trabalho termina no registo de erros ou está suspenso, em seguida, da próxima vez que é executado será iniciada do último ponto de verificação em vez do início do worfklow.  Pode definir um ponto de verificação num fluxo de trabalho com o **Checkpoint-Workflow** atividade.
 
 No seguinte código de exemplo, ocorre uma exceção após Activity2 causando o fluxo de trabalho terminar. Quando o fluxo de trabalho é executado novamente, começa por executar Activity2 porque foi imediatamente depois do último ponto de verificação definido.

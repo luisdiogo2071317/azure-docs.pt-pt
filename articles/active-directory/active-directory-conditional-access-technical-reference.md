@@ -1,6 +1,6 @@
 ---
-title: "Referência técnica do Azure Active Directory acesso condicional | Microsoft Docs"
-description: "Saiba como utilizar o controlo de acesso condicional no Azure Active Directory. Especifique as condições para autenticar utilizadores e controlar o acesso à sua aplicação. Quando são satisfeitas as condições especificadas, os utilizadores são autenticados e conceder acesso à sua aplicação."
+title: "Referência de definições de acesso condicional do Azure Active Directory | Microsoft Docs"
+description: "Obter uma descrição geral das definições suportadas numa política de acesso condicional do Azure Active Directory."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 871c1d222d78eccdb7e25bf22276b5f63f8f3b8f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9d9680b22864e95c5953ddac50f2179b147b1e21
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Referência técnica do Azure Active Directory acesso condicional
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
-Pode utilizar [acesso condicional do Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) para otimizar a forma como os utilizadores autorizados podem aceder aos seus recursos.   
+Pode utilizar [acesso condicional do Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) para controlar os utilizadores autorizados como pode aceder aos recursos.   
 
-Este artigo fornece informações de suporte para as seguintes opções de configuração para uma política de acesso condicional: 
+Este artigo fornece informações de suporte para as seguintes opções de configuração numa política de acesso condicional: 
 
 - Atribuições de aplicações em nuvem
 
@@ -35,6 +35,7 @@ Este artigo fornece informações de suporte para as seguintes opções de confi
 - Requisito da aplicação cliente aprovada
 
 
+Se não for as informações que procura, deixe um comentário no final deste artigo.
 
 ## <a name="cloud-apps-assignments"></a>Atribuições de aplicações em nuvem
 

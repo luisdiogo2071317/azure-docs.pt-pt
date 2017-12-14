@@ -2,26 +2,25 @@
 title: "Integração do Centro de dados do Azure pilha - identidade"
 description: Saiba como integrar a pilha do Azure AD FS com o seu centro de dados do AD FS
 services: azure-stack
-author: troettinger
+author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/20/2017
-ms.author: victorh
+ms.date: 12/12/2017
+ms.author: mabrigg
 keywords: 
-ms.openlocfilehash: c66761d44266a33ddfa1e95444355d3908186ef8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do Centro de dados do Azure pilha - identidade
 
 *Aplica-se a: Azure pilha integrado sistemas*
 
-Pilha do Azure pode ser implementada utilizando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) que os fornecedores de identidade. Esta opção têm de ser efetuada antes da implementação. A implementação através do AD FS é também referida como implementar a pilha do Azure no modo desligado.
+Pode implementar a pilha do Azure utilizando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os fornecedores de identidade. Tem de se a opção antes de implementar pilha do Azure. Implementação a utilizar o AD FS é também referida como implementar a pilha do Azure no modo desligado.
 
 A tabela seguinte mostra as diferenças entre as opções de duas identidade:
-
 
 ||Fisicamente desligada|Fisicamente ligados|
 |---------|---------|---------|
@@ -75,33 +74,36 @@ São necessárias como entradas para os parâmetros de automatização as seguin
 Opcionalmente, pode criar uma conta para o serviço de gráfico no Active Directory existente. Execute este passo se ainda não tiver uma conta que pretende utilizar.
 
 1. No Active Directory existente, crie a seguinte conta de utilizador (recomendação):
-   - Nome de utilizador: graphservice
-   - Palavra-passe: utilizar uma palavra-passe segura<br>Configure a palavra-passe nunca expirem.
+   - **Nome de utilizador**: graphservice
+   - **Palavra-passe**: utilizar uma palavra-passe segura<br>Configure a palavra-passe nunca expirem.
 
-   Não é necessária nenhum permissões especiais ou associação
+   Não é necessária nenhum permissões especiais ou associação.
 
-**Automatização de Acionador para configurar o gráfico**
+#### <a name="trigger-automation-to-configure-graph"></a>Automatização de Acionador para configurar o gráfico
 
 Para este procedimento, utilize um computador na sua rede de centro de dados que pode comunicar com o ponto final com privilégios na pilha do Azure.
 
-2. Abra uma sessão do Windows PowerShell elevada (executar como administrador) e ligar para o endereço IP do ponto final com privilégios. Utilize as credenciais para CloudAdmin para se autenticar.
+2. Abra uma sessão do Windows PowerShell elevada (executar como administrador) e ligar para o endereço IP do ponto final com privilégios. Utilizar as credenciais para **CloudAdmin** para se autenticar.
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Agora que o se estiver ligado ao ponto final com privilégios, execute os seguintes comandos. Quando lhe for pedido, especifique as credenciais da conta de utilizador que pretende utilizar para o serviço do gráfico (por exemplo, graphservice).
+3. Agora que o se estiver ligado ao ponto final com privilégios, execute o seguinte comando: 
 
-   `Register-DirectoryService -CustomADGlobalCatalog contoso.com`
+   ```powershell
+   Register-DirectoryService -CustomADGlobalCatalog contoso.com
+   ```
+
+   Quando lhe for pedido, especifique as credenciais da conta de utilizador que pretende utilizar para o serviço do gráfico (por exemplo, graphservice).
 
    > [!IMPORTANT]
    > Aguarde que as credenciais de pop-up (Get-Credential não é suportado no ponto final com privilégios) e introduza as credenciais da conta de serviço do gráfico.
 
-**Gráfico protocolos e portas**
+#### <a name="graph-protocols-and-ports"></a>Gráfico protocolos e portas
 
 Serviço de gráfico na pilha do Azure utiliza as seguintes portas e protocolos para comunicar com o destino do Active Directory:
-
 
 |Tipo|Porta|Protocolo|
 |---------|---------|---------|
@@ -114,7 +116,6 @@ Serviço de gráfico na pilha do Azure utiliza as seguintes portas e protocolos 
 
 As seguintes informações não são necessárias como entrada para os parâmetros de automatização:
 
-
 |Parâmetro|Descrição|Exemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nome do fornecedor de afirmações. <cr>Parece dessa forma, na página de destino do AD FS.|Contoso|
@@ -123,22 +124,26 @@ As seguintes informações não são necessárias como entrada para os parâmetr
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automatização de Acionador para configurar a confiança do fornecedor de afirmações na pilha do Azure
 
-Para este procedimento, utilize um computador que possa comunicar com o ponto final com privilégios na pilha do Azure. É esperado que o certificado utilizado pela conta de STS AD FS é considerado fidedigno pela pilha de Azure.
+Para este procedimento, utilize um computador que possa comunicar com o ponto final com privilégios na pilha do Azure. É esperado que o certificado utilizado pela conta **STS AD FS** é considerado fidedigno pela pilha de Azure.
 
 1. Abra uma sessão elevada do Windows PowerShell e ligue para o ponto final com privilégios.
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Agora que o se estiver ligado ao ponto final com privilégios, execute o seguinte comando utilizando os parâmetros adequados para o seu ambiente:
 
-   `Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
+   ```powershell
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+   ```
 
 3. Execute o seguinte comando para atualizar o proprietário da subscrição do fornecedor predefinida, utilizando os parâmetros adequados para o seu ambiente:
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
+   ```
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Configurar a integração do AD FS, fornecendo o ficheiro de metadados de Federação
 
@@ -161,7 +166,7 @@ Para o seguinte procedimento, tem de utilizar um computador que tenha conectivid
 
 1. Abra uma sessão elevada do Windows PowerShell e execute o seguinte comando, utilizando os parâmetros adequados para o seu ambiente:
 
-   ```
+   ```powershell
    [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
 
    $Metadata.outerxml|out-file c:\metadata.xml
@@ -176,18 +181,22 @@ Para este procedimento, utilize um computador que possa comunicar com o ponto fi
 
 1. Abra uma sessão elevada do Windows PowerShell e ligue para o ponto final com privilégios.
 
-   ```
+   ```powershell
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Agora que o se estiver ligado ao ponto final com privilégios, execute o seguinte comando utilizando os parâmetros adequados para o seu ambiente:
 
-   `Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml`
+   ```powershell
+   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
+   ```
 
 3. Execute o seguinte comando para atualizar o proprietário da subscrição do fornecedor predefinida, utilizando os parâmetros adequados para o seu ambiente:
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
+   ```
 
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Configurar a entidade confiadora na implementação do AD FS existente (conta STS)
 
@@ -199,7 +208,7 @@ Se optar por executar manualmente os comandos, siga estes passos:
 
 1. Copie o seguinte conteúdo para um ficheiro. txt (por exemplo, guardado como c:\ClaimRules.txt) no membro de instância ou farm de AD FS do seu centro de dados:
 
-   ```
+   ```text
    @RuleTemplate = "LdapClaims"
    @RuleName = "Name claim"
    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
@@ -232,28 +241,43 @@ Se optar por executar manualmente os comandos, siga estes passos:
 
 2. Para ativar a autenticação baseada em formulários do Windows, abra uma sessão do Windows PowerShell como um utilizador elevados e execute o seguinte comando:
 
-   `Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")`
+   ```powershell
+   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   ```
 
 3. Para adicionar a confiança da entidade confiadora, execute o seguinte comando do Windows PowerShell na sua instância do AD FS ou um membro de farm. Certifique-se de que atualiza o ponto final do AD FS e aponte para o ficheiro criado no passo 1.
 
    **Para o AD FS 2016**
 
-   `Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"`
+   ```powershell
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   ```
 
    **Para o AD FS 2012/2012 R2**
 
-   `Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true`
+   ```powershell
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   ```
 
    > [!IMPORTANT]
    > Tem de utilizar o snap-in MMC do AD FS para configurar as regras de autorização de emissão ao utilizar o Windows Server 2012 ou 2012 R2 AD FS.
 
 4. Quando utilizar o Internet Explorer ou o browser Edge para aceder a pilha do Azure, deve ignorar enlaces de token. Caso contrário, as tentativas de início de sessão falharem. Na sua instância do AD FS ou um membro de farm, execute o seguinte comando:
 
-   `Set-AdfsProperties -IgnoreTokenBinding $true`
+   ```powershell
+   Set-AdfsProperties -IgnoreTokenBinding $true
+   ```
+
+5. Para ativar a atualização de tokens, abra uma sessão elevada do Windows PowerShell e execute o seguinte comando:
+
+   ```powershell
+   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
+   ```
 
 ## <a name="spn-creation"></a>Criação de SPN
 
 Existem vários cenários que requerem a utilização de um nome principal de serviço (SPN) para autenticação. Seguem-se alguns exemplos:
+
 - Utilização da CLI com a implementação do AD FS da pilha do Azure
 - Pacote de gestão do System Center para o Azure pilha quando implementado com o AD FS
 - Fornecedores de recursos na pilha do Azure quando implementado com o AD FS
@@ -271,21 +295,25 @@ Se ocorrer um erro que deixa o ambiente num Estado em que já não pode autentic
 
 1. Abra uma sessão elevada do Windows PowerShell e execute os seguintes comandos:
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Em seguida, execute o seguinte cmdlet:
 
-   `Reset-DatacenterIntegationConfiguration`
+   ```powershell
+   Reset-DatacenterIntegationConfiguration
+   ```
 
-   Depois de executar a ação de reversão, todas as alterações de configuração são revertidas. É possível apenas a autenticação com o utilizador de "CloudAdmin" incorporada.
+   Depois de executar a ação de reversão, todas as alterações de configuração são revertidas. Apenas autenticação com incorporada **CloudAdmin** utilizador é possível.
 
    > [!IMPORTANT]
    > Tem de configurar o proprietário original da subscrição de fornecedor predefinido
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
+   ```
 
 ### <a name="collecting-additional-logs"></a>Recolher registos adicionais
 
@@ -293,14 +321,16 @@ Se qualquer um dos cmdlets falharem, podem recolher registos adicionais utilizan
 
 1. Abra uma sessão elevada do Windows PowerShell e execute os seguintes comandos:
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Em seguida, execute o seguinte cmdlet:
 
-   `Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE`
+   ```powershell
+   Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
+   ```
 
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: ba6dc69fa4aca8e0ee03ba97668d8b2ab1191002
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Configurar o mapa de serviço no Operations Management Suite
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode utilizá-lo para ver os servidores que acha que deles – como interligados sistemas que fornecem serviços críticos. Mapa de serviço mostra as ligações entre servidores, processos e portas em qualquer arquitetura TCP ligados sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -37,7 +37,7 @@ Mapa de serviço obtém os dados do agente de dependência do Microsoft. O agent
 
 | Origem ligada | Suportado | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados de computadores de agente do Windows. <br><br>Para além de [agente do OMS](../log-analytics/log-analytics-windows-agents.md), agentes Windows requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
+| Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados de computadores de agente do Windows. <br><br>Para além de [agente do OMS](../log-analytics/log-analytics-windows-agent.md), agentes Windows requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
 | Agentes do Linux | Sim | Mapa de serviço analisa e recolhe dados de computadores de agente do Linux. <br><br>Para além de [agente do OMS](../log-analytics/log-analytics-linux-agents.md), agentes Linux requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
 | Grupo de gestão do System Center Operations Manager | Sim | Mapa de serviço analisa e recolhe dados do Windows e Linux agentes num ligado [grupo de gestão do System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>Não é necessária uma ligação direta a partir do computador de agente do System Center Operations Manager no Operations Management Suite. Dados seja reencaminhados do grupo de gestão para o repositório do Operations Management Suite.|
 | Conta de armazenamento do Azure | Não | Mapa de serviço recolhe dados de computadores de agente, pelo que não existem dados a partir do mesmo para recolher do armazenamento do Azure. |
@@ -74,7 +74,7 @@ O agente de dependência é instalado em computadores com Windows através do In
 
 Utilize os seguintes passos para instalar o agente de dependência em cada computador do Windows:
 
-1.  Instalar o agente do OMS, utilizando as instruções apresentadas em [computadores Windows ligar para o serviço de análise de registos do Azure](../log-analytics/log-analytics-windows-agents.md).
+1.  Instalar o agente do OMS, utilizando as instruções apresentadas em [computadores Windows ligar para o serviço de análise de registos do Azure](../log-analytics/log-analytics-windows-agent.md).
 2.  Transferir o agente do Windows e execute-o utilizando o seguinte comando: <br>`InstallDependencyAgent-Windows.exe`
 3.  Siga o Assistente para instalar o agente.
 4.  Se o agente de dependência não conseguir iniciar, verifique os registos para obter informações de erro detalhadas. Nos agentes do Windows, o diretório de registo é %Programfiles%\Microsoft Agent\logs de dependência. 
@@ -388,7 +388,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 |:--|:--|
 | 10 SP4 | 2.6.16.60 |
 
-## <a name="diagnostic-and-usage-data"></a>dados de diagnóstico e utilização
+## <a name="diagnostic-and-usage-data"></a>Diagnóstico e dados de utilização
 A Microsoft recolhe automaticamente dados de utilização e desempenho através da utilização do serviço de mapa de serviço. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço de mapa de serviço. Os dados incluem informações sobre a configuração do seu software, como o sistema operativo e versão. Também inclui endereço IP, o nome DNS e o nome da estação de trabalho para fornecer capacidades de resolução de problemas exatas e eficientes. Não recolhemos nomes, moradas ou outras informações de contacto.
 
 Para obter mais informações sobre a utilização e recolha de dados, consulte o [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).

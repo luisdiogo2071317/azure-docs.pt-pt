@@ -4,7 +4,7 @@ description: "Saiba como abrir uma porta / criar um ponto final para a VM do Win
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Como abrir portas para uma máquina virtual com o portal do Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -38,7 +38,12 @@ Selecione o novo grupo de segurança de rede. Selecionar 'Segurança regras de e
 
 ![Adicionar uma regra de entrada](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Escolha um comuns **serviço** no menu pendente, tais como *HTTP*. Também pode selecionar *personalizada* para fornecer uma porta específica a utilizar. Se assim o desejar, altere a prioridade ou o nome. A prioridade afeta a ordem pela qual as regras são aplicadas - menor o valor numérico, o anteriormente a regra é aplicada. Também pode selecionar **avançadas** na parte superior deste ecrã para introduzir uma origem específica porta ou o bloco de intervalo de IP, por exemplo. Quando estiver pronto, selecione **OK** para criar a regra:
+Para criar uma regra que permite que o tráfego:
+
+- Selecione o **básico** botão. Por predefinição, o **avançadas** janela fornece algumas opções de configuração adicional, tal como para definir um intervalo de blocos ou de porta IP do específica de origem.
+- Escolha um comuns **serviço** no menu pendente, tais como *HTTP*. Também pode selecionar *personalizada* para fornecer uma porta específica a utilizar. 
+- Se assim o desejar, altere a prioridade ou o nome. A prioridade afeta a ordem pela qual as regras são aplicadas - menor o valor numérico, o anteriormente a regra é aplicada.
+- Quando estiver pronto, selecione **OK** para criar a regra:
 
 ![Criar uma regra de entrada](./media/nsg-quickstart-portal/create-inbound-rule.png)
 

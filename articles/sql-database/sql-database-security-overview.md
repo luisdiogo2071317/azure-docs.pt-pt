@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.openlocfilehash: 6ca04cf773fc337694626f21ab785baecf68858b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 14a7fdb304e90aec10bee9167817f564870cd6c1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="securing-your-sql-database"></a>Proteger a sua Base de Dados SQL
 
@@ -42,7 +42,7 @@ Para outras formas de encriptar os seus dados, considere:
 A Base de Dados SQL protege os seus dados ao limitar o acesso à base de dados com regras de firewall, mecanismos de autenticação que exigem que os utilizadores forneçam a sua identidade e autorização a dados através de permissões e associações baseadas em funções, bem como através de segurança ao nível da linha e máscara de dados dinâmicos. Para ver um debate da utilização das funcionalidades de controlo de acesso na Base de Dados SQL, veja [Controlar o acesso](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> A gestão de bases de dados e servidores lógicos no Azure é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este tópico, veja [Controlo de acesso baseado em funções no Portal do Azure](../active-directory/role-based-access-control-what-is.md).
+> A gestão de bases de dados e servidores lógicos no Azure é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este tópico, consulte [controlo de acesso baseado em funções no portal do Azure](../active-directory/role-based-access-control-what-is.md).
 >
 
 ### <a name="firewall-and-firewall-rules"></a>Firewall e regras de firewall

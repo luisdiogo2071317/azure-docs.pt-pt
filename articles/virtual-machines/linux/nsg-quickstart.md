@@ -4,7 +4,7 @@ description: "Saiba como abrir uma porta / criar um ponto final para a VM com Li
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
 ms.service: virtual-machines-linux
@@ -12,23 +12,33 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: d176187fe465264b5f433260de5178b48ca9dd4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaa3039c369057d39dfce0896b9a4d1cfad75550
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Abrir portas e os pontos finais para uma VM com Linux com a CLI do Azure
 Abrir uma porta ou criar um ponto final, para uma máquina virtual (VM) no Azure através da criação de um filtro de rede numa sub-rede ou interface de rede VM. Colocar estes filtros que controlam o tráfego de entrada e saído, num grupo de segurança de rede ligado para o recurso que recebe o tráfego. Vamos utilizar um exemplo comum de tráfego da web na porta 80. Este artigo mostra como abrir uma porta para uma VM com o 2.0 CLI do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](nsg-quickstart-nodejs.md).
 
-
-## <a name="quick-commands"></a>Comandos rápidos
 Para criar um grupo de segurança de rede e regras que tem a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) instalado e registado para uma conta do Azure utilizando [início de sessão az](/cli/azure/#login).
 
 Nos exemplos a seguir, substitua os nomes dos parâmetros de exemplo com os seus próprios valores. Os nomes dos parâmetros de exemplo incluem *myResourceGroup*, *myNetworkSecurityGroup*, e *myVnet*.
 
+
+## <a name="quickly-open-a-port-for-a-vm"></a>Rapidamente abrir uma porta para uma VM
+Se precisar de rapidamente abrir uma porta para uma VM num cenário de programador/teste, pode utilizar o [az vm open-porta](/cli/azure/vm#az_vm_open_port) comando. Este comando cria um grupo de segurança de rede, adiciona uma regra e aplica-se-la a uma VM ou sub-rede. O exemplo seguinte abre porta *80* na VM com o nome *myVM* no grupo de recursos denominado *myResourceGroup*.
+
+```azure-cli
+az vm open-port --resource-group myResourceGroup --name myVM --port 80
+```
+
+Para obter mais controlo sobre as regras, tal como definir um intervalo de endereços IP de origem, continue com os passos adicionais neste artigo.
+
+
+## <a name="create-a-network-security-group-and-rules"></a>Criar um grupo de segurança de rede e regras
 Criar o grupo de segurança de rede com [az rede nsg criar](/cli/azure/network/nsg#create). O exemplo seguinte cria um grupo de segurança de rede com o nome *myNetworkSecurityGroup* no *eastus* localização:
 
 ```azurecli
@@ -50,6 +60,8 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
+
+## <a name="apply-network-security-group-to-vm"></a>Aplicar o grupo de segurança de rede VM
 Associar o grupo de segurança de rede com a interface de rede da VM (NIC) [atualização de nic de rede az](/cli/azure/network/nic#update). O exemplo seguinte associa uma NIC existente com o nome *myNic* com o grupo de segurança de rede com o nome *myNetworkSecurityGroup*:
 
 ```azurecli

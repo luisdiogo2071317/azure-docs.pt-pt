@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 173ffbdd70313ef5a0d2af2cf1c8996d2395274a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Detetar problemas através de regras baseadas em limiares
 
@@ -67,12 +67,12 @@ Utilize os seguintes valores para criar a regra:
 | Definição          | Valor                                 |
 | ---------------- | ------------------------------------- |
 | Nome             | Aviso de chiller                       |
-| Origem           | **Chiller** grupo de dispositivos              |
-| Campo de Acionador    | pressão                              |
+| Origem           | **Chillers** grupo de dispositivos             |
+| Campo de Acionador    | pressure                              |
 | Operador de Acionador | Mais do que                          |
 | Valor de Acionador    | 150                                   |
 | Nível de gravidade   | Aviso                               |
-| Texto de eventos de alarme | Pressão chiller excedeu 150 PSI |
+| Descrição      | Pressão chiller excedeu 150 PSI |
 
 Para guardar a nova regra, escolha **aplicar**.
 

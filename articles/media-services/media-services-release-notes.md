@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 0b10132f1a6be3a237ffa386f45233e3494d10eb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0da456e13042168f3c8e871f180e6477b73392d5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão de Media Services do Azure
 Estas notas de versão resumem as alterações de versões anteriores e problemas conhecidos.
@@ -324,13 +324,6 @@ SDK de Media Services para .NET é agora versão 3.0.0.7
 * **Origem** nome foi mudado para [StreamingEndpoint].
 * Uma alteração no comportamento predefinido ao utilizar o **portal do Azure** de codificar e, em seguida, publicar ficheiros MP4.
 
-Anteriormente, quando utilizar o portal clássico do Azure para publicar um URL SAS um único ficheiro MP4 vídeo elemento seria possível criar (URLs de SAS permitem-lhe transferir o vídeo a partir de um armazenamento de BLOBs). Atualmente, quando utilizar o portal clássico do Azure para codificar e, em seguida, publicar um elemento de vídeo único ficheiro MP4, o URL do gerado aponta para um ponto final de transmissão em fluxo do Azure Media Services.  Esta alteração não afeta vídeos MP4 que são carregados nos serviços de suporte de dados diretamente e publicados sem ser codificado por Media Services do Azure.
-
-Atualmente, tem duas opções seguintes para resolver o problema.
-
-* Ativar unidades de transmissão em fluxo e utilizar o empacotamento dinâmico para transmitir o elemento de mp4 como uma apresentação de transmissão em fluxo uniforme.
-* Crie um url SAS para o mp4 transferir (ou em progressivamente reproduzir). Para obter mais informações sobre como criar um localizador SAS, consulte [entrega de conteúdos].
-
 ### <a id="sept_14_GA_changes"></a>Novos funcionalidades/cenários que fazem parte da versão GA
 * **Processador de multimédia de indexador**. Para obter mais informações, consulte [indexação ficheiros de suporte de dados com o indexador de suporte de dados do Azure].
 * O [StreamingEndpoint] entidade agora permite-lhe adicionar nomes de domínio personalizado (anfitrião).
@@ -561,7 +554,7 @@ A seguinte funcionalidade foi novidade da versão de Novembro do SDK.
 [detalhes de preços de serviços de suporte de dados]: http://azure.microsoft.com/pricing/details/media-services/
 [metadados da entrada]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [metadados de saída]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[entrega de conteúdos]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Delivering Content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [indexação ficheiros de suporte de dados com o indexador de suporte de dados do Azure]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [trabalhar com o Azure Media Services em direto de transmissão em fluxo]: http://msdn.microsoft.com/library/azure/dn783466.aspx

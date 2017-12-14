@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: f60b858d76dd021a158a62b32199be9b1c4ed822
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funcionalidades do motor de regras CDN do Azure
 Este artigo apresenta uma lista de descrições detalhadas das funcionalidades disponíveis para a rede de entrega de conteúdos (CDN) do Azure [motor de regras](cdn-rules-engine.md).
@@ -48,13 +48,13 @@ Nome | Objetivo
 [Parâmetros de largura de banda](#bandwidth-parameters) | Determina se os parâmetros de limitação de largura de banda (por exemplo, ec_rate e ec_prebuf) são Active Directory.
 [Limitação de largura de banda](#bandwidth-throttling) | Acelera a largura de banda para a resposta fornecida pelos servidores edge.
 [Ignorar a Cache](#bypass-cache) | Determina se o pedido deve ignorar a colocação em cache.
-[Tratamento de cabeçalho de Cache-Control](#cache-control-header-treatment) | Controla a geração dos cabeçalhos Cache-Control pelo servidor edge, quando a funcionalidade de idade de máxima externo está ativa.
+[Tratamento de cabeçalho de Cache-Control](#cache-control-header-treatment) | Controla a geração de `Cache-Control` cabeçalhos pelo servidor edge quando a funcionalidade de idade de máxima externo está ativa.
 [Cadeia de consulta de chave da cache](#cache-key-query-string) | Determina se a chave de cache irá incluir ou excluir os parâmetros de cadeia de consulta associados a um pedido.
 [Chave da cache reescrever](#cache-key-rewrite) | Reescreve chave da cache associado a um pedido.
 [Concluir o preenchimento da Cache](#complete-cache-fill) | Determina o que acontece quando um resultados de pedido numa falha de acerto na cache parciais num servidor edge.
 [Comprima os tipos de ficheiro](#compress-file-types) | Define os formatos de ficheiro que irão ser comprimidos no servidor.
 [Idade de máx. de interno predefinida](#default-internal-max-age) | Determina o intervalo de idade máxima de predefinido para o servidor edge a revalidação de cache do servidor de origem.
-[Tratamento de cabeçalho de expirar](#expires-header-treatment) | Controla a geração dos cabeçalhos de expira por um servidor edge, quando a funcionalidade de idade de máxima externo está ativa.
+[Tratamento de cabeçalho de expirar](#expires-header-treatment) | Controla a geração de `Expires` cabeçalhos por um servidor edge, quando a funcionalidade de idade de máxima externo está ativa.
 [Externa de atribuição de idade máxima](#external-max-age) | Determina o intervalo de idade máxima de browser de modo a revalidação de cache do servidor edge.
 [Forçar interna de atribuição de idade máxima](#force-internal-max-age) | Determina o intervalo de idade máxima para o servidor edge revalidação de cache do servidor de origem.
 [Suporte de 264 (transferência progressiva HTTP)](#h264-support-http-progressive-download) | Determina os tipos de formatos de ficheiro 264 que podem ser utilizados para transmitir o conteúdo.
@@ -162,7 +162,7 @@ Nome | Objetivo
 -----|--------
 [Métodos de HTTP colocáveis](#cacheable-http-methods) | Determina o conjunto de métodos HTTP adicionais que podem ser colocadas em cache na rede.
 [Tamanho do corpo do pedido colocáveis](#cacheable-request-body-size) | Define o limiar para determinar se uma resposta POST pode ser colocadas em cache.
-[Variável de utilizador](#user-variable) | Utilizado primarity com Lua scripts.
+[Variável de utilizador](#user-variable) | Apenas para utilização interna.
 
  
 ## <a name="url-features"></a>Funcionalidades de URL
@@ -181,7 +181,7 @@ Nome | Objetivo
 
 ---
 ### <a name="age-response-header"></a>Cabeçalho de resposta de antiguidade
-**Objetivo**: determina se um cabeçalho de resposta de idade será incluído na resposta enviada para o autor do pedido.
+**Objetivo**: determina se um cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
 Valor|Resultado
 --|--
 Ativado | O cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
@@ -295,10 +295,10 @@ A forma mais fácil para alcançar este tipo de configuração é colocar a idad
 
 Valor|Resultado
 --|--
-Substituir|Garante que as ações seguintes ocorrem:<br/> -Substitui o cabeçalho de Cache-Control gerado pelo servidor de origem. <br/>-Adiciona o `Cache-Control` cabeçalho produzidos pela funcionalidade de idade de máxima externo para a resposta.
+Substituir|Garante que as ações seguintes ocorrem:<br/> -Substitui o `Cache-Control` cabeçalho gerado pelo servidor de origem. <br/>-Adiciona o `Cache-Control` cabeçalho produzidos pela funcionalidade de idade de máxima externo para a resposta.
 Pass-Through|Garante que o `Cache-Control` cabeçalho produzido pela funcionalidade de idade de máxima externo nunca é adicionado à resposta. <br/> Se o servidor de origem produz um `Cache-Control` cabeçalho, estes passam por para o utilizador final. <br/> Se o servidor de origem não produz um `Cache-Control` cabeçalho, em seguida, esta opção pode fazer com que o cabeçalho de resposta que não contém um `Cache-Control` cabeçalho.
-Adicionar se estiverem em falta|Se um `Cache-Control` cabeçalho não foi recebido do servidor de origem, em seguida, esta opção adiciona o `Cache-Control` cabeçalho produzidos pela funcionalidade de idade de máxima externo. Esta opção é útil para assegurar que todos os recursos serão atribuídos um `Cache-Control` cabeçalho.
-Remover| Esta opção garante que uma `Cache-Control` cabeçalho não está incluído com a resposta de cabeçalho. Se um `Cache-Control` já foi atribuído um cabeçalho, em seguida, irá ser eliminado da resposta de cabeçalho.
+Adicionar se estiverem em falta|Se um `Cache-Control` cabeçalho não foi recebido do servidor de origem, em seguida, esta opção adiciona o `Cache-Control` cabeçalho produzidos pela funcionalidade de idade de máxima externo. Esta opção é útil para assegurar que todos os recursos estão atribuídos um `Cache-Control` cabeçalho.
+Remover| Esta opção garante que uma `Cache-Control` cabeçalho não está incluído com a resposta de cabeçalho. Se um `Cache-Control` já foi atribuído um cabeçalho, em seguida, este é removido da resposta de cabeçalho.
 
 **Comportamento predefinido:** substituir.
 
@@ -424,7 +424,7 @@ This feature is not available for the ADN platform. The typical traffic on this 
 --->
 Uma falha de acerto na cache parcial ocorre normalmente depois de um utilizador cancela uma transferência ou para recursos de que apenas são pedidos através de pedidos de intervalo HTTP. Esta funcionalidade é mais útil para grandes ativos onde os utilizadores serão não normalmente transferi-los do início ao fim (por exemplo, vídeos). Como consequência, esta funcionalidade está ativada por predefinição na plataforma grande de HTTP. Está desativada em todas as outras plataformas.
 
-Recomenda-se para deixar a configuração predefinida para a plataforma de HTTP grande, uma vez que irá reduzir a carga no seu servidor de origem do cliente e aumentar a velocidade a que os seus clientes transferem o conteúdo.
+Manter a configuração predefinida para a plataforma de HTTP grande, porque esta reduz a carga no seu servidor de origem do cliente e aumenta a velocidade a que os seus clientes transferem o conteúdo.
 
 Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: Edge Cname, Literal de cabeçalho de pedido, universal do cabeçalho de pedido, o Literal de consulta do URL e consulta de URL com carateres universais.
 
@@ -527,15 +527,15 @@ Desativado|O cabeçalho de resposta EC-X-Debug será excluído da resposta.
 
 Informações da chave:
 
-- Esta ação só ocorrerá de respostas de um servidor de origem que não foi possível atribuir uma indicação de idade máxima no cabeçalho de Cache-Control ou Expires.
+- Esta ação só ocorrerá de respostas de um servidor de origem que não foi possível atribuir uma indicação de idade máxima no `Cache-Control` ou `Expires` cabeçalho.
 - Esta ação não irá demorar local para recursos que não são considerados colocáveis.
-- Esta ação não afeta o browser para revalidations de cache do servidor edge. Estes tipos de revalidations são determinados pela Cache-Control ou cabeçalhos expira enviados para o browser, que pode ser personalizado com a funcionalidade de idade de máxima externo.
+- Esta ação não afeta o browser para revalidations de cache do servidor edge. Estes tipos de revalidations são determinados pelo `Cache-Control` ou `Expires` cabeçalhos enviados para o browser, que pode ser personalizado com a funcionalidade de idade de máxima externo.
 - Os resultados desta ação não tem um efeito observable nos cabeçalhos de resposta e o conteúdo devolvido de servidores edge para o conteúdo, mas pode ter um efeito na quantidade de tráfego de revalidação enviado a partir de servidores edge ao seu servidor de origem.
 - Configure esta funcionalidade por:
     - Selecionar o código de estado para os quais pode ser aplicada a idade interno-máxima uma predefinição.
     - Especificar um valor inteiro e, em seguida, selecionar a unidade de tempo pretendido (por exemplo, segundos, minutos, horas, etc.). Este valor define o intervalo de idade máxima interno predefinido.
 
-- Definir a unidade de tempo "Desligado" atribuirá um intervalo de idade máxima interno predefinido de 7 dias para pedidos que não tenham sido atribuídos uma indicação de idade máxima no respetivo cabeçalho Cache-Control ou Expires.
+- Definir a unidade de tempo "Desligado" atribuirá um intervalo de idade máxima interno predefinido de 7 dias para pedidos que não tenham sido atribuídos uma indicação de idade máxima no respetivo `Cache-Control` ou `Expires` cabeçalho.
 - Devido da forma na cache de que as definições são registadas, esta funcionalidade não pode ser associada com as seguintes condições de correspondência: 
     - Limite 
     - CNAME
@@ -571,16 +571,16 @@ Desativado| Restaura o comportamento predefinido. O comportamento predefinido é
 
 ---
 ### <a name="expires-header-treatment"></a>Tratamento de cabeçalho de expirar
-**Objetivo:** controla a geração dos cabeçalhos de expira por um servidor edge, quando a funcionalidade de idade de máxima externo está ativa.
+**Objetivo:** controla a geração de `Expires` cabeçalhos por um servidor edge, quando a funcionalidade de idade de máxima externo está ativa.
 
 A forma mais fácil para alcançar este tipo de configuração é colocar a idade máxima externos e as funcionalidades de expira tratamento de cabeçalho na mesma instrução.
 
 Valor|Resultado
 --|--
-Substituir|Garante que as seguintes ações irão ocorrer:<br/>-Substitui o cabeçalho de expira gerado pelo servidor de origem.<br/>-Adiciona o cabeçalho de expira produzido pela funcionalidade de idade de máxima externo para a resposta.
-Pass-Through|Garante que o cabeçalho de expira produzido pela funcionalidade de idade de máxima externo nunca é adicionado à resposta. <br/> Se o servidor de origem produz um cabeçalho de expira, este irá percorrer para o utilizador final. <br/>Se o servidor de origem não produz um cabeçalho de expira, em seguida, esta opção pode fazer com que o cabeçalho de resposta que não contém um cabeçalho de expira.
-Adicionar se estiverem em falta| Se o servidor de origem não foi recebido um cabeçalho de expira, esta opção adiciona o cabeçalho de expira produzido pela funcionalidade de idade de máxima externo. Esta opção é útil para assegurar que todos os elementos serão atribuídos um cabeçalho de expira.
-Remover| Garante que um cabeçalho de expira não está incluído com a resposta de cabeçalho. Se já tiver sido atribuído um cabeçalho de expira, em seguida, este irá ser eliminado da resposta de cabeçalho.
+Substituir|Garante que as seguintes ações irão ocorrer:<br/>-Substitui o `Expires` cabeçalho gerado pelo servidor de origem.<br/>-Adiciona o `Expires` cabeçalho produzidos pela funcionalidade de idade de máxima externo para a resposta.
+Pass-Through|Garante que o `Expires` cabeçalho produzido pela funcionalidade de idade de máxima externo nunca é adicionado à resposta. <br/> Se o servidor de origem produz um `Expires` cabeçalho, este irá percorrer para o utilizador final. <br/>Se o servidor de origem não produz um `Expires` cabeçalho, em seguida, esta opção pode fazer com que o cabeçalho de resposta que não contém um `Expires` cabeçalho.
+Adicionar se estiverem em falta| Se um `Expires` cabeçalho não foi recebido do servidor de origem, em seguida, esta opção adiciona o `Expires` cabeçalho produzidos pela funcionalidade de idade de máxima externo. Esta opção é útil para assegurar que todos os elementos serão atribuídos um `Expires` cabeçalho.
+Remover| Garante que uma `Expires` cabeçalho não está incluído com a resposta de cabeçalho. Se um `Expires` já foi atribuído um cabeçalho, em seguida, este é removido da resposta de cabeçalho.
 
 **Comportamento predefinido:** substituir
 
@@ -592,14 +592,14 @@ Remover| Garante que um cabeçalho de expira não está incluído com a resposta
 ### <a name="external-max-age"></a>Externa de atribuição de idade máxima
 **Objetivo:** determina o intervalo de idade máxima de browser de modo a revalidação de cache do servidor edge. Por outras palavras, pode verificar a quantidade de tempo que irá passar antes de um browser para uma nova versão de um ativo de um servidor edge.
 
-A ativação desta funcionalidade irá gerar Cache-controlo: max-idade e expira cabeçalhos a partir de servidores edge e enviá-los para o cliente HTTP. Por predefinição, estes cabeçalhos substituirá as criadas pelo servidor de origem. No entanto, o tratamento de cabeçalho de Cache-Control e as funcionalidades de tratamento de cabeçalho expira podem ser utilizadas para alterar este comportamento.
+A ativação desta funcionalidade irá gerar `Cache-Control: max-age` e `Expires` cabeçalhos a partir de servidores edge e enviá-los para o cliente HTTP. Por predefinição, estes cabeçalhos substituirá as criadas pelo servidor de origem. No entanto, o tratamento de cabeçalho de Cache-Control e as funcionalidades de tratamento de cabeçalho expira podem ser utilizadas para alterar este comportamento.
 
 Informações da chave:
 
-- Esta ação não afeta o servidor edge para revalidations de cache do servidor de origem. Estes tipos de revalidations são determinados por cabeçalhos Cache-controlo/expira recebidos do servidor de origem e podem ser personalizados com a predefinição interna-idade máxima e as funcionalidades de idade de máxima de interno Force.
+- Esta ação não afeta o servidor edge para revalidations de cache do servidor de origem. Estes tipos de revalidations são determinados pelo `Cache-Control` e `Expires` cabeçalhos recebido do servidor de origem e podem ser personalizados com a predefinição interna-idade máxima e as funcionalidades de idade de máxima de interno Force.
 - Configure esta funcionalidade, especificando um valor inteiro e selecionar a unidade de tempo pretendido (por exemplo, segundos, minutos, horas, etc.).
-- A definição desta funcionalidade para um valor negativo faz com que os servidores edge enviar uma Cache-controlo: não-cache e um período de tempo expira que está definido no passado com cada resposta para o browser. Apesar de um cliente HTTP irá coloca a resposta, esta definição não irá afetar a capacidade dos servidores de edge coloca a resposta do servidor de origem.
-- Definir a unidade de tempo "Desligado" irá desativar esta funcionalidade. Os cabeçalhos Cache-controlo/expira em cache com a resposta do servidor de origem passará para o browser.
+- A definição desta funcionalidade para um valor negativo faz com que os servidores edge enviar um `Cache-Control: no-cache` e um `Expires` hora em que está definida no passado com cada resposta para o browser. Apesar de um cliente HTTP irá coloca a resposta, esta definição não irá afetar a capacidade dos servidores de edge coloca a resposta do servidor de origem.
+- Definir a unidade de tempo "Desligado" irá desativar esta funcionalidade. O `Cache-Control` e `Expires` cabeçalhos em cache com a resposta do servidor de origem passará para o browser.
 
 **Comportamento predefinido:** desativado
 
@@ -674,7 +674,7 @@ Informações da chave:
 ### <a name="honor-no-cache-request"></a>Pedido de Cache não honor
 **Objetivo:** determina se um cliente HTTP's não cache serão reencaminhados pedidos para o servidor de origem.
 
-Um pedido de cache não ocorre quando o cliente HTTP envia uma Cache-controlo: não-cache e/ou Pragma:no-cabeçalho de cache do pedido de HTTP.
+Um pedido de cache não ocorre quando o cliente HTTP envia um `Cache-Control: no-cache` e/ou `Pragma: no-cache` cabeçalho do pedido de HTTP.
 
 Valor|Resultado
 --|--
@@ -747,7 +747,7 @@ Se o servidor edge não é possível estabelecer uma ligação com o servidor de
 
 Tenha em atenção que este intervalo de tempo é iniciado quando idade máxima do elemento expira, não quando a revalidação de falha ocorre. Por conseguinte, o período máximo durante o qual um recurso pode ser servido sem êxito revalidação é a quantidade de tempo especificado pela combinação de idade máxima plus máximo obsoleta. Por exemplo, se um recurso foi colocado em cache no 9:00, com uma duração do número máximo de 30 minutos e obsoleta uma máximo de 15 minutos, em seguida, uma tentativa de falha revalidação de 9:44 resultaria num utilizador final receber o elemento em cache obsoleto, enquanto uma tentativa de falha revalidação de 9:46 resultaria no en utilizador d receber um tempo limite do Gateway 504.
 
-Qualquer valor configurado para esta funcionalidade é substituída por `Cache-Control:must-revalidate` ou `Cache-Control:proxy-revalidate` cabeçalhos recebidos do servidor de origem. Se qualquer um desses cabeçalhos não for recebida do servidor de origem quando um recurso inicialmente é colocado em cache, em seguida, o servidor edge não processará os um recurso em cache obsoleto. Nesse caso, se o servidor edge não é possível revalidate com a origem quando o intervalo de idade máxima do elemento tiver expirado, o servidor edge devolve um erro de tempo limite do Gateway 504.
+Qualquer valor configurado para esta funcionalidade é substituída por `Cache-Control: must-revalidate` ou `Cache-Control: proxy-revalidate` cabeçalhos recebidos do servidor de origem. Se qualquer um desses cabeçalhos não for recebida do servidor de origem quando um recurso inicialmente é colocado em cache, em seguida, o servidor edge não processará os um recurso em cache obsoleto. Nesse caso, se o servidor edge não é possível revalidate com a origem quando o intervalo de idade máxima do elemento tiver expirado, o servidor edge devolve um erro de tempo limite do Gateway 504.
 
 Informações da chave:
 
@@ -823,7 +823,7 @@ Eliminar|Elimina o cabeçalho de pedido especificado.|**O valor do cabeçalho (c
 Informações da chave:
 
 - Certifique-se de que o valor especificado na opção de nome é uma correspondência exata para o cabeçalho de pedido pretendido.
-- Caso não está a ser levado em consideração para fins de identificação de um cabeçalho. Por exemplo, qualquer um das variações do nome de cabeçalho de Cache-Control seguintes podem ser utilizados para identificá-lo:
+- Caso não está a ser levado em consideração para fins de identificação de um cabeçalho. Por exemplo, qualquer um das seguintes variações do `Cache-Control` nome de cabeçalho pode ser utilizado para identificá-lo:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
@@ -861,7 +861,7 @@ Eliminar|Elimina o cabeçalho de resposta especificado.|**O valor de cabeçalho 
 Informações da chave:
 
 - Certifique-se de que o valor especificado na opção de nome é uma correspondência exata para o cabeçalho de resposta pretendido. 
-- Caso não está a ser levado em consideração para fins de identificação de um cabeçalho. Por exemplo, qualquer um das variações do nome de cabeçalho de Cache-Control seguintes podem ser utilizados para identificá-lo:
+- Caso não está a ser levado em consideração para fins de identificação de um cabeçalho. Por exemplo, qualquer um das seguintes variações do `Cache-Control` nome de cabeçalho pode ser utilizado para identificá-lo:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
@@ -1241,8 +1241,11 @@ Esta funcionalidade inclui correspondentes aos critérios que devem ser satisfei
 
 ---
 ### <a name="user-variable"></a>Variável de utilizador
-**Objetivo:** utilizado primarity com Lua scripts. Com a funcionalidade de variável de utilizador, pode utilizar a funcionalidade de hash semelhantes para proteger os URLs de transferência com um script de Lua.
+**Objetivo:** apenas para utilização interna.
 
+[Voltar ao início](#azure-cdn-rules-engine-features)
+
+</br>
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Referência do motor de regras](cdn-rules-engine-reference.md)

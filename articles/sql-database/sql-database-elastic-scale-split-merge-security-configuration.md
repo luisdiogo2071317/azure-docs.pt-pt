@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 94a4d5331aa2ed42a81e2e0bf890408f2db98fa7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança de divisão de intercalação
 Para utilizar o serviço de divisão/intercalação, tem de configurar corretamente a segurança. O serviço é parte da funcionalidade do dimensionamento elástico da base de dados do Microsoft Azure SQL. Para obter mais informações, consulte [divisão de dimensionamento elástico e o Tutorial do serviço de intercalação](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -434,7 +434,7 @@ No Assistente de importação do certificado:
 9. Clique em **OK** em todas as janelas de caixa de diálogo.
 
 ## <a name="upload-certificate"></a>Carregar certificado
-No [Portal do Azure](https://portal.azure.com/)
+No [portal do Azure](https://portal.azure.com/)
 
 1. Selecione **serviços em nuvem**.
 2. Selecione o serviço em nuvem.

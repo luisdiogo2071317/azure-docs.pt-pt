@@ -3,7 +3,7 @@ title: "Recursos de credencial na automatização do Azure | Microsoft Docs"
 description: "Recursos de credencial na automatização do Azure contêm as credenciais de segurança que podem ser utilizadas para autenticar em recursos acedidos pelo runbook ou a configuração de DSC. Este artigo descreve como criar ativos de credenciais e utilizá-los num runbook ou configuração de DSC."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 3209bf73-c208-425e-82b6-df49860546dd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: 70f6272d936b097a9458dfa18279a70727da9d6b
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 516f0ddcc50b3e6d744f70063b2112090d2e411d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="credential-assets-in-azure-automation"></a>Recursos de credencial na automatização do Azure
 Um recurso de credencial de automatização contém um [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) objeto que contém as credenciais de segurança, tais como um nome de utilizador e palavra-passe. Configurações de Runbooks e DSC podem utilizar os cmdlets que aceite um objeto PSCredential para autenticação ou poderão extrair o nome de utilizador e palavra-passe do objeto PSCredential para fornecer a algumas aplicações ou serviço que requer autenticação. As propriedades das credenciais são armazenadas em segurança na automatização do Azure e podem ser acedidas no runbook ou a configuração de DSC com o [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) atividade.

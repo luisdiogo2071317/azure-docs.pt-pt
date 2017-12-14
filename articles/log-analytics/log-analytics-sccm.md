@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-ms.openlocfilehash: 62d31ed486458245156f7fc832294d662c62991e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6785bfcefb09fa6135ba451fafa76efc8c2e6c76
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Ligar o Gestor de configuração ao Log Analytics
 Pode ligar o System Center Configuration Manager para análise de registos na OMS para dados de coleção de dispositivos de sincronização. Isto disponibiliza dados da sua hierarquia do Configuration Manager na OMS.
@@ -28,7 +28,7 @@ Pode ligar o System Center Configuration Manager para análise de registos na OM
 Análise de registos suporta ramo atual do System Center Configuration Manager, versão 1606 e planos superior.  
 
 ## <a name="configuration-overview"></a>Descrição geral de configuração
-Os seguintes passos resume o processo para ligar o Configuration Manager para análise de registos.  
+Os passos seguintes resumem o processo para ligar o Configuration Manager para análise de registos.  
 
 1. No Portal de gestão do Azure, registe o Configuration Manager como uma aplicação de aplicação Web e/ou Web API e certifique-se de que tem o ID de cliente e a chave secreta do cliente do registo do Azure Active Directory. Consulte [portal de utilização para criar do Active Directory principal de serviço e aplicação que pode aceder aos recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md) para obter informações detalhadas sobre como efetuar este passo.
 2. No Portal de gestão do Azure, [fornecer o Configuration Manager (a aplicação web registado) com permissão para aceder à OMS](#provide-configuration-manager-with-permissions-to-oms).
@@ -48,29 +48,29 @@ O procedimento seguinte fornece o Portal de gestão do Azure com permissões par
 >
 >
 
-1. Abra o [portal do Azure](https://portal.azure.com/) e clique em **procurar** > **análise de registos (OMS)** para abrir o painel de análise de registos (OMS).  
-2. No **análise de registos (OMS)** painel, clique em **adicionar** para abrir o **área de trabalho OMS** painel.  
-   ![Painel do OMS](./media/log-analytics-sccm/sccm-azure01.png)
-3. No **área de trabalho OMS** painel, forneça as seguintes informações e, em seguida, clique em **OK**.
+1. Abra o [portal do Azure](https://portal.azure.com/) e clique em **procurar** > **análise de registos (OMS)** para abrir a análise de registos (OMS).  
+2. No **análise de registos (OMS)**, clique em **adicionar** para abrir **área de trabalho OMS**.  
+   ![OMS](./media/log-analytics-sccm/sccm-azure01.png)
+3. No **área de trabalho OMS**, forneça as seguintes informações e, em seguida, clique em **OK**.
 
    * **Área de trabalho do OMS**
    * **Subscrição**
    * **Grupo de recursos**
    * **Localização**
    * **Escalão de preço**  
-     ![Painel do OMS](./media/log-analytics-sccm/sccm-azure02.png)  
+     ![OMS](./media/log-analytics-sccm/sccm-azure02.png)  
 
      > [!NOTE]
      > O exemplo anterior cria um novo grupo de recursos. O grupo de recursos só é utilizado para fornecer o Configuration Manager com permissões para a área de trabalho do OMS neste exemplo.
      >
      >
-4. Clique em **procurar** > **grupos de recursos** para abrir o **grupos de recursos** painel.
-5. No **grupos de recursos** painel, clique o grupo de recursos que criou acima para abrir o &lt;nome do grupo de recursos&gt; painel Definições.  
-   ![Painel de definições do grupo de recursos](./media/log-analytics-sccm/sccm-azure03.png)
-6. No &lt;nome do grupo de recursos&gt; painel Definições, clique em controlo de acesso (IAM) para abrir o &lt;nome do grupo de recursos&gt; painel de utilizadores.  
-   ![Painel de utilizadores do grupo de recursos](./media/log-analytics-sccm/sccm-azure04.png)  
-7. No &lt;nome do grupo de recursos&gt; painel de utilizadores, clique em **adicionar** para abrir o **adicionar acesso** painel.
-8. No **adicionar acesso** painel, clique em **selecionar uma função**e, em seguida, selecione o **contribuinte** função.  
+4. Clique em **procurar** > **grupos de recursos** para abrir **grupos de recursos**.
+5. No **grupos de recursos**, clique no grupo de recursos que criou acima para abrir o &lt;nome do grupo de recursos&gt; definições.  
+   ![definições do grupo de recursos](./media/log-analytics-sccm/sccm-azure03.png)
+6. No &lt;nome do grupo de recursos&gt; definições, clique em controlo de acesso (IAM) para abrir &lt;nome do grupo de recursos&gt; utilizadores.  
+   ![os utilizadores do grupo de recursos](./media/log-analytics-sccm/sccm-azure04.png)  
+7. No &lt;nome do grupo de recursos&gt; utilizadores, clique em **adicionar** para abrir **adicionar acesso**.
+8. No **adicionar acesso**, clique em **selecionar uma função**e, em seguida, selecione o **contribuinte** função.  
    ![Selecione uma função](./media/log-analytics-sccm/sccm-azure05.png)  
 9. Clique em **adicionar utilizadores**, selecione o utilizador do Gestor de configuração, clique em **selecione**e, em seguida, clique em **OK**.  
    ![Adicionar utilizadores](./media/log-analytics-sccm/sccm-azure06.png)  
@@ -85,16 +85,16 @@ Para adicionar uma ligação do OMS, ambiente do Configuration Manager tem de te
    2. No Portal de gestão do Azure, criou uma chave de segredo de aplicação para a aplicação registada no Azure Active Directory.  
    3. No Portal de gestão do Azure, que forneceu a aplicação web registado com permissão para aceder à OMS.  
       ![Ligação à página geral de assistente do OMS](./media/log-analytics-sccm/sccm-console-general01.png)
-3. No **do Azure Active Directory** ecrã, configure as definições de ligação para o OMS, fornecendo o **inquilino** , **ID de cliente** , e **chave de segredo do cliente**  , em seguida, selecione **seguinte**.  
+3. No **do Azure Active Directory** ecrã, configure as definições de ligação para o OMS, fornecendo o **inquilino**, **ID de cliente**, e **chave de segredo do cliente** , em seguida, selecione **seguinte**.  
    ![Ligação à página OMS Assistente do Azure Active Directory](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
-4. Se lhe conseguido todos os outros procedimentos com êxito, em seguida, as informações no **configuração da ligação OMS** ecrã serão apresentadas automaticamente nesta página. As informações para as definições de ligação devem aparecer para sua **subscrição do Azure** , **grupo de recursos do Azure** , e **área de trabalho do Operations Management Suite**.  
+4. Se lhe conseguido todos os outros procedimentos com êxito, em seguida, as informações no **configuração da ligação OMS** ecrã serão apresentadas automaticamente nesta página. As informações para as definições de ligação devem aparecer para sua **subscrição do Azure**, **grupo de recursos do Azure**, e **área de trabalho do Operations Management Suite**.  
    ![Ligação à página de ligação do OMS assistente OMS](./media/log-analytics-sccm/sccm-wizard-configure04.png)
 5. O assistente liga ao serviço do OMS utilizando as informações que tenha de entrada. Selecione as coleções de dispositivos que pretende sincronizar com o OMS e, em seguida, clique em **adicionar**.  
    ![Selecione as coleções](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
 6. Verifique as definições de ligação no **resumo** ecrã, em seguida, selecione **seguinte**. O **progresso** ecrã mostra o estado da ligação, em seguida, deve **concluída**.
 
 > [!NOTE]
-> OMS tem de ligar para o site de nível superior na sua hierarquia. Se ligar OMS para um site primário autónomo e, em seguida, adicionar um site de administração central ao seu ambiente, terá de eliminar e recriar a ligação do OMS dentro da nova hierarquia.
+> OMS tem de ligar para o site de nível superior na sua hierarquia. Se ligar OMS para um site primário autónomo e, em seguida, adicionar um site de administração central ao seu ambiente, tem de eliminar e recriar a ligação do OMS dentro da nova hierarquia.
 >
 >
 
@@ -103,15 +103,15 @@ Depois de ligação do Configuration Manager para OMS, pode adicionar ou remover
 ## <a name="update-oms-connection-properties"></a>Atualizar propriedades de ligação do OMS
 Se uma chave secreta de cliente ou a palavra-passe nunca expira ou se tenha perdida, terá de atualizar manualmente as propriedades de ligação do OMS.
 
-1. No Configuration Manager, navegue para **serviços em nuvem** , em seguida, selecione **OMS conector** para abrir o **propriedades de ligação do OMS** página.
+1. No Configuration Manager, navegue para **serviços em nuvem**, em seguida, selecione **OMS conector** para abrir o **propriedades de ligação do OMS** página.
 2. Nesta página, clique em de **do Azure Active Directory** separador para ver o **inquilino**, **ID de cliente**, **expiração chave secreta de cliente**. **Certifique-se** sua **chave secreta do cliente** se tiver expirado.
 
 ## <a name="download-and-install-the-agent"></a>Transfira e instale o agente
-1. No portal do OMS, [transferir o ficheiro de configuração do agente do OMS](log-analytics-windows-agents.md#download-the-agent-setup-file-from-oms).
+1. No portal do OMS, [transferir o ficheiro de configuração do agente do OMS](log-analytics-windows-agent.md).
 2. Utilize um dos seguintes métodos para instalar e configurar o agente no computador que executa a função de sistema de sites de ponto do Configuration Manager service ligação:
-   * [Instalar o agente utilizando a configuração](log-analytics-windows-agents.md#install-the-agent-using-setup)
-   * [Instalar o agente utilizando a linha de comandos](log-analytics-windows-agents.md#install-the-agent-using-the-command-line)
-   * [Instalar o agente utilizando DSC na automatização do Azure](log-analytics-windows-agents.md#install-the-agent-using-dsc-in-azure-automation)
+   * [Instalar o agente utilizando a configuração](log-analytics-windows-agent.md)
+   * [Instalar o agente utilizando a linha de comandos](log-analytics-windows-agent.md)
+   * [Instalar o agente utilizando DSC na automatização do Azure](log-analytics-windows-agent.md)
 
 ## <a name="import-collections"></a>Importar coleções
 Depois de ter uma ligação de OMS foi adicionada para o Configuration Manager e o agente instalado no computador com a ligação de serviço do Configuration Manager função do sistema de sites do ponto, o passo seguinte é para importar coleções do Configuration Manager na OMS como computador grupos.

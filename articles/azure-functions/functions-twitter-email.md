@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra com Azure Logic Apps
 
@@ -62,7 +62,7 @@ As APIs de serviços cognitivos estão disponíveis no Azure como recursos indiv
     | Definição      |  Valor sugerido   | Descrição                                        |
     | --- | --- | --- |
     | **Nome** | MyCognitiveServicesAccnt | Escolha um nome de conta exclusiva. |
-    | **Localização** | E.U.A. Oeste | Utilize a localização mais próximo. |
+    | **Localização** | EUA Oeste | Utilize a localização mais próximo. |
     | **Escalão de preço** | F0 | Começar a utilizar o escalão mais baixo. Se executar fora de chamadas, dimensione para um escalão superior.|
     | **Grupo de recursos** | myResourceGroup | Utilize o mesmo grupo de recursos para todos os serviços neste tutorial.|
 
@@ -72,28 +72,31 @@ As APIs de serviços cognitivos estão disponíveis no Azure como recursos indiv
  
     ![Chaves](media/functions-twitter-email/keys.png)
 
-## <a name="create-the-function"></a>Criar a função
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## <a name="create-the-function-app"></a>Criar a aplicação de função
 
 Funções fornece uma excelente forma de descarga de tarefas de processamento num fluxo de trabalho logic apps. Este tutorial utiliza uma função de acionada de HTTP para processar as pontuações das classificações de serviços cognitivos tweet sentimento e devolver um valor de categoria.  
 
-1. Clique em de **novo** botão e selecione **computação** > **aplicação de função**. Em seguida, utilize as definições conforme especificado na tabela abaixo. Aceitar os termos, em seguida, selecione **afixar ao dashboard**.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Criar aplicação de função do Azure](media/functions-twitter-email/create_fun.png)
+## <a name="create-an-http-triggered-function"></a>Criar uma função de acionada de HTTP  
 
-    | Definição      |  Valor sugerido   | Descrição       |
-    | --- | --- | --- |
-    | **Nome** | MyFunctionApp | Escolha um nome de conta exclusiva. |
-    | **Grupo de recursos** | myResourceGroup | Utilize o mesmo grupo de recursos para todos os serviços neste tutorial.|
-    | **Plano de alojamento** | Plano de Consumo | Isto define os custo e a utilização alocações.
-    | **Localização** | E.U.A. Oeste | Utilize a localização mais próximo. |
-    | **Armazenamento** | Criar Novo | Gera automaticamente uma nova conta de armazenamento.|
-    | **Escalão de preço** | F0 | Começar a utilizar o escalão mais baixo. Se executar fora de chamadas, dimensione para um escalão superior.|
+1. Expanda a aplicação de funções e clique no botão **+**, junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **Função personalizada**. É apresentado o conjunto completo de modelos de função.
 
-2. Selecione a sua aplicação de funções do dashboard e expandir a sua função, clique em de  **+**  junto a **funções**, clique em de **Webhook + API**,  **CSharp**, em seguida, **criar esta função**. Esta ação irá criar uma função utilizando o modelo HTTPTrigger c#. O código será apresentado numa nova janela como`run.csx`
+    ![Início rápido das funções no portal do Azure](media/functions-twitter-email/add-first-function.png)
 
-    ![Painel de aplicações de função, as funções +](media/functions-twitter-email/add_fun.png)
+2. No campo de pesquisa, escreva `http` e, em seguida, escolha **c#** para o modelo de Acionador HTTP. 
 
-3. Substitua os conteúdos do `run.csx` ficheiros com o código seguinte, em seguida, clique em **guardar**:
+    ![Escolha o acionador HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+3. Escreva um **nome** para a função, escolha `Function` para  **[nível de autenticação](functions-bindings-http-webhook.md#http-auth)**e, em seguida, selecione **criar**. 
+
+    ![Criar a função de acionada de HTTP](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    Esta ação cria uma função de script c# utilizando o modelo de Acionador de HTTP. O código aparece numa nova janela como `run.csx`.
+
+4. Substitua os conteúdos do `run.csx` ficheiros com o código seguinte, em seguida, clique em **guardar**:
 
     ```csharp
     using System.Net;
@@ -142,7 +145,7 @@ Agora, tem uma função que categoriza pontuações de sentimento. Em seguida, c
     | ----------------- | ------------ | ------------- |
     | **Nome** | TweetSentiment | Escolha um nome adequado para a sua aplicação. |
     | **Grupo de recursos** | myResourceGroup | Escolha o mesmo grupo de recursos existente como antes. |
-    | **Localização** | E.U.A. Leste | Escolha uma localização perto de si. |    
+    | **Localização** | EUA Leste | Escolha uma localização perto de si. |    
 
 4. Escolha **afixar ao dashboard**e, em seguida, clique em **criar** para criar a sua aplicação lógica. 
 
@@ -200,7 +203,7 @@ Agora que a deteção de dados de sentimento estiver configurada, pode adicionar
 
 3. No **corpo do pedido**, clique em **pontuação** e, em seguida, **guardar**.
 
-    ![Pontuação](media/functions-twitter-email/trigger_score.png)
+    ![Classificação](media/functions-twitter-email/trigger_score.png)
 
 Agora, a função é acionada quando é enviada uma classificação de dados de sentimento da aplicação lógica. Uma categoria codificado por cores é devolvida para a aplicação lógica pela função. Em seguida, adicionar uma notificação de correio eletrónico que é enviada quando um valor de dados de sentimento do **RED** é devolvido na função. 
 

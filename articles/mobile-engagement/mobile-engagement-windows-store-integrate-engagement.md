@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 898160814304fa8ec65622056a77ca9d4caf2c99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Integração de SDK do Engagement de aplicações universais do Windows
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Se pretender especificá-la no tempo de execução, pode chamar o método seguin
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-A cadeia de ligação para a sua aplicação é apresentada no Portal clássico do Azure.
+A cadeia de ligação para a sua aplicação é apresentada no Portal do Azure.
 
 ### <a name="engagement-initialization"></a>Inicialização do engagement
 Quando cria um novo projeto, um `App.xaml.cs` ficheiro é gerado. Esta classe herda `Application` e contém vários métodos importantes. Também irá ser utilizado para inicializar o SDK do Engagement.

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b099abb27fbd2adf78b65123a62048967406d401
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -97,7 +97,7 @@ A tabela seguinte descreve as definições de política de palavra-passe dispon�
 | --- | --- |
 | Carateres permitidos |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Não são permitidos carateres |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Apenas palavras-passe fortes: não pode conter um caráter de ponto "." existentes imediatamente antes do "@" símbolo.</li></ul> |
-| Restrições de palavra-passe |<ul><li>Um mínimo de 8 carateres e um máximo de 16 carateres.</li><li>Apenas palavras-passe fortes: requer três fora de quatro das seguintes opções:<ul><li>Character.s em minúsculas</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
+| Restrições de palavra-passe |<ul><li>Um mínimo de 8 carateres e um máximo de 16 carateres.</li><li>Apenas palavras-passe fortes: requer três fora de quatro das seguintes opções:<ul><li>Caracteres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
 | Duração de expiração da palavra-passe |<ul><li>Valor predefinido: **90** dias.</li><li>O valor é configurável ao utilizar o `Set-MsolPasswordPolicy` cmdlet a partir do módulo Azure Active Directory para Windows PowerShell.</li></ul> |
 | Notificação de expiração de palavra-passe |<ul><li>Valor predefinido: **14** dias (antes de expira a palavra-passe).</li><li>O valor é configurável ao utilizar o `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Expiração da palavra-passe |<ul><li>Valor predefinido: **falso** dias (indica que expiração de palavra-passe está ativada).</li><li>O valor pode ser configurado para contas de utilizador individuais utilizando o `Set-MsolUser` cmdlet.</li></ul> |

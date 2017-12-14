@@ -12,14 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
+ms.author: sashan
+ms.reviewer: carlrab
 ms.workload: Inactive
-ms.date: 04/07/2017
-ms.author: sashan;carlrab
-ms.openlocfilehash: 03bc991d5c1f644b439e9ebfa0d750cbf0c56764
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastre para aplicações que utilizam conjuntos elásticos da base de dados SQL
 Ao longo dos anos podemos ter aprendidas que serviços em nuvem não são foolproof e ocorrem de incidentes catastrófica. Base de dados do SQL Server fornece várias capacidades para fornecer a continuidade de negócio da sua aplicação quando ocorrem estes incidentes. [Conjuntos elásticos](sql-database-elastic-pool.md) e bases de dados individuais suportam o mesmo tipo de funcionalidades de recuperação após desastre. Este artigo descreve várias estratégias de DR para conjuntos elásticos que tiram partido destas funcionalidades de continuidade empresarial da base de dados do SQL Server.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f0337002bbaf554a6a775464edefc032e6c7bab2
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Perguntas mais frequentes sobre os ficheiros do Azure
 [Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (também conhecido como sistema de ficheiros Internet comum ou CIFS). É possível montar partilhas de ficheiros do Azure em simultâneo em implementações de nuvem ou no local do Windows, Linux e macOS. Também pode colocar em cache as partilhas de ficheiros do Azure nas máquinas do Windows Server utilizando a sincronização de ficheiros do Azure (pré-visualização) para acesso rápido próximo de onde os dados são utilizados.
@@ -80,7 +80,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 
 ## <a name="azure-file-sync"></a>Sincronização de ficheiros do Azure
 * <a id="afs-region-availability"></a>**As regiões são suportadas para a sincronização de ficheiros do Azure (pré-visualização)?**  
-    Atualmente, a sincronização de ficheiros do Azure está disponível nos EUA oeste, Europa Ocidental, leste da Austrália e Sudeste asiático. Suporte para obter mais regiões será adicionado à medida que trabalha na direção de disponibilidade geral. Para obter mais informações, consulte [disponibilidade de região](storage-sync-files-planning.md#region-availability).
+    Atualmente, a sincronização de ficheiros do Azure está disponível nos EUA leste, EUA oeste, Europa Ocidental, leste da Austrália e Sudeste asiático. Suporte para obter mais regiões será adicionado à medida que trabalha na direção de disponibilidade geral. Para obter mais informações, consulte [disponibilidade de região](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>**Pode ter servidores associados a um domínio e não associados a domínios no mesmo grupo de sincronização?**  
     Sim. Um grupo de sincronização pode conter pontos finais do servidor que têm diferentes membros do Active Directory, mesmo que não estejam associados a um domínio. Embora tecnicamente funciona esta configuração, não recomendamos esta como configuração típica porque listas de controlo de acesso (ACL) que são definidas para os ficheiros e pastas num servidor não poderá ser impostas por outros servidores no grupo de sincronização. Para obter os melhores resultados, recomendamos que a sincronização entre os servidores que estão na mesma floresta do Active Directory, entre os servidores que estão em diferentes florestas do Active Directory, mas que tenham estabelecido relações de confiança ou entre os servidores que não estejam num domínio. Recomendamos que evite utilizar uma combinação destas configurações.
@@ -202,7 +202,7 @@ Este artigo responde a questões recorrentes sobre ficheiros do Azure e funciona
 * <a id="mount-locally"></a>**Como montar uma partilha de ficheiros do Azure no meu computador local?**  
     É possível montar a partilha de ficheiros utilizando o protocolo SMB, se abrir a porta 445 (saída de TCP) e o cliente suportar o protocolo SMB 3.0 (por exemplo, se estiver a utilizar o Windows 10 ou Windows Server 2016). Se a porta 445 estiver bloqueada pela política da sua organização ou pelo seu ISP, pode utilizar a sincronização de ficheiros do Azure para aceder à partilha de ficheiros do Azure.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 * <a id="backup-share"></a>**Como posso fazer cópia de segurança os meus ficheiros do Azure partilhar?**  
     Pode utilizar periódica [partilhar instantâneos (pré-visualização)](storage-how-to-use-files-snapshots.md) para proteção contra eliminações acidentais. Também pode utilizar AzCopy, Robocopy ou uma ferramenta de cópia de segurança de terceiros que pode fazer cópias de segurança de uma partilha de ficheiros montada. 
 

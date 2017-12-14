@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 1d3ba76336701221484d2879f4b28285936aa656
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0f7b90a77ab321ee726245c82ea27635438070c0
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - problemas conhecidos e guia de resolução de problemas 
 Este artigo ajuda-o a encontrar e corrija erros ou falhas encontradas como parte da utilização da aplicação do Azure Machine Learning Workbench. 
@@ -113,7 +113,7 @@ Infelizmente, não há nenhuma garantia fácil neste. Terá de efetuar os seguin
    - remover o atalho de ambiente de trabalho que inicia o script acima
    - Transferir o instalador https://aka.ms/azureml-wb-msi e volte a instalar.
 
-## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Obter bloqueada no ecrã de "Verificação conta experimentação" após iniciar sessão
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Bloqueada no ecrã de "Verificação conta experimentação" após iniciar sessão
 Após iniciar sessão, a aplicação do Workbench pode obter bloqueada num ecrã em branco com uma mensagem "A verificar conta experimentação" com uma roda girar a mostrar. Para resolver este problema, siga os passos seguintes:
 1. Encerrar a aplicação
 2. Elimine o ficheiro seguinte:
@@ -147,6 +147,13 @@ Se tiver de atualização de criadores de reversão do Windows 10 e o projeto se
 
 ## <a name="file-name-too-long-on-windows"></a>Nome do ficheiro demasiado tempo no Windows
 Se utilizar o Workbench no Windows, poderá executar num limite de comprimento do nome a predefinição máximo de 260 carateres de ficheiro, a qual foi superfície como um erro "o sistema não é possível localizar o caminho especificado". Pode modificar uma definição de chave de registo para permitir muito mais nome de caminho de ficheiro. Reveja [neste artigo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) para obter mais detalhes sobre como definir o _MAX_PATH_ chave de registo.
+
+## <a name="interrupt-cli-execution-output"></a>Resultado da execução CLI de interrupção
+Se pode iniciar uma experimentação executar utilizando `az ml experiment submit` ou `az ml notebook start` e de que pretende interromper a saída: 
+- No Windows, utilize combinação de teclas Ctrl-Break de teclado
+- No macOS, utilize Ctrl-C.
+
+Tenha em atenção que isto interrupções apenas o fluxo de saída na janela do CLI. Se não, na verdade, parar uma tarefa que está a ser executada. Se pretender cancelar uma tarefa em curso, utilize `az ml experiment cancel -r <run_id> -t <target name>` comando.
 
 ## <a name="docker-error-read-connection-refused"></a>Erro de docker "ler: ligação foi recusada"
 Quando executar em relação a um contentor de Docker local, por vezes poderá ver o seguinte erro: 

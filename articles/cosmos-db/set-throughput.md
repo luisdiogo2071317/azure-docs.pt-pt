@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 12/13/2017
 ms.author: mimig
-ms.openlocfilehash: 69501b07369a8d5da15cf9bc7d75f07999bf0999
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ba24ee0926928503b3f466405d8651b1dab6fb95
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Definir o débito para contentores de base de dados do Azure Cosmos
 
@@ -36,7 +36,7 @@ A tabela seguinte lista o débito disponível para contentores:
         <tr>
             <td valign="top"><p>Débito mínimo</p></td>
             <td valign="top"><p>400 unidades de pedido por segundo</p></td>
-            <td valign="top"><p>2500 unidades de pedido por segundo</p></td>
+            <td valign="top"><p>unidades de pedido de 1000 por segundo</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Débito máximo</p></td>
@@ -51,7 +51,7 @@ A tabela seguinte lista o débito disponível para contentores:
 1. Numa nova janela, abra o [portal do Azure](https://portal.azure.com).
 2. Na barra da esquerda, clique em **Azure Cosmos DB**, ou clique em **mais serviços** na parte inferior, em seguida, desloque-se para **bases de dados**e, em seguida, clique em **Azure Cosmos DB**.
 3. Selecione a sua conta de base de dados do Cosmos.
-4. Na nova janela, clique em **Explorador de dados (pré-visualização)** no menu de navegação.
+4. Na nova janela, clique em **Explorador de dados** no menu de navegação.
 5. Na nova janela, expanda a base de dados e o contentor e, em seguida, clique em **definições de dimensionamento &**.
 6. Na nova janela, escreva o novo valor de débito no **débito** caixa e, em seguida, clique em **guardar**.
 
@@ -60,7 +60,7 @@ A tabela seguinte lista o débito disponível para contentores:
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>Para definir o débito, utilizando a API de SQL para .NET
 
 ```C#
-//Fetch the resource to be updated
+// Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
@@ -69,7 +69,7 @@ Offer offer = client.CreateOfferQuery()
 // Set the throughput to the new value, for example 12,000 request units per second
 offer = new OfferV2(offer, 12000);
 
-//Now persist these changes to the database by replacing the original resource
+// Now persist these changes to the collection by replacing the original offer resource
 await client.ReplaceOfferAsync(offer);
 ```
 
@@ -77,7 +77,7 @@ await client.ReplaceOfferAsync(offer);
 
 **Pode definir o meu débito para menos de 400 RU/s?**
 
-400 RU/s é o débito mínimo disponível em coleções de partições únicas de BD do Cosmos (2500 RU/s é o mínimo para coleções particionadas). O pedido unidades estão definidas em 100 intervalos de RU/s, mas o débito não é possível definir 100 RU/s ou qualquer valor inferior a 400 RU/s. Se estiver à procura de um método económico desenvolver e testar Cosmos DB, pode utilizar o livre [emulador de BD do Azure Cosmos](local-emulator.md), que pode implementar localmente, sem qualquer custo. 
+400 RU/s é o débito mínimo disponível nos contentores do Cosmos DB única partição (1000 RU/s é o mínimo para contentores particionadas). O pedido unidades estão definidas em 100 intervalos de RU/s, mas o débito não é possível definir 100 RU/s ou qualquer valor inferior a 400 RU/s. Se estiver à procura de um método económico desenvolver e testar Cosmos DB, pode utilizar o livre [emulador de BD do Azure Cosmos](local-emulator.md), que pode implementar localmente, sem qualquer custo. 
 
 **Como definir o througput utilizando a API do MongoDB**
 

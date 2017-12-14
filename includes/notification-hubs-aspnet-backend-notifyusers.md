@@ -148,7 +148,7 @@ Nesta secção, adicione um novo controlador para o end WebAPI back-end para pro
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Substitua o `Notifications` definição com o seguinte código de classe e substitua os marcadores de dois posição com a cadeia de ligação (com acesso total) para o notification hub e o nome do hub (disponível em [portal clássico do Azure](http://manage.windowsazure.com)):
+6. Substitua o `Notifications` definição com o seguinte código de classe e substitua os marcadores de dois posição com a cadeia de ligação (com acesso total) para o notification hub e o nome do hub (disponível em [portal do Azure](http://portal.azure.com)):
    
         public class Notifications
         {

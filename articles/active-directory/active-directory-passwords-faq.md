@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5c3129a50f456e484bf8af2a866059f494bed1d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Gestão de palavras-passe perguntas mais frequentes
 
@@ -41,6 +41,11 @@ Estas FAQ é dividida nas seguintes secções:
 * **P: os meus utilizadores registar os seus próprios dados de reposição de palavra-passe?**
 
   > **R:** Sim. Desde que a reposição de palavra-passe está ativada e são licenciados, os utilizadores podem aceder para o portal de registo de reposição (http://aka.ms/ssprsetup) de palavra-passe para registar as suas informações de autenticação. Os utilizadores também podem registar através do painel de acesso (http://myapps.microsoft.com). Para registar através do painel de acesso, que precisam para selecionar a imagem do perfil, selecione **perfil**e, em seguida, selecione o **registar para a reposição de palavra-passe** opção.
+  >
+  >
+* **P: Se ativar a palavra-passe de reposição de um grupo e, em seguida, optar por ativá-la para todos os utilizadores são os meus utilizadores necessário voltar a registar?**
+
+  > **R:** Não. Os utilizadores que tenham preenchido dados de autenticação não são necessário voltar a registar.
   >
   >
 * **P: Definir dados de reposição de palavra-passe em nome os meus utilizadores?**

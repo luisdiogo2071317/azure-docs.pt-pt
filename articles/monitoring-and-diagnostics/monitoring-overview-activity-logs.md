@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: 4a796920d5ff76d4ff4d41afe2ec14aa89ae2265
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: a101039b59eb1a4a3bcac25162c7f6373283e1b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividade do Azure
 O **registo de atividade do Azure** é um registo de subscrição que fornece informações sobre os eventos de nível de subscrição ocorridos no Azure. Isto inclui uma série de dados, a partir dos dados operacionais do Azure Resource Manager para atualizações de eventos de estado de funcionamento do serviço. O registo de atividade era anteriormente conhecido como "Registos de auditoria" ou "Registos operacionais," dado que os eventos de controlo plane de relatórios de categoria administrativa para as suas subscrições. Utilizar o registo de atividade, poderá determinar o ' que, quem e quando ' para quaisquer operações (PUT, POST, DELETE) efetuadas nos recursos na sua subscrição de escrita. Também pode compreender o estado da operação e outras propriedades relevantes. O registo de atividade não incluir operações de leitura (GET) ou as operações para recursos que utilizam clássica / modelo "RDFE".
@@ -33,7 +33,7 @@ Pode obter eventos a partir do seu registo de atividade no portal do Azure, CLI,
 
 
 > [!WARNING]
-> O registo de atividade do Azure é principalmente para atividades que ocorrem no Gestor de recursos do Azure. Controlar recursos utilizando o modelo clássico/RDFE. Alguns tipos de recurso clássico tem um fornecedor de recursos de proxy no Azure Resource Manager (por exemplo, Microsoft. classiccompute). Se o utilizador interage com um tipo de recurso clássica através do Azure Resource Manager utilizando estes fornecedores de recursos de proxy, as operações de aparecem no registo de atividade. Se interagir com um tipo de recurso clássico clássica portal ou de outra forma fora proxies de Gestor de recursos do Azure, as suas ações só são registadas no registo de operação. O registo de operações pode ser navegado numa secção separada do portal.
+> O registo de atividade do Azure é principalmente para atividades que ocorrem no Gestor de recursos do Azure. Controlar recursos utilizando o modelo clássico/RDFE. Alguns tipos de recurso clássico tem um fornecedor de recursos de proxy no Azure Resource Manager (por exemplo, Microsoft. classiccompute). Se o utilizador interage com um tipo de recurso clássica através do Azure Resource Manager utilizando estes fornecedores de recursos de proxy, as operações de aparecem no registo de atividade. Se interagir com um tipo de recurso clássico fora proxies de Gestor de recursos do Azure, as suas ações só são registadas no registo de operação. O registo de operações pode ser navegado numa secção separada do portal.
 >
 >
 
@@ -172,7 +172,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | serviceBusRuleId |Não |ID de regra de barramento de serviço para o espaço de nomes do Service Bus que gostaria de ter os event hubs criados no. É uma cadeia com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
 | localizações |Sim |Lista separada por vírgulas das regiões para as quais pretende recolher eventos de registo de atividade. |
 | retentionInDays |Sim |Número de dias para que eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os registos indefinidamente (indefinidamente). |
-| Categorias |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidas. Os valores possíveis são escrita, a eliminação e a ação. |
+| categorias |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidas. Os valores possíveis são escrita, a eliminação e a ação. |
 
 #### <a name="remove-a-log-profile"></a>Remover um perfil de registo
 ```

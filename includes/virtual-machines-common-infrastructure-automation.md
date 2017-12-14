@@ -45,7 +45,7 @@ Aprenda a:
 
 Nuvem init também funciona em distribuições. Por exemplo, não utilize **apt get instalação** ou **yum instalar** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes para instalar. Nuvem init utiliza automaticamente a ferramenta de gestão do pacote nativo para distro que selecionar.
 
- Estamos ativamente a trabalhar com os nossos parceiros de distro Linux endorsed para ter imagens de nuvem-init ativada disponíveis no Azure marketplace. Estas imagens fará com que as implementações de nuvem init e configurações funcionam sem problemas com as VMs e conjuntos de dimensionamento da VM (VMSS). A tabela seguinte descreve a disponibilidade de imagens de nuvem-init ativada atual na plataforma do Azure:
+ Estamos ativamente a trabalhar com os nossos parceiros de distro Linux endorsed para ter imagens de nuvem-init ativada disponíveis no Azure marketplace. Estas imagens se as implementações de nuvem init e configurações funcionam sem problemas com as VMs e conjuntos de dimensionamento de máquina virtual. A tabela seguinte descreve a disponibilidade de imagens de nuvem-init ativada atual na plataforma do Azure:
 
 | Publicador | Oferta | SKU | Versão | nuvem init pronto
 |:--- |:--- |:--- |:--- |:--- |:--- |

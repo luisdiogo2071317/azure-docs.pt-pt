@@ -3,7 +3,7 @@ title: "Reencaminhar dados de tarefa de automatização do Azure para a análise
 description: "Este artigo demonstra como enviar estado da tarefa e runbook fluxos de trabalho para a gestão e de análise de registos do Microsoft Operations Management Suite para fornecer informações adicionais."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: c12724c6-01a9-4b55-80ae-d8b7b99bd436
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 21923adaa8f8118995799319c1fd496a6e449faa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: b3b9457e6c8ce501a7295859923838460e7ab6cc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Reencaminhar estado da tarefa e fluxos de trabalho da automatização para análise de registos (OMS)
 Automatização pode enviar as runbook fluxos de trabalho e o estado da tarefa para a sua área de trabalho de análise de registos do Microsoft Operations Management Suite (OMS).  Os registos de tarefa e fluxos de trabalho são visíveis no portal do Azure, ou com o PowerShell, para tarefas individuais e Isto permite-lhe efetuar as investigações simples. Agora com a análise de registos, pode:
