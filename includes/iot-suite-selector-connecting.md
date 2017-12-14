@@ -8,7 +8,7 @@
 Neste tutorial, implementa um **Chiller** dispositivo que envia a telemetria seguinte para a monitorização remota [solução pré-configurada](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
 
 * Temperatura
-* pressão
+* Pressão
 * Humidade
 
 De simplicidade, o código gera os valores de telemetria de exemplo para o **Chiller**. Podia expandir o exemplo ao ligar sensores reais para o seu dispositivo e envia a telemetria real.
@@ -54,7 +54,7 @@ Para localizar as credenciais do que seu dispositivo tem de utilizar para ligar 
 
 1. Localize o grupo de recursos que contém os serviços do Azure que utiliza a sua solução de monitorização remota. O grupo de recursos tem o mesmo nome que a solução de monitorização remota que aprovisionou.
 
-1. Navegue para o IoT hub neste grupo de recursos. Em seguida, escolha **Explorador de dispositivo**:
+1. Navegue para o IoT hub neste grupo de recursos. Em seguida, escolha **dispositivos IoT**:
 
     ![Explorador de dispositivo](media/iot-suite-selector-connecting/deviceexplorer.png)
 

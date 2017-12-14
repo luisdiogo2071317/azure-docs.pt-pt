@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 12/13/2017
 ms.author: billmath
-ms.openlocfilehash: f2d4c3007fb8474da11587973e7623143bf118b1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 0781aef200ec075f8f7a21027cb8f9b65965cb43
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Do Azure AD Connect: Histórico de lançamento de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funções. Nem todas as adições são aplicáveis a todos os público.
@@ -31,7 +31,7 @@ Esta é uma lista de tópicos relacionados:
 Tópico |  Detalhes
 --------- | --------- |
 Passos para atualizar a partir do Azure AD Connect | Métodos diferentes para [atualizar de uma versão anterior para a versão mais recente](active-directory-aadconnect-upgrade-previous-version.md) versão do Azure AD Connect.
-Permissões obrigatórias | Para as permissões necessárias para aplicar uma atualização, consulte [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
+Permissões necessárias | Para as permissões necessárias para aplicar uma atualização, consulte [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
@@ -42,12 +42,16 @@ Estado: 12 de Dezembro de 2017
 >Esta é uma segurança correção relacionada do Azure AD Connect
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
-Quando instalar pela primeira vez o Azure AD Connect, pode ser criada uma nova conta que é utilizada para executar o serviço do Azure AD Connect. Antes desta versão, a conta foi criada com definições que permitidas adminsitrator direitos de saber a capacidade de alterar a palavra-passe para um valor-los de um utilizador com palavra-passe.  Isto permitido que inicie sessão com esta conta e, isto seria constituem uma elevação de violação de segurança de privilégio. Esta versão tightens a definição da conta que é criado e remove esta vulnerabilidade.
+Um melhoramento foi adicionado para o Azure AD Connect versão 1.1.654.0 (e depois) para se certificar de que a permissão recomendada alterações descrita na secção [bloqueio para baixo de acesso à conta do AD DS](#lock) são automaticamente aplicadas ao Azure AD Ligar cria a conta do AD DS. 
+
+- Quando configurar o Azure AD Connect, o administrador instalar pode fornecer uma conta existente do AD DS, ou permitir que o Azure AD Connect, criar automaticamente a conta. As alterações de permissão são automaticamente aplicadas à conta do AD DS que é criada pelo Azure AD Connect durante a configuração. Não são aplicadas a conta existente do AD DS fornecida pelo administrador instalar.
+- Para os clientes que atualizar de uma versão mais antiga do Azure AD Connect para 1.1.654.0 (ou após), a permissão alterações não serão retroactively aplicadas às contas existentes do AD DS criadas antes da atualização. Só serão aplicadas às novas contas de AD DS criadas após a atualização. Isto ocorre quando estiver a adicionar novas florestas do AD sejam sincronizados com o Azure AD.
 
 >[!NOTE]
->Nesta versão apenas remove a vulnerabilidade para novas instalações do Azure AD Connect, onde a conta de serviço é criada pelo processo de instalação. Para instalações de exisating ou em casos onde pode fornecer a conta de si próprio, sould, certifique-se de que esta vulnerabilidade não existe.
+>Nesta versão apenas remove a vulnerabilidade para novas instalações do Azure AD Connect, onde a conta de serviço é criada pelo processo de instalação. Para instalações existentes, ou em casos onde pode fornecer a conta de si próprio, sould, certifique-se de que esta vulnerabilidade não existe.
 
-Para reforçar às definições para a conta de serviço, pode executar [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Será reforçar as definições da conta de serviço para remover a vulnerabilidade para o abaixo valores:
+#### <a name="lock"></a>Bloqueie o acesso à conta do AD DS
+Bloqueio para baixo de acesso à conta do AD DS através da implementação as seguintes alterações de permissão na no local AD:  
 
 *   Desativar a herança de objeto especificado
 *   Remova todas as ACEs do objeto específico, exceto ACEs específicas para si. Queremos manter as permissões predefinidas intactos quando for necessário para si.
@@ -64,10 +68,13 @@ Permitir    | Controladores de domínio de empresa | Ler todas as propriedades  
 Permitir    | Controladores de domínio de empresa | Permissões de Leitura     | Este objeto  |
 Permitir    | Utilizadores autenticados           | Listar conteúdo        | Este objeto  |
 Permitir    | Utilizadores autenticados           | Ler todas as propriedades  | Este objeto  |
+Permitir    | Utilizadores autenticados           | Permissões de Leitura     | Este objeto  |
+
+Para reforçar as definições para o AD DS de conta, pode executar [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script do PowerShell irá atribuir as permissões mencionadas acima para a conta do AD DS.
 
 #### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Script do PowerShell para reforçar a uma conta de serviço já existente
 
-Para utilizar o script do PowerShell para aplicar estas definições, para uma conta de serviço já existente, (ether fornecidos pela sua organização ou criado por uma instalação anterior do Azure AD Connect transfira o script a partir da hiperligação fornecida acima.
+Para utilizar o script do PowerShell para aplicar estas definições, para uma conta do AD DS pré-existente, (ether fornecidos pela sua organização ou criado por uma instalação anterior do Azure AD Connect transfira o script a partir da hiperligação fornecida acima.
 
 ##### <a name="usage"></a>Utilização:
 
@@ -92,13 +99,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 Para ver se esta vulnerabilidade foi utilizada para comprometer o seu Azure AD configuração Connect, deverá certificar-se a palavra-passe última reposição data da conta de serviço.  Se a timestamp no inesperado, uma investigação mais aprofundada, através do registo de eventos, para essa palavra-passe de reposição de evento, deve ser undertaken.
 
-                                                                                                               
-
-## <a name="116490"></a>1.1.649.0
-Estado: de 2017 27 de Outubro
-
->[!NOTE]
->Este compilação não está disponível para clientes através da funcionalidade do Azure AD Connect automática atualizar
+Para obter mais informações, consulte [Consultivo de alterações de segurança da Microsoft 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 Estado: de 2017 27 de Outubro

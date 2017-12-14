@@ -1,7 +1,7 @@
 ---
 title: "Utilizar uma imagem personalizada do Docker da aplicação Web para contentores - Azure | Microsoft Docs"
 description: "Como utilizar uma imagem personalizada do Docker da aplicação Web para contentores."
-keywords: "serviço de aplicações do Azure, aplicação web, linux, docker, contentor"
+keywords: "serviço de aplicações do azure, aplicação web, linux, docker, contentor"
 services: app-service
 documentationcenter: 
 author: SyntaxC4
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 08503a7f6f32125c324173636dbda0548f3ccb8c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: MT
+ms.openlocfilehash: 6a89db8b93f29c29e935afd94da727d2460af889
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Utilizar uma imagem personalizada do Docker da aplicação Web para contentores
 
@@ -186,7 +186,7 @@ Pode alojar aplicações nativas do Linux na nuvem através da utilização de W
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
 
-### <a name="create-a-linux-app-service-plan"></a>Criar um plano de serviço de aplicações do Linux
+### <a name="create-a-linux-app-service-plan"></a>Criar um plano do Serviço de Aplicações do Linux
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)] 
 
@@ -198,7 +198,7 @@ No Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) no plano 
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
 ```
 
-Quando a aplicação web tiver sido criada, a CLI do Azure mostra resultado semelhante ao seguinte exemplo:
+Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações semelhantes ao seguinte exemplo:
 
 ```json
 {
@@ -294,10 +294,15 @@ SSH permite a comunicação segura entre um contentor e um cliente. Ordem de uma
 
     ```docker
     EXPOSE 8000 2222
-
-    RUN service ssh start
     ```
 
+* Certifique-se de que [iniciar o ssh service](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) utilizando um script de shell no diretório /bin.
+ 
+    ```bash
+    #!/bin/bash
+    service ssh start
+    ```
+     
 ### <a name="open-ssh-connection-to-container"></a>Abrir ligação SSH ao contentor
 
 Web App para contentores não permite ligações externas ao contentor. SSH está disponível apenas através do site Kudu, que é acessível na `https://<app_name>.scm.azurewebsites.net`.

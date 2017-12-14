@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho ao utilizar tecnologias de dentro da memória na base de dados do SQL Server
 
@@ -77,9 +77,7 @@ Vídeos aprofundados sobre as tecnologias de:
 
 OLTP na memória inclui tabelas com otimização de memória, que são utilizadas para armazenar dados de utilizador. Estas tabelas são necessários para caber na memória. Porque a gerir a memória diretamente no serviço de base de dados SQL, temos o conceito de uma quota de dados do utilizador. Esta ideia é referida como *armazenamento OLTP na memória*.
 
-Cada base de dados autónomo suportados cada escalão de preço de conjunto elástico e o escalão de preço inclui uma determinada quantidade de armazenamento do OLTP dentro da memória. No momento da escrita, pode obter um gigabyte de armazenamento para cada 125 unidades de transação de base de dados (DTUs) ou unidades de transação de bases de dados elásticas (eDTUs).
-
-O [escalões de serviço de base de dados SQL](sql-database-service-tiers.md) artigo tem a lista oficial do armazenamento OLTP na memória que está disponível para a base de dados autónomo e o agrupamento elástico de escalão de preço de cada suportados.
+Cada base de dados autónomo suportados cada escalão de preço de conjunto elástico e o escalão de preço inclui uma determinada quantidade de armazenamento do OLTP dentro da memória. No momento da escrita, pode obter um gigabyte de armazenamento para cada 125 unidades de transação de base de dados (DTUs) ou unidades de transação de bases de dados elásticas (eDTUs). Para obter mais informações, consulte [dos limites de recursos](sql-database-resource-limits.md).
 
 Os seguintes itens contam para o limite de armazenamento OLTP na memória:
 

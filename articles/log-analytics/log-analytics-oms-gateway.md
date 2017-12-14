@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: c09a01af8053feb4d5450b350503484507014765
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 16d79f02bffeb3db22a0190822d4304d3a1de73b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Ligar a computadores sem acesso à Internet para OMS utilizando o Gateway do OMS
 
@@ -62,8 +62,8 @@ Ao designar um computador a executar o Gateway do OMS, este computador tem de te
 
 O Gateway do OMS está disponível nos seguintes idiomas:
 
-- Chinês (simplificado)
-- Chinês (tradicional)
+- Chinês (Simplificado)
+- Chinês (Tradicional)
 - Checo
 - Neerlandês
 - Português
@@ -104,7 +104,7 @@ Existem três formas de obter a versão mais recente do ficheiro de configuraç�
 Para instalar um gateway, execute os seguintes passos.  Se tiver instalado uma versão anterior, anteriormente denominadas *reencaminhador de análise do registo*, será atualizada para esta versão.  
 
 1. A partir da pasta de destino, faça duplo clique em **OMS Gateway.msi**.
-2. No **boas-vindas** página, clique em **seguinte**.<br><br> ![Assistente de configuração do gateway](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
+2. Na página **Bem-vindo**, clique em **Seguinte**.<br><br> ![Assistente de configuração do gateway](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
 3. No **contrato de licença** página, selecione **aceito os termos no contrato de licença** para aceitar o EULA e, em seguida, clique em **seguinte**.
 4. No **porta e o proxy de endereço** página:
    1. Escreva o número da porta TCP para ser utilizado para o gateway. Programa de configuração configura uma regra de entrada com este número de porta na firewall do Windows.  O valor predefinido é 8080.
@@ -129,7 +129,7 @@ Para saber como estruturar e implementar uma cluster de balanceamento de carga n
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Configurar o agente do OMS e o grupo de gestão do Operations Manager
 A secção seguinte inclui os passos sobre como configurar ligadas diretamente agentes do OMS, um grupo de gestão do Operations Manager ou do Azure automatização de Runbook híbridos com o Gateway do OMS para comunicar com o OMS.  
 
-Para compreender os requisitos e passos sobre como instalar o agente do OMS em computadores Windows ligar diretamente à OMS, consulte [computadores Windows ligar ao OMS](log-analytics-windows-agents.md) ou para ver de computadores Linux [computadores Linux ligar ao OMS](log-analytics-linux-agents.md). 
+Para compreender os requisitos e passos sobre como instalar o agente do OMS em computadores Windows ligar diretamente à OMS, consulte [computadores Windows ligar ao OMS](log-analytics-windows-agent.md) ou para ver de computadores Linux [computadores Linux ligar ao OMS](log-analytics-linux-agents.md). 
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Configurar o agente do OMS e o Operations Manager para utilizar o Gateway do OMS como um servidor proxy
 

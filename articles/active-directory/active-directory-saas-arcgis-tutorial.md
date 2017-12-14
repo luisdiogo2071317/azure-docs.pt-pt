@@ -4,20 +4,21 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: a9e132a4-29e7-48bf-beb9-4148e617c8a9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 12/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 31ac119878eb1f23672495e53e0ac185662a86c6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b09dd977cbf5c4273667167217e86bb79ac2a9d8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutorial: Integração do Azure Active Directory com ArcGIS Online
 
@@ -25,26 +26,18 @@ Neste tutorial, irá aprender a integrar ArcGIS Online com o Azure Active Direct
 
 Integrar ArcGIS Online com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao ArcGIS Online
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para ArcGIS Online (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso ao ArcGIS Online.
+- Pode permitir aos utilizadores automaticamente obter com sessão iniciada para ArcGIS Online (Single Sign-On) com as respetivas contas do Azure AD.
+- Pode gerir as contas numa localização central - portal do Azure.
 
 Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
-
-<!--## Overview
-
-To enable single sign-on with ArcGIS Online, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in ArcGIS Online.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com ArcGIS Online, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um ArcGIS Online-início de sessão único subscrição ativada
+- Um ArcGIS Online-início de sessão único ativada subscrição
 
 > [!NOTE]
 > Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
@@ -52,7 +45,7 @@ Para configurar a integração do Azure AD com ArcGIS Online, terá dos seguinte
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
@@ -67,40 +60,37 @@ Para configurar a integração do ArcGIS Online com o Azure AD, terá de adicion
 
 1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
 
-    ![Active Directory][1]
+    ![O botão do Azure Active Directory][1]
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
-    ![Aplicações][2]
+    ![O painel de aplicações da empresa][2]
     
-3. Clique em **nova aplicação** botão na parte superior da caixa de diálogo Adicionar nova aplicação.
+3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
 
-    ![Aplicações][3]
+    ![O novo botão de aplicação][3]
 
-4. Na caixa de pesquisa, escreva **ArcGIS Online**.
+4. Na caixa de pesquisa, escreva **ArcGIS Online**, selecione **ArcGIS Online** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_search.png)
+    ![ArcGIS Online na lista de resultados](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
 
-5. No painel de resultados, selecione **ArcGIS Online**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com ArcGIS Online de acordo com um utilizador de teste chamado "Britta Simon."
+Nesta secção, configure e teste do Azure AD-início de sessão único com ArcGIS Online de acordo com um utilizador de teste chamado "Britta Simon".
 
 Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo ArcGIS online é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no ArcGIS Online tem de ser estabelecida.
 
-Esta relação de ligação é estabelecida ao atribuir o valor da **nome de utilizador** no Azure AD como o valor a **Username** ArcGIS online.
+No ArcGIS Online, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
 
 Para configurar e testar o Azure AD-início de sessão único com ArcGIS Online, tem de concluir os blocos modulares seguintes:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste ArcGIS Online](#creating-an-arcgis-online-test-user)**  - para ter um homólogo de Britta Simon ArcGIS Online que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
+3. **[Criar um utilizador de teste ArcGIS Online](#create-a-arcgis-online-test-user)**  - para ter um homólogo de Britta Simon ArcGIS Online que está ligada a representação do Azure AD do utilizador.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
+5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
 
 Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação ArcGIS Online.
 
@@ -108,28 +98,32 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 1. No portal do Azure, no **ArcGIS Online** página de integração de aplicações, clique em **de sessão único-**.
 
-    ![Configurar o início de sessão único][4]
+    ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
  
-    ![Configurar o início de sessão único](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_samlbase.png)
+    ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_samlbase.png)
 
-3. No **domínio Online ArcGIS e URLs** secção, executar o passo seguinte:
+3. No **domínio Online ArcGIS e URLs** secção, execute os seguintes passos:
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
+    ![Domínio Online ArcGIS e os URLs únicos de informações de início de sessão](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
 
-    No **URL de início de sessão** caixa de texto, digite o valor utilizando o padrão do seguinte:`https://<company>.maps.arcgis.com`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.maps.arcgis.com`
+
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`<companyname>.maps.arcgis.com`
 
     > [!NOTE] 
-    > Este valor não é o real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Online ArcGIS](http://support.esri.com/) para obter este valor. 
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Online ArcGIS](http://support.esri.com/en/) para obter estes valores. 
+ 
 
-4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro XML no seu computador.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_certificate.png) 
+4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_certificate.png) 
 
 5. Clique em **guardar** botão.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-arcgis-tutorial/tutorial_general_400.png)
+    ![Configurar botão único início de sessão guardar](./media/active-directory-saas-arcgis-tutorial/tutorial_general_400.png)
 
 6. Numa janela do browser web diferente, inicie sessão no site da sua empresa ArcGIS como administrador.
 
@@ -159,40 +153,41 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
 
-![Criar utilizador do Azure AD][100]
+   ![Criar um utilizador de teste do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. No portal do Azure, no painel esquerdo, clique em de **do Azure Active Directory** botão.
 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-arcgis-tutorial/create_aaduser_01.png) 
+    ![O botão do Azure Active Directory](./media/active-directory-saas-arcgis-tutorial/create_aaduser_01.png)
 
-2. Aceda a **utilizadores e grupos** e clique em **todos os utilizadores** para apresentar a lista de utilizadores.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-arcgis-tutorial/create_aaduser_02.png) 
+2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
-3. Na parte superior da caixa de diálogo, clique em **adicionar** para abrir o **utilizador** caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-arcgis-tutorial/create_aaduser_03.png) 
+    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/active-directory-saas-arcgis-tutorial/create_aaduser_02.png)
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-arcgis-tutorial/create_aaduser_04.png) 
+3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    ![O botão de adição](./media/active-directory-saas-arcgis-tutorial/create_aaduser_03.png)
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de Britta Simon.
+4. No **utilizador** diálogo caixa, execute os seguintes passos:
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    ![A caixa de diálogo de utilizador](./media/active-directory-saas-arcgis-tutorial/create_aaduser_04.png)
+
+    a. No **nome** caixa, escreva **BrittaSimon**.
+
+    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
     d. Clique em **Criar**.
  
-### <a name="creating-an-arcgis-online-test-user"></a>Criar um utilizador de teste ArcGIS Online
+### <a name="create-a-arcgis-online-test-user"></a>Criar um utilizador de teste ArcGIS Online
 
 Para permitir que os utilizadores do Azure AD sessão ArcGIS Online, têm de ser aprovisionados para ArcGIS Online.  
 No caso de ArcGIS Online, o aprovisionamento é uma tarefa manual.
@@ -223,11 +218,11 @@ No caso de ArcGIS Online, o aprovisionamento é uma tarefa manual.
     > [!NOTE]
     > O marcador de posição de conta do Azure Active Directory irá receber um e-mail e siga uma ligação para confirmar a respetiva conta para ficar ativa.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso ao ArcGIS Online.
 
-![Atribua o utilizador][200] 
+![Atribuir a função de utilizador][200] 
 
 **Para atribuir Britta Simon a ArcGIS Online, execute os seguintes passos:**
 
@@ -237,15 +232,15 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 2. Na lista de aplicações, selecione **ArcGIS Online**.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png) 
+    ![A ligação ArcGIS Online na lista de aplicações](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png)  
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![A ligação de "Utilizadores e grupos"][202]
 
 4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![O painel Adicionar atribuição][203]
 
 5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
 
@@ -253,19 +248,17 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Teste o início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
 Quando clica no mosaico ArcGIS Online no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação ArcGIS Online.
-Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md).
+Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

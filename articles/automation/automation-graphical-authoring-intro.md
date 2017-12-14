@@ -3,7 +3,7 @@ title: "A criação de gráficos na automatização do Azure | Microsoft Docs"
 description: "Criação de gráficos permite-lhe criar runbooks de automatização do Azure sem trabalhar com o código. Este artigo fornece uma introdução à criação de gráficos e todos os detalhes necessários para começar a criar um runbook gráfico."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Gráfico de criação na automatização do Azure
 ## <a name="introduction"></a>Introdução
@@ -112,9 +112,9 @@ No exemplo seguinte, o cmdlet Get-AzureRmVM tem três conjuntos de parâmetros. 
 #### <a name="parameter-values"></a>Valores de parâmetros
 Quando especificar um valor para um parâmetro, selecione uma origem de dados para determinar a forma como o valor será especificado.  Os valores válidos para este parâmetro dependem as origens de dados que estão disponíveis para um parâmetro específico.  Por exemplo, um valor nulo não poderá ser uma opção disponível para um parâmetro que não permite valores nulos.
 
-| Origem de dados | Descrição |
+| Origem de Dados | Descrição |
 |:--- |:--- |
-| Valor constante |Escreva um valor para o parâmetro.  Isto só está disponível para os seguintes tipos de dados: Int32, Int64, String, booleano, DateTime, comutador. |
+| Valor Constante |Escreva um valor para o parâmetro.  Isto só está disponível para os seguintes tipos de dados: Int32, Int64, String, booleano, DateTime, comutador. |
 | Saída da atividade |Resultado de uma atividade que precede a atividade atual no fluxo de trabalho.  Serão apresentadas todas as atividades válidas.  Selecione apenas a atividade para utilizar o resultado para o valor do parâmetro.  Se a atividade produz um objeto com várias propriedades, em seguida, pode escrever nome da propriedade depois de selecionar a atividade. |
 | Entrada do Runbook |Selecione um parâmetro de entrada do runbook como entrada para o parâmetro da atividade. |
 | Recurso de variável |Selecione uma variável de automatização como entrada. |
@@ -122,7 +122,7 @@ Quando especificar um valor para um parâmetro, selecione uma origem de dados pa
 | Recurso de certificado |Selecione um certificado da automatização como entrada. |
 | Recurso de ligação |Selecione uma ligação de automatização como entrada. |
 | Expressão do PowerShell |Especifique simples [expressão do PowerShell](#powershell-expressions).  A expressão será avaliada antes da atividade e o resultado utilizado para o valor do parâmetro.  Pode utilizar variáveis para fazer referência à saída de uma atividade ou um parâmetro de entrada do runbook. |
-| Não configurado |Limpa qualquer valor que foi configurada anteriormente. |
+| Não configurada |Limpa qualquer valor que foi configurada anteriormente. |
 
 #### <a name="optional-additional-parameters"></a>Parâmetros adicionais opcionais
 Todos os cmdlets terá a opção para fornecer parâmetros adicionais.  Estes são os parâmetros comuns do PowerShell ou outros parâmetros personalizados.  É-lhe apresentada uma caixa de texto, onde pode fornecer os parâmetros que utilizam a sintaxe do PowerShell.  Por exemplo, para utilizar o **verboso** parâmetro comum, tem de especificar **"-Verbose: $True"**.
@@ -185,7 +185,7 @@ Selecione a ligação para configurar as respetivas propriedades no painel de co
 | Tipo de ligação | Descrição |
 |:--- |:--- |
 | Pipeline |A atividade de destino é executada uma vez para cada objeto de saída da atividade de origem.  A atividade de destino não é executado se a atividade de origem resulta em nenhuma saída.  Saída da atividade de origem está disponível como um objeto. |
-| Sequência |A atividade de destino é executada apenas uma vez.  Recebe uma matriz de objetos da atividade de origem.  Saída da atividade de origem está disponível como uma matriz de objetos. |
+| Sequence |A atividade de destino é executada apenas uma vez.  Recebe uma matriz de objetos da atividade de origem.  Saída da atividade de origem está disponível como uma matriz de objetos. |
 
 ### <a name="starting-activity"></a>Atividade de partida
 Um runbook gráfico irá começar a utilizar quaisquer atividades que não tenham uma ligação de entrada.  Isto, muitas vezes, será apenas uma atividade que seria agem como a atividade de partida para o runbook.  Se várias atividades não dispõe de uma ligação de entrada, o runbook será iniciada, executando a aplicação em paralelo.  Em seguida, seguirá as ligações para executar outras atividades como cada uma for concluída.
@@ -245,7 +245,7 @@ Também pode obter o resultado de uma atividade num **expressão do PowerShell**
     $ActivityOutput['Activity Label']
     $ActivityOutput['Activity Label'].PropertyName 
 
-### <a name="checkpoints"></a>Pontos de verificação
+### <a name="checkpoints"></a>Pontos de Verificação
 Pode definir [pontos de verificação](automation-powershell-workflow.md#checkpoints) num runbook gráfico fluxo de trabalho do PowerShell selecionando *runbook de ponto de verificação* em qualquer atividade.  Isto faz com que um ponto de verificação ser definida depois da atividade é executada.
 
 ![Ponto de verificação](media/automation-graphical-authoring-intro/set-checkpoint.png)
@@ -292,7 +292,7 @@ Cada parâmetro de entrada é definido pelas propriedades na tabela seguinte.
 | Descrição |Uma descrição opcional para o parâmetro de entrada. |
 | Tipo |Tipo de dados esperado para o valor do parâmetro.  O portal do Azure irá fornecer um controlo adequado para o tipo de dados para cada parâmetro, quando for solicitada entrada. |
 | Obrigatório |Especifica se deve ser fornecido um valor para o parâmetro.  Não é possível iniciar o runbook se não fornecer um valor para cada parâmetro obrigatório que não tem um valor predefinido especificado. |
-| Valor predefinido |Especifica que valor é utilizado para o parâmetro se não for fornecido.  Isto pode ser nulo ou um valor específico. |
+| Valor Predefinido |Especifica que valor é utilizado para o parâmetro se não for fornecido.  Isto pode ser nulo ou um valor específico. |
 
 ### <a name="runbook-output"></a>Resultado do runbook
 Dados criados por qualquer atividade que não tem uma ligação de saída serão adicionados ao [saída do runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx).  O resultado é guardado com a tarefa de runbook e está disponível para um runbook principal quando o runbook é utilizado como elemento subordinado.  

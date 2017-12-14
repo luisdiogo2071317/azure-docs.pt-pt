@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Pré-requisitos da implementação do Azure Stack
 
@@ -85,7 +85,7 @@ Para implementar a pilha do Azure, utilizando uma conta do Azure AD, tem de prep
 
 1. Crie uma conta do Azure AD, que é o administrador do diretório do Azure AD, pelo menos, um. Se já tiver uma conta, pode utilizá-la. Caso contrário, pode criar uma gratuitamente em [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (na China, visite <http://go.microsoft.com/fwlink/?LinkID=717821> em vez disso,). Se pretender mais tarde [registar pilha do Azure com o Azure](azure-stack-register.md), também tem de ter uma subscrição deste conta recentemente criada.
    
-    Guardar estas credenciais para utilização no passo 6 do [implementar o kit de desenvolvimento](azure-stack-run-powershell-script.md#deploy-the-development-kit). Esta conta de *administrador de serviços* permite configurar e gerir nuvens de recursos, contas de utilizador, planos de inquilino, quotas e preços. No portal, pode criar nuvens de sites, nuvens privadas de máquinas virtuais, criar planos e gerir subscrições do utilizador.
+    Guardar estas credenciais para utilização no passo 6 do [implementar o kit de desenvolvimento](azure-stack-run-powershell-script.md). Esta conta de *administrador de serviços* permite configurar e gerir nuvens de recursos, contas de utilizador, planos de inquilino, quotas e preços. No portal, pode criar nuvens de sites, nuvens privadas de máquinas virtuais, criar planos e gerir subscrições do utilizador.
 2. [Criar](azure-stack-add-new-user-aad.md) pelo menos uma conta para que pode iniciar sessão para o kit de desenvolvimento de inquilino.
    
    | **Conta do Active Directory do Azure** | **Suportado?** |

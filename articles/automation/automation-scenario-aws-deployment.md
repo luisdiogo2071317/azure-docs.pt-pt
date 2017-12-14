@@ -3,7 +3,7 @@ title: "Automatizar a implementação de uma VM nos Amazon Web Services | Micros
 description: "Este artigo demonstra como utilizar a automatização do Azure para automatizar a criação de uma VM de serviço do Amazon Web"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: tiandert; bwren
-ms.openlocfilehash: 828f9e2cc9a39e54933cd0e0db7273efa460d0c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f81150a0ef60cbf10010374f1ec80b0c05b6c6f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Cenário de automatização do Azure - aprovisionar uma máquina virtual do AWS
 Neste artigo, vamos demonstrar como pode tirar partido da automatização do Azure para Aprovisionar uma máquina virtual na sua subscrição do Amazon Web Service (AWS) e dar um nome específico – que AWS refere-se a como "marcação" a VM dessa VM.

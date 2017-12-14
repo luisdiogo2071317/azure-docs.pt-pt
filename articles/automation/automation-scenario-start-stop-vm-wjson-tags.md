@@ -3,7 +3,7 @@ title: Utilize etiquetas formatada em JSON para agendar o estado de VM do Azure 
 description: Este artigo demonstra como utilizar cadeias JSON no etiquetas para automatizar o agendamento do VM arranque e encerramento.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9855921f4a3aa9cda8497b400d50a186d7162dc3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Cenário de automatização do Azure: utilizar etiquetas formatada em JSON para criar um agendamento para a VM do Azure de arranque e encerramento
 Muitas vezes, os clientes pretendem de agendar o arranque e encerramento de máquinas virtuais para ajudar a reduzir os custos de subscrição ou empresariais e requisitos técnicos de suporte.

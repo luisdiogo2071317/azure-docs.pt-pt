@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 28/9/2017
+ms.date: 12/11/2017
 ms.author: seguler
-ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 1cf1ce1cb739d8958767f0e84380ff6ba57eb1b6
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferência de dados com o AzCopy no Linux
-O AzCopy no Linux é um utilitário da linha de comandos concebido para copiar dados para e do armazenamento de Blobs do Microsoft Azure e o ficheiro de utilização de comandos simples com um desempenho ideal. Pode copiar dados de um objeto para outro dentro da sua conta de armazenamento, ou entre contas de armazenamento.
+O AzCopy no Linux é um utilitário da linha de comandos concebido para copiar dados para e do armazenamento de Blobs do Microsoft Azure e o ficheiro de utilização de comandos simples com um desempenho ideal. Também pode copiar dados de um objeto a para outro, dentro da sua conta de armazenamento, ou entre contas de armazenamento.
 
 Existem duas versões do AzCopy que pode transferir. AzCopy no Linux é criado com o .NET Core Framework, que está direcionada para plataformas Linux oferta estilo POSIX opções da linha de comandos. [AzCopy no Windows](../storage-use-azcopy.md) baseia-se com o .NET Framework e oferece opções de linha de comandos de estilo do Windows. Este artigo abrange AzCopy no Linux.
 
@@ -30,7 +30,7 @@ Existem duas versões do AzCopy que pode transferir. AzCopy no Linux é criado c
 
 O artigo inclui comandos para várias versões do Ubuntu.  Utilize o `lsb_release -a` comando para confirmar a sua versão de distribuição e o nome. 
 
-AzCopy no Linux requer o .NET Core framework (versão 1.1.x) na plataforma. Consulte as instruções de instalação no [.NET Core](https://www.microsoft.com/net/download/linux) página.
+AzCopy no Linux requer o .NET Core (versão framework 2.0) na plataforma. Consulte as instruções de instalação no [.NET Core](https://www.microsoft.com/net/download/linux) página.
 
 Por exemplo, vamos a instalar o .NET Core no Ubuntu 16.04. Para o guia de instalação mais recente, visite [.NET Core no Linux](https://www.microsoft.com/net/download/linux) página de instalação.
 
@@ -40,7 +40,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-get update
-sudo apt-get install dotnet-dev-1.1.4
+sudo apt-get install dotnet-sdk-2.0.2
 ```
 
 Depois de ter instalado o .NET Core, transfira e instale o AzCopy.
@@ -68,22 +68,20 @@ Os exemplos seguintes demonstram vários cenários para copiar dados para e do M
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key> 
 ```
 
-Se a pasta `/mnt/myfiles` não existir, AzCopy criá-lo e transfere `abc.txt ` para a nova pasta.
+Se a pasta `/mnt/myfiles` não existir, AzCopy criá-lo e transfere `abc.txt ` para a nova pasta. 
 
 ### <a name="download-single-blob-from-secondary-region"></a>Transferir BLOBs único da região secundária
 
 ```azcopy
 azcopy \
-    --source https://myaccount-secondary.blob.core.windows.net/mynewcontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount-secondary.blob.core.windows.net/mynewcontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 Tenha em atenção que tem de ter o armazenamento georredundante com acesso de leitura ativado.
@@ -189,10 +187,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.blob.core.windows.net/mycontainer \
-    --dest-key <key> \
-    --include "abc.txt"
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
+    --dest-key <key>
 ```
 
 Se o contentor de destino especificado não existir, o AzCopy criá-lo e carrega o ficheiro para a mesma.
@@ -201,10 +198,9 @@ Se o contentor de destino especificado não existir, o AzCopy criá-lo e carrega
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.blob.core.windows.net/mycontainer \
-    --dest-key <key> \
-    --include "abc.txt"
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/vd/abc.txt \
+    --dest-key <key>
 ```
 
 Se o diretório virtual especificado não existir, o AzCopy carrega o ficheiro para incluir o diretório virtual no nome do blob (*por exemplo,*, `vd/abc.txt` no exemplo acima).
@@ -315,11 +311,10 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://myaccount.blob.core.windows.net/mycontainer2 \
+    --source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-key <key> \
-    --dest-key <key> \
-    --include "abc.txt"
+    --dest-key <key>
 ```
 
 Quando copiar um blob sem - opção de cópia de sincronização, um [cópia do lado do servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) é efetuar a operação.
@@ -328,11 +323,10 @@ Quando copiar um blob sem - opção de cópia de sincronização, um [cópia do 
 
 ```azcopy
 azcopy \
-    --source https://sourceaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://destaccount.blob.core.windows.net/mycontainer2 \
+    --source https://sourceaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://destaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt"
+    --dest-key <key2>
 ```
 
 Quando copiar um blob sem - opção de cópia de sincronização, um [cópia do lado do servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) é efetuar a operação.
@@ -341,11 +335,10 @@ Quando copiar um blob sem - opção de cópia de sincronização, um [cópia do 
 
 ```azcopy
 azcopy \
-    --source https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 \
-    --destination https://myaccount2.blob.core.windows.net/mynewcontainer2 \
+    --source https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1/abc.txt \
+    --destination https://myaccount2.blob.core.windows.net/mynewcontainer2/abc.txt \
     --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt"
+    --dest-key <key2>
 ```
 
 Tenha em atenção que tem de ter o armazenamento georredundante com acesso de leitura ativado.
@@ -354,8 +347,8 @@ Tenha em atenção que tem de ter o armazenamento georredundante com acesso de l
 
 ```azcopy
 azcopy \
-    --source https://sourceaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://destaccount.blob.core.windows.net/mycontainer2 \
+    --source https://sourceaccount.blob.core.windows.net/mycontainer1/ \
+    --destination https://destaccount.blob.core.windows.net/mycontainer2/ \
     --source-key <key1> \
     --dest-key <key2> \
     --include "abc.txt" \
@@ -392,10 +385,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount.file.core.windows.net/myfileshare/myfolder1/ \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount.file.core.windows.net/myfileshare/myfolder1/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 Se a fonte especificada é uma partilha de ficheiros do Azure, em seguida, tem de especificar se o nome de ficheiro exata, (*por exemplo,* `abc.txt`) para transferir um ficheiro único ou especificar a opção `--recursive` para transferir todos os ficheiros na recursivamente a partilha. Tentativa de especificar um padrão de ficheiro e a opção `--recursive` resultados em conjunto num erro.
@@ -417,10 +409,9 @@ Tenha em atenção que não são transferidas quaisquer pastas vazias.
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.file.core.windows.net/myfileshare/ \
-    --dest-key <key> \
-    --include abc.txt
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.file.core.windows.net/myfileshare/abc.txt \
+    --dest-key <key>
 ```
 
 ### <a name="upload-all-files"></a>Carregar todos os ficheiros
@@ -543,11 +534,10 @@ AzCopy falha se dividir o parâmetro por duas linhas, conforme mostrado aqui par
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://myaccount.blob.core.windows.net/mycontainer2 \
+    --source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-sas <SAS1> \
-    --dest-sas <SAS2> \
-    --include abc.txt
+    --dest-sas <SAS2>
 ```
 
 Também pode especificar uma SAS no contentor do URI:
@@ -558,8 +548,6 @@ azcopy \
     --destination /mnt/myfiles \
     --recursive
 ```
-
-Tenha em atenção que o AzCopy atualmente suporta apenas o [conta SAS](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### <a name="journal-file-folder"></a>Pasta de ficheiros do diário de alterações
 Sempre que emitir um comando do AzCopy, este verifica se existe um ficheiro de diário de alterações na pasta predefinida ou se existe uma pasta que especificou através desta opção. Se o ficheiro do diário de alterações não existe em qualquer local, o AzCopy processa a operação como novo e gera um novo ficheiro de diário de alterações.
@@ -609,47 +597,12 @@ azcopy \
 ### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Especifique o número de operações simultâneas para iniciar
 Opção `--parallel-level` Especifica o número de operações de cópia em simultâneo. Por predefinição, o AzCopy é iniciado um determinado número de operações simultâneas para aumentar o débito de transferência de dados. O número de operações simultâneas é igual oito vezes o número de processadores tem. Se estiver a executar o AzCopy através de uma rede de largura de banda reduzida, pode especificar um número inferior de – nível de paralelo para evitar falhas causadas por concorrência de recursos.
 
-[!TIP]
+>[!TIP]
 >Para ver a lista completa dos parâmetros do AzCopy, consulte 'azcopy – Ajuda' menu.
 
 ## <a name="known-issues-and-best-practices"></a>Problemas conhecidos e melhores práticas
-### <a name="error-net-core-is-not-found-in-the-system"></a>Erro: .NET Core não foi encontrado no sistema.
-Se ocorrer um erro a indicar que o .NET Core não está instalado no sistema, o caminho para o binário .NET Core `dotnet` poderá estar em falta.
-
-Para resolver este problema, localize o .NET Core binário no sistema:
-```bash
-sudo find / -name dotnet
-```
-
-Esta ação devolve o caminho para o dotnet binário. 
-
-    /opt/rh/rh-dotnetcore11/root/usr/bin/dotnet
-    /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/dotnet
-    /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/shared/Microsoft.NETCore.App/1.1.2/dotnet
-
-Agora, adicione este caminho para a variável de caminho. Para o sudo, edição secure_path para conter o caminho para dotnet binário:
-```bash 
-sudo visudo
-### Append the path found in the preceding example to 'secure_path' variable
-```
-
-Neste exemplo, a variável de secure_path lê como:
-
-```
-secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/opt/rh/rh-dotnetcore11/root/usr/bin/
-```
-
-Para o utilizador atual, editar.bash_profile/.profile para incluir o caminho para o binário na variável de caminho do dotnet 
-```bash
-vi ~/.bash_profile
-### Append the path found in the preceding example to 'PATH' variable
-```
-
-Certifique-se de que o .NET Core está agora no caminho:
-```bash
-which dotnet
-sudo which dotnet
-```
+### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>Erro: O .NET SDK 2.0 não se encontra no sistema.
+AzCopy depende o SDK .NET 2.0 a partir da versão 7.0 do AzCopy. Antes desta versão AzCopy utilizado .NET Core 1.1. Se ocorrer um erro a indicar que o .NET Core 2.0 não está instalado no sistema, poderá ter de instalar ou atualizar a utilizar o [instruções de instalação do .NET Core](https://www.microsoft.com/net/learn/get-started/linuxredhat).
 
 ### <a name="error-installing-azcopy"></a>Erro ao instalar o AzCopy
 Se ocorrerem problemas com a instalação do AzCopy, pode tentar executar o AzCopy utilizando o script de bash no extraídos `azcopy` pasta.

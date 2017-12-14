@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 6533889411c3dbadbbabdbe1239050c941a9c300
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorar as funcionalidades da solução pré-configurada de monitorização remota
 
@@ -101,11 +101,11 @@ Como um operador, vê no dashboard que há um alarme relacionadas com a pressão
 
 1. Fechar **detalhes do dispositivo**.
 
-1. Para navegar para o **manutenção** página, clique em **...**  no **explorar alarme** coluna junto ao alarme na grelha alarme.
+1. Para navegar para o **manutenção** página, escolha **manutenção** no menu de navegação.
 
 No **manutenção** página, pode ver os detalhes da regra que acionou o alarme de pressão chiller.
 
-1. Pode ver o número de vezes que o alarme foi acionada, em que as confirmações e alarmes abertos e fechados:
+1. A lista de notificações mostra o número de vezes que o alarme foi acionada, em que as confirmações e alarmes abertos e fechados:
 
     ![Página de manutenção mostra a lista de alarmes ter acionado](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -123,9 +123,9 @@ Agora ter identificado o problema que acionou o alarme e o dispositivo associado
 
     ![Selecione o dispositivo e agendar uma ação](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. Para ver o estado da tarefa, voltar para o **manutenção** e ver a lista de tarefas na página a **estado do sistema** vista. Pode ver que a tarefa foi executada para libertar o pressão valve no chiller:
+1. Para ver o estado da tarefa, voltar para o **manutenção** e ver a lista de tarefas na página a **tarefas** vista. Pode ver que a tarefa foi executada para libertar o pressão valve no chiller:
 
-    ![O estado das tarefas de estado do sistema](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![O estado das tarefas na vista tarefas](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 Por fim, confirme que os valores de telemetria do chiller são novamente para normal.
 
@@ -159,7 +159,7 @@ Para efetuar as tarefas de gestão de dispositivo necessários, utilize o **disp
     ![Agendar a atualização de firmware no dispositivo](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Com os dispositivos simulados pode utilizar qualquer URL que quiser como o **Firemware URI** valor. Os dispositivos simulados não aceder ao URL.
+    > Com os dispositivos simulados pode utilizar qualquer URL que quiser como o **URI de Firmware** valor. Os dispositivos simulados não aceder ao URL.
 
 1. Tenha em atenção o número de dispositivos afeta a tarefa e escolha **aplicar**:
 
@@ -167,13 +167,13 @@ Para efetuar as tarefas de gestão de dispositivo necessários, utilize o **disp
 
 Pode utilizar o **manutenção** página para controlar a tarefa que é executada.
 
-1. Para ver a lista de tarefas, navegue para o **manutenção** página e clique em **estado do sistema**.
+1. Para ver a lista de tarefas, navegue para o **manutenção** página e clique em **tarefas**.
 
 1. Localize os eventos relacionados com a tarefa que criou. Certifique-se de que o processo de atualização de firmware foi iniciado corretamente.
 
-Pode criar um filtro para verificar a atualização da versão de firmware corretamente.
+Pode criar um filtro para verificar a versão de firmware atualizada corretamente.
 
-1. Para criar um filtro, navegue para o **dispositivos** página e selecione **gerir**:
+1. Para criar um filtro, navegue para o **dispositivos** página e selecione **gerir filtros**:
 
     ![Gerir filtros de dispositivo](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -202,7 +202,7 @@ Pode criar os nomes de etiqueta para utilizar com dispositivos.
 
     ![Selecione os dispositivos protótipo e camião](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. Escolha **Tag** e, em seguida, crie uma nova etiqueta de cadeia denominada **FieldService** com um valor **ConnectedVehicle**. Escolha um nome para a tarefa. Em seguida, clique em **aplicar**:
+1. Escolha **Tag** e, em seguida, crie uma nova etiqueta de texto chamada **FieldService** com um valor **ConnectedVehicle**. Escolha um nome para a tarefa. Em seguida, clique em **aplicar**:
 
     ![Adicionar etiquetas a dispositivos protótipo e camião](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -210,7 +210,7 @@ Pode criar os nomes de etiqueta para utilizar com dispositivos.
 
     ![Selecione dispositivos chiller, motor e a abordagem](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Escolha **Tag** e, em seguida, crie uma nova etiqueta chamada **FieldService** com um valor **SmartBuilding**. Escolha um nome para a tarefa. Em seguida, clique em **guardar**:
+1. Escolha **Tag** e, em seguida, crie uma nova etiqueta de texto chamada **FieldService** com um valor **SmartBuilding**. Escolha um nome para a tarefa. Em seguida, clique em **guardar**:
 
     ![Adicionar etiquetas ao chiller, motor e a abordagem de dispositivos](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

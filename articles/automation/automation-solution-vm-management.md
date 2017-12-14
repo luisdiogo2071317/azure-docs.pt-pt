@@ -3,7 +3,7 @@ title: "VMs de início/paragem durante a solução de off-hours | Microsoft Docs
 description: "A solução Gestão de VMs inicia e para as suas Máquinas Virtuais do Azure Resource Manager de acordo com uma agenda e monitorizam proativamente a partir do Log Analytics."
 services: automation
 documentationCenter: 
-authors: eslesar
+authors: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: magoedte
-ms.openlocfilehash: 2ff2208f62c24c460c9d17533e28fd007549828b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: e6f1189b9729c57718a5cd6d6f6a583b94f6f142
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VMs de início/paragem durante a solução de off-hours na automatização do Azure
 
@@ -72,9 +72,9 @@ Inclui todos os runbooks do principal a *WhatIf* parâmetro, que quando definido
 | --- | --- | ---| 
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chamada a partir do runbook principal apenas. Cria alertas per recurso base para o cenário de AutoStop.| 
 |AutoStop_CreateAlert_Parent | WhatIf: VERDADEIRO ou FALSO <br> VMList | Cria ou atualiza as regras de alertas do Azure em VMs nos grupos direcionados subscrição ou recurso. <br> VMList: Separados por vírgulas lista de VMs.  Por exemplo, *vm1 vm2, vm3*| 
-|AutoStop_Disable | Nenhum | Desative alertas de AutoStop e a agenda predefinida.| 
+|AutoStop_Disable | nenhum | Desative alertas de AutoStop e a agenda predefinida.| 
 |AutoStop_StopVM_Child | WebHookData | Chamado a partir apenas o runbook principal. Regras de alerta chamar este runbook e faz o trabalho de parar a VM.|  
-|Bootstrap_Main | Nenhum | Utilizado uma vez para configurações de arranque de configuração, como webhookURI que normalmente não está acessível a partir do Azure Resource Manager. Este runbook será removido automaticamente se a implementação tornou-se com êxito.|  
+|Bootstrap_Main | nenhum | Utilizado uma vez para configurações de arranque de configuração, como webhookURI que normalmente não está acessível a partir do Azure Resource Manager. Este runbook será removido automaticamente se a implementação tornou-se com êxito.|  
 |ScheduledStartStop_Child | VMName <br> Ação: Parar ou iniciar <br> resourceGroupName | Chamado a partir apenas o runbook principal. Não a execução real de paragem ou de início para parar agendada.|  
 |ScheduledStartStop_Parent | Ação: Parar ou iniciar <br> WhatIf: VERDADEIRO ou FALSO | Isto produzirá efeito no todas as VMs na subscrição, a menos que edita o **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** que será restringi-la para executar apenas em estes grupos de recursos de destino. Também pode excluir VMs específicas atualizando o **External_ExcludeVMNames** variável. WhatIf comporta-se os mesmos que outros runbooks.|  
 |SequencedStartStop_Parent | Ação: Parar ou iniciar <br> WhatIf: VERDADEIRO ou FALSO | Crie uma tag chamada **SequenceStart** e outra tag chamado **SequenceStop** em cada VM que pretende o início da sequência\\parar atividade. O valor da etiqueta deve ser um número inteiro positivo (1,2,3) que corresponde à ordem que pretende iniciar\\parar por ordem ascendente. WhatIf comporta-se os mesmos que outros runbooks. <br> **Nota: VMs devem ser em grupos de recursos definida External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames e External_ExcludeVMNames em variáveis de automatização do Azure e tem as etiquetas adequadas para ações entre em vigor.**|

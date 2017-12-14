@@ -3,7 +3,7 @@ title: "Resolução de problemas comuns de automatização do Azure | Microsoft 
 description: "Este artigo fornece informações para ajudar a resolver problemas e corrija erros comuns de automatização do Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: f9ad68abef47cde7472e413ee82510f7df9121cd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: c958bc149cc617b5c9e99a2d3fc6fb2d425b2772
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Resolução de problemas comuns na automatização do Azure 
 Este artigo fornece erros comuns que pode ocorrer na automatização do Azure e sugere possíveis soluções para resolvê-los de resolução de problemas.

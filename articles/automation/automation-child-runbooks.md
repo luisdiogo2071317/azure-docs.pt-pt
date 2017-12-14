@@ -3,7 +3,7 @@ title: "Os runbooks subordinados na automatização do Azure | Microsoft Docs"
 description: "Descreve os diferentes métodos para iniciar um runbook na automatização do Azure a partir de outro runbook e partilhar informações entre eles."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 617e18f5435c7eacb7751ccca6ac2f3814745f04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c136016ba885ec9ba999cb72ee6c1d4fc8770a0b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks subordinados na automatização do Azure
 É uma boa prática na automatização do Azure para escrever runbooks modulares, reutilizáveis com uma função discreta que pode ser utilizada por outros runbooks. Um runbook principal chamará, frequentemente, um ou mais runbooks subordinados para executar a funcionalidade necessária. Existem duas formas de chamar runbooks subordinados e cada uma delas apresenta diferenças distintas que deverá compreender para que possa determinar qual é a mais adequada aos seus diferentes cenários.

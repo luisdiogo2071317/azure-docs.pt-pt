@@ -7,20 +7,20 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 7550748c496f4e5c671ab49f9b139d2d4926d497
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testar a sua solução com dispositivos simulados
 
-Este tutorial mostra como utilizar a personalizar o microsserviço do simulador de dispositivo com a solução pré-configurada de monitorização remota. Para mostrar as capacidades do simulador de dispositivo, que este tutorial utiliza dois cenários na aplicação Contoso IoT.
+Este tutorial mostra como personalizar o microsserviço do simulador de dispositivo numa solução pré-configurada de monitorização remota. Para mostrar as capacidades do simulador de dispositivo, que este tutorial utiliza dois cenários na aplicação Contoso IoT.
 
 O primeiro cenário, a Contoso pretende testar um novo dispositivo lightbulb inteligente. Para executar os testes, crie um novo dispositivo simulado com as seguintes características:
 
@@ -34,7 +34,7 @@ O primeiro cenário, a Contoso pretende testar um novo dispositivo lightbulb int
 
 *Telemetria*
 
-A tabela seguinte mostra os dados que a ligthbulb relatórios para a nuvem como um fluxo de dados:
+A tabela seguinte mostra os dados que a lightbulb relatórios para a nuvem como um fluxo de dados:
 
 | Nome   | Valores      |
 | ------ | ----------- |
@@ -177,7 +177,7 @@ O `lightbulb-01.json` ficheiro define as características do tipo, tais como a t
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -273,9 +273,9 @@ Para testar e depurar as suas alterações localmente, consulte [descrição ger
 
 Configurar o projeto para copiar o novo **Lightbulb** ficheiros de dispositivos para o diretório de saída:
 
-* Se estiver a utilizar o Visual Studio, certifique-se de adicionar os três ficheiros lightbulb novo que criou na secção anterior para o **serviços** projeto na solução. Em seguida, utilize **Explorador de soluções** marcá-los para ser copiado para o diretório de saída.
+* Se estiver a utilizar o Visual Studio, certifique-se de adicionar os quatro ficheiros de lightbulb novo que criou na secção anterior para o **serviços** projeto na solução. Em seguida, utilize **Explorador de soluções** marcá-los para ser copiado para o diretório de saída.
 
-* Se estiver a utilizar o Visual Studio Code, abra o **Services.csproj** de ficheiros e adicione os três ficheiros lightbulb novo que criou na secção anterior. Consulte as entradas de ficheiro de modelo de dispositivo existente no **Services.csproj** ficheiro como exemplos.
+* Se estiver a utilizar o Visual Studio Code, abra o **Services.csproj** de ficheiros e adicione os quatro novos ficheiros de lightbulb que criou na secção anterior. Consulte as entradas de ficheiro de modelo de dispositivo existente no **Services.csproj** ficheiro como exemplos.
 
 Para testar o novo dispositivo numa solução implementada, consulte um dos:
 

@@ -3,7 +3,7 @@ title: "Compilar configurações de DSC de automatização do Azure | Microsoft 
 description: "Este artigo descreve como compilar as configurações de configuração de estado pretendido (DSC) para a automatização do Azure."
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
-ms.author: magoedte; eslesar
-ms.openlocfilehash: 94f4dc2afb04d50d3db699eaebd69662c006d8ca
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: magoedte; gwallace
+ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilar configurações de DSC de automatização do Azure
 
-Pode compilar configurações de configuração de estado pretendido (DSC) de duas formas com a automatização do Azure: no portal do Azure e com o Windows PowerShell. A tabela seguinte irá ajudá-lo a determinar quando deve utilizar o método com base em caraterísticas de cada:
+Pode compilar configurações de configuração de estado pretendido (DSC) de duas formas com a automatização do Azure: no portal do Azure e com o Windows PowerShell. A tabela seguinte ajuda-o a determinar quando deve utilizar o método com base em caraterísticas de cada:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -47,7 +47,7 @@ Depois de decidir um método de compilação, pode seguir os procedimentos respe
 1. Da sua conta de automatização, clique em **configurações de DSC**.
 2. Clique uma configuração para abrir o painel.
 3. Clique em **compilar**.
-4. Se a configuração não tem parâmetros, será solicitado para confirmar se pretende compilá-la. Se a configuração tiver parâmetros, o **compilar a configuração** painel será aberto para que possam fornecer valores de parâmetros. Consulte o [ **parâmetros básicos** ](#basic-parameters) secção abaixo para obter mais detalhes sobre os parâmetros.
+4. Se a configuração não tem parâmetros, lhe for pedido para confirmar que pretende compilá-la. Se a configuração tiver parâmetros, o **compilar a configuração** é aberto o painel para que possam fornecer valores de parâmetros. Consulte o [ **parâmetros básicos** ](#basic-parameters) secção abaixo para obter mais detalhes sobre os parâmetros.
 5. O **tarefa de compilação** painel está aberto num modo a que pode controlar o estado da tarefa de compilação e as configurações de nó (documentos de configuração do MOF)-causado que seja colocada no servidor de solicitação do DSC do Azure da automatização.
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>Compilar uma configuração de DSC com o Windows PowerShell
@@ -131,16 +131,16 @@ Para obter informações sobre a transmitir PSCredentials como parâmetros, cons
 
 ## <a name="composite-resources"></a>Recursos compostos
 
-**Recursos compostos** permitem-lhe utilizar configurações de DSC como recursos aninhados dentro de uma configuração.  Isto permite-lhe aplicar configurações com várias para um único recurso.  Consulte [recursos compostos: utilizar uma configuração de DSC como um recurso](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) para saber mais sobre **composto de recursos**
+**Recursos compostos** permitem-lhe utilizar configurações de DSC como recursos aninhados dentro de uma configuração. Isto permite-lhe aplicar configurações com várias para um único recurso.  Consulte [recursos compostos: utilizar uma configuração de DSC como um recurso](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) para saber mais sobre **composto de recursos**
 
 > [!NOTE]
 > Para que **recursos composto** para compilar corretamente, deve primeiro garantir que quaisquer recursos de DSC que depende o compostos primeiro estão instalados no repositório de módulos de conta de automatização do Azure ou não serão importados corretamente.
 
-Para adicionar um DSC **recursos composto**, tem de adicionar o módulo de recurso a um arquivo (*. zip). Vá para o repositório de módulos na sua conta de automatização do Azure.  Em seguida, clique no botão 'Adicionar um módulo'.
+Para adicionar um DSC **recursos composto**, tem de adicionar o módulo de recurso a um arquivo (*. zip). Vá para o repositório de módulos na sua conta de automatização do Azure. Em seguida, clique no botão 'Adicionar um módulo'.
 
 ![Adicionar módulo](./media/automation-dsc-compile/add_module.png)
 
-Navegue para o diretório onde está localizado o arquivo.  Selecione o ficheiro de arquivo e clique em OK.
+Navegue para o diretório onde está localizado o arquivo. Selecione o ficheiro de arquivo e clique em OK.
 
 ![Selecione o módulo](./media/automation-dsc-compile/select_dscresource.png)
 
@@ -286,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Importar configurações de nó
 
-Também pode importar configuratons de nó (MOFs) que têm de ser compilado fora do Azure. Uma vantagem desta situação é que as configurações de nó podem ser assinadas.
+Também pode importar configurações de nó (MOFs) que têm de ser compilado fora do Azure. Uma vantagem desta situação é que as configurações de nó podem ser assinadas.
 Uma configuração de nó assinada é verificada localmente num nó gerido pelo agente de DSC, garantindo que a configuração a ser aplicada ao nó provenientes de uma origem autorizada.
 
 > [!NOTE]

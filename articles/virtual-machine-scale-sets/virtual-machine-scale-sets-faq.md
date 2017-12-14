@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/8/2017
+ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 1d7d6200196eee96186dc5e597abc84fa0aa86c5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas mais frequentes de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -219,7 +219,7 @@ Pode fornecer as chaves públicas SSH em texto simples quando criar uma VM com L
 nome do elemento linuxConfiguration | Necessário | Tipo | Descrição
 --- | --- | --- | --- |  ---
 SSH | Não | Coleção | Especifica a configuração da chave SSH para um SO Linux
-Caminho | Sim | Cadeia | Especifica o caminho de ficheiro do Linux em que as chaves SSH ou o certificado deve estar localizado
+caminho | Sim | Cadeia | Especifica o caminho de ficheiro do Linux em que as chaves SSH ou o certificado deve estar localizado
 keyData | Sim | Cadeia | Especifica uma chave pública de SSH com codificação base64
 
 Por exemplo, consulte [o modelo de início rápido do GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
@@ -369,7 +369,13 @@ Para saber mais sobre a sequenciação de extensão em conjuntos de dimensioname
  
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Como repor a palavra-passe para as VMs no meu conjunto de dimensionamento de máquina virtual?
 
-Para repor a palavra-passe para as VMs no seu conjunto de dimensionamento de máquina virtual, utilize as extensões de acesso VM. 
+Existem duas formas de principais para alterar a palavra-passe para as VMs em conjuntos de dimensionamento.
+
+1. Altere o modelo VMSS diretamente. Disponível com computação API 2017-12-01 e mais tarde.
+
+Atualize as credenciais de administrador diretamente no modelo de conjunto de dimensionamento (por exemplo utilizando o Explorador de recursos do Azure, o PowerShell ou o CLI). Depois do conjunto de dimensionamento é atualizada, todas as novas VMs terão as novas credenciais. VMs existentes terão apenas as novas credenciais estão a ser recriadas. 
+
+2. Repor a palavra-passe com as extensões de acesso VM.
 
 Utilize o exemplo do PowerShell seguinte:
 

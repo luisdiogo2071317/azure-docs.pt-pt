@@ -3,7 +3,7 @@ title: " Remediar alertas VM do Azure com Runbooks de automatização | Microsof
 description: "Este artigo demonstra como integrar os alertas de Máquina Virtual do Azure com runbooks de automatização do Azure e, remediar automaticamente problemas"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1f7baa7f-7283-4a4f-9385-3f5cd1062c7f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: csand;magoedte
-ms.openlocfilehash: 18cccc88ab74235722e2f4886671fc483ab67da8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef18a2de8ce62de945c49b91dc74aca7d7f408b0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---remediate-azure-vm-alerts"></a>Cenário de automatização do Azure - remediar alertas de VM do Azure
 Automatização do Azure e de máquinas virtuais do Azure tem lançada uma nova funcionalidade, permitindo-lhe configurar alertas de Máquina Virtual (VM) para executar runbooks de automatização. Esta nova funcionalidade permite-lhe efetuar automaticamente a remediação padrão em resposta a alertas VM, como reiniciar ou parar a VM.

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 12/13/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 0ecba72de9604fe1fd13a993f58bcdb1e8097501
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66df4d709b60f2eb80329b8527b2a6edeb123168
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -76,7 +76,7 @@ Estão disponíveis as seguintes funções de administrador:
 
 * **Com privilégios de administrador com função**: os utilizadores com esta função podem gerir atribuições de funções no Azure Active Directory, bem como no Azure AD Privileged Identity Management. Além disso, esta função permite a gestão de todos os aspetos de Privileged Identity Management.
 
-* **Administrador de segurança**: os utilizadores com esta função têm todas as permissões só de leitura da função de leitor de segurança com a capacidade de gerir a configuração de serviços relacionados com segurança: Azure Active Directory Identity Protection, Privileged Identity Management, Office 365 segurança & e Centro de conformidade. Estão disponíveis mais informações sobre as permissões do Office 365 no [permissões Centro de conformidade de segurança do Office 365 &](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Administrador de segurança**: os utilizadores com esta função têm todas as permissões só de leitura da função de leitor de segurança com a capacidade de gerir a configuração de serviços relacionados com segurança: Azure Active Directory Identity Protection, do Azure Information Protection, Privileged Identity Management, Office 365 segurança & e Centro de conformidade. Estão disponíveis mais informações sobre as permissões do Office 365 no [permissões Centro de conformidade de segurança do Office 365 &](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Leitor de segurança**: os utilizadores com esta função têm acesso só de leitura global, incluindo todas as informações no Azure Active Directory, Identity Protection, Privileged Identity Management, bem como a capacidade para ler relatórios de início de sessão no Azure Active Directory e registos de auditoria. A função também concede a permissão só de leitura no Office 365 segurança & Centro de conformidade. Estão disponíveis mais informações sobre as permissões do Office 365 no [permissões Centro de conformidade de segurança do Office 365 &](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 

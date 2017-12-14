@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 11/28/2017
+ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 17b10011af915a06e7c65f8d321a1e452956c28a
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 1825b2a58e1022f22c71395477a5fca54c715455
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-powershell-samples"></a>Exemplos do Azure PowerShell
 
@@ -32,6 +32,7 @@ A tabela seguinte inclui ligações para exemplos de scripts do PowerShell que c
 |-|-|
 | **Criar cluster** ||
 | [Criar um cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Cria um cluster do Service Fabric do Azure. |
+|[Criar um cluster de teste (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Cria um cluster do Service Fabric de teste de três nós no Azure.|
 | **Gerir o cluster, nós e infraestrutura** ||
 | [Adicionar um certificado de aplicação](./scripts/service-fabric-powershell-add-application-certificate.md)| Adiciona um certificado x. 509 de aplicação para todos os nós num cluster. |
 | [Atualizar o intervalo de portas RDP no cluster VMs](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Altera o intervalo de portas RDP no nó de cluster VMs num cluster implementado.|

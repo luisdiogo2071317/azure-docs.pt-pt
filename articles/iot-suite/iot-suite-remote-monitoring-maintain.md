@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 46b0269b3f5b98e1bcecdbeabd5544e97bb5c06c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Resolver problemas e resolver problemas do dispositivo
 
@@ -46,11 +46,7 @@ Para investigar o problema, escolha o **explorar alarme** opção junto de alarm
 
 ![Explorar alarme a partir do dashboard](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-Agora, pode ver uma lista de alarmes no **manutenção** página:
-
-![Lista de alarmes na página de manutenção](media/iot-suite-remote-monitoring-maintain/maintenancealarms.png)
-
-Para apresentar detalhes sobre o alarme, escolha o alarme no **alarmes** lista. Mostra a vista de detalhes:
+A vista de detalhes do alarme mostra:
 
 * Quando o alarme foi acionada
 * Informações de estado sobre os dispositivos associados a alarme
@@ -70,7 +66,7 @@ Na lista, pode ver o **protótipo** responsável pela que despoletou o alarme te
 
 Para corrigir o problema com o **protótipo** dispositivo, tem de chamar o **DecreaseTemperature** método no dispositivo.
 
-Para funcionar num dispositivo, selecione-o na lista de dispositivos e, em seguida, escolha **agenda**. O **motor** o modelo de dispositivo especifica três métodos de um dispositivo tem de suportar:
+Para funcionar num dispositivo, selecione-o na lista de dispositivos e, em seguida, escolha **agenda**. O **protótipo** o modelo de dispositivo especifica quatro métodos de um dispositivo tem de suportar:
 
 ![Ver os métodos do que dispositivo suporta](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -78,11 +74,11 @@ Escolha **DecreaseTemperature** e defina o nome da tarefa para **DecreaseTempera
 
 ![Criar a tarefa para diminuir a temperatura](media/iot-suite-remote-monitoring-maintain/maintenancecreatejob.png)
 
-Para controlar o estado da tarefa no **manutenção** página, escolha **estado do sistema**. Utilize o **estado do sistema** ver para controlar todas as tarefas e chama o método na solução:
+Para controlar o estado da tarefa no **manutenção** página, escolha **tarefas**. Utilize o **tarefas** ver para controlar todas as tarefas e chama o método na solução:
 
 ![Monitorizar a tarefa para diminuir a temperatura](media/iot-suite-remote-monitoring-maintain/maintenancerunningjob.png)
 
-Para ver os detalhes de uma tarefa específica ou chamada de método, escolha a mesma na lista no **estado do sistema** vista:
+Para ver os detalhes de uma tarefa específica ou chamada de método, escolha a mesma na lista no **tarefas** vista:
 
 ![Ver detalhes da tarefa](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 

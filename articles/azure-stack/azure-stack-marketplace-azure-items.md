@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/13/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 1a6dbe2f4a66a44222e0b34b34a283c101b055de
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 8a4e92dbcf65d907e7b95b5f52597fc625e77897
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure itens do Marketplace disponíveis para a pilha do Azure
 
@@ -29,6 +29,7 @@ Pilha do Microsoft Azure suporta os seguintes itens do Azure Marketplace:
 |  | Nome do item | Descrição | Publicador |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Extensão do docker para máquinas virtuais do Linux. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | Extensão de IaaS do SQL Server | <b>Transfira esta extensão para implementar qualquer servidor de SQL Server no Windows do Marketplace.<b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning servidor 9.2.1 no Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft Machine Learning servidor 9.2.1 no Windows Server 2016. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Servidor 9.2.1 no Ubuntu 16.04 de aprendizagem da Microsoft](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604?tab=Overview) | Microsoft Machine Learning servidor 9.2.1 no Ubuntu 16.04. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Servidor 9.2.1 no CentOS Linux 7.2 de aprendizagem da Microsoft](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72?tab=Overview) | Microsoft Machine Learning servidor 9.2.1 no CentOS Linux 7.2. | Microsoft |
@@ -156,8 +157,8 @@ Pilha do Microsoft Azure suporta os seguintes itens do Azure Marketplace:
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [CRM de vendas X2Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Aplicação de serviço do marketing, vendas e cliente compacta. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS e um programa de Portal Web que cria Web sites dinâmicos.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | Abra o sistema de CRM de origem: Mobile, Social e Gamified. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Ponto de verificação vSEC gestão de segurança](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Ponto de verificação vSEC fornece prevenção de ameaça avançadas, por várias camadas para proteger os ativos do cliente no Azure contra software maligno e ameaças sofisticadas. | Check Point |
-| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatizar chef](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Criar, implementar e gerir com Chef automatizar, a plataforma de automatização contínua. | Chef. o Software, Inc |
+| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Ponto de verificação vSEC gestão de segurança](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Ponto de verificação vSEC fornece prevenção de ameaça avançadas, por várias camadas para proteger os ativos do cliente no Azure contra software maligno e ameaças sofisticadas. <b>Transfira ambos os itens de mercado de vSEC de ponto de verificação.</b> | Check Point |
+| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Automatizar chef](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Criar, implementar e gerir com Chef automatizar, a plataforma de automatização contínua. <b>Transfira ambos os itens do marketplace Chef</b> | Chef. o Software, Inc |
 | ![](media/azure-stack-marketplace-azure-items/coreos.png) | [Contentor Linux por CoreOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Linux do contentor é uma distribuição de Linux moderna e mínima, fornecendo uma forma fácil para executar contentores, gerir clusters e totalmente integrada atualizar os servidores - todos os componentes que permitem o dimensionamento do armazém de computação. | CoreOS |
 | ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu Server é Linux mais popular o mundo para ambientes de nuvem. | Canónico |
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux é uma das distribuições de Linux mais populares. | credativ |
@@ -171,7 +172,9 @@ Pilha do Microsoft Azure suporta os seguintes itens do Azure Marketplace:
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agente de segurança avançada para Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Extensão de segurança avançada Micro de tendência para Linux. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agente de segurança avançada para Windows](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Extensão de segurança avançada Micro de tendência para Windows. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Ferramenta ZeroDown Software](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown Software ferramenta v7.1 - migrar + HA. | ZeroDown Software |
-
+| ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise permite-lhe automatizar o ciclo de vida completo da sua infraestrutura de pilha do Azure. <b>Transfira ambos os itens do Puppet Marketplace.</b> | Puppet |
+| ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa híbrida AWS S3 compatibe - edição Community](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Serviço de armazenamento compatível com a S3 que abranja pública e a capacidade de recursos no local. | NooBaa |
+| ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Sandbox do Hortonworks Data Platform (HDP)](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Utiliza a tecnologia de HDP 2,5 100% abra plataforma de origem para o Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 
 ### <a name="next-steps"></a>Passos seguintes
 [Transferir um item do Marketplace](azure-stack-download-azure-marketplace-item.md)

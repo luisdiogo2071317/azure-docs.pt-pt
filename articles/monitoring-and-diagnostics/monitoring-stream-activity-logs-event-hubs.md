@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/06/2017
 ms.author: johnkem
-ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Fluxo de registo de atividade do Azure para os Event Hubs
 O [ **registo de atividade do Azure** ](monitoring-overview-activity-logs.md) pode transmissão em fluxo em tempo real para qualquer aplicação utilizando a opção "Exportação" incorporada no portal ou ativar o Id de regra de barramento de serviço num perfil de registo através de Cmdlets do PowerShell do Azure ou a CLI do Azure.
@@ -30,7 +30,7 @@ Seguem-se apenas algumas formas poderá utilizar a capacidade de transmissão em
 * **Criar uma plataforma de registo e telemetria personalizada** – se já tiver uma plataforma de telemetria personalizada ou são apenas de pensar sobre como criar um, altamente dimensionável de publicação-subscrição natureza dos Event Hubs permite-lhe de forma flexível ingerir o registo de atividade. [Consulte o guia de Dan Rosanova para utilizar os Hubs de eventos no aqui uma plataforma de telemetria de escala global.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Ative a transmissão em fluxo de registo de atividade
-Pode ativar a transmissão em fluxo de registo de atividade através de programação ou através do portal. Qualquer forma, escolha um espaço de nomes de barramento de serviço e uma política de acesso partilhado para esse espaço de nomes e um Hub de eventos é criado nesse espaço de nomes quando ocorre o primeiro evento de registo de atividade de novo. Se não tiver um espaço de nomes de barramento de serviço, terá primeiro de criar um. Se anteriormente tiver transmissão em fluxo eventos de registo de atividade para este espaço de nomes de barramento de serviço, será reutilizado o Hub de eventos foi criado anteriormente. A política de acesso partilhado define as permissões que tenha o mecanismo de transmissão em fluxo. Hoje em dia, necessita de transmissão em fluxo para um Event Hubs **gerir**, **enviar**, e **escutar** permissões. Pode criar ou modificar as políticas de acesso de espaço de nomes do barramento de serviço partilhado no portal clássico do separador "Configurar" para o espaço de nomes de barramento de serviço. Para atualizar o perfil de registo de registo de atividade para incluir a transmissão em fluxo, o utilizador efetuar a alteração tem de ter a permissão de ListKey nessa regra de autorização de barramento de serviço.
+Pode ativar a transmissão em fluxo de registo de atividade através de programação ou através do portal. Qualquer forma, escolha um espaço de nomes de barramento de serviço e uma política de acesso partilhado para esse espaço de nomes e um Hub de eventos é criado nesse espaço de nomes quando ocorre o primeiro evento de registo de atividade de novo. Se não tiver um espaço de nomes de barramento de serviço, terá primeiro de criar um. Se anteriormente tiver transmissão em fluxo eventos de registo de atividade para este espaço de nomes de barramento de serviço, será reutilizado o Hub de eventos foi criado anteriormente. A política de acesso partilhado define as permissões que tenha o mecanismo de transmissão em fluxo. Hoje em dia, necessita de transmissão em fluxo para um Event Hubs **gerir**, **enviar**, e **escutar** permissões. Pode criar ou modificar as políticas de acesso de espaço de nomes do barramento de serviço partilhado no portal do Azure, no separador "Configurar" para o espaço de nomes de barramento de serviço. Para atualizar o perfil de registo de registo de atividade para incluir a transmissão em fluxo, o utilizador efetuar a alteração tem de ter a permissão de ListKey nessa regra de autorização de barramento de serviço.
 
 O service bus ou event hub espaço de nomes não tem de estar na mesma subscrição que a subscrição emitir os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Melhores práticas do Dimensionamento Automático
 Este artigo informa melhores práticas para dimensionar automaticamente no Azure. Dimensionamento automático de Monitor do Azure aplicam-se apenas ao [conjuntos de dimensionamento de Máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços em nuvem](https://azure.microsoft.com/services/cloud-services/), e [Web Apps do App Service -](https://azure.microsoft.com/services/app-service/web/). Outros serviços do Azure utilizam diferentes métodos de dimensionamento.
@@ -44,9 +44,6 @@ Se atualizar manualmente a contagem de instâncias para um valor acima ou abaixo
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Utilize sempre uma combinação de escalamento horizontal e escala na regra que executa um aumentar e diminuir
 Se utilizar apenas uma parte de combinação, dimensionamento automático escala-in que único out ou, até que o máximo ou mínimo, foi atingido.
-
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Não mudar entre o portal do Azure e o portal clássico do Azure ao gerir o dimensionamento automático
-Para serviços em nuvem e de serviços de aplicações (aplicações Web), utilize o portal do Azure (portal.azure.com) para criar e gerir definições de dimensionamento automático. Para conjuntos de dimensionamento de Máquina Virtual utilizar o PowerShell, a CLI ou a REST API para criar e gerir a definição de dimensionamento automático. Não alternar entre o portal clássico do Azure (manage.windowsazure.com) e o portal do Azure (portal.azure.com) quando gerir configurações de dimensionamento automático. Portal clássico do Azure e o back-end subjacente tem limitações. Mover para o portal do Azure para gerir o dimensionamento automático utilizando uma interface gráfica do utilizador. As opções são utilizar o dimensionamento automático do PowerShell, a CLI ou a API de REST (através do Explorador de recursos do Azure).
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Escolha a estatística adequada para a métrica de diagnóstico
 Métricas de diagnóstico, pode optar entre *médio*, *mínimo*, *máximo* e *Total* como uma métrica de dimensionamento pelo. É a mais comum estatística *médio*.

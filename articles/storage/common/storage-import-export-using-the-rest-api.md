@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a5a97a5d9f06aa73f1ad521e112fa25f215724f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Utilizar a API REST do serviço Importar/Exportar do Azure
 
-O serviço de importação/exportação do Microsoft Azure expõe uma API REST para permitir o controlo programático das tarefas de importação/exportação. Pode utilizar a API REST para executar todas as operações de importação/exportação que pode realizar com o [portal do Azure](https://portal.azure.com/). Além disso, pode utilizar a API REST para efetuar determinadas operações granulares, como a percentagem de conclusão de uma tarefa, o que não está atualmente disponível no portal clássico do Azure a consultar.
+O serviço de importação/exportação do Microsoft Azure expõe uma API REST para permitir o controlo programático das tarefas de importação/exportação. Pode utilizar a API REST para executar todas as operações de importação/exportação que pode realizar com o [portal do Azure](https://portal.azure.com/). Além disso, pode utilizar a API REST para efetuar determinadas operações granulares, como a percentagem de conclusão de uma tarefa, o que não está atualmente disponível no portal do Azure a consultar.
 
-Consulte [utilizando o serviço de importação/exportação do Microsoft Azure para transferir dados para o Blob Storage](../storage-import-export-service.md) para uma descrição geral do serviço de importação/exportação e um tutorial que demonstra como utilizar o portal clássico para criar e gerir importação e exportação tarefas.
+Consulte [utilizando o serviço de importação/exportação do Microsoft Azure para transferir dados para o Blob Storage](../storage-import-export-service.md) para uma descrição geral do serviço de importação/exportação e um tutorial que demonstra como utilizar o portal para criar e gerir a importar e exportar tarefas.
 
 ## <a name="service-endpoints"></a>pontos finais de serviço
 

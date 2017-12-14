@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 85ea328bdea1aad28765712e3639f6719deab7e2
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 921d7eef90a86216dc13804d3dc4dd216247fb87
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-identity-management-security-overview"></a>Descrição geral de segurança de gestão de identidade do Azure
 Microsoft identidades e acessos soluções ajuda da gestão de IT proteger o acesso a aplicações e recursos em todo o datacenter empresarial e para a nuvem, permitindo níveis adicionais de validação, tais como autenticação multifator e políticas de acesso condicional. Monitorização de atividade suspeita através de segurança avançada, auditoria e relatórios de alerta ajuda a mitigar potenciais problemas de segurança. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fornece início de sessão único a milhares de nuvem aplicações (SaaS) e acesso a aplicações web é executado no local.
@@ -81,7 +81,7 @@ Saiba mais:
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Monitorização de segurança, alertas e relatórios com base na aprendizagem do computador
 Monitorização de segurança e alertas e relatórios com base na aprendizagem de máquina identificam padrões de acesso inconsistentes podem ajudar a proteger a sua empresa. Pode utilizar o acesso do Azure Active Directory e os relatórios de utilização para ganhar visibilidade a integridade e a segurança do diretório da sua organização. Com esta informação, um administrador da directory melhor determinar onde pode ficar os possíveis riscos de segurança para que estes podem planear adequadamente a mitigar os riscos.
 
-No portal clássico do Azure, os relatórios são categorizados das seguintes formas:
+No portal do Azure, os relatórios são categorizados das seguintes formas:
 
 * Relatórios de anomalias – contém eventos que são identificadas como estando anómala de início de sessão. O nosso objetivo é fazer com que conhecimento essa atividade e permitem-lhe conseguir efetuar uma determinação sobre se um evento é suspeito.
 * Relatórios de aplicação integrados – fornecem informações sobre a forma como as aplicações em nuvem estão a ser utilizadas na sua organização. Azure Active Directory oferece integração com milhares de aplicações em nuvem.

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 31b0df0442a46761cb19e390e723535ff5a81594
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Procurar próximas pontos de interesse utilizando com base dos serviços de localização do Azure
 
@@ -105,7 +105,7 @@ API de controlo de mapa do Azure é uma biblioteca de cliente conveniente que lh
     <body>
         <div id="map"></div>
         <script>
-        // Embed Map Control JavaScript code here
+            // Embed Map Control JavaScript code here
         </script>
     </body>
 
@@ -115,7 +115,7 @@ API de controlo de mapa do Azure é uma biblioteca de cliente conveniente que lh
  
 3.  Adicione o seguinte código JavaScript para a *script* bloco do ficheiro HTML. Substitua o marcador de posição *< chave de inserção >* com a chave primária da sua conta de localização com base em serviços. 
 
-    ```HTML/JavaScript
+    ```JavaScript
     // Instantiate map to the div with id "map"
     var subscriptionKey = "<insert-key>";
     var map = new atlas.Map("map", {
@@ -126,7 +126,7 @@ API de controlo de mapa do Azure é uma biblioteca de cliente conveniente que lh
 
 4. Adicione o seguinte código JavaScript para a *script* bloco, para adicionar uma camada de pins de pesquisa para o controlo de mapa:
 
-    ```HTML/JavaScript
+    ```JavaScript
     // Initialize the pin layer for search results to the map
     var searchLayerName = "search-results";
     map.addPins([], {
@@ -146,7 +146,7 @@ API de controlo de mapa do Azure é uma biblioteca de cliente conveniente que lh
 Esta secção mostra como utilizar API do Azure com base dos serviços de localização do serviço de pesquisa para localizar um ponto de interesse no seu mapa. É uma API RESTful concebido para programadores procurar os endereços, os pontos de interesse e outras informações geográficas. O serviço de pesquisa atribui um latitude e longitude informações para um endereço especificado. 
 
 1. Abra o **MapSearch.html** ficheiro criado na secção anterior e adicione o seguinte código JavaScript para a *script* bloco, para ilustrar o serviço de pesquisa. 
-    ```HTML/JavaScript
+    ```JavaScript
     // Perform a request to the search service and create a pin on the map for each result
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -189,7 +189,7 @@ Esta secção mostra como utilizar API do Azure com base dos serviços de locali
 
 2. Adicione o seguinte código para o *script* bloco, para enviar o XMLHttpRequest para o serviço de pesquisa do Azure com base dos serviços de localização:
 
-    ```HTML/JavaScript
+    ```JavaScript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
@@ -205,7 +205,7 @@ Esta secção mostra como utilizar API do Azure com base dos serviços de locali
 
 3. Adicione as seguintes linhas à *script* bloco, para criar o pop-ups para os pontos de interesse devolvido pelo serviço de pesquisa:
 
-    ```HTML/JavaScript
+    ```JavaScript
     // Add a popup to the map which will display some basic information about a search result on hover over a pin
     var popup = new atlas.Popup();
     map.addEventListener("mouseover", searchLayerName, (e) => {

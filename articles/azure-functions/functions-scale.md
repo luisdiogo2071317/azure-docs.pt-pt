@@ -14,21 +14,21 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 38499fd1e27cf6e8253ad1172701fd18b338abad
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala de funções do Azure e de alojamento
 
 Pode executar as funções do Azure em dois modos diferentes: plano de consumo e o plano do App Service do Azure. O plano de consumo atribui automaticamente a capacidade de computação quando o código está em execução, aumenta horizontalmente de forma conforme necessário para processar carga e, em seguida, dimensiona quando o código não está em execução. Não tem de pagar VMs Inativas e não têm capacidade de reserva antecipadamente. Este artigo incida no plano de consumo, um [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) modelo de aplicação. Para obter mais informações sobre como funciona o plano do App Service, consulte o [descrição geral dos planos do App Service do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
-> Linux que aloja atualmente só está disponível um plano de serviço de aplicações.
+> [Linux que alojam](functions-create-first-azure-function-azure-cli-linux.md) está atualmente disponível apenas um plano de serviço de aplicações.
 
 Se não estiver familiarizado com as funções do Azure, consulte o [descrição geral das funções do Azure](functions-overview.md).
 
@@ -46,7 +46,7 @@ Um plano de serviço de aplicações pode dimensionar entre camadas alocar difer
 Quando estiver a utilizar um plano de consumo, instâncias de anfitrião das funções do Azure são adicionadas dinamicamente e removidas com base no número de eventos recebidos. Este plano dimensiona automaticamente e são-lhe cobrados os recursos de computação apenas quando as suas funções estão em execução. Um plano de consumo, pode executar uma função para um máximo de 10 minutos. 
 
 > [!NOTE]
-> O tempo limite predefinido para funções de um plano de consumo é de 5 minutos. O valor pode ser aumentado para 10 minutos para a aplicação de função alterando a propriedade `functionTimeout` no [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+> O tempo limite predefinido para funções de um plano de consumo é de 5 minutos. O valor pode ser aumentado para 10 minutos para a aplicação de função alterando a propriedade `functionTimeout` no [host.json](functions-host-json.md#functiontimeout) ficheiro de projeto.
 
 Faturação é baseada no número de execuções, tempo de execução e a memória utilizada. Faturação é agregada em todas as funções dentro de uma aplicação de função. Para obter mais informações, consulte o [das funções do Azure a página de preços].
 
@@ -80,7 +80,7 @@ Se executar um plano de serviço de aplicações, deverá ativar a **Always On**
 
 Always On só está disponível no plano de serviço aplicacional. Um plano de consumo, a plataforma ativa função aplicações automaticamente.
 
-## <a name="storage-account-requirements"></a>Requisitos de conta de armazenamento
+## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 
 Um plano de consumo ou um plano do App Service, uma aplicação de função necessita de uma conta de armazenamento do Azure geral que suporta o armazenamento de Blobs do Azure, filas, ficheiros e tabela. Internamente, as funções do Azure utiliza o armazenamento do Azure para operações como a gestão de acionadores e execuções de função de registo. Algumas contas de armazenamento não suportam as filas e tabelas, tais como contas de armazenamento apenas de BLOBs (incluindo o armazenamento premium) e contas de armazenamento para fins gerais com a replicação de armazenamento com redundância de zona. Estas contas são filtradas do **conta de armazenamento** painel quando estiver a criar uma aplicação de função.
 

@@ -2,55 +2,55 @@
 title: "Tutorial: Integração do Azure Active Directory com SciQuest gastam Director | Microsoft Docs"
 description: "Saiba como configurar o início de sessão entre o Azure Active Directory e SciQuest gastam Director."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
-manager: mtillman
-editor: 
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 9fab641b-292e-4bef-91d1-8ccc4f3a0c1f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/17/2017
+ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 2fe4d6a5fdaeebac142e28a72eced9556ef86795
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: be9b17f31bedca1ae5704b484760c3ad24fbb14d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Tutorial: Integração do Azure Active Directory com SciQuest gastam Director
-O objetivo deste tutorial é para lhe mostrar como integrar SciQuest gastam Director com o Azure Active Directory (Azure AD).  
-Integrar SciQuest gastam Director com o Azure AD fornece as seguintes vantagens: 
 
-* Pode controlar no Azure AD que tenha acesso ao SciQuest gastam Director 
-* Pode permitir que os utilizadores automaticamente obter com sessão iniciada para SciQuest gastam Director (Single Sign-On) com as respetivas contas do Azure AD
-* Pode gerir as contas numa localização central - portal clássico do Azure
+Neste tutorial, irá aprender a integrar SciQuest gastam Director com o Azure Active Directory (Azure AD).
+
+Integrar SciQuest gastam Director com o Azure AD fornece as seguintes vantagens:
+
+- Pode controlar no Azure AD que tenha acesso ao SciQuest gastam Director.
+- Pode permitir aos utilizadores automaticamente obter com sessão iniciada para SciQuest gastam Director (Single Sign-On) com as respetivas contas do Azure AD.
+- Pode gerir as contas numa localização central - portal do Azure.
 
 Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Para configurar a integração do Azure AD com SciQuest gastam Director, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD
-* Um SciQuest gastam Director início de sessão único subscrição ativado
+- Uma subscrição do Azure AD
+- Um SciQuest gastam Director-início de sessão único ativada subscrição
 
 > [!NOTE]
 > Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
-> 
-> 
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
-* Não deve utilizar o seu ambiente de produção, a menos que isto é necessário.
-* Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/). 
+- Não utilize o seu ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-O objetivo deste tutorial é permitir-lhe testar do Azure AD-início de sessão único num ambiente de teste.  
-O cenário descrito neste tutorial consiste em dois blocos modulares principais:
+Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
 
-1. Adicionar SciQuest Director gastam a partir da Galeria 
+1. Adicionar SciQuest Director gastam a partir da Galeria
 2. Configurar e testar o Azure AD de sessão único-
 
 ## <a name="adding-sciquest-spend-director-from-the-gallery"></a>Adicionar SciQuest Director gastam a partir da Galeria
@@ -58,205 +58,175 @@ Para configurar a integração de SciQuest gastam Director com o Azure AD, tem d
 
 **Para adicionar SciQuest gastam Director na galeria do, execute os seguintes passos:**
 
-1. No **portal clássico do Azure**, no painel de navegação esquerdo, clique em **do Active Directory**. 
-   
-    ![Active Directory][1]
+1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
 
-2. Do **diretório** lista, selecione o diretório para o qual pretende ativar a integração de diretórios.
+    ![O botão do Azure Active Directory][1]
 
-3. Para abrir a vista de aplicações, na vista de diretório, clique em **aplicações** no menu superior.
-   
-    ![Aplicações][2]
+2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
-4. Clique em **adicionar** na parte inferior da página.
-   
-    ![Aplicações][3]
+    ![O painel de aplicações da empresa][2]
+    
+3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
 
-5. No **que pretende fazer** caixa de diálogo, clique em **adicionar uma aplicação na galeria do**.
-   
-    ![Aplicações][4]
+    ![O novo botão de aplicação][3]
 
-6. Na caixa de pesquisa, escreva **sciQuest gastam director**.
-   
-    ![Aplicações][5]
+4. Na caixa de pesquisa, escreva **SciQuest gastam Director**, selecione **SciQuest gastam Director** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
 
-7. No painel de resultados, selecione **SciQuest gastam Director**e, em seguida, clique em **concluída** para adicionar a aplicação.
-   
-    ![Aplicações][6]
+    ![SciQuest gastam Director na lista de resultados](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_addfromgallery.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-O objetivo desta secção consiste em Mostrar-lhe como configurar e testar o Azure AD-início de sessão único com SciQuest gastam Director com base num utilizador de teste chamado "Britta Simon".
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que é o utilizador homólogo SciQuest gastam Director para um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no SciQuest gastam Director tem de ser estabelecida.  
-Esta relação de ligação é estabelecida ao atribuir o valor da **nome de utilizador** no Azure AD como o valor do **Username** no SciQuest gastam Director.
+Nesta secção, configure e teste do Azure AD-início de sessão único com SciQuest gastam Director com base num utilizador de teste chamado "Britta Simon".
+
+Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no SciQuest gastam Director é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no SciQuest gastam Director tem de ser estabelecida.
+
+No diretório gastam SciQuest, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
 
 Para configurar e testar o Azure AD-início de sessão único com SciQuest gastam Director, tem de concluir os blocos modulares seguintes:
 
-1. **[Configurar o Azure AD único Single Sign-On](#configuring-azure-ad-single-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste SciQuest gastam Director](#creating-a-halogen-software-test-user)**  - para ter um homólogo de Britta Simon SciQuest gastam Director que está ligada a representação do Azure AD da forma.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
+3. **[Criar um utilizador de teste SciQuest gastam Director](#create-a-sciquest-spend-director-test-user)**  - para ter um homólogo de Britta Simon SciQuest gastam Director que está ligada a representação do Azure AD do utilizador.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
+5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-single-sign-on"></a>Configurar o Azure AD único início de sessão único
-O objetivo desta secção é para ativar o Azure AD início de sessão no portal clássico do Azure e configurar o início de sessão único na sua aplicação SciQuest gastam Director.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+
+Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação SciQuest gastam Director.
 
 **Para configurar o Azure AD-início de sessão único com SciQuest gastam Director, execute os seguintes passos:**
 
-1. No portal clássico do Azure, no **SciQuest gastam Director** página de integração de aplicações, clique em **configurar o início de sessão único** para abrir o **configurar Single Sign-On**  caixa de diálogo.
-   
-    ![Configurar o início de sessão único][8]
+1. No portal do Azure, no **SciQuest gastam Director** página de integração de aplicações, clique em **de sessão único-**.
 
-2. No **como gostaria aos utilizadores iniciar sessão SciQuest gastam Director** página, selecione **do Azure AD Single Sign-On**e, em seguida, clique em **seguinte**.
-   
-    ![Azure AD início de sessão único][9]
+    ![Configurar a ligação de início de sessão único][4]
 
-3. No **configurar definições de aplicação** diálogo página, execute os seguintes passos: 
-   
-    ![Configurar definições da aplicação][10]
-   
-     a. No **URL de início de sessão** caixa de texto, escreva o URL é utilizado pelos seus utilizadores para iniciar sessão aplicação SciQuest gastam Director através do padrão de seguinte: *https://.* sciquest.com/.**
-   
-     b. No **URL de resposta** caixa de texto, escreva o mesmo valor que foi escrito para o **URL de início de sessão** caixa de texto. 
-   
-     c. Clique em **Seguinte**.
+2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
+ 
+    ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_samlbase.png)
 
-4. No **configurar o início de sessão único em SciQuest gastam Director** página, clique em **transferir metadados**e, em seguida, guarde o ficheiro de metadados localmente no seu computador.
-   
-    ![O que é o Azure AD Connect][11]
+3. No **SciQuest gastam Director domínio e os URLs** secção, execute os seguintes passos:
 
-5. SciQuest contacte o suporte para ativar este método de autenticação com os metadados de transferido acima.
+    ![SciQuest gastam Director domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_url.png)
 
-6. No portal clássico do Azure, selecione a confirmação de configuração de início de sessão único e, em seguida, clique em **concluída** para fechar o **configurar início de sessão único** caixa de diálogo. 
-   
-    ![O que é o Azure AD Connect][15]
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
-7. No **único início de sessão confirmação** página, clique em **concluída**.  
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.sciquest.com`
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal clássico do Azure chamado Britta Simon.
+    c. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
+
+    > [!NOTE] 
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão, identificador e o URL de resposta real. Contacte [equipa de suporte de cliente de Director gastam SciQuest](https://www.jaggaer.com/contact-us/) para obter estes valores. 
+
+4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_certificate.png) 
+
+5. Clique em **guardar** botão.
+
+    ![Configurar botão único início de sessão guardar](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_400.png)
+
+6. Para configurar o início de sessão único em **SciQuest gastam Director** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de SciQuest gastam Director](https://www.jaggaer.com/contact-us/).
+
+> [!TIP]
+> Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+
+O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
+
+   ![Criar um utilizador de teste do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal clássico do Azure**, no painel de navegação esquerdo, clique em **do Active Directory**.
-   
-    ![O que é o Azure AD Connect][100] 
+1. No portal do Azure, no painel esquerdo, clique em de **do Azure Active Directory** botão.
 
-2. Do **diretório** lista, selecione o diretório para o qual pretende ativar a integração de diretórios.
+    ![O botão do Azure Active Directory](./media/active-directory-saas-sciquest-spend-director-tutorial/create_aaduser_01.png)
 
-3. Para apresentar a lista de utilizadores, no menu na parte superior, clique em **utilizadores**.
-   
-    ![O que é o Azure AD Connect][101] 
+2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
-4. Para abrir o **adicionar utilizador** caixa de diálogo, na barra de ferramentas na parte inferior, clique em **adicionar utilizador**. 
-   
-    ![O que é o Azure AD Connect][102] 
+    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/active-directory-saas-sciquest-spend-director-tutorial/create_aaduser_02.png)
 
-5. No **diga-nos informações sobre este utilizador** diálogo página, execute os seguintes passos:
-   
-    ![O que é o Azure AD Connect][103] 
-   
-    a. Como **tipo de utilizador**, selecione **novo utilizador na sua organização**.
-   
-    b. O nome de utilizador **textbox**, tipo **BrittaSimon**.
-   
-    c. Clique em **Seguinte**.
+3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
 
-6. No **perfil de utilizador** diálogo página, execute os seguintes passos: 
-   
-    ![O que é o Azure AD Connect][104] 
-   
-    a. No **nome próprio** caixa de texto, tipo **Britta**.  
-   
-    b. No **Apelido** txtbox, tipo, **Simon**.
-   
-    c. No **nome a apresentar** caixa de texto, tipo **Britta Simon**.
-   
-    d. No **função** lista, selecione **utilizador**.
-   
-    e. Clique em **Seguinte**.
+    ![O botão de adição](./media/active-directory-saas-sciquest-spend-director-tutorial/create_aaduser_03.png)
 
-7. No **Get palavra-passe temporária** página da caixa de diálogo, clique em **criar**.
-   
-    ![O que é o Azure AD Connect][105]  
+4. No **utilizador** diálogo caixa, execute os seguintes passos:
 
-8. No **Get palavra-passe temporária** diálogo página, execute os seguintes passos:
-   
-    ![O que é o Azure AD Connect][106]   
-   
-    a. Anote o valor da **nova palavra-passe**.
-   
-    b. Clique em **Concluído**.   
+    ![A caixa de diálogo de utilizador](./media/active-directory-saas-sciquest-spend-director-tutorial/create_aaduser_04.png)
 
-### <a name="creating-a-sciquest-spend-director-test-user"></a>Criar um utilizador de teste SciQuest gastam Director
+    a. No **nome** caixa, escreva **BrittaSimon**.
+
+    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
+
+    d. Clique em **Criar**.
+ 
+### <a name="create-a-sciquest-spend-director-test-user"></a>Criar um utilizador de teste SciQuest gastam Director
+
 O objetivo desta secção consiste em criar um utilizador chamado Britta Simon SciQuest gastam Director.
 
-Terá de contactar a equipa de suporte SciQuest gastam Director e forneça-los com os detalhes sobre a sua conta de teste para obtê-lo a criar.
+Terá de contactar o seu [equipa de suporte de SciQuest gastam Director](https://www.jaggaer.com/contact-us/) e forneça-los com os detalhes sobre a sua conta de teste para obtê-lo a criar.
 
 Em alternativa, pode também tirar partido just-in-time aprovisionamento, uma único início de sessão funcionalidade que é suportada pelo SciQuest gastam Director.  
 Se just-in-time o aprovisionamento estiver ativado, os utilizadores são automaticamente criados por SciQuest gastam Director durante a tentativa de início de sessão único caso não existam. Esta funcionalidade elimina a necessidade de criar manualmente utilizadores homólogo de início de sessão único.
 
-Para obter just-in-time aprovisionamento ativada, terá de contactar a sua equipa de suporte SciQuest gastam Director.
+Para obter just-in-time aprovisionamento ativada, terá de contactar o seu [equipa de suporte de SciQuest gastam Director](https://www.jaggaer.com/contact-us/).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
-O objetivo desta secção consiste em Ativar Britta Simon a utilizar Azure-início de sessão único, conceder o acesso ao SciQuest gastam Director.
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-![O que é o Azure AD Connect][200]
+Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para SciQuest gastam Director.
+
+![Atribuir a função de utilizador][200] 
 
 **Para atribuir Britta Simon a SciQuest gastam Director, execute os seguintes passos:**
 
-1. No portal clássico do Azure, para abrir a vista de aplicações, na vista de diretório, clique em **aplicações** no menu superior.
-   
-    ![O que é o Azure AD Connect][201]
+1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
+
+    ![Atribua o utilizador][201] 
 
 2. Na lista de aplicações, selecione **SciQuest gastam Director**.
-   
-    ![O que é o Azure AD Connect][202]
 
-3. No menu na parte superior, clique em **utilizadores**.
-   
-    ![O que é o Azure AD Connect][203]
+    ![A ligação de SciQuest gastam Director na lista de aplicações](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_app.png)  
 
-4. Na lista de utilizadores, selecione **Britta Simon**.
-   
-    ![O que é o Azure AD Connect][204]
+3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-5. Na barra de ferramentas na parte inferior, clique em **atribuir**.
-   
-    ![O que é o Azure AD Connect][205]
+    ![A ligação de "Utilizadores e grupos"][202]
 
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
-O objetivo desta secção consiste em testar a configuração do Azure AD único início de sessão através do painel de acesso.  
+4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar atribuição][203]
+
+5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
+
+6. Clique em **selecione** botão no **utilizadores e grupos** caixa de diálogo.
+
+7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
+    
+### <a name="test-single-sign-on"></a>Teste o início de sessão único
+
+Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
+
 Quando clica no mosaico SciQuest gastam Director no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de SciQuest gastam Director.
+Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
+
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
+
 [1]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_04.png
-[5]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_01.png
-[6]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_05.png
-[8]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_06.png
-[9]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_07.png
-[10]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_08.png
-[11]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_03.png
-[15]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_04.png
 
-[100]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_09.png 
-[101]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_10.png 
-[102]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_11.png 
-[103]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_12.png 
-[104]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_13.png 
-[105]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_14.png 
-[106]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_15.png 
-[200]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_16.png 
-[201]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_17.png 
-[202]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_06.png
-[203]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_18.png
-[204]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_19.png
-[205]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_20.png
+[100]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_203.png
 

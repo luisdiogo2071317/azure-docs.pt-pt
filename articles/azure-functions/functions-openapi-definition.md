@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2017
+ms.date: 12/09/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ad23a098ee0482b3c8c853ab5cee989f752a101
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Criar uma definição de OpenAPI para uma função
 REST APIs, muitas vezes, são descritas com uma definição de OpenAPI (anteriormente conhecido como um [Swagger](http://swagger.io/) ficheiro). Esta definição contém informações sobre as operações que estão disponíveis numa API e a forma como os dados de pedido e resposta para a API devem ser estruturados.
@@ -48,9 +48,17 @@ Precisa de uma aplicação Function App para alojar a execução das suas funç�
 
 Este tutorial utiliza uma função de acionada de HTTP que utiliza dois parâmetros: o tempo estimado para tornar um turbine reparar (em horas) e a capacidade de turbine (em quilowatts). A função, em seguida, calcula quanto a reparação será custo, e quantidade receitas de turbine pode tornar num período de 24 horas.
 
-1. Expanda a sua aplicação de função, clique o  **+**  junto a **funções**, clique em de **HTTPTrigger** modelo. Introduza `TurbineRepair` para a função **nome** e clique em **criar**.
+1. Expanda a sua aplicação de função e selecione o  **+**  junto a **funções**. Se esta for a primeira função na sua aplicação de funções, selecione **Função personalizada**. É apresentado o conjunto completo de modelos de função. 
 
-    ![Painel de aplicações de função, as funções +](media/functions-openapi-definition/add-function.png)
+    ![Início rápido das funções no portal do Azure](media/functions-openapi-definition/add-first-function.png)
+
+2. No campo de pesquisa, escreva `http` e, em seguida, escolha **c#** para o modelo de Acionador HTTP. 
+ 
+    ![Escolha o acionador HTTP](./media/functions-openapi-definition/select-http-trigger-portal.png)
+
+3. Tipo `TurbineRepair` para a função **nome**, escolha `Function` para  **[nível de autenticação](functions-bindings-http-webhook.md#http-auth)**e, em seguida, selecione **criar**.  
+
+    ![Criar a função de acionada de HTTP](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Substitua o conteúdo do ficheiro run.csx com o código seguinte, em seguida, clique em **guardar**:
 
@@ -123,7 +131,7 @@ Agora está pronto para gerar a definição de OpenAPI. Esta definição pode se
         
 1. Clique no nome de aplicação de função (como **demonstração de função energia**) > **funcionalidades da plataforma** > **definição da API**.
 
-    ![Definição da API](media/functions-openapi-definition/api-definition.png)
+    ![Definição API](media/functions-openapi-definition/api-definition.png)
 
 1. No **definição da API** separador, clique em **função**.
 

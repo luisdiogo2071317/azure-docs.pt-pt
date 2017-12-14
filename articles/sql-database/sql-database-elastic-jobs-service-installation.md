@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 232d695421a417286c30dc05b35f084c551a443d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Descrição geral de tarefas de bases de dados elásticas instalar
 [**As tarefas de base de dados elásticas** ](sql-database-elastic-jobs-overview.md) podem ser instalados através do PowerShell ou através do portal do Azure. Pode obter acesso ao criar e gerir tarefas utilizando a API de PowerShell apenas se instalar o pacote do PowerShell. Além disso, as APIs do PowerShell proporcionar significativamente mais funcionalidade que o portal, neste ponto no tempo.
@@ -155,7 +155,7 @@ Assim que tiver [criado um conjunto elástico](sql-database-elastic-pool-manage-
 
 **Tempo estimado para concluir:** 10 minutos.
 
-1. Da vista de dashboard do conjunto elástico através de [Portal do Azure](https://portal.azure.com/#) , clique em **criar tarefa**.
+1. Da vista de dashboard do conjunto elástico através de [portal do Azure](https://portal.azure.com/#) , clique em **criar tarefa**.
 2. Se estiver a criar uma tarefa pela primeira vez, tem de instalar **tarefas de bases de dados elásticas** clicando **termos de pré-visualização**.
 3. Aceite os termos clicando na caixa de verificação.
 4. Na vista "Instalar os serviços de", clique em **CREDENCIAIS de tarefa**.
