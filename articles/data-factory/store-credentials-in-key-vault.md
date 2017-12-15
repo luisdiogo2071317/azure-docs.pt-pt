@@ -10,17 +10,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: f7604e251bd62ec382ac9ace3de058e345abb863
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credenciais no Cofre de chaves do Azure
 
-Pode armazenar as credenciais de arquivos de dados de um [Cofre de chaves do Azure](../key-vault/key-vault-whatis.md). O Azure Data Factory obtém as credenciais quando executar uma atividade que utiliza o arquivo de dados. Atualmente, apenas [conector Dynamics](connector-dynamics-crm-office-365.md) e [conector do Salesforce](connector-salesforce.md) suportam esta funcionalidade.
+Pode armazenar as credenciais de arquivos de dados de um [Cofre de chaves do Azure](../key-vault/key-vault-whatis.md). O Azure Data Factory obtém as credenciais quando executar uma atividade que utiliza o arquivo de dados.
+
+Atualmente, [conector Dynamics](connector-dynamics-crm-office-365.md), [conector do Salesforce](connector-salesforce.md) e algumas ativar recentemente conectores suporte esta funcionalidade. Espere mais estará disponível mais tarde. Pode verificar cada tópico conector em detalhes. Para os campos segredos que suportam esta funcionalidade, verá uma nota em indicar a descrição "*pode escolher marcar este campo como um SecureString armazena de forma segura na ADF, ou armazenar a palavra-passe no Cofre de chaves do Azure e permitem a solicitação de concentre cópia a partir daí Quando efetuar a cópia de dados - obter mais informações de credenciais do arquivo no Cofre de chaves.* "
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [documentação do Data Factory version1](v1/data-factory-introduction.md).
@@ -70,7 +72,7 @@ As seguintes propriedades são suportadas quando configura um campo no serviço 
 | tipo | A propriedade de tipo do campo tem de ser definida: **AzureKeyVaultSecret**. | Sim |
 | secretName | O nome do segredo no Cofre de chaves do azure. | Sim |
 | secretVersion | A versão do segredo no Cofre de chaves do azure.<br/>Se não for especificado, utiliza sempre a versão mais recente do segredo.<br/>Se for especificado, em seguida,-sticks para a versão especificada.| Não |
-| arquivo | Refere-se a um serviço Cofre de chaves do Azure ligado que pode utilizar para guardar a credencial. | Sim |
+| loja | Refere-se a um serviço Cofre de chaves do Azure ligado que pode utilizar para guardar a credencial. | Sim |
 
 **Exemplo: (consulte a secção "password")**
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: cephalin;sisirap
-ms.openlocfilehash: 9838f0810f4827df3eb4f9407d4d4fbc1ad0ff4d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: a0e4df0ef0a1c873f1efcac1d8dbfe3cada18218
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-file"></a>Implementar a aplicação no App Service do Azure com um ficheiro ZIP
 
@@ -25,7 +25,7 @@ Este artigo mostra como utilizar um ficheiro ZIP para implementar a sua aplicaç
 
 Esta implementação de ficheiro ZIP utiliza o mesmo serviço Kudu esse powers contínua com base na integração implementações. O kudu suporta as seguintes funcionalidades para a implementação do ficheiro ZIP: 
 
-- Eliminação de ficheiros representadas de uma implementação anterior.
+- Eliminação de ficheiros à esquerda de uma implementação anterior.
 - Opção para ativar o processo de compilação predefinido, que inclui o restauro do pacote.
 - [Personalização da implementação](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), incluindo executar scripts de implementação.  
 - Registos de implementação. 
@@ -92,7 +92,7 @@ Para ver a lista de implementações para esta aplicação, tem de utilizar as A
 
 Para cenários de implementação mais avançados, tente [implementar no Azure com o Git](app-service-deploy-local-git.md). Implementação baseada em Git para o Azure permite o controlo de versão, o restauro de pacote, MSBuild e muito mais.
 
-## <a name="more-resources"></a>Mais Recursos
+## <a name="more-resources"></a>Mais recursos
 
 * [O kudu: Implementação a partir de um ficheiro zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Credenciais de implementação do App Service do Azure](app-service-deploy-ftp.md)

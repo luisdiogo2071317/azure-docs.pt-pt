@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 58c83b74041e0e2e82729f569c53aca59f3aed43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Adicionar servidores de alojamento para utilização pela placa do SQL Server
 
@@ -28,11 +28,9 @@ Pode utilizar instâncias do SQL Server em VMs dentro do seu [Azure pilha](azure
 * A instância do SQL Server têm de estar dedicada para utilização por cargas de trabalho RP e o utilizador. Não é possível utilizar uma instância do SQL Server que está a ser utilizada por outros consumidores, incluindo os serviços de aplicação.
 * O adaptador RP não está associado a um domínio e só pode ser ligados utilizando a autenticação SQL.
 * Tem de configurar uma conta com privilégios adequados para utilização por no RP.
-* Tráfego de rede no RP para SQL Server utiliza a porta 1433 e não pode ser alterado.
 * Os RP e os utilizadores, tais como Web Apps utilizam a rede de utilizador, para que conetividade à instância do SQL Server nesta rede é necessária. Este requisito, normalmente, significa que o IP para as instâncias do SQL Server tem de estar numa rede pública.
 * Gestão de instâncias do SQL Server e respetivos anfitriões é até que; o RP não executar a aplicação de patches, cópia de segurança, credencial de rotação, etc.
 * SKUs podem ser utilizados para criar diferentes classes de capacidades SQL, tais como desempenho, sempre, etc.
-
 
 
 Um número de imagens da máquina virtual IaaS do SQL Server está disponível através da funcionalidade de gestão do Marketplace. Certifique-se de que sempre transferir a versão mais recente da extensão de IaaS SQL antes de implementar uma VM com um item do Marketplace. As imagens do SQL Server são as mesmas que as VMs de SQL que estão disponíveis no Azure. Para as VMs de SQL criadas a partir destas imagens, a extensão de IaaS e as correspondentes melhoramentos portais fornecer funcionalidades como a aplicação de patches automática e as capacidades de cópia de segurança.
@@ -73,6 +71,8 @@ Para adicionar uma autónoma que aloja o servidor que já está aprovisionado, s
 
   ![Novo servidor de alojamento](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
+    Opcionalmente, pode incluir um nome de instância e um número de porta pode ser fornecido se a instância não está atribuída para a porta predefinida 1433.
+
   > [!NOTE]
   > A instância do SQL Server pode ser acedida pelo utilizador e administrador do Azure Resource Manager, desde que pode ser colocado sob o controlo do fornecedor de recursos. A instância do SQL __tem__ atribuída exclusivamente para o RP.
 
@@ -86,10 +86,10 @@ Para adicionar uma autónoma que aloja o servidor que já está aprovisionado, s
 
     Um exemplo:
 
-    ![SKUs](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![SKUs](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-SKUs podem demorar até uma hora ser visível no portal. Não é possível criar uma base de dados até que o SKU não ter sido criada.
+> SKUs podem demorar até uma hora ser visível no portal. Os utilizadores não é possível criar uma base de dados até que o SKU não ter sido criada.
 
 ## <a name="provide-capacity-using-sql-always-on-availability-groups"></a>Fornecem a capacidade de utilizar sempre em grupos de disponibilidade SQL
 Configurar o SQL Always On instâncias é necessários passos adicionais e envolve a, pelo menos, três VMs (ou máquinas físicas).
@@ -126,7 +126,7 @@ Para adicionar servidores de alojamento SQL Always On, siga estes passos:
     O **SQL que aloja servidores** painel é onde pode ligar o fornecedor de recursos do servidor de SQL para instâncias reais do SQL Server que servem de back-end do fornecedor de recursos.
 
 
-3. Preencha o formulário com os detalhes de ligação da sua instância do SQL Server, que está a ser se de que utiliza o endereço FQDN, ou IPv4 do sempre no serviço de escuta. Forneça as informações de conta para a conta configurada com privilégios de administrador de sistema.
+3. Preencha o formulário com os detalhes de ligação da sua instância do SQL Server, que está a ser se de que utiliza o endereço FQDN, ou IPv4 do sempre no serviço de escuta (e o número de porta opcional). Forneça as informações de conta para a conta configurada com privilégios de administrador de sistema.
 
 4. Selecione esta caixa para ativar o suporte para instâncias do SQL sempre no grupo de disponibilidade.
 
@@ -137,7 +137,7 @@ Para adicionar servidores de alojamento SQL Always On, siga estes passos:
 
 ## <a name="making-sql-databases-available-to-users"></a>Disponibilizar bases de dados SQL para os utilizadores
 
-Crie planos e as ofertas para disponibilizar bases de dados SQL para os utilizadores. Adicione o serviço de Microsoft.SqlAdapter para o plano e adicione uma Quota existente ou crie um novo. Se criar uma quota, pode especificar a capacidade para permitir ao utilizador.
+Crie planos e as ofertas para disponibilizar bases de dados SQL para os utilizadores. Adicione o serviço de Microsoft.SqlAdapter para o plano e adicione uma Quota de existente ou crie um novo. Se criar uma quota, especifique a capacidade para permitir ao utilizador.
 
 ![Criar planos e as ofertas para incluir as bases de dados](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
 

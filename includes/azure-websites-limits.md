@@ -29,7 +29,7 @@
 
 <sup>1</sup>aplicações quotas de armazenamento são e por plano do App Service, a menos que haja aviso em contrário.  
 <sup>2</sup>o número real de aplicações que podem alojar nestas máquinas depende a atividade das aplicações, o tamanho das instâncias da máquina e a utilização de recursos correspondentes.  
-<sup>3</sup>instâncias dedicadas podem ser de tamanhos diferentes. Consulte [preços do App Service](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) para obter mais detalhes.  
+<sup>3</sup>instâncias dedicadas podem ser de tamanhos diferentes. Consulte [preços do App Service](https://azure.microsoft.com/pricing/details/app-service/) para obter mais detalhes.  
 <sup>4</sup>escalão premium permite até 50 calcula instâncias (sujeitos a disponibilidade) e 500 GB de espaço em disco ao utilizar ambientes do App Service e 20 de computação de instâncias e 250 GB de armazenamento; caso contrário.  
 <sup>5</sup>o limite de armazenamento é o tamanho total do conteúdo em todas as aplicações no mesmo plano de serviço de aplicações. Mais opções de armazenamento estão disponíveis no [ambiente de serviço de aplicações](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>estes recursos estão limitados por recursos físicos nas instâncias do dedicado (o tamanho da instância e o número de instâncias).  

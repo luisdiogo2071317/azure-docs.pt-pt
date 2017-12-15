@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c1c18deb41e16ec57eacd8272094dc418503b0fc
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: 7603625da3f5f54862b2a0ead0ebb68f4fb1cfa8
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Criar uma aplicação web Node.js e MongoDB no Azure
+
+> [!NOTE]
+> Este artigo implementa uma aplicação do serviço de aplicações no Windows. Para implementar no App Service no _Linux_, consulte [compilar uma aplicação web Node.js e MongoDB no App Service do Azure no Linux](./containers/tutorial-nodejs-mongodb-app.md).
+>
 
 As aplicações Web do Azure fornece uma serviço de alojamento na web altamente dimensionável e aplicação de patches personalizada. Este tutorial mostra como criar uma aplicação web Node.js no Azure e ligue-o a uma base de dados de MongoDB. Quando tiver terminado, terá de uma aplicação média (MongoDB, Express, AngularJS e Node.js) em execução no [App Service do Azure](app-service-web-overview.md). Simplicidade, a aplicação de exemplo utiliza o [estrutura de web MEAN.js](http://meanjs.org/).
 
@@ -127,7 +131,7 @@ Para o MongoDB, este tutorial utiliza [Azure Cosmos DB](/azure/documentdb/). BD 
 
 ### <a name="create-a-cosmos-db-account"></a>Criar uma conta de base de dados do Cosmos
 
-A Shell de nuvem, criar uma conta de base de dados do Cosmos com o [az cosmosdb criar](/cli/azure/cosmosdb#create) comando.
+A Shell de nuvem, criar uma conta de base de dados do Cosmos com o [az cosmosdb criar](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) comando.
 
 O seguinte comando, substitua um nome de base de dados do Cosmos exclusivo para o  *\<cosmosdb_name >* marcador de posição. Este nome é utilizado como parte do ponto final Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, por isso, o nome tem de ser exclusivo em todas as contas de base de dados do Cosmos no Azure. O nome tem de conter apenas letras minúsculas, números e o caráter de hífen (-) e tem de ter entre 3 e 50 carateres de comprimento.
 
@@ -161,7 +165,7 @@ Neste passo, ligar a aplicação de exemplo MEAN.js na base de dados do Cosmos D
 
 ### <a name="retrieve-the-database-key"></a>Obter a chave de base de dados
 
-Para ligar à base de dados do Cosmos DB, terá da chave de base de dados. Na Shell de nuvem, utilize o [az cosmosdb lista chaves](/cli/azure/cosmosdb#list-keys) comando para obter a chave primária.
+Para ligar à base de dados do Cosmos DB, terá da chave de base de dados. Na Shell de nuvem, utilize o [az cosmosdb lista chaves](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) comando para obter a chave primária.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -257,7 +261,7 @@ Neste passo, implementar a aplicação Node.js ligados MongoDB App Service do Az
 
 Por predefinição, o projeto de MEAN.js mantém _config/env/local-production.js_ fora do repositório de Git. Por isso, para a sua aplicação web do Azure, utilize as definições de aplicação para definir a cadeia de ligação do MongoDB.
 
-Para configurar definições de aplicação, utilize o [atualização az webapp configuração appsettings](/cli/azure/webapp/config/appsettings#update) comando na Shell de nuvem. 
+Para configurar definições de aplicação, utilize o [az webapp configuração appsettings conjunto](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) comando na Shell de nuvem. 
 
 O exemplo a seguir configura um `MONGODB_URI` definição de aplicação na sua aplicação web do Azure. Substitua o  *\<APP_NAME>.azurewebsites.NET >*,  *\<cosmosdb_name >*, e  *\<primary_master_key >* marcadores de posição.
 
@@ -461,7 +465,7 @@ Se tiver adicionado quaisquer artigos anteriores, ainda pode vê-los. Os dados e
 
 Enquanto executa a aplicação Node.js no App Service do Azure, pode obter os registos de consola direcionados para o seu terminal. Dessa forma, pode obter as mesmas mensagens de diagnóstico para ajudar a depurar erros de aplicações.
 
-Para iniciar o registo de transmissão em fluxo, utilize o [seguimento de registo de webapp az](/cli/azure/webapp/log#tail) comando na Shell de nuvem.
+Para iniciar o registo de transmissão em fluxo, utilize o [seguimento de registo de webapp az](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) comando na Shell de nuvem.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

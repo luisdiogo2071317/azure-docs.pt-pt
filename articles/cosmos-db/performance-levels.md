@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01b44169349d8b79cf5861328170916a57df6811
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Extinguir os níveis de desempenho S1, S2 e S3
 
@@ -95,7 +95,7 @@ Partindo do princípio de tem 10 S1 coleções, 1 GB de armazenamento para cada 
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>E se for necessário mais de 10 GB de armazenamento?
 
-Se tem uma coleção com um nível de desempenho S1, S2 ou S3 ou tem uma coleção de partições únicas, dos quais têm 10 GB de armazenamento disponível, pode utilizar a ferramenta de migração de dados de base de dados do Cosmos para migrar os dados para uma coleção particionada com armazenamento virtualmente ilimitados. Para obter informações sobre as vantagens de uma coleção particionada, consulte [divisão em partições e o dimensionamento do BD Azure Cosmos](documentdb-partition-data.md). 
+Se tem uma coleção com um nível de desempenho S1, S2 ou S3 ou tem uma coleção de partições únicas, dos quais têm 10 GB de armazenamento disponível, pode utilizar a ferramenta de migração de dados de base de dados do Cosmos para migrar os dados para uma coleção particionada com armazenamento virtualmente ilimitados. Para obter informações sobre as vantagens de uma coleção particionada, consulte [divisão em partições e o dimensionamento do BD Azure Cosmos](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 
@@ -134,7 +134,7 @@ Pode migrar de níveis de desempenho S1, S2 e S3 para coleções de partições 
 
 4. Clique em **guardar** para guardar as alterações.
 
-    Se determinar que precisa de mais de débito (superior a 10.000 RU/s) ou o armazenamento mais (superior a 10 GB) pode criar uma coleção particionada. Para migrar uma coleção de partições únicas para uma coleção particionada, consulte [migrar de partição única para coleções particionadas](documentdb-partition-data.md#migrating-from-single-partition).
+    Se determinar que precisa de mais de débito (superior a 10.000 RU/s) ou o armazenamento mais (superior a 10 GB) pode criar uma coleção particionada. Para migrar uma coleção de partições únicas para uma coleção particionada, consulte [migrar de partição única para coleções particionadas](sql-api-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
     > A alteração do S1, S2 ou S3 para Standard pode demorar até dois minutos.
@@ -143,7 +143,7 @@ Pode migrar de níveis de desempenho S1, S2 e S3 para coleções de partições 
 
 **Para migrar para coleções de partições únicas utilizando o SDK .NET**
 
-Outra opção para alterar os níveis de desempenho dos seus coleções é através dos SDKs do Azure Cosmos DB. Esta secção abrange apenas a alterar o desempenho de uma coleção de nível de utilização a [.NET API do SQL Server](documentdb-sdk-dotnet.md), mas o processo é semelhante para os nossos SDKs outros.
+Outra opção para alterar os níveis de desempenho dos seus coleções é através dos SDKs do Azure Cosmos DB. Esta secção abrange apenas a alterar o desempenho de uma coleção de nível de utilização a [.NET API do SQL Server](sql-api-sdk-dotnet.md), mas o processo é semelhante para os nossos SDKs outros.
 
 Eis um fragmento de código para alterar o débito de coleção para 5000 unidades de pedido por segundo:
     
@@ -177,6 +177,6 @@ Clientes EA estarão preços protegidos até ao fim do respetivo contrato atual.
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre preços e gestão de dados com o Azure Cosmos DB, explore estes recursos:
 
-1.  [A criação de partições de dados na base de dados do Cosmos](documentdb-partition-data.md). Compreenda a diferença entre o contentor de partições únicas e contentores particionadas, bem como sugestões na implementação de uma estratégia de criação de partições de dimensionamento de forma totalmente integrada.
+1.  [A criação de partições de dados na base de dados do Cosmos](sql-api-partition-data.md). Compreenda a diferença entre o contentor de partições únicas e contentores particionadas, bem como sugestões na implementação de uma estratégia de criação de partições de dimensionamento de forma totalmente integrada.
 2.  [Preços do cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Saiba mais sobre os custos de aprovisionamento de débito e o consumo de armazenamento.
 3.  [Unidades de pedido](request-units.md). Compreenda o consumo de débito para tipos de operação diferentes, por exemplo, leitura, escrita, consulta.

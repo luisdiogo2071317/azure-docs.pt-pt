@@ -3,7 +3,7 @@ title: "Iniciar um runbook de automatização do Azure com um webhook | Microsof
 description: "Webhook que permite que um cliente iniciar um runbook na automatização do Azure a partir de uma chamada HTTP.  Este artigo descreve como criar um webhook e como chamar um para iniciar um runbook."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 9b20237c-a593-4299-bbdc-35c47ee9e55d
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: d384a1f6e0f6bf49cf94020265fe5675ffc0029d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1b9b804aa696419b52a03f127c59037c337be66
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook de automatização do Azure com um webhook
 A *webhook* permite-lhe iniciar um determinado runbook na automatização do Azure através de um único pedido HTTP. Isto permite que os serviços externos, como o Visual Studio Team Services, o GitHub, análise de registos do Microsoft Operations Management Suite ou aplicações personalizadas para iniciar runbooks sem a implementar uma solução completa utilizando a API de automatização do Azure.  
@@ -85,10 +85,10 @@ Pode incluir lógica dentro do runbook para determinar se este foi chamado por u
 ## <a name="creating-a-webhook"></a>Criar um webhook
 Utilize o procedimento seguinte para criar um novo webhook ligado a um runbook no portal do Azure.
 
-1. Do **Runbooks painel** no portal do Azure, clique o runbook será iniciado o webhook para ver o painel de detalhes.
-2. Clique em **Webhook** na parte superior do painel para abrir o **adicionar Webhook** painel. <br>
+1. Do **Runbooks página** no portal do Azure, clique o runbook será iniciado o webhook para ver a página de detalhes.
+2. Clique em **Webhook** na parte superior da página para abrir o **adicionar Webhook** página. <br>
    ![Botão de Webhooks](media/automation-webhooks/webhooks-button.png)
-3. Clique em **criar novo webhook** para abrir o **criar webhook painel**.
+3. Clique em **criar novo webhook** para abrir o **página de criação de webhook**.
 4. Especifique um **nome**, **data de expiração** para o webhook e se deve ser ativada. Consulte [detalhes de um webhook](#details-of-a-webhook) para obter mais informações estas propriedades.
 5. Clique no ícone de cópia e prima Ctrl + C para copiar o URL do webhook.  Em seguida, registe-o num local seguro.  **Depois de criar o webhook, não é possível obter o URL novamente.** <br>
    ![URL do Webhook](media/automation-webhooks/copy-webhook-url.png)
@@ -105,9 +105,9 @@ O cliente irá receber um dos códigos de retorno seguintes no pedido de POST.
 | Código | Texto | Descrição |
 |:--- |:--- |:--- |
 | 202 |Aceite |O pedido foi aceite e o runbook com êxito foi colocado em fila. |
-| 400 |Pedido incorreto |O pedido não foi aceite para uma das seguintes razões. <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O token no URL é inválido.</li>  </ul> |
-| 404 |Não foi encontrado |O pedido não foi aceite para uma das seguintes razões. <ul> <li>Não foi encontrado o webhook.</li> <li>O runbook não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
-| 500 |Erro interno do servidor |O URL era válido, mas ocorreu um erro.  Volte a submeter o pedido. |
+| 400 |Pedido Incorreto |O pedido não foi aceite para uma das seguintes razões. <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O token no URL é inválido.</li>  </ul> |
+| 404 |Não Encontrado |O pedido não foi aceite para uma das seguintes razões. <ul> <li>Não foi encontrado o webhook.</li> <li>O runbook não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
+| 500 |Erro Interno do Servidor |O URL era válido, mas ocorreu um erro.  Volte a submeter o pedido. |
 
 Pressupondo que o pedido for bem sucedido, a resposta do webhook contém o id da tarefa no formato JSON da seguinte forma. Irá conter um id de tarefa única, mas permite que o formato JSON para potenciais melhoramentos futuros.
 

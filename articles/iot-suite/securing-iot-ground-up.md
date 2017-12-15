@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5979e5e4baa385cc0aaff5f1277f2a0f7492c426
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Segurança da Internet das coisas partir do zero
 A Internet das coisas (IoT) pode representar um únicos desafios de segurança, privacidade e conformidade para as empresas em todo o mundo. Ao contrário de tecnologia de informático tradicional onde estes problemas está centrada no software e como é implementado, o IoT seja relativo o que acontece quando o informático e os universos físicos convergir. Proteger soluções de IoT requer garantir segura de aprovisionamento de dispositivos, conectividade segura entre estes dispositivos e a nuvem e de proteção de proteger os dados na nuvem durante o processamento e armazenamento. Trabalhar com essas funcionalidades, no entanto, são dispositivos restrita de recursos, distribuição geográfica dos implementações e um grande número de dispositivos dentro de uma solução.
@@ -84,7 +84,7 @@ Comunicações encriptadas para processar os dados na nuvem, o Azure IoT Suite a
 
 Depois de dados na nuvem, pode processar e armazenar em qualquer fluxo de trabalho definido pelo utilizador. Acesso para cada parte dos dados é controlado com o Azure Active Directory, consoante o serviço de armazenamento utilizado.
 
-Todas as chaves utilizadas pela infraestrutura de IoT são armazenadas na nuvem no armazenamento seguro, com a capacidade de rollover no caso de chaves têm de ser novamente aprovisionado. Dados podem ser armazenados no [Azure Cosmos DB](../documentdb/documentdb-introduction.md) ou no [bases de dados SQL](../sql-database/sql-database-faq.md), ativar a definição de nível de segurança pretendido. Além disso, o Azure oferece uma forma de monitorizar e a auditar o acesso não autorizado ou de todo o acesso aos seus dados para o alertar de qualquer intrusões.
+Todas as chaves utilizadas pela infraestrutura de IoT são armazenadas na nuvem no armazenamento seguro, com a capacidade de rollover no caso de chaves têm de ser novamente aprovisionado. Dados podem ser armazenados no [Azure Cosmos DB](../cosmos-db/introduction.md) ou no [bases de dados SQL](../sql-database/sql-database-faq.md), ativar a definição de nível de segurança pretendido. Além disso, o Azure oferece uma forma de monitorizar e a auditar o acesso não autorizado ou de todo o acesso aos seus dados para o alertar de qualquer intrusões.
 
 ## <a name="conclusion"></a>Conclusão
 A Internet das coisas começa com as coisas — a tudo o que é mais relevante para as empresas. IoT possa fornecer valor incrível para uma empresa ao reduzir os custos, aumentar as receitas e transformar o negócio. Foi efetuada com êxito esta transformação depende em grande medida escolher o fornecedor de software e o serviço de IoT à direita. Isto significa que localizar um fornecedor que não só catalyzes esta transformação pelos requisitos e compreender as necessidades de negócio, mas também fornece serviços e software criadas com segurança, privacidade, transparência e conformidade como as considerações de design principais. A Microsoft tem experiência com a desenvolver e implementar os serviços e de software segura e continua a ter um leader este novo idade da Internet das coisas. 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/20/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 29e6187c59f34122e98819b5775af261494995ca
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: dbcf2b3164aa4351301c52ccadecbc211193d19b
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API de tabela no .NET
 
@@ -74,7 +74,7 @@ Se ainda não tiver o Visual Studio 2017, instalado, pode transferir e utilizar 
 Vamos começar por criar uma conta de base de dados do Azure Cosmos no portal do Azure.  
  
 > [!IMPORTANT]  
-> Terá de criar uma nova conta de API de tabela para trabalhar com os SDKs de API de tabela geralmente disponível. As contas de API de tabela criadas durante a pré-visualização não são suportadas pelos SDKs geralmente disponíveis. 
+> Tem de criar uma nova conta da API de Tabela para trabalhar com os SDKs de API de Tabela geralmente disponíveis. As contas de API de Tabela criadas durante a pré-visualização não são suportadas pelos SDKs geralmente disponíveis. 
 >
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
@@ -83,7 +83,7 @@ Vamos começar por criar uma conta de base de dados do Azure Cosmos no portal do
 
 Agora, vamos clonar uma aplicação de Tabela a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente. 
 
-1. Abra uma janela de terminal do git, tais como o git bash e utilize o `cd` comando para alterar para uma pasta para instalar a aplicação de exemplo. 
+1. Abra uma janela de terminal do git, como o git bash e utilize o comando `cd` para alterar para uma pasta e instalar a aplicação de exemplo. 
 
     ```bash
     cd "C:\git-samples"
@@ -99,36 +99,36 @@ Agora, vamos clonar uma aplicação de Tabela a partir do GitHub, definir a cade
 
 ## <a name="update-your-connection-string"></a>Atualizar a cadeia de ligação
 
-Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. Isto permite que a aplicação comunicar com a base de dados alojada. 
+Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. Isto permite à aplicação comunicar com a base de dados alojada. 
 
-1. No [portal do Azure](http://portal.azure.com/), clique em **cadeia de ligação**. 
+1. No [portal do Azure](http://portal.azure.com/), clique em **Cadeia de ligação**. 
 
-    Utilize os botões de cópia no lado direito do ecrã para copiar a cadeia de ligação principal.
+    Utilize os botões de cópia à direita do ecrã, para copiar a CADEIA DE LIGAÇÃO PRIMÁRIA.
 
-    ![Ver e copiar a cadeia de ligação no painel de cadeia de ligação](./media/create-table-dotnet/connection-string.png)
+    ![Ver e copiar a CADEIA DE LIGAÇÃO no painel Cadeia de Ligação](./media/create-table-dotnet/connection-string.png)
 
 2. No Visual Studio, abra o ficheiro app.config. 
 
-3. Anule o comentário StorageConnectionString na linha 8 e comente a StorageConnectionString na linha 7 como este tutorial não utiliza o emulador de armazenamento. Linha 7 e 8 deve agora ter o seguinte aspeto:
+3. Anule o comentário StorageConnectionString na linha 8 e comente em StorageConnectionString na linha 7, uma vez que este tutorial não utiliza o Emulador de Armazenamento. As linhas 7 e 8 devem agora ter o seguinte aspeto:
 
     ```
     <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-4. Cole a cadeia de ligação principal do portal o valor de StorageConnectionString na linha 8. Cole a cadeia dentro de aspas.
+4. Cole a CADEIA DE LIGAÇÃO PRIMÁRIA do portal no valor de StorageConnectionString na linha 8. Cole a cadeia dentro de aspas.
    
     > [!IMPORTANT]
-    > Se o ponto final utiliza documents.azure.com, o que significa que tem uma conta de pré-visualização, e tem de criar um [nova conta de API de tabela](#create-a-database-account) para trabalhar com o SDK de API de tabela geralmente disponível. 
+    > Se o Ponto final utilizar documents.azure.com, significa que tem uma conta de pré-visualização, e tem de criar uma [nova conta de API de Tabela](#create-a-database-account) para trabalhar com o SDK de API de Tabela geralmente disponível. 
     >
 
-    Linha 8 deve agora ter um aspeto semelhante a:
+    A linha 8 deve ter agora um aspeto semelhante a:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
     ```
 
-5. Guarde o ficheiro App. config.
+5. Guarde o ficheiro app.config.
 
 Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
 
@@ -140,7 +140,7 @@ Algumas funcionalidades são acedidas através do novo sobrecargas para CreateCl
 | Definições de ligação da tabela | Descrição |
 | --- | --- |
 | Modo de ligação  | BD do Cosmos do Azure suporta dois modos de conectividade. No `Gateway` modo, são efetuados os pedidos sempre para o gateway de BD do Cosmos do Azure, que reencaminha-lo para as partições de dados correspondente. No `Direct` modo de conectividade, o cliente obtém o mapeamento de tabelas de partições e pedidos são realizados diretamente em partições de dados. Recomendamos `Direct`, a predefinição.  |
-| Protocolo da Ligação | BD do Cosmos do Azure suporta dois protocolos de ligação - `Https` e `Tcp`. `Tcp`é o predefinido e recomendado porque é mais simples. |
+| Protocolo de ligação | BD do Cosmos do Azure suporta dois protocolos de ligação - `Https` e `Tcp`. `Tcp`é o predefinido e recomendado porque é mais simples. |
 | Localizações preferenciais | Lista separada por vírgulas das localizações (multi homing) preferenciais para leituras. Cada conta de base de dados do Azure Cosmos pode ser associada com 1-30 + regiões. Cada instância de cliente pode especificar um subconjunto destas regiões pela ordem preferencial para leituras de latência baixa. As regiões devem ter o nome a utilizar as respetivas [nomes a apresentar](https://msdn.microsoft.com/library/azure/gg441293.aspx), por exemplo, `West US`. Consulte também [APIs multi homing](tutorial-global-distribution-table.md). |
 | Nível de Consistência | Pode comprometido entre a latência de consistência, disponibilidade e ao escolher entre cinco níveis de consistência bem definidos: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix`, e `Eventual`. Predefinição é `Session`. A escolha de nível de consistência faz uma diferença significativa do desempenho no multirregião setups. Consulte [níveis de consistência](consistency-levels.md) para obter mais detalhes. |
 
@@ -301,7 +301,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-BD do Cosmos do Azure suporta a mesma funcionalidade de consulta que o Table storage do Azure para a API de tabela. BD do Azure do Cosmos também suporta a ordenação, os agregados, geoespacial consulta, hierarquia e uma vasta gama de funções incorporadas. As funcionalidades adicionais serão fornecidas na API tabela numa atualização futura do serviço. Consulte [consulta de base de dados do Azure Cosmos](documentdb-sql-query.md) para uma descrição geral destas capacidades. 
+BD do Cosmos do Azure suporta a mesma funcionalidade de consulta que o Table storage do Azure para a API de tabela. BD do Azure do Cosmos também suporta a ordenação, os agregados, geoespacial consulta, hierarquia e uma vasta gama de funções incorporadas. As funcionalidades adicionais serão fornecidas na API tabela numa atualização futura do serviço. Consulte [consulta de base de dados do Azure Cosmos](sql-api-sql-query.md) para uma descrição geral destas capacidades. 
 
 ## <a name="replace-an-entity"></a>Substituir uma entidade
 Para atualizar uma entidade, recupere-a do serviço Tabela, modifique o objeto de entidade e, em seguida, guarde as alterações novamente no serviço Tabela. O código seguinte altera o número de telefone de um cliente existente. 

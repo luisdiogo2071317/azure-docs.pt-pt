@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 161d9fda75caa7836e012e6e1ff79df576281137
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0bd4f390e4507fccd1ca564c48c0f321412e229d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Criar uma aplicação web Docker Python e PostgreSQL no Azure
 
@@ -121,7 +121,7 @@ Neste passo, vai criar uma base de dados PostgreSQL no Azure. Quando a aplicaç�
 
 ### <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Agora, se pretender utilizar o 2.0 CLI do Azure para criar os recursos necessários para alojar a aplicação de Python na aplicação Web para contentores.  Inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/#az_login) e siga as instruções no ecrã.
+Agora, se pretender utilizar o 2.0 CLI do Azure para criar os recursos necessários para alojar a aplicação de Python na aplicação Web para contentores.  Inicie sessão na sua subscrição do Azure com o comando [az login](/cli/azure/?view=azure-cli-latest#az_login) e siga as instruções no ecrã.
 
 ```azurecli
 az login
@@ -129,7 +129,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um [grupo de recursos](../../azure-resource-manager/resource-group-overview.md) com o [az group create](/cli/azure/group#az_group_create).
+Crie um [grupo de recursos](../../azure-resource-manager/resource-group-overview.md) com o [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -139,11 +139,11 @@ O exemplo seguinte cria um grupo de recursos na região EUA oeste:
 az group create --name myResourceGroup --location "West US"
 ```
 
-Utilize o [az appservice lista-localizações](/cli/azure/appservice#az_appservice_list_locations) comando da CLI do Azure para localizações disponíveis da lista.
+Utilize o [az appservice lista-localizações](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) comando da CLI do Azure para localizações disponíveis da lista.
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Criar uma Base de Dados do Azure para o servidor PostgreSQL
 
-Criar um servidor de PostgreSQL com o [az postgres servidor criar](/cli/azure/postgres/server#az_postgres_server_create) comando.
+Criar um servidor de PostgreSQL com o [az postgres servidor criar](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) comando.
 
 O seguinte comando, substitua um nome de servidor exclusivo para o  *\<postgresql_name >* marcador de posição e um utilizador de nome para o  *\<admin_username >* marcador de posição. O nome do servidor é utilizado como parte do seu ponto final PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), por isso, o nome tem de ser exclusivos em todos os servidores no Azure. É o nome de utilizador para a conta de utilizador de administrador de base de dados inicial. Lhe for pedido para escolher uma palavra-passe para este utilizador.
 
@@ -364,7 +364,7 @@ Neste passo, implementar a aplicação de Python Flask de baseado no contentor d
 
 ### <a name="create-an-app-service-plan"></a>Crie um plano do Serviço de Aplicações
 
-Crie um plano do Serviço de Aplicações com o comando [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
+Crie um plano do Serviço de Aplicações com o comando [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -414,7 +414,7 @@ Quando é criado o plano de serviço de aplicações, a CLI do Azure mostra info
 
 ### <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-Criar uma aplicação web no *myAppServicePlan* plano de serviço de aplicações com o [az webapp criar](/cli/azure/webapp#az_webapp_create) comando.
+Criar uma aplicação web no *myAppServicePlan* plano de serviço de aplicações com o [az webapp criar](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) comando.
 
 A aplicação web fornece um espaço de alojamento para implementar o código e fornece um URL para ver a aplicação implementada. Utilize para criar a aplicação web.
 
@@ -445,7 +445,7 @@ Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações 
 
 Anteriormente no tutorial, definiu as variáveis de ambiente para ligar à base de dados PostgreSQL.
 
-No App Service, definir variáveis de ambiente como _as definições de aplicação_ utilizando o [az webapp configuração appsettings conjunto](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) comando.
+No App Service, definir variáveis de ambiente como _as definições de aplicação_ utilizando o [az webapp configuração appsettings conjunto](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) comando.
 
 O exemplo seguinte especifica os detalhes de ligação de base de dados como as definições de aplicação. Também utiliza o *porta* variável com o mapa de 5000 de porta do contentor de Docker para receber o tráfego HTTP na porta 80.
 

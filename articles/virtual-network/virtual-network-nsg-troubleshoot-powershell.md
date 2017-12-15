@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 5edaf7197576ac1c0bd1fc6bed21fd65ed135106
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d556f2d6d37956c3b3bca2a2905b2c947e6be0df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Resolver problemas relacionados com grupos de segurança de rede com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Embora este exemplo utiliza a porta TCP 3389, os seguintes passos podem ser util
 ## <a name="detailed-troubleshooting-steps"></a>Passos de resolução de problemas detalhada
 Conclua os seguintes passos para resolver os NSGs para uma VM:
 
-1. Inicie uma sessão do PowerShell do Azure e iniciar sessão no Azure. Se não estiver familiarizado com a utilização do Azure PowerShell, leia o [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) artigo.
+1. Inicie uma sessão do PowerShell do Azure e iniciar sessão no Azure. Se não estiver familiarizado com a utilização do Azure PowerShell, leia o [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) artigo. A conta tem de ser atribuída a *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operação para a interface de rede. Para saber como atribuir operações às contas, consulte [criar funções personalizadas para controlo de acesso em funções do Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Introduza o seguinte comando para devolver todas as regras NSG aplicadas a um NIC com o nome *VM1 NIC1* no grupo de recursos *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: 0f26aea674eb2317c976af0cb8e81f619a8d64ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1a54884196e5b4ff5b16425e902abeb8d82aa8f1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhar com as datas no Azure Cosmos DB
 BD do Cosmos do Azure oferece flexibilidade de esquema e indexação avançada através de um nativo [JSON](http://www.json.org) modelo de dados. Todos os recursos de BD do Cosmos do Azure, incluindo bases de dados, coleções, documentos e procedimentos armazenados são modelados e armazenados como documentos JSON. Como um requisito para a ser portátil, JSON (e a base de dados do Azure Cosmos) suportam apenas um pequeno conjunto de tipos básicos: cadeia, número, booleano, matriz, objeto e um valor nulo. No entanto, o JSON é flexível e permitir que os programadores e estruturas representar tipos mais complexos utilizando estes primitivos e de composição-los como objetos ou matrizes. 
@@ -26,7 +26,7 @@ BD do Cosmos do Azure oferece flexibilidade de esquema e indexação avançada a
 Além dos tipos básicos, precisam de muitas aplicações de [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) tipo para representar as datas e carimbos. Este artigo descreve como os programadores podem armazenar, obter e consultar datas na base de dados do Cosmos do Azure utilizando o SDK .NET.
 
 ## <a name="storing-datetimes"></a>Armazenar DateTime
-Por predefinição, o [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) serializa os valores DateTime como [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) cadeias. A maioria das aplicações podem utilizar a representação de cadeia predefinido para DateTime pelos seguintes motivos:
+Por predefinição, o [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) serializa os valores DateTime como [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) cadeias. A maioria das aplicações podem utilizar a representação de cadeia predefinido para DateTime pelos seguintes motivos:
 
 * É possível comparar cadeias e a ordenação dos valores DateTime relativo é preservada quando estes são transformados para cadeias. 
 * Esta abordagem não requer qualquer código personalizado ou atributos para a conversão de JSON.
@@ -83,11 +83,11 @@ O SDK .NET do SQL Server suporta automaticamente ao consultar os dados armazenad
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-Pode saber mais sobre a linguagem de consulta SQL da BD do Cosmos do Azure e o fornecedor LINQ [consultar base de dados do Cosmos](documentdb-sql-query.md).
+Pode saber mais sobre a linguagem de consulta SQL da BD do Cosmos do Azure e o fornecedor LINQ [consultar base de dados do Cosmos](sql-api-sql-query.md).
 
 Neste artigo, vamos analisar como armazenar, índice e consultar DATETIME do BD Azure Cosmos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Transfira e execute o [exemplos de código no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Saiba mais sobre [as consultas SQL](documentdb-sql-query.md)
+* Saiba mais sobre [as consultas SQL](sql-api-sql-query.md)
 * Saiba mais sobre [políticas de indexação do Azure Cosmos DB](indexing-policies.md)

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: sashan
-ms.openlocfilehash: 936f95700cb57325a572e5509334398a724c4986
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -129,7 +129,7 @@ Independentemente da funcionalidade de continuidade empresarial utilizada, tem d
 Se não preparar corretamente, colocar as aplicações online após uma ativação pós-falha ou uma recuperação de base de dados demora mais tempo e provavelmente também requerem resolução de problemas num momento de esforço - uma combinação incorreto.
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Ativação pós-falha para um georreplicação base de dados secundária
-Se estiver a utilizar replicação geográfica activa e grupos de auto-ativação pós-falha (em pré-visualização) como o mecanismo de recuperação, pode configurar uma política de ativação pós-falha automática ou utilizar [ativação pós-falha manual](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-database). Uma vez iniciada, a ativação pós-falha faz com que secundário tornar-se a nova principal e pronto para gravar novas transações e responder às consultas - com perda mínima de dados para os dados ainda não replicadas. Para obter informações sobre a conceção o processo de ativação pós-falha, consulte [estruturar uma aplicação em nuvem recuperação de desastres](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Se estiver a utilizar replicação geográfica activa e grupos de auto-ativação pós-falha (em pré-visualização) como o mecanismo de recuperação, pode configurar uma política de ativação pós-falha automática ou utilizar [ativação pós-falha manual](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Uma vez iniciada, a ativação pós-falha faz com que secundário tornar-se a nova principal e pronto para gravar novas transações e responder às consultas - com perda mínima de dados para os dados ainda não replicadas. Para obter informações sobre a conceção o processo de ativação pós-falha, consulte [estruturar uma aplicação em nuvem recuperação de desastres](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Quando o Centro de dados fica online novamente os antigos primaries restabelecer a ligação para a nova principal automaticamente e tornar-se as bases de dados secundárias. Se precisar de alteração da localização de cópia de segurança primária para a região original, pode iniciar uma ativação pós-falha planeada manualmente (reativação pós-falha). 

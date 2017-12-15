@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -108,7 +108,7 @@ A maioria das aplicações tem de armazenar dados, por isso, independentemente d
 -   **BD do Azure do Cosmos**: um serviço de base de dados globalmente distribuída e múltiplos modelo permite-lhe dimensionar o débito e armazenamento em qualquer número de regiões geográficas com um SLA abrangente. 
     >**Quando utilizar:** quando a aplicação tem de documento, tabela ou bases de dados do gráfico, incluindo bases de dados de MongoDB, com vários modelos de consistência bem definidos. 
 
-    >**Introdução ao**: [compilar uma aplicação web do Azure Cosmos DB](../../cosmos-db/create-documentdb-dotnet.md). Se tiver um programador MongoDB, consulte [compilar uma aplicação web do MongoDB com base de dados do Azure Cosmos](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Introdução ao**: [compilar uma aplicação web do Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Se tiver um programador MongoDB, consulte [compilar uma aplicação web do MongoDB com base de dados do Azure Cosmos](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Armazenamento do Azure**: oferece um armazenamento durável e altamente disponível para os blobs, filas, ficheiros e outros tipos de dados nonrelational. Armazenamento fornece a base de armazenamento para as VMs.
 

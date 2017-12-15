@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 12/14/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à grelha de eventos do Azure
 
@@ -20,9 +20,18 @@ Grelha de eventos do Azure permite-lhe criar facilmente aplicações com arquite
 
 Pode utilizar filtros para encaminhar os eventos específicos diferentes de pontos finais, multicast para vários pontos finais e certifique-se que os eventos são entregues fiável. Grelha de evento também criou o suporte para eventos personalizados e de terceiros.
 
-Na versão anterior, o Event Grid suporta as localizações **westus2** e **westcentralus**. Serão adicionadas noutras regiões.
+Atualmente, o evento grelha suporta as seguintes regiões:
 
-Este artigo fornece uma descrição geral da grelha de eventos do Azure. Se pretender começar a grelha de eventos, consulte [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md).
+* EUA Central
+*   EUA Leste
+*   EUA Leste 2
+*   EUA Centro-Oeste
+*   EUA Oeste
+*   EUA Oeste 2
+
+Serão adicionadas noutras regiões.
+
+Este artigo fornece uma descrição geral da grelha de eventos do Azure. Se pretender começar a grelha de eventos, consulte [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md). A imagem seguinte mostra como grelha de evento se liga editores e processadores, mas não fornece uma lista completa das opções suportadas.
 
 ![Modelo de funcional de grelha de eventos](./media/overview/event-grid-functional-model.png)
 
@@ -30,11 +39,11 @@ Este artigo fornece uma descrição geral da grelha de eventos do Azure. Se pret
 
 Atualmente, os seguintes serviços do Azure têm suporte do Editor incorporados para a grelha de evento:
 
-* Grupos de recursos (operações de gestão)
 * Subscrições do Azure (operações de gestão)
-* Event Hubs
-* Blob de armazenamento
 * Tópicos personalizados
+* Event Hubs
+* Grupos de recursos (operações de gestão)
+* Blob de armazenamento
 
 Outros serviços do Azure serão adicionados este ano.
 
@@ -42,11 +51,12 @@ Outros serviços do Azure serão adicionados este ano.
 
 Atualmente, os seguintes serviços do Azure tem suporte de processador incorporados para a grelha de evento: 
 
-* Funções do Azure
-* Aplicações Lógicas
 * Automatização do Azure
-* WebHooks
+* Funções do Azure
+* Event Hubs
+* Aplicações Lógicas
 * Fluxo da Microsoft
+* WebHooks
 
 Outros serviços do Azure serão adicionados este ano.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe6612e8c3fb557097866b23bad32d7edc45492f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0338fb386fc4da3f34cb4e810dbd57d50b5d5329
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados para e da base de dados do Cosmos do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -489,7 +489,7 @@ BD do Cosmos do Azure é um arquivo de NoSQL para documentos JSON, onde são per
 2. **Pergunta:** como funciona uma repetição de uma cópia para o grau de base de dados do Azure Cosmos com já copiados registos?
 
     **Resposta:** se registos tem um campo de "ID" e a operação de cópia tenta inserir um registo com o mesmo ID, a operação de cópia emite um erro.  
-3. **Pergunta:** suporta Data Factory [intervalo ou criação de partições de dados com base em hash](../../cosmos-db/documentdb-partition-data.md)?
+3. **Pergunta:** suporta Data Factory [intervalo ou criação de partições de dados com base em hash](../../cosmos-db/sql-api-partition-data.md)?
 
     **Resposta:** não.
 4. **Pergunta:** posso especificar mais do que uma coleção de BD do Cosmos do Azure para uma tabela?

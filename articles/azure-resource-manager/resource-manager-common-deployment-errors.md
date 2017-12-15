@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2017
 ms.author: tomfitz
-ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 560f888776d5b3e5103ee2084b5c3c999f014fad
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver erros comuns de implementação do Azure com o Azure Resource Manager
 
@@ -34,7 +34,7 @@ Este artigo descreve alguns erros de implementação do Azure comuns que poderá
 | AllocationFailed | O cluster ou a região não dispõe de recursos disponíveis ou não suporta o tamanho da VM pedido. Repetir o pedido num momento posterior, ou peça um tamanho VM diferente. | [Problemas de aprovisionamento e a atribuição de Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) e [problemas de aprovisionamento e a alocação para Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Aguarde pela conclusão da operação em simultâneo. | |
 | AuthorizationFailed | A conta ou principal de serviço não tem acesso suficiente para concluir a implementação. Verifique a sua conta pertencer a função e o acesso para o âmbito da implementação. | [Controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-control-configure.md) |
-| BadRequest | Enviado valores de implementação que não corresponde ao que é esperado pelo Gestor de recursos. Consulte a mensagem de estado interna para obter ajuda na resolução de problemas. | [Referência de modelo](/azure/templates/) e [suportado localizações](resource-manager-template-location.md) |
+| BadRequest | Enviado valores de implementação que não corresponde ao que é esperado pelo Gestor de recursos. Consulte a mensagem de estado interna para obter ajuda na resolução de problemas. | [Referência de modelo](/azure/templates/) e [suportado localizações](resource-manager-templates-resources.md#location) |
 | Conflito | Está a pedir uma operação que não é permitida no estado atual do recurso. Por exemplo, redimensionamento de disco é permitido apenas quando criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActive | Aguarde pela implementação simultânea para este grupo de recursos para concluir. | |
 | DnsRecordInUse | O nome do registo DNS tem de ser exclusivo. Fornecer um nome diferente ou modifique o registo existente. | |
@@ -51,7 +51,7 @@ Este artigo descreve alguns erros de implementação do Azure comuns que poderá
 | InvalidTemplate | Verifique a sintaxe do modelo de erros. | [Resolver modelo inválido](resource-manager-invalid-template-errors.md) |
 | LinkedAuthorizationFailed | Verifique se a sua conta pertencer ao mesmo inquilino como o grupo de recursos que está a implementar. | |
 | LinkedInvalidPropertyId | O ID de recurso para um recurso não está a resolver corretamente. Certifique-se de que forneça valores todos requeridos para o ID de recurso, incluindo o ID de subscrição, nome do grupo de recursos, tipo de recurso, nome de recurso principal (se necessário) e nome do recurso. | |
-| LocationRequired | Forneça uma localização para o seu recurso. | [Definir localização](resource-manager-template-location.md) |
+| LocationRequired | Forneça uma localização para o seu recurso. | [Definir localização](resource-manager-templates-resources.md#location) |
 | MissingRegistrationForLocation | Verifique o estado de registo do fornecedor de recursos e localizações suportadas. | [Resolver o registo](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registe a sua subscrição com o fornecedor de recursos. | [Resolver o registo](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Verifique o estado de registo do fornecedor de recursos. | [Resolver o registo](resource-manager-register-provider-errors.md) |

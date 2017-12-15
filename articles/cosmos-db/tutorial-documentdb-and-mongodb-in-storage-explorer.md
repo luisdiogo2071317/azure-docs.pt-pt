@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jejiang
-ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 6ed5ddab021006da633b30cafc4e1988a064ab92
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Gerir o Azure Cosmos DB no Explorador de armazenamento do Azure (pré-visualização)
 
@@ -32,7 +32,7 @@ Neste artigo, pode saber como utilizar o Explorador de armazenamento para gerir 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma conta de base de dados do Azure Cosmos para a API do SQL Server ou a API do MongoDB. Se não tiver uma conta, pode criar uma no portal do Azure, conforme descrito em [BD do Azure Cosmos: criar uma aplicação de web API do SQL Server com o .NET e o portal do Azure](create-documentdb-dotnet.md).
+Uma conta de base de dados do Azure Cosmos para a API do SQL Server ou a API do MongoDB. Se não tiver uma conta, pode criar uma no portal do Azure, conforme descrito em [BD do Azure Cosmos: criar uma aplicação de web API do SQL Server com o .NET e o portal do Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Instalação
 
@@ -137,7 +137,7 @@ Para criar um novo documento, abra **documentos** na janela da esquerda, clique 
 #### <a name="delete-a-document"></a>Eliminar um documento
 Clique em de **eliminar** botão para eliminar o documento selecionado.
 #### <a name="query-for-documents"></a>Consulta de documentos
-Editar o filtro de documento introduzindo um [consulta SQL](documentdb-sql-query.md) e, em seguida, clique em **aplicar**.
+Editar o filtro de documento introduzindo um [consulta SQL](sql-api-sql-query.md) e, em seguida, clique em **aplicar**.
 
 ![Filtro](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 

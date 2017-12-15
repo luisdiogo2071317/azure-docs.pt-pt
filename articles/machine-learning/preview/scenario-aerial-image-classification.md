@@ -7,12 +7,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-ms.date: 10/27/2017
-ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/13/2017
+ms.openlocfilehash: 57b81dfb2cb58fb43d4c420e8ce58c0c226316df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="aerial-image-classification"></a>Classificação de imagem com vista aérea
 
@@ -157,14 +157,14 @@ Iremos agora criar a conta de armazenamento que anfitriões projeto ficheiros qu
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Prevê a transferência de ficheiros para demorar até 20 minutos. Enquanto espera, pode avançar para a secção seguinte: poderá ter de abrir outra Interface de linha de comandos através do Workbench e redefinir as variáveis temporárias não existe.
+    Prevê a transferência de ficheiros para demorar cerca de uma hora. Enquanto espera, pode avançar para a secção seguinte: poderá ter de abrir outra Interface de linha de comandos através do Workbench e redefinir as variáveis temporárias não existe.
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>Criar o cluster do Spark do HDInsight
 
 O nosso método recomendado para criar um cluster do HDInsight utiliza o Spark do HDInsight cluster modelo do resource manager incluído na subpasta "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" deste projeto.
 
-1. O modelo de cluster do HDInsight Spark é o ficheiro de "Template" sob a subpasta "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" deste projeto. Por predefinição, o modelo cria um cluster do Spark com 40 nós de trabalho. Se terá de ajustar esse número, abra o modelo no seu editor de texto favorito e substitua todas as instâncias do "40" com o número de nós de trabalho da sua preferência.
-    - Poderá encontrar erros de memória esgotada, se o número de nós de trabalho que escolher é pequeno. Para combat erros de memória, pode executar os scripts de formação e operationalization num subconjunto de dados disponíveis conforme descrito mais à frente neste documento.
+1. O modelo de cluster do HDInsight Spark é o ficheiro de "Template" sob a subpasta "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" deste projeto. Por predefinição, o modelo cria um cluster do Spark com 40 nós de trabalho. Se terá de ajustar esse número, abra o modelo no seu editor de texto favorito e substituir quaisquer instâncias do "40" com o número de nós de trabalho da sua preferência.
+    - Poderá encontrar erros de memória esgotada mais tarde, se o número de nós de trabalho que escolher é mais pequeno. Para combat erros de memória, pode executar os scripts de formação e operationalization num subconjunto de dados disponíveis conforme descrito mais à frente neste documento.
 2. Escolha um nome exclusivo e uma palavra-passe para o HDInsight cluster e escrevê-las sempre que for indicado no seguinte comando: em seguida, criar o cluster emitindo os comandos:
 
     ```
@@ -248,12 +248,10 @@ Se assim o desejar, pode confirmar que a transferência de dados tem proceeded c
 
 #### <a name="create-a-batch-ai-cluster"></a>Criar um cluster de AI do Batch
 
-1. Crie o cluster emitindo os seguintes comandos:
+1. Crie o cluster ao emitir o comando seguinte:
 
     ```
-    set AZURE_BATCHAI_STORAGE_ACCOUNT=%STORAGE_ACCOUNT_NAME%
-    set AZURE_BATCHAI_STORAGE_KEY=%STORAGE_ACCOUNT_KEY%
-    az batchai cluster create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Utilize o seguinte comando para verificar o que seu cluster do Estado de aprovisionamento:
@@ -304,7 +302,7 @@ Depois de concluída a criação de clusters do HDInsight, registe o cluster com
 1.  Emita o comando seguinte a partir da Interface de linha de comandos do Azure Machine Learning:
 
     ```
-    az ml computetarget attach --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD% -t cluster
+    az ml computetarget attach cluster --name myhdi --address %HDINSIGHT_CLUSTER_NAME%-ssh.azurehdinsight.net --username sshuser --password %HDINSIGHT_CLUSTER_PASSWORD%
     ```
 
     Este comando adiciona dois ficheiros, `myhdi.runconfig` e `myhdi.compute`, ao seu projeto `aml_config` pasta.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 0781aef200ec075f8f7a21027cb8f9b65965cb43
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 76415de270ddd6eef0100263e5c8db8e69ff500f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Do Azure AD Connect: Histórico de lançamento de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funções. Nem todas as adições são aplicáveis a todos os público.
@@ -84,11 +84,12 @@ Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 
 onde 
 
-$ObjectDN = a conta do Active Directory cujas permissões têm de ser tightened.
-$Credential = a credencial utilizada para autenticar o cliente quando se fala ao Active Directory. Isto é, geralmente, as credenciais de administrador de empresa utilizadas para criar a conta cujas tightening necessita de permissões.
+**$ObjectDN** = a conta do Active Directory cujas permissões têm de ser tightened.
+
+**$Credential** = credencial de administrador que tem os privilégios necessários para restringir as permissões na conta $ObjectDN. Normalmente, trata-se o administrador de empresa ou domínio. Utilize o nome de domínio completamente qualificado da conta de administrador para evitar falhas de pesquisa de conta. Exemplo: contoso.com\admin.
 
 >[!NOTE] 
->$credential. Nome de utilizador deve estar no formato domínio ome de utilizador.  
+>$credential. Nome de utilizador deve estar no formato de FQDN\username. Exemplo: contoso.com\admin 
 
 ##### <a name="example"></a>Exemplo:
 

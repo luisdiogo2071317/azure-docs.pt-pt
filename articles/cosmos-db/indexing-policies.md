@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 20532763c46f6e87808e36f6dc06aecbd7a426ac
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a0e19fc9a5ee41dc61c8ced65206e81efe817681
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como funciona a dados do índice de BD do Cosmos do Azure?
 
@@ -183,7 +183,7 @@ Eis os tipos de índice suportados e exemplos de consultas que podem ser utiliza
 | Tipo de índice | Caso de utilização/descrição                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Hash       | Hash através de/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE da coleção c WHERE c.prop = "valor"<br><br>Hash através de propriedades / [] /? (ou / ou propriedades /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE tag da coleção c associação tag IN c.props tag onde = 5                                                                                                                       |
-| Intervalo      | Intervalo de ativação pós-falha/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE da coleção c WHERE c.prop = "valor"<br><br>SELECIONE da coleção c WHERE c.prop > 5<br><br>SELECIONE a partir da coleção c ORDER BY c.prop                                                                                                                                                                                                              |
+| intervalo      | Intervalo de ativação pós-falha/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE da coleção c WHERE c.prop = "valor"<br><br>SELECIONE da coleção c WHERE c.prop > 5<br><br>SELECIONE a partir da coleção c ORDER BY c.prop                                                                                                                                                                                                              |
 | Espacial     | Intervalo de ativação pós-falha/prop /? (ou /) pode ser utilizado para efetuar as seguintes consultas de forma eficiente:<br><br>SELECIONE da coleção c<br><br>ONDE ST_DISTANCE (c.prop, {"type": "Ponto", "coordenadas": [0.0, 10.0]}) < 40<br><br>SELECIONE de coleção c onde ST_WITHIN(c.prop, {"type": "Polygon",...}) – com a indexação pontos ativada<br><br>SELECIONE da coleção c onde ST_WITHIN({"type": "Point",...}, c.prop) – com a indexação polígonos ativados              |
 
 Por predefinição, é devolvido um erro de consultas com operadores de intervalo como > = Se não houver nenhum índice de intervalo (de qualquer precisão) para assinalar que uma análise poderá ser necessária servir a consulta. Podem executar consultas de intervalo sem um índice de intervalo utilizando o cabeçalho x-ms-documentdb-enable-análise da API REST ou a opção de pedido de EnableScanInQuery utilizando o SDK .NET. Se existirem quaisquer outros filtros na consulta que BD do Cosmos Azure pode utilizar o índice para filtrar contra, em seguida, não será devolvido nenhum erro.
@@ -229,7 +229,7 @@ Pode escolher se pretende que a coleção para indexar automaticamente todos os 
 
 Com automática indexação desativada, pode adicionar ainda seletivamente apenas os documentos específicos para o índice. Por outro lado, pode deixar automática de indexação no e escolha seletivamente a excluir apenas a documentos específica. A indexação/desative as configurações são úteis quando tem apenas um subconjunto de documentos que precisam de ser consultado.
 
-Por exemplo, o exemplo seguinte mostra como incluir um documento explicitamente com o [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) e [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) propriedade.
+Por exemplo, o exemplo seguinte mostra como incluir um documento explicitamente com o [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) e [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) propriedade.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -418,5 +418,5 @@ Siga as ligações abaixo para exemplos de gestão de política de índice e par
 
 1. [Exemplos de código de gestão de índice do SQL Server API .NET](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [Operações de coleção do SQL Server API REST](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [Consulta com o SQL Server](documentdb-sql-query.md)
+3. [Consulta com o SQL Server](sql-api-sql-query.md)
 

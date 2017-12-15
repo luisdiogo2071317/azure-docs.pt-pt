@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ef68f64437935f08f76c29ecf15d574279cca7f1
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação web .NET Core e a SQL Database no App Service do Azure no Linux
 
-[Serviço de aplicações no Linux](app-service-linux-intro.md) fornece uma serviço utilizando o sistema operativo Linux de alojamento na web altamente dimensionável e aplicação de patches personalizada. Este tutorial mostra como criar uma aplicação web do .NET Core e ligue-o a uma base de dados do SQL Server. Quando tiver terminado, terá uma aplicação de MVC do .NET Core em execução no App Service no Linux.
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação web do .NET Core e ligue-o a uma base de dados do SQL Server. Quando tiver terminado, terá uma aplicação de MVC do .NET Core em execução no App Service no Linux.
 
 ![aplicação em execução no App Service no Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
@@ -93,7 +93,7 @@ Para a base de dados do SQL Server, este tutorial utiliza [SQL Database do Azure
 
 ### <a name="create-a-sql-database-logical-server"></a>Criar um servidor lógico de base de dados SQL
 
-A Shell de nuvem, criar um servidor lógico de base de dados SQL com o [do SQL Server de az criar](/cli/azure/sql/server#create) comando.
+A Shell de nuvem, criar um servidor lógico de base de dados SQL com o [do SQL Server de az criar](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) comando.
 
 Substitua o  *\<server_name >* marcador de posição com um nome exclusivo da base de dados SQL. Este nome é utilizado como parte do ponto final da base de dados do SQL Server, `<server_name>.database.windows.net`, por isso, o nome tem de ser exclusivos em todos os servidores lógicos no Azure. O nome tem de conter apenas letras minúsculas, números e o caráter de hífen (-) e tem de ter entre 3 e 50 carateres de comprimento. Substitua, também,  *\<db_username >* e  *\<db_password >* com um nome de utilizador e palavra-passe à sua escolha. 
 
@@ -124,7 +124,7 @@ Quando o servidor lógico de base de dados SQL é criado, a CLI do Azure mostra 
 
 ### <a name="configure-a-server-firewall-rule"></a>Configurar uma regra de firewall do servidor
 
-Crie uma [regra de firewall ao nível do servidor da Base de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) com o comando [az sql server firewall create](/cli/azure/sql/server#create). Quando o IP inicial e final IP estão definidas como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. 
+Crie uma [regra de firewall ao nível do servidor da Base de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) com o comando [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Quando o IP inicial e final IP estão definidas como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +132,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Criar uma base de dados
 
-Crie uma base de dados com um [nível de desempenho S0](../../sql-database/sql-database-service-tiers.md) no servidor com o comando [az sql db create](/cli/azure/sql/db#create).
+Crie uma base de dados com um [nível de desempenho S0](../../sql-database/sql-database-service-tiers.md) no servidor com o comando [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -166,7 +166,7 @@ Neste passo, implementar a aplicação .NET Core ligada à base de dados SQL do 
 
 ### <a name="configure-an-environment-variable"></a>Configurar uma variável de ambiente
 
-Para definir cadeias de ligação para a sua aplicação do Azure, utilize o [atualização az webapp configuração appsettings](/cli/azure/webapp/config/appsettings#update) comando na Shell de nuvem. O seguinte comando, substitua  *\<nome da aplicação >*, bem como o  *\<connection_string >* parâmetro com a cadeia de ligação que criou anteriormente.
+Para definir cadeias de ligação para a sua aplicação do Azure, utilize o [az webapp configuração appsettings conjunto](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) comando na Shell de nuvem. O seguinte comando, substitua  *\<nome da aplicação >*, bem como o  *\<connection_string >* parâmetro com a cadeia de ligação que criou anteriormente.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.openlocfilehash: 041982f251ddee7570619c0e7e61d07906aaed2f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 73e546dea2c1c102736a2043e0b67f0f2c622b18
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelação de dados de documento para bases de dados NoSQL
 Enquanto sem esquema bases de dados, como a base de dados do Azure Cosmos torná-lo super fácil adotar alterações ao seu modelo de dados deve ainda demora alguns pensar tempo sobre os dados. 
@@ -39,7 +39,7 @@ Quando inicia a modelação de dados num arquivo de documentos, tais como a base
 
 Antes que explore demasiado muito além disso, informe-nos reponha alguns passos e ver como podemos poderá modelo algo na base de dados relacional, um assunto muitos dos EUA já estejam familiarizados com. O exemplo seguinte mostra como uma pessoa poderá ser armazenada na base de dados relacional. 
 
-![Modelo de base de dados relacional](./media/documentdb-modeling-data/relational-data-model.png)
+![Modelo de base de dados relacional](./media/sql-api-modeling-data/relational-data-model.png)
 
 Ao trabalhar com bases de dados relacionais, iremos tiver sido taught anos normalizar, normalizar, normalizar.
 
@@ -290,7 +290,7 @@ No exemplo acima, podemos ter removido a coleção unbounded no documento public
 ### <a name="how-do-i-model-manymany-relationships"></a>Como posso modelar relações muitos:?
 Na base de dados relacional *: muitos* relações são, muitas vezes, modeladas com tabelas de associação, que apenas associar registos da outras tabelas em conjunto. 
 
-![Associar tabelas](./media/documentdb-modeling-data/join-table.png)
+![Associar tabelas](./media/sql-api-modeling-data/join-table.png)
 
 Poderá ser tempted para replicar a mesma coisa utilizando documentos e produzir um modelo de dados, semelhante ao seguinte.
 
@@ -395,4 +395,4 @@ Tal como não é possível único para representar um conjunto de dados num ecr�
 
 Para saber mais sobre a BD do Cosmos do Azure, consulte o serviço [documentação](https://azure.microsoft.com/documentation/services/cosmos-db/) página. 
 
-Para compreender a forma como para partições horizontais seus dados através de várias partições, consulte [criação de partições de dados na base de dados do Azure Cosmos](documentdb-partition-data.md). 
+Para compreender a forma como para partições horizontais seus dados através de várias partições, consulte [criação de partições de dados na base de dados do Azure Cosmos](sql-api-partition-data.md). 

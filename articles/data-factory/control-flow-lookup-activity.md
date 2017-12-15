@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: spelluru
-ms.openlocfilehash: e0a1613f2f820f0c108e97c2c15585a581041181
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: f287b0287ad85ffe1654e0d574cd44aa4dd81a0f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 A atividade de Pesquisa pode ser utilizada para ler ou procurar registos/nomes de tabelas/valores em qualquer origem externa. Este resultado pode ser ainda referenciado por atividades subsequentes. 
@@ -61,7 +61,7 @@ As seguintes origens de dados são atualmente suportadas para a pesquisa:
 Nome | Descrição | Tipo | Necessário
 ---- | ----------- | ---- | --------
 Conjunto de dados | O atributo de conjunto de dados é fornecer a referência de conjunto de dados para a pesquisa. Atualmente, os tipos de conjunto de dados suportados são:<ul><li>`AzureBlobDataset`para [Blob Storage do Azure](connector-azure-blob-storage.md#dataset-properties) como origem</li><li>`FileShareDataset`para [sistema de ficheiros](connector-file-system.md#dataset-properties) como origem</li><li>`AzureSqlTableDataset`para [SQL Database do Azure](connector-azure-sql-database.md#dataset-properties) ou [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) como origem</li><li>`SqlServerTable`para [do SQL Server](connector-sql-server.md#dataset-properties) como origem</li><li>`AzureTableDataset`para [Table Storage do Azure](connector-azure-table-storage.md#dataset-properties) como origem</li> | Par chave/valor | Sim
-origem | Propriedades específicas do conjunto de dados de origem, mesmo que a origem de atividade de cópia. Saiba os detalhes da secção "Copiar propriedades da atividade" cada tópico conector correspondente. | Par chave/valor | Sim
+origem | Propriedades específicas do conjunto de dados de origem, mesmo que a origem de atividade de cópia. Saiba os detalhes da secção "Copiar propriedades da atividade" cada artigo conector correspondente. | Par chave/valor | Sim
 firstRowOnly | Indique se pretende devolver a primeira linha ou todas as linhas. | Valor booleano | Não. Predefinição é `ture`.
 
 ## <a name="use-lookup-activity-result-in-subsequent-activity"></a>Utilizar o resultado de atividade de pesquisa na atividade subsequente
@@ -80,7 +80,7 @@ O resultado de pesquisa é devolvido no `output` secção o resultado de execuç
 }
 ```
 
-**Quando `firstRowOnly` está definido como `false`** , o foramt de saída é o seguinte. A `count` campo indica o número de registos são devolvidos, e os valores de detalhado estão em fixa `value` matriz. Esse caso, a atividade de pesquisa é, normalmente, seguida de um [atividade Foreach](control-flow-for-each-activity.md), pode passar o `value` matriz para a atividade ForEach `items` campo a utilizar o padrão de `@activity('MyLookupActivity').output.value`.
+**Quando `firstRowOnly` está definido como `false`** , o formato de saída é o seguinte. A `count` campo indica o número de registos são devolvidos, e os valores de detalhado estão em fixa `value` matriz. Esse caso, a atividade de pesquisa é, normalmente, seguida de um [atividade Foreach](control-flow-for-each-activity.md), pode passar o `value` matriz para a atividade ForEach `items` campo a utilizar o padrão de `@activity('MyLookupActivity').output.value`. Elementos de acesso no `value`, use a seguinte sintaxe: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Eis um exemplo:`@{activity('lookupActivity').output.value[0].tablename}`
 
 ```json
 {
@@ -101,7 +101,7 @@ O resultado de pesquisa é devolvido no `output` secção o resultado de execuç
 ## <a name="example"></a>Exemplo
 Neste exemplo, a atividade de cópia copia dados de uma tabela SQL na base de dados SQL do Azure para armazenamento de Blobs do Azure. O nome da tabela SQL é armazenado num ficheiro JSON no armazenamento de Blobs. A atividade de pesquisa procura o nome da tabela no tempo de execução. Esta abordagem permite JSON ser modificado dinamicamente se desejar pipelines/conjuntos de dados. 
 
-Este exemplo demostrates procurar apenas a primeira linha. Para ver todas as linhas e cadeia com atividade ForEach, consulte [Tutorial - os dados de cópia em massa](tutorial-bulk-copy.md) exemplo.
+Este exemplo demonstra procura de apenas a primeira linha. Para ver todas as linhas e cadeia com atividade ForEach, consulte [Tutorial - os dados de cópia em massa](tutorial-bulk-copy.md) exemplo.
 
 ### <a name="pipeline"></a>Pipeline
 Este pipeline contém duas atividades: **procurar** e **cópia**. 

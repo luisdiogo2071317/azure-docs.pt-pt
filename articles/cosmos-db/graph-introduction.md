@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: lbosq
-ms.openlocfilehash: 45169394bed2287896ddc93ad56657f7394366f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4ae7d7e2c6ac54a6063d9ac0342083105610f026
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introdução ao Azure Cosmos DB: Graph API
 
@@ -113,7 +113,7 @@ A tabela seguinte mostra controladores Gremlin populares, que pode utilizar em r
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Gremlin-JavaScript no Github](https://github.com/jbmusso/gremlin-javascript) |
 | [Consola gremlin](https://tinkerpop.apache.org/downloads.html) |[TinkerPop docs](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-BD do Azure do Cosmos também fornece uma biblioteca de .NET que possui métodos de extensão Gremlin do [SDKs de BD do Azure Cosmos](documentdb-sdk-dotnet.md) através do NuGet. Esta biblioteca fornece um servidor de Gremlin "no processo" que pode utilizar para ligar diretamente a partições de dados.
+BD do Azure do Cosmos também fornece uma biblioteca de .NET que possui métodos de extensão Gremlin do [SDKs de BD do Azure Cosmos](sql-api-sdk-dotnet.md) através do NuGet. Esta biblioteca fornece um servidor de Gremlin "no processo" que pode utilizar para ligar diretamente a partições de dados.
 
 | Transferência | Documentação |
 | --- | --- |

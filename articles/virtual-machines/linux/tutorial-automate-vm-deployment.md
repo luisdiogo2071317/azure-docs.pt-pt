@@ -4,7 +4,7 @@ description: Saiba como utilizar init de nuvem e o Cofre de chaves para customze
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Como personalizar uma máquina virtual do Linux no primeiro arranque
 Um tutorial anterior, aprendeu como para SSH para uma máquina virtual (VM) e manualmente instalar NGINX. Para criar as VMs de uma forma rápida e consistente, alguma forma de automatização é normalmente assim o desejar. Uma abordagem comum para personalizar uma VM no primeiro arranque é utilizar [nuvem init](https://cloudinit.readthedocs.io). Neste tutorial, ficará a saber como:
@@ -39,7 +39,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que 
 
 
 
-## <a name="cloud-init-overview"></a>Descrição geral da nuvem init
+## <a name="cloud-init-overview"></a>Descrição geral da inicialização de cloud
 [Nuvem init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux como efetua o arranque pela primeira vez. Pode utilizar a cloud init para instalar pacotes e escrever em ficheiros, ou para configurar utilizadores e de segurança. Como é executado na nuvem init durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.
 
 Nuvem init também funciona em distribuições. Por exemplo, não utilize **apt get instalação** ou **yum instalar** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes para instalar. Nuvem init utiliza automaticamente a ferramenta de gestão do pacote nativo para distro que selecionar.
@@ -51,6 +51,8 @@ Estamos a trabalhar com os nossos parceiros de obter init cloud incluídos e a f
 | UbuntuLTS |Canónico |UbuntuServer |16.04 LTS |mais recente |
 | UbuntuLTS |Canónico |UbuntuServer |14.04.5-LTS |mais recente |
 | CoreOS |CoreOS |CoreOS |Estável |mais recente |
+| | OpenLogic | CentOS | 7 CI | mais recente |
+| | RedHat | RHEL | 7 CI NÃO PROCESSADOS | mais recente
 
 
 ## <a name="create-cloud-init-config-file"></a>Criar ficheiro de configuração de nuvem init

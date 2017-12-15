@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Enterprise Estado as definições de roaming, nuvem do windows, perguntas mais frequentes em roaming de estado empresarial"
 documentationcenter: 
 author: tanning
-manager: swadhwa
+manager: mtillman
 editor: curtand
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 9968d9fa1ebbc92b5647a23c75e75fb819f5d5ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f9431a695f2acaa2067e623788a0c3c3b4183c9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
 Este tópico responde a algumas perguntas os administradores de TI podem ter sobre as definições e sincronização de dados de aplicação.
@@ -72,7 +72,7 @@ As versões de Novembro versão 2015 ou posterior do Windows 10, Roaming de esta
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>As definições de sincronização para contas de anúncios do Azure a partir de múltiplos inquilinos?
 Quando contas de várias do Azure AD de diferentes inquilinos do Azure AD estão no mesmo dispositivo, tem de atualizar o registo do dispositivo para comunicar com o Azure Rights Management (Azure RMS) para cada inquilino do Azure AD.  
 
-1. Localize o GUID para cada inquilino do Azure AD. Abra o portal clássico do Azure e selecione um inquilino do Azure AD. É o GUID para o inquilino no URL na barra de endereço do seu browser. Por exemplo: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. Localize o GUID para cada inquilino do Azure AD. Abra o portal do Azure e selecione um inquilino do Azure AD. É o GUID para o inquilino no URL na barra de endereço do seu browser. Por exemplo: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. Depois de ter o GUID, terá de adicionar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<GUID de ID de inquilino >**.
    Do **GUID de ID de inquilino** chave, crie um novo valor de cadeia múltipla (REG-várias-SZ) com o nome **AllowedRMSServerUrls**. Para os respetivos dados, especifique os URLs de ponto de distribuição licenciamento de outros inquilinos do Azure que acede ao dispositivo.
 3. Pode encontrar os URLs de ponto de distribuição licenciamento executando o **Get-AadrmConfiguration** cmdlet. Se os valores para o **LicensingIntranetDistributionPointUrl** e **LicensingExtranetDistributionPointUrl** são diferentes, especifique ambos os valores. Se os valores forem iguais, especifique o valor apenas uma vez.
