@@ -241,6 +241,8 @@
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
         - name: Gerir servidores vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: Gerir vários inquilinos com CSP
+          href: site-recovery-manage-multi-tenancy-with-csp.md
         - name: Remover servidores e desativar proteção
           href: site-recovery-manage-registration-and-protection.md
         - name: Eliminar um cofre
