@@ -1,6 +1,6 @@
 ---
-title: "Início rápido: Cassandra API com .NET - Cosmos BD do Azure | Microsoft Docs"
-description: "Este guia de introdução mostra como utilizar a API do Azure Cosmos DB Cassandra para criar uma aplicação de perfil com o portal do Azure e o .NET"
+title: "Guia de introdução: Cassandra API com .NET – Azure Cosmos DB | Microsoft Docs"
+description: "Este guia de introdução mostra como utilizar a Cassandra API do Azure Cosmos DB para criar uma aplicação de perfil com o portal do Azure e o .NET"
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -11,29 +11,29 @@ ms.custom: quick start connect, mvc
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: ebfe845fa4f695064773a03f6d765da37ab44189
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: MT
+ms.openlocfilehash: c1830d13e759205935fbd769574c1132a8e70d09
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Início rápido: Criar uma aplicação de Cassandra com .NET e do Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Guia de introdução: Criar uma aplicação do Cassandra com o .NET e o Azure Cosmos DB
 
-Este guia de introdução mostra como utilizar o .NET e a base de dados do Azure Cosmos [Cassandra API](cassandra-introduction.md) para criar uma perfil de aplicação através da clonagem de um exemplo do GitHub. Este guia de introdução também o orienta através da criação de uma conta de base de dados do Azure Cosmos através do portal do Azure baseada na web.   
+Este guia de introdução mostra como utilizar o .NET e a [Cassandra API](cassandra-introduction.md) do Azure Cosmos DB para criar um perfil de aplicação através da clonagem de um exemplo do GitHub. Este guia de introdução também o acompanha ao longo da criação de uma conta do Azure Cosmos DB ao utilizar o portal do Azure baseado na Web.   
 
-BD do Azure do Cosmos é serviço de base de dados com múltiplos modelo global distribuída da Microsoft. Pode criar e consultar documentos, tabela, chave-valor e bases de dados de gráfico, sendo todas beneficiam da distribuição global e as capacidades de dimensionamento horizontal o núcleo da BD do Cosmos Azure rapidamente. 
+O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a tabela, a chave/valor e as bases de dados de gráficos que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Em alternativa, pode [tente BD do Azure do Cosmos gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Em alternativa, pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos.
 
-Acesso para o programa de pré-visualização do Azure Cosmos DB Cassandra API. Se ainda não aplicada para acesso ainda, [inscrever-se agora](cassandra-introduction.md#sign-up-now).
+Acesso ao programa de pré-visualização da Cassandra API do Azure Cosmos DB. Se ainda não pediu acesso, [inscreva-se agora](cassandra-introduction.md#sign-up-now).
 
 Além disso: 
-* Se ainda não tiver o Visual Studio 2017, instalado, pode transferir e utilizar o **livre** [edição de Comunidade de 2017 do Visual Studio](https://www.visualstudio.com/downloads/). Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
+* Se ainda não tiver o Visual Studio 2017 instalado, pode transferir e utilizar a [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **gratuita**. Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
 * Instalar [Git](https://www.git-scm.com/) para clonar o exemplo.
 
 <a id="create-account"></a>
@@ -44,9 +44,9 @@ Além disso:
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos trabalhar com código. Vamos de clone de uma aplicação Cassandra API a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente. 
+Agora, vamos trabalhar com código. Vamos clonar uma aplicação do Cassandra API a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente. 
 
-1. Abra uma janela de terminal do git, tais como o git bash e utilize o `cd` comando para alterar para uma pasta para instalar a aplicação de exemplo. 
+1. Abra uma janela de terminal do git, como o git bash e utilize o comando `cd` para alterar para uma pasta e instalar a aplicação de exemplo. 
 
     ```bash
     cd "C:\git-samples"
@@ -62,9 +62,9 @@ Agora, vamos trabalhar com código. Vamos de clone de uma aplicação Cassandra 
 
 ## <a name="review-the-code"></a>Rever o código
 
-Este passo é opcional. Se estiver interessado em aprender a forma como os recursos de base de dados são criados no código, pode rever os seguintes fragmentos. Os fragmentos são obtidos a partir do `Program.cs` ficheiro instalado na pasta C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample. Caso contrário, pode avançar diretamente para [atualizar a cadeia de ligação](#update-your-connection-string).
+Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Os fragmentos são obtidos a partir do ficheiro `Program.cs` instalado na pasta C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string).
 
-* Iniciar a sessão através da ligação a um ponto final de cluster de Cassandra. A API de Cassandra na base de dados do Azure Cosmos suporta apenas TLSv1.2. 
+* Inicie a sessão através da ligação a um ponto final de cluster do Cassandra. O Cassandra API no Azure Cosmos DB suporta apenas TLSv1.2. 
 
   ```csharp
    var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
@@ -73,7 +73,7 @@ Este passo é opcional. Se estiver interessado em aprender a forma como os recur
    ISession session = cluster.Connect();
    ```
 
-* Crie um novo keyspace.
+* Criar um keyspace novo.
 
     ```csharp
     session.Execute("CREATE KEYSPACE uprofile WITH REPLICATION = { 'class' : 'NetworkTopologyStrategy', 'datacenter1' : 1 };"); 
@@ -85,13 +85,13 @@ Este passo é opcional. Se estiver interessado em aprender a forma como os recur
   session.Execute("CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)");
    ```
 
-* Inserir entidades de utilizador, utilizando o objeto de IMapper com uma nova sessão que liga o keyspace uprofile.
+* Insira entidades de utilizador utilizando o objeto de IMapper com uma nova sessão que liga ao keyspace do perfil.
 
     ```csharp
     mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
-* Consulta para obter informações de todos os utilizadores.
+* Efetue uma consulta para obter as informações de todos os utilizadores.
 
     ```csharp
    foreach (User user in mapper.Fetch<User>("Select * from user"))
@@ -100,7 +100,7 @@ Este passo é opcional. Se estiver interessado em aprender a forma como os recur
    }
     ```
     
- * Consulta para obter informações de um único utilizador.
+ * Efetue uma consulta para obter as informações de um único utilizador.
 
     ```csharp
     mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
@@ -108,31 +108,31 @@ Este passo é opcional. Se estiver interessado em aprender a forma como os recur
 
 ## <a name="update-your-connection-string"></a>Atualizar a cadeia de ligação
 
-Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. As informações de cadeia de ligação permite que a sua aplicação comunicar com a base de dados alojada.
+Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. As informações da cadeia de ligação permitem à aplicação comunicar com a base de dados alojada.
 
-1. No [portal do Azure](http://portal.azure.com/), clique em **cadeia de ligação**. 
+1. No [portal do Azure](http://portal.azure.com/), clique em **Cadeia de ligação**. 
 
-    Utilize o ![Copiar botão](./media/create-cassandra-dotnet/copy.png) botão à direita do ecrã, para copiar o valor de nome de utilizador.
+    Utilize o ![botão Copiar](./media/create-cassandra-dotnet/copy.png) botão à direita do ecrã para copiar o valor do NOME DE UTILIZADOR.
 
-    ![Ver e copiar uma chave de acesso na página do portal, cadeia de ligação do Azure](./media/create-cassandra-dotnet/keys.png)
+    ![Ver e copiar uma chave de acesso no portal do Azure, página Cadeia de ligação](./media/create-cassandra-dotnet/keys.png)
 
 2. No Visual Studio 2017, abra o ficheiro Program.cs. 
 
-3. Colar o valor de nome de utilizador do portal através de `<FILLME>` linha 13.
+3. Cole o valor do NOME DE UTILIZADOR do portal em `<FILLME>` na linha 13.
 
-    Linha 13 de Program.cs deve agora ter um aspeto semelhante a 
+    A Linha 13 do Program.cs deve agora ter um aspeto semelhante a 
 
     `private const string UserName = "cosmos-db-quickstart";`
 
-3. Volte ao portal e copie o valor de palavra-passe. Colar o valor de palavra-passe do portal através de `<FILLME>` linha 14.
+3. Volte ao portal e copie o valor do NOME DE UTILIZADOR. Cole o valor da PALAVRA-PASSE do portal em `<FILLME>` na linha 14.
 
-    Linha 14 de Program.cs deve agora ter um aspeto semelhante a 
+    A Linha 14 do Program.cs deve agora ter um aspeto semelhante a 
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
-4. Volte ao portal e copie o valor do ponto de contacto. Colar o valor do ponto de contacto do portal através de `<FILLME>` linha 15.
+4. Volte ao portal e copie o valor do PONTO DE CONTACTO. Cole o valor do PONTO DE CONTACTO do portal em `<FILLME>` na linha 15.
 
-    Linha 15 de Program.cs deve agora ter um aspeto semelhante a 
+    A Linha 15 do Program.cs deve agora ter um aspeto semelhante a 
 
     `private const string CassandraContactPoint = "cosmos-db-quickstarts.documents.azure.com"; //  DnsName`
 
@@ -140,22 +140,22 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     
 ## <a name="run-the-app"></a>Executar a aplicação
 
-1. No Visual Studio, clique em **ferramentas** > **Gestor de pacotes NuGet** > **consola do Gestor de pacotes**.
+1. No Visual Studio, clique em **Ferramentas** > **Gestor de Pacotes NuGet** > **Consola de Gestor de Pacotes**.
 
-2. Na linha de comandos, utilize o seguinte comando para instalar o pacote NuGet do controlador de .NET. 
+2. Na linha de comandos, utilize o comando seguinte para instalar o pacote NuGet do controlador do .NET. 
 
     ```cmd
     Install-Package CassandraCSharpDriver
     ```
-3. Clique em CTRL + F5 para executar a aplicação. Apresenta a aplicação na sua janela de consola. 
+3. Clique em CTRL + F5 para executar a aplicação. A aplicação é apresentada na janela da consola. 
 
-    ![Ver e certifique-se a saída](./media/create-cassandra-dotnet/output.png)
+    ![Ver e verificar a saída](./media/create-cassandra-dotnet/output.png)
 
-    Prima CTRL + C para parar exection do programa e feche a janela de consola. 
+    Prima CTRL + C para interromper a execução do programa e feche a janela da consola. 
     
-    Pode agora abrir o Explorador de dados no portal do Azure para ver a consulta, modificar e trabalhar com estes novos dados. 
+    Agora, abra o Data Explorer no portal do Azure para ver, consultar, modificar e trabalhar com estes dados novos. 
 
-    ![Ver os dados no Explorador de dados](./media/create-cassandra-dotnet/data-explorer.png)
+    ![Ver os dados no Data Explorer](./media/create-cassandra-dotnet/data-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 
@@ -170,4 +170,4 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma coleção com o Data Explorer e a executar uma aplicação Web. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importar dados de Cassandra para a base de dados do Azure Cosmos](cassandra-import-data.md)
+> [Importar dados do Cassandra para o Azure Cosmos DB](cassandra-import-data.md)

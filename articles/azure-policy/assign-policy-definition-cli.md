@@ -5,42 +5,27 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 6ea39618a24249d92b77afdf5cb0ea284b180223
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 88ceb47d46b66e716c6c263098d5b9458e4aff22
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Criar uma atribuição de política para identificar recursos incompatíveis no seu ambiente do Azure com a CLI do Azure
 
 O primeiro passo para compreender a conformidade no Azure é saber onde está posicionado com os seus próprios recursos atuais. Este guia de introdução acompanha-o ao longo do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos.
 
 No final deste processo, terá identificado com êxito as máquinas virtuais que não estão a utilizar discos geridos e são, por conseguinte, *incompatíveis*.
-.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-## <a name="opt-in-to-azure-policy"></a>Participar no Azure Policy
-
-O Azure Policy está agora disponível em Pré-visualização Pública e tem de se registar para pedir acesso.
-
-1. Aceda ao Azure Policy em https://aka.ms/getpolicy e selecione **Inscrever** no painel esquerdo.
-
-   ![Pesquisar política](media/assign-policy-definition/sign-up.png)
-
-2. Participe no Azure Policy ao selecionar as subscrições na lista de **Subscrições**com que gostaria de trabalhar. Em seguida, selecione **Registar**.
-
-   ![Participar no Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   O seu pedido é aprovado automaticamente para a Pré-visualização. Aguarde até 30 minutos para o sistema processar o registo.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
@@ -66,7 +51,7 @@ Em seguida, apresente as seguintes informações e execute o seguinte comando pa
 - **Política** – Esta é a definição de política, com base na qual está a utilizar para criar a atribuição. Neste caso, é a definição de política – *Máquinas Virtuais de Auditoria sem Discos Geridos*
 - O **âmbito** - Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos.
 
-  Utilize a subscrição (ou grupo de recursos) que registou anteriormente quando optou pelo Azure Policy, neste exemplo, estamos a utilizar este ID de subscrição - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** e o nome do grupo de recursos - **FabrikamOMS**. Lembre-se de alterá-los para o ID da subscrição e o nome do grupo de recursos em que está a trabalhar.
+  Utilize a subscrição (ou grupo de recursos) que registou anteriormente. Neste exemplo, estamos a utilizar este ID de subscrição - **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** e o nome do grupo de recursos - **FabrikamOMS**. Lembre-se de alterá-los para o ID da subscrição e o nome do grupo de recursos em que está a trabalhar.
 
 O comando deve estar da seguinte forma:
 
