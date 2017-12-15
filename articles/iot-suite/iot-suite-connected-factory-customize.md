@@ -13,13 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: d9dfd856a95d0b1f925487f4ca9d27e617093405
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar a forma como a solução de fábrica ligado apresenta dados dos seus servidores de OPC UA
 
@@ -72,92 +72,7 @@ Pode utilizar o ficheiro de configuração para:
 - Edite as fábricas de simulada existentes, linhas de produção e estações.
 - Mapear dados dos servidores de OPC UA reais que ligam à solução.
 
-A clonagem de uma cópia do factory ligado solução do Visual Studio, utilize o seguinte comando do git:
-
-`git clone https://github.com/Azure/azure-iot-connected-factory.git`
-
-O ficheiro **ContosoTopologyDescription.json** define o mapeamento de itens de dados do servidor de OPC UA para as vistas no dashboard de solução de fábrica ligado. Pode encontrar este ficheiro de configuração no **Contoso\Topology** pasta o **WebApp** projeto na solução Visual Studio.
-
-O conteúdo do ficheiro JSON está organizado como uma hierarquia de fábrica, linha de produção e nós de estação. Esta hierarquia define a hierarquia de navegação no dashboard do factory ligado. Os valores em cada nó da hierarquia determinam as informações apresentadas no dashboard. Por exemplo, o ficheiro JSON contém os seguintes valores para a fábrica de Munich:
-
-```json
-"Guid": "73B534AE-7C7E-4877-B826-F1C0EA339F65",
-"Name": "Munich",
-"Description": "Braking system",
-"Location": {
-    "City": "Munich",
-    "Country": "Germany",
-    "Latitude": 48.13641,
-    "Longitude": 11.57754
-},
-"Image": "munich.jpg"
-```
-
-O nome, a descrição e a localização aparecem nesta vista no dashboard:
-
-![Dados de Munich no dashboard][img-munich]
-
-Cada fábrica, a linha de produção e a estação de ter uma propriedade de imagem. Pode encontrar estes ficheiros JPEG o **Content\img** pasta o **WebApp** projeto. Estes ficheiros de imagem a apresentar no dashboard do factory ligado.
-
-Cada estação inclui várias propriedades de detalhado que definem o mapeamento de itens de dados OPC UA. Estas propriedades são descritas nas secções seguintes:
-
-### <a name="opcuri"></a>OpcUri
-
-O **OpcUri** valor é o URI de aplicação de UA OPC que identifica exclusivamente o servidor de OPC UA. Por exemplo, o **OpcUri** valor para a estação de assemblagem na linha de produção 1 na Munich o seguinte aspeto: **urn: scada2194:ua:munich:productionline0:assemblystation**.
-
-Pode ver os URIs de servidores de OPC UA ligados no dashboard de solução:
-
-![Ver o servidor de OPC UA URIs][img-server-uris]
-
-### <a name="simulation"></a>Simulação
-
-As informações de **simulação** nó é específico para a simulação de OPC UA que é executado em servidores de OPC UA aprovisionados por predefinição. Não é utilizado para um servidor de OPC UA real.
-
-### <a name="kpi1-and-kpi2"></a>Kpi1 e Kpi2
-
-Estes nós descrevem como os dados a partir da estação contribuem para os dois valores KPI no dashboard. Numa implementação predefinida, estes valores KPI são unidades por hora e kWh por hora. A solução calcula os valores KPI no nível de uma estação e agrega-los na linha de produção e níveis de fábrica.
-
-Cada KPI tem um valor de destino, mínimo e máximo. Cada valor KPI também pode definir ações de alerta para a solução de fábrica ligado executar. O fragmento seguinte mostra as definições de KPI para a estação de assemblagem na linha de produção 1 na Munich:
-
-```json
-"Kpi1": {
-  "Minimum": 150,
-  "Target": 300,
-  "Maximum": 600
-},
-"Kpi2": {
-  "Minimum": 50,
-  "Target": 100,
-  "Maximum": 200,
-  "MinimumAlertActions": [
-    {
-      "Type": "None"
-    }
-  ]
-}
-```
-
-A seguinte captura de ecrã mostra os dados KPI no dashboard.
-
-![Informações de KPI no dashboard][lnk-kpi]
-
-### <a name="opcnodes"></a>OpcNodes
-
-O **OpcNodes** nós identificar os itens de dados publicados do servidor de OPC UA e especifique como processar os dados.
-
-O **NodeId** valor identifica o NodeID de UA OPC específica do servidor de OPC UA. O primeiro nó na estação de assemblagem para a linha de produção 1 na Munich tem um valor **ns = 2; posso = 385**. A **NodeId** valor Especifica o item de dados para ler a partir do servidor de OPC UA e o **SymbolicName** fornece um nome amigável de utilizador a utilizar no dashboard para que os dados.
-
-Outros valores associados a cada nó estão resumidos na tabela seguinte:
-
-| Valor | Descrição |
-| ----- | ----------- |
-| Relevância  | Os valores KPI e OEE que estes dados contribuem para. |
-| OpCode     | Como os dados são agregados. |
-| Unidades      | As unidades para utilizar no dashboard.  |
-| Visível    | Indica se deve apresentar este valor no dashboard. Alguns valores são utilizados nos cálculos mas não ser apresentados.  |
-| Máximo    | O valor máximo que aciona um alerta no dashboard. |
-| MaximumAlertActions | Uma ação a tomar em resposta a um alerta. Por exemplo, envie um comando para uma estação. |
-| ConstValue | Um valor constante utilizado um cálculo. |
+Para obter mais informações sobre o mapeamento e agregar os dados para satisfazer os seus requisitos específicos, consulte [solução pré-configurada de como configurar a fábrica ligada ](iot-suite-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Implementar as alterações
 

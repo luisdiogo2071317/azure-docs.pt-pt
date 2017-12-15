@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/14/2017
 ms.author: magoedte
-ms.openlocfilehash: 473b8d1a735f4b6b1dfd0935f9d6950431f3d245
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 35e271f943901091041f7b1e9fad6cb9cd46df5b
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ligar computadores Windows para o serviço de análise de registos do Azure
 
@@ -33,32 +33,34 @@ O agente pode ser instalado utilizando um dos seguintes métodos. A maioria das 
 * Script do PowerShell.
 * Modelo do Resource Manager para máquinas virtuais com Windows no local na pilha do Azure.  
 
+Para compreender os requisitos de rede e do sistema para implementar o agente do Windows, consulte [recolher dados do seu ambiente com o Log Analytics do Azure](log-analytics-concept-hybrid.md#prerequisites).
+
 ## <a name="obtain-workspace-id-and-key"></a>Obter o ID e a chave da área de trabalho
-Antes de instalar o Microsoft monitorização do agente do Windows, terá do ID da área de trabalho e a chave para a sua área de trabalho de análise de registos.  Esta informação é necessária durante a configuração de cada método de instalação para configurar o agente e certifique-se de que consegue comunicar com êxito com a análise de registos de corretamente.  
+Antes de instalar o agente Microsoft Monitoring para Windows, precisa do ID e da chave da área de trabalho do Log Analytics.  Esta informação é necessária durante a configuração de cada método de instalação para configurar o agente e certifique-se de que consegue comunicar com êxito com a análise de registos de corretamente.  
 
 1. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 2. Na lista de áreas de trabalho de análise de registos, selecione a área de trabalho que pretende configurar o agente para comunicar ao.
 3. Selecione **Definições avançadas**.<br><br> ![Definições Avançadas do Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
-4. Selecione **origens ligadas**e, em seguida, selecione **servidores Windows**.   
+4. Selecione **Origens Ligadas** e, em seguida, selecione **Servidores Windows**.   
 5. O valor à direita de **ID da Área de Trabalho** e **Chave Primária**. Copie e cole ambos no seu editor favorito.   
    
 ## <a name="install-the-agent-using-setup"></a>Instalar o agente utilizando a configuração
-Os seguintes passos: instalar e configurar o agente de análise de registos na nuvem do Azure e Azure Government utilizando a configuração do Microsoft Monitoring Agent no seu computador.  O programa de configuração para o agente está contido num ficheiro transferido e deve ser extraído para 
+Os passos seguintes instalam e configuram o agente para o Log Analytics no Azure e na cloud do Azure Government mediante a utilização do Microsoft Monitoring Agent no seu computador.  O programa de configuração para o agente está contido num ficheiro transferido e deve ser extraído para 
 
-1. No **servidores Windows** página, selecione as adequadas **transferir o agente do Windows** versão transferir consoante a arquitetura de processador do sistema operativo Windows.
-2. Execute a configuração para instalar o agente no seu computador.
-2. No **boas-vindas** página, clique em **seguinte**.
-3. No **termos de licenciamento** página, leia a licença e, em seguida, clique em **concordo**.
-4. No **pasta de destino** página, altere ou mantenha a pasta de instalação predefinida e, em seguida, clique em **seguinte**.
-5. No **opções de configuração do agente** página, escolha ligar o agente para análise de registos do Azure (OMS) e, em seguida, clique em **seguinte**.   
-6. No **Log Analytics do Azure** página, efetue o seguinte:
-   1. Colar o **ID da área de trabalho** e **chave da área de trabalho (chave primária)** que copiou anteriormente.  Se o computador deve reportar uma área de trabalho de análise de registos na nuvem do Azure Government, selecione **Azure US Government** do **nuvem do Azure** na lista pendente.  
-   2. Se o computador tem de comunicar através de um servidor proxy para o serviço de análise de registos, clique em **avançadas** e forneça o URL e o número de porta do servidor proxy.  Se o servidor proxy requer autenticação, escreva o nome de utilizador e palavra-passe para autenticar com o servidor proxy e, em seguida, clique em **seguinte**.  
-7. Clique em **seguinte** depois de concluir a fornecer as definições de configuração necessárias.<br><br> ![Cole o ID da área de trabalho e a chave primária](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
-8. No **pronto para instalar** página, reveja as suas opções e, em seguida, clique em **instalar**.
-9. No **configuração concluída com sucesso** página, clique em **concluir**.
+1. Na página **Servidores Windows**, selecione a versão **Transferir Agente do Windows** adequada para transferir consoante a arquitetura do processador do sistema operativo Windows.
+2. Execute a Configuração para instalar o agente no seu computador.
+2. Na página **Bem-vindo**, clique em **Seguinte**.
+3. Na página **Termos de Licenciamento**, leia a licença e clique em **Aceito**.
+4. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação predefinida e clique em **Seguinte**.
+5. Na página **Opções de Configuração do Agente** , escolha ligar o agente ao Azure Log Analytics (OMS) e clique em **Seguinte**.   
+6. Na página **Azure Log Analytics**, faça o seguinte:
+   1. Cole o **ID da Área de Trabalho** e a **Chave da Área de Trabalho (Chave Primária)** que copiou anteriormente.  Caso o computador deva reportar a uma área de trabalho do Log Analytics na cloud do Azure Government, selecione **Azure US Government**, na lista pendente **Cloud do Azure**.  
+   2. Se o computador tiver de comunicar através de um servidor proxy com o serviço do Log Analytics, clique em **Avançadas** e forneça o URL e o número da porta do servidor proxy.  Se o seu servidor proxy precisar de autenticação, escreva o nome de utilizador e a palavra-passe para autenticação no mesmo e clique em **Seguinte**.  
+7. Depois de indicar as definições de configuração necessárias, clique em **Seguinte**.<br><br> ![colar o ID da Área de Trabalho e a Chave Primária](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
+8. Na página **Pronto para Instalar**, reveja as suas opções e clique em **Instalar**.
+9. Na página **Configuração Concluída com Êxito**, clique em **Concluir**.
 
-Quando terminar, o **Microsoft Monitoring Agent** aparece no **painel de controlo**. Para confirmar que está a comunicar ao Log Analytics, reveja [Verifique a conectividade de agente à análise de registos](#verify-agent-connectivity-to-log-analytics). 
+Quando terminar, o **Microsoft Monitoring Agent** aparece no **Painel de Controlo**. Para confirmar que está a comunicar ao Log Analytics, reveja [Verifique a conectividade de agente à análise de registos](#verify-agent-connectivity-to-log-analytics). 
 
 ## <a name="install-the-agent-using-the-command-line"></a>Instalar o agente utilizando a linha de comandos
 O ficheiro transferido para o agente é um pacote de instalação autónomo criado com IExpress.  O programa de configuração para o agente e os ficheiros de suporte estão contidos no pacote e tem de ser extraído para instalar corretamente o utilizando a linha de comandos ilustrada nos exemplos seguintes.  Este método suporta a configuração do agente para comunicar ao Azure comercial e nuvem de US Government.  
@@ -154,7 +156,7 @@ Para obter o código de produto a partir do pacote de instalação do agente dir
 
 Após a conclusão da instalaltion do agente, verificar se está ligado com êxito e relatórios podem ser conseguido de duas formas.  
 
-No computador no **painel de controlo**, localizar o item **Microsoft Monitoring Agent**.  Selecione-o e, no **análise de registos do Azure (OMS)** separador, o agente deve apresentar uma mensagem a indicar: **o Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite.**<br><br> ![Estado da ligação MMA ao Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+No computador no **painel de controlo**, localizar o item **Microsoft Monitoring Agent**.  Selecione-o e, no **análise de registos do Azure (OMS)** separador, o agente deve apresentar uma mensagem a indicar: **o Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite.**<br><br> ![Estado da ligação do MMA ao Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 Também pode efetuar uma pesquisa de registo simples no portal do Azure.  
 

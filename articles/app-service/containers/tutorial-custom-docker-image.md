@@ -16,9 +16,9 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6a89db8b93f29c29e935afd94da727d2460af889
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 2580c2109ce33b1ce99aa491f7d0002edf060693
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/14/2017
 ---
@@ -192,7 +192,7 @@ Pode alojar aplicações nativas do Linux na nuvem através da utilização de W
 
 ### <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-No Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#create). Não se esqueça de substituir `<app_name>` com um nome de aplicação único e < docker-ID > com o ID de Docker.
+No Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Não se esqueça de substituir `<app_name>` com um nome de aplicação único e < docker-ID > com o ID de Docker.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -219,7 +219,7 @@ Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações 
 
 A maioria das imagens de Docker tem variáveis de ambiente que têm de ser configurados. Se estiver a utilizar uma imagem do Docker existente criada por outra pessoa, a imagem poderá utilizar uma porta diferente 80. Indicar ao Auzre sobre a porta que utiliza a imagem utilizando o `WEBSITES_PORT` definição de aplicação. Página do GitHub para o [exemplo Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` para _8000_.
 
-Para configurar definições de aplicação, utilize o [atualização az webapp configuração appsettings](/cli/azure/webapp/config/appsettings#update) comando na Shell de nuvem. As definições de aplicação são sensíveis a maiúsculas e espaço por vírgulas.
+Para configurar definições de aplicação, utilize o [az webapp configuração appsettings conjunto](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) comando na Shell de nuvem. As definições de aplicação são sensíveis a maiúsculas e espaço por vírgulas.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_PORT=8000
@@ -340,7 +340,7 @@ Parabéns! Configurou uma imagem personalizada do Docker para uma aplicação We
 
 No [criar uma aplicação web](#create-a-web-app), que especificou uma imagem no Docker Hub o `az webapp create` comando. Este é boa para uma imagem de pública. Para utilizar uma imagem privada, terá de configurar o seu ID de conta do Docker e a palavra-passe na sua aplicação web do Azure.
 
-Na Shell de nuvem, siga o `az webapp create` comando com [az webapp configuração contentor conjunto](/cli/azure/webapp/config/container#az_webapp_config_container_set). Substitua  *\<APP_NAME>.azurewebsites.NET >*e também _< id do docker >_ e  _<password>_  com o ID de Docker e a palavra-passe.
+Na Shell de nuvem, siga o `az webapp create` comando com [az webapp configuração contentor conjunto](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Substitua  *\<APP_NAME>.azurewebsites.NET >*e também _< id do docker >_ e  _<password>_  com o ID de Docker e a palavra-passe.
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-registry-server-user <docker-id> --docker-registry-server-password <password>
@@ -380,7 +380,7 @@ Registo de contentor do Azure é um serviço de Docker gerido a partir do Azure 
 
 ### <a name="create-an-azure-container-registry"></a>Criar um Azure Container Registry
 
-Na Shell de nuvem, utilize o [az acr criar](https://docs.microsoft.com/cli/azure/acr#az_acr_create) comando para criar um registo de contentor do Azure. Transmita o nome, o grupo de recursos, e `Basic` para o SKU. SKUs disponíveis são `Classic`, `Basic`, `Standard`, e `Premium`.
+Na Shell de nuvem, utilize o [az acr criar](/cli/azure/acr?view=azure-cli-latest#az_acr_create) comando para criar um registo de contentor do Azure. Transmita o nome, o grupo de recursos, e `Basic` para o SKU. SKUs disponíveis são `Classic`, `Basic`, `Standard`, e `Premium`.
 
 ```azurecli-interactive
 az acr create --name <azure-container-registry-name> --resource-group myResourceGroup --sku Basic --admin-enabled true
@@ -418,7 +418,7 @@ Use an existing service principal and assign access:
 
 ### <a name="log-in-to-azure-container-registry"></a>Inicie sessão no registo de contentor do Azure
 
-Para enviar uma imagem no registo, terá de fornecer credenciais para que o registo aceita push. Pode obter estas credenciais utilizando o [mostrar de acr az](https://docs.microsoft.com/cli/azure/acr/credential#az_acr_credential_show) comando na Shell de nuvem. 
+Para enviar uma imagem no registo, terá de fornecer credenciais para que o registo aceita push. Pode obter estas credenciais utilizando o [mostrar de acr az](/cli/azure/acr?view=azure-cli-latest#az_acr_show) comando na Shell de nuvem. 
 
 ```azurecli-interactive
 az acr credential show --name <azure-container-registry-name>
@@ -482,7 +482,7 @@ Listar as imagens no registo confirma que `mydockerimage` está no registo.
 
 Pode configurar a aplicação Web para contentores para que seja executado um contentor armazenado no registo de contentor do Azure. Com o registo de contentor do Azure é semelhante à utilização de qualquer registo privado, pelo que o se precisar de utilizar os seus próprios registo privado, os passos para concluir esta tarefa são semelhantes.
 
-Na Shell na nuvem, execute [mostrar de credencial de acr az](/cli/azure/acr/credential#az_acr_credential_show) para apresentar o nome de utilizador e palavra-passe para o registo de contentor do Azure. Copie o nome de utilizador e um das palavras-passe de forma a poder utilizá-lo para configurar a aplicação web no próximo passo.
+Na Shell na nuvem, execute [mostrar de credencial de acr az](/cli/azure/acr/credential?view=azure-cli-latest#az_acr_credential_show) para apresentar o nome de utilizador e palavra-passe para o registo de contentor do Azure. Copie o nome de utilizador e um das palavras-passe de forma a poder utilizá-lo para configurar a aplicação web no próximo passo.
 
 ```bash
 az acr credential show --name <azure-container-registry-name>
@@ -504,7 +504,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-Na Shell na nuvem, execute o [az webapp configuração contentor conjunto](/cli/azure/webapp/config/container#az_webapp_config_container_set) comando para atribuir a imagem de Docker personalizada para a aplicação web. Substitua  *\<APP_NAME>.azurewebsites.NET >*,  *\<docker-registo--url do servidor >*,  _\<registo-username >_e  _\<palavra-passe >_. Para o registo de contentor do Azure,  *\<docker-registo--url do servidor >* está no formato `https://<azure-container-registry-name>.azurecr.io`. 
+Na Shell na nuvem, execute o [az webapp configuração contentor conjunto](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) comando para atribuir a imagem de Docker personalizada para a aplicação web. Substitua  *\<APP_NAME>.azurewebsites.NET >*,  *\<docker-registo--url do servidor >*,  _\<registo-username >_e  _\<palavra-passe >_. Para o registo de contentor do Azure,  *\<docker-registo--url do servidor >* está no formato `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

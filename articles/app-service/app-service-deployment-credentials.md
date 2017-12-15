@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3039d29bbb92280c12d683702aeef54cb6c538cb
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implementação para o App Service do Azure
 [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) suportam dois tipos de credenciais para [implementação de Git local](app-service-deploy-local-git.md) e [implementação de FTP/S](app-service-deploy-ftp.md). Estes não são as mesmas que as suas credenciais do Azure Active Directory.
 
-* **Credenciais de utilizador ao nível**: um conjunto de credenciais da conta do Azure completa. Pode ser utilizado para implementar no App Service para qualquer aplicação, em qualquer subscrição, se a conta do Azure tem permissão para aceder. Estes são o conjunto de credenciais predefinido que configurar na **serviços aplicacionais** > **&lt;APP_NAME>.azurewebsites.NET >** > **as credenciais de implementação**. Esta é a predefinição conjunto que é apresentado no portal do GUI (tais como o **descrição geral** e **propriedades** da sua aplicação [painel de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources)).
+* **Credenciais de utilizador ao nível**: um conjunto de credenciais da conta do Azure completa. Pode ser utilizado para implementar no App Service para qualquer aplicação, em qualquer subscrição, se a conta do Azure tem permissão para aceder. Estes são o conjunto de credenciais predefinido que configurar na **serviços aplicacionais** > **&lt;APP_NAME>.azurewebsites.NET >** > **as credenciais de implementação**. Esta é a predefinição conjunto que é apresentado no portal do GUI (tais como o **descrição geral** e **propriedades** da sua aplicação [página recursos](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
     > [!NOTE]
     > Quando delegar o acesso aos recursos do Azure através de controlo de acesso baseado em ' (RBAC) da função ou coadministrador de permissões, cada utilizador do Azure que recebe o acesso a uma aplicação pode utilizar sua credenciais de nível de utilizador pessoais até que o acesso é revogado. Estas credenciais de implementação não devem ser partilhados com outros utilizadores do Azure.
@@ -38,14 +38,14 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="userscope"></a>Definir e repor as credenciais de nível de utilizador
 
-Pode configurar as suas credenciais de nível de utilizador em qualquer aplicação [painel de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources). Independentemente da aplicação que pode configurar estas credenciais, aplica-se a todas as aplicações e para todas as subscrições da sua conta do Azure. 
+Pode configurar as suas credenciais de nível de utilizador em qualquer aplicação [página recursos](../azure-resource-manager/resource-group-portal.md#manage-resources). Independentemente da aplicação que pode configurar estas credenciais, aplica-se a todas as aplicações e para todas as subscrições da sua conta do Azure. 
 
 Para configurar as suas credenciais de nível de utilizador:
 
 1. No [portal do Azure](https://portal.azure.com), clique em do serviço de aplicações >  **&lt;any_app >** > **as credenciais de implementação**.
 
     > [!NOTE]
-    > No portal, tem de ter pelo menos uma aplicação para poder aceder ao painel de credenciais de implementação. No entanto, com o [CLI do Azure](/cli/azure/webapp/deployment/user#set), pode configurar as credenciais de nível de utilizador sem uma aplicação existente.
+    > No portal, tem de ter pelo menos uma aplicação antes de poder aceder a página de credenciais de implementação. No entanto, com o [CLI do Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), pode configurar as credenciais de nível de utilizador sem uma aplicação existente.
 
 2. Configurar o nome de utilizador e palavra-passe e, em seguida, clique em **guardar**.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: 69736670068479ce90cc346a163fe27b340cdb0a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Utilizar o emulador de BD do Cosmos do Azure para desenvolvimento local e o teste
 
@@ -136,7 +136,7 @@ Pode executar o emulador numa rede local. Para ativar o acesso de rede, especifi
 Para ativar o acesso de rede pela primeira vez o utilizador deve encerrar o emulador e eliminar o diretório de dados do emulador (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
 ## <a name="developing-with-the-emulator"></a>Desenvolver com o emulador
-Assim que tiver o emulador de BD do Cosmos do Azure em execução no seu ambiente de trabalho, pode utilizar qualquer suportado [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) ou [API REST da Azure Cosmos DB](/rest/api/documentdb/) para interagir com o emulador. O emulador de BD do Cosmos do Azure também inclui um Explorador de dados incorporada que permite-lhe criar coleções para o SQL Server e MongoDB APIs e ver e editar documentos sem escrever qualquer código.   
+Assim que tiver o emulador de BD do Cosmos do Azure em execução no seu ambiente de trabalho, pode utilizar qualquer suportado [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) ou [API REST da Azure Cosmos DB](/rest/api/documentdb/) para interagir com o emulador. O emulador de BD do Cosmos do Azure também inclui um Explorador de dados incorporada que permite-lhe criar coleções para o SQL Server e MongoDB APIs e ver e editar documentos sem escrever qualquer código.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(

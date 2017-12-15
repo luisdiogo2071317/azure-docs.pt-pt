@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 708b35252429e30b44226030d3d83b928f2a9520
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c2164d36c234309dcd855247cd1c1067de36284c
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar automática dimensionamento para um serviço em nuvem no portal
 
@@ -39,6 +39,8 @@ Deve considerar as seguintes informações antes de configurar o dimensionamento
 * Também pode escalar a outros recursos associados à subscrição.
 
 * Para ativar a elevada disponibilidade da aplicação, deve certificar-se de que é implementado com dois ou mais instâncias de função. Para obter mais informações, consulte [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/).
+
+* Escala automática só acontece quando todas as funções são no **pronto** estado.  
 
 
 ## <a name="where-scale-is-located"></a>Onde está localizada a escala

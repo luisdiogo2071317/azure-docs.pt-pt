@@ -5,7 +5,7 @@ keywords: "SSH ligação recusada, ssh erro, azure ssh, ligação SSH falhou"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: support-article
-ms.date: 07/06/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 264fe2acbdd393a2f9d349e1522263f1728c5d48
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5908c9572901bfb68ce03d7e6ccb08f84f38e567
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>SSH detalhada passos para ligar a uma VM com Linux no Azure de problemas de resolução de problemas
 Existem várias razões possíveis para que o cliente SSH poderá não ser capaz de alcançar o serviço SSH na VM. Se seguiu através de mais [SSH geral passos de resolução de problemas](troubleshoot-ssh-connection.md), terá de resolver o problema de ligação. Este artigo orienta-o pelos passos de resolução de problemas detalhados para determinar onde está a falhar a ligação SSH e como resolvê-lo.
@@ -39,14 +39,14 @@ Os seguintes passos ajudam a isolar a origem da falha e descobrir soluções ou 
 
 2. Selecione **definições** para examinar os pontos finais, endereços IP, grupos de segurança de rede e outras definições.
 
-   A VM deve ter um ponto final definido para o tráfego SSH que pode ver na **pontos finais** ou  **[grupo de segurança de rede](../../virtual-network/virtual-networks-nsg.md)**. Pontos finais em VMs que foram criadas utilizando o Gestor de recursos são armazenados num grupo de segurança de rede. Além disso, certifique-se de que as regras foram aplicadas ao grupo de segurança de rede e que está a referenciados na sub-rede.
+   A VM deve ter um ponto final definido para o tráfego SSH que pode ver na **pontos finais** ou  **[grupo de segurança de rede](../../virtual-network/virtual-networks-nsg.md)**. Pontos finais em VMs que foram criadas utilizando o Gestor de recursos são armazenados num grupo de segurança de rede. Certifique-se de que as regras foram aplicadas ao grupo de segurança de rede e que são referenciadas na sub-rede.
 
-Para verificar a conectividade de rede, consulte os pontos finais configurados e verifique se pode aceder a VM através de outro protocolo, tal como HTTP ou outro serviço.
+Para verificar a conectividade de rede, verifique os pontos finais configurados e ver se consegue ligar à VM através de outro protocolo, tal como HTTP ou outro serviço.
 
 Após estes passos, tente novamente a ligação de SSH.
 
 ## <a name="find-the-source-of-the-issue"></a>Localizar a origem do problema
-O cliente SSH no seu computador poderão falhar alcançar o serviço SSH na VM do Azure devido a problemas ou configurações incorretas nas seguintes áreas:
+O cliente SSH no seu computador poderão não conseguir ligar ao serviço SSH na VM do Azure devido a problemas ou configurações incorretas nas seguintes áreas:
 
 * [Computador de cliente SSH](#source-1-ssh-client-computer)
 * [Dispositivo de limite de organização](#source-2-organization-edge-device)
@@ -76,11 +76,11 @@ Se estiver a utilizar a autenticação de certificado, certifique-se de que tem 
 * ~/.Ssh/known_hosts chmod 644 (contém anfitriões à através de SSH)
 
 ## <a name="source-2-organization-edge-device"></a>Origem 2: Dispositivo de limite de organização
-Para eliminar o seu dispositivo de limite de organização como origem da falha, certifique-se de que um computador que está diretamente ligado à Internet pode efetuar ligações SSH para a VM do Azure. Se estiver a aceder a VM através de uma VPN de site para site ou uma ligação ExpressRoute do Azure, avance para o [origem 4: grupos de segurança de rede](#nsg).
+Para eliminar o seu dispositivo de limite de organização como origem da falha, certifique-se de que um computador diretamente ligado à Internet pode efetuar ligações SSH para a VM do Azure. Se estiver a aceder a VM através de uma VPN de site para site ou uma ligação ExpressRoute do Azure, avance para o [origem 4: grupos de segurança de rede](#nsg).
 
 ![Diagrama realça o dispositivo de limite de organização](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Se não tiver um computador que está diretamente ligado à Internet, crie uma nova VM do Azure no seu próprio grupo de recursos ou serviço em nuvem e utilizá-lo. Para obter mais informações, consulte [criar uma máquina virtual com Linux no Azure](quick-create-cli.md). Elimine o grupo de recursos ou o serviço VM e na nuvem quando tiver terminado com os seus testes.
+Se não tiver um computador que está diretamente ligado à Internet, crie uma nova VM do Azure no seu próprio grupo de recursos ou serviço em nuvem e utilizar essa nova VM. Para obter mais informações, consulte [criar uma máquina virtual com Linux no Azure](quick-create-cli.md). Elimine o grupo de recursos ou o serviço VM e na nuvem quando tiver terminado com os seus testes.
 
 Se é possível criar uma ligação SSH com um computador que está diretamente ligado à Internet, verifique o seu dispositivo de limite de organização para:
 
@@ -94,7 +94,7 @@ Trabalhar com o administrador da rede para corrigir as definições dos disposit
 > [!NOTE]
 > Esta origem de apenas se aplica a VMs que foram criadas utilizando o modelo de implementação clássica. Para VMs que foram criadas utilizando o Gestor de recursos, avance para o [origem 4: grupos de segurança de rede](#nsg).
 
-Para eliminar o ponto final do serviço de nuvem e a ACL como origem da falha, certifique-se de que outra VM do Azure na mesma rede virtual pode efetuar ligações SSH para a VM.
+Para eliminar o ponto final do serviço de nuvem e a ACL como origem da falha, certifique-se de que outra VM do Azure na mesma rede virtual pode ligar-se através de SSH.
 
 ![Diagrama realça o ponto final do serviço de nuvem e ACL](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 

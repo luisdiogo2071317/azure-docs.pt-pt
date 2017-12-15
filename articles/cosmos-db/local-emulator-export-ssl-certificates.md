@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36a2f99b9d5ea4b9e6b313fed79cf7f4dd0e7057
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportar os certificados de emulador de BD do Cosmos do Azure para utilização com o Java, Python e Node.js
 
@@ -87,11 +87,11 @@ Uma vez a "CosmosDBEmulatorCertificate" SSL certificado é instalado a aplicaç�
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Como utilizar o certificado no Python
 
-Por predefinição o [Python SDK(version 2.0.0 or higher)](documentdb-sdk-python.md) para a API do SQL Server não tente e utilizar o certificado SSL ao estabelecer ligação com o emulador local. Se, no entanto, o que pretende utilizar validação de SSL pode seguir os exemplos de [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentação.
+Por predefinição o [Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md) para a API do SQL Server não tente e utilizar o certificado SSL ao estabelecer ligação com o emulador local. Se, no entanto, o que pretende utilizar validação de SSL pode seguir os exemplos de [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentação.
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Como utilizar o certificado no Node.js
 
-Por predefinição o [Node.js SDK(version 1.10.1 or higher)](documentdb-sdk-node.md) para a API do SQL Server não tente e utilizar o certificado SSL ao estabelecer ligação com o emulador local. Se, no entanto, o que pretende utilizar validação de SSL pode seguir os exemplos de [Node.js documentação](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Por predefinição o [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) para a API do SQL Server não tente e utilizar o certificado SSL ao estabelecer ligação com o emulador local. Se, no entanto, o que pretende utilizar validação de SSL pode seguir os exemplos de [Node.js documentação](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Passos seguintes
 

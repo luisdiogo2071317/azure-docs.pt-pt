@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: e79a63c4316c50a7af0fc7ba0979a772ff5e6a91
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5797d8db5f82d1c7edbb67f8e2335a5c0be21882
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Cosmos BD do Azure
@@ -111,12 +111,12 @@ Quando definir uma região, lembre-se de que o Azure Cosmos DB respeita nuvens s
 ## <a name="develop-against-the-sql-api"></a>Desenvolver contra a API do SQL Server
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Como iniciar a programação com a API do SQL Server?
-Primeiro, deve inscrever-se uma subscrição do Azure. Depois de se inscrever para uma subscrição do Azure, pode adicionar um contentor de API do SQL Server para a sua subscrição do Azure. Para obter instruções sobre como adicionar uma conta de base de dados do Azure Cosmos, consulte [criar uma conta de base de dados de base de dados do Azure Cosmos](create-documentdb-dotnet.md#create-account). 
+Primeiro, deve inscrever-se uma subscrição do Azure. Depois de se inscrever para uma subscrição do Azure, pode adicionar um contentor de API do SQL Server para a sua subscrição do Azure. Para obter instruções sobre como adicionar uma conta de base de dados do Azure Cosmos, consulte [criar uma conta de base de dados de base de dados do Azure Cosmos](create-sql-api-dotnet.md#create-account). 
 
-Existem [SDKs](documentdb-sdk-dotnet.md) disponíveis para .NET, Python, Node.js, JavaScript e Java. Os programadores também podem utilizar o [RESTful HTTP APIs](/rest/api/documentdb/) para interagir com recursos de BD do Cosmos Azure a partir de vários idiomas e plataformas.
+[SDKs](sql-api-sdk-dotnet.md) estão disponíveis para .NET, Python, Node.js, JavaScript e Java. Os programadores também podem utilizar o [RESTful HTTP APIs](/rest/api/documentdb/) para interagir com recursos de BD do Cosmos Azure a partir de vários idiomas e plataformas.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Pode aceder alguns exemplos pronta a utilizar para obter um início de cabeçalho?
-Exemplos para a API do SQL Server [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), e [Python](documentdb-python-samples.md) SDKs estão disponíveis no GitHub.
+Exemplos para a API do SQL Server [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), e [Python](sql-api-python-samples.md) SDKs estão disponíveis no GitHub.
 
 
 ### <a name="does-the-sql-api-database-support-schema-free-data"></a>A base de dados do SQL Server API suporta dados sem esquema?
@@ -131,16 +131,16 @@ Uma coleção é um grupo de documentos e a respetiva lógica da aplicação ass
 As coleções também são as entidades de faturação para Azure Cosmos DB. Cada coleção é faturada numa base horária, com base no débito aprovisionado e utilizada de espaço de armazenamento. Para obter mais informações, consulte [preços de base de dados do Azure Cosmos](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Como crio uma base de dados?
-Pode criar bases de dados utilizando o [portal do Azure](https://portal.azure.com), conforme descrito nas [adicionar uma coleção](create-documentdb-dotnet.md#create-collection), um do [SDKs de BD do Azure Cosmos](documentdb-sdk-dotnet.md), ou o [REST APIs](/rest/api/documentdb/). 
+Pode criar bases de dados utilizando o [portal do Azure](https://portal.azure.com), conforme descrito nas [adicionar uma coleção](create-sql-api-dotnet.md#create-collection), um do [SDKs de BD do Azure Cosmos](sql-api-sdk-dotnet.md), ou o [REST APIs](/rest/api/documentdb/). 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Como posso configurar utilizadores e permissões?
-Pode criar utilizadores e permissões utilizando um do [SDKs de API do Cosmos DB](documentdb-sdk-dotnet.md) ou [REST APIs](/rest/api/documentdb/).  
+Pode criar utilizadores e permissões utilizando um do [SDKs de API do Cosmos DB](sql-api-sdk-dotnet.md) ou [REST APIs](/rest/api/documentdb/).  
 
 ### <a name="does-the-sql-api-support-sql"></a>A API do SQL Server suporta SQL?
 O idioma de consulta SQL suportado pelas contas de API do SQL Server é um subconjunto avançado da funcionalidade de consulta que é suportado pelo SQL Server. O idioma de consulta de base de dados SQL do Azure Cosmos fornece os operadores avançados hierárquicos e relacionais e extensibilidade através de funções baseado em JavaScript, definido pelo utilizador (UDFs). A gramática JSON permite-lhe modelar documentos JSON como árvores connosco com nome, que são utilizados pelas técnicas de indexação automáticas BD do Cosmos do Azure e o dialeto de consulta SQL da base de dados do Azure Cosmos. Para obter informações sobre como utilizar a gramática do SQL Server, consulte o [consulta SQL] [ query] artigo.
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>A API do SQL Server suporta funções de agregação SQL?
-A API do SQL Server suporta a agregação de latência baixa em qualquer escala através de funções de agregação `COUNT`, `MIN`, `MAX`, `AVG`, e `SUM` através de gramática do SQL Server. Para obter mais informações, consulte [as funções de agregação](documentdb-sql-query.md#Aggregates).
+A API do SQL Server suporta a agregação de latência baixa em qualquer escala através de funções de agregação `COUNT`, `MIN`, `MAX`, `AVG`, e `SUM` através de gramática do SQL Server. Para obter mais informações, consulte [as funções de agregação](sql-api-sql-query.md#Aggregates).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Como a API do SQL Server fornece simultaneidade?
 A API do SQL Server suporta o controlo de simultaneidade otimista (OCC) através de etiquetas de entidade HTTP ou ETags. Cada recurso de API do SQL Server tem uma ETag e a ETag está definido no servidor de sempre que um documento é atualizado. O cabeçalho ETag e o valor atual são incluídas em todas as mensagens de resposta. Os etags são podem ser utilizados com o cabeçalho If-Match para permitir que o servidor decidir se deve ser atualizado um recurso. O valor de If-Match é o valor ETag ao ser verificado com base. Se o valor ETag corresponder o valor ETag de servidor, o recurso está atualizado. Se a ETag já não for atual, o servidor rejeita a operação com um "HTTP 412 Falha de pré-condição" código de resposta. Em seguida, o cliente obtém novamente o recurso para adquirir o valor ETag atual do recurso. Além disso, ETags pode ser utilizado com o cabeçalho If-None-Match para determinar se um novamente obtenção de um recurso necessário.
@@ -292,7 +292,7 @@ Sim, a API do mesma é suportada.
 Não, pode criar e utilizar ativos de armazenamento de tabelas do Azure existentes sem interrupção de qualquer tipo. No entanto, se utilizar a API de tabela, não podem beneficiar do índice automático, a opção de consistência adicionais ou distribuição global. 
 
 ### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-across-multiple-regions-of-azure"></a>Como adicionar replicação dos dados na tabela API em várias regiões do Azure?
-Pode utilizar o portal do Azure Cosmos DB [as definições de replicação global](tutorial-global-distribution-documentdb.md#portal) adicionar regiões que são adequadas para a sua aplicação. Para desenvolver uma aplicação distribuída global, deve também adicionar a sua aplicação com as informações de PreferredLocation definidas para a região local para fornecer a leitura de latência baixa. 
+Pode utilizar o portal do Azure Cosmos DB [as definições de replicação global](tutorial-global-distribution-sql-api.md#portal) adicionar regiões que são adequadas para a sua aplicação. Para desenvolver uma aplicação distribuída global, deve também adicionar a sua aplicação com as informações de PreferredLocation definidas para a região local para fornecer a leitura de latência baixa. 
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>Como posso alterar a região primária escrita para a conta na API tabela?
 Pode utilizar o painel de portal de replicação global de BD do Cosmos do Azure para adicionar uma região e, em seguida, efetuar a ativação pós-falha para a região necessária. Para obter instruções, consulte [desenvolver com contas de base de dados do Azure Cosmos multirregião](regional-failover.md). 
@@ -368,7 +368,7 @@ Do .NET SDK podem ser submetido no ficheiro App. config:
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>BD do Azure do Cosmos como uma plataforma parece ter muita das capacidades, tal como a ordenação, os agregados, hierarquia e outras funcionalidades. Será possível adicionar estas capacidades para a API de tabela? 
-A API de tabela fornece a mesma funcionalidade de consulta que o Table storage do Azure. BD do Azure do Cosmos também suporta a ordenação, os agregados, geoespacial consulta, hierarquia e uma vasta gama de funções incorporadas. Podemos irá fornecer funcionalidades adicionais na API tabela numa atualização futura do serviço. Para obter mais informações, consulte [as consultas SQL](documentdb-sql-query.md).
+A API de tabela fornece a mesma funcionalidade de consulta que o Table storage do Azure. BD do Azure do Cosmos também suporta a ordenação, os agregados, geoespacial consulta, hierarquia e uma vasta gama de funções incorporadas. Podemos irá fornecer funcionalidades adicionais na API tabela numa atualização futura do serviço. Para obter mais informações, consulte [as consultas SQL](sql-api-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Quando posso alterar TableThroughput para a API de tabela?
 Deve alterar TableThroughput quando qualquer uma das seguintes condições aplicam-se:
@@ -540,4 +540,4 @@ A API do Apache Cassandra fornece a mesma funcionalidade CQL como Apache Cassand
 Fornecer comentários através do [comentários do uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: documentdb-sql-query.md
+[query]: sql-api-sql-query.md

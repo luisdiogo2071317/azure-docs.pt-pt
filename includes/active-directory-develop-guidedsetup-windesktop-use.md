@@ -1,93 +1,92 @@
 
-## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utilizar a biblioteca de autenticação da Microsoft (MSAL) para obter um token para a Microsoft Graph API
+## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utilizar MSAL para obter um token para a Microsoft Graph API
 
-Esta secção mostra como utilizar MSAL para obter um token a Microsoft Graph API.
+Nesta secção, utilize MSAL para obter um token para a Microsoft Graph API.
 
-1.  No `MainWindow.xaml.cs`, adicione a referência da biblioteca MSAL à classe:
+1.  No *MainWindow.xaml.cs* ficheiro, adicione a referência para MSAL à classe:
 
-```csharp
-using Microsoft.Identity.Client;
-```
+    ```csharp
+    using Microsoft.Identity.Client;
+    ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="2">
-<li>
-Substitua <code>MainWindow</code> classe código com:
-</li>
-</ol>
 
-```csharp
-public partial class MainWindow : Window
-{
-    //Set the API Endpoint to Graph 'me' endpoint
-    string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
+2. Substitua o `MainWindow` classe código com o seguinte:
 
-    //Set the scope for API call to user.read
-    string[] _scopes = new string[] { "user.read" };
-
-
-    public MainWindow()
+    ```csharp
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
-    }
+        //Set the API Endpoint to Graph 'me' endpoint
+        string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
 
-    /// <summary>
-    /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
-    /// </summary>
-    private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
-    {
-        AuthenticationResult authResult = null;
+        //Set the scope for API call to user.read
+        string[] _scopes = new string[] { "user.read" };
 
-        try
+        public MainWindow()
         {
-            authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
+            InitializeComponent();
         }
-        catch (MsalUiRequiredException ex)
+
+        /// <summary>
+        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// </summary>
+        private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
-            // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
-            System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
+            AuthenticationResult authResult = null;
 
             try
             {
-                authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
+                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
             }
-            catch (MsalException msalex)
+            catch (MsalUiRequiredException ex)
             {
-                ResultText.Text = $"Error Acquiring Token:{System.Environment.NewLine}{msalex}";
-            }
-        }
-        catch (Exception ex)
-        {
-            ResultText.Text = $"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}";
-            return;
-        }
+                // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
+                System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
 
-        if (authResult != null)
-        {
-            ResultText.Text = await GetHttpContentWithToken(_graphAPIEndpoint, authResult.AccessToken);
-            DisplayBasicTokenInfo(authResult);
-            this.SignOutButton.Visibility = Visibility.Visible;
+                try
+                {
+                    authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
+                }
+                catch (MsalException msalex)
+                {
+                    ResultText.Text = $"Error Acquiring Token:{System.Environment.NewLine}{msalex}";
+                }
+            }
+            catch (Exception ex)
+            {
+                ResultText.Text = $"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}";
+                return;
+            }
+
+            if (authResult != null)
+            {
+                ResultText.Text = await GetHttpContentWithToken(_graphAPIEndpoint, authResult.AccessToken);
+                DisplayBasicTokenInfo(authResult);
+                this.SignOutButton.Visibility = Visibility.Visible;
+            }
         }
     }
-}
-```
+    ```
 
 <!--start-collapse-->
-### <a name="more-information"></a>Mais Informações
-#### <a name="getting-a-user-token-interactive"></a>Obter um token de utilizador interativa
-Chamar o `AcquireTokenAsync` método resulta numa janela de pedir ao utilizador para iniciar sessão. Aplicações normalmente necessitam de um utilizador iniciar sessão interativamente na primeira vez que necessitam para aceder a recursos protegidos, ou quando uma operação automática ao adquirir um token falhar (por exemplo, palavra-passe do utilizador expirou).
+### <a name="more-information"></a>Mais informações
+#### <a name="get-a-user-token-interactively"></a>Obter um utilizador token interativamente
+Chamar o `AcquireTokenAsync` método resulta numa janela que solicita aos utilizadores iniciar sessão. As aplicações necessitam normalmente aos utilizadores iniciar sessão interativamente na primeira vez que necessitam para aceder a recursos protegidos. Também poderá ter de iniciar sessão quando uma operação automática para obter um token de falha (por exemplo, quando palavra-passe um utilizador está expirado).
 
-#### <a name="getting-a-user-token-silently"></a>A obter um utilizador token automaticamente
-`AcquireTokenSilentAsync`processa aquisições token e a renovação sem qualquer interação do utilizador. Depois de `AcquireTokenAsync` é executado pela primeira vez, `AcquireTokenSilentAsync` método é a habitual utilizado para obter os tokens utilizados para aceder a recursos protegidos para chamadas subsequentes - como as chamadas para pedir ou renovar tokens são efetuadas automaticamente.
-Eventualmente, `AcquireTokenSilentAsync` falhará – por exemplo, o utilizador foi terminada, ou foi alterada a palavra-passe noutro dispositivo. Quando MSAL Deteta que é possível resolver o problema, exigindo que uma ação interativa, é acionado um `MsalUiRequiredException`. A aplicação pode processar esta exceção de duas formas:
+#### <a name="get-a-user-token-silently"></a>Obter um utilizador token automaticamente
+O `AcquireTokenSilentAsync` método processa aquisições token e renovações sem qualquer interação do utilizador. Depois de `AcquireTokenAsync` é executado pela primeira vez, `AcquireTokenSilentAsync` é o habitual método a utilizar para obter os tokens que acedem a recursos protegidos para as chamadas subsequentes, porque as chamadas para pedir ou renovar tokens são efetuadas automaticamente.
 
-1.  Efetuar uma chamada contra `AcquireTokenAsync` imediatamente, o que resulta numa pedir ao utilizador para início de sessão. Este padrão é normalmente utilizado nas aplicações online em que não existe nenhum conteúdo offline na aplicação disponível para o utilizador. O exemplo gerado por esta configuração orientada utiliza este padrão: pode vê-lo no prazo de ação primeiro executar o exemplo: porque nenhum utilizador alguma vez utilizado a aplicação, `PublicClientApp.Users.FirstOrDefault()` irá conter um valor nulo e um `MsalUiRequiredException` exceção será emitida. O código no exemplo, em seguida, processa a exceção ao chamar `AcquireTokenAsync` resultavam pedir ao utilizador para início de sessão.
+Eventualmente, o `AcquireTokenSilentAsync` método irá falhar. Motivos da falha podem ser que o utilizador tem sessão ou alterar a palavra-passe noutro dispositivo. Quando MSAL Deteta que é possível resolver o problema, exigindo que uma ação interativa, é acionado um `MsalUiRequiredException` exceção. A aplicação pode processar esta exceção de duas formas:
 
-2.  Aplicações também podem efetuar uma indicação de visual para o utilizador que um interativa início de sessão é necessário, para que o utilizador pode seleccionar no momento certo para iniciar sessão ou a aplicação pode tentar novamente `AcquireTokenSilentAsync` numa altura posterior. Isto é normalmente utilizado quando o utilizador pode utilizar outras funcionalidades da aplicação sem ser interrompidos - por exemplo, não há conteúdo offline na aplicação. Neste caso, o utilizador pode decidir quando pretende iniciar sessão para aceder ao recurso protegido ou para atualizar as informações Desatualizadas ou a aplicação pode decidir repetir `AcquireTokenSilentAsync` quando a rede é restaurada após está temporariamente indisponível.
+* Pode efetuar uma chamada contra `AcquireTokenAsync` imediatamente. Esta chamada resulta numa pedir ao utilizador para iniciar sessão. Este padrão é normalmente utilizado nas aplicações online em que não existe conteúdo disponível offline para o utilizador. O exemplo gerado por esta configuração orientada segue neste padrão, que pode ver no tempo de ação primeiro que executar o exemplo. 
+    * Porque nenhum utilizador tiver utilizado a aplicação, `PublicClientApp.Users.FirstOrDefault()` contém um valor nulo e um `MsalUiRequiredException` exceção é emitida. 
+    * O código no exemplo, em seguida, processa a exceção ao chamar `AcquireTokenAsync`, que resulta numa pedir ao utilizador para iniciar sessão.
+
+* Em vez disso, pode apresentar uma indicação de visual aos utilizadores um interativa início de sessão é necessário, para que o utilizador podem selecionar no momento certo para iniciar sessão. Ou pode repetir a aplicação `AcquireTokenSilentAsync` mais tarde. Este padrão é frequentemente utilizado quando os utilizadores podem utilizar outras funcionalidades de aplicação sem interrupção – por exemplo, quando o conteúdo offline está disponível na aplicação. Neste caso, os utilizadores podem decidir quando pretendem iniciar sessão para aceder ao recurso protegido ou Atualize as informações Desatualizadas. Em alternativa, a aplicação pode optar por repita `AcquireTokenSilentAsync` quando a rede for restaurada após ter sido temporariamente indisponível.
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Chamar o Microsoft Graph API utilizando o token obtido apenas
+## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Chamar o Microsoft Graph API utilizando o token que apenas obtido
 
-1. Adicione o método novo abaixo à sua `MainWindow.xaml.cs`. O método é utilizado para efetuar um `GET` pedido em relação a Graph API utilizando um cabeçalho de autorizar:
+Adicione o seguinte método novo à sua `MainWindow.xaml.cs`. O método é utilizado para efetuar um `GET` pedido em relação a Graph API através da utilização de um cabeçalho de autorizar:
 
 ```csharp
 /// <summary>
@@ -116,14 +115,14 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 }
 ```
 <!--start-collapse-->
-### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Obter mais informações sobre como efetuar uma chamada REST em relação a uma API protegida
+### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Mais informações sobre como efetuar uma chamada REST em relação a uma API protegida
 
-Nesta aplicação de exemplo, o `GetHttpContentWithToken` método é utilizado para efetuar um HTTP `GET` contra um recurso protegido que necessita de um token de pedido e, em seguida, devolver o conteúdo para o autor da chamada. Este método adiciona o token adquirido no *cabeçalho de autorização de HTTP*. Para este exemplo, o recurso é o Microsoft Graph API *-me* ponto final – apresenta informações de perfil do utilizador.
+Nesta aplicação de exemplo, utilize o `GetHttpContentWithToken` método para tornar um HTTP `GET` contra um recurso protegido que necessita de um token de pedido e, em seguida, devolver o conteúdo para o autor da chamada. Este método adiciona o token adquirido no cabeçalho de autorização de HTTP. Para este exemplo, o recurso é o Microsoft Graph API *-me* ponto final, que apresenta as informações do perfil do utilizador.
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-out-the-user"></a>Adicione um método para terminar sessão de utilizador
+## <a name="add-a-method-to-sign-out-a-user"></a>Adicione um método para terminar sessão um utilizador
 
-1. Adicione o método seguinte à sua `MainWindow.xaml.cs` para terminar sessão de utilizador:
+Para terminar sessão um utilizador, adicione o método seguinte à sua `MainWindow.xaml.cs` ficheiro:
 
 ```csharp
 /// <summary>
@@ -148,15 +147,16 @@ private void SignOutButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 <!--start-collapse-->
-### <a name="more-info-on-sign-out"></a>Obter mais informações sobre o fim de sessão
+### <a name="more-information-about-user-sign-out"></a>Mais informações sobre a fim de sessão do utilizador
 
-`SignOutButton_Click`Remove o utilizador da cache de utilizador MSAL – isto informará MSAL de forma eficaz para se esqueça do utilizador atual para que um pedido futuro para adquirir um token apenas terá êxito se for efetuada para ser interativo.
-Apesar da aplicação neste exemplo suporta um único utilizador, MSAL suporta cenários em que várias contas podem ser com sessão iniciada em simultâneo – um exemplo é uma aplicação de e-mail em que um utilizador tem várias contas.
+O `SignOutButton_Click` método Remove os utilizadores da cache de utilizador MSAL, que indica eficazmente MSAL para se esqueça do utilizador atual para que um pedido futuro para adquirir um token apenas terá êxito se é efetuada para ser interativo.
+
+Apesar da aplicação neste exemplo suporta utilizadores único, MSAL suporta cenários em que várias contas podem ter sessão iniciadas ao mesmo tempo. Um exemplo é uma aplicação de e-mail em que um utilizador tem várias contas.
 <!--end-collapse-->
 
-## <a name="display-basic-token-information"></a>Apresentar as informações do Token básicas
+## <a name="display-basic-token-information"></a>Apresentar as informações do token básicas
 
-1. Adicione o seguinte método para a sua `MainWindow.xaml.cs` para apresentar informações básicas sobre o token:
+Para apresentar informações básicas sobre o token, adicione o método seguinte à sua *MainWindow.xaml.cs* ficheiro:
 
 ```csharp
 /// <summary>
@@ -175,8 +175,8 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 }
 ```
 <!--start-collapse-->
-### <a name="more-information"></a>Mais Informações
+### <a name="more-information"></a>Mais informações
 
-Tokens adquirido através de *OpenID Connect* também conter um pequeno subconjunto de informações relevantes para o utilizador. `DisplayBasicTokenInfo`Mostra informações básicas contidas no token: por exemplo, nome a apresentar do utilizador e ID, bem como a data de expiração do token e a cadeia que representa o acesso do token próprio. Estas informações são apresentadas para ver. Pode clicar no *chamar Microsoft Graph API* botão várias vezes e ver que o mesmo token foi reutilizado em pedidos subsequentes. Também pode ver a data de expiração a ser expandida quando MSAL decide está na altura de renovar o token.
+Para além de token de acesso que é utilizado para chamar o Microsoft Graph API, depois do utilizador iniciar sessão no, MSAL também obtém um token de ID. Este token contém um pequeno subconjunto de informações que são relevantes para os utilizadores. O `DisplayBasicTokenInfo` método apresenta as informações básicas que estão contidas no token. Por exemplo, apresenta o nome a apresentar do utilizador e ID, bem como a data de expiração do token e a cadeia que representa o token de acesso si próprio. Pode selecionar o *chamar Microsoft Graph API* botão várias vezes e ver que o mesmo token foi reutilizado em pedidos subsequentes. Também pode ver a data de expiração a ser expandida quando MSAL decide está na altura de renovar o token.
 <!--end-collapse-->
 

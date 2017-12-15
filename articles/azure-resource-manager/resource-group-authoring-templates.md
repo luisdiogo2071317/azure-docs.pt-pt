@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: c0ec888dbe94229701391f1aed79a78d3cb90d77
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b0bc5abd768be0fa5876aaef108cd71a15d94510
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 Este artigo descreve a estrutura de um modelo Azure Resource Manager. Apresente as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação. Para um tutorial passo a passo sobre como criar um modelo, consulte [criar o primeiro modelo Azure Resource Manager](resource-manager-create-first-template.md).
@@ -139,18 +139,16 @@ Cada elemento contém propriedades, que pode definir. O exemplo seguinte contém
 
 Este artigo descreve as secções do modelo em maior detalhe.
 
-## <a name="expressions-and-functions"></a>As expressões e funções
+## <a name="syntax"></a>Sintaxe
 A sintaxe básica do modelo é JSON. No entanto, expressões e as funções expandem os valores JSON disponíveis no modelo.  As expressões são escritas no literais de cadeia JSON cujo primeiro e último carateres são Retos: `[` e `]`, respetivamente. O valor da expressão é avaliado quando o modelo é implementado. Enquanto escritos como uma cadeia literal, o resultado da avaliação da expressão pode ser um tipo JSON diferente, tal como uma matriz nem um número inteiro, consoante a expressão real.  Para ter um literal de cadeia começa com um parêntese `[`, mas não o tiver interpretado como uma expressão, adicione um parêntesis adicional para iniciar a cadeia com `[[`.
 
 Normalmente, utilizar expressões com as funções para executar operações para configurar a implementação. Apenas como em JavaScript, chamadas de função estejam formatadas como `functionName(arg1,arg2,arg3)`. Referenciar propriedades utilizando os operadores de ponto e [Índice].
 
-O exemplo seguinte mostra como utilizar várias funções quando construir valores:
+O exemplo seguinte mostra como utilizar várias funções quando construir um valor:
 
 ```json
 "variables": {
-    "location": "[resourceGroup().location]",
-    "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
-    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 }
 ```
 
@@ -209,35 +207,16 @@ Para obter mais informações, consulte [secção de recursos de modelos Azure R
 ## <a name="outputs"></a>Saídas
 Na secção saídas, especifique os valores que são devolvidos por implementação. Por exemplo, pode devolver o URI para aceder a um recurso implementado.
 
-O exemplo seguinte mostra a estrutura de uma definição de saída:
-
 ```json
 "outputs": {
-    "<outputName>" : {
-        "type" : "<type-of-output-value>",
-        "value": "<output-value-expression>"
-    }
+  "newHostName": {
+    "type": "string",
+    "value": "[reference(variables('webSiteName')).defaultHostName]"
+  }
 }
 ```
 
-| Nome do elemento | Necessário | Descrição |
-|:--- |:--- |:--- |
-| outputName |Sim |Nome do valor de saída. Tem de ser um identificador de JavaScript válido. |
-| tipo |Sim |Tipo de valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. |
-| valor |Sim |Expressão de linguagem do modelo que é avaliada e devolvido como valor de saída. |
-
-O exemplo seguinte mostra um valor que é devolvido na secção saídas.
-
-```json
-"outputs": {
-    "siteUri" : {
-        "type" : "string",
-        "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-    }
-}
-```
-
-Para obter mais informações sobre como trabalhar com a saída, consulte [partilha Estado em modelos do Azure Resource Manager](best-practices-resource-manager-state.md).
+Para obter mais informações, consulte [produz a secção de modelos Azure Resource Manager](resource-manager-templates-outputs.md).
 
 ## <a name="template-limits"></a>Limites de modelo
 

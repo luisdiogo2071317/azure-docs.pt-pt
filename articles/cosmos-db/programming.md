@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: andrl
-ms.openlocfilehash: 2fbf716422df324ad15c9400fe1f2e88b1415620
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor de base de dados do Cosmos do Azure: e procedimentos armazenados, acionadores de base de dados, UDFs
 
@@ -56,7 +56,7 @@ Esta abordagem de *"JavaScript sendo um dia moderno T-SQL"* liberta os programad
   * Adiciona uma camada de abstração sobre os dados não processados, que permite a arquitetos de dados evoluir as aplicações de forma independente a partir dos dados. Isto é particularmente vantajoso quando os dados sem esquema, devido aos pressupostos brittle que poderão ter de ser integrada na aplicação, se tiverem que lidar com os dados diretamente.  
   * Esta abstração permite que as empresas a manter os seus dados segura, simplificando o acesso a partir de scripts.  
 
-A criação e a execução de acionadores de base de dados, o procedimento armazenado e operadores de consulta personalizada é suportada através de [portal do Azure](https://portal.azure.com), a [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), e [SDKs de cliente](documentdb-sdk-dotnet.md) em muitas plataformas, incluindo .NET, Node.js e JavaScript.
+A criação e a execução de acionadores de base de dados, o procedimento armazenado e operadores de consulta personalizada é suportada através de [portal do Azure](https://portal.azure.com), a [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), e [SDKs de cliente](sql-api-sdk-dotnet.md) em muitas plataformas, incluindo .NET, Node.js e JavaScript.
 
 Este tutorial utiliza o [SDK Node.js com Q Promises](http://azure.github.io/azure-documentdb-node-q/) para ilustrar a sintaxe e a utilização de procedimentos armazenados, acionadores e UDFs.   
 
@@ -654,7 +654,7 @@ Procedimentos armazenados do JavaScript e acionadores são um forma que os efeit
 Os procedimentos armazenados, acionadores e UDFs são implicitamente pré-compilados para o formato de código de byte para evitar o custo de compilação no momento da cada invocação de script. Isto garante invocações de procedimentos armazenados são rápidas e tem um reduzidos.
 
 ## <a name="client-sdk-support"></a>Suporte SDK do cliente
-Para além da base de dados do Azure Cosmos [Node.js](documentdb-sdk-node.md) API, base de dados do Azure Cosmos tem [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), e [Python SDKs](documentdb-sdk-python.md) para a API do SQL Server. Procedimentos armazenados, acionadores e UDFs podem ser criados e executado utilizando qualquer um destes SDKs bem. O exemplo seguinte mostra como criar e executar um procedimento armazenado com o cliente do .NET. Tenha em atenção a como os tipos .NET são transmitidos para o procedimento armazenado como JSON e ler novamente.
+Para além da base de dados do Azure Cosmos [Node.js](sql-api-sdk-node.md) API, base de dados do Azure Cosmos tem [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), e [Python SDKs](sql-api-sdk-python.md) para a API do SQL Server. Procedimentos armazenados, acionadores e UDFs podem ser criados e executado utilizando qualquer um destes SDKs bem. O exemplo seguinte mostra como criar e executar um procedimento armazenado com o cliente do .NET. Tenha em atenção a como os tipos .NET são transmitidos para o procedimento armazenado como JSON e ler novamente.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -708,7 +708,7 @@ Este exemplo mostra como utilizar o [.NET API do SQL Server](/dotnet/api/overvie
         });
 
 
-E o exemplo seguinte mostra como criar uma função definida pelo utilizador (UDF) e utilizá-la num [consulta SQL](documentdb-sql-query.md).
+E o exemplo seguinte mostra como criar uma função definida pelo utilizador (UDF) e utilizá-la num [consulta SQL](sql-api-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -805,7 +805,7 @@ Depois de ter um ou mais procedimentos armazenados, acionadores e funções defi
 
 Pode também considerar as seguintes referências e recursos útil no seu caminho para saber mais sobre a programação do lado do servidor de base de dados de Cosmos do Azure:
 
-* [SDKs do Azure Cosmos DB](documentdb-sdk-dotnet.md)
+* [SDKs do Azure Cosmos DB](sql-api-sdk-dotnet.md)
 * [O DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [262 ECMA de JavaScript](http://www.ecma-international.org/publications/standards/Ecma-262.htm)

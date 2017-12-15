@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: 9f2a3e104df579029da56ba515b2159c18f4eae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Vai sociais com base de dados do Azure Cosmos
 Living num society em massa interligadas significa que, num ponto da vida, passam a fazer parte de um **rede social**. Podemos utilizar redes sociais manter entre em contacto com amigos, colegas, família, ou, por vezes, partilhar o nosso passion com pessoas com interesses comuns.
@@ -103,7 +103,7 @@ A criação de feeds é apenas um fim de criação de documentos que podem conte
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Foi temos uma transmissão em fluxo "mais recente" com mensagens ordenadas por data de criação, uma sequência "hottest" com essas publicações com mais likes nas últimas 24 horas, temos mesmo foi possível implementar uma sequência personalizada para cada utilizador com base na lógica como followers e interesses e ainda seria uma lista de p osts. É um independentemente de como criar estas listas, mas o desempenho de leitura permanece unhindered. Assim que iremos adquirir uma destas listas, iremos emitir uma única consulta Cosmos BD utilizando a [no operador](documentdb-sql-query.md#WhereClause) obter páginas de mensagens de cada vez.
+Foi temos uma transmissão em fluxo "mais recente" com mensagens ordenadas por data de criação, uma sequência "hottest" com essas publicações com mais likes nas últimas 24 horas, temos mesmo foi possível implementar uma sequência personalizada para cada utilizador com base na lógica como followers e interesses e ainda seria uma lista de p osts. É um independentemente de como criar estas listas, mas o desempenho de leitura permanece unhindered. Assim que iremos adquirir uma destas listas, iremos emitir uma única consulta Cosmos BD utilizando a [no operador](sql-api-sql-query.md#WhereClause) obter páginas de mensagens de cada vez.
 
 Os fluxos de feed pode ser criados utilizando [dos serviços de aplicações do Azure](https://azure.microsoft.com/services/app-service/) em segundo plano processos: [Webjobs](../app-service/web-sites-create-web-jobs.md). Quando um pedido post for criado, o processamento em segundo plano pode ser acionado utilizando [Storage do Azure](https://azure.microsoft.com/services/storage/) [filas](../storage/queues/storage-dotnet-how-to-use-queues.md) e Webjobs acionadas utilizando o [SDK de Webjobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki), implementar o após a propagação dentro de fluxos com base na nossa própria lógica personalizada. 
 
@@ -237,7 +237,7 @@ O que acontece se coisas mantém a melhorar e os utilizadores de outra região, 
 
 Mas, aguarde..., logo que tenha em consideração as suas experiências com a plataforma não é o ideal; são até ao momento na direção oposta ao sua região operacional que a latência é terríveis e, obviamente não quisê-los para sair. Se apenas Ocorreu uma forma fácil de **expandir o alcance global**... mas não existe!
 
-Cosmos DB permite-lhe [replicar os dados globalmente](../cosmos-db/tutorial-global-distribution-documentdb.md) e transparente com alguns cliques e automaticamente, selecione entre as regiões disponíveis da sua [código de cliente](../cosmos-db/tutorial-global-distribution-documentdb.md). Isto também significa que pode fazer com que [várias regiões de ativação pós-falha](regional-failover.md). 
+Cosmos DB permite-lhe [replicar os dados globalmente](../cosmos-db/tutorial-global-distribution-sql-api.md) e transparente com alguns cliques e automaticamente, selecione entre as regiões disponíveis da sua [código de cliente](../cosmos-db/tutorial-global-distribution-sql-api.md). Isto também significa que pode fazer com que [várias regiões de ativação pós-falha](regional-failover.md). 
 
 Quando replicar os dados globalmente, tem de certificar-se de que os clientes podem tirar partido dos mesmos. Se estiver a utilizar um front-end de web ou accesing APIs a partir de clientes móveis, pode implementar [Traffic Manager do Azure](https://azure.microsoft.com/services/traffic-manager/) e clonar o App Service do Azure em todas as regiões pretendidas, com uma configuração de desempenho para suportar o expandida global cobertura. Quando os clientes acedem o front-end ou APIs, serão encaminhados para o serviço de aplicações mais próximo, o que por sua vez, irá ligar-se para a réplica local do Cosmos DB.
 

@@ -15,13 +15,17 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 08e9f58cc81122ae36db67d916cf2550490ec4ef
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: be3fba0c148cc7ee07fa3d50e0783916790e7cab
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Criar uma aplicação web PHP e o MySQL no Azure
+
+> [!NOTE]
+> Este artigo implementa uma aplicação do serviço de aplicações no Windows. Para implementar no App Service no _Linux_, consulte [compilar uma aplicação web PHP e o MySQL no Azure App Service no Linux](./containers/tutorial-php-mysql-app.md).
+>
 
 [As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra como criar uma aplicação web PHP no Azure e ligue-o a uma base de dados MySQL. Quando tiver terminado, terá um [Laravel](https://laravel.com/) aplicação em execução no Web Apps do Azure App Service.
 
@@ -158,7 +162,7 @@ Neste passo, vai criar uma base de dados MySQL no [MySQL (pré-visualização) n
 
 ### <a name="create-a-mysql-server"></a>Criar um servidor de MySQL
 
-A Shell de nuvem, criar um servidor na base de dados do Azure para MySQL (pré-visualização) com o [az mysql servidor criar](/cli/azure/mysql/server#create) comando.
+A Shell de nuvem, criar um servidor na base de dados do Azure para MySQL (pré-visualização) com o [az mysql servidor criar](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) comando.
 
 O seguinte comando, substitua o nome do servidor MySQL onde vir o  _&lt;mysql_server_name >_ marcador de posição (carateres válidos são `a-z`, `0-9`, e `-`). Este nome é parte do nome de anfitrião do servidor MySQL (`<mysql_server_name>.database.windows.net`), tem de ser globalmente exclusivo.
 
@@ -188,7 +192,7 @@ Quando o servidor de MySQL é criado, a CLI do Azure mostra as informações sem
 
 ### <a name="configure-server-firewall"></a>Configurar a firewall do servidor
 
-A Shell de nuvem, criar uma regra de firewall para o servidor de MySQL permitir ligações de cliente utilizando o [az mysql servidor-regra de firewall criar](/cli/azure/mysql/server/firewall-rule#create) comando.
+A Shell de nuvem, criar uma regra de firewall para o servidor de MySQL permitir ligações de cliente utilizando o [az mysql servidor-regra de firewall criar](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create) comando.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -341,7 +345,7 @@ Neste passo, a aplicação é implementada ligados MySQL PHP App Service do Azur
 
 Como indicada anteriormente, pode ligar à base de dados MySQL do Azure utilizando variáveis de ambiente no App Service.
 
-Na Shell de nuvem, pode definir variáveis de ambiente como _as definições de aplicação_ utilizando o [az webapp configuração appsettings conjunto](/cli/azure/webapp/config/appsettings#set) comando.
+Na Shell de nuvem, pode definir variáveis de ambiente como _as definições de aplicação_ utilizando o [az webapp configuração appsettings conjunto](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) comando.
 
 O seguinte comando configura as definições de aplicação `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, e `DB_PASSWORD`. Substitua os marcadores de posição  _&lt;appname >_ e  _&lt;mysql_server_name >_.
 
@@ -372,7 +376,7 @@ Na janela de terminal do local, utilizar `php artisan` para gerar uma nova chave
 php artisan key:generate --show
 ```
 
-Na Shell de nuvem, defina a chave de aplicação no App Service aplicação web utilizando o [az webapp configuração appsettings conjunto](/cli/azure/webapp/config/appsettings#set) comando. Substitua os marcadores de posição  _&lt;appname >_ e  _&lt;outputofphpartisankey: gerar >_.
+Na Shell de nuvem, defina a chave de aplicação no App Service aplicação web utilizando o [az webapp configuração appsettings conjunto](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) comando. Substitua os marcadores de posição  _&lt;appname >_ e  _&lt;outputofphpartisankey: gerar >_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -587,7 +591,7 @@ Se tiver adicionado quaisquer tarefas, estes são retidos na base de dados. Atua
 
 Enquanto executa a aplicação PHP no App Service do Azure, pode obter os registos de consola direcionados para o seu terminal. Dessa forma, pode obter as mesmas mensagens de diagnóstico para ajudar a depurar erros de aplicações.
 
-Para iniciar o registo de transmissão em fluxo, utilize o [seguimento de registo de webapp az](/cli/azure/webapp/log#tail) comando na Shell de nuvem.
+Para iniciar o registo de transmissão em fluxo, utilize o [seguimento de registo de webapp az](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) comando na Shell de nuvem.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

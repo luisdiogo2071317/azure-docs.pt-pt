@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: cfdbf6c3d1ac86d430543eada15c1e3b31e3712f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 19f116470ac7a73daea6ad03699ef53d86cfb321
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual OMS para Windows
 
@@ -76,11 +76,11 @@ O JSON seguinte mostra o esquema para a extensão de agente do OMS. A extensão 
 | workspaceId (por exemplo) | 6f680a37-00c6-41C7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
 
-## <a name="template-deployment"></a>Implementação de modelo
+## <a name="template-deployment"></a>Implementação de modelos
 
 Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser utilizado num modelo Azure Resource Manager para executar a extensão de agente do OMS durante uma implementação de modelo Azure Resource Manager. Um modelo de exemplo que inclui a extensão de VM de agente do OMS pode ser encontrado no [Galeria de início rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
-O JSON para uma extensão da máquina virtual pode ser aninhado o recurso de máquina virtual ou colocado no nível superior de um modelo do Resource Manager JSON ou raiz. O posicionamento de JSON afeta o valor do nome do recurso e do tipo. Para obter mais informações, consulte [definir nome e tipo para recursos subordinados](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+O JSON para uma extensão da máquina virtual pode ser aninhado o recurso de máquina virtual ou colocado no nível superior de um modelo do Resource Manager JSON ou raiz. O posicionamento de JSON afeta o valor do nome do recurso e do tipo. Para obter mais informações, consulte [definir nome e tipo para recursos subordinados](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
 O exemplo seguinte assume que a extensão do OMS é aninhada o recurso de máquina virtual. Quando o recurso de extensão de aninhamento, JSON é colocado no `"resources": []` objeto da máquina virtual.
 
@@ -170,6 +170,6 @@ Resultado da execução de extensão é registado para ficheiros encontrados no 
 C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\
 ```
 
-### <a name="support"></a>Apoio ao cliente
+### <a name="support"></a>Suporte
 
 Se precisar de mais ajuda, a qualquer altura neste artigo, pode contactar as especialistas do Azure no [fóruns do MSDN Azure e Stack Overflow](https://azure.microsoft.com/en-us/support/forums/). Em alternativa, pode ficheiro um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/en-us/support/faq/).

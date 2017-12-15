@@ -15,15 +15,19 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a9b321fcf8a8d1234989a9433da227142d954cb4
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c2087af14ad456c679479334c9391055f6b2e45e
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação web Node.js e MongoDB no App Service do Azure no Linux
 
-[Serviço de aplicações no Linux](app-service-linux-intro.md) fornece uma serviço utilizando o sistema operativo Linux de alojamento na web altamente dimensionável e aplicação de patches personalizada. Este tutorial mostra como criar uma aplicação web Node.js, ligue-o localmente para uma base de dados de MongoDB, em seguida, implementar no Azure ligado a uma base de dados de CosmosDB utilizando a API do MongoDB. Quando tiver terminado, terá de uma aplicação média (MongoDB, Express, AngularJS e Node.js) em execução no App Service no Linux. Simplicidade, a aplicação de exemplo utiliza o [estrutura de web MEAN.js](http://meanjs.org/).
+> [!NOTE]
+> Este artigo implementa uma aplicação do serviço de aplicações no Linux. Para implementar no App Service no _Windows_, consulte [compilar uma aplicação web Node.js e MongoDB no Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
+>
+
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação web Node.js, ligue-o localmente para uma base de dados de MongoDB, em seguida, implementar no Azure ligado a uma base de dados de CosmosDB utilizando a API do MongoDB. Quando tiver terminado, terá de uma aplicação média (MongoDB, Express, AngularJS e Node.js) em execução no App Service no Linux. Simplicidade, a aplicação de exemplo utiliza o [estrutura de web MEAN.js](http://meanjs.org/).
 
 ![Aplicação MEAN.js em execução no Serviço de Aplicações do Azure](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -126,7 +130,7 @@ Para o MongoDB, este tutorial utiliza [Azure Cosmos DB](/azure/documentdb/). BD 
 
 ### <a name="create-a-cosmos-db-account"></a>Criar uma conta de base de dados do Cosmos
 
-A Shell de nuvem, criar uma conta de base de dados do Cosmos com o [az cosmosdb criar](/cli/azure/cosmosdb#create) comando.
+A Shell de nuvem, criar uma conta de base de dados do Cosmos com o [az cosmosdb criar](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) comando.
 
 O seguinte comando, substitua um nome de base de dados do Cosmos exclusivo para o  *\<cosmosdb_name >* marcador de posição. Este nome é utilizado como parte do ponto final Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, por isso, o nome tem de ser exclusivo em todas as contas de base de dados do Cosmos no Azure. O nome tem de conter apenas letras minúsculas, números e o caráter de hífen (-) e tem de ter entre 3 e 50 carateres de comprimento.
 
@@ -160,7 +164,7 @@ Neste passo, ligar a aplicação de exemplo MEAN.js na base de dados do Cosmos D
 
 ### <a name="retrieve-the-database-key"></a>Obter a chave de base de dados
 
-Para ligar à base de dados do Cosmos DB, terá da chave de base de dados. Na Shell de nuvem, utilize o [az cosmosdb lista chaves](/cli/azure/cosmosdb#list-keys) comando para obter a chave primária.
+Para ligar à base de dados do Cosmos DB, terá da chave de base de dados. Na Shell de nuvem, utilize o [az cosmosdb lista chaves](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) comando para obter a chave primária.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -252,7 +256,7 @@ Neste passo, implementar a aplicação Node.js ligados MongoDB App Service do Az
 
 Por predefinição, o projeto de MEAN.js mantém _config/env/local-production.js_ fora do repositório de Git. Por isso, para a sua aplicação web do Azure, utilize as definições de aplicação para definir a cadeia de ligação do MongoDB.
 
-Para configurar definições de aplicação, utilize o [atualização az webapp configuração appsettings](/cli/azure/webapp/config/appsettings#update) comando na Shell de nuvem.
+Para configurar definições de aplicação, utilize o [az webapp configuração appsettings conjunto](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) comando na Shell de nuvem.
 
 O exemplo a seguir configura um `MONGODB_URI` definição de aplicação na sua aplicação web do Azure. Substitua o  *\<APP_NAME>.azurewebsites.NET >*,  *\<cosmosdb_name >*, e  *\<primary_master_key >* marcadores de posição.
 

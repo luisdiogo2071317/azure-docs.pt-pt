@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7c2e56a5f747aa2a37fc4bed0e3f3877b64f2be2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5b05813034a08457ca46ef47c93e16016534f0ef
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada no cabeçalho para início de sessão com o Proxy de aplicações e PingAccess
 
@@ -73,6 +73,10 @@ Siga estes passos para publicar a aplicação. Para um mais detalhadas instruç�
 4. Selecione **no local aplicação**.
 5. Preencha os campos obrigatórios, com informações sobre a nova aplicação. Utilize as seguintes orientações para as definições:
    - **URL interno**: normalmente de fornecer o URL que o leva à página de início de sessão da aplicação quando tiver na rede empresarial. Para este cenário, o conector tem de tratar o proxy de PingAccess como a página da aplicação. Utilize este formato: `https://<host name of your PA server>:<port>`. A porta é 3000 por predefinição, mas pode configurá-la no PingAccess.
+
+    > [!WARNING]
+    > Para este tipo de SSO, o URL interno tem de utilizar https e não é possível utilizar http.
+
    - **Método de pré-autenticação**: Azure Active Directory
    - **Traduzir URL nos cabeçalhos**: não
 
@@ -106,7 +110,7 @@ Siga estes passos para publicar a aplicação. Para um mais detalhadas instruç�
 
 16. Selecione **Adicionar**. Para a API, escolha **Windows Azure Active Directory**, em seguida, **selecione**. Para conhecer as permissões, escolha **leitura e escrita todas as aplicações** e **iniciar sessão e ler o perfil de utilizador**, em seguida, **selecione** e **feito**.  
 
-  ![Selecionar permissões](./media/application-proxy-ping-access/select-permissions.png)
+  ![Selecione as permissões](./media/application-proxy-ping-access/select-permissions.png)
 
 17. Conceder permissões antes de fechar o ecrã de permissões. 
 ![Conceder permissões](media/application-proxy-ping-access/grantperms.png)
@@ -135,7 +139,7 @@ Siga estes passos para publicar a aplicação. Para um mais detalhadas instruç�
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Opcional - GraphAPI de atualização para enviar os campos personalizados
 
-Para obter uma lista de tokens de segurança do Azure AD envia para autenticação, consulte [referência de token do Azure AD](./develop/active-directory-token-and-claims.md). Se precisar de uma afirmação personalizada que envia outros tokens, utilize GraphAPI para definir o campo de aplicação *acceptMappedClaims* para **verdadeiro**. Só pode utilizar o Explorador do Azure AD Graph para fazer esta configuração. 
+Para obter uma lista de tokens de segurança do Azure AD envia para autenticação, consulte [referência de token do Azure AD](./develop/active-directory-token-and-claims.md). Se precisar de uma afirmação personalizada que envia outros tokens, utilizar o Explorador do gráfico ou o manifesto para a aplicação no Portal do Azure para definir o campo de aplicação *acceptMappedClaims* para **verdadeiro**.    
 
 Este exemplo utiliza o Explorador do gráfico:
 
@@ -146,6 +150,13 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+Este exemplo utiliza o [portal do Azure](https://portal.azure.com) para udpate o *acceptedMappedClaims* campo:
+1. Iniciar sessão para o [portal do Azure](https://portal.azure.com) como um administrador global.
+2. Selecione **do Azure Active Directory** > **registos de aplicação**.
+3. Selecione a aplicação > **manifesto**.
+4. Selecione **editar**, procure o *acceptedMappedClaims* campo e altere o valor para **verdadeiro**.
+![Manifesto de aplicação](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
+1. Selecione **Guardar**.
 
 >[!NOTE]
 >Para utilizar uma afirmação personalizada, também tem de ter uma política personalizada definida e atribuída à aplicação.  Esta política deve incluir todos os atributos personalizados necessários.

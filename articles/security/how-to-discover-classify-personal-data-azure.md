@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39286104474ae0f91195ab578a58dacdb2f27d18
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Detetar, identificar e classificar os dados pessoais no Microsoft Azure
 
@@ -183,9 +183,9 @@ mensagem de blogue. E verifique a Saiba mais ligações listadas abaixo para obt
 
 Lugar as noções básicas, visite o [BD do Azure CosmosD: como consultar o SQL Server a utilizar](../cosmos-db/tutorial-query-documentdb.md) tutorial. O tutorial fornece um documento de exemplo e dois exemplos de consultas SQL e os resultados.
 
-Para obter mais orientações aprofundadas sobre a criação de consultas SQL, visite [as consultas SQL para a API de base de dados de documento do Azure Cosmos DB.](../cosmos-db/documentdb-sql-query.md)
+Para obter mais orientações aprofundadas sobre a criação de consultas SQL, visite [as consultas SQL para a API de base de dados de documento do Azure Cosmos DB.](../cosmos-db/sql-api-sql-query.md)
 
-Se estiver familiarizado com a base de dados do Azure Cosmos e gostaria de saber como criar uma base de dados, adicionar uma coleção e adicionar dados, visite o [BD do Azure Cosmos: criar uma aplicação de web API do SQL Server](../cosmos-db/create-documentdb-dotnet.md) tutorial de início rápido. Se gostaria de fazê-lo num idioma diferente do .NET, tais como o Java ou Python, escolha o idioma preferencial da depois de obter ao site.
+Se estiver familiarizado com a base de dados do Azure Cosmos e gostaria de saber como criar uma base de dados, adicionar uma coleção e adicionar dados, visite o [BD do Azure Cosmos: criar uma aplicação de web API do SQL Server](../cosmos-db/create-sql-api-dotnet.md) tutorial de início rápido. Se gostaria de fazê-lo num idioma diferente do .NET, tais como o Java ou Python, escolha o idioma preferencial da depois de obter ao site.
 
 ## <a name="next-steps"></a>Passos seguintes
 

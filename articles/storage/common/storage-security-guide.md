@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: c3973c7e529cd1d0ecd98ae17d4d979d0d458ef3
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 9cb109dd9ce5a14bb80be61577c10d7191ec5ce6
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
 ## <a name="overview"></a>Descrição geral
@@ -295,7 +295,7 @@ Esta é uma definição aplica-se à conta de armazenamento de todo. Pode ativar
 
 Neste momento, as chaves utilizadas para a encriptação são geridas pela Microsoft. Vamos gerar as chaves originalmente e gerir o armazenamento seguro das chaves, bem como a rotação regular, tal como definido pela política interna do Microsoft. No futuro, irá obter a capacidade de gerir as suas próprias chaves de encriptação e fornecer um caminho de migração a partir das chaves gerida pela Microsoft para chaves gerida pelo cliente.
 
-Esta funcionalidade está disponível para Standard e Premium Storage contas criadas utilizando o modelo de implementação Resource Manager. SSE aplica-se apenas aos blobs, os blobs de páginas de blocos e blobs de acréscimo. Outros tipos de dados, incluindo tabelas, filas e ficheiros, não serão encriptados.
+Esta funcionalidade está disponível para Standard e Premium Storage contas criadas utilizando o modelo de implementação Resource Manager. SSE se aplica a qualquer tipo de dados: blobs de blocos, blobs de páginas, acrescentar blobs, tabelas, filas e os ficheiros.
 
 Dados apenas são encriptados quando SSE está ativada e os dados são escritos para o Blob Storage. Ativar ou desativar SSE não afeta a dados existentes. Por outras palavras, quando ativar esta encriptação, possa não voltar atrás e encriptar os dados que já existe nem será-desencriptar os dados que já existe ao desativar SSE.
 
@@ -380,7 +380,7 @@ A encriptação do lado do cliente é mais carga no cliente e tem de ser uma con
 #### <a name="storage-service-encryption-sse"></a>Encriptação do serviço de armazenamento (SSE)
 SSE é gerida pelo armazenamento do Azure. Utilização de SSE não fornece para garantir a segurança dos dados em trânsito, mas encriptar os dados que que é escritos no armazenamento do Azure. Não há nenhum impacto no desempenho quando utilizar esta funcionalidade.
 
-Apenas pode encriptar blobs de blocos, blobs de acréscimo e utilizar SSE de blobs de páginas. Se precisar de encriptar dados da tabela ou fila, deve considerar a utilização de encriptação do lado do cliente.
+Pode encriptar qualquer tipo de dados da conta de armazenamento utilizando SSE (blobs de blocos, blobs, os blobs de páginas, dados da tabela, dados de fila e ficheiros de acréscimo).
 
 Se tiver um arquivo ou biblioteca de arquivos VHD que utilizar como base para a criação de novas máquinas virtuais, pode criar uma nova conta de armazenamento, ativar SSE e, em seguida, carregue ficheiros VHD a essa conta. Esses ficheiros VHD serão encriptados pelo armazenamento do Azure.
 

@@ -32,7 +32,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Interfaces de Rede (NIC) |350 |20000 |
 | Grupos de Segurança de Rede (NSG) |100 |5000 |
 | Regras do NSG por NSG |200 |500 |
-| Endereços IP e intervalos especificados para a origem ou de destino numa regra de segurança |2000 |4000 |
+| Endereços IP e intervalos especificados para a origem ou de destino num grupo de segurança |2000 |4000 |
 | Grupos de segurança de aplicações |200 |500 |
 | Grupos de segurança de aplicações por configuração de IP, por NIC |10 |20 |
 | Configurações de IP por grupo de segurança de aplicações |1000 |4000 |
@@ -48,7 +48,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 
 | Recurso | Limite predefinido | Limite Máximo |
 | --- | --- | --- |
-| Balanceadores de carga | 100 | 1000 |
+| Balanceadores de Carga | 100 | 1000 |
 | Regras por recurso, Basic | 150 | 250 |
 | Regras por recurso, Standard | 1250 | 1500 |
 | Regras por configuração de IP | 299 |299 |

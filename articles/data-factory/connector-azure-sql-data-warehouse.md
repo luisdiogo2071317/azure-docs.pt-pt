@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 12/14/2017
 ms.author: jingwang
-ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 42b241affa470d42dfa06eba102a2bce5faccf4a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar os dados de ou para o Azure SQL Data Warehouse, utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -296,7 +296,6 @@ Se não são cumpridos os requisitos, o Azure Data Factory verifica as definiç�
 
 3. Não existe nenhum `skipHeaderLineCount` em **BlobSource** ou **AzureDataLakeStore** para a atividade de cópia no pipeline.
 4. Não existe nenhum `sliceIdentifierColumnName` em **SqlDWSink** para a atividade de cópia no pipeline. (PolyBase garante que todos os dados são atualizados ou nada é atualizado numa execução única. Para alcançar **repetibilidade**, pode utilizar `sqlWriterCleanupScript`).
-5. Não existe nenhum `columnMapping` a ser utilizado na cópia associada na atividade.
 
 ```json
 "activities":[
@@ -423,7 +422,7 @@ Quando copiar dados de/para o Azure SQL Data Warehouse, os seguintes mapeamentos
 | Binário |Byte] |
 | bits |Booleano |
 | char |Cadeia, Char [] |
-| data |DateTime |
+| Data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: e1752bfe40fb53568b79e2b7eec56ca9f3139d4c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 37fc6a737bd1cfb09caf69ea2c6d81ea0b7d8693
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utilizar bases de dados MySQL na pilha do Microsoft Azure
 
@@ -59,6 +59,10 @@ A conta do sistema tem de ter os seguintes privilégios:
     a. Nas instalações do Kit de desenvolvimento de pilha do Azure (ASDK), inicie sessão no anfitrião físico.
 
     b. Em sistemas com vários nós, o anfitrião tem de ser um sistema que pode aceder ao ponto de final com privilégios.
+    
+    >[!NOTE]
+    > O sistema onde está a ser executado o script *tem* ser um sistema Windows 10 ou Windows Server 2016 com a versão mais recente do tempo de execução de .NET instalada. A instalação falhará em contrário. O anfitrião ASDK cumpre estes critérios.
+    
 
 3. Transferir o fornecedor de recursos de MySQL binário e executar o Self-extractor para extrair os conteúdos num diretório temporário.
 
@@ -67,15 +71,19 @@ A conta do sistema tem de ter os seguintes privilégios:
 
     | Compilação de pilha do Azure | Instalador de MySQL RP |
     | --- | --- |
-    | 1.0.171122.1 | [MySQL RP versão 1.1.10.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.171122.1 | [MySQL RP versão 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
     | 1.0.171028.1 | [MySQL RP versão 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
     | 1.0.170928.3 | [MySQL RP versão 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  O certificado de raiz de pilha do Azure é obtido a partir do ponto final com privilégios. Para ASDK, é criado um certificado autoassinado como parte deste processo. Em vários nós, tem de fornecer um certificado adequado.
 
-    Se tiver de fornecer o seu próprio certificado, terá do certificado seguinte:
+    Se tiver de fornecer o seu próprio certificado, terá de um ficheiro PFX colocado no **DependencyFilesLocalPath** (ver abaixo) da seguinte forma:
 
-    Um certificado de caráter universal para \*.dbadapter.\< região\>.\< fqdn externo\>. Este certificado tem de ser fidedigno, tal como faria ser emitido por uma autoridade de certificação. Ou seja, a cadeia de confiança tem de existir sem exigir certificados intermédios. Um certificado de site único pode ser utilizado com o nome VM explícito [mysqladapter] utilizado durante a instalação.
+    - Um certificado de caráter universal para \*.dbadapter.\< região\>.\< fqdn externo\> ou um certificado de site único com um nome comum de mysqladapter.dbadapter.\< região\>.\< fqdn externo\>
+    - Este certificado tem de ser fidedigno, tal como faria ser emitido por uma autoridade de certificação. Ou seja, a cadeia de confiança tem de existir sem exigir certificados intermédios.
+    - Existe apenas um ficheiro de certificado único no DependencyFilesLocalPath.
+    - O nome de ficheiro não pode conter os caracteres especiais.
+
 
 
 5. Abra um **novo** elevada consola do PowerShell (administrativa) e alteração para o diretório onde extraiu os ficheiros. Utilize uma nova janela para evitar problemas que podem surgir na incorretos módulos do PowerShell já carregados no sistema.

@@ -13,9 +13,9 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 468a6bc77b354f2e0fbe981c3d4a5691eac4ec4d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 89e4b52e7d306bd495c426bcf775f59d0f30eb55
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/14/2017
 ---
@@ -140,7 +140,7 @@ Tipos de recurso que principalmente aceder através de um recurso diferente, pod
 }
 ```
 
-## <a name="resource-location"></a>Localização do recurso
+## <a name="location"></a>Localização
 Quando implementar um modelo, tem de fornecer uma localização para cada recurso. São suportados tipos de recursos diferentes em diferentes localizações. Para ver uma lista de localizações que estão disponíveis para a sua subscrição para um tipo de recurso específico, utilize o Azure PowerShell ou a CLI do Azure. 
 
 O exemplo seguinte utiliza o PowerShell para obter as localizações para o `Microsoft.Web\sites` tipo de recurso:

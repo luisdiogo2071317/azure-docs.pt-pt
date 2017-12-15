@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: e825968981df1aaee4ceb037995209ba48a8f4ec
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhar com a alteração de feed de suporte do BD Azure Cosmos
 
@@ -90,11 +90,11 @@ Acionadores que podem ser criados no portal das funções do Azure, no portal do
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Utilizando o SDK
 
-O [SQL SDK](documentdb-sdk-dotnet.md) para a BD do Cosmos Azure dá-lhe potência para ler e gerir uma alteração do feed. Mas com energia excelente inclui muitas das responsabilidades, demasiado. Se pretender gerir pontos de verificação, lidar com os números de sequência de documento e ter um controlo granular sobre chaves de partição, em seguida, utilizando o SDK pode estar a abordagem à direita.
+O [SQL SDK](sql-api-sdk-dotnet.md) para a BD do Cosmos Azure dá-lhe potência para ler e gerir uma alteração do feed. Mas com energia excelente inclui muitas das responsabilidades, demasiado. Se pretender gerir pontos de verificação, lidar com os números de sequência de documento e ter um controlo granular sobre chaves de partição, em seguida, utilizando o SDK pode estar a abordagem à direita.
 
 Esta secção explica como utilizar o SDK do SQL Server para funcionar com uma alteração do feed.
 
-1. Inicie o lendo os seguintes recursos da appconfig. Instruções sobre como obter a chave de autorização e de ponto final estão disponíveis no [atualizar a cadeia de ligação](create-documentdb-dotnet.md#update-your-connection-string).
+1. Inicie o lendo os seguintes recursos da appconfig. Instruções sobre como obter a chave de autorização e de ponto final estão disponíveis no [atualizar a cadeia de ligação](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ Por isso, a matriz de ponto de verificação apenas consiste em manter o LSN par
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Utilizar a biblioteca de processador de Feed de alteração 
 
-O [biblioteca de processador de Feed de alteração do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) podem ajudar a distribuir facilmente o processamento de eventos por vários consumidores. Esta biblioteca simplifica as alterações de leitura em partições e de vários threads funcionam em paralelo.
+O [biblioteca de processador de Feed de alteração do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) podem ajudar a distribuir facilmente o processamento de eventos por vários consumidores. Esta biblioteca simplifica as alterações de leitura em partições e de vários threads funcionam em paralelo.
 
 A vantagem principal da biblioteca de processador de Feed de alteração é que não tem de gerir cada partição e o token de continuação e não tem de consultar manualmente cada coleção.
 
@@ -276,11 +276,11 @@ Para obter mais informações sobre como utilizar a base de dados do Azure Cosmo
 
 Para obter mais informações sobre como utilizar a biblioteca de processador de Feed de alteração, utilize os seguintes recursos:
 
-* [Página de informações](documentdb-sdk-dotnet-changefeed.md) 
+* [Página de informações](sql-api-sdk-dotnet-changefeed.md) 
 * [Pacote Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Código de exemplo que mostra os passos acima 1-6](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Exemplos adicionais no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Para obter mais informações sobre como utilizar a alteração do feed através do SDK, utilize os seguintes recursos:
 
-* [Página de informações do SDK](documentdb-sdk-dotnet.md)
+* [Página de informações do SDK](sql-api-sdk-dotnet.md)

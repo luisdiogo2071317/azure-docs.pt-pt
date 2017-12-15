@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 1a6e4904252d5eda3ff6aeb0821c81c5845cced0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 14dce37a953984d3e1ce80b813f386210e85d261
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
@@ -38,7 +38,7 @@ Utilize este tutorial para começar com Azure Cosmos DB registo através do port
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, tem de ter os seguintes recursos:
 
-* Um existente do Azure Cosmos DB conta, base de dados e contentor. Para obter instruções sobre como criar estes recursos, consulte [criar uma conta de base de dados utilizando o portal do Azure](create-documentdb-dotnet.md#create-a-database-account), [amostras CLI](cli-samples.md), ou [exemplos do PowerShell](powershell-samples.md).
+* Um existente do Azure Cosmos DB conta, base de dados e contentor. Para obter instruções sobre como criar estes recursos, consulte [criar uma conta de base de dados utilizando o portal do Azure](create-sql-api-dotnet.md#create-a-database-account), [amostras CLI](cli-samples.md), ou [exemplos do PowerShell](powershell-samples.md).
 
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Ative o registo no portal do Azure

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: ab7448d3f55a921d3fb8c06d54c230d262dbec6a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1f56e7ae96388ff1135017e07771138ebfc5ac33
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Sugestões de desempenho para a base de dados do Azure Cosmos
 
@@ -88,7 +88,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 ## <a name="sdk-usage"></a>Utilização do SDK
 1. **Instalar o SDK mais recente**
 
-    Os SDKs de BD do Cosmos estão constantemente a ser melhorados para proporcionar o melhor desempenho. Consulte o [Cosmos DB SDK](documentdb-sdk-dotnet.md) páginas para determinar o SDK mais recente e reveja melhoramentos.
+    Os SDKs de BD do Cosmos estão constantemente a ser melhorados para proporcionar o melhor desempenho. Consulte o [Cosmos DB SDK](sql-api-sdk-dotnet.md) páginas para determinar o SDK mais recente e reveja melhoramentos.
 2. **Utilizar um cliente de base de dados do Cosmos singleton para a duração da sua aplicação**
 
     Tenha em atenção que cada instância de DocumentClient seguro para thread e efetua a gestão de ligações eficiente e endereço a colocação em cache quando funcionar no modo direto. Para permitir a gestão de ligações eficiente e melhor desempenho por DocumentClient, é recomendado utilizar uma única instância DocumentClient por AppDomain para a duração da aplicação.
@@ -99,7 +99,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
     São efetuados os pedidos de cosmos DB através de HTTPS/REST ao utilizar o modo de Gateway e estão sujeitos ao limite de ligação predefinido por nome de anfitrião ou endereço IP. Terá de definir o MaxConnections para um valor mais alto (100-1000) para que a biblioteca de clientes pode utilizar várias ligações simultâneas a BD do Cosmos. O SDK .NET 1.8.0 em acima, o valor predefinido para [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 50 e para alterar o valor, pode definir o [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)para um valor superior.   
 4. **Otimizar as consultas paralelas para coleções particionadas**
 
-     SDK .NET do SQL Server versão 1.9.0 e acima consultas paralelas de suporte, o que lhe permite consultar uma coleção particionada em paralelo (consulte [trabalhar com os SDKs](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) o relacionados e [exemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) para obter mais informações). Consultas paralelas são concebidas para melhorar a latência de consulta e débito ao longo do respetivo homólogo série. Consultas paralelas fornecem dois parâmetros que os utilizadores podem otimizar para personalizada ajuste os respetivos requisitos, (a) MaxDegreeOfParallelism: para controlar o número máximo de partições, em seguida, pode ser consultado em paralelo e (b) MaxBufferedItemCount: para controlar o número de resultados de pré-obtidos.
+     SDK .NET do SQL Server versão 1.9.0 e acima consultas paralelas de suporte, o que lhe permite consultar uma coleção particionada em paralelo (consulte [trabalhar com os SDKs](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) o relacionados e [exemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) para obter mais informações). Consultas paralelas são concebidas para melhorar a latência de consulta e débito ao longo do respetivo homólogo série. Consultas paralelas fornecem dois parâmetros que os utilizadores podem otimizar para personalizada ajuste os respetivos requisitos, (a) MaxDegreeOfParallelism: para controlar o número máximo de partições, em seguida, pode ser consultado em paralelo e (b) MaxBufferedItemCount: para controlar o número de resultados de pré-obtidos.
 
     (a) ***otimização MaxDegreeOfParallelism\:***  paralela consulta funciona consultando várias partições em paralelo. No entanto, os dados a partir de uma recolha particionada individuais são obtidos serialmente no que respeita à consulta. Assim, definir o MaxDegreeOfParallelism para o número de partições é a probabilidade de máxima de alcançar a maioria dos consulta performant, fornecido todas as outras condições de sistema permanecerem o mesmo. Se não souber o número de partições, pode definir o MaxDegreeOfParallelism para um número elevado e o sistema escolhe o mínimo (número de partições, entrada fornecido pelo utilizador) como o MaxDegreeOfParallelism.
 
@@ -113,7 +113,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
     Pode ajudar a reduzir a frequência de recolha de lixo em alguns casos. No .NET, defina [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) como true.
 6. **Implementar o término intervalos RetryAfter**
 
-    Durante os testes de desempenho, deve aumentar a carga até uma pequena taxa de pedidos de obter limitadas. Se limitadas, a aplicação cliente deve término no limitação para o intervalo entre tentativas de servidor especificado. Respecting o término garante que passam a quantidade mínima de espera de tempo entre tentativas. Suporte de política de repetição está incluído na versão 1.8.0 e acima do SQL [.NET](documentdb-sdk-dotnet.md) e [Java](documentdb-sdk-java.md), versão 1.9.0 e acima do [Node.js](documentdb-sdk-node.md) e [Python](documentdb-sdk-python.md), e todas as versões do [.NET Core](documentdb-sdk-dotnet-core.md) SDKs. Para obter mais informações, consulte [Exceeding reservado limites de débito](request-units.md#RequestRateTooLarge) e [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Durante os testes de desempenho, deve aumentar a carga até uma pequena taxa de pedidos de obter limitadas. Se limitadas, a aplicação cliente deve término no limitação para o intervalo entre tentativas de servidor especificado. Respecting o término garante que passam a quantidade mínima de espera de tempo entre tentativas. Suporte de política de repetição está incluído na versão 1.8.0 e acima do SQL [.NET](sql-api-sdk-dotnet.md) e [Java](sql-api-sdk-java.md), versão 1.9.0 e acima do [Node.js](sql-api-sdk-node.md) e [Python](sql-api-sdk-python.md), e todas as versões do [.NET Core](sql-api-sdk-dotnet-core.md) SDKs. Para obter mais informações, consulte [Exceeding reservado limites de débito](request-units.md#RequestRateTooLarge) e [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **Aumentar horizontalmente a cliente carga de trabalho**
 
     Se estiver a testar em níveis de débito elevado (> 50.000 RU/s), a aplicação cliente pode tornar-se a engarrafamento devido a máquina capping limite na utilização de CPU ou à rede. Se atingir este ponto, pode continuar a emitir a conta de base de dados do Cosmos ainda mais ao aumentar horizontalmente as aplicações de cliente por vários servidores.
