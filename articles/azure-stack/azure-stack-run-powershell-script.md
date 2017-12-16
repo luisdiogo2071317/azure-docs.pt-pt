@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7c320c6ba51ae0800407aab7aee92c42b2b441a7
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Implementar o Kit de desenvolvimento de pilha do Azure
 
@@ -104,7 +104,7 @@ Depois de preparar o computador de anfitrião ASDK, o ASDK pode ser implementado
 1. Depois do computador anfitrião arranca com êxito na imagem do CloudBuilder.vhdx, inicie sessão com as credenciais de administrador especificadas nos passos anteriores. 
 2. Abra uma consola elevada do PowerShell e execute o **\AzureStack_Installer\asdk-installer.ps1** script (o que pode agora ser numa unidade diferente na imagem CloudBuilder.vhdx). Clique em **Instalar**.
 3. No **tipo** caixa pendente, selecione **nuvem do Azure** ou **do AD FS**.
-    - **Nuvem do Azure**: configura o Azure Active Directory (Azure AD) como o fornecedor de identidade. Para utilizar esta opção, terá uma ligação à internet, o nome completo de um Azure AD inquilino de diretório no formato *domainname*. c o m bem como credenciais de administrador global para o diretório especificado. 
+    - **Nuvem do Azure**: configura o Azure Active Directory (Azure AD) como o fornecedor de identidade. Para utilizar esta opção, terá uma ligação à internet, o nome completo de um Azure AD inquilino de diretório no formato *domainname*. onmicrosoft.com ou um Azure AD verificar as credenciais de administrador global e nome de domínio personalizado para o diretório especificado. 
     - **AD FS**: O carimbo de predefinição será utilizado o serviço de diretório como o fornecedor de identidade. A conta predefinida para iniciar sessão com é azurestackadmin@azurestack.local, e a palavra-passe é fornecido como parte da configuração.
 4. Em **palavra-passe de administrador Local**, além de **palavra-passe** caixa, escreva a palavra-passe de administrador local (que tem de coincidir com a palavra-passe de administrador local configurado atual) e, em seguida, clique em **Seguinte**.
 5. Selecione um adaptador de rede a utilizar para o kit de desenvolvimento e, em seguida, clique em **seguinte**.
@@ -206,7 +206,7 @@ Se a sua identidade do Azure AD está associada **maior do que um** diretório d
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" #Example: user@AADDirName.onmicrosoft.com 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 52.168.138.145 #Example time server IP address.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 Se o ambiente **não** ter DHCP activado, em seguida, tem de incluir os seguintes parâmetros adicionais para uma das opções acima (utilização de exemplo fornecidos): 
@@ -219,7 +219,7 @@ Se o ambiente **não** ter DHCP activado, em seguida, tem de incluir os seguinte
 |Parâmetro|Necessários/opcionais|Descrição|
 |-----|-----|-----|
 |AdminPassword|Necessário|Define a conta de administrador local e todas as outras contas de utilizador de todas as máquinas virtuais criadas como parte da implementação do kit de desenvolvimento. Esta palavra-passe têm de corresponder a atual palavra-passe de administrador local no anfitrião.|
-|InfraAzureDirectoryTenantName|Necessário|Define o diretório do inquilino. Utilize este parâmetro para especificar um diretório específico em que a conta do AAD tem permissões para gerir vários diretórios. Total de nome de um inquilino de diretório do AAD no formato. c o m.|
+|InfraAzureDirectoryTenantName|Necessário|Define o diretório do inquilino. Utilize este parâmetro para especificar um diretório específico em que a conta do AAD tem permissões para gerir vários diretórios. Total de nome de um inquilino de diretório do AAD no formato. onmicrosoft.com ou um Azure AD verificar o nome de domínio personalizado.|
 |TimeServer|Necessário|Utilize este parâmetro para especificar um servidor de tempo específico. Este parâmetro tem de ser fornecido como um endereço IP do servidor de hora válido. Os nomes dos servidores não são suportadas.|
 |InfraAzureDirectoryTenantAdminCredential|Opcional|Define o nome de utilizador do Azure Active Directory e a palavra-passe. Estas credenciais do Azure tem de ser um ID da organização.|
 |InfraAzureEnvironment|Opcional|Selecione o ambiente do Azure com o qual pretende registar esta implementação de pilha do Azure. As opções incluem público Azure, Azure do Azure - China, - US Government.|
