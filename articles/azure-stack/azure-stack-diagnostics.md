@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico de pilha do Azure
 
@@ -29,11 +29,11 @@ A nossa ferramentas de diagnóstico garantir que o mecanismo de coleção de reg
  
 ## <a name="trace-collector"></a>Recoletor de rastreio
  
-O Recoletor do rastreio está ativado por predefinição e é executada continuamente em segundo plano para recolher todos os registos de rastreio de eventos para o Windows (ETW) de serviços de componentes de pilha do Azure. Os registos de ETW são armazenados numa partilha local comuns com um limite de antiguidade de cinco dias. Assim que este limite for atingido, os ficheiros mais antigos são eliminados como são criados novos. O predefinição o tamanho máximo permitido para cada ficheiro é 200MB. Uma verificação de tamanho ocorre periodicamente (a cada dois minutos) e se o ficheiro atual é > = 200 MB, é guardado e é gerado um novo ficheiro. Há também um limite de 8GB no tamanho total do ficheiro gerado por sessão do evento. 
+O Recoletor do rastreio está ativado por predefinição e é executada continuamente em segundo plano para recolher todos os registos de rastreio de eventos para o Windows (ETW) de serviços de componentes de pilha do Azure. Os registos de ETW são armazenados numa partilha local comuns com um limite de antiguidade de cinco dias. Assim que este limite for atingido, os ficheiros mais antigos são eliminados como são criados novos. O predefinição o tamanho máximo permitido para cada ficheiro é 200 MB. Uma verificação de tamanho ocorre a cada 2 minutos, e se o ficheiro atual é > = 200 MB, é guardado e é gerado um novo ficheiro. Há também um limite de 8 GB no tamanho total do ficheiro gerado por sessão do evento. 
 
 ## <a name="log-collection-tool"></a>Ferramenta de registo de coleção
  
-O cmdlet do PowerShell **Get-AzureStackLog** pode ser utilizado para recolher registos de todos os componentes de um ambiente de pilha do Azure. Guarda-las nos ficheiros zip numa localização definida pelo utilizador. Se a nossa equipa de suporte técnico tem os seus registos para ajudar a resolver um problema, estes poderão pedir-lhe para executar esta ferramenta.
+O cmdlet do PowerShell **Get-AzureStackLog** pode ser utilizado para recolher registos de todos os componentes de um ambiente de pilha do Azure. Guarda-las nos ficheiros zip numa localização definida pelo utilizador. Se a equipa de suporte técnico de pilha do Azure tem dos registos para ajudar a resolver um problema, estes poderão pedir-lhe para executar esta ferramenta.
 
 > [!CAUTION]
 > Estes ficheiros de registo podem conter informações de identificação pessoal (PII). Ter isto em consideração antes de a publica publicamente quaisquer ficheiros de registo.
@@ -136,11 +136,11 @@ if($s)
 
 
 ### <a name="collect-logs-using-a-graphical-user-interface"></a>Recolher registos utilizando uma interface gráfica do utilizador
-Em vez de fornecer os parâmetros necessários para o cmdlet Get-AzureStackLog obter registos de pilha do Azure, também pode tirar partido das ferramentas de pilha do Azure disponíveis open source para localizado no principal do Azure pilha ferramentas repositório do GitHub em http://aka.ms/AzureStackTools.
+Em vez de fornecer os parâmetros necessários para o cmdlet Get-AzureStackLog obter registos de pilha do Azure, também pode tirar partido das ferramentas de pilha do Azure disponíveis open source para localizado no principal do Azure pilha ferramentas ferramentas repositório do GitHub em http://aka.ms/AzureStackTools.
 
-O **ERCS_AzureStackLogs.ps1** é armazenado no repositório GitHub ferramentas de script do PowerShell e é atualizado regularmente. O script iniciada a partir de uma sessão do PowerShell administrativa, liga ao ponto final com privilégios e executa o Get-AzureStackLog com parâmetros fornecidos. Se não existem parâmetros são fornecidos, o script será predefinido para pedir para os parâmetros através de uma interface gráfica do utilizador.
+O **ERCS_AzureStackLogs.ps1** é armazenado no repositório GitHub ferramentas de script do PowerShell e é atualizado regularmente. Para se certificar de que tem a versão mais recente disponível, deve transferi-lo diretamente a partir do http://aka.ms/ERCS. O script iniciada a partir de uma sessão do PowerShell administrativa, liga ao ponto final com privilégios e executa o Get-AzureStackLog com parâmetros fornecidos. Se não existem parâmetros são fornecidos, o script será assumida a pedir para os parâmetros através de uma interface gráfica do utilizador.
 
-Para saber mais sobre o PowerShell ERCS_AzureStackLogs.ps1 script pode ver [um breve vídeo](https://www.youtube.com/watch?v=Utt7pLsXEBc) ou ver o script [ficheiro Leia-me](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) localizado no repositório do GitHub de ferramentas de pilha do Azure. 
+Para saber mais sobre o script do ERCS_AzureStackLogs.ps1 PowerShell, pode ver [um breve vídeo](https://www.youtube.com/watch?v=Utt7pLsXEBc) ou ver o script [ficheiro Leia-me](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) localizado no repositório do GitHub de ferramentas de pilha do Azure. 
 
 ### <a name="additional-considerations"></a>Considerações adicionais
 

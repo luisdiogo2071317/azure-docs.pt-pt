@@ -1,7 +1,7 @@
-| Recurso | Destino | Limite de disco rígido |
+| Recurso | Alvo | Limite de disco rígido |
 |----------|--------------|------------|
 | Serviços de sincronização de armazenamento por subscrição | 15 Serviços de sincronização de armazenamento | Não |
-| Grupos de sincronização por serviço de sincronização de armazenamento | 20 grupos de sincronização | Não |
+| Grupos de sincronização por serviço de sincronização de armazenamento | 30 grupos de sincronização | Sim |
 | Pontos finais de nuvem por grupo de sincronização | ponto final 1 em nuvem | Sim |
 | Servidor pontos finais por grupo de sincronização | 50 pontos finais de servidor | Não |
 | Servidor pontos finais por servidor | pontos finais do servidor de 33 e 99 | Sim, mas varia com base na configuração |

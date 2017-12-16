@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Pontos de verificação e repetição nas funções durável (funções do Azure)
 
@@ -63,10 +63,10 @@ Assim que o ponto de verificação estiver concluído, a função do orchestrato
 
 Após a conclusão, o histórico da função apresentada anteriormente procura algo semelhante ao seguinte no armazenamento de tabelas do Azure (abreviado para fins de ilustração):
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | Nome             | resultado                                                    | Estado | 
+| PartitionKey (InstanceId)                     | EventType             | Carimbo de data/hora               | Input | Nome             | Resultado                                                    | Estado | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Valor nulo  | E1_HelloSequence |                                                           |                     | 
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | nulo  | E1_HelloSequence |                                                           |                     | 
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     | 
@@ -79,7 +79,7 @@ Após a conclusão, o histórico da função apresentada anteriormente procura a
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     | 
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | "" "Olá Londres!" ""                                       |                     | 
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Olá, Tóquio!" ",""Olá Coimbra!" ",""Olá Londres!" "]" | Foi concluída           | 
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Olá, Tóquio!" ",""Olá Coimbra!" ",""Olá Londres!" "]" | Concluído           | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     | 
 
 Algumas notas sobre os valores da coluna:
@@ -90,7 +90,7 @@ Algumas notas sobre os valores da coluna:
     * **TaskScheduled**: foi agendada uma função de atividade. O nome da função de atividade é capturado no `Name` coluna.
     * **TaskCompleted**: uma função de atividade foi concluída. O resultado da função está no `Result` coluna.
     * **TimerCreated**: foi criado um temporizador durável. O `FireAt` coluna contém a hora UTC agendada no qual o temporizador de expira.
-    * **TimerFired**: expirou um temporizador durável.
+    * **TimerFired**: desencadeado um temporizador durável.
     * **Evento gerado**: foi enviado um evento externo para a instância de orquestração. O `Name` coluna captura o nome do evento e o `Input` coluna captura o payload do evento.
     * **OrchestratorCompleted**: A função do orchestrator aguardada.
     * **ContinueAsNew**: A função do orchestrator foi concluída e reiniciado próprio com estado novo. O `Result` coluna contém o valor, que é utilizado como entrada na instância reiniciada.
@@ -98,7 +98,7 @@ Algumas notas sobre os valores da coluna:
 * **Timestamp**: timestamp o UTC do evento de histórico.
 * **Nome**: O nome da função que foi invocado.
 * **Entrada**: formatada em JSON a entrada da função.
-* **Saída**: O resultado da função, ou seja, o valor de retorno.
+* **Resultado**: O resultado da função, ou seja, o valor de retorno.
 
 > [!WARNING]
 > Embora seja útil como uma ferramenta de depuração, não efetuar qualquer dependência nesta tabela. -Pode alterar como a extensão de funções durável medida que evolui.

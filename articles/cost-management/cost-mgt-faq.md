@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2017
+ms.date: 12/14/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Perguntas mais frequentes sobre gestão de custo do Azure
 
@@ -46,6 +46,29 @@ Pode gerar a chave de API de contrato Enterprise do Azure para configurar Cloudy
 
 Também poderá ter de conceder os administradores de departamento, proprietários de conta e permissões de administradores da empresa para _ver encargos_ com a API de faturação.
 
+## <a name="why-dont-i-see-optimizer-recommendations"></a>Por que motivo não vejo recomendações otimizador?
+
+Informações de recomendação só estão disponíveis para contas que são ativadas. Não irá ver quaisquer informações de recomendação no **otimizador** reportar categorias para as contas que são *não ativados tentarem*, incluindo:
+
+- Gestor de otimização
+- Otimização de dimensionamento
+- Inefficiencies
+
+Se não é possível ver quaisquer dados de recomendação otimizador, em seguida, provavelmente, terá as contas que são não ativados tentarem. Para ativar uma conta, tem de registá-lo com as suas credenciais do Azure.
+
+Para ativar uma conta:
+
+1.  No portal do Cloudyn, clique em **definições** no canto superior direito e selecione **contas na nuvem**.
+2.  No separador de contas do Microsoft Azure, procure a contas que têm um **não ativados tentarem** subscrição.
+3.  À direita de uma conta não ativados tentarem, clique em de **editar** símbolo que se assemelha um lápis.
+4.  O inquilino ID e o ID de taxa é detetado automaticamente. Clique em **Seguinte**.
+5.  Está a redirecionado para o portal do Azure. Inicie sessão portal e autorizar o Recoletor de Cloudyn para aceder aos seus dados do Azure.
+6.  Em seguida, está a ser redirecionado para a página de gestão de contas Cloudyn e a sua subscrição está atualizada com **Active Directory** estado da conta. Mostra um símbolo de marca de verificação verde.
+7.  Se não vir um símbolo de marca de verificação verde para uma ou mais subscrições, significa que não têm permissões para criar uma aplicação de leitor (o CloudynCollector) para a subscrição. Um utilizador com permissões superiores para a subscrição tem de repetir os passos 3 e 4.  
+
+Depois de concluir os passos anteriores, pode ver recomendações de otimizador dentro de um ou dois dias. No entanto, pode demorar até cinco dias antes dos dados de otimização completa estão disponíveis.
+
+
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Como ativar a suspensos ou Escalamento bloqueado utilizadores?
 
 Se receber um alerta com um pedido para permitir o acesso de um utilizador, terá de ativar a conta de utilizador.
@@ -66,10 +89,7 @@ Se alterar o seu endereço de correio electrónico no Cloudyn do endereço prede
 
 Recomendamos que crie, pelo menos, duas contas de administrador de Cloudyn no caso de uma das contas obtém bloqueada.
 
-Se não é possível iniciar sessão no portal de Cloudyn, certifique-se de que está a utilizar o URL de gestão de custo correto do Azure para iniciar sessão no Cloudyn. Utilize um dos seguintes URLs:
-
-- https://Azure.cloudyn.com
-- https://MS.Portal.Azure.com/#Blade/Microsoft_Azure_CostManagement/CloudynMainBlade
+Se não é possível iniciar sessão no portal de Cloudyn, certifique-se de que está a utilizar o URL de gestão de custo correto do Azure para iniciar sessão no Cloudyn. Utilize [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Evite utilizar o https://app.cloudyn.com URL direta Cloudyn.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 03580952800e595125fc48d169f7d4aa7846dd3f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Melhores práticas de desempenho do SQL Server nas Máquinas Virtuais do Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/15/2017
 
 Este tópico fornece as melhores práticas para otimizar o desempenho de SQL Server na máquina de Virtual do Microsoft Azure. Ao executar o SQL Server em Azure Virtual Machines, recomendamos que continue a utilizar o mesmo desempenho de base de dados de otimização de opções que são aplicáveis ao SQL Server no ambiente de servidor no local. No entanto, o desempenho da base de dados relacional numa nuvem pública depende de vários fatores, tais como o tamanho de uma máquina virtual e a configuração dos discos de dados.
 
-Quando criar imagens do SQL Server, [considerar as suas VMs no portal do Azure de aprovisionamento](virtual-machines-windows-portal-sql-server-provision.md). VMs de SQL Server aprovisionado no Portal com o Resource Manager implementar todas estas melhores práticas, incluindo a configuração de armazenamento.
+Quando criar imagens do SQL Server, [considerar as suas VMs no portal do Azure de aprovisionamento](virtual-machines-windows-portal-sql-server-provision.md). VMs de SQL Server aprovisionado no Portal com o Resource Manager, siga as melhores práticas.
 
 Este artigo concentra-se em obter o *melhor* desempenho para o SQL Server em VMs do Azure. Se a carga de trabalho for inferior pedir o seu trabalho, não poderá necessitar de cada otimização listada abaixo. Considere as necessidades de desempenho e padrões de carga de trabalho como avaliar estas recomendações.
 
@@ -87,9 +87,12 @@ Para a série D, série Dv2 e VMs de série de G, unidade temporária nestas VMS
 
 Para VMs que suportam o Premium Storage (série DS, série dsv2 e GS série), recomendamos o armazenamento de TempDB num disco que suporte o Premium Storage com cache de leitura ativado. Há uma exceção para esta recomendação; Se a utilização de TempDB escrita intensivas, pode alcançar um desempenho superior armazenando TempDB local **D** unidade, o que também seja baseadas em SSD nestes tamanhos de máquina.
 
-### <a name="data-disks"></a>discos de dados
+### <a name="data-disks"></a>Discos dos dados
 
 * **Utilizar discos de dados de ficheiros de registo e dados**: no mínimo, utilize 2 Premium Storage [P30 discos](../premium-storage.md#scalability-and-performance-targets) em que um disco contém os ficheiros de registo e o outro contém os dados e ficheiros de TempDB. Cada disco de armazenamento Premium fornece um número de IOPs e largura de banda (MB/s), dependendo do tamanho, conforme descrito no seguinte artigo: [utilizando o Premium Storage para discos](../premium-storage.md).
+
+   > [!NOTE]
+   > Quando aprovisiona uma VM do SQL Server no portal, tem a opção de editar a configuração de armazenamento. Consoante a configuração, o Azure configura um ou mais discos. Vários discos são combinados num agrupamento de armazenamento única com striping. Ambos os ficheiros de dados e de registo de residir em conjunto nesta configuração, em vez de dois discos separados. Para obter mais informações, consulte [configuração de armazenamento para VMs de SQL Server](virtual-machines-windows-sql-server-storage-configuration.md).
 
 * **Disco Striping**: para obter mais débito, pode adicionar discos de dados adicionais e utilizar Striping de disco. Para determinar o número de discos de dados, tem de analisar o número de IOPS e largura de banda necessária para os ficheiros de registo de e para os seus dados e ficheiros de TempDB. Tenha em atenção que os tamanhos VM diferentes têm limites diferentes no número de IOPs e largura de banda suportadas, consulte as tabelas no IOPS por [tamanho da VM](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Utilize as seguintes diretrizes:
 

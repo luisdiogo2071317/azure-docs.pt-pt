@@ -4,7 +4,7 @@ description: "Crie armazenamento, uma VM com Linux, uma rede virtual e sub-rede,
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/06/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: e5c4785428b2150e951923e98079e00808a82d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd470144dc0fcbbfab662125b57d414c6ee1ccdd
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual do Linux completa com a CLI do Azure
 Para criar rapidamente uma máquina virtual (VM) no Azure, pode utilizar um único comando da CLI do Azure que utiliza os valores predefinidos para criar os recursos de suporte necessários. Recursos como uma rede virtual, o endereço IP público e regras de grupo de segurança de rede são criados automaticamente. Para obter mais controlo do ambiente de produção utilizar, pode criar estes recursos antecedência e, em seguida, adicionar as suas VMs aos mesmos. Este artigo orienta-o como criar uma VM e cada um dos recursos de suporte um por um.
@@ -61,7 +61,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-O resultado mostra que a sub-rede criada como logicamente dentro da rede virtual:
+O resultado mostra que a sub-rede logicamente é criada dentro da rede virtual:
 
 ```json
 {
@@ -102,7 +102,7 @@ O resultado mostra que a sub-rede criada como logicamente dentro da rede virtual
 
 
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
-Agora vamos criar um endereço IP público com [az público-ip da rede criar](/cli/azure/network/public-ip#create). Este endereço IP público permite-lhe ligar-se para as suas VMs a partir da Internet. Porque o endereço predefinido é dinâmico, também iremos criar uma entrada com o nome de DNS com o `--domain-name-label` opção. O exemplo seguinte cria um IP público com o nome *myPublicIP* com o nome DNS *mypublicdns*. Porque o nome DNS tem de ser exclusivo, forneça o seu próprio nome DNS exclusivo:
+Agora vamos criar um endereço IP público com [az público-ip da rede criar](/cli/azure/network/public-ip#create). Este endereço IP público permite-lhe ligar-se para as suas VMs a partir da Internet. Porque o endereço predefinido é dinâmico, crie uma entrada com o nome de DNS com o `--domain-name-label` parâmetro. O exemplo seguinte cria um IP público com o nome *myPublicIP* com o nome DNS *mypublicdns*. Porque o nome DNS tem de ser exclusivo, forneça o seu próprio nome DNS exclusivo:
 
 ```azurecli
 az network public-ip create \
@@ -141,7 +141,7 @@ Saída:
 
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
-Para controlar o fluxo de tráfego que entra e sai as suas VMs, crie um grupo de segurança de rede. Um grupo de segurança de rede pode ser aplicado a um NIC ou sub-rede. O exemplo seguinte utiliza [az rede nsg criar](/cli/azure/network/nsg#create) criar um grupo de segurança de rede com o nome *myNetworkSecurityGroup*:
+Para controlar o fluxo de tráfego que entra e sai as suas VMs, aplicar um grupo de segurança de rede a um NIC ou uma sub-rede virtual. O exemplo seguinte utiliza [az rede nsg criar](/cli/azure/network/nsg#create) criar um grupo de segurança de rede com o nome *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Pode definir regras que permitem ou negam o tráfego específico. Para permitir ligações de entrada na porta 22 (para suportar SSH), crie uma regra de entrada para o grupo de segurança de rede com [criar regras de nsg de rede az](/cli/azure/network/nsg/rule#create). O exemplo seguinte cria uma regra com o nome *myNetworkSecurityGroupRuleSSH*:
+Pode definir regras que permitem ou negam o tráfego específico. Para permitir ligações de entrada na porta 22 (para ativar o acesso SSH), crie uma regra de entrada com [criar regras de nsg de rede az](/cli/azure/network/nsg/rule#create). O exemplo seguinte cria uma regra com o nome *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -162,7 +162,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Para permitir ligações de entrada na porta 80 (para suportar o tráfego da web), adicione outra regra de grupo de segurança de rede. O exemplo seguinte cria uma regra com o nome *myNetworkSecurityGroupRuleHTTP*:
+Para permitir ligações de entrada na porta 80 (para o tráfego da web), adicione outra regra de grupo de segurança de rede. O exemplo seguinte cria uma regra com o nome *myNetworkSecurityGroupRuleHTTP*:
 
 ```azurecli
 az network nsg rule create \
@@ -332,7 +332,7 @@ Saída:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Criar uma NIC virtual
-Placas de interface de rede virtual (NICs) estão disponíveis através de programação porque pode aplicar regras a sua utilização. Também pode ter mais do que um. A seguir [nic da rede az criar](/cli/azure/network/nic#create) comando, crie um NIC com o nome *myNic* e associá-lo com o grupo de segurança de rede. O endereço IP público *myPublicIP* está também associado a NIC virtual.
+Placas de interface de rede virtual (NICs) estão disponíveis através de programação porque pode aplicar regras a sua utilização. Consoante o [tamanho da VM](sizes.md), pode anexar vários NICs virtuais a uma VM. A seguir [nic da rede az criar](/cli/azure/network/nic#create) comando, crie um NIC com o nome *myNic* e associá-lo com o grupo de segurança de rede. O endereço IP público *myPublicIP* está também associado a NIC virtual.
 
 ```azurecli
 az network nic create \
@@ -476,12 +476,12 @@ As notas de saída domínios de falha e domínios de atualização:
 ```
 
 
-## <a name="create-the-linux-vms"></a>Criar as VMs do Linux
-Criou os recursos de rede para suportar VMs acessível através da Internet. Agora, crie uma VM e proteja-a com uma chave SSH. Neste caso, vamos criar um VM com base no LTS mais recente do Ubuntu. Pode encontrar imagens adicionais com [lista de imagens de vm az](/cli/azure/vm/image#list), conforme descrito nas [localizar as imagens de VM do Azure](cli-ps-findimage.md).
+## <a name="create-a-vm"></a>Criar uma VM
+Criou os recursos de rede para suportar VMs acessível através da Internet. Agora, crie uma VM e proteja-a com uma chave SSH. Neste exemplo, vamos criar um VM com base no LTS mais recente do Ubuntu. Pode encontrar imagens adicionais com [lista de imagens de vm az](/cli/azure/vm/image#list), conforme descrito nas [localizar as imagens de VM do Azure](cli-ps-findimage.md).
 
-Podemos também especificar uma chave SSH a utilizar para autenticação. Se não tiver um par de chaves públicas SSH, pode [criá-los](mac-create-ssh-keys.md) ou utilize o `--generate-ssh-keys` parâmetro para criá-los por si. Se tiver já um par de chaves, este parâmetro utiliza chaves existentes no `~/.ssh`.
+Especifique uma chave SSH a utilizar para autenticação. Se não tiver um par de chaves públicas SSH, pode [criá-los](mac-create-ssh-keys.md) ou utilize o `--generate-ssh-keys` parâmetro para criá-los por si. Se já tiver um par de chaves, este parâmetro utiliza chaves existentes no `~/.ssh`.
 
-Criar a VM ao colocar todos os nossos recursos e informações em conjunto com o [az vm criar](/cli/azure/vm#create) comando. O exemplo seguinte cria uma VM chamada *myVM*:
+Criar a VM ao colocar todos os recursos e informações em conjunto com o [az vm criar](/cli/azure/vm#create) comando. O exemplo seguinte cria uma VM chamada *myVM*:
 
 ```azurecli
 az vm create \
@@ -521,7 +521,7 @@ The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' 
 ECDSA key fingerprint is SHA256:SylINP80Um6XRTvWiFaNz+H+1jcrKB1IiNgCDDJRj6A.
 Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added 'mypublicdns.eastus.cloudapp.azure.com,13.90.94.252' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic x86_64)
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com

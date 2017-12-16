@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 4695a9c934f97f2b2d448c4990e7ad5533e38e9f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 459e0d591e2279b63864a273f713e4c1df8c0858
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Mover uma VM com Linux para outro subscrição ou grupo de recursos
 Este artigo explica como mover uma VM com Linux entre grupos de recursos ou subscrições. Mover uma VM entre subscrições pode ser útil se tiver criado uma VM numa subscrição pessoal e agora pretende movê-la para a subscrição da sua empresa.
@@ -32,27 +32,41 @@ Este artigo explica como mover uma VM com Linux entre grupos de recursos ou subs
 > 
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Utilizar a CLI do Azure para mover uma VM
-Para mover com êxito uma VM, tem de mover a VM e todos os respetivos recursos de suporte. Utilize o **mostrar de grupo do azure** comando para listar todos os recursos no grupo de recursos e os respetivos IDs. Ajuda a encaminhar a saída deste comando para um ficheiro para que possa copiar e colar os IDs para comandos posteriores.
 
-    azure group show <resourceGroupName>
 
-Para mover uma VM e os respetivos recursos para outro grupo de recursos, utilize o **mover recursos do azure** comando da CLI. O exemplo seguinte mostra como mover uma VM e os recursos mais comuns requer. Utilizamos o **-i** parâmetro e passar numa lista separada por vírgulas (sem espaços) de IDs de para os recursos a mover.
+Antes de pode mover VM utilizando a CLI, tem de certificar-se de que as subscrições de origem e de destino existem no mesmo inquilino. Para verificar que ambas as subscrições têm o mesmo ID de inquilino, utilize [mostrar de conta az](/cli/azure/account#az_account_show).
 
-    vm=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Compute/virtualMachines/<vmName>
-    nic=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkInterfaces/<nicName>
-    nsg=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkSecurityGroups/<nsgName>
-    pip=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/publicIPAddresses/<publicIPName>
-    vnet=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/virtualNetworks/<vnetName>
-    diag=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<diagnosticStorageAccountName>
-    storage=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<storageAcountName>      
+```azurecli-interactive
+az account show --subscription mySourceSubscription --query tenantId
+az account show --subscription myDestinationSubscription --query tenantId
+```
+Se o inquilino IDs para as subscrições de origem e de destino não forem iguais, tem de contactar o [suporta](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) para mover os recursos para um novo inquilino.
 
-    azure resource move --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag -d "<destinationResourceGroup>"
+Para mover com êxito uma VM, tem de mover a VM e todos os respetivos recursos de suporte. Utilize o [lista de recursos de az](/cli/azure/resource#az_resource_list) comando para listar todos os recursos no grupo de recursos e os respetivos IDs. Ajuda a encaminhar a saída deste comando para um ficheiro para que possa copiar e colar os IDs para comandos posteriores.
 
-Se pretender mover VM e os respetivos recursos para uma subscrição diferente, adicione o **– subscriptionId destino &#60; destinationSubscriptionID &#62;** parâmetro para especificar a subscrição de destino.
+```azurecli-interactive
+az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
+```
 
-Se estiver a trabalhar na linha de comandos num computador Windows, terá de adicionar um  **$**  à frente os nomes de variáveis quando, declará-los. Isto não é necessário no Linux.
+Para mover uma VM e os respetivos recursos para outro grupo de recursos, utilize [movimentação de recurso az](/cli/azure/resource#az_resource_move). O exemplo seguinte mostra como mover uma VM e os recursos mais comuns requer. Utilize o **-ids** parâmetro e passar numa lista separada por vírgulas (sem espaços) de IDs de para os recursos a mover.
 
-É-lhe pedido para confirmar que pretende mover o recurso especificado. Tipo **Y** para confirmar que pretende mover os recursos.
+```azurecli-interactive
+vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
+nic=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC
+nsg=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG
+pip=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIPAddress
+vnet=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet
+diag=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mydiagnosticstorageaccount
+storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageacountname    
+
+az resource move \
+    --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag \
+    --destination-group "myDestinationResourceGroup"
+```
+
+Se pretender mover VM e os respetivos recursos para uma subscrição diferente, adicione o **– subscriptionId destino** parâmetro para especificar a subscrição de destino.
+
+Se lhe for pedido que confirme que pretende mover o recurso especificado. Tipo **Y** para confirmar que pretende mover os recursos.
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ceac2897e7b584c90945f3f556afc12891bf8a25
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: cc3128d3d07210d5c8e3ebe70c6c1d8ebaa9b863
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copiar os dados e de Data Lake Store utilizando o Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,9 +86,9 @@ Para utilizar a autenticação principal de serviço, registe uma entidade de ap
 
 > [!IMPORTANT]
 > Certifique-se de que conceder as serviço principal permissões adequadas no Azure Data Lake Store:
->- Para utilizar o Data Lake Store como origem, conceder, pelo menos, **leitura + executar** permissão lista e copie o conteúdo de uma pasta de acesso de dados ou **leitura** permissão para copiar um ficheiro único. Sem requisito de controlo de conta de acesso de nível.
->- Para utilizar o Data Lake Store como sink, conceder, pelo menos, **escrever + executar** permissão para criar itens subordinados na pasta de acesso a dados. E se utilizar o Azure IR para capacitar cópia (origem e dependente são na nuvem), para permitir que o Data Factory detetar região do Data Lake Store, conceder, pelo menos, **leitor** função no controlo de acesso de conta (IAM). Se quiser evitar esta função IAM [especificar executionLocation](data-factory-data-movement-activities.md#global) com a localização do Data Lake Store na atividade de cópia.
->- Se utilizar o Assistente para copiar para criar pipelines de, pelo menos conceder **leitor** função no controlo de acesso de conta (IAM). Além disso, pelo menos a conceder **leitura + executar** permissão para a raiz do Data Lake Store ("/") e os respectivos valores secundários. Caso contrário, poderá ver a mensagem "as credenciais fornecidas são inválidas."
+>- **Para utilizar o Data Lake Store como origem**, conceder, pelo menos, **leitura + executar** permissão lista e copie o conteúdo de uma pasta de acesso de dados ou **leitura** permissão para copiar um ficheiro único. Sem requisito de controlo de conta de acesso de nível.
+>- **Para utilizar o Data Lake Store como sink**, conceder, pelo menos, **escrever + executar** permissão para criar itens subordinados na pasta de acesso a dados. E se utilizar o Azure IR para capacitar cópia (origem e dependente são na nuvem), para permitir que o Data Factory detetar região do Data Lake Store, conceder, pelo menos, **leitor** função no controlo de acesso de conta (IAM). Se quiser evitar esta função IAM [especificar executionLocation](data-factory-data-movement-activities.md#global) com a localização do Data Lake Store na atividade de cópia.
+>- Se lhe **utilizar o Assistente para copiar para criar pipelines**, conceder, pelo menos, **leitor** função no controlo de acesso de conta (IAM). Além disso, pelo menos a conceder **leitura + executar** permissão para a raiz do Data Lake Store ("/") e os respectivos valores secundários. Caso contrário, poderá ver a mensagem "as credenciais fornecidas são inválidas."
 
 Utilize a autenticação principal de serviço, especificando as seguintes propriedades:
 
@@ -126,9 +126,9 @@ Em alternativa, pode utilizar a autenticação de credenciais de utilizador para
 
 > [!IMPORTANT]
 > Certifique-se de que conceder as permissões adequadas do utilizador no Azure Data Lake Store:
->- Para utilizar o Data Lake Store como origem, conceder, pelo menos, **leitura + executar** permissão lista e copie o conteúdo de uma pasta de acesso de dados ou **leitura** permissão para copiar um ficheiro único. Sem requisito de controlo de conta de acesso de nível.
->- Para utilizar o Data Lake Store como sink, conceder, pelo menos, **escrever + executar** permissão para criar itens subordinados na pasta de acesso a dados. E se utilizar o Azure IR para capacitar cópia (origem e dependente são na nuvem), para permitir que o Data Factory detetar região do Data Lake Store, conceder, pelo menos, **leitor** função no controlo de acesso de conta (IAM). Se quiser evitar esta função IAM [especificar executionLocation](data-factory-data-movement-activities.md#global) com a localização do Data Lake Store na atividade de cópia.
->- Se utilizar o Assistente para copiar para criar pipelines de, pelo menos conceder **leitor** função no controlo de acesso de conta (IAM). Além disso, pelo menos a conceder **leitura + executar** permissão para a raiz do Data Lake Store ("/") e os respectivos valores secundários. Caso contrário, poderá ver a mensagem "as credenciais fornecidas são inválidas."
+>- **Para utilizar o Data Lake Store como origem**, conceder, pelo menos, **leitura + executar** permissão lista e copie o conteúdo de uma pasta de acesso de dados ou **leitura** permissão para copiar um ficheiro único. Sem requisito de controlo de conta de acesso de nível.
+>- **Para utilizar o Data Lake Store como sink**, conceder, pelo menos, **escrever + executar** permissão para criar itens subordinados na pasta de acesso a dados. E se utilizar o Azure IR para capacitar cópia (origem e dependente são na nuvem), para permitir que o Data Factory detetar região do Data Lake Store, conceder, pelo menos, **leitor** função no controlo de acesso de conta (IAM). Se quiser evitar esta função IAM [especificar executionLocation](data-factory-data-movement-activities.md#global) com a localização do Data Lake Store na atividade de cópia.
+>- Se lhe **utilizar o Assistente para copiar para criar pipelines**, conceder, pelo menos, **leitor** função no controlo de acesso de conta (IAM). Além disso, pelo menos a conceder **leitura + executar** permissão para a raiz do Data Lake Store ("/") e os respectivos valores secundários. Caso contrário, poderá ver a mensagem "as credenciais fornecidas são inválidas."
 
 **Exemplo: Autenticação de credenciais de utilizador**
 ```json
@@ -189,6 +189,49 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 Para obter detalhes sobre as classes de fábrica de dados utilizados no código, consulte o [AzureDataLakeStoreLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), e [ Classe de AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) tópicos. Adicionar uma referência à versão `2.9.10826.1824` de `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` para o `WindowsFormsWebAuthenticationDialog` classe utilizado no código.
+
+## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
+
+**Sintoma:** ao copiar dados **para** Azure Data Lake Store, se falhar a atividade de cópia com o seguinte erro:
+
+  ```
+  Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
+  ```
+
+**Causa raiz:** existem 2 motivos possíveis:
+
+1. O `resourceGroupName` e/ou `subscriptionId` especificado no Azure Data Lake Store ligado, o serviço está incorreto;
+2. O utilizador ou o principal de serviço não tem a permissão necessária.
+
+**Resolução:**
+
+1. Certifique-se de que o `subscriptionId` e `resourceGroupName` que especificar no serviço ligado `typeProperties` são, de facto, o que a conta do data lake pertence.
+
+2. Certifique-se de conceder, pelo menos, "**leitor**" função de utilizador ou principal de serviço na conta do data lake. Eis como para torná-lo:
+
+    1. Aceda ao Portal do Azure -> a sua conta do Data Lake Store
+    2. Clique em "acesso controlo (IAM)" no painel do Data Lake Store
+    3. Clique em "Adicionar" no painel de "acesso controlo (IAM)"
+    4. Definir a "Função" como "Leitor" e selecione o utilizador ou o principal de serviço a que utilizar para a cópia para conceder acesso
+
+3. Se não quiser conceder a função "Leitor" para o utilizador ou principal de serviço, alernative é [explicitamente especificar uma localização de execução](data-factory-data-movement-activities.md#global) na cópia activitywith a localização do Data Lake Store. Exemplo:
+
+    ```json
+    {
+      "name": "CopyToADLS",
+      "type": "Copy",
+      ......
+      "typeProperties": {
+        "source": {
+          "type": "<source type>"
+        },
+        "sink": {
+          "type": "AzureDataLakeStoreSink"
+        },
+        "exeuctionLocation": "West US"
+      }
+    }
+    ```
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para especificar um conjunto de dados para representar os dados de entrada num arquivo Data Lake, definir o **tipo** propriedade do conjunto de dados para **AzureDataLakeStore**. Definir o **linkedServiceName** serviço ligado de propriedade do conjunto de dados com o nome do Data Lake Store. Para obter uma lista completa de secções JSON e propriedades disponíveis para definir os conjuntos de dados, consulte o [criar conjuntos de dados](data-factory-create-datasets.md) artigo. Secções de um conjunto de dados em JSON, tais como **estrutura**, **disponibilidade**, e **política**, são semelhantes para todos os tipos de conjunto de dados (SQL database do Azure, BLOBs do Azure e a tabela do Azure, para exemplo). O **typeProperties** secção é diferente para cada tipo de conjunto de dados e fornece informações como a localização e o formato dos dados no arquivo de dados. 

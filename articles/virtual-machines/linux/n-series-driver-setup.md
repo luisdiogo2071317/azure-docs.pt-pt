@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59790185c4603eac99032dd77a79bd8315402538
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 11415f416bf101e7f30a9d85b8e344ab40200760
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar controladores de NVIDIA GPU em VMs de série N executar Linux
 
@@ -32,6 +32,150 @@ Para a série N VM especificações, as capacidades de armazenamento e detalhes 
 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+
+## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>Instalar controladores CUDA de NC, NCv2 e ND VMs
+
+Seguem-se passos para instalar controladores NVIDIA em VMs de NC Linux do Toolkit de CUDA NVIDIA. 
+
+Os programadores C e C++, opcionalmente, podem instalar o Toolkit de completo para criar aplicações acelerados de GPU. Para obter mais informações, consulte o [guia de instalação CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+
+
+> [!NOTE]
+> Ligações de transferência do controlador CUDA fornecido aqui estão atualizadas no momento da publicação. Para os controladores mais recentes do CUDA, visite o [NVIDIA](https://developer.nvidia.com/cuda-zone) Web site.
+>
+
+Para instalar o Toolkit de CUDA, efetue uma ligação SSH cada VM. Para verificar que o sistema tem uma GPU compatível com CUDA, execute o seguinte comando:
+
+```bash
+lspci | grep -i NVIDIA
+```
+Irá ver o resultado semelhante ao seguinte exemplo (com um cartão NVIDIA Tesla K80):
+
+![saída do comando lspci](./media/n-series-driver-setup/lspci.png)
+
+Em seguida, específico para a distribuição de comandos de instalação de execução.
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+
+1. Transfira e instale os controladores CUDA.
+  ```bash
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+
+  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+
+  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-get update
+
+  sudo apt-get install cuda-drivers
+
+  ```
+
+  A instalação pode demorar alguns minutos.
+
+2. A opção de instalar o toolkit CUDA completado, escreva:
+
+  ```bash
+  sudo apt-get install cuda
+  ```
+
+3. Reiniciar a VM e continue para verificar a instalação.
+
+#### <a name="cuda-driver-updates"></a>Atualizações de controladores CUDA
+
+Recomendamos que atualize periodicamente controladores CUDA após a implementação.
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+
+sudo reboot
+```
+
+### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Com base em centOS 7.3 ou Red Hat Enterprise Linux 7.3
+
+1. Instale os serviços de integração mais recentes do Linux para Hyper-V.
+
+  > [!IMPORTANT]
+  > Se tiver instalado uma imagem com base em CentOS HPC numa NC24r VM, avance para o passo 3. Como controladores de RDMA do Azure e os serviços de integração Linux são pré-instaladas na imagem HPC, os LIS não deve ser atualizados e atualizações de kernel estão desativadas por predefinição.
+  >
+
+  ```bash
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+ 
+  tar xvzf lis-rpms-4.2.3-2.tar.gz
+ 
+  cd LISISO
+ 
+  sudo ./install.sh
+ 
+  sudo reboot
+  ```
+ 
+3. Restabeleça a ligação para a VM e continuar a instalação com os seguintes comandos:
+
+  ```bash
+  sudo yum install kernel-devel
+
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+  sudo yum install dkms
+
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.1.85-1.x86_64.rpm
+
+  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+
+  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo yum install cuda-drivers
+  ```
+
+  A instalação pode demorar alguns minutos. 
+
+4. A opção de instalar o toolkit CUDA completado, escreva:
+
+  ```bash
+  sudo yum install cuda
+  ```
+
+5. Reiniciar a VM e continue para verificar a instalação.
+
+
+### <a name="verify-driver-installation"></a>Certifique-se a instalação de controlador
+
+
+Para consultar o estado do dispositivo para a GPU, SSH para a VM e execute o [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o controlador o utilitário da linha de comandos. 
+
+Se o controlador estiver instalado, verá um resultado semelhante ao seguinte. Tenha em atenção que **GPU Util** mostra 0%, a menos que estiver a executar uma carga de trabalho para a GPU na VM. A versão do controlador e detalhes GPU poderão ser diferentes das mostrado.
+
+![Estado do dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)
+
+
+
+## <a name="rdma-network-connectivity"></a>Conectividade de rede RDMA
+
+Conectividade de rede RDMA pode ser ativada em VMs de série N com capacidade RDMA, tais como NC24r implementadas no mesmo conjunto de disponibilidade. A rede RDMA suporta tráfego da Interface de passagem de mensagens (MPI) para aplicações em execução com Intel MPI 5. x ou uma versão posterior. Siga a requisitos adicionais:
+
+### <a name="distributions"></a>Distribuições
+
+Implemente VMs de série N rdma e um dos seguintes imagens no Azure Marketplace que suporte a conectividade RDMA:
+  
+* **Ubuntu** -Ubuntu Server 16.04 LTS. Configurar controladores RDMA na VM e registe o Intel para transferir Intel MPI:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+
+* **Com base em centOS HPC** -com base em CentOS 7.3 HPC. Controladores RDMA e Intel MPI 5.1 são instaladas na VM. 
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>Instalar controladores de grelha para NV VMs
 
@@ -95,10 +239,6 @@ Para instalar controladores de grelha NVIDIA em NV VMs, faça uma ligação SSH 
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Com base em centOS 7.3 ou Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> Não execute `sudo yum update` para atualizar a versão de kernel em CentOS 7.3 ou 7.3 do Red Hat Enterprise Linux. Atualmente, a instalação de controlador e as atualizações não funcionam se o kernel é atualizado.
->
-
 1. Atualize o kernel e DKMS.
  
   ```bash  
@@ -122,9 +262,9 @@ Para instalar controladores de grelha NVIDIA em NV VMs, faça uma ligação SSH 
 3. Reiniciar a VM, voltar a ligar e instalar os serviços de integração mais recentes do Linux para Hyper-v:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
 
-  tar xvzf lis-rpms-4.2.3.tar.gz
+  tar xvzf lis-rpms-4.2.3-2.tar.gz
 
   cd LISISO
 
@@ -165,7 +305,7 @@ Para instalar controladores de grelha NVIDIA em NV VMs, faça uma ligação SSH 
 
 Para consultar o estado do dispositivo para a GPU, SSH para a VM e execute o [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o controlador o utilitário da linha de comandos. 
 
-É apresentado o resultado semelhante ao seguinte. A versão do controlador e detalhes GPU poderão ser diferentes das mostrado.
+Se o controlador estiver instalado, verá um resultado semelhante ao seguinte. Tenha em atenção que **GPU Util** mostra 0%, a menos que estiver a executar uma carga de trabalho para a GPU na VM. A versão do controlador e detalhes GPU poderão ser diferentes das mostrado.
 
 ![Estado do dispositivo NVIDIA](./media/n-series-driver-setup/smi-nv.png)
  
@@ -202,163 +342,13 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 
 Este ficheiro pode ser invocado como raiz no arranque através da criação de uma entrada para o mesmo no `/etc/rc.d/rc3.d`.
 
-
-## <a name="install-cuda-drivers-for-nc-vms"></a>Instalar controladores CUDA para VMs de NC
-
-Seguem-se passos para instalar controladores NVIDIA em VMs de NC Linux do Toolkit de CUDA NVIDIA. 
-
-Os programadores C e C++, opcionalmente, podem instalar o Toolkit de completo para criar aplicações acelerados de GPU. Para obter mais informações, consulte o [guia de instalação CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
-
-
-> [!NOTE]
-> Ligações de transferência do controlador CUDA fornecido aqui estão atualizadas no momento da publicação. Para os controladores mais recentes do CUDA, visite o [NVIDIA](https://developer.nvidia.com/cuda-zone) Web site.
->
-
-Para instalar o Toolkit de CUDA, efetue uma ligação SSH cada VM. Para verificar que o sistema tem uma GPU compatível com CUDA, execute o seguinte comando:
-
-```bash
-lspci | grep -i NVIDIA
-```
-Irá ver o resultado semelhante ao seguinte exemplo (com um cartão NVIDIA Tesla K80):
-
-![saída do comando lspci](./media/n-series-driver-setup/lspci.png)
-
-Em seguida, específico para a distribuição de comandos de instalação de execução.
-
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
-
-1. Transfira e instale os controladores CUDA.
-  ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
-
-  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
-
-  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-
-  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
-
-  rm -f /tmp/${CUDA_REPO_PKG}
-
-  sudo apt-get update
-
-  sudo apt-get install cuda-drivers
-
-  ```
-
-  A instalação pode demorar alguns minutos.
-
-2. A opção de instalar o toolkit CUDA completado, escreva:
-
-  ```bash
-  sudo apt-get install cuda
-  ```
-
-3. Reiniciar a VM e continue para verificar a instalação.
-
-#### <a name="cuda-driver-updates"></a>Atualizações de controladores CUDA
-
-Recomendamos que atualize periodicamente controladores CUDA após a implementação.
-
-```bash
-sudo apt-get update
-
-sudo apt-get upgrade -y
-
-sudo apt-get dist-upgrade -y
-
-sudo apt-get install cuda-drivers
-
-sudo reboot
-```
-
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Com base em centOS 7.3 ou Red Hat Enterprise Linux 7.3
-
-1. Instale os serviços de integração mais recentes do Linux para Hyper-V.
-
-  > [!IMPORTANT]
-  > Se tiver instalado uma imagem com base em CentOS HPC numa NC24r VM, avance para o passo 3. Como controladores de RDMA do Azure e os serviços de integração Linux são pré-instaladas na imagem HPC, os LIS não deve ser atualizados e atualizações de kernel estão desativadas por predefinição.
-  >
-
-  ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
- 
-  tar xvzf lis-rpms-4.2.3-1.tar.gz
- 
-  cd LISISO
- 
-  sudo ./install.sh
- 
-  sudo reboot
-  ```
- 
-3. Restabeleça a ligação para a VM e continuar a instalação com os seguintes comandos:
-
-  ```bash
-  sudo yum install kernel-devel
-
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-
-  sudo yum install dkms
-
-  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
-
-  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-
-  rm -f /tmp/${CUDA_REPO_PKG}
-
-  sudo yum install cuda-drivers
-  ```
-
-  A instalação pode demorar alguns minutos. 
-
-4. A opção de instalar o toolkit CUDA completado, escreva:
-
-  ```bash
-  sudo yum install cuda
-  ```
-
-5. Reiniciar a VM e continue para verificar a instalação.
-
-
-### <a name="verify-driver-installation"></a>Certifique-se a instalação de controlador
-
-
-Para consultar o estado do dispositivo para a GPU, SSH para a VM e execute o [nvidia smi](https://developer.nvidia.com/nvidia-system-management-interface) instalado com o controlador o utilitário da linha de comandos. 
-
-É apresentado o resultado semelhante ao seguinte:
-
-![Estado do dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)
-
-
-
-## <a name="rdma-network-for-nc24r-vms"></a>Rede RDMA para NC24r VMs
-
-Conectividade de rede RDMA, pode ser ativada em VMs NC24r implementadas no mesmo conjunto de disponibilidade. A rede RDMA suporta tráfego da Interface de passagem de mensagens (MPI) para aplicações em execução com Intel MPI 5. x ou uma versão posterior. Siga a requisitos adicionais:
-
-### <a name="distributions"></a>Distribuições
-
-Implemente NC24r VMs de uma das seguintes imagens no Azure Marketplace que suporte a conectividade RDMA:
-  
-* **Ubuntu** -Ubuntu Server 16.04 LTS. Configurar controladores RDMA na VM e registe o Intel para transferir Intel MPI:
-
-  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
-
-* **Com base em centOS HPC** -com base em CentOS 7.3 HPC. Controladores RDMA e Intel MPI 5.1 são instaladas na VM. 
-
-
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 * Não há um problema conhecido com controladores CUDA em VMs do Azure de N série com o kernel do Linux 4.4.0-75 no Ubuntu 16.04 LTS. Se estiver a atualizar a partir de uma versão anterior de kernel, atualize para, pelo menos, 4.4.0-77 da versão de kernel.
 
-* Pode definir a utilizar o modo de persistência `nvidia-smi` , de modo a saída do comando é mais rápida quando precisar de cartões de consulta. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Tenha em atenção que se a VM é reiniciada, a definição de modo desaparecerá. Pode sempre script a definição de modo a executar após o arranque.
+* Pode definir a utilizar o modo de persistência `nvidia-smi` , de modo a saída do comando é mais rápida quando precisar de cartões de consulta. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Tenha em atenção que se a VM é reiniciada, a definição de modo fica ausente. Pode sempre script a definição de modo a executar após o arranque.
 
 
 ## <a name="next-steps"></a>Passos seguintes
-
-* Para mais informações sobre o GPUs NVIDIA nas VMs N série, consulte:
-    * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (para VMs do Azure NC)
-    * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (para VMs do Azure NV)
 
 * Para capturar uma imagem de VM com Linux com os controladores NVIDIA instaladas, consulte [como generalize e capturar uma máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -1,6 +1,6 @@
 ---
-title: "Corte de segurança com a pesquisa do Azure"
-description: "Corte de segurança de implementar utilizando filtros de pesquisa do Azure."
+title: "Filtros de segurança para os resultados de corte na Azure Search | Microsoft Docs"
+description: "Controlo de acesso no conteúdo de Azure Search utilizando filtros de segurança e de identidades de utilizador."
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
@@ -11,15 +11,15 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-with-azure-search"></a>Corte de segurança com a pesquisa do Azure
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtros de segurança para os resultados de corte na Azure Search
 
-Pode aplicar filtros de segurança nos resultados de pesquisa para restringir o acesso de documentos com base na identidade do utilizador. Esta experiência de pesquisa, geralmente, necessita de comparar a identidade de quem os pedidos de pesquisa em relação a um campo que contém os princípios de quem tem permissões para o documento. Quando é encontrada uma correspondência, o principal (por exemplo, um grupo ou função) ou o utilizador tem acesso a esse documento.
+Pode aplicar filtros de segurança para limitar os resultados da pesquisa na Azure Search com base na identidade do utilizador. Esta experiência de pesquisa, geralmente, necessita de comparar a identidade de quem os pedidos de pesquisa em relação a um campo que contém os princípios de quem tem permissões para o documento. Quando é encontrada uma correspondência, o principal (por exemplo, um grupo ou função) ou o utilizador tem acesso a esse documento.
 
 Uma forma de alcançar segurança filtragem é efetuada através de uma disjunção complicada de expressões de igualdade: por exemplo, `Id eq 'id1' or Id eq 'id2'`, etc. Esta abordagem é propensas ao erro, difícil manter e pode atrasar nos casos em que a lista contém centenas ou milhares de valores, tempo de resposta de consulta por número de segundos. 
 
@@ -155,3 +155,8 @@ Deve obter documentos novamente onde `group_ids` contém "group_id1" ou "group_i
 
 Esta é a forma como pode filtrar os resultados com base na identidade de utilizador e da Azure Search `search.in()` função. Pode utilizar esta função para passar identificadores principais para o utilizador que pede para correspondência identificadores principais associados a cada documento de destino. Quando um pedido de pesquisa é processado, o `search.in` função filtra os resultados da pesquisa para que nenhuma das principais do utilizador tem acesso de leitura. Os identificadores principais podem representar coisas como grupos de segurança, funções ou mesmo a identidade do utilizador.
  
+## <a name="see-also"></a>Consultar também
+
++ [Controlo de acesso baseado na identidade diretório ativo utilizando filtros de pesquisa do Azure](search-security-trimming-for-azure-search-with-aad.md)
++ [Filtros na pesquisa do Azure](search-filters.md)
++ [Controlo de acesso e segurança de dados em operações de pesquisa do Azure](search-security-overview.md)

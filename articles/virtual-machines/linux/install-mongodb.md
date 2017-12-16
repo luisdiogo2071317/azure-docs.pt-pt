@@ -4,7 +4,7 @@ description: "Saiba como instalar e configurar o MongoDB um iusing de máquina v
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/23/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: e19c09558285497f29eb78b4f4ae5b15d7f1a191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a9797e1fe3d03840e3a20589a50c90968ea5de0
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Como instalar e configurar o MongoDB numa VM com Linux
 [MongoDB](http://www.mongodb.org) é um popular open source e de elevado desempenho base de dados NoSQL. Este artigo mostra como instalar e configurar o MongoDB numa VM com Linux com o 2.0 CLI do Azure. Também pode efetuar estes passos com a [CLI 1.0 do Azure](install-mongodb-nodejs.md). Os exemplos são apresentados como esse detalhe para:
@@ -57,18 +57,18 @@ ssh azureuser@<publicIpAddress>
 Para adicionar as origens de instalação para o MongoDB, crie um **yum** ficheiro repositório da seguinte forma:
 
 ```bash
-sudo touch /etc/yum.repos.d/mongodb-org-3.4.repo
+sudo touch /etc/yum.repos.d/mongodb-org-3.6.repo
 ```
 
-Abra o ficheiro de repositório do MongoDB para edição. Adicione as seguintes linhas:
+Abra o ficheiro de repositório do MongoDB para editar, tal como com `vi` ou `nano`. Adicione as seguintes linhas:
 
 ```sh
-[mongodb-org-3.4]
+[mongodb-org-3.6]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
 ```
 
 Instalar MongoDB utilizando **yum** da seguinte forma:
@@ -125,26 +125,17 @@ Para criar este ambiente, tem a versão mais recente [Azure CLI 2.0](/cli/azure/
 az group create --name myResourceGroup --location eastus
 ```
 
-Em seguida, implementar o modelo MongoDB com [criar a implementação do grupo az](/cli/azure/group/deployment#create). Definir os seus próprios recursos os nomes e tamanhos sempre que necessário, tais como para *newStorageAccountName*, *virtualNetworkName*, e *vmSize*:
+Em seguida, implementar o modelo MongoDB com [criar a implementação do grupo az](/cli/azure/group/deployment#create). Quando lhe for pedido, introduza os seus próprios valores exclusivos para *newStorageAccountName*, *dnsNameForPublicIP*e nome de utilizador de administrador e a palavra-passe:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"},
-    "virtualNetworkName": {"value": "myVnet"},
-    "vmSize": {"value": "Standard_DS2_v2"},
-    "vmName": {"value": "myVM"},
-    "publicIPAddressName": {"value": "myPublicIP"},
-    "nicName": {"value": "myNic"}}' \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
 Inicie sessão para a VM com o endereço DNS público da sua VM. Pode ver o endereço DNS público com [mostrar de vm az](/cli/azure/vm#show):
 
 ```azurecli
-az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
+az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
 ```
 
 SSH para a VM com o seu próprio nome de utilizador e o endereço DNS público:

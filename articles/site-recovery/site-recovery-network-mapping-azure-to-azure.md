@@ -4,7 +4,7 @@ description: "O Azure Site Recovery coordena a replicação, ativação pós-fal
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
-manager: gauravd
+manager: rochakm
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: manayar
-ms.openlocfilehash: 85baa829020529b628dfaa5578e5d76724834b33
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: bf3d557c77e3cb6ade6f1bb3773c807f9c8b43f6
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Mapeamento de rede entre as duas regiões do Azure
 
 
-Este artigo descreve como mapear redes virtuais do Azure, das regiões do Azure dois entre si. Mapeamento de rede assegura que, quando a máquina virtual replicada é criada na região do Azure de destino, é criado na rede virtual que está mapeada para a rede virtual da máquina virtual de origem.  
+Este artigo descreve como mapear redes virtuais do Azure, das regiões do Azure dois entre si. Mapeamento de rede assegura que, quando é criada uma máquina virtual replicada no destino da região do Azure, é criado na rede virtual que está mapeada para a rede virtual da máquina virtual de origem.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de mapear redes Certifique-se, criou [redes virtuais do Azure](../virtual-network/virtual-networks-overview.md) na origem e destino regiões do Azure.
+Antes de mapear redes, certifique-se de que criou [redes virtuais do Azure](../virtual-network/virtual-networks-overview.md) na origem e destino regiões do Azure.
 
 ## <a name="map-networks"></a>Mapear redes
 
@@ -35,20 +35,21 @@ Para mapear uma Azure virtual network numa região do Azure para outra rede virt
 ![Mapeamento da rede](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
 
-No exemplo abaixo a minha máquina virtual está em execução na Ásia Oriental região e está a ser replicada para Sudeste asiático.
+No exemplo abaixo, a máquina virtual está em execução na Ásia Oriental região e está a ser replicada para Sudeste asiático.
 
-Selecione a rede de origem e de destino e, em seguida, clique em OK para criar um mapeamento de rede a partir de Oriental para Sudeste asiático.
+Selecione a origem e rede de destino e, em seguida, clique em OK para criar um mapeamento de rede a partir de Oriental para Sudeste asiático.
 
 ![Mapeamento da rede](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 
-Fazer a mesma coisa para criar um mapeamento de rede do Sudeste asiático a Ásia Oriental.  
+Repetir o processo acima para criar um mapeamento de rede do Sudeste asiático a Ásia Oriental.
+
 ![Mapeamento da rede](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
 ## <a name="mapping-network-when-enabling-replication"></a>Mapeamento de rede ao ativar a replicação
 
-Se não é executado o mapeamento da rede quando estiver a replicar uma máquina virtual pela primeira vez a partir de uma região do Azure para outro, em seguida, pode escolher a rede de destino como parte do mesmo processo. Recuperação de sites cria os mapeamentos de rede da região de origem para a região de destino e a região de destino para a região de origem com base nesta seleção.   
+Se não tiver sido realizado mapeamento da rede quando estiver a replicar uma máquina virtual pela primeira vez a partir de uma região do Azure para outro, pode escolher a rede de destino como parte do mesmo processo. Recuperação de sites cria os mapeamentos de rede da região de origem para a região de destino e a região de destino para a região de origem com base nesta seleção.   
 
 ![Mapeamento da rede](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
@@ -70,7 +71,7 @@ Se o mapeamento da rede é o tiver feito, não é possível alterar a rede virtu
 
 
 ## <a name="subnet-selection"></a>Seleção de sub-rede
-Sub-rede de máquina virtual de destino está selecionado com base no nome de sub-rede da máquina virtual de origem. Se existir uma sub-rede com o mesmo nome da máquina virtual de origem disponíveis na rede de destino, que é escolhido para a máquina virtual de destino. Se não existir nenhuma sub-rede com o mesmo nome na rede de destino, em seguida, por ordem alfabética primeira sub-rede é escolhido como a sub-rede de destino. Pode modificar esta sub-rede acedendo a computação e rede definições da máquina virtual.
+A sub-rede da máquina virtual de destino está selecionada com base no nome de sub-rede da máquina virtual de origem. Se uma sub-rede com o mesmo nome da máquina virtual de origem está disponível na rede de destino, é escolhida essa sub-rede para a máquina virtual de destino. Se não existir nenhuma sub-rede com o mesmo nome na rede de destino, em seguida, por ordem alfabética a primeira sub-rede é escolhida como a sub-rede de destino. Pode modificar esta sub-rede acedendo a computação e rede definições da máquina virtual.
 
 ![Modificar a sub-rede](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
@@ -87,14 +88,14 @@ Se a interface de rede da máquina virtual de origem estiver a utilizar IP está
 
 #### <a name="same-address-space"></a>Mesmo espaço de endereços
 
-Se a sub-rede de origem e a sub-rede de destino tem o mesmo espaço de endereços, o IP de destino está definido mesmo que o IP da interface de rede da máquina virtual de origem. Se o mesmo IP não estiver disponível, alguns outro IP disponível está definido como o IP de destino.
+Se a sub-rede de origem e a sub-rede de destino tem o mesmo espaço de endereços, o endereço IP da interface de rede da máquina virtual de origem está definido como o endereço IP de destino. Se o mesmo endereço IP não estiver disponível, em seguida, o seguinte endereço IP disponível é definido como o endereço IP de destino.
 
 #### <a name="different-address-space"></a>Espaço de endereços diferente
 
-Se a sub-rede de origem e a sub-rede de destino tem espaço de endereços diferente, o IP de destino está definido como qualquer IP disponível na sub-rede de destino.
+Se a sub-rede de origem e a sub-rede de destino tiverem espaços de endereços diferente, o seguinte endereço IP disponível na sub-rede de destino está definido como o endereço IP de destino.
 
 Pode modificar o IP de destino em cada interface de rede acedendo às definições de computação e rede da máquina virtual.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [redes orientações para replicar as VMs do Azure](site-recovery-azure-to-azure-networking-guidance.md).
+Saiba mais sobre [redes orientações para replicar as VMs do Azure](site-recovery-azure-to-azure-networking-guidance.md).

@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 413bc8a0e0347498c004b93fb37f51d86ad029f5
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 93acec3bada30364b6e3338e037b442d7e6cd309
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>Matriz suportada para esta versão 
 Quando o código carrega dados através da utilização de origens de dados do Azure Machine Learning ou do Azure Machine Learning dados preparativos, obter ou um Pandas ou localizações de dados e ambientes de computação do Spark dataframe, seguintes combinações de experimentação são suportados:
@@ -37,4 +37,4 @@ O Azure Data Lake Store não é atualmente suportado para qualquer destino de co
 
 * * Utiliza o controlador do Maven JDBC SQL Server 6.2.1. Tem de se certificar de que este pacote (ou um tipo compatível) está incluído no seu ficheiro spark_dependencies.yml para o ambiente de computação.
 
-SQL Database do Azure suporta, o Azure SQL Data Warehouse ou o SQL Server fornecidos que a base de dados pode ser contactado a partir do ambiente de computação. 
+SQL Database do Azure suporta ou o SQL Server fornecidos que a base de dados pode ser contactado a partir do ambiente de computação. 

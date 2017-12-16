@@ -15,15 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 247cc4175b70e31c9496df7037d45e8c7e2c7494
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/16/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introdução ao servidor R e as capacidades de R de open source do HDInsight
 
 R Server da Microsoft está disponível como uma opção de implementação quando criar clusters do HDInsight no Azure. Esta nova funcionalidade fornece cientistas de dados, statisticians e programadores de R com acesso a pedido para dimensionável, distribuída métodos de análise no HDInsight.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 Clusters podem ser dimensionados adequadamente para os projetos e tarefas em execução e, em seguida, foi desligados quando já não forem necessárias. Uma vez que o se estiver a parte do Azure HDInsight, esses clusters vêm com suporte de 24x7 de nível empresarial, um SLA de 99,9% de tempo e a capacidade para integrar com outros componentes do ecossistema do Azure.
 
@@ -96,7 +98,7 @@ Outra opção IDE completa é instalar um IDE de ambiente de trabalho e utilizá
 Por último, pode aceder à consola do servidor R no nó de extremidade, escrevendo **R** na linha de comandos do Linux depois de se ligar através de SSH ou PuTY. Quando utilizar a interface da consola, é conveniente executar um editor de texto para o desenvolvimento de script do R na outra janela e cortar e colar secções do seu script na consola do R conforme necessário.
 
 ## <a name="learn-about-pricing"></a>Saiba mais sobre os preços
-As taxas associadas um cluster do HDInsight com o servidor de R estão estruturadas do mesmo modo para as taxas de standard para clusters do HDInsight. Têm como base o dimensionamento de VMs subjacentes entre o nome, dados e nós de limite, com a adição de um uplift horas de núcleo. Para obter mais informações sobre preços do HDInsight e a disponibilidade de uma avaliação gratuita de 30 dias, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+As taxas associadas um cluster do HDInsight com o servidor de R estão estruturadas do mesmo modo para as taxas de standard para clusters do HDInsight. Têm como base o dimensionamento de VMs subjacentes entre o nome, dados e nós de limite, com a adição de um uplift horas de núcleo. Para obter mais informações sobre preços do HDInsight, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre como utilizar o R Server com clusters do HDInsight, consulte os seguintes tópicos:

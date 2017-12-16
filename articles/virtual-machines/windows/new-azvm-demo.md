@@ -1,44 +1,46 @@
 ---
-title: Criar uma VM do Windows com o cmdlet New-AzVM no Azure Cloud Shell| Microsoft Docs
-description: "Aprenda rapidamente a criar máquinas virtuais do Windows com o cmdlet New-AzVM no Azure Cloud Shell."
+title: Criar a VM do Windows utilizando simplificada New-AzureRMVM cmdlet na Shell de nuvem do Azure | Microsoft Docs
+description: "Saiba mais rapidamente criar máquinas virtuais do Windows com o cmdlet New-AzureRMVM simplificado na Shell de nuvem do Azure."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/21/2017
+ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3be46c8c02ad136edb1936fbb39560d479b27277
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 94eb6232cf59d502a9d70545785c3788398f4d27
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="create-a-windows-virtual-machine-with-the-new-azvm-preview-in-cloud-shell"></a>Criar uma máquina virtual do Windows com o cmdlet New-AzVM (Pré-visualização) no Cloud Shell 
+# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Criar uma máquina virtual do Windows com o cmdlet New-AzureRMVM simplificado na Shell de nuvem 
 
-O cmdlet New-AzVM (Pré-visualização) é uma forma simplificada de criar uma nova VM com o PowerShell. Este guia fornece detalhes sobre como utilizar o PowerShell no Azure Cloud Shell, com o cmdlet New-AzVM pré-instalado, para criar uma nova máquina virtual do Azure com o Windows Server 2016. Depois de concluída a implementação, é feita a ligação ao servidor via RDP.  
+O [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet foi adicionado um conjunto de parâmetros para criar uma nova VM com o PowerShell simplificado. Este tópico mostra como utilizar o PowerShell na Shell de nuvem do Azure, com a versão mais recente do cmdlet New-AzureVM pré-instalado, para criar uma nova VM. Utilizaremos um conjunto de parâmetros simplificada que cria automaticamente todos os recursos necessários com predefinições inteligentes. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 
 [!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]
 
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o Azure PowerShell versão do módulo 5.1.1 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+
 ## <a name="create-the-vm"></a>Crie a VM
 
-Pode utilizar o cmdlet **New-AzVM** para criar uma VM com predefinições inteligentes que incluem a utilização da imagem do Windows Server 2016 Datacenter do Azure Marketplace. Pode utilizar o cmdlet New-AzVM individualmente; este utilizará os valores predefinidos para os nomes dos recursos. Neste exemplo, vamos definir o parâmetro **-Name** como *myVM*. O cmdlet cria todos os recursos necessários utilizando *myVM* como prefixo para o nome do recurso. 
+Pode utilizar o [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet para criar uma VM com predefinições inteligentes, que incluem a utilização da imagem do Windows Server 2016 Datacenter do Azure Marketplace. Pode utilizar o novo-AzureRMVM com apenas o **-nome** parâmetro e irão utilizar esse valor para todos os nomes de recursos. Neste exemplo, vamos definir o parâmetro **-Name** como *myVM*. 
 
 Certifique-se de que o **PowerShell** está selecionado no Cloud Shell e escreva:
 
 ```azurepowershell-interactive
-New-AzVm -Name myVM
+New-AzureRMVm -Name myVM
 ```
 
 É-lhe pedido para criar um nome de utilizador e uma palavra-passe para a VM, que serão utilizados quando ligar à VM mais adiante neste tópico. A palavra-passe tem de ter entre 12 e 123 carateres e cumprir três dos quatro requisitos de complexidade que se seguem: um caráter em letra minúscula, um caráter em letra maiúscula, um número e um caráter especial.
@@ -61,10 +63,25 @@ Get-AzureRmPublicIpAddress `
     -ResourceGroupName myVMResourceGroup | Select IpAddress
 ```
 
-No computador local, abra uma linha de comandos e utilize o comando **mstsc** para iniciar uma sessão de ambiente de trabalho remoto com a nova VM. Substitua &lt;publicIPAddress&gt; pelo endereço IP da máquina virtual. Quando lhe for pedido, introduza o nome de utilizador e a palavra-passe que atribuiu à VM quando esta foi criada.
+No seu computador local, abra uma linha de comandos e utilize o **mstsc** comando para iniciar uma sessão de ambiente de trabalho remoto com a nova VM. Substitua &lt;publicIPAddress&gt; pelo endereço IP da máquina virtual. Quando lhe for pedido, introduza o nome de utilizador e a palavra-passe que atribuiu à VM quando esta foi criada.
 
 ```
 mstsc /v:<publicIpAddress>
+```
+## <a name="specify-different-resource-names"></a>Especifique nomes de recursos diferente
+
+Pode também fornecer mais descritivos nomes para os recursos e ainda-los criado automaticamente. Eis um exemplo em que podemos ter com o nome vários recursos para a nova VM, incluindo um novo grupo de recursos.
+
+```azurepowershell-interactive
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -OpenPorts 3389
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -72,7 +89,8 @@ mstsc /v:<publicIpAddress>
 Quando já não for necessário, pode utilizar o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o Grupo de Recursos, a VM e todos os recursos relacionados.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myVMResourceGroup
+Remove-AzureRmResourceGroup -Name myVM
+Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

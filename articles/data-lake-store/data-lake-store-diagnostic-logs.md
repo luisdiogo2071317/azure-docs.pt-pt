@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: de71c03784571f4adab9b8936ec1968373c9ac3e
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Aceder a registos de diagnóstico para o Azure Data Lake Store
 Saiba mais ativar o diagnóstico de registo para a sua conta do Data Lake Store e ver os registos recolhidos para a sua conta.
@@ -177,7 +177,7 @@ Eis uma entrada de exemplo no registo de auditoria formatada em JSON. Cada blob 
 | StreamName |Cadeia |O caminho a operação foi efetuado em |
 
 ## <a name="samples-to-process-the-log-data"></a>Exemplos para processar os dados de registo
-Ao enviar os registos do Azure Data Lake Store para monitorização do Azure (consulte [vista ou analisar os dados recolhidos com a pesquisa de registo de análise de registos](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre a análise de registos de utilização), a consulta seguinte irá devolver uma tabela que contém uma lista de utilizador nomes a apresentar, a hora dos eventos e a contagem de eventos para a hora do evento, juntamente com um gráfico de visual. Pode ser modificado facilmente para mostrar o GUID de utilizador ou outros atributos:
+Quando enviar os registos do Azure Data Lake Store ao Log Analytics do Azure (consulte [vista ou analisar os dados recolhidos com a pesquisa de registo de análise de registos](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre a análise de registos de utilização), a consulta seguinte irá devolver uma tabela que contém uma lista de utilizador nomes a apresentar, a hora dos eventos e a contagem de eventos para a hora do evento, juntamente com um gráfico de visual. Pode ser modificado facilmente para mostrar o GUID de utilizador ou outros atributos:
 
 ```
 search *

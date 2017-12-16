@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: joeyong;barbkess;kevin
+ms.openlocfilehash: 56bae284bb83b1ff18bf2caf644e6dd071b8eb69
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitorizar a carga de trabalho com DMVs
 Este artigo descreve como utilizar as vistas de gestão dinâmica (DMVs) para monitorizar a carga de trabalho e investigar a execução de consultas no armazém de dados SQL do Azure.
@@ -174,7 +174,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Se a consulta está ativamente aguardar a resposta de recursos a partir de outra consulta, em seguida, o estado será **AcquireResources**.  Se a consulta tem todos os recursos necessários, em seguida, o estado será **Granted**.
 
 ## <a name="monitor-tempdb"></a>Monitor tempdb
-A utilização de tempdb elevado pode ser a causa de raiz para um desempenho lento e fora de problemas de memória. Verifique primeiro se tiver dados qualidade dissimetrias ou fraco rowgroups e tome as ações adequadas. Considere a dimensionar o seu armazém de dados se encontrar tempdb atingir os limites durante a execução de consulta. O seguinte descreve como identificar a utilização de tempdb por consulta em cada nó. 
+A utilização de tempdb elevado pode ser a causa de raiz para um desempenho lento e fora de problemas de memória. Considere a dimensionar o seu armazém de dados se encontrar tempdb atingir os limites durante a execução de consulta. O seguinte descreve como identificar a utilização de tempdb por consulta em cada nó. 
 
 Crie a vista seguinte para associar o id de nó adequado para sys.dm_pdw_sql_requests. Isto permitirá tirar partido de outras DMVs pass-through e associar as tabelas com sys.dm_pdw_sql_requests.
 
@@ -233,7 +233,7 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>Monitor de memória
 
-Memória pode ser a causa de raiz para um desempenho lento e fora de problemas de memória. Verifique primeiro se tiver dados qualidade dissimetrias ou fraco rowgroups e tome as ações adequadas. Considere a dimensionar o seu armazém de dados se encontrar utilização de memória do SQL Server atingir os limites durante a execução de consulta.
+Memória pode ser a causa de raiz para um desempenho lento e fora de problemas de memória. Considere a dimensionar o seu armazém de dados se encontrar utilização de memória do SQL Server atingir os limites durante a execução de consulta.
 
 A seguinte consulta devolve o SQL Server memória e utilização pressão de memória por nó:   
 ```sql
@@ -258,7 +258,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Tamanho do registo de transação de monitor
-A seguinte consulta devolve o tamanho do registo de transações em cada distribuição. Verifique se tem dados qualidade dissimetrias ou fraco rowgroups e tome as ações adequadas. Se um dos ficheiros de registo está a atingir 160GB, deve considerar como aumentar verticalmente a sua instância ou limitar o tamanho da transação. 
+A seguinte consulta devolve o tamanho do registo de transações em cada distribuição. Se um dos ficheiros de registo está a atingir 160GB, deve considerar como aumentar verticalmente a sua instância ou limitar o tamanho da transação. 
 ```sql
 -- Transaction log size
 SELECT

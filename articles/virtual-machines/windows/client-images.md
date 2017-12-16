@@ -4,7 +4,7 @@ description: "Como utilizar os benefícios de subscrição de Visual Studio para
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/05/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 207a6562965b4913416bd4dbf3eb132b42938dc9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6db900981daa2139a0d2e951f41fc48d5c291074
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Utilizar o cliente do Windows no Azure para cenários de desenvolvimento/teste
 Pode utilizar o Windows 7, Windows 8 ou Windows 10 no Azure para cenários de desenvolvimento/teste fornecida que tem uma subscrição do Visual Studio (anteriormente MSDN) adequada. Este artigo descreve os requisitos de elegibilidade para o cliente Windows em execução no Azure e a utilização das imagens da galeria do Azure.
@@ -26,7 +26,7 @@ Pode utilizar o Windows 7, Windows 8 ou Windows 10 no Azure para cenários de de
 ## <a name="subscription-eligibility"></a>Elegibilidade de subscrição
 Subscritores ativos do Visual Studio (pessoas que tem adquirido uma licença de subscrição do Visual Studio) podem utilizar o cliente do Windows para desenvolvimento e testes. Cliente Windows pode ser utilizado nas suas próprias hardware e as máquinas virtuais do Azure em execução em qualquer tipo de subscrição do Azure. Cliente Windows não pode ser implementada ou utilizada no Azure para utilização em produção normal ou utilizada por pessoas que não sejam subscritores ativos do Visual Studio.
 
-Para sua comodidade, efetuamos determinadas imagens do Windows 10 disponíveis na galeria do Azure dentro [elegível dev/teste oferece](#eligible-offers). Visual Studio os subscritores dentro de qualquer tipo de oferta também podem [adequadamente preparar e criar](prepare-for-upload-vhd-image.md) uma imagem do Windows 7, Windows 8 ou Windows 10 de 64 bits e, em seguida, [carregar para o Azure](upload-generalized-managed.md). A utilização continua a ser limitada para dev/teste por subscritores ativos do Visual Studio.
+Para sua comodidade, determinadas imagens do Windows 10 estão disponíveis na galeria do Azure dentro [elegível dev/teste oferece](#eligible-offers). Visual Studio os subscritores dentro de qualquer tipo de oferta também podem [adequadamente preparar e criar](prepare-for-upload-vhd-image.md) uma imagem do Windows 7, Windows 8 ou Windows 10 de 64 bits e, em seguida, [carregar para o Azure](upload-generalized-managed.md). A utilização continua a ser limitada para dev/teste por subscritores ativos do Visual Studio.
 
 ## <a name="eligible-offers"></a>Ofertas elegíveis
 A tabela seguinte fornece detalhes sobre a oferta IDs que são elegíveis para implementar o Windows 10 através da galeria do Azure. As imagens do Windows 10 só estão visíveis para as seguintes ofertas. Visual Studio subscritores tem de executar o cliente Windows de um tipo de oferta diferentes exigem que [adequadamente preparar e criar](prepare-for-upload-vhd-image.md) uma imagem do Windows 7, Windows 8 ou Windows 10 de 64 bits e [, em seguida, carregar para o Azure](upload-generalized-managed.md).
@@ -45,11 +45,11 @@ A tabela seguinte fornece detalhes sobre a oferta IDs que são elegíveis para i
 ## <a name="check-your-azure-subscription"></a>Verifique a sua subscrição do Azure
 Se não souber o ID de oferta, pode obtê-lo através do portal do Azure de uma das seguintes duas formas:  
 
-- No painel "Subscrições":
+- No *subscrições* janela:
 
   ![Detalhes de ID de oferta do portal do Azure](./media/client-images/offer-id-azure-portal.png) 
 
-- Ou, clique em **faturação** e, em seguida, clique em seu ID de subscrição. O ID de oferta é apresentada no painel de faturação.
+- Ou, clique em **faturação** e, em seguida, clique em seu ID de subscrição. A oferta ID aparece no *faturação* janela.
 
 Também pode ver o ID de oferta do [separador "Subscrições"](http://account.windowsazure.com/Subscriptions) do portal de conta do Azure:
 

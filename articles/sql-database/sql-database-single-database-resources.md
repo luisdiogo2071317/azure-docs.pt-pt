@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: f2dca5ac40dff077f9e5ce983b15fcb5b2624a14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gerir os recursos de uma base de dados na SQL Database do Azure
 
@@ -35,6 +35,10 @@ Para definir ou alterar o escalão de serviço, o nível de desempenho ou a quan
 
 ![Configurar o nível de desempenho e o escalão de serviço](./media/sql-database-single-database-resources/change-service-tier.png)
 
+Clique em **descrição geral** para monitorizar e/ou cancelar uma operação em curso.
+
+![Operação de cancelamento](./media/sql-database-single-database-resources/cancel-operation.png)
+
 > [!IMPORTANT]
 > Reveja [limitações atuais de P11 e P15 bases de dados com o tamanho máximo de 4 TB](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) ao selecionar uma camada de serviço P11 ou P15.
 >
@@ -48,6 +52,8 @@ Para definir ou alterar camadas de serviços de bases de dados SQL do Azure, ní
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Cria uma base de dados |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Obtém um ou mais bases de dados|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Define as propriedades para uma base de dados ou move de uma base de dados existente para um conjunto elástico. Por exemplo, utilizar o **MaxSizeBytes** propriedade para definir o tamanho máximo para uma base de dados.|
+|[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity)|Obtém o estado das operações de base de dados. |
+|[Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)|Cancela a operação de atualização assíncrona na base de dados.|
 
 
 > [!TIP]
@@ -64,7 +70,8 @@ Definir ou alterar as bases de dados SQL do Azure escalões de serviço, níveis
 |[Mostrar de regra de firewall AZ sql server](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Mostra os detalhes de uma regra de firewall|
 |[atualização de regra de firewall AZ sql server](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Uma regra de firewall de atualizações|
 |[Eliminar regra de firewall do AZ sql server](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina uma regra de firewall|
-
+|[lista de op AZ sql db](/cli/azure/sql/db/op?#az_sql_db_op_list)|Obtém uma lista de operações executadas na base de dados.|
+|[Cancelar de op AZ sql db](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Cancela a operação assíncrona na base de dados.|
 
 > [!TIP]
 > Para obter um script de exemplo do CLI do Azure que dimensiona de uma única base de dados do SQL do Azure para um nível de desempenho diferente depois de consultar as informações de tamanho da base de dados, consulte [CLI de utilização para monitorizar e dimensionar uma base de dados do SQL Server único](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -102,6 +109,7 @@ Para definir ou alterar as bases de dados SQL do Azure escalões de serviço, a 
 |[Bases de dados - lista por conjunto elástico recomendado](/rest/api/sql/databases/listbyrecommendedelasticpool)|Devolve uma lista de bases de dados dentro de um conjunto elástico recommented.|
 |[Bases de dados - lista pelo servidor](/rest/api/sql/databases/listbyserver)|Devolve uma lista de bases de dados num servidor.|
 |[Bases de dados - atualização](/rest/api/sql/databases/update)|Atualiza a base de dados existente.|
+|[Operações - lista](/rest/api/sql/Operations/List)|Apresenta uma lista de todas as operações de API de Rest do SQL Server disponíveis.|
 
 
 
