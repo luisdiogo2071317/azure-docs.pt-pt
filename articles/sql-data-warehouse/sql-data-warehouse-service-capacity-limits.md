@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 11/10/2017
+ms.date: 12/14/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
 As tabelas seguintes contêm os valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.

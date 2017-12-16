@@ -4,7 +4,7 @@ description: "Saiba como instalar e configurar o ambiente de trabalho remoto (xr
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: d8d6130a270285c84c1dd057a3512cdeb39287f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar o ambiente de trabalho remoto para ligar a uma VM com Linux no Azure
 Máquinas de virtuais (VMs) com Linux no Azure, normalmente, são geridas na linha de comandos utilizando uma ligação secure shell (SSH). Quando são novos para Linux ou para cenários de resolução de problemas rápidos, a utilização de ambiente de trabalho remoto pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de trabalho ([xfce](https://www.xfce.org)) e o ambiente de trabalho remoto ([xrdp](http://www.xrdp.org)) para a VM com Linux utilizando o modelo de implementação Resource Manager.
@@ -85,16 +85,10 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Criar uma regra de grupo de segurança de rede para tráfego de ambiente de trabalho remoto
 Para permitir tráfego de ambiente de trabalho remoto para aceder a VM com Linux, de segurança de rede tem de regra de grupo ser criado que permite que o TCP na porta 3389 alcançar a VM. Para obter mais informações sobre regras do grupo de segurança de rede, consulte [que é um grupo de segurança de rede?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Também pode [utilizar o portal do Azure para criar uma regra de grupo de segurança de rede](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Os exemplos seguintes criar uma regra de grupo de segurança de rede com [criar regras de nsg de rede az](/cli/azure/network/nsg/rule#create) denominado *myNetworkSecurityGroupRule* para *permitir* tráfego na *tcp* porta *3389*.
+O exemplo seguinte cria uma regra de grupo de segurança de rede com [az vm open-porta](/cli/azure/vm#open-port) na porta *3389*.
 
 ```azurecli
-az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRule \
-    --protocol tcp \
-    --priority 1010 \
-    --destination-port-range 3389
+az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
 
@@ -122,13 +116,13 @@ tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesm
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-Se o serviço de xrdp não está a escutar, numa VM com Ubuntu reinicie o serviço da seguinte forma:
+Se o *xrdp sesman* serviço não está a escutar, numa VM com Ubuntu reinicie o serviço da seguinte forma:
 
 ```bash
 sudo service xrdp restart
 ```
 
-Reveja os registos na */var/registo*Thug na VM com Ubuntu indicações sobre por que motivo o serviço pode não estar a responder. Também pode monitorizar o syslog durante uma tentativa de ligação de ambiente de trabalho remoto para ver os erros:
+Reveja os registos na */var/registo* na VM com Ubuntu indicações de motivo o serviço pode não estar a responder. Também pode monitorizar o syslog durante uma tentativa de ligação de ambiente de trabalho remoto para ver os erros:
 
 ```bash
 tail -f /var/log/syslog

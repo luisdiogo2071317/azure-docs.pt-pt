@@ -4,7 +4,7 @@ description: "Como converter uma VM com Linux de discos não geridos em discos g
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: b9156998e36ddb8c4893cc0df98a7ddf3ff5d4f2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 533d4ddfc645843ed8feb8652021f47d93ed2ac1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual Linux de discos não geridos para gerido discos
 
-Se tiver existentes máquinas de virtuais de Linux (VMs) que utilizam discos não geridos, pode converter as VMs para utilizar discos geridos através de [Azure geridos discos](../windows/managed-disks-overview.md) serviço. Este processo converte o disco do SO e discos de dados anexados.
+Se tiver existentes máquinas de virtuais de Linux (VMs) que utilizam discos não geridos, pode converter as VMs para utilizar [Azure geridos discos](../linux/managed-disks-overview.md). Este processo converte o disco do SO e discos de dados anexados.
 
 Este artigo mostra como converter VMs utilizando a CLI do Azure. Se precisar de instalar ou atualizá-lo, consulte [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). 
 

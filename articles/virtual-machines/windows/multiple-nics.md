@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Criar e gerir a máquina virtual do Windows que tenha vários NICs
 Máquinas virtuais (VMs) no Azure pode ter vários virtual interface as placas de rede (NICs) ligadas aos mesmos. Um cenário comum é ter diferentes sub-redes para a conectividade de front-end e back-end ou uma rede dedicada para uma solução de monitorização ou cópia de segurança. Este artigo fornece detalhes sobre como criar uma VM que tenha vários NICs anexados ao mesmo. Também irá aprender a adicionar ou remover NICs de VM existente. Diferentes [tamanhos de VM](sizes.md) suportar um número de NICs variando, por isso, tamanho da VM em conformidade.
@@ -232,6 +232,60 @@ Também pode utilizar `copyIndex()` acrescentar um número para um nome de recur
 ```
 
 Pode ler um exemplo completo de [criar vários NICs utilizando modelos do Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+## <a name="configure-guest-os-for-multiple-nics"></a>Configurar o SO convidado para vários NICs
+
+Azure atribui um gateway predefinido para a primeira interface de rede (principal) ligada à máquina virtual. O Azure não atribui um gateway predefinido a interfaces de rede (secundárias) adicionais ligadas a uma máquina virtual. Por conseguinte, não pode comunicar com recursos que estejam fora da sub-rede em que se encontre uma interface de rede secundária, por predefinição. Interfaces de rede secundárias podem, no entanto, comunicar com recursos fora da sua sub-rede, apesar dos passos para ativar a comunicação são diferentes para sistemas operativos diferentes.
+
+1. A partir de uma linha de comandos do Windows, execute o `route print` comando, que devolve o resultado semelhante ao seguinte resultado de uma máquina virtual com duas interfaces de rede anexada:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    Neste exemplo, **4 de # do adaptador de rede do Microsoft Hyper-V** (interface 7) é a interface de rede secundárias que não tem um gateway predefinido atribuído ao mesmo.
+
+2. A partir de uma linha de comandos, execute o `ipconfig` comando para ver qual o endereço IP está atribuído à interface de rede secundária. Neste exemplo, 192.168.2.4 é atribuído a interface 7. Nenhum endereço de gateway predefinido é devolvido para a interface de rede secundárias.
+
+3. Para encaminhar todo o tráfego destinado a endereços fora da sub-rede da interface de rede secundárias para o gateway para a sub-rede, execute o seguinte comando:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    O endereço de gateway para a sub-rede é o primeiro endereço IP (que termine em.1) no intervalo de endereços definido para a sub-rede. Se não pretender encaminhar todo o tráfego fora da sub-rede, pode adicionar rotas individuais para determinados destinos, em vez disso. Por exemplo, se pretendesse apenas encaminhar o tráfego da interface de rede secundária para a 192.168.3.0 rede, introduza o comando:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. Para confirmar a comunicação com êxito com um recurso no 192.168.3.0 rede, por exemplo, introduza o seguinte comando para executar o ping 192.168.3.4 utilizando a interface 7 (192.168.2.4):
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    Terá de abrir ICMP através da firewall do Windows do dispositivo que está a efetuar o ping com o seguinte comando:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. Para confirmar a rota adicionada é na tabela de rota, introduza o `route print` comando, que devolve o resultado semelhante ao seguinte texto:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    A rota listada com *192.168.1.1* em **Gateway**, a rota existe por predefinição para a interface de rede principal. A rota com *192.168.2.1* em **Gateway**, a rota que adicionou.
 
 ## <a name="next-steps"></a>Passos seguintes
 Reveja [tamanhos de Windows VM](sizes.md) quando está a tentar criar uma VM que tenha vários NICs. Preste atenção para o número máximo de NICs que suporte a cada tamanho da VM. 

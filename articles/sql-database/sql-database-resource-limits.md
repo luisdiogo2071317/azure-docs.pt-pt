@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 10/11/2017
+ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 2e0acc3cc09de4293dcc049c37bee6b899e6101a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 63e6b21dad4f58dbaa1df58e8eb1d6e3f6b7f762
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de recursos de base de dados SQL do Azure
 
@@ -49,8 +49,7 @@ Alterar o escalão de serviço e/ou nível de desempenho de uma base de dados cr
 A duração de todo o processo de aumento vertical depende do tamanho e do escalão de serviço da base de dados antes e após a alteração. Por exemplo, uma base de dados de 250 GB que está a mudar para ou dentro de uma camada de serviço Standard, deve ser concluído dentro de seis horas. Para uma base de dados do mesmo tamanho que está a alterar os níveis de desempenho na camada de serviço Premium, a escala cópia de segurança deve ser concluído dentro de três horas.
 
 > [!TIP]
-> Para verificar o estado de uma base de dados do SQL Server em curso operação de dimensionamento, pode utilizar a seguinte consulta: ```select * from sys.dm_operation_status```.
->
+> Para monitorizar operações no progess, consulte: [gerir operações utilizando a API de REST do SQL Server](/rest/api/sql/Operations/List), [gerir operações com a CLI](/cli/azure/sql/db/op), [monitorizar as operações com T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois Comandos do PowerShell: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) e [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 * Se estiver a atualizar para um nível de desempenho ou camada de serviço mais elevado, o tamanho máximo da base de dados não aumenta a menos que especifique explicitamente um tamanho maior (maxsize).
 * Para mudar uma base de dados, o espaço de base de dados utilizada tem de ser menor que o tamanho máximo permitido do nível de desempenho e o escalão de serviço do destino. 

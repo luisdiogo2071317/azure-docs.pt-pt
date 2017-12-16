@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d1e6dc7899a9f3367c8aa05d862a863f1f88135
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Série de tempo de pedido de energia previsão
 
@@ -56,13 +56,11 @@ Este cenário descreve em detalhe a construção de um de machine learning a ped
 - Um [conta do Azure](https://azure.microsoft.com/free/) (gratuitas estão disponíveis).
 - Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) seguintes o [guia de instalação de início rápido](./quickstart-installation.md) para instalar o programa e criar uma área de trabalho.
 - Este exemplo assume que está a executar o Workbench do Azure ML no Windows 10 com [motor de Docker](https://www.docker.com/) instalada localmente. Se estiver a utilizar macOS, as instruções em grande medida são os mesmos.
-- Azure Machine Learning Operationalization instalado com um ambiente de implementação de local de multimédia e uma conta de gestão de modelo criada como descrito neste [guia](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md).
+- Azure Machine Learning Operationalization instalado com um ambiente de implementação de local de multimédia e uma conta de gestão de modelo criada como descrito neste [guia](./model-management-configuration.md).
 - Este exemplo requer que Atualize a instalação de Pandas para versão 0.20.3 ou superior e instalar matplotlib. Clique em *abra a linha de comandos* do *ficheiro* menu no Workbench e execute os seguintes comandos para instalar estas dependências:
 
     ```
-    conda install "pandas>=0.20.3"
-
-    conda install matplotlib
+    conda install "pandas>=0.21.1"
     ```
     
 ## <a name="create-a-new-workbench-project"></a>Criar um novo projeto do Workbench
@@ -77,7 +75,7 @@ Crie um novo projeto com este exemplo como um modelo:
 
 ## <a name="data-description"></a>Descrição de dados
 
-Existem dois conjuntos de dados: `nyc_demand.csv` e `nyc_weather.csv`:
+Dois conjuntos de dados são fornecidos com este exemplo e são transferidos utilizando o `1-data-preparation.ipynb` bloco de notas: `nyc_demand.csv` e `nyc_weather.csv`.
 
 **nyc_demand.csv** hora a hora contém valores de pedido de energia para Nova Iorque cidade de anos 2012 2017. Os dados têm a seguinte estrutura simple:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: trinadhk; jimpark;
-ms.openlocfilehash: 5f6e5dd9d4fb96376762300856b594d772d84af8
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.author: cwatson
+ms.openlocfilehash: 08edd8981a8230848c97a86e752ef3fdb28ca330
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="restore-virtual-machines-in-azure"></a>Restaurar máquinas virtuais no Azure
 > [!div class="op_single_selector"]
@@ -73,12 +73,12 @@ Restaure uma máquina virtual para uma nova VM a partir de cópias de segurança
 
     Se não houver nenhuma conta de armazenamento com configuração suportada, crie uma conta de armazenamento de uma configuração suportada antes de iniciar a operação de restauro.
 
-    ![Selecione uma rede virtual](./media/backup-azure-restore-vms/restore-sa.png)
+    ![Selecionar uma rede virtual](./media/backup-azure-restore-vms/restore-sa.png)
 3. Selecione uma rede Virtual: A rede virtual (VNET) para a máquina virtual deve ser selecionada no momento da criação da VM. O restauro IU mostra todas as VNETs dentro desta subscrição que podem ser utilizadas. Não é obrigatório para selecionar uma VNET para a VM restaurada – poderá ligar à máquina virtual restaurada através da internet, mesmo que não se aplica a VNET.
 
     Se o serviço em nuvem selecionado está associado uma rede virtual, não é possível alterar a rede virtual.
 
-    ![Selecione uma rede virtual](./media/backup-azure-restore-vms/restore-cs-vnet.png)
+    ![Selecionar uma rede virtual](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 4. Selecione uma sub-rede: caso a VNET tem sub-redes, por predefinição a primeira sub-rede será selecionada. Escolha a sub-rede à sua escolha entre as opções de lista pendente. Para os detalhes da sub-rede, aceda a extensão de redes no [home page do portal](https://manage.windowsazure.com/), aceda a **redes virtuais** e selecione a rede virtual e desagregar para configurar para ver os detalhes da sub-rede.
 
     ![Selecione uma sub-rede](./media/backup-azure-restore-vms/select-subnet.png)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 0d25b77ab6202a255060de3988a599a124c22884
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 568048c6117d81ec351d5057505dafeec58d7b5a
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tamanhos de máquinas virtuais do Linux no Azure
 Este artigo descreve os tamanhos disponíveis e as opções para as máquinas virtuais do Azure, que pode utilizar para executar as aplicações de Linux e cargas de trabalho. Também fornece considerações de implementação a ter em consideração quando estiver a planear utilizar estes recursos. Este artigo também está disponível para [máquinas virtuais Windows](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -31,7 +31,7 @@ Este artigo descreve os tamanhos disponíveis e as opções para as máquinas vi
 | [Com otimização de computação](sizes-compute.md)        | Fsv2, Fs, F             | Relação CPU/memória elevada. Ideal para servidores Web com tráfego médio, aplicações de rede, processos em lote e servidores de aplicações.        |
 | [Com otimização de memória](sizes-memory.md)         | Esv3, Ev3, M, GS, G, série DSv2, DS, Dv2, D   | Rácio de memória a CPU elevado. Ideal para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
 | [Com otimização de armazenamento](sizes-storage.md)        | Ls                | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
-| [GPU](sizes-gpu.md)            | NV, NC            | Especializadas máquinas virtuais de destino para composição de gráfico pesada e edição de vídeo. Disponível com GPUs único ou vários.       |
+| [GPU](sizes-gpu.md)            | NV, NC, NCv2, ND            | Especializadas máquinas virtuais de destino para composição de gráfico pesada e edição de vídeo. Disponível com GPUs único ou vários.       |
 | [Computação de elevado desempenho](sizes-hpc.md) | H, A8-11          | As nossas máquinas virtuais com CPU mais rápidas e poderosas com interfaces de rede de alto débito (RDMA) opcionais. 
 
 <br>

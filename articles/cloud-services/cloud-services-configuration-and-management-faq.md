@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 35c8e2a2029b3f29b45004c1308de8b3a108f698
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3d8dde74687154eaf173f3ca7316262e5c1a871c
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão do Cloud Services do Azure: Perguntas mais frequentes sobre (FAQ)
 
@@ -98,7 +98,7 @@ Para configurar um endereço IP estático, tem de criar um IP reservado. Este IP
 Consulte [específicos do serviço limita](../azure-subscription-service-limits.md#subscription-limits).
 
 ## <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Por que motivo a unidade de na minha VM de serviço de nuvem mostra pouco espaço livre em disco?
-Este comportamento está previsto, e não deve fazer com que qualquer problema à sua aplicação. Registo em diário está ativado para o % uproot unidade % PaaS as VMs do Azure, que consome essencialmente duplo a quantidade de espaço que ficheiros normalmente demorar algum tempo. No entanto, existem vários aspetos a ter em atenção que, essencialmente, ative esta opção para um problema não.
+Este comportamento está previsto, e não deve fazer com que qualquer problema à sua aplicação. Registo em diário é ativado para a unidade em % % approot na PaaS as VMs do Azure, que consome essencialmente duplo a quantidade de espaço que ficheiros normalmente demorar algum tempo. No entanto, existem vários aspetos a ter em atenção que, essencialmente, ative esta opção para um problema não.
 
 O tamanho de unidade do % approot % é calculado como < tamanho de. cspkg + tamanho do diário máximo > + a margem de espaço livre, ou 1,5 GB, optando-se maior. O tamanho da VM não tem efeito neste cálculo. (O tamanho da VM afeta apenas o tamanho da unidade c: temporário.) 
 

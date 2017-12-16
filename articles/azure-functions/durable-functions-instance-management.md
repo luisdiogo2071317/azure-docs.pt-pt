@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 399bad6f00b61d582fdb077f33000b6c55cf8904
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cbf7731c0faa82ebd3e662eb6d2a8fb0acd65c97
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gerir instâncias nas funções durável (funções do Azure)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/30/2017
 
 O [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) método no [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) inicia uma nova instância de uma função do orchestrator. As instâncias desta classe podem ser adquiridas utilizando o `orchestrationClient` enlace. Internamente, este método enqueues uma mensagem na fila de controlo, em seguida, aciona o início de uma função com o nome especificado que utiliza o `orchestrationTrigger` acionar o enlace.
 
-Os parâmetros são os seguintes:
+Os parâmetros de [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) são os seguintes:
 
 * **Nome**: O nome da função do orchestrator a agendar.
 * **Entrada**: quaisquer dados JSON serializável que devem ser transmitidos como entrada para a função do orchestrator.
@@ -97,7 +97,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Consulta de instância é atualmente suportado apenas para funções de c#.
+> Consulta de instância é atualmente suportado apenas para as funções do orchestrator c#.
 
 ## <a name="terminating-instances"></a>Instâncias de terminação
 
@@ -115,11 +115,13 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Está atualmente a terminação de instância só são suportadas para funções de c#.
+> Está atualmente a terminação de instância só são suportadas para funções de orchestrator c#.
 
 ## <a name="sending-events-to-instances"></a>Envio de eventos para instâncias
 
-As notificações de eventos podem ser enviadas para executar instâncias utilizando o [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) método o [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe. As instâncias que podem processar estes eventos são aqueles que estão a aguardar uma chamada para [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). As introduções são:
+As notificações de eventos podem ser enviadas para executar instâncias utilizando o [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) método o [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe. As instâncias que podem processar estes eventos são aqueles que estão a aguardar uma chamada para [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_). 
+
+Os parâmetros de [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) são os seguintes:
 
 * **InstanceId**: O ID exclusivo da instância.
 * **EventName**: O nome do evento para enviar.
@@ -139,7 +141,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Gerar eventos atualmente só é suportada para as funções de c#.
+> Gerar eventos atualmente só é suportada para as funções do orchestrator c#.
 
 > [!WARNING]
 > Se não houver nenhuma instância de orquestração com especificado *ID de instância* ou se a instância não está à espera que o especificado na *nome do evento*, a mensagem de evento é rejeitada. Para obter mais informações sobre este comportamento, consulte o [problema no GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2fb989d1fd9ee76ee1d21323574971438d607238
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f52252aca0ce89d6a86e620a97e749461181016f
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Introdução ao Microsoft Azure
 Microsoft Azure é plataforma de aplicações da Microsoft para a nuvem pública.  O objetivo deste artigo é para lhe fornecer uma Fundação para compreender as noções básicas do Azure, mesmo se não souber nada sobre nuvem informática.
@@ -534,6 +534,6 @@ A diferença entre os dois é que o Marketplace está fora do Portal de gestão 
 SendGrid é uma aplicação na loja do Azure que permite-lhe enviar correio eletrónico. Oferece funcionalidades adicionais, como as estatísticas e entrega fiável.  Pode comprar esta aplicação e os serviços relacionados em vez de tentar criar uma infraestrutura de tal por si.  
 
 ## <a name="getting-started"></a>Introdução
-Agora que tiver a visão, o passo seguinte é escrever a sua primeira aplicação do Azure. Escolha a linguagem [obter o SDK adequado](/downloads/)e vá para o mesmo. Nuvem informática é a predefinição de nova – começar agora mesmo.
+Agora que tiver a visão, o passo seguinte é escrever a sua primeira aplicação do Azure. Escolha a linguagem [obter o SDK adequado](https://azure.microsoft.com/en-us/downloads/)e vá para o mesmo. Nuvem informática é a predefinição de nova – começar agora mesmo.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/

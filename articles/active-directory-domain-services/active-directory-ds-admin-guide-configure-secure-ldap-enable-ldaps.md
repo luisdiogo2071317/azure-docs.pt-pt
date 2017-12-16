@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 12/15/2017
 ms.author: maheshu
-ms.openlocfilehash: e070dfad6ca51b941f1af60f85463f4534493dff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar segura LDAP (LDAPS) para um domínio gerido dos serviços de domínio do Azure AD
 
@@ -117,6 +117,7 @@ Se tiver problemas de ligação ao domínio gerido utilizando LDAP segura, execu
 * Certifique-se de que o cliente LDAP (por exemplo, ldp.exe) liga-se para o ponto final LDAP seguro com um nome DNS, não é o endereço IP.
 * Verifique o nome DNS, que o cliente LDAP liga ao seja resolvido para o endereço IP público para o LDAP seguro no domínio gerido.
 * Certifique-se de que o certificado LDAP seguro para o seu domínio gerido tem o nome DNS no assunto ou o atributo de nomes de alternativo do requerente.
+* Se estiver a ligar através de LDAP seguro através da internet, certifique-se de que as definições de NSG para a rede virtual permitem o tráfego para a porta 636 da internet.
 
 Se ainda tiver problemas de ligação ao domínio gerido utilizando LDAP seguro, [contacte a equipa de produto](active-directory-ds-contact-us.md) para obter ajuda. Inclua as seguintes informações para ajudar a diagnosticar melhor o problema:
 * Captura de ecrã de ldp.exe efetuar a ligação e a falhar.

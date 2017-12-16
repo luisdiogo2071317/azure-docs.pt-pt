@@ -16,87 +16,53 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: c92631323040f9be015d3824b9803cdde95d874b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f3284d4cbb15f21522549c678410815b54344744
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="understanding-the-azure-active-directory-application-manifest"></a>Compreender o manifesto da aplicação do Azure Active Directory
-As aplicações que se integram com o Azure Active Directory (AD) tem de ser registadas com um inquilino do Azure AD, fornecendo uma configuração de identidade persistente para a aplicação. Esta configuração é consulted em runtime, ativar cenários que permitem que uma aplicação outsource e Mediador de autenticação/autorização através do Azure AD. Para mais informações sobre o modelo de aplicação do Azure AD, consulte o [adicionar, atualizar e remover uma aplicação] [ ADD-UPD-RMV-APP] artigo.
+# <a name="azure-active-directory-application-manifest"></a>Manifesto da aplicação do Azure Active Directory
+As aplicações que se integram com o Azure AD tem de ser registadas com um inquilino do Azure AD. Esta aplicação pode ser configurada com o manifesto da aplicação (sob o painel do Azure AD) no [portal do Azure](https://portal.azure.com).
 
-## <a name="updating-an-applications-identity-configuration"></a>Atualizar a configuração da identidade de uma aplicação
-Existem várias opções de, na verdade, disponível para atualizar as propriedades na configuração da identidade de uma aplicação, que variam no capacidades e graus de dificuldade em, incluindo o seguinte:
+## <a name="manifest-reference"></a>Referência do manifesto
 
-* O  **[do portal do Azure] [ AZURE-PORTAL] interface de utilizador Web** permite-lhe atualizar as propriedades de uma aplicação mais comuns. Esta é a forma de propensas ao erro mais rápida e pelo menos, de atualizar propriedades da sua aplicação, mas não fornecer acesso total para todas as propriedades, como os dois métodos.
-* Para cenários mais avançados, onde tem de atualizar as propriedades que não estão expostas no portal clássico do Azure, pode modificar o **manifesto da aplicação**. Este é o objetivo deste artigo e é abordada mais detalhadamente a iniciar na secção seguinte.
-* Também é possível **escrever uma aplicação que utiliza o [Graph API] [ GRAPH-API]**  para atualizar a sua aplicação, o que requer o maior esforço. Isto pode ser uma boa opção embora, se estiver a escrever o software de gestão ou tem de atualizar propriedades da aplicação regularmente de forma automática.
-
-## <a name="using-the-application-manifest-to-update-an-applications-identity-configuration"></a>Com o manifesto da aplicação para atualizar a configuração da identidade de uma aplicação
-Através de [portal do Azure][AZURE-PORTAL], pode gerir a configuração da identidade da aplicação, atualizando o manifesto de aplicação utilizando o editor de manifesto inline. Também pode transferir e carregar o manifesto da aplicação como um ficheiro JSON. Nenhum ficheiro real é armazenado no diretório. O manifesto da aplicação é simplesmente uma HTTP GET operação na entidade de aplicação do Azure AD Graph API e o carregamento é uma operação HTTP PATCH na entidade de aplicação.
-
-Como resultado, para compreender o formato e propriedades de manifesto da aplicação, é necessário fazer referência a Graph API [entidade aplicação] [ APPLICATION-ENTITY] documentação. Exemplos de atualizações que podem ser efetuadas apesar de carregamento de manifesto de aplicação:
-
-* **Declarar âmbitos de permissões (oauth2Permissions)** expostas pela sua API web. Consulte o tópico "Exposição de APIs para outras aplicações Web" no [integrar aplicações com o Azure Active Directory] [ INTEGRATING-APPLICATIONS-AAD] para obter informações sobre como implementar a representação de utilizadores utilizar o oauth2Permissions delegado âmbito de permissão. Como mencionado anteriormente, as propriedades de entidade de aplicação estão documentadas na Graph API [entidade e o tipo complexo] [ APPLICATION-ENTITY] artigo de referência, incluindo a propriedade de oauth2Permissions que é uma colecção do tipo [OAuth2Permission][APPLICATION-ENTITY-OAUTH2-PERMISSION].
-* **Declarar as funções da aplicação (appRoles) expostas pela sua aplicação**. A propriedade de appRoles a entidade de aplicação é uma colecção do tipo [função de aplicação][APPLICATION-ENTITY-APP-ROLE]. Consulte o [controlo de acesso em aplicações em nuvem com o Azure AD baseado em funções] [ RBAC-CLOUD-APPS-AZUREAD] artigo para obter um exemplo de implementação.
-* **Declarar cliente conhecido aplicações (knownClientApplications)**, que permitem-lhe associar logicamente o consentimento das aplicações de cliente especificado para o recurso/API web.
-* **Pedido do Azure AD para emitir afirmações de associações de grupo** para o utilizador com sessão iniciada (groupMembershipClaims).  Também pode ser configurada para emitir afirmações sobre associações de funções de diretório do utilizador. Consulte o [autorização em aplicações na nuvem através de grupos do AD] [ AAD-GROUPS-FOR-AUTHORIZATION] artigo para obter um exemplo de implementação.
-* **Permitir que a aplicação suportar a concessão implícita do OAuth 2.0** fluxos (oauth2AllowImplicitFlow). Este tipo de fluxo de concessão é utilizado com páginas web de JavaScript incorporado ou aplicações de página única (SPA). Para obter mais informações sobre a concessão de autorização implícita, consulte [fluxo no Azure Active Directory de concessão de compreender o OAuth2 implícita][IMPLICIT-GRANT].
-* **Ativar a utilização de X509 certificados como a chave secreta** (keyCredentials). Consulte o [criar aplicações de serviço e o daemon no Office 365] [ O365-SERVICE-DAEMON-APPS] e [guia para programadores para autenticação com a API do Azure Resource Manager] [ DEV-GUIDE-TO-AUTH-WITH-ARM] artigos para obter exemplos de implementação.
-* **Adicionar um novo URI de ID de aplicação** para a sua aplicação (identifierURIs[]). Os URIs de ID de aplicação são utilizados para identificar de forma exclusiva uma aplicação no seu inquilino do Azure AD (ou em vários inquilinos do Azure AD, para cenários de multi-inquilinos quando qualificado através de domínio personalizado verificado). São utilizados quando pedir permissões para uma aplicação de recursos ou adquirir um token de acesso para uma aplicação de recursos. Quando atualizar este elemento, a mesma atualização é efetuada à coleção de [] servicePrincipalNames de um principal de serviço correspondentes, que se encontra no inquilino inicial da aplicação.
-
-O manifesto da aplicação também fornece uma boa forma de controlar o estado do registo da aplicação. Porque se encontra disponível no formato JSON, pode ser verificada a representação de ficheiro para o controlo de origem, juntamente com o código fonte da sua aplicação.
-
-## <a name="step-by-step-example"></a>Passo exemplo passo
-Agora permite-percorrer os passos necessários para atualizar a configuração da identidade da aplicação através do manifesto da aplicação. Vamos dar destaque um dos exemplos anteriores, que mostra como um novo âmbito de permissão de declarar uma aplicação do recurso:
-
-1. Inicie sessão no [Portal do Azure][AZURE-PORTAL].
-2. Depois de ter autenticado, escolha o seu inquilino do Azure AD ao selecioná-la a partir do canto superior direito da página.
-3. Selecione **do Azure Active Directory** extensão do painel de navegação esquerdo e clique em **registos de aplicação**.
-4. Localize a aplicação que pretende atualizar na lista e clique na mesma.
-5. Na página da aplicação, clique em **manifesto** para abrir o editor de manifesto inline. 
-6. Pode editar diretamente o manifesto através deste editor. Tenha em atenção que o manifesto segue-se o esquema para o [entidade aplicação] [ APPLICATION-ENTITY] conforme foi mencionado anteriormente: por exemplo, partindo do princípio de que pretende implementar/expõe uma nova permissão chamada "Employees.Read.All" na nossa aplicação de recursos (API), seria simplesmente adicionar um novo/segundo elemento à coleção oauth2Permissions, ie:
-   
-        "oauth2Permissions": [
-        {
-        "adminConsentDescription": "Allow the application to access MyWebApplication on behalf of the signed-in user.",
-        "adminConsentDisplayName": "Access MyWebApplication",
-        "id": "aade5b35-ea3e-481c-b38d-cba4c78682a0",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to access MyWebApplication on your behalf.",
-        "userConsentDisplayName": "Access MyWebApplication",
-        "value": "user_impersonation"
-        },
-        {
-        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
-        "adminConsentDisplayName": "Read-only access to Employee records",
-        "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
-        "userConsentDisplayName": "Read-only access to your Employee records",
-        "value": "Employees.Read.All"
-        }
-        ],
-   
-    A entrada tem de ser exclusiva e, por conseguinte, tem de gerar um novo globalmente ID exclusivo (GUID) para o `"id"` propriedade. Neste caso, porque especificamos `"type": "User"`, esta permissão pode ser autorizado por qualquer conta autenticada pelo Azure AD de inquilino no qual a aplicação de recursos/API está registada. Esta ação garante o cliente permissão de aplicação para aceder ao mesmo em nome da conta. As cadeias de nome de apresentação e descrição são utilizadas durante consentimento e para apresentar no portal do Azure.
-6. Quando tiver terminado o manifesto de atualização, clique em **guardar** para guardar o manifesto.  
-   
-Agora que o manifesto é guardado, pode dar um registado acesso de aplicação de cliente para a nova permissão adicionámos acima. Este tempo, pode utilizar a IU da Web do portal do Azure em vez de editar o manifesto da aplicação de cliente:  
-
-1. Pela primeira vez, vá para o **definições** painel da aplicação de cliente para o qual pretende adicionar acesso para a nova API, clique em **permissões obrigatórias** e escolha **selecionar um API**.
-2. Em seguida, será apresentada com a lista de aplicações (APIs) de recursos registado no inquilino. Clique na aplicação de recursos para selecioná-lo ou escreva o nome da aplicação a caixa de pesquisa. Quando tiver a aplicação, clique em **selecione**.  
-3. Isto leva-o para o **selecionar permissões** página, que mostrará a lista de permissões de aplicação e permissões delegadas disponível para a aplicação de recursos. Selecione a permissão de novo para adicionar à lista de pedido do cliente de permissões. Esta nova permissão será armazenado na configuração da identidade da aplicação cliente, na propriedade de coleção "requiredResourceAccess".
-
-
-E já está. Agora, as aplicações serão executadas utilizando a nova configuração de identidade.
+>[!div class="mx-tdBreakAll"]
+>[!div class="mx-tdCol2BreakAll"]
+|Chave  |Tipo de valor |Valor de Exemplo  |Descrição  |
+|---------|---------|---------|---------|
+|appID     |  Cadeia de identificador       |""|  O identificador exclusivo para a aplicação que está atribuída a uma aplicação pelo Azure AD.|
+|appRoles     |    Tipo de matriz     |[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"Utilizador"<br>&emsp;],<br>&emsp;"Descrição": "Leitura apenas aceder às informações de dispositivo",<br>&emsp;"displayName": "Só de leitura",<br>&emsp;"id": guid,<br>&emsp;"isEnabled": true,<br>&emsp;"valor": "ReadOnly"<br>}]|A coleção de funções que pode declarar uma aplicação. Estas funções podem ser atribuídas a utilizadores, grupos ou principais de serviço.|
+|AvailableToOtherTenants|Valor booleano|true|Se este valor é definido como VERDADEIRO, a aplicação está disponível para outros inquilinos.  Se definido como false, a aplicação é apenas disponíveis para o inquilino está registado no.  Para obter mais informações, consulte: [como iniciar sessão em qualquer utilizador do Azure Active Directory (AD) através do padrão de aplicação multi-inquilino](active-directory-devhowto-multi-tenant-overview.md). |
+|displayName     |string         |MyRegisteredApp         |O nome a apresentar para a aplicação. |
+|errorURL     |string         |http:<i></i>//MyRegisteredAppError         |O URL de erros encontrados numa aplicação. |
+|GroupMembershipClaims     |    string     |    1     |   Uma máscara de bits que configura a afirmação "grupos" emitida num utilizador ou um token de acesso de OAuth 2.0 que espera que a aplicação. Os valores de máscara de bits são: 0: None, 1: grupos de segurança e funções do Azure AD, 2: reservado e 4: reservado. Definir a máscara de bits para 7 obter todos os grupos de segurança, grupos de distribuição e funções de diretório do Azure AD que o utilizador com sessão iniciada é membro.      |
+|optionalClaims     |  string       |     nulo    |    As afirmações opcionais devolvidas no token pelo serviço de token de segurança para esta aplicação específica.     |
+|acceptMappedClaims    |      Valor booleano   | true        |    Se este valor é definido como VERDADEIRO, permite que uma aplicação para utilizar afirmações de mapeamento sem especificar uma chave de assinatura personalizada.|
+|Home page     |  string       |http:<i></i>//MyRegistererdApp         |    O URL para a home page da aplicação.     |
+|identifierUris     |  Matriz de cadeia       | http:<i></i>//MyRegistererdApp        |   URI(s) definido pelo utilizador que identificam uma aplicação Web no seu inquilino do Azure AD ou dentro de um domínio verificado personalizado se a aplicação multi-inquilino.      |
+|keyCredentials     |   Tipo de matriz      |   [{<br>&nbsp;"customKeyIdentifier": null,<br>"endDate": "2018-09-13T00:00:00Z",<br>"keyId": "\<guid >",<br>"startDate": "2017-09-12T00:00:00Z",<br>"type": "AsymmetricX509Cert"<br>"utilização": "Verificar"<br>"valor": nulo<br>}]      |   Esta propriedade contém referências a credenciais atribuída de aplicação, com base em cadeia segredos partilhados e certificados x. 509.  Estas credenciais entrem em play quando pedir tokens de acesso (quando a aplicação está a agir como um cliente em vez disso que como recurso).     |
+|knownClientApplications     |     Tipo de matriz    |    [guid]     |     O valor é utilizado para pedir consentimento agrupamento se tiver uma solução que contém duas partes, uma aplicação de cliente e uma aplicação API de web personalizada. Se introduzir o appID da aplicação de cliente para este valor, o utilizador só tem de autorizar uma vez para a aplicação de cliente. Azure AD irá saber que consenting para o cliente significa implicitamente consenting para a API web e aprovisionará automaticamente principais de serviço para o cliente e a web API em simultâneo (o cliente e aplicação de API web tem de estar registados no mesmo inquilino).|
+|logoutUrl     |   string      |     http:<i></i>//MyRegisteredAppLogout    |   O URL a fim de sessão da aplicação.      |
+|oauth2AllowImplicitFlow     |   Valor booleano      |  False       |       Especifica se esta aplicação web pode pedir tokens de fluxo implícito OAuth2.0. A predefinição é falsa. Isto é utilizado para aplicações baseadas no browser, como aplicações de página única de Javascript. |
+|oauth2AllowUrlPathMatching     |   Valor booleano      |  False       |   Especifica se, como parte de pedidos de token de OAuth 2.0, do Azure AD irá permitir caminho correspondente do URI de redirecionamento contra replyUrls da aplicação. A predefinição é falsa.      |
+|oauth2Permissions     | Tipo de matriz         |      [{<br>"adminConsentDescription": "Permitir que a aplicação para aceder a recursos em nome do utilizador com sessão iniciada.",<br>"adminConsentDisplayName": "Acesso resource1",<br>"id": "\<guid >",<br>"isEnabled": true,<br>"type": "Utilizador"<br>"userConsentDescription": "Permitir que a aplicação aceda resource1 em seu nome.",<br>"userConsentDisplayName": "Aceder a recursos,"<br>"valor": "user_impersonation"<br>}]   |  A coleção de âmbitos de permissões de OAuth 2.0 que expõe web de aplicação de API (recurso) para aplicações cliente. Estes âmbitos de permissões podem ser concedidos a aplicações de cliente durante a autorização. |
+|oauth2RequiredPostResponse     | Valor booleano        |    False     |      Especifica se, como parte de pedidos de token de OAuth 2.0, do Azure AD irá permitir pedidos POST, por oposição a pedidos GET. A predefinição é false, o que especifica que apenas os pedidos GET serão permitidos.   
+|objectId     | Cadeia de identificador        |     ""    |    O identificador exclusivo para a aplicação no diretório.  Não é o identificador utilizado para identificar a aplicação em qualquer transação de protocolo.  É utilizador para a referenciar o objeto em consultas de diretório.|
+|passwordCredentials     | Tipo de matriz        |   [{<br>"customKeyIdentifier": null,<br>"endDate": "2018-10-19T17:59:59.6521653Z",<br>"keyId": "\<guid >",<br>"startDate": "2016-10-19T17:59:59.6521653Z",<br>"valor": nulo<br>}]      |    Consulte a descrição para a propriedade keyCredentials.     |
+|PublicClient     |  Valor booleano       |      False   | Especifica se uma aplicação é um cliente público (por exemplo, uma aplicação instalada em execução num dispositivo móvel). Predefinição é falsa.        |
+|supportsConvergence     |  Valor booleano       |   False      | Esta propriedade não deve ser editada.  Aceite o valor predefinido.        |
+|replyUrls     |  Matriz de cadeia       |   http:<i></i>//localhost     |  Esta propriedade de vários valores contém a lista de valores de redirect_uri registados que do Azure AD irá aceitar como como destinos quando returining tokens. |
+|RequiredResourceAccess     |     Tipo de matriz    |    [{<br>"resourceAppId": "00000002-0000-0000-c000-000000000000"<br>"resourceAccess": [{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id": "311a71cc-e848-46a1-bdf8-97ff7156d8e6"<br>&nbsp;&nbsp;&nbsp;&nbsp;"type": "Âmbito"<br>&nbsp;&nbsp;}]<br>}]     |   Especifica os recursos que esta aplicação requer o acesso e o conjunto de âmbitos de permissões de OAuth e funções da aplicação que necessita em cada um desses recursos. Nesta pré-configuração de acesso a recursos necessários unidades a experiência de consentimento.|
+|resourceAppId     |    Cadeia de identificador     |  ""      |   O identificador exclusivo para o recurso de que a aplicação requer acesso. Este valor deve ser igual ao appId declarado na aplicação de recurso de destino.     |
+|resourceAccess     |  Tipo de matriz       | Ver o valor de exemplo para a propriedade requiredResourceAccess.        |   A lista de OAuth2.0 âmbitos de permissões e funções de aplicação que a aplicação necessita do recurso especificado (contém os valores de ID e o tipo de recursos especificados)        |
+|samlMetadataUrl|string|http:<i></i>//MyRegisteredAppSAMLMetadata|O URL para os metadados SAML para a aplicação.| 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para obter mais detalhes sobre a relação entre objetos de aplicação e um Principal de serviço de uma aplicação, consulte [aplicação e objetos de principal de serviço no Azure AD][AAD-APP-OBJECTS].
+* Para obter mais informações sobre a relação entre objetos de aplicação e um Principal de serviço de uma aplicação, consulte [aplicação e objetos de principal de serviço no Azure AD][AAD-APP-OBJECTS].
 * Consulte o [Glossário de programador do Azure AD] [ AAD-DEVELOPER-GLOSSARY] para definições de alguns dos conceitos de programador do Azure Active Directory (AD) principal.
 
-Utilize a secção de comentários abaixo para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo.
+Utilize a seguinte secção de comentários para enviar comentários que ajuda a refinar e formam o nosso conteúdo.
 
 <!--article references -->
 [AAD-APP-OBJECTS]: active-directory-application-objects.md

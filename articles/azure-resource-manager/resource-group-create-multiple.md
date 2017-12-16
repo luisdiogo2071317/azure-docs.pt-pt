@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: ac72190ddf01301eba595995d2167904ba4b0c05
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementar várias instâncias de um recurso ou a propriedade de modelos Azure Resource Manager
 Este artigo mostra-lhe como implementar condicionalmente um recurso e como iterar no modelo Azure Resource Manager para criar várias instâncias de um recurso.
@@ -395,140 +395,19 @@ O exemplo seguinte mostra a implementação:
 }]
 ```
 
-## <a name="deploy-example-templates"></a>Implementar modelos de exemplo
+## <a name="example-templates"></a>Modelos de exemplo
 
-### <a name="resource-iteration"></a>Iteração de recursos
+Os exemplos seguintes mostram cenários comuns para criar vários recursos ou propriedades.
 
-O [copiar armazenamento](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) modelo implementa múltiplas contas de armazenamento com um número de índice no nome.
-
-Para o PowerShell, utilize:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
-```
-
-Para a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
-```
-
-### <a name="serial-resource-iteration"></a>Iteração de série de recursos
-
-O [armazenamento da cópia série](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) modelo implementa múltiplas contas de armazenamento um momento. O nome inclui o número de índice.
-
-Para o PowerShell, utilize:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
-```
-
-Para a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
-```
-
-### <a name="resource-iteration-from-array"></a>Iteração de recursos de matriz
-
-O [copiar armazenamento com matriz](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) modelo implementa múltiplas contas de armazenamento. O nome inclui um valor de uma matriz.
-
-Para o PowerShell, utilize:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
-```
-
-Para a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
-```
-
-### <a name="conditionally-deploy-resources"></a>Implementar condicionalmente recursos
-
-O [VM com uma rede Virtual novo ou existente, o armazenamento e o IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) modelo implementa recursos novos ou existentes com uma máquina virtual.
-
-Para o PowerShell, utilize:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
-```
-
-Para a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
-```
-
-### <a name="property-iteration"></a>Iteração de propriedade
-
-O [a implementação da VM com um número de discos de dados variável](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) modelo implementa vários discos de dados com uma máquina virtual.
-
-Para o PowerShell, utilize:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
-```
-
-Para a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
-```
-
-### <a name="variable-iteration"></a>Iteração variável
-
-O [copiar variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) modelo demonstra as diferentes formas de iterating em variáveis.
-
-Para o PowerShell, utilize:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
-```
-
-Para a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
-```
-
-### <a name="variable-iteration-to-create-resources"></a>Variável iteração criar recursos
-
-O [várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) modelo implementa múltiplas regras de segurança para um grupo de segurança de rede. -Constrói as regras de segurança de um parâmetro.
-
-Para o PowerShell, utilize:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json `
-  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json
-```
+|Modelo  |Descrição  |
+|---------|---------|
+|[Armazenamento de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Implementa múltiplas contas de armazenamento com um número de índice no nome. |
+|[Armazenamento de cópia de série](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Implementa múltiplas contas de armazenamento um momento. O nome inclui o número de índice. |
+|[Armazenamento de cópia com matriz](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Implementa múltiplas contas de armazenamento. O nome inclui um valor de uma matriz. |
+|[VM com um novo ou existente rede Virtual, do armazenamento e um IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Implementa condicionalmente recursos novos ou existentes com uma máquina virtual. |
+|[Implementação da VM com um número de variável de discos de dados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Implementa vários discos de dados com uma máquina virtual. |
+|[Variáveis de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstra as diferentes formas de iterating em variáveis. |
+|[Várias regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implementa múltiplas regras de segurança para um grupo de segurança de rede. -Constrói as regras de segurança de um parâmetro. |
 
 ## <a name="next-steps"></a>Passos seguintes
 * Se pretender saber mais sobre as secções de um modelo, consulte [criação de modelos do Azure Resource Manager](resource-group-authoring-templates.md).

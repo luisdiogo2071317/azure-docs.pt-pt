@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/20/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d30361a7149342000c6e6cfdbfe1ee7e6caf945d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: bd7fe69f50e1fe1c1b333c6102dd4b8fc39cf3ad
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Exemplos do PowerShell de Máquina Virtual do Azure
 
@@ -37,10 +37,6 @@ A tabela seguinte inclui ligações para exemplos de scripts do PowerShell que c
 | [Carregar um VHD e criar VMs](./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md) | Carrega um ficheiro VHD local para o Azure, cria e imagem do VHD e, em seguida, cria uma VM a partir dessa imagem. |
 | [Criar uma VM a partir de um disco de SO gerido](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria uma máquina virtual, anexar um disco existente geridos como disco do SO. |
 | [Criar uma VM a partir de um instantâneo](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria uma máquina virtual a partir de um instantâneo ao primeiro criar um disco gerido de instantâneo e, em seguida, anexar o disco novo gerido como disco do SO. |
-|**Criar máquinas virtuais utilizando o novo AzVM**||
-| [Criar uma máquina virtual totalmente configurada](./../scripts/virtual-machines-windows-powershell-sample-create-vm-auto.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria um grupo de recursos, a máquina virtual e todos os recursos relacionados.|
-| [Criar uma VM e executar o script de configuração](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria uma máquina virtual e utiliza a extensão de Script de personalizada do Azure para instalar o IIS. |
-| [Criar uma VM e execute a configuração DSC](./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc-auto.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria uma máquina virtual e utiliza a extensão do Azure pretendido Estado Configuration (DSC) para instalar o IIS. |
 |**Gerir o armazenamento**||
 | [Criar disco gerido a partir de um VHD na subscrição idêntica ou diferente](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria um disco gerido a partir de um VHD especializado, como um disco do SO ou a partir de um VHD como disco de dados na subscrição idêntica ou diferente de dados.  |
 | [Criar um disco gerido a partir de um instantâneo](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Cria um disco gerido a partir de um instantâneo. |

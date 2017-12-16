@@ -14,8 +14,8 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 19ad079c58728479a7f39ce7520bd8eaebdff1f5
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 251f7fc99f1c8d79f31118df11b7522930903c25
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/15/2017
@@ -617,15 +617,20 @@ No caso de depare com problemas e receber mensagens crípticas, em seguida, util
 ## <a name="assign-users-to-roles"></a>Atribuir utilizadores a funções
 Depois de criar as aplicações para representar o cluster, atribuir os seus utilizadores a funções suportadas pelo Service Fabric: só de leitura e administrador. Pode atribuir as funções utilizando o [portal do Azure][azure-portal].
 
-1. No portal do Azure, aceda ao seu inquilino e, em seguida, selecione **aplicações**.
-2. Selecione a aplicação web, que tem um nome como `myTestCluster_Cluster`.
-3. Clique em de **utilizadores** separador.
-4. Selecione um utilizador e, em seguida, clique em de **atribuir** na parte inferior do ecrã.
+1. No portal do Azure, selecione o seu inquilino no canto superior direito.
 
-    ![Atribuir utilizadores a botão de funções][assign-users-to-roles-button]
-5. Selecione a função para atribuir ao utilizador.
+    ![Selecione o botão de inquilino][select-tenant-button]
+2. Selecione **do Azure Active Directory** no separador à esquerda e, em seguida, selecionadas "aplicações da empresa".
+3. Selecione "Todas as aplicações" e, em seguida, localize e selecione a aplicação web, que tem um nome como `myTestCluster_Cluster`.
+4. Clique em de **utilizadores e grupos** separador.
 
-    ![Caixa de diálogo "Atribuir utilizadores"][assign-users-to-roles-dialog]
+    ![Separador utilizadores e grupos][users-and-groups-tab]
+5. Clique em de **adicionar utilizador** botão na nova página, selecione um utilizador e a função e, em seguida, clique em de **selecione** na parte inferior da página.
+
+    ![Atribuir utilizadores a página de funções][assign-users-to-roles-page]
+6. Clique em de **atribuir** na parte inferior da página.
+
+    ![Adicionar a confirmação de atribuição][assign-users-to-roles-confirm]
 
 > [!NOTE]
 > Para obter mais informações sobre as funções no Service Fabric, consulte [controlo de acesso baseado em funções para clientes de Service Fabric](service-fabric-cluster-security-roles.md).
@@ -665,7 +670,7 @@ Ao tentar iniciar sessão Azure AD no Service Fabric Explorer, a página devolve
 A aplicação de cluster (web) que representa o Service Fabric Explorer tenta a autenticação no Azure AD e como parte do pedido fornece o URL de retorno de redirecionamento. Mas o URL não está listado na aplicação do Azure AD **URL de resposta** lista.
 
 #### <a name="solution"></a>Solução
-No **configurar** separador da aplicação (web) do cluster, adicione o URL do Service Fabric Explorer para o **URL de resposta** lista ou substituir um dos itens na lista. Quando tiver terminado, guarde as alterações.
+Selecione "Registos de aplicação" na página do AAD, selecione a aplicação de cluster e, em seguida, selecione o **URLs de resposta** botão. Na página "URLs de resposta", adicione o URL do Service Fabric Explorer à lista ou substituir um dos itens na lista. Quando tiver terminado, guarde as alterações.
 
 ![Url de resposta de aplicação Web][web-application-reply-url]
 
@@ -703,13 +708,15 @@ Neste momento, tiver um cluster seguro com fornecer autenticação de gestão do
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
-[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#Create-a-Service-Fabric-cluster- Resource-Manager-template
+[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-[assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
-[assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
+[select-tenant-button]: ./media/service-fabric-cluster-creation-via-arm/select-tenant-button.png
+[users-and-groups-tab]: ./media/service-fabric-cluster-creation-via-arm/users-and-groups-tab.png
+[assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-page.png
+[assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-confirm.png
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png

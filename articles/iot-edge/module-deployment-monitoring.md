@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 54c92937c507cabd9053920baef97e745c2300f6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e9e0106c66002ba5b0851833d582d5d5409a18a5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Compreender as implementações de IoT Edge para dispositivos único ou na escala – pré-visualização
 
@@ -62,7 +62,7 @@ A condição de destino é avaliada continuamente para incluir quaisquer novos d
 Utilize qualquer condição booleana etiquetas do dispositivos duplos ou deviceId para selecionar os dispositivos de destino. Se pretender utilizar a condição com etiquetas, terá de adicionar "etiquetas" secção :{} no dispositivo duplo sob o mesmo nível de propriedades. [Saiba mais sobre as etiquetas no dispositivo duplo](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
 
 Exemplos de condição de destino:
-* deviceId ='linuxprod1
+* deviceId = 'linuxprod1'
 * tags.Environment = 'prod'
 * tags.Environment = 'prod' e tags.location = 'westus'
 * tags.Environment = 'prod' ou tags.location = 'westus'

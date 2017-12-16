@@ -12,16 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 12/14/2017
 ms.author: raiye
-ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 435aca91fa7b46fd47d5031290028b93bfadde48
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas para o SO convidado do Azure. Procure este artigo para determinar se uma atualização específica aplica-se para o SO convidado está a utilizar. Atualizações sempre transportem para específico [família] [ family-explain] foram introduzidas no.
+
+## <a name="november-guest-os"></a>SO de convidado de Novembro
+| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 17 10 | [4048953] |Atualizações do Windows 10 |5.13 |14 de novembro de 2017 |
+| Rel 17 10 | [4048960], [4048962], [4048961] |Apenas a segurança do Windows |2.68, 3.55, 4.48 |14 de novembro de 2017 |
+| Rel 17 10 | [4047206] |Do Internet explorer |2.68, 3.55, 4.48 |14 de novembro de 2017 |
+| Rel 17 10 | [4048951] |Flash |3.55, 4.48, 5.13 |14 de novembro de 2017 |
+| N/D | [4041681] |Agregação de segurança não Outubro |2.67 |10 de Outubro de 2017 |
+| N/D | [4041690] |Agregação de segurança não Outubro |3.55 |10 de Outubro de 2017 |
+| N/D | [4041693] |Agregação de segurança não Outubro |4.48 |10 de Outubro de 2017 |
+| N/D | [3191565] |Atualização do Windows Management Framework 5.1  |3.55 |12 de Setembro de 2017 |
+| N/D | [3191564] |Atualização do Windows Management Framework 5.1  |4.48 |12 de Setembro de 2017 |
 
 ## <a name="october-guest-os"></a>SO de convidado de Outubro
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
@@ -548,6 +561,19 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/D |[3007054] |Protegida por PIN impressão opção sempre mostra quando a imprimir um documento dentro de uma aplicação da loja Windows no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 | N/D |[2999802] |Linhas sólidas em vez de linhas ponteada são indicadas no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 | N/D |[2896881] |Hora de início de sessão longa ao utilizar o comando AddPrinterConnection VBScript para mapear impressoras para os utilizadores durante o processo de início de sessão no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
+
+[4048953]: http://support.microsoft.com/kb/4048953
+[4048960]: http://support.microsoft.com/kb/4048960 
+[4048962]: http://support.microsoft.com/kb/4048962
+[4048961]: http://support.microsoft.com/kb/4048961
+[4047206]: http://support.microsoft.com/kb/4047206
+[4048951]: http://support.microsoft.com/kb/4048951
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041693]: http://support.microsoft.com/kb/4041693
+[4041690]: http://support.microsoft.com/kb/4041690
+[3191565]: http://support.microsoft.com/kb/3191565
+[3191564]: http://support.microsoft.com/kb/3191564
+
 
 [4041691]: http://support.microsoft.com/kb/4041691 
 [4041678]: http://support.microsoft.com/kb/4041678 

@@ -4,7 +4,7 @@ description: "Como voltar a implementar máquinas virtuais do Linux no Azure par
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/23/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 7bf69b2a3c006faa0dc0144313e5ebb64e941e2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98a07dfc46855d69a9d21083b2c712c581fdd48e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Volte a implementar máquina virtual do Linux para o novo nó do Azure
 Se enfrentam dificuldades a resolução de problemas de SSH ou acesso à aplicação a uma máquina virtual (VM) do Linux no Azure, voltar a implementar a VM pode ajudar. Quando voltar a implementar uma VM, muda a VM para um novo nó dentro da infraestrutura do Azure e, em seguida, for ligado-lo novamente. Todas as suas opções de configuração e os recursos associados são mantidos. Este artigo mostra como voltar a implementar uma VM utilizando a CLI do Azure ou o portal do Azure.
@@ -33,7 +33,7 @@ Pode voltar a implementar uma VM com uma das seguintes opções. Só tem de esco
 - [Portal do Azure](#using-azure-portal)
 
 ## <a name="use-the-azure-cli-20"></a>Utilizar a CLI do Azure 2.0
-Instalar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e início de sessão para um Azure conta através de [início de sessão az](/cli/azure/#login).
+Instalar a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e inicie sessão na sua Azure conta através de [início de sessão az](/cli/azure/#login).
 
 Volte a implementar a VM com [volte a implementar az vm](/cli/azure/vm#redeploy). O exemplo seguinte redeploys VM com o nome *myVM* no grupo de recursos denominado *myResourceGroup*:
 
@@ -42,7 +42,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="use-the-azure-cli-10"></a>Utilizar a CLI do Azure 1.0
-Instalar o [mais recente do Azure CLI 1.0](../../cli-install-nodejs.md), inicie sessão conta do Azure e certifique-se de que está no modo Resource Manager (`azure config mode arm`).
+Instalar o [mais recente do Azure CLI 1.0](../../cli-install-nodejs.md) e inicie sessão na sua conta do Azure. Certifique-se de que está no modo Resource Manager (`azure config mode arm`).
 
 O exemplo seguinte redeploys VM com o nome *myVM* no grupo de recursos denominado *myResourceGroup*:
 

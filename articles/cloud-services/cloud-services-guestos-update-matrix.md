@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/16/2017
+ms.date: 12/14/2017
 ms.author: raiye
-ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: fa90953d4bf88ac9aab1c9277ef6767153862111
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versões de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema operativo convidado versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de um SO convidado está desativado. Se configurar as funções de utilizar *automática* atualizações de SO convidado, conforme descrito em [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -42,6 +42,8 @@ Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema oper
 Se não souber sobre que o SO convidado ou como o SO convidado liberta o trabalho? Leitura [isto](#how-it-works) secção.
 
 ## <a name="news-updates"></a>Atualizações de notícias de última hora
+###### <a name="december-14-2017"></a>**14 de Dezembro de 2017**
+SO de convidado de Novembro foi libertado.
 
 ###### <a name="november-8-2017"></a>**8 de Novembro de 2017**
 SO de convidado de Outubro foi libertado.
@@ -88,16 +90,16 @@ Devido a um erro de segurança, iremos desativação as seguintes Dezembro de 20
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-5.13_201711-01 |14 de Dezembro de 2017 |Post 5.15 |TBD |
 | WA-CONVIDADO-SO-5.12_201710-02 |8 de Novembro de 2017 |Post 5.14 |TBD |
-| WA-CONVIDADO-SO-5.11_201709-01 |6 de Outubro de 2017 |Post 5.13 |TBD |
-| WA-CONVIDADO-SO-5.10_201708-01 |24 de Agosto de 2017 |Post 5.12 |TBD |
+|~~WA-CONVIDADO-SO-5.11_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
+|~~WA-CONVIDADO-SO-5.10_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-5.9_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-5.8_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-5.7_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
 |~~WA-CONVIDADO-SO-5.6_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
 |~~WA-CONVIDADO-SO-5.5_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
 |~~WA-CONVIDADO-SO-5.4_201612-01~~ |10 de janeiro de 2017 |5 de Junho de 2017|TBD |
-|~~WA-CONVIDADO-SO-5.3_201611-01~~ |14 de Dezembro de 2016 |9 de Maio de 2017 |TBD |
 
 ## <a name="family-4-releases"></a>Versões de família 4
 **Windows Server 2012 R2**
@@ -111,16 +113,16 @@ Devido a um erro de segurança, iremos desativação as seguintes Dezembro de 20
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-4.48_201711-01 |14 de Dezembro de 2017 |Post 4,50 |TBD |
 | WA-CONVIDADO-SO-4.47_201710-02 |8 de Novembro de 2017 |Post 4.49 |TBD |
-| WA-CONVIDADO-SO-4.46_201709-01 |6 de Outubro de 2017 |Post 4.48 |TBD |
-| WA-CONVIDADO-SO-4.45_201708-01 |24 de Agosto de 2017 |Post 4.47 |TBD |
+|~~WA-CONVIDADO-SO-4.46_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
+|~~WA-CONVIDADO-SO-4.45_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-4.44_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-4.43_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-4.42_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
 |~~WA-CONVIDADO-SO-4.41_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
 |~~WA-CONVIDADO-SO-4.40_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
 |~~WA-CONVIDADO-SO-4.39_201612-01~~ |10 de janeiro de 2017 |5 de Junho de 2017 |TBD |
-|~~WA-CONVIDADO-SO-4.38_201611-01~~ |14 de Dezembro de 2016 |9 de Maio de 2017 |TBD |
 
 ## <a name="family-3-releases"></a>Versões da família 3
 **Windows Server 2012**
@@ -134,16 +136,16 @@ Devido a um erro de segurança, iremos desativação as seguintes Dezembro de 20
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-3.55_201711-01 |14 de Dezembro de 2017 |Post 3.57 |TBD |
 | WA-CONVIDADO-SO-3.54_201710-02 |8 de Novembro de 2017 |Post 3.56 |TBD |
-| WA-CONVIDADO-SO-3.53_201709-01 |6 de Outubro de 2017 |Post 3.55 |TBD |
-| WA-CONVIDADO-SO-3.52_201708-01 |24 de Agosto de 2017 |Post 3.54 |TBD |
+|~~WA-CONVIDADO-SO-3.53_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
+|~~WA-CONVIDADO-SO-3.52_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-3.51_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-3.50_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-3.49_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
 |~~WA-CONVIDADO-SO-3.48_201704-01~~ |9 de Maio de 2017 |3 de Agosto de 2017 |TBD |
 |~~WA-CONVIDADO-SO-3.47_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
 |~~WA-CONVIDADO-SO-3.46_201612-01~~ |10 de janeiro de 2017 |5 de Junho de 2017 |TBD |
-|~~WA-CONVIDADO-SO-3.45_201611-01~~ |14 de Dezembro de 2016 |9 de Maio de 2017 |TBD |
 
 ## <a name="family-2-releases"></a>Versões de família 2
 **Windows Server 2008 R2 SP1**
@@ -157,9 +159,10 @@ Devido a um erro de segurança, iremos desativação as seguintes Dezembro de 20
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-2.68_201710-01 |14 de Dezembro de 2017 |Post 2.70 |TBD |
 | WA-CONVIDADO-SO-2.67_201710-02 |8 de Novembro de 2017 |Post 2.69 |TBD |
-| WA-CONVIDADO-SO-2.66_201709-01 |6 de Outubro de 2017 |Post 2.68 |TBD |
-| WA-CONVIDADO-SO-2.65_201708-01 |24 de Agosto de 2017 |Post 2.67 |TBD |
+|~~WA-CONVIDADO-SO-2.66_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
+|~~WA-CONVIDADO-SO-2.65_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-2.64_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-2.63_201706-01~~ |7 de Julho de 2017 |6 de Outubro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-2.62_201705-01~~ |5 de Junho de 2017 |24 de Agosto de 2017 |TBD |
@@ -167,7 +170,6 @@ Devido a um erro de segurança, iremos desativação as seguintes Dezembro de 20
 |~~WA-CONVIDADO-SO-2.60_201703-01~~ |10 de Abril de 2017 |7 de Julho de 2017 |TBD |
 |~~WA-CONVIDADO-SO-2.59_201701-01~~ |10 de janeiro de 2017 |5 de Junho de 2017 |TBD |
 |~~WA-CONVIDADO-SO-2.58_201612-01~~ |10 de janeiro de 2017 |9 de Maio de 2017|TBD |
-|~~WA-CONVIDADO-SO-2.57_201611-01~~ |14 de Dezembro de 2016 |10 de Abril de 2017 |TBD |
 
 
 ## <a name="msrc-patch-updates"></a>Atualizações de correção MSRC

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: tamram
-ms.openlocfilehash: 772c36c8310a4bf30c62def507382fe74427e0d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32f622c39583a25a7bc53ffcb6d9be779459badc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Encriptação do Serviço de Armazenamento do Azure para Dados Inativos
 Azure armazenamento serviço encriptação (SSE) para dados Inativos ajuda a proteger e a salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacional. Com esta funcionalidade, o Storage do Azure automaticamente encripta os dados antes de a persistência para armazenamento e desencripta antes da obtenção. A encriptação, desencriptação e a gestão de chaves são completamente transparentes para os utilizadores.
@@ -159,7 +159,7 @@ R: não neste momento; as chaves são completamente geridas pela Microsoft.
 
 **P: é SSE ativada por predefinição, quando criar uma nova conta de armazenamento?**
 
-R: SSE não está ativada por predefinição; Pode utilizar o portal do Azure para ativá-la. Através de programação também pode ativar esta funcionalidade utilizando a API de REST de fornecedor de recursos de armazenamento.
+R: o agrupamento de armazenamento do Azure está no processo de ativar a encriptação por predefinição, utilizando as chaves Microsoft geridos para todos os dados que são escritos no armazenamento do Azure (armazenamento de BLOBs, ficheiro, tabela e fila) e para todas as contas de armazenamento (Azure Resource Manager e clássico armazenamento contas), novas e existentes.
 
 **P: como é diferente do Azure Disk Encryption?**
 

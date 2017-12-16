@@ -1,6 +1,6 @@
 ---
-title: "Segurança Trimming na pesquisa do Azure com o Azure Active Directory | Microsoft Docs"
-description: "Implementar o corte de segurança utilizando o filtro de pesquisa do Azure e o Azure Active Directory."
+title: "Filtros de segurança para corte utilizar identidades do Active Directory de resultados de pesquisa do Azure | Microsoft Docs"
+description: "Controlo de acesso no conteúdo de Azure Search utilizando filtros de segurança e de identidades do Active Directory."
 services: search
 author: revitalbarletz
 manager: jlembicz
@@ -8,15 +8,15 @@ ms.service: search
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 8d277ff43aa0d5d14471426632b5aa369df0e316
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-in-azure-search-with-azure-active-directory"></a>Corte de segurança na pesquisa do Azure com o Azure Active Directory
+# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de segurança para corte resultados de pesquisa do Azure com identidades do Active Directory
 
-Este artigo demonstra como utilizar o Azure Active Directory (AAD), juntamente com a pesquisa do Azure para restringir o acesso ao documento com base na associação de grupo do utilizador.
+Este artigo demonstra como utilizar as identidades de segurança do Azure Active Directory (AAD), juntamente com os filtros na Azure Search para limitar os resultados da pesquisa com base na associação de grupo do utilizador.
 
 Este artigo abrange as seguintes tarefas:
 > [!div class="checklist"]
@@ -187,5 +187,6 @@ Nestas instruções, aprendeu técnicas para filtrar documentos nos resultados d
 
 ## <a name="see-also"></a>Consultar também
 
-+ [Corte de segurança com a pesquisa do Azure](search-security-trimming-for-azure-search.md)
++ [Controlo de acesso baseado na identidade utilizando filtros de pesquisa do Azure](search-security-trimming-for-azure-search.md)
 + [Filtros na pesquisa do Azure](search-filters.md)
++ [Controlo de acesso e segurança de dados em operações de pesquisa do Azure](search-security-overview.md)

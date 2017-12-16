@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: trinadhk;markgal;
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3d3de79c7f2465791ec68f850df2fc6317880f9
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d8dcefacd700f3b475eb477f80201659a2bea802
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Gerir tarefas de cópia de segurança do Azure comuns e alertas de Acionador no portal clássico
 > [!div class="op_single_selector"]
@@ -195,7 +195,7 @@ As seguintes operações são registadas nos registos de operações:
 * Interrompa a proteção
 * Eliminar dados de cópia de segurança
 * Adicionar política
-* Eliminar política
+* Eliminar aplicação
 * Política de atualização
 * Cancelar a tarefa
 
@@ -203,7 +203,7 @@ Para ver os registos de operações correspondente para um cofre de cópia de se
 
 1. Navegue para **dos serviços de gestão** no portal do Azure e, em seguida, clique o **os registos de operações** separador.
 
-    ![Registos de operações](./media/backup-azure-manage-vms/ops-logs.png)
+    ![Registos de Operações](./media/backup-azure-manage-vms/ops-logs.png)
 2. Os filtros, selecionar **cópia de segurança** como *tipo* e especifique o nome do Cofre de cópia de segurança no *nome do serviço* e clique em **submeter**.
 
     ![Filtro de registos de operação](./media/backup-azure-manage-vms/ops-logs-filter.png)
