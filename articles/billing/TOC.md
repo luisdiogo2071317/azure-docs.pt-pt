@@ -27,17 +27,17 @@
 ### [Compreender a utilização da Instância Reservada para Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Gerir subscrições
+### [Encontrar subscrição ou grupo de gestão](billing-enterprise-mgmt-grp-find.md)
 ### [Gerir funções de administrador](billing-add-change-azure-subscription-administrator.md)
 ### [Transferir a propriedade da subscrição](billing-subscription-transfer.md)
 ### [Reativar subscrição desativada](billing-subscription-become-disable.md)
 ### [Atualizar a partir da subscrição gratuita](billing-upgrade-azure-subscription.md)
 ### [Mudar oferta de subscrição](billing-how-to-switch-azure-offer.md)
+### [Ligar inquilino do Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [Cancelar subscrição](billing-how-to-cancel-azure-subscription.md)
-### [Encontrar subscrição ou grupo de gestão](billing-enterprise-mgmt-grp-find.md)
 ## Gerir conta
 ### [Editar perfil](billing-how-to-change-azure-account-profile.md)
 ### [Atualizar informações de pagamento](billing-how-to-change-credit-card.md)
-### [Ligar inquilino do Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Comprar subscrições através de fatura](billing-how-to-pay-by-invoice.md)
 ## [Gerir Instâncias de VM Reservadas](billing-manage-reserved-vm-instance.md)
 ## Resolução de problemas
