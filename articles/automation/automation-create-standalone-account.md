@@ -3,7 +3,7 @@ title: "Criar Conta de Automatização do Azure autónoma | Microsoft Docs"
 description: "Tutorial que o orienta através da criação, teste e exemplo de utilização da autenticação principal de segurança na Automatização do Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 Este tópico mostra-lhe como criar uma conta de Automatização a partir do portal do Azure se pretender avaliar e aprender mais sobre a Automatização do Azure, sem incluir as soluções de gestão adicionais ou a integração com o Log Analytics do OMS para fornecer monitorização avançada de tarefas de runbook.  Pode adicionar essas soluções de gestão ou integrar com o Log Analytics a qualquer momento no futuro.  Com a conta de Automatização, pode autenticar runbooks que gerem recursos no Azure Resource Manager ou na implementação clássica do Azure.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2017
+ms.date: 12/12/2017
 ms.author: kaanan
-ms.openlocfilehash: 5a457f843f2529b7279fe245bb47ff52cba76e66
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: d7b7204f218cf67b1749e4fcdbc78d134e6d80e7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -86,7 +86,7 @@ A tabela seguinte mostra as localizações de conectividade e os fornecedores de
 | **Montreal** |Bell Canada, Cologix |
 | **Mumbai** |Airtel+, Global CloudXchange (GCX), Sify, Tata Communications |
 | **Nova Iorque** |Coresite, Equinix, Level 3 Communications, Megaport, Zayo Group |
-| **Newport (País de Gales)** |Next Generation Data |
+| **Newport (País de Gales)** |Comunicações de Nível 3, Dados da Próxima Geração |
 | **Osaca** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Paris** |Colt, Intercloud, Interxion, Equinix, Orange |
 | **Cidade do Quebeque** | Megaport |

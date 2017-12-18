@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb4e9150c1069d48399fb217f865b294ccd317dc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="oms-architecture"></a>Arquitetura de OMS
-O [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) é uma coleção de serviços baseados na nuvem para gerir os seus ambientes no local e na nuvem.  Este artigo descreve os diferentes componentes no local e na nuvem do OMS e a respetiva arquitetura de informática em nuvem de nível elevado.  Para obter mais informações, pode consultar a documentação de cada serviço.
+O [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) é uma coleção de serviços baseados na nuvem para gerir os seus ambientes no local e na nuvem.  Este artigo descreve os diferentes componentes no local e na cloud do OMS e a respetiva arquitetura de informática na cloud de nível elevado.  Para obter mais informações, pode consultar a documentação de cada serviço.
 
 ## <a name="log-analytics"></a>Log Analytics
 Todos os dados recolhidos pelo [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) são armazenados no repositório do OMS que está alojado no Azure.  Origens Ligadas geram os dados recolhidos para o repositório do OMS.  Atualmente, existem três tipos de origens de dados ligadas.
 
-* Um agente instalado num computador [Windows](../log-analytics/log-analytics-windows-agents.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md) ligado diretamente ao OMS.
+* Um agente instalado num computador [Windows](../log-analytics/log-analytics-windows-agent.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md) ligado diretamente ao OMS.
 * Um grupo de gestão do System Center Operations Manager (SCOM) [ligado ao Log Analytics](../log-analytics/log-analytics-om-agents.md).  Os agentes do SCOM continuam a comunicar com servidores de gestão, que reencaminham eventos e dados de desempenho para o Log Analytics.
 * Uma [conta de armazenamento do Azure](../log-analytics/log-analytics-azure-storage.md) que recolhe dados do [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) a partir de uma função de trabalho, função Web ou máquina virtual no Azure.
 

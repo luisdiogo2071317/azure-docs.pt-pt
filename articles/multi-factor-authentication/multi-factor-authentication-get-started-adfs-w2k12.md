@@ -4,7 +4,7 @@ description: "Este artigo descreve como começar a utilizar o Multi-Factor Authe
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 57208068-1e55-45b6-840f-fdcd13723074
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/25/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0533d1ee953a8284e76d6edd15333ad844fea9c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 60e6737533e946512ae9b8e1e251e7bd6c9d0fe5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o AD FS no Windows Server
 Se utilizar os Serviços de Federação do Active Directory (AD FS) e pretender proteger os recursos na nuvem ou no local, poderá configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o AD FS. Esta configuração aciona a verificação de dois passos para pontos finais de alto valor.
@@ -57,7 +57,7 @@ Antes de começar, tenha em atenção as seguintes informações:
 10. Clique em **Fechar** quando a instalação estiver terminada.
 11. Quando o adaptador estiver instalado, precisa de o registar no AD FS. Abra o Windows PowerShell e execute o seguinte comando:<br>
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
-    <center>![Nuvem](./media/multi-factor-authentication-get-started-adfs-w2k12/pshell.png)</center>
+    <center>![Cloud](./media/multi-factor-authentication-get-started-adfs-w2k12/pshell.png)</center>
 12. Para utilizar o adaptador recém-registado, edite a política de autenticação global do AD FS. Na consola de gestão do AD FS, aceda ao nó **Políticas de Autenticação**. Na secção **Multi-Factor Authentication**, clique na ligação **Editar** junto à secção **Definições Globais**. Na janela **Editar Política de Autenticação Global**, selecione **Multi-Factor Authentication** como método de autenticação adicional e, em seguida, clique em **OK**. O adaptador está registado como WindowsAzureMultiFactorAuthentication. Reinicie o serviço AD FS para o registo ser aplicado.
 
 <center>![Nuvem](./media/multi-factor-authentication-get-started-adfs-w2k12/global.png)</center>

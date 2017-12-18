@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ Veja [Quickstart: create a data factory using .NET](quickstart-create-data-facto
 ## <a name="triggers"></a>Acionadores
 Os acionadores proporcionam a segunda forma de executar uma execução de pipeline. Representam uma unidade de processamento que determina quando é que uma execução de pipeline tem de arrancar. Atualmente, o Data Factory suporta um acionador que invoca um pipeline com base numa agenda. É denominado **Acionador Scheduler**. Atualmente o Data Factory não suporta acionadores baseados em eventos, como, por exemplo, um acionador de execução de pipeline que é acionado quando é recebido um ficheiro.
 
-Os pipelines e os acionadores têm uma relação “n-m” (muitos para muitos). Múltiplos acionadores podem arrancar um pipeline individual e o mesmo acionador pode arrancar vários pipelines. Na seguinte definição de JSON de um acionador, a propriedade **pipelines** refere-se a uma lista dos pipelines que são acionados pelo acionador específico e aos valores dos parâmetros do pipeline.
+Os pipelines e os acionadores têm uma relação muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual ou um acionador único pode arrancar vários pipelines. Na seguinte definição de JSON de um acionador, a propriedade **pipelines** refere-se a uma lista dos pipelines que são acionados pelo acionador específico e aos valores dos parâmetros do pipeline.
 
 ### <a name="basic-trigger-definition"></a>Definição básica do acionador: 
 ```json
@@ -165,7 +165,7 @@ O acionador Scheduler executa pipelines de acordo com uma agenda. Suporta opçõ
 ### <a name="scheduler-trigger-json-definition"></a>Definição de JSON do acionador Scheduler
 Quando cria um acionador Scheduler, pode especificar o agendamento e a periodicidade com o JSON, conforme mostrado no exemplo desta secção. 
 
-Para que o acionador Scheduler arranque uma execução de pipeline, inclua uma referência ao pipeline desse pipeline na definição do acionador. Os pipelines e os acionadores têm uma relação “n-m” (muitos para muitos). Múltiplos acionadores podem arrancar um pipeline individual. O mesmo acionador pode arrancar vários pipelines.
+Para que o acionador Scheduler arranque uma execução de pipeline, inclua uma referência ao pipeline desse pipeline na definição do acionador. Os pipelines e os acionadores têm uma relação muitos para muitos. Múltiplos acionadores podem arrancar um pipeline individual. Um acionador único pode arrancar vários pipelines.
 
 ```json
 {

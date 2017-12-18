@@ -4,7 +4,7 @@ description: "Como criar e utilizar um par de chaves públicas e privadas SSH pa
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 6fcdcc96c7762e2362aebf909ef25f4a5ab62f99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 806d297c40af6ae2834ad529aaa11c51d26826dd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Como criar e utilizar um par de chaves públicas e privadas SSH para VMs do Linux no Azure
-Com um par de chaves SSH (secure shell), pode criar máquinas virtuais (VMs) no Azure que utilizam chaves SSH para autenticação e eliminar a necessidade de palavras-passe para iniciar sessão. Este artigo mostra-lhe como gerar e utilizar rapidamente um par de ficheiros de chaves públicas e privadas RSA versão 2 do protocolo SSH para VMs do Linux. Para obter passos mais detalhados e exemplos adicionais, veja [passos detalhados para criar pares e certificados de chaves SSH](create-ssh-keys-detailed.md).
+Com um par de chaves SSH (secure shell), pode criar máquinas virtuais (VMs) no Azure que utilizam chaves SSH para autenticação e eliminar a necessidade de palavras-passe para iniciar sessão. Este artigo mostra-lhe como gerar e utilizar rapidamente um par de ficheiros de chaves públicas e privadas RSA versão 2 do protocolo SSH para VMs do Linux. Pode concluir estes passos com o Azure Cloud Shell, um anfitrião do macOS ou Linux ou um Subsistema do Windows para Linux. Para obter passos mais detalhados e exemplos adicionais, veja [passos detalhados para criar pares e certificados de chaves SSH](create-ssh-keys-detailed.md).
 
 ## <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 Utilize o comando `ssh-keygen` para criar ficheiros de chaves públicas e privadas SSH criadas, por predefinição, no diretório `~/.ssh`, mas pode especificar uma localização diferente e uma frase de acesso adicional (uma palavra-passe para aceder ao ficheiro de chave privada), quando lhe for pedido. Execute o comando seguinte a partir de uma shell Bash e responda aos pedidos com as suas próprias informações.

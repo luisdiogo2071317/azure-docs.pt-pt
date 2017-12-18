@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/31/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: f0be787ba1ccee067fb1d7e6a6554be32f886089
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c66488ce4381a3c5f796aa9826810195b2738769
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introdução à distribuição de conteúdos a pedido utilizando o SDK do .NET
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -86,22 +86,26 @@ Para iniciar o ponto final de transmissão em fluxo, faça o seguinte:
 
 Quando utilizar os Media Services com .NET, deve utilizar a classe **CloudMediaContext** na maioria das tarefas de programação dos Media Services: ligar à conta de Media Services; criar, atualizar, aceder e eliminar os seguintes objetos: elementos, ficheiros de elementos, tarefas, políticas de acesso, localizadores, etc.
 
-Substitua a classe Program predefinida com o seguinte código. O código demonstra como ler os valores de ligação a partir do ficheiro App.config e como criar o objeto **CloudMediaContext** para se ligar aos Media Services. Para obter mais informações, veja [connecting to the Media Services API](media-services-use-aad-auth-to-access-ams-api.md) (ligar à API de Serviços de Multimédia).
+Substitua a classe do Programa predefinido pelo seguinte código: o código demonstra como ler os valores de ligação a partir do ficheiro App.config e como criar o objeto **CloudMediaContext** para se ligar aos Serviços de Multimédia. Para obter mais informações, veja [connecting to the Media Services API](media-services-use-aad-auth-to-access-ams-api.md) (ligar à API de Serviços de Multimédia).
 
 Certifique-se de atualizar o nome do ficheiro e o caminho onde o ficheiro do suporte de dados se encontra.
 
 Os métodos de chamadas de função **Main** que serão definidos posteriormente nesta secção.
 
 > [!NOTE]
-> Receberá erros de compilação até adicionar definições para todas as funções.
+> Receberá erros de compilação até adicionar definições para todas as funções que estão definidas neste artigo.
 
     class Program
     {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
@@ -109,7 +113,11 @@ Os métodos de chamadas de função **Main** que serão definidos posteriormente
         {
         try
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -137,7 +145,7 @@ Os métodos de chamadas de função **Main** que serão definidos posteriormente
             Console.ReadLine();
         }
         }
-    }
+    
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Criar um novo elemento e carregar um ficheiro de vídeo
 
@@ -228,7 +236,7 @@ Para transmitir ou transferir um elemento, primeiro tem de o "publicar" através
 
 ### <a name="some-details-about-url-formats"></a>Alguns detalhes sobre os formatos de URL
 
-Depois de criar os localizadores, pode criar os URLs que seriam utilizados para transmitir ou transferir os seus ficheiros. O exemplo neste tutorial originará URLs que pode colar nos browsers adequados. Esta secção disponibiliza apenas breves exemplos de como será o aspeto dos diferentes formatos.
+Depois de criar os localizadores, pode criar os URLs que seriam utilizados para transmitir ou transferir os seus ficheiros. O exemplo neste tutorial origina URLs que pode colar nos browsers adequados. Esta secção disponibiliza apenas breves exemplos de como será o aspeto dos diferentes formatos.
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Um URL de transmissão em fluxo para MPEG DASH tem o seguinte formato:
 

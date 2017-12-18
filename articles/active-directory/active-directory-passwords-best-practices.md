@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como implementar com êxito a reposição personalizada de palavras-passe
 
@@ -37,6 +37,10 @@ Para garantir uma suave implementação da funcionalidade de reposição persona
 9. Determine quando pretende impor o registo. Pode optar por impor o registo em qualquer momento. Pode também exigir aos utilizadores que confirmem novamente as respetivas informações de autenticação deles após um determinado período de tempo.
 10. Utilize a capacidade de relatórios. Ao longo do tempo, pode rever o registo dos utilizadores e a utilização com a [capacidade de relatórios que o Azure AD proporciona](active-directory-passwords-reporting.md).
 11. Ative a reposição de palavras-passe. Quando estiver pronto, ative a reposição de palavras-passe para todos os utilizadores mediante a definição do comutador **Reposição Personalizada de Palavras-Passe Ativada** como **Todos**. 
+
+   > [!NOTE]
+   > Alterar esta opção de um grupo selecionado para todos os utilizadores, não invalida os dados de autenticação existentes que um utilizador registou como parte de um grupo de teste. Os utilizadores que estão configurados e têm dados de autenticação registados continuam a funcionar.
+
 12. [Permita que os utilizadores do Windows 10 reponham as palavras-passe no ecrã de início de sessão](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ Muitos clientes consideram que a forma mais fácil de pôr os utilizadores a uti
 
 Muitos clientes optam por alojar uma página Web e criar uma entrada DNS de raiz, como https://passwords.contoso.com. Preenchem esta página com ligações para as informações seguintes:
 
-* [Portal da reposição de palavras-passe do Azure AD](https://aka.ms/sspr)
-* [Portal de registo da reposição de palavras-passe do Azure AD](http://aka.ms/ssprsetup)
-* [Portal de alteração de palavras-passe do Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Portal para reposição de palavras-passe do Azure AD - https://aka.ms/sspr](https://aka.ms/sspr)
+* [Portal de registo da reposição de palavras-passe do Azure AD - http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Portal de alteração de palavras-passe do Azure AD - https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Outras informações específicas da organização
 
 Pode incluir, em qualquer comunicação ou panfleto por e-mail que distribuir, um URL corporativo e memorável, ao qual os utilizadores podem aceder quando precisam de utilizar os serviços. Para seu benefício, criámos uma [página de reposição de palavras-passe de exemplo](https://github.com/ajamess/password-reset-page) que pode utilizar e personalizar consoante as necessidades da sua organização.

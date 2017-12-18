@@ -3,7 +3,7 @@ title: Criar Conta de Utilizador do Azure AD | Microsoft Docs
 description: "Este artigo descreve como criar uma credencial da conta de Utilizador do Azure AD para runbooks na Automatização do Azure para efetuar a autenticação no Azure e no Azure clássico."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: "utilizador do azure active directory, gestão do serviço do azure, conta de utilizador do azure ad"
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 700c4419821934daac89025c889b21d8e2ef46b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Autenticar Runbooks com a implementação clássica do Azure e o Resource Manager
 Este artigo descreve os passos que tem de efetuar para configurar uma conta de Utilizador do Azure AD para runbooks de Automatização do Azure em execução no modelo de implementação clássica do Azure ou nos recursos do Azure Resource Manager (ARM).  Embora esta continue a ser uma identidade de autenticação suportada para os runbooks com base no Azure Resource Manager, o método recomendado consiste em utilizar uma conta Run As do Azure.       
 
 ## <a name="create-a-new-azure-active-directory-user"></a>Criar um novo utilizador do Azure Active Directory
-1. Inicie sessão no portal Clássico do Azure como um administrador de serviços para a subscrição do Azure que pretende gerir.
+1. Inicie sessão no Portal Clássico do Azure como um administrador de serviços para a subscrição do Azure que pretende gerir.
 2. Selecione **Active Directory** e, em seguida, selecione o nome do diretório da sua organização.
 3. Selecione o separador **Utilizadores** e, na área de comandos, selecione **Adicionar Utilizador**.
 4. Na página **Forneça mais informações sobre este utilizador**, em **Tipo de utilizador**, selecione **Novo utilizador na sua organização**.
@@ -36,17 +36,17 @@ Este artigo descreve os passos que tem de efetuar para configurar uma conta de U
 9. Selecione **Definições > Administradores > Adicionar**.
 10. Escreva o nome de utilizador completo do utilizador que criou.
 11. Selecione a subscrição que pretende que o utilizador efetue a gestão.
-12. Termine sessão no Azure e, em seguida, inicie sessão novamente com a conta que acabou de criar. Será solicitado a alterar a palavra-passe do utilizador.
+12. Termine sessão no Azure e, em seguida, inicie sessão novamente com a conta que acabou de criar. É solicitado a alterar a palavra-passe do utilizador.
 
-## <a name="create-an-automation-account-in-azure-classic-portal"></a>Crie uma conta de Automatização no portal Clássico do Azure
+## <a name="create-an-automation-account-in-azure-classic-portal"></a>Crie uma conta de Automatização no portal clássico do Azure
 Nesta secção, executa os seguintes passos para criar uma conta de Automatização do Azure no portal do Azure para utilizar com os recursos de gestão dos runbooks na implementação clássica do Azure.  
 
 > [!NOTE]
-> As contas de automatização criadas com o portal Clássico do Azure podem ser geridas tanto pelo Azure Clássico como pelo portal do Azure e qualquer conjunto de cmdlets. Depois de a conta estar criada, não faz diferença como criar e gerir recursos na conta. Se estiver a planear continuar a utilizar o portal Clássico do Azure, deve utilizá-lo em vez do portal do Azure para criar as contas de Automatização.
+> As contas de automatização criadas com o portal clássico do Azure podem ser geridas tanto pelo Azure Clássico como pelo portal do Azure e qualquer conjunto de cmdlets. Depois de a conta estar criada, não faz diferença como criar e gerir recursos na conta. Se estiver a planear continuar a utilizar o Portal Clássico do Azure, deve utilizá-lo em vez do portal do Azure para criar as contas de Automatização.
 > 
 > 
 
-1. Inicie sessão no portal Clássico do Azure como um administrador de serviços para a subscrição do Azure que pretende gerir.
+1. Inicie sessão no Portal Clássico do Azure como um administrador de serviços para a subscrição do Azure que pretende gerir.
 2. Selecione **Automatização**.
 3. Na página **Automatização**, selecione **Criar uma Conta de Automatização**.
 4. Na caixa **Criar uma Conta de Automatização**, escreva um nome para a sua nova conta de Automatização e selecione uma **Região** na lista pendente.  

@@ -3,21 +3,21 @@ title: "Como utilizar o Pacote de Conteúdos do Power BI para o Azure Active Dir
 description: "Saiba como utilizar o Pacote de Conteúdos do Power BI Para o Azure Active Directory"
 services: active-directory
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba3f9f74fd7ba658b4e082775e471ed65a386fed
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 503b3f4c576382d8ce965d1f90aadda32c819a0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como utilizar o Pacote de Conteúdos do Power BI para o Azure Active Directory
 
@@ -46,7 +46,7 @@ Este tópico disponibiliza-lhe instruções passo a passo para instalar e utiliz
 5.  Quando lhe for pedido, escreva o seu ID de Inquilino do Azure AD e clique em **Seguinte**.
 
     > [!TIP] 
-    > Uma forma rápida de obter o ID de Inquilino do seu inquilino do Office 365 / Azure AD é iniciar sessão no Portal do Azure AD, ir ao diretório e copiar o ID do URL https://manage.windowsazure.com/woodgroveonline.com#Workspaces/ActiveDirectoryExtension/Directory/<tenantid>/directoryQuickStart.
+    > Uma forma rápida de obter o ID de Inquilino para o inquilino do Office 365/Azure AD é iniciar sessão no portal do Azure AD, desagregar o diretório e copiar o **ID do Diretório** da página [**Propriedades**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
     ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/04.png) 
 
