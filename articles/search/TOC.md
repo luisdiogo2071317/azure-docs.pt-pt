@@ -28,12 +28,16 @@
 
 # Procedimento
 
-## Planear e conceber
+## Planear e Conceber
 ### [Escolher um SKU](search-sku-tier.md)
 ### [Limites do serviço](search-limits-quotas-capacity.md)
 ### [Escalabilidade do serviço](search-capacity-planning.md)
 ### [Padrões de conceção para multi-inquilinos](search-modeling-multitenant-saas-applications.md)
-## Programar
+## Segurança
+### [Estrutura e segurança operacional](search-security-overview.md)
+### [Proteger com filtros de identidade](search-security-trimming-for-azure-search.md)
+### [Proteger com o Active Directory](search-security-trimming-for-azure-search-with-aad.md)
+## Desenvolvimento
 ### [Versões da API](search-api-versions.md)
 ### [Programar em Node.js](search-get-started-nodejs.md)
 ### [Desenvolver em Java](search-get-started-java.md)
@@ -42,13 +46,6 @@
 ### [Modelar tipos de dados complexos](search-howto-complex-data-types.md)
 ### [Processar atualizações em simultâneo](search-howto-concurrency.md)
 ### [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=search)
-## Gerir
-### Administrar o Azure Search
-#### [Portal do Azure](search-manage.md)
-#### [Azure PowerShell](search-manage-powershell.md)
-### [Monitorizar a utilização e as estatísticas](search-monitor-usage.md)
-### [Procurar análises de tráfego](search-traffic-analytics.md)
-### [Desempenho e otimização](search-performance-optimization.md)
 ## Carregar dados
 ### [Descrição geral do Indexador](search-indexer-overview.md)
 ### [Indexador do Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
@@ -73,8 +70,6 @@
 #### [Descrição geral](search-filters.md)
 #### [Filtros de facetas](search-filters-facets.md)
 #### [Filtros de idioma](search-filters-language.md)
-#### [Filtros de segurança (genérico)](search-security-trimming-for-azure-search.md)
-#### [Filtros de segurança (AAD)](search-security-trimming-for-azure-search-with-aad.md)
 #### [Referência da sintaxe de expressões](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Resultados de paginação](search-pagination-page-layout.md)
 ### [Classificação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
@@ -82,6 +77,12 @@
 ### [Navegação por facetas](search-faceted-navigation.md)
 ### [Pré-visualização de sinónimos](search-synonyms.md)
 ### [Pré-visualização de moreLikeThis](search-more-like-this.md)
+## Administração e Análise
+### [Gerir com o portal do Azure](search-manage.md)
+### [Gerir com o PowerShell](search-manage-powershell.md)
+### [Monitorizar a utilização e as estatísticas](search-monitor-usage.md)
+### [Procurar análises de tráfego](search-traffic-analytics.md)
+### [Desempenho e otimização](search-performance-optimization.md)
 
 # Referência
 
