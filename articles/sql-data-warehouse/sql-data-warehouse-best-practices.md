@@ -15,16 +15,18 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: f24dc2600bec8b7086ee34a960e777a8a1b288ad
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Melhores práticas do Azure SQL Data Warehouse
 Este artigo é uma coleção de muitas das melhores práticas que o irão ajudar a obter um desempenho otimizado do Azure SQL Data Warehouse.  Alguns dos conceitos neste artigo são básicos e fáceis de explicar, outros conceitos são mais avançados e apenas falamos por alto neste artigo.  O objetivo deste artigo é proporcionar alguma orientação básica e consciencialização de áreas de foco importantes ao criar o seu armazém de dados.  Cada secção apresenta um conceito e, em seguida, encaminha-o para artigos mais detalhados que abordam o conceito de forma mais aprofundada.
 
 Se está a começar a utilizar o Azure SQL Data Warehouse, não deixe que este artigo o intimide.  A sequência dos tópicos está maioritariamente por ordem de importância.  Se começar por se concentrar nos primeiros conceitos, estará no bom caminho.  Quando estiver mais familiarizado e à vontade com a utilização do SQL Data Warehouse, regresse e veja mais alguns conceitos.  Não irá demorar muito tempo para que tudo faça sentido.
+
+Para carregar a documentação de orientação, veja [Guidance for loading data (Documentação de orientação para carregar dados)](guidance-for-loading-data.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Reduzir os custos com a colocação em pausa e o dimensionamento
 Uma funcionalidade fundamental do SQL Data Warehouse é a capacidade de colocação em pausa quando não está a utilizá-lo, o que para a faturação de recursos de computação.  Outra funcionalidade importante é a capacidade de dimensionar os recursos.  A Colocação em Pausa e o Dimensionamento podem ser feitos através do Portal do Azure ou de comandos do PowerShell.  Familiarize-se com estas funcionalidades, uma vez que podem reduzir significativamente o custo do armazém de dados quando não está em utilização.  Se pretender que o armazém de dados esteja sempre acessível, deve considerar reduzir verticalmente para o tamanho mais pequeno, um DW100, em vez de colocar em pausa.
@@ -52,7 +54,7 @@ O SQL Data Warehouse suporta o carregamento e a exportação de dados através d
 Veja também [Load data][Load data] (Carregar dados), [Guide for using PolyBase][Guide for using PolyBase] (Manual para utilizar o PolyBase), [Azure SQL Data Warehouse loading patterns and strategies][Azure SQL Data Warehouse loading patterns and strategies] (Estratégias e padrões de carregamento do Azure SQL Data Warehouse), [Load Data with Azure Data Factory][Load Data with Azure Data Factory] (Carregar Dados com o Azure Data Factory, [Move data with Azure Data Factory][Move data with Azure Data Factory] (Mover dados com o Azure Data Factory), [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] e [Create table as select (CTAS)][Create table as select (CTAS)]
 
 ## <a name="load-then-query-external-tables"></a>Carregar e consultar tabelas externas
-Apesar do Polybase, também conhecido como tabelas externas, poder ser a forma mais rápida de carregar dados, não é o ideal para consultas. Atualmente as tabelas Polybase do SQL Data Warehouse só suportam ficheiros de blob do Azure. Estes ficheiros não têm quaisquer recursos de computação a apoiá-los.  Como resultado, o SQL Data Warehouse não pode descarregar este trabalho e, por conseguinte, tem de ler o ficheiro completo ao carregá-lo no tempdb para ler os dados.  Portanto, se tiver várias consultas a estes dados, é melhor carregar estes dados uma vez e que as consultas utilizem a tabela local.
+Apesar do Polybase, também conhecido como tabelas externas, poder ser a forma mais rápida de carregar dados, não é o ideal para consultas. Atualmente as tabelas Polybase do SQL Data Warehouse só suportam ficheiros de blob do Azure e armazenamento do Azure Data Lake. Estes ficheiros não têm quaisquer recursos de computação a apoiá-los.  Como resultado, o SQL Data Warehouse não pode descarregar este trabalho e, por conseguinte, tem de ler o ficheiro completo ao carregá-lo no tempdb para ler os dados.  Portanto, se tiver várias consultas a estes dados, é melhor carregar estes dados uma vez e que as consultas utilizem a tabela local.
 
 Veja também [Guide for using PolyBase][Guide for using PolyBase]
 
@@ -127,8 +129,8 @@ Por último, utilize a página [Comentários do Azure SQL Data Warehouse][Azure 
 [Table partitioning]: ./sql-data-warehouse-tables-partition.md
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[Guide for using PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[Load data]: ./sql-data-warehouse-overview-load.md
+[Guide for using PolyBase]: ./guidance-for-loading-data.md
+[Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md

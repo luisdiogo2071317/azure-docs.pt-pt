@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2017
 ms.author: bwren
-ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f12958550738ff465c06d0e5d774d8bffa0b90b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-log-analytics"></a>O que é o Log Analytics?
 O Log Analytics é um serviço do [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md) que monitoriza os seus ambientes na cloud e no local, para manter a disponibilidade e o desempenho dos mesmos.  Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens.  Este artigo mostra uma breve discussão sobre o valor proporcionado pelo Log Analytics, uma descrição geral de como funciona e contém ligações a conteúdos mais detalhados, para que possa fazer ainda mais.
@@ -30,7 +30,7 @@ Se quiser monitorizar o seu ambiente no local ou tiver monitorização existente
 
 
 ## <a name="using-log-analytics"></a>Utilizar o Log Analytics
-Pode aceder ao Log Analytics através do portal do OMS ou do portal do Azure, que são executados em qualquer browser e lhe proporcionam acesso a definições de configuração e a várias ferramentas para analisar e atuar sobre os dados recolhidos.  No portal, pode tirar partido das [pesquisas de registos](log-analytics-log-searches.md), nas quais constrói as consultas para analisar os dados recolhidos, dos [dashboards](log-analytics-dashboards.md), que pode personalizar com vistas de gráficas das suas pesquisas mais valiosas, e das [soluções](log-analytics-add-solutions.md), que disponibilizam funcionalidades e ferramentas de análise adicionais.
+Pode aceder ao Log Analytics através do portal do OMS ou do portal do Azure, que são executados em qualquer browser e lhe proporcionam acesso a definições de configuração e a várias ferramentas para analisar e atuar sobre os dados recolhidos.  No portal, pode tirar partido das [pesquisas de registos](log-analytics-log-searches.md), nas quais constrói as consultas para analisar os dados recolhidos, dos [dashboards](log-analytics-dashboards.md), que pode personalizar com vistas gráficas das suas pesquisas mais valiosas, e das [soluções](log-analytics-add-solutions.md), que disponibilizam funcionalidades e ferramentas de análise adicionais.
 
 A imagem abaixo é do portal do OMS, que mostra o dashboard que apresenta informações de resumo relativas às [soluções](#add-functionality-with-management-solutions) que estão instaladas na área de trabalho.  Pode clicar em qualquer mosaico para analisar mais detalhadamente os dados dessas soluções.
 
@@ -56,11 +56,11 @@ Estão disponíveis soluções para diversas funções e são constantemente adi
 ![Galeria de Soluções](media/log-analytics-overview/solution-gallery.png)
 
 ## <a name="log-analytics-components"></a>Componentes do Log Analytics
-No centro do Log Analytics, está o repositório do OMS, que está alojado na nuvem do Azure.  Os dados são recolhidos no repositório a partir de origens ligadas mediante a configuração das origens de dados e da adição de soluções à sua subscrição.  As origens de dados e as soluções criarão, cada uma, diferentes tipos de registos que têm os seus próprios conjuntos de propriedades, mas que podem ser analisados em conjunto em consultas feitas no repositório.  Desta forma, pode utilizar as mesmas ferramentas e métodos para trabalhar com diversos tipos de dados recolhidos por diferentes origens.
+No centro do Log Analytics, está o repositório do OMS, que está alojado na cloud do Azure.  Os dados são recolhidos no repositório a partir de origens ligadas mediante a configuração das origens de dados e da adição de soluções à sua subscrição.  As origens de dados e as soluções criarão, cada uma, diferentes tipos de registos que têm os seus próprios conjuntos de propriedades, mas que podem ser analisados em conjunto em consultas feitas no repositório.  Desta forma, pode utilizar as mesmas ferramentas e métodos para trabalhar com diversos tipos de dados recolhidos por diferentes origens.
 
 ![Repositório do OMS](media/log-analytics-overview/overview.png)
 
-As origens ligadas são os computadores e outros recursos que geram os dados recolhidos pelo Log Analytics.  Estes recursos podem incluir os agentes instalados nos computadores [Windows](log-analytics-windows-agents.md) e [Linux](log-analytics-linux-agents.md) que se ligam diretamente ou os agentes num [grupo de gestão ligado do System Center Operations Manager](log-analytics-om-agents.md).  Relativamente aos recursos do Azure, o Log Analytics recolhe dados do [Azure Monitor e dos Diagnósticos do Azure](log-analytics-azure-storage.md).
+As origens ligadas são os computadores e outros recursos que geram os dados recolhidos pelo Log Analytics.  Estes recursos podem incluir os agentes instalados nos computadores [Windows](log-analytics-windows-agent.md) e [Linux](log-analytics-linux-agents.md) que se ligam diretamente ou os agentes num [grupo de gestão ligado do System Center Operations Manager](log-analytics-om-agents.md).  Relativamente aos recursos do Azure, o Log Analytics recolhe dados do [Azure Monitor e dos Diagnósticos do Azure](log-analytics-azure-storage.md).
 
 As [origens de dados](log-analytics-data-sources.md) são os diferentes tipos de dados recolhidos a partir de cada origem ligada.  Incluem [eventos](log-analytics-data-sources-windows-events.md) e [dados de desempenho](log-analytics-data-sources-performance-counters.md) de agentes do [Windows](log-analytics-data-sources-windows-events.md) e do Linux, além de origens como [registos do IIS](log-analytics-data-sources-iis-logs.md) e [registos de texto personalizado](log-analytics-data-sources-custom-logs.md).  Pode configurar cada origem de dados que pretende recolher e a configuração é entregue automaticamente a cada origem ligada.
 
@@ -69,7 +69,7 @@ Se tiver requisitos personalizados, pode utilizar a [API de Recoletor de Dados H
 ## <a name="log-analytics-architecture"></a>Arquitetura do Log Analytics
 Os requisitos de implementação do Log Analytics são mínimos, uma vez que os componentes centrais estão alojados na nuvem do Azure.  Estes componentes incluem o repositório, para além dos serviços que lhe permitem correlacionar e analisar os dados recolhidos.  O portal pode ser acedido a partir de qualquer browser, pelo que não é necessário nenhum software cliente.
 
-Tem de instalar agentes nos computadores [Windows](log-analytics-windows-agents.md) e [Linux](log-analytics-linux-agents.md), mas não são precisos agentes adicionados para os computadores que já sejam membros de um [grupo de gestão ligado do SCOM](log-analytics-om-agents.md).  Os agentes do SCOM continuarão a comunicar com os servidores de gestão, que reencaminharão os respetivos dados para o Log Analytics.  Contudo, algumas soluções vão precisar de agentes que comuniquem diretamente com o Log Analytics.  Os requisitos de comunicação de cada solução estão especificados nas respetivas documentações.
+Tem de instalar agentes nos computadores [Windows](log-analytics-windows-agent.md) e [Linux](log-analytics-linux-agents.md), mas não são precisos agentes adicionados para os computadores que já sejam membros de um [grupo de gestão ligado do SCOM](log-analytics-om-agents.md).  Os agentes do SCOM continuarão a comunicar com os servidores de gestão, que reencaminharão os respetivos dados para o Log Analytics.  Contudo, algumas soluções vão precisar de agentes que comuniquem diretamente com o Log Analytics.  Os requisitos de comunicação de cada solução estão especificados nas respetivas documentações.
 
 Quando se [inscrever no Log Analytics](log-analytics-get-started.md), vai criar uma área de trabalho do OMS.  Pode encarar a área de trabalho como um ambiente do Log Analytics exclusivo com os respetivos repositórios de dados, origens de dados e soluções. Pode criar várias origens de dados na sua subscrição, de modo a suportar múltiplos ambientes, como produção e teste.
 

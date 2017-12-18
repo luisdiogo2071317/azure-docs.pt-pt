@@ -4,7 +4,7 @@ description: "A aplicação Microsoft Authenticator oferece uma opção de auten
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 3d1e8d62127a3c5c888804278fbcd9a4fe81e33f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 83b04e48dd528881097bcf16bc03e1a18ea20c43
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Ativar a autenticação de aplicação móvel com o Servidor Multi-Factor Authentication do Azure
 
@@ -63,7 +63,7 @@ Em ambos os cenários, se o SDK do Serviço Web do Multi-Factor Authentication d
 3. Conclua a instalação com as predefinições, a menos que tenha de as alterar por algum motivo.
 4. Vincule um Certificado SSL ao site no IIS.
 
-Se tiver dúvidas sobre como configurar um certificado SSL num servidor IIS, veja o artigo [How to Set Up SSL on IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Como realizar uma Cópia de Segurança do SSL no IIS).
+Se tiver dúvidas sobre como configurar um certificado SSL num servidor IIS, veja o artigo [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Como realizar uma Cópia de Segurança do SSL no IIS).
 
 O SDK do Serviço Web tem de estar protegido por um certificado SSL. Pode utilizar um certificado autoassinado para este fim. Importe o certificado para o arquivo “Autoridades de Certificação de Raiz Fidedigna” da conta de Computador Local no servidor Web do Portal de Utilizador, para que este confie no certificado quando inicia a ligação SSL.
 
@@ -88,6 +88,7 @@ O SDK do Serviço Web tem de estar protegido por um certificado SSL. Pode utiliz
 
 7. Se o site no qual o Serviço Web da Aplicação Móvel foi instalado não tiver já sido vinculado a um certificado assinado publicamente, instale o certificado no servidor, abra o Gestor do IIS e vincule o certificado ao site.
 8. Abra um browser a partir de qualquer computador e navegue para o URL no qual o Serviço Web da Aplicação Móvel foi instalado (Exemplo: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Certifique-se de que não são apresentados erros ou avisos de certificado.
+9. Para obter mais informações sobre os métodos disponíveis no SDK dos serviços Web, veja o ficheiro de ajuda do servidor MFA.
 
 ## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Configurar as definições da aplicação móvel no Servidor Multi-Factor Authentication do Azure
 

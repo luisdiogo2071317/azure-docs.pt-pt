@@ -4,7 +4,7 @@ description: "Os Termos de Utilização do Azure AD oferecem, tanto ao Utilizado
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/17/2017
 ms.author: billmath
-ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: a935c3a7a5eeead8eaac5d8d0980c289b17f3289
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Funcionalidade Termos de Utilização do Azure Active Directory (Pré-visualização)
 Os Termos de Utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais.  Isto garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores.

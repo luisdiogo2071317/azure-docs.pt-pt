@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 54edb2d02701d36af52088cb8df7e252504a8760
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planeador de Implementações do Azure Site Recovery de Hyper-V para o Azure
 Este artigo é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para implementações de produção de Hyper-V para o Azure.
@@ -40,6 +40,9 @@ A ferramenta disponibiliza os seguintes detalhes:
 
 * A largura de banda de rede estimada necessária para a replicação delta
 * O débito que o Azure Site Recovery consegue a partir do local para o Azure
+* RPO que pode ser obtido para uma determinada largura de banda
+* Impacto no RPO pretendido se for aprovisionada uma largura de banda mais reduzida.
+
     
 **Requisitos de infraestrutura do Azure**
 
@@ -52,6 +55,7 @@ A ferramenta disponibiliza os seguintes detalhes:
 
 **Requisitos de infraestrutura no local**
 * O espaço de armazenamento livre necessário em cada volume de armazenamento de Hyper-V para a replicação inicial e a replicação de diferenças com êxito para garantir que a replicação de VM não irá causar qualquer período de inatividade indesejável para as suas aplicações de produção
+* Frequência de cópia máxima a definir para replicação do Hyper-V
 
 **Orientação para a criação de batches na replicação inicial** 
 * Número de batches de VM a utilizar para proteção

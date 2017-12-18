@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c80d104fc456849f8bfd5169dd8ce1361d906a65
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desativar, ativar ou eliminar pontos finais
 
@@ -39,7 +39,7 @@ Também pode desativar pontos finais individuais que fazem parte de um perfil do
     1. Em **Tipo**, clique em **Ponto final do Azure**.
     2. Indique um **Nome** pelo qual pretende reconhecer este ponto final.
     3. Em **Tipo de recurso de destino**, na lista pendente, escolha o tipo de recurso adequado.
-    4. Em **Recurso de destino**, na lista pendente, escolha o recurso de destino adequado para mostrar os recursos de listagem sob a mesma subscrição no **painel Recursos**. No painel **Recurso** apresentado, selecione o serviço que pretende adicionar como o primeiro ponto final.
+    4. Para o **Recurso de destino**, clique no seletor **Escolher...** para listar recursos na mesma subscrição no **painel de Recursos**. No painel **Recurso** apresentado, selecione o serviço que pretende adicionar como o primeiro ponto final.
     5. Em **Prioridade**, selecione **1**. Se estiver em bom estado de funcionamento, todo o tráfego vai para este ponto final.
     6. Mantenha a caixa **Adicionar como desativado** desmarcada.
     7. Clique em **OK**
