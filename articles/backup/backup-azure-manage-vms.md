@@ -14,18 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerir cópias de segurança de máquinas virtuais do Azure
-> [!div class="op_single_selector"]
-> * [Gerir cópias de segurança de VM do Azure](backup-azure-manage-vms.md)
-> * [Gerir cópias de segurança de VMS clássicas](backup-azure-manage-vms-classic.md)
->
->
 
 Este artigo fornece orientações para a gestão de cópias de segurança da VM e explica as informações de alertas de cópias de segurança disponíveis no dashboard do portal. As orientações neste artigo aplica-se a utilização de VMs com os cofres dos serviços de recuperação. Este artigo não abrange a criação de máquinas virtuais, nem explica como proteger máquinas virtuais. Para um manual sobre a proteção de VMs implementadas no Azure Resource Manager no Azure com um cofre dos serviços de recuperação, consulte [primeiras impressões: cópia de segurança VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md).
 
@@ -224,4 +219,4 @@ Para eliminar dados de cópia de segurança numa máquina virtual com o *desativ
     Uma mensagem de notificação permite-lhe saber que os dados de cópia de segurança foi eliminados.
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter informações sobre como voltar a criar uma máquina virtual a partir de um ponto de recuperação, consulte [restaurar VMs do Azure](backup-azure-restore-vms.md). Se precisar de informações sobre a proteção de máquinas virtuais, consulte o artigo [primeiras impressões: cópia de segurança VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md). Para obter informações sobre eventos de monitorização, consulte [monitorizar alertas de cópias de segurança da máquina virtual do Azure](backup-azure-monitor-vms.md).
+Para obter informações sobre como voltar a criar uma máquina virtual a partir de um ponto de recuperação, consulte [restaurar VMs do Azure](backup-azure-arm-restore-vms.md). Se precisar de informações sobre a proteção de máquinas virtuais, consulte o artigo [primeiras impressões: cópia de segurança VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md). Para obter informações sobre eventos de monitorização, consulte [monitorizar alertas de cópias de segurança da máquina virtual do Azure](backup-azure-monitor-vms.md).

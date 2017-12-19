@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copy data from Azure Storage Blobs to Data Lake Store (Copiar dados dos Blobs de Armazenamento do Azure para o Data Lake Store)
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Os parâmetros na sintaxe são descritos abaixo:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-    >[AZURE.NOTE] A sintaxe acima Especifica o ficheiro ser copiados para uma pasta na conta do Data Lake Store. Ferramenta de AdlCopy cria uma pasta, se o nome da pasta especificado não existe.
+    >[AZURE.NOTE]A sintaxe acima Especifica o ficheiro ser copiados para uma pasta na conta do Data Lake Store. Ferramenta de AdlCopy cria uma pasta, se o nome da pasta especificado não existe.
 
     Será solicitado para introduzir as credenciais para a subscrição do Azure na qual tem a conta de Data Lake Store. Irá ver um resultado semelhante ao seguinte:
 

@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: a631708ce755b07701c053e217dd658e5f7bb82b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ Consulte [atividades de utilização Machine Learning](data-factory-azure-ml-bat
 ## <a name="stored-procedure-activity"></a>Atividade de procedimento armazenado
 Pode utilizar a atividade de procedimento de armazenado do SQL Server num pipeline Data Factory para invocar um procedimento armazenado dos arquivos de dados seguintes: SQL Database do Azure, Azure SQL Data Warehouse, base de dados do SQL Server na sua empresa ou uma VM do Azure. Consulte [atividade de procedimento armazenado](data-factory-stored-proc-activity.md) artigo para obter detalhes.  
 
-## <a name="data-lake-analytics-u-sql-activity"></a>Atividade do Data Lake U-SQL de análise
+## <a name="data-lake-analytics-u-sql-activity"></a>Atividade U-SQL do Data Lake Analytics
 Atividade de U-SQL de análise do Data Lake executa um script de U-SQL num cluster do Azure Data Lake Analytics. Consulte [atividade de U-SQL de análise de dados](data-factory-usql-activity.md) artigo para obter detalhes. 
 
 ## <a name="net-custom-activity"></a>Atividade personalizada do .NET

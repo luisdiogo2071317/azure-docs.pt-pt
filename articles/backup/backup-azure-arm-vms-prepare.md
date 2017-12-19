@@ -15,27 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 9b3584a93766be6052c822f40328169910de26c7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
-> [!div class="op_single_selector"]
-> * [Modelo do Resource Manager](backup-azure-arm-vms-prepare.md)
-> * [Modelo clássico](backup-azure-vms-prepare.md)
->
->
 
 Este artigo fornece os passos para preparar o ambiente para fazer uma cópia de segurança de uma máquina de virtual (VM) implementadas no Resource Manager. Os passos apresentados nos procedimentos utilizam o portal do Azure.  
 
 O serviço de cópia de segurança do Azure tem dois tipos de cofres (cópia de segurança cofres e os cofres dos serviços de recuperação) para proteger as suas VMs. Um cofre de cópia de segurança protege VMs implementadas utilizando o modelo de implementação clássica. Protege um cofre dos serviços de recuperação **VMs ambos implementadas clássico ou implementadas no Resource Manager**. Tem de utilizar um cofre dos serviços de recuperação para proteger uma VM implementadas no Resource Manager.
 
 > [!NOTE]
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Consulte [preparar o ambiente para fazer cópias de segurança de máquinas virtuais do Azure](backup-azure-vms-prepare.md) para obter detalhes sobre como trabalhar com a implementação clássica modelo VMs.
->
->
+> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). 
 
 Antes de poder proteger ou fazer uma cópia de segurança de uma máquina de virtual (VM) implementadas no Resource Manager, certifique-se que estes pré-requisitos existem:
 
@@ -45,7 +38,7 @@ Antes de poder proteger ou fazer uma cópia de segurança de uma máquina de vir
 * Verifique a conectividade de rede
 * Para VMs com Linux, no caso de que pretende personalizar o seu ambiente de cópia de segurança para a aplicação consistente cópias de segurança volte a seguir a [passos para configurar scripts anterior ao instantâneo e posterior ao instantâneo](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
-Se conhecer estas condições já existem no seu ambiente, em seguida, avance para o [cópia de segurança do artigo VMs](backup-azure-vms.md). Se precisar de configurar ou verificar, qualquer um destes pré-requisitos, este artigo orienta-o pelos passos para preparar desse pré-requisito.
+Se conhecer estas condições já existem no seu ambiente, em seguida, avance para o [cópia de segurança do artigo VMs](backup-azure-arm-vms.md). Se precisar de configurar ou verificar, qualquer um destes pré-requisitos, este artigo orienta-o pelos passos para preparar desse pré-requisito.
 
 ##<a name="supported-operating-system-for-backup"></a>Sistema operativo suportado para cópia de segurança
  * **Linux**: o Azure Backup suporta [uma lista de distribuições apoiadas pelo Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), exceto Core OS Linux. _Outras Bring-Your-proprietário-as distribuições do Linux também podem funcionar desde que o agente VM está disponível na máquina virtual e suporte para o Python existe. No entanto, não podemos apoia esses distribuições para cópia de segurança._
@@ -58,7 +51,7 @@ Antes de preparar o seu ambiente, volte a compreender as limitações.
 * Não é suportada a cópia de segurança das máquinas virtuais com dados tamanhos de disco superiores a 1023GB.
 
 > [!NOTE]
-> Temos uma versão de pré-visualização privada para suportar cópias de segurança para VMs com > discos de 1TB não gerido. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Temos uma pré-visualização privada para suportar cópias de segurança de VMs com mais do que 1 TB de discos não geridos. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -69,8 +62,9 @@ Antes de preparar o seu ambiente, volte a compreender as limitações.
 * A substituição de uma máquina virtual existente durante o restauro não é suportada. Se tentar restaurar a VM quando existe a VM, a operação de restauro irá falhar.
 * Não são suportados por várias regiões cópia de segurança e restauro.
 * Pode efetuar cópias de segurança de máquinas virtuais em todas as regiões públicas do Azure (consulte o [lista de verificação](https://azure.microsoft.com/regions/#services) de regiões suportadas). Se a região que procura não é suportado atualmente, não serão apresentados na lista pendente durante a criação do cofre.
-* Restaurar um controlador de domínio (DC) VM que faz parte de uma configuração de várias DC é suportada apenas através do PowerShell. Leia mais sobre [restaurar um controlador de domínio do DC várias](backup-azure-restore-vms.md#restoring-domain-controller-vms).
-* Máquinas virtuais que têm as seguintes configurações de rede especiais o restauro é suportado apenas através do PowerShell. VMs criadas utilizando o fluxo de trabalho de restauro na IU não terá estas configurações de rede após a conclusão da operação de restauro. Para obter mais informações, consulte [restaurar VMs com configurações de rede especiais](backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations).
+* Restaurar um controlador de domínio (DC) VM que faz parte de uma configuração de várias DC é suportada apenas através do PowerShell. Leia mais sobre [restaurar um controlador de domínio do DC várias](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* Máquinas virtuais que têm as seguintes configurações de rede especiais o restauro é suportado apenas através do PowerShell. VMs criadas utilizando o fluxo de trabalho de restauro na IU não terá estas configurações de rede após a conclusão da operação de restauro. Para obter mais informações, consulte [restaurar VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
+
   * Máquinas virtuais em configuração de Balanceador de carga (interna e externa)
   * Máquinas virtuais com vários endereços IP reservados
   * Máquinas virtuais com vários adaptadores de rede
@@ -232,8 +226,6 @@ A imagem de exemplo abaixo mostra os passos de três configuração necessárias
 * Proxy VM permite o tráfego de entrada de VMs na rede virtual.
 * O grupo de segurança de rede (NSG) com o nome de bloqueio NSF tem um segurança regra que permite saído tráfego de Internet de VM de Proxy.
 
-![NSG com diagrama de implementação do proxy HTTP](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
-
 Para utilizar um proxy HTTP para comunicar com a Internet pública, siga estes passos:
 
 #### <a name="step-1-configure-outgoing-network-connections"></a>Passo 1. Configurar ligações de rede de saída
@@ -285,16 +277,10 @@ HttpProxy.Port=<proxy port>
 
 #### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Passo 2. Permitir ligações de entrada no servidor de proxy:
 1. No servidor de proxy, abra a Firewall do Windows. É a forma mais fácil de aceder a firewall para procurar a Firewall do Windows com segurança avançada.
-
-    ![Abrir a Firewall](./media/backup-azure-vms-prepare/firewall-01.png)
 2. Na caixa de diálogo a Firewall do Windows, clique com botão direito **regras de entrada** e clique em **nova regra...** .
-
-    ![Criar uma nova regra](./media/backup-azure-vms-prepare/firewall-02.png)
 3. No **novo Assistente de regras de entrada**, escolha o **personalizada** opção para o **tipo de regra** e clique em **seguinte**.
 4. Na página para selecionar o **programa**, escolha **todos os programas** e clique em **seguinte**.
 5. No **protocolo e portas** página, introduza as seguintes informações e clique em **seguinte**:
-
-    ![Criar uma nova regra](./media/backup-azure-vms-prepare/firewall-03.png)
 
    * para *tipo de protocolo* escolha *TCP*
    * para *Porta Local* escolha *portas específicas*, no campo abaixo, especifique o ```<Proxy Port>``` que foi configurado.
@@ -323,6 +309,6 @@ Se tiver dúvidas ou se houver alguma funcionalidade que gostaria de ver incluí
 ## <a name="next-steps"></a>Passos seguintes
 Agora que tem de preparar o ambiente para fazer cópias de segurança a VM, o próximo passo lógico é criar uma cópia de segurança. O planeamento artigo fornece informações mais detalhadas sobre a cópia de segurança de VMs.
 
-* [Fazer uma cópia de segurança de máquinas virtuais](backup-azure-vms.md)
+* [Fazer uma cópia de segurança de máquinas virtuais](backup-azure-arm-vms.md)
 * [Planear a infraestrutura de cópia de segurança de VM](backup-azure-vms-introduction.md)
 * [Gerir cópias de segurança da máquina virtual](backup-azure-manage-vms.md)

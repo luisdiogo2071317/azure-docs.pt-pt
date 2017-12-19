@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: b70780b2e1d169aced3412f6fe6d13ad4dab82be
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregação de eventos e a coleção com Linux do diagnóstico do Azure
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Uma forma para carregar e recolher registos consiste em utilizar a extensão do 
 ### <a name="service-fabric-platform-events"></a>Eventos de plataforma do Service Fabric
 Service Fabric emite alguns registos de out of box através de [LTTng](http://lttng.org), incluindo eventos operacionais ou eventos de tempo de execução. Estes registos são armazenados na localização que especifica o modelo de Gestor de recursos do cluster. Para obter ou definir os detalhes da conta de armazenamento, procure a tag **AzureTableWinFabETWQueryable** e procure **StoreConnectionString**.
 
-### <a name="application-events"></a>Eventos de aplicações
+### <a name="application-events"></a>Eventos da aplicação
  Eventos emitidos a partir do código as suas aplicações e dos serviços, conforme especificado por si quando instrumentação o software. Pode utilizar qualquer solução de registo que escreve os ficheiros de registo baseados em texto – por exemplo, LTTng. Para obter mais informações, consulte a documentação de LTTng no rastrear a aplicação.
 
 [Monitorizar e diagnosticar os serviços de uma configuração de desenvolvimento do computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

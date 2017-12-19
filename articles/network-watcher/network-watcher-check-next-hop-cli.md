@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: fb4a24fd758ad4b7231364f3ee7d56a9a2dbccb1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Saber que o tipo de próximo salto está a utilizar a capacidade de próximo salto na observador de rede do Azure a utilizar o Azure CLI 2.0
 
@@ -60,7 +60,7 @@ az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNa
 > [!NOTE]
 Se a VM possui vários NICs e reencaminhamento IP está ativado em nenhum dos NICs, em seguida, o parâmetro NIC (-i nic id) tem de ser especificado. Caso contrário, é opcional.
 
-## <a name="review-results"></a>Reveja os resultados
+## <a name="review-results"></a>Resultados da revisão
 
 Quando terminar, os resultados são fornecidos. O endereço IP do próximo salto é devolvido, bem como o tipo de recurso é.
 

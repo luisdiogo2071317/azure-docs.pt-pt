@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: d3f165c749af0553c4918b33b0d24cc1e21af2a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
-> [!div class="op_single_selector"]
-> * [ARM](backup-client-automation.md)
-> * [Clássico](backup-client-automation-classic.md)
->
->
-
 Este artigo mostra como utilizar o PowerShell para configurar o Backup do Azure no Windows Server ou um cliente Windows e gerir a cópia de segurança e recuperação.
 
 ## <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
@@ -204,7 +198,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Manter as informações da frase de acesso seguro e segura quando está definido. Não são conseguir restaurar dados a partir do Azure sem esta frase de acesso.
+> Manter as informações da frase de acesso seguro e segura quando está definido. Não é possível restaurar dados a partir do Azure sem esta frase de acesso.
 >
 >
 
@@ -425,7 +419,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-Pode ver os detalhes de utilização de política de cópia de segurança existente a [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet. Pode desagregar ainda mais a utilizar o [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet para a agenda de cópia de segurança e a [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) cmdlet para as políticas de retenção
+Pode ver os detalhes de utilização de política de cópia de segurança existente a [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet. Pode desagregar, utilizando o [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet para a agenda de cópia de segurança e a [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) cmdlet para as políticas de retenção
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -465,8 +459,8 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>Efetuar uma cópia de segurança ad-hoc
-Assim que tiver sido definida uma política de cópia de segurança as cópias de segurança irão ocorrer pelo agendamento. Acionar uma cópia de segurança ad-hoc é também possível utilizar o [início OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
+### <a name="performing-an-ad-hoc-backup"></a>Efetuar uma cópia de segurança ad hoc
+Assim que tiver sido definida uma política de cópia de segurança as cópias de segurança irão ocorrer pelo agendamento. Acionar uma cópia de segurança ad hoc é também possível utilizar o [início OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup

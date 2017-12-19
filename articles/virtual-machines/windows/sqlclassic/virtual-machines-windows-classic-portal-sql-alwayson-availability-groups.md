@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: 275c0fdfecac558e4f10d36eee71d38528f34679
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>Configurar o grupo de disponibilidade Always On em Virtual Machines do Azure (clássica)
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ Começar com uma nova conta de avaliação do Azure. Depois de configurar a sua 
    | Configuração da máquina virtual |**SERVIÇO em NUVEM** = criar um novo serviço em nuvem<br/>**NOME de DNS do serviço de NUVEM** = um nome de serviço de nuvem exclusivo<br/>**NOME DNS** = um nome exclusivo (ex: ContosoDC123)<br/>**REGIÃO/grupo de AFINIDADE de rede VIRTUAL** = ContosoNET<br/>**SUB-redes da rede VIRTUAL** = Back(10.10.2.0/24)<br/>**CONTA de armazenamento** = utilizar uma conta de armazenamento gerado automaticamente<br/>**CONJUNTO de disponibilidade** = (nenhum) |
    | Opções de máquina virtual |Utilizar predefinições |
 
-Depois de configurar a nova máquina virtual, aguarde que a máquina virtual para ser provsioned. Este processo demora algum tempo a concluir. Se clicar no **Máquina Virtual** separador no portal do Azure, pode ver ContosoDC Estados de ciclos de **inicial (aprovisionamento)** para **parado**,  **Iniciar**, **em execução (aprovisionamento)**e, finalmente, **executar**.
+Depois de configurar a nova máquina virtual, aguarde que a máquina virtual para ser provsioned. Este processo demora algum tempo a concluir. Se clicar no **Máquina Virtual** separador no portal do Azure, pode ver ContosoDC Estados de ciclos de **inicial (aprovisionamento)** para **parado**, ** Iniciar**, **em execução (aprovisionamento)**e, finalmente, **executar**.
 
 O servidor DC com êxito está agora aprovisionado. Em seguida, irá configurar o domínio do Active Directory neste servidor DC.
 
@@ -355,7 +355,7 @@ Agora está pronto para configurar um grupo de disponibilidade. Segue-se uma des
 1. Para fazer uma cópia de segurança completa da base de dados, no **Object Explorer**, expanda **bases de dados**, faça duplo clique **MyDB1**, aponte para **tarefas**e, em seguida, clique em **cópia de segurança**.
 2. No **origem** secção, mantenha **tipo de cópia de segurança** definido como **completa**. No **destino** secção, clique em **remover** para remover o caminho de ficheiro predefinido para o ficheiro de cópia de segurança.
 3. No **destino** secção, clique em **adicionar**.
-4. No **nome de ficheiro** caixa de texto, escreva  **\\ContosoSQL1\backup\MyDB1.bak**, clique em **OK**e, em seguida, clique em **OK** novamente para efetuar cópias de segurança da base de dados. Quando concluída a operação de cópia de segurança, clique em **OK** novamente para fechar a caixa de diálogo.
+4. No **nome de ficheiro** caixa de texto, escreva ** \\ContosoSQL1\backup\MyDB1.bak**, clique em **OK**e, em seguida, clique em **OK** novamente para efetuar cópias de segurança da base de dados. Quando concluída a operação de cópia de segurança, clique em **OK** novamente para fechar a caixa de diálogo.
 5. Para fazer uma cópia de segurança do registo de transações da base de dados, no **Object Explorer**, expanda **bases de dados**, faça duplo clique **MyDB1**, aponte para **tarefas**e, em seguida, clique em **cópia de segurança**.
 6. No **tipo de cópia de segurança**, selecione **registo de transações**. Manter o **destino** ficheiro conjunto de caminho para um que especificou anteriormente e, em seguida, clique em **OK**. Depois de concluída a operação de cópia de segurança, clique em **OK** novamente.
 7. Para restaurar o completo e transações no registo cópias de segurança no **ContosoSQL2**, abra o ficheiro RDP para **ContosoSQL2**e inicie sessão como **CORP\Install**. Deixe a sessão de ambiente de trabalho remota para **ContosoSQL1** abrir.
@@ -363,7 +363,7 @@ Agora está pronto para configurar um grupo de disponibilidade. Segue-se uma des
 9. No **Object Explorer**, faça duplo clique **bases de dados**e, em seguida, clique em **restaurar base de dados**.
 10. No **origem** secção, selecione **dispositivo**e clique no botão de reticências **...** Adicionar...
 11. No **selecionar dispositivos de cópia de segurança**, clique em **adicionar**.
-12. No **localização do ficheiro de cópia de segurança**, tipo  **\\ContosoSQL1\backup**, clique em **atualizar**, selecione **MyDB1.bak**, clique em **OK**e, em seguida, clique em **OK** novamente. Deverá ver a cópia de segurança completa e a cópia de segurança do registo no **define a cópia de segurança para restaurar** painel.
+12. No **localização do ficheiro de cópia de segurança**, tipo ** \\ContosoSQL1\backup**, clique em **atualizar**, selecione **MyDB1.bak**, clique em **OK**e, em seguida, clique em **OK** novamente. Deverá ver a cópia de segurança completa e a cópia de segurança do registo no **define a cópia de segurança para restaurar** painel.
 13. Vá para o **opções** página, selecione **RESTORE WITH NORECOVERY** no **estado de recuperação**e, em seguida, clique em **OK** para restaurar a base de dados. Depois de concluída a operação de restauro, clique em **OK**.
 
 ### <a name="create-the-availability-group"></a>Criar o grupo de disponibilidade

@@ -16,10 +16,10 @@ ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Ligar a uma Máquina Virtual do SQL Server no Azure (Implementação Clássica)
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Este tópico descreve como ligar à sua instância do SQL Server em execução n
 > O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo abrange utilizando o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Se estiver a utilizar as VMs do Gestor de recursos, consulte o artigo [ligar a um SQL Server Máquina Virtual no Azure com o Resource Manager](../sql/virtual-machines-windows-sql-connect.md).
 
 ## <a name="connection-scenarios"></a>Cenários de ligação
-A forma como um cliente liga ao SQL Server em execução numa máquina Virtual é diferente consoante a localização do cliente e a configuração de máquina/redes. Estes cenários incluem:
+A forma como um cliente liga ao SQL Server em execução numa máquina Virtual é diferente consoante a localização do cliente e a configuração de máquina/redes. Os cenários incluem:
 
 * [Ligar ao SQL Server no mesmo serviço em nuvem](#connect-to-sql-server-in-the-same-cloud-service)
 * [Ligar ao SQL Server através da internet](#connect-to-sql-server-over-the-internet)

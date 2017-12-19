@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 ms.openlocfilehash: 34caed9323ae3067d1dc17ab9c62ebf7a9be855b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Ligar uma rede virtual para um circuito do ExpressRoute
 > [!div class="op_single_selector"]
@@ -96,7 +96,7 @@ O proprietário do circuito cria uma autorização. Isto resulta na criação de
 
 1. No painel do ExpressRoute, clique em **autorizações** e, em seguida, escreva um **nome** para a autorização e clique em **guardar**.
 
-    ![autorizações](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+    ![Autorizações](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 
 2. Quando a configuração é guardada, copie o **ID de recurso** e **chave de autorização**.
 

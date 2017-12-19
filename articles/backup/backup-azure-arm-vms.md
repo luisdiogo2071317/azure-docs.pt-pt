@@ -16,18 +16,13 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Fazer cópias de segurança de máquinas virtuais do Azure para um cofre dos Serviços de Recuperação
-> [!div class="op_single_selector"]
-> * [Fazer cópias de segurança de VMs para o Cofre dos serviços de recuperação](backup-azure-arm-vms.md)
-> * [Cópia de segurança de VMs para o Cofre de cópia de segurança](backup-azure-vms.md)
->
->
 
 Este artigo fornece detalhes sobre como fazer cópias de segurança de VMs do Azure (implementadas no Resource Manager e clássico implementadas) para um cofre dos serviços de recuperação. A maioria do trabalho para fazer uma cópia de segurança de VMs é a preparação. Antes de poder efetuar cópias de segurança ou proteger uma VM, tem de concluir o [pré-requisitos](backup-azure-arm-vms-prepare.md) para preparar o ambiente para proteger as suas VMs. Depois de concluir os pré-requisitos, pode iniciar a operação de cópia de segurança para criar instantâneos de VM.
 
@@ -46,7 +41,7 @@ A menos que a cópia de segurança inicial esteja prestes a ser executada, é re
 Para executar a tarefa de cópia de segurança inicial:
 
 1. No dashboard do cofre, clique no número em **Itens de Cópia de Segurança** ou clique no mosaico **Itens de Cópia de Segurança**. <br/>
-  Ícone Definições![](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
+  ![Ícone de definições](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
   O painel **Itens de Cópia de Segurança** abre-se.
 
