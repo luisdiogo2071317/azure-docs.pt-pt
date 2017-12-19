@@ -59,8 +59,6 @@
           items:
             - name: Preparar as cargas de trabalho do Azure Backup Server no Portal do Azure
               href: backup-azure-microsoft-azure-backup.md
-            - name: Preparar as cargas de trabalho do Azure Backup Server no portal clássico
-              href: backup-azure-microsoft-azure-backup-classic.md
             - name: Adicionar armazenamento ao Azure Backup Server
               href: backup-mabs-add-storage.md
             - name: Atualizar o Azure Backup Server para v.2
@@ -89,8 +87,6 @@
               href: backup-azure-arm-vms-prepare.md
             - name: Cópias de segurança de VMs do Linux consistentes com a aplicação
               href: backup-azure-linux-app-consistent.md
-            - name: Preparar as máquinas virtuais do Azure
-              href: backup-azure-vms-prepare.md
         - name: Planear o ambiente
           items:
             - name: Planear a infraestrutura de cópias de segurança de VMs
@@ -101,16 +97,12 @@
               href: backup-azure-arm-vms.md
             - name: Fazer cópias de segurança de máquinas virtuais encriptadas
               href: backup-azure-vms-encryption.md
-            - name: Fazer cópia de segurança de máquinas virtuais do Azure
-              href: backup-azure-vms.md
         - name: Gerir e monitorizar VMs
           items:
             - name: Gerir cópias de segurança de VMs do Azure no Portal do Azure
               href: backup-azure-manage-vms.md
             - name: Monitorizar alertas para cópias de segurança de VMs do Azure no portal do Azure
               href: backup-azure-monitor-vms.md
-            - name: Gerir e monitorizar as cópias de segurança de VMs do Azure no portal clássico
-              href: backup-azure-manage-vms-classic.md
         - name: Restaurar dados a partir de VMs
           items:
             - name: Recuperar ficheiros a partir de cópias de segurança de VM do Azure
@@ -119,8 +111,6 @@
               href: backup-azure-arm-restore-vms.md
             - name: Restaurar máquinas virtuais encriptadas
               href: backup-azure-vms-encryption.md
-            - name: Restaurar máquinas virtuais no Azure
-              href: backup-azure-restore-vms.md
             - name: Restaurar a chave e o segredo do Key Vault para VMs encriptadas
               href: backup-azure-restore-key-secret.md
     - name: Configurar relatórios do Azure Backup
@@ -135,8 +125,6 @@
       items:
         - name: Preparar as cargas de trabalho do DPM no portal do Azure
           href: backup-azure-dpm-introduction.md
-        - name: Preparar as cargas de trabalho do DPM no portal clássico
-          href: backup-azure-dpm-introduction-classic.md
         - name: Utilizar o DPM do System Center para criar cópias de segurança do servidor do Exchange
           href: backup-azure-backup-exchange-server.md
         - name: Recuperar dados para um servidor DPM alternativo
@@ -149,16 +137,10 @@
       items:
         - name: VMs do Azure no portal do Azure
           href: backup-azure-vms-automation.md
-        - name: VMs do Azure no portal clássico
-          href: backup-azure-vms-classic-automation.md
         - name: DPM no portal do Azure
           href: backup-dpm-automation.md
-        - name: DPM no portal clássico
-          href: backup-dpm-automation-classic.md
         - name: Windows Server no portal do Azure
           href: backup-client-automation.md
-        - name: Windows Server no portal clássico
-          href: backup-client-automation-classic.md
     - name: Base de Dados SQL do Azure
       items:
         - name: Configurar a retenção de cópias de segurança de longa duração
@@ -181,14 +163,6 @@
           href: backup-azure-restore-system-state.md
         - name: Monitorizar e gerir cofres dos Serviços de Recuperação
           href: backup-azure-manage-windows-server.md
-        - name: Fazer cópia de segurança e restaurar com o portal clássico
-          items:
-            - name: Windows Server com o modelo de implementação clássica
-              href: backup-configure-vault-classic.md
-            - name: Gerir cofres do Backup com o modelo de implementação clássica
-              href: backup-azure-manage-windows-server-classic.md
-            - name: Recuperar ficheiros para um Windows Server com o modelo de implementação clássica
-              href: backup-azure-restore-windows-server-classic.md
     - name: Cofre dos Serviços de Recuperação
       items:
         - name: Descrição geral dos cofres dos Serviços de Recuperação
@@ -201,8 +175,6 @@
       items:
         - name: Problemas de cópias de segurança de VMs do Azure no portal do Azure
           href: backup-azure-vms-troubleshoot.md
-        - name: Problemas de cópias de segurança de VMs do Azure no portal clássico
-          href: backup-azure-vms-troubleshoot-classic.md
         - name: 'Falha na Cópia de Segurança de VM do Azure: não foi possível comunicar com o agente da VM relativamente ao estado do instantâneo - o tempo limite da subtarefa de instantâneo da VM foi excedido'
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Problemas relacionados com cópias de segurança lentas de ficheiros e pastas no Azure Backup

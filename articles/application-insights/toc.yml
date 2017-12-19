@@ -51,6 +51,8 @@
           href: app-insights-windows-desktop.md
         - name: Núcleo de ASP.NET
           href: app-insights-asp-net-core.md
+        - name: Consola
+          href: application-insights-console.md
     - name: Monitorizar aplicações Java
       items:
         - name: Web Apps
