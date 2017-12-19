@@ -6,11 +6,11 @@
       href: overview.md
 - name: Inícios rápidos
   items:
-    - name: Criar aplicações geridas com a CLI do Azure
+    - name: Criar aplicação gerida
       href: managed-apps-quickstart-cli.md
 - name: Tutoriais
   items:
-    - name: Criar uma aplicação do catálogo de serviços
+    - name: Criar ficheiros de aplicação gerida
       href: publish-service-catalog-app.md
 - name: Amostras
   items:
@@ -26,7 +26,7 @@
       href: create-uidefinition-overview.md
     - name: Atualizar recursos geridos
       href: update-managed-resources.md
-    - name: Publicar a aplicação do catálogo de serviços - portal
+    - name: Utilizar o portal para publicar
       href: publish-portal.md
 - name: Referência
   items:
