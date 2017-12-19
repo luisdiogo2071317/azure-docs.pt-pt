@@ -5,6 +5,7 @@
 ## [Pontos finais do serviço de rede virtual](virtual-network-service-endpoints-overview.md)
 ## [Rede virtual para serviços do Azure](virtual-network-for-azure-services.md)
 ## [Segurança](security-overview.md)
+## [Funcionamento em rede do contentor](container-networking.md)
 ## [Continuidade do negócio](virtual-network-disaster-recovery-guidance.md)
 ## [Endereçamento IP](virtual-network-ip-addresses-overview-arm.md)
 ## [Proteção contra DDOS](ddos-protection-overview.md)

@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: philmea
-  ms.openlocfilehash: fa69448296105ce8fd3cc1b885c3aa793882f909
-  ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+  ms.openlocfilehash: d3a547418d9b5c412584aaa2f27a40024130335b
+  ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/28/2017
+  ms.lasthandoff: 12/19/2017
 abstract:
   description: "O Azure Location Based Services (pré-visualização) fornece aos programadores de todas as indústrias poderosas capacidades geoespaciais que incluem dados de mapeamento recentes, necessários para fornecer contexto geográfico para aplicações móveis e Web. Este serviço é um conjunto de APIs REST que estão em conformidade com a API Azure One, o qual ainda inclui um controlo de JavaScript baseado na Web para que o desenvolvimento seja fácil, flexível e portátil em vários suportes."
 sections:
@@ -43,3 +43,13 @@ sections:
     - html: <a href="/azure/location-based-services/tutorial-search-location">Procurar pontos de interesse</a>
     - html: <a href="/azure/location-based-services/tutorial-route-location">Encaminhar para um ponto de interesse</a>
     - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Encaminhamento pelo modo de viagem</a>
+- title: "Referência"
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - title: Linguagens
+      html: <p><a href="https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/">API de Controlo de Mapas - Javascript</a></p>
+    - title: REST
+      html: "<p><a href=\"https://docs.microsoft.com/en-us/rest/api/location-based-services/\">API Funcional - REST</a></p><p><a href=\"https://docs.microsoft.com/en-us/rest/api/location-based-services-management/\">API de Gestão - REST</a></p>"
