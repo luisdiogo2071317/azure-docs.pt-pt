@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Criar métricas alertas no Monitor do Azure para serviços do Azure - portal do Azure
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Pode configurar e obter informações sobre regras de alerta métricas utilizand
 
 3. Selecione o **Adicionar alerta** de comandos e preencha os campos.
 
-    ![Adicionar o alerta](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
+    ![Adicionar Alerta](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
 4. **Nome** o alerta de regra e escolha um **Descrição**, que também mostra nos e-mails de notificação.
 

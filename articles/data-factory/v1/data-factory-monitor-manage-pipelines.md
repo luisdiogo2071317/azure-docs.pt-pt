@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorizar e gerir pipelines do Azure Data Factory com o portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Esta secção também descreve como um setor de conjunto de dados passa a partir
    ![Procurar Tudo > fábricas de dados](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. No **fábricas de dados** painel, selecione a fábrica de dados que está interessado em.
 
-    ![Selecione a fábrica de dados](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
+    ![Selecionar fábrica de dados](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
 
    Deverá ver a home page da fábrica de dados.
 
@@ -86,7 +86,7 @@ Os setores de conjunto de dados na fábrica de dados podem ter um dos seguintes 
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Substate</th><th align="left">Descrição</th>
+    <th align="left">Estado</th><th align="left">Subestado</th><th align="left">Descrição</th>
 </tr>
 <tr>
     <td rowspan="8">A aguardar</td><td>ScheduleTime</td><td>A hora não são fornecidos para o setor ser executado.</td>
@@ -104,7 +104,7 @@ Os setores de conjunto de dados na fábrica de dados podem ter um dos seguintes 
 <td>ActivityResume</td><td>A atividade está em pausa e não é possível executar os setores até que a atividade é retomada.</td>
 </tr>
 <tr>
-<td>Tente novamente</td><td>Execução da atividade está a ser repetida.</td>
+<td>Repetir</td><td>Execução da atividade está a ser repetida.</td>
 </tr>
 <tr>
 <td>Validação</td><td>Validação ainda não começou.</td>
@@ -114,19 +114,19 @@ Os setores de conjunto de dados na fábrica de dados podem ter um dos seguintes 
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Em curso</td><td>A validação</td><td>Validação está em curso.</td>
+<td rowspan="2">Em Curso</td><td>A Validar</td><td>Validação está em curso.</td>
 </tr>
 <td>-</td>
 <td>O setor está a ser processado.</td>
 </tr>
 <tr>
-<td rowspan="4">Falha</td><td>ServiceHost</td><td>A execução da atividade demorou mais do que as permitidas pela atividade.</td>
+<td rowspan="4">Falhou</td><td>ServiceHost</td><td>A execução da atividade demorou mais do que as permitidas pela atividade.</td>
 </tr>
 <tr>
 <td>Cancelado</td><td>O setor foi cancelado pelo ação do utilizador.</td>
 </tr>
 <tr>
-<td>Validação</td><td>Falha na validação.</td>
+<td>Validação</td><td>A validação falhou.</td>
 </tr>
 <tr>
 <td>-</td><td>O setor falhou ser gerado e/ou validar.</td>
@@ -134,7 +134,7 @@ Os setores de conjunto de dados na fábrica de dados podem ter um dos seguintes 
 <td>Pronto</td><td>-</td><td>O setor está pronto para consumo.</td>
 </tr>
 <tr>
-<td>Foi ignorada</td><td>Nenhuma</td><td>O setor não está a ser processado.</td>
+<td>Ignorada</td><td>Nenhuma</td><td>O setor não está a ser processado.</td>
 </tr>
 <tr>
 <td>Nenhuma</td><td>-</td><td>Um setor existia com um Estado diferente, mas foi reposto.</td>
@@ -368,9 +368,9 @@ A tabela seguinte fornece a lista de operações disponíveis e Estados (e subst
 
 | Nome da operação | Estado | Subestado |
 | --- | --- | --- |
-| RunStarted |Foi iniciada |A Iniciar |
+| RunStarted |Iniciado |A Iniciar |
 | RunFinished |Não foi possível / foi concluída com êxito |FailedResourceAllocation<br/><br/>Bem-sucedido<br/><br/>FailedExecution<br/><br/>ServiceHost<br/><br/>< cancelada<br/><br/>Validação<br/><br/>Abandonado |
-| OnDemandClusterCreateStarted |Foi iniciada | |
+| OnDemandClusterCreateStarted |Iniciado | |
 | OnDemandClusterCreateSuccessful |Bem-sucedido | |
 | OnDemandClusterDeleted |Bem-sucedido | |
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparar a criação de cópias de segurança de cargas de trabalho com o Azure Backup Server
 > [!div class="op_single_selector"]
@@ -240,10 +240,10 @@ Depois de saber o estado da conetividade do Azure e da subscrição do Azure, po
 | Estado de conectividade | Subscrição do Azure | Criar uma cópia de segurança do Azure | Cópia de segurança para disco | Restaurar a partir do Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
 | Ligado |Ativa |Permitido |Permitido |Permitido |Permitido |
-| Ligado |Expirou |Parada |Parada |Permitido |Permitido |
+| Ligado |Expirado |Parada |Parada |Permitido |Permitido |
 | Ligado |Desaprovisionada |Parada |Parada |Pontos de recuperação de paragem e o Azure eliminados |Parada |
 | Conectividade perdida > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
-| Conectividade perdida > 15 dias |Expirou |Parada |Parada |Permitido |Permitido |
+| Conectividade perdida > 15 dias |Expirado |Parada |Parada |Permitido |Permitido |
 | Conectividade perdida > 15 dias |Desaprovisionada |Parada |Parada |Pontos de recuperação de paragem e o Azure eliminados |Parada |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperar a partir de perda de conectividade

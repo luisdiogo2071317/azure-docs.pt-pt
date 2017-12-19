@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: 5b69e804809f834e81221fb2787a997a52dbe286
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do castLabs para entregar licenças de Widevine para Serviços de Multimédia do Azure
 > [!div class="op_single_selector"]
@@ -50,12 +50,12 @@ CastLabs e AMS suportam o formato de token JWT (JSON Web Token) utilizado para a
 ### <a name="jwt-token-in-ams"></a>Token JWT no AMS
 A tabela seguinte descreve o token JWT no AMS. 
 
-| emissor | Cadeia de emissor a partir da escolhida Secure Token serviço (STS) |
+| Emissor | Cadeia de emissor a partir da escolhida Secure Token serviço (STS) |
 | --- | --- |
 | Audiência |Cadeia de audiência de STS utilizado |
 | afirmações |Um conjunto de afirmações |
 | NotBefore |Início de validade do token |
-| Expirar |Fim de validade do token |
+| Expira em |Fim de validade do token |
 | SigningCredentials |A chave que é partilhada entre o servidor de licenças PlayReady, castLabs servidor de licenças e STS, poderia ser simétrico ou assimétrico chave. |
 
 ### <a name="jwt-token-in-castlabs"></a>Token JWT no castLabs

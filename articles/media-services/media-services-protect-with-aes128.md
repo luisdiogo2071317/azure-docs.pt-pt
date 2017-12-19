@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 04c015a6fb6f9398e83b8717e869ba1d8e32a702
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: fd90c63baaf254f5086cbc99a2a22d61587ee365
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>Utilizar a encriptação dinâmica AES-128 e o serviço de entrega de chave
 > [!div class="op_single_selector"]
@@ -26,6 +26,10 @@ ms.lasthandoff: 12/07/2017
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
+
+> [!NOTE]
+> Para obter a versão mais recente do SDK de Java e começar a desenvolver com o Java, consulte [começar com o cliente de Java SDK de Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Para transferir o SDK mais recente do PHP para os Media Services, procure a versão 0.5.7 do pacote Microsoft/WindowAzure o [repositório Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Descrição geral
 > [!NOTE]
@@ -65,7 +69,7 @@ A imagem seguinte demonstra o fluxo de trabalho descrito acima. Aqui, o token é
 
 ![Proteger com AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
-O resto deste artigo fornece explicações detalhadas, exemplos de código e ligações para tópicos que mostram como atingir as tarefas descritas acima.
+O resto deste artigo apresenta explicações detalhadas, exemplos de códigos e ligações para tópicos que mostram como atingir as tarefas descritas acima.
 
 ## <a name="current-limitations"></a>Limitações atuais
 Se adicionar ou atualizar a sua política de entrega de elementos, tem de eliminar um localizador existente (se aplicável) e criar um novo localizador.
@@ -76,7 +80,7 @@ Para poder gerir, codificar e transmitir em fluxo os seus vídeos, primeiro tem 
 Para obter informações detalhadas, consulte [Carregar Ficheiros para uma conta de Media Services](media-services-dotnet-upload-files.md).
 
 ## <a id="encode_asset"></a>Codificar o elemento que contém o ficheiro para o definir MP4 de velocidade de transmissão adaptável
-Com a encriptação dinâmica todos os, terá de consiste em criar um elemento que contenha um conjunto de ficheiros MP4 de velocidade de transmissão múltipla ou ficheiros de origem de transmissão em fluxo uniforme de transmissão múltipla. Em seguida, com base no formato especificado no pedido de manifesto ou fragmento, o On-a pedido de transmissão em fluxo servidor garante que recebem o fluxo no protocolo que escolheu. Como resultado, só tem de armazenar e pagar pelos ficheiros num único formato de armazenamento e os Media Services irão compilar e disponibilizar a resposta adequada com base nos pedidos de um cliente. Para obter mais informações, consulte o [descrição geral de empacotamento dinâmico](media-services-dynamic-packaging-overview.md) artigo.
+Com a encriptação dinâmica, apenas tem de criar um elemento que contenha um conjunto de ficheiros MP4 com velocidade de transmissão múltipla ou ficheiros de origem de Transmissão em Fluxo Uniforme de múltipla transmissão. Em seguida, com base no formato especificado no pedido de manifesto ou fragmento, o On-a pedido de transmissão em fluxo servidor garante que recebem o fluxo no protocolo que escolheu. Como resultado, só tem de armazenar e pagar pelos ficheiros num único formato de armazenamento e os Media Services irão compilar e disponibilizar a resposta adequada com base nos pedidos de um cliente. Para obter mais informações, veja o artigo [Dynamic Packaging Overview (Descrição Geral de Empacotamento Dinâmico)](media-services-dynamic-packaging-overview.md).
 
 >[!NOTE]
 >Quando a sua conta AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à sua conta no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
@@ -238,7 +242,7 @@ O código seguinte mostra como enviar um pedido para o serviço de entrega de ch
 Substitua o código no seu ficheiro Program.cs com o código mostrado nesta secção.
  
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, consulte [isto](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Certifique-se de que atualiza as variáveis para apontar para as pastas onde se encontram os seus ficheiros de entrada.
 

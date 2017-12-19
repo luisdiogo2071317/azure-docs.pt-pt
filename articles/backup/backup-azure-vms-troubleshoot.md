@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: f7fc4d367a0594a77d7ee25bbd1e40c4b2949c19
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 96aa4aa303f2322733a8383e5abc377ff873a926
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
-> [!div class="op_single_selector"]
-> * [Cofre de serviços de recuperação](backup-azure-vms-troubleshoot.md)
-> * [Cofre de cópia de segurança](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 Pode resolver erros encontrados ao utilizar o Backup do Azure com as informações apresentadas na tabela abaixo.
 
 ## <a name="backup"></a>Cópia de segurança
@@ -137,7 +131,7 @@ Como verificar a versão do agente de VM em VMs do Windows:
 Cópia de segurança VM depende emitir comandos de instantâneo para o armazenamento subjacente. Não ter acesso ao armazenamento, ou atrasos numa execução de tarefas de instantâneo pode fazer com que a tarefa de cópia de segurança falhem. Pode causar falhas de tarefas de instantâneo.
 
 1. Acesso de rede para o armazenamento está bloqueado, utilizando o NSG<br>
-    Saiba mais sobre como [ativar o acesso de rede](backup-azure-vms-prepare.md#network-connectivity) para o armazenamento utilizando o adicionar à lista branca de IPs ou através de servidor proxy.
+    Saiba mais sobre como [ativar o acesso de rede](backup-azure-arm-vms-prepare.md#network-connectivity) para o armazenamento utilizando o adicionar à lista branca de IPs ou através de servidor proxy.
 2. As VMs com cópia de segurança do Sql Server configurada podem fazer com que o atraso de tarefa de instantâneo <br>
    Por predefinição VM cópia de segurança problemas VSS cópia de segurança completa em VMs do Windows. Em VMs que estejam a executar o Sql Servers e se a cópia de segurança do Sql Server está configurada, isto poderá provocar atraso na execução de instantâneo. Defina os seguintes chave de registo se ocorrerem falhas de cópia de segurança devido a problemas de instantâneo.
 
@@ -169,7 +163,7 @@ Assim que a resolução do nome foi efetuada corretamente, acesso para IPs o Azu
    * Desbloquear a IPs utilizando a [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Execute este cmdlet numa VM do Azure, numa janela elevada do PowerShell (executar como administrador).
    * Adicione regras para o NSG (se tiver um no local) para permitir o acesso para os IPs.
 2. Criar um caminho para o tráfego HTTP para o fluxo
-   * Se tiver alguma restrição de rede no local (um grupo de segurança rede, por exemplo) implementar um servidor de proxy HTTP para encaminhar o tráfego. Podem encontrar passos para implementar um servidor HTTP Proxy [aqui](backup-azure-vms-prepare.md#network-connectivity).
+   * Se tiver alguma restrição de rede no local (um grupo de segurança rede, por exemplo) implementar um servidor de proxy HTTP para encaminhar o tráfego. Podem encontrar passos para implementar um servidor HTTP Proxy [aqui](backup-azure-arm-vms-prepare.md#network-connectivity).
    * Adicione regras para o NSG (se tiver um no local) para permitir o acesso à INTERNET do HTTP Proxy.
 
 > [!NOTE]

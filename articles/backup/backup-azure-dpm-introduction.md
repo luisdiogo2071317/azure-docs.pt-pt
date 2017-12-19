@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparar a criação de cópias de segurança de cargas de trabalho para o Azure com o DPM
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Servidor do Backup do Azure (clássica)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (clássica)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -113,7 +111,7 @@ As credenciais do cofre são utilizadas apenas durante o fluxo de trabalho do re
 O ficheiro de credenciais do Cofre é transferido através de um canal seguro do portal do Azure. O serviço de cópia de segurança do Azure não tem conhecimento da chave privada do certificado e a chave privada não é continuada no portal ou o serviço. Utilize os seguintes passos para transferir o ficheiro de credenciais do cofre para um computador local.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Abra cofre dos serviços de recuperação para o qual a qual pretende registar o DPM do computador.
+2. Abra o Cofre de serviços de recuperação que pretende registar o computador do DPM.
 3. Abre o painel de definições de cópia de segurança por predefinição. Se estiver fechado, clique em **definições** no dashboard do cofre para abrir o painel de definições. No painel Definições, clique em **propriedades**.
 
     ![Abrir painel do cofre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -131,7 +129,7 @@ O portal irá gerar uma credencial de cofre utilizando uma combinação de nome 
 ### <a name="3-install-backup-agent"></a>3. Instalar o agente de cópia de segurança
 Depois de criar o Cofre de cópia de segurança do Azure, deve ser instalado um agente em cada uma das suas máquinas do Windows (Windows Server, cliente Windows, o servidor do System Center Data Protection Manager ou máquina do servidor de cópia de segurança do Azure) que permite fazer cópias de segurança de dados e aplicações para o Azure .
 
-1. Abra cofre dos serviços de recuperação para o qual a qual pretende registar o DPM do computador.
+1. Abra o Cofre de serviços de recuperação que pretende registar o computador do DPM.
 2. Abre o painel de definições de cópia de segurança por predefinição. Se estiver fechado, clique em **definições** para abrir o painel de definições. No painel Definições, clique em **propriedades**.
 
     ![Abrir painel do cofre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -139,7 +137,7 @@ Depois de criar o Cofre de cópia de segurança do Azure, deve ser instalado um 
 
     ![Transferência](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   Depois do agente é transferido, faça duplo clique MARSAgentInstaller.exe para iniciar a instalação do agente do Backup do Azure. Escolha a pasta de instalação e a pasta scratch necessário para o agente. A localização da cache especificada tem de ter espaço livre que é, pelo menos, 5% dos dados de cópia de segurança.
+   Depois do agente é transferido, execute o MARSAgentInstaller.exe para iniciar a instalação do agente do Backup do Azure. Escolha a pasta de instalação e a pasta scratch necessário para o agente. A localização da cache especificada tem de ter espaço livre que é, pelo menos, 5% dos dados de cópia de segurança.
 4. Se utilizar um servidor proxy para ligar à internet, o **configuração de Proxy** ecrã, introduza os detalhes do servidor proxy. Se utilizar um proxy autenticado, introduza os detalhes de nome e palavra-passe do utilizador neste ecrã.
 5. O agente do Backup do Azure instala .NET Framework 4.5 e o Windows PowerShell (se ainda não estiver disponível) para concluir a instalação.
 6. Assim que o agente estiver instalado, **fechar** a janela.

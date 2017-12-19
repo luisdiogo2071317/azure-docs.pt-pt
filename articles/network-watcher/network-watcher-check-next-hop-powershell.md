@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: ef559fbbd3e8448d64167552cacee04790418343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>Saber que o tipo de próximo salto está a utilizar a capacidade de próximo salto na observador de rede do Azure com o PowerShell
 
@@ -77,7 +77,7 @@ Agora que chamamos a `Get-AzureRmNetworkWatcherNextHop` cmdlet. O cmdlet podemos
 Get-AzureRmNetworkWatcherNextHop -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id -SourceIPAddress $nics[0].IpConfigurations[0].PrivateIpAddress  -DestinationIPAddress 10.0.2.4 
 ```
 
-## <a name="review-results"></a>Reveja os resultados
+## <a name="review-results"></a>Resultados da revisão
 
 Quando terminar, os resultados são fornecidos. O endereço IP do próximo salto é devolvido, bem como o tipo de recurso é. Neste cenário, é o endereço IP público do gateway de rede virtual.
 
