@@ -32,7 +32,7 @@
 
 ## Carregar e mover dados
 ### [Descrição geral](design-elt-data-loading.md)
-### [Orientação](guidance-for-loading-data.md)
+### [Melhores práticas](guidance-for-loading-data.md)
 
 
 ## Integrar
