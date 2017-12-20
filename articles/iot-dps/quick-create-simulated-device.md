@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.openlocfilehash: 6e486b8fb5924c8a021a781742478e9082ca668c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-services"></a>Criar e aprovisionar um dispositivo simulado com os Serviços de Aprovisionamento de Dispositivos no Hub IoT
 > [!div class="op_single_selector"]
