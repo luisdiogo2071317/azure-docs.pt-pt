@@ -16,7 +16,7 @@ Para criar um espaço de nomes:
 ### <a name="obtain-the-management-credentials"></a>Obter as credenciais de gestão
 Criar um novo espaço de nomes automaticamente gera uma regra de assinatura de acesso partilhado (SAS) inicial com um par de chaves primárias e secundárias que cada conceder controlo total sobre todos os aspetos do espaço de nomes associado. Consulte [barramento de serviço de autenticação e autorização](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) para obter informações sobre como criar regras mais com mais restrita direitos para os remetentes regulares e os recetores. Para copiar a regra inicial, siga estes passos: 
 
-1. Na lista de espaços de nomes, clique no nome do espaço de nomes criado recentemente.
+1.  Clique em **todos os recursos**, em seguida, clique no nome do espaço de nomes criado recentemente.
 2. Na janela do espaço de nomes, clique em **políticas de acesso partilhado**.
 3. No **políticas de acesso partilhado** ecrã, clique em **RootManageSharedAccessKey**.
    

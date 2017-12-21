@@ -3,8 +3,8 @@ title: "Introdução ao Azure DNS com o portal do Azure | Microsoft Docs"
 description: "Saiba como criar uma zona DNS e o registar no DNS do Azure. Este é um guia passo a passo para criar e gerir a sua primeira zona DNS e registar com o portal do Azure."
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/18/2017
+ms.author: kumud
+ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Introdução ao Azure DNS com o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [CLI do Azure 1.0](dns-getstarted-cli-nodejs.md)
 > * [CLI 2.0 do Azure](dns-getstarted-cli.md)
 
 Este artigo explica-lhe os passos para criar a sua primeira zona DNS e o registo com o portal do Azure. Também pode executar estes passos com o Azure PowerShell ou a CLI do Azure de várias plataformas.
@@ -36,11 +35,11 @@ Uma zona DNS é utilizada para alojar os registos DNS para um determinado domín
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
 1. Iniciar sessão no portal do Azure
-2. No menu Hub, clique em **Novo > Redes >** e, em seguida, clique em **Zona DNS**, para abrir o painel Criar zona DNS.
+2. No menu Hub, clique em **Novo > Redes >** e, em seguida, clique em **Zona DNS**, para abrir a página **Criar zona DNS**.
 
     ![Zona DNS](./media/dns-getstarted-portal/openzone650.png)
 
-4. No painel **Criar zona DNS**, introduza os valores seguinte e clique em **Criar**:
+4. Na página **Criar zona DNS**, introduza os valores seguintes e clique em **Criar**:
 
 
    | **Definição** | **Valor** | **Detalhes** |
@@ -57,11 +56,11 @@ Uma zona DNS é utilizada para alojar os registos DNS para um determinado domín
 
 O exemplo seguinte explica-lhe o processo de criação do novo registo "A". Para outros tipos de registo e para modificar registos existentes, consulte [Manage DNS records and record sets by using the Azure portal (Gerir registos DNS e conjuntos de registos com o portal do Azure)](dns-operations-recordsets-portal.md). 
 
-1. Com a Zona DNS criada, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique na zona DNS **contoso.com**, no painel Todos os recursos. Se a subscrição que selecionou já tiver vários recursos, pode introduzir **contoso.com** na caixa **Filtrar por nome...** para aceder facilmente à Zona DNS.
+1. Com a Zona DNS criada, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique na zona DNS **contoso.com**, na página Todos os recursos. Se a subscrição que selecionou já tiver vários recursos, pode introduzir **contoso.com** na caixa **Filtrar por nome...** para aceder facilmente à Zona DNS.
 
-1. No topo do painel **Zona DNS**, selecione **+ Conjunto de registos**, para abrir o painel **Adicionar conjunto de registos**.
+1. No topo da página **Zona DNS**, selecione **+ Conjunto de registos**, para abrir a página **Adicionar conjunto de registos**.
 
-1. No painel **Adicionar conjunto de registos**, introduza os valores seguintes e clique em **OK**. Neste exemplo, está a criar um registo A.
+1. Na página **Adicionar conjunto de registos**, introduza os valores seguintes e clique em **OK**. Neste exemplo, está a criar um registo A.
 
    |**Definição** | **Valor** | **Detalhes** |
    |---|---|---|
@@ -73,7 +72,7 @@ O exemplo seguinte explica-lhe o processo de criação do novo registo "A". Para
 
 ## <a name="view-records"></a>Ver registos
 
-Na parte inferior do painel da zona DNS, pode ver os registos para a zona DNS. Deverá ver os registos DNS e SOA predefinidos, que são criados em cada zona, assim como quaisquer novos registos que tenha criado.
+Na parte inferior da página da zona DNS, pode ver os registos para a zona DNS. Deverá ver os registos DNS e SOA predefinidos, que são criados em cada zona, assim como quaisquer novos registos que tenha criado.
 
 ![zona](./media/dns-getstarted-portal/viewzone500.png)
 
@@ -92,8 +91,8 @@ Estes servidores de nomes devem ser configurados com a entidade de registo de no
 
 Para eliminar todos os recursos criados neste artigo, conclua os seguintes passos:
 
-1. No painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no grupo de recursos **MyResourceGroup**, no painel Todos os recursos. Se a subscrição que selecionou já tiver vários recursos, pode introduzir **MyResourceGroup** na caixa **Filtrar por nome...** para aceder facilmente ao grupo de recursos.
-1. No painel **MyResourceGroup**, clique no botão **Eliminar**.
+1. No painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no grupo de recursos **MyResourceGroup**, na página Todos os recursos. Se a subscrição que selecionou já tiver vários recursos, pode introduzir **MyResourceGroup** na caixa **Filtrar por nome...** para aceder facilmente ao grupo de recursos.
+1. Na página **MyResourceGroup**, clique no botão **Eliminar**.
 1. O portal requer que escreva o nome do grupo de recursos para confirmar que pretende eliminá-lo. Clique em **Eliminar**, escreva *MyResourceGroup* no nome do grupo de recursos e clique em **Eliminar**. A eliminação de um grupo de recursos elimina todos os recursos dentro do grupo de recursos. Por conseguinte, confirme os conteúdos de um grupo de recursos antes de o eliminar. O portal elimina todos os recursos contidos dentro do grupo de recursos e, em seguida, elimina o próprio grupo de recursos. Este processo demora vários minutos.
 
 
