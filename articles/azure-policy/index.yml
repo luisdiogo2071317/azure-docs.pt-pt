@@ -1,0 +1,69 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: "Documentação do Azure Policy"
+metadata:
+  title: "Documentação do Azure Policy - Tutoriais, Referência da API | Microsoft Docs"
+  description: "O Azure Policy ajuda-o a gerir e evitar problemas de TI com definições de políticas que impõem regras e ações aos seus recursos. Quando utiliza o Azure Policy, os recursos mantêm-se em conformidade com os seus padrões empresariais e contratos de nível de serviço. Saiba como criar, atribuir e gerir definições de políticas com os nossos inícios rápidos, tutoriais e exemplos."
+  services: azure-policy
+  author: czeumault
+  manager: carolz
+  ms.service: azure-policy
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 12/18/2017
+  ms.author: carolz
+  ms.openlocfilehash: b5945fe76973aba267b529078466c7a97e5e6421
+  ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 12/20/2017
+abstract:
+  description: "O Azure Policy ajuda-o a gerir e evitar problemas de TI com definições de políticas que impõem regras e ações aos seus recursos. Quando utiliza o Azure Policy, os recursos mantêm-se em conformidade com os seus padrões empresariais e contratos de nível de serviço. Saiba como criar, atribuir e gerir definições de políticas com os nossos inícios rápidos, tutoriais e exemplos."
+sections:
+- title: "Inícios rápidos de cinco minutos"
+  items:
+  - type: paragraph
+    text: "Aprenda a criar, atribuir e gerir as definições de políticas no Azure."
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Portal do Azure
+      href: /azure/azure-policy/assign-policy-definition
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/azure-policy/assign-policy-definition-ps
+    - image:
+        src: https://docs.microsoft.com/en-us/media/common/cli.svg
+      text: CLI do Azure
+      href: /azure/azure-policy/assign-policy-definition-cli
+- title: Tutoriais Passo-a-Passo
+  items:
+  - type: paragraph
+    text: "Aprenda a criar, atribuir e gerir as definições de políticas no Azure."
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/azure-policy/create-manage-policy">Criar e gerir o Azure Policy</a>
+- title: Amostras
+  items:
+  - type: paragraph
+    text: "Utilize os seguintes exemplos de JSON para ajudar a criar definições de políticas no Azure."
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-policy/json-samples">Azure PowerShell</a>
+- title: "Referência"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Linha de Comandos
+      html: <p><a href="https://docs.microsoft.com/en-us/cli/azure/policy">CLI do Azure</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>

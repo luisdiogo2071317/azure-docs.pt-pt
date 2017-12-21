@@ -22,6 +22,8 @@
 
 # Procedimento
 ## Planear e conceber
+### [Identidade do Serviço Gerido (pré-visualização)](event-hubs-managed-service-identity.md)
+### [Controlo de Acesso Baseado em Funções (pré-visualização)](event-hubs-role-based-access-control.md)
 ### [Recuperação após desastre a nível geográfico e georreplicação](event-hubs-geo-dr.md)
 ### [Hubs de Eventos Dedicados](event-hubs-dedicated-overview.md)
 ### [Descrição geral do modelo de autenticação e segurança](event-hubs-authentication-and-security-model-overview.md)
