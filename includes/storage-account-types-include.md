@@ -19,7 +19,7 @@ As contas de armazenamento de Blobs expõem o atributo **Camada de Acesso**, que
 * Uma camada de acesso **Frequente**, que indica que os objetos na conta de armazenamento serão acedidos com mais frequência. Esta opção permite-lhe armazenar dados a um custo mais baixo de acesso.
 * Uma camada de acesso **Esporádico**, que indica que os objetos na conta de armazenamento serão acedidos com menos frequência. Esta opção permite-lhe armazenar dados a um custo mais baixo de armazenamento.
 
-Se o padrão de utilização dos dados sofrer uma alteração, pode também alternar entre estas camadas de acesso em qualquer altura. A alteração da camada de acesso poderá resultar em encargos adicionais. Veja [Preços e faturação das contas de armazenamento de Blobs ](../articles/storage/blobs/storage-account-options.md#pricing-and-billing) para obter mais detalhes.
+Se o padrão de utilização dos dados sofrer uma alteração, pode também alternar entre estas camadas de acesso em qualquer altura. A alteração da camada de acesso poderá resultar em encargos adicionais. Veja [Preços e faturação das contas de armazenamento de Blobs ](../articles/storage/common/storage-account-options.md#pricing-and-billing) para obter mais detalhes.
 
 Para obter mais detalhes sobre as contas de armazenamento de Blobs, veja [ Blob Storage do Azure: camadas de acesso Frequente e Esporádico](../articles/storage/blobs/storage-blob-storage-tiers.md).
 
