@@ -90,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: Utilizar dimensionamento automático
       items:
+        - name: Compreender as definições de Dimensionamento Automático
+          href: monitoring-understanding-autoscale-settings.md
         - name: Melhores práticas
           href: insights-autoscale-best-practices.md
         - name: Métricas comuns

@@ -26,6 +26,8 @@
 
 # Procedimento
 ## Planear e conceber
+### [Identidade do Serviço Gerido (pré-visualização)](service-bus-managed-service-identity.md)
+### [Controlo de Acesso Baseado em Funções (pré-visualização)](service-bus-role-based-access-control.md)
 ### [Mensagens premium](service-bus-premium-messaging.md)
 ### [Comparar Filas do Azure e filas do Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Otimizar o desempenho](service-bus-performance-improvements.md)

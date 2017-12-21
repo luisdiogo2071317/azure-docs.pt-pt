@@ -18,7 +18,8 @@
 ### [Governação no Azure](../governance-in-azure.md)
 ### [Encriptação de dados inativa](../azure-security-encryption-atrest.md)
 ### Esquemas de Arquitetura
-#### [Conformidade - PCI DSS](payment-processing-blueprint.md)
+#### Conformidade - PCI DSS
+##### [Processamento de Pagamentos para ambientes em conformidade com PCI DSS](payment-processing-blueprint.md)
 ##### [Descrição geral de requisitos](pci-dss-requirements-overview.md)
 ##### [Requisito 1 - firewalls](pci-dss-requirement-1-firewall.md)
 ##### [Requisito 2 - palavras-passe](pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Requisito 10 - monitorização](pci-dss-requirement-10-monitoring.md)
 ##### [Requisito 11 - testes](pci-dss-requirement-11-testing.md)
 ##### [Requisito 12 - política](pci-dss-requirement-12-policy.md)
-#### [Conformidade - FedRAMP](fedramp.md)
+#### Conformidade - FedRAMP
+##### [Aplicações Web para FedRAMP](fedramp.md)
 ##### [Descrição geral dos controlos de segurança](fedramp-controls-overview.md)
 ##### [Controlo de acesso](fedramp-access-controls.md)
 ##### [Auditoria e responsabilidade](fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [Proteção do sistema e das comunicações](fedramp-system-communications-protection-controls.md)
 ##### [Integridade do sistema e das informações](fedramp-system-information-integrity-controls.md)
 ##### [Aquisição de sistema e serviços](fedramp-system-services-acquisition-controls.md)
-#### [Conformidade - UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+#### Conformidade - UK-OFFICIAL
+##### [Aplicações Web de três camadas para UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ##### [Descrição geral](uk-official-three-tier-applications-overview.md)
 ##### [Descrição geral de princípios](uk-official-three-tier-applications-principles-overview.md)
-#### [Conformidade - Serviços Financeiros](financial-services-regulated-workloads.md)
+#### Conformidade - Serviços Financeiros
 ##### [Serviços Financeiros para Cargas de Trabalho Reguladas](financial-services-regulated-workloads.md)
 
 # Introdução
