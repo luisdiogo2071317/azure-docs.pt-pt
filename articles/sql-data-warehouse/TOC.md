@@ -1,6 +1,7 @@
 # Descrição geral
 
 ## [Acerca do SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Folha de notas](cheat-sheet.md)
 
 # Inícios rápidos
 

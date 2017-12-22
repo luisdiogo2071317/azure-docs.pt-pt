@@ -2,9 +2,12 @@
 ## [O que são os conjuntos de dimensionamento de máquinas virtuais?](virtual-machine-scale-sets-overview.md)
 
 # Introdução
-## [Implementar um conjunto de dimensionamento no portal do Azure](virtual-machine-scale-sets-portal-create.md)
-## [Implementar um conjunto de dimensionamento com o PowerShell ou a CLI do Azure](virtual-machine-scale-sets-create.md)
-## [Implementar uma aplicação de dimensionamento automático através de um modelo](virtual-machine-scale-sets-deploy-scaling-app-template.md)
+## [Criar no portal do Azure](virtual-machine-scale-sets-create-portal.md)
+## [Criar com a CLI 2.0 do Azure](virtual-machine-scale-sets-create-cli.md)
+## [Criar com o Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+## Criar com um modelo
+### [Conjunto de dimensionamento do Linux](virtual-machine-scale-sets-create-template-linux.md)
+### [Conjunto de dimensionamento do Windows](virtual-machine-scale-sets-create-template-windows.md)
 
 # Procedimento
 ## Planear e conceber
@@ -17,9 +20,7 @@
 ### [Utilizar dimensionamento automático baseado em convidado com um modelo de conjunto de dimensionamento do Linux](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Implementação
-### [Criar com o portal do Azure](virtual-machine-scale-sets-portal-create.md)
 ### [Criar com o Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Criar com o Azure PowerShell ou a CLI do Azure](virtual-machine-scale-sets-create.md)
 ### [Conjunto de dimensionamento com discos geridos](virtual-machine-scale-sets-managed-disks.md)
 ### [Dimensionar automaticamente um conjunto de dimensionamento](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Utilizar o portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
