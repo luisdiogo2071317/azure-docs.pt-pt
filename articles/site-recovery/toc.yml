@@ -79,6 +79,8 @@
           href: concepts-on-premises-to-azure-networking.md
         - name: Configurar o endereçamento IP para o acesso para um site secundário após a ativação pós-falha
           href: concepts-on-premises-to-on-premises-networking.md
+        - name: Gestão de interface de rede de cenários no local para o Azure
+          href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Recuperação após desastre
       items:
         - name: VMs de Hyper-V para o Azure
