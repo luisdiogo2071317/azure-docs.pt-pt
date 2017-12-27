@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 23d59d37e25775f67d01813bbf53d150f1973622
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Principais de serviço com o Azure Container Service (AKS)
 
@@ -83,7 +83,7 @@ Quando utilizar principais de serviço do AKS e do Azure AD, tenha em atenção 
 * Quando especificar o principal de serviço **ID de Cliente**, pode utilizar o valor do `appId` (como mostrado neste artigo) ou o principal de serviço correspondente `name` (por exemplo, `https://www.contoso.org/example`).
 * Em VMs do nó e mestras no cluster de Kubernetes, as credenciais do principal de serviço são armazenadas no ficheiro `/etc/kubernetes/azure.json`.
 * Quando utilizar o comando `az aks create` para gerar automaticamente o principal de serviço, as credenciais do principal de serviço são escritas no ficheiro `~/.azure/acsServicePrincipal.json` na máquina utilizada para executar o comando.
-* Quando utiliza o comando `az aks create` para gerar automaticamente o principal de serviço, o principal de serviço também pode autenticar com um [Azure container registry][acr-into] criado na mesma subscrição.
+* Quando utiliza o comando `az aks create` para gerar automaticamente o principal de serviço, o principal de serviço também pode autenticar com um [Azure container registry][acr-intro] criado na mesma subscrição.
 * Ao eliminar um cluster do AKS que tenha sido criado pelo `az aks create`, o principal de serviço que foi criado automaticamente não é eliminado. Pode utilizar `az ad sp delete --id $clientID` para eliminá-lo.
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quais as cargas de trabalho que podem ser protegidas com o Azure Site Recovery?
 
@@ -49,21 +49,20 @@ A Recuperação de Sites contribui para a proteção e recuperação a nível de
 ## <a name="workload-summary"></a>Resumo da carga de trabalho
 A Recuperação de Sites pode replicar qualquer aplicação em execução numa máquina. Além disso, fizemos parcerias com equipas de produto para executar testes adicionais específicos da aplicação.
 
-| **Carga de trabalho** | **Replicar VMs Hyper-V para um site secundário** | **Replicar VMs Hyper-V para o Azure** | **Replicar VMs VMware para um site secundário** | **Replicar VMs VMware para o Azure** |
-| --- | --- | --- | --- | --- |
-| Active Directory, DNS |S |S |S |S |
-| Web Apps (IIS, SQL) |S |S |S |S |
-| System Center Operations Manager |S |S |S |S |
-| SharePoint |S |S |S |S |
-| SAP<br/><br/>Replicar site SAP para o Azure de não cluster |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |
-| Exchange (não DAG) |S |S |S |S |
-| Ambiente de Trabalho Remoto/VDI |S |S |S |N/D |
-| Linux (sistema operativo e aplicações) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |
-| Dynamics AX |S |S |S |S |
-| Dynamics CRM |S |Brevemente |S |Brevemente |
-| Oracle |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |
-| Servidor de Ficheiros do Windows |S |S |S |S |
-| Citrix XenApp e XenDesktop |N/D |S |N/D |S |
+| **Carga de trabalho** |**Replicar VMs do Azure para o Azure** |**Replicar VMs Hyper-V para um site secundário** | **Replicar VMs Hyper-V para o Azure** | **Replicar VMs VMware para um site secundário** | **Replicar VMs VMware para o Azure** |
+| --- | --- | --- | --- | --- |---|
+| Active Directory, DNS |S |S |S |S |S|
+| Web Apps (IIS, SQL) |S |S |S |S |S|
+| System Center Operations Manager |S |S |S |S |S|
+| SharePoint |S |S |S |S |S|
+| SAP<br/><br/>Replicar site SAP para o Azure de não cluster |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft)|
+| Exchange (não DAG) |S |S |S |S |S|
+| Ambiente de Trabalho Remoto/VDI |S |S |S |S |S|
+| Linux (sistema operativo e aplicações) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft)|
+| Dynamics AX |S |S |S |S |S|
+| Oracle |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft) |S (testado pela Microsoft)|
+| Servidor de Ficheiros do Windows |S |S |S |S |S|
+| Citrix XenApp e XenDesktop |S|N/D |S |N/D |S |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replicar o Active Directory e o DNS
 As infraestruturas de DNS e Active Directory são essenciais para a maioria das aplicações da empresa. Durante a recuperação após desastre terá de proteger e recuperar estes componentes da infraestrutura antes de recuperar as cargas de trabalho e aplicações.
@@ -106,13 +105,16 @@ O Azure Site Recovery ajuda a proteger a sua solução ERP de Dynamics AX:
 Os Serviços de Ambiente de Trabalho Remoto (RDS) ativa a infraestrutura de ambiente de trabalho virtual (VDI), ambientes de trabalho baseados em sessão e aplicações, permitindo aos utilizadores trabalhar em qualquer lugar. Com o Azure Site Recovery, pode:
 
 * Replicar ambientes de trabalho virtuais agrupados, geridos ou não geridos, para um site secundário, e aplicações remotas e sessões para um site secundário ou Azure.
+
 * Eis o que é possível replicar:
 
-| **RDS** | **Replicar VMs Hyper-V para um site secundário** | **Replicar VMs Hyper-V para o Azure** | **Replicar VMs VMware para um site secundário** | **Replicar VMs VMware para o Azure** | **Replicar servidores físicos para um site secundário** | **Replicar servidores físicos para o Azure** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ambiente de Trabalho Virtual Agrupado (não gerido)** |Sim |Não |Sim |Não |Sim |Não |
-| **Ambiente de Trabalho Virtual Agrupado (gerido e sem UDP)** |Sim |Não |Sim |Não |Sim |Não |
-| **Aplicações remotas e sessões de Ambiente de Trabalho (sem UDP)** |Sim |Sim |Sim |Sim |Sim |Sim |
+| **RDS** |**Replicar VMs do Azure para o Azure** | **Replicar VMs Hyper-V para um site secundário** | **Replicar VMs Hyper-V para o Azure** | **Replicar VMs VMware para um site secundário** | **Replicar VMs VMware para o Azure** | **Replicar servidores físicos para um site secundário** | **Replicar servidores físicos para o Azure** |
+|---| --- | --- | --- | --- | --- | --- | --- |
+| **Ambiente de Trabalho Virtual Agrupado (não gerido)** |Não|Sim |Não |Sim |Não |Sim |Não |
+| **Ambiente de Trabalho Virtual Agrupado (gerido e sem UDP)** |Não|Sim |Não |Sim |Não |Sim |Não |
+| **Aplicações remotas e sessões de Ambiente de Trabalho (sem UDP)** |Sim|Sim |Sim |Sim |Sim |Sim |Sim |
+
+[Configurar a recuperação após desastres para o RDS utilizando o Azure Site Recovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [Saiba mais](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) sobre como proteger o RDS.
 
@@ -138,7 +140,7 @@ Utilize a Recuperação de Sites para proteger a sua implementação de SAP da s
 ## <a name="protect-iis"></a>Proteger o IIS
 Utilize o Site Recovery para proteger a sua implementação de IIS da seguinte forma:
 
-O Azure Site Recovery fornece a recuperação após desastre ao replicar os componentes críticos no seu ambiente para um site remoto sem interesse ou para uma cloud pública, como o Microsoft Azure. Uma vez que a máquina virtual com o servidor Web e a base de dados estão a ser replicados para o site de recuperação, não é necessária a cópia de segurança de ficheiros de configuração ou certificados em separado. Os mapeamentos de aplicação e enlaces dependentes em variáveis de ambiente que são alterados após a ativação pós-falha podem ser atualizados através de scripts integrados em planos de recuperação após desastre. As Máquinas Virtuais são colocadas no site de recuperação em caso de uma ativação pós-falha. Não só isto, o Azure Site Recovery também ajuda a orquestrar a ativação pós-falha de ponta a ponta ao fornecer-lhe as seguintes funcionalidades:
+O Azure Site Recovery fornece a recuperação após desastre ao replicar os componentes críticos no seu ambiente para um site remoto sem interesse ou para uma cloud pública, como o Microsoft Azure. Uma vez que as máquinas virtuais com o servidor Web e a base de dados estão a ser replicados para o site de recuperação, não é necessária a cópia de segurança de ficheiros de configuração ou certificados em separado. Os mapeamentos de aplicação e enlaces dependentes em variáveis de ambiente que são alterados após a ativação pós-falha podem ser atualizados através de scripts integrados em planos de recuperação após desastre. As máquinas virtuais são colocadas no site de recuperação em caso de uma ativação pós-falha. Não só isto, o Azure Site Recovery também ajuda a orquestrar a ativação pós-falha de ponta a ponta ao fornecer-lhe as seguintes funcionalidades:
 
 -   Sequenciação do encerramento e arranque das máquinas virtuais nas várias camadas.
 -   Adição de scripts para permitir a atualização de dependências de aplicações e enlaces nas máquinas virtuais após terem sido iniciadas. Os scripts também podem ser utilizados para atualizar o servidor DNS que aponta para o site de recuperação.

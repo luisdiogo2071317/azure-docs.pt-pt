@@ -13,23 +13,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: anvang;barbkess;kevin
+ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Ligar ao Azure SQL Data Warehouse
 Este artigo ajuda-o a ligar-se ao SQL Data Warehouse pela primeira vez.
 
 ## <a name="find-your-server-name"></a>Encontrar o nome do servidor
-O primeiro passo para ligar ao SQL Data Warehouse é saber como localizar o nome do servidor.  Por exemplo, o nome do servidor no exemplo seguinte é sample.database.windows.net. Descubra o nome de servidor completamente qualificado:
+O primeiro passo para ligar ao SQL Data Warehouse é saber como localizar o nome do servidor.  Por exemplo, o nome do servidor no exemplo seguinte é samplesvr.database.windows.net. Descubra o nome de servidor completamente qualificado:
 
 1. Aceda ao [portal do Azure][Azure portal].
-2. Clique em **Bases de Dados SQL** 
-3. Clique na base de dados à qual se quer ligar.
+2. Clique em **Armazéns de dados SQL**.
+3. Clique no armazém de dados à qual se quer ligar.
 4. Localize o nome do servidor completo.
    
     ![Nome de servidor completo][1]
@@ -93,6 +93,6 @@ Para ligar e consultar com o Visual Studio, veja [Query with Visual Studio (Cons
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 

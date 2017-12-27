@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b45e9479fa2e06f2c15ace9138e48ced94bacbda
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Como obter um inquilino do Azure Active Directory
 No Azure Active Directory (Azure AD), uma organização é representada por um [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant).  Quando assina um serviço em nuvem da Microsoft, tal como o Azure, o Microsoft Intune ou o Office 365, a organização recebe e fica proprietária de uma instância dedicada do serviço Azure AD.  Cada inquilino do Azure AD é distinto e separado dos outros inquilinos do Azure AD.  
@@ -39,11 +39,11 @@ Por isso, como deve proceder para obter um inquilino do Azure AD?  O processo po
 Se tiver uma subscrição existente do Office 365, já tem um inquilino do Azure AD! Pode iniciar sessão no [Portal do Azure](https://portal.azure.com) com a conta do Office 365 e começar a utilizar o Azure AD.
 
 ## <a name="use-an-msa-azure-subscription"></a>Utilizar uma subscrição do Azure MSA
-Se já tiver uma subscrição do Azure com a sua conta individual da Microsoft, já possui um inquilino!  Quando iniciar sessão no [Portal do Azure](https://portal.azure.com), será automaticamente registado no seu inquilino predefinido. Pode utilizar este inquilino como julgar conveniente, mas poderá querer criar uma conta de administrador organizacional.
+Se já tiver uma subscrição do Azure com a sua conta individual da Microsoft, já possui um inquilino!  Quando iniciar sessão no [portal do Azure](https://portal.azure.com), a sessão é automaticamente iniciada no inquilino predefinido. Pode utilizar este inquilino como julgar conveniente, mas poderá querer criar uma conta de administrador organizacional.
 
 Para tal, siga estes passos.  Em alternativa, poderá pretender criar um novo inquilino e criar um administrador nesse inquilino seguindo um processo semelhante.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta individual
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com a sua conta individual
 2. Navegue para a secção “Azure Active Directory” do portal (que se encontra na barra de navegação esquerda, em **Mais Serviços**)
 3. Deve ter a sessão automaticamente iniciada no "Diretório Predefinido", caso contrário, pode mudar de diretório, ao clicar no nome da sua conta no canto superior direito.
 4. Na secção **Tarefas Rápidas**, escolha **Adicionar um utilizador**.
@@ -53,14 +53,12 @@ Para tal, siga estes passos.  Em alternativa, poderá pretender criar um novo in
    * Nome de Utilizador: (escolher um nome de utilizador para este administrador)
    * Perfil: (preencher os valores adequados para o Nome Próprio, Apelido, Cargo e Departamento)
    * Função: Administrador Global
-6. Após preencher o formulário Adicionar Utilizador e receber a palavra-passe temporária do novo utilizador administrativo, certifique-se de tomar nota desta palavra-passe pois terá de iniciar sessão com este novo utilizador para alterar a palavra-passe. Também pode enviar a palavra-passe diretamente para o utilizador, utilizando um e-mail alternativo.
+6. Após preencher o formulário Adicionar Utilizador e receber a palavra-passe temporária do novo utilizador administrativo, certifique-se de tomar nota desta palavra-passe pois tem de iniciar sessão com este novo utilizador para alterar a palavra-passe. Também pode enviar a palavra-passe diretamente para o utilizador, utilizando um e-mail alternativo.
 7. Clique em **Criar**, para criar o novo utilizador.
 8. Para alterar a palavra-passe temporária, inicie sessão em [https://login.microsoftonline.com](https://login.microsoftonline.com) com esta nova conta de utilizador e altere a palavra-passe quando solicitado.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Utilizar uma subscrição organizacional do Azure
-Se já tiver uma subscrição do Azure com a sua conta organizacional, já possui um inquilino!  No [Portal do Azure](https://portal.azure.com), encontrará um inquilino ao navegar para "Mais Serviços" e "Azure Active Directory."  Pode utilizar este inquilino como julgar conveniente.
+Se já tiver uma subscrição do Azure com a sua conta organizacional, já possui um inquilino!  No [portal do Azure](https://portal.azure.com), encontrará um inquilino ao navegar para "Mais Serviços" e "Azure Active Directory."  Pode utilizar este inquilino como julgar conveniente.
 
 ## <a name="start-from-scratch"></a>Começar do zero
-Se tudo o que estiver acima não fizer qualquer sentido, não se preocupe.  Visite simplesmente [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) para subscrever o Azure com uma nova organização.  Depois de concluir o processo, terá o seu próprio inquilino no Azure AD com o nome de domínio que escolheu durante a subscrição.  No [Portal do Azure](https://portal.azure.com), pode encontrar o seu inquilino ao navegar para “Azure Active Directory” na barra de navegação esquerda.
-
-Como parte do processo de subscrição do Azure, ser-lhe-á pedido para fornecer os detalhes do cartão de crédito.  Pode continuar com confiança, não lhe será cobrado nada por publicar aplicações no Azure AD ou por criar novos inquilinos.
+Se tudo o que estiver acima não fizer qualquer sentido, não se preocupe. Visite simplesmente o [portal do Azure](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) para criar um novo diretório do Azure AD. Depois de concluir o processo, tem o seu próprio inquilino no Azure AD com o nome de domínio que escolheu durante a subscrição.  No [portal do Azure](https://portal.azure.com), pode encontrar o seu inquilino ao navegar para **Azure Active Directory** na barra de navegação esquerda.

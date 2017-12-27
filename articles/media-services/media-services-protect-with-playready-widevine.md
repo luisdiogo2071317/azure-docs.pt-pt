@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: de595c8a840cd19b0f46071edd67c6cc1d32feb8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fb62a82f351502b5067367b2306f296272b6575b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine
 
@@ -27,7 +27,12 @@ ms.lasthandoff: 12/11/2017
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 >
->
+
+> [!NOTE]
+> Para obter a versão mais recente do Java SDK e começar a programar com o Java, veja [Introdução ao SDK do cliente de Java dos Serviços de Multimédia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Para transferir o SDK mais recente do PHP para os Serviços de Multimédia, procure a versão 0.5.7 do pacote Microsoft/WindowAzure no [repositório Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+
+## <a name="overview"></a>Descrição geral
 
 Os Media Services do Microsoft Azure permitem entregar MPEG-DASH, Transmissão em Fluxo Uniforme e transmissões em fluxo HTTP-Live-Streaming (HLS) protegidas com o [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). Também permitem entregar transmissões em fluxo DASH encriptadas com licenças Widevine DRM. Tanto PlayReady como Widevine são encriptados de acordo com a especificação de Encriptação Comum (ISO/IEC 23001 7 CENC). Pode utilizar [SDK .NET do AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (começando com a versão 3.5.1) ou a API REST para configurar o seu AssetDeliveryConfiguration para utilizar Widevine.
 

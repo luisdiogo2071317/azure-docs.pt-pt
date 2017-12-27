@@ -10,7 +10,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Crie uma conta de armazenamento padrão para fins gerais com o comando [az storage account create](/cli/azure/storage/account#create). A conta de armazenamento padrão para fins gerais pode ser utilizada para os quatro serviços: blobs, ficheiros, tabelas e filas. 
+Crie uma conta de armazenamento para fins gerais com o comando [az storage account create](/cli/azure/storage/account#create). A conta de armazenamento para fins gerais pode ser utilizada para os quatro serviços: blobs, ficheiros, tabelas e filas. 
 
 ```azurecli-interactive
 az storage account create \

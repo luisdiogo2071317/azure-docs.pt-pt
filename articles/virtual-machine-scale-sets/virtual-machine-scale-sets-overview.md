@@ -3,8 +3,8 @@ title: "Descrição geral dos conjuntos de dimensionamento de máquinas virtuais
 description: "Saiba mais sobre os conjuntos de dimensionamento de máquinas virtuais do Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>O que são os conjuntos de dimensionamento de máquinas virtuais do Azure?
 Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que pode utilizar para implementar e gerir um conjunto de VMs idênticas. Com todas as VMs configuradas da mesma forma, os conjuntos de dimensionamento foram concebidos para suportar um autêntico dimensionamento automático, sem que seja necessário o pré-aprovisionamento de VMs. Assim, é mais fácil criar serviços em grande escala orientados para macrocomputação, macrodados e cargas de trabalho em contentores.
@@ -50,7 +50,7 @@ Para os exemplos de modelo de Início rápido, um botão "Implementar no Azure" 
 ## <a name="autoscale"></a>Dimensionamento Automático
 Para manter o desempenho consistente das aplicações, pode aumentar ou diminuir automaticamente o número de instâncias de VM no seu conjunto de dimensionamento. Esta capacidade de dimensionamento automático reduz os custos de gestão para monitorizar e otimizar o seu conjunto de dimensionamento à medida que a procura dos clientes muda ao longo do tempo. Pode definir regras com base nas métricas de desempenho, na resposta da aplicação ou num agendamento fixo, sendo que o conjunto de dimensionamento é dimensionado automaticamente conforme necessário.
 
-Para regras de dimensionamento automático básicas, pode utilizar métricas de desempenho baseadas no anfitrião, tais como a utilização da CPU ou a E/S do disco. Estas métricas baseadas no anfitrião já estão disponíveis, sem instalação e configuração de agentes ou extensões adicionais. Podem ser criadas regras de dimensionamento automático que utilizem métricas baseadas no anfitrião com uma das seguintes ferramentas:
+Para regras de dimensionamento automático básicas, pode utilizar métricas de desempenho baseadas no anfitrião, tais como a utilização da CPU ou a E/S do disco. Estas métricas baseadas no anfitrião estão disponíveis automaticamente, sem instalação e configuração de agentes ou extensões adicionais. Podem ser criadas regras de dimensionamento automático que utilizem métricas baseadas no anfitrião com uma das seguintes ferramentas:
 
 - [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
@@ -159,7 +159,7 @@ Esta secção lista alguns cenários comuns de conjuntos de dimensionamento. Alg
 
 **P.** Se utilizar várias extensões num conjunto de dimensionamento, posso forçar uma sequência de execução?
 
-**R.** Não diretamente, mas, relativamente à extensão customScript, o script pode aguardar pela conclusão de outra extensão. Pode obter orientações adicionais sobre a sequenciação de extensões nesta mensagem do blogue: [Extension Sequencing in Azure VM Scale Sets (Sequenciação de Extensões em Conjuntos de Dimensionamento de VMs do Azure)](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**R.** Não diretamente, mas, relativamente à extensão customScript, o script pode aguardar pela conclusão de outra extensão. Pode obter orientações adicionais sobre a sequenciação de extensões nesta mensagem do blogue: [ (Sequenciação de Extensões em conjuntos de dimensionamento de máquinas virtuais do Azure)](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
 **P.** Os conjuntos de dimensionamento funcionam com os conjuntos de disponibilidade do Azure?
 

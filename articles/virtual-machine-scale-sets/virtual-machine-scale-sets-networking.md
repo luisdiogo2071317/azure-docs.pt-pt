@@ -3,8 +3,8 @@ title: "Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais 
 description: "Propriedades de rede de configuração para conjuntos de dimensionamento de máquinas virtuais do Azure."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: guybo
-ms.openlocfilehash: a8520c6d8962cc362fc935f6b515a299c0ce75b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: negat
+ms.openlocfilehash: 21585717609a692d55ba60f74e39f3bccc0bc727
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -306,4 +306,4 @@ Por exemplo:
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre as redes do Azure, veja [esta documentação](../virtual-network/virtual-networks-overview.md).
+Para obter mais informações sobre redes virtuais do Azure, veja [Descrição geral das redes virtuais do Azure](../virtual-network/virtual-networks-overview.md).

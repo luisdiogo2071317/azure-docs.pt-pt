@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: a935c3a7a5eeead8eaac5d8d0980c289b17f3289
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Funcionalidade Termos de Utilização do Azure Active Directory (Pré-visualização)
 Os Termos de Utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais.  Isto garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores.
@@ -52,14 +52,16 @@ Depois de finalizar os seus Termos de Utilização, utilize o procedimento que s
 ### <a name="to-add-terms-of-use"></a>Para adicionar os Termos de Utilização
 1. Navegue para o dashboard em [https://aka.ms/catou](https://aka.ms/catou)
 2. Clique em Adicionar.</br>
-![Adicionar Termos de Utilização](media/active-directory-tou/tou2.png)
+![Adicionar Termos de Utilização](media/active-directory-tou/tou12.png)
 3. Introduza o **Nome** a utilizar para os Termos de Utilização
 4. Introduza o **Nome a Apresentar**.  Este é o cabeçalho apresentado aos utilizadores quando estes iniciam sessão.
 5. **Navegue** para o pdf finalizado dos termos de utilização e selecione-o.  O tamanho do tipo de letra recomendado é 24.
-6. Pode **impor** os termos de utilização carregados através da utilização de um modelo ou de uma política de acesso condicional personalizada.  As políticas de acesso condicional personalizadas permitem especificar termos de utilização detalhados, ao ponto de individualizar uma aplicação da cloud ou um grupo de utilizadores em particular.  Para obter mais informações, consulte [configurar políticas de acesso condicional](active-directory-conditional-access-best-practices.md)
-7. Clique em **Criar**.
-8. No caso de ter selecionado um modelo de acesso condicional personalizado, será apresentado um novo ecrã que lhe permite personalizar a política de AC.
-7. Posto isto, deverá conseguir ver os novos Termos de Utilização.</br>
+6. **Selecione** um idioma para os termos de utilização.  A opção de idioma permite-lhe carregar vários termos de utilização, cada um com um idioma diferente.  A versão dos termos de utilização que um utilizador final verá serão baseados nas respetivas preferências do browser.
+7. Selecione ativado ou desativado para **Exigir que os utilizadores expandam os termos de utilização**.  Se estiver ativado, será pedido aos utilizadores finais que vejam os termos de utilização antes de os aceitarem.
+8. Na secção **Acesso Condicional** pode **Impor** os termos de utilização carregados através da utilização de um modelo ou de uma política de acesso condicional personalizada.  As políticas de acesso condicional personalizadas permitem especificar termos de utilização detalhados, ao ponto de individualizar uma aplicação da cloud ou um grupo de utilizadores em particular.  Para obter mais informações, consulte [configurar políticas de acesso condicional](active-directory-conditional-access-best-practices.md)
+9. Clique em **Criar**.
+10. No caso de ter selecionado um modelo de acesso condicional personalizado, será apresentado um novo ecrã que lhe permite personalizar a política de AC.
+11. Posto isto, deverá conseguir ver os novos Termos de Utilização.</br>
 
 ![Adicionar Termos de Utilização](media/active-directory-tou/tou3.png)
 
@@ -90,6 +92,19 @@ Aos utilizadores abrangidos pelo âmbito definido será apresentado o seguinte a
 ![Evento de Auditoria](media/active-directory-tou/tou10.png)
 -   Este é o formato do ecrã apresentado nos telemóveis</br></br>
 ![Evento de Auditoria](media/active-directory-tou/tou11.png)
+
+### <a name="review-terms-of-use"></a>Rever termos de utilização
+Os utilizadores podem rever e ver os termos de utilização aceitaram.  Isto pode ser feito utilizando o seguinte procedimento:
+
+1. Navegue e inicie sessão em [https://myapps.microsoft.com](https://myapps.microsoft.com).
+2. No canto superior direito, clique no seu nome e selecione **Perfil** no menu pendente.
+![Perfil](media/active-directory-tou/tou14.png)
+
+3. No seu Perfil, clique em **Rever os termos de utilização**.
+![Evento de Auditoria](media/active-directory-tou/tou13a.png)
+
+4.  A partir daí, pode rever os termos de utilização que aceitou. 
+
 
 ## <a name="additional-information"></a>Informações adicionais
 As informações que se seguem são dados a ter em consideração e podem ajudar na utilização dos termos de utilização.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: e1386d055e41d25b84630141b86ef2143f2fc8af
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade de cópia for bem sucedida, vai querer enviar detalhes da operação de cópia com êxito (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade de cópia falhar, vai querer enviar detalhes da falha de cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
@@ -452,7 +452,7 @@ A primeira secção do nosso pipeline define os parâmetros.
 
 - sourceBlobContainer – parâmetro no pipeline consumido pelo conjunto de dados do blob de origem.
 - sinkBlobContainer – parâmetro no pipeline consumido pelo conjunto de dados do blob de sink.
-- receiver – parâmetro no pipeline consumido pelas duas atividades Web nas quais o endereço de e-mail recebe o e-mail.
+- recetor – este parâmetro é utilizado por duas atividades Web no pipeline que envia e-mails de êxito ou falha para o recetor cujo endereço de e-mail é especificado por este parâmetro.
 
 
 ```csharp

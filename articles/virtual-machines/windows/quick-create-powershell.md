@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 11/29/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0299e0b5a756bc0a13904bf3fda673ace7581795
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c6193c63e6efaa4b6472b7de1a042dc4f58b42d3
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>Criar máquinas virtuais do Windows com o PowerShell
 
@@ -30,7 +30,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 5.1.1 ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
+
 
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
@@ -41,71 +42,23 @@ Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/mo
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-networking-resources"></a>Criar recursos de rede
-
-### <a name="create-a-virtual-network-subnet-and-a-public-ip-address"></a>Crie uma rede virtual, uma sub-rede e um endereço IP público. 
-Estes recursos são utilizados para fornecer conectividade de rede à máquina virtual e ligá-la à Internet.
-
-```azurepowershell-interactive
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location EastUS `
-    -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location EastUS `
-    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
-```
-
-### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Crie um grupo de segurança de rede e uma regra do grupo de segurança de rede. 
-O grupo de segurança de rede protege a máquina virtual com regras de entrada e de saída. Neste caso, é criada uma regra de entrada para a porta 3389, que permite ligações de ambiente de trabalho remotas recebidas. Também queremos criar uma regra de entrada para a porta 80, que permite o tráfego da Web de entrada.
-
-```azurepowershell-interactive
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
-    -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 -Access Allow
-
-# Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp `
-    -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-    -DestinationPortRange 80 -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location EastUS `
-    -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP,$nsgRuleWeb
-```
-
-### <a name="create-a-network-card-for-the-virtual-machine"></a>Crie uma placa de rede para a máquina virtual. 
-Crie uma placa de rede com [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) para a máquina virtual. A placa de rede liga a máquina virtual a uma sub-rede, um grupo de segurança de rede e um endereço IP público.
-
-```azurepowershell-interactive
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location EastUS `
-    -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-```
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
-Criar uma configuração da máquina virtual. Esta configuração inclui as definições que são utilizadas ao implementar a máquina virtual, como uma imagem de máquina virtual, o tamanho e a configuração da autenticação. Ao executar este passo, serão pedidas credenciais. Os valores que introduzir são configurados, como o nome de utilizador e a palavra-passe para a máquina virtual.
+Criar a máquina virtual com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Apenas terá de fornecer nomes para cada um dos recursos e o cmdlet New-AzureRMVM criá-los-á por si caso ainda não existam.
+
+Ao executar este passo, serão pedidas credenciais. Os valores que introduzir são configurados, como o nome de utilizador e a palavra-passe para a máquina virtual.
 
 ```azurepowershell-interactive
-# Define a credential object
-$cred = Get-Credential
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
-    Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-    Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
-    -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
-```
-
-Criar a máquina virtual com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
-
-```azurepowershell-interactive
-New-AzureRmVM -ResourceGroupName myResourceGroup -Location EastUS -VM $vmConfig
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -OpenPorts 80,3389  
 ```
 
 ## <a name="connect-to-virtual-machine"></a>Conectar à máquina virtual
@@ -120,13 +73,13 @@ Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 
 Utilize o seguinte comando na sua máquina virtual para criar uma sessão de ambiente de trabalho remoto com a máquina virtual. Substitua o endereço IP com o *publicIPAddress* da máquina virtual. Quando lhe for pedido, introduza as credenciais utilizadas ao criar a máquina virtual.
 
-```bash 
+```
 mstsc /v:<publicIpAddress>
 ```
 
 ## <a name="install-iis-via-powershell"></a>Instalar o IIS através do PowerShell
 
-Agora que iniciou sessão na VM do Azure, pode utilizar uma única linha do PowerShell para instalar o IIS e ativar a regra de firewall local para permitir o tráfego da Web. Abra uma janela do PowerShell e execute o comando seguinte:
+Agora que iniciou sessão na VM do Azure, pode utilizar uma única linha do PowerShell para instalar o IIS e ativar a regra de firewall local para permitir o tráfego da Web. Abra uma janela do PowerShell na VM e execute o comando seguinte:
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
