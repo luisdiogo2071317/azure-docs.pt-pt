@@ -1,12 +1,11 @@
 ---
-title: "Azure Active Directory B2C: Registo de aplicação | Microsoft Docs"
+title: "Registo de Aplicação - Azure Active Directory B2B"
 description: "Como registar a aplicação com o Azure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
+editor: parakhj
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 36a421056b123f397c3d5f7d7bfb4c5314c82b78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b1d145466382c8fc2ea6c5e4e295940b0f000b97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C : Registar a aplicação
 
@@ -28,7 +27,7 @@ Este guia de início rápido ajuda-o a registar uma aplicação num inquilino do
 
 Para criar uma aplicação que aceite a inscrição e o início de sessão do consumidor, terá primeiro de registar a aplicação com um inquilino do Azure Active Directory B2C. Obtenha o seu inquilino, utilizando os passos descritos em [Criar um inquilino do Azure AD B2C](active-directory-b2c-get-started.md).
 
-As aplicações criadas a partir do painel Azure AD B2C no portal do Azure têm de ser geridas a partir da mesma localização. Se utilizar o PowerShell ou outro portal para editar as aplicações B2C, estas deixam de ser suportadas e não irão funcionar com o Azure AD B2C. Veja os detalhes na secção [Aplicações com falha](#faulted-apps). 
+As aplicações criadas no portal do Azure têm de ser geridas a partir da mesma localização. Se utilizar o PowerShell ou outro portal para editar as aplicações B2C do Azure AD, estas deixam de ser suportadas e não irão funcionar com o Azure AD B2C. Veja os detalhes na secção [Aplicações com falha](#faulted-apps). 
 
 Este artigo utiliza exemplos que o ajudam a começar com os nossos exemplos. Pode saber mais sobre estes exemplos nos artigos subsequentes.
 
@@ -117,7 +116,7 @@ Pode adicionar os dois últimos porque são subdomínios do primeiro URL de resp
 
 Existem duas considerações importantes sobre quando selecionar um URI de redirecionamento para aplicações móveis/nativas:
 
-* **Exclusivo**: o esquema do URI de redirecionamento deve ser exclusivo para cada aplicação. No nosso exemplo (com.onmicrosoft.contoso.appname://redirect/path), utilizamos com.onmicrosoft.contoso.appname como esquema. Recomendamos seguir este padrão. Se duas aplicações partilharem o mesmo esquema, o utilizador vê uma caixa de diálogo "selecionar aplicação". Se o utilizador fizer uma seleção incorreta, o início de sessão falha.
+* **Exclusivo**: o esquema do URI de redirecionamento deve ser exclusivo para cada aplicação. No exemplo (com.onmicrosoft.contoso.appname://redirect/path), com.onmicrosoft.contoso.appname é o esquema. Recomendamos seguir este padrão. Se duas aplicações partilharem o mesmo esquema, o utilizador vê uma caixa de diálogo "selecionar aplicação". Se o utilizador fizer uma seleção incorreta, o início de sessão falha.
 * **Completo**: o URI de redirecionamento tem de ter um esquema e um caminho. O caminho tem de conter pelo menos uma barra depois do domínio (por exemplo, //contoso/ funciona e //contoso falha).
 
 Certifique-se de que não existem carateres especiais, como carateres de sublinhado, no uri de redirecionamento.
@@ -126,16 +125,16 @@ Certifique-se de que não existem carateres especiais, como carateres de sublinh
 
 As aplicações B2C NÃO devem ser editadas:
 
-* Noutros portais de gestão de aplicações, como o [portal clássico do Azure](https://manage.windowsazure.com/) e no [Portal de Registo da Aplicação](https://apps.dev.microsoft.com/).
+* Noutros portais de gestão de aplicações, como o [Portal de Registo da Aplicação](https://apps.dev.microsoft.com/).
 * Utilizar o Graph API ou o PowerShell
 
-Se editar a aplicação B2C, conforme descrito acima, e tentar editá-la novamente no painel de funcionalidades do Azure AD B2C no portal do Azure, ela torna-se uma aplicação com falha e a sua aplicação deixa de ser utilizável com o Azure AD B2C. Tem de eliminar a aplicação e criá-la novamente.
+Se editar a aplicação B2C do Azure AD, conforme descrito, e tentar editá-la novamente nas funcionalidades do Azure AD B2C no portal do Azure, ela torna-se uma aplicação com falha e a sua aplicação deixa de ser utilizável com o Azure AD B2C. Deve eliminar a aplicação e criá-la novamente.
 
 Para eliminar a aplicação, aceda ao [Portal de Registo da Aplicação](https://apps.dev.microsoft.com/) e elimine a aplicação. Para que a aplicação fique visível, tem de ser o proprietário da aplicação (e não apenas um administrador do inquilino).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que tem uma aplicação registada no Azure AD B2C, pode concluir um dos nossos [guias de introdução](active-directory-b2c-overview.md#get-started) para começar a trabalhar.
+Agora que tem uma aplicação registada no Azure AD B2C, pode concluir um dos [guias de introdução](active-directory-b2c-overview.md#get-started) para começar a trabalhar.
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web ASP.NET com inscrição, início de sessão e reposição da palavra-passe](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

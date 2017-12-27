@@ -1,6 +1,6 @@
 ---
 title: FAQ do Azure Active Directory | Microsoft Docs
-description: "As FAQ do Azure Active Directory respondem a perguntas sobre como aceder ao Azure e ao Azure Active Directory, gestão de palavras-passe e acesso à aplicação."
+description: "As FAQ do Azure Active Directory respondem a perguntas comuns sobre o Azure e o Azure Active Directory, gestão de palavras-passe e acesso à aplicação."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 5ec11f1a125cc4c6e7f5165091411dea7daca193
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>FAQ do Azure Active Directory
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -27,9 +27,9 @@ Para obter mais informações, consulte [What is Azure Active Directory? (O que 
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Aceder ao Azure e Azure Active Directory
-**P: Por que motivo recebo “Não foram encontradas subscrições” ao tentar aceder ao Azure AD no portal clássico do Azure?**
+**P: Por que motivo recebo “Não foram encontradas subscrições” ao tentar aceder ao Azure AD no portal do Azure?**
 
-**R:** Para aceder ao portal clássico do Azure, cada utilizador precisa de permissões com uma subscrição do Azure. Se tiver uma subscrição paga do Office 365 ou do Azure AD, aceda a [http://aka.ms/accessAAD](http://aka.ms/accessAAD) com apenas um passo único de ativação. Caso contrário, terá de ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) gratuita ou uma subscrição paga.
+**R:** Para aceder ao portal do Azure, cada utilizador precisa de permissões com uma subscrição do Azure. Se tiver uma subscrição paga do Office 365 ou do Azure AD, aceda a [http://aka.ms/accessAAD](http://aka.ms/accessAAD) com apenas um passo único de ativação. Caso contrário, terá de ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) gratuita ou uma subscrição paga.
 
 Para obter mais informações, consulte:
 
@@ -44,11 +44,9 @@ Para obter mais informações, consulte:
 Todos os utilizadores que estão configurados para utilizar serviços da web estão definidos como contas de utilizador numa ou mais instâncias do Azure AD. Pode configurar estas contas para obter gratuitamente capacidades do Azure AD, como o acesso a aplicações na cloud.
 
 Os serviços pagos do Azure AD, como o Enterprise Mobility + Security complementam outros serviços da Web, como o Office 365 e o Microsoft Azure com soluções abrangentes de gestão empresarial e de segurança.
-- - -
-**P: Porque é que posso iniciar sessão no portal do Azure, mas não no portal clássico do Azure?**
 
-**R:** O portal do Azure não necessita de uma subscrição válida e o portal clássico necessita de uma subscrição válida.  Se não tiver uma subscrição, não poderá iniciar sessão no portal clássico.
 - - -
+
 **P: Quais as diferenças entre Administrador da Subscrição e Administrador do Diretório?**
 
 **R:** Por predefinição, quando se inscreve no Azure, é-lhe atribuída a função de Administrador da Subscrição. O administrador da subscrição pode utilizar uma conta Microsoft ou uma conta profissional ou escolar do diretório ao qual a subscrição do Azure está associada.  Esta função está autorizada a gerir serviços no portal do Azure.
@@ -56,7 +54,7 @@ Os serviços pagos do Azure AD, como o Enterprise Mobility + Security complement
 Se outras pessoas tiverem de iniciar sessão e aceder aos serviços com a mesma subscrição, pode adicioná-las como coadministradores. Esta função tem os mesmos privilégios de acesso do administrador de serviços, mas não pode alterar a associação de subscrições a diretórios do Azure.  Para obter mais informações sobre os administradores da subscrição, consulte [How to add or change Azure administrator roles (Como adicionar ou alterar funções de administrador do Azure)](../billing-add-change-azure-subscription-administrator.md) e [How Azure subscriptions are associated with Azure Active Directory (Como as subscrições do Azure estão associadas ao Azure Active Directory)](active-directory-how-subscriptions-associated-directory.md).
 
 
-O Azure AD tem um conjunto diferente de funções administrativas para gerir o diretório e as funções relacionadas com a identidade.  Estes administradores terão acesso às várias funcionalidades no portal do Azure ou no portal clássico do Azure. A função do administrador determina o que pode fazer, como criar ou editar utilizadores, atribuir funções administrativas a outras pessoas, repor palavras-passe de utilizador, gerir licenças de utilizador ou gerir domínios.  Para obter mais informações sobre os administradores de diretório do Azure AD e as respetivas funções, consulte [Assigning administrator roles in Azure Active Directory (Atribuir funções de administrador no Azure Active Directory)](active-directory-assign-admin-roles-azure-portal.md).
+O Azure AD tem um conjunto diferente de funções administrativas para gerir o diretório e as funções relacionadas com a identidade.  Estes administradores terão acesso às várias funcionalidades no portal do Azure ou no portal do Azure. A função do administrador determina o que pode fazer, como criar ou editar utilizadores, atribuir funções administrativas a outras pessoas, repor palavras-passe de utilizador, gerir licenças de utilizador ou gerir domínios.  Para obter mais informações sobre os administradores de diretório do Azure AD e as respetivas funções, consulte [Assigning administrator roles in Azure Active Directory (Atribuir funções de administrador no Azure Active Directory)](active-directory-assign-admin-roles-azure-portal.md).
 
 Além disso, os serviços pagos do Azure AD, como o Enterprise Mobility + Security complementam outros serviços da Web, como o Office 365 e o Microsoft Azure com soluções abrangentes de gestão empresarial e de segurança.
 
@@ -137,16 +135,20 @@ Para contas do Azure AD, os administradores podem repor as palavras-passe atrav�
 
 - - -
 ## <a name="security"></a>Segurança
-**P: As contas são bloqueadas ao fim de um determinado número de tentativas falhadas ou é utilizada outra estratégia mais sofisticada?**</br>
+**P: As contas são bloqueadas ao fim de um determinado número de tentativas falhadas ou é utilizada outra estratégia mais sofisticada?**
+
 Utilizamos uma estratégia mais sofisticada para bloquear as contas.  Baseia-se no IP do pedido e nas palavras-passe introduzidas. A duração do bloqueio também aumenta com base na probabilidade de se tratar de um ataque.  
 
-**P: Algumas palavras-passe (comuns) são rejeitadas com a mensagem “esta palavra-passe foi utilizada demasiadas vezes”. Isto refere-se a palavras-passe utilizadas no diretório ativo atual?**</br>
+**P: Algumas palavras-passe (comuns) são rejeitadas com a mensagem “esta palavra-passe foi utilizada demasiadas vezes”. Isto refere-se a palavras-passe utilizadas no diretório ativo atual?**
+
 Refere-se a palavras-passe que são globalmente comuns, como as variantes de “Palavra-passe” e “123456”.
 
-**P: Os pedidos de início de sessão de origens duvidosas (botnets, pontos finais de tor) vão ser bloqueados em inquilinos B2C ou é necessário para tal um inquilino da edição Básica ou Premium?**</br>
+**P: Os pedidos de início de sessão de origens duvidosas (botnets, pontos finais de tor) vão ser bloqueados em inquilinos B2C ou é necessário para tal um inquilino da edição Básica ou Premium?**
+
 Temos um gateway que filtra os pedidos e que oferece alguma proteção contra botnets, que é aplicado a todos os inquilinos B2C.
 
 ## <a name="application-access"></a>Acesso à aplicação
+
 **P: Onde posso encontrar uma lista das aplicações previamente integradas ao Azure AD e as respetivas funcionalidades?**
 
 **R:** O Azure AD tem mais de 2.600 aplicações previamente integradas da Microsoft, de fornecedores de serviços de aplicações e parceiros. Todas as aplicações previamente integradas suportam o início de sessão único (SSO). O SSO permite-lhe utilizar as credenciais organizacionais para aceder às suas aplicações. Algumas das aplicações também suportam o aprovisionamento e cancelamento de aprovisionamento automatizados.

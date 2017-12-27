@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -35,7 +35,7 @@ As vantagens da utilização do peering de redes virtuais incluem:
 
 ## <a name="requirements-constraints"></a>Requisitos e limitações
 
-* O peering de redes virtuais na mesma região encontra-se em disponibilidade geral. O peering de redes virtuais em diferentes regiões encontra-se atualmente em pré-visualização nas regiões E.U.A. Centro-Oeste, Canadá Central e E.U.A. Oeste 2. Antes de fazer o peering de redes virtuais em diferentes regiões, tem de, primeiro, [registar a sua subscrição](virtual-network-create-peering.md#register) na pré-visualização. A tentativa de criar o peering entre redes virtuais em diferentes regiões falhará se não tiver concluído o registo na pré-visualização.
+* O peering de redes virtuais na mesma região encontra-se em disponibilidade geral. O peering de redes virtuais em diferentes regiões encontra-se atualmente em pré-visualização nas regiões E.U.A. Centro-Oeste, Canadá Central e E.U.A. Oeste 2. Antes de fazer o peering de redes virtuais em diferentes regiões, tem de, primeiro, [registar a sua subscrição](virtual-network-create-peering.md#register) na pré-visualização. A tentativa de criar o peering entre redes virtuais em diferentes regiões falha se não tiver concluído o registo na pré-visualização.
     > [!WARNING]
     > Os peerings de redes virtuais criados entre regiões podem não ter o mesmo nível de disponibilidade e fiabilidade do que os peerings numa versão de disponibilidade geral. Os peerings de redes virtuais podem ter capacidades restringidas e não estar disponíveis em todas as regiões do Azure. Para obter as notificações mais atualizadas sobre a disponibilidade e o estado desta funcionalidade, veja a página [Atualizações de Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -63,13 +63,15 @@ Ao configurar o peering de rede virtual, pode abrir ou fechar as regras do grupo
 
 ## <a name="service-chaining"></a>Encadeamento de serviços
 
-Para ativar o encadeamento de serviços, pode configurar rotas definidas pelo utilizador que apontem para máquinas virtuais em redes virtuais em modo de peering como o endereço IP de "próximo salto". O encadeamento se serviços permite-lhe encaminhar o tráfego de uma rede virtual para um dispositivo de rede numa rede virtual em modo de peering através de rotas definidas pelo utilizador.
+Para ativar o encadeamento de serviços, pode configurar rotas definidas pelo utilizador que apontem para máquinas virtuais em redes virtuais em modo de peering como o endereço IP de *próximo salto* ou para gateways de rede virtuais. O encadeamento se serviços permite-lhe encaminhar o tráfego de uma rede virtual para um dispositivo de rede numa rede virtual, ou gateways de rede virtual, em modo de peering através de rotas definidas pelo utilizador.
 
-Também pode criar, eficazmente, ambientes de tipo “hub-and-spoke”, onde o concentrador pode alojar componentes da infraestrutura, como um aplicação virtual de rede. Todas as redes virtuais “spoke” podem, então, configurar o peering com a rede virtual do concentrador. O tráfego pode fluir dos dispositivos de rede virtual que estão em execução na rede virtual do concentrador. Em suma, o peering de rede virtual permite que o endereço IP de próximo salto na rota definida pelo utilizador seja o endereço IP de uma máquina virtual na rede virtual em modo de peering. Para saber mais sobre as rotas definidas pelo utilizador, veja [Descrição geral das rotas definidas pelo utilizador](virtual-networks-udr-overview.md). Para saber como criar uma topologia de rede hub-and-spoke, veja [Topologia de rede hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+Pode implementar redes "hub-and-spoke", nas quais o hub de rede virtual pode alojar componentes de infraestruturas tais como aplicações virtuais de rede ou gateways VPN. Todas as redes virtuais “spoke” podem, então, configurar o peering com a rede virtual do concentrador. O tráfego pode fluir dos dispositivos de rede virtual ou gateways VPN na rede virtual do concentrador. 
+
+O peering de rede virtual permite que o próximo salto numa rota definida pelo utilizador seja o endereço IP de uma máquina virtual na rede virtual em modo de peering ou um gateway VPN. No entanto, não é possível encaminhar rotas entre redes virtuais com uma rota definida pelo utiliza a especificar um gateway ExpressRoute como o tipo de salto seguinte. Para saber mais sobre as rotas definidas pelo utilizador, veja [Descrição geral das rotas definidas pelo utilizador](virtual-networks-udr-overview.md#user-defined). Para saber como criar uma topologia de rede hub-and-spoke, veja [Topologia de rede hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways e conetividade no local
 
-Cada rede virtual, independentemente de estar ou não em modo de peering com outra, pode continuar a ter um gateway próprio e a utilizá-lo para se ligar a uma rede no local. Também pode configurar [ligações de rede virtual a rede virtual](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) através de gateways, mesmo que as redes virtuais estejam em modo de peering.
+Cada rede virtual, independentemente de estar ou não em modo de peering com outra, pode continuar a ter um gateway próprio e a utilizá-lo para se ligar a uma rede no local. Também pode configurar [ligações de rede virtual a rede virtual](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) através de gateways, mesmo que as redes virtuais estejam em modo de peering.
 
 Quando ambas as opções de inter-conetividade de rede virtual estiverem configuradas, o tráfego entre as redes virtuais irá fluir através da configuração em modo de peering (ou seja, através da estrutura principal do Azure).
 
@@ -98,20 +100,17 @@ Por exemplo, se estiver a configurar o peering de redes virtuais com o nome myVi
 
 ## <a name="monitor"></a>Monitorizar
 
-Ao configurar o peering de duas redes virtuais criadas através do Resource Manager, tem de ser configurado um peering para cada rede virtual no peering.
-Pode monitorizar o estado da sua ligação de peering. O estado do peering é um dos seguintes:
+Ao configurar o peering de duas redes virtuais criadas através do Resource Manager, tem de ser configurado um peering para cada rede virtual no peering. Pode monitorizar o estado da sua ligação de peering. O estado do peering é um dos seguintes:
 
-* **Iniciado**: quando cria o peering para a segunda rede virtual a partir da primeira rede virtual, o estado do peering é Iniciado.
-
-* **Ligado**: quando cria o peering a partir da segunda rede virtual para a primeira rede virtual, o estado do peering é Ligado. Se visualizar o estado do peering para a primeira rede virtual, verá que o estado mudou de Iniciado para Ligado. O peering não é estabelecido com êxito até que o estado do peering para ambos os peerings de rede virtual seja Ligado.
-
-* **Desligado**: se uma das ligações de peering for eliminada após ter sido estabelecida uma ligação, o estado do peering é Desligado.
+* **Iniciado**: o estado apresentado quando cria um peering a partir da primeira rede virtual para a segunda.
+* **Ligado**: o estado apresentado uma vez criado o peering a partir da segunda rede virtual para a primeira rede virtual. O estado do peering da primeira rede virtual é alterado de *Iniciado* para *Ligado*. O peering de uma rede virtual não é estabelecido com êxito até que ambos os peerings da rede virtual seja *Ligado*.
+* **Desligado**: o estado apresentado se um peering de uma rede virtual para outra é eliminado após um peering ser estabelecido entre duas redes virtuais.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-Para resolver problemas de fluxo de tráfego na sua ligação de peering, pode [verificar as rotas eficientes.](virtual-network-routes-troubleshoot-portal.md)
+Para confirmar o peering de uma rede virtual peering, pode [verificar as rotas efetivas](virtual-network-routes-troubleshoot-portal.md) para uma interface de rede em qualquer sub-rede numa rede virtual. Se um peering de rede virtual existe, todas as sub-redes na rede virtual têm rotas com o tipo de salto seguinte *VNet peering*, para cada espaço de endereços em cada virtual rede peered.
 
-Também pode resolver problemas relacionados com a conectividade a uma máquina virtual numa rede virtual em modo de peering através da [verificação de conectividade](../network-watcher/network-watcher-connectivity-portal.md) do Observador de Rede. A verificação de conectividade permite ver como é encaminhado diretamente da interface de rede da sua VM de origem para a interface de rede da sua VM de destino.
+Também pode resolver problemas relacionados com a conectividade a uma máquina virtual numa rede virtual em modo de peering através da [verificação de conectividade](../network-watcher/network-watcher-connectivity-portal.md) do Observador de Rede. A verificação da conectividade permite-lhe ver como o tráfego é encaminhado da interface de rede de uma máquina de virtual de origem para a interface de rede de uma máquina de virtual de destino.
 
 ## <a name="limits"></a>Limites
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 1eddd18e9b5ac0b4cb174e635f0f3cfd2f41059d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Relatório de do planeador de implementações do Azure Site Recovery
 O relatório gerado pelo Microsoft Excel contém as seguintes folhas:
@@ -234,8 +234,8 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 * O tamanho total da VM (replicação + ativação pós-falha de teste) excede o limite de tamanho da conta de armazenamento suportado (35 TB). Geralmente, esta incompatibilidade ocorre quando um disco individual na VM tem uma característica de desempenho que excede os limites máximos suportados pelo Azure ou o Site Recovery relativamente ao armazenamento standard. Uma instância deste género envia a VM para a zona de armazenamento premium. No entanto, o tamanho máximo suportado das contas de armazenamento premium são 35 TB e não é possível proteger VMs protegidas individuais em várias contas de armazenamento. Tenha também em atenção que, quando é executada uma ativação pós-falha de teste numa VM protegida, esta é executada na mesma conta de armazenamento na qual a replicação está em curso. Neste caso, configure duas vezes o tamanho do disco para que a replicação progrida e a ativação pós-falha de teste seja concluída em paralelo.
 * O IOPS de origem excede o limite de IOPS suportado pelo armazenamento de 5000 por disco.
 * O IOPS de origem excede o limite de IOPS suportado pelo armazenamento de 80 000 por VM.
-* A média de alterações a dados excede o limite de alterações a dados suportado pelo Site Recovery de 10 Mbps para o tamanho de E/S médio para o disco.
-* O total de alterações a dados em todos os discos na VM excede o limite máximo de alterações a dados suportado pelo Site Recovery de 54 Mbps por VM.
+* A média de alterações a dados excede o limite de alterações a dados suportado pelo Site Recovery de 10 MB/s para o tamanho de E/S médio para o disco.
+* O total de alterações a dados em todos os discos na VM excede o limite máximo de alterações a dados suportado pelo Site Recovery de 54 MB/s por VM.
 * A média de IOPS de escrita efetiva excede o limite de IOPS suportado pelo Site Recovery de 840 por disco.
 * O armazenamento de instantâneos calculado excede o limite de armazenamento de instantâneos suportado de 10 TB.
 
@@ -263,12 +263,12 @@ A tabela seguinte fornece os limites do Azure Site Recovery. Estes limites basei
  
 **Destino do armazenamento da replicação** | **Tamanho médio de E/S do disco de origem** |**Média de alterações a dados do disco de origem** | **Total de alterações a dados do disco de origem por dia**
 ---|---|---|---
-Armazenamento Standard | 8 KB | 2 MBps | 168 GB por disco
-Disco Premium P10 ou P15 | 8 KB  | 2 MBps | 168 GB por disco
-Disco Premium P10 ou P15 | 16 KB | 4 MBps |  336 GB por disco
-Disco Premium P10 ou P15 | 32 KB ou superior | 8 MBps | 672 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MBps | 421 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |10 MBps | 842 GB por disco
+Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
+Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
+Disco Premium P10 ou P15 | 16 KB | 4 MB/s |  336 GB por disco
+Disco Premium P10 ou P15 | 32 KB ou superior | 8 MB/s | 672 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |10 MB/s | 842 GB por disco
 
 Estes são números médios, que pressupõem uma sobreposição de 30 por cento de E/S. O Site Recovery é capaz de processar um débito superior com base no rácio de sobreposição, em tamanhos de escrita maiores e no comportamento real de E/S da carga de trabalho. Os números anteriores pressupõem um atraso típico de aproximadamente cinco minutos. Ou seja, depois de os dados serem carregados, são processados e é criado um ponto de recuperação ao fim de cinco minutos.
 

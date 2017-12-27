@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 714c2074f643d2b168c054c5af467b550f57daba
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9340fe48c1da874d6c0cf02c026e5dec6ddabbe7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analisar o relatório do Planeador de Implementações do Azure Site Recovery
 O relatório gerado pelo Microsoft Excel contém as seguintes folhas:
@@ -126,9 +126,9 @@ Pode ver o custo mensalmente ou anualmente. Saiba mais sobre as [regiões de des
 
 **Custo por estados** O custo total da recuperação após desastre (DR) é baseado em categorias em dois estados diferentes - Replicação e exploração de DR. 
 
-**Custo de replicação**: O custo que será incorrido durante a replicação. Abrange o custo de armazenamento, rede e licença do Azure Site Recovery. 
+**Custo de replicação**: o custo que será incorrido durante a replicação. Abrange o custo de armazenamento, rede e licença do Azure Site Recovery. 
 
-**Custo de Exploração de DR**: O custo que será incorrido durante as ativações pós-falha de teste. O Azure Site Recovery acelera as VMS durante a ativação pós-falha de teste. O custo de exploração da DR abrange o custo de armazenamento e computação das máquinas virtuais em execução. 
+**Custo de Exploração de DR**: o custo que será incorrido durante as ativações pós-falha de teste. O Azure Site Recovery acelera as VMS durante a ativação pós-falha de teste. O custo de exploração da DR abrange o custo de armazenamento e computação das máquinas virtuais em execução. 
 
 **Custo de armazenamento do Azure por Mês/Ano** Mostra o custo total de armazenamento que será incorrido para armazenamento premium e standard para a replicação e exploração de DR.
 Pode ver a análise de custo detalhada por VM na folha [Estimativa de Custos](site-recovery-hyper-v-deployment-planner-cost-estimation.md).
@@ -188,7 +188,7 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 
 **Peak R/W IOPS (with Growth Factor) (IOPS de R/W de pico [com Fator de Crescimento])**: o pico de IOPS de leitura/escrita da carga de trabalho no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição é 30%). Tenha em conta que o total de IOPS de leitura/escrita de uma VM nem sempre é a soma de IOPS de leitura/escrita dos discos individuais da mesma, porque o IOPS de leitura/escrita de pico da VM é o pico da soma do IOPS de leitura/escrita dos discos individuais da VM durante todos os minutos do período de criação de perfis.
 
-**Peak Data Churn in Mbps (with Growth Factor) (Alterações a Dados de Pico em Mbps [com Fator de Crescimento])**: o pico da taxa de abandono no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição é 30%). Tenha em conta que o total de alterações a dados da VM nem sempre é a soma das alterações a dados dos discos individuais da mesma, porque o pico de alterações a dados da VM é o pico da soma das alterações a dados dos respetivos discos individuais durante todos os minutos do período de criação de perfis.
+**Peak Data Churn in MB/s (with Growth Factor) (Alterações a Dados de Pico em MB/s [com Fator de Crescimento])**: o pico da taxa de abandono no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição é 30%). Tenha em conta que o total de alterações a dados da VM nem sempre é a soma das alterações a dados dos discos individuais da mesma, porque o pico de alterações a dados da VM é o pico da soma das alterações a dados dos respetivos discos individuais durante todos os minutos do período de criação de perfis.
 
 **Azure VM Size (Tamanho da VM do Azure)**: o tamanho mapeado ideal da máquina virtual dos Serviços Cloud do Azure para esta VM no local. O mapeamento baseia-se na memória da VM no local, no número de discos/núcleos/NICs e IOPS de leitura/escrita. A recomendação é sempre o tamanho de VM do Azure mais baixo que corresponda a todas as características da VM no local.
 
@@ -235,15 +235,15 @@ O relatório do Microsoft Excel gerado pelo Planeador de Implementações do Azu
 
 * O IOPS de origem excede o limite de IOPS suportado pelo armazenamento de 80 000 por VM.
 
-* A média de alterações a dados excede o limite de alterações a dados suportado pelo Azure Site Recovery de 10 Mbps para o tamanho de E/S médio para o disco.
+* A média de alterações a dados excede o limite de alterações a dados suportado pelo Azure Site Recovery de 10 MB/s para o tamanho de E/S médio.
 
-* A média de IOPS de escrita efetiva excede o limite de IOPS suportado pelo Azure Site Recovery de 840 por disco.
+* A média de VM de origem de IOPS de escrita efetiva excede o limite de IOPS suportado pelo Azure Site Recovery de 840.
 
 * O armazenamento de instantâneos calculado excede o limite de armazenamento de instantâneos suportado de 10 TB.
 
 **Peak R/W IOPS (with Growth Factor) (IOPS de R/W de pico [com Fator de Crescimento])**: o pico de IOPS da carga de trabalho no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição é 30%). Tenha em conta que o total de IOPS de leitura/escrita da VM nem sempre é a soma de IOPS de leitura/escrita dos discos individuais da mesma, porque o pico destas operações da VM é o pico da soma de IOPS de leitura/escrita dos discos individuais da VM durante todos os minutos do período de criação de perfis.
 
-**Peak Data Churn in Mbps (with Growth Factor) (Alterações a Dados de Pico em Mbps [com Fator de Crescimento])**: o pico da taxa de abandono no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição é 30%). Tenha em conta que o total de alterações a dados da VM nem sempre é a soma das alterações a dados dos discos individuais da mesma, porque o pico de alterações a dados da VM é o pico da soma das alterações a dados dos respetivos discos individuais durante todos os minutos do período de criação de perfis.
+**Peak Data Churn in MB/s (with Growth Factor) (Alterações a Dados de Pico em MB/s [com Fator de Crescimento])**: o pico da taxa de abandono no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição é 30%). Tenha em conta que o total de alterações a dados da VM nem sempre é a soma das alterações a dados dos discos individuais da mesma, porque o pico de alterações a dados da VM é o pico da soma das alterações a dados dos respetivos discos individuais durante todos os minutos do período de criação de perfis.
 
 **Number of Disks (Número de Discos)**: o número total de VHDs na VM.
 
@@ -260,14 +260,11 @@ O relatório do Microsoft Excel gerado pelo Planeador de Implementações do Azu
 ## <a name="azure-site-recovery-limits"></a>Limites do Azure Site Recovery
 A tabela seguinte fornece os limites do Azure Site Recovery. Estes limites baseiam-se nos nossos testes, mas não abrangem todas as combinações de E/S de aplicações possíveis. Os resultados reais podem variar consoante a combinação de E/S da sua aplicação. Para obter os melhores resultados, mesmo após o planeamento da implementação, recomendamos sempre que faça testes exaustivos às aplicações através da emissão de uma ativação pós-falha de teste, para ter a perspetiva verdadeira quanto ao desempenho da aplicação.
  
-**Destino do armazenamento da replicação** | **Tamanho médio de E/S do disco de origem** |**Média de alterações a dados do disco de origem** | **Total de alterações a dados do disco de origem por dia**
+**Destino do armazenamento da replicação** | **Tamanho da E/S médio da VM de origem** |**Alteração de dados de média da VM de origem** | **Total de alterações a dados da VM de origem por dia**
 ---|---|---|---
-Armazenamento Standard | 8 KB | 2 MBps | 168 GB por disco
-Disco Premium P10 ou P15 | 8 KB  | 2 MBps | 168 GB por disco
-Disco Premium P10 ou P15 | 16 KB | 4 MBps |  336 GB por disco
-Disco Premium P10 ou P15 | 32 KB ou superior | 8 MBps | 672 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MBps | 421 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |10 MBps | 842 GB por disco
+Armazenamento Standard | 8 KB | 2 MB/s por VM | 168 GB por VM
+Armazenamento Premium | 8 KB  | 5 MB/s por VM | 421 GB por VM
+Armazenamento Premium | 16 KB ou mais| 10 MB/s por VM | 842 GB por VM
 
 Estes limites são números médios, que pressupõem uma sobreposição de E/S de 30 por cento. O Azure Site Recovery é capaz de processar um débito superior com base no rácio de sobreposição, em tamanhos de escrita maiores e no comportamento real de E/S da carga de trabalho. Os números anteriores pressupõem um atraso típico de aproximadamente cinco minutos. Ou seja, depois de os dados serem carregados, são processados e é criado um ponto de recuperação ao fim de cinco minutos.
 

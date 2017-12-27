@@ -12,15 +12,15 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes de Hubs de Eventos com o hub de um evento e ativar a Captura através de um modelo do Azure Resource Manager
+# <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Criar um espaço de nomes com o hub de eventos e ativar a captura utilizando um modelo
 
 Este artigo mostra como utiliza um modelo do Azure Resource Manager que cria um espaço de nomes de Hubs de Eventos com uma instância de hubs de eventos e também ativa a [funcionalidade de Captura](event-hubs-capture-overview.md) no hub de eventos. O artigo descreve como definir quais os recursos que são implementados e como definir os parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
 
@@ -161,7 +161,7 @@ O intervalo de tempo no qual a Captura dos Hubs de Eventos inicia a captura de d
     "minValue":60,
     "maxValue":900,
     "metadata":{
-         "description":"the time window in seconds for the capture"
+         "description":"The time window in seconds for the capture"
     }
 }
 ```
@@ -248,7 +248,7 @@ ID de subscrição para o espaço de nomes do Hub de Eventos e o Azure Data Lake
 "subscriptionId": {
     "type": "string",
     "metadata": {
-        "description": "Subscription Id of both Azure Data Lake Store and Event Hub namespace"
+        "description": "Subscription ID of both Azure Data Lake Store and Event Hubs namespace"
      }
  }
 ```
@@ -268,20 +268,20 @@ O nome do Azure Data Lake Store para os eventos capturados.
 
 ###<a name="datalakefolderpath"></a>dataLakeFolderPath
 
-O caminho da pasta de destino dos eventos capturados. É a pasta do Data Lake Store para a qual os eventos são enviados a partir da Captura. Para definir permissões nesta pasta, veja o artigo [Use Azure Data Lake Store to capture data from Event Hubs](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture) (Utilizar o Azure Data Lake Store para capturar dados dos Hubs de Eventos)
+O caminho da pasta de destino para os eventos capturados. Esta é a pasta no Data Lake Store para os quais os eventos serão enviados durante a operação de captura. Para definir permissões nesta pasta, veja [Use Azure Data Lake Store to capture data from Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md) (Utilizar o Azure Data Lake Store para capturar dados dos Hubs de Eventos).
 
 ```json
 "dataLakeFolderPath": {
     "type": "string",
     "metadata": {
-        "description": "Destination archive folder path"
+        "description": "Destination capture folder path"
     }
 }
 ```
 
 ## <a name="resources-to-deploy-for-azure-storage-as-destination-to-captured-events"></a>Recursos a implementar para o Armazenamento do Azure como destino para eventos capturados
 
-Cria um espaço de nomes do tipo **EventHubs** com um hub de eventos e também ativa a Captura para o Armazenamento de Blobs do Azure.
+Cria um espaço de nomes do tipo **EventHub** com um hub de eventos e também ativa a Captura para o Armazenamento de Blobs do Azure.
 
 ```json
 "resources":[  
@@ -342,7 +342,7 @@ Cria um espaço de nomes do tipo **EventHubs** com um hub de eventos e também a
 
 ## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>Recursos a implementar para o Azure Data Lake Store como destino
 
-Cria um espaço de nomes do tipo **EventHubs** com um hub de eventos e também ativa a Captura para o Azure Data Lake Store.
+Cria um espaço de nomes do tipo **EventHub** com um hub de eventos e também ativa a Captura para o Azure Data Lake Store.
 
 ```json
  "resources": [
@@ -407,7 +407,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-Escolher o Armazenamento de Blob do Azure como destino:
+Armazenamento de Blob do Azure como destino:
 
 ```azurecli
 azure config mode arm
@@ -415,7 +415,7 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
-Escolher o Azure Data Lake Store como destino:
+Azure Data Lake Store como destino:
 
 ```azurecli
 azure config mode arm

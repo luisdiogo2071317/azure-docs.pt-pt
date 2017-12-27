@@ -3,7 +3,7 @@ title: "Validar a configuração da conta de Automatização do Azure | Microsof
 description: "Este artigo descreve como confirmar que a configuração da sua conta de automatização está corretamente configurada."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 55f5d5524019ac63565e5ddd1f47dbdd65f05065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72be69b8d48abdcb15f4a89949edc3083ce85eee
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Testar a autenticação da conta Run As de Automatização do Azure
 Depois de criar uma conta de Automatização com êxito, pode executar um teste simples para confirmar que consegue autenticar com êxito no Azure Resource Manager ou na implementação clássica do Azure com a sua conta Run As de Automatização recentemente criada ou atualizada.    
@@ -66,9 +66,9 @@ Utilize o código de exemplo abaixo para [criar um runbook do PowerShell](automa
 
 Repare que o cmdlet utilizado para autenticar no runbook - **Add-AzureRmAccount**, utiliza o conjunto de parâmetros *ServicePrincipalCertificate*.  Autentica utilizando o certificado de serviço principal, não as credenciais.  
 
-Quando [executar o runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) para validar a conta Run As, é criada uma [tarefa de runbook](automation-runbook-execution.md), é apresentado o painel Tarefa, bem como o estado da tarefa no mosaico **Resumo da Tarefa**. O estado da tarefa começará como *Em fila* com a indicação de que está à espera que uma função de trabalho de runbook na nuvem fique disponível. Em seguida, irá mudar para *A iniciar* quando uma função de trabalho reivindicar a tarefa e, em seguida, *A executar* quando o runbook começar a ser executado.  Quando tiver concluído a tarefa de runbook, vemos um estado de **Concluído**.
+Quando [executar o runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) para validar a conta Run As, é criada uma [tarefa de runbook](automation-runbook-execution.md), é apresentado o Job W, bem como o estado da tarefa no mosaico **Resumo da Tarefa**. O estado da tarefa começará como *Em fila* com a indicação de que está à espera que uma função de trabalho de runbook na nuvem fique disponível. Em seguida, irá mudar para *A iniciar* quando uma função de trabalho reivindicar a tarefa e, em seguida, *A executar* quando o runbook começar a ser executado.  Quando tiver concluído a tarefa de runbook, vemos um estado de **Concluído**.
 
-Para ver os resultados detalhados do runbook, clique no mosaico **Saída**.  No painel **Saída**, deve verificar se foi autenticado com êxito e devolveu uma lista de todos os recursos em todos os grupos de recursos na sua subscrição.  
+Para ver os resultados detalhados do runbook, clique no mosaico **Saída**.  Na página **Saída**, deve verificar se foi autenticado com êxito e devolveu uma lista de todos os recursos em todos os grupos de recursos na sua subscrição.  
 
 Não se esqueça de remover o bloco de código que começa com o comentário `#Get all ARM resources from all resource groups` quando reutilizar o código para os runbooks.
 
@@ -102,9 +102,9 @@ Utilize o código de exemplo abaixo para [criar um runbook do PowerShell](automa
     #Get all VMs in the subscription and return list with name of each
     Get-AzureVM | ft Name
 
-Quando [executar o runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) para validar a conta Run As, é criada uma [tarefa de runbook](automation-runbook-execution.md), é apresentado o painel Tarefa, bem como o estado da tarefa no mosaico **Resumo da Tarefa**. O estado da tarefa começará como *Em fila* com a indicação de que está à espera que uma função de trabalho de runbook na nuvem fique disponível. Em seguida, irá mudar para *A iniciar* quando uma função de trabalho reivindicar a tarefa e, em seguida, *A executar* quando o runbook começar a ser executado.  Quando tiver concluído a tarefa de runbook, vemos um estado de **Concluído**.
+Quando [executar o runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) para validar a conta Run As, é criada uma [tarefa de runbook](automation-runbook-execution.md), é apresentada a página Tarefa, bem como o estado da tarefa no mosaico **Resumo da Tarefa**. O estado da tarefa começará como *Em fila* com a indicação de que está à espera que uma função de trabalho de runbook na nuvem fique disponível. Em seguida, irá mudar para *A iniciar* quando uma função de trabalho reivindicar a tarefa e, em seguida, *A executar* quando o runbook começar a ser executado.  Quando tiver concluído a tarefa de runbook, vemos um estado de **Concluído**.
 
-Para ver os resultados detalhados do runbook, clique no mosaico **Saída**.  No painel **Saída**, deve verificar se foi autenticado com êxito e devolveu uma lista de todas as VMs do Azure por VMName implementadas na sua subscrição.  
+Para ver os resultados detalhados do runbook, clique no mosaico **Saída**.  Na página **Saída**, deve verificar se foi autenticado com êxito e devolveu uma lista de todas as VMs do Azure por VMName implementadas na sua subscrição.  
 
 Não se esqueça de remover o cmdlet **Get-AzureVM** quando reutilizar o código para os runbooks.
 

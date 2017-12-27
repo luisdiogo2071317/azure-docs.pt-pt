@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: ac48969a9166080384dccf606f0401a82016a60a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
 
@@ -72,6 +72,22 @@ O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os 
 - `predicate=<string>`
   - É a cláusula *where* para a filtragem do lado do servidor.
 
+O parâmetro "multiChartStack=<true/false>" permite o empilhamento no gráfico e o parâmetro "multiChartSameScale=<true/false>" permite a mesma escala de eixo Y entre termos dentro de um parâmetro opcional.  
+
+- "multiChartStack=false"
+  - "True" está ativado por predefinição, por isso, passe "false" para a pilha.
+- "multiChartStack=false&multiChartSameScale=true" 
+  - O empilhamento tem de estar ativado para utilizar a mesma escala de eixo Y entre termos.  Por predefinição, é "false", pelo que a transmissão de "true" permite esta funcionalidade.  
+  
+O "timeBucketUnit=<Unit>& timeBucketSize=<integer>" permite-lhe ajustar o controlo de intervalo para fornecer mais uma vista do gráfico agregada mais granular ou suave.  
+- "timeBucketUnit=<Unit>&timeBucketSize=<integer>"
+  - Unidades = dias, horas, minutos, segundos, milissegundos.  Capitalize sempre a unidade.
+  - Defina o número de unidades transferindo o número inteiro pretendido para timeBucketSize.  Tenha em atenção que tem até 7 dias.  
+  
+O parâmetro "timezoneOffset=<integer>" permite-lhe definir o fuso horário para o gráfico a ser visualizado como desvio em UTC.  
+  - "timezoneOffset=-<integer>"
+    - O número inteiro é sempre em milissegundos.  
+    - Tenha em atenção, esta funcionalidade é ligeiramente diferente do que ativamos no explorador de TSI, onde lhe permitimos escolher local (hora do browser) ou UTC.  
  
 ### <a name="examples"></a>Exemplos
 

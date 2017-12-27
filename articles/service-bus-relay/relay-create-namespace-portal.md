@@ -1,5 +1,5 @@
 ---
-title: "Criar um espaço de nomes do tipo Reencaminhamento utilizando o Portal do Azure | Microsoft Docs"
+title: "Criar um espaço de nomes de Reencaminhamento com o Portal do Azure | Microsoft Docs"
 description: "Como criar um espaço de nomes de Reencaminhamento com o Portal do Azure."
 services: service-bus-relay
 documentationcenter: .net
@@ -12,19 +12,20 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 27cc817fd4fc2d88b0b7d87f99d58795a6b8b864
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8391199fe4045ffdb5091cda69d50f592a4bfb83
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Criar um espaço de nomes de Reencaminhamento com o Portal do Azure
-O espaço de nomes é um contentor comum para todos os componentes do reencaminhamento do Azure. Um único espaço de nomes pode conter vários reencaminhamentos, sendo que os espaços de nomes servem frequentemente de contentores da aplicação. Existem atualmente duas formas diferentes de criar um espaço de nomes do reencaminhamento.
 
-1. Portal do Azure (este artigo)
-2. Modelos do [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+O espaço de nomes é um controlo do âmbito do contentor para todos os componentes do reencaminhamento do Azure. Um único espaço de nomes pode conter vários reencaminhamentos, sendo que os espaços de nomes servem frequentemente de contentores da aplicação. Existem atualmente duas formas diferentes de criar um espaço de nomes do reencaminhamento:
+
+1. Portal do Azure (este artigo).
+2. Modelos do [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Criar um espaço de nomes no portal do Azure
 
