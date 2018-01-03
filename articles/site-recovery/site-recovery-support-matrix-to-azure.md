@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de suporte de recuperação de sites do Azure para replicar no local para Azure
 
@@ -35,7 +35,7 @@ Este artigo resume os componentes e configurações suportadas para o Azure Site
 --- | --- | ---
 **Portal do Azure** | No local as VMs VMware para o armazenamento do Azure, com o Azure Resource Manager ou o armazenamento clássico e redes.<br/><br/> Ativação pós-falha para as VMs baseadas no Resource Manager ou clássicas. | No local VMs de Hyper-V para o armazenamento do Azure, com o Resource Manager ou o armazenamento clássico e redes.<br/><br/> Ativação pós-falha para as VMs baseadas no Resource Manager ou clássicas.
 **Portal clássico** | Modo de manutenção apenas. Não não possível criar novos cofres. | Modo de manutenção apenas.
-**PowerShell** | Não é atualmente suportado. | Suportado
+**PowerShell** | Suportadas | Suportadas
 
 
 ## <a name="support-for-datacenter-management-servers"></a>Suporte para servidores de gestão de centros de dados
@@ -155,8 +155,8 @@ As tabelas seguintes resumem o suporte da configuração de armazenamento em vá
 
 **Configuração** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | --- | ---
-NFS | Sim para VMware<br/><br/> Não para servidores físicos | N/D
-SMB 3.0 | N/D | Sim
+NFS | Sim para VMware<br/><br/> Não para servidores físicos | N/A
+SMB 3.0 | N/A | Sim
 SAN (ISCSI) | Sim | Sim
 Caminho multi (o MPIO)<br></br>Testar com: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON | Sim | Sim
 
@@ -164,15 +164,15 @@ Caminho multi (o MPIO)<br></br>Testar com: Microsoft DSM, EMC PowerPath 5.7 SP4,
 
 **Configuração** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
-VMDK | Sim | N/D
-VHD/VHDX | N/D | Sim
-Ger 2 VM | N/D | Sim
+VMDK | Sim | N/A
+VHD/VHDX | N/A | Sim
+Ger 2 VM | N/A | Sim
 EFI/UEFI| Não | Sim
 Disco de cluster partilhado | Não | Não
 Disco encriptado | Não | Não
-NFS | Não | N/D
+NFS | Não | N/A
 SMB 3.0 | Não | Não
-RDM | Sim<br/><br/> N/d para servidores físicos | N/D
+RDM | Sim<br/><br/> N/d para servidores físicos | N/A
 Disco > 1 TB | Sim<br/><br/>Até 4095 GB | Sim<br/><br/>Até 4095 GB
 Disco com o tamanho de sector físico lógicos e 4 k de 4K | Sim | Não é suportada para VMs de 1 de geração<br/><br/>Não é suportada para a geração 2 VMs.
 Disco com lógico de 4K e tamanho de setor físico de 512 bytes | Sim |  Sim
@@ -180,7 +180,7 @@ Volume com o disco repartidos > 1 TB<br/><br/> Gestão de volumes LVM lógica | 
 Espaços de armazenamento | Não | Sim
 Disco frequente Adicionar/remover | Não | Não
 Excluir o disco | Sim | Sim
-Caminho multi (o MPIO) | N/D | Sim
+Caminho multi (o MPIO) | N/A | Sim
 
 **Armazenamento do Azure** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
@@ -194,6 +194,7 @@ Encriptação rest(SSE)| Sim | Sim
 Armazenamento Premium | Sim | Sim
 Serviço de importação/exportação | Não | Não
 Virtual rede pontos finais de serviço (firewalls de armazenamento do Azure e redes virtuais) configurada no armazenamento de destino da conta ou conta de armazenamento utilizada para armazenar dados de replicação de cache | Não | Não
+Contas de armazenamento de V2 para fins gerais (camada ambos frequente e esporádico) | Não | Não
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Suporte para a configuração de computação do Azure
@@ -246,5 +247,5 @@ Mover o armazenamento, rede, as VMs do Azure através de grupos de recursos<br/>
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Verificar pré-requisitos](site-recovery-prereq.md)

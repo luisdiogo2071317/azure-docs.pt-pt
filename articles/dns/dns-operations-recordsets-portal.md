@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gerir registos DNS e conjuntos de registos ao utilizar o portal do Azure
 
@@ -120,7 +120,7 @@ Tenha em atenção que isto aplica-se apenas ao registo NS definido no vértice 
 
 Não é possível eliminar o SOA e conjuntos de registos do NS no vértice da zona (nome = "@") que são criados automaticamente quando a zona é criada. Estes são eliminados automaticamente ao eliminar a zona.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para mais informações sobre o DNS do Azure, consulte o [descrição geral do DNS do Azure](dns-overview.md).
 * Para obter mais informações sobre a automatização de DNS, consulte [zonas DNS criar e conjuntos de registos utilizando o SDK .NET](dns-sdk.md).

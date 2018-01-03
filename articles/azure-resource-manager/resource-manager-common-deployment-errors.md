@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 12/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: 560f888776d5b3e5103ee2084b5c3c999f014fad
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver erros comuns de implementação do Azure com o Azure Resource Manager
 
@@ -38,7 +38,7 @@ Este artigo descreve alguns erros de implementação do Azure comuns que poderá
 | Conflito | Está a pedir uma operação que não é permitida no estado atual do recurso. Por exemplo, redimensionamento de disco é permitido apenas quando criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActive | Aguarde pela implementação simultânea para este grupo de recursos para concluir. | |
 | DnsRecordInUse | O nome do registo DNS tem de ser exclusivo. Fornecer um nome diferente ou modifique o registo existente. | |
-| ImageNotFound | Verifique as definições de imagem VM. | [Resolver problemas de imagens de Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) e [imagens do Windows de resolução de problemas](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| ImageNotFound | Verifique as definições de imagem VM. |  |
 | InUseSubnetCannotBeDeleted | Pode encontrar este erro quando tentar atualizar um recurso, mas o processamento do pedido por eliminar e criar o recurso. Certifique-se especificar todos os valores não alterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Obter acesso token para o inquilino adequado. Só pode obter o token do inquilino que a conta pertence. | |
 | InvalidContentLink | É muito provável que foi efetuada uma tentativa ligar a um modelo aninhado que não está disponível. Verifique novamente o URI fornecido para o modelo aninhado. Se o modelo existe numa conta do storage, certificar-se de que o URI está acessível. Poderá ter de transmitir um token SAS. | [Modelos ligados](resource-group-linked-templates.md) |
@@ -77,6 +77,6 @@ Este artigo descreve alguns erros de implementação do Azure comuns que poderá
 
 Quando encontrar um erro durante a implementação, o Gestor de recursos devolve um código de erro. Pode ver a mensagem de erro através do portal, o PowerShell ou a CLI do Azure. A mensagem de erro externa pode ser demasiado geral para resolução de problemas. Procure a mensagem interna que contém informações detalhadas sobre o erro. Para obter mais informações, consulte [determinar o código de erro](resource-manager-troubleshoot-tips.md#determine-error-code).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre as ações de auditoria, consulte [auditar operações com o Resource Manager](resource-group-audit.md).
 * Para saber mais sobre as ações para determinar os erros durante a implementação, consulte [ver as operações de implementação](resource-manager-deployment-operations.md).

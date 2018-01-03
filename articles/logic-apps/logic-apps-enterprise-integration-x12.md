@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Mensagens de Exchange X12 para a integração empresarial com logic apps
 
@@ -57,11 +57,11 @@ Se não vir quaisquer contas de automatização, [criar um primeiro](../logic-ap
 
 4. Selecione **descrição geral**, em seguida, selecione o **contratos** mosaico. Se não tiver um mosaico de contratos, adicione primeiro o mosaico. 
 
-    ![Escolha o que mosaico "Contratos"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Escolha o que mosaico "Contratos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. No painel contratos que se abre, escolha **adicionar**.
 
-    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. Em **adicionar**, introduza um **nome** para o contrato. Para o tipo de contrato, selecione **X12**. Selecione o **anfitrião parceiro**, **identidade do anfitrião**, **convidado parceiro**, e **identidade de convidado** para o contrato. Para obter mais detalhes de propriedade, consulte a tabela neste passo.
 
@@ -157,7 +157,7 @@ Quando concluir cada linha de validação, o outro é adicionado automaticamente
 
 | Propriedade | Descrição |
 | --- | --- |
-| Tipo de mensagem |Selecione o tipo de mensagem EDI. |
+| Tipo de Mensagem |Selecione o tipo de mensagem EDI. |
 | Validação de EDI |Efetue a validação de EDI em tipos de dados, tal como definido pelo esquema EDI propriedades, restrições de comprimento, os elementos de dados vazio e separadores à direita. |
 | Validação expandida |Se o tipo de dados não EDI, é o requisito de elemento de dados e validação permitido repetição, enumerações e dados de validação de comprimento de elemento (mínimo/máximo). |
 | Permitir zeros à esquerda/à direita |Manter quaisquer adicionais esquerda ou à direita zero e carateres de espaço. Não remova estes carateres. |
@@ -282,7 +282,7 @@ Quando concluir cada linha de validação, o outro é adicionado automaticamente
 
 | Propriedade | Descrição |
 | --- | --- |
-| Tipo de mensagem |Selecione o tipo de mensagem EDI. |
+| Tipo de Mensagem |Selecione o tipo de mensagem EDI. |
 | Validação de EDI |Efetue a validação de EDI em tipos de dados, tal como definido pelo esquema EDI propriedades, restrições de comprimento, os elementos de dados vazio e separadores à direita. |
 | Validação expandida |Se o tipo de dados não EDI, é o requisito de elemento de dados e validação permitido repetição, enumerações e dados de validação de comprimento de elemento (mínimo/máximo). |
 | Permitir zeros à esquerda/à direita |Manter quaisquer adicionais esquerda ou à direita zero e carateres de espaço. Não remova estes carateres. |

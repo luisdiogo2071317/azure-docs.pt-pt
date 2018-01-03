@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
 ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="scaling-media-processing-overview"></a>Descrição geral do suporte de dados de processamento de dimensionamento
 Esta página fornece uma descrição geral de como e o motivo dimensionar o processamento de suporte de dados. 
@@ -66,8 +66,8 @@ Obter a tarefa de processamento de dimensionamento do suporte de dados com uma d
 > 
 
 > [!NOTE]
-> Para obter a versão mais recente do SDK de Java e começar a desenvolver com o Java, consulte [começar com o cliente de Java SDK de Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Para transferir o SDK mais recente do PHP para os Media Services, procure a versão 0.5.7 do pacote Microsoft/WindowAzure o [repositório Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Para obter a versão mais recente do Java SDK e começar a programar com o Java, veja [Introdução ao SDK do cliente de Java dos Serviços de Multimédia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Para transferir o SDK mais recente do PHP para os Serviços de Multimédia, procure a versão 0.5.7 do pacote Microsoft/WindowAzure no [repositório Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

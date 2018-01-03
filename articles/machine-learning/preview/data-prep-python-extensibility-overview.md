@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 53771c407fedc53f27a38ec3fe9b381d6b8c0dad
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="data-preparations-python-extensions"></a>Extensões de Python preparativos de dados
 Como uma forma de preencher os intervalos de funcionalidade entre funções incorporadas, o Azure Machine Learning dados preparativos inclui extensibilidade em vários níveis. Neste documento, vamos descrevem a extensibilidade através do script do Python. 
@@ -27,7 +27,7 @@ Dados preparativos tem os seguintes passos personalizados onde os utilizadores p
 * Leitor de ficheiro *
 * Escritor *
 * Adicionar a coluna
-* Filtragem avançadas
+* Filtro Avançado
 * Transformar o fluxo de dados
 * Partição de transformação
 
@@ -38,7 +38,7 @@ Para cada um destes passos, suportamos dois tipos de bloco de código. Em primei
 
 Por exemplo, pode adicionar uma nova coluna que calcula o registo de outra coluna seguintes duas formas:
 
-expressão 
+Expressão 
 
 ```python    
     math.log(row["Score"])
@@ -155,7 +155,7 @@ Este dataframe tem as seguintes colunas:
 - AuthenticationValue: Contém None ou o token para ser utilizado.
 
 ### <a name="syntax"></a>Sintaxe 
-expressão 
+Expressão 
 
 ```python
     paths = df['Path'].tolist()  
@@ -185,7 +185,7 @@ O ponto de extensão de escritor permite-lhe completamente o processo de escrita
 Pode adicionar este ponto de extensão utilizando o bloco de escrever o fluxo de dados (Script). Está disponível de nível superior **transformações** menu.
 
 ### <a name="syntax"></a>Sintaxe 
-expressão
+Expressão
 
 ```python
     df.to_csv('c:\\temp\\output.csv')
@@ -210,7 +210,7 @@ O ponto de extensão Add Column permite-lhe escrever Python para calcular uma no
 Pode adicionar este ponto de extensão utilizando o bloco de Add Column (Script). Está disponível de nível superior **transformações** menu, bem como no **coluna** menu de contexto. 
 
 ### <a name="syntax"></a>Sintaxe
-expressão
+Expressão
 
 ```python
     math.log(row["Score"])
@@ -224,7 +224,7 @@ def newvalue(row):
 ```
  
 
-## <a name="advanced-filter"></a>Filtragem avançadas
+## <a name="advanced-filter"></a>Filtro Avançado
 ### <a name="purpose"></a>Objetivo 
 O ponto de extensão de filtro avançada permite-lhe escrever um filtro personalizado. Tem acesso a toda a linha e o código tem de devolver VERDADEIRO (inclua a linha) ou FALSO (excluir a linha). 
 
@@ -233,7 +233,7 @@ Pode adicionar este ponto de extensão utilizando o bloco de filtro avançadas (
 
 ### <a name="syntax"></a>Sintaxe
 
-expressão
+Expressão
 
 ```python
     row["Score"] > 95
@@ -260,7 +260,7 @@ O ponto de extensão do fluxo de dados de transformação permite-lhe transforma
 Pode adicionar este ponto de extensão utilizando o bloco de fluxo de transformação dados (Script). Está disponível de nível superior **transformações** menu. 
 ### <a name="syntax"></a>Sintaxe 
 
-expressão
+Expressão
 
 ```python
     df['index-column'] = range(1, len(df) + 1)  
@@ -291,7 +291,7 @@ Pode adicionar este ponto de extensão utilizando o bloco de partição de trans
 
 ### <a name="syntax"></a>Sintaxe 
 
-expressão 
+Expressão 
 
 ```python
     df['partition-id'] = index  
@@ -337,7 +337,7 @@ DataPrepError({
 É possível quando o Python executa um ponto de extensão para gerar DataPrepErrors como valores de retorno utilizando o método de criação de anterior. É muito mais provável que DataPrepErrors forem encontrados quando os dados são processados um ponto de extensão. Neste momento, o código de Python personalizado tem de processar um DataPrepError como um tipo de dados válido.
 
 #### <a name="syntax"></a>Sintaxe 
-expressão 
+Expressão 
 ```python 
     if (isinstance(row["Score"], DataPrepError)): 
         row["Score"].originalValue 

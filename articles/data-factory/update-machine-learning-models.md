@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar Modelos do Azure Machine Learning, utilizando a atividade do recurso de atualização
 Este artigo complementa o principal do Azure Data Factory - artigo de integração do Azure Machine Learning: [Criar pipelines preditivos com o Azure Machine Learning e o Azure Data Factory](transform-data-using-machine-learning.md). Se ainda não o fez, consulte o artigo principal antes de ler através deste artigo. 
@@ -86,33 +86,6 @@ Acima mencionados ponto-a-ponto fluxo de trabalho funcionar, terá de criar dois
 2. Um serviço ligado do Azure Machine Learning ao ponto final de recursos de atualização do serviço web preditiva. Este serviço ligado é utilizado pela atividade de atualizar o recurso para atualizar o serviço web preditiva utilizando o ficheiro iLearner devolvido from above passo. 
 
 Para o serviço ligado do Azure Machine Learning segundo, a configuração é diferente quando o serviço Web do Azure Machine Learning é um serviço Web clássico ou um novo serviço Web. As diferenças são debatidas separadamente nas secções seguintes. 
-
-## <a name="web-service-is-a-classic-web-service"></a>Serviço Web é um serviço web clássico
-Se o serviço web de predição é uma **serviço web clássico**, crie o segundo **ponto final não predefinidas e atualizável** utilizando o portal do Azure. Consulte [criar pontos finais](../machine-learning/machine-learning-create-endpoint.md) artigo para obter os passos. Depois de criar o ponto de final atualizável não predefinido, efetue os seguintes passos:
-
-* Clique em **de execução de lote** para obter o valor URI para o **mlEndpoint** propriedade JSON.
-* Clique em **ATUALIZAÇÃO recursos** ligação para obter o valor URI para o **updateResourceEndpoint** propriedade JSON. A chave de API é a página de ponto final (no canto inferior direito).
-
-![ponto final atualizável](./media/update-machine-learning-models/updatable-endpoint.png)
-
-Depois disso, utilizar o seguinte exemplo de serviço ligado para criar um novo Azure Machine Learning serviço ligado. O serviço ligado utiliza o apiKey para autenticação.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Serviço Web é o novo serviço web do Azure Resource Manager 
 
@@ -299,7 +272,7 @@ O pipeline com duas atividades: **AzureMLBatchExecution** e **AzureMLUpdateResou
     }
 }
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os artigos seguintes que explicam como transformar dados de outras formas: 
 
 * [Atividade U-SQL](transform-data-using-data-lake-analytics.md)

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Obter ARP tabelas no modelo de implementação clássica
 > [!div class="op_single_selector"]
@@ -162,7 +162,7 @@ A tabela de ARP de um peering pode ser utilizada para validar a configuração d
 * Não verá uma tabela de ARP mostrada para um peering se existem problemas no lado de Microsoft.
 * Abra um pedido de suporte com [Microsoft Azure ajuda + suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Especifique a que tem um problema com conectividade de camada 2.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Valide as configurações de camada 3 para o seu circuito de ExpressRoute:
   * Obter uma rota de resumo para determinar o estado de sessões BGP.
   * Obter uma tabela de rota para determinar os prefixos estão anunciados através do ExpressRoute.

@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorizar e gerir pipelines do Azure Data Factory com o portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Ao utilizar o portal do Azure, pode:
 Esta secção também descreve como um setor de conjunto de dados passa a partir de um Estado para outro Estado.   
 
 ### <a name="navigate-to-your-data-factory"></a>Navegue para a fábrica de dados
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Clique em **fábricas de dados** no menu à esquerda. Se não o vir, clique em **mais serviços >**e, em seguida, clique em **fábricas de dados** sob o **INTELLIGENCE + análise** categoria.
 
    ![Procurar Tudo > fábricas de dados](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -120,7 +120,7 @@ Os setores de conjunto de dados na fábrica de dados podem ter um dos seguintes 
 <td>O setor está a ser processado.</td>
 </tr>
 <tr>
-<td rowspan="4">Falhou</td><td>ServiceHost</td><td>A execução da atividade demorou mais do que as permitidas pela atividade.</td>
+<td rowspan="4">Com Falhas</td><td>ServiceHost</td><td>A execução da atividade demorou mais do que as permitidas pela atividade.</td>
 </tr>
 <tr>
 <td>Cancelado</td><td>O setor foi cancelado pelo ação do utilizador.</td>
@@ -134,10 +134,10 @@ Os setores de conjunto de dados na fábrica de dados podem ter um dos seguintes 
 <td>Pronto</td><td>-</td><td>O setor está pronto para consumo.</td>
 </tr>
 <tr>
-<td>Ignorada</td><td>Nenhuma</td><td>O setor não está a ser processado.</td>
+<td>Ignorado</td><td>Nenhum</td><td>O setor não está a ser processado.</td>
 </tr>
 <tr>
-<td>Nenhuma</td><td>-</td><td>Um setor existia com um Estado diferente, mas foi reposto.</td>
+<td>Nenhum</td><td>-</td><td>Um setor existia com um Estado diferente, mas foi reposto.</td>
 </tr>
 </table>
 

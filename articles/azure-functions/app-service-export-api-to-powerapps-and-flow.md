@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/15/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: 358c2f7ce568707ea67cfa669de07dc3fb0135f7
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 7482ca27c2edcb281180fb8fbbfb1884a515d379
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportar uma API alojado no Azure PowerApps e fluxo da Microsoft
 
@@ -95,21 +95,25 @@ Para concluir a exportação no **Manual** modo, siga estes passos:
 
     Este exemplo mostra a definição de segurança de chave de API que foi incluída na definição do OpenAPI.
 
-Agora que tenha exportado a definição da API, importe-o para criar um conetor personalizado no PowerApps e Flow Microsoft. O exemplo seguinte utiliza PowerApps, mas conectores personalizados são partilhados entre os dois serviços, por isso apenas terá de importar a definição de uma vez.
+Agora que tenha exportado a definição da API, importe-o para criar um conetor personalizado no PowerApps e Flow Microsoft. Conectores personalizados são partilhados entre os dois serviços, por isso apenas terá de importar a definição de uma vez.
 
 Para importar a definição da API para PowerApps e Microsoft Flow, siga estes passos:
 
-1. Inicie sessão no [web.powerapps.com](https://web.powerapps.com) ou [flow.microsoft.com](https://flow.microsoft.com/). 
+1. Aceda a [powerapps.com](https://web.powerapps.com) ou [flow.microsoft.com](https://flow.microsoft.com).
 
-2. Clique em de **definições** botão (o ícone engrenagem) no canto superior direito da página e selecione **conectores personalizada**.
+2. No canto superior direito, clique no ícone de equipamento de, em seguida, clique em **conectores personalizada**.
 
-    ![conectores personalizados](media/app-service-export-api-to-powerapps-and-flow/custom-connectors.png)
+   ![Ícone de equipamento no serviço](media/app-service-export-api-to-powerapps-and-flow/icon-gear.png)
 
-3. Clique em **criar conector personalizado**.
+3. Clique em **criar conector personalizado**, em seguida, clique em **importar uma definição de OpenAPI**.
 
-4. No **geral** separador, forneça um nome para a API e, em seguida, carregue a definição de OpenAPI ou cole o URL de metadados. Clique em **carregar**, em seguida, **continuar**.
+   ![Criar conector personalizado](media/app-service-export-api-to-powerapps-and-flow/flow-apps-create-connector.png)
 
-    ![Separador Geral](media/app-service-export-api-to-powerapps-and-flow/tab-general.png)
+4. Introduza um nome para o conector personalizado, em seguida, navegue para a definição de OpenAPI que exportou e clique em **continuar**.
+
+   ![Carregar a definição de OpenAPI](media/app-service-export-api-to-powerapps-and-flow/flow-apps-upload-definition.png)
+
+4. No **geral** separador, reveja as informações de definição de OpenAPI.
 
 5. No **segurança** separador, se lhe for pedido para fornecer detalhes de autenticação, introduza os valores adequados para o tipo de autenticação. Clique em **continuar**.
 

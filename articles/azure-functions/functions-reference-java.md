@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
 ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia para programadores do Java de funções do Azure
 > [!div class="op_single_selector"]
@@ -35,15 +35,15 @@ Anotações do Java estão incluídas no `azure-functions-java-core` pacote vinc
 
 Vínculo | Anotação
 ---|---
-CosmosDB | N/D
+CosmosDB | N/A
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | N/D
-Hubs de Notificação | N/D
+Mobile Apps | N/A
+Hubs de Notificação | N/A
 Blob de armazenamento | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Fila de Armazenamento | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Tabela de armazenamento | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Temporizador | <ul><li>`TimerTrigger`</li></ul>
-Twilio | N/D
+Twilio | N/A
 
 Acionador entradas e saídas também podem ser definidas no [function.json](/azure/azure-functions/functions-reference#function-code) para a sua aplicação.
 
@@ -325,7 +325,7 @@ public class Function {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte os seguintes recursos:
 
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)

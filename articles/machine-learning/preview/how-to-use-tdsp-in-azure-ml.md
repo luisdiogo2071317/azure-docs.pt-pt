@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 0f7a6d0a58e2dcfd94e20a81ae12b42f238016c8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Projetos de estrutura com o modelo de processo de ciência de dados de equipa
 
 Este documento fornece instruções sobre como criar projetos de ciência de dados no Azure Machine Learning com modelos de processo de ciência de dados de equipa (TDSP). Estes modelos ajudam a projetos de estrutura de colaboração e reproducibility. 
 
 
-## <a name="what-is-the-team-data-science-process"></a>O que é o processo de ciência de dados de equipa?
+## <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 O TDSP é um processo de ciência de dados seja ágil e interativo, para executar e fornecer soluções de análise avançadas. Foi concebido para melhorar a colaboração e a eficiência das equipas de ciência de dados em organizações de empresa. Suporta estes objetivos com quatro componentes principais:
 
    * Um padrão [ciclo de vida de ciência de dados](../team-data-science-process/lifecycle.md) definição.
@@ -109,7 +110,7 @@ Fornecemos também uma [ProjectLearnings](https://aka.ms/tdspamlgithubrepoprojec
 ### <a name="example-project-report"></a>Relatório de projeto de exemplo
 Pode obter um [relatório de projeto de exemplo](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md). Este relatório de projeto para a [projeto de exemplo de classificação de receitas E.U.A.](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) mostra como instanciar e utilizar o modelo TDSP para um projeto de ciência de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para facilitar a compreensão sobre como utilizar a estrutura TDSP e modelos em projetos de Machine Learning, fornecemos vários exemplos de projeto concluída na documentação do Machine Learning:
 
 - Para um exemplo que mostra como criar um projeto TDSP no Machine Learning, consulte [projeto de exemplo do processo de ciência de dados do agrupamento: classificar incomes dos dados nos Census no Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).

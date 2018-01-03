@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: kumud
 ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Gerir registos DNS e recordsets no DNS do Azure utilizando o 2.0 CLI do Azure
 
@@ -292,7 +292,7 @@ az network dns record-set a delete --resource-group myresourcegroup --zone-name 
 
 Lhe for pedido para confirmar a operação de eliminação. Para suprimir esta linha de comandos, utilize o `--yes` mudar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [registos no DNS do Azure e zonas](dns-zones-records.md).
 <br>

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Trocar mensagens AS2 para a integração empresarial com logic apps
 
@@ -45,7 +45,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
     > [!TIP]
     > Se não vir **mais serviços**, poderá ter de expanda o menu primeiro. Na parte superior do menu fechado, selecione **Mostrar menu**.
 
-    ![Mais serviços, o filtro "integração", selecione "Contas de automatização"](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+    ![Mais serviços, o filtro "integração", selecione "Contas de automatização"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. No **contas de automatização** painel que abre, selecione a conta de integração onde pretende criar o contrato.
 Se não vir quaisquer contas de automatização, [criar um primeiro](../logic-apps/logic-apps-enterprise-integration-accounts.md "tudo sobre contas de automatização").  
@@ -54,15 +54,15 @@ Se não vir quaisquer contas de automatização, [criar um primeiro](../logic-ap
 
 4. Escolha o **contratos** mosaico. Se não tiver um mosaico de contratos, adicione primeiro o mosaico.
 
-    ![Escolha o que mosaico "Contratos"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Escolha o que mosaico "Contratos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. No painel contratos que se abre, escolha **adicionar**.
 
-    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
 6. Em **adicionar**, introduza um **nome** para o contrato. Para **tipo de contrato**, selecione **AS2**. Selecione o **anfitrião parceiro**, **identidade do anfitrião**, **convidado parceiro**, e **identidade de convidado** para o contrato.
 
-    ![Forneça os detalhes do contrato](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+    ![Forneça os detalhes do contrato](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
     | Propriedade | Descrição |
     | --- | --- |
@@ -82,7 +82,7 @@ Agora que definiu as propriedades de contrato, pode configurar como o presente c
 1.  Em **adicionar**, selecione **receber definições**.
 Configure estas propriedades com base no seu contrato com o parceiro que trocas de mensagens consigo. Para descrições das propriedades, consulte a tabela nesta secção.
 
-    ![Configurar "Receber definições"](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
+    ![Configurar "Receber definições"](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
 2. Opcionalmente, pode substituir as propriedades de mensagens a receber selecionando **substituir as propriedades da mensagem**.
 
@@ -122,7 +122,7 @@ Pode configurar a forma como este contrato identifica e processa mensagens de sa
 1.  Em **adicionar**, selecione **enviar definições**.
 Configure estas propriedades com base no seu contrato com o parceiro que trocas de mensagens consigo. Para descrições das propriedades, consulte a tabela nesta secção.
 
-    ![Definir as propriedades de "Definições de envio"](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
+    ![Definir as propriedades de "Definições de envio"](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
 2. Para enviar mensagens assinadas para o seu parceiro, selecione **ativar a assinatura das mensagens**. Para assinar as mensagens no **MIC algoritmo** lista, selecione o *anfitrião parceiro privada no certificado MIC algoritmo*. E o **certificado** lista, selecione um existente [certificado privado de parceiro de anfitrião](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
@@ -162,7 +162,7 @@ O contrato está agora pronto para processar mensagens de saída que está em co
 | MDN assíncrona do pedido |Requer MDNs assíncronas sejam enviados para este contrato. |
 | URL |Especifique o URL para onde enviar os MDNs. |
 | Ativar NRR |Não rejeição de receção (NRR), um atributo de comunicação que fornece uma prova de requer que os dados foram recebidos como resolvido. |
-| Formato de algoritmo de SHA2 |Selecione o formato de algoritmo a utilizar o MIC ou assinatura nos cabeçalhos do enviados da mensagem AS2 ou MDN |
+| Formato do Algoritmo SHA2 |Selecione o formato de algoritmo a utilizar o MIC ou assinatura nos cabeçalhos do enviados da mensagem AS2 ou MDN |
 
 ## <a name="find-your-created-agreement"></a>Encontrar o contrato criado
 
@@ -172,10 +172,10 @@ O contrato está agora pronto para processar mensagens de saída que está em co
 
 2.  Também pode ver os contratos na descrição geral da sua integração conta. No painel da conta de integração, escolha **descrição geral**, em seguida, selecione o **contratos** mosaico. 
 
-    ![Escolha o que mosaico "Contratos" para ver todos os contratos](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+    ![Escolha o que mosaico "Contratos" para ver todos os contratos](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Ver o swagger
 Consulte o [swagger detalhes](/connectors/as2/). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o pacote de integração do Enterprise")  

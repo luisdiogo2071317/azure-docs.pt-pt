@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="derive-column-by-example-transformation"></a>Derivar coluna, transformação de exemplo
 
@@ -159,7 +159,7 @@ Número de exemplos que são necessários para este cenário: 1
 
 Número de exemplos que são necessários para este cenário: 2
 
-|Nome completo|Saída|
+|Nome Completo|Saída|
 |:-----|:-----|
 |Laquanda Lohmann|**L.L.**|
 |Claudio Chew|C.C.|
@@ -184,15 +184,15 @@ Número de exemplos que são necessários para este cenário: 3
 
 |Sexo administrativo|Saída|
 |:-----|:-----:|
-|Male|**0**|
-|Female|**1**|
+|Masculino|**0**|
+|Feminino|**1**|
 |Desconhecido|**2**|
-|Female|1|
-|Female|1|
-|Male|0|
+|Feminino|1|
+|Feminino|1|
+|Masculino|0|
 |Desconhecido|2|
-|Male|0|
-|Female|1|
+|Masculino|0|
+|Feminino|1|
 
 ## <a name="examples-of-number-transformations-by-example"></a>Exemplos de transformações de números, por exemplo
 
@@ -286,28 +286,28 @@ Número de exemplos que são necessários para este cenário: 1
 
 Estas partes da data foram extraídos utilizando transformações por exemplo diferentes no mesmo conjunto de dados. Cadeias de negrito representam os exemplos que foram fornecidos na respetiva transformação correspondentes.
 
-|DateTime|dia da semana|Data|Mês|ano|Hora|Minuto|Segundo|
+|DateTime|dia da semana|Data|Mês|Ano|Hora|Minuto|Segundo|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |2031 de Janeiro de 31 05:54 em: 18|**Sab**|**31**|**Janeiro**|**2031**|**5**|**54**|**18**|
-|17-Jan-1990 13:32:01|WED|17|Janeiro|1990|13|32|01|
-|14-Fev-2034 05:36:07|TUE|14|Fev|2034|5|36|07|
-|Mar-14-2002 13:16:16|Qui|14|Mar|2002|13|16|16|
-|Jan-21-1985 05:44:43|MON|21|Janeiro|1985|5|44|**43**|
-|16-Aug-1985 01:11:56|Sab|16|Aug|1985|1|11|56|
-|20-Dec-2033 18:36:29|TUE|20|DEC|2033|18|36|29|
-|16-Jul-1984 10:21:59|MON|16|Jul|1984|10|21|59|
-|13-Janeiro de 2038 10:59:36|WED|13|Janeiro|2038|10|59|36|
-|Aug-14-1982 15:13:54 em|DOM|14|Aug|1982|15|13|54|
-|22-Novembro-2030 08:18:08|Sab|22|Novembro|2030|8|18|08|
-|FPO-21-1997 08:42:58|TUE|21|FPO|1997|8|42|58|
-|2006 de Novembro de 28 14:19:15|TUE|28|Novembro|2006|14|19|15|
-|29-Apr-2031 04:59:45.|TUE|29|Apr|2031|4|59|45|
-|29-Jan-2032 02:38:36|Qui|29|Janeiro|2032|2|38|36|
-|2028 de Maio de 11 15:31:52|Qui|11|Pode|2028|15|31|52|
-|15-Jul-1977 12:45:39|Sab|15|Jul|1977|12|45|39|
-|27-Jan-2029 05:55:41|DOM|27|Janeiro|2029|5|55|41|
-|Mar-03-2024 10:17:49|Sun|3|Mar|2024|10|17|49|
-|00:23:13 de 14-Apr-2010|WED|14|Apr|2010|0|23|13|
+|17-Jan-1990 13:32:01|Qua.|17|Jan.|1990|13|32|01|
+|14-Fev-2034 05:36:07|Ter.|14|Fev.|2034|5|36|07|
+|Mar-14-2002 13:16:16|Qui.|14|Mar.|2002|13|16|16|
+|Jan-21-1985 05:44:43|Seg.|21|Jan.|1985|5|44|**43**|
+|16-Aug-1985 01:11:56|Sex.|16|Ago.|1985|1|11|56|
+|20-Dec-2033 18:36:29|Ter.|20|Dez.|2033|18|36|29|
+|16-Jul-1984 10:21:59|Seg.|16|Jul.|1984|10|21|59|
+|13-Janeiro de 2038 10:59:36|Qua.|13|Jan.|2038|10|59|36|
+|Aug-14-1982 15:13:54 em|Sáb.|14|Ago.|1982|15|13|54|
+|22-Novembro-2030 08:18:08|Sex.|22|Nov.|2030|8|18|08|
+|FPO-21-1997 08:42:58|Ter.|21|Out.|1997|8|42|58|
+|2006 de Novembro de 28 14:19:15|Ter.|28|Nov.|2006|14|19|15|
+|29-Apr-2031 04:59:45.|Ter.|29|Abr.|2031|4|59|45|
+|29-Jan-2032 02:38:36|Qui.|29|Jan.|2032|2|38|36|
+|2028 de Maio de 11 15:31:52|Qui.|11|Maio|2028|15|31|52|
+|15-Jul-1977 12:45:39|Sex.|15|Jul.|1977|12|45|39|
+|27-Jan-2029 05:55:41|Sáb.|27|Jan.|2029|5|55|41|
+|Mar-03-2024 10:17:49|Dom.|3|Mar.|2024|10|17|49|
+|00:23:13 de 14-Apr-2010|Qua.|14|Abr.|2010|0|23|13|
 
 ### <a name="d2-formatting-dates"></a>D2. Formatar datas
 

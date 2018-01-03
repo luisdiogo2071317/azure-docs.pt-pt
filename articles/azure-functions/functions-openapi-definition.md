@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/09/2017
+ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: 1ad23a098ee0482b3c8c853ab5cee989f752a101
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Criar uma definição de OpenAPI para uma função
 REST APIs, muitas vezes, são descritas com uma definição de OpenAPI (anteriormente conhecido como um [Swagger](http://swagger.io/) ficheiro). Esta definição contém informações sobre as operações que estão disponíveis numa API e a forma como os dados de pedido e resposta para a API devem ser estruturados.
@@ -50,7 +50,7 @@ Este tutorial utiliza uma função de acionada de HTTP que utiliza dois parâmet
 
 1. Expanda a sua aplicação de função e selecione o  **+**  junto a **funções**. Se esta for a primeira função na sua aplicação de funções, selecione **Função personalizada**. É apresentado o conjunto completo de modelos de função. 
 
-    ![Início rápido das funções no portal do Azure](media/functions-openapi-definition/add-first-function.png)
+    ![Página de início rápido das funções no portal do Azure](media/functions-openapi-definition/add-first-function.png)
 
 2. No campo de pesquisa, escreva `http` e, em seguida, escolha **c#** para o modelo de Acionador HTTP. 
  
@@ -125,9 +125,9 @@ Agora está pronto para gerar a definição de OpenAPI. Esta definição pode se
 
     1. No **integrar** separador da sua nova função de Acionador de HTTP, alteração **métodos de HTTP permitido** para **selecionado métodos**
 
-    1. No **métodos de HTTP selecionado**, desmarque todas as opções, exceto **POST**.
+    1. No **métodos de HTTP selecionado**, desmarque todas as opções, exceto **POST**, em seguida, clique em **guardar**.
 
-        ![Métodos de HTTP selecionados](media/functions-openapi-definition/selected-http-methods.png)
+        ![Métodos HTTP selecionados](media/functions-openapi-definition/selected-http-methods.png)
         
 1. Clique no nome de aplicação de função (como **demonstração de função energia**) > **funcionalidades da plataforma** > **definição da API**.
 
@@ -141,7 +141,7 @@ Agora está pronto para gerar a definição de OpenAPI. Esta definição pode se
 
 1. Clique em **modelo de definição de API gerar** > **guardar**.
 
-    ![Gerar o modelo de definição de API](media/functions-openapi-definition/generate-template.png)
+    ![Gerar modelo de definição de API](media/functions-openapi-definition/generate-template.png)
 
     Azure analisa a sua aplicação de função para funções de Acionador de HTTP e utiliza as informações no functions.json para gerar uma definição de OpenAPI. Segue-se a definição de que é gerada:
 
@@ -272,7 +272,7 @@ Antes de utilizar a definição da API, é boa ideia testá-lo na IU de funçõe
 
 1. Regresse à definição de API: **demonstração de função energia** > **funcionalidades da plataforma** > **definição da API**.
 
-1. No painel direito, clique em **alterar autenticação**, introduza a chave de API que copiou e clique em **autenticar**.
+1. No painel direito, clique em **autenticar**, introduza a chave de API que copiou e clique em **autenticar**.
 
     ![Autenticar com a chave de API](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -286,11 +286,11 @@ Antes de utilizar a definição da API, é boa ideia testá-lo na IU de funçõe
 
     Repare como a IU utiliza as descrições da definição de API.
 
-1. Clique em **enviar um pedido de**, em seguida, clique o **Pretty** separador para ver o resultado.
+1. Clique em **enviar pedido**, em seguida, clique o **Pretty** separador para ver o resultado.
 
     ![Enviar um pedido](media/functions-openapi-definition/send-request.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

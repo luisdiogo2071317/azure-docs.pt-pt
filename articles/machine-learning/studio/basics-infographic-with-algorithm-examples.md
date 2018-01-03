@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 0660e68f83b3fcfa55135e5bd5175a423ad246e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a7ad0cd7865923ed7356599044dfd79ff9e58cb
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico Transferível: Noções básicas do Machine Learning com exemplos de algoritmos
 Transfira esta descrição geral de gráfico informativo fácil de compreender de noções básicas de aprendizagem máquina para saber mais sobre populares algoritmos utilizados para responder a perguntas de aprendizagem máquina comuns. Exemplos de algoritmo ajudá-lo beginner de aprendizagem máquina compreender os algoritmos a utilizar e que são utilizados.

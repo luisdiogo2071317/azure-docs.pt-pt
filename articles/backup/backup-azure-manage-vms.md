@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
 ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerir cópias de segurança de máquinas virtuais do Azure
 
@@ -42,7 +42,7 @@ Várias tarefas de gestão com uma cópia de segurança da máquina virtual come
 ![Visão completa com controlo de deslize](./media/backup-azure-manage-vms/bottom-slider.png)
 
 ### <a name="open-a-recovery-services-vault-in-the-dashboard"></a>Abra um cofre dos serviços de recuperação no dashboard:
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu Hub, clique em **Procurar** e na lista de recursos, escreva **Serviços de Recuperação**. À medida que começa a escrever, a lista filtra com base na sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
 
     ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
@@ -218,5 +218,5 @@ Para eliminar dados de cópia de segurança numa máquina virtual com o *desativ
 
     Uma mensagem de notificação permite-lhe saber que os dados de cópia de segurança foi eliminados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre como voltar a criar uma máquina virtual a partir de um ponto de recuperação, consulte [restaurar VMs do Azure](backup-azure-arm-restore-vms.md). Se precisar de informações sobre a proteção de máquinas virtuais, consulte o artigo [primeiras impressões: cópia de segurança VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md). Para obter informações sobre eventos de monitorização, consulte [monitorizar alertas de cópias de segurança da máquina virtual do Azure](backup-azure-monitor-vms.md).

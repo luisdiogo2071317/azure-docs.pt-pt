@@ -1,6 +1,6 @@
 ---
 title: Recolher e analisar os contadores de desempenho Log Analytics do Azure | Microsoft Docs
-description: "Contadores de desempenho são recolhidos através da análise de registos para analisar o desempenho em agentes Windows e Linux.  Este artigo descreve como configurar a recolha de contadores de desempenho para ambas as janelas e agentes do Linux, os detalhes do são armazenados no repositório OMS e como analisá-las no portal do OMS."
+description: "Contadores de desempenho são recolhidos através da análise de registos para analisar o desempenho em agentes Windows e Linux.  Este artigo descreve como configurar a recolha de contadores de desempenho para ambas as janelas e agentes do Linux, os detalhes do são armazenados na área de trabalho e como analisá-las no portal do Azure."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows e Linux origens de dados de desempenho na análise de registos
 Os contadores de desempenho do Windows e Linux fornecem informações aprofundadas o desempenho dos componentes de hardware, sistemas operativos e aplicações.  Análise de registos pode recolher contadores de desempenho em intervalos frequentes para análise de quase em Tempo Real (NRT) para além de relatórios e agregar dados de desempenho para uma análise mais longo prazo.
@@ -26,13 +26,13 @@ Os contadores de desempenho do Windows e Linux fornecem informações aprofundad
 ![Contadores de desempenho](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configurar os contadores de desempenho
-Configurar os contadores de desempenho no portal do OMS do [menu dados nas definições de análise do registo](log-analytics-data-sources.md#configuring-data-sources).
+Configurar os contadores de desempenho do [menu dados nas definições de análise do registo](log-analytics-data-sources.md#configuring-data-sources).
 
-Quando configura o Windows ou Linux desempenho contadores para uma nova área de trabalho do OMS pela primeira vez, é-lhe dada a opção para criar rapidamente vários contadores comuns.  São listados com uma caixa de verificação junto a cada.  Certifique-se de que os contadores que pretende criar inicialmente são verificados e, em seguida, clique em **adicionar os contadores de desempenho selecionados**.
+Quando configura o Windows ou Linux desempenho contadores para uma área de trabalho de análise de registos nova pela primeira vez, é-lhe dada a opção para criar rapidamente vários contadores comuns.  São listados com uma caixa de verificação junto a cada um.  Certifique-se de que os contadores que pretende criar inicialmente são verificados e, em seguida, clique em **adicionar os contadores de desempenho selecionados**.
 
 Para contadores de desempenho do Windows, pode escolher uma instância específica para cada contador de desempenho. Para contadores de desempenho do Linux, a instância de cada contador que escolher se aplica a todos os contadores de subordinados do contador principal. A tabela seguinte mostra as instâncias comuns disponíveis para os contadores de desempenho de Linux e Windows.
 
-| Nome da instância | Descrição |
+| Nome da Instância | Descrição |
 | --- | --- |
 | \_Total |Total de todas as instâncias |
 | \* |Todas as instâncias |
@@ -65,7 +65,7 @@ Siga este procedimento para adicionar um novo contador de desempenho do Linux pa
 5. Quando tiver terminado a adição de contadores, clique em de **guardar** botão na parte superior do ecrã, para guardar a configuração.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurar os contadores de desempenho do Linux no ficheiro de configuração
-Em vez de configurar os contadores de desempenho de Linux através do portal do OMS, tem a opção de editar ficheiros de configuração no agente Linux.  Métricas de desempenho para recolher são controladas mediante a configuração no **/etc/optar ativamente por participar/microsoft/omsagent/\<id da área de trabalho\>/conf/omsagent.conf**.
+Em vez de configurar os contadores de desempenho de Linux através do portal do Azure, tem a opção de editar ficheiros de configuração no agente Linux.  Métricas de desempenho para recolher são controladas mediante a configuração no **/etc/optar ativamente por participar/microsoft/omsagent/\<id da área de trabalho\>/conf/omsagent.conf**.
 
 Cada objeto ou a categoria de métricas de desempenho para recolher deve ser definida no ficheiro de configuração como um único `<source>` elemento. A sintaxe segue o padrão abaixo.
 
@@ -90,16 +90,16 @@ Os parâmetros neste elemento são descritos na seguinte tabela.
 
 A tabela seguinte lista os objetos e os contadores que pode especificar no ficheiro de configuração.  Há contadores adicionais disponíveis para determinadas aplicações conforme descrito em [recolher contadores de desempenho de aplicações do Linux na análise de registos](log-analytics-data-sources-linux-applications.md).
 
-| Nome do objeto | Nome do contador |
+| Nome do Objeto | Nome do contador |
 |:--|:--|
 | Disco lógico | % De Inodes livres |
 | Disco lógico | % De espaço livre |
 | Disco lógico | % De Inodes utilizados |
 | Disco lógico | % De espaço utilizado |
-| Disco lógico | Bytes lidos/seg de disco |
+| Disco lógico | Bytes Lidos de Disco/seg |
 | Disco lógico | Leituras de disco/seg |
 | Disco lógico | Transferência de disco/seg |
-| Disco lógico | Bytes de escrita de disco/seg |
+| Disco lógico | Bytes Escritos em Disco/seg |
 | Disco lógico | Escritas de disco/seg |
 | Disco lógico | Megabytes livres |
 | Disco lógico | Bytes de disco lógico/seg |
@@ -182,7 +182,7 @@ Segue-se a configuração predefinida para as métricas do desempenho.
     </source>
 
 ## <a name="data-collection"></a>Recolha de dados
-Análise de registos recolhe todos os contadores de desempenho especificado no respetivo intervalo de amostra especificado em todos os agentes que tenham que contador instalado.  Os dados não são agregados e os dados não processados estão disponíveis em todas as vistas de pesquisa de registo para a duração especificada pela sua subscrição do OMS.
+Análise de registos recolhe todos os contadores de desempenho especificado no respetivo intervalo de amostra especificado em todos os agentes que tenham que contador instalado.  Os dados não são agregados e os dados não processados estão disponíveis em todas as vistas de pesquisa de registo para a duração especificada pela sua subscrição.
 
 ## <a name="performance-record-properties"></a>Propriedades de registo de desempenho
 Registos de desempenho de ter um tipo de **desempenho** e ter as propriedades na tabela seguinte.
@@ -220,15 +220,10 @@ A tabela seguinte fornece exemplos diferentes de pesquisas de registo que obter 
 | Desempenho &#124; onde CounterName = = "% tempo do processador" e InstanceName = = total"e o computador = ="MyComputer"&#124; resumir ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentil (CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) por bin (TimeGenerated, 1h), do computador |Hora a hora média, mínimo, máxima e 75 percentil utilização da CPU para um computador específico |
 | Desempenho &#124; onde ObjectName = = "MSSQL$ INST2: bases de dados" e InstanceName = = "principal" | Todos os dados de desempenho do objeto de desempenho da base de dados para a base de dados mestra do SQL Server com o nome de instância INST2.  
 
-## <a name="viewing-performance-data"></a>Visualizar dados de desempenho
-Quando executa uma pesquisa de registo de dados de desempenho, a **lista** vista é apresentada por predefinição.  Para ver os dados no formulário gráfico, clique em **métricas**.  Para uma visualização gráfica detalhada, clique o  **+**  junto de um contador.  
-
-![Vista de métricas fechada](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
-
-Agregar dados de desempenho uma pesquisa de registo, consulte [agregação métrica a pedido e visualização no OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 
-## <a name="next-steps"></a>Passos seguintes
+
+## <a name="next-steps"></a>Passos Seguintes
 * [Recolher contadores de desempenho de aplicações de Linux](log-analytics-data-sources-linux-applications.md) incluindo MySQL e Apache HTTP Server.
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
 * Exportar os dados recolhidos para [Power BI](log-analytics-powerbi.md) para análise e visualizações adicionais.

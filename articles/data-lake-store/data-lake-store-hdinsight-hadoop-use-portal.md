@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Criar clusters do HDInsight com o Data Lake Store utilizando o portal do Azure
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Nesta secção, criará um cluster do HDInsight com contas de Data Lake Store, c
 
 **Para criar um cluster do HDInsight com uma Data Lake Store, como a conta de armazenamento predefinida**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Siga [criar clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para as informações gerais sobre a criação de clusters do HDInsight.
 3. No **armazenamento** painel, em **tipo de armazenamento primário**, selecione **Data Lake Store**e, em seguida, introduza as seguintes informações:
 
@@ -69,7 +69,7 @@ Nesta secção, criará um cluster do HDInsight com contas de Data Lake Store, c
 As seguintes instruções criar um cluster do HDInsight com uma conta de armazenamento do Azure como armazenamento de predefinido e uma conta de Data Lake Store, como um armazenamento adicional.
 **Para criar um cluster do HDInsight com uma Data Lake Store, como a conta de armazenamento predefinida**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Siga [criar clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para as informações gerais sobre a criação de clusters do HDInsight.
 3. No **armazenamento** painel, em **tipo de armazenamento primário**, selecione **Storage do Azure**e, em seguida, introduza as seguintes informações:
 
@@ -205,7 +205,7 @@ Pode utilizar um cluster do Spark para executar tarefas de Spark em dados armaze
 ### <a name="use-data-lake-store-in-a-storm-topology"></a>Utilizar o Data Lake Store numa topologia de Storm
 Pode utilizar o Data Lake Store para escrever dados a partir de uma topologia do Storm. Para obter instruções sobre como atingir este cenário, consulte [utilização do Azure Data Lake Store com Apache Storm com o HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Utilizar o Data Lake Store com clusters do HDInsight do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: Criar um cluster do HDInsight ao utilizar o Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
 

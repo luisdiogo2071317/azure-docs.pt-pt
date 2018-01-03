@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Expirar os dados em coleções de base de dados do Azure Cosmos automaticamente com TTL
 As aplicações podem produzir e armazenar grandes quantidades de dados. Alguns destes dados, incluindo machine gerado dados, os registos e utilizador a sessão do evento informações apenas são útil para um período de tempo finito. Depois dos dados ficam surplus às necessidades da aplicação é seguro remover estes dados e reduzir as necessidades de armazenamento de uma aplicação.
@@ -149,8 +149,11 @@ Para desativar o TTL inteiramente numa coleção e parar o processo em segundo p
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+<a id="ttl-and-index-interaction"></a> 
 ## <a name="ttl-and-index-interaction"></a>Interação de TTL e índice
-Adição de TTL ou alteração é uma alteração ao índice subjacente. Quando não existe nenhum valor de TTL e fornecer um valor TTL válido - Isto resulta numa operação de nova indexação. Para o índice consistente - o utilizador não verão qualquer alteração de estado de índice. No caso do índice lento - o índice primeiro de todas as é sempre obtendo cópias de segurança e com esta alteração no valor de ttl, o índice é recriado a partir do zero. O impacto no caso desta última opção é que consultas efetuadas durante a reconstrução do índice não devolverão resultados completos ou corretos. Não altere TTL para o índice em diferido se precisar de exacta contagem dados etc como modo de indexação em si é lento.  Idealmente, índice consistente deve ser sempre escolhido. 
+Adicionar ou alterar a definição do valor de TTL numa coleção altera o índice subjacente. Quando o valor de TTL é alterado de desativar no, a coleção é reindexed. Quando efetuar alterações à política de indexação quando o modo de indexação é consistente, os utilizadores não vai notar uma alteração para o índice. Quando o modo de indexação é está definido para lento, o índice é sempre obtendo cópias de segurança e se o valor TTL é alterado, o índice é recriado a partir do zero. Quando o valor TTL é alterado e o modo de índice está definido como lento, consultas efetuadas durante a reconstrução do índice não devolveu resultados completos ou corretos.
+
+Se precisar de exatos dados devolvidos, não altere o valor de TTL quando o modo de indexação está definido como lento. Idealmente, deve ser selecionado índice consistente para garantir que os resultados da consulta consistente. 
 
 ## <a name="faq"></a>FAQ
 **O que irá TTL custo-me?**
@@ -173,6 +176,6 @@ TTL aplica-se a todo o documento. Se gostaria de expirar apenas uma parte de um 
 
 Sim. A coleção tem de ter [conjunto de política de indexação](indexing-policies.md) Consistent ou Lazy. Tentar definir DefaultTTL numa coleção com indexação definido como None resultará num erro, como irá tentar desativar a indexação de uma coleção que tenha um DefaultTTL já definida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre a BD do Cosmos do Azure, consulte o serviço [ *documentação* ](https://azure.microsoft.com/documentation/services/cosmos-db/) página.
 

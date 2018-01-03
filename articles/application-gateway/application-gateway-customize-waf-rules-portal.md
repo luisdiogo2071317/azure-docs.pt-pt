@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: davidmu
 ms.openlocfilehash: 406e491aa54806b3534ef0f500d6aea03434e2c2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personalizar regras de firewall de aplicação web através do portal do Azure
 
@@ -62,7 +62,7 @@ Quando o está a desativar regras, pode desativar um grupo de regras de todo ou 
 
 ![Guardar alterações][3]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de configurar as regras desativadas, pode saber como ver os registos de WAF. Para obter mais informações, consulte [diagnóstico do Gateway de aplicação](application-gateway-diagnostics.md#diagnostic-logging).
 

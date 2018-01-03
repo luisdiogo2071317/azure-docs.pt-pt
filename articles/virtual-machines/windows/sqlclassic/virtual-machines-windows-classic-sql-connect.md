@@ -16,10 +16,10 @@ ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Ligar a uma Máquina Virtual do SQL Server no Azure (Implementação Clássica)
 > [!div class="op_single_selector"]
@@ -101,7 +101,7 @@ O caminho de ligação é resumido pelo diagrama a seguir:
 
 [!INCLUDE [Connect to SQL Server in a VM Classic Steps](../../../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Se também estiver a planear utilizar grupos de Disponibilidade AlwaysOn para disponibilidade elevada e recuperação após desastre, deve considerar implementar um serviço de escuta. Os clientes de base de dados ligam ao serviço de escuta, em vez de diretamente a uma das instâncias do SQL Server. O serviço de escuta encaminha os clientes para a réplica primária do grupo de disponibilidade. Para obter mais informações, consulte [configurar um serviço de escuta do ILB para grupos de Disponibilidade AlwaysOn no Azure](../classic/ps-sql-int-listener.md).
 
 É importante rever todas as melhores práticas de segurança para o SQL Server em execução numa máquina virtual do Azure. Para obter mais informações, veja [Security Considerations for SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-security.md) (Considerações de segurança para o SQL Server em Máquinas Virtuais do Azure).

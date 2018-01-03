@@ -1,6 +1,6 @@
 ---
-title: "Recolher e analisar registos de eventos do Windows na análise de registos do OMS | Microsoft Docs"
-description: "Registos de eventos do Windows são uma das origens de dados mais comuns utilizadas pela análise de registos.  Este artigo descreve como configurar a recolha de registos de eventos do Windows e detalhes dos registos que criarem no repositório de OMS."
+title: Recolher e analisar registos de eventos do Windows no Log Analytics do Azure | Microsoft Docs
+description: "Registos de eventos do Windows são uma das origens de dados mais comuns utilizadas pela análise de registos.  Este artigo descreve como configurar a recolha de registos de eventos do Windows e detalhes dos registos que criarem na área de trabalho de análise de registos."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/11/2017
 ms.author: bwren
-ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Origens de dados de registo de eventos de Windows na análise de registos
 Registos de eventos do Windows são uma das mais comuns [origens de dados](log-analytics-data-sources.md) para recolher dados com agentes do Windows, uma vez que muitas aplicações escrevem o registo de eventos do Windows.  Pode recolher eventos a partir de registos de padrão, tais como o sistema e de aplicações, além de especificar quaisquer registos personalizados criados pelas aplicações que precisar de monitorizar.
@@ -59,7 +59,7 @@ Registos de eventos do Windows têm um tipo de **eventos** e ter as propriedades
 | Origem |Origem do evento. |
 | SourceSystem |Tipo de agente que foi recolhido o evento de. <br> Ligar OpsManager – o agente do Windows, é direta ou gerido do Operations Manager <br> Linux – todos os agentes Linux  <br> AzureStorage – diagnóstico do Azure |
 | TimeGenerated |Data e hora em que o evento foi criado no Windows. |
-| Nome de utilizador |Nome de utilizador da conta que registou o evento. |
+| Nome de Utilizador |Nome de utilizador da conta que registou o evento. |
 
 ## <a name="log-searches-with-windows-events"></a>Registo de pesquisas com eventos do Windows
 A tabela seguinte fornece exemplos diferentes de pesquisas de registo que obter registos de eventos do Windows.
@@ -72,7 +72,7 @@ A tabela seguinte fornece exemplos diferentes de pesquisas de registo que obter 
 | Evento &#124; onde EventLevelName = = "error" &#124; resumir existente por origem |Eventos de erro de contagem de Windows pela origem. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Configurar a análise de registos para recolher outros [origens de dados](log-analytics-data-sources.md) para análise.
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
 * Utilize [campos personalizados](log-analytics-custom-fields.md) para analisar os registos de eventos em campos individuais.

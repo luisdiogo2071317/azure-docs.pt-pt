@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 1a5922506a0db4277b205ba3390c9c30034c177d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Exceções de mensagens dos Hubs de Eventos
-Este artigo apresenta uma lista algumas das exceções geradas pelo mensagens APIs, que incluem os Event Hubs do Azure Service Bus. Esta referência está sujeita a alterações, por isso, verifique novamente para as atualizações.
+
+Este artigo apresenta uma lista algumas das exceções geradas pela biblioteca de API mensagens do Service Bus do Azure, que incluem APIs de Hubs de eventos. Esta referência está sujeita a alterações, por isso, verifique novamente para as atualizações.
 
 ## <a name="exception-categories"></a>Categorias de exceção
+
 As APIs de Hubs de eventos gerar exceções que podem enquadram-se nas seguintes categorias, juntamente com a ação associada, que pode tomar para tentar corrigir.
 
 1. Erro de codificação de utilizador: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). Ação geral: tentar corrigir o código antes de continuar.
@@ -78,20 +80,20 @@ A [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.ser
 
 Este erro pode ocorrer por uma das duas razões:
 
-1. A carga não é distribuída uniformemente em todas as partições num Hub de eventos e uma partição chega a limitação de unidade de débito local.
+1. A carga não é distribuída uniformemente em todas as partições num hub de eventos e uma partição chega a limitação de unidade de débito local.
     
     Resolução: Dão origem a estratégia de distribuição de partição ou tentar [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) poderem ajudá-lo.
 
-2. O espaço de nomes de Event Hubs não tem unidades de débito suficiente (pode verificar o **métricas** painel no painel de espaço de nomes de Event Hubs no [portal do Azure](https://portal.azure.com) para confirmar). Tenha em atenção que o portal mostra informações de agregados (1 minuto), mas estamos a medir o débito em tempo real – para que fique apenas uma estimativa.
+2. O espaço de nomes de Event Hubs não tem unidades de débito suficiente (pode verificar o **métricas** ecrã de eventos de janela de espaço de nomes de Hubs no [portal do Azure](https://portal.azure.com) para confirmar). Tenha em atenção que o portal mostra informações de agregados (1 minuto), mas estamos a medir o débito em tempo real – para que fique apenas uma estimativa.
 
-    Resolução: Aumentar as unidades de débito no espaço de nomes pode ajudar. Pode fazer isto no portal, além de **escala** painel do painel de espaço de nomes de Event Hubs.
+    Resolução: Aumentar as unidades de débito no espaço de nomes pode ajudar. Pode fazer isto no portal, além de **escala** janela do ecrã de espaço de nomes de Event Hubs.
 
 ### <a name="error-code-50001"></a>Código de erro 50001
 
 Este erro raramente deve ocorrer. Ocorre quando o contentor com o código para o espaço de nomes é baixa na CPU – começa não mais do que alguns segundos antes dos Event Hubs Balanceador de carga.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)

@@ -16,10 +16,10 @@ ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: c3a2d4b126d43017ec004bde82deb190584455c4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: Copiar dados do armazenamento de BLOBs para base de dados SQL utilizando o Data Factory
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Tem o nome de conta e chave de conta da sua conta de armazenamento do Azure para
 5. Clique em **cópia** botão (imagem) junto a **nome da conta de armazenamento** texto caixa e guardar/colá-lo algures (por exemplo: num ficheiro de texto).
 6. Repita o passo anterior para copiar ou tome nota do **chave1**.
 
-    ![Chave de acesso de armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
+    ![Chave de acesso ao armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. Fechar todos os painéis clicando **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Recolher do SQL Server, a base de dados, os nomes de utilizador

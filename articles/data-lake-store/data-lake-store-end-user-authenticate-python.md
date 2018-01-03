@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 48990c57fb10127733623000a105507b5a48d900
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-python"></a>Autenticação de utilizador final com o Data Lake Store utilizando o Python
 > [!div class="op_single_selector"]
 > * [Utilizar o Java](data-lake-store-end-user-authenticate-java-sdk.md)
-> * [Com o .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
+> * [Utilizar o SDK .NET](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Utilizar o Python](data-lake-store-end-user-authenticate-python.md)
 > * [Utilizar a API REST](data-lake-store-end-user-authenticate-rest-api.md)
 > 
@@ -116,7 +116,7 @@ Utilize esta opção para autenticar com o Azure AD para operações de sistema 
 
 Este é preterido. Para obter mais informações, consulte [Authentication do Azure utilizando o Python SDK](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python#mgmt-auth-token).
    
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a utilizar a autenticação de utilizador final para autenticar com o Azure Data Lake Store com o Python. Agora pode ver os seguintes artigos falar sobre como utilizar o Python para trabalhar com o Azure Data Lake Store.
 
 * [Operações de gestão de conta no Data Lake Store com o Python](data-lake-store-get-started-python.md)

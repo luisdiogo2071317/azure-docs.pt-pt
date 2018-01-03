@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: jdial
 ms.openlocfilehash: 1f19da71731039e1a39c4440f925b1369886a993
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Verifique a conectividade com o observador de rede do Azure no portal do Azure
 
@@ -56,7 +56,7 @@ Para verificar a conectividade e latência para um ponto final remoto, escolha o
 
 ![Resultados da verificação de conectividade para um web site][2]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como automatizar capturas de pacotes com alertas de Máquina Virtual visualizando [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md)
 

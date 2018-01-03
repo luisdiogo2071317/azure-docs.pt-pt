@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: e66dc2af18785c6c8e83815129c8bca5b877d25b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Perfil live aplicações web do Azure com o Application Insights
 
@@ -228,11 +228,87 @@ Quando configura o gerador de perfis, as atualizações são efetuadas às defin
 8. Instalar __Application Insights__ na Galeria de aplicações Web do Azure.
 9. Reinicie a aplicação web.
 
+## <a id="profileondemand"></a>Gerador de perfis do acionador manualmente
+Quando foi desenvolvido o gerador de perfis foi adicionada uma interface de linha de comandos para que iremos foi testar o gerador de perfis nos serviços de aplicação. Utilizar este mesmo utilizadores de interface também pode personalizar como inicia o gerador de perfis. Um elevado nível o gerador de perfis utiliza o sistema do Kudu de serviço de aplicações para gerir a criação de perfis em segundo plano. Quando instala a extensão do Application Insights, iremos criar uma tarefa de contínua web que aloja o gerador de perfis. Utilizaremos esta mesma tecnologia para criar uma nova tarefa de web que pode personalizar para se ajustarem às suas necessidades.
+
+Esta secção explica como:
+
+1.  Crie uma tarefa de web que pode começar a utilizar o gerador de perfis de dois minutos prima de um botão.
+2.  Crie uma tarefa de web que pode agendar o gerador de perfis para ser executada.
+3.  Conjunto de argumentos para o gerador de perfis.
+
+
+### <a name="set-up"></a>Configuração
+Primeiro vamos familiarizar com o dashboard do trabalho web. Em definições clique no separador de WebJobs.
+
+![Painel de webjobs](./media/app-insights-profiler/webjobs-blade.png)
+
+Como pode ver este dashboard mostra todas as tarefas da web que estão actualmente instaladas no seu site. Pode ver a tarefa de web ApplicationInsightsProfiler2 que tenha a tarefa de gerador de perfis em execução. Este é onde iremos irá criar o nosso novas tarefas de web para manual e agendada de criação de perfis.
+
+Primeiro vamos obter os binários vamos precisar.
+
+1.  Primeiro, vá para o site do kudu. Em desenvolvimento separador de ferramentas, clique no separador "Ferramentas avançadas" com o logótipo do Kudu. Clique em "Ir". Isto irá demorar para um novo site e iniciar sessão automaticamente.
+2.  Em seguida, é necessário transferir os binários do gerador de perfis. Navegue para o Explorador de ficheiros através da consola de depuração -> CMD localizado na parte superior da página.
+3.  Clique no site -> wwwroot -> App_Data-> tarefas--> contínua. Deverá ver uma pasta "ApplicationInsightsProfiler2". Clique no ícone de transferência para a esquerda da pasta. Isto irá transferir um ficheiro de "ApplicationInsightsProfiler2.zip".
+4.  Isto irá transferir todos os ficheiros, terá de mover reencaminhar. Posso recomendável criar um diretório de raiz para mover este arquivo zip para antes de continuar.
+
+### <a name="setting-up-the-web-job-archive"></a>Configurar o arquivo de trabalho web
+Quando adiciona uma nova tarefa de web site do azure, basicamente, criar um arquivo zip com um run.cmd no interior. O run.cmd indica o sistema de tarefa web o que fazer quando executar a tarefa de web. Existem outras opções que podem ser lidos na documentação de tarefa web, mas para o nosso objetivo não temos tudo o resto.
+
+1.  Para começar a criar uma nova pasta, posso com o nome explorar "RunProfiler2Minutes".
+2.  Copie os ficheiros da pasta ApplicationInsightProfiler2 extraída para esta nova pasta.
+3.  Crie um novo ficheiro de run.cmd. (Posso aberto a pasta de trabalho no vs code antes de começar por conveniência)
+4.  Adicione o comando `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`e guarde o ficheiro.
+a.  O `start` comando indica o gerador de perfis para iniciar.
+b.  `--engine-mode immediate`indica o gerador de perfis que queremos iniciar imediatamente a criação de perfis.
+c.  `--single`meios para executar e, em seguida, pare automaticamente d.  `--immediate-profiling-duration 120`significa que tenham o gerador de perfis executar para por 120 segundos ou dois minutos.
+5.  Guarde este ficheiro.
+6.  Esta pasta de arquivo, pode botão direito do rato clique na pasta e escolha envie a -> pasta (zipped) Compressed. Isto irá criar um ficheiro. zip com o nome da sua pasta.
+
+![iniciar o gerador de perfis comando](./media/app-insights-profiler/start-profiler-command.png)
+
+Iremos agora tem uma tarefa de web. zip que pode utilizar para configurar as tarefas da web no nosso site.
+
+### <a name="add-a-new-web-job"></a>Adicionar uma nova tarefa de web
+Em seguida iremos adicionar uma nova tarefa de web no nosso site. Este exemplo mostra como adicionar um trabalho web accionadas manual. Depois de se conseguir fazer com que o processo é quase exatamente o mesmo para agendado. Pode ler mais sobre agendada accionadas tarefas por si.
+
+1.  Aceda ao dashboard de trabalhos web.
+2.  Clique no comando Adicionar da barra de ferramentas.
+3.  Dê um nome, a sua tarefa web devo escolher para corresponder ao nome do meu arquivo para efeitos de clareza e abri-lo até ter versões diferentes do run.cmd.
+4.  O ficheiro carregar parte do formulário clique no ícone do ficheiro aberto em encontrar o ficheiro. zip que criou acima.
+5.  Para o tipo, escolha Triggered.
+6.  Para os Acionadores escolher Manual.
+7.  Clique em OK para guardar.
+
+![iniciar o gerador de perfis comando](./media/app-insights-profiler/create-webjob.png)
+
+### <a name="run-the-profiler"></a>Execute o gerador de perfis
+
+Agora que temos uma nova tarefa web, que iremos podem acionar manualmente, pode tentar executá-la.
+
+1.  Por predefinição só pode ter um processo de ApplicationInsightsProfiler.exe em execução numa máquina em qualquer momento. Por isso, para começar certifique-se desativar o trabalho web contínuo deste dashboard. Clique na linha e prima "Parar". Atualizar na barra de ferramentas e confirme que o estado confirma que a tarefa está parada.
+2.  Clique na linha com a nova tarefa de web que adicionou e prima executar.
+3.  Com a linha ainda selecionada, clique em sobre o comando de registos na barra de ferramentas, será apresentada à um dashboard de trabalhos web para esta tarefa web que foram iniciadas. -Apresentará uma lista de execução mais recente e os respetivos resultados.
+4.  Clique na execução que tiver começar.
+5.  Se todos os correu bem, deverá ver alguns registos de diagnóstico feitos o gerador de perfis confirmar que iniciou a criação de perfis.
+
+### <a name="things-to-consider"></a>Aspetos a considerar
+
+Apesar deste método é relativamente simples, existem alguns aspetos a considerar.
+
+1.  Porque esta não é gerida pelo nosso serviço não temos nenhuma forma de atualizar os binários do agente para a tarefa de web. Não atualmente temos uma página de transferência estável para os nossos binários pelo que é a única forma de obter a versão mais recente através da atualização da sua extensão e a obtenção da pasta contínua, como fizemos acima.
+2.  Como esta é a utilização de linha de comandos, argumentos que foram originalmente concebidos com utilizar o programador, em vez de utilização do utilizador final, estes argumentos podem ser alterados no futuro, pelo que apenas tenha em atenção que ao atualizar. Não deve ser muito um problema porque pode adicionar uma tarefa web, executar e teste funciona. Eventualmente, iremos criar da IU para fazê-lo sem o processo manual mas é algo a ter em consideração.
+3.  A funcionalidade de trabalhos Web para os serviços de aplicação é exclusiva quando é executada a tarefa de web assegura que o processo tem o mesmo variáveis de ambiente e definições de aplicação que o web site irá ter. Isto significa que não é necessário para passar a chave de instrumentação através da linha de comandos para o gerador de perfis, deve apenas processará a chave de instrumentação do ambiente. No entanto se pretender executar o gerador de perfis na sua caixa de desenvolvimento ou num computador fora de serviços aplicacionais terá de fornecer uma chave de instrumentação. Pode fazê-lo mediante a transmissão num argumento `--ikey <instrumentation-key>`. Tenha em atenção que este valor tem de corresponder à sua aplicação está a utilizar a chave de instrumentação. No resultado do registo do gerador de perfis que irá dizer que ikey o gerador de perfis começar a utilizar e se foi detetada atividade a partir dessa chave de instrumentação ao estão a criação de perfis.
+4.  As tarefas de web accionadas manualmente, na verdade, podem ser acionadas via Web Hook. Pode obter este url do botão direito do rato clicando na tarefa de web a partir do dashboard e visualizar as propriedades ou escolher propriedades na barra de ferramentas depois de selecionar o trabalho web a partir da tabela. Existem muitos dos artigos que pode encontrar online sobre esta para estar passará não muito detalhes acerca do mesmo, mas esta abre-se a possibilidade de acionar o gerador de perfis do seu pipeline CI/CD (como VSTS) ou algo semelhante Microsoft Flow (https://flow.microsoft.com/en-us/). Dependendo de como fancy que pretende tornar a sua run.cmd, que, pela forma, pode ser um run.ps1, as possibilidades são um vasto conjunto.  
+
+
+
+
 ## <a id="aspnetcore"></a>Suporte de ASP.NET Core
 
 Uma aplicação ASP.NET Core tem de instalar o 2.1.0-beta6 de pacote Microsoft.ApplicationInsights.AspNetCore NuGet ou posterior para trabalhar com o gerador de perfis. A partir 27 de Junho de 2017, não suportamos versões anteriores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Trabalhar com o Application Insights no Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
