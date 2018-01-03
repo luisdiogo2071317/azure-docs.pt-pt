@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorizar alertas de cópias de segurança de máquinas virtuais do Azure
 Os alertas são as respostas do serviço do que um limiar de evento foi alcançado ou ultrapassado. Saber quando o início de problemas pode ser fundamental para manter os custos de negócio para baixo. Normalmente, não ocorrerem os alertas com base numa agenda e por isso, é útil logo que possível saber depois de ocorrerem os alertas. Por exemplo, quando uma tarefa de cópia de segurança ou restauro falhar, um alerta ocorre dentro de cinco minutos da falha. No dashboard do cofre, o mosaico alertas de cópia de segurança apresenta os eventos críticos e de nível de aviso. Nas definições de alertas de cópia de segurança, pode ver todos os eventos. Mas, o que pode fazer se um alerta ocorre quando estiver a trabalhar num problema separado? Se não souber quando o alerta acontece, pode ser uma inconveniência secundária ou comprometer dados. Para garantir que as pessoas corretas sabem de um alerta - quando ocorrer, configure o serviço para enviar notificações de alerta por e-mail. Para obter mais informações sobre como configurar notificações por e-mail, consulte [configurar notificações](backup-azure-monitor-vms.md#configure-notifications).
@@ -71,8 +71,8 @@ Para configurar notificações por e-mail para alertas
    | Nível de alerta | Alertas enviados |
    | --- | --- |
    | Crítico |Falha de cópia de segurança, falha de recuperação |
-   | Aviso |Nenhuma |
-   | Informativo |Nenhuma |
+   | Aviso |Nenhum |
+   | Informativo |Nenhum |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Existem situações em que um e-mail não é enviado, mesmo que as notificações estejam configuradas?
 Existem situações em que não é enviado um alerta, apesar das notificações foi configuradas corretamente. No e-mail de situações seguintes não são enviadas notificações para evitar o ruído de alertas:
@@ -147,12 +147,12 @@ Utilizar o **colunas** botão, pode ativar atributos de evento adicional a apare
 | Recurso |URL que identifica o recurso; Também conhecido como o ID de recurso |
 | Hora |Tempo, medido desde a hora atual, quando o evento ocorreu |
 | Autor da chamada |Quem ou o que chamado ou acionado o evento; pode ser o sistema ou um utilizador |
-| Timestamp |A hora quando o evento foi activado |
+| Carimbo de data/hora |A hora quando o evento foi activado |
 | Grupo de Recursos |O grupo de recursos associados |
-| Tipo de Recurso |O tipo de recurso interno utilizado pelo Gestor de recursos |
+| Tipo de Recurso |O tipo de recurso interno utilizado pelo Resource Manager |
 | ID da subscrição |O ID de subscrição associado. |
 | Categoria |Categoria do evento |
-| ID de correlação |ID de comuns de eventos relacionados |
+| ID de Correlação |ID de comuns de eventos relacionados |
 
 ## <a name="use-powershell-to-customize-alerts"></a>Utilizar o PowerShell para personalizar alertas
 Pode obter notificações de alerta personalizadas para as tarefas no portal. Para obter estas tarefas, defina regras de alerta baseada no PowerShell nos eventos de registos operacionais. Utilize *PowerShell versão 1.3.0 ou posterior*.
@@ -196,7 +196,7 @@ Alertas com base em eventos estão sujeitos às seguintes limitações:
 2. Esta funcionalidade está em pré-visualização. [Saiba mais](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. Os alertas são enviados a partir de "alerts-noreply@mail.windowsazure.com". Atualmente não é possível modificar o remetente do e-mail.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Registos de eventos ativar excelente post-mortem e suporte para as operações de cópia de segurança de auditoria. Com sessão iniciadas as seguintes operações:
 
 * Registar
@@ -207,10 +207,10 @@ Registos de eventos ativar excelente post-mortem e suporte para as operações d
 * Interrompa a proteção
 * Eliminar dados de cópia de segurança
 * Adicionar política
-* Eliminar política
-* Política de atualização
+* Eliminar aplicação
+* Atualizar política
 * Cancelar a tarefa
 
 Para obter uma explicação abrangente de eventos, operações e os registos de auditoria em todos os serviços do Azure, consulte o artigo [ver eventos e registos de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-Para obter informações sobre como voltar a criar uma máquina virtual a partir de um ponto de recuperação, consulte [restaurar VMs do Azure](backup-azure-restore-vms.md). Se precisar de informações sobre a proteção de máquinas virtuais, consulte o artigo [primeiras impressões: cópia de segurança VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md). Saiba mais sobre as tarefas de gestão para cópias de segurança VM no artigo, [cópias de segurança do Azure de gerir máquinas virtuais](backup-azure-manage-vms.md).
+Para obter informações sobre como voltar a criar uma máquina virtual a partir de um ponto de recuperação, consulte [restaurar VMs do Azure](backup-azure-arm-restore-vms.md). Se precisar de informações sobre a proteção de máquinas virtuais, consulte o artigo [primeiras impressões: cópia de segurança VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md). Saiba mais sobre as tarefas de gestão para cópias de segurança VM no artigo, [cópias de segurança do Azure de gerir máquinas virtuais](backup-azure-manage-vms.md).

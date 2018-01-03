@@ -6,16 +6,17 @@ author: chhavib
 ms.author: chhavib
 manager: neerajkh
 editor: jasonwhowell
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 03e51ab298a08386f0094d6d0290aa1ec85d337f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 134971e4a663baefa4e1051f087038d3debcb969
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Referência da API de conta de gestão do Machine Learning modelo do Azure
 
@@ -78,11 +79,11 @@ Regista um modelo.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 | modelo | corpo | Payload que é utilizada para registar um modelo. | Sim | [Modelo](#model) |
 
 
@@ -90,7 +91,7 @@ Regista um modelo.
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | OK. O registo do modelo foi concluída com êxito. | [Modelo](#model) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-models-in-an-account"></a>A lista de modelos de uma conta de consulta
 ### <a name="request"></a>Pedir
@@ -104,21 +105,21 @@ Consulta a lista de modelos de uma conta. Pode filtrar a lista de resultados por
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
-| nome | consulta | Nome do objeto. | Não | Cadeia |
-| Etiqueta | consulta | Etiqueta de modelo. | Não | Cadeia |
-| contagem | consulta | Número de itens para obter uma página de início. | Não | Cadeia |
-| $skipToken | consulta | Token de continuação para obter a página seguinte. | Não | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
+| nome | consulta | Nome do objeto. | Não | string |
+| Etiqueta | consulta | Etiqueta de modelo. | Não | string |
+| contagem | consulta | Número de itens para obter uma página de início. | Não | string |
+| $skipToken | consulta | Token de continuação para obter a página seguinte. | Não | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [PaginatedModelList](#paginatedmodellist) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 ## <a name="get-model-details"></a>Obter os detalhes de modelo
 ### <a name="request"></a>Pedir
@@ -133,18 +134,18 @@ Obtém um modelo por ID.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| ID | caminho | ID de objeto. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| ID | caminho | ID de objeto. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [Modelo](#model) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 ## <a name="register-a-manifest-with-the-registered-model-and-all-dependencies"></a>Registar um manifesto com o modelo registado e todas as dependências
 
@@ -159,18 +160,18 @@ Regista um manifesto com o modelo registado e todas as respetivas dependências.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 | manifestRequest | corpo | Payload que é utilizada para registar um manifesto. | Sim | [Manifesto](#manifest) |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Registo de manifesto foi concluída com êxito. | [Manifesto](#manifest) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-manifests-in-an-account"></a>A lista de manifestos numa conta de consulta
 
@@ -185,21 +186,21 @@ Consulta a lista de manifestos numa conta. Pode filtrar a lista de resultados po
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
-| modelId | consulta | ID de modelo. | Não | Cadeia |
-| ManifestName | consulta | Nome do manifesto. | Não | Cadeia |
-| contagem | consulta | Número de itens para obter uma página de início. | Não | Cadeia |
-| $skipToken | consulta | Token de continuação para obter a página seguinte. | Não | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
+| modelId | consulta | ID de modelo. | Não | string |
+| ManifestName | consulta | Nome do manifesto. | Não | string |
+| contagem | consulta | Número de itens para obter uma página de início. | Não | string |
+| $skipToken | consulta | Token de continuação para obter a página seguinte. | Não | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [PaginatedManifestList](#paginatedmanifestlist) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 ## <a name="get-manifest-details"></a>Obter os detalhes de manifesto
 
@@ -214,18 +215,18 @@ Obtém o manifesto por ID.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| ID | caminho | ID de objeto. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| ID | caminho | ID de objeto. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [Manifesto](#manifest) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 ## <a name="create-an-image"></a>Criar uma imagem
 
@@ -240,18 +241,18 @@ Cria uma imagem como uma imagem de Docker no registo de contentor do Azure.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 | imageRequest | corpo | Payload que é utilizado para criar uma imagem. | Sim | [ImageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Cabeçalhos | Esquema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | URL de localização de operação assíncrona. Uma chamada GET irá mostrar o estado da tarefa de criação de imagem. | Localização de operação |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-images-in-an-account"></a>A lista de imagens numa conta de consulta
 
@@ -266,21 +267,21 @@ Consulta a lista de imagens de uma conta. Pode filtrar a lista de resultados ao 
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
-| ManifestId | consulta | ID de manifesto. | Não | Cadeia |
-| ManifestName | consulta | Nome do manifesto. | Não | Cadeia |
-| contagem | consulta | Número de itens para obter uma página de início. | Não | Cadeia |
-| $skipToken | consulta | Token de continuação para obter a página seguinte. | Não | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
+| ManifestId | consulta | ID de manifesto. | Não | string |
+| ManifestName | consulta | Nome do manifesto. | Não | string |
+| contagem | consulta | Número de itens para obter uma página de início. | Não | string |
+| $skipToken | consulta | Token de continuação para obter a página seguinte. | Não | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [PaginatedImageList](#paginatedimagelist) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 ## <a name="get-image-details"></a>Obter os detalhes da imagem
 
@@ -295,18 +296,18 @@ Obtém uma imagem por ID.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| ID | caminho | ID de imagem. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| ID | caminho | ID de imagem. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [Imagem](#image) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 
 ## <a name="create-a-service"></a>Criar um serviço
@@ -322,11 +323,11 @@ Cria um serviço a partir de uma imagem.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 | serviceRequest | corpo | Payload que é utilizado para criar um serviço. | Sim | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### <a name="responses"></a>Respostas
@@ -334,7 +335,7 @@ Cria um serviço a partir de uma imagem.
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | URL de localização de operação assíncrona. Uma chamada GET irá mostrar o estado da tarefa de criação de serviço. | Localização de operação |
 | 409 | Já existe um serviço com o nome especificado. |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 ## <a name="query-the-list-of-services-in-an-account"></a>A lista de serviços de uma conta de consulta
 
@@ -349,26 +350,26 @@ Consulta a lista de serviços de uma conta. Pode filtrar a lista de resultados p
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
-| ServiceName | consulta | Nome do serviço. | Não | Cadeia |
-| modelId | consulta | Nome do modelo. | Não | Cadeia |
-| modelName | consulta | ID de modelo. | Não | Cadeia |
-| ManifestId | consulta | ID de manifesto. | Não | Cadeia |
-| ManifestName | consulta | Nome do manifesto. | Não | Cadeia |
-| imageId | consulta | ID de imagem. | Não | Cadeia |
-| computeResourceId | consulta | ID de recurso de computação Machine Learning. | Não | Cadeia |
-| contagem | consulta | Número de itens para obter uma página de início. | Não | Cadeia |
-| $skipToken | consulta | Token de continuação para obter a página seguinte. | Não | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
+| ServiceName | consulta | Nome do serviço. | Não | string |
+| modelId | consulta | Nome do modelo. | Não | string |
+| modelName | consulta | ID de modelo. | Não | string |
+| ManifestId | consulta | ID de manifesto. | Não | string |
+| ManifestName | consulta | Nome do manifesto. | Não | string |
+| imageId | consulta | ID de imagem. | Não | string |
+| computeResourceId | consulta | ID de recurso de computação Machine Learning. | Não | string |
+| contagem | consulta | Número de itens para obter uma página de início. | Não | string |
+| $skipToken | consulta | Token de continuação para obter a página seguinte. | Não | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [PaginatedServiceList](#paginatedservicelist) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse) |
 
 ## <a name="get-service-details"></a>Obter os detalhes do serviço
 
@@ -383,18 +384,18 @@ Obtém um serviço por ID.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| ID | caminho | ID de objeto. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| ID | caminho | ID de objeto. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [ServiceResponse](#serviceresponse) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 ## <a name="update-a-service"></a>Atualizar um serviço
 
@@ -409,12 +410,12 @@ As atualizações de serviço existente.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| ID | caminho | ID de objeto. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| ID | caminho | ID de objeto. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 | serviceUpdateRequest | corpo | Payload que é utilizado para atualizar um serviço existente. | Sim |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### <a name="responses"></a>Respostas
@@ -422,7 +423,7 @@ As atualizações de serviço existente.
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | URL de localização de operação assíncrona. Uma chamada GET irá mostrar o estado da tarefa de atualização do serviço. | Localização de operação |
 | 404 | O serviço com o ID especificado não existe. |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 ## <a name="delete-a-service"></a>Eliminar um serviço
 
@@ -437,19 +438,19 @@ Elimina um serviço.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| ID | caminho | ID de objeto. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| ID | caminho | ID de objeto. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. |  |
 | 204 | O serviço com o ID especificado não existe. |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 ## <a name="get-service-keys"></a>Obter chaves de serviço
 
@@ -464,18 +465,18 @@ Obtém as chaves de serviço.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| ID | caminho | ID do serviço. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| ID | caminho | ID do serviço. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [AuthKeys](#authkeys)
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 ## <a name="regenerate-service-keys"></a>Voltar a gerar chaves de serviço
 
@@ -490,19 +491,19 @@ Gera de novo chaves de serviço e devolve-os.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| ID | caminho | ID do serviço. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| ID | caminho | ID do serviço. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 | regenerateKeyRequest | corpo | Payload que é utilizado para atualizar um serviço existente. | Sim | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [AuthKeys](#authkeys)
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 ## <a name="query-the-list-of-deployments-in-an-account"></a>A lista de implementações de uma conta de consulta
 
@@ -517,18 +518,18 @@ Consulta a lista de implementações de uma conta. Pode filtrar a lista de resul
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
-| serviceId | consulta | ID do serviço. | Não | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
+| serviceId | consulta | ID do serviço. | Não | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [DeploymentList](#deploymentlist) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 ## <a name="get-deployment-details"></a>Obter os detalhes da implementação
 
@@ -543,18 +544,18 @@ Obtém a implementação por ID.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| ID | caminho | ID de implementação. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| ID | caminho | ID de implementação. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [Implementação](#deployment) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 ## <a name="get-operation-details"></a>Obter os detalhes de operação
 
@@ -569,18 +570,18 @@ Obtém o estado da operação assíncrona por ID de operação.
 ### <a name="parameters"></a>Parâmetros
 | Nome | Localizado em | Descrição | Necessário | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | caminho | ID da subscrição do Azure. | Sim | Cadeia |
-| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | Cadeia |
-| accountName | caminho | Nome da conta de gestão de modelo. | Sim | Cadeia |
-| ID | caminho | ID de operação. | Sim | Cadeia |
-| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | Cadeia |
-| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | Cadeia |
+| subscriptionId | caminho | ID da subscrição do Azure. | Sim | string |
+| resourceGroupName | caminho | Nome do grupo de recursos no qual a conta de gestão de modelo está localizada. | Sim | string |
+| accountName | caminho | Nome da conta de gestão de modelo. | Sim | string |
+| ID | caminho | ID de operação. | Sim | string |
+| versão de API | consulta | Versão do fornecedor de recursos Microsoft.Machine.Learning API a utilizar. | Sim | string |
+| Autorização | cabeçalho | Token de autorização. Deve ser algo semelhante a "Portador XXXXXX." | Sim | string |
 
 ### <a name="responses"></a>Respostas
 | Código | Descrição | Esquema |
 |--------------------|--------------------|--------------------|
 | 200 | Êxito. | [OperationStatus](#asyncoperationstatus) |
-| predefinido | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
+| predefinição | Resposta de erro que descreve o motivo pelo qual a operação falhou. | [ErrorResponse](#errorresponse)
 
 
 
@@ -594,10 +595,10 @@ O objeto de recurso que será necessária durante a criação de imagens do Dock
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**ID**  <br>*opcional*|ID de recurso.|Cadeia|
-|**mimeType**  <br>*opcional*|Tipo MIME de conteúdo de modelos. Para obter mais informações sobre o tipo de MIME, consulte o [lista de tipos de suportes de dados IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|Cadeia|
+|**ID**  <br>*opcional*|ID de recurso.|string|
+|**mimeType**  <br>*opcional*|Tipo MIME de conteúdo de modelos. Para obter mais informações sobre o tipo de MIME, consulte o [lista de tipos de suportes de dados IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
 |**Descompactar**  <br>*opcional*|Indica onde é necessário descompactar o conteúdo durante a criação de imagens do Docker.|booleano|
-|**URL**  <br>*opcional*|URL de localização do recurso.|Cadeia|
+|**URL**  <br>*opcional*|URL de localização do recurso.|string|
 
 
 <a name="asyncoperationstate"></a>
@@ -617,9 +618,9 @@ O estado da operação.
 |**createdTime**  <br>*opcional*  <br>*só de leitura*|Hora de criação de operação de assíncrona (UTC).|cadeia (data / hora)|
 |**endTime**  <br>*opcional*  <br>*só de leitura*|Hora de fim da operação assíncrona (UTC).|cadeia (data / hora)|
 |**erro**  <br>*opcional*||[ErrorResponse](#errorresponse)|
-|**ID**  <br>*opcional*|ID de operação assíncrona.|Cadeia|
+|**ID**  <br>*opcional*|ID de operação assíncrona.|string|
 |**operationType**  <br>*opcional*|Tipo de operação assíncrona.|enumeração (imagem, Service)|
-|**resourceLocation**  <br>*opcional*|Recursos criados ou atualizados pela operação assíncrona.|Cadeia|
+|**resourceLocation**  <br>*opcional*|Recursos criados ou atualizados pela operação assíncrona.|string|
 |**Estado**  <br>*opcional*||[AsyncOperationState](#asyncoperationstate)|
 
 
@@ -630,8 +631,8 @@ As chaves de autenticação para um serviço.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**primaryKey**  <br>*opcional*|Chave primária.|Cadeia|
-|**secondaryKey**  <br>*opcional*|Chave secundária.|Cadeia|
+|**primaryKey**  <br>*opcional*|Chave primária.|string|
+|**secondaryKey**  <br>*opcional*|Chave secundária.|string|
 
 
 <a name="autoscaler"></a>
@@ -655,7 +656,7 @@ O recurso de computação de Machine Learning.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**ID**  <br>*opcional*|ID de recurso.|Cadeia|
+|**ID**  <br>*opcional*|ID de recurso.|string|
 |**tipo**  <br>*opcional*|Tipo de recurso.|enumeração (Cluster)|
 
 
@@ -666,8 +667,8 @@ Configuração para reservar os recursos para um contentor no cluster.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**CPU**  <br>*opcional*|Especifica a reserva da CPU. Formato para Kubernetes: consulte [significado da CPU](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|Cadeia|
-|**memória**  <br>*opcional*|Especifica a reserva de memória. Formato para Kubernetes: consulte [significado da memória](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|Cadeia|
+|**CPU**  <br>*opcional*|Especifica a reserva da CPU. Formato para Kubernetes: consulte [significado da CPU](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|string|
+|**memória**  <br>*opcional*|Especifica a reserva de memória. Formato para Kubernetes: consulte [significado da memória](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|string|
 
 
 <a name="deployment"></a>
@@ -679,10 +680,10 @@ Uma instância de uma implementação do Azure Machine Learning.
 |---|---|---|
 |**createdAt**  <br>*opcional*  <br>*só de leitura*|Hora de criação de implementação (UTC).|cadeia (data / hora)|
 |**expiredAt**  <br>*opcional*  <br>*só de leitura*|Implementação expirou hora (UTC).|cadeia (data / hora)|
-|**ID**  <br>*opcional*|ID de implementação.|Cadeia|
-|**imageId**  <br>*opcional*|ID de imagem associado esta implementação.|Cadeia|
-|**serviceName**  <br>*opcional*|Nome do serviço.|Cadeia|
-|**Estado**  <br>*opcional*|Estado da implementação atual.|Cadeia|
+|**ID**  <br>*opcional*|ID de implementação.|string|
+|**imageId**  <br>*opcional*|ID de imagem associado esta implementação.|string|
+|**serviceName**  <br>*opcional*|Nome do serviço.|string|
+|**Estado**  <br>*opcional*|Estado da implementação atual.|string|
 
 
 <a name="deploymentlist"></a>
@@ -699,8 +700,8 @@ Detalhe do erro de serviço de gestão de modelo.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**código**  <br>*necessário*|Código de erro.|Cadeia|
-|**mensagem**  <br>*necessário*|Mensagem de erro.|Cadeia|
+|**código**  <br>*necessário*|Código de erro.|string|
+|**mensagem**  <br>*necessário*|Mensagem de erro.|string|
 
 
 <a name="errorresponse"></a>
@@ -710,9 +711,9 @@ Um objeto de erro do serviço de gestão de modelo.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**código**  <br>*necessário*|Código de erro.|Cadeia|
+|**código**  <br>*necessário*|Código de erro.|string|
 |**Detalhes**  <br>*opcional*|Matriz de objectos de detalhe do erro.|<[ErrorDetail](#errordetail)> matriz|
-|**mensagem**  <br>*necessário*|Mensagem de erro.|Cadeia|
+|**mensagem**  <br>*necessário*|Mensagem de erro.|string|
 |**statusCode**  <br>*opcional*|Código de estado HTTP.|inteiro|
 
 
@@ -723,17 +724,17 @@ A imagem do Azure Machine Learning.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**computeResourceId**  <br>*opcional*|ID do ambiente criado no recurso de computação de Machine Learning.|Cadeia|
+|**computeResourceId**  <br>*opcional*|ID do ambiente criado no recurso de computação de Machine Learning.|string|
 |**createdTime**  <br>*opcional*|Hora de criação de imagens (UTC).|cadeia (data / hora)|
 |**creationState**  <br>*opcional*||[AsyncOperationState](#asyncoperationstate)|
-|**Descrição**  <br>*opcional*|Texto de descrição da imagem.|Cadeia|
+|**Descrição**  <br>*opcional*|Texto de descrição da imagem.|string|
 |**erro**  <br>*opcional*||[ErrorResponse](#errorresponse)|
-|**ID**  <br>*opcional*|ID de imagem.|Cadeia|
-|**imageBuildLogUri**  <br>*opcional*|URI dos registos carregados na compilação de imagem.|Cadeia|
-|**imageLocation**  <br>*opcional*|Cadeia de localização de registo de contentor do Azure para a imagem de criação.|Cadeia|
+|**ID**  <br>*opcional*|ID de imagem.|string|
+|**imageBuildLogUri**  <br>*opcional*|URI dos registos carregados na compilação de imagem.|string|
+|**imageLocation**  <br>*opcional*|Cadeia de localização de registo de contentor do Azure para a imagem de criação.|string|
 |**imageType**  <br>*opcional*||[ImageType](#imagetype)|
 |**manifesto**  <br>*opcional*||[Manifesto](#manifest)|
-|**nome**  <br>*opcional*|Nome da imagem.|Cadeia|
+|**nome**  <br>*opcional*|Nome da imagem.|string|
 |**versão**  <br>*opcional*|Versão da imagem definido pelo serviço de gestão de modelo.|inteiro|
 
 
@@ -744,11 +745,11 @@ Um pedido para criar uma imagem do Azure Machine Learning.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**computeResourceId**  <br>*necessário*|ID do ambiente criado no recurso de computação de Machine Learning.|Cadeia|
-|**Descrição**  <br>*opcional*|Texto de descrição da imagem.|Cadeia|
+|**computeResourceId**  <br>*necessário*|ID do ambiente criado no recurso de computação de Machine Learning.|string|
+|**Descrição**  <br>*opcional*|Texto de descrição da imagem.|string|
 |**imageType**  <br>*necessário*||[ImageType](#imagetype)|
-|**manifestId**  <br>*necessário*|ID do manifesto a partir da qual a imagem será criada.|Cadeia|
-|**nome**  <br>*necessário*|Nome da imagem.|Cadeia|
+|**manifestId**  <br>*necessário*|ID do manifesto a partir da qual a imagem será criada.|string|
+|**nome**  <br>*necessário*|Nome da imagem.|string|
 
 
 <a name="imagetype"></a>
@@ -767,12 +768,12 @@ O manifesto do Azure Machine Learning.
 |---|---|---|
 |**ativos**  <br>*necessário*|Lista de recursos.|<[Asset](#asset)> matriz|
 |**createdTime**  <br>*opcional*  <br>*só de leitura*|Hora de criação de manifesto (UTC).|cadeia (data / hora)|
-|**Descrição**  <br>*opcional*|Manifesto do texto de descrição.|Cadeia|
-|**driverProgram**  <br>*necessário*|Programa de controlador do manifesto.|Cadeia|
-|**ID**  <br>*opcional*|ID de manifesto.|Cadeia|
+|**Descrição**  <br>*opcional*|Manifesto do texto de descrição.|string|
+|**driverProgram**  <br>*necessário*|Programa de controlador do manifesto.|string|
+|**ID**  <br>*opcional*|ID de manifesto.|string|
 |**modelIds**  <br>*opcional*|Lista de IDs de modelo de modelos de registado. O pedido irá falhar se qualquer um dos modelos de incluídos não são registados.|<string>matriz|
 |**modelType**  <br>*opcional*|Especifica se os modelos já estão registados com o serviço de gestão de modelo.|enumeração (registada)|
-|**nome**  <br>*necessário*|Nome do manifesto.|Cadeia|
+|**nome**  <br>*necessário*|Nome do manifesto.|string|
 |**targetRuntime**  <br>*necessário*||[TargetRuntime](#targetruntime)|
 |**versão**  <br>*opcional*  <br>*só de leitura*|Versão do manifesto atribuído pelo serviço de gestão de modelo.|inteiro|
 |**webserviceType**  <br>*opcional*|Especifica o tipo de serviço web que será criado a partir do manifesto pretendido.|enumeração (em tempo real)|
@@ -786,13 +787,13 @@ Uma instância de um modelo do Azure Machine Learning.
 |Nome|Descrição|Esquema|
 |---|---|---|
 |**createdAt**  <br>*opcional*  <br>*só de leitura*|Hora de criação de modelo (UTC).|cadeia (data / hora)|
-|**Descrição**  <br>*opcional*|Texto de descrição do modelo.|Cadeia|
-|**ID**  <br>*opcional*  <br>*só de leitura*|ID de modelo.|Cadeia|
-|**mimeType**  <br>*necessário*|Tipo MIME do conteúdo do modelo. Para obter mais informações sobre o tipo de MIME, consulte o [lista de tipos de suportes de dados IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|Cadeia|
-|**nome**  <br>*necessário*|Nome do modelo.|Cadeia|
+|**Descrição**  <br>*opcional*|Texto de descrição do modelo.|string|
+|**ID**  <br>*opcional*  <br>*só de leitura*|ID de modelo.|string|
+|**mimeType**  <br>*necessário*|Tipo MIME do conteúdo do modelo. Para obter mais informações sobre o tipo de MIME, consulte o [lista de tipos de suportes de dados IANA](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
+|**nome**  <br>*necessário*|Nome do modelo.|string|
 |**etiquetas**  <br>*opcional*|Lista de etiquetas de modelo.|<string>matriz|
 |**Descompactar**  <br>*opcional*|Indica se é necessário descompactar o modelo durante a criação de imagens do Docker.|booleano|
-|**URL**  <br>*necessário*|URL do modelo. Normalmente, vamos colocar um URL de assinatura de acesso partilhado aqui.|Cadeia|
+|**URL**  <br>*necessário*|URL do modelo. Normalmente, vamos colocar um URL de assinatura de acesso partilhado aqui.|string|
 |**versão**  <br>*opcional*  <br>*só de leitura*|Versão de modelo atribuído pelo serviço de gestão de modelo.|inteiro|
 
 
@@ -814,7 +815,7 @@ Uma lista paginated de imagens.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**nextLink**  <br>*opcional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|Cadeia|
+|**nextLink**  <br>*opcional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|string|
 |**valor**  <br>*opcional*|Matriz de objetos de modelo.|<[Imagem](#image)> matriz|
 
 
@@ -825,7 +826,7 @@ Uma lista paginated de manifestos.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**nextLink**  <br>*opcional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|Cadeia|
+|**nextLink**  <br>*opcional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|string|
 |**valor**  <br>*opcional*|Matriz de objetos de manifesto.|<[Manifesto](#manifest)> matriz|
 
 
@@ -836,7 +837,7 @@ Uma lista paginated de modelos.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**nextLink**  <br>*opcional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|Cadeia|
+|**nextLink**  <br>*opcional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|string|
 |**valor**  <br>*opcional*|Matriz de objetos de modelo.|<[Modelo](#model)> matriz|
 
 
@@ -847,7 +848,7 @@ Uma lista paginated de serviços.
 
 |Nome|Descrição|Esquema|
 |---|---|---|
-|**nextLink**  <br>*opcional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|Cadeia|
+|**nextLink**  <br>*opcional*|Ligação de continuação (URI absoluto) para a página de resultados na lista seguinte.|string|
 |**valor**  <br>*opcional*|Matriz de objetos do serviço.|<[ServiceResponse](#serviceresponse)> matriz|
 
 
@@ -863,9 +864,9 @@ Um pedido para criar um serviço.
 |**computeResource**  <br>*necessário*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*opcional*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*opcional*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*necessário*|Imagem ao criar o serviço.|Cadeia|
+|**imageId**  <br>*necessário*|Imagem ao criar o serviço.|string|
 |**maxConcurrentRequestsPerContainer**  <br>*opcional*|Número máximo de pedidos em simultâneo.  <br>**Valor mínimo**:`1`|inteiro|
-|**nome**  <br>*necessário*|Nome do serviço.|Cadeia|
+|**nome**  <br>*necessário*|Nome do serviço.|string|
 |**numReplicas**  <br>*opcional*|Número de réplicas de pod em execução em qualquer altura. Não é possível especificar se Autoscaler está ativado.  <br>**Valor mínimo**:`0`|inteiro|
 
 
@@ -887,12 +888,12 @@ Estado detalhado do serviço.
 |Nome|Descrição|Esquema|
 |---|---|---|
 |**createdAt**  <br>*opcional*|Hora de criação de serviço (UTC).|cadeia (data / hora)|
-|**ID**  <br>*opcional*|ID do serviço.|Cadeia|
+|**ID**  <br>*opcional*|ID do serviço.|string|
 |**imagem**  <br>*opcional*||[Imagem](#image)|
 |**manifesto**  <br>*opcional*||[Manifesto](#manifest)|
 |**modelos**  <br>*opcional*|Lista de modelos.|<[Modelo](#model)> matriz|
-|**nome**  <br>*opcional*|Nome do serviço.|Cadeia|
-|**scoringUri**  <br>*opcional*|URI para o serviço de classificação.|Cadeia|
+|**nome**  <br>*opcional*|Nome do serviço.|string|
+|**scoringUri**  <br>*opcional*|URI para o serviço de classificação.|string|
 |**Estado**  <br>*opcional*||[AsyncOperationState](#asyncoperationstate)|
 |**updatedAt**  <br>*opcional*|Hora (UTC) da última atualização.|cadeia (data / hora)|
 |**appInsightsEnabled**  <br>*opcional*|Ative o application insights para um serviço.|booleano|
@@ -916,7 +917,7 @@ Um pedido para atualizar um serviço.
 |**autoScaler**  <br>*opcional*||[AutoScaler](#autoscaler)|
 |**containerResourceReservation**  <br>*opcional*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*opcional*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*opcional*|Imagem ao criar o serviço.|Cadeia|
+|**imageId**  <br>*opcional*|Imagem ao criar o serviço.|string|
 |**maxConcurrentRequestsPerContainer**  <br>*opcional*|Número máximo de pedidos em simultâneo.  <br>**Valor mínimo**:`1`|inteiro|
 |**numReplicas**  <br>*opcional*|Número de réplicas de pod em execução em qualquer altura. Não é possível especificar se Autoscaler está ativado.  <br>**Valor mínimo**:`0`|inteiro|
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="resource-manager-rest-apis"></a>APIs REST do Gestor de Recursos
 > [!div class="op_single_selector"]
@@ -249,6 +249,6 @@ Content-Type: application/json
 
 A resposta JSON longa para este pedido foi omitida para melhorar a legibilidade desta documentação. A resposta contém informações sobre a implementação transformada em modelo que criou.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais sobre como lidar com as operações assíncronas REST, consulte [controlar as operações do Azure assíncronas](resource-manager-async-operations.md).

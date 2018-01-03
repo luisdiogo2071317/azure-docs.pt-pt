@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: eceeccc0d6225613fdd75a92b894290665168fc6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Integrar o Azure AD com um Apache aplicação Cordova
+# <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -86,7 +86,7 @@ Este passo é opcional. Este tutorial fornece pré-aprovisionada valores que pod
 
 O Azure AD emite tokens para apenas as aplicações conhecidas. Antes de poder utilizar o Azure AD da sua aplicação, terá de criar uma entrada para o mesmo no seu inquilino. Para registar uma nova aplicação no seu inquilino:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique em sua conta. No **diretório** lista, escolha o inquilino do Azure AD, onde é necessário registar a sua aplicação.
 3. Clique em **mais serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
 4. Clique em **registos de aplicação**e, em seguida, selecione **adicionar**.
@@ -285,7 +285,7 @@ Os passos para executar a aplicação concretos variam consoante a plataforma.
 
     Use `cordova run --help` to see additional build and run options.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para referência, o exemplo concluído (sem os valores de configuração) está disponível no [GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).
 
 Agora pode passar para os cenários mais avançados (e mais interessantes). Pode querer tente: [proteger uma API Web do Node.js com o Azure AD](active-directory-devquickstarts-webapi-nodejs.md).

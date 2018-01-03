@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 9a4e0b5a400668cb9ec96000d274f43739139a03
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planear a sua infraestrutura de cópias de segurança de VMs no Azure
-Este artigo fornece desempenho e sugestões de recursos para ajudar a planear a infraestrutura de cópia de segurança de VM. Também define aspetos fundamentais do serviço de cópia de segurança; Estes aspetos podem ser fundamental para determinar a arquitetura, planeamento de capacidade e agendamento. Se já [preparar o ambiente](backup-azure-vms-prepare.md), planeamento é o passo seguinte antes de começar [para fazer uma cópia de segurança de VMs](backup-azure-vms.md). Se precisar de mais informações sobre máquinas virtuais do Azure, consulte o [documentação de Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Este artigo fornece desempenho e sugestões de recursos para ajudar a planear a infraestrutura de cópia de segurança de VM. Também define aspetos fundamentais do serviço de cópia de segurança; Estes aspetos podem ser fundamental para determinar a arquitetura, planeamento de capacidade e agendamento. Se já [preparar o ambiente](backup-azure-arm-vms-prepare.md), planeamento é o passo seguinte antes de começar [para fazer uma cópia de segurança de VMs](backup-azure-arm-vms.md). Se precisar de mais informações sobre máquinas virtuais do Azure, consulte o [documentação de Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Como funciona o Azure cópia de segurança máquinas virtuais?
 Quando o serviço de cópia de segurança do Azure inicia uma tarefa de cópia de segurança na hora agendada, aciona a extensão de cópia de segurança para criar um instantâneo de ponto no tempo. As utilizações do serviço de cópia de segurança do Azure a _VMSnapshot_ extensão no Windows e o _VMSnapshotLinux_ extensão no Linux. A extensão é instalada durante a primeira cópia de segurança VM. Para instalar a extensão, tem de executar a VM. Se a VM não está em execução, o serviço de cópia de segurança tira um instantâneo de armazenamento subjacente (uma vez que não existem escritas de aplicação ocorrem enquanto a VM está parada).
@@ -97,7 +97,7 @@ Para cada disco a cópia de segurança, cópias de segurança do Azure lê os bl
 ## <a name="total-vm-backup-time"></a>Tempo de cópia de segurança de VM total
 Enquanto a maioria das cópias de segurança é despendido a ler e a cópia dos dados, outras operações contribuem para o total de tempo necessário para efetuar uma cópia de segurança de uma VM:
 
-* Tempo necessário para [instale ou Atualize a extensão de cópia de segurança](backup-azure-vms.md).
+* Tempo necessário para [instale ou Atualize a extensão de cópia de segurança](backup-azure-arm-vms.md).
 * Tempo de instantâneo, é o tempo decorrido para acionar um instantâneo. Instantâneos são acionados próximo da hora de cópia de segurança agendada.
 * Tempo de espera na fila. Uma vez que o serviço de cópia de segurança está a processar cópias de segurança de vários clientes, ao copiar dados de cópia de segurança do instantâneo para a cópia de segurança ou um cofre dos serviços de recuperação poderá não iniciar imediatamente. Em tempos de pico de carga, a espera pode stretch devido ao número de cópias de segurança que está a ser processados até oito horas. No entanto, o tempo de cópia de segurança de VM total é inferior a 24 horas para políticas de cópia de segurança diárias.
 * Tempo de transferência de dados, o tempo necessário para o serviço de cópia de segurança para as alterações incrementais de cópia de segurança anterior de computação e transferir essas alterações para o Cofre de armazenamento.
@@ -131,7 +131,7 @@ Preços para fazer uma cópia de segurança de VMs é *não* com base no tamanho
 
 Por exemplo, colocar uma máquina virtual tamanho A2 padrão, que tem dois discos de dados adicionais com um tamanho máximo de 1 TB. A tabela seguinte fornece os dados reais armazenados em cada um destes discos:
 
-| Tipo de disco | Tamanho máx. | Disponibilizar dados reais presentes |
+| Tipo de disco | Tamanho máximo | Disponibilizar dados reais presentes |
 | --- | --- | --- |
 | Disco do sistema operativo |1023 GB |17 GB |
 | Disco local / disco de recursos |135 GB |5 GB (não incluído para cópia de segurança) |
@@ -147,8 +147,8 @@ Faturação do deixa de uma máquina virtual especificada apenas se a proteção
 ## <a name="questions"></a>Tem dúvidas?
 Se tiver dúvidas ou se houver alguma funcionalidade que gostaria de ver incluída, [envie-nos comentários](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Passos seguintes
-* [Fazer uma cópia de segurança de máquinas virtuais](backup-azure-vms.md)
+## <a name="next-steps"></a>Passos Seguintes
+* [Fazer uma cópia de segurança de máquinas virtuais](backup-azure-arm-vms.md)
 * [Gerir a cópia de segurança da máquina virtual](backup-azure-manage-vms.md)
-* [Monitorizar máquinas virtuais](backup-azure-restore-vms.md)
+* [Monitorizar máquinas virtuais](backup-azure-arm-restore-vms.md)
 * [Resolver problemas de cópia de segurança de VM](backup-azure-vms-troubleshoot.md)

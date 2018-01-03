@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
 ms.openlocfilehash: fe50fb3a7434702101dc5ae7a9dd176a33423119
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Criar um gateway de aplicação utilizando a CLI do Azure
 
@@ -148,7 +148,7 @@ azure network application-gateway create \
 Este exemplo cria um gateway de aplicação básico com as predefinições para o serviço de escuta, conjunto back-end, as definições http de back-end e regras. Pode modificar estas definições de acordo com a implementação, após o aprovisionamento é efetuada com êxito.
 Se já tiver a sua aplicação web definida com o conjunto de back-end nos passos anteriores, uma vez criado, o balanceamento de carga é iniciada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como criar sondas de estado de funcionamento personalizado, visitando [criar uma sonda do Estado de funcionamento personalizado](application-gateway-create-probe-portal.md)
 

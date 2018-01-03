@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: f63f317cc213519c50b0f07b4f93842a72500a82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 77f79c4e57aa8dd90fb0a519e7217e4f4e3618e7
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Tutorial: Integração do Azure Active Directory com Boomi
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://platform.boomi.com/sso/<accountname>/saml`
+    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://platform.boomi.com/`
 
     b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://platform.boomi.com/sso/<accountname>/saml`
 

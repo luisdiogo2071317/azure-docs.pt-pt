@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 87e58e8df16f4b87b66a9ac0846be20e09073826
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e3d0a07323189599cb86dd2bf1347c2107efa842
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-xamarin-apps"></a>Integrar o Azure AD com aplicações Xamarin
+# <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -48,7 +48,7 @@ Após concluir a configuração, abra a solução no Visual Studio. Aqui, encont
 ## <a name="step-2-register-the-directorysearcher-app"></a>Passo 2: Registar a aplicação de DirectorySearcher
 Para ativar a aplicação obter os tokens, terá primeiro de registá-lo no seu inquilino do Azure AD e conceder permissão para aceder à API do Azure AD Graph. Eis como:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique em sua conta. Em seguida, sob o **diretório** lista, selecione o inquilino do Active Directory onde é necessário registar a aplicação.
 3. Clique em **mais serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
 4. Clique em **registos de aplicação**e, em seguida, selecione **adicionar**.

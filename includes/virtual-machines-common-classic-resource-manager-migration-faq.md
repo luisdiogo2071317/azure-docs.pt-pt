@@ -36,7 +36,7 @@ Durante a migração, os recursos passam da implementação clássica para Resou
 
 <a name="vault">Clássico</a> VM pontos de recuperação no Cofre de cópia de segurança não migra automaticamente para um cofre dos serviços de recuperação quando mover a VM do clássico para o modo Resource Manager. Siga estes passos para transferir as cópias de segurança das VMs:
 
-1. No cofre do Backup, aceda ao separador **Itens Protegidos** e selecione a VM. Clique em [Parar Proteção](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Deixe a opção *Eliminar dados de cópia de segurança associados* **desmarcada**.
+1. No cofre do Backup, aceda ao separador **Itens Protegidos** e selecione a VM. Clique em [Parar Proteção](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Deixe a opção *Eliminar dados de cópia de segurança associados* **desmarcada**.
 2. Elimine a extensão de cópia de segurança/instantâneo da VM.
 3. Migre a máquina virtual do modo clássico para o modo do Resource Manager. Certifique-se de que as informações de armazenamento e rede correspondentes à máquina virtual também são migradas para o modo do Resource Manager.
 4. Crie um cofre dos Serviços de Recuperação e configure a cópia de segurança na máquina virtual migrada com a ação **Cópia de Segurança** no dashboard do cofre. Para obter informações detalhadas sobre a criação de cópias de segurança de VMs para um cofre dos Serviços de Recuperação, veja o artigo [Proteger VMs do Azure com um cofre dos Serviços de Recuperação](../articles/backup/backup-azure-vms-first-look-arm.md).

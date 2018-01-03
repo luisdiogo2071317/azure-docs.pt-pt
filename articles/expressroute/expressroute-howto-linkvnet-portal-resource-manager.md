@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 ms.openlocfilehash: 34caed9323ae3067d1dc17ab9c62ebf7a9be855b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Ligar uma rede virtual para um circuito do ExpressRoute
 > [!div class="op_single_selector"]
@@ -140,5 +140,5 @@ O utilizador do circuito tem o ID de recurso e uma chave de autorização do pro
 
 Pode disponibilizar uma autorização ao eliminar a ligação que liga o circuito de ExpressRoute para a rede virtual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md).

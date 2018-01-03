@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: df39b957e70be38331b3711a36ce847348049591
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4231b5e72ea0852de344e7484bdf20997243cee6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Azure Active Directory com absorver LMS
 
@@ -30,7 +30,7 @@ Integrar absorver LMS com o Azure AD fornece as seguintes vantagens:
 - Pode permitir aos utilizadores iniciar sessão automaticamente no absorver LMS (através de início de sessão) com as respetivas contas do Azure AD.
 - Pode gerir as contas numa localização central, o portal do Azure.
 
-Se pretender saber mais sobre sofware como uma integração de aplicação de serviço (SaaS) com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Se pretender saber mais sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

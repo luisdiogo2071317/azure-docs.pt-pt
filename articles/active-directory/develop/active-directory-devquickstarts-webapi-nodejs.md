@@ -1,5 +1,5 @@
 ---
-title: "Node.js do Azure Active Directory introdução"
+title: "Azure AD Node.js web API introdução | Microsoft Docs"
 description: "Como criar uma API que se integra com o Azure AD para autenticação de web de Node.js REST."
 services: active-directory
 documentationcenter: nodejs
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: c882f717635bef38d15fefef2f4ff6a5c30490b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 411f646574af2f86621cbb3cd7175b6a9478972a
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Proteger Web de Node.js API no Azure Active Directory
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Introdução de API web do AD Node.js do Azure
 
 Este artigo demonstra como proteger uma [Restify](http://restify.com/) ponto final de API com [Passport](http://passportjs.org/) utilizando o [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) módulo para processar a comunicação com o Azure Active Directory (AAD). 
 
@@ -76,7 +76,7 @@ Antes de poder ligar ao Azure Active Directory, terá as seguintes informações
 | Nome  | Descrição | Nome da variável no ficheiro de configuração |
 | ------------- | ------------- | ------------- |
 | Nome do inquilino  | [Nome do inquilino](active-directory-howto-tenant.md) que pretende utilizar para autenticação | `tenantName`  |
-| ID de Cliente  | ID de cliente é o termo de OAuth utilizado para o AAD _ID da aplicação_. |  `clientID`  |
+| ID do Cliente  | ID de cliente é o termo de OAuth utilizado para o AAD _ID da aplicação_. |  `clientID`  |
 
 Da resposta de registo na Shell de nuvem do Azure, copie o `appId` valor e criar um novo ficheiro designado `config.js`. Em seguida, adicione o seguinte código e substitua os valores com os tokens entre parênteses:
 
@@ -234,7 +234,7 @@ Unauthorized
 ```
 Agora que criou uma API segura, pode implementar um cliente com capacidade para passar os tokens de autenticação para a API.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Conforme indicado na introdução, tem de implementar um homólogo de cliente para ligar ao servidor que processa o início de sessão, termine a sessão e gerir tokens. Para obter exemplos baseada no código, pode referir-se para as aplicações de cliente na [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) e [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Para um tutorial passo a passo, consulte o artigo seguinte:
 
 > [!div class="nextstepaction"]

@@ -3,8 +3,8 @@ title: "Conector do SQL Server genérico | Microsoft Docs"
 description: "Este artigo descreve como configurar o conector do SQL Server genérico da Microsoft."
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: mtillman
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: billmath
-ms.openlocfilehash: 04a6b7290c4a17d60145355ef1374960a8b6c5ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 12/19/2017
+ms.author: davidste
+ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referência técnica de conector do SQL Server genérica
 Este artigo descreve o conector do SQL Server genérico. O artigo aplica-se os seguintes produtos:
@@ -231,7 +231,11 @@ Genérico suporte completo de conector do SQL Server e a importação Delta util
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Tabela/vista**  
-Para importar atributos com múltiplos valores para um objeto, tem de fornecer o nome da tabela/vista separada por vírgulas no **com nome de vários valores/vistas de tabelas** e condições da respetiva associação no **associar condição** com a tabela principal.
+Para importar atributos com múltiplos valores para um objeto, tem de fornecer o nome da tabela/vista no **com nome de vários valores/vistas de tabelas** e condições da respetiva associação no **associar condição** com a tabela principal . Se existirem mais de uma tabela com múltiplos valor na origem de dados, pode utilizar union para uma única vista.
+
+>[!IMPORTANT]
+O agente de gestão do SQL Server genérico pode funcionar apenas com uma tabela com múltiplos valor. Não colocar em nome de tabela/vista com múltiplos valor mais do que um nome de tabela. É a limitação do SQL Server genérico.
+
 
 Exemplo: Que pretende importar o objeto do empregado e todos os atributos com múltiplos valores. Existem duas tabelas, com o nome de empregado (tabela principal) e o departamento (com múltiplos valor).
 Faça o seguinte:

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação
 
@@ -34,7 +34,7 @@ Ao atualizar um cofre de cópia de segurança para um cofre dos serviços de rec
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Alterações para a automatização e a ferramenta após a atualização
 
 Durante a preparação da sua infraestrutura para a atualização do cofre, tem de atualizar o seu automatização existente ou ferramentas para assegurar que continua a funcionar após a atualização.
-Consulte as referências de cmdlets do PowerShell para o [modelo de implementação do Service Manager](backup-client-automation-classic.md) e [modelo de implementação do Resource Manager](backup-client-automation.md).
+Consulte as referências de cmdlets do PowerShell para o [modelo de implementação do Resource Manager](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Antes da atualização
@@ -154,7 +154,7 @@ A monitorização para cópias de segurança (o agente MARS e IaaS) é uma funci
 Se falhar qualquer parte da atualização do cofre, tenha em atenção que o OperationId listado no erro. Microsoft Support proativamente irá funcionar para resolver o problema. Pode aceder à suporte ou e-mail-nos rsvaultupgrade@service.microsoft.com com o ID de subscrição, nome do cofre e OperationId. Vamos tentar resolver o problema mais rapidamente possível. Não repita a operação, a menos que explicitamente instruído para fazer pela Microsoft.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Utilize o seguinte artigo para:</br>
 [Cópia de segurança de uma VM do IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Cópia de segurança de um servidor de cópia de segurança do Azure](backup-azure-microsoft-azure-backup.md)</br>

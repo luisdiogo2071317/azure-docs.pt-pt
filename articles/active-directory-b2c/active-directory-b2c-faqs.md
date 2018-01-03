@@ -1,12 +1,11 @@
 ---
-title: Perguntas mais frequentes sobre (FAQ) - Azure AD B2C | Microsoft Docs
-description: Perguntas mais frequentes sobre o Azure Active Directory B2C
+title: Perguntas mais frequentes - Azure Active Directory B2C
+description: Perguntas mais frequentes (FAQ) sobre o Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: saeeda
+author: PatAltimore
 manager: mtillman
-editor: bryanla
-ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
+editor: saeeda
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
 Esta página respostas a perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para atualizações.
@@ -64,9 +63,9 @@ Pode utilizar o [corporativa funcionalidade](../active-directory/customize-brand
 
     ![Captura de ecrã de uma mensagem de verificação personalizado](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-A assinatura de e-mail contém o nome do inquilino do B2C que forneceu quando criou o inquilino do B2C. Pode alterar o nome a utilizar estas instruções:
+A assinatura de e-mail contém o nome do inquilino do Azure AD B2C que forneceu quando criou o inquilino do Azure AD B2C. Pode alterar o nome a utilizar estas instruções:
 
-1. Iniciar sessão para o [portal do Azure](https://portal.azure.com/) como administrador da subscrição.
+1. Iniciar sessão para o [portal do Azure](https://portal.azure.com/) como Administrador Global.
 1. Abra o **do Azure Active Directory** painel.
 1. Clique em de **propriedades** separador.
 1. Alterar o **nome** campo.
@@ -113,15 +112,15 @@ Siga estes passos para eliminar o inquilino do Azure AD B2C:
 
 1. Siga estes passos para [navegue para o Azure AD B2C definições](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
 1. Navegue para o **aplicações**, **fornecedores de identidade**, e **todas as políticas** e elimine todas as entradas cada um deles.
-1. Agora iniciar sessão para o [portal clássico do Azure](https://manage.windowsazure.com/) como administrador da subscrição. (Utilizar o mesmo ou conta profissional ou a mesma conta Microsoft que utilizou para iniciar sessão no Azure.)
-1. Navegue para a extensão do Active Directory à esquerda e clique no inquilino do B2C.
-1. Clique em de **utilizadores** separador.
-1. Selecione cada utilizador, por sua vez (excluir o utilizador de administrador de subscrição tem atualmente sessão iniciada como). Clique em **eliminar** na parte inferior da página e clique em **Sim** quando lhe for pedido.
-1. Clique em de **aplicações** separador.
-1. Selecione **aplicações minha empresa detém** no **mostrar** campo de lista pendente e clique em Marcar a verificação.
-1. Uma aplicação chamar **aplicação de extensões de b2c**. Clique em **eliminar** na parte inferior da página e clique em **Sim** quando lhe for pedido.
-1. Navegue novamente para a extensão do Active Directory e selecione o seu inquilino do B2C.
-1. Clique em **eliminar** na parte inferior da página. Para concluir o processo, siga as instruções no ecrã.
+1. Agora iniciar sessão para o [portal do Azure](https://portal.azure.com/) como administrador da subscrição. (Utilizar o mesmo ou conta profissional ou a mesma conta Microsoft que utilizou para iniciar sessão no Azure.)
+1. Comutador ao inquilino do Azure AD B2C que pretende eliminar.
+2. Navegue até ao menu à esquerda do Active Directory.
+3. Selecione **utilizadores e grupos**.
+4. Selecione cada utilizador, por sua vez (excluir o utilizador de administrador de subscrição tem atualmente sessão iniciada como). Clique em **eliminar** na parte inferior da página e clique em **Sim** quando lhe for pedido.
+5. Clique em de **registos de aplicação**.
+6. Selecione a aplicação de chamada **aplicação de extensões de b2c**. Clique em **eliminar** e clique em **Sim** quando lhe for pedido.
+7. Selecione **descrição geral**.
+8. Clique em **eliminar diretório**. Para concluir o processo, siga as instruções no ecrã.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Pode obter do Azure AD B2C como parte do Enterprise Mobility Suite?
 Não, o Azure AD B2C é uma serviço do Azure pay as you go e não faz parte do Enterprise Mobility Suite.

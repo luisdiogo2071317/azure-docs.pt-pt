@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 385e2703c5b21fb78d058dc71f66a6c98c1e227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -141,7 +141,7 @@ Recomendamos que contacte o utilizador para verificar se estava a utilizar ender
 Impossível é normalmente um bom indicador de que um hacker conseguiu com êxito início de sessão. No entanto, FALSO-positivos podem ocorrer quando um utilizador viaja utilizando um novo dispositivo ou uma VPN que não é normalmente utilizada por outros utilizadores na organização. Outra origem de Falso-positivos é aplicações incorretamente passaram servidor IPs como cliente IPs, que pode dar o aspecto de inícios de sessão está alojado ocorridos a partir do Centro de dados em que essa aplicação do back-end (muitas vezes, estes são os datacenters da Microsoft, que Pode dar o aspecto de inícios de sessão a decorrer da Microsoft pertencentes à empresa endereços IP). Como resultado destas falso-positivos, o nível de risco para este evento de risco é **média**.
 
 > [!TIP]
-> Pode reduzir a quantidade de Falso-positves comunicado para este tipo de eventos de risco configurando [denominado localizações](active-directory-named-locations.md). 
+> Pode reduzir a quantidade de Falso-positivos comunicados para este tipo de eventos de risco configurando [denominado localizações](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Início de sessão a partir de localizações desconhecidas
 
@@ -162,7 +162,7 @@ Recomendamos que contacte o utilizador para verificar se são, na verdade, inici
 
 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Eventos de risco são foundation para proteger as identidades do seu Azure AD. Do Azure AD consegue atualmente detetar eventos de risco seis: 
 

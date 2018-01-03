@@ -1,5 +1,5 @@
 ---
-title: "Loja do Windows Azure AD introdução | Microsoft Docs"
+title: "Azure AD plataforma Universal do Windows (UWP/XAML) introdução | Microsoft Docs"
 description: "Aplicações da loja do Windows de compilação que integram com o Azure AD para início de sessão e chamar do Azure AD protegido APIs com OAuth."
 services: active-directory
 documentationcenter: windows
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f76324e4415dcc300a0c2e21a89d30301c17ebab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2282a59c9dd5d5d76a5b3e19f602e9d3dcc0b4ef
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-windows-store-apps"></a>Integrar o Azure AD com aplicações da loja Windows
+# <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD plataforma Universal do Windows (UWP/XAML) introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,7 +46,7 @@ Quando estiver pronto, siga os procedimentos nas três secções seguintes.
 ## <a name="step-1-register-the-directorysearcher-app"></a>Passo 1: Registar a aplicação de DirectorySearcher
 Para ativar a aplicação obter os tokens, terá primeiro de registá-lo no seu inquilino do Azure AD e conceder permissão para aceder à API do Azure AD Graph. Eis como:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique em sua conta. Em seguida, sob o **diretório** lista, selecione o inquilino do Active Directory onde é necessário registar a aplicação.
 3. Clique em **mais serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
 4. Clique em **registos de aplicação**e, em seguida, selecione **adicionar**.

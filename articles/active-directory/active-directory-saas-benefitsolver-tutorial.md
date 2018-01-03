@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 25d99ad3048612722b75cf6ec9b8d07729770c8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Tutorial: Integração do Azure Active Directory com Benefitsolver
 
@@ -142,7 +142,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     d. Clique em **OK**.
 
-6. No **certificado de assinatura de SAML** secção, clique em **Metadta XML** e, em seguida, guarde o ficheiro de metadados no seu computador.
+6. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
     ![A hiperligação de transferência do certificado](./media/active-directory-saas-benefitsolver-tutorial/tutorial_benefitsolver_certificate.png) 
 
@@ -150,7 +150,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
 
-8. Para configurar o início de sessão único em **Benefitsolver** lado, terá de enviar o transferido **Metadta XML** para [equipa de suporte de Benefitsolver](https://www.businessolver.com/contact).
+8. Para configurar o início de sessão único em **Benefitsolver** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de Benefitsolver](https://www.businessolver.com/contact).
 
     > [!NOTE]
     > A equipa de suporte Benefitsolver tem de efetuar a configuração de SSO real. Irá receber uma notificação quando o SSO foi ativado para a sua subscrição.

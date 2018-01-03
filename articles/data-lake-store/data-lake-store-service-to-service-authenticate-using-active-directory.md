@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 9a4502ecfd5471cc2a968f995e66e595f59384b3
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticação do serviço de serviço com o Data Lake Store utilizando o Azure Active Directory
 > [!div class="op_single_selector"]
@@ -97,7 +97,7 @@ Quando programaticamente iniciar sessão, terá do ID para a sua aplicação. Se
 
     ![Ponto final de tokens OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "ponto final de tokens OAuth")   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, criou uma aplicação web do Azure AD e recolheu as informações que necessárias nas suas aplicações de cliente, criar utilizando o .NET SDK, Java, Python, REST API, etc. Agora pode avançar para os seguintes artigos falar sobre como utilizar a aplicação nativa do Azure AD para o primeiro autenticar com o Data Lake Store e, em seguida, executar outras operações no arquivo.
 
 * [Autenticação do serviço de serviço com o Data Lake Store com Java](data-lake-store-service-to-service-authenticate-java.md)

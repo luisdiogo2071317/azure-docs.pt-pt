@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5f2bf857d2618a8cfe7094c7f3124be20db3ff39
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-secure-angularjs-single-page-apps-by-using-azure-ad"></a>Ajudar a proteger as aplicações de página única AngularJS por utilizar o Azure AD
+# <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS, introdução
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -46,7 +46,7 @@ Para começar, [transferir a estrutura de aplicação](https://github.com/AzureA
 ## <a name="step-1-register-the-directorysearcher-application"></a>Passo 1: Registar a aplicação de DirectorySearcher
 Para ativar a sua aplicação autenticar os utilizadores e obter tokens, primeiro tem de registá-lo no seu inquilino do Azure AD:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Se tem sessão iniciada para vários diretórios, poderá ter de Certifique-se de que está a visualizar o diretório correto. Para tal, na barra superior, clique em sua conta. Sob o **diretório** lista, escolha o inquilino do Azure AD, onde é necessário registar a sua aplicação.
 3. Clique em **mais serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
 4. Clique em **registos de aplicação**e, em seguida, selecione **adicionar**.
@@ -156,7 +156,7 @@ Adal.js torna mais fácil incorporar funcionalidades de identidade comuns na sua
 
 Para referência, o exemplo concluído (sem os valores de configuração) está disponível no [GitHub](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora pode passar para cenários adicionais. Pode querer tente: [chamar uma API web CORS a partir de uma aplicação de página única](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

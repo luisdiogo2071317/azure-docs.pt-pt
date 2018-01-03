@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
 ms.openlocfilehash: 7ca9307e8a78f6dade4b231fa3a0d83a68af3f21
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Criar um Gateway de Aplicação com um Balanceador de Carga Interno (ILB)
 
@@ -217,7 +217,7 @@ VirtualIPs    : {10.0.0.10}
 DnsName       : appgw-b2a11563-2b3a-4172-a4aa-226ee4c23eed.cloudapp.net
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se pretender obter mais informações sobre as opções de balanceamento de carga em geral, veja:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
 ms.openlocfilehash: bb77c9b39e1aa89f6411de8ec3b1fca41e954bf2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Criar uma sonda personalizada para o Gateway de aplicação utilizando o portal
 
@@ -74,7 +74,7 @@ Quando terminar, clique em **guardar** e as definições são aplicadas.
 
 A sonda predefinida verifica o acesso de predefinido para a aplicação web. Agora que foi criada uma sonda personalizada, o gateway de aplicação utiliza o caminho personalizado definido para monitorizar o estado de funcionamento para os servidores de back-end. Com base nos critérios que foi definido, o gateway de aplicação verifica o caminho especificado na pesquisa. Se a chamada para o anfitrião: porta / caminho não devolve um HTTP 200 399 resposta de estado, o servidor é retirado rotação após ter sido atingido o limiar de mau estado de funcionamento. Pesquisar continua na instância do mau estado de funcionamento para determinar quando torna-se em bom estado novamente. Assim que a instância é adicionada novamente para o agrupamento de servidores de bom estado de funcionamento, tráfego começa a fluir novamente ao mesmo e pesquisa para a instância continua intervalo especificado do utilizador como habitualmente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber como configurar a descarga de SSL com o Gateway de aplicação do Azure, consulte [configurar a descarga de SSL](application-gateway-ssl-portal.md)
 

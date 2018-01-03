@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar estado do sistema para o Windows Server
 
@@ -89,9 +89,6 @@ Inclui a terminologia utilizada estes passos:
 1. Abra o **cópia de segurança do Microsoft Azure** snap-in no *máquina de destino*.
 2. Certifique-se de que o *máquina de destino* e *máquina de origem* estão registados no mesmo Cofre de serviços de recuperação.
 3. Clique em **recuperar dados** para iniciar o fluxo de trabalho.
-
-    ![Recuperar dados](./media/backup-azure-restore-windows-server-classic/recover.png)
-
 4. Selecione **outro servidor**
 
     ![Outro servidor](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -99,9 +96,6 @@ Inclui a terminologia utilizada estes passos:
 5. Disponibilize o ficheiro de credenciais do cofre que corresponde do *Cofre de exemplo*. Se o ficheiro de credenciais do Cofre inválido (ou expirados), transfira um novo ficheiro de credenciais do cofre do *Cofre de exemplo* no portal do Azure. Depois do ficheiro de credenciais do cofre for fornecido, é apresentado o Cofre de serviços de recuperação associado com o ficheiro de credenciais do cofre.
 
 6. No painel selecionar servidor de cópia de segurança, selecione o *máquina de origem* da lista de máquinas apresentadas.
-
-    ![Lista de máquinas](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-
 7. No painel de selecionar o modo de recuperação, selecione **estado do sistema** e clique em **seguinte**. 
 
     ![Pesquisa](./media/backup-azure-restore-system-state/recover-type-selection.png)
@@ -222,5 +216,5 @@ Se o processo anterior de aplicar o estado do sistema não for concluída com ê
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Agora que recuperar os seus ficheiros e pastas, pode [gerir as cópias de segurança](backup-azure-manage-windows-server.md).

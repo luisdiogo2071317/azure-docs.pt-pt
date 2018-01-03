@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fa9ffa8f5380659674301f7e738879c8efb25b7f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory latências de relatórios
 
@@ -37,15 +37,15 @@ Existem duas áreas de criação de relatórios de atividade:
 
 A tabela seguinte lista as informações de latência para relatórios de atividade.
 
-| Relatório | Mínimo | Média |
-| :-- | --- | --- |
-| Registos de auditoria | 30 minutos  | 1 hora  |
-| Inícios de sessão | 15 minutos  | 2 horas |
+| Relatório | Mínimo | Média | Observações |
+| :-- | --- | --- | :-- |
+| Registos de auditoria | 30 minutos  | 1 hora  |Em alguns casos, pode demorar até 2 horas para dados de atividade de auditoria apresentar.|
+| Inícios de sessão | 15 minutos  | 2 horas |Em alguns casos, pode demorar até 24 horas para dados de atividade de início de sessão apresentar. Isto inclui dados de atividade de inícios de sessão provenientes das aplicações do office legado. |
 
-Em alguns casos de limite, pode efetuar:
 
-- 2 horas para auditoria de dados de atividade para apresentar.
-- 24 horas para os dados de atividade de início de sessão apresentar. Isto inclui dados de atividade de inícios de sessão provenientes das aplicações do office legado. 
+
+
+
 
 
 ## <a name="security-reports"></a>Relatórios de segurança
@@ -60,7 +60,7 @@ A tabela seguinte lista as informações de latência para relatórios de segura
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
 | Utilizadores em risco          | 5 minutos   | 15 minutos  | 2 horas  |
-| Risco inícios de sessão         | 5 minutos   | 15 minutos  | 2 horas  |
+| Inícios de sessão de risco         | 5 minutos   | 15 minutos  | 2 horas  |
 
 ## <a name="risk-events"></a>Eventos de risco
 
@@ -79,7 +79,7 @@ A tabela seguinte lista as informações de latência para eventos de risco.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se pretender saber mais sobre os relatórios de atividade no portal do Azure, consulte:
 

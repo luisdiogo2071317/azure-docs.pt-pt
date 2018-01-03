@@ -16,10 +16,10 @@ ms.date: 08/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1be9947c43c70b7248201b9f470fb3cf5a11519e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Crie um grupo e adicionar membros no Azure Active Directory
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Este artigo explica como criar e preencher um novo grupo no Azure Active Directo
    ![Criar a confirmação de grupo](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Estes artigos fornecem informações adicionais acerca do Azure Active Directory.
 
 * [Consulte os grupos existentes](active-directory-groups-view-azure-portal.md)

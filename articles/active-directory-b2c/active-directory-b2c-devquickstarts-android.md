@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: parakhj
-ms.openlocfilehash: ac40d5a4838ac23d2613f1e2380fed3d28e31d7a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd08c666c09b651e6c0def72a89eda56ba73e34d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>O Azure AD B2C: Início de sessão utilizando uma aplicação Android
 
@@ -42,8 +42,6 @@ Em seguida, precisa de criar uma aplicação no diretório do B2C. Isto proporci
 * Incluir um **Native Client** na aplicação.
 * Copiar a **ID da Aplicação** atribuída à aplicação. Irá precisar deste mais tarde.
 * Configurar um cliente nativo **URI de redirecionamento** (por exemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Também irá precisar deste mais tarde.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Criar as políticas
 
@@ -120,7 +118,7 @@ AuthorizationServiceConfiguration config =
 // perform the auth request...
 ```
 
-### <a name="authorizing"></a>A Autorizar
+### <a name="authorizing"></a>A autorizar
 
 Depois de configurar ou obtenção de uma configuração de serviço de autorização, pode ser construído a um pedido de autorização. Para criar o pedido, terá as seguintes informações:
 

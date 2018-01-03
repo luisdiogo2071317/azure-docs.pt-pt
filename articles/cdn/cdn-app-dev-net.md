@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introdução à programação do CDN do Azure
 > [!div class="op_single_selector"]
@@ -334,7 +334,7 @@ Vamos, em seguida, pode confirmar os avisos para executar o resto do programa.
 
 ![Conclusão do programa](./media/cdn-app-dev-net/cdn-program-running-2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Para ver o projeto de conclusão nestas instruções, [transferir o exemplo](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
 Para obter documentação adicional sobre a biblioteca de gestão de CDN do Azure para .NET, ver o [na MSDN](https://msdn.microsoft.com/library/mt657769.aspx).

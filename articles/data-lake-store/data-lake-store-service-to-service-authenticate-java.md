@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: f68239b2f4f7a2ba0617023d9397184c483a4d99
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-java"></a>Autenticação do serviço de serviço com o Data Lake Store com Java
 > [!div class="op_single_selector"]
 > * [Utilizar o Java](data-lake-store-service-to-service-authenticate-java.md)
-> * [Com o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [Utilizar o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Utilizar o Python](data-lake-store-service-to-service-authenticate-python.md)
 > * [Utilizar a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
@@ -80,7 +80,7 @@ Neste artigo, pode saber mais sobre como utilizar o SDK Java para fazer a autent
 
 O SDK do Data Lake Store disponibiliza métodos convenientes que lhe permitem gerir os tokens de segurança necessários para comunicar com a conta do Data Lake Store. No entanto, o SDK não impõe que sejam utilizados apenas estes métodos. Pode utilizar também qualquer outro meio para obter um token, como utilizar o [SDK do Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java) ou o seu próprio código personalizado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a utilizar a autenticação de utilizador final para autenticar com o Azure Data Lake Store utilizando o SDK de Java. Agora pode ver os seguintes artigos falar sobre como utilizar o SDK Java para trabalhar com o Azure Data Lake Store.
 
 * [Operações de dados no Data Lake Store com Java SDK](data-lake-store-get-started-java-sdk.md)
