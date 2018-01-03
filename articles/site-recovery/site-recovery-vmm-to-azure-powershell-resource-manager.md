@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rajanaki
 ms.openlocfilehash: cc832d06611c10901d4370dc7467f0b681d89cbd
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Replicar máquinas virtuais de Hyper-V em nuvens VMM para o Azure com o PowerShell e do Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Certifique-se de que tem os pré-requisitos:
 
 ### <a name="hyper-v-prerequisites"></a>Pré-requisitos do Hyper-V
 * Os servidores de anfitrião Hyper-V tem de estar em execução, pelo menos, **Windows Server 2012** com a função Hyper-V ou **Microsoft Hyper-V Server 2012** e instalou as atualizações mais recentes.
-* Se estiver a executar Hyper-V num cluster, tenha em atenção que o mediador de clusters não é criado automaticamente se tiver um cluster com base no endereço IP estático. Precisará de configurar manualmente o mediador de clusters. Para
+* Se estiver a executar Hyper-V num cluster, tenha em atenção que o mediador de clusters não é criado automaticamente se tiver um cluster com base no endereço IP estático. Precisará de configurar manualmente o mediador de clusters. Data de validade
 * Para obter instruções, consulte [como configurar o Mediador de réplicas do Hyper-V](http://blogs.technet.com/b/haroldwong/archive/2013/03/27/server-virtualization-series-hyper-v-replica-broker-explained-part-15-of-20-by-yung-chou.aspx).
 * Qualquer servidor de anfitrião do Hyper-V ou cluster para o qual pretende gerir proteção têm de ser incluído numa nuvem VMM.
 
@@ -305,5 +305,5 @@ Utilize os seguintes comandos para monitorizar a atividade. Tenha em atenção q
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Leia mais](/powershell/module/azurerm.recoveryservices.backup/#recovery) sobre o Azure Site Recovery com cmdlets do PowerShell do Azure Resource Manager.

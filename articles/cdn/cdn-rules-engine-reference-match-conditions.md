@@ -1,6 +1,6 @@
 ---
-title: "Condições de correspondência do motor de regras de CDN do Azure | Microsoft Docs"
-description: "Documentação de referência para a CDN do Azure regras de funcionalidades e as condições de correspondência do motor."
+title: "Corresponder as condições para o motor de regras de rede de entrega de conteúdos | Microsoft Docs"
+description: "Documentação de referência para a rede de entrega de conteúdos do Azure regras de funcionalidades e as condições de correspondência do motor."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,72 +12,112 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 0abbcf8508cb95d0fb8a9c8e5243426752efe590
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 944675f4b055c3d0c2559db53e4807a5c00bda64
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de corresponder ao motor de regras CDN do Azure
-Este tópico lista as descrições detalhadas das condições de correspondência de rede de entrega de conteúdos (CDN) do Azure disponíveis [motor de regras](cdn-rules-engine.md).
+# <a name="match-conditions-for-the-content-delivery-network-rules-engine"></a>Condições de correspondência para o motor de regras de rede de entrega de conteúdos
+Este artigo apresenta uma lista de descrições detalhadas das condições correspondência disponíveis para a rede de entrega de conteúdo do Azure [motor de regras](cdn-rules-engine.md).
 
 A segunda parte de uma regra é a condição de correspondência. Uma condição de correspondência identifica tipos específicos de pedidos para o qual será efetuado um conjunto de funcionalidades.
 
-Por exemplo, pode ser utilizado para filtrar pedidos para o conteúdo num determinado local, pedidos gerado a partir de um determinado endereço IP ou o país ou informações de cabeçalho.
+Por exemplo, pode utilizar uma condição de correspondência para:
+- Filtrar pedidos para o conteúdo numa localização específica.
+- Filtrar pedidos gerados a partir de um determinado endereço IP ou o país.
+- Filtrar pedidos por informações de cabeçalho.
 
-## <a name="always"></a>Sempre
+## <a name="always-match-condition"></a>Sempre correspondem à condição
 
-A condição de correspondência de sempre foi concebida para aplicar um conjunto predefinido de funcionalidades para todos os pedidos.
-
-## <a name="device"></a>Dispositivo
-
-A condição de correspondência de dispositivo identifica os pedidos efetuados a partir de um dispositivo móvel com base nas respetivas propriedades.  Deteção de dispositivos móveis é conseguida através de [WURFL](http://wurfl.sourceforge.net/).  Capacidades WURFL e as respetivas variáveis do motor de regras de CDN são listados abaixo.
-<br>
-> [!NOTE] 
-> As variáveis abaixo são suportadas o **modificar cabeçalho de pedido do cliente** e **modificar cabeçalho de resposta de cliente** funcionalidades.
-
-Capacidade | Variável | Descrição | Valores de exemplo
------------|----------|-------------|----------------
-Nome de marca | % {wurfl_cap_brand_name} | Uma cadeia que indica o nome de marca do dispositivo. | Samsung
-SO do dispositivo | % {wurfl_cap_device_os} | Uma cadeia que indica o sistema operativo instalado no dispositivo. | IOS
-Versão do SO do Dispositivo | % {wurfl_cap_device_os_version} | Uma cadeia que indica o número de versão do SO instalado no dispositivo. | 1.0.1
-Orientação dupla | % {wurfl_cap_dual_orientation} | Um valor boleano que indica se o dispositivo suporta orientação dupla. | true
-HTML preferencial DTD | % {wurfl_cap_html_preferred_dtd} | Uma cadeia que indica documento preferencial definição o dispositivo móvel (DTD) para o conteúdo HTML. | nenhum<br/>xhtml_basic<br/>HTML5
-Imagem Inlining | % {wurfl_cap_image_inlining} | Um valor boleano que indica se o dispositivo suporta Base64 codificado imagens. | False
-É Android | % {wurfl_vcap_is_android} | Um valor boleano que indica se o dispositivo utiliza o SO Android. | true
-É IOS | % {wurfl_vcap_is_ios} | Um valor boleano que indica se o dispositivo utiliza iOS. | False
-É TV inteligente | % {wurfl_cap_is_smarttv} | Um valor boleano que indica se o dispositivo é um Televisor inteligente. | False
-É Smartphone | % {wurfl_vcap_is_smartphone} | Um valor boleano que indica se o dispositivo é um smartphone. | true
-É Tablet | % {wurfl_cap_is_tablet} | Um valor boleano que indica se o dispositivo é um tablet. Esta é uma descrição de SO independentes. | true
-É dispositivo sem fios | % {wurfl_cap_is_wireless_device} | Um valor boleano que indica se o dispositivo é considerado um dispositivo sem fios. | true
-Nome de marketing | % {wurfl_cap_marketing_name} | Uma cadeia que indica o nome do dispositivo de marketing. | Pearl blackBerry 8100
-Browser móvel | % {wurfl_cap_mobile_browser} | Uma cadeia que indica o browser utilizado para pedir conteúdo a partir do dispositivo. | Chrome
-Versão do Browser móveis | % {wurfl_cap_mobile_browser_version} | Uma cadeia que indica a versão do browser utilizado para pedir conteúdo a partir do dispositivo. | 31
-Nome do modelo | % {wurfl_cap_model_name} | Uma cadeia que indica o nome do modelo do dispositivo. | S3
-Transferência progressiva | % {wurfl_cap_progressive_download} | Um valor boleano que indica se o dispositivo suporta a reprodução de áudio/vídeo enquanto ainda está a ser transferido. | true
-Data da versão | % {wurfl_cap_release_date} | Uma cadeia que indica o ano e mês em que o dispositivo foi adicionado à base de dados WURFL.<br/><br/>Formato:`yyyy_mm` | 2013_december
-Altura de resolução | % {wurfl_cap_resolution_height} | Um número inteiro que indica a altura do dispositivo em pixels. | 768
-Largura de resolução | % {wurfl_cap_resolution_width} | Um número inteiro que indica a largura do dispositivo em pixéis. | 1024
-
-
-## <a name="location"></a>Localização
-
-Estas condições são concebidas para identificar os pedidos com base na localização do autor do pedido de correspondência.
+A condição de correspondência de sempre aplica-se um conjunto predefinido de funcionalidades para todos os pedidos.
 
 Nome | Objetivo
 -----|--------
-COMO número | Identifica pedidos provenientes de uma rede específico.
-País | Identifica pedidos provenientes de países/regiões especificados.
+[Sempre](#always) | Aplica-se de um conjunto predefinido de funcionalidades para todos os pedidos.
 
+## <a name="device-match-condition"></a>Condição de correspondência de dispositivo
+
+A condição de correspondência de dispositivo identifica os pedidos efetuados a partir de um dispositivo móvel com base nas respetivas propriedades.  
+
+Nome | Objetivo
+-----|--------
+[Dispositivo](#device) | Identifica os pedidos efetuados a partir de um dispositivo móvel com base nas respetivas propriedades.
+
+## <a name="location-match-conditions"></a>Condições de correspondência de localização
+
+As condições de correspondência de localização identificam pedidos com base na localização do autor do pedido.
+
+Nome | Objetivo
+-----|--------
+[COMO número](#as-number) | Identifica pedidos provenientes de uma rede específico.
+[País](#country) | Identifica pedidos provenientes de países/regiões especificados.
+
+## <a name="origin-match-conditions"></a>Condições de correspondência de origem
+
+As condições de correspondência de origem identificam pedidos que apontam para o armazenamento de rede de entrega de conteúdos ou um servidor de origem do cliente.
+
+Nome | Objetivo
+-----|--------
+[Origem da CDN](#cdn-origin) | Identifica os pedidos de conteúdo armazenado no armazenamento de rede de entrega de conteúdo.
+[Origem de cliente](#customer-origin) | Identifica os pedidos de conteúdo armazenado num servidor de origem do cliente específico.
+
+## <a name="request-match-conditions"></a>Condições de correspondência de pedido
+
+As condições de correspondência de pedido identificam pedidos com base nas respetivas propriedades.
+
+Nome | Objetivo
+-----|--------
+[Endereço IP do cliente](#client-ip-address) | Identifica pedidos provenientes de um endereço IP específico.
+[Parâmetro de cookie](#cookie-parameter) | Verifica os cookies associados a cada pedido para o valor especificado.
+[Cookie parâmetro Regex](#cookie-parameter-regex) | Verifica os cookies associados a cada pedido para a expressão regular especificada.
+[Limite Cname](#edge-cname) | Identifica os pedidos que apontam para um limite específico CNAME.
+[Referência de domínio](#referring-domain) | Identifica os pedidos que foram consultados os nomes de anfitrião especificado.
+[Literal de cabeçalho de pedido](#request-header-literal) | Identifica os pedidos que contêm o cabeçalho especificado definido como um valor especificado.
+[Regex de cabeçalho de pedido](#request-header-regex) | Identifica os pedidos que contêm o cabeçalho especificado definido como um valor que corresponde à expressão regular especificada.
+[Caráter universal de cabeçalho de pedido](#request-header-wildcard) | Identifica os pedidos que contêm o cabeçalho especificado definido como um valor que corresponde ao padrão especificado.
+[Método de pedido](#request-method) | Identifica pedidos pelo respetivo método HTTP.
+[Esquema de pedido](#request-scheme) | Identifica pedidos pelo respetivo protocolo HTTP.
+
+## <a name="url-match-conditions"></a>Condições de correspondência de URL
+
+As condições de correspondência de URL identificam pedidos com base no respetivos URLs.
+
+Nome | Objetivo
+-----|--------
+Diretório de caminho de URL | Identifica pedidos pelo respetivo caminho relativo.
+Extensão de caminho de URL | Identifica pedidos pela respetiva extensão de nome de ficheiro.
+Nome de ficheiro de caminho de URL | Identifica pedidos pelo respetivo nome de ficheiro.
+Literal de caminho de URL | Compara o caminho relativo de um pedido para o valor especificado.
+Regex de caminho de URL | Compara o caminho relativo de um pedido para a expressão regular especificada.
+Caminho de URL com carateres universais | Compara o caminho relativo de um pedido para o padrão especificado.
+Literal de consulta de URL | Compara a cadeia de consulta de um pedido para o valor especificado.
+Parâmetro de consulta de URL | Identifica os pedidos que contêm o parâmetro de cadeia de consulta especificada definido como um valor que corresponde ao padrão especificado.
+Regex de consulta de URL | Identifica os pedidos que contêm o parâmetro de cadeia de consulta especificada definido como um valor que corresponde a uma expressão regular especificada.
+Consulta de URL com carateres universais | Compara o valor especificado em relação a cadeia de consulta do pedido.
+
+
+## <a name="reference-for-rules-engine-match-conditions"></a>Referência para condições de correspondência do motor de regras
+
+---
+### <a name="always"></a>Sempre
+
+A condição de correspondência de sempre aplica-se um conjunto predefinido de funcionalidades para todos os pedidos.
+
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### <a name="as-number"></a>COMO número 
-Esta rede é definida pelo seu sistema ASN (número autónomo). É fornecida uma opção para indicar se esta condição irá ser cumprida quando um cliente de rede "Corresponde a" ou "Does não corresponde a" especificado como número.
+A rede de número AS é definida pelo respetivo número de sistema autónomo (ASN). É fornecida uma opção para indicar se esta condição irá ser cumprida quando um cliente de rede "Corresponde a" ou "Does não corresponde a" o ASN especificado.
 
-**Informações da chave**
-- Especificar os números de AS várias por delimiting cada um com um único espaço. Por exemplo, 64514 64515 corresponde pedidos que chegam de 64514 ou 64515.
-- Determinados pedidos não podem devolver um número válido. Um ponto de interrogação (ou seja,?) corresponderá pedidos para o qual válido como número não foi possível determinar.
-- Todo o como número para a rede pretendido tem de ser especificado. Não serão possível corresponder valores parciais.
+Informações da chave:
+- Especifique vários ASNs por delimiting cada um com um único espaço. Por exemplo, 64514 64515 corresponde pedidos que chegam 64514 ou 64515.
+- Determinados pedidos podem não devolver um ASN válido. Um ponto de interrogação (?) corresponderá pedidos para o qual não foi possível determinar um ASN válido.
+- Tem de especificar o ASN completo para a rede pretendido. Não serão possível corresponder valores parciais.
 - Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
   - Concluir o preenchimento da Cache
   - Idade de máx. de interno predefinida
@@ -85,80 +125,38 @@ Esta rede é definida pelo seu sistema ASN (número autónomo). É fornecida uma
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-### <a name="country"></a>País
-Um país podem ser especificado através do respetivo código de país. É fornecida uma opção para indicar se esta condição será preenchido quando o país/região do que um pedido tem origem "Correspondências" ou "Does não corresponde a" o valor especificado (es).
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
 
+</br>
 
-**Informações da chave**
-- Especificar vários indicativos de país, delimiting cada um com um único espaço.
-- Carateres universais não são suportados quando especificar um código de país.
-- Os indicativos de país "EU" e "Da Ásia-Pacífico" não abranger todos os endereços IP nessas regiões.
-- Determinados pedidos não podem devolver um código de país válido. Um ponto de interrogação (ou seja,?) corresponderá pedidos para o qual não foi possível determinar um código de país válido.
-- Indicativos de país diferenciam maiúsculas de minúsculas.
-- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
-  - Concluir o preenchimento da Cache
-  - Idade de máx. de interno predefinida
-  - Forçar interna de atribuição de idade máxima
-  - Ignorar a Cache não de origem
-  - Interna obsoleta máx.
-
-## <a name="origin"></a>Origem
-
-Estes correspondência condições foram concebidas para identificar os pedidos que apontam para armazenamento CDN ou um servidor de origem do cliente.
-
-Nome | Objetivo
------|--------
-Origem da CDN | Identifica os pedidos para o conteúdo armazenado no armazenamento do CDN.
-Origem de cliente | Identifica os pedidos de conteúdo armazenado num servidor de origem do cliente específico.
-
+---
 ### <a name="cdn-origin"></a>Origem da CDN
-Esta condição de correspondência é preenchida quando ambas as condições seguintes forem cumpridas:
-- Foi pedido ao conteúdo do armazenamento da CDN.
-- O URI do pedido tira partido do ponto de acesso ao conteúdo (por exemplo, /000001) definido nesta condição de correspondência.
-  - URL de CDN: O URI do pedido tem de conter o ponto de acesso ao conteúdo selecionado.
+A condição de correspondência de origem da CDN é preenchida quando ambas as condições seguintes forem cumpridas:
+- Conteúdo do armazenamento de rede de entrega de conteúdos foi pedido.
+- O pedido de URI utiliza o ponto de acesso ao conteúdo (por exemplo, /000001) que está definido nesta condição de correspondência.
+  - URL de rede de entrega de conteúdo: O URI do pedido tem de conter o ponto de acesso ao conteúdo selecionado.
   - URL de CNAME Edge: A configuração de CNAME correspondente do contorno tem de apontar para o ponto de acesso ao conteúdo selecionado.
   
-*Notas:*
+Informações da chave:
  - O ponto de acesso ao conteúdo identifica o serviço que deverá servir os conteúdos solicitados.
- - Uma instrução se e não deve ser utilizada para combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de origem de CDN com uma condição de correspondência de origem do cliente criaria um padrão de correspondência de que nunca foi possível corresponder. Por este motivo muito mesmo, duas condições de correspondência de origem da CDN não podem ser combinadas através de uma instrução e se.
- 
-### <a name="customer-origin"></a>Origem de cliente
+ - Não utilize uma instrução se e combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de origem de CDN com uma condição de correspondência de origem do cliente criaria um padrão de correspondência de que nunca foi possível corresponder. Por este motivo, as duas condições de correspondência de origem da CDN não podem ser combinadas através de uma instrução e se.
 
-**Informações da chave** 
-- Esta condição de correspondência irá ser satisfeita independentemente se solicitados utilizando uma CDN ou contorno URL de CNAME que aponta para a origem de cliente selecionado.
-- Uma configuração de origem do cliente referenciada por uma regra não pode ser eliminada da página de origem do cliente. Antes de tentar eliminar uma configuração de origem do cliente, certifique-se de que as seguintes configurações não referencie-o:
-  - Condição de correspondência de origem do cliente
-  - Uma configuração de CNAME edge.
-- Uma instrução se e não deve ser utilizada para combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de origem do cliente com uma condição de correspondência de origem da CDN criaria um padrão de correspondência de que nunca foi possível corresponder. Por este motivo muito mesmo, duas condições de correspondência de origem do cliente não podem ser combinadas através de uma instrução e se.
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
 
-## <a name="request"></a>Pedir
+</br>
 
-Estes correspondência condições foram concebidas para identificar os pedidos com base nas respetivas propriedades.
+---
+### <a name="client-ip-address"></a>Endereço IP do Cliente
+É fornecida uma opção para indicar se a condição de endereço IP do cliente irá ser cumprida quando um cliente endereço IP "Correspondências" ou "Does não corresponde a" endereços IP especificado.
 
-Nome | Objetivo
------|--------
-Endereço IP do cliente | Identifica pedidos provenientes de um endereço IP específico.
-Parâmetro de cookie | Verifica os cookies associados a cada pedido para o valor especificado.
-Cookie parâmetro Regex | Verifica os cookies associados a cada pedido para a expressão regular especificada.
-Limite Cname | Identifica os pedidos que apontam para um limite específico CNAME.
-Referência de domínio | Identifica os pedidos que foram consultados os hostname(s) especificado.
-Literal de cabeçalho de pedido | Identifica os pedidos que contêm o cabeçalho especificado definido como um valor especificado (es).
-Regex de cabeçalho de pedido | Identifica os pedidos que contêm o cabeçalho especificado definido como um valor que corresponde à expressão regular especificada.
-Caráter universal de cabeçalho de pedido | Identifica os pedidos que contêm o cabeçalho especificado definido como um valor que corresponde ao padrão especificado.
-Método de pedido | Identifica pedidos pelo respetivo método HTTP.
-Esquema de pedido | Identifica pedidos pelo respetivo protocolo HTTP.
-
-### <a name="client-ip-address"></a>Endereço IP do cliente
-É fornecida uma opção para indicar se esta condição irá ser cumprida quando um cliente 's IP endereço "Corresponde a" ou "Does não corresponde a", os endereços IP especificado.
-
-**Informações da chave:**
+Informações da chave:
 - Certifique-se de que utilizam a notação CIDR.
 - Especifique vários endereços IP e/ou blocos de endereços IP por delimiting cada um com um único espaço.
-  - **Exemplo de IPv4:** 1.2.3.4 10.20.30.40 corresponde a quaisquer pedidos que chegam de 1.2.3.4 ou 10.20.30.40.
-  - **Exemplo de IPv6:** 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 corresponde a quaisquer pedidos que chegam de 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
+  - **Exemplo de IPv4**: 1.2.3.4 10.20.30.40 corresponde a quaisquer pedidos que chegam 1.2.3.4 ou 10.20.30.40.
+  - **Exemplo de IPv6**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 corresponde a quaisquer pedidos que chegam 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
 - A sintaxe para um bloco de endereços IP é o endereço IP base seguido por uma barra e o tamanho de prefixo.
-  - **Exemplo de IPv4:** 5.5.5.64/26 corresponde a quaisquer pedidos que chegam de 5.5.5.64 através de 5.5.5.127.
-  - **Exemplo de IPv6:** 1:2:3: / 48 corresponde a quaisquer pedidos que chegam de 1:2:3:0:0:0:0:0 através de 1:2:3:ffff:ffff:ffff:ffff:ffff.
+  - **Exemplo de IPv4**: 5.5.5.64/26 corresponde a quaisquer pedidos que chegam de 5.5.5.64 através de 5.5.5.127.
+  - **Exemplo de IPv6**: 1:2:3: / 48 corresponde a quaisquer pedidos que chegam de 1:2:3:0:0:0:0:0 através de 1:2:3:ffff:ffff:ffff:ffff:ffff.
 - Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
   - Concluir o preenchimento da Cache
   - Idade de máx. de interno predefinida
@@ -166,46 +164,55 @@ Esquema de pedido | Identifica pedidos pelo respetivo protocolo HTTP.
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### <a name="cookie-parameter"></a>Parâmetro de cookie
-O **corresponde / não corresponde ao** opção determina as condições em que esta correspondem à condição irá ser satisfeito.
-- **Correspondências:** requer um pedido para conter o cookie especificado com um valor que corresponde a, pelo menos, um dos valores definidos nesta condição de correspondência.
-- **Não corresponde à:** requer que o pedido de satisfazer um dos seguintes critérios:
+O **correspondências**/**não corresponde ao** opção determina as condições sob as quais o parâmetro de Cookie correspondem à condição irão ser satisfeitas.
+- **Corresponde a**: necessita de um pedido para conter o cookie especificado com um valor que corresponde a, pelo menos, um dos valores definidos nesta condição de correspondência.
+- **Não coincide com**: requer que o pedido de satisfazer um dos seguintes critérios:
   - Não contém o cookie especificado.
   - Contém o cookie especificado, mas o respetivo valor não corresponde a nenhum dos valores definidos nesta condição de correspondência.
   
-**Informações da chave:**
-- **Nome do cookie:** 
-  - Não são suportados os carateres especiais, incluindo um asterisco, quando especificar um nome de cookie. Isto significa que apenas correspondências de nome de cookie exato são elegíveis para comparação.
-  - Pode ser especificado apenas um nome de cookie único por instância desta condição de correspondência.
+Informações da chave:
+- Nome do cookie: 
+  - Os carateres especiais, incluindo um asterisco, não são suportados quando estiver a especificar um nome de cookie. Isto significa que apenas correspondências de nome de cookie exato são elegíveis para comparação.
+  - Apenas um nome de cookie única pode ser especificado por instância desta condição de correspondência.
   - Comparações de nome de cookie são sensível.
-- **Valor do cookie:** 
+- Valor do cookie: 
   - Especificar vários valores de cookie, delimiting cada um com um único espaço.
   - Um valor de cookie pode tirar partido de carateres especiais. 
-  - Se não tiver sido especificado um caráter universal, apenas uma correspondência exata satisfazer esta condição de correspondência. 
-   - **Exemplo:** especificação de "Valor" corresponderá a "Valor", mas não "Value1" ou "Value2."
+  - Se não tiver sido especificado um caráter universal, apenas uma correspondência exata irá satisfazer esta condição de correspondência. Por exemplo, a especificação de "Valor" corresponderá a "Valor", mas não "Value1" ou "Value2."
   - O **ignorar caso** opção determina se será efetuada uma comparação de maiúsculas e minúsculas com um valor de cookie do pedido.
-  - Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
-   - Concluir o preenchimento da Cache
-   - Idade de máx. de interno predefinida
-   - Forçar interna de atribuição de idade máxima
-   - Ignorar a Cache não de origem
-   - Interna obsoleta máx.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
 
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### <a name="cookie-parameter-regex"></a>Cookie parâmetro Regex
-Esta condição de correspondência define um valor e o nome do cookie. As expressões regulares podem ser utilizadas para definir o valor do cookie pretendido. 
+A condição de correspondência de Regex do parâmetro de Cookie define um valor e o nome do cookie. Pode utilizar expressões regulares para definir o valor do cookie pretendido. 
 
-O **corresponde / não corresponde ao** opção determina as condições sob as quais vai ser satisfeita esta condição de correspondência.
-- **Correspondências:** requer um pedido para conter o cookie especificado com um valor que corresponde à expressão regular especificada.
-- **Não corresponde à:** requer que o pedido de satisfazer um dos seguintes critérios:
+O **correspondências**/**não corresponde ao** opção determina as condições em que esta correspondem à condição irá ser satisfeito.
+- **Corresponde a**: necessita de um pedido para conter o cookie especificado com um valor que corresponde à expressão regular especificada.
+- **Não coincide com**: requer que o pedido de satisfazer um dos seguintes critérios:
   - Não contém o cookie especificado.
   - Contém o cookie especificado, mas o respetivo valor não corresponde a expressão regular especificada.
   
-**Informações da chave:**
-- **Nome do cookie:** 
-  - As expressões regulares e carateres especiais, incluindo um asterisco, não são suportados quando especificar um nome de cookie. Isto significa que apenas correspondências de nome de cookie exato são elegíveis para comparação.
-  - Pode ser especificado apenas um nome de cookie único por instância desta condição de correspondência.
+Informações da chave:
+- Nome do cookie: 
+  - As expressões regulares e carateres especiais, incluindo um asterisco, não são suportados quando estiver a especificar um nome de cookie. Isto significa que apenas correspondências de nome de cookie exato são elegíveis para comparação.
+  - Apenas um nome de cookie única pode ser especificado por instância desta condição de correspondência.
   - Comparações de nome de cookie são sensível.
-- **Valor do cookie:** 
+- Valor do cookie: 
   - Um valor de cookie pode tirar partido de expressões regulares.
   - O **ignorar caso** opção determina se será efetuada uma comparação de maiúsculas e minúsculas com um valor de cookie do pedido.
 - Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
@@ -215,11 +222,20 @@ O **corresponde / não corresponde ao** opção determina as condições sob as 
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-### <a name="edge-cname"></a>Limite Cname
-**Informações da chave** 
-- A lista de limite disponível CNAMEs está limitada às que foram configuradas na página de Edge CNAMEs correspondente para a plataforma em que o motor de regras de HTTP está a ser configurado.
-- Antes de tentar eliminar uma configuração de CNAME edge, certifique-se de que uma condição de correspondência de Edge Cname não referencie-o. As configurações de CNAME de limite que foram definidas numa regra não não possível eliminar a partir da página de Edge CNAMEs. 
-- Uma instrução se e não deve ser utilizada para combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de limite Cname com uma condição de correspondência de origem do cliente criaria um padrão de correspondência de que nunca foi possível corresponder. Por este motivo muito mesmo, duas condições de correspondência de limite Cname não podem ser combinadas através de uma instrução e se.
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+--- 
+### <a name="country"></a>País
+Pode especificar um país através do respetivo código de país. É fornecida uma opção para indicar se esta condição será preenchido quando o país/região do que um pedido tem origem "Correspondências" ou "Does não corresponde a" valores especificados.
+
+Informações da chave:
+- Especificar vários indicativos de país, delimiting cada um com um único espaço.
+- Carateres universais não são suportados quando estiver a especificar um código de país.
+- Os indicativos de país "EU" e "Da Ásia-Pacífico" não abranger todos os endereços IP nessas regiões.
+- Determinados pedidos podem não devolver um código de país válido. Um ponto de interrogação (?) corresponderá pedidos para o qual não foi possível determinar um código de país válido.
+- Indicativos de país diferenciam maiúsculas de minúsculas.
 - Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
   - Concluir o preenchimento da Cache
   - Idade de máx. de interno predefinida
@@ -227,52 +243,132 @@ O **corresponde / não corresponde ao** opção determina as condições sob as 
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
+### <a name="customer-origin"></a>Origem de cliente
+
+Informações da chave: 
+- A condição de correspondência de origem de cliente vai ser satisfeita independentemente se solicitados através de um URL de rede de entrega de conteúdo ou um limite de URL de CNAME que aponta para a origem de cliente selecionado.
+- Não é possível eliminar uma configuração de origem do cliente que é referenciada por uma regra a partir da página de origem do cliente. Antes de tentar eliminar uma configuração de origem do cliente, certifique-se de que as seguintes configurações não referencie-o:
+  - Uma condição de correspondência de origem do cliente
+  - Uma configuração de CNAME edge
+- Não utilize uma instrução se e combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de origem do cliente com uma condição de correspondência de origem da CDN criaria um padrão de correspondência de que nunca foi possível corresponder. Por este motivo, as duas condições de correspondência de origem do cliente não podem ser combinadas através de uma instrução e se.
+
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
+### <a name="device"></a>Dispositivo
+
+A condição de correspondência de dispositivo identifica os pedidos efetuados a partir de um dispositivo móvel com base nas respetivas propriedades. Deteção de dispositivos móveis é conseguida através de [WURFL](http://wurfl.sourceforge.net/). A tabela seguinte lista as capacidades de WURFL e as respetivas variáveis para o motor de regras de rede de entrega de conteúdos.
+<br>
+> [!NOTE] 
+> São suportadas as seguintes variáveis de **modificar cabeçalho de pedido do cliente** e **modificar cabeçalho de resposta de cliente** funcionalidades.
+
+Capacidade | Variável | Descrição | Valores de exemplo
+-----------|----------|-------------|----------------
+Nome de marca | % {wurfl_cap_brand_name} | Uma cadeia que indica o nome de marca do dispositivo. | Samsung
+SO do dispositivo | % {wurfl_cap_device_os} | Uma cadeia que indica o sistema operativo instalado no dispositivo. | IOS
+Versão do SO do Dispositivo | % {wurfl_cap_device_os_version} | Uma cadeia que indica o número de versão do sistema operativo instalado no dispositivo. | 1.0.1
+Orientação dupla | % {wurfl_cap_dual_orientation} | Um valor boleano que indica se o dispositivo suporta orientação dupla. | true
+HTML preferencial DTD | % {wurfl_cap_html_preferred_dtd} | Uma cadeia que indica documento preferencial definição o dispositivo móvel (DTD) para o conteúdo HTML. | nenhum<br/>xhtml_basic<br/>HTML5
+Imagem Inlining | % {wurfl_cap_image_inlining} | Um valor boleano que indica se o dispositivo suporta Base64 codificado imagens. | falso
+É Android | % {wurfl_vcap_is_android} | Um valor boleano que indica se o dispositivo utiliza o SO Android. | true
+É IOS | % {wurfl_vcap_is_ios} | Um valor boleano que indica se o dispositivo utiliza iOS. | falso
+É TV inteligente | % {wurfl_cap_is_smarttv} | Um valor boleano que indica se o dispositivo é um Televisor inteligente. | falso
+É Smartphone | % {wurfl_vcap_is_smartphone} | Um valor boleano que indica se o dispositivo é um smartphone. | true
+É Tablet | % {wurfl_cap_is_tablet} | Um valor boleano que indica se o dispositivo é um tablet. Esta é uma descrição de SO independentes. | true
+É dispositivo sem fios | % {wurfl_cap_is_wireless_device} | Um valor boleano que indica se o dispositivo é considerado um dispositivo sem fios. | true
+Nome de marketing | % {wurfl_cap_marketing_name} | Uma cadeia que indica o nome do dispositivo de marketing. | Pearl blackBerry 8100
+Browser móvel | % {wurfl_cap_mobile_browser} | Uma cadeia que indica o browser que é utilizado para pedir conteúdo a partir do dispositivo. | Chrome
+Versão do Browser móveis | % {wurfl_cap_mobile_browser_version} | Uma cadeia que indica a versão do browser que é utilizado para pedir conteúdo a partir do dispositivo. | 31
+Nome do modelo | % {wurfl_cap_model_name} | Uma cadeia que indica o nome do modelo do dispositivo. | S3
+Transferência progressiva | % {wurfl_cap_progressive_download} | Um valor boleano que indica se o dispositivo suporta a reprodução de áudio e vídeo enquanto ainda está a ser transferido. | true
+Data da versão | % {wurfl_cap_release_date} | Uma cadeia que indica o ano e mês em que o dispositivo foi adicionado à base de dados WURFL.<br/><br/>Formato:`yyyy_mm` | 2013_december
+Altura de resolução | % {wurfl_cap_resolution_height} | Um número inteiro que indica a altura do dispositivo em pixels. | 768
+Largura de resolução | % {wurfl_cap_resolution_width} | Um número inteiro que indica a largura do dispositivo em pixéis. | 1024
+
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
+### <a name="edge-cname"></a>Limite Cname
+Informações da chave: 
+- A lista de limite disponível CNAMEs está limitada às que foram configuradas na página de CNAMEs de limite que corresponde à plataforma em que o motor de regras de HTTP está a ser configurado.
+- Antes de tentar eliminar uma configuração de CNAME edge, certifique-se de que uma condição de correspondência de Edge Cname não referencie-o. As configurações de CNAME de limite que foram definidas numa regra não não possível eliminar a partir da página de Edge CNAMEs. 
+- Não utilize uma instrução se e combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de limite Cname com uma condição de correspondência de origem do cliente criaria um padrão de correspondência de que nunca foi possível corresponder. Por este motivo, as duas condições de correspondência de limite Cname não podem ser combinadas através de uma instrução e se.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
+
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### <a name="referring-domain"></a>Referência de domínio
-O nome de anfitrião associado referência através do qual o conteúdo foi pedido determina se esta condição for satisfeita. É fornecida uma opção para indicar se esta condição irá ser cumprida ao referente o nome do anfitrião "Corresponde a" ou "Não corresponde a" o valor especificado (es).
-**Informações da chave:**
+O nome de anfitrião associado referência através do qual o conteúdo foi pedido determina se a condição de domínio que faça referência for satisfeita. É fornecida uma opção para indicar se esta condição irá ser cumprida quando o referência nome do anfitrião "Corresponde a" ou "Does não corresponde a" valores especificados.
+
+Informações da chave:
 - Especificar vários nomes de anfitrião, delimiting cada um com um único espaço.
 - Esta condição de correspondência suporta carateres especiais.
-- Se o valor especificado não contém um asterisco, em seguida, tem de ser uma correspondência exata para nome de anfitrião de referência. Por exemplo, a especificação de "mydomain.com" não corresponde a "www.mydomain.com."
-- A opção de ignorar caso determina se será efetuada uma comparação de maiúsculas e minúsculas.
+- Se o valor especificado não contém um asterisco, tem de ser uma correspondência exata para nome de anfitrião de referência. Por exemplo, a especificação de "mydomain.com" não corresponde a "www.mydomain.com."
+- O **ignorar caso** opção determina se será efetuada uma comparação de maiúsculas e minúsculas.
 - Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
   - Concluir o preenchimento da Cache
   - Idade de máx. de interno predefinida
   - Forçar interna de atribuição de idade máxima
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
-  
- ### <a name="request-header-literal"></a>Literal de cabeçalho de pedido
-O **corresponde / não corresponde ao** opção determina as condições em que esta correspondem à condição irá ser satisfeito.
-- **Correspondências:** precisa do pedido para conter especificado cabeçalho e o respetivo valor tem de corresponder a um definidos nesta condição de correspondência.
-- **Não corresponde à:** requer que o pedido de satisfazer um dos seguintes critérios:
-  - Não contém o cabeçalho especificado.
-  - Contém o cabeçalho especificado, mas o respetivo valor não corresponde ao definido nesta condição de correspondência.
-  
-**Informações da chave:**
-- Comparações de nome de cabeçalho são sempre sensível. Sensibilidade de comparações de valor de cabeçalho é determinada pela opção de ignorar maiúsculas e minúsculas.
-- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
-  - Concluir o preenchimento da Cache
-  - Idade de máx. de interno predefinida
-  - Forçar interna de atribuição de idade máxima
-  - Ignorar a Cache não de origem
-  - Interna obsoleta máx.
-  
-### <a name="request-header-regex"></a>Regex de cabeçalho de pedido
-**Nota:** esta capacidade requer que o motor de regras - as regras avançadas que tem de ser adquirida separadamente. Contacte o seu Gestor de conta da CDN para a ativar. 
 
-O **corresponde / não corresponde ao** opção determina as condições em que esta correspondem à condição irá ser satisfeito.
-- **Correspondências:** precisa do pedido para conter especificado cabeçalho e o respetivo valor tem de coincidir com o padrão definido na expressão regular especificada.
-- **Não corresponde à:** requer que o pedido de satisfazer um dos seguintes critérios:
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---  
+### <a name="request-header-literal"></a>Literal de cabeçalho de pedido
+O **correspondências**/**não corresponde ao** opção determina as condições em que esta correspondem à condição irá ser satisfeito.
+- **Correspondências**: precisa do pedido para conter o cabeçalho especificado. O valor tem de corresponder ao que está definido nesta condição de correspondência.
+- **Não coincide com**: requer que o pedido de satisfazer um dos seguintes critérios:
+  - Não contém o cabeçalho especificado.
+  - Contém o cabeçalho especificado, mas o respetivo valor não corresponde ao que está definido nesta condição de correspondência.
+  
+Informações da chave:
+- Comparações de nome de cabeçalho são sempre sensível. O **ignorar caso** opção determina a sensibilidade de comparações de valor de cabeçalho.
+- Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
+  - Concluir o preenchimento da Cache
+  - Idade de máx. de interno predefinida
+  - Forçar interna de atribuição de idade máxima
+  - Ignorar a Cache não de origem
+  - Interna obsoleta máx.
+
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---  
+### <a name="request-header-regex"></a>Regex de cabeçalho de pedido
+O **correspondências**/**não corresponde ao** opção determina as condições sob as quais o Regex de cabeçalho de pedido correspondem à condição irão ser satisfeitas.
+- **Correspondências**: precisa do pedido para conter o cabeçalho especificado. O valor tem de corresponder ao padrão que está definido a expressão regular especificada.
+- **Não coincide com**: requer que o pedido de satisfazer um dos seguintes critérios:
   - Não contém o cabeçalho especificado.
   - Contém o cabeçalho especificado, mas o respetivo valor não corresponde a expressão regular especificada.
 
-**Informações da chave:**
+Informações da chave:
 - Nome do cabeçalho: 
   - Comparações de nome de cabeçalho são sensível.
   - Os espaços no nome do cabeçalho devem ser substituídos com "% 20". 
 - Valor de cabeçalho: 
   - Um valor de cabeçalho pode tirar partido de expressões regulares.
-  - Sensibilidade de comparações de valor de cabeçalho é determinada pela opção de ignorar maiúsculas e minúsculas.
+  - O **ignorar caso** opção determina a sensibilidade de comparações de valor de cabeçalho.
   - Apenas cabeçalho exato valor corresponde a pelo menos uma os padrões especificados irá satisfazer esta condição.
 - Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
   - Concluir o preenchimento da Cache
@@ -281,20 +377,25 @@ O **corresponde / não corresponde ao** opção determina as condições em que 
   - Ignorar a Cache não de origem
   - Interna obsoleta máx. 
 
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### <a name="request-header-wildcard"></a>Caráter universal de cabeçalho de pedido
-O **corresponde / não corresponde ao** opção determina as condições em que esta correspondem à condição irá ser satisfeito.
-- **Correspondências:** precisa do pedido para conter especificado cabeçalho e o respetivo valor devem coincidir com, pelo menos, um dos valores definidos nesta condição de correspondência.
-- **Não corresponde à:** requer que o pedido de satisfazer um dos seguintes critérios:
+O **correspondências**/**não corresponde ao** opção determina as condições sob as quais o caráter universal cabeçalho de pedido correspondem à condição irão ser satisfeitas.
+- **Correspondências**: precisa do pedido para conter o cabeçalho especificado. O valor tem de corresponder ao, pelo menos, um dos valores definidos nesta condição de correspondência.
+- **Não coincide com**: requer que o pedido de satisfazer um dos seguintes critérios:
   - Não contém o cabeçalho especificado.
   - Contém o cabeçalho especificado, mas o respetivo valor não corresponde a nenhum dos valores especificados.
   
-**Informações da chave:**
+Informações da chave:
 - Nome do cabeçalho: 
   - Comparações de nome de cabeçalho são sensível.
-  - Os espaços no nome do cabeçalho devem ser substituídos com "% 20". Este valor também pode ser utilizado para especificar um valor de cabeçalho espaços.
+  - Os espaços no nome do cabeçalho devem ser substituídos com "% 20". Também pode utilizar este valor para especificar um valor de cabeçalho espaços.
 - Valor de cabeçalho: 
   - Um valor de cabeçalho pode tirar partido de carateres especiais.
-  - Sensibilidade de comparações de valor de cabeçalho é determinada pela opção de ignorar maiúsculas e minúsculas.
+  - O **ignorar caso** opção determina a sensibilidade de comparações de valor de cabeçalho.
   - Apenas cabeçalho exato valor corresponde a pelo menos uma os padrões especificados irá satisfazer esta condição.
   - Especificar vários valores, delimiting cada um com um único espaço.
 - Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
@@ -304,19 +405,24 @@ O **corresponde / não corresponde ao** opção determina as condições em que 
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### <a name="request-method"></a>Método de pedido
-Apenas os recursos que são pedidos utilizando o método de pedido seleccionado irão satisfazer esta condição. Os métodos de pedido disponíveis são:
-- INTRODUÇÃO
+Apenas os recursos que são pedidos através do método de pedido seleccionado satisfaçam a condição de método de pedido. Os métodos de pedido disponíveis são:
+- GET
 - CABEÇALHO 
 - POST 
 - OPÇÕES 
-- COLOCAR 
-- ELIMINAR 
+- PUT 
+- DELETE 
 - RASTREIO 
 - LIGAR 
 
-**Informações da chave:**
-- Por predefinição, apenas o método de pedido GET pode gerar o conteúdo em cache na nossa rede. Todos os outros métodos de pedido são simplesmente efetuados através da nossa rede.
+Informações da chave:
+- Por predefinição, apenas o método de pedido GET pode gerar o conteúdo em cache na rede. Todos os outros métodos de pedido são efetuados através da rede.
 - Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
   - Concluir o preenchimento da Cache
   - Idade de máx. de interno predefinida
@@ -324,10 +430,15 @@ Apenas os recursos que são pedidos utilizando o método de pedido seleccionado 
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+
+</br>
+
+---
 ### <a name="request-scheme"></a>Esquema de pedido
-Apenas os recursos que são pedidos utilizando o protocolo selecionado irão satisfazer esta condição. Os protocolos disponíveis são HTTP e HTTPS.
+Apenas os recursos que são pedidos através do protocolo selecionado satisfaçam a condição de esquema do pedido. Os protocolos disponíveis são HTTP e HTTPS.
 
-**Informações da chave:**
+Informações da chave:
 - Devido da forma na cache de que as definições são registadas, esta condição de correspondência é incompatível com as seguintes funcionalidades:
   - Concluir o preenchimento da Cache
   - Idade de máx. de interno predefinida
@@ -335,28 +446,14 @@ Apenas os recursos que são pedidos utilizando o protocolo selecionado irão sat
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-## <a name="url"></a>URL
+[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
 
-Estas condições são concebidas para identificar os pedidos com base no respetivos URLs de correspondência.
+</br>
 
-Nome | Objetivo
------|--------
-Diretório de caminho de URL | Identifica pedidos pelo respetivo caminho relativo.
-Extensão de caminho de URL | Identifica pedidos pela respetiva extensão de nome de ficheiro.
-Nome de ficheiro de caminho de URL | Identifica pedidos por nome de ficheiro.
-Literal de caminho de URL | Compara o caminho relativo de um pedido para o valor especificado.
-Regex de caminho de URL | Compara o caminho relativo de um pedido para a expressão regular especificada.
-Caminho de URL com carateres universais | Compara o caminho relativo de um pedido para o padrão especificado.
-Literal de consulta de URL | Compara a cadeia de consulta de um pedido para o valor especificado.
-Parâmetro de consulta de URL | Identifica os pedidos que contêm o parâmetro de cadeia de consulta especificada definido como um valor que corresponde ao padrão especificado.
-Regex de consulta de URL | Identifica os pedidos que contêm o parâmetro de cadeia de consulta especificada definido como um valor que corresponde a uma expressão regular especificada.
-Consulta de URL com carateres universais | Compara o valor (es) especificado na cadeia de consulta do pedido.
-
-
-## <a name="next-steps"></a>Passos seguintes
-* [Descrição geral da CDN do Azure](cdn-overview.md)
+## <a name="next-steps"></a>Passos Seguintes
+* [Descrição geral de rede de entrega de conteúdos do Azure](cdn-overview.md)
 * [Referência do motor de regras](cdn-rules-engine-reference.md)
-* [Expressões condicionais de motor de regras](cdn-rules-engine-reference-conditional-expressions.md)
+* [Motor de regras de expressões condicionais](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funcionalidades do motor de regras](cdn-rules-engine-reference-features.md)
 * [Substituir o comportamento HTTP predefinido utilizando o motor de regras](cdn-rules-engine.md)
 

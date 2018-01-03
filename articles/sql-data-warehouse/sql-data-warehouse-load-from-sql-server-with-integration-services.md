@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 03/30/2017
 ms.author: cakarst;douglasl;barbkess
 ms.openlocfilehash: 6c9cebdd715b6997d0633bc725a3945ba9e0c357
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-ssis"></a>Carregar dados do SQL Server do armazém de dados de SQL do Azure (SSIS)
 > [!div class="op_single_selector"]
@@ -167,7 +167,7 @@ Quando o pacote tiver terminado, verá a marca de verificação verde para indic
 
 Parabéns! Utilizou com êxito os serviços de integração do SQL Server para carregar dados para o Azure SQL Data Warehouse.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre o fluxo de dados SSIS. Comece por aqui: [do fluxo de dados][Data Flow].
 * Saiba como depurar e o direito de pacotes no ambiente de estrutura de resolução de problemas. Comece por aqui: [ferramentas de resolução de problemas de mensagens em fila para o desenvolvimento de pacote][Troubleshooting Tools for Package Development].
 * Saiba como implementar os projetos SSIS e os pacotes para o servidor do Integration Services ou para outra localização de armazenamento. Comece por aqui: [de projetos de implementação do e pacotes][Deployment of Projects and Packages].

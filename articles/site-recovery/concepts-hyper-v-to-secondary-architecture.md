@@ -1,24 +1,16 @@
 ---
-title: "Rever a arquitetura da replicação do Hyper-V para um site secundário com o Azure Site Recovery | Microsoft Docs"
+title: "Replicação de Hyper-V com a arquitetura de site secundário no Azure Site Recovery | Microsoft Docs"
 description: "Este artigo apresenta uma descrição geral da arquitetura para replicar VMs Hyper-V no local para um site do System Center VMM secundário com o Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 26475782-a21a-408a-b089-35382d7e010e
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: a7a493097a4eaacc2c8d8449906b4a57eb411827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3380d189518f811ca6cf628608a253e5d93b2730
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Replicação de Hyper-V para um site secundário
 
@@ -51,20 +43,18 @@ A seguinte tabela e o gráfico fornecem uma vista detalhada dos componentes util
 
 ## <a name="failover-and-failback-process"></a>Processo de ativação pós-falha e de reativação pós-falha
 
-1. Pode efetuar a ativação pós-falha de um único computador ou, criar planos de recuperação, para orquestrar a ativação pós-falha de várias máquinas.
-2. Pode executar uma ativação pós-falha planeada ou não planeada entre sites no local. Se executar uma ativação pós-falha planeada, as VMs de origem são desligadas para garantir que não há perda de dados.
+- Pode efetuar a ativação pós-falha de um único computador ou, criar planos de recuperação, para orquestrar a ativação pós-falha de várias máquinas.
+- Pode executar uma ativação pós-falha planeada ou não planeada entre sites no local. Se executar uma ativação pós-falha planeada, as VMs de origem são desligadas para garantir que não há perda de dados.
     - Se efetuar uma ativação pós-falha não planeada para um site secundário, depois das máquinas de ativação pós-falha na localização secundária não estão protegidas.
     - Se tiver executado uma ativação pós-falha planeada, as máquinas na localização secundária estão protegidas após a ativação pós-falha.
-3. Após a ativação pós-falha inicial é executada, a consolidação-lo, para iniciar a aceder a carga de trabalho da VM de réplica.
-
-Quando a localização principal esteja novamente disponível, pode efetuar a cópia.
-
-1. Iniciar a replicação inversa, iniciar a replicação do site secundário para o site primário. A replicação inversa coloca as máquinas virtuais num estado protegido, mas a localização ativa continua a ser o datacenter secundário.
-2. Para que o site primário volte a ser a localização ativa, inicie uma ativação pós-falha planeada do site secundário para o primário, seguida de outra replicação inversa.
+- Após a ativação pós-falha inicial é executada, a consolidação-lo, para iniciar a aceder a carga de trabalho da VM de réplica.
+- Quando a localização principal esteja novamente disponível, pode efetuar a cópia.
+    - Iniciar a replicação inversa, iniciar a replicação do site secundário para o site primário. A replicação inversa coloca as máquinas virtuais num estado protegido, mas a localização ativa continua a ser o datacenter secundário.
+    - Para que o site primário volte a ser a localização ativa, inicie uma ativação pós-falha planeada do site secundário para o primário, seguida de outra replicação inversa.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Rever a matriz de suporte siga o tutorial para ativar a replicação de Hyper-V entre nuvens do VMM.
-Execute uma ativação pós-falha e a reativação pós-falha.
+
+Siga [neste tutorial](tutorial-vmm-to-vmm.md) para ativar a replicação de Hyper-V entre nuvens do VMM.

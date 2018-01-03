@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: ff0d1e5d644926864641ceb3e3c3a102167c1fd2
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 8aabe45a1627b1a897ca9fe4bda581c7a3f6bc03
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote SSIS utilizando a atividade de procedimento armazenado no Azure Data Factory
 Este artigo descreve como invocar um pacote SSIS de um pipeline do Azure Data Factory através da utilização de uma atividade de procedimento armazenado. 
@@ -34,7 +34,7 @@ As instruções neste artigo utilizam uma base de dados SQL do Azure que aloja o
 Criar um tempo de execução de integração do Azure-SSIS se não tiver uma, seguindo as instruções passo a passo no [Tutorial: pacotes SSIS implementar](../tutorial-deploy-ssis-packages-azure.md). Tem de criar uma fábrica de dados da versão 2 para criar um tempo de execução de integração de SSIS do Azure. 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Instalar os módulos do PowerShell do Azure mais recentes ao seguir as instruções em [como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 O procedimento seguinte fornece os passos para criar uma fábrica de dados. Criar um pipeline com uma atividade de procedimento armazenado neste data Factory. A atividade de procedimento armazenado executa um procedimento armazenado na base de dados SSISDB para executar o pacote de SSIS.
@@ -65,7 +65,6 @@ O procedimento seguinte fornece os passos para criar uma fábrica de dados. Cria
     
     ```powershell       
     $df = New-AzureRmDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
-    $df 
     ```
 
 Tenha em atenção os seguintes pontos:
@@ -76,15 +75,14 @@ Tenha em atenção os seguintes pontos:
     The specified Data Factory name 'ADFTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário**, ou um **administrador** da subscrição do Azure.
-* Atualmente, a versão 2 do Data Factory só permite criar fábricas de dados nas regiões E.U.A. Leste, E.U.A. Leste 2 e Europa Ocidental. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Criar um serviço ligado da Base de Dados SQL do Azure
 Crie um serviço ligado para ligar a base de dados SQL do Azure que aloja o catálogo SSIS à fábrica de dados. Fábrica de dados utiliza informações neste serviço ligado para ligar à base de dados SSISDB e executa um procedimento armazenado para ser executado um pacote SSIS. 
 
-1. Crie um ficheiro JSON com o nome **AzureSqlDatabaseLinkedService.json** no **C:\ADF\RunSSISPackage** pasta com o seguinte conteúdo: (criar a pasta ADFv2TutorialBulkCopy se já existir.)
+1. Crie um ficheiro JSON com o nome **AzureSqlDatabaseLinkedService.json** no **C:\ADF\RunSSISPackage** pasta com o seguinte conteúdo: 
 
     > [!IMPORTANT]
-    > Substitua &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; e &lt;password&gt; pelos valores da sua Base de Dados SQL do Azure antes de guardar o ficheiro.
+    > Substitua &lt;servername&gt;, &lt;username&gt;@&lt;servername&gt; e &lt;palavra-passe&gt; com os valores da base de dados antes de SQL do Azure guardar o ficheiro.
 
     ```json
     {
@@ -92,7 +90,7 @@ Crie um serviço ligado para ligar a base de dados SQL do Azure que aloja o cat�
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": "Server=tcp:<AZURE SQL SERVER NAME>.database.windows.net,1433;Database=SSISDB;User ID=<USERNAME>;Password=<PASSWORD>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=SSISDB;User ID=<username>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         }
         }
@@ -135,7 +133,7 @@ Neste passo, cria um pipeline com uma atividade de procedimento armazenado. A at
 1. Crie um ficheiro JSON com o nome **MyPipeline.json** no **C:\ADF\RunSSISPackage** pasta com o seguinte conteúdo:
 
     > [!IMPORTANT]
-    > Substitua &lt;nome da pasta&gt;, &lt;nome do PROJETO&gt;, &lt;nome do pacote&gt; com nomes de pasta, o projeto e o pacote no catálogo de SSIS antes de guardar o ficheiro. 
+    > Substitua &lt;nome da pasta&gt;, &lt;nome do projeto&gt;, &lt;nome do pacote&gt; com nomes de pasta, o projeto e o pacote no catálogo de SSIS antes de guardar o ficheiro.
 
     ```json
     {
@@ -147,7 +145,7 @@ Neste passo, cria um pipeline com uma atividade de procedimento armazenado. A at
                 "typeProperties": {
                     "storedProcedureName": "sp_executesql",
                     "storedProcedureParameters": {
-                        "stmt": "DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'SsisAdfTest', @project_name=N'MyProject', @package_name=N'Package.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END"
+                        "stmt": "DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<folder name>', @project_name=N'<project name>', @package_name=N'<package name>', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END"
                     }
                 },
                 "outputs": [{
@@ -165,18 +163,11 @@ Neste passo, cria um pipeline com uma atividade de procedimento armazenado. A at
     }    
     ```
 
-2. Para criar o pipeline: **RunSSISPackagePipeline**, execute o **conjunto AzureRmDataFactoryPipeline** cmdlet.
+2. Para criar o pipeline: **RunSSISPackagePipeline**, execute o **New-AzureRmDataFactoryPipeline** cmdlet.
 
     ```powershell
     $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
     ```
-
-## <a name="create-a-pipeline-run"></a>Criar uma execução de pipeline
-Utilize o **Invoke-AzureRmDataFactoryPipeline** cmdlet para executar o pipeline. O cmdlet devolve o ID de execução do pipeline para monitorização futura.
-
-```powershell
-$RunId = New-AzureRmDataFactoryPipeline $df -File ".\MyPipeline.json"
-```
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
@@ -192,7 +183,7 @@ $RunId = New-AzureRmDataFactoryPipeline $df -File ".\MyPipeline.json"
     Get-AzureRmDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
-    Pode continuar a executar este cmdlet até ver o setor no estado **Pronto** ou **Falhou**. Quando estiver no estado Pronto, verifique a pasta **partitioneddata** no contentor **adfgetstarted** do armazenamento de blobs dos dados de saída.  A criação de um cluster do HDInsight a pedido costuma ser um pouco demorada.
+    Pode continuar a executar este cmdlet até ver o setor no estado **Pronto** ou **Falhou**. 
 
     Pode executar a consulta seguinte na base de dados do SSISDB no seu servidor SQL do Azure para verificar se o pacote foi executado. 
 
@@ -200,6 +191,6 @@ $RunId = New-AzureRmDataFactoryPipeline $df -File ".\MyPipeline.json"
     select * from catalog.executions
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter detalhes sobre a atividade de procedimento armazenado, consulte o [atividade de procedimento armazenado](data-factory-stored-proc-activity.md) artigo.
 

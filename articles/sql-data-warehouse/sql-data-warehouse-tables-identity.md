@@ -15,10 +15,10 @@ ms.workload: data-services
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: e10b58743fad5f7c2c4f00b51f06d4ec9bcb6768
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-surrogate-keys-by-using-identity"></a>Criar chaves substituto através da utilização de identidade
 > [!div class="op_single_selector"]
@@ -252,7 +252,7 @@ AND     tb.name = 'T1'
 ;
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações sobre como desenvolver tabelas, consulte [descrição geral da tabela][Overview], [tipos de dados de tabela][Data Types], [distribuir uma tabela] [ Distribute], [Uma tabela de índice][Index], [uma tabela de partição][Partition], e [ Tabelas temporárias][Temporary]. 
 * Para obter mais informações sobre as melhores práticas, consulte [melhores práticas do SQL Data Warehouse][SQL Data Warehouse Best Practices].  

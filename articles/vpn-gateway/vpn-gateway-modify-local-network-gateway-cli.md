@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/29/2017
 ms.author: cherylmc
 ms.openlocfilehash: d62fa14ea24a9b62e793ef7022a761897984df32
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificar as definições do gateway de rede local, utilizando a CLI do Azure
 
@@ -46,7 +46,7 @@ Instale a versão mais recente dos comandos da CLI (2.0 ou posteriores). Para ob
 
 [!INCLUDE [modify-gateway-IP](../../includes/vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode verificar a ligação de gateway. Consulte [verificar uma ligação de gateway](vpn-gateway-verify-connection-resource-manager.md).
 

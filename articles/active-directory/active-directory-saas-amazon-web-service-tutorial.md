@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: c9dcfb7d769d8a59ecd7d8d238ac86f76ef1da66
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Azure Active Directory com o Amazon Web Services (AWS)
 
@@ -424,6 +424,13 @@ Nesta secção, testar a configuração do Azure AD único início de sessão at
 
 Quando clica no mosaico do Amazon Web Services (AWS) no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação do Amazon Web Services (AWS).
 Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+ * No **aprovisionamento** secção, o **mapeamentos** subsecção irá mostrar uma mensagem "A carregar..." e nunca apresentar os mapeamentos de atributos. O fluxo de trabalho de aprovisionamento apenas suportado atualmente é a importação de funções do AWS com o Azure AD para seleção durante a atribuição de utilizador/grupo. Os mapeamentos de atributos para isto são predeterminado e não configurável.
+ 
+ * O **aprovisionamento** secção suporta apenas a introdução de um conjunto de credenciais para um inquilino do AWS cada vez. Todas as funções importadas são escritas para a propriedade appRoles do Azure AD [servicePrincipal objeto](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) para o AWS de inquilino. Vários inquilinos do AWS (representados pelo servicePrincipals) podem ser adicionados para o Azure AD da Galeria para o aprovisionamento, no entanto, é um problema conhecido com a automaticamente escrever todas as funções importadas a partir de vários servicePrincipals AWS utilizado para Aprovisionamento para o servicePrincipal único utilizado para o início de sessão único. Como solução, o [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) pode ser utilizado para extrair todos os appRoles importado para cada servicePrincipal AWS onde o aprovisionamento estiver configurado. Estas cadeias de função podem ser adicionadas posteriormente para o servicePrincipal AWS onde o início de sessão único é configurado.
+
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

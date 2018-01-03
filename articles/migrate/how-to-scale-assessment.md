@@ -1,109 +1,137 @@
 ---
-title: "Dimensionar a deteção e a avaliação com o Azure migrar | Microsoft Docs"
-description: "Descreve como avaliar grande número de máquinas no local com o serviço Azure migrar."
+title: "Dimensionar a deteção e avaliação utilizando o Azure migrar | Microsoft Docs"
+description: "Descreve como avaliar grande número de máquinas no local ao utilizar o serviço Azure migrar."
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: e28a2144dd102fcd2ec05531432cac0df250ae01
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 9b457252fdb7a1ad62b7e6038b341451df2e1590
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar num ambiente VMware grande
 
-Este artigo descreve como avaliar a grande número de máquinas no local com [Azure migrar](migrate-overview.md). Migrar do Azure avalia máquinas para verificar se serem adequados para a migração para o Azure e fornece estimativas de dimensionamento e custos de execução da máquina no Azure.
+Este artigo descreve como avaliar a grande número de máquinas virtuais no local (VMs) utilizando [Azure migrar](migrate-overview.md). Migrar do Azure avalia máquinas para verificar se estiverem adequados para a migração para o Azure. O serviço fornece estimativas de dimensionamento e custos para executar as máquinas no Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **VMware**: precisa de, pelo menos, uma VM de VMware localizada num anfitrião ESXi ou cluster que execute a versão 5.0 ou superior. O anfitrião ou cluster tem de ser gerido pelo servidor vCenter com a versão 5.5 ou 6.0.
-- **conta do vCenter**: necessita de uma conta de só de leitura com credenciais de administrador para o servidor vCenter. Migrar do Azure utiliza esta conta para detetar as VMs.
-- **Permissões**: no vCenter server, necessita de permissões para criar uma VM ao importar um ficheiro. Formato de OVA.
-- **Definições de estatísticas**: as definições de estatísticas para o servidor vCenter, devem ser definidas ao nível 2 ou posterior, antes de começar a implementação.
+- **VMware**: A VMs que pretende migrar tem de ser geridas pelo vCenter Server 5.5, 6.0 ou 6.5 de versão. Além disso, terá de uma versão em execução de anfitrião ESXi 5.0 ou posterior para implementar o recoletor de VM.
+- **conta do vCenter**: necessita de uma conta de só de leitura para aceder ao vCenter Server. Migrar do Azure utiliza esta conta para detetar as VMs no local.
+- **Permissões**: no vCenter Server, necessita de permissões para criar uma VM ao importar um ficheiro no formato OVA.
+- **Definições de estatísticas**: as definições de estatísticas do vCenter Server devem ser definidas ao nível 3 antes de começar a implementação. Se o nível é inferior a 3, a avaliação irá funcionar, mas não serão possível recolher os dados de desempenho de armazenamento e rede. As recomendações de tamanho neste caso, serão com base em dados de desempenho de memória e CPU e dados de configuração de adaptadores de rede e de disco.
 
 ## <a name="plan-azure-migrate-projects"></a>Planear projetos migrar do Azure
 
-Um projeto do Azure migrar pode avaliar até 1500 máquinas. Uma único deteção num projeto pode detetar até 1000 máquinas.
+Planear as deteções e avaliações com base nos limites dos seguintes:
 
-- Se tiver menos de 1000 máquinas para detetar, terá um único projeto com um único deteção.
-- Se tiver entre máquinas 1000 e 1500, precisa de um único projeto com dois deteções no mesmo.
-- Se tiver mais de 1500 máquinas, terá de criar vários projetos e realizar várias deteções, de acordo com os seus requisitos. Por exemplo:
-    - Se tiver 3000 máquinas, pode configurar dois projetos com deteções de duas ou três projetos com uma deteção único.
-    - Se tiver de 5000 máquinas, pode configurar quatro projetos. Duas com uma deteção de máquinas de 1500 e outra com uma deteção de 500 máquinas. Em alternativa, pode configurar cinco projetos com uma única Deteção em cada um deles. 
-- Quando fizer uma deteção no migrar do Azure, pode definir o âmbito de deteção para uma pasta VMware, o Centro de dados ou o cluster.
-- Para mais do que uma deteção, verifique no vCenter se as VMs que pretende detetar na pastas, centros de dados ou clusters que suportam a limitação de máquinas de 1000.
-- Recomendamos que para fins de avaliação, mantenha máquinas com dependências no mesmo projeto e avaliação. Por isso, no vCenter, certifique-se que máquinas dependentes na mesma pasta, Centro de dados ou cluster para fins de avaliação.
+| **Entidade** | **Limite de máquina** |
+| ---------- | ----------------- |
+| Project    | 1,500              | 
+| Deteção  | 1,000              |
+| Avaliação | 400               |
+
+- Se tiver menos de 400 máquinas para detetar e avaliar, precisará de um único projeto e uma deteção único. Dependendo dos requisitos, pode avaliar todas as máquinas uma avaliação único ou divida as máquinas em avaliações de vários. 
+- Se tiver máquinas 400 para 1.000 para detetar, terá um único projeto com um único deteção. Mas precisa de vários avaliações para avaliar a estas máquinas, porque uma único avaliação pode conter até 400 máquinas.
+- Se tiver máquinas 1,001 para 1,500, terá um único projeto com dois deteções no mesmo.
+- Se tiver mais de 1.500 máquinas, terá de criar vários projetos e realizar várias deteções, de acordo com os seus requisitos. Por exemplo:
+    - Se tiver 3,000 máquinas, pode configurar dois projetos com deteções de duas ou três projetos com uma deteção único.
+    - Se tiver de 5000 máquinas, pode configurar quatro projetos: duas com uma deteção de 1.500 máquinas e outra com uma deteção de 500 máquinas. Em alternativa, pode configurar cinco projetos com uma única Deteção em cada um deles. 
+
+## <a name="plan-multiple-discoveries"></a>Planear múltiplos deteções
+
+Pode utilizar o mesmo recoletor migrar do Azure para efetuar várias deteções para projetos de um ou mais. Mantenha estas considerações de planeamento em mente:
+ 
+- Quando fizer uma deteção, utilizando o recoletor migrar do Azure, pode definir o âmbito de deteção para uma pasta do servidor vCenter, o Centro de dados, o cluster ou o anfitrião.
+- Para mais do que uma deteção, certifique-se no vCenter Server que as VMs que pretende detetar estão em pastas, centros de dados, clusters ou anfitriões que suportem a limitação de 1.000 máquinas.
+- Recomendamos que para fins de avaliação, mantenha as máquinas com interdependencies no mesmo projeto e avaliação. No vCenter Server, certifique-se de que as máquinas dependentes estão na mesma pasta, Centro de dados ou cluster para a avaliação.
 
 
 ## <a name="create-a-project"></a>Criar um projeto
 
-Crie um projeto do Azure migrar de acordo com os seus requisitos.
+Crie um projeto do Azure migrar de acordo com os requisitos:
 
-1. No portal do Azure, clique em **crie um recurso**.
-2. Procurar **Azure migrar**e selecione o serviço (**Azure migrar (pré-visualização)** nos resultados da pesquisa. Em seguida, clique em **Criar**.
+1. No portal do Azure, selecione **crie um recurso**.
+2. Procurar **Azure migrar**e selecione o serviço **Azure migrar (pré-visualização)** nos resultados da pesquisa. Em seguida, selecione **Criar**.
 3. Especifique um nome de projeto e a subscrição do Azure para o projeto.
 4. Crie um novo grupo de recursos.
-5. Especificar a região na qual pretende criar o projeto, em seguida, clique em **criar**. Os metadados reunidos a partir de VMs no local são armazenados nesta região.
+5. Especifique a localização na qual pretende criar o projeto e, em seguida, selecione **criar**. Tenha em atenção de que ainda pode avaliar as suas VMs para outra localização de destino. A localização especificada para o projeto é utilizada para armazenar os metadados reunidos a partir de VMs no local.
 
 ## <a name="set-up-the-collector-appliance"></a>Configurar a aplicação de recoletor
 
-Migrar do Azure cria uma VM no local, conhecida como dispositivo de recoletor. Esta VM Deteta as VMs de VMware no local e envia os metadados sobre-los para o serviço Azure migrar. Para configurar a aplicação do recoletor, transfira uma. OVA do ficheiro e importá-lo para o servidor vCenter no local para criar a VM.
+Migrar do Azure cria uma VM no local, conhecida como dispositivo de recoletor. Esta VM Deteta as VMs de VMware no local e envia os metadados sobre-los para o serviço Azure migrar. Para configurar a aplicação do recoletor, transferir um ficheiro de OVA e importá-lo para a instância do servidor vCenter no local.
 
 ### <a name="download-the-collector-appliance"></a>Transferir a aplicação de recoletor
 
-Se tiver vários projetos, apenas terá de transferir a aplicação de recoletor de uma vez para o servidor vCenter. Depois de transferir e configurar a aplicação, pode executá-la para cada projeto e especifique o ID exclusivo do projeto e a chave.
+Se tiver vários projetos, terá de transferir a aplicação de recoletor apenas uma vez para o vCenter Server. Depois de transferir e configurar a aplicação, executá-la para cada projeto e especifique o ID exclusivo do projeto e a chave.
 
-1. No projeto do Azure migrar, clique em **introdução** > **detetar & avaliação** > **detetar máquinas**.
-2. No **detetar máquinas**, clique em **transferir**, para transferir o. Ficheiro OVA.
+1. No projeto migrar do Azure, selecione **introdução** > **detetar & avaliação** > **detetar máquinas**.
+2. No **detetar máquinas**, selecione **transferir**, para transferir o ficheiro OVA.
 3. No **copie as credenciais de projeto**, copie o ID e a chave para o projeto. Terá de estes quando configurar o recoletor.
 
    
 ### <a name="verify-the-collector-appliance"></a>Certifique-se a aplicação de recoletor
 
-Verifique se o. Ficheiro OVA é seguro, antes de implementá-lo.
+Verifique se o ficheiro de OVA é seguro antes de implementá-lo:
 
 1. No computador para o qual transferiu o ficheiro, abra uma janela de comandos de administrador.
 2. Execute o seguinte comando para gerar o hash para o OVA:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo de utilização:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. O hash gerado deve corresponder a estas definições.
 
+   ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+
+   Exemplo de utilização:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+3. Certifique-se de que o hash gerado corresponde às seguintes definições.
+ 
+    Para a versão OVA 1.0.8.38:
     **Algoritmo** | **Valor de hash**
     --- | ---
-    MD5 | c283f00f46484bf673dc8383b01d0741 
-    SHA1 | 8f49b47f53d051af1780bbc725659ce64e717ed4
-    SHA256 | 7aecdbdb2aea712efe99d0c1444503f52d16de5768e783465e226fbbca71501d
+    MD5 | dd27dd6ace28f9195a2b5d52a4003067 
+    SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
+    SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+
+    Para a versão OVA 1.0.8.40:
+    **Algoritmo** | **Valor de hash**
+    --- | ---
+    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
+    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
+
+
 
 ## <a name="create-the-collector-vm"></a>Criar o recoletor de VM
 
-Importe o ficheiro transferido para o servidor vCenter.
+Importe o ficheiro transferido para o servidor vCenter:
 
-1. Na consola do cliente vSphere, clique em **ficheiro** > **implementar o modelo de OVF**.
+1. Na consola do cliente vSphere, selecione **ficheiro** > **implementar o modelo de OVF**.
 
     ![Implementar OVF](./media/how-to-scale-assessment/vcenter-wizard.png)
 
-2. No Assistente de implementação de modelo OVF > **origem**, especifique a localização do ficheiro .ova.
+2. No Assistente de implementação de modelo OVF > **origem**, especifique a localização do ficheiro OVA.
 3. No **nome** e **localização**, especifique um nome amigável para o recoletor VM e o inventário de objeto que será alojada a VM.
 5. No **anfitrião/Cluster**, especifique o anfitrião ou cluster em que o recoletor VM será executado.
 7. No armazenamento, especifique o destino de armazenamento para o recoletor VM.
 8. No **formato de disco**, especifique o tipo de disco e o tamanho.
-9. No **mapeamento da rede**, especifique a rede à qual se ligará o recoletor de VM. A rede necessita de conectividade de internet, para enviar metadados para o Azure. 
-10. Reveja e confirme as definições, em seguida, clique em **concluir**.
+9. No **mapeamento da rede**, especifique a rede à qual se ligará o recoletor de VM. A rede necessita de conectividade de internet para enviar metadados para o Azure. 
+10. Reveja e confirme as definições e, em seguida, selecione **concluir**.
 
-## <a name="identify-the-key-and-id-for-each-project"></a>Identificar a chave e o ID para cada projeto
+## <a name="identify-the-id-and-key-for-each-project"></a>Identificar o ID e a chave de cada projeto
 
-Se tiver vários projetos, certifique-se a identificar o ID e a chave de cada um deles. Tem a chave quando executa o recoletor para detetar as VMs.
+Se tiver vários projetos, lembre-se de que identificar o ID e a chave de cada um deles. Tem a chave quando executa o recoletor para detetar as VMs.
 
-1. No projeto, clique em **introdução** > **detetar & avaliação** > **detetar máquinas**.
+1. No projeto, selecione **introdução** > **detetar & avaliação** > **detetar máquinas**.
 2. No **copie as credenciais de projeto**, copie o ID e a chave para o projeto. 
-    ![ID do projeto](./media/how-to-scale-assessment/project-id.png)
+    ![Copie as credenciais do projeto](./media/how-to-scale-assessment/copy-project-credentials.png)
 
-## <a name="vcenter-statistics-level-to-collect-the-performance-counters"></a>vCenter nível estatísticas para recolher os contadores de desempenho
-Segue-se a lista de contadores que são recolhidos durante a deteção. Os contadores fazem por predefinição disponível ao nível vários no servidor vCenter. Recomendamos que defina o nível mais elevado do comuns (nível 3) para o nível de estatísticas para que todos os contadores de são recolhidos corretamente. Se tiver vCenter definido num nível inferior, apenas alguns contadores podem obter recolhidos completamente, com o resto definido como 0. Por conseguinte, a avaliação poderá mostrar dados incompletos. A tabela abaixo também apresenta uma lista de resultados da avaliação que serão afetados se um determinado contador não é recolhido.
+## <a name="set-the-vcenter-statistics-level"></a>Definir o nível de estatísticas do vCenter
+Segue-se a lista de contadores de desempenho que são recolhidos durante a deteção. Os contadores fazem por predefinição disponível em vários níveis no vCenter Server. 
 
-|Contador                                  |Nível    |Por nível de dispositivo  |Impacto de avaliação                               |
+Recomendamos que defina o nível mais elevado do comuns (3) para o nível de estatísticas para que todos os contadores de são recolhidos corretamente. Se tiver vCenter definido num nível inferior, apenas alguns contadores podem ser recolhidos completamente, com o resto definido como 0. A avaliação, em seguida, poderá mostrar dados incompletos. 
+
+A tabela seguinte lista também os resultados da avaliação que vai ser afetados se um determinado contador não é recolhido.
+
+|Contador                                  |Nível    |Nível de por dispositivo  |Impacto de avaliação                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
 |CPU.Usage.Average                        | 1       |ND                |Tamanho da VM recomendada e o custo                    |
 |Mem.Usage.Average                        | 1       |ND                |Tamanho da VM recomendada e o custo                    |
@@ -111,46 +139,52 @@ Segue-se a lista de contadores que são recolhidos durante a deteção. Os conta
 |virtualDisk.write.average                | 2       |2                 |Tamanho do disco, o custo de armazenamento e o tamanho da VM         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Tamanho do disco, o custo de armazenamento e o tamanho da VM         |
 |virtualDisk.numberWriteAveraged.average  | 1       |3                 |Tamanho do disco, o custo de armazenamento e o tamanho da VM         |
-|NET.Received.Average                     | 2       |3                 |Tamanho da VM e rede de custos                        |
-|NET.Transmitted.Average                  | 2       |3                 |Tamanho da VM e rede de custos                        |
+|NET.Received.Average                     | 2       |3                 |Custo de tamanho e a rede VM                        |
+|NET.Transmitted.Average                  | 2       |3                 |Custo de tamanho e a rede VM                        |
 
 > [!WARNING]
-> Se tiver apenas um nível mais elevado de estatísticas, irá demorar até um dia para gerar os contadores de desempenho. Por conseguinte, é recomendado que execute a deteção depois de um dia.
+> Se tiver apenas um nível mais elevado de estatísticas,-irá demorar um dia para gerar os contadores de desempenho. Por isso, recomendamos que execute a deteção depois de um dia.
 
 ## <a name="run-the-collector-to-discover-vms"></a>Execute o recoletor para detetar VMs
 
-Para cada deteção terá de efetuar, execute o recoletor para deteção de VMs no âmbito necessário. Após o outro, execute as deteções um. Não são suportadas em simultâneo deteções e cada deteção tem de ter um âmbito diferente.
+Para cada deteção que é necessário executar, execute o recoletor para detetar VMs no âmbito necessário. Após o outro, execute as deteções um. Não são suportadas em simultâneo deteções e cada deteção tem de ter um âmbito diferente.
 
 1. Na consola do cliente vSphere, clique com botão direito a VM > **abrir a consola**.
 2. Forneça o idioma, fuso horário e preferências de palavra-passe para a aplicação.
-3. No ambiente de trabalho, clique o **executar recoletor** atalho.
-4. No Recoletor para migrar do Azure, abra **definir a segurança de pré-requisitos**.
-    - Aceite os termos de licenciamento e ler as informações de terceiros.
-    - O recoletor verifica se a VM tem acesso à internet.
-    - Se a VM acede à internet através de um proxy, clique em **as definições de Proxy**e especifique o endereço de proxy e a porta de escuta. Especificar credenciais, se o proxy tem de autenticação.
-    - O recoletor verifica que o serviço de gerador de perfis do Windows está em execução. O serviço está instalado por predefinição no recoletor VM.
-    - Transfira e instale o VMware PowerCLI.
-. No **detetar máquinas**, efetue o seguinte procedimento:
-    - Especifique o nome (FQDN) ou endereço IP do servidor vCenter.
-    - No **nome de utilizador** e **palavra-passe**, especifique as credenciais da conta de só de leitura que o recoletor irá utilizar para detetar VMs no vCenter server.
-    - No **âmbito de coleção**, selecione um âmbito de deteção VM. O recoletor só pode detetar a VMs dentro do âmbito especificado. Âmbito pode ser definido para uma pasta específica, o Centro de dados ou o cluster. Esta não deve conter mais de 1000 VMs. 
-    - n **Categoria da etiqueta para agrupamento**, selecione **nenhum**.
+3. No ambiente de trabalho, selecione o **executar recoletor** atalho.
+4. No recoletor migrar do Azure, abra **configurar pré-requisitos** e, em seguida:
 
-        ![Selecione o âmbito](./media/how-to-scale-assessment/select-scope.png)
+   a. Aceite os termos de licenciamento e ler as informações de terceiros.
 
-1. No **selecione projeto**, especifique o ID e a chave para o projeto. Se não tiver copiá-los, abra o portal do Azure do recoletor VM. No projeto **descrição geral** página, clique em **detetar máquinas**e copie os valores.  
-No **deteção concluída**, monitorizar o processo de deteção e verificar esses metadados recolhidos a partir de VMs se encontra no âmbito. O recoletor fornece um período de tempo aproximado de deteção.
+   O recoletor verifica se a VM tem acesso à internet.
+   
+   b. Se a VM acede à internet através de um proxy, selecione **as definições de Proxy**e especifique o endereço de proxy e a porta de escuta. Especificar credenciais, se o proxy tem de autenticação.
+
+   O recoletor verifica que o serviço do recoletor está em execução. O serviço está instalado por predefinição no recoletor VM.
+
+   c. Transfira e instale o VMware PowerCLI.
+
+5. No **especificar detalhes do servidor vCenter**, efetue o seguinte procedimento:
+    - Especifique o nome (FQDN) ou endereço IP do vCenter Server.
+    - No **nome de utilizador** e **palavra-passe**, especifique as credenciais da conta de só de leitura que o recoletor irá utilizar para detetar VMs no vCenter Server.
+    - No **selecionar âmbito**, selecione um âmbito de deteção VM. O recoletor pode detetar apenas as VMs dentro do âmbito especificado. Âmbito pode ser definido para uma pasta específica, o Centro de dados ou o cluster. Esta não deve conter mais de 1000 VMs. 
+    - No **categoria de etiqueta de vCenter para o agrupamento**, selecione **nenhum**.
+
+    ![Selecionar âmbito](./media/how-to-scale-assessment/select-scope.png)
+
+6. No **projeto de migração de especificar**, especifique o ID e a chave para o projeto. Se não tiver copiá-los, abra o portal do Azure do recoletor VM. O projeto **descrição geral** página, selecione **detetar máquinas** e copie os valores.  
+7. No **ver o progresso da coleção**, monitorizar o processo de deteção e verificar esses metadados recolhidos a partir de VMs se encontra no âmbito. O recoletor fornece um período de tempo aproximado de deteção.
 
 
 ### <a name="verify-vms-in-the-portal"></a>Certifique-se as VMs no portal
 
-Deteção de tempo depende quantas VMs está a detetar. Normalmente, para 100 VMs, após a executar o recoletor demora em torno de uma hora para a deteção concluir. 
+Deteção de tempo depende quantas VMs está a detetar. Normalmente, para 100 VMs, deteção de conclusão em torno de uma hora após a conclusão da recoletor em execução. 
 
-1. No projeto Planeador de migração, clique em **gerir** > **máquinas**.
+1. No projeto Planeador de migração, selecione **gerir** > **máquinas**.
 2. Verifique se as VMs que pretende detetar de aparecer no portal.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [criar um grupo](how-to-create-a-group.md) para avaliação.
 - [Saiba mais](concepts-assessment-calculation.md) sobre como avaliações são calculadas.

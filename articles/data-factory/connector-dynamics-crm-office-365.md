@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/21/2017
 ms.author: jingwang
-ms.openlocfilehash: ec1b9868ca94392cd00875ef2913d4c14a608110
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Copiar dados de/para Dynamics 365 / Dynamics CRM utilizando o Azure Data Factory
 
@@ -34,7 +34,7 @@ Este conector de Dynamics suporta abaixo versões de Dynamics e tipos de autenti
 
 | Versões de Dynamics | Tipos de autenticação | Exemplos de serviço ligado |
 |:--- |:--- |:--- |
-| Dynamics 365 online <br> Dynamics CRM online | Office 365 | [Dynamics Online + autenticação do Office 365](#dynamics-365-and-dynamics-crm-online) |
+| Dynamics 365 online <br> Dynamics CRM online | Office365 | [Dynamics Online + autenticação do Office 365](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 no local com IFD <br> Dynamics CRM 2016 no local com IFD <br> Dynamics CRM 2015 no local com IFD | IFD | [Dynamics no local com IFD + IFD auth](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
 Especificamente, para o Dynamics 365 são suportados os seguintes tipos de aplicação:
@@ -337,17 +337,17 @@ Configurar o tipo de dados do Data Factory correspondente na estrutura do conjun
 | AttributeType.Lookup | GUID | ✓ |  |
 | AttributeType.ManagedProperty | Booleano | ✓ |  |
 | AttributeType.Memo | Cadeia | ✓ | ✓ |
-| AttributeType.Money | Decimal | ✓ |  |
+| AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
 | AttributeType.String | Cadeia | ✓ | ✓ |
-| AttributeType.State | Int32 | ✓ |  |
-| AttributeType.Status | Int32 | ✓ |  |
+| AttributeType.State | Int32 | ✓ | ✓ |
+| AttributeType.Status | Int32 | ✓ | ✓ |
 
 
 > [!NOTE]
 > O tipo de dados de Dynamics AttributeType.CalendarRules e AttributeType.PartyList não são suportados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

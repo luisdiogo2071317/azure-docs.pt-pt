@@ -3,7 +3,7 @@ title: "Crie a sua primeira VM num laboratório no Azure DevTest Labs | Microsof
 description: "Saiba como criar a sua primeira máquina virtual num laboratório no Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: fbc5a438-6e02-4952-b654-b8fa7322ae5f
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
-ms.author: tarcher
-ms.openlocfilehash: aa6b60b799e1e98815cf288d5612f98cd77cc00e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: c807789dc2b47fe3632fc4ecf597904d8b0bbf6f
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Crie a sua primeira VM num laboratório no Azure DevTest Labs
 
@@ -49,7 +49,7 @@ Este tutorial explica como utilizar o portal do Azure para adicionar a sua prime
 
    O painel de laboratório indicará o estado da criação da VM - primeiro **criar**, em seguida, como **executar** depois da VM foi iniciada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Quando tiver sido criada a VM, pode ligar à VM selecionando **Connect** no painel da VM.
 * Veja [adicionar uma VM para um laboratório](devtest-lab-add-vm.md) para informações mais completas sobre como adicionar VMs subsequentes no laboratório.
 * Explorar o [Galeria de modelo de início rápido do DevTest Labs do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 96aa4aa303f2322733a8383e5abc377ff873a926
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados ao utilizar o Backup do Azure com as informações apresentadas na tabela abaixo.
@@ -72,7 +72,7 @@ Cópia de segurança do Azure não suporta atualmente os tamanhos de disco [supe
 ## <a name="jobs"></a>Tarefas
 | Detalhes do erro | Solução |
 | --- | --- |
-| Cancelamento não é suportado para este tipo de tarefa - por favor, aguardar até que a tarefa é concluída. |Nenhuma |
+| Cancelamento não é suportado para este tipo de tarefa - por favor, aguardar até que a tarefa é concluída. |Nenhum |
 | A tarefa não está num Estado cancelable - por favor, aguardar até que a tarefa é concluída. <br>OU<br> A tarefa selecionada não está num Estado cancelable -. Aguarde a conclusão da tarefa. |Em todos os probabilidade, a tarefa quase estiver concluída. Aguarde até que a tarefa esteja concluída.|
 | Não é possível cancelar a tarefa porque não está em curso - cancelamento só é suportado para tarefas que se encontrem em curso. . A tentativa de cancelar num em curso tarefa. |Isto acontece devido a um Estado temporárias. Aguarde um minuto e repita a operação de cancelamento. |
 | Falha ao cancelar a tarefa -. Aguarde pela conclusão da tarefa. |Nenhuma |
@@ -84,9 +84,9 @@ Cópia de segurança do Azure não suporta atualmente os tamanhos de disco [supe
 | O nome DNS selecionado já foi atribuído - Especifique um nome DNS diferente e tente novamente. |O nome DNS aqui refere-se ao nome do serviço em nuvem (normalmente, terminando. cloudapp.net). Isto deve ser exclusivo. Se ocorrer este erro, terá de escolher um nome VM diferente durante o restauro. <br><br> Este erro é apresentado apenas a utilizadores do portal do Azure. A operação de restauro através do PowerShell será bem sucedida porque apenas restaura os discos e não criar a VM. O erro irá ser deparam quando a VM é explicitamente criada por si após a operação de restauro de disco. |
 | A configuração de rede virtual especificado não está correta –. Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhuma |
 | O serviço de nuvem especificada está a utilizar um IP reservado, que não coincide com a configuração da máquina virtual a ser restaurada - Especifique um serviço de nuvem diferente, que não está a utilizar o IP reservado, ou escolha outro ponto de recuperação para restaurar a partir de. |Nenhuma |
-| Serviço em nuvem atingiu o limite do número de pontos finais de entrada - repetir a operação especificando um serviço em nuvem diferente ou através da utilização de um ponto final existente. |Nenhuma |
-| Conta de armazenamento do cofre e o destino da cópia de segurança em duas regiões diferentes - Certifique-se de que a conta de armazenamento especificada na operação de restauro na mesma região que o Cofre de cópia de segurança do Azure. |Nenhuma |
-| Conta de armazenamento especificada para a operação de restauro não é suportada - contas do storage apenas Basic/Standard com localmente redundante ou definições de replicação redundante georreplicação são suportadas. Selecione uma conta de armazenamento suportadas |Nenhuma |
+| Serviço em nuvem atingiu o limite do número de pontos finais de entrada - repetir a operação especificando um serviço em nuvem diferente ou através da utilização de um ponto final existente. |Nenhum |
+| Conta de armazenamento do cofre e o destino da cópia de segurança em duas regiões diferentes - Certifique-se de que a conta de armazenamento especificada na operação de restauro na mesma região que o Cofre de cópia de segurança do Azure. |Nenhum |
+| Conta de armazenamento especificada para a operação de restauro não é suportada - contas do storage apenas Basic/Standard com localmente redundante ou definições de replicação redundante georreplicação são suportadas. Selecione uma conta de armazenamento suportadas |Nenhum |
 | Tipo de conta de armazenamento especificado para a operação de restauro não está online - Certifique-se de que a conta de armazenamento especificada na operação de restauro online |Isto pode acontecer devido a um erro transitório no armazenamento do Azure ou devido a uma falha. Escolha outra conta de armazenamento. |
 | Foi atingida a Quota do grupo de recursos - elimine alguns grupos de recursos a partir do portal do Azure ou contacte o suporte do Azure para aumentar os limites. |Nenhuma |
 | Sub-rede selecionada não existe - Selecione uma sub-rede de que existe |Nenhuma |
@@ -131,7 +131,7 @@ Como verificar a versão do agente de VM em VMs do Windows:
 Cópia de segurança VM depende emitir comandos de instantâneo para o armazenamento subjacente. Não ter acesso ao armazenamento, ou atrasos numa execução de tarefas de instantâneo pode fazer com que a tarefa de cópia de segurança falhem. Pode causar falhas de tarefas de instantâneo.
 
 1. Acesso de rede para o armazenamento está bloqueado, utilizando o NSG<br>
-    Saiba mais sobre como [ativar o acesso de rede](backup-azure-arm-vms-prepare.md#network-connectivity) para o armazenamento utilizando o adicionar à lista branca de IPs ou através de servidor proxy.
+    Saiba mais sobre como [ativar o acesso de rede](backup-azure-arm-vms-prepare.md#establish-network-connectivity) para o armazenamento utilizando o adicionar à lista branca de IPs ou através de servidor proxy.
 2. As VMs com cópia de segurança do Sql Server configurada podem fazer com que o atraso de tarefa de instantâneo <br>
    Por predefinição VM cópia de segurança problemas VSS cópia de segurança completa em VMs do Windows. Em VMs que estejam a executar o Sql Servers e se a cópia de segurança do Sql Server está configurada, isto poderá provocar atraso na execução de instantâneo. Defina os seguintes chave de registo se ocorrerem falhas de cópia de segurança devido a problemas de instantâneo.
 
@@ -163,7 +163,7 @@ Assim que a resolução do nome foi efetuada corretamente, acesso para IPs o Azu
    * Desbloquear a IPs utilizando a [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Execute este cmdlet numa VM do Azure, numa janela elevada do PowerShell (executar como administrador).
    * Adicione regras para o NSG (se tiver um no local) para permitir o acesso para os IPs.
 2. Criar um caminho para o tráfego HTTP para o fluxo
-   * Se tiver alguma restrição de rede no local (um grupo de segurança rede, por exemplo) implementar um servidor de proxy HTTP para encaminhar o tráfego. Podem encontrar passos para implementar um servidor HTTP Proxy [aqui](backup-azure-arm-vms-prepare.md#network-connectivity).
+   * Se tiver alguma restrição de rede no local (um grupo de segurança rede, por exemplo) implementar um servidor de proxy HTTP para encaminhar o tráfego. Podem encontrar passos para implementar um servidor HTTP Proxy [aqui](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    * Adicione regras para o NSG (se tiver um no local) para permitir o acesso à INTERNET do HTTP Proxy.
 
 > [!NOTE]

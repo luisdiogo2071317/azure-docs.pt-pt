@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6d59b26fa4ab17c17827a8e3450e808e40e5c2dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Service Bus do Azure para as funções do Azure
 
@@ -36,14 +36,14 @@ Utilize o acionador de Service Bus para responder a mensagens a partir de uma fi
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#trigger---c-example)
-* [Script do c#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script do c# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Acionador - c# exemplo
 
-O seguinte exemplo mostra um [pré-compilada c# função](functions-dotnet-class-library.md) que regista uma mensagem de fila do Service Bus.
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que regista uma mensagem de fila do Service Bus.
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -146,7 +146,7 @@ module.exports = function(context, myQueueItem) {
 
 ## <a name="trigger---attributes"></a>Acionador - atributos
 
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize os seguintes atributos para configurar um acionador de barramento de serviço:
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize os seguintes atributos para configurar um acionador de barramento de serviço:
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), definida no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -173,7 +173,7 @@ Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o
   }
   ```
 
-  Para obter um exemplo completado, consulte [acionador - pré-compilada c# exemplo](#trigger---c-example).
+  Para obter um exemplo completado, consulte [acionador - c# exemplo](#trigger---c-example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), definida no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -250,14 +250,14 @@ Utilize o enlace de saída do Service Bus do Azure para enviar mensagens de fila
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#output---c-example)
-* [Script do c#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script do c# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Saída - c# exemplo
 
-O seguinte exemplo mostra um [pré-compilada c# função](functions-dotnet-class-library.md) que envia uma mensagem de fila de barramento de serviço:
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que envia uma mensagem de fila de barramento de serviço:
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -411,7 +411,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>Saída - atributos
 
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), que está definido no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), que está definido no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 O construtor do atributo tem o nome da fila ou tópico e a subscrição. Também pode especificar os direitos de acesso da ligação. Como escolher os definição de direitos de acesso é explicado no [de saída - configuração](#output---configuration) secção. Eis um exemplo que mostra o atributo aplicado ao valor de retorno da função:
 
@@ -435,9 +435,9 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 }
 ```
 
-Para obter um exemplo completado, consulte [resultado - pré-compilada c# exemplo](#output---c-example).
+Para obter um exemplo completado, consulte [resultado - c# exemplo](#output---c-example).
 
-Pode utilizar o `ServiceBusAccount` atributo para especificar a conta de barramento de serviço a utilizar ao nível de classe, método ou parâmetro.  Para obter mais informações, consulte [acionador - atributos](#trigger---attributes-for-precompiled-c).
+Pode utilizar o `ServiceBusAccount` atributo para especificar a conta de barramento de serviço a utilizar ao nível de classe, método ou parâmetro.  Para obter mais informações, consulte [acionador - atributos](#trigger---attributes).
 
 ## <a name="output---configuration"></a>De saída - configuração
 
@@ -469,7 +469,7 @@ Para criar várias mensagens num c# ou função de script do c#, pode utilizar `
 
 Em JavaScript, aceder a fila ou um tópico utilizando `context.bindings.<name>`. `<name>`o valor especificado no `name` propriedade *function.json*. Pode atribuir um objeto de Javascript (anulada a serialização JSON), uma cadeia ou uma matriz de bytes a `context.binding.<name>`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

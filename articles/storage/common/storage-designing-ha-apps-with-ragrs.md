@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: tamram
-ms.openlocfilehash: 68986f1c8a8d3a2c4c763958e141bc3830c6b5bb
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações altamente disponíveis utilizando RA-GRS
 
@@ -26,7 +26,7 @@ Uma funcionalidade comum das infraestruturas baseado na nuvem, como o Storage do
 
 Storage do Azure oferece quatro opções para a redundância de dados na sua conta de armazenamento:
 
-– LRS (armazenamento localmente redundante)
+- LRS (armazenamento localmente redundante)
 - ZRS (zona de armazenamento redundantes) 
 - GRS (armazenamento Georredundante)
 - RA-GRS (armazenamento Georredundante com acesso de leitura). 
@@ -207,12 +207,12 @@ A tabela seguinte mostra um exemplo de que pode acontecer quando atualizar os de
 | **Tempo** | **Transação**                                            | **Replicação**                       | **Hora da última sincronização** | **Resultado** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transação r: <br> Inserir o empregado <br> entidade no principal |                                   |                    | A Inserir primário, de transação<br> não foram replicadas ainda. |
-| T1       |                                                            | Transação A <br> replicado para o<br> secundário | T1 | Transação A replicado para o secundário. <br>Hora da última sincronização atualizado.    |
+| T1       |                                                            | Transação A <br> replicado para o<br> secundária | T1 | Transação A replicado para o secundário. <br>Hora da última sincronização atualizado.    |
 | T2       | Transação b:<br>Atualizar<br> entidade de empregado<br> no site primário  |                                | T1                 | Transação B escrito para o servidor primário,<br> não foram replicadas ainda.  |
-| T3       | Transação c:<br> Atualizar <br>Administrador<br>entidade de função no<br>primário |                    | T1                 | Transação C escrito para o servidor primário,<br> não foram replicadas ainda.  |
-| *T4*     |                                                       | Transação C <br>replicado para o<br> secundário | T1         | Transação C replicado para o secundário.<br>LastSyncTime não atualizada porque <br>transação B ainda não foram replicada.|
+| T3       | Transação c:<br> Atualizar <br>Administrador<br>entidade de função no<br>primária |                    | T1                 | Transação C escrito para o servidor primário,<br> não foram replicadas ainda.  |
+| *T4*     |                                                       | Transação C <br>replicado para o<br> secundária | T1         | Transação C replicado para o secundário.<br>LastSyncTime não atualizada porque <br>transação B ainda não foram replicada.|
 | *T5*     | Entidades de leitura <br>do secundário                           |                                  | T1                 | Obter o valor para o empregado obsoleto <br> entidade porque ainda não transação B <br> ainda replicadas. Obter o novo valor<br> entidade de função de administrador porque tem C<br> replicadas. Hora da última sincronização ainda não<br> foram atualizados porque transação B<br> ainda não replicadas. Pode indicar a<br>entidade de função de administrador está inconsistente <br>porque a entidade data/hora é depois <br>a hora da última sincronização. |
-| *T6*     |                                                      | Transação B<br> replicado para o<br> secundário | T6                 | *T6* – tem todas as transações através de C <br>foi replicado, hora da última sincronização<br> é atualizado. |
+| *T6*     |                                                      | Transação B<br> replicado para o<br> secundária | T6                 | *T6* – tem todas as transações através de C <br>foi replicado, hora da última sincronização<br> é atualizado. |
 
 Neste exemplo, suponha que o cliente muda para ler a partir da região secundária em T5. Pode leu com êxito o **função de administrador** entidade neste momento, mas a entidade contém um valor para a contagem dos administradores que não está consistente com o número de **empregado** entidades são marcado como administradores na região secundária neste momento. O cliente simplesmente foi possível apresentar este valor, com o risco que está a informações inconsistentes. Em alternativa, o cliente pode tentar determinar que o **função de administrador** está num estado potencialmente inconsistente porque as atualizações ocorreram fora de ordem e, em seguida, informam o utilizador do facto deste.
 
@@ -238,7 +238,7 @@ Pode expandir este exemplo de uma vasta gama de pedidos de intercetar e alterar 
 
 Se tiver efetuado os limiares para comutar a sua aplicação para o modo só de leitura configurável, será mais fácil testar o comportamento com volumes de transação de não produção.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * Para obter mais informações sobre o acesso de leitura-a redundância geográfica, incluindo outro exemplo de como o LastSyncTime estiver definido, consulte [opções de redundância de armazenamento do Windows Azure e o armazenamento Georredundante com acesso de leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 

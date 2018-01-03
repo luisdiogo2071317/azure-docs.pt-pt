@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: 4c2d3ba72b768e21a027478dfe912689457049fd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0ed575283807137f60eca005262cff27388c140f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Encriptação de disco do Azure para o Windows e as VMs de Linux IaaS
 Microsoft Azure é vivamente consolidada para assegurar a privacidade dos dados, soberania de dados e permite avançadas, para controlar o Azure alojadas dados através de uma variedade de tecnologias para encriptar, controlar e gerir chaves de encriptação, controlo & auditar o acesso aos dados. Isto proporciona aos clientes do Azure a flexibilidade para escolher a solução que melhor se adeque às suas necessidades de negócio. Neste documento, vamos apresenta-lhe uma nova solução de tecnologia "Do Azure Disk Encryption para o Windows e de Linux IaaS VM" para ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacional. O documento fornece orientações detalhadas sobre como utilizar as funcionalidades de encriptação de disco do Azure, incluindo os cenários suportados e o utilizador experiências.
@@ -851,7 +851,7 @@ Encriptação de uma unidade de SO numa VM com Linux em execução é suportada 
     OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
     ProgressMessage            : OS disk successfully encrypted, reboot the VM
     ```
-Antes de reiniciar, recomendamos que guarde [diagnóstico de arranque](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/) da VM.
+Antes de reiniciar, recomendamos que guarde [diagnóstico de arranque](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/) da VM.
 
 #### <a name="monitoring-os-encryption-progress"></a>Monitorizar o progresso de encriptação do SO
 Pode monitorizar o progresso de encriptação de SO de três formas diferentes:
@@ -885,7 +885,7 @@ Pode monitorizar o progresso de encriptação de SO de três formas diferentes:
 
  ![Vista de instância VM](./media/azure-security-disk-encryption/vm-instanceview.png)
 
-* Observe [diagnóstico de arranque](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/). As mensagens a partir da extensão ADE devem ter o prefixo `[AzureDiskEncryption]`.
+* Observe [diagnóstico de arranque](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). As mensagens a partir da extensão ADE devem ter o prefixo `[AzureDiskEncryption]`.
 
 * Inicie sessão para a VM através de SSH e obter o registo de extensão de:
 
@@ -917,7 +917,7 @@ Configure a encriptação durante a instalação de distribuição da seguinte f
 
  ![Ubuntu 16.04 programa de configuração](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. Preparar a VM para carregar no Azure com [estas instruções](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Não execute o último passo (desaprovisionamento VM) ainda.
+6. Preparar a VM para carregar no Azure com [estas instruções](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Não execute o último passo (desaprovisionamento VM) ainda.
 
 Configure a encriptação funcione com o Azure da seguinte forma:
 
@@ -995,7 +995,7 @@ Para configurar a encriptação durante a instalação de distribuição, efetue
 
  ![o programa de configuração openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3. Preparar a VM do carregamento para o Azure ao seguir as instruções no [preparar uma máquina virtual SLES ou openSUSE para o Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Não execute o último passo (desaprovisionamento VM) ainda.
+3. Preparar a VM do carregamento para o Azure ao seguir as instruções no [preparar uma máquina virtual SLES ou openSUSE para o Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Não execute o último passo (desaprovisionamento VM) ainda.
 
 Para configurar a encriptação funcione com o Azure, efetue o seguinte:
 1. Editar o /etc/dracut.conf e adicione a seguinte linha:
@@ -1071,7 +1071,7 @@ Para configurar a encriptação durante a instalação de distribuição, efetue
 
  ![Configuração do centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5. Preparar a VM para carregar no Azure utilizando as instruções de "CentOS 7.0 +" em [preparar uma máquina de virtual com base em CentOS para o Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Não execute o último passo (desaprovisionamento VM) ainda.
+5. Preparar a VM para carregar no Azure utilizando as instruções de "CentOS 7.0 +" em [preparar uma máquina de virtual com base em CentOS para o Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Não execute o último passo (desaprovisionamento VM) ainda.
 
 6. Agora pode retirar o aprovisionamento da VM e [carregar o VHD](#upload-encrypted-vhd-to-an-azure-storage-account) no Azure.
 

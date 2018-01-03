@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-health"></a>Azure Service Health
 Estado de funcionamento de serviço do Azure fornece informações atempadamente e personalizadas quando problemas nos serviços do Azure afetam os serviços.  Também o ajuda a preparar para a manutenção planeada futura.
@@ -57,5 +57,4 @@ Filtre o serviço de estado de funcionamento para mostrar as subscrições empre
 ## <a name="configure-service-health-alerts"></a>Configurar alertas de estado de funcionamento do serviço
 Estado de funcionamento de serviço do Azure integra-se com a monitorização do Azure para alertá-lo através de mensagens de correio eletrónico, mensagens de texto e webhook notificações quando os recursos empresariais críticos são afetados. Configure um alerta de registo de atividade para o evento de estado de funcionamento do serviço adequado. Encaminhar esse alerta às pessoas apropriadas na sua organização utilizando grupos de ação. Para obter mais informações, consulte [configurar alertas de estado de funcionamento de serviço](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)
 
-# <a name="next-steps"></a>Passos Seguintes
-Configure alertas para que seja notificado dos problemas de estado de funcionamento. Para obter mais informações, consulte [configurar alertas de estado de funcionamento do serviço](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+ 

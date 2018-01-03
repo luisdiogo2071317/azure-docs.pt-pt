@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 9d9680b22864e95c5953ddac50f2179b147b1e21
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -58,7 +58,7 @@ Pode atribuir uma política de acesso condicional para as seguintes aplicações
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (inclui o OneDrive para empresas)
+- Microsoft Office 365 SharePoint Online (inclui o OneDrive para empresas e o Project Online)
 
 - Microsoft Power BI 
 
@@ -154,7 +154,7 @@ Na sua política de acesso condicional, pode selecionar **clientes de ambiente d
 Esta definição não tem um impacto em tentativas de acesso dos clientes de ambiente de trabalho e as seguintes aplicações móveis: 
 
 
-|Aplicações de cliente|Serviço de destino|Plataforma|
+|Aplicações do cliente|Serviço de destino|Plataforma|
 |---|---|---|
 |Aplicação remota do Azure|Remoto App service do Azure|Windows 10, Windows 8.1, Windows 7, iOS, Android e Mac OS X|
 |Aplicação do Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS e Android|
@@ -212,7 +212,7 @@ Esta definição aplica-se para as seguintes aplicações de cliente:
     - Substitui o **clientes de ambiente de trabalho e aplicações móveis** opção para o [condição de aplicações de cliente](#supported-mobile-apps-and-desktop-clients) quando esta opção está selecionada.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma descrição geral do acesso condicional, consulte [acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 - Se estiver pronto para configurar políticas de acesso condicional no seu ambiente, consulte o [práticas de acesso condicional no Azure Active Directory recomendadas](active-directory-conditional-access-best-practices.md).

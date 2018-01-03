@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: f95a0abcd50b94714a76b36a0b5f9c73da909879
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte de gráfico do Cosmos Gremlin de BD do Azure
 BD do Azure do Cosmos suporta [do Apache Tinkerpop](http://tinkerpop.apache.org) idioma transversal, da graph [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma API de gráfico para criar entidades do gráfico e efetuar operações de consulta do gráfico. Pode utilizar o idioma de Gremlin para criar entidades do gráfico (vértices e contornos), modifique propriedades dentro desses entidades, executar consultas e traversals e eliminar entidades. 
 
 BD do Azure do Cosmos oferece funcionalidades preparada para empresa para bases de dados do gráfico. Isto inclui distribuição global, independente de dimensionamento do armazenamento e débito, latências previsíveis dígito milissegundo, indexação automática, SLA, leia a disponibilidade para contas de base de dados expansão dois ou mais regiões do Azure. Porque a base de dados do Azure Cosmos suporta TinkerPop/Gremlin, pode migrar facilmente aplicações escritas utilizando outra base de dados do gráfico sem ter de efetuar alterações de código. Além disso, em virtude suporte Gremlin, base de dados do Azure Cosmos perfeitamente integra-se com estruturas de análise TinkerPop ativado como [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-Neste artigo, vamos fornecem instruções rápida de Gremlin e enumerar as funcionalidades de Gremlin e passos que são suportados na pré-visualização do suporte da Graph API.
+Neste artigo, vamos fornecem instruções rápida de Gremlin e enumerar as funcionalidades de Gremlin e passos que são suportados pela API do gráfico.
 
 ## <a name="gremlin-by-example"></a>Gremlin exemplo
 Vamos utilizar um gráfico de exemplo para compreender a forma como as consultas podem ser expressos numa Gremlin. A figura seguinte mostra uma aplicação empresarial que gere dados sobre utilizadores, interesses e dispositivos sob a forma de um gráfico.  
@@ -80,7 +80,7 @@ A tabela seguinte lista as funcionalidades de TinkerPop que são implementadas p
 
 | Categoria | Implementação do Cosmos BD do Azure |  Notas | 
 | --- | --- | --- |
-| Funcionalidades de gráfico | Fornece a persistência e ConcurrentAccess em pré-visualização. Foi concebido para suportar transações | Métodos de computador podem ser implementados através do conector do Spark. |
+| Funcionalidades de gráfico | Fornece a persistência e ConcurrentAccess. Foi concebido para suportar transações | Métodos de computador podem ser implementados através do conector do Spark. |
 | Funcionalidades de variável | Suporta booleano, número inteiro, Byte, faça duplo, Float, Integer, longa, cadeia | Suporta tipos primitivos, é compatível com tipos complexos através do modelo de dados |
 | Funcionalidades de vértice | Suporta RemoveVertices MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Suporta a criar, modificar e eliminar vértices |
 | Funcionalidades de propriedade de vértice | StringIds UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Suporta a criar, modificar e eliminar as propriedades de vértice |
@@ -204,6 +204,6 @@ Agora vamos ver os passos de Gremlin suportados pelo Azure Cosmos DB. Para uma r
 
 O motor com otimização de escrita da DB Cosmos do Azure suporta a indexação automática de todas as propriedades dentro de vértices e contornos por predefinição. Por conseguinte, a consulta com filtros, consultas, ordenação, o intervalo ou os agregados no qualquer propriedade são processados desde o índice e servidos de forma eficiente. Para obter mais informações sobre como indexação funciona do BD Azure Cosmos, consulte o nosso documento no [desconhecidas do esquema de indexação](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Introdução à criação de uma aplicação de gráfico [utilizando os nossos SDKs](create-graph-dotnet.md) 
 * Saiba mais sobre [suporte do Azure Cosmos base de dados gráfico](graph-introduction.md)

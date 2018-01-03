@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d8d52b7e151d116678169dd4839f0380f63132d7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Auditoria e registo do Azure
 ## <a name="introduction"></a>Introdução
@@ -71,9 +71,9 @@ A tabela seguinte lista o tipo mais importante de registos disponíveis no Azure
 |[Registos de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|dados frequentes sobre o funcionamento dos recursos do Azure Resource Manager na subscrição| Fornecem informações aprofundadas operations que o seu recurso efetuadas próprio| Monitor do Azure, [fluxo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Relatórios do AAD](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Os registos e relatórios|Atividades de início de sessão de utilizador e as informações de atividade do sistema sobre utilizadores e gestão de grupo|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
 |[Máquinas virtuais e serviços Cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Registo de eventos do Windows e Linux Syslog|    Captura de dados de sistema e dados de registo nas máquinas virtuais e transferências de dados para uma conta de armazenamento à sua escolha.|   Utilizar o Windows [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (armazenamento de diagnóstico do Windows Azure) e Linux no monitor do Azure|
-|[Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Registo de armazenamento e fornece dados de métricas para uma conta de armazenamento|Fornece informações para pedidos de rastreio, analisar tendências de utilização e diagnosticar problemas com a sua conta de armazenamento.|    REST API ou o [biblioteca de clientes](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
+|[Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Registo de armazenamento e fornece dados de métricas para uma conta de armazenamento|Fornece informações para pedidos de rastreio, analisar tendências de utilização e diagnosticar problemas com a sua conta de armazenamento.|    REST API ou o [biblioteca de clientes](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Registos de fluxo NSG (grupo de segurança de rede)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON e mostra os fluxos de saída e entrados numa base por regra|Ver informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede|[Observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
-|[Informações de aplicação](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Os registos, exceções e diagnóstico personalizado|    Serviço de gestão de desempenho (APM) de aplicação para programadores de web em várias plataformas.| REST API, [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
+|[Informações de aplicação](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Os registos, exceções e diagnóstico personalizado|    Serviço de gestão de desempenho (APM) de aplicação para programadores de web em várias plataformas.| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
 |Processar os dados / alerta de segurança| Alerta de centro de segurança do Azure, o alerta do OMS| As informações de segurança e alertas.|   REST APIs, JSON|
 
 ### <a name="activity-log"></a>Registo de Atividades
@@ -121,7 +121,7 @@ Os registos de diagnóstico do Azure oferecem várias opções de configuração
 
 | Serviço | Esquema & Docs | Tipo de Recurso | Categoria |
 | ------- | ------------- | ------------- | -------- |
-|Balanceador de Carga| [Análise de registos para o Balanceador de carga do Azure (pré-visualização)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
+|Load balancer| [Análise de registos para o Balanceador de carga do Azure (pré-visualização)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
 |||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
 |Grupos de Segurança de Rede|[Análise de registos para grupos de segurança de rede (NSGs) (Log analytics for network security groups (NSGs))](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
 |||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
@@ -209,7 +209,7 @@ Os seguintes tipos de pedidos autenticados e anónimos são registados.
 
 
 
-| Autenticados  | Anónimo|
+| Autenticados  | Anónima|
 | :------------- | :-------------|
 | Pedidos com êxito | Pedidos com êxito |
 |Falha de pedidos, incluindo o tempo limite, limitação, rede, autorização e outros erros | Pedidos utilizando um acesso assinatura partilhado (SAS), incluindo pedidos falhados e bem-sucedidas |
@@ -417,7 +417,7 @@ Cenários de integração
 
 -   [Integrar o Centro de segurança de alertas com o Azure registo integração](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) – este documento mostra como sincronizar alertas do Centro de segurança, juntamente com eventos de segurança de máquina virtual recolhidos por diagnósticos do Azure e os registos de auditoria do Azure, com a solução do SIEM ou de análise de registos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - [Auditoria e registo](https://www.microsoft.com/trustcenter/security/auditingandlogging)
 

@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 12/09/2017
-ms.openlocfilehash: 65dc158a3a8c88a02d66bff7abe34d457cfef10a
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e16982e4e57ba9f2f11e9ee59f88f24b3fe3fe3f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações na base de dados do Azure para MySQL
 A base de dados do Azure para o serviço de MySQL está em pré-visualização pública. As secções seguintes descrevem a capacidade, suporte de motor de armazenamento, suporte de privilégios, suporte de instrução de manipulação de dados e limites funcionais no serviço de base de dados. Consulte também [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicável para o motor de base de dados MySQL.
@@ -44,7 +44,7 @@ Quando são atingidas demasiadas ligações, poderá receber o erro seguinte:
 
 ## <a name="storage-engine-support"></a>Suporte do motor de armazenamento
 
-### <a name="supported"></a>Suportado
+### <a name="supported"></a>Suportadas
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
 - [MEMÓRIA](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
@@ -57,11 +57,12 @@ Quando são atingidas demasiadas ligações, poderá receber o erro seguinte:
 ## <a name="privilege-support"></a>Suporte de privilégio
 
 ### <a name="unsupported"></a>Não suportado
-- [Privilégio SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)
+- Função DBA muitas sever parâmetros e definições podem degradar o desempenho do servidor ou negate ACID propriedades do DBMS inadvertidamente. Como tal, para manter os nossos integridade do serviço e SLA um nível de produto não expomos a função DBA aos clientes. A conta de utilizador predefinido, que é criada quando é criada uma nova instância de base de dados, permite aos clientes a executar a maioria das instruções DDL e DML na instância da base de dados gerida. 
+- SUPER privilégio da mesma forma [privilégio SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) também é restrito.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte de instrução de manipulação de dados
 
-### <a name="supported"></a>Suportado
+### <a name="supported"></a>Suportadas
 - CARGA dados INFILE - suportado, mas tem de especificar o parâmetro [LOCAL] que é direcionado para um caminho UNC (montado através de XSMB de armazenamento do Azure).
 
 ### <a name="unsupported"></a>Não suportado
@@ -86,6 +87,9 @@ Quando são atingidas demasiadas ligações, poderá receber o erro seguinte:
 ### <a name="subscription-management"></a>Gestão de subscrições
 - Mover dinamicamente servidores previamente criadas na subscrição e grupo de recursos não é atualmente suportada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="current-known-issues"></a>Atuais problemas conhecidos:
+- Instância do servidor MySQL apresenta a versão incorreta do servidor após a ligação for estabelecida. Para obter versões de instância de servidor correto, utilize version() selecione; comando na linha de MySQL.
+
+## <a name="next-steps"></a>Passos Seguintes
 - [O que está disponível em cada camada de serviço](concepts-service-tiers.md)
 - [Versões de base de dados MySQL suportadas](concepts-supported-versions.md)

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c0aded35066b4dd819a754a663fdbbf0b0bf6feb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b6267dd2bc1b29229b2e8016e2429ed88b7bf676
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Utilizar os ficheiros do Azure com Kubernetes
 
@@ -66,7 +66,7 @@ Em seguida, a codificar a chave de conta do storage. Se necessário, substitua `
 echo -n $STORAGE_KEY | base64
 ```
 
-Crie um ficheiro denominado `azure-secret.yml` e copie o seguinte YAML. Atualização do `azurestorageaccountname` e `azurestorageaccountkey` valores com o base64 codificado valores obtidos no passo anterior.
+Crie um ficheiro denominado `azure-secret.yaml` e copie o seguinte YAML. Atualização do `azurestorageaccountname` e `azurestorageaccountkey` valores com o base64 codificado valores obtidos no passo anterior.
 
 ```yaml
 apiVersion: v1
@@ -82,12 +82,12 @@ data:
 Utilize o [kubectl criar] [ kubectl-create] comando para criar o segredo.
 
 ```azurecli-interactive
-kubectl create -f azure-secret.yml
+kubectl create -f azure-secret.yaml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Montar a partilha de ficheiros como volume
 
-É possível montar a partilha de ficheiros do Azure no seu pod configurando o volume na respetiva especificação. Criar um novo ficheiro designado `azure-files-pod.yml` com o seguinte conteúdo. Atualização `aksshare` com o nome atribuído ao Azure Files partilhar.
+É possível montar a partilha de ficheiros do Azure no seu pod configurando o volume na respetiva especificação. Criar um novo ficheiro designado `azure-files-pod.yaml` com o seguinte conteúdo. Atualização `aksshare` com o nome atribuído ao Azure Files partilhar.
 
 ```yaml
 apiVersion: v1
@@ -112,12 +112,12 @@ spec:
 Utilize kubectl para criar um pod.
 
 ```azurecli-interactive
-kubectl apply -f azure-files-pod.yml
+kubectl apply -f azure-files-pod.yaml
 ```
 
 Tem agora um contentor em execução com a partilha de ficheiros do Azure montada no `/mnt/azure` diretório. Pode ver o quando inspecionar o pod através de montagem do volume `kubectl describe pod azure-files-pod`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre os volumes de Kubernetes utilizando ficheiros do Azure.
 

@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: seguler
-ms.openlocfilehash: 1cf1ce1cb739d8958767f0e84380ff6ba57eb1b6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2fd89684176cd832b656dae8c8f94a6f1ccbbbe8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferência de dados com o AzCopy no Linux
-O AzCopy no Linux é um utilitário da linha de comandos concebido para copiar dados para e do armazenamento de Blobs do Microsoft Azure e o ficheiro de utilização de comandos simples com um desempenho ideal. Também pode copiar dados de um objeto a para outro, dentro da sua conta de armazenamento, ou entre contas de armazenamento.
+
+O AzCopy é um utilitário da linha de comandos concebido para copiar dados do armazenamento de Blobs do Microsoft Azure, ficheiros e tabela, utilizando os comandos simples concebidos para um desempenho ideal. Pode copiar dados entre um sistema de ficheiros e uma conta de armazenamento, ou entre contas de armazenamento.  
 
 Existem duas versões do AzCopy que pode transferir. AzCopy no Linux é criado com o .NET Core Framework, que está direcionada para plataformas Linux oferta estilo POSIX opções da linha de comandos. [AzCopy no Windows](../storage-use-azcopy.md) baseia-se com o .NET Framework e oferece opções de linha de comandos de estilo do Windows. Este artigo abrange AzCopy no Linux.
 
@@ -620,7 +621,7 @@ Se não podem impedir outras aplicações de escrever para blobs ou ficheiros en
 ### <a name="run-one-azcopy-instance-on-one-machine"></a>Execute uma instância do AzCopy num computador.
 AzCopy foi concebido para maximizar a utilização do seu recurso de máquina para acelerar a transferência de dados, recomendamos que execute apenas uma instância do AzCopy num computador e especifique a opção `--parallel-level` se precisar de mais simultâneas operações. Para obter mais detalhes, escreva `AzCopy --help parallel-level` na linha de comandos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre o Storage do Azure e AzCopy, consulte os seguintes recursos:
 
 ### <a name="azure-storage-documentation"></a>Documentação do Storage do Azure:

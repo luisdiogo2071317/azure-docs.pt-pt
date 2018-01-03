@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: 8739429342d3c8bbe0f09041976758276a9c3228
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="restore-an-azure-sql-data-warehouse-rest-api"></a>Restaurar um armazém de dados SQL do Azure (REST API)
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Para restaurar uma base de dados eliminada:
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre as funcionalidades de continuidade do negócio das edições do SQL Database do Azure, leia o [descrição geral da continuidade de negócio da linha de base de dados do Azure SQL][Azure SQL Database business continuity overview].
 
 <!--Image references-->

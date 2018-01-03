@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 57eec4277e584c3c2828e0fe029b9db10428934e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Utilize o Azure PowerShell para criar um principal de serviço para aceder aos recursos
 
@@ -27,10 +27,10 @@ Quando tiver uma aplicação ou script que precisa de aceder a recursos, pode co
 * Atribua permissões para a identidade de aplicação que sejam diferentes a suas própria permissões. Normalmente, estas permissões são restritos exatamente o que a aplicação tem de fazer.
 * Utilize um certificado para autenticação ao executar um script automático.
 
-Este tópico mostra como utilizar [Azure PowerShell](/powershell/azure/overview) configurar tudo o que precisa de uma aplicação a ser executado sob as suas próprias credenciais e identidade.
+Este artigo mostra como utilizar [Azure PowerShell](/powershell/azure/overview) configurar tudo o que precisa de uma aplicação a ser executado sob as suas próprias credenciais e identidade.
 
-## <a name="required-permissions"></a>Permissões necessárias
-Para concluir este tópico, tem de ter permissões suficientes na sua subscrição do Azure e o Azure Active Directory. Especificamente, tem de ser capaz de criar uma aplicação no Azure Active Directory e atribua o principal de serviço a uma função. 
+## <a name="required-permissions"></a>Permissões obrigatórias
+Para concluir este artigo, tem de ter permissões suficientes na sua subscrição do Azure e o Azure Active Directory. Especificamente, tem de ser capaz de criar uma aplicação no Azure Active Directory e atribua o principal de serviço a uma função. 
 
 A forma mais fácil de verificar se a sua conta tem permissões adequadas é utilizar o portal. Consulte [verificar a permissão necessária](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -105,9 +105,10 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
+ $SecurePassword = convertto-securestring $Password -asplaintext -force
  
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $SecurePassword
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -377,7 +378,7 @@ Para adicionar uma palavra-passe, utilize:
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-Para adicionar um valor de certificado, crie um certificado autoassinado, conforme mostrado neste tópico. Em seguida, utilize:
+Para adicionar um valor de certificado, crie um certificado autoassinado, conforme mostrado neste artigo. Em seguida, utilize:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
@@ -421,7 +422,7 @@ Para informações sobre como iniciar sessão como a aplicação através de pla
 * [Python](/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter passos detalhados sobre como integrar a uma aplicação no Azure para gerir recursos, consulte [guia para programadores para autorização com a API do Azure Resource Manager](resource-manager-api-authentication.md).
 * Para obter uma explicação mais detalhada de principais de serviço e de aplicações, consulte [objectos da aplicação e objetos de principais de serviço](../active-directory/active-directory-application-objects.md). 
 * Para obter mais informações sobre a autenticação do Azure Active Directory, consulte [cenários de autenticação para o Azure AD](../active-directory/active-directory-authentication-scenarios.md).

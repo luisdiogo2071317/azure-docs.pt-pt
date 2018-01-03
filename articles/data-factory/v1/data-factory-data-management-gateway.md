@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a1b5346b590081c703ccdc5197e08f35bcaf76e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -306,7 +306,7 @@ Depois de instalar o gateway, pode iniciar o Gestor de configuração do Data Ma
 1. No **pesquisa** janela, escreva **Data Management Gateway** para aceder a este utilitário.
 2. Executar o executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft Data gestão Gateway\2.0\Shared**
 
-### <a name="home-page"></a>página inicial
+### <a name="home-page"></a>Home page
 A Home page permite-lhe executar as seguintes ações:
 
 * Ver o estado do gateway (ligado ao serviço de nuvem, etc.).
@@ -322,6 +322,9 @@ A página de definições permite-lhe executar as seguintes ações:
 * Alteração **porta HTTPS** para o ponto final. O gateway abre uma porta para definir as credenciais da origem de dados.
 * **Estado** do ponto final
 * Vista **certificado SSL** é utilizado para comunicação SSL entre o portal e o gateway para definir credenciais para as origens de dados.  
+
+### <a name="remote-access-from-intranet"></a>Acesso remoto a partir da intranet  
+Esta funcionalidade será ativada no futuro. As atualizações futuras (v3.4 ou posterior) permitem Ativar / desativar qualquer conectividade remota que hoje em dia acontece a utilizar a porta 8050 (consulte a secção acima) ao utilizar a aplicação do PowerShell ou Gestor de credenciais para encriptar as credenciais. 
 
 ### <a name="diagnostics-page"></a>Página de diagnóstico
 A página de diagnóstico permite-lhe executar as seguintes ações:
@@ -376,7 +379,7 @@ Online | Nó ligado ao serviço Data Factory.
 Offline | Nó está offline.
 A atualizar | O nó está a ser atualizados automaticamente.
 Limitado | Devido ao problema de conectividade. Pode ser devido ao problema de 8050 de porta HTTP, o problema de conectividade do barramento de serviço ou o problema de sincronização de credenciais. 
-Inativos | Nó está a ser uma configuração diferente da configuração dos outros nós da maioria.<br/><br/> Um nó pode ficar inativo quando não é possível ligar a outros nós. 
+Inativo | Nó está a ser uma configuração diferente da configuração dos outros nós da maioria.<br/><br/> Um nó pode ficar inativo quando não é possível ligar a outros nós. 
 
 
 A tabela seguinte fornece os possíveis Estados de um **gateway lógico**. O estado do gateway depende Estados de nós de gateway. 
@@ -537,5 +540,5 @@ Remove-AzureRmDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName A
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Consulte [mover dados entre no local e na nuvem arquivos de dados](data-factory-move-data-between-onprem-and-cloud.md) artigo. As instruções, vai criar um pipeline que utiliza o gateway para mover dados de uma base de dados do SQL Server no local para um blob do Azure.  

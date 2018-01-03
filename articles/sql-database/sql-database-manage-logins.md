@@ -17,15 +17,15 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/23/2017
 ms.author: rickbyh
-ms.openlocfilehash: 0e66eec6c1843df49d3dc323cd109fb9eeb708c3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 78c26ee46ea7847cf78a7f3829c0f5b7a931f2d7
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>Controlar e conceder acesso à base de dados
 
-Quando as regras de firewall tiverem sido configuradas, as pessoas podem ligar a uma Base de Dados SQL como um dos administradores de conta, o proprietário da base de dados ou utilizador da base de dados na base de dados.  
+Depois de tem configuradas regras de firewall, as pessoas podem ligar a uma base de dados do SQL Server como uma das contas de administrador, como o proprietário da base de dados ou um utilizador de base de dados na base de dados.  
 
 >  [!NOTE]  
 >  Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. 
@@ -185,7 +185,7 @@ Ao gerir inícios de sessão e utilizadores na Base de Dados SQL, considere o se
 * Quando o proprietário de uma função de base de dados tenta adicionar ou remover outro utilizador de base de dados de ou para essa função de base de dados, pode ocorrer o seguinte erro: **o utilizador ou a função "Nome" não existe nesta base de dados.** Este erro ocorre porque o utilizador não está visível para o proprietário. Para resolver este problema, conceda uma permissão de `VIEW DEFINITION` ao proprietário da função. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais sobre regras de firewall, veja [Firewall da Base de Dados SQL do Azure](sql-database-firewall-configure.md).
 - Para obter uma descrição geral de todas as funcionalidades de segurança da Base de Dados SQL, veja a [Descrição geral da segurança de SQL](sql-database-security-overview.md).

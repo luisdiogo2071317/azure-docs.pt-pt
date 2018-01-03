@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar do serviço de controlo de acesso do Azure Active Directory para autorização de assinatura de acesso partilhado
 
-Aplicações de Service Bus historicamente tinham uma opção de utilizar dois modelos de autorização diferentes: o [assinatura de acesso partilhado (SAS)](service-bus-sas.md) modelo token fornecido diretamente pelo Service Bus e um modelo federado onde a gestão de regras de autorização é gerido dentro de, pela [do Azure Active Directory](/azure/active-directory/) serviço de controlo de acesso (ACS) e os tokens obtidos a partir de ACS são transmitidos para o Service Bus para autorizar o acesso às funcionalidades pretendidos.
+Aplicações de Service Bus anteriormente tem tido uma opção de utilizar dois modelos de autorização diferentes: o [assinatura de acesso partilhado (SAS)](service-bus-sas.md) modelo token fornecido diretamente pelo Service Bus e um modelo federado onde a gestão de regras de autorização é gerido dentro de, pela [do Azure Active Directory](/azure/active-directory/) serviço de controlo de acesso (ACS) e os tokens obtidos a partir de ACS são transmitidos para o Service Bus para autorizar o acesso às funcionalidades pretendidos.
 
 O modelo de autorização de ACS longa foi substituído pelas [autorização de SAS](service-bus-authentication-and-authorization.md) como o modelo preferencial e toda a documentação, exemplos e documentação de orientação exclusivamente utilizam SAS hoje. Além disso, já não é possível criar novos espaços de nomes de barramento de serviço que estão associados a ACS.
 
@@ -59,7 +59,7 @@ Pode fazer esta configuração de novo e adicional do SAS no local em qualquer e
 
 Regras SAS não se destinam a ser contas, mas são denominadas associadas com direitos de chaves de assinatura. Como tal, cenários em que a aplicação cria várias identidades do serviço e lhes conceda direitos de acesso para várias entidades ou todo o espaço de nomes ainda requerem um intermediário de emissão de tokens. Pode obter orientações para essa intermediário por [contactar o suporte](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre a autenticação do Service Bus, consulte os seguintes tópicos:
 

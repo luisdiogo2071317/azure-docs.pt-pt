@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/22/2017
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexar documentos no Blob Storage do Azure com a pesquisa do Azure
 Este artigo mostra como utilizar a pesquisa do Azure para documentos do índice (tais como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no Blob storage do Azure. Em primeiro lugar, explica as noções básicas de definir e configurar um indexador de blob. Em seguida, oferece uma exploração mais aprofundada de comportamentos e cenários que é provável que encontrar.
@@ -225,28 +225,6 @@ Pode excluir blobs com extensões de nome de ficheiro específicas de indexaçã
 
 Se ambos os `indexedFileNameExtensions` e `excludedFileNameExtensions` parâmetros estão presentes, a Azure Search pela primeira vez observa `indexedFileNameExtensions`, em seguida, no `excludedFileNameExtensions`. Isto significa que se a mesma extensão de ficheiro está presente em ambos, será excluído da indexação.
 
-### <a name="dealing-with-unsupported-content-types"></a>Lidar com os tipos de conteúdo não suportados
-
-Por predefinição, o indexador de blob interrompe assim que o se detetar um blob com um tipo de conteúdo não suportado (por exemplo, uma imagem). Obviamente, pode utilizar o `excludedFileNameExtensions` parâmetro para ignorar a determinados tipos de conteúdo. No entanto, poderá ter de blobs de índice sem saberem a todos os tipos de conteúdo possíveis antecipadamente. Para continuar a indexação quando é encontrado um tipo de conteúdo não suportado, defina o `failOnUnsupportedContentType` parâmetro de configuração para `false`:
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    }
-
-### <a name="ignoring-parsing-errors"></a>A ignorar erros de análise
-
-Lógica de extração de documento de pesquisa do Azure não é perfeita e, por vezes, não conseguirá analisar documentos de um tipo de conteúdo suportado, tal como. DOCX ou. PDF. Se não pretender interromper a indexação nestes casos, defina o `maxFailedItems` e `maxFailedItemsPerBatch` parâmetros de configuração para alguns valores razoáveis. Por exemplo:
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    }
-
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Controlar as partes do blob são indexadas
 
@@ -275,6 +253,31 @@ Os parâmetros de configuração descritos acima se aplicam a todos os blobs. Po
 | --- | --- | --- |
 | AzureSearch_Skip |"true" |Indica o indexador de BLOBs para ignorar completamente o blob. Extração nem metadados nem o conteúdo é tentada. Isto é útil quando um blob específico falha repetidamente e interrupções o processo de indexação. |
 | AzureSearch_SkipContent |"true" |Isto é equivalente do `"dataToExtract" : "allMetadata"` definição descrito [acima](#PartsOfBlobToIndex) âmbito para um blob específico. |
+
+<a name="DealingWithErrors"></a>
+## <a name="dealing-with-errors"></a>Lidar com erros
+
+Por predefinição, o indexador de blob interrompe assim que o se detetar um blob com um tipo de conteúdo não suportado (por exemplo, uma imagem). Obviamente, pode utilizar o `excludedFileNameExtensions` parâmetro para ignorar a determinados tipos de conteúdo. No entanto, poderá ter de blobs de índice sem saberem a todos os tipos de conteúdo possíveis antecipadamente. Para continuar a indexação quando é encontrado um tipo de conteúdo não suportado, defina o `failOnUnsupportedContentType` parâmetro de configuração para `false`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
+    }
+
+Para alguns blobs da Azure Search não é possível determinar o tipo de conteúdo ou não é possível processar um documento de caso contrário suportada tipo de conteúdo. Para ignorar este modo de falha, defina o `failOnUnprocessableDocument` parâmetro de configuração como false:
+
+      "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Também pode continuar a indexação se ocorrem erros em qualquer ponto de processamento, ao analisar os blobs ou ao adicionar documentos para um índice. Para ignorar um número específico de erros, defina o `maxFailedItems` e `maxFailedItemsPerBatch` parâmetros de configuração para os valores pretendidos. Por exemplo:
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+    }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Deteção de indexação e eliminação incremental
 Quando configurar um indexador de BLOBs para executar com base numa agenda, indexa novamente apenas alteradas blobs, conforme determinado pelo blob `LastModified` timestamp.

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5a4a57f50b0485b178b01c55bc3a71fcc288bd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
-# <a name="how-to-configure-the-connected-factory-preconfigured-solution"></a>Como configurar a fábrica ligada solução pré-configurada
+# <a name="configure-the-connected-factory-preconfigured-solution"></a>Configurar a solução de fábrica ligado pré-configurada
 
 A solução de fábrica ligado pré-configurada mostra um dashboard simulado para uma empresa fictícias Contoso. Esta empresa tem quaisquer fábricas em várias localizações global global.
 
@@ -343,6 +343,6 @@ Uma característica do **NumberOfManufactureredProducts** o valor do nó é que 
 
 O **OpCode** na configuração configura a lógica de cálculo para calcular o resultado da diferença do valor mínimo e máximo. Esses resultados, em seguida, são acumuladas inferior até o nível (global) de raiz e apresentadas no dashboard.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Sugestões de um passo seguinte é saber como [implementar um gateway no Windows ou Linux para a solução de fábrica ligado pré-configurada](iot-suite-connected-factory-gateway-deployment.md).

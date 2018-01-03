@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Event Hubs do Azure para as funções do Azure
 
@@ -43,7 +43,7 @@ Por exemplo, suponha que começam com a seguinte configuração e pressupostos p
 1. 10 partições.
 1. 1000 eventos distribuído uniformemente em todas as partições = mensagens de > 100 em cada partição.
 
-Quando a sua função primeiro está ativada, não há apenas 1 instância do funciton. Vamos chamar esta instância de função Function_0. Function_0 terão 1 EPH que gere para obter uma concessão em todas as partições de 10. Será iniciada ler eventos de partições 0-9. A partir deste ponto, irá ocorrer um dos seguintes:
+Quando a sua função primeiro está ativada, não há apenas 1 instância da função. Vamos chamar esta instância de função Function_0. Function_0 terão 1 EPH que gere para obter uma concessão em todas as partições de 10. Será iniciada ler eventos de partições 0-9. A partir deste ponto, irá ocorrer um dos seguintes:
 
 * **É necessária a instância de função apenas 1** -Function_0 é capaz de processar todos os 1000 antes de lógica de dimensionamento das funções do Azure se inicia. Por conseguinte, todas as mensagens de 1000 são processadas pelo Function_0.
 
@@ -59,14 +59,14 @@ Se todas as execuções de função tenha êxito sem erros, os pontos de verific
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#trigger---c-example)
-* [Script do c#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script do c# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Acionador - c# exemplo
 
-O seguinte exemplo mostra [pré-compilada c#](functions-dotnet-class-library.md) código regista o corpo da mensagem do acionador de hub de eventos.
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que regista o corpo da mensagem do acionador de hub de eventos.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -199,7 +199,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>Acionador - atributos
 
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) atributo, que está definido no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) atributo, que está definido no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 O construtor do atributo tem o nome do hub de eventos, o nome do grupo de consumidores e o nome de uma definição de aplicação que contenha a cadeia de ligação. Para obter mais informações sobre estas definições, consulte o [acionar a secção de configuração](#trigger---configuration). Eis um `EventHubTriggerAttribute` exemplo do atributo:
 
@@ -211,7 +211,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Para obter um exemplo completado, consulte [acionador - pré-compilada c# exemplo](#trigger---c-example).
+Para obter um exemplo completado, consulte [acionador - c# exemplo](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Acionador - configuração
 
@@ -242,14 +242,14 @@ Utilize a saída de Event Hubs enlace escrever eventos no registo para uma trans
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#output---c-example)
-* [Script do c#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script do c# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Saída - c# exemplo
 
-O seguinte exemplo mostra um [pré-compilada c# função](functions-dotnet-class-library.md) que escreve uma mensagem para um hub de eventos, o valor de retorno do método a utilizar como o resultado:
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que escreve uma mensagem para um hub de eventos, o valor de retorno do método a utilizar como o resultado:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -371,7 +371,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Saída - atributos
 
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) atributo, que está definido no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+Para [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) atributo, que está definido no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 O construtor do atributo tem o nome do hub de eventos e o nome de uma definição de aplicação que contenha a cadeia de ligação. Para obter mais informações sobre estas definições, consulte [de saída - configuração](#output---configuration). Eis um `EventHub` exemplo do atributo:
 
@@ -384,7 +384,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-Para obter um exemplo completado, consulte [resultado - pré-compilada c# exemplo](#output---c-example).
+Para obter um exemplo completado, consulte [resultado - c# exemplo](#output---c-example).
 
 ## <a name="output---configuration"></a>De saída - configuração
 
@@ -406,7 +406,7 @@ Em c# e c# script, enviar mensagens com um parâmetro de método como `out strin
 
 Em JavaScript, o evento de saída de acesso utilizando `context.bindings.<name>`. `<name>`o valor especificado no `name` propriedade *function.json*.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4d4b9a0223fe6e48eb5ea9be089239d729aa1ab7
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 4468424a96b4949161218d495dd21f24285430fd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Executar aplicações no serviço de contentor do Azure (AKS)
 
@@ -32,7 +32,7 @@ Este tutorial assume uma compreensão básica sobre conceitos Kubernetes, para o
 
 Nos tutoriais anteriores, uma aplicação foi compactada uma imagem de contentor, esta imagem foi carregada para o registo de contentor do Azure e um cluster de Kubernetes foi criado. 
 
-Para concluir este tutorial, terá de previamente criadas `azure-vote-all-in-one-redis.yml` Kubernetes manifesto do ficheiro. Um tutorial anterior, este ficheiro foi transferido com o código fonte da aplicação. Certifique-se de que tem clonou o repositório e que foram alteradas diretórios para o repositório clonado.
+Para concluir este tutorial, terá de previamente criadas `azure-vote-all-in-one-redis.yaml` Kubernetes manifesto do ficheiro. Um tutorial anterior, este ficheiro foi transferido com o código fonte da aplicação. Certifique-se de que tem clonou o repositório e que foram alteradas diretórios para o repositório clonado.
 
 Se não o fez estes passos e gostaria de acompanhar, regresse ao [Tutorial 1 – criar imagens de contentor][aks-tutorial-prepare-app].
 
@@ -49,7 +49,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 O ficheiro de manifesto tiver sido previamente criado com um nome de servidor de início de sessão de `microsoft`. Abra o ficheiro com qualquer editor de texto. Neste exemplo, abrir o ficheiro com `vi`.
 
 ```console
-vi azure-vote-all-in-one-redis.yml
+vi azure-vote-all-in-one-redis.yaml
 ```
 
 Substitua `microsoft` com o nome de servidor de início de sessão ACR. Este valor for encontrado na linha **47** do ficheiro de manifesto.
@@ -67,7 +67,7 @@ Guarde e feche o ficheiro.
 Utilize o [kubectl criar] [ kubectl-create] comando a executar a aplicação. Este comando analisa o ficheiro de manifesto e cria os objetos de Kubernetes definidos.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yaml
 ```
 
 Saída:
@@ -95,7 +95,7 @@ Inicialmente, o *EXTERNAL-IP* do serviço *azure-vote-front* aparece como *pende
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Uma vez a *IP externo* endereço foi alterado de *pendente* para um *endereço IP*, utilize `CTRL-C` parar o processo de veja kubectl. 
+Quando o endereço *EXTERNAL-IP* mudar de *pendente* para *Endereço IP*, utilize `CTRL-C` para parar o processo de observação do kubectl. 
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
@@ -105,7 +105,7 @@ Para ver a aplicação, navegue para o endereço IP externo.
 
 ![Imagem do cluster do Kubernetes no Azure no Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, a aplicação de voto do Azure foi implementada para um cluster de Kubernetes AKS. Tarefas foram completadas incluem:  
 

@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: 82e17e575cdb227af2fabf94f01e94df22994aac
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="distributing-tables-in-sql-data-warehouse"></a>Distribuir a tabelas no armazém de dados do SQL Server
 > [!div class="op_single_selector"]
@@ -283,7 +283,7 @@ RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_HASH];
 RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre a estrutura da tabela, consulte o [distribuir][Distribute], [índice][Index], [partição][Partition], [tipos de dados][Data Types], [estatísticas] [ Statistics] e [tabelas temporárias] [ Temporary] artigos.
 
 Para obter uma descrição geral de melhores práticas, consulte [melhores práticas do SQL Data Warehouse][SQL Data Warehouse Best Practices].

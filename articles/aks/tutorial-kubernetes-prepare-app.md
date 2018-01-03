@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d134359cd986d654ad411586302d01634914325e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60e0feb1e45ac5d9f35eac9667eaf9004d77e86a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="prepare-application-for-azure-container-service-aks"></a>Preparar a aplicação de serviço de contentor do Azure (AKS)
 
@@ -60,7 +60,7 @@ Dentro do diretório é o código fonte da aplicação, um pré-criadas Docker c
 
 [Docker Compose] [ docker-compose] pode ser utilizada para automatizar a compilação fora das imagens de contentor e a implementação de aplicações de várias contentor.
 
-Execute o `docker-compose.yml` ficheiros para criar a imagem do contentor, transferir a imagem de Redis e iniciar a aplicação.
+Execute o `docker-compose.yaml` ficheiros para criar a imagem do contentor, transferir a imagem de Redis e iniciar a aplicação.
 
 ```console
 docker-compose up -d
@@ -119,7 +119,7 @@ docker-compose down
 
 Após a conclusão, ter uma imagem de contentor que contém a aplicação de voto do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, uma aplicação foi testada e imagens de contentor criado para a aplicação. Foram efetuados os seguintes passos:
 

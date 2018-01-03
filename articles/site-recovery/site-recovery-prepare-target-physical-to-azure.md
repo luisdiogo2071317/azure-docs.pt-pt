@@ -15,10 +15,10 @@ ms.workload: backup-recovery
 ms.date: 11/23/2017
 ms.author: bsiva
 ms.openlocfilehash: 2c5377f7193f8357a7e99ed1ef1a61b066b8ce5f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparar o destino (VMware para o Azure)
 > [!div class="op_single_selector"]
@@ -48,5 +48,5 @@ Depois de validações concluir com êxito, clique em OK para ir para o passo se
 
 Se não tiver uma conta de armazenamento do Resource Manager compatível ou de rede virtual, pode criar um clicando a **+ contas de armazenamento** ou **+ rede** botões na parte superior da página.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Configurar as definições de replicação](./site-recovery-setup-replication-settings-vmware.md).

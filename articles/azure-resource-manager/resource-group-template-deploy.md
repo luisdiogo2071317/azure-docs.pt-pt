@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 495f64f31eae63fcee343b277e16ac04e8575c21
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 1210b2da9126c24b59e8ef59b50742a17b2e740d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementar recursos com modelos do Resource Manager e do Azure PowerShell
 
@@ -26,7 +26,7 @@ Este artigo explica como utilizar o Azure PowerShell com modelos do Resource Man
 
 O modelo do Resource Manager que implementar possível ser um ficheiro local no seu computador, ou um ficheiro externo que está localizado num repositório como GitHub. O modelo que implementa neste artigo está disponível no [modelo de exemplo](#sample-template) secção, ou como [modelo de conta de armazenamento no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-[!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install.md)]
+Se necessário, instale o módulo Azure PowerShell, utilizando as instruções encontradas no [Guia do Azure PowerShell](/powershell/azure/overview)e, em seguida, execute `Login-AzureRmAccount` para criar uma ligação com o Azure.
 
 <a id="deploy-local-template" />
 
@@ -210,7 +210,7 @@ O modelo seguinte é utilizado para os exemplos neste artigo. Copie e guarde-o c
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Os exemplos neste artigo implementar recursos num grupo de recursos na sua subscrição predefinida. Para utilizar uma subscrição diferente, consulte [gerir várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).
 * Para um script de exemplo completo que implementa um modelo, consulte [script de implementação de modelos do Resource Manager](resource-manager-samples-powershell-deploy.md).
 * Para compreender como definir parâmetros no modelo, consulte [compreender a estrutura e a sintaxe de modelos Azure Resource Manager](resource-group-authoring-templates.md).

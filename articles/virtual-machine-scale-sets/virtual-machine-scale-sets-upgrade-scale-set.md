@@ -3,8 +3,8 @@ title: "Atualizar um conjunto de dimensionamento da máquina virtual do Azure | 
 description: "Atualizar um conjunto de dimensionamento da máquina virtual do Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: guybo
-ms.openlocfilehash: aef243e34f1d5fc8240576a9803bb8b08693a7b7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: gunegatybo
+ms.openlocfilehash: fbdc9d40173a40f35eee60cadfdd258293509d53
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Atualizar um conjunto de dimensionamento de máquina virtual
 Este artigo descreve como pode implementar uma atualização de SO para um conjunto sem qualquer período de indisponibilidade de dimensionamento de máquina virtual do Azure. Neste contexto, uma atualização de SO envolve a alterar a versão ou SKU do SO ou alterar o URI de uma imagem personalizada. A atualização sem meios de período de indisponibilidade atualizar máquinas virtuais uma a uma hora ou em grupos (por exemplo, um domínio de falhas numa altura) em vez de ao mesmo tempo. Ao fazê-lo, pode manter executar quaisquer máquinas virtuais que não estão a ser atualizadas.
@@ -31,7 +31,7 @@ Para evitar ambiguidade, vamos distinguir quatro tipos de atualização de SO qu
 * Alterar a referência da imagem de um conjunto de dimensionamento que foi criada utilizando discos de gerida do Azure.
 * Aplicação de patches de SO de uma máquina virtual (exemplos deste incluem a instalação de um patch de segurança e executar o Windows Update). Este cenário é suportado, mas não abrangido neste artigo.
 
-Conjuntos de dimensionamento de máquina virtual que são implementados como parte de um [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster não são abrangidos aqui. Consulte [Patch de SO de Windows no seu cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application) para obter mais informações sobre a aplicação de patches de Service Fabric.
+Conjuntos de dimensionamento de máquina virtual que são implementados como parte de um [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster não são abrangidos aqui. Para obter mais informações sobre a aplicação de patches de Service Fabric, consulte [Patch de SO de Windows no seu cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
 
 A sequência básica para alterar a versão do SO/SKU de uma imagem de plataforma ou o URI de uma imagem personalizada procura da seguinte forma:
 
@@ -64,14 +64,14 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-Se estão a atualizar o URI para uma imagem personalizada em vez de alterar uma versão de imagem de plataforma, substitua a linha "definir a nova versão" com um comando que irá atualizar a imagem de origem URI. Por exemplo, se o conjunto de dimensionamento foi criado sem utilizar discos gerida do Azure, a atualização seria este aspeto:
+Se estão a atualizar o URI para uma imagem personalizada em vez de alterar uma versão de imagem de plataforma, substitua a linha "definir a nova versão" com um comando que atualiza a imagem de origem URI. Por exemplo, se o conjunto de dimensionamento foi criado sem utilizar discos gerida do Azure, a atualização seria este aspeto:
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
-Se uma imagem personalizada baseada em conjunto de dimensionamento foi criada utilizando discos gerida do Azure, em seguida, seria possível atualizar a referência da imagem. Por exemplo:
+Se foi criado um conjunto de escala personalizada baseada em imagem utilizando discos de gerida do Azure, seria possível atualizar a referência da imagem. Por exemplo:
 
 ```powershell
 # set the new version in the model data

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exemplo 1 – criar uma rede de Perímetro simple utilizando NSGs com um modelo Azure Resource Manager
 [Regressar à página de segurança limites melhores práticas][HOME]
@@ -351,7 +351,7 @@ Para remover esta implementação, elimine o grupo de recursos e todos os recurs
 #### <a name="sample-application-scripts"></a>Scripts de aplicação de exemplo
 Assim que o modelo é executada com êxito, pode configurar o servidor web e o servidor de aplicação com uma aplicação web simples para permitir testes com esta configuração de rede de Perímetro. Para instalar uma aplicação de exemplo para isto e outros exemplos de rede de Perímetro, um foi fornecido na seguinte hiperligação: [Script de aplicação de exemplo][SampleApp]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Implementar neste exemplo
 * Criar a aplicação de exemplo

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/02/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 86bc61ffcefd12289168d35b2773d61fac4c3652
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e o dimensionamento do BD Azure Cosmos
 
@@ -60,7 +60,7 @@ BD do Azure do Cosmos utiliza a criação de partições com base em hash. Quand
 > É uma melhor prática de ter uma chave de partição com vários valores distintos (centenas e os milhares, no mínimo).
 >
 
-Contentores do Cosmos BD do Azure podem ser criados como *fixo* ou *ilimitados*. Os contentores de tamanho fixo têm um limite máximo de 10 GB e 10 000 de RU/s débito. Algumas APIs que permitem que a chave de partição ser omitidas para contentores de tamanho fixo. Para criar um contentor como ilimitado, tem de especificar um débito mínimo de 2500 RU/s.
+Contentores do Cosmos BD do Azure podem ser criados como *fixo* ou *ilimitados*. Os contentores de tamanho fixo têm um limite máximo de 10 GB e 10 000 de RU/s débito. Para criar um contentor como ilimitado, tem de especificar um débito mínimo de 1.000 RU/s e tem de especificar uma chave de partição.
 
 É uma boa ideia confirmar a forma como os seus dados são distribuídos em partições. Para verificar isto no portal, aceda à sua conta de base de dados do Azure Cosmos e clique em **métricas** no **monitorização** secção e, em seguida, no painel direito, clique em **armazenamento** separador para ver como os seus dados são partições na partição física diferente.
 
@@ -127,25 +127,18 @@ Resultados:
 
 ### <a name="table-api"></a>API de Tabela
 
-Com a API de tabela, especifique o débito para as tabelas na configuração appSettings para a sua aplicação.
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-Em seguida, criar uma tabela ao utilizar o Table storage do Azure SDK. A chave de partição implicitamente é criada como o `PartitionKey` valor. 
+Para criar uma tabela utilizando a API de tabela de base de dados do Azure Cosmos, utilize o método CreateIfNotExists. 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 800);
 ```
+
+Débito está definido como um argumento de CreateIfNotExists.
+
+A chave de partição implicitamente é criada como o `PartitionKey` valor. 
 
 Pode obter uma única entidade utilizando o seguinte fragmento:
 
@@ -207,7 +200,7 @@ Se estiver a implementar uma aplicação multi-inquilino através da utilizaçã
 
 Também pode utilizar uma abordagem de combinação/camadas de mensagens em fila que collocates inquilinos pequenos e migra inquilinos maior para os seus próprios contentor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, fornecemos-lhe uma descrição geral dos conceitos e procedimentos recomendados para criação de partições com qualquer API de BD do Cosmos do Azure. 
 
 * Saiba mais sobre [débito aprovisionado do BD Azure Cosmos](request-units.md).

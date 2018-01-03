@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 794117b6f383bdd1851681864e99b3c1ef077f86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-resource-health-faq"></a>FAQ do Estado de funcionamento do recurso do Azure
 Saiba as respostas a questões recorrentes sobre o estado de funcionamento de recursos de Azure.
@@ -80,8 +80,6 @@ Estado de funcionamento do recurso está disponível em todos os geos do Azure, 
 - US DoD Centro
 - Alemanha Central
 - Alemanha Nordeste
-- Leste da China
-- China Norte
 
 ## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>Como estado de funcionamento do recurso é diferente do Dashboard de estado de funcionamento do serviço ou as notificações de serviço de portal do Azure?
 As informações fornecidas pelo Estado de funcionamento do recurso são mais específicas que o que é fornecido pelo Dashboard de estado de funcionamento do serviço Azure.
@@ -102,7 +100,7 @@ Sim.  Estado de funcionamento de recursos do Azure é gratuitamente.
 ## <a name="what-are-the-recommendations-that-resource-health-provides"></a>Quais são as recomendações que fornece o estado de funcionamento do recurso?
 Com base no estado de funcionamento, o estado de funcionamento do recurso fornece recomendações com o objetivo de reduzir o tempo que gasto a resolução de problemas. Para obter recursos disponíveis, encontrar o foco de recomendações sobre como resolver os clientes de problemas mais comuns. Se o recurso está indisponível devido a um evento não planeado do Azure, o foco será na prestar assistência, durante e após o processo de recuperação. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre o estado de funcionamento de recursos:
 -  [Descrição geral do Estado de funcionamento de recursos do Azure](Resource-health-overview.md)

@@ -1,24 +1,16 @@
 ---
-title: "Reveja a arquitetura para replicação de VMware no Azure | Microsoft Docs"
+title: "VMware para a arquitetura da replicação do Azure no Azure Site Recovery | Microsoft Docs"
 description: "Este artigo fornece uma descrição geral da arquitetura de utilizada quando replicar VMs de VMware no local para o Azure com o serviço do Azure Site Recovery e componentes"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: d03d2dd3-2455-4ca8-a942-a342030ee6ce
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: ac1151d15a88650f5845cb879cd210e9f7cba0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware para a arquitetura da replicação do Azure
 
@@ -83,7 +75,6 @@ Quando o site no local primário estiver novamente disponível, pode fazer a rea
 ![Reativação pós-falha](./media/concepts-vmware-to-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Rever a matriz de suporte siga o tutorial para ativar o VMware para a replicação do Azure.
-Execute uma ativação pós-falha e a reativação pós-falha.
+Siga [neste tutorial](tutorial-vmware-to-azure.md) para ativar o VMware para a replicação do Azure.

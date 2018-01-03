@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito ou de débito do Azure
 
@@ -77,7 +77,7 @@ Se o seu cartão de crédito é associado a outras subscrições do Microsoft Ac
 
 Após a sua subscrição está desativada ou cancelada, aguardaremos 90 dias antes de eliminar permanentemente a sua subscrição. Vamos manter o seu método de pagamento no ficheiro durante o período de retenção caso pretende reativar a subscrição. Depois disso, a subscrição é totalmente eliminada.
 
-Se precisar de remover o seu cartão de crédito ou de débito antes de terminar o período de retenção de 90 dias, [contacte o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se precisar de remover o seu cartão de crédito ou de débito antes de terminar o período de retenção de 90 dias, [reativar a sua subscrição](billing-subscription-become-disable.md). Se não é possível reativar, [contacte o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Por que motivo posso manter obter "a sua sessão de início de sessão expirou. Clique aqui para voltar a iniciar sessão"?
 
@@ -96,6 +96,10 @@ Se estiver [pagar por fatura](billing-how-to-pay-by-invoice.md), envie o pagamen
 ### <a name="how-do-i-make-a-one-time-payment"></a>Como efetuar um única pagamento?
 
 Infelizmente, Azure atualmente não suporta uma única pagamentos para cartões de crédito ou de débito. 
+
+### <a name="how-do-i-change-the-tax-id"></a>Como posso alterar o ID de dedução dos impostos?
+
+Para adicionar ou atualizar o ID de dedução dos impostos, visite [ **perfil** no Centro de contas do Azure](https://account.azure.com/Profile), em seguida, selecione **dedução dos impostos registo**. Este ID de dedução dos impostos é utilizada para cálculos de exclusão dedução dos impostos e é apresentado na sua fatura.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
-ms.author: pajosh;markgal;trinadhk
+ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2425523dacd9a0e1e078ec8cd082ac40534d25a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Cópia de segurança e restaurar encriptadas máquinas virtuais com o Backup do Azure
 Este artigo aborda os passos para criar cópias de segurança e restaurar máquinas virtuais (VMs) com o Backup do Azure. Também fornece detalhes sobre cenários suportados, pré-requisitos e passos de resolução de problemas de casos de erro.
@@ -77,11 +77,17 @@ Utilize os seguintes passos para definir um objetivo de cópia de segurança, de
 6. Escolha as VMs encriptadas para associar à política especificada e selecione **OK**.
 
       ![Selecione VMs encriptadas](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
-7. Esta página mostra uma mensagem sobre cofres de chaves associadas às VMs encriptadas que selecionou. Cópia de segurança requer acesso só de leitura para as chaves e segredos no Cofre de chaves. Utiliza estas permissões para criar cópias de segurança de chaves e segredos, juntamente com as VMs associados. *Tem de fornecer permissões para o serviço de cópia de segurança para aceder ao Cofre de chaves para cópias de segurança funcionam*. Pode fornecer estas permissões ao seguir o [passos mencionados na secção seguinte](#provide-permissions-to-azure-backup).
+7. Esta página mostra uma mensagem sobre cofres de chaves associadas às VMs encriptadas que selecionou. Cópia de segurança requer acesso só de leitura para as chaves e segredos no Cofre de chaves. Utiliza estas permissões para criar cópias de segurança de chaves e segredos, juntamente com as VMs associados.<br>
+Se for um **utilizador membro**, o processo de ativar a cópia de segurança totalmente integrada vai adquirir o acesso ao Cofre de chaves para cópia de segurança encriptado VMs sem exigir qualquer intervenção do utilizador.
 
-      ![Mensagem de VMs encriptada](./media/backup-azure-vms-encryption/encrypted-vm-warning-message.png)
+   ![Mensagem de VMs encriptada](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-      Agora que definiu todas as definições para o cofre, selecione **ativar Backup** na parte inferior da página. **Ativar a cópia de segurança** implementa a política para o Cofre e as VMs.
+   Para um **utilizador convidado**, tem de fornecer permissões para o serviço de cópia de segurança para aceder ao Cofre de chaves para cópias de segurança funcione. Pode fornecer estas permissões ao seguir o [passos mencionados na secção seguinte](#provide-permissions-to-backup)
+
+   ![Mensagem de VMs encriptada](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
+ 
+    Agora que definiu todas as definições para o cofre, selecione **ativar Backup** na parte inferior da página. **Ativar a cópia de segurança** implementa a política para o Cofre e as VMs.
+  
 8. A fase seguinte em preparação está a instalar o agente da VM ou certificar-se de que o agente VM está instalado. Para o fazer, siga os passos no [preparar o ambiente para cópia de segurança](backup-azure-arm-vms-prepare.md).
 
 ### <a name="trigger-a-backup-job"></a>Acionar uma tarefa de cópia de segurança
@@ -102,7 +108,7 @@ Utilize os seguintes passos para fornecer permissões relevantes à cópia de se
      
 3. Selecione **políticas de acesso**e, em seguida, selecione **adicionar novo**.
 
-    ![Adicionar novos](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
+    ![Adicionar nova](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
     
 4. Selecione **principal selecione**e, em seguida, escreva **serviço de gestão de cópia de segurança** na caixa de pesquisa. 
 

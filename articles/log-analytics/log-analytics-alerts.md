@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2017
 ms.author: bwren
-ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: a0897113660f764cb23239b066bc93c479a9a553
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Alertas de compreender na análise de registos
 
@@ -31,7 +31,7 @@ Para o processo de criação de regras de alertas, consulte os artigos seguintes
 - Criar regras de alertas utilizando [REST API](log-analytics-api-alerts.md)
 
 
-## <a name="alert-rules"></a>Regras de alertas
+## <a name="alert-rules"></a>Regras de alerta
 
 Os alertas são criados pelas regras de alerta que execute automaticamente pesquisas de registo em intervalos regulares.  Se os resultados da pesquisa de registo correspondentes aos critérios de específicos, em seguida, é criado um registo de alerta.  A regra pode, em seguida, execute automaticamente uma ou mais ações para notificá-lo do alerta proativamente ou da invocação do outro processo.  Diferentes tipos de regras de alerta utilizam lógica diferente para efetuar esta análise.
 
@@ -80,13 +80,13 @@ Por exemplo, se pretendesse para o alertar quando o processador é executada mai
 
     
 
-Se quisesse para o alertar quando o processador apresentou uma média de mais de 90% de uma janela de tempo específico, teria de utilizar uma consulta utilizando o [medir comando](log-analytics-search-reference.md#commands) com o seguinte com o limiar para a regra de alerta **maior que 0**.
+Se quisesse para o alertar quando o processador apresentou uma média de mais de 90% de uma janela de tempo específico, utilizaria uma consulta semelhante ao seguinte com o limiar para a regra de alerta **maior que 0**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
 
     
 >[!NOTE]
-> Se a sua área de trabalho ainda não foram atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), em seguida, as consultas acima alteraria o seguinte:`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> Se a sua área de trabalho ainda não foram atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), e as consultas acima alteraria o seguinte com a última utilizando o [medir comando](log-analytics-search-reference.md#commands):`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
 > `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
@@ -113,8 +113,8 @@ Considere um cenário em que pretendia um alerta se a qualquer computador excede
 **Consulta:** desempenho | onde ObjectName = = "Processador" e CounterName = = "% de tempo do processador" | resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 5 m), do computador<br>
 **Janela de tempo:** 30 minutos<br>
 **Frequência de alerta:** 5 minutos<br>
-**Valor de agregação:** excelente a 90<br>
-**Alerta de Acionador com base na:** Total de falhas maior 5<br>
+**Valor de agregação:** maior do que 90<br>
+**Alerta de Acionador com base na:** Total de falhas maior que 2<br>
 
 A consulta criaria um valor médio para cada computador em intervalos de 5 minutos.  Esta consulta iria ser executada a cada 5 minutos para os dados recolhidos através de 30 minutos anteriores.  Dados de exemplo são mostrados abaixo para três computadores.
 
@@ -143,7 +143,7 @@ Alerta registos criados pelas regras de alerta na análise de registos tem um **
 Existem outros tipos de alerta registos criados pelo [solução de gestão de alerta](log-analytics-solution-alert-management.md) e [exporta do Power BI](log-analytics-powerbi.md).  Estes têm um **tipo** de **alerta** , mas são distinguidos pelo respetivo **SourceSystem**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Instalar o [solução de gestão de alertas](log-analytics-solution-alert-management.md) para analisar alertas criados na análise de registos, juntamente com os alertas recolhidas a partir de System Center Operations Manager.
 * Leia mais sobre [pesquisas de registo](log-analytics-log-searches.md) que pode gerar alertas.
 * Conclua uma explicação passo a passo para [configurar um webhook](log-analytics-alerts-webhooks.md) com uma regra de alerta.  

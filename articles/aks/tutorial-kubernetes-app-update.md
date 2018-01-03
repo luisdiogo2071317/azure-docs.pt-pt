@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5399fa40542fd9a1163654d5619cb94029bc3c6f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Atualizar uma aplicação no serviço de contentor do Azure (AKS)
 
@@ -33,7 +33,7 @@ Nos tutoriais subsequentes, o Operations Management Suite está configurado para
 
 Tutoriais anteriores, uma aplicação foi compactada uma imagem de contentor, a imagem carregada para o registo de contentor do Azure e um cluster de Kubernetes criada. A aplicação, em seguida, foi executada no Kubernetes cluster. 
 
-Um repositório de aplicações também foi clonado que inclui o código fonte da aplicação e um ficheiro de Docker Compose pré-criadas utilizado neste tutorial. Certifique-se de que criou um clone do repositório e que foram alteradas diretórios para o diretório clonado. Interior é um diretório com o nome `azure-vote` e um ficheiro denominado `docker-compose.yml`.
+Um repositório de aplicações também foi clonado que inclui o código fonte da aplicação e um ficheiro de Docker Compose pré-criadas utilizado neste tutorial. Certifique-se de que criou um clone do repositório e que foram alteradas diretórios para o diretório clonado. Interior é um diretório com o nome `azure-vote` e um ficheiro denominado `docker-compose.yaml`.
 
 Se ainda não concluir estes passos e pretender acompanhar, regresse ao [Tutorial 1 – criar imagens de contentor][aks-tutorial-prepare-app]. 
 
@@ -154,7 +154,7 @@ Navegue para o endereço IP para ver a aplicação atualizada.
 
 ![Imagem do cluster do Kubernetes no Azure no Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, pode atualizar uma aplicação e implementado esta atualização para um cluster de Kubernetes. As tarefas seguintes foram concluídas:
 

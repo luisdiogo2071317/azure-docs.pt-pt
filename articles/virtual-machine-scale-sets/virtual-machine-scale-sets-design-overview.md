@@ -5,7 +5,7 @@ keywords: "conjuntos de dimensionamento de máquina virtual de máquina virtual 
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
@@ -16,21 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 0b05359938f4da544c4cb2a6fe60cfaf228478e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de dimensionamento
-Este tópico descreve considerações de design para conjuntos de dimensionamento de Máquina Virtual. Para obter informações sobre quais são os conjuntos de dimensionamento de Máquina Virtual, consulte [descrição geral de conjuntos de dimensionamento de Máquina Virtual](virtual-machine-scale-sets-overview.md).
+Este artigo aborda considerações de design para conjuntos de dimensionamento de Máquina Virtual. Para obter informações sobre quais são os conjuntos de dimensionamento de Máquina Virtual, consulte [descrição geral de conjuntos de dimensionamento de Máquina Virtual](virtual-machine-scale-sets-overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Quando utilizar escala define em vez de máquinas virtuais?
-Geralmente, conjuntos de dimensionamento são úteis para implementar a infraestrutura de elevada disponibilidade em que um conjunto de máquinas têm configuração semelhante. No entanto, algumas funcionalidades só estão disponíveis nos conjuntos de dimensionamento enquanto outras funcionalidades só estão disponíveis nas VMs. Para tomar uma decisão informada sobre quando utilizar cada tecnologia, iremos deve primeiro Observe algumas das funcionalidades utilizadas frequentemente que estão disponíveis em conjuntos de dimensionamento, mas não VMs:
+Geralmente, conjuntos de dimensionamento são úteis para implementar a infraestrutura de elevada disponibilidade em que um conjunto de máquinas têm configuração semelhante. No entanto, algumas funcionalidades só estão disponíveis nos conjuntos de dimensionamento enquanto outras funcionalidades só estão disponíveis nas VMs. Para tomar uma decisão informada sobre quando utilizar cada tecnologia, primeiro deve ter uma vista de olhos algumas das funcionalidades utilizadas frequentemente que estão disponíveis em conjuntos de dimensionamento, mas não VMs:
 
 ### <a name="scale-set-specific-features"></a>Funcionalidades de específicas do conjunto de dimensionamento
 
-- Depois de especificar que a escala de definir a configuração, pode simplesmente atualizar a propriedade "capacidade" para implementar mais VMs em paralelo. Isto é muito mais simples do que escrever um script para orquestrar a implementação de várias VMs individuais em paralelo.
+- Depois de especificar que a escala de definir a configuração, pode atualizar a propriedade "capacidade" para implementar mais VMs em paralelo. Isto é muito mais simples do que escrever um script para orquestrar a implementação de várias VMs individuais em paralelo.
 - Pode [utilizar dimensionamento automático do Azure para dimensionar automaticamente um conjunto de dimensionamento](./virtual-machine-scale-sets-autoscale-overview.md) mas VMs não individuais.
 - Pode [VMs de conjunto de dimensionamento de recriação de imagem](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm) mas [VMs individuais não](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 - Pode [bandeira](./virtual-machine-scale-sets-design-overview.md) conjunto de dimensionamento de VMs para uma maior fiabilidade e tempos de implementação mais rápidos. Não é possível fazê-com VMs individuais, a menos que escrever código personalizado para efetuar este procedimento.
@@ -38,14 +38,14 @@ Geralmente, conjuntos de dimensionamento são úteis para implementar a infraest
 
 ### <a name="vm-specific-features"></a>Funcionalidades específicas do VM
 
-Por outro lado, algumas funcionalidades só estão disponíveis em VMs (pelo menos para o tempo a ser):
+Atualmente algumas funcionalidades só estão disponíveis nas VMs:
 
 - Pode anexar os discos de dados para as VMs individuais específicas, mas os discos de dados anexados estão configurados para todas as VMs num conjunto de dimensionamento.
 - Pode anexar os discos de dados não vazio, mas não as VMs num conjunto de dimensionamento de VMs individuais.
 - Pode instantâneos de uma VM individual, mas não uma VM num conjunto de dimensionamento.
 - Pode capturar uma imagem de uma VM individual, mas não a partir de uma VM num conjunto de dimensionamento.
 - Pode migrar uma VM individual discos nativo para gerido discos, mas não o conseguir fazer para as VMs num conjunto de dimensionamento.
-- Pode atribuir endereços IP públicos do IPv6 a nics individuais de VM, mas não é possível fazer para as VMs num conjunto de dimensionamento. Tenha em atenção que pode atribuir endereços IP públicos de IPv6 para balanceadores à frente de qualquer uma das VMs individuais de carga ou conjunto de dimensionamento de VMs.
+- Pode atribuir endereços IP públicos do IPv6 a nics individuais de VM, mas não é possível fazer para as VMs num conjunto de dimensionamento. Pode atribuir endereços IP públicos de IPv6 para balanceadores à frente de qualquer uma das VMs individuais de carga ou conjunto de dimensionamento de VMs.
 
 ## <a name="storage"></a>Armazenamento
 

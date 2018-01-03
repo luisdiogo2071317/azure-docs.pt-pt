@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 1520cea72069be5d7bb078a3770d61fade26b853
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fbc6e18565ec14a3ccb4499b24804f681026023
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Utilize o PowerShell para gerir recursos do Service Bus
 
@@ -159,7 +159,7 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 Pode utilizar o [módulo PowerShell do barramento de serviço](/powershell/module/azurerm.servicebus) para aprovisionar outras entidades, como os tópicos e subscrições. Estes cmdlets são sintaticamente semelhantes para os cmdlets de criação de fila demonstrados na secção anterior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte a documentação de módulo do PowerShell do Gestor de recursos de barramento de serviço completa [aqui](/powershell/module/azurerm.servicebus). Esta página apresenta uma lista de todos os cmdlets disponíveis.
 - Para obter informações sobre como utilizar os modelos Azure Resource Manager, consulte o artigo [recursos de criar o Service Bus através de modelos Azure Resource Manager](service-bus-resource-manager-overview.md).

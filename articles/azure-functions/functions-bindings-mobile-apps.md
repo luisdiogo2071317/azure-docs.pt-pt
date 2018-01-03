@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de aplicações móveis para as funções do Azure 
 
@@ -37,8 +37,7 @@ O enlace de entrada de Mobile Apps carrega um registo a partir de um ponto final
 
 Veja o exemplo de específicas do idioma:
 
-<!-- * [Precompiled C#](#input---c-example)-->
-* [Script do c#](#input---c-script-example)
+* [Script do c# (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>Entrada - exemplo de script do c#
@@ -129,7 +128,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Entrada - atributos
 
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atributo, que está definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atributo, que está definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Para obter informações sobre as propriedades de atributo que pode configurar, consulte [a secção de configuração seguintes](#input---configuration).
 
@@ -168,13 +167,13 @@ Utilize a saída de Mobile Apps do enlace para escrever um novo registo de uma t
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#output---c-example)
-* [Script do c#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script do c# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Saída - c# exemplo
 
-O seguinte exemplo mostra um [pré-compilada c# função](functions-dotnet-class-library.md) que é acionado por uma mensagem de fila e cria um registo de uma tabela de aplicação móvel.
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que é acionado por uma mensagem de fila e cria um registo de uma tabela de aplicação móvel.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -275,7 +274,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Saída - atributos
 
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atributo, que está definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) atributo, que está definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Para obter informações sobre as propriedades de atributo que pode configurar, consulte [de saída - configuração](#output---configuration). Eis um `MobileTable` exemplo de atributo na assinatura do método:
 
@@ -290,7 +289,7 @@ public static object Run(
 }
 ```
 
-Para obter um exemplo completado, consulte [resultado - pré-compilada c# exemplo](#output---c-example).
+Para obter um exemplo completado, consulte [resultado - c# exemplo](#output---c-example).
 
 ## <a name="output---configuration"></a>De saída - configuração
 
@@ -312,7 +311,7 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 ## <a name="output---usage"></a>Saída - utilização
 
-Em c# funções de script, utilize um parâmetro de saída com o nome do tipo `out object` para aceder ao registo de saída. Pré-compilada c# funções, o `MobileTable` atributo pode ser utilizado com qualquer um dos seguintes tipos:
+Em c# funções de script, utilize um parâmetro de saída com o nome do tipo `out object` para aceder ao registo de saída. Em c# bibliotecas de classes, o `MobileTable` atributo pode ser utilizado com qualquer um dos seguintes tipos:
 
 * `ICollector<T>`ou `IAsyncCollector<T>`, onde `T` está `JObject` ou de qualquer tipo com um `public string Id` propriedade.
 * `out JObject`
@@ -320,7 +319,7 @@ Em c# funções de script, utilize um parâmetro de saída com o nome do tipo `o
 
 Nas funções de Node.js, utilize `context.bindings.<name>` para aceder ao registo de saída.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

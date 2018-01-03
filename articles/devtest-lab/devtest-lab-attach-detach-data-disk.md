@@ -3,7 +3,7 @@ title: "Anexar ou desanexar um disco de dados para uma máquina virtual no Azure
 description: "Saiba como ligar ou desligar um disco de dados para uma máquina virtual no Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 9616bf38-7db8-4915-a32a-e4f40a7a56ad
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: tarcher
-ms.openlocfilehash: 1e156b2baad0d49c21e852a22d3b149e630b3750
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: v-craic
+ms.openlocfilehash: c1f83097fe4e5da3a46f693d37b001dbb6831527
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou desanexar um disco de dados para uma máquina virtual no Azure DevTest Labs
 [Discos do Azure gerida](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gere as contas de armazenamento associadas aos discos de dados de máquina virtual. Um utilizador liga um novos dados em disco para uma VM, especifica o tipo e o tamanho de disco necessários e o Azure cria e gere automaticamente o disco. O disco de dados, em seguida, pode ser desligado da VM e um novamente ligado mais tarde para a mesma VM ou anexado a uma VM diferente, que pertence ao mesmo utilizador.
@@ -104,6 +104,6 @@ Para atualizar um disco de dados não geridos, siga os passos descritos neste ar
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba como gerir discos de dados para [claimable máquinas de virtuais](devtest-lab-add-claimable-vm.md#unclaim-a-vm).
 

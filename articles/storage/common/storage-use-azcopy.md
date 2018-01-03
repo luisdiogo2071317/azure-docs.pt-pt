@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2017
 ms.author: seguler
-ms.openlocfilehash: 1a4c52babe76e59eacb30e8be91ed934cdbe305b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferência de dados com o AzCopy no Windows
-O AzCopy é um utilitário da linha de comandos concebido para copiar dados para e do armazenamento de Blobs do Microsoft Azure, ficheiros e tabela utilizando comandos simples com um desempenho ideal. Pode copiar dados de um objeto para outro dentro da sua conta de armazenamento, ou entre contas de armazenamento.
+O AzCopy é um utilitário da linha de comandos concebido para copiar dados do armazenamento de Blobs do Microsoft Azure, ficheiros e tabela, utilizando os comandos simples concebidos para um desempenho ideal. Pode copiar dados entre um sistema de ficheiros e uma conta de armazenamento, ou entre contas de armazenamento.  
 
 Existem duas versões do AzCopy que pode transferir. AzCopy no Windows baseia-se com o .NET Framework e o estilo de Windows esta oferece opções de linha de comandos. [AzCopy no Linux](storage-use-azcopy-linux.md) baseia-se com o .NET Core Framework que está direcionada para plataformas Linux oferta estilo POSIX opções da linha de comandos. Este artigo abrange AzCopy no Windows.
 
@@ -967,7 +967,7 @@ Para a propriedade "AzureStorageUseV1MD5":
 
 Algoritmos compatíveis com FIPS estão desativados por predefinição no Windows. Pode alterar esta definição de política no seu computador. Na janela executar (Windows + R), escreva secpol.msc para abrir o **política de segurança Local** janela. No **definições de segurança** janela, navegue para **definições de segurança** > **políticas locais** > **opções de segurança**. Localize o **criptografia de sistema: algoritmos compatíveis com o utilize FIPS para encriptação, hashing e iniciar sessão** política. Faça duplo clique na política para ver o valor apresentado no **definição de segurança** coluna.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o Storage do Azure e AzCopy, consulte os seguintes recursos:
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 8a7c03f10d4310bcdb13ef76b598c22912707c08
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0399719e5f80869f0131691b89a9dc48b3fc48d7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="my-first-python-runbook"></a>O meu primeiro runbook do Python
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/18/2017
 > * [Gráficos](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-> * [python](automation-first-runbook-textual-python2.md)
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 > 
 
@@ -147,7 +147,7 @@ Para gerir recursos do Azure, o script tem de autenticar com as credenciais da s
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Adicionar código para criar o cliente de computação de Python e iniciar a VM
 
-Para trabalhar com as VMs do Azure, criar uma instância do [cliente computação do Azure para Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.compute.computemanagementclient?view=azure-python).
+Para trabalhar com as VMs do Azure, criar uma instância do [cliente computação do Azure para Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
 
 Utilize o cliente de computação para iniciar a VM. Adicione o seguinte código ao runbook:
 
@@ -207,7 +207,7 @@ Introduza o nome do grupo de recursos, como o valor para o primeiro parâmetro e
 
 Clique em **OK** para iniciar o runbook. O runbook é executado e começa a VM que especificou.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para começar com runbooks do PowerShell, consulte [O meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
 * Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: ebfe23ea1e07e7578e8bd352a482ecb1016829de
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Descrição geral de ciclo de vida do Reliable Services
 > [!div class="op_single_selector"]
@@ -130,7 +130,7 @@ Processamento de exceções que vêm da utilização do `ReliableCollections` em
   - Apesar de não existe nenhum limite de tempo na devolução destes métodos, imediatamente perder a capacidade de escrever em coleções fiável e, por conseguinte, não é possível concluir qualquer trabalho real. Recomendamos que pode ser devolvido como rapidamente possível após receber o pedido de cancelamento. Se o serviço não responder a estas chamadas de API num período de tempo razoável, o Service Fabric pode forçar a terminar o serviço. Normalmente, isto só ocorre durante as atualizações de aplicações ou quando um serviço está a ser eliminado. Este tempo limite é de 15 minutos por predefinição.
   - Falhas no `OnCloseAsync()` resultado de caminho no `OnAbort()` a ser chamado, que é uma oportunidade de melhor esforço de última oportunidade limpar e quaisquer recursos que possam tem reclamado da versão do serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Introdução a Reliable Services](service-fabric-reliable-services-introduction.md)
 - [Início rápido de serviços fiável](service-fabric-reliable-services-quick-start.md)
 - [Reliable Services avançadas de utilização](service-fabric-reliable-services-advanced-usage.md)

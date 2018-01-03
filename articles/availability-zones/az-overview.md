@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 3c8be3b1bc56697d42f2f280af756ed61533d1ef
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9d21b112a1021cbefa42722404391220e6c018e5
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Descrição geral das zonas de disponibilidade no Azure (pré-visualização)
 
@@ -42,15 +42,8 @@ Os serviços do Azure que suportam zonas de disponibilidade são:
 - Máquinas Virtuais do Windows
 - Conjuntos de dimensionamento da máquina de Virtual zonal
 - Managed Disks
-- Balanceador de Carga
+- Load balancer
 - Endereço IP público
-
-## <a name="supported-virtual-machine-size-families"></a>Famílias de tamanho de máquina virtual suportadas
-
-- Av2
-- Dv2
-- Série DSv2
-
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Começar com a pré-visualização de zonas de disponibilidade
 
@@ -65,5 +58,5 @@ A pré-visualização de zonas de disponibilidade está disponível nos EUA Lest
     - [Adicionar um disco gerido com o PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Balanceador de carga](../load-balancer/load-balancer-standard-overview.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Modelos de início rápido](http://aka.ms/azqs)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: db92fdcdad6f6a81d749fd7648d48da53c21479f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ad98262af8ccebcc71013f1aac24eaa0b80a7c3b
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com agentes e/ou extensão
 
@@ -100,7 +100,7 @@ Para resolver o problema, experimente um dos métodos listados aqui.
 1. Se tiver de restrições de rede no local (por exemplo, um grupo de segurança de rede), implemente um servidor de proxy HTTP para encaminhar o tráfego.
 2. Para permitir o acesso à Internet do servidor de proxy de HTTP, adicione regras para o grupo de segurança de rede, se tiver uma.
 
-Para saber como configurar um proxy HTTP para cópias de segurança VM, consulte [preparar o ambiente para fazer cópias de segurança de máquinas virtuais do Azure](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+Para saber como configurar um proxy HTTP para cópias de segurança VM, consulte [preparar o ambiente para fazer cópias de segurança de máquinas virtuais do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 No caso de estiver a utilizar discos geridos, poderá ter uma porta adicional (8443) abrir nas firewalls.
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2017
 ms.author: cherylmc
 ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma ligação VNet a VNet (clássica)
 
@@ -287,5 +287,5 @@ Nos exemplos, tenha em atenção que a chave partilhada é exatamente o mesmo. A
 * Todos os túneis VPN da vnet, incluindo P2S VPNs, partilham a largura de banda disponível para o gateway VPN e o mesmo VPN gateway SLA de disponibilidade no Azure.
 * O tráfego VNet a VNet circula em toda a estrutura principal do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Verifique as suas ligações. Consulte [verificar uma ligação de Gateway de VPN](vpn-gateway-verify-connection-resource-manager.md).

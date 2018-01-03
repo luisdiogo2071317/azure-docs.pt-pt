@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transferência de dados com a biblioteca de movimento de dados de armazenamento do Microsoft Azure
 
@@ -565,7 +565,7 @@ Neste exemplo, iremos definir o parâmetro booleano `TransferManager.CopyAsync` 
 ## <a name="conclusion"></a>Conclusão
 A nossa aplicação de movimento de dados está agora concluída. [O exemplo de código completa está disponível no GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Nesta Introdução, criámos uma aplicação que interage com o Storage do Azure e é executado no Windows, Linux e macOS. Esta introdução focado no armazenamento de Blobs. No entanto, este mesmo conhecimento pode ser aplicado ao armazenamento de ficheiros. Para obter mais informações, consulte [documentação de referência da biblioteca de movimento de dados de armazenamento do Azure](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]

@@ -3,7 +3,7 @@ title: Configurar uma rede virtual no Azure DevTest Labs | Microsoft Docs
 description: "Saiba como configurar uma rede virtual existente e sub-rede e utilizá-los numa VM com o Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 6cda99c2-b87e-4047-90a0-5df10d8e9e14
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
-ms.author: tarcher
-ms.openlocfilehash: 7048d5d1054906d712ac0422dacfe1ccca97fcc0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.author: v-craic
+ms.openlocfilehash: 21daa8ff756ee30c6d454d49af7db20afe488c47
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configurar uma rede virtual no Azure DevTest Labs
 Conforme explicado no artigo [adicionar uma VM para um laboratório](devtest-lab-add-vm.md), quando criar uma VM num laboratório, pode especificar uma rede virtual configurada. Por exemplo, poderá ter de aceder aos recursos de rede empresarial do suas VMs através da rede virtual que foi configurada com o ExpressRoute ou VPN de site para site.
@@ -58,12 +58,12 @@ Os seguintes passos guiá-lo a adicionar uma rede virtual existente (e a sub-red
 1. Selecione **OK** para fechar o painel sub-rede de laboratório.
 1. Selecione **guardar** para fechar o painel de rede Virtual.
 
-Agora que a rede virtual estiver configurada, pode ser selecionada quando criar uma VM. Para ver como criar uma VM e especifique uma rede virtual, consulte o artigo [adicionar uma VM com artefactos para um laboratório](devtest-lab-add-vm-with-artifacts.md). 
+Agora que a rede virtual estiver configurada, pode ser selecionada quando criar uma VM. Para ver como criar uma VM e especifique uma rede virtual, consulte o artigo [adicionar uma VM para um laboratório](devtest-lab-add-vm.md). 
 
 Do Azure [documentação das redes virtuais](https://docs.microsoft.com/azure/virtual-network) fornece mais informações sobre como utilizar as VNets, incluindo como configurar e gerir uma VNet e ligá-lo à sua rede no local.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
-Depois de adicionar a rede virtual pretendida para o laboratório, o passo seguinte consiste em [adicionar uma VM para o laboratório](devtest-lab-add-vm-with-artifacts.md).
+## <a name="next-steps"></a>Passos Seguintes
+Depois de adicionar a rede virtual pretendida para o laboratório, o passo seguinte consiste em [adicionar uma VM para o laboratório](devtest-lab-add-vm.md).
 

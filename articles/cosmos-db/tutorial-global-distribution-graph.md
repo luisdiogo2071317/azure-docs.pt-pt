@@ -13,24 +13,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 12e1ab5f57d217537ba14183500efb099985ff1e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Como configurar a base de dados do Azure Cosmos distribuição global utilizando a API do gráfico
 
-Neste artigo, vamos mostrar como utilizar o portal do Azure para a configuração distribuição global da BD do Cosmos do Azure e, em seguida, ligue-se utilizando a API do gráfico (pré-visualização).
+Neste artigo, vamos mostrar como utilizar o portal do Azure para distribuição global do Azure Cosmos DB de configuração e, em seguida, ligue-se utilizando a API de gráfico.
 
 Este artigo abrange as seguintes tarefas: 
 
 > [!div class="checklist"]
 > * Configurar a distribuição global com o portal do Azure
-> * Configurar a distribuição global utilizando o [gráfico APIs](graph-introduction.md) (pré-visualização)
+> * Configurar a distribuição global utilizando o [APIs do gráfico](graph-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
@@ -43,10 +43,10 @@ Para tirar o máximo partido das [distribuição global](distribute-data-globall
 
 Esta lista de preferência é especificada ao inicializar uma ligação com os SDKs. Os SDKs aceitam um parâmetro opcional "PreferredLocations" que é uma lista ordenada de regiões do Azure.
 
-* **Escreve**: O SDK irá enviar automaticamente todas as operações de escrita para o atual escrever região.
-* **Lê**: todas as leituras serão enviadas para a região disponível primeiro na lista PreferredLocations. Se falhar o pedido, o cliente irá falhar para baixo a lista para a região seguinte e assim sucessivamente. Os SDKs só irão tentar ler a partir de regiões especificadas no PreferredLocations. Por isso, por exemplo, se a conta de base de dados do Cosmos está disponível em três regiões, mas o cliente especifica apenas dois as regiões de escrita para PreferredLocations, em seguida, nenhum leituras serão servidas fora da região de escrita, mesmo em caso de ativação pós-falha.
+* **Escreve**: O SDK envia automaticamente todas as escritas para a região de escrita atual.
+* **Lê**: todas as leituras são enviadas para a região disponível primeiro na lista PreferredLocations. Se falhar o pedido, o cliente falhar para baixo a lista para a região seguinte e assim sucessivamente. Apenas os SDKs tentarem ler a partir de regiões especificadas no PreferredLocations. Por isso, por exemplo, se a conta de base de dados do Cosmos está disponível em três regiões, mas o cliente especifica a dois dos apenas as regiões de escrita para PreferredLocations, em seguida, não existem operações de leitura são servidas fora da região de escrita, mesmo em caso de ativação pós-falha.
 
-A aplicação pode verificar o ponto final de escrita atual e ler o ponto final escolhido pelo SDK, verificando duas propriedades WriteEndpoint e ReadEndpoint, disponível na versão 1.8 do SDK e acima. Se a propriedade PreferredLocations não estiver definida, serão servidos todos os pedidos de região de escrita atual.
+A aplicação pode verificar o ponto final de escrita atual e ler o ponto final escolhido pelo SDK, verificando duas propriedades WriteEndpoint e ReadEndpoint, disponível na versão 1.8 do SDK e acima. Se a propriedade PreferredLocations não estiver definida, todos os pedidos são servidos da região de escrita atual.
 
 ### <a name="using-the-sdk"></a>Utilizando o SDK
 
@@ -81,7 +81,7 @@ await docClient.OpenAsync().ConfigureAwait(false);
 
 Que é, que conclui neste tutorial. Pode saber como gerir a consistência da sua conta replicada globalmente o lendo [níveis de consistência na base de dados do Azure Cosmos](consistency-levels.md). E para obter mais informações sobre a replicação de base de dados como global funciona do BD Azure Cosmos, consulte [distribuir dados globalmente com a base de dados do Azure Cosmos](distribute-data-globally.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, fez o seguinte:
 

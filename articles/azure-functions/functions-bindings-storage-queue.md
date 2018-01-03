@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 258393884c156b2cff00559d3cedfde1380c6c28
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de filas do Azure para as funções do Azure
 
@@ -35,13 +35,13 @@ Utilize o acionador de fila para iniciar uma função quando é recebido um novo
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#trigger---c-example)
-* [Script do c#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script do c# (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Acionador - c# exemplo
 
-O seguinte exemplo mostra [pré-compilada c#](functions-dotnet-class-library.md) código que consulta o `myqueue-items` fila e escreve um registo de cada vez que um item de fila é processado.
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que consulta o `myqueue-items` fila e escreve um registo de cada vez que um item de fila é processado.
 
 ```csharp
 public static class QueueFunctions
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Acionador - exemplo de script do c#
 
-O exemplo seguinte mostra um acionador de blob enlace num *function.json* ficheiro e [c# script](functions-reference-csharp.md) código que utiliza o enlace. Os inquéritos de função a `myqueue-items` fila e escreve um registo de cada vez que um item de fila é processado.
+O exemplo seguinte mostra um acionador de blob enlace num *function.json* ficheiro e [script do c# (.csx)](functions-reference-csharp.md) código que utiliza o enlace. Os inquéritos de função a `myqueue-items` fila e escreve um registo de cada vez que um item de fila é processado.
 
 Eis o *function.json* ficheiro:
 
@@ -153,7 +153,7 @@ O [utilização](#trigger---usage) secção explica `myQueueItem`, que é design
 
 ## <a name="trigger---attributes"></a>Acionador - atributos
  
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize os seguintes atributos para configurar um acionador de fila:
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize os seguintes atributos para configurar um acionador de fila:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), definida no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -181,7 +181,7 @@ Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o
   }
   ```
  
-  Para obter um exemplo completado, consulte [acionador - pré-compilada c# exemplo](#trigger---c-example).
+  Para obter um exemplo completado, consulte [acionador - c# exemplo](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definida no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -266,13 +266,13 @@ Utilize a saída de armazenamento de filas do Azure para guardar as mensagens de
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#output---c-example)
-* [Script do c#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script do c# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Saída - c# exemplo
 
-O seguinte exemplo mostra [pré-compilada c#](functions-dotnet-class-library.md) código que cria uma mensagem de fila para cada pedido HTTP recebido.
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que cria uma mensagem de fila para cada pedido HTTP recebido.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -290,7 +290,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Saída - exemplo de script do c#
 
-O exemplo seguinte mostra um acionador de blob enlace num *function.json* ficheiro e [c# script](functions-reference-csharp.md) código que utiliza o enlace. A função cria um item de fila com um payload POCO para cada pedido HTTP recebido.
+O exemplo seguinte mostra um acionador de blob enlace num *function.json* ficheiro e [script do c# (.csx)](functions-reference-csharp.md) código que utiliza o enlace. A função cria um item de fila com um payload POCO para cada pedido HTTP recebido.
 
 Eis o *function.json* ficheiro:
 
@@ -401,7 +401,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Saída - atributos
  
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), que está definido no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), que está definido no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 O atributo aplica-se a um `out` parâmetro ou o valor de retorno da função. O construtor do atributo utiliza o nome da fila, conforme mostrado no exemplo seguinte:
 
@@ -425,9 +425,9 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 }
 ```
 
-Para obter um exemplo completado, consulte [resultado - pré-compilada c# exemplo](#output---c-example).
+Para obter um exemplo completado, consulte [resultado - c# exemplo](#output---c-example).
 
-Pode utilizar o `StorageAccount` atributo para especificar a conta de armazenamento ao nível de classe, método ou parâmetro. Para obter mais informações, consulte [acionador - atributos](#trigger---attributes-for-precompiled-c).
+Pode utilizar o `StorageAccount` atributo para especificar a conta de armazenamento ao nível de classe, método ou parâmetro. Para obter mais informações, consulte [acionador - atributos](#trigger---attribute).
 
 ## <a name="output---configuration"></a>De saída - configuração
 
@@ -459,7 +459,7 @@ Em c# e c# script, escreva vários de fila de mensagens através de um dos segui
 
 Funções de JavaScript, utilizar `context.bindings.<name>` para aceder a mensagem da fila de saída. Pode utilizar uma cadeia ou um objeto JSON serializável para o payload de item de fila.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Ir para um guia de introdução que utiliza um acionador de armazenamento de filas](functions-create-storage-queue-triggered-function.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 726c12d3c91a6e4fdc77397a736aaa161f0e830c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VM do Azure para o Azure
 
@@ -131,6 +131,20 @@ Se não vir a VM do Azure para a seleção ao ativar a replicação, isto poder�
 
 Pode utilizar [remover o script de configuração de ASR obsoleto](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e remover a configuração da recuperação de Site obsoleta na VM do Azure. Deverá ver a VM ao ativar a replicação, depois de remover a configuração obsoleta.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Estado de aprovisionamento da VM não é válido (código de erro 150019)
 
-## <a name="next-steps"></a>Passos seguintes
+Para ativar a replicação da VM, o estado de aprovisionamento deve ser **com êxito**. Pode verificar o estado VM, seguindo os passos abaixo.
+
+1.  Selecione o **Explorador de recursos** de **todos os serviços** no portal do Azure.
+2.  Expanda o **subscrições** lista e selecione a sua subscrição.
+3.  Expanda o **ResourceGroups** lista e selecione o grupo de recursos da VM.
+4.  Expanda o **recursos** lista e selecione a máquina virtual
+5.  Verifique o **provisioningState** campo na vista de instância no lado direito.
+
+### <a name="fix-the-problem"></a>Corrija o problema
+
+- Se **provisioningState** é **falha**, contacte o suporte com os detalhes para a resolução de problemas.
+- Se **provisioningState** é **atualização**, outra extensão foi possível obter implementar. Verifique se existem quaisquer operações em curso na VM, aguarde que estas concluídas e repita a recuperação de Site falha **ativar a replicação** tarefa.
+
+## <a name="next-steps"></a>Passos Seguintes
 [Replicar máquinas virtuais do Azure](azure-to-azure-quickstart.md)

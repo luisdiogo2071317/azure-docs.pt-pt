@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4dd24e4dddfedf58f1016511dfad087f91a0dbf8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
 
@@ -117,7 +117,7 @@ Na implementação atual do Azure Active Directory, pode definir condições par
 - Risco de início de sessão
 - Plataformas de dispositivos
 - Localizações
-- Aplicações de cliente
+- Aplicações do cliente
 
 
 ![Condições](./media/active-directory-conditional-access-azure-portal/01.png)
@@ -174,7 +174,7 @@ Na sua política de acesso condicional, pode:
 ![Condições](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
-### <a name="client-apps"></a>Aplicações de cliente
+### <a name="client-apps"></a>Aplicações do cliente
 
 A aplicação cliente pode ser num nível genérico a aplicação (browser da web, aplicação móvel, cliente de ambiente de trabalho) que utilizou para ligar ao Azure Active Directory ou pode selecionar especificamente Exchange Active Sync.  
 Autenticação legada refere-se aos clientes que utilizam a autenticação básica, tais como clientes mais antigos do Office que não utilizam autenticação moderna. Acesso condicional não é atualmente suportado com a autenticação de legado.
@@ -200,7 +200,7 @@ Se pretender adicionar outra camada de proteção para estas aplicações, pode 
 
 Este cenário é semelhante ao cenário anterior porque adiciona um requisito de autenticação multifator.
 No entanto, a principal diferença é a condição para este requisito.  
-Enquanto o foco do cenário anterior foi em aplicações com o acesso aos dados sensitve, o foco deste cenário é fidedignas localizações.  
+Enquanto o foco do cenário anterior foi em aplicações com o acesso a dados confidenciais, o foco deste cenário é fidedignas localizações.  
 Por outras palavras, pode ter um requisito de autenticação multifator se aceder a uma aplicação por um utilizador de uma rede que não fidedigna.
 
 
@@ -210,7 +210,10 @@ Se estiver a utilizar o Intune no seu ambiente, pode começar imediatamente a ut
 
 Muitos clientes do Intune estão a utilizar acesso condicional para garantir que apenas os dispositivos fidedignos podem aceder a serviços do Office 365. Isto significa que os dispositivos móveis estão inscritos no Intune e cumpram os requisitos da política de conformidade e de que os PCs Windows estão associados a um domínio no local. Uma melhoria de chave é que não têm de definir a mesma política para cada um dos serviços do Office 365.  Quando cria uma nova política, configure as aplicações em nuvem para incluir cada uma das aplicações do Office 365 que pretende proteger com o acesso condicional.
 
-## <a name="next-steps"></a>Passos seguintes
+### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>Mudança de um dispositivo de pertencentes ao Bring Your Own Device (BYOD)
+Se pretender bloquear inscritos dispositivos alterando a propriedade dos dispositivos da empresa para pessoal, isto é possível utilizar o acesso condicional do Azure Active Directory (AAD). Primeiro tem de criar uma política de acesso condicional onde **bloquear o acesso** selecionado os controlos de acesso **conceder** painel. Em seguida, crie um **dispositivos dinâmica** grupo definindo a **deviceOwnership** propriedade **pessoais**. Em seguida, a política acima para o novo grupo de destino.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 - Se quiser saber como configurar uma política de acesso condicional, consulte [introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 

@@ -138,7 +138,7 @@ Utilize os seguintes passos para ativar as cópias de segurança das suas VMs ut
 
 4.  Certifique-se de que o agente de cópia de segurança está instalado na VM. Se a VM é criada utilizando uma imagem de galeria do Azure, o agente de cópia de segurança já está instalado. Caso contrário (ou seja, se utilizar uma imagem personalizada), utilize as instruções para [instale o agente VM numa máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Certifique-se de que a VM possibilita a conectividade de rede para o serviço de cópia de segurança para a função. Siga as instruções para [conectividade de rede](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity).
+5.  Certifique-se de que a VM possibilita a conectividade de rede para o serviço de cópia de segurança para a função. Siga as instruções para [conectividade de rede](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 6.  Depois de concluídos os passos anteriores, a cópia de segurança é executada em intervalos regulares, conforme especificado na política de cópia de segurança. Se necessário, pode acionar a cópia de segurança primeiro manualmente a partir do dashboard do cofre no portal do Azure.
 

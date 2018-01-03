@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: a1305432d98c2e9f9f8bc30cacc62d49b1a8ba36
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5cfb968b201f49d5b7029a0b677e3ce2a8aa6cb9
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabela do Azure para as funções do Azure
 
@@ -35,8 +35,8 @@ Utilize o enlace de entrada de armazenamento de tabelas do Azure para ler uma ta
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c# ler uma entidade](#input---c-example-1)
-* [Pré-compilada c# várias entidades de leitura](#input---c-example-2)
+* [Ler uma entidade com c#](#input---c-example-1)
+* [Ler várias entidades com c#](#input---c-example-2)
 * [Script do c# - ler uma entidade](#input---c-script-example-1)
 * [Script do c# - várias entidades de leitura](#input---c-script-example-2)
 * [F#](#input---f-example-2)
@@ -44,7 +44,7 @@ Veja o exemplo de específicas do idioma:
 
 ### <a name="input---c-example-1"></a>Entrada - c# exemplo 1
 
-O seguinte exemplo mostra [pré-compilada c#](functions-dotnet-class-library.md) código que lê uma linha única tabela. 
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que lê uma linha única tabela. 
 
 O valor de chave de linha "{queueTrigger}" indica que a chave de linha provenientes de cadeia de mensagem de fila.
 
@@ -71,7 +71,7 @@ public class TableStorage
 
 ### <a name="input---c-example-2"></a>Entrada - c# exemplo 2
 
-O seguinte exemplo mostra [pré-compilada c#](functions-dotnet-class-library.md) código que lê várias linhas de tabela. Tenha em atenção que o `MyPoco` classe deriva de `TableEntity`.
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que lê várias linhas de tabela. Tenha em atenção que o `MyPoco` classe deriva de `TableEntity`.
 
 ```csharp
 public class TableStorage
@@ -286,7 +286,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Entrada - atributos
  
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize os seguintes atributos para configurar um enlace de entrada de tabela:
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize os seguintes atributos para configurar um enlace de entrada de tabela:
 
 * [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), que está definido no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -316,7 +316,7 @@ Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o
   }
   ```
 
-  Para obter um exemplo completado, consulte [entrada - pré-compilada c# exemplo](#input---c-example).
+  Para obter um exemplo completado, consulte [entrada - c# exemplo](#input---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definida no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -389,14 +389,14 @@ Utilize uma saída de armazenamento de Azure Table enlace escrever entidades a u
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#output---c-example)
-* [Script do c#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script do c# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Saída - c# exemplo
 
-O seguinte exemplo mostra [pré-compilada c#](functions-dotnet-class-library.md) código que utiliza um acionador HTTP escreveu uma fila única tabela. 
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que utiliza um acionador HTTP para escrever uma linha única tabela. 
 
 ```csharp
 public class TableStorage
@@ -569,7 +569,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Saída - atributos
 
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), que está definido no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), que está definido no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 O construtor do atributo tem o nome da tabela. Pode ser utilizado num `out` parâmetro ou no valor de retorno da função, conforme mostrado no exemplo seguinte:
 
@@ -597,9 +597,9 @@ public static MyPoco TableOutput(
 }
 ```
 
-Para obter um exemplo completado, consulte [resultado - pré-compilada c# exemplo](#output---c-example).
+Para obter um exemplo completado, consulte [resultado - c# exemplo](#output---c-example).
 
-Pode utilizar o `StorageAccount` atributo para especificar a conta de armazenamento ao nível de classe, método ou parâmetro. Para obter mais informações, consulte [entrada - atributos](#input---attributes-for-precompiled-c).
+Pode utilizar o `StorageAccount` atributo para especificar a conta de armazenamento ao nível de classe, método ou parâmetro. Para obter mais informações, consulte [entrada - atributos](#input---attributes).
 
 ## <a name="output---configuration"></a>De saída - configuração
 
@@ -635,7 +635,7 @@ O armazenamento de tabelas de saída do enlace suporta os seguintes cenários:
 
   Nas funções de JavaScript, aceder à tabela de saída utilizando `context.bindings.<name>`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

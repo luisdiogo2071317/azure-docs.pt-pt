@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: markgal;trinadhk
+ms.date: 12/20/2017
+ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b873337cf69ea1dda956ebf8c004754a7737e79c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Utilizar cmdlets de AzureRM.RecoveryServices.Backup para fazer uma cópia de segurança de máquinas virtuais
 
@@ -80,7 +80,28 @@ Cmdlet          Unregister-AzureRmRecoveryServicesBackupContainer  1.4.0      Az
 Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
 Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
 ```
+3. Conta de início de sessão para o seu Azure através de **Login-AzureRmAccount**. Este cmdlet apresenta uma página web pede-lhe as credenciais da conta: 
+    - Em alternativa, pode incluir as credenciais da conta como um parâmetro no **Login-AzureRmAccount** cmdlet, utilizando o **-Credential** parâmetro.
+    - Se estiver a trabalhar em nome de um inquilino de parceiro CSP, especificar o cliente como um inquilino, utilizando o respetivo nome de domínio primário tenantID ou inquilino. Por exemplo: **Login-AzureRmAccount-inquilino "fabrikam.com"**
+4. Associe a subscrição que pretende utilizar com o acount, uma vez que uma conta pode ter várias subscrições:
 
+    ```
+    PS C:\> Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    ```
+
+5. Se estiver a utilizar o Backup do Azure pela primeira vez, tem de utilizar o  **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  cmdlet para registar o fornecedor de serviços de recuperação do Azure com a sua subscrição.
+
+    ```
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ```
+
+6. Pode verificar que os fornecedores registados com êxito, utilizando os seguintes comandos:
+    ```
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
+    ``` 
+No resultado do comando, o **RegistrationState** deve definido como **registada**. Se não estiver, basta executar novamente o  **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  cmdlet apresentado acima.
 
 As seguintes tarefas podem ser automatizadas com o PowerShell:
 
@@ -93,22 +114,17 @@ As seguintes tarefas podem ser automatizadas com o PowerShell:
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
 Os seguintes passos encaminharem através da criação de um cofre dos serviços de recuperação. Um cofre dos serviços de recuperação é diferente de um cofre de cópia de segurança.
 
-1. Se estiver a utilizar o Backup do Azure pela primeira vez, tem de utilizar o  **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  cmdlet para registar o fornecedor de serviços de recuperação do Azure com a sua subscrição.
-
-    ```
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    ```
-2. O Cofre de serviços de recuperação é um recurso de Gestor de recursos, por isso terá de colocá-lo dentro de um grupo de recursos. Pode utilizar um grupo de recursos existente ou criar um grupo de recursos com o  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  cmdlet. Ao criar um grupo de recursos, especifique o nome e a localização para o grupo de recursos.  
+1. O Cofre de serviços de recuperação é um recurso de Gestor de recursos, por isso terá de colocá-lo dentro de um grupo de recursos. Pode utilizar um grupo de recursos existente ou criar um grupo de recursos com o  **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**  cmdlet. Ao criar um grupo de recursos, especifique o nome e a localização para o grupo de recursos.  
 
     ```
     PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "West US"
     ```
-3. Utilize o  **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  cmdlet para criar o Cofre dos serviços de recuperação. Lembre-se de que especifique a mesma localização do cofre que foi utilizado para o grupo de recursos.
+2. Utilize o  **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)**  cmdlet para criar o Cofre dos serviços de recuperação. Lembre-se de que especifique a mesma localização do cofre que foi utilizado para o grupo de recursos.
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [localmente redundante armazenamento (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) ou [Georreplicação redundante armazenamento (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). O exemplo seguinte mostra que a opção - BackupStorageRedundancy para testvault está definida como GeoRedundant.
+3. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [localmente redundante armazenamento (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) ou [Georreplicação redundante armazenamento (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). O exemplo seguinte mostra que a opção - BackupStorageRedundancy para testvault está definida como GeoRedundant.
 
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"
@@ -573,5 +589,5 @@ PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se preferir utilizar o PowerShell interaja com os recursos do Azure, consulte o artigo PowerShell [implementar e gerir cópia de segurança para o Windows Server](backup-client-automation.md). Se gerir cópias de segurança do DPM, consulte o artigo [implementar e gerir cópia de segurança do DPM](backup-dpm-automation.md). Ambos estes artigos tem uma versão para implementações de clássico e implementações do Resource Manager.  
