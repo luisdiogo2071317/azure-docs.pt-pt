@@ -121,6 +121,21 @@
               href: azure-stack-replace-disk.md
             - name: Substitua o componente
               href: azure-stack-replace-component.md
+        - name: Cópia de segurança de pilha do Azure
+          href: azure-stack-backup-infrastructure-backup.md
+          items:
+            - name: Ativar cópia de segurança para pilha do Azure a partir da consola de administração
+              href: azure-stack-backup-enable-backup-console.md
+            - name: Ativar a cópia de segurança para a pilha do Azure com o PowerShell
+              href: azure-stack-backup-enable-backup-powershell.md
+            - name: Cópia de segurança de pilha do Azure
+              href: azure-stack-backup-back-up-azure-stack.md
+            - name: Recuperar a partir de perda catastrófica de dados
+              href: azure-stack-backup-recover-data.md
+            - name: Melhores práticas de cópia de segurança
+              href: azure-stack-backup-best-practices.md
+            - name: Referência de cópia de segurança
+              href: azure-stack-backup-reference.md
     - name: 'Segurança, conformidade e identidade'
       items:
         - name: Descrição geral da segurança
@@ -195,6 +210,8 @@
               href: azure-stack-create-and-publish-marketplace-item.md
             - name: Utilize a ferramenta de publicação do marketplace
               href: azure-stack-marketplace-publisher.md
+            - name: Sistemas operativos convidados suportados para a pilha do Azure
+              href: azure-stack-supported-os.md
             - name: Adicionar uma imagem de máquina virtual personalizada
               href: azure-stack-add-vm-image.md
             - name: Adicionar conjuntos de dimensionamento de máquinas virtuais
