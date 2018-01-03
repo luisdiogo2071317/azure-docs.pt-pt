@@ -4,13 +4,13 @@ description: "Descreve como detetar e avaliar as VMs de VMware no local para a m
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/12/2017
+ms.date: 12/20/2017
 ms.author: raynew
-ms.openlocfilehash: c090605619afbaa1302932cbf9e73dbe52f5573b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e2806486ffb76fa7c210c3d0ef0b8bb3f86b7cd4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detetar e avaliar as VMs de VMware no local para a migração para o Azure
 
@@ -44,10 +44,10 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com).
 ## <a name="create-a-project"></a>Criar um projeto
 
 1. No portal do Azure, clique em **crie um recurso**.
-2. Procurar **Azure migrar**e selecione o serviço (**Azure migrar (pré-visualização)** nos resultados da pesquisa. Em seguida, clique em **Criar**.
+2. Procurar **Azure migrar**e selecione o serviço **Azure migrar (pré-visualização)** nos resultados da pesquisa. Em seguida, clique em **Criar**.
 3. Especifique um nome de projeto e a subscrição do Azure para o projeto.
 4. Crie um novo grupo de recursos.
-5. Especificar a região na qual pretende criar o projeto, em seguida, clique em **criar**. Metadados reunidos a partir de VMs no local serão armazenados nesta região. Só pode criar um projeto do Azure migrar na região Central EUA oeste para esta pré-visualização. No entanto, ainda pode planear a migração para qualquer localização do Azure de destino. 
+5. Especifique a localização na qual pretende criar o projeto, em seguida, clique em **criar**. Só pode criar um projeto do Azure migrar na região Central EUA oeste para esta pré-visualização. No entanto, ainda pode planear a migração para qualquer localização do Azure de destino. A localização especificada para o projeto só é utilizada para armazenar os metadados reunidos a partir de VMs no local. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -108,19 +108,24 @@ Importe o ficheiro transferido para o vCenter Server.
 1. Na consola do cliente vSphere, clique com botão direito a VM > **abrir a consola**.
 2. Forneça o idioma, fuso horário e preferências de palavra-passe para a aplicação.
 3. No ambiente de trabalho, clique o **executar recoletor** atalho.
-4. No Recoletor para migrar do Azure, abra **definir a segurança de pré-requisitos**.
+4. No Recoletor para migrar do Azure, abra **configurar pré-requisitos**.
     - Aceite os termos de licenciamento e ler as informações de terceiros.
     - O recoletor verifica se a VM tem acesso à internet.
     - Se a VM acede à internet através de um proxy, clique em **as definições de Proxy**e especifique o endereço de proxy e a porta de escuta. Especificar credenciais, se o proxy tem de autenticação.
-    - O recoletor verifica que o serviço de gerador de perfis do Windows está em execução. O serviço está instalado por predefinição no recoletor VM.
+
+    > [!NOTE]
+    > O endereço de proxy tem de ser introduzidos no formato http://ProxyIPAddress ou http://ProxyFQDN. Proxy HTTP só é suportada.
+
+    - O recoletor verifica que o collectorservice está em execução. O serviço está instalado por predefinição no recoletor VM.
     - Transfira e instale o VMware PowerCLI.
-. No **detetar máquinas**, efetue o seguinte procedimento:
+
+5. No **especificar detalhes do servidor vCenter**, efetue o seguinte procedimento:
     - Especifique o nome (FQDN) ou endereço IP do servidor vCenter.
     - No **nome de utilizador** e **palavra-passe**, especifique as credenciais da conta de só de leitura que o recoletor irá utilizar para detetar VMs no vCenter server.
     - No **âmbito de coleção**, selecione um âmbito de deteção VM. O recoletor só pode detetar a VMs dentro do âmbito especificado. Âmbito pode ser definido para uma pasta específica, o Centro de dados ou o cluster. Esta não deve conter mais de 1000 VMs. 
     - No **categoria de Tag para agrupamento**, selecione **nenhum**.
-1. No **selecione projeto**, especifique o ID de projeto do Azure migrar e da chave que copiou do portal. Se não tiver copiá-los, abra o portal do Azure do recoletor VM. No projeto **descrição geral** página, clique em **detetar máquinas**e copie os valores.  
-2. No **deteção concluída**, monitorizar a deteção e verificar esses metadados recolhidos a partir de VMs se encontra no âmbito. O recoletor fornece um período de tempo aproximado de deteção.
+6. No **projeto de migração de especificar**, especifique o ID de projeto do Azure migrar e da chave que copiou do portal. Se não tiver copiá-los, abra o portal do Azure do recoletor VM. No projeto **descrição geral** página, clique em **detetar máquinas**e copie os valores.  
+7. No **ver o progresso da coleção**, monitorizar a deteção e verificar esses metadados recolhidos a partir de VMs se encontra no âmbito. O recoletor fornece um período de tempo aproximado de deteção.
 
 > [!NOTE]
 > O recoletor só suporta "Inglês (Estados Unidos)" como o idioma do sistema operativo e o idioma de interface do recoletor. Suporte para idiomas mais estará disponível brevemente.
@@ -152,7 +157,7 @@ Segue-se um relatório de avaliação de exemplo. Inclui informações sobre se 
 
 ![Relatório de avaliação](./media/tutorial-assessment-vmware/assessment-report.png)
 
-#### <a name="azure-readiness"></a>Preparação do Azure
+#### <a name="azure-readiness"></a>Preparação para o Azure
 
 Esta vista mostra o estado de preparação para cada máquina.
 
@@ -177,8 +182,8 @@ Pode desagregar consulte os detalhes para um computador específico.
 
 ![Avaliação de custo de VM](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Saiba](how-to-scale-assessment.md) como configurar uma avaliação de um grande número de máquinas no local.
-- Saiba como criar grupos de avaliação mais detalhados utilizando [mapeamento de dependência de máquina](how-to-create-group-machine-dependencies.md)
+- [Saiba](how-to-scale-assessment.md) como detetar e avaliar num ambiente VMware grande.
+- Saiba como criar grupos de avaliação de confiança elevada utilizando [mapeamento de dependência de máquina](how-to-create-group-machine-dependencies.md)
 - [Saiba mais](concepts-assessment-calculation.md) sobre como avaliações são calculadas.

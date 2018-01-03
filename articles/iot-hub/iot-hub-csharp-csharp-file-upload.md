@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: acc599c1fbe13b2739fc5480d6204f90e59b0242
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 4362512121ca426fcae6716c74e1f8effa0986f1
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carregar ficheiros do seu dispositivo para a nuvem com o IoT Hub através do .NET
 
@@ -170,7 +170,7 @@ Agora pode executar as aplicações.
 
     ![][50]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a utilizar as capacidades de carregamento de ficheiros do IoT Hub para simplificar os carregamentos de ficheiros a partir de dispositivos. Pode continuar a explorar as funcionalidades do IoT hub e cenários nos seguintes artigos:
 
@@ -180,7 +180,7 @@ Neste tutorial, aprendeu a utilizar as capacidades de carregamento de ficheiros 
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 
 <!-- Images. -->
 
@@ -192,7 +192,7 @@ Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 [portal do Azure]: https://portal.azure.com/
 
-[Centro de programadores do IoT do Azure]: http://www.azure.com/develop/iot
+[Centro de programadores do IoT do Azure]: http://azure.microsoft.com/develop/iot
 
 [processamento de erros transitórios]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [pacote NuGet do SDK do Azure IoT serviço]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

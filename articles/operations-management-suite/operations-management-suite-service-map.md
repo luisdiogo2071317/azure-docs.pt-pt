@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Utilizar a solução de mapa de serviço no Operations Management Suite
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o mapa de serviço, pode ver os servidores da forma que pensa que deles: como interligados sistemas que fornecem serviços críticos. Mapa de serviço mostra as ligações entre servidores, processos, e portas em qualquer arquitetura ligados de TCP, sem qualquer configuração necessária à instalação de um agente.
@@ -49,7 +49,7 @@ Agentes de mapa de serviço recolher informações sobre todos os processos de l
 
 ![Descrição geral do mapa de serviço](media/oms-service-map/service-map-overview.png)
 
-As máquinas podem ser expandidas no mapa para mostrar os processos em execução com ligações de rede do Active Directory durante o intervalo de tempo selecionado. Quando um computador remoto com um agente de mapa de serviço é expandido para mostrar detalhes do processo, são apresentados apenas desses processos que comunicam com a máquina de foco. A contagem de máquinas de front-end sem agente que estabelecer ligação com a máquina de foco é indicada no lado esquerdo dos processos que se ligam ao. Se a máquina de foco está a efetuar uma ligação a uma máquina de back-end que tenha sem agente, o servidor de back-end está incluído num grupo de porta do servidor, juntamente com outras ligações para o mesmo número de porta.
+As máquinas podem ser expandidas no mapa para mostrar o executado processar os grupos e processos com ligações de rede do Active Directory durante o intervalo de tempo selecionado. Quando um computador remoto com um agente de mapa de serviço é expandido para mostrar detalhes do processo, são apresentados apenas desses processos que comunicam com a máquina de foco. A contagem de máquinas de front-end sem agente que estabelecer ligação com a máquina de foco é indicada no lado esquerdo dos processos que se ligam ao. Se a máquina de foco está a efetuar uma ligação a uma máquina de back-end que tenha sem agente, o servidor de back-end está incluído num grupo de porta do servidor, juntamente com outras ligações para o mesmo número de porta.
 
 Por predefinição, o maps de mapa de serviço mostram últimos 30 minutos de informações de dependência. Ao utilizar os controlos de tempo no canto superior esquerdo, pode consultar o maps para intervalos de tempo históricos de até uma hora para mostrar como dependências comparados no passado (por exemplo, durante um incidente ou antes de uma alteração ocorreu). Dados de mapa de serviço são armazenados durante 30 dias em áreas de trabalho pagas e para áreas de trabalho gratuitas de 7 dias.
 
@@ -59,6 +59,9 @@ Na parte inferior de cada servidor no mapa pode ser uma lista de destaques Estad
 Consoante a gravidade do destaques Estado, os limites do nó de computador podem colorido vermelho (crítico), amarelo (aviso) ou azul (informativos). A cor representa o estado de qualquer um dos destaques estado mais grave. Um limite cinzento indica um nó que não tenha nenhum indicadores de estado.
 
 ![Destaques de estado](media/oms-service-map/status-badges.png)
+
+## <a name="process-groups"></a>Grupos de processo
+Grupos de processo combinam os processos que estão associados a um produto ou serviço comuns para um grupo de processos.  Quando um nó de computador está expandido apresentará processos autónomo juntamente com grupos de processo.  Se a todas as ligações de entrada e saídas para um processo dentro de um grupo de processo falhou, em seguida, a ligação é apresentado como falhada para o grupo de processo completo.
 
 ## <a name="machine-groups"></a>Grupos de computador
 Grupos de computador permitem-lhe ver mapas centrados em torno de um conjunto de servidores, não apenas um para que possa ver todos os membros de um cluster de servidor ou aplicação multicamado no mapa de um.
@@ -323,7 +326,7 @@ Registos com um tipo de *ServiceMapProcess_CL* ter dados de inventário para pro
 | CommandLine_s | A linha de comandos |
 | ExecutablePath _s | O caminho para o ficheiro executável |
 | WorkingDirectory_s | O diretório de trabalho |
-| Nome de utilizador | A conta sob a qual o processo está a executar |
+| Nome de Utilizador | A conta sob a qual o processo está a executar |
 | UserDomain | O domínio em que o processo está a executar |
 
 
@@ -370,7 +373,7 @@ A Microsoft recolhe automaticamente dados de utilização e desempenho através 
 Para obter mais informações sobre a recolha de dados e de utilização, consulte o [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [pesquisas de registo](../log-analytics/log-analytics-log-searches.md) na análise de registos para obter os dados recolhidos pelo mapa de serviço.
 
 

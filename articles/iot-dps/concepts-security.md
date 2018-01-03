@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3ccbaaf55d2bdfedffcdb5ca069798328e2d75fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f004e4763106c25d94f585f644560cf3a72d3f1b
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceitos de segurança do serviço de aprovisionamento de dispositivos IoT Hub 
 
@@ -46,22 +46,51 @@ Segredos do dispositivo também podem ser armazenados no software (memória), ma
 
 TPM pode fazer referência a um padrão para armazenar as chaves utilizadas para autenticar a plataforma de forma segura, ou podem referir-se para a interface de e/s utilizada para interagir com os módulos implementar padrão. Podem existir TPMs como hardware discreta, integrada hardware, firmware, funções ou baseada em software. Saiba mais sobre [TPMs e TPM atestado](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Serviço de aprovisionamento de dispositivos só suporta TPM 2.0.
 
-## <a name="endorsement-key"></a>Chave de endossamento
+### <a name="endorsement-key"></a>Chave de endossamento
 
-A chave de endossamento é uma chave assimétrica contida no interior do TPM que foi injetado em tempo de fabrico e é exclusivo para cada TPM. A chave de endossamento não pode ser alterada ou removida. A parte privada da chave de endossamento nunca é libertada fora do TPM, enquanto a parte pública da chave de endossamento é utilizada para reconhecer um TPM genuíno. Saiba mais sobre o [chave de endossamento](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
+A chave de endossamento é uma chave assimétrica contida no interior do TPM que foi gerado internamente ou injetado no tempo de fabrico e é exclusivo para cada TPM. A chave de endossamento não pode ser alterada ou removida. A parte privada da chave de endossamento nunca é libertada fora do TPM, enquanto a parte pública da chave de endossamento é utilizada para reconhecer um TPM genuíno. Saiba mais sobre o [chave de endossamento](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 
-## <a name="storage-root-key"></a>Chave de raiz de armazenamento
+### <a name="storage-root-key"></a>Chave de raiz de armazenamento
 
 A chave de raiz de armazenamento é armazenada no TPM e é utilizada para proteger chaves TPM criadas por aplicações, para que estas chaves não podem ser utilizadas sem TPM. A chave de raiz de armazenamento é gerada quando a assumir a propriedade do TPM; Quando desmarcar o TPM para que um novo utilizador pode assumir a propriedade, é gerada uma nova chave de raiz de armazenamento. Saiba mais sobre o [chave de raiz de armazenamento](https://technet.microsoft.com/library/cc753560(v=ws.11).aspx).
 
-## <a name="root-certificate"></a>Certificado de raiz
+## <a name="x509-certificates"></a>Certificados x. 509
 
-Um certificado de raiz é um tipo de certificado x. 509 que representa uma autoridade de certificação e é autoassinado. É terminus da cadeia de certificados.
+A utilização de certificados x. 509 como um mecanismo de atestado é uma excelente forma de escala de produção e simplificar o aprovisionamento de dispositivos. Certificados x. 509 normalmente são dispostos numa cadeia de certificados de confiança no qual cada certificado na cadeia está assinado pela chave privada do certificado superior seguinte e assim sucessivamente, terminar num certificado de raiz autoassinado. Isto estabelece uma cadeia de fidedignidade do certificado de raiz gerado por uma raiz fidedigna autoridade de certificação (AC) para baixo através de cada AC intermediária para o certificado de entidade final instalado num dispositivo de delegado. Para obter mais informações, consulte [autenticação de dispositivo com certificados de AC de x. 509](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview). 
 
-## <a name="intermediate-certificate"></a>Intermediária
+A cadeia de certificados representa com frequência algumas hierarquia lógica ou física associada a dispositivos. Por exemplo, um fabricante poderá emitir um certificado de AC de raiz autoassinado, utilizar esse certificado para gerar um certificado de AC intermediária exclusivo para cada fábrica, utilize o certificado de cada fábrica para gerar um certificado de AC intermediária exclusivo para cada de produção a maquinaria de linha e, finalmente, utilizar o certificado de linha de produção para gerar um certificado de dispositivo exclusivo (entidade final) para cada dispositivo fabricado na linha. Para obter mais informações, consulte [compreensão Conceptual a x. 509 de certificados da AC na indústria IoT](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-concept). 
 
-Um certificado intermediária é um certificado x. 509 que assinado pelo certificado de raiz (ou outro certificado com o certificado de raiz na cadeia) e que é utilizada para assinar o certificado de folha.
+### <a name="root-certificate"></a>Certificado de raiz
 
-## <a name="leaf-certificate"></a>Certificado de folha
+Um certificado de raiz é um certificado x. 509 autoassinado que representa uma autoridade de certificação (AC). É o terminus ou âncora de confiança, da cadeia de certificados. Certificados de raiz podem ser personalizada emitidos por uma organização ou comprados numa autoridade de certificação de raiz. Para obter mais informações, consulte [certificados de AC de x. 509 obter](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). O certificado de raiz pode também ser referido como um certificado de AC de raiz.
 
-Um certificado de folha ou o certificado de entidade final, é utilizado para identificar o marcador de posição do certificado e tem o certificado de raiz na respetiva cadeia de certificados. O certificado de folha não é utilizado para assinar quaisquer outros certificados.
+### <a name="intermediate-certificate"></a>Intermediária
+
+Um certificado intermediária é um certificado de x. 509 que assinado pelo certificado de raiz (ou outro certificado intermédio com o certificado de raiz na cadeia). O último certificado intermédio numa cadeia é utilizado para assinar o certificado de folha. Um certificado intermediária pode também ser referido como um certificado de AC intermediária.
+
+### <a name="leaf-certificate"></a>Certificado de folha
+
+O certificado de folha ou o certificado de entidade final, identifica o marcador de posição de certificado. Tem o certificado de raiz na respetiva cadeia de certificados, bem como zero ou mais certificados intermediários. O certificado de folha não é utilizado para assinar quaisquer outros certificados. Exclusivamente identifica o dispositivo para o serviço de aprovisionamento e é por vezes referido como o certificado do dispositivo. Durante a autenticação, o dispositivo utiliza a chave privada associada este certificado para responder a uma prova de desafio posse do serviço. Para obter mais informações, consulte [autenticar dispositivos assinados com certificados de AC de x. 509](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+
+## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Controlar o acesso de dispositivo para o serviço de aprovisionamento com certificados x. 509
+
+O serviço de aprovisionamento expõe dois tipos de entrada de registo que pode utilizar para controlar o acesso para dispositivos que utilizam o mecanismo de atestado de x. 509:  
+
+- [Inscrição individuais](./concepts-service.md#individual-enrollment) entradas estão configuradas com o certificado de dispositivo associado a um dispositivo específico. Estas entradas controlam a inscrição para dispositivos específicos.
+- [Grupo de inscrição](./concepts-service.md#enrollment-group) entradas associados a um intermédio específico ou um certificado de AC de raiz. Estas entradas controlam a inscrição para todos os dispositivos que tenham intermediária ou certificado na respetiva cadeia de certificados de raiz. 
+
+Quando um dispositivo se liga ao serviço de aprovisionamento, o serviço dá prioridade à entradas de registo mais específicas sobre entradas de registo inferior específicas. Ou seja, se existir um registo individual para o dispositivo, o serviço de aprovisionamento aplica-se essa entrada. Se não houver nenhuma inscrição individuais para o dispositivo e existe um grupo de inscrição para o primeiro intermediária na cadeia de certificados do dispositivo, o serviço aplica-se essa entrada, e assim sucessivamente se a cadeia para a raiz. O serviço aplica-se a primeira entrada aplicável que encontra, para que:
+
+- Se a entrada de inscrição de primeiro localizar estiver ativada, o serviço Aprovisiona o dispositivo.
+- Se a entrada de inscrição de primeiro localizar estiver desativada, o serviço não Aprovisiona o dispositivo.  
+- Não se for encontrada nenhuma entrada de inscrição para qualquer um dos certificados na cadeia de certificados do dispositivo, o serviço não Aprovisiona o dispositivo. 
+
+Este mecanismo e a estrutura hierárquica de cadeias de certificados fornece uma poderosa flexibilidade na forma como pode controlar o acesso de dispositivos individuais, bem como para grupos de dispositivos. Por exemplo, imagine cinco dispositivos com o certificado encadeia seguintes: 
+
+- *Dispositivo 1*: certificado de raiz-certificados um -> o certificado de dispositivo 1 >
+- *O dispositivo 2*: certificado de raiz-certificados um -> o certificado do dispositivo 2 >
+- *Dispositivo 3*: certificado de raiz -> certificados um -> o certificado de dispositivo 3
+- *O dispositivo 4*: certificado de raiz -> B -> o certificado do dispositivo 4 do certificado
+- *O dispositivo 5*: certificado de raiz -> B -> o certificado do dispositivo 5 do certificado
+
+Inicialmente, pode criar uma entrada de registo único grupo ativada para o certificado de raiz ativar o acesso para todos os cinco dispositivos. Se o certificado B mais tarde ficar comprometido, pode criar uma entrada de grupo desativado inscrição para certificados B impedir que *dispositivo 4* e *dispositivo 5* da inscrição. Se ainda posterior *dispositivo 3* ficar comprometida, pode criar uma entrada de inscrição individuais desativado para o respetivo certificado. Revoga este acesso para *dispositivo 3*, mas ainda permite *dispositivo 1* e *dispositivo 2* inscrever.

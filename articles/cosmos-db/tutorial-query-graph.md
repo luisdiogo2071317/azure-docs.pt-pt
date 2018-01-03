@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: bf4bb59545ce2d4172cb001d29f5bfc68968d389
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: Como consultar com a Graph API (pré-visualização)?
+# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: Como consultar com a Graph API?
 
-A BD do Cosmos Azure [Graph API](graph-introduction.md) (pré-visualização) suporta [Gremlin](https://github.com/tinkerpop/gremlin/wiki) consultas. Este artigo fornece documentos de exemplo e consultas para começar. A detalhadas Gremlin referência é fornecida no [suporte Gremlin](gremlin-support.md) artigo.
+A BD do Cosmos Azure [Graph API](graph-introduction.md) suporta [Gremlin](https://github.com/tinkerpop/gremlin/wiki) consultas. Este artigo fornece documentos de exemplo e consultas para começar. A detalhadas Gremlin referência é fornecida no [suporte Gremlin](gremlin-support.md) artigo.
 
 Este artigo abrange as seguintes tarefas: 
 
@@ -75,7 +75,7 @@ g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabe
 
 Pode construir consultas mais complexas e implementar a lógica do gráfico poderosas transversal utilizando Gremlin, incluindo a mistura de expressões de filtro, efetuar a utilizar o ciclo de `loop` passo e a utilização de navegação condicional implementar o `choose` passo. Saiba mais sobre o que pode fazer com [suporte Gremlin](gremlin-support.md)!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, fez o seguinte:
 

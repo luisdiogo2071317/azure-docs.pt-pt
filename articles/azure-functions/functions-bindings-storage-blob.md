@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c170b3e4addaed2ec870c4a518e8f74b3ca4b952
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -43,13 +43,13 @@ Utilize um acionador de armazenamento de BLOBs para iniciar uma função quando 
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#trigger---c-example)
-* [Script do c#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script do c# (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Acionador - c# exemplo
 
-O seguinte exemplo mostra [pré-compilada c#](functions-dotnet-class-library.md) código que escreve um registo quando um blob é adicionado ou atualizado no `samples-workitems` contentor.
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que um registo quando escreve um blob é adicionado ou atualizado no `samples-workitems` contentor.
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -59,11 +59,11 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Para obter mais informações sobre o `BlobTrigger` de atributos, consulte [acionador - atributos](#trigger---attributes-for-precompiled-c).
+Para obter mais informações sobre o `BlobTrigger` de atributos, consulte [acionador - atributos](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Acionador - exemplo de script do c#
 
-O exemplo seguinte mostra um acionador de blob enlace num *function.json* ficheiro e [c# script](functions-reference-csharp.md) código que utiliza o enlace. A função escreve um registo quando um blob é adicionado ou atualizado no `samples-workitems` contentor.
+O exemplo seguinte mostra um acionador de blob enlace num *function.json* ficheiro e [script do c# (.csx)](functions-reference-csharp.md) código que utiliza o enlace. A função escreve um registo quando um blob é adicionado ou atualizado no `samples-workitems` contentor.
 
 Segue-se os dados do enlace *function.json* ficheiro:
 
@@ -140,7 +140,7 @@ module.exports = function(context) {
 
 ## <a name="trigger---attributes"></a>Acionador - atributos
 
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize os seguintes atributos para configurar um acionador de blob:
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize os seguintes atributos para configurar um acionador de blob:
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), definida no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -168,7 +168,7 @@ Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o
   }
   ```
 
-  Para obter um exemplo completado, consulte [acionador - pré-compilada c# exemplo](#trigger---c-example).
+  Para obter um exemplo completado, consulte [acionador - c# exemplo](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definida no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -316,13 +316,13 @@ Utilizar o Blob storage de entrada e saída enlaces para leitura e escrita de bl
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#input--output---c-example)
-* [Script do c#](#input--output---c-script-example)
+* [C#](#input--output---c-example)
+* [Script do c# (.csx)](#input--output---c-script-example)
 * [JavaScript](#input--output---javascript-example)
 
 ### <a name="input--output---c-example"></a>Entrada e de saída - c# exemplo
 
-O exemplo seguinte é um [pré-compilada c#](functions-dotnet-class-library.md) função que utiliza um acionador de blob e dois enlaces de blob de saída. A função é acionada pela criação de um blob de imagem no *imagens de exemplo* contentor. Cria cópias de pequenas e médias o tamanho do blob de imagem. 
+O exemplo seguinte é um [c# função](functions-dotnet-class-library.md) que utiliza um acionador de blob e dois enlaces de blob de saída. A função é acionada pela criação de um blob de imagem no *imagens de exemplo* contentor. Cria cópias de pequenas e médias o tamanho do blob de imagem. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -355,7 +355,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>Entrada e de saída - exemplo de script do c#
 
-O exemplo seguinte mostra o blob de entrada e saída de enlaces num *function.json* ficheiro e [c# script](functions-reference-csharp.md) código que utiliza os enlaces. A função faz uma cópia de um blob de texto. A função é acionada por uma mensagem de fila que contém o nome do blob para copiar. O novo blob é denominado *{originalblobname}-cópia*.
+O exemplo seguinte mostra o blob de entrada e saída de enlaces num *function.json* ficheiro e [script do c# (.csx)](functions-reference-csharp.md) código que utiliza os enlaces. A função faz uma cópia de um blob de texto. A função é acionada por uma mensagem de fila que contém o nome do blob para copiar. O novo blob é denominado *{originalblobname}-cópia*.
 
 No *function.json* ficheiro, o `queueTrigger` propriedade de metadados é utilizada para especificar o nome do blob no `path` propriedades:
 
@@ -449,7 +449,7 @@ module.exports = function(context) {
 
 ## <a name="input--output---attributes"></a>Entrada e de saída - atributos
 
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), que está definido no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), que está definido no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 O construtor do atributo demora o caminho para o blob e um `FileAccess` parâmetro com a indicação de leitura ou escrita, conforme mostrado no exemplo seguinte:
 
@@ -475,9 +475,9 @@ public static void Run(
 }
 ```
 
-Para obter um exemplo completado, consulte [entrada e de saída - pré-compilada c# exemplo](#input--output---c-example).
+Para obter um exemplo completado, consulte [entrada e de saída - c# exemplo](#input--output---c-example).
 
-Pode utilizar o `StorageAccount` atributo para especificar a conta de armazenamento ao nível de classe, método ou parâmetro. Para obter mais informações, consulte [acionador - atributos](#trigger---attributes-for-precompiled-c).
+Pode utilizar o `StorageAccount` atributo para especificar a conta de armazenamento ao nível de classe, método ou parâmetro. Para obter mais informações, consulte [acionador - atributos](#trigger---attributes).
 
 ## <a name="input--output---configuration"></a>Entrada e de saída - configuração
 
@@ -496,7 +496,7 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 ## <a name="input--output---usage"></a>Entrada e de saída - utilização
 
-Pré-compilada c# e c# script, aceder a blob utilizando um parâmetro de método como `Stream paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. É possível vincular a qualquer um dos seguintes tipos:
+Bibliotecas de classes do c# e c# script, aceder a blob utilizando um parâmetro de método como `Stream paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. É possível vincular a qualquer um dos seguintes tipos:
 
 * `out string`
 * `TextWriter` 
@@ -513,7 +513,7 @@ Se a leitura de blobs de texto, é possível vincular a um `string` tipo. Este t
 
 Em JavaScript, aceder a dados de blob utilizando `context.bindings.<name>`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Ir para um guia de introdução que utiliza um acionador de armazenamento de BLOBs](functions-create-storage-blob-triggered-function.md)

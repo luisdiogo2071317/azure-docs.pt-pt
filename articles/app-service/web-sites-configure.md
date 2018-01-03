@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicações Web no Serviço de Aplicações do Azure
+
 Este tópico explica como configurar uma aplicação web através de [Portal do Azure].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -46,6 +47,8 @@ Por motivos de técnicos, ativar a sua aplicação Java desativa as opções de 
 <a name="platform"></a>
 **Plataforma**. Seleciona se a sua aplicação web é executada num ambiente de 32 bits ou 64 bits. O ambiente de 64 bits requer modo básicas ou Standard. Gratuito e partilhado modos são sempre executadas num ambiente de 32 bits.
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 **Web Sockets**. Definir **ON** para ativar o protocolo de WebSocket; por exemplo, se a sua aplicação web utiliza [ASP.NET SignalR] ou [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
@@ -55,7 +58,7 @@ Por motivos de técnicos, ativar a sua aplicação Java desativa as opções de 
 
 **Auto troca**. Se ativar troca automática para uma ranhura de implementação, serviço de aplicações será automaticamente de comutação a aplicação web em produção quando emitir uma atualização para essa ranhura. Para obter mais informações, consulte [implementar para a transição ranhuras para web apps no App Service do Azure](web-sites-staged-publishing.md).
 
-### <a name="debugging"></a>Depuração
+### <a name="debugging"></a>A depurar
 **Depuração remota**. Permite a depuração remota. Quando ativada, pode utilizar o depurador remoto no Visual Studio para ligar diretamente à sua aplicação web. Depuração remota permanecerá ativado para 48 horas. 
 
 ### <a name="app-settings"></a>Definições de aplicação
@@ -83,14 +86,14 @@ O documento predefinido é a página web que é apresentado no URL da raiz para 
 
 As aplicações Web podem utilizar módulos que baseada na rota no URL, em vez de a servir conteúdo estático, caso em que não existe não é nenhum documento predefinido como tal.    
 
-### <a name="handler-mappings"></a>Mapeamentos do processador
+### <a name="handler-mappings"></a>Mapeamentos de processador
 Utilize esta área para adicionar processadores de script personalizado para processar pedidos para extensões de ficheiro específicas. 
 
 * **Extensão**. A extensão de ficheiro a serem processados, tais como *.php ou handler.fcgi. 
 * **Caminho de processador de scripts**. O caminho absoluto do processador de scripts. Pedidos para ficheiros que correspondem a extensão de ficheiro serão processados pelo processador de scripts. Utilize o caminho `D:\home\site\wwwroot` para fazer referência ao diretório de raiz da sua aplicação.
 * **Argumentos adicionais**. Argumentos da linha de comandos opcionais para o processador de scripts 
 
-### <a name="virtual-applications-and-directories"></a>Aplicações virtuais e diretórios
+### <a name="virtual-applications-and-directories"></a>Aplicações e diretórios e virtuais
 Para configurar aplicações virtuais e diretórios, especifique cada diretório virtual e o caminho físico correspondente relativo à raiz do Web site. Opcionalmente, pode selecionar o **aplicação** caixa de verificação para marcar um diretório virtual como uma aplicação.
 
 ## <a name="enabling-diagnostic-logs"></a>Ativar registos de diagnóstico
@@ -120,7 +123,7 @@ Para ver os ficheiros de registo, tem de criar as credenciais de FTP, da seguint
 
 ![Definir credenciais de implementação][configure03]
 
-O nome de utilizador FTP completo é "app\username" onde *aplicação* é o nome da sua aplicação web. O nome de utilizador está listado no painel de aplicação web, em **Essentials**.  
+O nome de utilizador FTP completo é "app\username" onde *aplicação* é o nome da sua aplicação web. O nome de utilizador está listado no painel de aplicação web, em **Essentials**.
 
 ![Credenciais de implementação de FTP][configure02]
 
@@ -151,7 +154,7 @@ Para obter mais informações, consulte [como: monitorizar o estado do ponto fin
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Configurar um nome de domínio personalizado no Serviço de Aplicações do Azure]
 * [Ativar HTTPS para uma aplicação no App Service do Azure]
 * [Dimensionar a uma aplicação web no App Service do Azure]

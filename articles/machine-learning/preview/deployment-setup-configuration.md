@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: fe03a24b0d9f5ef6d0f20dac15ea980a8663a7b2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="model-management-setup"></a>Configuração de gestão de modelo
 
@@ -84,10 +84,12 @@ Quando concluir a configuração de ambiente:
 - Durante o processo de autenticação, é-lhe pedida uma conta autenticar com. Importante: Selecione uma conta que tenha uma subscrição do Azure válida e de permissões suficientes para criar recursos na conta. - quando o início de sessão estiver concluída, são apresentadas informações da sua subscrição e lhe for perguntado se pretende continuar com o conta selecionada.
 
 ### <a name="environment-setup"></a>Configuração do ambiente
-Para iniciar o processo de configuração, tem de registar o fornecedor de ambiente, introduzindo o seguinte comando:
+Para iniciar o processo de configuração, tem de registar alguns fornecedores de ambiente, introduzindo os seguintes comandos:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Implementação de local
 Para implementar e testar o seu serviço web no computador local, configure um ambiente local utilizando o seguinte comando. O nome do grupo de recursos é opcional.
@@ -169,5 +171,5 @@ Agora está pronto para implementar o seu modelo guardado como um serviço web.
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Experimente um dos muitos exemplos na galeria.

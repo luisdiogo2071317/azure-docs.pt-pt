@@ -1,6 +1,6 @@
 ---
 title: "Exceções de reencaminhamento do Azure e como resolvê-los | Microsoft Docs"
-description: "Obter uma lista de exceções de reencaminhamento do Azure e as ações sugeridas que pode tomar para ajudar a resolvê-los."
+description: "Lista de exceções de reencaminhamento do Azure e as ações sugeridas que pode tomar para ajudar a resolvê-los."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1dbe73dac0d09db96ab902909125869959963e6f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-exceptions"></a>Exceções de reencaminhamento do Azure
 
@@ -89,7 +89,7 @@ Existem duas causas comuns deste erro:
 
     Ocasionalmente, o serviço de reencaminhamento pode ocorrer atrasos no processamento de pedidos. Isto pode acontecer, por exemplo, durante períodos de tráfego elevado. Se isto ocorrer, repita a operação depois de um atraso até a operação for concluída com êxito. Se a mesma operação continuar a falhar após várias tentativas, verifique o [site de estado do serviço do Azure](https://azure.microsoft.com/status/) para ver se reconhecidamente falhas no serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Perguntas mais frequentes do reencaminhamento do Azure](relay-faq.md)
 * [Criar um espaço de nomes de reencaminhamento](relay-create-namespace-portal.md)
 * [Introdução ao Azure reencaminhamento e .NET](relay-hybrid-connections-dotnet-get-started.md)

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
 ms.openlocfilehash: 0a80599df07767cd6a117157fc699315cce7ad23
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Criar uma máquina virtual com o Windows no portal do Azure
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Também pode criar VMs utilizando [as suas próprias imagens](createupload-vhd.m
 ## <a id="createvirtualmachine"></a>Criar a máquina virtual
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba como [criar uma VM utilizando o modelo de implementação Resource Manager](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) no portal do Azure.
 * Inicie sessão na máquina virtual. Para obter instruções, consulte [inicie sessão numa máquina virtual com o Windows Server](connect-logon.md).
 * Ligar um disco para armazenar dados. Pode anexar vazios discos e os discos que contêm dados. Para obter instruções, consulte o [anexar um disco de dados para uma máquina virtual do Windows criada com o modelo de implementação clássica](attach-disk.md).

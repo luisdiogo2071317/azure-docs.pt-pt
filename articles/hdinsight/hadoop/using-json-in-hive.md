@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: c32872a79cc87fe0ecfff269f941b29730266110
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 96faa0cf518e4b02b5ba9fd8aedaf21bd6288b02
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar os documentos JSON utilizando o Apache Hive no Azure HDInsight
 
@@ -144,7 +144,7 @@ SerDe é a melhor opção para analisar aninhados documentos JSON. Permite-lhe d
 ## <a name="summary"></a>Resumo
 No conclusion, o tipo de operador JSON no ramo de registo que escolher depende do seu cenário. Se tiver um documento JSON simple e tiver apenas um campo para procurar, pode optar por utilizar o Hive UDF get_json_object. Se tiver mais do que uma chave para procurar, em seguida, pode utilizar o json_tuple. Se tiver um documento aninhado, deve utilizar o SerDe JSON.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para artigos relacionados, consulte:
 

@@ -16,10 +16,10 @@ ms.date: 11/03/2017
 ms.devlang: na
 ms.author: delhan
 ms.openlocfilehash: bed5da25042d29983bad9a80cd44bdd7df261c2e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Resolver problemas de implementação clássica com reiniciar ou redimensionar uma Máquina Virtual existente do Windows no Azure
 > [!div class="op_single_selector"]
@@ -81,6 +81,6 @@ Pode consolidar todas as suas VMs no mesmo serviço em nuvem. Se o serviço em n
 
 Se o serviço em nuvem existente não estiver associado uma rede virtual com base na região, em seguida, tem de eliminar as VMs no serviço em nuvem existente e recriá-las no novo serviço de nuvem dos respetivos discos. No entanto, é importante lembrar-se de que o novo serviço em nuvem terá um novo nome e VIP, por isso terá de atualizar estes para todas as dependências que a utilizam atualmente estas informações para o serviço em nuvem existente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se ocorrerem problemas ao criar uma VM do Windows no Azure, consulte o artigo [resolver problemas de implementação com a criação de uma máquina virtual do Windows Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7b37f9e103644d2492f69f4a4cc80d3fd57d4aa4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Compreender o tempo de execução do limite do Azure IoT e respetiva arquitetura – pré-visualização
 
@@ -24,10 +24,10 @@ O tempo de execução do limite de IoT efetua as seguintes funções nos disposi
 * Instala e atualiza as cargas de trabalho no dispositivo.
 * Mantém as normas de segurança do Azure IoT Edge no dispositivo.
 * Garante que [módulos de limite de IoT][lnk-módulos] sempre em execução.
-* Relatórios de estado de funcionamento do módulo para a nuvem para a monitorização remota.
-* Facilita a comunicação entre dispositivos de folha a jusante e o dispositivo de limite de IoT.
-* Facilita a comunicação entre os módulos no dispositivo de limite de IoT.
-* Facilita a comunicação entre o dispositivo de limite de IoT e na nuvem.
+* Reporta o estado de funcionamento dos módulos à cloud, para monitorização remota.
+* Facilita a comunicação entre dispositivos de folha a jusante e o dispositivo IoT Edge.
+* Facilita a comunicação entre os módulos no dispositivo IoT Edge.
+* Facilita a comunicação entre o dispositivo do Azure IoT e a cloud.
 
 ![Tempo de execução do limite de IoT comunica insights e o estado de funcionamento do módulo ao IoT Hub][1]
 
@@ -99,14 +99,22 @@ Cada item no dicionário de módulos contém informações específicas sobre um
    * o agente de limite de onFailure - se o módulo de falhas, reinicia-lo. Se o módulo foi encerrado corretamente, o agente de limite não reiniciá-lo.
    * Mau estado de funcionamento - se o módulo de falhas ou é considerado mau estado de funcionamento, o agente de limite reinicia-lo.
    * -Se o módulo falha, é considerado em mau estado de funcionamento ou encerramento de qualquer forma, o agente de limite reinicia sempre-lo. 
-   
+
+Agente de limite de IoT envia a resposta de tempo de execução ao IoT Hub. Aqui está uma lista de possíveis respostas:
+  * 200 - OK
+  * 400 - a configuração de implementação está incorreto ou é inválido.
+  * 417 - o dispositivo não tem uma configuração de implementação definida.
+  * 412 - a versão do esquema na configuração da implementação é inválida.
+  * 406 - o dispositivo de limite é estado offline ou não enviar relatórios.
+  * 500 - um erro no tempo de execução de limite.
+
 ### <a name="security"></a>Segurança
 
 O agente de limite de IoT desempenha um papel fundamental na segurança de um dispositivo de limite de IoT. Por exemplo, executa ações como verificar a imagem de um módulo antes de iniciá-lo. Estas funcionalidades serão adicionadas na disponibilidade geral das funcionalidades de V2. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Compreender os módulos do Azure IoT Edge][lnk-módulos]
 

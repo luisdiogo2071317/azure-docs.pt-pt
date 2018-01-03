@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 12/19/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 7df1ebcc65998a2078f5f215277eef351e48ca1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0eaa54252885cee8f90e65f299869216ca1b2144
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introdução ao controlo de acesso baseado em funções no portal do Azure
 Segurança e orientado para empresas devem focar-se em fornecer aos funcionários as permissões exatas que precisam. Demasiados permissões podem expor uma conta para os atacantes. Permissões insuficientes significa que os funcionários não é possível obter o trabalho feito de forma eficiente. Azure baseada em funções controlo de acesso (RBAC) ajuda a resolver este problema, oferecendo gestão de acesso detalhada para o Azure.
@@ -56,14 +56,14 @@ Acesso que conceda em âmbitos principal é herdado, os âmbitos subordinados. P
 * Atribuir a função de contribuinte a uma aplicação no âmbito do grupo de recursos. -Pode gerir os recursos de todos os tipos nesse grupo de recursos, mas não outros grupos de recursos na subscrição.
 
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>RBAC do Azure vs. os administradores da subscrição clássica
-Os administradores da subscrição clássico e coadministradores têm acesso total à subscrição do Azure. Podem gerir recursos com o [portal do Azure](https://portal.azure.com) com APIs do Azure Resource Manager, ou o [portal clássico do Azure](https://manage.windowsazure.com) e o modelo de implementação clássico do Azure. No modelo RBAC, os administradores clássicos são atribuídos a função de proprietário no âmbito de subscrição.
+[Os administradores da subscrição clássico e coadministradores](../billing/billing-add-change-azure-subscription-administrator.md) têm acesso total à subscrição do Azure. Gerir recursos com o [portal do Azure](https://portal.azure.com), APIs do Azure Resource Manager e o modelo de implementação clássica APIs. No modelo RBAC, os administradores clássicos são atribuídos a função de proprietário no âmbito de subscrição.
 
-Apenas o portal do Azure e as novas APIs do Azure Resource Manager suportam RBAC do Azure. Utilizadores e aplicações que são atribuídas a funções RBAC não é possível utilizar o portal de gestão clássico e o modelo de implementação clássico do Azure.
+Apenas o portal do Azure e as novas APIs do Azure Resource Manager suportam RBAC do Azure. Utilizadores e aplicações que são atribuídas a funções RBAC não é possível utilizar as APIs do modelo de implementação clássico do Azure.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Autorização para gestão versus operações de dados
 RBAC do Azure suporta apenas operações de gestão de recursos do Azure no portal do Azure e APIs do Azure Resource Manager. Não é possível autorizar o todas as operações de nível de dados para recursos do Azure. Por exemplo, podem autorizar alguém para gerir contas de armazenamento, mas não os blobs ou tabelas dentro de uma conta de armazenamento. Da mesma forma, uma base de dados do SQL Server pode ser gerido, mas não as tabelas dentro da mesma.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Introdução ao [controlo de acesso baseado em funções no portal do Azure](role-based-access-control-configure.md).
 * Consulte as [Funções incorporadas do RBAC](role-based-access-built-in-roles.md)
 * Definir as suas [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md)

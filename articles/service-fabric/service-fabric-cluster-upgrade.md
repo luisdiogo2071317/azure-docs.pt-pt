@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 8/10/2017
 ms.author: chackdan
 ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Atualizar um cluster do Service Fabric do Azure
 > [!div class="op_single_selector"]
@@ -210,7 +210,7 @@ Consulte [Patch Orchestration aplicação](service-fabric-patch-orchestration-ap
 ### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>Atualizações do SO em VMs que compõem o cluster
 Se tem de atualizar a imagem do SO nas máquinas virtuais do cluster, deve fazê-lo uma VM cada vez. É responsáveis para esta atualização – não está actualmente sem automatização para este.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba como personalizar algumas do [definições de recursos de infraestrutura de cluster de recursos de infraestrutura do serviço](service-fabric-cluster-fabric-settings.md)
 * Saiba como [reduzir e ampliar o seu cluster](service-fabric-cluster-scale-up-down.md)
 * Saiba mais sobre [as atualizações de aplicações](service-fabric-application-upgrade.md)

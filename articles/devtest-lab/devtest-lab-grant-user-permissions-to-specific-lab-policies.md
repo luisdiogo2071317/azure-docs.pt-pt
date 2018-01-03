@@ -3,7 +3,7 @@ title: "Conceder permissões de utilizador para políticas de laboratório espec
 description: "Saiba como conceder permissões de utilizador para políticas específicas de laboratório no DevTest Labs com base nas necessidades de cada utilizador"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 5ca829f0-eb69-40a1-ae26-03a629db1d7e
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
-ms.openlocfilehash: 155debf5fea4439c8273d2518856952fbf0f871a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.author: v-craic
+ms.openlocfilehash: f92ad5e991bdb066bb9680b4865501076d43f450
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Conceder permissões de utilizador para políticas de laboratório específico
 ## <a name="overview"></a>Descrição geral
@@ -84,12 +84,12 @@ No exemplo anterior, o **AllowedVmSizesInLab** política é utilizada. Pode util
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Uma vez tiver conceder permissões de utilizador para políticas específicas de laboratório, seguem-se alguns passos a ter em consideração:
 
-* [Proteger o acesso a um laboratório](devtest-lab-add-devtest-user.md)
-* [Conjunto de políticas de laboratório](devtest-lab-set-lab-policy.md)
+* [Acesso seguro a um laboratório](devtest-lab-add-devtest-user.md)
+* [Definir políticas de laboratório](devtest-lab-set-lab-policy.md)
 * [Criar um modelo de laboratório](devtest-lab-create-template.md)
 * [Criar artefactos personalizados para as suas VMs](devtest-lab-artifact-author.md)
-* [Adicionar uma VM para um laboratório](devtest-lab-add-vm.md)
+* [Adicionar uma VM a um laboratório](devtest-lab-add-vm.md)
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d354e50217dabebfeb16df29d4954181ff67e28f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: bb231b4a5210019b36bb4bb123795b4762374c66
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Notificações de manutenção de processamento planeada para máquinas virtuais do Linux
 
@@ -30,9 +30,9 @@ Azure executa periodicamente atualizações para melhorar a fiabilidade, desempe
 - Se a manutenção requer um reinício, receberá um aviso quando a manutenção planeada. Nestes casos, é-lhe dada uma janela de tempo em que pode iniciar a manutenção de si próprio, quando funciona para si.
 
 
-Manutenção planeada, que requer uma reinicialização, é agendada no waves. Cada wave tem um âmbito diferentes (regiões).
+Manutenção planeada, que requer uma reinicialização está agendada no waves. Cada wave tem um âmbito diferentes (regiões).
 
-- Uma onda começa com uma notificação para os clientes. Por predefinição, a notificação é enviada para o proprietário da subscrição e os coproprietários. Pode adicionar mais opções de mensagens, como e-mail, SMS e Webhooks e os destinatários para as notificações de utilizar o Azure [alertas de registo de atividade](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- Uma onda começa com uma notificação para os clientes. Por predefinição, a notificação é enviada para o proprietário da subscrição e os coproprietários. Pode adicionar mais opções de mensagens, como e-mail, SMS e webhooks e os destinatários para as notificações de utilizar o Azure [alertas de registo de atividade](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
 - No momento da notificação, um *self-service janela* é disponibilizado. Durante este período, pode encontrar a que as máquinas virtuais estão incluídos neste wave e proativamente iniciar manutenção, de acordo com as suas próprias necessidades de agendamento.
 - Depois da janela de self-service, uma *janela de manutenção agendada* começa. Numa determinada fase durante este período, o Azure agendas e aplica-se a manutenção necessária à máquina virtual. 
 
@@ -92,8 +92,8 @@ Os seguintes valores são devolvidos em MaintenanceRedeployStatus:
 | IsCustomerInitiatedMaintenanceAllowed | Indica se pode iniciar manutenção na VM neste momento ||
 | PreMaintenanceWindowStartTime         | O início da janela de manutenção self-service quando podem iniciar manutenção na VM ||
 | PreMaintenanceWindowEndTime           | O fim da janela de manutenção self-service quando podem iniciar manutenção na VM ||
-| MaintenanceWindowStartTime            | O início da janela de manutenção agendada quando podem iniciar manutenção na VM ||
-| MaintenanceWindowEndTime              | O fim da janela de manutenção agendada quando podem iniciar manutenção na VM ||
+| MaintenanceWindowStartTime            | O início da janela manutenção agendada no qual o Azure inicia manutenção em VM ||
+| MaintenanceWindowEndTime              | O fim da janela manutenção agendada no qual o Azure inicia manutenção em VM ||
 | LastOperationResultCode               | O resultado da última tentativa para iniciar a manutenção da VM ||
 
 
@@ -159,7 +159,7 @@ Para obter mais informações sobre como de elevada disponibilidade, consulte [r
 
 **P: quanto-leva-o para reiniciar a minha máquina virtual?**
 
-**R:** dependendo do tamanho da sua VM, reiniciar o computador pode demorar vários minutos. Tenha em atenção que no caso de utilizar serviços em nuvem (função da Web/trabalho), conjuntos de dimensionamento de Máquina Virtual ou conjuntos de disponibilidade, irá ser dada 30 minutos entre cada grupo de VMs (UD). 
+**R:** dependendo do tamanho da sua VM, reiniciar o computador pode demorar vários minutos durante a janela de manutenção de self-service. Durante o Azure iniciada reinícios na janela de manutenção agendada, o reinício demorará, normalmente, cerca de 25 minutos. Tenha em atenção que no caso de utilizar serviços em nuvem (função da Web/trabalho), conjuntos de dimensionamento de Máquina Virtual ou conjuntos de disponibilidade, irá ser dada 30 minutos entre cada grupo de VMs (UD) durante a janela de manutenção agendada.
 
 **P: qual é a experiência no caso dos serviços Cloud (função da Web/trabalho), o Service Fabric e os conjuntos de dimensionamento de Máquina Virtual?**
 
@@ -190,6 +190,6 @@ Para obter mais informações sobre como de elevada disponibilidade, consulte [r
 **R:** se clicou atualizar várias instâncias num conjunto de disponibilidade no sucessivamente curto, Azure ficarão em fila estes pedidos e começa a atualizar apenas as VMs no domínio de uma atualização (UD) de cada vez. No entanto, uma vez que é possível que exista uma pausa entre domínios de atualização, a atualização poderá aparecer demorem mais tempo. Se a fila de atualização demora mais de 60 minutos, algumas instâncias irão mostrar o **ignorada** Estado, mesmo que tenham sido atualizados com êxito. Para evitar este estado incorreto, a atualização define a sua disponibilidade clicando apenas na instância dentro da disponibilidade de um definido e aguarde a atualização essa VM seja concluída antes de clicar na VM seguinte num domínio de atualização diferentes.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Saiba como pode registar eventos de manutenção de dentro da VM utilizando [agendada eventos](scheduled-events.md).

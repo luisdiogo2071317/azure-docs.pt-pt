@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
-ms.openlocfilehash: 7347be8520e643cd166851d3f525a9a0726b40c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05775415e210333cf63565e7b5b554d014f6ba23
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
@@ -29,7 +29,7 @@ Pode configurar uma lista de ações com grupos de ação. Estes grupos, em segu
 Um grupo de ação pode ter até 10 de cada tipo de ação. Cada ação é constituída pelas seguintes propriedades:
 
 * **Nome**: um identificador exclusivo dentro do grupo de ação.  
-* **Tipo de ação**: enviar um SMS, envie um e-mail, chamar um webhook ou enviar dados para uma ferramenta ITSM.
+* **Tipo de ação**: enviar um SMS, envie um e-mail, chamar um webhook, enviar dados para uma ferramenta ITSM, chamar uma aplicação do Azure ou executar um runbook de automatização.
 * **Detalhes**: correspondente phone número, endereço de correio eletrónico, webhook URI ou ITSM detalhes de ligação.
 
 Para obter informações sobre como utilizar os modelos Azure Resource Manager para configurar grupos de ação, consulte [modelos de Gestor de recursos do grupo de ação](monitoring-create-action-group-with-resource-manager-template.md).
@@ -38,7 +38,7 @@ Para obter informações sobre como utilizar os modelos Azure Resource Manager p
 1. No [portal](https://portal.azure.com), selecione **Monitor**. O **Monitor** painel consolida todas as suas monitorização definições e dados de uma vista.
 
     ![O serviço de "Monitor de"](./media/monitoring-action-groups/home-monitor.png)
-2. No **registo de atividade** secção, selecione **grupos ação**.
+2. No **definições** secção, selecione **grupos ação**.
 
     ![No separador "Grupos de ação"](./media/monitoring-action-groups/action-groups-blade.png)
 3. Selecione **adicionar grupo de ação**e preencha os campos.
@@ -56,14 +56,12 @@ Para obter informações sobre como utilizar os modelos Azure Resource Manager p
 
     a. **Nome**: introduza um identificador exclusivo para esta ação.
 
-    b. **Tipo de ação**: selecione SMS, o e-mail, o webhook ou ITSM.
+    b. **Tipo de ação**: selecione SMS, e-mail, webhook, aplicações do Azure, ITSM ou Runbook de automatização.
 
-    c. **Detalhes**: com base no tipo de ação, introduza um número de telefone, endereço de correio eletrónico, webhook URI ou detalhes de ligação de ITSM. Além disso especificar para a ação de ITSM, **Item de trabalho** e requer a sua ferramenta ITSM outros campos. 
+    c. **Detalhes**: com base no tipo de ação, introduza um número de telefone, endereço de correio eletrónico, webhook URI, aplicações do Azure, ligação ITSM ou runbook de automatização. Além disso especificar para a ação de ITSM, **Item de trabalho** e requer a sua ferramenta ITSM outros campos. 
 
-> [!NOTE]
-> Ação de ITSM requer uma ligação de ITSM. Saiba como criar um [ITSM ligação](../log-analytics/log-analytics-itsmc-overview.md). Ação de ITSM funciona atualmente apenas para os alertas de registo de atividade. Para outros tipos de alerta, esta ação é atualmente uma sem operações.
->
->
+   > [!NOTE]
+   > Ação de ITSM requer uma ligação de ITSM. Saiba como criar um [ITSM ligação](../log-analytics/log-analytics-itsmc-overview.md). Ação de ITSM funciona atualmente apenas para os alertas de registo de atividade. Para outros tipos de alerta, esta ação é atualmente uma sem operações.
 
 8. Selecione **OK** ao criar o grupo de ação.
 
@@ -73,7 +71,7 @@ Depois de criar um grupo de ação, fica visível no **grupos ação** secção 
 * Adicionar, editar ou remover as ações.
 * Elimine o grupo de ação.
 
-## <a name="next-steps"></a>Passos seguintes ##
+## <a name="next-steps"></a>Passos Seguintes ##
 * Saiba mais sobre [SMS alerta comportamento](monitoring-sms-alert-behavior.md).  
 * Obter um [compreensão sobre o esquema de webhook alerta de registo de atividade](monitoring-activity-log-alerts-webhook.md).  
 * Saiba mais sobre [ITSM conector](../log-analytics/log-analytics-itsmc-overview.md)

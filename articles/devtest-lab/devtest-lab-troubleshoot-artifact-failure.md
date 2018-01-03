@@ -3,7 +3,7 @@ title: "Diagnosticar falhas de artefacto numa máquina virtual do Azure DevTest 
 description: Saiba como resolver problemas de falhas de artefacto no Azure DevTest Labs.
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 115e0086-3293-4adf-8738-9f639f31f918
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
-ms.author: tarcher
-ms.openlocfilehash: 9a79e50902e8e99e94148f8ef534e6745e31809a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 6c03ce8f91ec688e32e379f1284767db9a45920c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticar falhas de artefacto no laboratório 
 Depois de criar um artefacto, pode verificar para ver se foi concluída com êxito ou falha. Os registos de artefacto no Azure DevTest Labs fornecem informações que pode utilizar para diagnosticar uma falha de artefactos. Tem duas opções para visualizar as informações de registo de artefactos para uma VM do Windows:
@@ -56,6 +56,6 @@ Depois de criar um artefacto, pode verificar para ver se foi concluída com êxi
 ## <a name="related-blog-posts"></a>Mensagens de blogue relacionados
 * [Associar uma VM a um domínio do Active Directory existente, utilizando um modelo do Resource Manager no DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba como [adicione um repositório de Git para um laboratório](devtest-lab-add-artifact-repo.md).
 

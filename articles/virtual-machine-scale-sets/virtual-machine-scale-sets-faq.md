@@ -4,7 +4,7 @@ description: "Obtenha respostas às perguntas mais frequentes sobre os conjuntos
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 1d7d6200196eee96186dc5e597abc84fa0aa86c5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas mais frequentes de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -73,7 +73,7 @@ Este exemplo utiliza a métrica de CPU ao nível do anfitrião e uma métrica de
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Como definir a regras de alertas sobre um conjunto de dimensionamento de máquina virtual
 
-Pode criar alertas nas métricas para conjuntos de dimensionamento de máquina virtual através do PowerShell ou a CLI do Azure. Para obter mais informações, consulte [Azure Monitor PowerShell rápido iniciar amostras](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) e [CLI de várias plataformas de Monitor de Azure rápido iniciar amostras](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+Pode criar alertas nas métricas para conjuntos de dimensionamento de máquina virtual através do PowerShell ou a CLI do Azure. Para obter mais informações, consulte [amostras de início rápido do Azure PowerShell de Monitor](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) e [amostras de início rápido do Azure Monitor plataforma CLI](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
 TargetResourceId do conjunto de dimensionamento de máquina virtual tem o seguinte aspeto: 
 
@@ -187,7 +187,7 @@ Incluir **osProfile** no seu modelo:
  
 Este bloco JSON é utilizado na [o modelo de início rápido do GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
-O perfil de SO também é utilizado no [o grelayhost.json GitHub rápido iniciar modelo](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+O perfil de SO também é utilizado no [o modelo de início rápido do GitHub grelayhost.json](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
 Para obter mais informações, consulte [criar ou atualizar um dimensionamento da máquina virtual definir](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
   
@@ -257,7 +257,7 @@ Se fornecer um ID de Cofre de origem incorreto, mas um URL do Cofre de chaves v�
  
 ### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>Se adiciono segredos a um existente o dimensionamento da máquina virtual definida, são segredos injetados para VMs existentes, ou apenas para novos? 
 
-Certificados são adicionados a todas as suas VMs, mesmo pré-existentes aqueles. Se o dimensionamento da máquina virtual definir a propriedade de upgradePolicy estiver definido como **manual**, o certificado foi adicionado à VM quando efetuar uma atualização manual da VM.
+Certificados são adicionados a todas as suas VMs, mesmo previamente existentes. Se o dimensionamento da máquina virtual definir a propriedade de upgradePolicy estiver definido como **manual**, o certificado foi adicionado à VM quando efetuar uma atualização manual da VM.
  
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Onde colocar o certificados para VMs com Linux?
 
@@ -281,7 +281,7 @@ Se criar nova imagem de uma VM, os certificados são eliminados. Elimina o SO to
  
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>O que acontece se eliminar um certificado a partir do Cofre de chaves?
 
-Se o segredo é eliminado do Cofre de chaves e, em seguida, execute `stop deallocate` para todas as suas VMs e, em seguida, iniciá-los novamente, irá ocorrer uma falha. A falha ocorre porque o CRP tem de obter os segredos do Cofre de chaves, mas não pode ser. Neste cenário, pode eliminar os certificados do modelo de conjunto de dimensionamento de máquina virtual. 
+Se o segredo é eliminado do Cofre de chaves e, em seguida, execute `stop deallocate` para todas as suas VMs e, em seguida, iniciá-los novamente, se ocorrer uma falha. A falha ocorre porque o CRP tem de obter os segredos do Cofre de chaves, mas não pode ser. Neste cenário, pode eliminar os certificados do modelo de conjunto de dimensionamento de máquina virtual. 
 
 O componente de CRP não persiste segredos do cliente. Se executar `stop deallocate` para todas as VMs no conjunto de dimensionamento de máquina virtual, é eliminado da cache. Neste cenário, os segredos são obtidos a partir do Cofre de chaves.
 
@@ -293,7 +293,7 @@ A documentação do Cofre de chaves do Azure indica se a API de REST do segredo 
  
 Método | URL
 --- | ---
-INTRODUÇÃO | https://mykeyvault.Vault.Azure.NET/Secrets/ {nome-segredo} / {segredo-version}? api-version = {api-version}
+GET | https://mykeyvault.Vault.Azure.NET/Secrets/ {nome-segredo} / {segredo-version}? api-version = {api-version}
 
 Substitua {*segredo-name*} com o nome e a substituir {*segredo versão*} com a versão do segredo que pretende obter. A versão secreta poderão ser excluída. Nesse caso, é obtida a versão atual.
   
@@ -337,7 +337,7 @@ Numa perspetiva de conformidade, os conjuntos de dimensionamento de máquinas vi
 
 Para obter mais informações, veja o [Centro de Fidedignidade da Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-vm-scale-sets"></a>Does [identidade de serviço gerida do Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) trabalhar com conjuntos de dimensionamento VM?
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Does [identidade de serviço gerida do Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) trabalhar com conjuntos de dimensionamento de máquina virtual?
 
 Sim. Pode ver alguns modelos MSI do exemplo nos modelos de início rápido do Azure. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
@@ -371,28 +371,28 @@ Para saber mais sobre a sequenciação de extensão em conjuntos de dimensioname
 
 Existem duas formas de principais para alterar a palavra-passe para as VMs em conjuntos de dimensionamento.
 
-1. Altere o modelo VMSS diretamente. Disponível com computação API 2017-12-01 e mais tarde.
+- Altere o modelo de conjunto de dimensionamento de máquina virtual diretamente. Disponível com computação API 2017-12-01 e mais tarde.
 
-Atualize as credenciais de administrador diretamente no modelo de conjunto de dimensionamento (por exemplo utilizando o Explorador de recursos do Azure, o PowerShell ou o CLI). Depois do conjunto de dimensionamento é atualizada, todas as novas VMs terão as novas credenciais. VMs existentes terão apenas as novas credenciais estão a ser recriadas. 
+    Atualize as credenciais de administrador diretamente no modelo de conjunto de dimensionamento (por exemplo utilizando o Explorador de recursos do Azure, o PowerShell ou o CLI). Assim que o conjunto de dimensionamento estiver atualizado, todas as novas VMs tem as novas credenciais. VMs existentes tem apenas as novas credenciais se estes estão a ser recriadas. 
 
-2. Repor a palavra-passe com as extensões de acesso VM.
+- Repor a palavra-passe com as extensões de acesso VM.
 
-Utilize o exemplo do PowerShell seguinte:
+    Utilize o exemplo do PowerShell seguinte:
+    
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+     
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
 
-```powershell
-$vmssName = "myvmss"
-$vmssResourceGroup = "myvmssrg"
-$publicConfig = @{"UserName" = "newuser"}
-$privateConfig = @{"Password" = "********"}
- 
-$extName = "VMAccessAgent"
-$publisher = "Microsoft.Compute"
-$vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-$vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-```
- 
- 
+
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Como adicionar uma extensão para todas as VMs no meu conjunto de dimensionamento de máquina virtual?
 
 Se a política de atualização está definida como **automática**, voltar a implementar o modelo com as novas propriedades de extensão de atualizações de todas as VMs.
@@ -467,7 +467,7 @@ Para executar um script personalizado que está alojado numa conta do storage pr
 
 ## <a name="networking"></a>Redes
  
-### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>É possível atribuir um grupo de segurança de rede (NSG) para um conjunto de dimensionamento, para que será aplicado a todos os NICs de VM no conjunto?
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>É possível atribuir um grupo de segurança de rede (NSG) para um conjunto de dimensionamento, para que o se aplica a todos os NICs de VM no conjunto?
 
 Sim. Um grupo de segurança de rede podem ser aplicado diretamente a uma escala definida pelo que o referenciam na secção networkInterfaceConfigurations o perfil de rede. Exemplo:
 
@@ -523,11 +523,11 @@ Para implementar um dimensionamento da máquina virtual definido como uma rede v
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Como adicionar o endereço IP da VM primeiro a num dimensionamento de máquina virtual definido para a saída de um modelo?
 
-Para adicionar o endereço IP da VM primeiro um dimensionamento da máquina virtual definido para a saída de um modelo, consulte [ARM: IPs privados obter VMSS](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Para adicionar o endereço IP da VM primeiro um dimensionamento da máquina virtual definido para a saída de um modelo, consulte [Gestor de recursos do Azure: conjuntos de dimensionamento de máquina virtual de Get IPs privados](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Pode utilizar conjuntos de dimensionamento com acelerados da rede?
 
-Sim. Para utilizar na melhoria de redes, defina enableAcceleratedNetworking como true no seu dimensionamento definições de networkInterfaceConfigurations do conjunto. Por exemplo,
+Sim. Para utilizar na melhoria de redes, defina enableAcceleratedNetworking como true no seu dimensionamento definições de networkInterfaceConfigurations do conjunto. Por exemplo
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -549,7 +549,7 @@ Sim. Para utilizar na melhoria de redes, defina enableAcceleratedNetworking como
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>Como posso configurar os servidores DNS utilizados por um conjunto de dimensionamento?
 
-Para criar um conjunto com uma configuração de DNS personalizada de dimensionamento VM, adicione um pacote JSON dnsSettings para a secção de networkInterfaceConfigurations do conjunto de dimensionamento. Exemplo:
+Para criar um conjunto com uma configuração de DNS personalizada de dimensionamento de máquina virtual, adicione um pacote JSON dnsSettings para a secção de networkInterfaceConfigurations do conjunto de dimensionamento. Exemplo:
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -558,7 +558,7 @@ Para criar um conjunto com uma configuração de DNS personalizada de dimensiona
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Como configurar a um conjunto para atribuir um endereço IP público para cada VM de dimensionamento?
 
-Para criar um conjunto de dimensionamento VM que atribui um endereço IP público para cada VM, certifique-se de que a versão da API do recurso Microsoft.Compute/virtualMAchineScaleSets 2017-03-30 e adicione um _publicipaddressconfiguration_ pacote JSON para o secção de ipConfigurations do conjunto de dimensionamento. Exemplo:
+Para criar um conjunto de dimensionamento de máquina virtual que atribui um endereço IP público para cada VM, certifique-se de que a versão da API do recurso Microsoft.Compute/virtualMAchineScaleSets 2017-03-30 e adicione um _publicipaddressconfiguration_ JSON pacote para a escala definir ipConfigurations secção. Exemplo:
 
 ```json
     "publicipaddressconfiguration": {
@@ -583,7 +583,7 @@ Outro motivo, que poderá criar um conjunto com menos de duas VMs de dimensionam
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Como posso alterar o número de VMs num conjunto de dimensionamento de máquina virtual?
 
-Para alterar o número de VMs num dimensionamento de máquina virtual definido no portal do Azure, da escala VM definir a secção de propriedades, clique no painel "Dimensionamento" e utiliza a barra do controlo de deslize. Para outras formas de alterar a contagem de instâncias, consulte [alterar a contagem de instâncias de um conjunto de dimensionamento de máquina virtual](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Para alterar o número de VMs num dimensionamento de máquina virtual definido no portal do Azure, da escala de máquina virtual definir a secção de propriedades, clique no painel "Dimensionamento" e utiliza a barra do controlo de deslize. Para outras formas de alterar a contagem de instâncias, consulte [alterar a contagem de instâncias de um conjunto de dimensionamento de máquina virtual](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Como posso definir alertas personalizados para quando determinados limiares são atingidos?
 
@@ -657,7 +657,7 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 Pode encontrar o workspaceId necessária e workspaceKey no portal do OMS. Na página Descrição geral, clique no mosaico de definições. Clique no separador de origens ligadas na parte superior.
 
-Nota: se o conjunto de dimensionamento da sua _upgradePolicy_ está definido para Manual, terá de aplicar a extensão para todas as VMs no conjunto de chamando atualização nos mesmos. Na CLI isto seria _az vmss update-instâncias_.
+Nota: se o conjunto de dimensionamento da sua _upgradePolicy_ está definido como Manual, precisar de aplicar a extensão para todas as VMs no conjunto de chamando atualização nos mesmos. Na CLI isto seria _az vmss update-instâncias_.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

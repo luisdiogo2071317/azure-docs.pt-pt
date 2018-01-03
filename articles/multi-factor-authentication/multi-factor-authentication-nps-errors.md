@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 53c9bde37215e4b7e315b6bc28f0e638816a48f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão do NPS para o multi-factor Authentication do Azure
 
@@ -27,7 +27,7 @@ Se encontrar erros com a extensão NPS para o Azure multi-factor Authentication,
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Passos de resolução de problemas para erros comuns
 
-| Código de erro | Passos de resolução de problemas |
+| Código de erro | Passos da resolução de problemas |
 | ---------- | --------------------- |
 | **CONTACT_SUPPORT** | [Contacte o suporte](#contact-microsoft-support)e mencionar a lista dos passos para recolher registos. Fornece o mesmo informações como pode sobre o que aconteceu antes do erro, incluindo o id de inquilino e o nome principal de utilizador (UPN). |
 | **CLIENT_CERT_INSTALL_ERROR** | Poderá existir um problema com a forma como o certificado de cliente foi instalado ou associado ao seu inquilino. Siga as instruções em [a extensão de NPS do MFA de resolução de problemas](multi-factor-authentication-nps-extension.md#troubleshooting) para investigar problemas de certificado de cliente. |
@@ -44,7 +44,7 @@ Se encontrar erros com a extensão NPS para o Azure multi-factor Authentication,
 
 ### <a name="alternate-login-id-errors"></a>Erros de ID de início de sessão alternativo
 
-| Código de erro | Mensagem de erro | Passos de resolução de problemas |
+| Código de erro | Mensagem de erro | Passos da resolução de problemas |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Erro: pesquisa de userObjectSid falhada | Certifique-se de que o utilizador existir na instância do Active Directory no local. Se estiver a utilizar confiança entre florestas, [contacte o suporte](#contact-microsoft-support) para obter ajuda. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Erro: Falha de pesquisa de LoginId alternativo | Certifique-se de que LDAP_ALTERNATE_LOGINID_ATTRIBUTE está definido como um [atributos do Active Directory válido](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Se LDAP_FORCE_GLOBAL_CATALOG está definido como True ou LDAP_LOOKUP_FORESTS está configurado com um valor não vazio, certifique-se de que configurou um Catálogo Global e que o atributo AlternateLoginId é adicionado ao mesmo. <br><br> Se LDAP_LOOKUP_FORESTS está configurado com um valor não vazio, certifique-se de que o valor é correto. Se existir mais do que um nome de floresta, os nomes têm de ser separados com ponto e vírgula, não espaços. <br><br> Se estes passos não corrigir o problema, [contacte o suporte](#contact-microsoft-support) para obter mais ajuda. |
@@ -53,7 +53,7 @@ Se encontrar erros com a extensão NPS para o Azure multi-factor Authentication,
 
 ## <a name="errors-your-users-may-encounter"></a>Podem encontrar os seus utilizadores de erros
 
-| Código de erro | Mensagem de erro | Passos de resolução de problemas |
+| Código de erro | Mensagem de erro | Passos da resolução de problemas |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Inquilino do autor da chamada não tem permissões de acesso para efetuar a autenticação para o utilizador | Verifique se o domínio de inquilino e o domínio do nome principal de utilizador (UPN) são as mesmas. Por exemplo, certifique-se de que user@contoso.com está a tentar autenticar para o inquilino Contoso. O UPN representa um utilizador válido para o inquilino no Azure. |
 | **AuthenticationMethodNotConfigured** | O método de autenticação especificado não foi configurado para o utilizador | Tem do utilizador adicione ou verifique se os respetivos métodos de verificação, de acordo com as instruções em [gerir as definições de verificação em dois passos](./end-user/multi-factor-authentication-end-user-manage-settings.md). |
@@ -96,7 +96,7 @@ Se encontrar um destes erros, recomendamos que lhe [contacte o suporte](#contact
 | **VersionNotSupported** |  |
 | **MFAPinNotSetup** |  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="troubleshoot-user-accounts"></a>Resolver problemas de contas de utilizador
 
@@ -106,9 +106,10 @@ Se os utilizadores são [problemas com verificação de dois passos](./end-user/
 
 Se precisar de mais ajuda, contacte um técnico de suporte através de [suporte de servidor do Azure multi-factor Authentication](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando contactar-nos, é útil se pode incluir a maior quantidade informações sobre o problema quanto possível. Pode fornecer as informações incluem a página onde vimos o erro, o código de erro específico, o ID de sessão específico, o ID do utilizador que vimos o erro e registos de depuração.
 
-Para recolher registos de depuração para diagnóstico de suporte, utilize os seguintes passos: 
+Para recolher registos de depuração para diagnóstico de suporte, utilize os seguintes passos no servidor NPS:
 
-1. Abra uma linha de comandos de administrador e execute estes comandos:
+1. Abra o Editor de registo e navegue para o conjunto HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa **VERBOSE_LOG** para **verdadeiro**
+2. Abra uma linha de comandos de administrador e execute estes comandos:
 
    ```
    Mkdir c:\NPS
@@ -118,9 +119,9 @@ Para recolher registos de depuração para diagnóstico de suporte, utilize os s
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. Reproduza o problema
+3. Reproduza o problema
 
-3. Pare o rastreio com estes comandos:
+4. Pare o rastreio com estes comandos:
 
    ```
    logman stop "NPSExtension" -ets
@@ -131,6 +132,7 @@ Para recolher registos de depuração para diagnóstico de suporte, utilize os s
    Start .
    ```
 
-4. Zip o conteúdo da pasta C:\NPS e anexe o ficheiro zipped para o caso de suporte.
+5. Abra o Editor de registo e navegue para o conjunto HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa **VERBOSE_LOG** para **FALSE**
+6. Zip o conteúdo da pasta C:\NPS e anexe o ficheiro zipped para o caso de suporte.
 
 

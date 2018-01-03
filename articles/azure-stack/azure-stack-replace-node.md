@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Substituir um nó de unidade de escala num sistema de pilha do Azure integrada
 
@@ -51,6 +51,10 @@ Se abrir o alerta "nó de unidade de escala é offline", a descrição do alerta
 Os seguintes passos são fornecidos como uma descrição geral de alto nível do processo de substituição do nó de unidade de escala. Consulte a documentação de FRU do seu fornecedor de hardware de OEM para obter passos detalhados que são específicas para o seu sistema. Siga estes passos sem referir-se a sua documentação fornecida pelo OEM.
 
 1. Utilize o [drenar](azure-stack-node-actions.md#scale-unit-node-actions) ação para colocar o nó de unidade de escala em modo de manutenção. Esta ação não pode ser necessária com base na condição do hardware física.
+
+   > [!NOTE]
+   > Em qualquer dos casos, apenas um nó pode ser drained e desligado em simultâneo sem ultrapassar o SSD (espaços de armazenamento direto).
+
 2. Se o nó ainda está ligado, utilize o [desligar](azure-stack-node-actions.md#scale-unit-node-actions) ação. Esta ação não pode ser necessária com base na condição do hardware física.
  
    > [!NOTE]
@@ -61,7 +65,7 @@ Os seguintes passos são fornecidos como uma descrição geral de alto nível do
 3. Utilizar o ponto final com privilégios para [verificar o estado de reparação de disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Com unidades de dados nova, uma tarefa de reparação de armazenamento completa pode demorar várias horas, consoante a carga de sistema e consumidas espaço.
 4. Após concluir a ação de reparação, confirme que todos os alertas ativos tem sido fechados automaticamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre como substituir um disco físico de acesso frequente-swappable, consulte [substituir um disco](azure-stack-replace-disk.md). 
 - Para obter informações sobre como substituir um componente de hardware não frequente-swappable, consulte [substituir um componente de hardware](azure-stack-replace-component.md). 

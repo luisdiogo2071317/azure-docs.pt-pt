@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: 3c7c57b05220d1e82c3baa8bc266e02d961a84be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Executar uma tarefa de instâncias de contentor do Azure
 
@@ -20,7 +20,7 @@ O facilitar e velocidade da implementação de contentores em instâncias de con
 
 Com a política de reinício configuráveis, pode especificar que os contentores estão parados quando os respetivos processos terem sido concluídos. Porque as instâncias de contentor são cobradas pelo segundo, está a cobrados apenas os recursos de computação utilizados enquanto o contentor de executar a tarefa está em execução.
 
-Os exemplos apresentadas neste artigo utilizar a CLI do Azure. Tem de ter a CLI do Azure versão 2.0.21 ou superior [instalado localmente](/cli/azure/install-azure-cli), ou utilizar a CLI no [Shell de nuvem do Azure](../cloud-shell/overview.md).
+Os exemplos apresentadas neste artigo utilizar a CLI do Azure. Tem de ter a CLI do Azure versão 2.0.21 ou superior [instalado localmente][azure-cli-install], ou utilizar a CLI no [Shell de nuvem do Azure](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Política de reinício do contentor
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Executar o exemplo de conclusão
 
-Para ver a política de reinício em ação, criar uma instância do contentor do [aci/microsoft-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) imagem e especifique o `OnFailure` reiniciar política. Este contentor de exemplo executa um script de Python que, por predefinição, analisa o texto de Shakespeare [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), escreve as 10 palavras mais comuns STDOUT e, em seguida, sai.
+Para ver a política de reinício em ação, criar uma instância do contentor do [aci/microsoft-wordcount] [ aci-wordcount-image] imagem e especifique o `OnFailure` reiniciar política. Este contentor de exemplo executa um script de Python que, por predefinição, analisa o texto de Shakespeare [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), escreve as 10 palavras mais comuns STDOUT e, em seguida, sai.
 
 Execute o contentor de exemplo com o seguinte [criar contentor de az] [ az-container-create] comando:
 
@@ -162,13 +162,17 @@ Saída:
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="persist-task-output"></a>Manter o resultado da tarefa
 
 Para obter mais informações sobre como manter o resultado dos contentores que serem concluídas, consulte [montar uma partilha de ficheiros do Azure com instâncias de contentor do Azure](container-instances-mounting-azure-files-volume.md).
 
-<!-- LINKS -->
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-cli-install]: /cli/azure/install-azure-cli

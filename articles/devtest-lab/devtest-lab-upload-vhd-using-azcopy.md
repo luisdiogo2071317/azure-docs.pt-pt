@@ -3,7 +3,7 @@ title: Carregar o ficheiro VHD para o Azure DevTest Labs utilizando o AzCopy | M
 description: "Carregar o ficheiro VHD a conta de armazenamento do laboratório utilizando o AzCopy"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
-ms.openlocfilehash: a4f43354740d9f17570932b0b9c753f46d67dc33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 11a9d03e62c674c4311c74f78e4cb2e709940941
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Carregar o ficheiro VHD a conta de armazenamento do laboratório utilizando o AzCopy
 
@@ -30,7 +30,7 @@ No Azure DevTest Labs, os ficheiros VHD podem ser utilizados para criar imagens 
 >  
 > O AzCopy é um utilitário da linha de comandos só de Windows.
 
-## <a name="step-by-step-instructions"></a>Instruções passo a passo
+## <a name="step-by-step-instructions"></a>Instruções passo-a-passo
 
 Os seguintes passos guiá-lo através do carregar um ficheiro VHD para utilizar o Azure DevTest Labs [AzCopy](http://aka.ms/downloadazcopy). 
 
@@ -78,7 +78,7 @@ Os seguintes passos guiá-lo através do carregar um ficheiro VHD para utilizar 
     AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar uma imagem personalizada no Azure DevTest Labs de um ficheiro VHD utilizando o portal do Azure](devtest-lab-create-template.md)
 - [Criar uma imagem personalizada no Azure DevTest Labs de um ficheiro VHD utilizando o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

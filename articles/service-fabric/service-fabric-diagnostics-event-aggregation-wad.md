@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação de eventos e coleção utilizando o Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -263,7 +263,7 @@ Se estiver a utilizar um receptor de Application Insights, conforme descrito na 
 
 Enviar dados de monitorização e diagnóstico para o Application Insights (AI) pode ser feita como parte da configuração WAD. Se optar por utilizar AI para análise de eventos e visualização, leia [análise de eventos e visualização com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) para configurar um receptor de AI como parte da sua "WadCfg".
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Assim que tiver configurado corretamente o diagnóstico do Azure, verá dados as tabelas de armazenamento a partir de registos do ETW e EventSource. Se optar por utilizar o OMS, Kibana ou quaisquer outro dados e visualização de análise plataforma que não é diretamente configurada no modelo do Resource Manager, certifique-se configurar a plataforma à sua escolha para ler nos dados destas tabelas de armazenamento. Fazê-lo para OMS é relativamente trivial e é explicado no [análise de eventos e o registo através de OMS](service-fabric-diagnostics-event-analysis-oms.md). O Application Insights está pouco num caso especial neste sentido, uma vez que pode ser configurado como parte da configuração da extensão de diagnóstico, por isso, consulte o [artigo adequado](service-fabric-diagnostics-event-analysis-appinsights.md) se optar por utilizar AI.
 

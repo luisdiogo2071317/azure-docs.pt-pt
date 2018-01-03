@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 18ff5c81d0aa5e8a28ed8a11dad19811d2fa1d2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operativo no App Service do Azure
 Este artigo descreve as funcionalidades de sistema operativo comuns de linha de base que está disponível para todas as aplicações em execução no [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidade inclui ficheiros, rede, o acesso ao registo e os registos de diagnóstico e eventos. 
@@ -27,6 +27,8 @@ Este artigo descreve as funcionalidades de sistema operativo comuns de linha de 
 
 ## <a name="app-service-plan-tiers"></a>Escalões do plano de serviço de aplicações
 Serviço de aplicações executa aplicações de cliente num ambiente de alojamento de multi-inquilino. As aplicações implementadas no **livres** e **partilhados** camadas executam em processos de trabalho em máquinas virtuais partilhadas, enquanto as aplicações implementadas no **padrão** e **Premium**  camadas executam em ais dedicado especificamente para aplicações associadas um único cliente.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Porque o serviço de aplicações suporta uma experiência totalmente integrada de dimensionamento entre diferentes camadas, a configuração de segurança imposta para aplicações do App Service permanece igual. Isto garante que as aplicações não subitamente comportar-se de forma diferente, falhar formas inesperado, quando muda de plano de serviço de aplicações de um escalão para outro.
 

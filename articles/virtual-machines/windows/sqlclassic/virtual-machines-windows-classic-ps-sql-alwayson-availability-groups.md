@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: b99cf767fb931d3f7fe14fcbe7990126244613ed
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurar o grupo de disponibilidade Always On numa VM do Azure com o PowerShell
 > [!div class="op_single_selector"]
@@ -564,7 +564,7 @@ Por fim, está pronto para configurar o grupo de disponibilidade. Irá utilizar 
              -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
              -Database $db
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Tiver já agora com êxito implementado a SQL Server Always On através da criação de um grupo de disponibilidade no Azure. Para configurar um serviço de escuta para este grupo de disponibilidade, consulte [configurar um serviço de escuta do ILB para grupos de disponibilidade Always On no Azure](../classic/ps-sql-int-listener.md).
 
 Para outras informações sobre como utilizar o SQL Server no Azure, consulte [SQL Server em virtual machines do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

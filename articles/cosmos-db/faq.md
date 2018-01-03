@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 5797d8db5f82d1c7edbb67f8e2335a5c0be21882
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0bc0551259e47cdbd74d323d8d9877c74dd64c4b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Cosmos BD do Azure
@@ -38,7 +38,7 @@ Se tiver uma conta de DocumentDB API antes, tem agora uma conta de API do SQL Se
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>O que aconteceu ao DocumentDB do Azure como um serviço?
 
-O serviço do Azure DocumentDB faz agora parte do serviço base de dados do Azure Cosmos e manifestos próprio sob a forma de API do SQL Server. As aplicações criadas com o Azure DocumentDB serão executado sem quaisquer alterações na API do Azure Cosmos BD do SQL Server. Além disso, a BD do Cosmos do Azure suporta a Graph API (pré-visualização), API de tabela, MongoDB API e Cassandra API (pré-visualização).
+O serviço do Azure DocumentDB faz agora parte do serviço base de dados do Azure Cosmos e manifestos próprio sob a forma de API do SQL Server. As aplicações criadas com o Azure DocumentDB serão executado sem quaisquer alterações na API do Azure Cosmos BD do SQL Server. Além disso, base de dados do Azure Cosmos suporta a Graph API, API de tabela, MongoDB API e Cassandra API (pré-visualização).
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Quais são os casos de utilização típica para a base de dados do Azure Cosmos?
 BD do Cosmos do Azure é uma boa opção para o novo web, móveis, jogos e aplicações IoT onde o dimensionamento automático, o desempenho previsível, rápido ordem dos tempos de resposta de milissegundos e a capacidade de consultar sobre os dados sem esquema é importante. BD do Azure do Cosmos presta-se no desenvolvimento rápido e suportar a iteração contínua de modelos de dados de aplicação. As aplicações que gerem conteúdos gerados pelo utilizador e os dados são [casos de utilização comuns para a base de dados do Azure Cosmos](use-cases.md). 
@@ -95,7 +95,7 @@ As seguintes condições aplicam-se a BD do Cosmos de Azure tente subscrições:
 
 ## <a name="set-up-azure-cosmos-db"></a>Configurar a base de dados do Azure Cosmos
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Como posso inscrever-me para a base de dados do Azure Cosmos?
-BD do Cosmos do Azure está disponível no portal do Azure. Em primeiro lugar, inscreva-se uma subscrição do Azure. Depois de se ter inscrito, pode adicionar uma API do SQL Server, Graph API (pré-visualização), API de tabela, API do MongoDB ou conta Cassandra API à sua subscrição do Azure.
+BD do Cosmos do Azure está disponível no portal do Azure. Em primeiro lugar, inscreva-se uma subscrição do Azure. Depois de se ter inscrito, pode adicionar uma API do SQL Server, Graph API, API de tabela, API do MongoDB ou conta Cassandra API à sua subscrição do Azure.
 
 ### <a name="what-is-a-master-key"></a>O que é uma chave mestra?
 Uma chave mestra é um token de segurança para aceder a todos os recursos de uma conta. Indivíduos com a chave tem de leitura e escrita para todos os recursos na conta de base de dados. Tenha cuidado ao distribuir chaves mestras. A chave mestra principal e a chave mestra secundária estão disponíveis no **chaves** painel do [portal do Azure][azure-portal]. Para obter mais informações sobre chaves, consulte [ver, copiar e voltar a gerar acesso chaves](manage-account.md#keys).
@@ -208,7 +208,7 @@ Em termos da API REST, existem várias opções de pontos finais/consulta que n�
 | ------------| ------------- | ---------- | ----------- |
 | OBTER, COLOCAR | /? restype =service@comp= propriedades| [Definir as propriedades do serviço tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) e [obter propriedades de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Este ponto final é utilizado para definir as regras CORS, configuração de armazenamento da análise e as definições de registo. CORS não é atualmente suportada e registo e análise são processadas forma diferente na base de dados do Azure Cosmos que tabelas de armazenamento do Azure |
 | OPÇÕES | / < nome de recurso de tabela > | [Pré-voo CORS tabela pedido](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Isto faz parte de CORS que BD do Cosmos Azure não suporta atualmente. |
-| INTRODUÇÃO | /? restype =service@comp= estatísticas | [Obter estatísticas de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações como rapidamente dados está a replicar entre principais e secundárias. Isto não é necessário na base de dados do Cosmos como a replicação faz parte das escritas. |
+| GET | /? restype =service@comp= estatísticas | [Obter estatísticas de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações como rapidamente dados está a replicar entre principais e secundárias. Isto não é necessário na base de dados do Cosmos como a replicação faz parte das escritas. |
 | OBTER, COLOCAR | /MyTable? concluída = acl | [Obter tabela ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) e [Definir tabela ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Este obtém e define as políticas de acesso armazenada utilizadas para gerir assinaturas de acesso partilhado (SAS). Embora seja suportado SAS, estão definidas e geridos de forma diferente. |
 
 Além disso API de tabela de base de dados do Azure Cosmos só suporta o formato JSON, não ATOM.
@@ -414,14 +414,14 @@ O Table storage do Azure e de API de tabela de base de dados do Azure Cosmos uti
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>Por que motivo posso obter limitado ao tentar criar muita das tabelas umas a seguir a API de tabela?
 BD do Cosmos do Azure é um sistema com base no SLA que fornece a latência, débito, disponibilidade e garantias de consistência. Porque é um sistema aprovisionado, reserva recursos para garantir estes requisitos. A taxa rápida de criação de tabelas é detetada e limitada. Recomendamos que observe a taxa de criação de tabelas e reduzi-lo para menos de 5 por minuto. Lembre-se de que a API de tabela é um sistema aprovisionado. Neste momento que aprovisionar, começará pagar para o mesmo. 
 
-## <a name="develop-against-the-graph-api-preview"></a>Desenvolver contra a Graph API (pré-visualização)
-### <a name="how-can-i-apply-the-functionality-of-graph-api-preview-to-azure-cosmos-db"></a>Como pode aplicar a funcionalidade da Graph API (pré-visualização) à base de dados do Azure Cosmos?
-Pode utilizar uma biblioteca de extensão para aplicar a funcionalidade da Graph API (pré-visualização). Esta biblioteca é chamada gráficos do Microsoft Azure e está disponível no NuGet. 
+## <a name="develop-against-the-graph-api"></a>Desenvolver contra a Graph API
+### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Como pode aplicar a funcionalidade da Graph API BD do Cosmos do Azure?
+Pode utilizar uma biblioteca de extensão para aplicar a funcionalidade da Graph API. Esta biblioteca é chamada gráficos do Microsoft Azure e está disponível no NuGet. 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Parece que suporta o idioma de transversal Gremlin gráfico. Planear adicionar mais formas de consulta?
 Sim, planeamos adicionar outros mecanismos para a consulta no futuro. 
 
-### <a name="how-can-i-use-the-new-graph-api-preview-offering"></a>Como posso utilizar a nova oferta de Graph API (pré-visualização)? 
+### <a name="how-can-i-use-the-new-graph-api-offering"></a>Como posso utilizar a nova oferta de Graph API? 
 Para começar a utilizar, execute o [Graph API](../cosmos-db/create-graph-dotnet.md) artigo de início rápido.
 
 <a id="cassandra"></a> 

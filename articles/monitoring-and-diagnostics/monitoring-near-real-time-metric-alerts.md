@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd1002929ad749ac1742e914a9f2411f09ec91d5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Quase em tempo real alertas métricas (pré-visualização)
 Monitor do Azure suporta agora um novo tipo de alertas métricas chamado quase em tempo real métrica alertas (pré-visualização). Esta funcionalidade está atualmente em pré-visualização pública.
@@ -38,6 +38,7 @@ Estes alertas diferem dos alertas de métricas regulares em algumas formas
 Obter uma lista completa dos tipos de recursos que são suportadas pelo quase em tempo real alertas métricas:
 
 * Microsoft.ApiManagement/service
+* Microsoft.Automation/automationAccounts
 * Microsoft.Batch/batchAccounts
 * Microsoft.Cache/Redis
 * Microsoft.Compute/virtualMachines
@@ -47,52 +48,35 @@ Obter uma lista completa dos tipos de recursos que são suportadas pelo quase em
 * Microsoft.DBforPostgreSQL/servers
 * Microsoft.EventHub/namespaces
 * Microsoft.Logic/workflows
-* Network/applicationgateways
+* Microsoft.Network/applicationGateways
 * Microsoft.Network/publicipaddresses
 * Microsoft.Search/searchServices
 * Microsoft.ServiceBus/namespaces
-* Microsoft.Sql/servers/elasticpools
+* Storage/storageaccounts
+* Microsoft.Storage/storageAccounts/services
 * Microsoft.StreamAnalytics/streamingjobs
-* Microsoft.Timeseriesinsights
 * Microsoft.CognitiveServices/accounts
+
+## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>Alertas de métrica em tempo real near nas métricas com dimensões
+Quase em tempo real métrica alertas suporta alertas nas métricas com dimensões. As dimensões são uma forma para filtrar a métrica para o nível adequado. Quase em tempo real métrica alertas nas métricas com dimensões são suportadas para os seguintes tipos de recursos
+
+* Microsoft.ApiManagement/service
+* Storage/storageaccounts (apenas suportada para contas do storage em regiões E.U.A.)
+* Microsoft.Storage/storageAccounts/services (apenas suportada para contas do storage em regiões E.U.A.)
 
 
 ## <a name="create-a-near-real-time-metric-alert"></a>Criar um alerta de métrico Near em tempo real
 Atualmente, quase em tempo real métrica alertas só podem ser criados através do portal do Azure. Suporte para configurar quase em tempo real alertas métricas através do PowerShell, a interface de linha de comandos (CLI) e API REST da Azure Monitor estará disponível brevemente.
 
-1. No [portal](https://portal.azure.com/), localize o recurso estiver interessado na monitorização e selecione-o. Este recurso deve ser de um dos tipos de recursos listados no [secção anterior](#what-resources-can-i-create-near-real-time-metric-alerts-for). Também pode fazer o mesmo para todos os tipos de recursos suportados centralmente monitor > alertas.
+A experiência de alerta criar para quase em tempo real métrica alerta ter sido movida para o novo **Alerts(Preview)** experiência. Apesar de, os alertas atuais página mostra **alerta adicionar quase em tempo real métrica**, são redirecionados para a nova experiência.
 
-2. Selecione **alertas** ou **regras de alerta** na secção monitorização. Ícone de texto e podem variar devido às ligeiramente diferentes recursos.
-   ![Monitorização](./media/insights-alerts-portal/AlertRulesButton.png)
-
-3. Clique em de **adicionar o alerta de métricas de tempo real (pré-visualização) em breve** comando. Se o comando está a cinzento, certifique-se de que o recurso está selecionado no filtro.
-
-    ![Adicionar quase em tempo real métricas botão de alerta](./media/monitoring-near-real-time-metric-alerts/AddNRTAlertButton.png)
-
-4. **Nome** o alerta de regra e escolha um **Descrição**, que também mostra nos e-mails de notificação.
-5. Selecione o **métrica** que pretende monitorizar, em seguida, escolha um **condição**, **agregação hora**, e **limiar** valor para a métrica. Opcionalmente, selecione outro **métrica** que pretende monitorizar, em seguida, escolha um **condição**, **agregação hora**, e **limiar** valor para a segunda métrica. 
-
-    ![Adicionar quase em tempo real métricas Alert1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png) ![adicionar quase em tempo real métricas Alert2](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png)
-6. Escolha o **período** de tempo que as regras de métricas devem ser satisfeitas antes dos acionadores de alerta. Por isso, por exemplo, se utilizar o período "nos últimos 5 minutos" e a procura de alerta para a CPU acima 80% (e NetworkIn acima 500 MB), o alerta acionado quando a CPU foi consistentemente acima 80% para 5 minutos. Depois de ocorre o primeiro acionador, novamente acionado quando a CPU permanece inferior a 80% para 5 minutos. O alerta é avaliado de acordo com o **frequência de avaliação**
-
-
-6. Escolha um adequado **gravidade** na lista pendente.
-
-7. Especifique se pretende utilizar um novo ou existente **ação grupo**.
-
-8. Se optar por criar **novo** ação grupo, o grupo de ação de dar um nome e um nome abreviado, especifique ações (Webhook SMS, E-Mail,) e preencher os respetivos detalhes.
-
-
-8. Selecione **OK** quando pronto para criar o alerta.   
-
-Dentro de alguns minutos, o alerta está ativo e aciona conforme descrito anteriormente.
+Pode criar um alerta em tempo real métrico near utilizando os passos descritos [aqui](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
 ## <a name="managing-near-real-time-metric-alerts"></a>Gerir quase em tempo real alertas métricas
-Assim que tiver criado um alerta, pode selecionar e:
+Assim que tiver criado uma **alerta quase em tempo real métrica**, podem ser gerido utilizando os passos descritos [aqui](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
-* Ver um gráfico que mostra o limiar de métrico e os valores reais do dia anterior.
-* Editar ou eliminá-lo.
-* **Desativar** ou **ativar** -se de que pretende temporariamente interromper ou retomar a receção de notificações para esse alerta.
+## <a name="next-steps"></a>Passos Seguintes
 
-
-
+* [Saiba mais sobre a nova experiência de alertas (pré-visualização)](monitoring-overview-unified-alerts.md)
+* [Saiba mais sobre alertas de registo nos alertas do Azure (pré-visualização)](monitor-alerts-unified-log.md)
+* [Saiba mais sobre alertas no Azure](monitoring-overview-alerts.md)

@@ -1,5 +1,5 @@
 ---
-title: "Como gerir inscrições de dispositivos para o Azure IoT Hub | Microsoft Docs"
+title: "Gerir inscrições de dispositivos com o portal do Azure | Microsoft Docs"
 description: "Como gerir inscrições de dispositivos para o seu serviço DPS no Portal do Azure"
 services: iot-dps
 keywords: 
@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c230e73f83d8acd0f142e037f70a80c9e0e4107e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1d4e1e54d945c6edb0054da7b465b31de8c82a1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="how-to-manage-device-enrollments-in-the-iot-hub-device-provisioning-service"></a>Como gerir inscrições de dispositivos em que o serviço de aprovisionamento de dispositivos do IoT Hub
+# <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerir inscrições de dispositivos com o Portal do Azure
 
 A *inscrição de dispositivos* cria um registo de um único dispositivo ou um grupo de dispositivos que poderão, a determinada altura registar com o serviço de aprovisionamento de dispositivos do Azure IoT Hub. O registo de inscrição contém a configuração pretendida inicial para os dispositivos como parte do que a inscrição, incluindo o hub IoT pretendido. Este artigo mostra como gerir inscrições de dispositivos para o seu serviço de aprovisionamento.
 
@@ -27,11 +27,11 @@ A *inscrição de dispositivos* cria um registo de um único dispositivo ou um g
 
 Existem duas formas de poder inscrever os seus dispositivos com o serviço de aprovisionamento:
 
-1. Um **grupo inscrição** é uma entrada para um grupo de dispositivos que partilham um mecanismo de atestado comuns dos certificados x. 509, assinados pela mesma raiz AC. Recomendamos que utilize um grupo de inscrição para um grande número de dispositivos que partilham uma configuração desejada inicial ou para dispositivos que todos os mesmo inquilino. Tenha em atenção que só podem inscrever dispositivos que utilizam o mecanismo de atestado de x. 509 como *grupos inscrição*. 
+* Um **grupo inscrição** é uma entrada para um grupo de dispositivos que partilham um mecanismo de atestado comuns dos certificados x. 509, assinados pelo mesmo certificado de assinatura, que pode ser o [certificado de raiz](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) ou o [intermediária](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), utilizada para produzir o certificado de dispositivo no dispositivo físico. Recomendamos que utilize um grupo de inscrição para um grande número de dispositivos que partilham uma configuração desejada inicial ou para dispositivos que todos os mesmo inquilino. Tenha em atenção que só podem inscrever dispositivos que utilizam o mecanismo de atestado de x. 509 como *grupos inscrição*. 
 
-    Pode criar um grupo de inscrição no portal para um grupo de dispositivos utilizando os seguintes passos.
+    Pode criar um grupo de inscrição no portal para um grupo de dispositivos utilizando os seguintes passos:
 
-    1. Inicie sessão no portal do Azure e clique em **todos os recursos** no menu da esquerda.
+    1. Inicie sessão no portal do Azure e clique em **todos os recursos** no menu esquerdo.
     2. Clique no serviço de aprovisionamento de dispositivos de mensagens em fila que pretende inscrever o seu dispositivo a partir da lista de recursos.
     3. No seu serviço de aprovisionamento, clique em **gerir inscrições**, em seguida, selecione **inscrição grupos** separador.
     4. Clique em de **adicionar** botão na parte superior e introduza as informações necessárias para a entrada da lista de inscrição. Carregue o certificado de raiz para o grupo de dispositivos. 
@@ -40,11 +40,11 @@ Existem duas formas de poder inscrever os seus dispositivos com o serviço de ap
         ![Grupo de inscrição no portal](./media/how-to-manage-enrollments/group-enrollment.png)
 
     
-2. Um **inscrição individuais** é uma entrada para um único dispositivo pode registar. As inscrições individuais podem utilizar qualquer um dos x509 certificados ou SAS tokens (por um TPM real ou virtual) como mecanismos de atestado. Recomendamos que utilize inscrições individuais para os dispositivos que requerem configurações iniciais exclusivas, ou para dispositivos que só podem utilizar os tokens SAS através do TPM ou virtual TPM como o mecanismo de atestado. As inscrições individuais podem ter o ID de dispositivo do hub IoT pretendido especificado.
+* Um **inscrição individuais** é uma entrada para um único dispositivo pode registar. As inscrições individuais podem utilizar qualquer um dos x509 certificados ou SAS tokens (por um TPM real ou virtual) como mecanismos de atestado. Recomendamos que utilize inscrições individuais para os dispositivos que requerem configurações iniciais exclusivas, ou para dispositivos que só podem utilizar os tokens SAS através do TPM ou virtual TPM como o mecanismo de atestado. As inscrições individuais podem ter o ID de dispositivo do hub IoT pretendido especificado.
 
-    Pode criar um registo individual no portal utilizando os seguintes passos. 
+    Pode criar um registo individual no portal utilizando os seguintes passos:
 
-    1. Inicie sessão no portal do Azure e clique em **todos os recursos** no menu da esquerda.
+    1. Inicie sessão no portal do Azure e clique em **todos os recursos** no menu esquerdo.
     2. Clique no serviço de aprovisionamento de dispositivos de mensagens em fila que pretende inscrever o seu dispositivo a partir da lista de recursos.
     3. No seu serviço de aprovisionamento, clique em **gerir inscrições**, em seguida, selecione **inscrições individuais** separador.
     4. Clique em de **adicionar** botão na parte superior. 
@@ -55,7 +55,7 @@ Existem duas formas de poder inscrever os seus dispositivos com o serviço de ap
 
 
 ## <a name="update-an-enrollment-entry"></a>Atualizar uma entrada de inscrição
-Pode atualizar uma entrada de registo existente no portal utilizando os seguintes passos.
+Pode atualizar uma entrada de registo existente no portal utilizando os seguintes passos:
 
 1. Abra o seu serviço de aprovisionamento de dispositivos no portal do Azure e clique em **gerir inscrições**. 
 2. Navegue para a entrada de inscrição que pretende modificar. Clique na entrada, o que abre uma informações de resumo sobre a inscrição do dispositivo. 
@@ -66,7 +66,7 @@ Pode atualizar uma entrada de registo existente no portal utilizando os seguinte
 
 
 ## <a name="remove-a-device-enrollment"></a>Remover uma inscrição de dispositivos
-Em casos onde os dispositivos não têm de ser aprovisionada para qualquer hub IoT, pode remover a entrada de inscrição relacionado no portal utilizando os seguintes passos.
+Em casos onde os dispositivos não têm de ser aprovisionada para qualquer hub IoT, pode remover a entrada de inscrição relacionado no portal utilizando os seguintes passos:
 
 1. Abra o seu serviço de aprovisionamento de dispositivos no portal do Azure e clique em **gerir inscrições**. 
 2. Navegue para e selecione a entrada de inscrição que pretende remover. 

@@ -14,14 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f961ef253fd090d3f064c9da5950d5eab6547e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d89e51e61b52e7337b8faf28f42944ec29f1b94f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Histórico do Lançamento de Versões
 A equipa do Azure Active Directory atualiza regularmente o Azure AD Connect Health com novas funcionalidades e funções. Este artigo apresenta as versões e funcionalidades que tenham sido publicadas.
+
+## <a name="december-2017"></a>Dezembro de 2017
+**Atualização do agente:**
+
+*   Agente do Azure AD Connect Health para AD DS (versão 3.0.145.0)
+  1. Melhoramentos de disponibilidade do agente 
+  2. Foram adicionadas comandos de resolução de problemas de agente novo
+  3. Correções de erros e melhoramentos gerais
+*   Agente do Azure AD Connect Health para AD FS (versão 3.0.145.0)
+  1. Foram adicionadas comandos de resolução de problemas de agente novo
+  2. Melhoramentos de disponibilidade do agente 
+  3. Correções de erros e melhoramentos gerais
+
+## <a name="july-2017"></a>Julho de 2017
+**Atualização do agente:**
+
+*   Agente do Azure AD Connect Health para AD DS (versão 3.0.68.0)
+  1. Correções de erros e melhoramentos gerais
+  2. Suporte de nuvem sovereign
+*   Agente do Azure AD Connect Health para AD FS (versão 3.0.68.0)
+  1. Correções de erros e melhoramentos gerais
+  2. Suporte de nuvem sovereign
+
+## <a name="april-2017"></a>Abril de 2017      
+**Atualização do agente:**
+
+*   Agente do Azure AD Connect Health para AD FS (versão 3.0.12.0)
+  1. Correções de erros e melhoramentos gerais
+*   Agente do Azure AD Connect Health para AD DS (versão 3.0.12.0)
+  1. Melhoramentos de carregar os contadores de desempenho
+  2. Correções de erros e melhoramentos gerais
 
 ## <a name="october-2016"></a>Outubro de 2016
 **Atualização do agente:**
@@ -94,6 +125,6 @@ A equipa do Azure Active Directory atualiza regularmente o Azure AD Connect Heal
 * Tendências de pedido falhado nos servidores do AD FS, agrupados por aplicações, etc. tipos de erro.
 * Implementação do agente mais simples utilizar credenciais de Administrador Global do AD do Azure.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [monitorizar os serviços de infraestrutura e a sincronização de identidade de no local na nuvem](active-directory-aadconnect-health.md).
 

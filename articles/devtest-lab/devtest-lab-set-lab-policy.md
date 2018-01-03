@@ -3,7 +3,7 @@ title: "Gerir políticas de laboratório no Azure DevTest Labs | Microsoft Docs"
 description: "Saiba como definir políticas de laboratório, tais como tamanhos de VM, VMs máximos por utilizador e a automatização de encerramento."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 7756aa64-49ca-45a0-9f90-0fd101c7be85
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c2b71fa5ec2935a25b5fb37770dfb5163a286ded
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerir todas as políticas para um laboratório no Azure DevTest Labs
 
@@ -102,12 +102,12 @@ A política de início automático permite-lhe especificar quando as VMs no labo
 
 Uma vez ativada, esta política não é aplicada automaticamente a quaisquer VMs no laboratório atual. Para aplicar esta definição para uma VM específica, abra o painel de gestão da VM e altere o **início automático** definição.
 
-## <a name="set-expiration-date"></a>Definir a data de expiração
+## <a name="set-expiration-date"></a>Definir data de expiração
 Pode definir uma expiração data quando [criar a VM](devtest-lab-add-vm.md). No **definições avançadas**, selecione o ícone de calendário para especificar uma data em que a VM é eliminada automaticamente. Por predefinição, a VM nunca expira ao fim.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Assim que tiver definido e aplicadas várias definições de política VM para o laboratório, seguem-se algumas coisas a experimentar seguinte:
 
 * [Compreender os endereços IP partilhados](devtest-lab-shared-ip.md) -explica como partilhado IP endereços são utilizados no DevTest Labs para minimizar o número de endereços IP públicos necessárias para ligar ao seu laboratório VMs.
@@ -115,5 +115,5 @@ Assim que tiver definido e aplicadas várias definições de política VM para o
   Para ver o mês atual do estimado data de custos e o custo de fim do mês previsto.
 * [Criar a imagem personalizada](devtest-lab-create-template.md) - quando criar uma VM, especifique uma base que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada de um ficheiro VHD.
 * [Configurar imagens do Marketplace](devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs suporta a criação de VMs baseadas nas imagens do Azure Marketplace. Este artigo ilustra como especificar que, se existirem, as imagens do Azure Marketplace podem ser utilizado ao criar as VMs num laboratório.
-* [Criar uma VM num laboratório](devtest-lab-add-vm-with-artifacts.md) -ilustra como criar uma VM a partir de uma imagem de base (ou personalizado ou Marketplace) e como trabalhar com artefactos em VM.
+* [Criar uma VM num laboratório](devtest-lab-add-vm.md) -ilustra como criar uma VM a partir de uma imagem de base (ou personalizado ou Marketplace) e como trabalhar com artefactos em VM.
 

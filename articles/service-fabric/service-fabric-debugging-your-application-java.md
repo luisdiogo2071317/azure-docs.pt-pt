@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli;mikhegn
 ms.openlocfilehash: 023b878706abf524b5a7939492937a92151f6035
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Depurar a aplicação de Java Service Fabric com o Eclipse
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ ms.lasthandoff: 12/18/2017
 
 Se a aplicação esteja a falhar, pode também pretender ativar coredumps. Executar ``ulimit -c`` numa shell e se devolve 0, em seguida, coredumps não estão ativadas. Para ativar coredumps ilimitado, execute o seguinte comando: ``ulimit -c unlimited``. Também pode verificar o estado utilizando o comando ``ulimit -a``.  Se pretendesse atualizar o caminho de geração de coredump, executar ``echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern``. 
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Passos Seguintes
 
 * [Recolher registos de diagnóstico do Linux do Azure a utilizar](service-fabric-diagnostics-how-to-setup-lad.md).
 * [Monitorizar e diagnosticar os serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

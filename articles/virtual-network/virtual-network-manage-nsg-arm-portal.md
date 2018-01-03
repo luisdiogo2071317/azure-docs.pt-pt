@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-nsgs-using-the-portal"></a>Gerir os NSGs através do portal
 
@@ -98,7 +98,7 @@ Para ver os recursos que o **NSG-front-end** NSG é associado ao, conclua os seg
 
 3. No **definições** separador, clique em **interfaces de rede** para ver o que estão associados ao NSG NICs.
 
-## <a name="manage-rules"></a>Gerir as regras
+## <a name="manage-rules"></a>Gerir regras
 Pode adicionar regras a um NSG existente, edite as regras existentes e remova regras.
 
 ### <a name="add-a-rule"></a>Adicionar uma regra
@@ -197,5 +197,5 @@ Só é possível eliminar um NSG, se não está associado a qualquer recurso. Pa
 
     ![Portal do Azure – NSGs](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Ativar o registo](virtual-network-nsg-manage-log.md) para NSGs.

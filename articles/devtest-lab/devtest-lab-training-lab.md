@@ -3,7 +3,7 @@ title: "Utilizar o Azure DevTest Labs para formação | Microsoft Docs"
 description: "Saiba como utilizar o Azure DevTest Labs para cenários de preparação."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: steved0x
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 57ff4e30-7e33-453f-9867-e19b3fdb9fe2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2016
-ms.author: sdanie
-ms.openlocfilehash: 3bad7538121e1049af953e3937fc679b1d9184d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 96f7ed2084fbfc14c6bac09819ce3724b4168995
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Utilizar o Azure DevTest Labs para formação
 Azure DevTest Labs pode ser utilizado para implementar vários cenários de chaves para além de programador/teste. Uma desses cenários é configurar um laboratório para formação. Azure DevTest Labs permite-lhe criar um laboratório onde pode fornecer modelos personalizados que cada trainee pode utilizar para criar ambientes idênticas e isolados para formação. Pode aplicar políticas para garantir que os ambientes de formação estão disponíveis para cada trainee apenas quando precisar delas e conter recursos suficientes - como as máquinas virtuais - necessários para a formação. Por fim, pode partilhar facilmente o laboratório com trainees, que pode aceder a num clique.

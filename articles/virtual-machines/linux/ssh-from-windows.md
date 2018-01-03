@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
 ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como utilizar o SSH chaves com Windows no Azure
 > [!div class="op_single_selector"]
@@ -177,7 +177,7 @@ Novamente, PuTTY for um cliente SSH comuns para o Windows. Está a utilizar qual
     ![Selecione a sua chave privada do PuTTY para autenticação](./media/ssh-from-windows/putty-auth-dialog.png)
 4. Clique em **abra** para ligar à máquina virtual
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Também pode gerar as chaves públicas e privadas [utilizando OS X e Linux](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para obter mais informações sobre Bash para Windows e as vantagens de ter as ferramentas de OSS prontamente disponíveis no seu computador Windows, consulte [Bash no Ubuntu no Windows](https://msdn.microsoft.com/commandline/wsl/about).

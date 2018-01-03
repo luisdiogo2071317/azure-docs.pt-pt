@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: 034bfe6fbab3da083d6c63f99f960467fd0a84e9
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorizar e diagnosticar os serviços de uma configuração de desenvolvimento do computador local
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Para projetos criados a partir de **modelos de ator** (sem monitorização de es
 
 Depois de adicionar o rastreio ETW personalizado para o código do serviço, pode criar, implementar e executar a aplicação novamente para ver os eventos no Visualizador de eventos de diagnóstico. Se a depurar a aplicação com **F5**, o Visualizador de eventos de diagnóstico será aberta automaticamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 O mesmo código de rastreio que adicionou à sua aplicação acima para obter um diagnóstico local irá funcionar com as ferramentas que pode utilizar para ver estes eventos quando executar a aplicação num cluster do Azure. Consulte estes artigos que abordam as diferentes opções para as ferramentas e descrevem como pode configurá-los.
 
 * [Como recolher registos de diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-wad.md)

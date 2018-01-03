@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 0752864e5074782e6c447b938f69b4502d37fb8b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento para uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para estes, tem de escrever uma expressão de tipo de script que permite-lhe transformar dados dos utilizadores em formatos mais aceitáveis para a aplicação SaaS.
@@ -36,7 +36,7 @@ A sintaxe para expressões para mapeamentos de atributos é reminiscent do Visua
 * Para as constantes string, se precisar de uma barra invertida (\) ou aspas (") na cadeia de-tem de ser caráter de escape correto com o símbolo de barra invertida (\). Por exemplo: "o nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Comutador](#switch)
+[Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [comutador](#switch)
 
 - - -
 ### <a name="append"></a>Acrescentar
@@ -91,8 +91,8 @@ Se um dos valores de origem é um atributo de valor múltiplo, em seguida, cada 
 | Nome | Necessário / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **origem** |Necessário |Cadeia |Normalmente, o nome do atributo. |
-| **start** |Necessário |número inteiro |O índice no **origem** cadeia onde deve começar a subcadeia. Primeiro carácter na cadeia de terão o índice de 1, o segundo caráter de tem índice 2 e assim sucessivamente. |
-| **comprimento** |Necessário |número inteiro |Comprimento da subcadeia. Se o comprimento termina fora do **origem** cadeia, a função irá devolver a subcadeia do **iniciar** índice até o fim do **origem** cadeia. |
+| **start** |Necessário |inteiro |O índice no **origem** cadeia onde deve começar a subcadeia. Primeiro carácter na cadeia de terão o índice de 1, o segundo caráter de tem índice 2 e assim sucessivamente. |
+| **comprimento** |Necessário |inteiro |Comprimento da subcadeia. Se o comprimento termina fora do **origem** cadeia, a função irá devolver a subcadeia do **iniciar** índice até o fim do **origem** cadeia. |
 
 - - -
 ### <a name="not"></a>não
@@ -138,6 +138,18 @@ Substitui os valores dentro de uma cadeia. Este funciona de forma diferente cons
 | **replacementValue** |Opcional |Cadeia |Novo valor para substituir antiga com. |
 | **replacementAttributeName** |Opcional |Cadeia |Nome do atributo a ser utilizada para o valor de substituição, quando a origem não tem um valor. |
 | **modelo** |Opcional |Cadeia |Quando **modelo** valor é fornecido, iremos irá procurar **oldValue** dentro do modelo e substitua-o com o valor de origem. |
+
+- - -
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**Função:**<br> SingleAppRoleAssignment([appRoleAssignments])
+
+**Descrição:**<br> Devolve uma única appRoleAssignment da lista de todos os appRoleAssignments atribuído a um utilizador para uma determinada aplicação. Esta função é necessário para converter o objeto de appRoleAssignments numa cadeia de nome de função única. Tenha em atenção que é a melhor prática para garantir que apenas um appRoleAssignment está atribuída a um utilizador a uma hora e não pode ser previsível se várias funções são atribuídas a cadeia de função devolvida.
+
+**Parâmetros:**<br> 
+
+| Nome | Necessário / repetidos | Tipo | Notas |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Necessário |Cadeia |**[appRoleAssignments]**  objeto. |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -228,7 +240,7 @@ Se o código de estado não corresponde a qualquer uma das opções predefinidas
 * **ENTRADA** (estado): "QLD"
 * **SAÍDA**: "Austrália/Brisbane"
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="related-articles"></a>Artigos Relacionados
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
 * [Automatizar utilizador aprovisionamento/desaprovisionamento para aplicações SaaS](active-directory-saas-app-provisioning.md)
 * [Personalizar os mapeamentos de atributos para o aprovisionamento de utilizador](active-directory-saas-customizing-attribute-mappings.md)

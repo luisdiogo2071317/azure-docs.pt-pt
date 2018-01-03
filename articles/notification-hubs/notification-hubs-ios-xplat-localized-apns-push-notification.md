@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
 ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>Utilizar Notification Hubs para enviar notícias de última localizada hora para dispositivos iOS
 > [!div class="op_single_selector"]
@@ -230,7 +230,7 @@ Se não tiver acesso para Visual Studio, ou apenas pretende teste enviar as noti
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Para obter mais informações sobre como utilizar modelos, consulte:
 
 * [Notificar os utilizadores com os Notification Hubs: ASP.NET]

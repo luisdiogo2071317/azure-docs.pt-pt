@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Introdução com a ferramenta de modelação de ameaça
 
@@ -29,13 +29,13 @@ Este artigo baseia-se dados de conhecimento existente da ameaça SDL modelação
 
 Para resumir rapidamente, a abordagem envolve a criação de um diagrama, identificar ameaças, mitigá-los e validar cada mitigação. Eis um diagrama realça este processo:
 
-![Processo do SDL](./media/azure-security-threat-modeling-tool/sdlapproach.png)
+![Processo do SDL](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
 ## <a name="starting-the-threat-modeling-process"></a>A iniciar a processo de modelação de ameaça
 
 Quando iniciar a ferramenta de modelação de ameaça, irá notar algumas coisas, como mostrado na imagem:
 
-![Página de início em branco](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Página de início em branco](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### <a name="threat-model-section"></a>Secção de modelo de ameaça
 
@@ -70,7 +70,7 @@ Vai durante o processo de desenvolver o seu primeiro modelo de ameaça.
 > Cristina: absolutamente. Vamos ver.
 > Ricardo abre-se a ferramenta e partilhe o seu ecrã com Cristina.
 
-![Modelo de ameaça básico](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Modelo de ameaça básico](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: Ok, procura simples, mas pode a guiá-me-lo?
 > Ricardo: se! Segue-se a repartição:
@@ -89,17 +89,17 @@ Quando clica na vista de análise da seleção de menu de ícone (ficheiro com L
 
 Esta abordagem é como a proteger a sua próxima, assegurando que cada porta e a janela tem um mecanismo de bloqueio antes de adicionar um sistema de alarme ou chasing após o ladrão.
 
-![Ameaças básicas](./media/azure-security-threat-modeling-tool/basicthreats.png)
+![Ameaças básicas](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
 Ricardo começa selecionando o primeiro item na lista. Eis o que acontece:
 
 Em primeiro lugar, a interação entre os dois stencils é melhorada
 
-![Interação](./media/azure-security-threat-modeling-tool/interaction.png)
+![Interação](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
 Segundo informações adicionais sobre a ameaça, é apresentado na janela de propriedades de ameaça
 
-![Informações de interação](./media/azure-security-threat-modeling-tool/interactioninfo.png)
+![Informações de interação](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
 A ameaça gerada ajuda-lo a compreender potenciais falhas de design. A categorização STRIDE dá-lhe uma ideia no vetores de ataque potencial, enquanto a descrição adicional informa-lo exatamente o que é o problema, juntamente com potenciais formas de resolver. Ele pode utilizar campos editáveis para escrever notas nos detalhes do justificação ou alterar as classificações de prioridade, dependendo da barra de erros da sua organização.
 
@@ -116,7 +116,7 @@ Ameaças não aplicáveis para o design devido a mitigações existentes ou segu
 
 Depois de Ricardo atravessa a lista com Cristina e adiciona notas importantes, mitigações/justifications, prioridade e alterações de estado, seleciona putador relatórios -> Criar relatório completo -> guardar relatórios, imprime os um relatório nice para ele percorrer com colegas para garantir que o trabalho de segurança adequada é implementado.
 
-![Informações de interação](./media/azure-security-threat-modeling-tool/report.png)
+![Informações de interação](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 Se quiser Ricardo partilhar o ficheiro em vez disso, ele pode facilmente fazê por guardar na conta do OneDrive da sua organização. Assim que ele que, ele pode copiar a ligação do documento e partilhá-lo com as seus colegas. 
 
@@ -140,6 +140,6 @@ Se ao modelo de ameaça uma próxima, poderá começar por ter em consideração
 
 A abordagem de ameaça modelação que iremos tiver aqui apresentada é substancialmente mais simples do que o Microsoft efetuou no passado. Detetámos que a abordagem de design de software funciona bem para várias equipas. Esperamos que incluam mesmo seu.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Envie as perguntas, comentários e preocupações para tmtextsupport@microsoft.com. **[Transferir](https://aka.ms/tmtpreview)**  a ferramenta de modelação de ameaça para começar a utilizar.

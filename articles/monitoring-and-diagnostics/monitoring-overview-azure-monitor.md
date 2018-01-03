@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 8de1eca5a3e52533e05d93cfe30de612e3d0c648
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Descrição geral do Monitor do Azure
 Este artigo fornece uma descrição geral do serviço Azure Monitor no Microsoft Azure. -Descreve o Monitor do Azure e fornece indicações para informações adicionais sobre como utilizar o Monitor do Azure.  Se preferir um vídeo de introdução, consulte seguintes passos ligações na parte inferior deste artigo. 
@@ -43,7 +43,7 @@ A página é um ponto de partida para navegação, incluindo Dependency. Demonst
 
 Quando abrir a página, pode selecionar entre as subscrições que tem acesso de leitura. Para uma subscrição selecionada, consulte:
 
-- **Acionado alertas e origens de alerta** - esta tabela mostra as contagens de resumidas, origens de alerta, e quantas vezes alertas desencadeadas para a duração de tempo selecionado. Aplica-se a métrica e atividade alertas de registo.
+- **Acionado alertas e origens de alerta** - esta tabela mostra as contagens de resumidas, origens de alerta, e quantas vezes alertas desencadeadas para a duração de tempo selecionado. Aplica-se a métrica e atividade alertas de registo. *< editar: alertas (pré-visualização) com experiência unificada também é apresentada para todos os alertas - registos, métricas e eventos >*
 - **Erros de registo de atividade** -se qualquer um dos seus recursos do Azure registar eventos com uma gravidade de nível de erro, pode ver uma contagem de alto nível e clicar sucessivamente para a página de registo de atividade para investigar cada evento.
 - **Estado de funcionamento de serviço do Azure** -pode ver uma contagem de problemas do serviço de estado de funcionamento do serviço, eventos de manutenção planeada e advisories de estado de funcionamento. Estado de funcionamento de serviço do Azure fornece informação personalizada quando problemas na infraestrutura do Azure afetam os serviços.  Consulte [estado de funcionamento de serviço de Azure](../service-health/service-health-overview.md) para obter mais informações.  
 - **Application Insights** -Consulte KPIs para cada recurso AppInsights na subscrição atual. Os KPIs estão otimizados para monitorização, entre as aplicações web do ASP.NET, Java, nó e geral, tipos de aplicações da aplicação do lado do servidor. Os KPIs incluem as métricas de taxa de pedidos, duração de resposta, taxa de falhas e % de disponibilidade. 
@@ -55,6 +55,7 @@ Se a ter não integrada para análise de registos ou Application Insights, ou se
 ## <a name="azure-monitor-sources---compute-subset"></a>Origens de Monitor do Azure - subconjunto de computação
 
 ![Modelo de monitorização e diagnóstico para recursos de computação não](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
+
 
 Os serviços de computação aqui incluem 
 - Serviços Cloud 
@@ -141,7 +142,10 @@ Alguns métodos de visualização incluem:
 
 
 ### <a name="automate"></a>Automatizar
-Pode utilizar dados de monitorização para os alertas de Acionador ou processos mesmo todo. Os exemplos incluem:
+> [!NOTE]
+> Como parte da evolução em curso de alertas no Microsoft Azure, agora uma experiência unificada para alertar está a ser pré-visualizado. Obter mais detalhes sobre [alertas do Azure (pré-visualização)](monitoring-overview-unified-alerts.md)
+
+Os alertas do Azure standard, pode utilizar dados de monitorização para os alertas de Acionador ou processos mesmo todo. Os exemplos incluem:
 
 * Utilize dados para instâncias de computação de dimensionamento automático ou reduzir verticalmente com base na carga de aplicação.
 * Envie mensagens de correio eletrónico quando uma métrica atravesse um limiar predeterminado.
@@ -157,7 +161,7 @@ Em geral, pode manipular os dados, encaminhamento e o controlo de obtenção atr
 * [API REST](https://docs.microsoft.com/rest/api/monitor/)
 * [SDK do .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre
 - Um vídeo com instruções de Monitor de Azure apenas está disponível em  
 [Introdução ao Azure Monitor](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). 

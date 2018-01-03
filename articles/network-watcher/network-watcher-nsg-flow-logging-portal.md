@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Gerir a rede registos de fluxo do grupo de segurança no portal do Azure
 
@@ -80,23 +80,23 @@ Registos de fluxo são guardados numa conta do storage. Transferir os registos d
 
 Para transferir os registos de fluxo, selecione **pode transferir os registos de fluxo de contas de armazenamento configurados**. Este passo leva-o para uma vista de conta de armazenamento onde pode escolher quais os registos para transferir.
 
-![As definições de registos de fluxo][4]
+![Definições de registos de fluxo][4]
 
 ### <a name="step-2"></a>Passo 2
 
 Vá para a conta de armazenamento correta. Em seguida, selecione **contentores** > **insights-registo-networksecuritygroupflowevent**.
 
-![As definições de registos de fluxo][5]
+![Definições de registos de fluxo][5]
 
 ### <a name="step-3"></a>Passo 3
 
 Vá para a localização do registo de fluxo, selecione-o e, em seguida, selecione **transferir**.
 
-![As definições de registos de fluxo][6]
+![Definições de registos de fluxo][6]
 
 Para obter informações sobre a estrutura do registo, visite [rede grupo fluxo registo descrição geral de segurança](network-watcher-nsg-flow-logging-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como [visualizar os registos de fluxo NSG com o PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
 

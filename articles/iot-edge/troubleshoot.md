@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cb998caf35a9a55ea737cc1a24fbce38aac8abc4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3f61f0bf8234e747ae38146d1a5ea030e3163fa3
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e de resoluções para limite de IoT do Azure
 
@@ -24,7 +24,7 @@ Se ocorrerem problemas com o Azure IoT Edge no seu ambiente, utilize este artigo
 
 Quando ocorrer um problema, saiba mais sobre o estado do seu dispositivo de limite de IoT por rever as mensagens que passar de e para o dispositivo e os registos do contentor. Utilize as ferramentas e comandos nesta secção para recolher informações. 
 
-* Consulte os registos dos contentores para detetar problemas de docker. Começar a utilizar os contentores implementados, em seguida, observar os contentores que compõem o tempo de execução do IoT contorno: o agente de limite e limite Hub. Os registos do agente de limite, normalmente, fornecem as informações no lifecylce de cada contentor. Os registos de Hub de limite fornecem informações sobre mensagens e o encaminhamento. 
+* Consulte os registos dos contentores para detetar problemas de docker. Começar a utilizar os contentores implementados, em seguida, observar os contentores que compõem o tempo de execução do IoT contorno: o agente de limite e limite Hub. Os registos do agente de limite normalmente fornecem informações sobre o ciclo de vida de cada contentor. Os registos de Hub de limite fornecem informações sobre mensagens e o encaminhamento. 
 
    ```cmd
    docker logs <container name>
@@ -69,7 +69,7 @@ Uma configuração de rede na rede do anfitrião está a impedir que o agente de
 O tempo de execução do limite de IoT configura uma rede para cada um dos módulos comunicar em. No Linux, esta rede estiver numa rede de bridge. No Windows, utiliza NAT. Este problema é mais comum nos dispositivos Windows com contentores do Windows que utilizam a rede NAT. 
 
 ### <a name="resolution"></a>Resolução
-Certifique-se de que existe uma rota para a internet para os endereços IP atribuídos a esta rede bridge/NAT. Foram casos onde uma configuração de VPN no anfitrião substitui a rede de margem de IoT. 
+Certifique-se de que existe uma rota para a internet para os endereços IP atribuídos a esta rede bridge/NAT. Por vezes, uma configuração de VPN no anfitrião sobrepõe-se a rede de margem de IoT. 
 
 ## <a name="edge-hub-fails-to-start"></a>Hub de limite não consegue iniciar
 
@@ -83,7 +83,7 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 ```
 
 ### <a name="root-cause"></a>Causa raiz
-Outro processo no computador anfitrião tem de vincular a porta 443. O Hub de limite mapeia portas 5671 e 443 para utilizar em cenários de gateway. Este mapeamento de portas falhará se outro processo já foi vinculado esta porta. 
+Outro processo no computador anfitrião tem de vincular a porta 443. O Hub de limite mapeia portas 5671 e 443 para utilizar em cenários de gateway. Este mapeamento de portas falha se outro processo já foi vinculado esta porta. 
 
 ### <a name="resolution"></a>Resolução
 Localize e parar o processo que está a utilizar a porta 443. Este processo é normalmente um servidor web.
@@ -97,5 +97,5 @@ O agente de limite não tem permissões para aceder à imagem de um módulo.
 ### <a name="resolution"></a>Resolução
 Tente executar a `iotedgectl login` novamente o comando.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pensa que foi encontrado um erro na plataforma de limite de IoT? ., [Submeter um problema](https://github.com/Azure/iot-edge/issues) para que pode continuar a melhorar. 

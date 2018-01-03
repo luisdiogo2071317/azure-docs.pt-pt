@@ -3,7 +3,7 @@ title: "Criar e gerir VMs claimable num laboratório no Azure DevTest Labs | Mic
 description: "Saiba como adicionar uma máquina virtual claimable para um laboratório no Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: f671e66e-9630-4e30-a131-a6bad9ed9c11
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: tarcher
-ms.openlocfilehash: 17ddf920dbed6b561c657495b2554d8c1450831c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: v-craic
+ms.openlocfilehash: a27423a75cb2b5063156109ea9ee3a45fa036c07
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerir claimable VMs no Azure DevTest Labs
 Adicionar uma VM claimable para um laboratório de forma semelhante ao procedimento [adicionar uma VM padrão](devtest-lab-add-vm.md) – num *base* que está a um [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial explica-lhe utilizar o portal do Azure para adicionar uma VM claimable para um laboratório no DevTest Labs e mostra os processos de um utilizador que se segue para afirmações e unclaim a VM.
@@ -94,6 +94,6 @@ Isto é conhecido como "Transferir o disco de dados". O disco de dados, em segui
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Depois de criado, pode ligar à VM selecionando **Connect** no respetivo painel de gestão.
 * Explorar o [Galeria de modelo de início rápido do Azure Resource Manager para DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

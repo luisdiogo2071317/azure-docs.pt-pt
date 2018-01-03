@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: fb331bf6e11ac8378004c6da73b589130f9a8ddf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2674ad4db9749b0a2d9342017a230797514763
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar do serviço de controlo de acesso do Azure Active Directory para autorização de assinatura de acesso partilhado
 
@@ -59,7 +59,7 @@ Pode fazer esta configuração de novo e adicional do SAS no local em qualquer e
 
 Regras SAS não se destinam a ser contas, mas são denominadas associadas com direitos de chaves de assinatura. Como tal, cenários em que a aplicação cria várias identidades do serviço e lhes conceda direitos de acesso para várias entidades ou todo o espaço de nomes ainda requerem um intermediário de emissão de tokens. Pode obter orientações para essa intermediário por [contactar o suporte](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre a autenticação de reencaminhamento do Azure, consulte os seguintes tópicos:
 
