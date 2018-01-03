@@ -16,10 +16,10 @@ ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
 ms.openlocfilehash: eccff00847968b4293b6e7142af0cceff0476c46
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu ao meu projeto MVC (serviço ligado da Visual Studio do Azure Active Directory)?
 > [!div class="op_single_selector"]
@@ -156,6 +156,6 @@ Foram adicionadas as seguintes secções de configuração e a cadeia de ligaç�
 ### <a name="your-azure-active-directory-app-was-updated"></a>A aplicação do Active Directory do Azure foi atualizada
 A aplicação do Active Directory do Azure foi atualizada para incluir o *ler os dados de diretório* permissão e uma chave adicional que foi criado, em seguida, que utilizou como o *ida: ClientSecret* no **Web. config** ficheiro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Saiba mais sobre o Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 

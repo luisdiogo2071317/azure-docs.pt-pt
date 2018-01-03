@@ -4,15 +4,17 @@ description: "Este cenário mostra como efetuar a otimização de distribuídas 
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Distribuída a otimização de sintonização utilizando o Azure Machine Learning Workbench
 
@@ -26,7 +28,7 @@ Segue-se a ligação para o repositório do GitHub pública:
 ## <a name="use-case-overview"></a>Descrição geral de cenário de utilização
 
 Muitos algoritmos de machine learning tem uma ou mais botões, denominados de sintonização. Estes botões permitem a otimização de algoritmos para otimizar o seu desempenho sobre dados futuros, medidos de acordo com as métricas de utilizador especificado (por exemplo, exatidão, AUC, RMSE). Scientist de dados tem de fornecer valores de sintonização quando criar um modelo de dados de formação e antes de ver os dados de teste futuras. Com a pode de dados de formação conhecida como base configuramos os valores de sintonização, para que o modelo tem um bom desempenho sobre os dados de teste desconhecido? 
-
+    
 É uma técnica mais popular para otimização de sintonização um *pesquisa de grelha* combinado com *validação cruzada*. Validação cruzada é uma técnica que avalia o quão bem um modelo preparado no conjunto de preparação, prevê através do conjunto de teste. Com esta técnica, iremos dividir primeiro o conjunto de dados em K subconjuntos de validação e, em seguida, preparar os tempos de K de algoritmo em round robin. Podemos fazê-lo em todos os mas um dos subconjuntos de validação, chamada de "saída contido subconjuntos de validação". Iremos computação o valor médio das métricas de modelos de K de através de subconjuntos de validação do K Escalamento contido. Este valor médio, denominado *estimativa de desempenho entre validados*, depende os valores de sintonização utilizado ao criar modelos de K. Quando a otimização de sintonização, iremos procurar o espaço de valores de hyperparameter candidato para localizar a estimar aqueles que otimizar o desempenho de validação cruzada. Pesquisa de grelha é uma técnica de pesquisa comuns. Na pesquisa de grelha, o espaço de valores de candidatos de sintonização vários é um produto cruzado de conjuntos de valores de candidatos de sintonização individuais. 
 
 Pesquisa de grelha utilizando a validação cruzada pode ser morosa. Se um algoritmo tiver cinco sintonização com cinco valores de candidatos, utilizamos K = 5 subconjuntos de validação. Vamos, em seguida, conclua uma pesquisa de grelha por formação 5<sup>6</sup>= 15625 modelos. Felizmente, pesquisa de grelha a utilização de validação cruzada é um procedimento constrangedoramente paralelo e todos os estes modelos podem ser preparados em paralelo.
@@ -37,13 +39,15 @@ Pesquisa de grelha utilizando a validação cruzada pode ser morosa. Se um algor
 * Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) seguintes o [instalar e criar o guia de introdução](./quickstart-installation.md) para instalar o Workbench e criar contas.
 * Este cenário pressupõe que está a executar do Azure ML Workbench no Windows 10 ou MacOS com o motor de Docker instalada localmente. 
 * Para executar o cenário com um contentor de Docker remoto, aprovisionar a Máquina Virtual de ciência de dados do Ubuntu (DSVM), seguindo o [instruções](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Recomendamos que utilize uma máquina virtual pelo menos 8 núcleos e 28 Gb de memória. D4 instâncias de máquinas virtuais têm essa capacidade. 
-* Para executar este cenário com um cluster do Spark, aprovisionar Azure HDInsight cluster seguindo estes [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Recomenda-se ter, pelo menos, um cluster com o 
-- seis nós de trabalho
-- oito núcleos
-- 28 Gb de memória em nós de cabeçalho e de trabalho. D4 instâncias de máquinas virtuais têm essa capacidade. Recomendamos a alteração dos parâmetros seguintes para maximizar o desempenho do cluster.
-- spark.executor.instances
-- spark.executor.cores
-- spark.executor.Memory 
+* Para executar este cenário com um cluster do Spark, aprovisionar Azure HDInsight cluster seguindo estes [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
+Recomendamos ter, pelo menos, um cluster com:
+    - seis nós de trabalho
+    - oito núcleos
+    - 28 Gb de memória em nós de cabeçalho e de trabalho. D4 instâncias de máquinas virtuais têm essa capacidade.       
+    - Recomendamos a alteração dos parâmetros seguintes para maximizar o desempenho do cluster:
+        - spark.executor.instances
+        - spark.executor.cores
+        - spark.executor.Memory 
 
 Pode seguir estes [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) e editar as definições na secção "predefinições do spark personalizado".
 

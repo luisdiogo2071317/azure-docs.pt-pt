@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: ee7acd393539277a5bc23a6fed40d07961974b9a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e5804cda921e9d598d0ed02c4fafccdb40fbe7a5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Permissões no site azureiotsuite.com
 
@@ -74,7 +74,7 @@ Saber mais sobre as funções de administrador do Azure no artigo [como adiciona
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Sou administrador de serviço e gostaria de alterar o mapeamento de diretório entre a minha subscrição e um inquilino do AAD específico. Como concluir esta tarefa?
 
-Consulte [para adicionar uma subscrição existente ao diretório do Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
+Consulte [para adicionar uma subscrição existente ao diretório do Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organisational-account"></a>Quero alterar um Administrador de Serviço ou Coadministrador depois de iniciar sessão com uma conta institucional.
 
@@ -93,7 +93,7 @@ Observe o diagrama seguinte para obter orientações sobre:
 
 Se tem a certeza de que tem uma subscrição do Azure, valide o mapeamento do inquilino da sua subscrição e certifique-se de que o inquilino correto está selecionado na lista pendente. Se confirmou o inquilino pretendido está correto, siga o diagrama anterior e valide o mapeamento da sua subscrição e este inquilino do AAD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre o IoT Suite, veja como pode [personalizar uma solução pré-configurada][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png

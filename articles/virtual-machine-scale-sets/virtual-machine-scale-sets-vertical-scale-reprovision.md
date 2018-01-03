@@ -3,8 +3,8 @@ title: "Aumentar verticalmente conjuntos de dimensionamento de máquina virtual 
 description: "Como aumentar verticalmente uma Máquina Virtual em resposta a alertas com a automatização do Azure de monitorização"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: madhana
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: guybo
-ms.openlocfilehash: 9159a5a9041864fe06785829121233379c46bb03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: negat
+ms.openlocfilehash: 6e4733e023d1dc27fb099216f9afea07fe07446c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Dimensionamento automático vertical com conjuntos de dimensionamento da Máquina Virtual
-Este artigo descreve como dimensionar verticalmente Azure [conjuntos de dimensionamento de Máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/) com ou sem reprovisioning. Dimensionamento de VMs que não estão a ser conjuntos de dimensionamento na vertical, consulte [aumentar verticalmente a máquina virtual do Azure com a automatização do Azure](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+# <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Define o dimensionamento automático vertical com dimensionamento da máquina virtual
+Este artigo descreve como dimensionar verticalmente Azure [conjuntos de dimensionamento de Máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/) com ou sem reprovisioning. Dimensionamento de VMs que não estejam em conjuntos de dimensionamento na vertical, consulte [aumentar verticalmente a máquina virtual do Azure com a automatização do Azure](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Dimensionamento vertical, também conhecido como *aumentar verticalmente* e *reduzir verticalmente*, significa que aumente ou diminua tamanhos de máquina virtual (VM) em resposta a uma carga de trabalho. Comparar isto com [dimensionamento horizontal](virtual-machine-scale-sets-autoscale-overview.md), também referido como *aumentar horizontalmente* e *dimensionar de*, onde o número de VMs é alterado, consoante a carga de trabalho.
+Dimensionamento vertical, também conhecido como *aumentar verticalmente* e *reduzir verticalmente*, significa que aumente ou diminua tamanhos de máquina virtual (VM) em resposta a uma carga de trabalho. Comparar este comportamento com [dimensionamento horizontal](virtual-machine-scale-sets-autoscale-overview.md), também referido como *aumentar horizontalmente* e *dimensionar de*, onde o número de VMs é alterado, consoante a carga de trabalho.
 
-Reprovisioning significa remoção de uma VM existente e a respetiva substituição por um novo. Ao aumentar ou diminuir o tamanho das VMs no conjunto de dimensionamento da VM, em alguns casos que pretende redimensionar VMs existentes e manter os dados do utilizador, enquanto que noutros casos, tem de implementar novas VMs do tamanho do novo. Este documento abrange a ambos os casos.
+Reprovisioning significa remoção de uma VM existente e a respetiva substituição por um novo. Quando aumentar ou diminuir o tamanho das VMs num dimensionamento da máquina virtual definido, em alguns casos em que pretende redimensionar VMs existentes e manter os dados do utilizador, enquanto que noutros casos, tem de implementar novas VMs do tamanho do novo. Este documento abrange a ambos os casos.
 
 Dimensionamento vertical pode ser útil quando:
 
 * Um serviço incorporado em máquinas virtuais é em utilizados (por exemplo, a fim de semana). Reduzir o tamanho da VM pode reduzir os custos mensais.
 * Aumentar o tamanho da VM para lidar com a maior pedido sem criar VMs adicionais.
 
-Pode configurar o dimensionamento vertical ser accionadas com base numa métricas com base em alertas do seu conjunto de dimensionamento de VM. Quando o alerta é ativado desencadeado um webhook que um runbook que pode dimensionar o seu dimensionamento definido ou reduzir verticalmente de acionadores. Dimensionamento verticais pode ser configurado, seguindo estes passos:
+Pode configurar o dimensionamento vertical ser accionadas com base numa métricas com base em alertas do seu conjunto de dimensionamento da máquina virtual. Quando o alerta é ativado, desencadeado um webhook que um runbook que pode dimensionar o seu dimensionamento definido ou reduzir verticalmente de acionadores. Dimensionamento verticais pode ser configurado, seguindo estes passos:
 
 1. Crie uma conta de automatização do Azure com capacidade de executar como.
-2. Importe runbooks de escala Vertical de automatização do Azure para conjuntos de dimensionamento de VM para sua subscrição.
+2. Importe runbooks de escala Vertical de automatização do Azure para conjuntos de dimensionamento de máquina virtual para a sua subscrição.
 3. Adicione um webhook ao runbook.
-4. Adicione um alerta para o conjunto de dimensionamento de VM através de uma notificação de webhook.
+4. Adicione um alerta para o dimensionamento da máquina virtual definir através de uma notificação de webhook.
 
 > [!NOTE]
 > Vertical dimensionamento automático pode apenas ocorrer dentro de determinados intervalos de tamanhos de VM. Comparar as especificações de tamanho de cada antes de decidir ao dimensionar a partir de um para outro (número mais alto não sempre indicar maior tamanho da VM). Pode optar por aumentar entre os pares de tamanhos seguintes:
@@ -55,12 +55,12 @@ Pode configurar o dimensionamento vertical ser accionadas com base numa métrica
 > 
 
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Criar uma conta de automatização do Azure com capacidade de executar como
-A primeira coisa que precisa de fazer é criar uma conta de automatização do Azure que irá alojar os runbooks utilizados para dimensionar as instâncias do conjunto de dimensionamento de VM. Recentemente [da automatização do Azure](https://azure.microsoft.com/services/automation/) introduziu a funcionalidade de "Conta Run As" que faz com que a definição de segurança de Principal de serviço para executar automaticamente os runbooks em nome de um utilizador muito fácil. Pode ler mais sobre este artigo abaixo:
+A primeira coisa que precisa de fazer é criar uma conta de automatização do Azure que aloja os runbooks utilizados para dimensionar as instâncias de conjunto de dimensionamento de máquina virtual. Recentemente [da automatização do Azure](https://azure.microsoft.com/services/automation/) introduziu a funcionalidade de "Conta Run As" que faz com que a definição de segurança de Principal de serviço para executar automaticamente os runbooks em nome de um utilizador. Para obter mais informações, consulte:
 
 * [Autenticar Runbooks com a conta Run As do Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importar runbooks de escala Vertical de automatização do Azure para a sua subscrição
-Os runbooks necessários para aumentar verticalmente a conjuntos de dimensionamento da VM já são publicados na Galeria de Runbook da automatização do Azure. Para importá-los para a sua subscrição siga os passos neste artigo:
+Os runbooks necessários para aumentar verticalmente os conjuntos de dimensionamento de máquina virtual já são publicados na Galeria de Runbook da automatização do Azure. Para importá-los para a sua subscrição siga os passos neste artigo:
 
 * [Galleries módulos e Runbooks de automatização do Azure](../automation/automation-runbook-gallery.md)
 
@@ -73,17 +73,17 @@ Os runbooks que precisam de ser importados são apresentados. Selecione o runboo
 ![Galeria de Runbooks][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Adicionar um webhook ao runbook
-Assim que tiver de importar os runbooks que terá de adicionar um webhook ao runbook para que pode ser acionada por um alerta de um conjunto de dimensionamento de VM. Os detalhes de criar um webhook de Runbook são descritos neste artigo:
+Depois de ter importado os runbooks, adicione um webhook ao runbook, pelo que pode ser acionada por um alerta a partir de um conjunto de dimensionamento de máquina virtual. Os detalhes de criar um webhook de Runbook são descritos neste artigo:
 
 * [Webhooks de automatização do Azure](../automation/automation-webhooks.md)
 
 > [!NOTE]
-> Certifique-se de que copia o webhook URI antes de fechar a caixa de diálogo de webhook como irá precisar na secção seguinte.
+> Certifique-se de que copia o webhook URI antes de fechar a caixa de diálogo de webhook pois terá este endereço na secção seguinte.
 > 
 > 
 
-## <a name="add-an-alert-to-your-vm-scale-set"></a>Adicionar um alerta para o conjunto de dimensionamento de VM
-Segue-se um script do PowerShell que mostra como adicionar um alerta para um conjunto de dimensionamento de VM. Consulte o artigo seguinte para obter o nome da métrica a acionar o alerta em: [métricas comuns de dimensionamento automático de Monitor de Azure](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
+## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Adicionar um alerta para o conjunto de dimensionamento da máquina virtual
+Abaixo está um script do PowerShell que mostra como adicionar um alerta para um dimensionamento da máquina virtual definido. Consulte o artigo seguinte para obter o nome da métrica a acionar o alerta em: [métricas comuns de dimensionamento automático de Monitor de Azure](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com

@@ -15,10 +15,10 @@ ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.openlocfilehash: b99264eb69f115db6e334b6aceae6ed897202d56
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gerir o controlo de acesso baseado em funções com a interface de linha de comandos do Azure
 > [!div class="op_single_selector"]
@@ -195,6 +195,6 @@ azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .pro
 
 ![Captura de ecrã de linha de comandos - lista de funções do azure para funções personalizadas - de RBAC Azure](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: cherylmc
 ms.openlocfilehash: 2bd0cf8be87937044ad515a2c6f253b1711bb2bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configurar um gateway de rede virtual para o ExpressRoute com o portal do Azure
 > [!div class="op_single_selector"]
@@ -85,5 +85,5 @@ Pode ver um [vídeo](http://azure.microsoft.com/documentation/videos/azure-expre
 13. Verifique as definições. Se pretender que o gateway apareça no dashboard, pode selecionar **Afixar ao dashboard** na parte inferior do painel.
 14. Clique em **Criar** para começar a criar o gateway. As definições são validadas e o gateway será implementado. Criar gateway de rede virtual pode demorar até 45 minutos a concluir.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de ter criado o gateway de VNet, pode ligar a VNet a um circuito ExpressRoute. Consulte [ligar uma rede Virtual a um circuito de ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md).

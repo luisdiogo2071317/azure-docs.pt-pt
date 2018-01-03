@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: b3dca9e75df2d057d7ee1b314faac490e5f10a08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Utilizar o Azure Machine Learning para Analisar a Taxa de Abandono de Clientes
 ## <a name="overview"></a>Descrição geral
-Este artigo apresenta uma implementação de referência de um projeto de análise de volume de alterações de cliente que é criada utilizando o Azure Machine Learning. Neste artigo, vamos discutir modelos genéricos associados de forma holística resolver o problema de volume de alterações do cliente industriais. Podemos também medir a precisão dos modelos que são criados utilizando o Machine Learning e iremos avaliar as direções para o desenvolvimento ainda mais.  
+Este artigo apresenta uma implementação de referência de um projeto de análise de volume de alterações de cliente que é criada utilizando o Azure Machine Learning. Neste artigo, vamos discutir modelos genéricos associados de forma holística resolver o problema de volume de alterações do cliente industriais. Podemos também medir a precisão dos modelos que são criados utilizando o Machine Learning e avaliar as direções para o desenvolvimento ainda mais.  
 
 ### <a name="acknowledgements"></a>Confirmações
 Esta fase experimental foi desenvolvido e testado pela Serge Berger, Scientist de dados Principal na Microsoft e Roger Barga, anteriormente o Gestor de produto do Microsoft Azure Machine Learning. A equipa de documentação do Azure gratefully reconhece os seus conhecimentos e obrigado-los para partilhar este documento técnico.
@@ -37,14 +37,14 @@ Esta fase experimental foi desenvolvido e testado pela Serge Berger, Scientist d
 ## <a name="the-problem-of-customer-churn"></a>O problema de volume de alterações do cliente
 Empresas no mercado de consumidor e em todos os setores de enterprise tem de lidar com o volume de alterações. Por vezes, volume de alterações é excessivo e influencia as decisões de políticas. A solução tradicional é a prever churners propensity elevado e a abordar as respetivas necessidades através de um serviço concierge, marketing campanhas, ou ao aplicar dispensations especiais. Estas abordagens podem variar da indústria da indústria e mesmo a partir de um cluster de consumidor específica para outro dentro de uma indústria (por exemplo, telecomunicações).
 
-O fator comum é que as empresas têm de minimizar os esforços de retenção estes cliente especiais. Assim, a metodologia natural seria para cada cliente com a probabilidade do volume de alterações de pontuação e resolver os principal N aqueles. Os clientes superiores poderão ser mais rentáveis aqueles; Por exemplo, em cenários mais sofisticados, uma função de lucros estiver utilizada durante a seleção de candidatos para dispensation especial. No entanto, estas considerações são apenas uma parte da estratégia holística para lidar com o volume de alterações. Empresas também tem de ter em risco de conta (e tolerância ao risco associado), o nível e os custos da intervenção e segmentação plausible cliente.  
+O fator comum é que as empresas têm de minimizar os esforços de retenção estes cliente especiais. Assim, a metodologia natural seria para cada cliente com a probabilidade do volume de alterações de pontuação e resolver os principal N aqueles. Os clientes superiores poderão ser aqueles mais rentáveis. Por exemplo, em cenários mais sofisticados uma função de lucros estiver utilizada durante a seleção de candidatos para dispensation especial. No entanto, estas considerações são apenas uma parte da estratégia completa para lidar com o volume de alterações. Empresas também tem de ter em risco de conta (e tolerância ao risco associado), o nível e os custos da intervenção e segmentação plausible cliente.  
 
 ## <a name="industry-outlook-and-approaches"></a>Outlook da indústria e abordagens
 Processamento sofisticado volume de alterações é um sinal de um setor madura. O exemplo clássico é o setor do umts onde os subscritores são conhecidos frequentemente para mudar a partir de um fornecedor para outro. Este volume de alterações voluntário é uma preocupação prime. Além disso, fornecedores tem acumulados conhecimento significativo sobre *churn controladores*, quais são os fatores que os clientes para mudar de unidade.
 
-Por exemplo, escolha handset ou o dispositivo é um controlador bem conhecido do volume de alterações no negócio telemóvel. Como resultado, uma política popular é subsidize o preço de um handset para novos subscritores e charging um preço completo para clientes existentes para uma atualização. Historicamente, esta política gerou hopping a partir de um fornecedor para outro aos clientes obter um desconto nova, que por sua vez, foi-lhe pedido que Fornecedores para refinar as respetivas estratégias.
+Por exemplo, escolha handset ou o dispositivo é um controlador bem conhecido do volume de alterações no negócio telemóvel. Como resultado, uma política popular é subsidize o preço de um handset para novos subscritores e cobram um preço completo para clientes existentes para uma atualização. Historicamente, esta política gerou hopping a partir de um fornecedor para outro aos clientes obter um desconto de novo. Isto, por sua vez, foi-lhe pedido que Fornecedores para refinar as respetivas estratégias.
 
-Elevada volatility no ofertas handset é um fator que invalida muito rapidamente modelos do volume de alterações que se baseiam em modelos de handset atual. Além disso, telemóveis não são apenas os dispositivos telecommunication; Também estão declarações de forma (considere o iPhone), e estas redes sociais predictors estão fora do âmbito dos conjuntos de dados do umts regular.
+Elevada volatility no ofertas handset é um fator que invalida rapidamente modelos do volume de alterações que se baseiam em modelos de handset atual. Além disso, telemóveis não apenas os dispositivos telecommunication, também são declarações de forma (considere o iPhone). Estas redes sociais predictors estão fora do âmbito dos conjuntos de dados do umts regular.
 
 O resultado para a modelação net é que não é possível devise uma política de som, simplesmente ao conhecido razões para volume, eliminando os. Na verdade, uma estratégia de modelação contínua, incluindo modelos clássicos que quantificar categórico variáveis (tais como árvores de decisões), é **obrigatório**.
 
@@ -211,16 +211,6 @@ Esperamos continue neste tópico no futuro, especialmente relacionadas com a an�
 ## <a name="conclusion"></a>Conclusão
 Este documento descreve uma abordagem sensible para tackling o problema comum de fluxo de cliente através da utilização de uma estrutura genérica. É considerada um protótipo para modelos de classificação e implementado-lo utilizando o Azure Machine Learning. Por fim, vamos avaliado em matéria de precisão e o desempenho da solução protótipo em relação a algoritmos comparáveis em SAS.  
 
-**Para obter mais informações:**  
-
-Neste documento ajudá-lo? Dê-nos seus comentários. Diga-numa escala de 1 (fraco) para 5 (excelente), como classifica neste documento e por que motivo atribuiu-esta classificação? Por exemplo:  
-
-* Está a classificação-elevada devido a ter bons exemplos, capturas de ecrã excelente, desmarque a escrever ou outro motivo?
-* Está a classificação, baixa devido a fracas exemplos, capturas de ecrã difusa ou escrever claro?  
-
-Estes comentários ajudam-na melhorar a qualidade dos técnicos que Lançamos.   
-
-[Enviar comentários](mailto:sqlfback@microsoft.com).
  
 
 ## <a name="references"></a>Referências

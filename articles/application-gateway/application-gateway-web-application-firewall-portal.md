@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
 ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Criar um gateway de aplicação com uma firewall de aplicação web através do portal
 
@@ -82,7 +82,7 @@ Neste cenário irão:
 * Criar uma sub-rede denominada Appgatewaysubnet que utiliza 10.0.0.0/28 como bloco CIDR.
 * Configure um certificado para a descarga de SSL.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter um [um mês avaliação gratuita](https://azure.microsoft.com/free).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter um [um mês avaliação gratuita](https://azure.microsoft.com/free).
 
 2. No **Favoritos** painel no portal, selecione **novo**.
 
@@ -146,7 +146,7 @@ Estes passos criar um gateway de aplicação básico com as predefinições para
 > [!NOTE]
 > Gateways de aplicação criados com a configuração básica do WAF estão configurados com CR 3.0 para proteção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para configurar um alias de domínio personalizado para o [endereço IP público](../dns/dns-custom-domain.md#public-ip-address), pode utilizar o DNS do Azure ou de outro fornecedor DNS.
 

@@ -4,7 +4,7 @@ description: "Descrição geral do DNS que aloja o serviço no Microsoft Azure. 
 services: dns
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68747a0d-b358-4b8e-b5e2-e2570745ec3f
 ms.service: dns
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2017
+ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: 890c00f3349abd52294e92d27f1b42ab38fe287a
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f255fd9621ff90bfbb3ad193faa64495acf7ecd7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-dns-overview"></a>Descrição geral do DNS do Azure
 
@@ -44,7 +44,7 @@ Faturação DNS baseia-se no número de zonas DNS alojadas no Azure e o número 
 
 Para perguntas mais frequentes sobre o DNS do Azure, consulte o [FAQ de DNS do Azure](dns-faq.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre registos e zonas DNS, visitando: [DNS zonas e as regista descrição geral](dns-zones-records.md).
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: f7d2fd61dce93e8100ec33f82cd648b77efc1c0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb02aaf541d2d2f4b1206136847af2b46621501d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de Media Services do Azure
 Este tópico fornece uma descrição geral dos conceitos de Media Services mais importantes.
 
-## <a id="assets"></a>Ativos e armazenamento
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Ativos e armazenamento
 ### <a name="assets"></a>Elementos
 Um [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) contém ficheiros digitais (incluindo as vídeo, áudio, imagens, coleções de miniaturas, controla de texto e legendas ficheiros) e os metadados sobre estes ficheiros. Depois dos ficheiros digitais são carregados para um elemento, pode ser utilizados nos serviços de suporte de dados de codificação e fluxos de trabalho de transmissão em fluxo.
 
@@ -71,7 +71,7 @@ Um contentor do blob fornece um agrupamento de um conjunto de blobs. Contentores
 > 
 > 
 
-### <a id="locators"></a>Localizadores
+### <a name="a-idlocatorslocators"></a><a id="locators"/>Localizadores
 [O localizador](https://docs.microsoft.com/rest/api/media/operations/locator)s fornecer um ponto de entrada para aceder aos ficheiros contidos num recurso. Uma política de acesso é utilizada para definir as permissões e a duração do que um cliente tem acesso a um recurso especificado. Os localizadores podem ter uma relação muitos para um com uma política de acesso que localizadores diferentes podem fornecer tempos de início diferentes e tipos de ligação diferentes clientes durante a utilização de todas as definições de duração; e a mesma permissão No entanto, devido a uma restrição de política de acesso partilhado definida pelos serviços de armazenamento do Azure, não pode ter mais de cinco localizadores exclusivos associados um determinado elemento de uma só vez. 
 
 Os Media Services suportam dois tipos de Localizadores: localizadores OnDemandOrigin, utilizados para transmitir multimédia (por exemplo, MPEG DASH, HLS ou transmissão em fluxo uniforme) ou transferir progressivamente os suportes de dados e localizadores de SAS URL, utilizado para carregar ou transferir os ficheiros de suporte de dados to\from storage do Azure. 
@@ -156,7 +156,7 @@ Para obter mais informações, veja os artigos seguintes:
 - [Proteger com PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Entrega
-### <a id="dynamic_packaging"></a>Empacotamento dinâmico
+### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Empacotamento dinâmico
 Ao trabalhar com os Media Services, recomenda-se para codificar seus ficheiros de mezanino para uma conjunto de MP4 de velocidade de transmissão adaptável e, em seguida, converter o conjunto para o formato pretendido utilizando a [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>Ponto final de transmissão em fluxo

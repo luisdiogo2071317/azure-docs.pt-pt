@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
 ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Como dimensionar a codificação com o .NET SDK
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 12/18/2017
 > 
 
 > [!NOTE]
-> Para obter a versão mais recente do SDK de Java e começar a desenvolver com o Java, consulte [começar com o cliente de Java SDK de Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Para transferir o SDK mais recente do PHP para os Media Services, procure a versão 0.5.7 do pacote Microsoft/WindowAzure o [repositório Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Para obter a versão mais recente do Java SDK e começar a programar com o Java, veja [Introdução ao SDK do cliente de Java dos Serviços de Multimédia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Para transferir o SDK mais recente do PHP para os Serviços de Multimédia, procure a versão 0.5.7 do pacote Microsoft/WindowAzure no [repositório Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Descrição geral
 > [!IMPORTANT]

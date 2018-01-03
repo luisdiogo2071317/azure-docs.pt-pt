@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
 ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparar a criação de cópias de segurança de cargas de trabalho para o Azure com o DPM
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ Seguem-se algumas definições de chaves para cópia de segurança do Azure para
 ### <a name="1-create-a-recovery-services-vault"></a>1. Criar um cofre dos serviços de recuperação
 Para criar um cofre dos serviços de recuperação:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu Hub, clique em **Procurar** e na lista de recursos, escreva **Serviços de Recuperação**. À medida que começa a escrever, irá filtrar a lista com base na sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
 
     ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-dpm-introduction/open-recovery-services-vault.png)
@@ -110,7 +110,7 @@ As credenciais do cofre são utilizadas apenas durante o fluxo de trabalho do re
 
 O ficheiro de credenciais do Cofre é transferido através de um canal seguro do portal do Azure. O serviço de cópia de segurança do Azure não tem conhecimento da chave privada do certificado e a chave privada não é continuada no portal ou o serviço. Utilize os seguintes passos para transferir o ficheiro de credenciais do cofre para um computador local.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Abra o Cofre de serviços de recuperação que pretende registar o computador do DPM.
 3. Abre o painel de definições de cópia de segurança por predefinição. Se estiver fechado, clique em **definições** no dashboard do cofre para abrir o painel de definições. No painel Definições, clique em **propriedades**.
 

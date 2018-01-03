@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 5491548885709c1c1048e45d699ef385a7c49a74
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9139866b0dffd102f9b7c34835443d6337e7d39a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Exemplo de transformações de fluxo de dados personalizados (Python) 
 O nome da transformação no menu é **transformar fluxo de dados (scripts)**. Antes de ler este anexo, leia [descrição geral de extensibilidade do Python](data-prep-python-extensibility-overview.md).
@@ -53,7 +53,7 @@ Preenchimento baixo requer dois transformações. Pressupõe que os dados que o 
 |              |Seattle    |
 |Califórnia    |Los Angeles|
 |              |San Diego  |
-|              |Blogue de SAN   |
+|              |San Jose   |
 |Texas         |Dallas     |
 |              |San Antonio|
 |              |Houston    |
@@ -77,7 +77,7 @@ Os dados agora o seguinte aspeto:
 |              |Washington    |Seattle    |
 |Califórnia    |Califórnia    |Los Angeles|
 |              |Califórnia    |San Diego  |
-|              |Califórnia    |Blogue de SAN   |
+|              |Califórnia    |San Jose   |
 |Texas         |Texas         |Dallas     |
 |              |Texas         |San Antonio|
 |              |Texas         |Houston    |

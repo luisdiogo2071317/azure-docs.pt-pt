@@ -1,6 +1,6 @@
 ---
-title: "Recolher registos personalizados na análise de registos do OMS | Microsoft Docs"
-description: "Análise de registos pode recolher eventos de ficheiros de texto em computadores Windows e Linux.  Este artigo descreve como definir um novo registo personalizado e detalhes dos registos que criarem no repositório de OMS."
+title: Recolher registos personalizados no Log Analytics do Azure | Microsoft Docs
+description: "Análise de registos pode recolher eventos de ficheiros de texto em computadores Windows e Linux.  Este artigo descreve como definir um novo registo personalizado e detalhes dos registos que criarem na área de trabalho de análise de registos."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: bwren
-ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registos personalizados na análise de registos
 A origem de dados de registos personalizados na análise de registos permite-lhe recolher eventos de ficheiros de texto em computadores Windows e Linux. Muitas aplicações regista informações nos ficheiros de texto em vez dos serviços de registo padrão, tais como o registo de eventos do Windows ou Syslog.  Depois de recolhidos, pode analisar cada registo de início de sessão para os campos individuais utilizando o [campos personalizados](log-analytics-custom-fields.md) funcionalidade de análise de registos.
@@ -42,10 +42,10 @@ Os ficheiros de registo a recolher têm de corresponder aos seguintes critérios
 Utilize o procedimento seguinte para definir um ficheiro de registo personalizado.  Desloque-se ao fim deste artigo para obter instruções de uma amostra de adição de um registo personalizado.
 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Passo 1. Abrir o Assistente de registo personalizado
-O Assistente de registo personalizado é executado no portal do OMS e permite-lhe definir um novo registo personalizado para recolher.
+O Assistente de registo personalizado é executado no portal do Azure e permite-lhe definir um novo registo personalizado para recolher.
 
-1. No portal do OMS, aceda a **definições**.
-2. Clique em **dados** e, em seguida, **Custom logs**.
+1. No portal do Azure, selecione **Log Analytics** > sua área de trabalho > **definições avançadas**.
+2. Clique em **dados** > **Custom logs**.
 3. Por predefinição, todas as alterações de configuração são automaticamente enviadas por push para todos os agentes.  Para agentes Linux, é enviado um ficheiro de configuração para o recoletor de dados Fluentd.  Se pretender modificar este ficheiro manualmente em cada agente do Linux, em seguida, desmarque a caixa *aplicar configuração abaixo aos meus computadores Linux*.
 4. Clique em **adicionar +** para abrir o Assistente de registo personalizado.
 
@@ -54,7 +54,7 @@ Começar através do carregamento de uma amostra de registo personalizado.  O as
 
 **Nova linha** delimitador predefinido e é utilizada para os ficheiros de registo que tenham uma única entrada por linha.  Se a linha começa com uma data e hora dos formatos disponíveis, em seguida, pode especificar um **Timestamp** delimitador que suporta as entradas que abrangem mais do que uma linha.
 
-Se for utilizado um delimitador de timestamp, a propriedade TimeGenerated de cada registo armazenado no OMS será preenchida com a data/hora especificada para essa entrada no ficheiro de registo.  Se for utilizado um delimitador de linha nova, em seguida, TimeGenerated é preenchido com a data e hora em que a análise de registos recolhidos a entrada.
+Se for utilizado um delimitador de timestamp, em seguida, a propriedade TimeGenerated de cada registo armazenado na análise de registos é preenchida com a data/hora especificada para essa entrada no ficheiro de registo.  Se for utilizado um delimitador de linha nova, em seguida, TimeGenerated é preenchido com a data e hora em que a análise de registos recolhidos a entrada.
 
 
 1. Clique em **procurar** e navegue para um ficheiro de exemplo.  Tenha em atenção que isto pode botão poderá ser assinalada como **Escolher ficheiro** alguns browsers.
@@ -103,13 +103,12 @@ A entrada de registo inteira será armazenada numa única propriedade chamada **
 
 Os passos detalhados para analisar a entrada de registo personalizados não são fornecidos aqui.  Consulte o [campos personalizados](log-analytics-custom-fields.md) documentação para obter estas informações.
 
-## <a name="disabling-a-custom-log"></a>Desativar um registo personalizado
-Não é possível remover uma definição de registo personalizado quando for criado, mas pode desativá-lo ao remover todos os respetivos caminhos de recolha.
+## <a name="removing-a-custom-log"></a>Remover um registo personalizado
+Utilize o seguinte processo no portal do Azure para remover um registo personalizado que anteriormente definido.
 
-1. No portal do OMS, aceda a **definições**.
-2. Clique em **dados** e, em seguida, **Custom logs**.
-3. Clique em **detalhes** junto a definição de registo personalizados para desativar.
-4. Remova todos os caminhos de coleção para a definição de registo personalizado.
+1. Do **dados** menu no **definições avançadas** para a sua área de trabalho, selecione **registos personalizados** para listar todos os registos personalizados.
+2. Clique em **remover** junto de registo personalizado a remover.
+
 
 ## <a name="data-collection"></a>Recolha de dados
 Análise de registos irão recolher novas entradas de cada registo personalizado aproximadamente a cada 5 minutos.  O agente irá registam seu lugar em cada ficheiro de registo que recolhe a partir de.  Se o agente fique offline durante um período de tempo, em seguida, análise de registos irão recolher entradas de onde pela última vez foi deixada, mesmo que essas entradas criadas enquanto o agente estava offline.
@@ -127,7 +126,7 @@ Registos de registo personalizado tem um tipo com o nome de registo que fornecer
 | ManagementGroupName |Nome do grupo de gestão para gerir o System Center Operations agentes.  Para outros agentes, o que é AOI -\<ID da área de trabalho\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Registo de pesquisas com registos de registo personalizado
-Registos de registos personalizados são armazenados no repositório de OMS, tal como registos de qualquer outra origem de dados.  Terão um tipo correspondente ao nome que fornecem ao definir o registo de, pelo que pode utilizar a propriedade de tipo na sua pesquisa para obter registos recolhidos a partir de um registo específico.
+Registos de registos personalizados são armazenados na área de trabalho de análise de registos, tal como registos de qualquer outra origem de dados.  Terão um tipo correspondente ao nome que fornecem ao definir o registo de, pelo que pode utilizar a propriedade de tipo na sua pesquisa para obter registos recolhidos a partir de um registo específico.
 
 A tabela seguinte fornece exemplos diferentes de pesquisas de registo que obter registos de registos personalizados.
 
@@ -171,6 +170,6 @@ Utilizamos os campos personalizados para definir o *EventTime*, *código*, *esta
 
 ![Consulta de registo com campos personalizados](media/log-analytics-data-sources-custom-logs/query-02.png)
 
-## <a name="next-steps"></a>Passos seguintes
-* Utilize [campos personalizados](log-analytics-custom-fields.md) para analisar as entradas no registo personalizado aos campos individuais.
+## <a name="next-steps"></a>Passos Seguintes
+* Utilize [campos personalizados](log-analytics-custom-fields.md) para analisar as entradas no início de sessão personalizada para campos individuais.
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções.

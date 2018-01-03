@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.date: 09/29/2017
 ms.author: nitinme
 ms.openlocfilehash: bcddb66806cc58b3513c9c157512ac8b96a51ec1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-rest-api"></a>Autenticação de utilizador final com o Data Lake Store utilizando a REST API
 > [!div class="op_single_selector"]
 > * [Utilizar o Java](data-lake-store-end-user-authenticate-java-sdk.md)
-> * [Com o .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
+> * [Utilizar o SDK .NET](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Utilizar o Python](data-lake-store-end-user-authenticate-python.md)
 > * [Utilizar a API REST](data-lake-store-end-user-authenticate-rest-api.md)
 > 
@@ -86,7 +86,7 @@ Neste cenário, a aplicação pede ao utilizador para iniciar sessão e todas as
 
 Para obter mais informações sobre a autenticação de utilizador interativa, veja [Fluxo de concessão de códigos de autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx).
    
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a utilizar a autenticação de serviço a serviço para autenticar com o Azure Data Lake Store utilizando a REST API. Agora pode ver os seguintes artigos falar sobre como utilizar a API REST para trabalhar com o Azure Data Lake Store.
 
 * [Operações de gestão de conta no Data Lake Store utilizando a REST API](data-lake-store-get-started-rest-api.md)

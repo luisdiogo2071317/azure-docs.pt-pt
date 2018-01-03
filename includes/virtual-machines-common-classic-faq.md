@@ -96,7 +96,7 @@ O Azure oferece várias opções para soluções de software antivírus, mas a g
 * [Implementar Soluções Antimalware em Máquinas Virtuais do Azure](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>Quais são as minhas opções de cópia de segurança e recuperação?
-O Azure Backup está disponível como pré-visualização em determinados regiões. Para obter detalhes, veja [Fazer cópia de segurança de máquinas virtuais do Azure](../articles/backup/backup-azure-vms.md). Estão disponíveis outras soluções de parceiros certificados. Para saber o que está atualmente disponível, procure no Azure Marketplace.
+O Azure Backup está disponível como pré-visualização em determinados regiões. Para obter detalhes, veja [Fazer cópia de segurança de máquinas virtuais do Azure](../articles/backup/backup-azure-arm-vms.md). Estão disponíveis outras soluções de parceiros certificados. Para saber o que está atualmente disponível, procure no Azure Marketplace.
 
 Uma opção adicional é utilizar as capacidades de instantâneos do armazenamento de blobs. Para tal, terá de encerrar a VM antes de qualquer operação que dependa de um instantâneo de blob. Isto guarda escritas de dados pendentes e coloca o sistema de ficheiros num estado consistente.
 

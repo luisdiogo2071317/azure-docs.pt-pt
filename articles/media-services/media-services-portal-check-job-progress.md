@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
 ms.openlocfilehash: 571d222068e92a45b0e37bec298bab7a6825f731
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitor de codificação de progresso da tarefa com o portal do Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="overview"></a>Descrição geral
 > [!NOTE]
-> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
@@ -44,7 +44,7 @@ Pode clicar a tarefa para ver mais detalhes.
 
 ![Tarefas](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois da tarefa de codificação é uma, pode publicar e reproduzir o, conforme descrito [aqui](media-services-portal-publish.md).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

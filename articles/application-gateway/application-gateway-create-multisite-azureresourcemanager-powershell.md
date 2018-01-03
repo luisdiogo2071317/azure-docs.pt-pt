@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
 ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>Criar um gateway de aplicação para alojar várias aplicações web
 
@@ -278,7 +278,7 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como proteger os seus Web sites com [Gateway de aplicação - Firewall de aplicações Web](application-gateway-webapplicationfirewall-overview.md)
 

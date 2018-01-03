@@ -17,10 +17,10 @@ ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Fazer cópias de segurança de máquinas virtuais do Azure para um cofre dos Serviços de Recuperação
 
@@ -41,7 +41,7 @@ A menos que a cópia de segurança inicial esteja prestes a ser executada, é re
 Para executar a tarefa de cópia de segurança inicial:
 
 1. No dashboard do cofre, clique no número em **Itens de Cópia de Segurança** ou clique no mosaico **Itens de Cópia de Segurança**. <br/>
-  ![Ícone de definições](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
+  ![Ícone Definições](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
   O painel **Itens de Cópia de Segurança** abre-se.
 
@@ -95,7 +95,7 @@ Para executar a tarefa de cópia de segurança inicial:
 ## <a name="troubleshooting-errors"></a>Resolução de problemas de erros
 Caso se depare com problemas ao efetuar uma cópia de segurança da máquina virtual, consulte o [artigo de resolução de problemas de VM](backup-azure-vms-troubleshoot.md) para obter ajuda.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que protegeram a VM, consulte os artigos seguintes para saber mais sobre as tarefas de gestão de VM e como restaurar VMs.
 
 * [Gerir e monitorizar as máquinas virtuais](backup-azure-manage-vms.md)

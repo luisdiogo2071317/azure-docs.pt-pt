@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorizar e gerir pipelines do Azure Data Factory utilizando a aplicação de monitorização e gestão
 > [!div class="op_single_selector"]
@@ -195,7 +195,7 @@ Windows atividade podem ser dos seguintes Estados:
 <td>A janela de atividade está a ser processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falhou</td><td>ServiceHost</td><td>A execução da atividade demorou mais do que as permitidas pela atividade.</td>
+<td rowspan="4">Com Falhas</td><td>ServiceHost</td><td>A execução da atividade demorou mais do que as permitidas pela atividade.</td>
 </tr>
 <tr>
 <td>Cancelado</td><td>A janela de atividade foi cancelada pelo ação do utilizador.</td>
@@ -209,10 +209,10 @@ Windows atividade podem ser dos seguintes Estados:
 <td>Pronto</td><td>-</td><td>A janela de atividade está pronta para consumo.</td>
 </tr>
 <tr>
-<td>Ignorada</td><td>-</td><td>A janela de atividade não foi processada.</td>
+<td>Ignorado</td><td>-</td><td>A janela de atividade não foi processada.</td>
 </tr>
 <tr>
-<td>Nenhuma</td><td>-</td><td>Uma janela de atividade existia com um Estado diferente, mas foi reposta.</td>
+<td>Nenhum</td><td>-</td><td>Uma janela de atividade existia com um Estado diferente, mas foi reposta.</td>
 </tr>
 </table>
 
@@ -326,7 +326,7 @@ A tabela seguinte fornece a lista de eventos disponíveis e Estados (e substatus
 | --- | --- | --- |
 | Introdução de execução da atividade |Iniciado |A Iniciar |
 | Terminar de execução da atividade |Bem-sucedido |Bem-sucedido |
-| Terminar de execução da atividade |Falhou |Alocação de recursos falhou<br/><br/>Falha de execução<br/><br/>Limite de Tempo Excedido<br/><br/>Validação falhada<br/><br/>Abandonado |
+| Terminar de execução da atividade |Com Falhas |Alocação de recursos falhou<br/><br/>Falha de execução<br/><br/>Tempo Limite Excedido<br/><br/>Validação falhada<br/><br/>Abandonado |
 | Cluster HDI a pedido criar introdução |Iniciado |-|
 | Cluster HDI a pedido criado com êxito |Bem-sucedido |-|
 | Cluster HDI a pedido eliminado |Bem-sucedido |-|

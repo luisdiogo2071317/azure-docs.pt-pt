@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: nini
 ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Avalie as aplicações de Service Fabric e microserviços com o portal do Azure
 
@@ -161,6 +161,6 @@ A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Utilize [pesquisas de registo na análise de registos](log-analytics-log-searches.md) para ver os dados de evento detalhados do Service Fabric.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 14dce37a953984d3e1ce80b813f386210e85d261
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: c5e85ac6eec1b8b0a5a78f552b190ce3f3c55c38
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
@@ -56,7 +56,7 @@ Para concluir este tutorial, tem de ter os seguintes recursos:
     * **Enviar ao Log Analytics**.     Para utilizar esta opção, utilize uma área de trabalho existente ou crie uma nova área de trabalho de análise de registos, seguindo os passos para [criar uma nova área de trabalho](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre a visualização dos registos na análise de registos, consulte [ver os registos na análise de registos](#view-in-loganalytics).
     * **Inicie sessão DataPlaneRequests**. Selecione esta opção para registar os diagnósticos para contas SQL, gráfico e API de tabela. Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
     * **Inicie sessão MongoRequests**. Selecione esta opção para registar os diagnósticos para contas de API do MongoDB. Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
-    * **Pedidos de métricos**. Selecione esta opção para armazenar dados verbosos no [Azure métricas](../monitoring-and-diagnostics/monitoring-supported-metrics.md#cosmosdb). Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
+    * **Pedidos de métricos**. Selecione esta opção para armazenar dados verbosos no [Azure métricas](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Se estiver arquivar a uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são autodeleted após o período de retenção expira.
 
 3. Clique em **Guardar**.
 
@@ -426,7 +426,7 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 | responseLength | responseLength_s | O comprimento da resposta, em bytes.|
 | resourceTokenUserRid | resourceTokenUserRid_s | Isto é não vazia quando [tokens de recurso](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) são utilizados para autenticação e de pontos para o ID de recurso do utilizador. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma compreensão dos não só como ativar o registo, mas também as categorias de métricas e registo suportadas do Azure de várias a serviços ler o [descrição geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [descrição geral do Azure Os registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artigos.
 - Estes artigos para saber mais sobre os event hubs de leitura:

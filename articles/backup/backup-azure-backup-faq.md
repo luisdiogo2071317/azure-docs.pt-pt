@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço Azure Backup
-Este artigo tem respostas a perguntas comuns para o ajudar a compreender rapidamente os componentes do Azure Backup. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Pode fazer perguntas sobre o Azure Backup ao clicar em **Comentários** (à direita). Os comentários aparecem na parte inferior do artigo. É necessária uma conta Livefyre para o comentário. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Este artigo responde a questões recorrentes sobre os componentes do Backup do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Pode fazer perguntas sobre o Azure Backup ao clicar em **Comentários** (à direita). Os comentários aparecem na parte inferior do artigo. É necessária uma conta Livefyre para o comentário. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 Para analisar rapidamente as secções neste artigo, utilize as ligações à direita, em **Neste artigo**.
 
@@ -30,7 +30,7 @@ Para analisar rapidamente as secções neste artigo, utilize as ligações à di
 ## <a name="recovery-services-vault"></a>Cofre dos serviços de recuperação
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Existe algum limite ao número de cofres que podem ser criados em cada subscrição do Azure? <br/>
-Sim. A partir de setembro de 2016, pode criar 25 cofres de Serviços de Recuperação e cópia de segurança por subscrição. Pode criar até 25 cofres de Serviços de Recuperação, por região suportada do Azure Backup, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
+Sim. A partir de Setembro de 2016, pode criar 25 cofres dos serviços de recuperação por subscrição. Pode criar até 25 cofres de Serviços de Recuperação, por região suportada do Azure Backup, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre? <br/>
 Sim, pode registar até 50 máquinas por cofre. Em máquinas virtuais de IaaS do Azure, o limite são 200 VMs por cofre. Se precisar de registar mais máquinas, crie outro cofre.
@@ -41,19 +41,11 @@ Todos os servidores registados no mesmo cofre podem recuperar os dados de cópia
 ### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>Posso "migrar" os meus dados de cópia de segurança ou o meu cofre entre subscrições? <br/>
 Não. O cofre é criado um nível de subscrição e não pode ser reatribuído para outra subscrição quando for criado.
 
-### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Os cofres dos Serviços de Recuperação baseiam-se no Resource Manager. Os cofres do Backup (modo clássico) ainda são suportados? <br/>
-Todos os cofres do Backup existentes no [portal clássico](https://manage.windowsazure.com) continuam a ser suportados. No entanto, já não pode utilizar o portal clássico para implementar novos cofres do Backup. A Microsoft recomenda a utilização de cofres de Serviços de Recuperação para todas as implementações, uma vez que os melhoramentos futuros se aplicam apenas a cofres de Serviços de Recuperação. Se tentar criar um cofre do Backup no portal de clássico, será redirecionado para o [portal do Azure](https://portal.azure.com).
+### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Os cofres dos Serviços de Recuperação baseiam-se no Resource Manager. Cofres de cópia de segurança ainda são suportados? <br/>
+Foi convertidos cofres de cópia de segurança para os cofres dos serviços de recuperação. Se não foi possível converter o Cofre de cópia de segurança para um cofre dos serviços de recuperação, em seguida, o Cofre de cópia de segurança foi convertido para um cofre dos serviços de recuperação para si. 
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Posso migrar um cofre da Cópia de Segurança para um cofre dos Serviços de Recuperação? <br/>
-Sim, pode agora atualizar o seu Cofre de cópia de segurança para um cofre dos serviços de recuperação. Para obter detalhes, consulte o artigo [atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação](backup-azure-upgrade-backup-to-recovery-services.md).
-
-### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Criei uma cópia de segurança das minhas VMs clássicas num cofre do Backup. Posso migrar as VMs do modo clássico para o modo Resource Manager e protegê-las num cofre dos Serviços de Recuperação?
-Os pontos de recuperação das VMs clássicas nos cofres de cópias de segurança não migram diretamente para um cofre dos Serviços de Recuperação quando move as VMs do modo clássico para o modo Resource Manager. Siga estes passos para transferir as cópias de segurança das VMs:
-
-1. No cofre do Backup, aceda ao separador **Itens Protegidos** e selecione a VM. Clique em [Parar Proteção](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Deixe a opção *Eliminar dados de cópia de segurança associados* **desmarcada**.
-2. Elimine a extensão de cópia de segurança/instantâneo da VM.
-3. Migre a máquina virtual do modo clássico para o modo do Resource Manager. Certifique-se de que as informações de armazenamento e rede correspondentes à máquina virtual também são migradas para o modo do Resource Manager.
-4. Crie um cofre dos Serviços de Recuperação e configure a cópia de segurança na máquina virtual migrada com a ação **Cópia de Segurança** no dashboard do cofre. Para obter informações detalhadas sobre a criação de cópias de segurança de VMs para um cofre dos Serviços de Recuperação, veja o artigo [Proteger VMs do Azure com um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md).
+Todos os cofres de cópia de segurança foi convertidos para cofres dos serviços de recuperação. Se não foi possível converter o Cofre de cópia de segurança para um cofre dos serviços de recuperação, em seguida, o Cofre de cópia de segurança foi convertido para um cofre dos serviços de recuperação para si.
 
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
 Está disponível uma lista detalhada de perguntas em [FAQ on Azure file-folder backup](backup-azure-file-folder-backup-faq.md) (FAQ sobre a cópia de segurança de ficheiros/pastas do Azure).
@@ -92,7 +84,7 @@ Se cancelar uma tarefa de cópia de segurança para uma VM do Azure, os dados tr
 Sim. Pode executar tarefas de cópia de segurança no Windows Server ou em estações de trabalho Windows até três vezes por dia. Pode executar tarefas de cópia de segurança no System Center DPM até duas vezes por dia. Pode executar uma tarefa de cópia de segurança para as VMs do IaaS uma vez por dia. Pode utilizar a política de agendamento para o Windows Server ou a estação de trabalho Windows para especificar agendamentos diários ou semanais. Ao utilizar o System Center DPM, pode especificar agendamentos diários, semanais, mensais e anuais.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Por que motivo o tamanho dos dados transferido para o cofre dos Serviços de Recuperação é inferior aos dados dos quais fiz uma cópia de segurança?<br/>
- Todos os dados para os quais são criadas cópias de segurança a partir do Agente do Azure Backup, do SCDPM ou do Azure Backup Server são comprimidos e encriptados antes de serem transferidos. Uma vez aplicada a compressão e a encriptação, os dados no cofre de cópia de segurança são 30-40% mais reduzidos.
+ Todos os dados para os quais são criadas cópias de segurança a partir do Agente do Azure Backup, do SCDPM ou do Azure Backup Server são comprimidos e encriptados antes de serem transferidos. Assim que for aplicada a compressão e encriptação, os dados no cofre dos serviços de recuperação são 30-40% mais reduzidos.
 
 ## <a name="what-can-i-back-up"></a>Do que posso fazer uma cópia de segurança
 ### <a name="which-operating-systems-do-azure-backup-support-br"></a>Quais os sistemas operativos suportados pelo Azure Backup? <br/>

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
 ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurar filtros de rota para peering da Microsoft: portal do Azure
 > [!div class="op_single_selector"]
@@ -154,6 +154,6 @@ Pode eliminar um filtro de rota, selecionando o botão Eliminar.
 
 ![Criar um filtro de rota](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md).

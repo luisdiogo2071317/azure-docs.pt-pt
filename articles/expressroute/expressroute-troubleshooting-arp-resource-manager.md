@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.openlocfilehash: a65b1ba2998eae33b3e73bd2492fbbf025eb5946
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obter ARP tabelas no modelo de implementação Resource Manager
 > [!div class="op_single_selector"]
@@ -171,7 +171,7 @@ ou
 * Não verá uma tabela de ARP mostrada para um peering se existem problemas no lado de Microsoft. 
 * Abra um pedido de suporte com [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Especifique a que tem um problema com conectividade de camada 2. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Validar as configurações de camada 3 para o seu circuito do ExpressRoute
   * Obter a rota de resumo para determinar o estado de sessões BGP 
   * Obter tabela de rotas para determinar os prefixos estão anunciados através do ExpressRoute

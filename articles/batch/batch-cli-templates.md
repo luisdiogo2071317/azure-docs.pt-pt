@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 10/17/2017
+ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 87ec0e1b6d01fc5d13e9b9f46987e416d8e1958f
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: c2d4a33cd6c4c9db608a76b24935b474b551b291
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Utilizar os Modelos da CLI do Batch e a Transferência de Ficheiros (Pré-visualização)
 
@@ -53,7 +53,7 @@ Para obter instruções sobre como instalar a CLI do Azure, consulte [instalar o
 Depois de instalada a CLI do Azure, a versão mais recente da extensão do Batch pode ser instalada utilizando o seguinte comando da CLI:
 
 ```azurecli
-az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.1/azure_batch_cli_extensions-2.0.1-py2.py3-none-any.whl
 ```
 
 Para obter mais informações sobre a extensão do Batch, consulte [Microsoft Azure Batch CLI extensões para o Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
@@ -259,7 +259,7 @@ Suporte de transferência de ficheiros e modelo atualmente foram adicionadas ape
 
 Experimentar a extensão de Batch para a CLI do Azure e forneça quaisquer comentários ou sugestões, nos comentários para este artigo ou através de [fórum do Azure Batch](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte a mensagem de blogue do modelos Batch: [tarefas a executar o Azure Batch com a CLI do AZURE – nenhum código necessário](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
 - Documentação detalhada de instalação e utilização, amostras e código de origem estão disponíveis no [repositório do Azure GitHub](https://github.com/Azure/azure-batch-cli-extensions).

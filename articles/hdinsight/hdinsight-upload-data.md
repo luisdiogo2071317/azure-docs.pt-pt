@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 9cdf41bd5c15abca3570a08584dc0958497848a7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carregue dados para tarefas Hadoop no HDInsight
 
@@ -42,7 +42,7 @@ Antes de começar, tenha em atenção os seguintes requisitos:
 ### <a name="command-line-utilities"></a>Utilitários da linha de comandos
 A Microsoft fornece os seguintes utilitários para trabalhar com o Storage do Azure:
 
-| Ferramenta | Linux | OS X | Windows |
+| Ferramenta | Linux | SO X | Windows |
 | --- |:---:|:---:|:---:|
 | [Interface de linha de comandos do Azure][azurecli] |✔ |✔ |✔ |
 | [O Azure PowerShell][azure-powershell] | | |✔ |
@@ -186,7 +186,7 @@ Para obter uma lista de outro Hadoop os comandos que funcionam com ficheiros, co
 ### <a name="graphical-clients"></a>Clientes gráficos
 Também existem várias aplicações que fornecem uma interface gráfica para trabalhar com o Storage do Azure. A tabela seguinte é uma lista de algumas destas aplicações:
 
-| Cliente | Linux | OS X | Windows |
+| Cliente | Linux | SO X | Windows |
 | --- |:---:|:---:|:---:|
 | [Ferramentas do Microsoft Visual Studio para o HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
 | [Explorador do Armazenamento do Azure](http://storageexplorer.com/) |✔ |✔ |✔ |
@@ -291,7 +291,7 @@ Também pode aumentar o valor de `fs.azure.write.request.size` globalmente utili
 
 Para obter mais informações sobre a utilização do Ambari, consulte [gerir clusters do HDInsight utilizando a IU da Web do Ambari](hdinsight-hadoop-manage-ambari.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que sabe como carregar dados para o HDInsight, leia os seguintes artigos para saber como executar uma análise:
 
 * [Get started with Azure HDInsight (Introdução ao Azure HDInsight)][hdinsight-get-started]

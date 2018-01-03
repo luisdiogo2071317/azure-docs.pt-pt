@@ -22,6 +22,7 @@ Ligue-se e inicie sessão numa VM criada por si com múltiplos endereços IP pri
     * Clique em **OK** para fechar as definições de TCP/IP e, em seguida, novamente em **OK** para fechar as definições do adaptador. A ligação RDP é restabelecida.
 
 6. A partir de uma linha de comandos, escreva *ipconfig /all*. Todos os endereços IP adicionados por si são apresentados e o DHCP é desativado.
+7. Configure janelas de utilizar o endereço IP privado o principal da configuração de IP no Azure como o endereço IP primário para o Windows. Consulte [acesso não Internet de VM do Windows Azure que tenha vários endereços IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) para obter mais detalhes. 
 
 
 ### <a name="validation-windows"></a>Validação (Windows)

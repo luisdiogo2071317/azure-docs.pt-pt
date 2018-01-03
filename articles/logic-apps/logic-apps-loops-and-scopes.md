@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 9cdbe4a12a0b16341a1e52f176901045baf327b5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Ciclos, Âmbitos e Divisões do Logic Apps
   
@@ -26,9 +26,9 @@ As Logic Apps fornece várias formas de trabalhar com matrizes, coleções, lote
   
 ## <a name="foreach-loop-and-arrays"></a>Ciclo de ForEach e matrizes
   
-As Logic Apps permite-lhe cíclicas através de um conjunto de dados e executar uma ação para cada item.  Isto é possível através de `foreach` ação.  No estruturador, pode especificar para adicionar um para cada ciclo.  Depois de selecionar a matriz de que pretende iterar, pode começar a adicionar ações.  Pode adicionar várias ações por foreach ciclo.  Uma vez no ciclo pode começar a especificar que devem ocorrer em cada valor de matriz.
+As Logic Apps permite-lhe cíclicas através de um conjunto de dados e executar uma ação para cada item.  Ciclo através de uma coleção é possível através de `foreach` ação.  No estruturador, pode adicionar um para cada ciclo.  Depois de selecionar a matriz de que pretende iterar, pode começar a adicionar ações.  Pode adicionar várias ações por foreach ciclo.  Uma vez no ciclo, pode começar a especificar que devem ocorrer em cada valor de matriz.
 
-Se utilizar a vista de código, pode especificar um para cada ciclo como abaixo.  Este é um exemplo de um para cada ciclo que envia uma mensagem de e-mail para cada endereço de correio eletrónico que contém 'microsoft.com':
+  Neste exemplo envia um e-mail para cada endereço de correio eletrónico que contém 'microsoft.com'. Se utilizar a vista de código, pode especificar um para cada ciclo semelhante ao seguinte exemplo:
 
 ``` json
 {
@@ -66,7 +66,7 @@ Se utilizar a vista de código, pode especificar um para cada ciclo como abaixo.
 }
 ```
   
-  A `foreach` ação pode voltar a matrizes de ativação pós-falha até 5000 linhas.  Por predefinição, cada iteração será executado em paralelo.  
+  A `foreach` ação pode iterar matrizes com milhares de entidades.  Iterações executar em paralelo, por predefinição.  Consulte [limites e configuração](logic-apps-limits-and-config.md) para obter detalhes sobre os limites de matriz e concorrência.
 
 ### <a name="sequential-foreach-loops"></a>Ciclos de ForEach sequenciais
 
@@ -83,13 +83,15 @@ Para ativar um ciclo de foreach sequencialmente, executar o `Sequential` deve se
   
 ## <a name="until-loop"></a>Até o ciclo
   
-  Pode efetuar uma ação ou uma série de ações até que a condição é cumprida.  O cenário mais comum para esta situação está a chamar um ponto final quando obtiver resposta que procura.  No estruturador, pode especificar para adicionar um até o ciclo.  Depois de adicionar ações dentro do ciclo, pode definir a condição de saída, bem como o ciclo de limites.  Não há um atraso de 1 minuto entre ciclos de ciclo.
+  Pode efetuar uma ação ou uma série de ações até que a condição é cumprida.  O cenário mais comum para utilizar um até ciclo está a chamar um ponto final quando obtiver resposta que procura.  No estruturador, pode especificar para adicionar um até o ciclo.  Depois de adicionar ações dentro do ciclo, pode definir a condição de saída, bem como o ciclo de limites.
   
-  Se utilizar a vista de código, pode especificar um até ciclo, conforme mostrado abaixo.  Este é um exemplo de um ponto final de HTTP ao chamar até que o corpo da resposta tem o valor 'Concluída'.  A atualização estará concluída quando a 
+  Neste exemplo chama um ponto final de HTTP até que o corpo da resposta tem o valor 'Concluída'.  Quando concluir o: 
   
   * Resposta de HTTP tem o estado 'Concluída'
-  * Atingir para 1 hora
+  * Atingir durante uma hora
   * Tem looped 100 vezes
+  
+  Se utilizar a vista de código, pode especificar um até ciclo semelhante ao seguinte exemplo:
   
   ``` json
   {
@@ -117,9 +119,9 @@ Para ativar um ciclo de foreach sequencialmente, executar o `Sequential` deve se
   
 ## <a name="spliton-and-debatching"></a>SplitOn e debatching
 
-Por vezes, um acionador poderá receber uma matriz de itens que pretende debatch e iniciar um fluxo de trabalho por item.  Isto pode ser conseguido através de `spliton` comando.  Por predefinição, se o seu swagger acionador Especifica um payload de que é uma matriz, um `spliton` serão adicionados e iniciar uma execução por item.  SplitOn só pode ser adicionado a um acionador.  Isto pode ser manualmente configurado ou substituí-lo na vista de código de definição.  Atualmente SplitOn pode debatch matrizes até 5000 itens.  Não pode ter um `spliton` e também implementar o padrão de resposta síncronas.  Qualquer fluxo de trabalho chamado que tem um `response` ação além `spliton` será executada no modo assíncrono e enviar um imediata `202 Accepted` resposta.  
+Por vezes, um acionador poderá receber uma matriz de itens que pretende debatch e iniciar um fluxo de trabalho por item.  Este debatching pode ser efetuada através de `spliton` comando.  Por predefinição, se o seu swagger acionador Especifica um payload de que é uma matriz, um `spliton` é adicionado. O `spliton` comando inicia uma execução por item na matriz.  SplitOn só pode ser adicionada a um acionador que pode ser configurado ou substituí-lo manualmente. Não pode ter um `spliton` e também implementar o padrão de resposta síncronas.  Qualquer fluxo de trabalho chamado que tem um `response` ação além `spliton` é executado no modo assíncrono e envia uma imediata `202 Accepted` resposta.  
 
-SplitOn pode ser especificado na vista de código como o exemplo seguinte.  Isto recebe uma matriz de itens e debatches em cada linha.
+  Este exemplo recebe uma matriz de itens e debatches em cada linha. SplitOn pode ser especificado na vista de código como o exemplo seguinte:
 
 ```
 {
@@ -139,7 +141,7 @@ SplitOn pode ser especificado na vista de código como o exemplo seguinte.  Isto
 
 ## <a name="scopes"></a>Âmbitos
 
-É possível uma série de ações em conjunto com um âmbito de grupo.  Isto é particularmente útil para implementar o processamento de exceções.  O estruturador pode adicionar um novo âmbito e começar a adicionar quaisquer ações dentro do mesmo.  Pode definir âmbitos na vista de código como o seguinte:
+É possível uma série de ações em conjunto com um âmbito de grupo.  Âmbitos são úteis para implementar o processamento de exceções.  O estruturador pode adicionar um novo âmbito e começar a adicionar quaisquer ações dentro do mesmo.  Pode definir âmbitos na vista de código semelhante ao seguinte exemplo:
 
 
 ```

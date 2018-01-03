@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utilizar o portal do Azure para monitorizar máquinas virtuais
 Proteger os seus dados, efetuando os instantâneos dos seus dados em intervalos definidos. Estes instantâneos são conhecidos como pontos de recuperação e que está a ser armazenadas numa cofres dos serviços de recuperação. Se for necessário reparar ou reconstrua uma máquina virtual (VM), pode restaurar a VM a partir de qualquer um dos pontos de recuperação guardado. Quando restaurar um ponto de recuperação, pode:
@@ -42,7 +42,7 @@ Restaurar uma VM ou todos os discos de VM a cópia de segurança envolve dois pa
 * Selecione o tipo de restauro, criar uma nova VM ou restaurar os discos e especifique os parâmetros necessários. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Selecione um ponto de restauro do restauro
-1. Inicie sessão no [Portal do Azure](http://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](http://portal.azure.com/).
 
 2. No menu do Azure, selecione **procurar**. Na lista de serviços, escreva **dos serviços de recuperação**. A lista de serviços ajustável à qual é o tipo. Quando vir **cofres dos serviços de recuperação**, selecione-o.
 
@@ -248,7 +248,7 @@ Totalmente voltar a criar as VMs após o restauro para o disco, siga estes passo
 
    d. Criar uma VM com [vários reservado IPs](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que pode restaurar as suas VMs, consulte o artigo de resolução de problemas para obter informações sobre erros comuns com VMs. Além disso, consulte o artigo na gestão de tarefas com as suas VMs.
 
 * [Resolução de problemas de erros](backup-azure-vms-troubleshoot.md#restore)

@@ -3,8 +3,8 @@ title: "Implementar o conjunto de dimensionamento de Máquina Virtual com o Visu
 description: "Implementar os conjuntos de dimensionamento de Máquina Virtual utilizando o Visual Studio e um modelo do Resource Manager"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73454abc11a832a1b7f4131bf13699bd0a94edea
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um conjunto de dimensionamento de Máquina Virtual com o Visual Studio
 Este artigo mostra como implementar uma Azure Virtual Machine conjunto de dimensionamento de uma implementação de grupo de recursos do Studio Visual a utilizar.
@@ -75,7 +75,7 @@ O Balanceador de carga permite-lhe estabelecer ligação com as instâncias de V
 
 3. Aqui, pode criar um grupo de recursos do Azure para implementar o modelo para.
    
-    ![Novo grupo de recursos][new_resource]
+    ![Novo Grupo de Recursos][new_resource]
 
 4. Em seguida, clique em **Editar parâmetros** para introduzir parâmetros que são transmitidos ao seu modelo. Forneça o nome de utilizador e palavra-passe para o SO, o que é necessário para criar a implementação. Se não tiver as ferramentas do PowerShell para o Visual Studio instalado, é recomendado para verificar **guardar palavras-passe** para evitar uma linha de linha de comandos do PowerShell oculta ou utilize [keyvault suporte](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
    
@@ -92,7 +92,7 @@ Uma vez concluída a implementação, pode ver o conjunto de dimensionamento de 
 
  O portal fornece a melhor forma de gerir visualmente a sua infraestrutura do Azure com um browser, enquanto o Explorador de recursos do Azure fornece uma forma fácil para explorar e a depuração de recursos do Azure, dar uma janela para a "vista de instância" e também que mostra os comandos do PowerShell para os recursos está a visualizar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Assim que tiver implementado com êxito os conjuntos de dimensionamento de Máquina Virtual através do Visual Studio, pode personalizar ainda mais o projeto de acordo com os requisitos da aplicação. Por exemplo, configurar o dimensionamento automático, adicionando um **Insights** recurso, infraestrutura a adicionar ao seu modelo (como VMs autónomo) ou a implementação de aplicações através da extensão de script personalizado. Modelos de bom exemplo podem ser encontrados no [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) repositório do GitHub (procure "vmss").
 
 [file_new]: ./media/virtual-machine-scale-sets-vs-create/1-FileNew.png

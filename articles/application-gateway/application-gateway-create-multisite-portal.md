@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
 ms.openlocfilehash: 28a7fcb3e08a9c4b6a27e9fbc8d3ebae309adc62
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-existing-application-gateway-for-hosting-multiple-web-applications"></a>Configurar um gateway de aplicação existente para alojar várias aplicações web
 
@@ -124,7 +124,7 @@ Clique em **regra básica** para criar a segunda regra. Preencha o formulário c
 
 Este cenário conclui a configurar um gateway de aplicação existente com o suporte de vários site através do portal do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como proteger os seus Web sites com [Gateway de aplicação - Firewall de aplicações Web](application-gateway-webapplicationfirewall-overview.md)
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/20/2017
+ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 Cópia de segurança do Azure tem vários resulta numa eficiência incorporada que reduzir os custos de armazenamento e de rede durante as cópias de segurança completas iniciais dos dados no Azure. As cópias de segurança completas iniciais normalmente transferem grandes quantidades de dados e necessitam de mais largura de banda quando comparado com as cópias de segurança subsequentes transferir apenas as diferenças/incrementais. Cópia de segurança do Azure comprime as cópias de segurança iniciais. Durante o processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar o comprimido inicial cópia de segurança de dados offline para o Azure.  
@@ -31,7 +31,7 @@ Com a capacidade de cópia de segurança do Azure e do Azure para importar/expor
 O [da cópia de segurança do Azure (e mais tarde) de atualização de Agosto de 2016](http://go.microsoft.com/fwlink/?LinkID=229525) inclui o *ferramenta de preparação de disco do Azure*, com o nome AzureOfflineBackupDiskPrep, que:
 
 * Ajuda-o a preparar a unidades de importação do Azure utilizando a ferramenta de importação/exportação do Azure.
-* Cria automaticamente uma tarefa de importação do Azure para o serviço importar/exportar do Azure no [portal clássico do Azure](https://manage.windowsazure.com) , por oposição a criação da mesma manualmente com versões anteriores do Backup do Azure.
+* Cria automaticamente uma tarefa de importação do Azure para o serviço importar/exportar do Azure no [portal do Azure](https://ms.portal.azure.com).
 
 Após a conclusão do carregamento dos dados de cópia de segurança para o Azure, cópias de segurança do Azure copia os dados de cópia de segurança para o Cofre de cópia de segurança e as cópias de segurança incrementais.
 
@@ -69,11 +69,11 @@ As informações nesta secção ajuda-o a concluir o fluxo de trabalho de cópia
     * **Nome da tarefa de importação do Azure**: O nome exclusivo que importar do Azure Backup do Azure e do serviço controlam a transferência de dados enviados em discos para o Azure.
     * **Definições de publicação do Azure**: ficheiro um XML que contém informações sobre o perfil de subscrição. Também contém as credenciais seguras que estão associadas a sua subscrição. Pode [transfira o ficheiro](https://manage.windowsazure.com/publishsettings). Forneça o caminho local para o ficheiro de definições de publicação.
     * **ID de subscrição do Azure**: ID de subscrição do Azure para a subscrição em que pretende iniciar a tarefa de importação do Azure. Se tiver várias subscrições do Azure, utilize o ID da subscrição que pretende associar a tarefa de importação.
-    * **Conta de armazenamento do Azure**: A conta de armazenamento de tipo clássico fornecida subscrição do Azure que será associada a tarefa de importação do Azure.
+    * **Conta de armazenamento do Azure**: A conta de armazenamento na subscrição do Azure associada com a tarefa de importação do Azure.
     * **Contentor de armazenamento do Azure**: O nome do blob de armazenamento de destino na conta do storage do Azure onde os dados desta tarefa são importados.
 
     > [!NOTE]
-    > Se tiver registado o servidor para um cofre dos serviços de recuperação do Azure a partir de [portal do Azure](https://portal.azure.com) para as suas cópias de segurança e não existem numa subscrição do fornecedor de solução em nuvem (CSP), pode ainda criar uma conta de armazenamento de tipo clássico do portal do Azure e utilizá-lo para o fluxo de trabalho de cópia de segurança offline.
+    > Se tiver registado o servidor para um cofre dos serviços de recuperação do Azure a partir de [portal do Azure](https://portal.azure.com) para as suas cópias de segurança e não existem numa subscrição do fornecedor de solução em nuvem (CSP), pode ainda criar uma conta de armazenamento do portal do Azure e utilizá-lo para o fluxo de trabalho de cópia de segurança offline.
     >
     >
 
@@ -123,7 +123,7 @@ A ferramenta de preparação de disco do Azure está disponível no diretório d
 
     Em seguida, inicia a ferramenta preparar o disco com os dados de cópia de segurança. Terá de anexar discos adicionais quando lhe for pedido pela ferramenta no caso do disco fornecido não tem espaço suficiente para os dados de cópia de segurança. <br/>
 
-    No final da execução bem sucedida da ferramenta, um ou mais discos que forneceu estão preparados para envio para o Azure. Além disso, uma tarefa de importação com o nome que forneceu durante a **iniciar cópia de segurança offline** fluxo de trabalho é criado no portal clássico do Azure. Por fim, a ferramenta apresenta o endereço de envio para o datacenter do Azure em que os discos têm de ser fornecidos e a ligação para localizar a tarefa de importação no portal clássico do Azure.
+    No final da execução bem sucedida da ferramenta, um ou mais discos que forneceu estão preparados para envio para o Azure. Além disso, uma tarefa de importação com o nome que forneceu durante a **iniciar cópia de segurança offline** fluxo de trabalho é criado no portal do Azure. Por fim, a ferramenta apresenta o endereço de envio para o datacenter do Azure em que os discos têm de ser fornecidos e a ligação para localizar a tarefa de importação no portal do Azure.
 
     ![Preparação de disco do Azure completa](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 
@@ -181,7 +181,7 @@ Após a conclusão da tarefa de importação, os dados de cópia de segurança i
   ![Saída do PowerShell](./media/backup-azure-backup-import-export/psoutput.png)
 
 ### <a name="create-an-import-job-in-the-azure-portal"></a>Criar uma tarefa de importação no portal do Azure
-1. Aceda à sua conta de armazenamento na [portal clássico do Azure](https://manage.windowsazure.com/), clique em **importar/exportar**e, em seguida, **criar tarefa de importação** no painel de tarefas.
+1. Aceda à sua conta de armazenamento na [portal do Azure](https://ms.portal.azure.com/), clique em **importar/exportar**e, em seguida, **criar tarefa de importação** no painel de tarefas.
 
     ![Separador no portal do Azure para importar/exportar](./media/backup-azure-backup-import-export/azureportal.png)
 
@@ -206,6 +206,6 @@ Após a conclusão da tarefa de importação, os dados de cópia de segurança i
 ### <a name="complete-the-workflow"></a>Concluir o fluxo de trabalho
 Depois dos dados de cópia de segurança iniciais estão disponíveis na sua conta de armazenamento, o agente dos serviços de recuperação do Microsoft Azure copia o conteúdo dos dados a partir desta conta para o Cofre de cópia de segurança ou do cofre dos serviços de recuperação, optando-se aplicável. Na próxima hora cópia de segurança agendada, o agente de cópia de segurança do Azure efetua a cópia de segurança incremental através de cópia de segurança inicial.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para quaisquer perguntas sobre o fluxo de trabalho de importação/exportação do Azure, consulte [utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o Blob storage](../storage/common/storage-import-export-service.md).
 * Consulte a secção de cópia de segurança offline da cópia de segurança do Azure de [FAQ](backup-azure-backup-faq.md) para quaisquer perguntas sobre o fluxo de trabalho.

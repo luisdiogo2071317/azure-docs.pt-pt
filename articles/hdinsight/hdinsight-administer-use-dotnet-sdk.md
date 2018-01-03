@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 97141b2360c88f11830147b9592c9c8538af383c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d881d47e26460d3fff89c01245bba4c608dc8b08
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerir clusters do Hadoop no HDInsight ao utilizar o .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -271,7 +271,7 @@ Consulte [Oozie de utilização com o Hadoop para definir e executar um fluxo de
 ## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados para o Blob storage do Azure
 Consulte [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-upload-data].
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 * [Documentação de referência do SDK .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Administrar HDInsight ao utilizar o portal do Azure][hdinsight-admin-portal]
 * [Administrar HDInsight utilizando uma interface de linha de comandos][hdinsight-admin-cli]

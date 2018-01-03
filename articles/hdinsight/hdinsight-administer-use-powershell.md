@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 58028c969130991f3dfa6556baa37a0510f9c7e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04bb16d4779741d71f686f53a8f325243ab8499e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gerir clusters do Hadoop no HDInsight ao utilizar o Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -236,7 +236,7 @@ Consulte [Oozie de utilização com o Hadoop para definir e executar um fluxo de
 ## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados para o Blob storage do Azure
 Consulte [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-upload-data].
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 * [Documentação de referência de cmdlet do HDInsight][hdinsight-powershell-reference]
 * [Administrar HDInsight ao utilizar o portal do Azure][hdinsight-admin-portal]
 * [Administrar HDInsight utilizando uma interface de linha de comandos][hdinsight-admin-cli]

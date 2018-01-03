@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 1c9e100b4a0e7781f0782a49835d50492895ded1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Utilizar o Distcp para copiar dados entre os Blobs de Armazenamento do Azure e o Arquivo do Data Lake
 > [!div class="op_single_selector"]
@@ -114,7 +114,7 @@ Quando o tamanho do conjunto de dados sejam movidos é grande (por exemplo, > 1 
  
 * Se estiver a copiar a partir de uma conta do Blob Storage do Azure, poderá ser limitada a tarefa de cópia no lado de armazenamento de Blobs. Isto degrada o desempenho da sua tarefa de cópia. Para saber mais sobre os limites do Blob Storage do Azure, consulte os limites de armazenamento do Azure em [subscrição do Azure e limites de serviço](../azure-subscription-service-limits.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Copiar dados de Blobs de armazenamento do Azure para o Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)
 * [Utilizar o Azure Data Lake Analytics com o Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

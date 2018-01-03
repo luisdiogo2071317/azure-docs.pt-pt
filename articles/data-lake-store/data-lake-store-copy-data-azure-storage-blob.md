@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copy data from Azure Storage Blobs to Data Lake Store (Copiar dados dos Blobs de Armazenamento do Azure para o Data Lake Store)
 > [!div class="op_single_selector"]
@@ -178,7 +178,7 @@ AdlCopy suporta a cópia de dados que contém milhares de ficheiros e pastas. No
 ## <a name="release-notes"></a>Notas de versão
 * 1.0.13 - se estiver a copiar dados para a mesma conta do Azure Data Lake Store através de vários comandos adlcopy, não terá de reintroduzir as suas credenciais para cada execução já. Adlcopy irão agora colocar em cache essa informação em várias execuções.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)
 * [Utilizar o Azure Data Lake Analytics com o Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Use Azure HDInsight with Data Lake Store (Utilizar o Azure HDInsight com o Data Lake Store)](data-lake-store-hdinsight-hadoop-use-portal.md)

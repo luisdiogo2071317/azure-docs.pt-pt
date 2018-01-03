@@ -15,24 +15,24 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 12/13/2017
 ms.author: bprakash
-ms.openlocfilehash: 0b6afcad6f838170d83f90a2cef8ccab0e2cfc9a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 45cccb09753c85ae4a6d077d49cbd58630a9788a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Hadoop e versões disponíveis com o HDInsight?
 
-Saiba mais sobre os componentes do ecossistema do Apache Hadoop e versões no Microsoft Azure HDInsight, bem como os níveis de serviço Standard e Premium. Além disso, saiba como verificar as versões de componentes do Hadoop no HDInsight. 
+Saiba mais sobre os componentes do ecossistema do Apache Hadoop e versões no Microsoft Azure HDInsight, bem como o pacote de segurança da empresa. Além disso, saiba como verificar as versões de componentes do Hadoop no HDInsight. 
 
 Cada versão do HDInsight é uma distribuição de nuvem de uma versão do Hortonworks Data Platform (HDP).
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>Componentes do Hadoop disponíveis com diferentes versões do HDInsight
 O Azure HDInsight suporta várias versões de cluster de Hadoop que podem ser implementadas em qualquer altura. Cada opção de versão cria uma versão específica da distribuição HDP e um conjunto de componentes que estão contidas dentro dessa distribuição. A partir de 17 de Fevereiro de 2017, a versão de cluster predefinido utilizada pelo Azure HDInsight é 3.5 e baseia-se no HDP 2.5.
 
-As versões de componente associadas as versões de cluster do HDInsight estão listadas na seguinte tabela. 
+As versões de componente associadas as versões de cluster do HDInsight estão listadas na seguinte tabela: 
 
 > [!NOTE]
 > Poderá alterar a versão predefinida para o serviço de HDInsight sem aviso prévio. Se tiver uma dependência de versão, especifique a versão do HDInsight ao criar os clusters com o SDK .NET da Azure PowerShell e da CLI do Azure.
@@ -94,12 +94,54 @@ A tabela seguinte lista as versões do HDInsight que estão atualmente disponív
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Sim |28 de Outubro de 2013 |Não |12 de Maio de 2014 |31 de Maio de 2015 |
 | HDInsight 1.6 |HDP 1.1 | |Não |28 de Outubro de 2013 |Não |26 de Abril de 2014 |31 de Maio de 2015 |
 
-## <a name="hdinsight-windows-retirement"></a>Extinção do Windows do HDInsight
+
+## <a name="enterprise-security-package-for-hdinsight"></a>Pacote de segurança da empresa para o HDInsight
+
+O Azure HDInsight é um pacote opcional que pode adicionar no cluster do HDInsight como parte do fluxo de trabalho de cluster de criar. O pacote de segurança de Enterprise suporta:
+
+- Integração com o Active Directory para autenticação.
+
+    No passado, só pode criar clusters do HDInsight com um utilizador de administrador local e um utilizador SSH local. O utilizador de administrador local pode aceder a todos os a ficheiros, pastas, tabelas e colunas.  Com o pacote de segurança da empresa, pode ativar o controlo de acesso baseado em funções, integrando clusters do HDInsight com os seus próprios Active Directory, que incluem no local do Active Directory, o Azure Active Directory Domain Services ou o Active Directory no IaaS máquina virtual. Administrador de domínio no cluster pode conceder os utilizadores utilizem os seus próprios nome de utilizador empresarial (domínio) e a palavra-passe para aceder ao cluster. 
+
+    Para obter mais informações, consulte:
+
+    - [Uma introdução ao Hadoop segurança com clusters do HDInsight associados a um domínio](./domain-joined/apache-domain-joined-introduction.md)
+    - [Planear a clusters do Hadoop associados a um domínio do Azure no HDInsight](./domain-joined/apache-domain-joined-architecture.md)
+    - [Configurar o ambiente sandbox associados a um domínio](./domain-joined/apache-domain-joined-configure.md)
+    - [Configurar clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+
+- Autorização para dados
+
+    - Integração com o Apache Ranger para autorização para o ramo de registo, o Spark SQL e o Yarn filas.
+    - Pode definir o controlo de acesso em ficheiros e pastas.
+
+    Para obter mais informações, consulte:
+
+    - [Configurar políticas de Hive no HDInsight associados a um domínio](./domain-joined/apache-domain-joined-run-hive.md)
+
+- Ver os registos de auditoria para acessos de monitor e as políticas configuradas. 
+
+### <a name="supported-cluster-types"></a>Tipos de cluster suportadas
+
+Atualmente, apenas os seguintes tipos de cluster suportam o pacote de segurança da empresa:
+
+- Hadoop (apenas no HDInsight 3.6)
+- Spark
+- Interactive Query
+
+### <a name="support-for-azure-data-lake-store"></a>Suporte para o Data Lake Store do Azure
+
+O suporta de pacote de segurança da empresa utilizando o Azure Data Lake Store como o armazenamento primário e o armazenamento de suplemento.
+
+### <a name="pricing-and-sla"></a>Preços e SLA
+Para informações sobre preços e o SLA para o pacote de segurança da empresa, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+
+## <a name="hdinsight-windows-retirement"></a>Reforma do Windows HDInsight
 Microsoft Azure HDInsight versão 3.3 foi a última versão do HDInsight no Windows. A data de retirada para o HDInsight no Windows é de 31 de Julho de 2018. Se tiver quaisquer clusters do HDInsight no Windows 3.3 ou anteriores, tem de migrar para o HDInsight no Linux (HDInsight versão 3.5 ou posterior) antes de 31 de Julho de 2018. Migrar para o SO Linux permite-lhe manter a capacidade de criar ou redimensionar seus clusters do HDInsight. Suporte para o HDInsight versão 3.3 no Windows expirou 27 de Junho de 2016.
 
 A partir do HDInsight versão 3.4, Microsoft lançou HDInsight apenas no SO Linux. Como resultado, alguns dos componentes de dentro do HDInsight estão disponíveis para Linux apenas. Estes incluem Apache Ranger, Kafka, consulta interativas, aplicações do HDInsight Spark e o Azure Data Lake Store, como o sistema de ficheiros primário. Em versões futuras do HDInsight só estão disponíveis no SO Linux. Não haverá nenhuma versões futuras do HDInsight no Windows. 
 
-## <a name="faqs"></a>Perguntas mais frequentes
+## <a name="faqs"></a>FAQs
 
 ### <a name="what-is-the-timeline-for-retiring-hdinsight-on-windows"></a>O que é a linha cronológica para extinguir o HDInsight no Windows?
 De 2018, 31 de Julho, é a data de retirada para o HDInsight no Windows. Se a data de retirada planeada é diferente para a região, será notificado separadamente. 
@@ -165,36 +207,10 @@ A secção fornece ligações para notas de versão das distribuições de plata
 * Clusters do HDInsight versão 2.1 utiliza a distribuição Hadoop baseado em [Hortonworks Data Platform 1.3][hdp-1-3-0].
 * Clusters do HDInsight versão 1.6 utiliza a distribuição Hadoop baseado em [Hortonworks Data Platform 1.1][hdp-1-1-0].
 
-## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard e HDInsight Premium
 
-O Azure HDInsight fornece ofertas de nuvem de macrodados em duas categorias: _padrão_ e _Premium_. A tabela seguinte apresenta uma lista de funcionalidades que estão disponíveis _apenas_ no HDInsight Premium. Funcionalidades que não estão explicitamente descritas na tabela estão disponíveis no HDInsight Standard e Premium.
 
-> [!NOTE]
-> O HDInsight Premium oferta está atualmente em pré-visualização e está disponível apenas para os clusters do Linux.
 
-| Funcionalidade do HDInsight Premium | Descrição |
-| --- | --- |
-| Clusters do HDInsight associados a um domínio |Associação a clusters do HDInsight para domínios do Azure Active Directory (Azure AD) para segurança ao nível da empresa. No HDInsight Premium, pode configurar uma lista de funcionários da sua empresa que pode autenticar através do Azure AD para iniciar sessão para um cluster do HDInsight. O administrador de empresa pode configurar o controlo de acesso baseado em funções de segurança de ramo de registo utilizando [Apache Ranger](http://hortonworks.com/apache/ranger/) e restringir o acesso a dados a utilizar apenas como necessário. Por fim, o administrador pode auditar dados aos quais os funcionários e as alterações para políticas de controlo, aumentando assim alcançar um elevado grau de governação de recursos empresariais de acesso. Para obter mais informações, consulte [configurar clusters do HDInsight associados a um domínio](./domain-joined/apache-domain-joined-configure.md). |
 
-### <a name="cluster-types-supported-in-hdinsight-premium"></a>Tipos de cluster suportados no HDInsight Premium
-A tabela seguinte lista os tipos de cluster que são suportados no HDInsight Premium.
-
-| Tipo de cluster | Standard | Premium (pré-visualização) |
-| --- | --- | --- |
-| Hadoop |Sim |Sim (apenas no HDInsight 3.6) |
-| Spark |Sim |Não |
-| HBase |Sim |Não |
-| Storm |Sim |Não |
-| R Server |Sim |Não |
-| Interactive Query |Sim |Não |
-| Kafka (pré-visualização) |Sim |Não | 
-
-### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>Suporte para o Azure Data Lake Store no HDInsight Premium
-
-Clusters do HDInsight Premium não suportam a utilização do Azure Data Lake Store como armazenamento principal. No entanto, pode utilizar o Azure Data Lake Store como armazenamento suplementar com clusters do HDInsight Premium.
-
-### <a name="pricing-and-sla"></a>Preços e SLA
-Para informações sobre preços e o SLA para o HDInsight Premium, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Predefinição configuração e a máquina virtual tamanhos de nó para clusters
 As tabelas seguintes listam os tamanhos de máquina virtual (VM) predefinido de clusters do HDInsight.
@@ -234,7 +250,7 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) predefinido de 
 > - Trabalho é conhecido como *Supervisor* o Storm para o tipo de cluster.
 > - Trabalho é conhecido como *região* para o HBase tipo de cluster.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [A configuração de cluster de Hadoop, Spark e muito mais no HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Hadoop no HDInsight a partir do Windows PC de trabalho](hdinsight-hadoop-windows-tools.md)
 

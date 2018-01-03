@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 0da456e13042168f3c8e871f180e6477b73392d5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão de Media Services do Azure
 Estas notas de versão resumem as alterações de versões anteriores e problemas conhecidos.
@@ -28,8 +28,9 @@ Estas notas de versão resumem as alterações de versões anteriores e problema
 > 
 > 
 
-## <a id="issues"></a>Problemas conhecidos atualmente
-### <a id="general_issues"></a>Problemas gerais de serviços de multimédia
+## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problemas conhecidos atualmente
+### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problemas gerais de serviços de multimédia
+
 | Problema | Descrição |
 | --- | --- |
 | Vários cabeçalhos HTTP comuns não são fornecidos na REST API. |Se desenvolver aplicações de Media Services utilizando a API REST, encontrará que alguns campos de cabeçalho HTTP comuns (incluindo CLIENT-REQUEST-ID, o ID de pedido e retorno-CLIENT-REQUEST-ID) não são suportadas. Os cabeçalhos serão adicionados numa atualização futura. |
@@ -41,7 +42,7 @@ Estas notas de versão resumem as alterações de versões anteriores e problema
 | Objetos de SDK .NET dos Media Services do Azure não podem ser serializados e assim não funcionar com colocação em cache do Azure. |Se tentar serializar o objeto de SDK AssetCollection adicioná-lo a colocação em cache do Azure, é emitida uma exceção. |
 
 
-## <a id="rest_version_history"></a>Histórico da versão de API REST
+## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Histórico da versão de API REST
 Para obter informações sobre o histórico da versão de API de REST dos serviços de suporte de dados, consulte [referência da API REST do Azure Media Services].
 
 ## <a name="october-2017-release"></a>Versão de Outubro de 2017
@@ -89,7 +90,6 @@ Agora, pode utilizar Azure de multimédia Standard para [gerar automaticamente u
 
 Agora, pode utilizar o padrão de suporte de dados do Azure ou fluxo de trabalho do suporte de dados codificador Premium para [criar uma tarefa de codificação que gera fMP4 segmentos](media-services-generate-fmp4-chunks.md). 
 
-
 ## <a name="february-2017-release"></a>Versão de Fevereiro de 2017
 
 A partir de 1 de abril de 2017, qualquer Registo de tarefa na sua conta com mais de 90 dias será eliminado automaticamente, juntamente com os seus registos de Tarefas associados, mesmo se o número total de registos for inferior à quota máxima. Se precisar de arquivar as informações de tarefas, pode utilizar o código descrito [aqui](media-services-dotnet-manage-entities.md).
@@ -102,9 +102,9 @@ Além disso, começando com a versão 2.15, Media Services do Azure adicionadas 
 
 ## <a name="december-2016-release"></a>Versão de Dezembro de 2016
 
-Media Services do Azure agora permite-lhe aceder a dados de telemetria/métricas para os respetivos serviços. A versão atual do AMS permite-lhe recolher dados de telemetria de canais em direto, StreamingEndpoint, e em direto entidades de arquivo. Para obter mais informações, consulte [isto](media-services-telemetry-overview.md) artigo.
+Media Services do Azure agora permite-lhe aceder a dados de telemetria/métricas para os respetivos serviços. A versão atual do AMS permite-lhe recolher dados de telemetria de canais em direto, StreamingEndpoint, e em direto entidades de arquivo. Para obter mais informações, veja [este](media-services-telemetry-overview.md) artigo.
 
-## <a id="july_changes16"></a>Versão de Julho de 2016
+## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Versão de Julho de 2016
 ### <a name="updates-to-manifest-file-ism-generated-by-encoding-tasks"></a>Atualizações para o ficheiro de manifesto (*. ISM) gerado por tarefas de codificação
 Quando uma tarefa de codificação foi submetida para o codificador de multimédia Standard ou o codificador de multimédia do Azure, a tarefa de codificação gera um [ficheiro de manifesto de transmissão em fluxo](media-services-deliver-content-overview.md) (* ISM) ficheiro no resultado do recurso. Com a versão mais recente do serviço, a sintaxe deste ficheiro de manifesto de transmissão em fluxo foi atualizada.
 

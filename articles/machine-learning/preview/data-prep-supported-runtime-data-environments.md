@@ -5,30 +5,30 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 93acec3bada30364b6e3338e037b442d7e6cd309
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>Matriz suportada para esta versão 
 Quando o código carrega dados através da utilização de origens de dados do Azure Machine Learning ou do Azure Machine Learning dados preparativos, obter ou um Pandas ou localizações de dados e ambientes de computação do Spark dataframe, seguintes combinações de experimentação são suportados:
 
 |     |Ficheiros locais  |Armazenamento de Blobs do Azure  |Base de dados do SQL Server ***  |
 |---------|---------|---------|---------|---------|
-|Local Python    |     Suportado    |Não suportado         | Não suportado        |         |
+|Local Python    |     Suportadas    |Não suportado         | Não suportado        |         |
 |Python docker (VM com Linux)     |Suportado apenas os ficheiros de projeto *         | Não suportado        |        Não suportado |         |
-|PySpark docker (VM com Linux)     |Suportado apenas os ficheiros de projeto *     |Suportado         | Suportado (2)        |         |
+|PySpark docker (VM com Linux)     |Suportado apenas os ficheiros de projeto *     |Suportadas         | Suportado (2)        |         |
 |Python de Máquina Virtual de ciência de dados do Azure     |Suportado apenas os ficheiros de projeto *         |Não suportado         |Não suportado         |         |
 |PySPark de Máquina Virtual de ciência de dados do Azure     | Suportado apenas os ficheiros de projeto *        |Não suportado         |Não suportado         |         |
-|PySpark do Azure HDInsight     | Não suportado        |Suportado         |Suportado (2)         |         |
+|PySpark do Azure HDInsight     | Não suportado        |Suportadas         |Suportado (2)         |         |
 |Python do Azure HDInsight     | Não suportado        | Não suportado        | Não suportado        |         |
 
 O Azure Data Lake Store não é atualmente suportado para qualquer destino de computação.

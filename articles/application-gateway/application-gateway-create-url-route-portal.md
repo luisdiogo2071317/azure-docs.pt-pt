@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
 ms.openlocfilehash: b207e7e7bd83e56db68288190c7bedafa8b5b7fa
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-azure-portal"></a>Criar uma regra com base no caminho para um gateway de aplicação utilizando o portal do Azure
 
@@ -82,7 +82,7 @@ Adicionar uma regra com base no caminho para um gateway de aplicação existente
 
 Este passo configura uma rota com base no caminho. É importante compreender a pedidos não foi reescritos. Tal como pedidos são fornecidos, o gateway de aplicação inspeciona o pedido e, com base num padrão de URL, envia o pedido para o conjunto de back-end adequado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber como configurar a descarga de SSL com o Gateway de aplicação do Azure, consulte [configurar um gateway de aplicação para a descarga de SSL com o portal do Azure](application-gateway-ssl-portal.md).
 

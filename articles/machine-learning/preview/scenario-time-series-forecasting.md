@@ -7,6 +7,7 @@ author: anta
 manager: ireiter
 editor: anta
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 1d1e6dc7899a9f3367c8aa05d862a863f1f88135
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 17903df93e11b8d1a5b9c6fbe5fd8e53302f45f4
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Série de tempo de pedido de energia previsão
 
@@ -96,7 +97,7 @@ Valores de pedido são nas megawatt-horas (MWh). Abaixo está um gráfico de pro
 | --- | --- | --- |
 | 2012-01-01 00:00:00 | 0.0 | 46.13 |
 | 2012-01-01 01:00:00 | 0.01 | 45.89 |
-| 2012-01-01 02:00:00 | 0.05 | 45.04 |
+| 2012-01-01 02:00:00 | 0,05 | 45.04 |
 | 2012-01-01 03:00:00 | 0.02 | 45.03 |
 
 *precip* é uma medida de percentagem de nível de precipitation. *Temp* valores (temperatura) tem sido rescaled, de modo a que todos os valores enquadram-se no intervalo [0, 100].

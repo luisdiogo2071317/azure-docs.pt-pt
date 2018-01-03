@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: cfc2fde552b029412042474e31a1b28dd80b3021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Atualizado para o Cofre dos serviços de recuperação Cofre de cópia de segurança
 Este artigo fornece uma descrição geral fornece o Cofre dos serviços de recuperação, perguntas mais frequentes sobre a atualização de cópia de segurança existente do cofre dos serviços de recuperação cofre e passos pós-atualização. Um cofre dos serviços de recuperação é o equivalente do Azure Resource Manager um cofre de cópia de segurança que aloja os seus dados de cópia de segurança. Os dados são, geralmente, cópias de dados ou informações de configuração para máquinas virtuais (VMs), cargas de trabalho, servidores ou estações de trabalho, se no local ou no Azure.
@@ -71,7 +71,7 @@ Uma vez atualizar para um cofre dos serviços de recuperação, configure os rel
 Não. As cópias de segurança em curso continuam sem interrupções durante e após a atualização.
 
 **O que faz esta atualização média para os meus ferramentas existentes?**</br>
-Tem de atualizar a automatização existente ou ferramentas para o modelo de implementação Resource Manager para se certificar de que continua a funcionar após a atualização. Consulte as referências de cmdlets do PowerShell para o [modelo de implementação do Service Manager](backup-client-automation-classic.md) e [modelo de implementação do Resource Manager](backup-client-automation.md).
+Tem de atualizar a automatização existente ou ferramentas para o modelo de implementação Resource Manager para se certificar de que continua a funcionar após a atualização. Consulte as referências de cmdlets do PowerShell para o [modelo de implementação do Resource Manager](backup-client-automation.md).
 
 **Pode posso reverter após a atualização?**</br>
 Não. A reversão não é suportada depois dos recursos foram atualizados com êxito.
@@ -99,7 +99,7 @@ A monitorização para cópias de segurança (o agente MARS e IaaS) é uma funci
 **Como posso comunicar um problema?**</br>
 Se falhar qualquer parte da atualização do cofre, tenha em atenção que o OperationId listado no erro. Microsoft Support proativamente irá funcionar para resolver o problema. Pode aceder à suporte ou e-mail-nos rsvaultupgrade@service.microsoft.com com o ID de subscrição, nome do cofre e OperationId. Vamos tentar resolver o problema mais rapidamente possível. Não repita a operação, a menos que explicitamente instruído para fazer pela Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Utilize os seguintes artigos para:</br>
 [Cópia de segurança de uma VM do IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Cópia de segurança de um servidor de cópia de segurança do Azure](backup-azure-microsoft-azure-backup.md)</br>

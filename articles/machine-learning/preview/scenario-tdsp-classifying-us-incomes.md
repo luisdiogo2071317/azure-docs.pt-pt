@@ -1,12 +1,13 @@
 ---
 title: "Classificação de receitas - equipa o processo de ciência de dados - Azure Machine Learning | Microsoft Docs"
-description: "Como utilizar o modelo de processo de ciência de dados de agrupamento para criar um projeto no Azure Machine Learning que classifica incomes E.U.A.."
+description: "Como utilizar o modelo de processo de ciência de dados de agrupamento para criar um projeto no Azure Machine Learning que classifica incomes E.U.A."
 services: machine-learning
 documentationcenter: 
 author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classificação de receitas com o projeto de equipa dados ciência processo (TDSP)
 
@@ -171,7 +172,7 @@ Neste exemplo, vamos mostrou agora para utilizar a estrutura TDSP e modelos no A
 
 Esperamos que utilize esta funcionalidade do Azure Machine Learning para facilitar a uniformização e colaboração das equipas de ciência de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Consulte referências abaixo para começar a utilizar:
 

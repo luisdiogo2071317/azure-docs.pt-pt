@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
 ms.openlocfilehash: 947b985fe242c026e94d78664fa41f666334392a
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Fazer cópias de segurança de um servidor ou cliente Windows para o Azure com o modelo de implementação Resource Manager
 Este artigo explica como fazer cópias de segurança do Windows Server (ou cliente Windows) ficheiros e pastas para o Azure com cópia de segurança do Azure utilizando o modelo de implementação Resource Manager.
@@ -256,7 +256,7 @@ Depois de concluída a cópia de segurança inicial, o estado **Tarefa concluíd
 ## <a name="questions"></a>Tem dúvidas?
 Se tiver dúvidas ou se houver alguma funcionalidade que gostaria de ver incluída, [envie-nos comentários](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter informações adicionais sobre como fazer uma cópia de segurança de VMs ou outras cargas de trabalho, consulte:
 
 * Agora que criou uma segurança dos seus ficheiros e pastas, pode [gerir os cofres e os servidores](backup-azure-manage-windows-server.md).

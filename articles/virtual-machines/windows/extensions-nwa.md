@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 508b3755556bcae6aa2c7d17a2d86a1430a8109a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 68855e0070916dc672914fbc8ca3587a5d3c25f6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de agente do observador de rede para Windows
 
 ## <a name="overview"></a>Descrição geral
 
-[Observador de rede do Azure](https://review.docs.microsoft.com/azure/network-watcher/) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização de redes do Azure. A extensão de máquina virtual de agente do observador de rede é um requisito para algumas das funcionalidades de observador de rede em máquinas virtuais do Azure. Isto inclui capturar o tráfego de rede a pedido e outras funcionalidades avançadas.
+[Observador de rede do Azure](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização de redes do Azure. A extensão de máquina virtual de agente do observador de rede é um requisito para capturar o tráfego de rede a pedido e outras funcionalidades avançadas em máquinas virtuais do Azure.
+
 
 Este documento fornece detalhes sobre as plataformas suportadas e as opções de implementação para a extensão de máquina virtual de agente do observador de rede para o Windows.
 
@@ -33,15 +34,15 @@ Este documento fornece detalhes sobre as plataformas suportadas e as opções de
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão de agente do observador de rede para o Windows pode ser executado no Windows Server 2008 R2, 2012, 2012 R2 e 2016 versões. Tenha em atenção que o servidor de Nano não é suportado neste momento.
+A extensão de agente do observador de rede para o Windows pode ser executado no Windows Server 2008 R2, 2012, 2012 R2 e 2016 versões. O Servidor de Nano não é suportado.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-Algumas das funcionalidades do agente do observador de rede requer que a máquina virtual de destino estar ligado à Internet. Sem a capacidade para estabelecer ligações de saída algumas das funcionalidades do agente do observador de rede podem avaria ou ficar indisponíveis. Para obter mais detalhes, consulte o [documentação de observador de rede](../../network-watcher/network-watcher-monitoring-overview.md).
+Algumas das funcionalidades do agente do observador de rede requer que a máquina virtual de destino estar ligado à Internet. Sem a capacidade para estabelecer ligações de saída, o agente do observador de rede não poderá carregar capturas de pacotes para a conta do storage. Para obter mais detalhes, consulte o [documentação de observador de rede](../../network-watcher/network-watcher-monitoring-overview.md).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON seguinte mostra o esquema para a extensão de agente do observador de rede. A extensão não necessita de nem suporta quaisquer definições fornecido pelo utilizador neste momento e baseia-se na sua configuração predefinida.
+O JSON seguinte mostra o esquema para a extensão de agente do observador de rede. A extensão não necessita de, nem suporta as definições fornecido pelo utilizador e baseia-se na sua configuração predefinida.
 
 ```json
 {
@@ -73,27 +74,28 @@ O JSON seguinte mostra o esquema para a extensão de agente do observador de red
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser utilizado num modelo Azure Resource Manager para executar a extensão de agente do observador de rede durante uma implementação de modelo Azure Resource Manager.
+É possível implementar extensões de VM do Azure com modelos Azure Resource Manager. Pode utilizar o esquema JSON detalhado na secção anterior num modelo Azure Resource Manager para executar a extensão de agente do observador de rede durante uma implementação de modelo Azure Resource Manager.
 
 ## <a name="powershell-deployment"></a>Implementação de PowerShell
 
-O `Set-AzureRmVMExtension` comando pode ser utilizado para implementar a extensão de máquina virtual de agente do observador de rede para uma máquina virtual existente.
+Utilize o `Set-AzureRmVMExtension` comando para implementar a extensão de máquina virtual de agente do observador de rede para uma máquina virtual existente:
 
 ```powershell
-Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup1" `
-                       -Location "WestUS" `
-                       -VMName "myVM1" `
-                       -Name "networkWatcherAgent" `
-                       -Publisher "Microsoft.Azure.NetworkWatcher" `
-                       -Type "NetworkWatcherAgentWindows" `
-                       -TypeHandlerVersion "1.4"
+Set-AzureRmVMExtension `
+  -ResourceGroupName "myResourceGroup1" `
+  -Location "WestUS" `
+  -VMName "myVM1" `
+  -Name "networkWatcherAgent" `
+  -Publisher "Microsoft.Azure.NetworkWatcher" `
+  -Type "NetworkWatcherAgentWindows" `
+  -TypeHandlerVersion "1.4"
 ```
 
 ## <a name="troubleshooting-and-support"></a>Resolução de problemas e suporte
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-É possível obter dados sobre o estado das implementações de extensão do portal do Azure e utilizando o módulo Azure PowerShell. Para ver o estado de implementação das extensões para uma determinada VM, execute o seguinte comando utilizando o módulo PowerShell do Azure.
+Poderá obter dados sobre o estado das implementações de extensão a partir do portal do Azure e PowerShell. Para ver o estado de implementação das extensões para uma determinada VM, execute o seguinte comando utilizando o módulo Azure PowerShell:
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent

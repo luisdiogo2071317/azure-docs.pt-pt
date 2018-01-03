@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: nini
 ms.openlocfilehash: ca86787e344aa5e9e68934dee6e9e83aeb4cc340
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Avalie as aplicações do Azure Service Fabric e microserviços com o PowerShell
 > [!div class="op_single_selector"]
@@ -649,5 +649,5 @@ foreach($storageAccount in $storageAccountsToCheck)
  ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Utilize [pesquisas de registo na análise de registos](log-analytics-log-searches.md) para ver os dados de evento detalhados do Service Fabric.

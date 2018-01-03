@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
 ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparar a criação de cópias de segurança de cargas de trabalho com o Azure Backup Server
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Quer enviar dados de cópia de segurança para o Azure ou mantenha-o localmente,
 
 Para criar um cofre dos serviços de recuperação:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu Hub, clique em **Procurar** e na lista de recursos, escreva **Serviços de Recuperação**. À medida que começa a escrever, a lista filtra com base na sua entrada. Clique em **Cofre dos Serviços de Recuperação**.
 
     ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
@@ -113,7 +113,7 @@ Para editar a definição de replicação de armazenamento:
 
 ## <a name="3-software-package"></a>3. Pacote de software
 ### <a name="downloading-the-software-package"></a>Transferir o pacote de software
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Se já tiver um cofre de serviços de recuperação aberto, avance para o passo 3. Se não tiver um cofre dos Serviços de Recuperação aberto, mas está no portal do Azure, no menu Hub, clique em **Procurar**.
 
    * Na lista de recursos, escreva **Serviços de Recuperação**.
@@ -240,10 +240,10 @@ Depois de saber o estado da conetividade do Azure e da subscrição do Azure, po
 | Estado de conectividade | Subscrição do Azure | Criar uma cópia de segurança do Azure | Cópia de segurança para disco | Restaurar a partir do Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
 | Ligado |Ativa |Permitido |Permitido |Permitido |Permitido |
-| Ligado |Expirado |Parada |Parada |Permitido |Permitido |
+| Ligado |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Ligado |Desaprovisionada |Parada |Parada |Pontos de recuperação de paragem e o Azure eliminados |Parada |
 | Conectividade perdida > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
-| Conectividade perdida > 15 dias |Expirado |Parada |Parada |Permitido |Permitido |
+| Conectividade perdida > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Conectividade perdida > 15 dias |Desaprovisionada |Parada |Parada |Pontos de recuperação de paragem e o Azure eliminados |Parada |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperar a partir de perda de conectividade
@@ -267,7 +267,7 @@ Depois de conectividade para o Azure foi restaurada para a máquina do servidor 
 Se o servidor de cópia de segurança do Microsoft Azure falhar com erros durante a fase de configuração (ou cópia de segurança ou restauro), consulte este [documento de códigos de erro](https://support.microsoft.com/kb/3041338) para obter mais informações.
 Também pode consultar [perguntas mais frequentes relacionadas com a cópia de segurança do Azure](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode obter informações detalhadas [preparar o ambiente para o DPM](https://technet.microsoft.com/library/hh758176.aspx) no site Microsoft TechNet. Também contém informações sobre configurações suportadas em que servidor de cópia de segurança do Azure podem ser implementado e utilizado.
 
 Pode utilizar estes artigos para obter uma compreensão mais aprofundada da proteção de carga de trabalho utilizando o servidor de cópia de segurança do Microsoft Azure.

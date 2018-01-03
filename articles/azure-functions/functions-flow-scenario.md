@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chamar uma função a partir do Microsoft Flow
 
@@ -48,7 +48,7 @@ Neste tópico, saiba como:
 ## <a name="create-a-sharepoint-list"></a>Criar uma lista do SharePoint
 Começar através da criação de uma lista para utilizar como origem de dados para o fluxo. A lista tem as seguintes colunas.
 
-| Coluna de lista     | Tipo de dados           | Notas                                    |
+| Coluna de lista     | Tipo de Dados           | Notas                                    |
 |-----------------|---------------------|------------------------------------------|
 | **Título**           | Linha única de texto | Nome do turbine                      |
 | **LastServiceDate** | Data                |                                          |
@@ -123,13 +123,13 @@ Primeiro criar um fluxo de em branco (sem um modelo) e adicione um *acionador* q
 
 2. Clique no acionador de SharePoint **quando é criado um item**.
 
-    ![Escolha um acionador](media/functions-flow-scenario/choose-trigger.png)
+    ![Escolher um acionador](media/functions-flow-scenario/choose-trigger.png)
 
     Se ainda não tenha sido iniciada no SharePoint, será solicitado a fazê-lo.
 
 3. Para **endereço do Site**, introduza o nome de site do SharePoint e para **lista nome**, introduza a lista que contém os dados de turbine.
 
-    ![Escolha um acionador](media/functions-flow-scenario/site-list.png)
+    ![Escolher um acionador](media/functions-flow-scenario/site-list.png)
 
 4. Clique em **novo passo**, em seguida, **adicionar uma condição**.
 
@@ -261,7 +261,7 @@ Agora que o fluxo está concluído, pode adicionar uma linha à lista do SharePo
 
     Pode ver a forma como os tokens foram substituídos por valores corretos a partir da lista do SharePoint e a função.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tópico, aprendeu como:
 
 > [!div class="checklist"]

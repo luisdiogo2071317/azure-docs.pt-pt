@@ -6,6 +6,7 @@ documentationcenter:
 author: mezmicrosoft
 editor: mezmicrosoft
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
-ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: tihazen
+ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>As perguntas e respostas uma correspondência com o workbench do Azure Machine Learning
 As respostas a questões terminadas abrir é difícil e requer frequentemente um esforço manual de especialistas (SMEs). Para ajudar a reduzir a necessidade de SMEs internos, as empresas criar frequentemente apresenta uma lista de perguntas mais frequentes (FAQ) como um meio de utilizadores a prestar assistência. Neste exemplo showcases vários métodos de aprendizagem máquina eficaz para que corresponda ao abrir consultas terminadas para pré-existente FAQ/respostas a perguntas pares. Este exemplo demonstra um processo de desenvolvimento simples para construir uma solução de utilizar o Workbench do Azure Machine Learning. 
@@ -83,12 +84,12 @@ O esquema de dados e ligações de transferência direta dos três conjuntos de 
 | ----------|------------|------------|--------
 | [Perguntas](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | Cadeia | O ID exclusivo pergunta (chave primária)
 |  | AnswerId | Cadeia | O ID exclusivo de resposta por pergunta
-|  | Text0 | Cadeia | Os dados de texto não processados, incluindo o título e um corpo à pergunta
-|  | CreationDate | Timestamp | O carimbo de quando a pergunta foi pedida
+|  | text0 | Cadeia | Os dados de texto não processados, incluindo o título e um corpo à pergunta
+|  | CreationDate | Carimbo de data/hora | O carimbo de quando a pergunta foi pedida
 | [dupes](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | Id | Cadeia | O ID exclusivo duplicação (chave primária)
 |  | AnswerId | Cadeia | O ID de resposta associado a duplicação
-|  | Text0 | Cadeia | Os dados de texto não processados, incluindo o título e um corpo de duplicação
-|  | CreationDate | Timestamp | O carimbo de quando foi pedida de duplicação
+|  | text0 | Cadeia | Os dados de texto não processados, incluindo o título e um corpo de duplicação
+|  | CreationDate | Carimbo de data/hora | O carimbo de quando foi pedida de duplicação
 | [respostas](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Id | Cadeia | O ID exclusivo de resposta (chave primária)
 |  | text0 | Cadeia | Os dados não processados do texto da resposta
 
@@ -99,7 +100,7 @@ O esquema de dados e ligações de transferência direta dos três conjuntos de 
 
 Os ficheiros neste exemplo estão organizados de forma.
 
-| Nome de ficheiro | Tipo | Descrição
+| Nome de Ficheiro | Tipo | Descrição
 | ----------|------------|--------
 | `Image` | Pasta | A pasta utilizada para guardar as imagens para o ficheiro Leia-me
 | `notebooks` | Pasta | A pasta de blocos de notas do Jupyter

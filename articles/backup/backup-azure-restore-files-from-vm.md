@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2017
+ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: 46cc2737c23b02c6542320e355607f83042bd058
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros de cópia de segurança da máquina virtual do Azure
 
@@ -70,40 +70,7 @@ Para restaurar ficheiros ou pastas a partir do ponto de restauro, vá para a má
 
    Para Linux, o script requer componentes 'open-iscsi' e 'lshw' para ligar ao ponto de recuperação. Se os componentes não existirem no computador onde o script é executado, o script pede-lhe permissão instalar os componentes. Fornecer consentimento para instalar os componentes necessários.  
          
-   Pode executar o script em qualquer computador que tem o sistema de operativo mesmo (ou compatível) como a VM de cópia de segurança. Consulte o [tabela de SO compatível](backup-azure-restore-files-from-vm.md#compatible-os) para sistemas de operativos compatíveis. Se a máquina virtual do Azure protegida utiliza os espaços de armazenamento do Windows (para VMs do Windows Azure) ou Arrays(for Linux VMs) LVM/RAID, não é possível executar o executável ou script na mesma máquina virtual. Em vez disso, execute o ficheiro executável ou script em qualquer outra máquina com um sistema operativo compatível.
-
-### <a name="compatible-os"></a>SO compatível
-
-#### <a name="for-windows"></a>Para Windows
-
-A tabela seguinte mostra a compatibilidade entre sistemas operativos de servidor e computador. Ao recuperar ficheiros, não é possível restaurar os ficheiros para uma versão anterior ou futuras do sistema operativo. Por exemplo, não é possível restaurar um ficheiro de uma VM do Windows Server 2016 para computador Windows Server 2012 ou Windows 8. Pode restaurar ficheiros a partir de uma VM para o mesmo sistema de operativo de servidor ou para o sistema operativo cliente compatível.   
-
-|SO do servidor | SO de cliente compatível  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### <a name="for-linux"></a>Para Linux
-
-No Linux, SO de computador utilizado para restaurar os ficheiros têm de suportar o sistema de ficheiros de máquina virtual protegida. Quando selecionar um computador para executar o script, certifique-se de que o computador tem um SO compatível e utiliza uma das versões identificadas na tabela seguinte:
-
-|SO do Linux | Versões  |
-| --------------- | ---- |
-| Ubuntu | 12.04 e acima |
-| CentOS | 6.5 e acima  |
-| RHEL | 6.7 e acima |
-| Debian | 7 e posterior |
-| Oracle Linux | 6.4 e acima |
-
-O script também requer o Python e bash componentes para executar e ligar de forma segura para o ponto de recuperação.
-
-|Componente | Versão  |
-| --------------- | ---- |
-| Bash | 4 e posterior |
-| python | 2.6.6 e acima  |
-
+   Pode executar o script em qualquer computador que tem o sistema de operativo mesmo (ou compatível) como a VM de cópia de segurança. Consulte o [tabela de SO compatível](backup-azure-restore-files-from-vm.md#system-requirements) para sistemas de operativos compatíveis. Se a máquina virtual do Azure protegida utiliza os espaços de armazenamento do Windows (para VMs do Windows Azure) ou matrizes LVM/RAID (para VMs com Linux), não é possível executar o executável ou script na mesma máquina virtual. Em vez disso, execute o ficheiro executável ou script em qualquer outra máquina com um sistema operativo compatível.
 
 ### <a name="identifying-volumes"></a>Identificar os Volumes
 
@@ -192,6 +159,41 @@ $ mount [RAID Disk Path] [/mountpath]
 ```
 
 Se o disco RAID tiver outro LVM configurada, em seguida, utilize o procedimento anterior para partições LVM mas o nome do volume em vez do nome do disco de RAID
+
+## <a name="system-requirements"></a>Requisitos de sistema
+
+### <a name="for-windows"></a>Para Windows
+
+A tabela seguinte mostra a compatibilidade entre sistemas operativos de servidor e computador. Ao recuperar ficheiros, não é possível restaurar os ficheiros para uma versão anterior ou futuras do sistema operativo. Por exemplo, não é possível restaurar um ficheiro de uma VM do Windows Server 2016 para Windows Server 2012 ou um computador Windows 8. Pode restaurar ficheiros a partir de uma VM para o mesmo sistema de operativo de servidor ou para o sistema operativo cliente compatível.   
+
+|SO do servidor | SO de cliente compatível  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux"></a>Para Linux
+
+No Linux, SO de computador utilizado para restaurar os ficheiros têm de suportar o sistema de ficheiros de máquina virtual protegida. Quando selecionar um computador para executar o script, certifique-se de que o computador tem um SO compatível e utiliza uma das versões identificadas na tabela seguinte:
+
+|SO Linux | Versões  |
+| --------------- | ---- |
+| Ubuntu | 12.04 e acima |
+| CentOS | 6.5 e acima  |
+| RHEL | 6.7 e acima |
+| Debian | 7 e posterior |
+| Oracle Linux | 6.4 e acima |
+| SLES | 12 e acima |
+| openSUSE | 42.2 e acima |
+
+O script também requer o Python e bash componentes para executar e ligar de forma segura para o ponto de recuperação.
+
+|Componente | Versão  |
+| --------------- | ---- |
+| Bash | 4 e posterior |
+| python | 2.6.6 e acima  |
+| TLS | 1.2 devem ser suportadas  |
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

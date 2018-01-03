@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Criar métricas alertas no Monitor do Azure para serviços do Azure - portal do Azure
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ Assim que tiver criado um alerta, pode selecionar e:
 * Editar ou eliminá-lo.
 * **Desativar** ou **ativar** -se de que pretende temporariamente interromper ou retomar a receção de notificações para esse alerta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Obter uma descrição geral da monitorização do Azure](monitoring-overview.md) , incluindo os tipos de informações que pode recolher e monitorizar.
 * Saiba mais sobre as novas [quase em tempo real alertas métricas (pré-visualização)](monitoring-near-real-time-metric-alerts.md)
 * Saiba mais sobre [configurar webhooks alertas](insights-webhooks-alerts.md).
