@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/19/2017
 ms.author: sethm;darosa
-ms.openlocfilehash: c4fd365ec8eeb389f0df9f53cd2f2a18f4c9b52a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81614f8061fdf15c55e61ee06eec54fa6a6a02f0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-event-hubs-capture"></a>Captura de Hubs de eventos do Azure
 
@@ -39,7 +39,13 @@ Dados capturados são escritos em [Apache Avro] [ Apache Avro] formato: um forma
 Captura de Hubs de eventos permite-lhe configurar uma janela para controlar a capturar. Esta janela é um tamanho mínimo e a configuração de tempo com "primeira wins, uma política de", o que significa que o primeiro acionador encontrado faz com que uma operação de captura. Se tiver um introdução de quinze minutos, 100 MB capturar janela e a enviar de 1 MB por segundo, os acionadores de janela de tamanho antes da janela de tempo. Cada partição capturas de forma independente e escreve um blob de blocos foi concluída no momento da captura, com o nome para a hora em que o intervalo de captura foi encontrado. A Convenção de nomenclatura de armazenamento é o seguinte:
 
 ```
-[namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
+{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+```
+
+Tenha em atenção que os valores de data são a serão preenchidos com zeros; pode ser um nome de ficheiro de exemplo:
+
+```
+https://mynamespace.blob.core.windows.net/mycapturehub/mypartition/mysecondhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### <a name="scaling-to-throughput-units"></a>Dimensionamento para unidades de débito
@@ -98,7 +104,7 @@ Apache Avro tem concluídos guias de introdução para [Java] [ Java] e [Python]
 
 Captura de Hubs de eventos é limitado da mesma forma para unidades de débito: como um custo por hora. A taxa é diretamente proporcional ao número de unidades de débito adquiridas para o espaço de nomes. Unidades de débito são aumentar e diminuir, medidores capturar os Hubs de eventos aumentam e diminuir a proporcionar um desempenho correspondente. Os medidores ocorrerem em conjunto. Para detalhes de preços, consulte [preços de Hubs de eventos](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Captura de Hubs de eventos é a forma mais fácil para obter os dados no Azure. Utilizar o Azure Data Lake, o Azure Data Factory e o Azure HDInsight, pode realizar processamento em lote e outros analytics com ferramentas familiares e plataformas à sua escolha, em qualquer escala precisa.
 

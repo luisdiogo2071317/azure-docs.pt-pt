@@ -17,10 +17,10 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Criar uma VM com um endereço IP público estático, utilizar a CLI do Azure
 
@@ -146,6 +146,6 @@ Recomenda-se que elimina os recursos criados neste exercício, se não utilizá-
 2. Confirme que existem não existem recursos no grupo de recursos, que não sejam os recursos criados pelo script neste artigo. 
 3. Para eliminar todos os recursos criados neste exercício, execute o `az group delete -n IaaSStory` comando. O comando elimina o grupo de recursos e todos os recursos que nele contidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Qualquer tráfego de rede possam circular para e da VM criada neste artigo. Pode definir a entrada e saídas regras dentro de um NSG limitam o tráfego que possam circular para e da interface de rede, a sub-rede ou ambos. Para saber mais sobre NSGs, leia o [descrição geral do NSG](virtual-networks-nsg.md) artigo.

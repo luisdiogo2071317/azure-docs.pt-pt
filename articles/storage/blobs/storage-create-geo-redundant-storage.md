@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 286013aaa5335689206514027bef80b250643be1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Tornar os dados da aplicação de elevada disponibilidade com armazenamento do Azure
 
@@ -27,7 +27,7 @@ Este tutorial faz parte de um de uma série. Este tutorial mostra como disponibi
 Na parte de uma série, saiba como:
 
 > [!div class="checklist"]
-> * Criar uma conta de armazenamento
+> * Criar uma conta do Storage
 > * Transferir o exemplo
 > * Definir a cadeia de ligação
 > * Executar a aplicação de consola
@@ -49,7 +49,7 @@ Para concluir este tutorial:
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 Uma conta do storage fornece um espaço de nomes exclusivo para armazenar e aceder aos seus objetos de dados de armazenamento do Azure.
 
@@ -83,9 +83,9 @@ O projeto de exemplo contém uma aplicação de consola.
 
 ## <a name="set-the-connection-string"></a>Definir a cadeia de ligação
 
-Na aplicação, tem de fornecer a cadeia de ligação para a sua conta de armazenamento. Recomenda-se para armazenar esta cadeia de ligação dentro de uma variável de ambiente no computador local que executa a aplicação. Siga um dos exemplos abaixo, dependendo do sistema operativo para criar a variável de ambiente.
+Na aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. Recomenda-se para armazenar esta cadeia de ligação dentro de uma variável de ambiente no computador local que executa a aplicação. Siga um dos exemplos abaixo, dependendo do sistema operativo para criar a variável de ambiente.
 
-No portal do Azure, navegue até à sua conta de armazenamento. Selecione **chaves de acesso** em **definições** na sua conta de armazenamento. Copiar o **cadeia de ligação** partir da chave primária ou secundária. Substitua \<yourconnectionstring\> com a ligação real cadeia executando um dos seguintes comandos com base no seu sistema operativo. Este comando guarda uma variável de ambiente para o computador local. No Windows, a variável de ambiente não está disponível até recarregar o **linha de comandos** ou shell estiver a utilizar. Substitua  **\<storageConnectionString\>**  no seguinte exemplo:
+No portal do Azure, navegue até à sua conta de armazenamento. Selecione **chaves de acesso** em **definições** na sua conta de armazenamento. Copiar o **cadeia de ligação** partir da chave primária ou secundária. Substitua \<yourconnectionstring\> com a ligação real cadeia executando um dos seguintes comandos com base no seu sistema operativo. Este comando guarda uma variável de ambiente para o computador local. No Windows, a variável de ambiente não está disponível até recarregar o **linha de comandos** ou shell estiver a utilizar. Substitua ** \<storageConnectionString\> ** no seguinte exemplo:
 
 ### <a name="linux"></a>Linux
 
@@ -113,7 +113,7 @@ No código de exemplo, o `RunCircuitBreakerAsync` de tarefas no `Program.cs` fic
 
 ### <a name="retry-event-handler"></a>Repita o processador de eventos
 
-O `OperationContextRetrying` processador de eventos é chamado quando a transferência da imagem de falha e é definido para rety. Se o número máximo de tentativas, o que são definidas na aplicação é atingido, o [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) do pedido é alterado para `SecondaryOnly`. Esta definição força o tentar transferir a imagem do ponto final secundário da aplicação. Esta configuração reduz o tempo decorrido para a imagem de pedidos, como o ponto final principal não for repetido indefinidamente.
+O `OperationContextRetrying` processador de eventos é chamado quando a transferência da imagem de falha e é definido para repetir. Se o número máximo de tentativas, o que são definidas na aplicação é atingido, o [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) do pedido é alterado para `SecondaryOnly`. Esta definição força o tentar transferir a imagem do ponto final secundário da aplicação. Esta configuração reduz o tempo decorrido para a imagem de pedidos, como o ponto final principal não for repetido indefinidamente.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -160,12 +160,12 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Parte de uma série, aprendeu sobre disponibilizar uma aplicação altamente com contas de armazenamento RA-GRS, tais como:
 
 > [!div class="checklist"]
-> * Criar uma conta de armazenamento
+> * Criar uma conta do Storage
 > * Transferir o exemplo
 > * Definir a cadeia de ligação
 > * Executar a aplicação de consola

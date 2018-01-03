@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: fea70b389b1f1d6af963e3f14fdc48e8d857dd53
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurar um serviço de escuta do ILB para grupos de disponibilidade Always On no Azure
 > [!div class="op_single_selector"]
@@ -164,5 +164,5 @@ Crie o serviço de escuta do grupo de disponibilidade em dois passos. Em primeir
 ## <a name="test-the-availability-group-listener-within-the-same-virtual-network"></a>O serviço de escuta do grupo de disponibilidade (dentro da mesma rede virtual) de teste
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]

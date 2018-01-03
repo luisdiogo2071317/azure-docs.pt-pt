@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
 ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administração de serviço para a Azure Search no portal do Azure
 > [!div class="op_single_selector"]
@@ -176,7 +176,7 @@ Este vídeo de 30 minutos revê as melhores práticas para cenários de implemen
 
 <a id="next-steps"></a>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Assim que compreender os conceitos atrás de administração do serviço, considere a utilização de [PowerShell](search-manage-powershell.md) para automatizar tarefas.
 
 Também recomendamos que reveja o [desempenho e a otimização de artigo](search-performance-optimization.md).

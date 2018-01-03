@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e6b11145506780f9a08799c4c9daf55ba17b366d
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-and-publish-a-product"></a>Criar e publicar um produto  
 
@@ -54,12 +54,12 @@ Neste tutorial, ficará a saber como:
     |Nome|Um nome descritivo do produto.|
     |Descrição|O **Descrição** campo permite-lhe fornecer informações detalhadas sobre o produto como o seu objetivo, as APIs que fornece acesso ao e outras informações úteis.|
     |Estado|Prima **publicada** se pretender publicar o produto. Antes de poder ser chamadas as APIs de um produto, o produto tem de ser publicado. Por predefinição novos produtos são anular a publicação e são visíveis apenas para o **administradores** grupo.|
-    |Necessita de aprovação|Verifique **exigir a aprovação de subscrição** se pretender que um administrador reveja e aceite ou rejeite as tentativas de subscrição para este produto. Se a caixa está desmarcada, as tentativas de subscrição são aprovadas automaticamente. |
-    |Limite de contagem de subscrição|Para limitar a contagem de várias subscrições simultâneas, introduza o limite de subscrição. |
+    |Requer aprovação|Verifique **exigir a aprovação de subscrição** se pretender que um administrador reveja e aceite ou rejeite as tentativas de subscrição para este produto. Se a caixa está desmarcada, as tentativas de subscrição são aprovadas automaticamente. |
+    |Limite da contagem de subscrição|Para limitar a contagem de várias subscrições simultâneas, introduza o limite de subscrição. |
     |Termos legais|Pode incluir os termos de utilização para o produto tem de aceitar os subscritores para poder utilizar o produto.|
     |APIs|Produtos são associações de APIs de um ou mais. Pode incluir um número de APIs e oferecem-las para os programadores através do portal do programador. <br/> Pode adicionar uma API existente durante a criação de produto. Pode adicionar uma API ao produto mais tarde, a partir de produtos **definições** página ou ao criar uma API.|<br/>Os programadores têm primeiro de subscrever um produto para obter acesso à API. Quando estes subscrever, recebem uma chave de subscrição é válida para qualquer API esse produto.<br/> Se tiver criado a instância APIM, um administrador já estiver, pelo que tem subscritos todos os produtos por predefinição.|
 
-3. Clique em **guardar** para criar o novo produto.
+3. Clique em **criar** para criar o novo produto.
 
 ### <a name="add-more-configurations"></a>Adicionar mais configurações
 
@@ -88,7 +88,7 @@ Os programadores têm primeiro de subscrever um produto para obter acesso à API
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

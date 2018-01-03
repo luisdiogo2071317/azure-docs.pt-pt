@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: b0103acf1e407a6a198159fad227b7ccc25052d2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Notificações de manutenção de processamento planeada para máquinas virtuais do Windows
 
@@ -56,9 +56,7 @@ As seguintes diretrizes devem ajudá-lo a decidir se deve utilizar esta capacida
 
 Manutenção de self-service não é recomendada para implementações que utilizam **conjuntos de disponibilidade** , uma vez que estes são setups elevadas, onde o domínio de atualização apenas uma é afetado em qualquer momento. 
     - Permitir que o acionador do Azure a manutenção, mas tenha em atenção que a ordem dos domínios de atualização que está a ser afetado não necessariamente acontecer sequencialmente e que existe uma pausa de 30 minutos entre domínios de atualização.
-    - Se uma perda temporária de algumas das suas capacidade (número de domínios de 1/atualização) for uma preocupação,-pode facilmente ser compensada para atribuindo a instâncias de adição durante o período de manutenção. 
-
-**Não** utilizar self-service manutenção nos seguintes cenários: 
+    - Se uma perda temporária de algumas das suas capacidade (número de domínios de 1/atualização) for uma preocupação, pode facilmente ser compensado para atribuindo a instâncias de adição durante o período de manutenção **não** utilizar manutenção self-service a seguir cenários: 
     - Se desligar as VMs com frequência, ou manualmente, utilizando DevTest labs, utilizando o encerramento automático ou os seguintes uma agenda, foi possível reverter o estado de manutenção e assim causar período de indisponibilidade adicional.
     - Em VMs de curta duração que sabe que serão eliminados antes do fim de wave a manutenção. 
     - Para cargas de trabalho com um Estado de grande armazenados no disco local (efémeras) que seja mantida após a atualização, se pretendido. 
@@ -93,8 +91,8 @@ As seguintes propriedades são devolvidas em MaintenanceRedeployStatus:
 | IsCustomerInitiatedMaintenanceAllowed | Indica se pode iniciar manutenção na VM neste momento ||
 | PreMaintenanceWindowStartTime         | O início da janela de manutenção self-service quando podem iniciar manutenção na VM ||
 | PreMaintenanceWindowEndTime           | O fim da janela de manutenção self-service quando podem iniciar manutenção na VM ||
-| MaintenanceWindowStartTime            | O início da janela de manutenção agendada quando podem iniciar manutenção na VM ||
-| MaintenanceWindowEndTime              | O fim da janela de manutenção agendada quando podem iniciar manutenção na VM ||
+| MaintenanceWindowStartTime            | O início da manutenção agendada no qual o Azure inicia manutenção em VM ||
+| MaintenanceWindowEndTime              | O fim da janela manutenção agendada no qual o Azure inicia manutenção em VM ||
 | LastOperationResultCode               | O resultado da última tentativa para iniciar a manutenção da VM ||
 
 
@@ -117,7 +115,8 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        
+    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -184,7 +183,7 @@ Para obter mais informações sobre como de elevada disponibilidade, consulte [r
 
 **P: quanto-leva-o para reiniciar a minha máquina virtual?**
 
-**R:** dependendo do tamanho da sua VM, reiniciar o computador pode demorar vários minutos. Tenha em atenção que no caso de utilizar serviços em nuvem (função da Web/trabalho), conjuntos de dimensionamento de Máquina Virtual ou conjuntos de disponibilidade, irá ser dada 30 minutos entre cada grupo de VMs (UD). 
+**R:** dependendo do tamanho da sua VM, reiniciar o computador pode demorar vários minutos durante a janela de manutenção de self-service. Durante o Azure iniciada reinícios na janela de manutenção agendada, a tomar do reinício será typicall cerca de 25 minutos. Tenha em atenção que no caso de utilizar serviços em nuvem (função da Web/trabalho), conjuntos de dimensionamento de Máquina Virtual ou conjuntos de disponibilidade, irá ser dada 30 minutos entre cada grupo de VMs (UD) durante a janela de manutenção agendada. 
 
 **P: qual é a experiência no caso dos serviços Cloud (função da Web/trabalho), o Service Fabric e os conjuntos de dimensionamento de Máquina Virtual?**
 

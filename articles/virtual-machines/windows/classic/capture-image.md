@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6fa6d3099d8427a186e6095fdcbbc327d1acab7f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 66a7cef250890f1b6940f7bc7f3c5ae0ec6340f0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Capturar uma imagem de uma máquina virtual do Windows no Azure criada com o modelo de implementação clássica.
 > [!IMPORTANT]
@@ -42,7 +42,7 @@ Estes passos partem do princípio de que já criou uma máquina virtual do Azure
 >
 >
 
-Antes de capturar uma imagem de uma máquina virtual do Azure, recomenda-se a máquina virtual de destino a cópia de segurança. Máquinas virtuais do Azure pode ser feitas através de cópia de segurança do Azure. Para obter detalhes, veja [Fazer cópia de segurança de máquinas virtuais do Azure](../../../backup/backup-azure-vms.md). Estão disponíveis outras soluções de parceiros certificados. Para saber o que está atualmente disponível, procure no Azure Marketplace.
+Antes de capturar uma imagem de uma máquina virtual do Azure, recomenda-se a máquina virtual de destino a cópia de segurança. Máquinas virtuais do Azure pode ser feitas através de cópia de segurança do Azure. Para obter detalhes, veja [Fazer cópia de segurança de máquinas virtuais do Azure](../../../backup/backup-azure-arm-vms.md). Estão disponíveis outras soluções de parceiros certificados. Para saber o que está atualmente disponível, procure no Azure Marketplace.
 
 ## <a name="capture-the-virtual-machine"></a>Capturar a máquina virtual
 1. No [portal do Azure](http://portal.azure.com), **Connect** à máquina virtual. Para obter instruções, consulte [como iniciar sessão a uma máquina virtual com o Windows Server][How to sign in to a virtual machine running Windows Server].
@@ -72,7 +72,7 @@ Antes de capturar uma imagem de uma máquina virtual do Azure, recomenda-se a m�
 
     ![Captura de imagens com êxito](./media/capture-image/VMCapturedImageAvailable.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 A imagem está pronta para ser utilizada para criar máquinas virtuais. Para efetuar este procedimento, irá criar uma máquina virtual, selecionando o **mais serviços** item de menu na parte inferior do menu de serviços, em seguida, **imagens da VM (clássica)** no **computação** grupo. Para obter instruções, consulte [criar uma máquina virtual a partir de uma imagem](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md

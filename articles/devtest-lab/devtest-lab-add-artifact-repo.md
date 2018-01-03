@@ -3,7 +3,7 @@ title: "Adicione um repositório de Git para um laboratório no Azure DevTest La
 description: "Saiba como adicionar um repositório do GitHub ou Visual Studio o equipa dos serviços de Git para a origem de artefactos personalizados no Azure DevTest Labs."
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 01b459f7-eaf2-45a8-b4b5-2c0a821b33c8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: e0fb8b3c991d3f95acef77b37929fb5f6dc06242
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 345d095762b75b7a177bf4c6e7a07360a9c14068
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicione um repositório de Git para armazenar artefactos personalizados e modelos do Resource Manager
 
@@ -92,7 +92,7 @@ Adicione um repositório para o laboratório, em primeiro lugar, obter as inform
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de ter criado o seu repositório de Git privado, pode utilizar um ou ambos os procedimentos seguintes, consoante as suas necessidades:
 * Arquivo sua [artefactos personalizados](devtest-lab-artifact-author.md). Pode utilizá-los mais tarde para criar novas VMs.
 * [Criar ambientes de várias VMS e PaaS recursos com modelos do Resource Manager](devtest-lab-create-environment-from-arm.md). Em seguida, pode armazenar os modelos no seu repositório privado.

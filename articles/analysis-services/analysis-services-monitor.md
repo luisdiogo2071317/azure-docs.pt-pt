@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: owend
-ms.openlocfilehash: f9b32029f0a7065fff73ddb6417fc5c1c7e658a5
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d19f2d29673364c50cb481e375f2c1b5e027467
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="monitor-server-metrics"></a>Métricas do servidor de monitor
 
@@ -38,6 +38,7 @@ Para efetuar um diagnóstico mais aprofundado, controlar o desempenho e identifi
 
     ![Gráfico do monitor](./media/analysis-services-monitor/aas-monitor-chart.png)
 
+<a id="#server-metrics"></a>
 ## <a name="server-metrics"></a>Métricas do servidor
 Utilize esta tabela para determinar quais as métricas são melhores para o seu cenário de monitorização. Apenas as métricas da mesma unidade podem ser apresentadas no mesmo gráfico.
 
@@ -87,7 +88,7 @@ Utilize esta tabela para determinar quais as métricas são melhores para o seu 
 |TotalConnectionFailures|Falhas de ligação total|Contagem|Média|Total de tentativas de ligação falhadas.|
 |TotalConnectionRequests|Pedidos de ligação total|Contagem|Média|Pedidos de ligação total. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Monitorização no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Métricas no Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
 [Métricas no Monitor de Azure REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)

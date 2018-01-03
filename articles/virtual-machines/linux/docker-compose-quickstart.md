@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: e187b51769754a757991f7b5bdb335e62512b488
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 474a2d66cc46fcac35b145633e802d72881b10d8
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introdução ao Docker e Compose para definir e executar uma aplicação de contentor multi no Azure
 Com [Compose](http://github.com/docker/compose), utilizar um ficheiro de texto simples para definir uma aplicação consiste de vários contentores de Docker. Em seguida, rotação de cópia de segurança da aplicação num único comando que tudo para implementar o seu ambiente definido. Por exemplo, este artigo mostra como configurar rapidamente um blogue do WordPress com um base de dados do SQL de MariaDB numa VM com Ubuntu de back-end. Também pode utilizar Compose para configurar aplicações mais complexas.
@@ -40,30 +40,14 @@ Em primeiro lugar, crie um grupo de recursos para o seu ambiente de Docker com [
 az group create --name myResourceGroup --location eastus
 ```
 
-Em seguida, implementar uma VM com [criar a implementação do grupo az](/cli/azure/group/deployment#create) que inclui a extensão de VM de Docker do Azure a partir do [este modelo Azure Resource Manager no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Fornecer os seus próprios valores exclusivos para *newStorageAccountName*, *adminUsername*, *adminPassword*, e *dnsNameForPublicIP*:
+Em seguida, implementar uma VM com [criar a implementação do grupo az](/cli/azure/group/deployment#create) que inclui a extensão de VM de Docker do Azure a partir do [este modelo Azure Resource Manager no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Quando solicitado, forneça os seus próprios valores exclusivos para *newStorageAccountName*, *adminUsername*, *adminPassword*, e *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-Demora alguns minutos para a implementação para concluir. Assim que a implementação estiver concluída, [mover para o passo seguinte](#verify-that-compose-is-installed) para SSH para a VM. 
-
-Opcionalmente, em vez disso, devolver o controlo ao pedido e permitem a implementação continuar em segundo plano, adicionar o `--no-wait` sinalizador para o comando anterior. Este processo permite-lhe efetuar outras tarefas no CLI enquanto continua a implementação de alguns minutos. Em seguida, pode ver detalhes sobre o estado do anfitrião de Docker com [mostrar de vm az](/cli/azure/vm#show). O exemplo seguinte verifica o estado da VM com o nome *myDockerVM* (o nome predefinido do modelo - não altere este nome) no grupo de recursos denominado *myResourceGroup*:
-
-```azurecli
-az vm show \
-    --resource-group myResourceGroup \
-    --name myDockerVM \
-    --query [provisioningState] \
-    --output tsv
-```
-
-Quando este comando devolve *com êxito*, a implementação foi concluído e pode SSH para a VM no passo seguinte.
+Demora alguns minutos para a implementação para concluir.
 
 
 ## <a name="verify-that-compose-is-installed"></a>Certifique-se de que o Compose está instalado
@@ -78,7 +62,7 @@ az vm show \
     --output tsv
 ```
 
-SSH para o novo anfitrião do Docker. Forneça o seu próprio nome DNS da seguinte forma:
+SSH para o novo anfitrião do Docker. Forneça o seu próprio nome de utilizador e o nome DNS dos passos anteriores:
 
 ```bash
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
@@ -153,7 +137,7 @@ Agora pode ligar ao WordPress diretamente na VM na porta 80. Abra um browser e i
 
 ![Ecrã de início do WordPress][wordpress_start]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Vá para o [Guia do utilizador de extensão de VM de Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) para mais opções configurar Docker e Compose na sua VM de Docker. Por exemplo, uma opção é colocar o ficheiro de yml Compose (convertido em JSON) diretamente na configuração da extensão de VM de Docker.
 * Veja o [compor a referência da linha de comandos](http://docs.docker.com/compose/reference/) e [Guia do utilizador](http://docs.docker.com/compose/) para obter mais exemplos de criar e implementar aplicações de várias contentor.
 * Está a utilizar um modelo Azure Resource Manager, o próprio ou um contribuíram do [Comunidade](https://azure.microsoft.com/documentation/templates/), para implementar uma VM do Azure com o Docker e uma aplicação com o Compose. Por exemplo, o [implementar um blogue do WordPress com Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) modelo utiliza Docker e Compose implementar rapidamente WordPress com um back-end de MySQL numa VM com Ubuntu.

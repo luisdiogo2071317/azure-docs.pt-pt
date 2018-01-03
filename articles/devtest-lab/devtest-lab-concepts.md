@@ -3,7 +3,7 @@ title: Conceitos de DevTest Labs | Microsoft Docs
 description: "Conheça os conceitos básicos do DevTest Labs e como este pode facilitar a criar, gerir e monitorizar máquinas virtuais do Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 105919e8-3617-4ce3-a29f-a289fa608fb2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
-ms.openlocfilehash: 7028cdacf7d597c238bf29bd26bbd44705d66224
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 46271c1122df852b37d4117f9d4008fd74f43d95
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="devtest-labs-concepts"></a>Conceitos de Laboratórios DevTest
 ## <a name="overview"></a>Descrição geral
@@ -88,5 +88,5 @@ Todos os conceitos discutidos neste artigo podem ser configurados utilizando os 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Criar um laboratório no DevTest Labs](devtest-lab-create-lab.md)

@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurar um serviço de escuta externo para grupos de disponibilidade Always no Azure
 > [!div class="op_single_selector"]
@@ -130,6 +130,6 @@ Ao contrário do exemplo anterior, a autenticação do SQL Server tem de ser uti
 
 Se as réplicas Always On estiverem em sub-redes diferentes, os clientes têm de especificar **MultisubnetFailover = True** na cadeia de ligação. Isto resulta em tentativas de ligação paralelas réplicas em sub-redes diferentes. Tenha em atenção que este cenário inclui a uma implementação de sempre no grupo de disponibilidade por várias regiões.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
 

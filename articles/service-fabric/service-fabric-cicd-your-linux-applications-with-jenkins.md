@@ -14,18 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Utilize Jenkins para criar e implementar as aplicações do Linux
 O Jenkins é uma ferramenta popular para integração e implementação contínuas de aplicações. Eis como pode utilizar o Jenkins para compilar e implementar a sua aplicação do Azure Service Fabric.
 
 ## <a name="general-prerequisites"></a>Pré-requisitos gerais
 - Ter o Git instalado localmente. Pode instalar a versão adequada do Git na [página de transferências do Git](https://git-scm.com/downloads), com base no seu sistema operativo. Se estiver familiarizado com o Git, saiba mais sobre o mesmo na [documentação do Git](https://git-scm.com/docs).
-- Ter pronto o plug-in Jenkins do Service Fabric. Pode transferi-lo a partir [das transferências do Service Fabric](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Se estiver a utilizar a mudança de nome de browser edge a extensão de ficheiro transferido a partir de. zip para .hpi.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Configurar o Jenkins num cluster do Service Fabric
 
@@ -129,8 +128,8 @@ Tem de ter o Docker instalado. Os comandos seguintes podem ser utilizados para i
 Agora, quando executar o ``docker info`` no terminal, deverá ver na saída que o serviço Docker está em execução.
 
 ### <a name="steps"></a>Passos
-  1. Extraia a imagem do contentor do Jenkins do Service Fabric: ``docker pull rapatchi/jenkins:v9``
-  2. Execute a imagem do contentor:``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
+  1. Solicitar a imagem de contentor do serviço Fabric Jenkins: ``docker pull rapatchi/jenkins:v10``. Esta imagem é fornecido com o plug-in do serviço Fabric Jenkins pré-instaladas.
+  2. Execute a imagem do contentor:``docker run -itd -p 8080:8080 rapatchi/jenkins:v10``
   3. Obtenha o ID da instância de imagem do contentor. Pode listar todos os contentores de Docker com o comando ``docker ps –a``
   4. Utilize os passos seguintes para iniciar sessão no portal do Jenkins:
 
@@ -151,11 +150,6 @@ Agora, quando executar o ``docker info`` no terminal, deverá ver na saída que 
 
 Verifique se o cluster ou a máquina em que a imagem de contentor do Jenkins está alojada tem um IP destinado ao público. Isto permite que a instância do Jenkins receba notificações do GitHub.
 
-## <a name="install-the-service-fabric-jenkins-plug-in-from-the-portal"></a>Instalar o plug-in Jenkins do Service Fabric a partir do portal
-
-1. Ir para ``http://PublicIPorFQDN:8081``
-2. A partir do dashboard do Jenkins, selecione **Gerir Jenkins** > **Gerir Plug-ins** > **Avançadas**.
-Aqui, pode carregar um plug-in. Selecione **Escolher ficheiro**e, em seguida, selecione o **serviceFabric.hpi** de ficheiros, que transferiu em pré-requisitos ou pode transferir [aqui](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Depois de selecionar **Upload** (Carregar), o Jenkins instala automaticamente o plug-in. Reinicie, se solicitado.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Criar e configurar uma tarefa do Jenkins
 
@@ -207,7 +201,7 @@ Aqui, pode carregar um plug-in. Selecione **Escolher ficheiro**e, em seguida, se
       > Este cluster seria igual ao que aloja a aplicação de contentor do Jenkins, no caso de estar a utilizar o Service Fabric para implementar a imagem de contentor do Jenkins.
       >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 O GitHub e o Jenkins estão agora configurados. Considere fazer algumas alterações de exemplo ao seu projeto ``MyActor`` no exemplo de repositório, https://github.com/sayantancs/SFJenkins. Envie as alterações para um ramo ``master`` remoto (ou para qualquer ramo que tenha configurado para funcionar com o mesmo). Isto aciona a tarefa ``MyJob`` do Jenkins, que configurou. Obtém as alterações a partir do GitHub, compila-as e implementa a aplicação no ponto final do cluster que especificou nas ações de pós-compilação.  
 
   <!-- Images -->

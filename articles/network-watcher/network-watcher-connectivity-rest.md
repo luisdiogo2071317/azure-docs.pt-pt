@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
 ms.openlocfilehash: 802658b50d8e398451507ad11c76fedd0db697df
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Verifique a conectividade com o observador de rede do Azure no portal do Azure
 
@@ -494,7 +494,7 @@ O exemplo seguinte é a resposta ao executar a chamada de API anterior. Como a v
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como automatizar capturas de pacotes com alertas de Máquina Virtual visualizando [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md)
 

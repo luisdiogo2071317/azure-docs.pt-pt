@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 93f3912e2405a4ebeee26e3741d6412a75410b7f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c7d029515f27610e5d24c56ec1c60d6830e9e45
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configurar o Salesforce para aprovisionamento de utilizadores automática
 
@@ -65,7 +65,7 @@ O objetivo desta secção consiste em descrevem como ativar o aprovisionamento d
 
 4. Definir o **modo de aprovisionamento** para **automática**.
 
-    ![Aprovisionamento](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
+    ![a aprovisionar](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
 
 5. Sob o **credenciais de administrador** secção, forneça as seguintes definições de configuração:
    
@@ -89,19 +89,21 @@ O objetivo desta secção consiste em descrevem como ativar o aprovisionamento d
 
 10. Copie o token, vá para a janela do Azure AD e cole-o para o **segredo Token** campo.
 
-11. No portal do Azure, clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação Salesforce.
+11. O **URL de inquilino** deve ser introduzido se a instância do Salesforce no Salesforce Government nuvem. Caso contrário, é opcional. Introduza o URL de inquilino utilizando o formato de https://your-instance.my.salesforce.com, substituindo a instância com o nome da sua instância do Salesforce.
 
-12. No **correio eletrónico de notificação** campo, introduza o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro de aprovisionamento e marque a caixa de verificação abaixo.
+12. No portal do Azure, clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação Salesforce.
 
-13. Clique em **guardar.**  
+13. No **correio eletrónico de notificação** campo, introduza o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro de aprovisionamento e marque a caixa de verificação abaixo.
+
+14. Clique em **guardar.**  
     
-14.  Na secção mapeamentos, selecione **sincronizar utilizadores do Azure Active Directory Salesforce.**
+15.  Na secção mapeamentos, selecione **sincronizar utilizadores do Azure Active Directory Salesforce.**
 
-15. No **mapeamentos de atributos** secção, reveja os atributos de utilizador que são sincronizados a partir do Azure AD e Salesforce. Tenha em atenção que os atributos selecionados como **correspondência** propriedades são utilizadas para corresponder as contas de utilizador no Salesforce para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+16. No **mapeamentos de atributos** secção, reveja os atributos de utilizador que são sincronizados a partir do Azure AD e Salesforce. Tenha em atenção que os atributos selecionados como **correspondência** propriedades são utilizadas para corresponder as contas de utilizador no Salesforce para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
 
-16. Para ativar o Azure AD aprovisionamento de serviço do Salesforce, altere o **estado de aprovisionamento** para **no** na secção de definições
+17. Para ativar o Azure AD aprovisionamento de serviço do Salesforce, altere o **estado de aprovisionamento** para **no** na secção de definições
 
-17. Clique em **guardar.**
+18. Clique em **guardar.**
 
 Esta ação inicia a sincronização inicial de todos os utilizadores e/ou grupos atribuídos a Salesforce na secção utilizadores e grupos. Tenha em atenção que a sincronização inicial leva superior para efetuar sincronizações subsequentes, o que ocorrer aproximadamente a cada 20 minutos, desde que o serviço está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para aprovisionamento de relatórios de atividade, que descrevem a todas as ações efetuadas pelo serviço de aprovisionamento na sua aplicação Salesforce.
 

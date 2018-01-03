@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Gerir discos do Azure com o PowerShell
 
@@ -81,7 +81,7 @@ O Armazenamento Standard está protegido por HDDs e fornece armazenamento econó
 
 ### <a name="premium-disk"></a>Disco Premium
 
-Os discos Premium são apoiados por disco de elevado desempenho, baixa latência baseadas em SSD. Perfeita para as VMs com a carga de trabalho de produção. Armazenamento Premium suporta-série DS, série DSv2-série, série GS e série FS VMs. Os discos Premium são fornecidos em três tipos (P10 P20, P30, P40, P50), o tamanho do disco determina o tipo de disco. Quando selecionar, um tamanho de disco, o valor é arredondado para o tipo de próximo. Por exemplo, se o tamanho é inferior a 128 GB o tipo de disco será P10, entre 129 e 512 P20, 512 P30, P40 para 2TB e P50 4TB. 
+Os discos Premium são apoiados por disco de elevado desempenho, baixa latência baseadas em SSD. Perfeita para as VMs com a carga de trabalho de produção. Armazenamento Premium suporta-série DS, série DSv2-série, série GS e série FS VMs. Os discos Premium são fornecidos em cinco tipos (P10 P20, P30, P40, P50), o tamanho do disco determina o tipo de disco. Quando selecionar, um tamanho de disco, o valor é arredondado para o tipo de próximo. Por exemplo, se o tamanho é inferior a 128 GB o tipo de disco será P10, entre 129 e 512 P20, 512 P30, P40 para 2TB e P50 4TB. 
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 
@@ -142,7 +142,7 @@ New-Partition -AssignDriveLetter -UseMaximumSize | `
 Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu sobre os tópicos de discos VM, tais como:
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-faqs"></a>Perguntas mais frequentes do reencaminhamento do Azure
 
@@ -32,7 +32,7 @@ O [serviço de reencaminhamento do Azure](relay-what-is-it.md) facilita as aplic
 A [espaço de nomes](relay-create-namespace-portal.md) é um contentor de âmbito que pode utilizar para recursos de reencaminhamento de endereço na sua aplicação. Tem de criar um espaço de nomes para utilizar reencaminhamento. Esta é uma introdução aos passos primeiro.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>O que aconteceu ao serviço de reencaminhamento do Service Bus?
-O serviço de reencaminhamento de barramento de serviço anteriormente denominado chama-se agora o reencaminhamento de WCF. Pode continuar a utilizar este serviço como habitualmente. A funcionalidade de ligações híbridas é uma versão atualizada de um serviço que é foi transplanted dos BizTalk Services do Azure. Reencaminhamento de WCF e as ligações híbridas continuam a ser suportada.
+O serviço de reencaminhamento de barramento de serviço anteriormente denominado chama-se agora [reencaminhamento WCF](relay-wcf-dotnet-get-started.md). Pode continuar a utilizar este serviço como habitualmente. A funcionalidade de ligações híbridas é uma versão atualizada de um serviço que é foi transplanted dos BizTalk Services do Azure. Reencaminhamento de WCF e as ligações híbridas continuam a ser suportada.
 
 ## <a name="pricing"></a>Preços
 Esta secção responde a algumas perguntas mais frequentes sobre o reencaminhamento do preço de estrutura. Também pode ver [perguntas frequentes do suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para o Azure geral obter informações sobre preços. Para obter informações completas sobre os preços de reencaminhamento, consulte [detalhes de preços do Service Bus][Pricing overview].
@@ -130,7 +130,7 @@ Assinaturas de acesso partilhado (SAS) são um mecanismo de autenticação com b
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível com pontos finais de reencaminhamento de lista branca?
 Sim. O cliente de reencaminhamento efetua as ligações ao serviço de reencaminhamento do Azure, utilizando nomes de domínio completamente qualificado. Os clientes, podem adicionar uma entrada para `*.servicebus.windows.net` nas firewalls que suportam a listas brancas DNS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Node](relay-hybrid-connections-node-get-started.md)

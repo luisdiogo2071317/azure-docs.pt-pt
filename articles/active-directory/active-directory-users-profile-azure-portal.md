@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 4121f94e15d9ba938d90d72e70d7bcb49a6c1ed5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6f1085a8b434aca18499e17ba1c1d086edfc302e
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Adicionar ou alterar informações de perfil para um utilizador no Azure Active Directory
 Este artigo explica como adicionar informações de perfil de utilizador, tais como uma imagem do perfil ou o telefone e informações de autenticação de e-mail, no Azure Active Directory (Azure AD). Para obter informações sobre como adicionar novos utilizadores na sua organização, consulte [adicionar novos utilizadores ao Azure Active Directory](active-directory-users-create-azure-portal.md).
@@ -38,9 +38,8 @@ Este artigo explica como adicionar informações de perfil de utilizador, tais c
     ![Informações de trabalho de abertura](./media/active-directory-users-profile-azure-portal/active-directory-create-users-profile.png)
 6. Adicionar ou alterar as informações de perfil. Em seguida, na barra de comandos, selecione **guardar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Adicionar novos utilizadores ao Azure Active Directory](active-directory-users-create-azure-portal.md)
 * [Repor a palavra-passe de um utilizador no Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
 * [Atribuir um utilizador a funções de administrador no Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Adicionar ou alterar informações de perfil para um utilizador no Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Eliminar um utilizador a partir de um diretório no Azure Active Directory](active-directory-users-delete-user-azure-portal.md)

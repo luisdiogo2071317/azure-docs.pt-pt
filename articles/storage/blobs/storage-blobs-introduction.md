@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: 6059ce809e7a8b2115e391d9db5b5b0a8626109e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: b6814eea9120e0ee86afe333c11354fe49821978
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="introduction-to-blob-storage"></a>Introdução ao Blob storage
 
@@ -38,7 +38,7 @@ O serviço Blob contém os seguintes componentes:
 
 ![Arquitetura de blob](./media/storage-blobs-introduction/blob1.png)
 
-* **Conta de Armazenamento:** todos os acessos ao Storage do Azure são efetuados através de uma conta de armazenamento. Esta conta de armazenamento pode ser um **conta do storage para fins gerais** ou um **conta de armazenamento de BLOBs** que é especializada para armazenar objetos/blobs. Consulte [About Azure storage accounts (Acerca das contas de armazenamento do Azure)](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obter mais informações.
+* **Conta de Armazenamento:** todos os acessos ao Storage do Azure são efetuados através de uma conta de armazenamento. Esta conta de armazenamento pode ser um **conta do storage para fins gerais (v1 ou v2)** ou **contas do Blob storage**. Consulte [About Azure storage accounts (Acerca das contas de armazenamento do Azure)](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obter mais informações.
 
 * **Contentor:** um contentor fornece um agrupamento de um conjunto de blobs. Todos os blobs tem de estar num contentor. Uma conta pode conter um número ilimitado de contentores. Um contentor pode armazenar um número ilimitado de blobs. Tenha em atenção que o nome do contentor tem de ser em minúsculas.
 
@@ -50,7 +50,7 @@ O serviço Blob contém os seguintes componentes:
   
     Para obter detalhes sobre os nomes dos contentores e dos blobs, veja [Naming and Referencing Containers, Blobs, and Metadata (Nomenclatura e Referência de Contentores, Blobs e Metadados)](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar uma conta de armazenamento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Introdução ao Blob storage através do .NET](storage-dotnet-how-to-use-blobs.md)

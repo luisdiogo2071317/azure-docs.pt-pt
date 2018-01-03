@@ -3,7 +3,7 @@ title: "Criar ambientes de várias VMS e PaaS recursos com modelos Azure Resourc
 description: "Saiba como criar ambientes de várias VMS e PaaS recursos no Azure DevTest Labs a partir de um modelo Azure Resource Manager"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: tarcher
-ms.openlocfilehash: 381b3e5cc82e71dde4fe3a4266678dbd5919290d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: v-craic
+ms.openlocfilehash: 3fd0f15c695bcd22a51233846ace8711a4fcd635
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes de várias VMS e PaaS recursos com modelos Azure Resource Manager
 
@@ -126,7 +126,7 @@ Assim que tiver sido configurado um repositório de modelo Azure Resource Manage
 
     ![Ações de ambiente](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Depois de criar uma VM, pode ligar à VM selecionando **Connect** no painel da VM.
 * Ver e gerir recursos num ambiente selecionando o ambiente no **meu máquinas de virtuais** lista no laboratório. 
 * Explorar o [modelos Azure Resource Manager na Galeria de modelo de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 17d9e496aedfdf98423e821e7f379dc481ffa0a5
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: a032fc4332c697748e658ad2615ed5b0915c56c1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Permissões no site azureiotsuite.com
 
@@ -105,7 +105,7 @@ Tem de ser um administrador global do AAD para alterar as funções de um utiliz
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Sou administrador de serviço e gostaria de alterar o mapeamento de diretório entre a minha subscrição e um inquilino do AAD específico. Como concluir esta tarefa?
 
-Consulte [para adicionar uma subscrição existente ao diretório do Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
+Consulte [para adicionar uma subscrição existente ao diretório do Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Sou utilizador/membro do domínio no inquilino do AAD e criei uma solução pré-configurada. Como posso obter a atribuição de uma função para a minha aplicação?
 
@@ -137,7 +137,7 @@ Observe o diagrama seguinte para obter orientações sobre:
 
 Se tem a certeza de que tem uma subscrição do Azure, valide o mapeamento do inquilino da sua subscrição e certifique-se de que o inquilino correto está selecionado na lista pendente. Se confirmou o inquilino pretendido está correto, siga o diagrama anterior e valide o mapeamento da sua subscrição e este inquilino do AAD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre o IoT Suite, veja como pode [personalizar uma solução pré-configurada][lnk-customize].
 
 [img-flowchart]: media/iot-suite-v1-permissions/flowchart.png

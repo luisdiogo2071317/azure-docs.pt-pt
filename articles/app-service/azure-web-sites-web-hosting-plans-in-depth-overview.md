@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Descrição geral de plano de serviço de aplicações do Azure
 
-No App Service, uma aplicação é executada num _plano do App Service_. Um plano de serviço aplicacional define um conjunto de recursos de computação para uma aplicação web ser executada. Estes de recursos são análogos a computação o [ _farm de servidores_ ](https://wikipedia.org/wiki/Server_farm) no alojamento web convencional. Uma ou mais aplicações podem ser configuradas para executar os mesmos recursos informáticos (ou no mesmo plano de serviço de aplicações). 
+No App Service, uma aplicação é executada num _plano do App Service_. Um plano de serviço aplicacional define um conjunto de recursos de computação para uma aplicação web ser executada. Estes de recursos são análogos a computação o [ _farm de servidores_ ](https://wikipedia.org/wiki/Server_farm) no alojamento web convencional. Uma ou mais aplicações podem ser configuradas para executar os mesmos recursos informáticos (ou no mesmo plano de serviço de aplicações).
 
 Quando cria um plano de serviço de aplicações numa determinada região (por exemplo, Europa Ocidental), é criado um conjunto de recursos de computação para esse plano nessa região. Qualquer aplicações inserida este plano de serviço de aplicações com estes recursos de computação conforme definido pelo seu plano de serviço de aplicações. Define a cada plano do App Service:
 
@@ -38,6 +38,8 @@ O _escalão de preço_ de um serviço de aplicações plano determina quais as f
 - **Computação dedicada**: O **básico**, **padrão**, **Premium**, e **PremiumV2** camadas executam as aplicações no Azure dedicado VMs. Apenas as aplicações no mesmo plano do App Service partilham os mesmos recursos de computação. Quanto maior for a camada, as instâncias de VM mais estão disponíveis para si para Escalamento horizontal.
 - **Isolado**: esta camada é executado dedicado VMs do Azure dedicada redes virtuais do Azure, que fornece isolamento de rede por cima de isolamento de computação para as suas aplicações. Fornece as capacidades de escalamento horizontal máximas.
 - **Consumo**: só está disponível para esta camada [funcionar aplicações](../azure-functions/functions-overview.md). -Dimensiona as funções de forma dinâmica consoante a carga de trabalho. Para obter mais informações, consulte [que alojam as funções do Azure planos de comparação](../azure-functions/functions-scale.md).
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Cada camada também fornece um subconjunto específico de funcionalidades do App Service. Estas funcionalidades incluem os domínios personalizados e certificados SSL, dimensionamento automático, as ranhuras de implementação, as cópias de segurança, integração do Gestor de tráfego e muito mais. Quanto maior for a camada, as funcionalidades mais estão disponíveis. Para saber quais as funcionalidades são suportadas em cada escalão de preço, consulte [detalhes do plano de serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/).
 

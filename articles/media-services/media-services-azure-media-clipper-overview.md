@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 9bb55d5af16056ebafc131e73ac4b9da181bd8c7
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: f3822386d0d16b1feaf16853424329558a18f910
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Criar aplicações de clips com Recortador de suporte de dados do Azure
 Recortador de suporte de dados do Azure é uma biblioteca de JavaScript livre que permite aos programadores de web fornecer os seus utilizadores com uma interface para criar aplicações de clips de suporte de dados. Esta ferramenta pode ser integrada em qualquer página web e fornece APIs para carregar os recursos e submeter tarefas de recorte.
@@ -29,7 +29,7 @@ Recortador de suporte de dados do Azure permite-lhe:
 
 Para pedir novas funcionalidades, fornecer ideias ou comentários, submeter para [UserVoice de Media Services do Azure](http://aka.ms/amsvoice/). Se tiver problemas específicos, questões ou localizar uma linha na equipa de quaisquer erros, remova o suporte de dados de serviços e amcinfo@microsoft.com.
 
-A imagem seguinte ilustra a interface Recortador: ![Recortador de suporte de dados do Azure](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)
+A imagem seguinte ilustra a interface Recortador: ![Recortador de suporte de dados do Azure](media/media-services-azure-media-clipper-overview/media-services-azure-media-clipper-interface.PNG)
 
 ## <a name="release-notes"></a>Notas de versão
 Consulte a lista seguinte para a mensagem de blogue Recortador, vários problemas conhecidos e changelog para a versão mais recente do Recortador:
@@ -70,5 +70,5 @@ O widget Recortador está disponível nos seguintes 18 idiomas:
 - Sueco
 - Turco
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para começar a utilizar o Recortador de suporte de dados do Azure, leia o [introdução](media-services-azure-media-clipper-getting-started.md) artigo para obter detalhes sobre como implementar o widget.

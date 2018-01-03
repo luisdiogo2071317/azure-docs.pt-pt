@@ -3,7 +3,7 @@ title: "Ver e utilizar o modelo Azure Resource Manager de uma máquina virtual |
 description: "Saiba como utilizar o modelo Azure Resource Manager a partir de uma máquina virtual para criar outras VMs"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: a759d9ce-655c-4ac6-8834-cb29dd7d30dd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: tarcher
-ms.openlocfilehash: 0807ab367b91be5acd261f2b58ca2112b2c9e380
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: d3800fe360a2451bdc39644e713b82ab0608ef12
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-a-virtual-machines-azure-resource-manager-template"></a>Utilizar o modelo Azure Resource Manager de uma máquina virtual
 
@@ -65,6 +65,6 @@ Depois de guardar um modelo do Resource Manager e personalizada-lo para as suas 
 > [!NOTE]
 > Apenas um utilizador com permissões de proprietário do laboratório pode criar VMs a partir de um modelo do Resource Manager, utilizando o Azure PowerShell. Se pretender automatizar a criação de VM com um modelo do Resource Manager e apenas tiver permissões de utilizador, pode utilizar o [ **az laboratório vm criar** no CLI](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Passos Seguintes
 * Saiba como [criar ambientes de várias VMS com modelos do Resource Manager](devtest-lab-create-environment-from-arm.md).
 * Explorar mais modelos de Gestor de recursos de início rápido para a automatização de DevTest Labs do [público repositório do GitHub do DevTest Labs](https://github.com/Azure/azure-quickstart-templates).

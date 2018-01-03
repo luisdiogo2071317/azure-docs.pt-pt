@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: ab5550ee0c057c9abc4b706929d780a495aaff65
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de enlaces e acionadores de funções do Azure
 As funções do Azure permite-lhe escrever código em resposta a eventos no Azure e outros serviços, através de *acionadores* e *enlaces*. Este artigo é uma descrição geral conceptual dos acionadores e enlaces para todos os suportados linguagens de programação. As funcionalidades que são comuns a todos os enlaces são descritas aqui.
@@ -410,7 +410,11 @@ module.exports = function (context, info) {
 
 Em c# e outras linguagens .NET, pode utilizar um padrão de enlace imperativo, por oposição os enlaces declarativos no *function.json*. Enlace imperativo é útil quando os parâmetros de enlace tem de ser calculada ao tempo de tempo de execução, em vez de design. Para obter mais informações, consulte [enlace no tempo de execução através dos enlaces imperativo](functions-reference-csharp.md#imperative-bindings) a referência de programador do c#.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="functionjson-file-schema"></a>esquema do ficheiro Function.JSON
+
+O *function.json* esquema do ficheiro está disponível em [http://json.schemastore.org/function](http://json.schemastore.org/function).
+
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre um enlace específico, consulte os artigos seguintes:
 
 - [HTTP e webhooks](functions-bindings-http-webhook.md)

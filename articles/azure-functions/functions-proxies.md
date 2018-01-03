@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 870dab3770f4595aa8b98e7f2dd18cf666b6dc67
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com os Proxies de funções do Azure
 
@@ -50,13 +50,13 @@ Com os Proxies de funções do Azure, pode modificar pedidos e respostas de back
 
 Por predefinição, o pedido de back-end é inicializado como uma cópia do pedido original. Além de definir o URL de back-end, pode efetuar alterações para o método HTTP, cabeçalhos e os parâmetros de cadeia de consulta. Os valores modificados podem referenciar [definições da aplicação] e [parâmetros do pedido de cliente original].
 
-Atualmente, não há nenhum experiência do portal para modificar pedidos de back-end. Para saber como aplicar esta capacidade de proxies.json, consulte [definir um objeto de requestOverrides].
+Atualmente, não há nenhum experiência do portal para modificar pedidos de back-end. Para saber como aplicar esta capacidade de *proxies.json*, consulte [definir um objeto de requestOverrides].
 
 ### <a name="modify-response"></a>Modificar a resposta
 
 Por predefinição, a resposta do cliente é inicializada como uma cópia da resposta de back-end. Pode efetuar alterações ao código de estado de resposta, frase de razão, cabeçalhos e corpo. Os valores modificados podem referenciar [definições da aplicação], [parâmetros do pedido de cliente original], e [parâmetros da resposta de back-end].
 
-Atualmente, não há nenhum experiência do portal para modificar as respostas. Para saber como aplicar esta capacidade de proxies.json, consulte [definir um objeto de responseOverrides].
+Atualmente, não há nenhum experiência do portal para modificar as respostas. Para saber como aplicar esta capacidade de *proxies.json*, consulte [definir um objeto de responseOverrides].
 
 ## <a name="using-variables"></a>Utilizar variáveis
 
@@ -84,7 +84,7 @@ Parâmetros de resposta podem ser utilizados como parte de modificar a resposta 
 
 * **{backend.response.statusCode}** : Código de estado de HTTP o que é devolvido na resposta back-end.
 * **{backend.response.statusReason}** : Frase de razão de HTTP o que é devolvido na resposta back-end.
-* **{backend.response.headers. \<HeaderName\>}**: um cabeçalho que pode ser lidos na resposta de back-end. Substitua  *\<HeaderName\>*  com o nome de cabeçalho que pretende ler. Se o cabeçalho não está incluído no pedido, o valor será a cadeia vazia.
+* **{backend.response.headers. \<HeaderName\>}**: um cabeçalho que pode ser lidos na resposta de back-end. Substitua  *\<HeaderName\>*  com o nome de cabeçalho que pretende ler. Se o cabeçalho não está incluído na resposta, o valor será a cadeia vazia.
 
 ### <a name="use-appsettings"></a>Definições da aplicação de referência
 
@@ -97,12 +97,12 @@ Por exemplo, um URL de back-end de *https://%ORDER_PROCESSING_HOST%/api/orders* 
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 
-Proxies que configurar são armazenadas num ficheiro proxies.json, que está localizado na raiz de um diretório de aplicação de função. Pode editar este ficheiro e implementá-lo como parte da sua aplicação quando utilizar qualquer um dos manualmente o [métodos de implementação](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) que suporta as funções. A funcionalidade tem de ser [ativada](#enable) para o ficheiro a ser processado. 
+Proxies que configurar estão armazenados num *proxies.json* ficheiro, que está localizado na raiz de um diretório de aplicação de função. Pode editar este ficheiro e implementá-lo como parte da sua aplicação quando utilizar qualquer um dos manualmente o [métodos de implementação](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) que suporta as funções. A funcionalidade de Proxies de funções do Azure tem de ser [ativada](#enable) para o ficheiro a ser processado. 
 
 > [!TIP] 
-> Se não configurou um dos métodos de implementação, pode também funcionar com o ficheiro de proxies.json no portal. Aceda à sua aplicação de função, selecione **funcionalidades da plataforma**e, em seguida, selecione **Editor do serviço de aplicações**. Ao fazê-lo, pode ver a estrutura de ficheiro completo da sua aplicação de função e, em seguida, efetuar alterações.
+> Se não configurou um dos métodos de implementação, pode também funcionar com o *proxies.json* ficheiro no portal. Aceda à sua aplicação de função, selecione **funcionalidades da plataforma**e, em seguida, selecione **Editor do serviço de aplicações**. Ao fazê-lo, pode ver a estrutura de ficheiro completo da sua aplicação de função e, em seguida, efetuar alterações.
 
-Proxies.JSON é definido por um objeto de proxies, que é composto por proxies com nome e as respetivas definições. Opcionalmente, se o seu editor de o suportar, pode referenciar um [esquema JSON](http://json.schemastore.org/proxies) para conclusão de código. Um exemplo de ficheiro pode ter o seguinte aspeto:
+*Proxies.JSON* é definido por um objeto de proxies, que é composto por proxies com nome e as respetivas definições. Opcionalmente, se o seu editor de o suportar, pode referenciar um [esquema JSON](http://json.schemastore.org/proxies) para conclusão de código. Um exemplo de ficheiro pode ter o seguinte aspeto:
 
 ```json
 {
@@ -129,7 +129,7 @@ Cada proxy tem um nome amigável, tais como *proxy1* no exemplo anterior. O obje
 * **responseOverrides**: um objeto que defina transformações para a resposta do cliente. Consulte [definir um objeto de responseOverrides].
 
 > [!NOTE] 
-> A propriedade de rota Proxies de funções do Azure não honrar a propriedade de routePrefix da configuração de anfitrião de funções. Se pretender incluir um prefixo como /api, tem de ser incluído na propriedade rota.
+> O *rota* propriedade de Proxies de funções do Azure não honrar o *routePrefix* propriedade da configuração de anfitrião de aplicação de função. Se pretender incluir um prefixo como `/api`, devem ser incluída no *rota* propriedade.
 
 ### <a name="requestOverrides"></a>Definir um objeto de requestOverrides
 
@@ -193,7 +193,7 @@ Um exemplo de configuração pode ter o seguinte aspeto:
 }
 ```
 > [!NOTE] 
-> Neste exemplo, o corpo estiver a ser definido diretamente, por isso, não `backendUri` propriedade é necessária. O exemplo mostra como pode utilizar os Proxies de funções do Azure para mocking APIs.
+> Neste exemplo, o corpo da resposta é definido diretamente, por isso, não `backendUri` propriedade é necessária. O exemplo mostra como pode utilizar os Proxies de funções do Azure para mocking APIs.
 
 ## <a name="enable"></a>Ativar as funções do Azure Proxies
 

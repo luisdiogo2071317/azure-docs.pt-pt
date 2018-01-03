@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: c95c1827d0433dcb61eace34e7a905a5610c7781
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Atualize o cluster do Azure Service Fabric autónomo no Windows Server 
 > [!div class="op_single_selector"]
@@ -226,7 +226,7 @@ Tecnicamente, são suportadas quatro opções:
 * Atualização de thumbprint do emissor do certificado: O caminho de atualização é certificado CN = A, IssuerThumbprint = IT1 (principal) -> CN do certificado = A, IssuerThumbprint = IT1, IT2 (principal) -> CN do certificado = A, IssuerThumbprint = IT2 (principal).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba como personalizar algumas [definições de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md).
 * Saiba como [reduzir e ampliar o seu cluster](service-fabric-cluster-scale-up-down.md).
 * Saiba mais sobre [as atualizações de aplicações](service-fabric-application-upgrade.md).

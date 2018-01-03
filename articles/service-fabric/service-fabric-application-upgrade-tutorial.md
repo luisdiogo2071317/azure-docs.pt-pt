@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: 940440688ec770a4aeb932b574bd6be173f494d4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Tutorial de atualização de aplicação de Service Fabric com o Visual Studio
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Dentro de alguns minutos, todos os domínios de atualização devem ser atualiza
 
 Experimente alterar as versões, poderá ser útil e mudança de versão 2.0.0 para versão 3.0.0 como um exercício, ou mesmo a partir da versão 2.0.0 voltar à versão 1.0.0. Reproduzir com tempos limite e políticas de estado de funcionamento para tornar-se familiarizado com os mesmos. Quando implementar um cluster do Azure, por oposição a um cluster local, os parâmetros utilizados poderão ter de ser diferentes. Recomendamos que defina os tempos limite moderadamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Atualizar a sua aplicação através do PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta-o através de uma atualização da aplicação através do PowerShell.
 
 Controlar a forma como a aplicação é atualizada utilizando [atualizar parâmetros](service-fabric-application-upgrade-parameters.md).

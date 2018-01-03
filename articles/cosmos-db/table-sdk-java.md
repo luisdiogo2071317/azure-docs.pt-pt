@@ -16,17 +16,17 @@ ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: 
 ms.openlocfilehash: 06ce541b42de2ad20014199a7e87fe3d8c2dfe01
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API de tabela do Cosmos BD do Azure para Java: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [Java](table-sdk-java.md)
 > * [Node.js](table-sdk-nodejs.md)
-> * [python](table-sdk-python.md)
+> * [Python](table-sdk-python.md)
  
 
 |   |   |
@@ -56,6 +56,6 @@ Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
 

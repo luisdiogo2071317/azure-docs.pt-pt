@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff900ef2064c077fe75228c191e580e7531a9aa2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções incorporadas para controlo de acesso baseado em funções do Azure
 Inclui as seguintes funções incorporadas que podem ser atribuídas a utilizadores, grupos e serviços do Azure baseada em funções controlo de acesso (RBAC). Não é possível modificar as definições de funções incorporadas. No entanto, pode criar [funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md) para satisfazer as necessidades específicas da sua organização.
@@ -43,7 +43,7 @@ Este artigo aborda apenas as diferentes funções que existe atualmente. Quando 
 | [Contribuinte de serviço de gestão de API](#api-management-service-contributor) |Pode gerir o serviço de gestão de API e as APIs |
 | [Função de operador de serviço de gestão de API](#api-management-service-operator-role) | Pode gerir o serviço de API Management, mas não as APIs próprios |
 | [Função de leitor de serviço de gestão de API](#api-management-service-reader-role) | Acesso só de leitura para o serviço de API Management e das APIs |
-| [Contribuinte de componentes do Application Insights](#application-insights-component-contributor) |Pode gerir componentes do Application Insights |
+| [Contribuinte de componentes do Application Insights](#application-insights-component-contributor) |Permite gerir componentes do Application Insights |
 | [Operador de automatização](#automation-operator) |Conseguir iniciar, parar, suspender e retomar trabalhos |
 | [Cópia de segurança contribuinte](#backup-contributor) | Pode gerir a cópia de segurança no Cofre de serviços de recuperação |
 | [Operador de cópia de segurança](#backup-operator) | Pode gerir a cópia de segurança, exceto a remover a cópia de segurança, no Cofre de serviços de recuperação |
@@ -57,8 +57,8 @@ Este artigo aborda apenas as diferentes funções que existe atualmente. Quando 
 | [Contribuinte de zona DNS](#dns-zone-contributor) |Pode gerir registos e zonas DNS |
 | [Conta do DocumentDB contribuinte](#documentdb-account-contributor) |Pode gerir contas de base de dados do Azure Cosmos |
 | [Contribuinte de conta de sistemas inteligentes](#intelligent-systems-account-contributor) |Pode gerir contas de sistemas inteligentes |
-| Contribuinte de aplicação lógica | Pode gerir todos os aspetos de uma aplicação lógica, mas não criar um novo. |
-| Operador de aplicação lógica |Pode iniciar e parar os fluxos de trabalho definidos no âmbito de uma aplicação lógica. |
+| Contribuidor da Aplicação Lógica | Pode gerir todos os aspetos de uma aplicação lógica, mas não criar um novo. |
+| Operador de Aplicação Lógica |Pode iniciar e parar os fluxos de trabalho definidos no âmbito de uma aplicação lógica. |
 | [Leitor de monitorização](#monitoring-reader) |Pode ler todos os dados de monitorização |
 | [Monitorização contribuinte](#monitoring-contributor) |Pode ler os dados de monitorização e editar as definições de monitorização |
 | [Contribuidor de Rede](#network-contributor) |Pode gerir todos os recursos de rede |
@@ -101,7 +101,7 @@ Pode gerir os serviços de gestão de API
 | Microsoft.Resources/subscriptions/resourceGroups/read |Funções de leitura e atribuições de função |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="api-management-service-operator-role"></a>Função de operador de serviço de gestão de API
+### <a name="api-management-service-operator-role"></a>Função de Operador de Serviço de Gestão de API
 Pode gerir os serviços de gestão de API
 
 | **Ações** |  |
@@ -121,7 +121,7 @@ Pode gerir os serviços de gestão de API
 | Microsoft.Resources/subscriptions/resourceGroups/read |Funções de leitura e atribuições de função |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="api-management-service-reader-role"></a>Função de leitor de serviço de gestão de API
+### <a name="api-management-service-reader-role"></a>Função do Leitor do Serviço de Gestão de API do Serviço de Gestão de API
 Pode gerir os serviços de gestão de API
 
 | **Ações** |  |
@@ -136,7 +136,7 @@ Pode gerir os serviços de gestão de API
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
 ### <a name="application-insights-component-contributor"></a>Contribuinte de Componentes do Application Insights
-Pode gerir componentes do Application Insights
+Permite gerir componentes do Application Insights
 
 | **Ações** |  |
 | --- | --- |
@@ -173,7 +173,7 @@ Conseguir iniciar, parar, suspender e retomar trabalhos
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="backup-contributor"></a>Cópia de segurança contribuinte
+### <a name="backup-contributor"></a>Contribuidor de Cópia de Segurança
 Pode gerir todas as ações de gestão de cópia de segurança, exceto criar Cofre de serviços de recuperação e conceder acesso a outras pessoas
 
 | **Ações** | |
@@ -200,7 +200,7 @@ Pode gerir todas as ações de gestão de cópia de segurança, exceto criar Cof
 | Microsoft.Storage/storageAccounts/read | Contas de armazenamento de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="backup-operator"></a>Operador de cópia de segurança
+### <a name="backup-operator"></a>Operador de Cópia de Segurança
 Pode gerir todas as ações de gestão de cópia de segurança, exceto a criação de cofres de cópia de segurança e fornecer acesso a outras pessoas a remover
 
 | **Ações** | |
@@ -238,7 +238,7 @@ Pode gerir todas as ações de gestão de cópia de segurança, exceto a criaç�
 | Microsoft.Storage/storageAccounts/read | Contas de armazenamento de leitura |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
-### <a name="backup-reader"></a>Leitor de cópia de segurança
+### <a name="backup-reader"></a>Leitor de Cópia de Segurança
 Pode monitorizar a gestão de cópia de segurança no Cofre de serviços de recuperação
 
 | **Ações** | |
@@ -265,7 +265,7 @@ Pode monitorizar a gestão de cópia de segurança no Cofre de serviços de recu
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Ler itens registados do Cofre de |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Utilização de leitura do cofre dos serviços de recuperação |
 
-### <a name="billing-reader"></a>Leitor de faturação
+### <a name="billing-reader"></a>Leitor de Faturação
 Pode ver todas as informações de faturação
 
 | **Ações** |  |
@@ -325,7 +325,7 @@ Criar e gerir as fábricas de dados e recursos subordinados dentro delas.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="devtest-labs-user"></a>DevTest Labs utilizador
+### <a name="devtest-labs-user"></a>Utilizador do DevTest Labs
 Pode ver tudo e estabelecer ligação, início, reiniciar e encerrar as máquinas virtuais
 
 | **Ações** |  |
@@ -358,7 +358,7 @@ Pode ver tudo e estabelecer ligação, início, reiniciar e encerrar as máquina
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Storage/storageAccounts/listKeys/action |Lista de chaves de conta de armazenamento |
 
-### <a name="dns-zone-contributor"></a>Contribuinte de zona DNS
+### <a name="dns-zone-contributor"></a>Contribuidor da Zona DNS
 Pode gerir zonas DNS e registos.
 
 | **Ações** |  |
@@ -371,7 +371,7 @@ Pode gerir zonas DNS e registos.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/\* |Criar e gerir pedidos de suporte |
 
-### <a name="documentdb-account-contributor"></a>Conta do DocumentDB contribuinte
+### <a name="documentdb-account-contributor"></a>Contribuidor de Conta do DocumentDB
 Pode gerir contas de base de dados do Azure Cosmos. BD do Azure do Cosmos anteriormente é conhecido como DocumentDB.
 
 | **Ações** |  |
@@ -397,7 +397,7 @@ Pode gerir contas de sistemas inteligentes
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="monitoring-reader"></a>Leitor de monitorização
+### <a name="monitoring-reader"></a>Leitor de Monitorização
 Pode ler todos os dados de monitorização (métricas, os registos, etc.). Consulte também [introdução à segurança com a monitorização do Azure, funções e permissões](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Ações** |  |
@@ -406,7 +406,7 @@ Pode ler todos os dados de monitorização (métricas, os registos, etc.). Consu
 | Microsoft.OperationalInsights/workspaces/search/action |Dados de análise de registos de pesquisa |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="monitoring-contributor"></a>Monitorização contribuinte
+### <a name="monitoring-contributor"></a>Contribuidor de Monitorização
 Pode ler todos os dados de monitorização e editar as definições de monitorização. Consulte também [introdução à segurança com a monitorização do Azure, funções e permissões](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Ações** |  |
@@ -440,7 +440,7 @@ Pode gerir todos os recursos de rede
 | Microsoft.Resources/subscriptions/resourceGroups/read |Grupos de recursos de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="new-relic-apm-account-contributor"></a>Novo contribuinte de conta APM Relic
+### <a name="new-relic-apm-account-contributor"></a>Contribuidor de Conta APM do New Relic
 Pode gerir contas de gestão de desempenho de aplicações do novo Relic e as aplicações
 
 | **Ações** |  |
@@ -522,7 +522,7 @@ Pode gerir os componentes de segurança, as políticas de segurança e as máqui
 | Microsoft.Security/* |Criar e gerir os componentes de segurança e políticas |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="site-recovery-contributor"></a>Contribuinte de recuperação de site
+### <a name="site-recovery-contributor"></a>Contribuidor do Site Recovery
 Pode gerir todas as ações de gestão de recuperação de sites, exceto criar Cofre de serviços de recuperação e atribuição de direitos de acesso a outros utilizadores
 
 | **Ações** | |
@@ -552,7 +552,7 @@ Pode gerir todas as ações de gestão de recuperação de sites, exceto criar C
 | Microsoft.Storage/storageAccounts/read | Contas de armazenamento de leitura |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="site-recovery-operator"></a>Operador de recuperação de site
+### <a name="site-recovery-operator"></a>Operador do Site Recovery
 Pode ativação pós-falha e a reativação pós-falha, mas pode não efetuar outras ações de gestão de recuperação de sites ou atribuir acesso a outros utilizadores
 
 | **Ações** | |
@@ -612,7 +612,7 @@ Pode ativação pós-falha e a reativação pós-falha, mas pode não efetuar ou
 | Microsoft.Storage/storageAccounts/read | Contas de armazenamento de leitura |
 | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
-### <a name="site-recovery-reader"></a>Leitor de recuperação de site
+### <a name="site-recovery-reader"></a>Leitor do Site Recovery
 Pode monitorizar o estado de recuperação de sites no Cofre de serviços de recuperação e emitir pedidos de suporte
 
 | **Ações** | |
@@ -703,7 +703,7 @@ Pode gerir servidores SQL e de bases de dados, mas não as respetivas políticas
 
 | **Ações** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Autorização de leitura |
+| Microsoft.Authorization/*/read |Funções de leitura e atribuições de função |
 | Microsoft.Insights/alertRules/* |Criar e gerir regras de alerta Insights |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Ler o estado de funcionamento dos recursos |
 | Microsoft.Resources/deployments/* |Criar e gerir implementações do grupo de recursos |
@@ -751,7 +751,7 @@ Pode gerir as contas de armazenamento, mas não aceder aos mesmos.
 | Microsoft.Storage/storageAccounts/* |Criar e gerir contas de armazenamento |
 | Microsoft.Support/* |Criar e gerir pedidos de suporte |
 
-### <a name="support-request-contributor"></a>Contribuinte de pedido de suporte
+### <a name="support-request-contributor"></a>Contribuidor de Pedido de Suporte
 Pode criar e gerir pedidos de suporte no âmbito de subscrição
 
 | **Ações** |  |
@@ -867,7 +867,7 @@ Pode gerir sites, mas não os planos de web ao qual estão ligados
 | Microsoft.Web/serverFarms/read |Ler farms de servidores |
 | Microsoft.Web/sites/* |Criar e gerir sites (criação de site também necessita de permissões de escrita para o plano de serviço de aplicação associado) |
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Controlo de acesso baseado em funções](role-based-access-control-configure.md): começar a utilizar o RBAC no portal do Azure.
 * [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): Saiba como criar funções personalizadas para se ajustarem às suas necessidades de acesso.
 * [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): manter um registo dos alteração atribuições de funções no RBAC.

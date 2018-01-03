@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 26b9a468684cda344a6ab1b5a2e467d2735f4f71
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces de funções de HTTP e webhook do Azure
 
@@ -41,14 +41,14 @@ Por predefinição, um acionador HTTP responde ao pedido com um código de estad
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#trigger---c-example)
-* [Script do c#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script do c# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Acionador - c# exemplo
 
-O seguinte exemplo mostra um [pré-compilada c# função](functions-dotnet-class-library.md) que procuram um `name` parâmetro ou a cadeia de consulta ou o corpo do pedido HTTP.
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que procuram um `name` parâmetro ou a cadeia de consulta ou o corpo do pedido HTTP.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -235,14 +235,14 @@ module.exports = function(context, req) {
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#webhook---c-example)
-* [Script do c#](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [Script do c# (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Webhook - c# exemplo
 
-O seguinte exemplo mostra um [pré-compilada c# função](functions-dotnet-class-library.md) que envia uma HTTP 200 em resposta a um pedido JSON genérico.
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que envia uma HTTP 200 em resposta a um pedido JSON genérico.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Acionador - atributos
 
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) atributo, definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) atributo, definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 Pode definir a autorização nível e os métodos HTTP nos parâmetros do construtor de atributo, e existem propriedades para o modelo de tipo e a rota do webhook. Para obter mais informações sobre estas definições, consulte [acionador - configuração](#trigger---configuration). Eis um `HttpTrigger` atributo na assinatura do método:
 
@@ -377,7 +377,7 @@ public static HttpResponseMessage Run(
 }
  ```
 
-Para obter um exemplo completado, consulte [acionador - pré-compilada c# exemplo](#trigger---c-example).
+Para obter um exemplo completado, consulte [acionador - c# exemplo](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Acionador - configuração
 
@@ -540,7 +540,7 @@ Utilize a saída HTTP de enlace para responder ao remetente de pedido HTTP. Este
 
 ## <a name="output---configuration"></a>De saída - configuração
 
-Para pré-compilada c#, existem sem propriedades de configuração de enlace de saída específicas. Para enviar uma resposta HTTP, se a função de tipo de retorno `HttpResponseMessage` ou `Task<HttpResponseMessage>`.
+Para c# bibliotecas de classes, existem sem propriedades de configuração de enlace de saída específicas. Para enviar uma resposta HTTP, se a função de tipo de retorno `HttpResponseMessage` ou `Task<HttpResponseMessage>`.
 
 Para outros idiomas, um HTTP de saída do enlace está definida como um objeto JSON no `bindings` matriz de function.json, conforme mostrado no exemplo seguinte:
 
@@ -564,7 +564,7 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 Pode utilizar o parâmetro de saída para responder a chamador HTTP ou o webhook. Também pode utilizar os padrões de resposta de padrão de idioma. Por exemplo respostas, consulte o [exemplo acionador](#trigger---example) e [webhook exemplo](#trigger---webhook-example).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

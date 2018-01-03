@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS do Active Directory para o App Service do Azure
 
@@ -39,7 +39,7 @@ Para concluir este procedimentos:
 
 Quando vincular preventivamente um domínio personalizado, realizar ambos os procedimentos seguintes antes de efetuar quaisquer alterações para os registos DNS:
 
-- Verificar a propriedade de domínio
+- Verificar a propriedade do domínio
 - Ativar o nome de domínio para a sua aplicação
 
 Quando migra, finalmente, o nome DNS personalizado do site antigo para a aplicação do app Service, não será sem períodos de indisponibilidade na resolução de DNS.
@@ -50,7 +50,7 @@ Quando migra, finalmente, o nome DNS personalizado do site antigo para a aplica�
 
 Para verificar a propriedade de domínio, adicione um registo TXT. O registo TXT mapas de _awverify.&lt; subdomínio >_ para  _&lt;appname >. azurewebsites.net_. 
 
-O registo TXT que terá depende o registo DNS que pretende migrar. Para obter exemplos, consulte a tabela seguinte (`@` normalmente representa o domínio de raiz):  
+O registo TXT que terá depende o registo DNS que pretende migrar. Para obter exemplos, consulte a tabela seguinte (`@` normalmente representa o domínio de raiz):
 
 | Exemplo de registo DNS | Anfitrião TXT | Valor TXT |
 | - | - | - |
@@ -122,7 +122,7 @@ Guarde as suas definições.
 
 Consultas DNS devem começar a resolver à sua aplicação de serviço de aplicações, imediatamente após a propagação de DNS acontece.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como vincular um certificado SSL personalizado no App Service.
 

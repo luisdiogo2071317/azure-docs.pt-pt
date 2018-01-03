@@ -3,7 +3,7 @@ title: Carregar o ficheiro VHD para o Azure DevTest Labs com o PowerShell | Micr
 description: "Carregar ficheiro VHD para a conta de armazenamento do laboratório com o PowerShell"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
-ms.openlocfilehash: 3c43ef77b8fa10cd6dbd726968264f32f7a3dd0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 27a80ddb110ba47bf9c1284aa48d2f3af1a87145
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Carregar ficheiro VHD para a conta de armazenamento do laboratório com o PowerShell
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 No Azure DevTest Labs, os ficheiros VHD podem ser utilizados para criar imagens personalizadas, que são utilizadas para aprovisionar as máquinas virtuais. Os seguintes passos guiá-lo através do PowerShell para carregar um ficheiro VHD para a conta de armazenamento de um laboratório. Depois de carregar o ficheiro VHD, o [passos secção](#next-steps) lista alguns artigos que mostram como criar uma imagem personalizada do ficheiro VHD carregado. Para obter mais informações sobre discos e VHDs no Azure, consulte [sobre discos e VHD para as máquinas virtuais](../virtual-machines/linux/about-disks-and-vhds.md)
 
-## <a name="step-by-step-instructions"></a>Instruções passo a passo
+## <a name="step-by-step-instructions"></a>Instruções passo-a-passo
 
 Os seguintes passos guiá-lo através do carregar um ficheiro VHD para o Azure DevTest Labs através do PowerShell. 
 
@@ -58,7 +58,7 @@ Os seguintes passos guiá-lo através do carregar um ficheiro VHD para o Azure D
 > 
 > O processo de carregamento de um ficheiro VHD pode ser demorado, consoante o tamanho do ficheiro VHD e a velocidade da ligação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar uma imagem personalizada no Azure DevTest Labs de um ficheiro VHD utilizando o portal do Azure](devtest-lab-create-template.md)
 - [Criar uma imagem personalizada no Azure DevTest Labs de um ficheiro VHD utilizando o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

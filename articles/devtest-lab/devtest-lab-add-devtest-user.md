@@ -3,7 +3,7 @@ title: "Adicionar utilizadores e proprietários no Azure DevTest Labs | Microsof
 description: "Adicionar utilizadores e proprietários no Azure DevTest Labs utilizando o portal do Azure ou o PowerShell"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: d67fa257574d6cb4ad4b18521900374fb51da290
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar utilizadores e proprietários no Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -31,7 +31,7 @@ O acesso no Azure DevTest Labs é controlado pelo [controlo de acesso em funçõ
 Existem três funções principais que pode atribuir um utilizador:
 
 * Proprietário
-* DevTest Labs utilizador
+* Utilizador do DevTest Labs
 * Contribuinte
 
 A tabela seguinte ilustra as ações que podem ser efetuadas pelos utilizadores em cada uma destas funções:

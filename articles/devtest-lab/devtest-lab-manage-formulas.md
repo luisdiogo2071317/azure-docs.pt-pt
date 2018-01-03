@@ -3,7 +3,7 @@ title: "Gerir as fórmulas para criar as VMs do Azure DevTest Labs | Microsoft D
 description: "Saiba como atualizar e remover as fórmulas de Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdab5def50158f9b764bbb1e50c2624cc6d5fb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerir as fórmulas de Azure DevTest Labs
 
@@ -64,7 +64,7 @@ Os seguintes passos guiá-lo durante o processo de criação de uma fórmula de 
     * **Palavra-passe** - introduza - ou selecione na lista pendente - um valor que estão associado com o segredo (palavra-passe) que pretende utilizar para o utilizador especificado. Para obter mais informações sobre os segredos, consulte [Azure DevTest Labs: arquivo pessoal do segredo](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
     * **Tipo de disco de máquina virtual** - Especifique um HDD (unidade de disco rígido) ou SSD (unidade de estado sólido) para indicar o tipo de disco de armazenamento é permitido para as máquinas virtuais aprovisionadas com esta imagem de base.
     * * *: Máquina Virtual tamanho * * - selecione um dos itens de predefinida que especifique os núcleos de processador, o tamanho da RAM e o tamanho de disco rígido da VM para criar. 
-    * **Artefactos** - Selecione para abrir o **adicionar artefactos** painel, na qual pode selecionar e configurar os artefactos que pretende adicionar à imagem de base. Para mais informações sobre os artefactos, consulte [artefactos de gerir a VM no Azure DevTest Labs](./devtest-lab-add-vm-with-artifacts.md).
+    * **Artefactos** - Selecione para abrir o **adicionar artefactos** painel, na qual pode selecionar e configurar os artefactos que pretende adicionar à imagem de base. Para obter mais informações sobre os artefactos, consulte [criar artefactos personalizados para a máquina virtual do Azure DevTest Labs](devtest-lab-artifact-author.md).
     * **As definições avançadas** - Selecione para abrir o **avançadas** painel onde configurou as seguintes definições:
         * **Rede virtual** -especifique a rede virtual pretendida.
         * **Sub-rede** -especifique a sub-rede pretendida.    
@@ -134,6 +134,6 @@ Para eliminar uma fórmula, siga estes passos:
 ## <a name="related-blog-posts"></a>Mensagens de blogue relacionados
 * [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
-## <a name="next-steps"></a>Passos seguintes
-Assim que tiver criado uma fórmula para utilização quando criar uma VM, o passo seguinte consiste em [adicionar uma VM para o laboratório](devtest-lab-add-vm-with-artifacts.md).
+## <a name="next-steps"></a>Passos Seguintes
+Assim que tiver criado uma fórmula para utilização quando criar uma VM, o passo seguinte consiste em [adicionar uma VM para o laboratório](devtest-lab-add-vm.md).
 

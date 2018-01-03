@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: be29b993592e494053353aac1067bfb7eff90ed7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eaffba08ccf601e440709d804891668340a376d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo do fluxo de grupos de segurança de rede
 
@@ -29,7 +29,7 @@ Registos de fluxo do grupo de segurança de rede são uma funcionalidade do obse
 Enquanto o fluxo de registos de grupos de segurança de rede de destino, não são apresentados os mesmos como os outros registos. Registos de fluxo são armazenados apenas dentro de uma conta de armazenamento e seguindo o caminho de registo, conforme mostrado no exemplo seguinte:
 
 ```
-https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId%3D/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.network/networksecuritygroups/{nsgName}/{year}/{month}/{day}/PT1H.json
+https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
 As políticas de retenção mesmo como visualizado outros registos em aplicam para registos de fluxo. Os registos de tem uma política de retenção que pode ser definida a partir do dia 1 a 365 dias. Se não definir uma política de retenção, os registos são mantidos para sempre.
@@ -100,7 +100,7 @@ Segue-se um exemplo de um registo de fluxo. Como pode ver, existem vários regis
         ...
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprenda a ativar registos de fluxo, visitando [fluxo ativar registo](network-watcher-nsg-flow-logging-portal.md).
 

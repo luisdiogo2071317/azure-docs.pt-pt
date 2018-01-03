@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Como: monitorizar aplicações no App Service do Azure
 [Serviço de aplicações](http://go.microsoft.com/fwlink/?LinkId=529714) fornece a funcionalidade de monitorização incorporada no [portal do Azure](https://portal.azure.com).
@@ -29,6 +29,8 @@ O portal do Azure inclui a capacidade para rever **quotas** e **métricas** para
 ## <a name="understanding-quotas-and-metrics"></a>Noções sobre Quotas e métricas
 ### <a name="quotas"></a>Quotas
 Aplicações alojadas no App Service estão sujeitas a determinados *limites* nos recursos que possam utilizar. Os limites são definidos pelo **plano do App Service** associado à aplicação.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Se a aplicação estiver alojada num **livres** ou **partilhados** planear, em seguida, os limites nos recursos que pode utilizar a aplicação são definidos pelo **Quotas**.
 

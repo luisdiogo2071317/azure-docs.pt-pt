@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/12/2017
+ms.date: 12/15/2017
 ms.author: saurinsh
-ms.openlocfilehash: 345017d4a15f63e12940a8b2d9e55ee777c0e22a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0a9ed1cad8b8d4c566a0da16ac78d096efe187a5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configurar o ambiente de sandbox HDInsight associados a um domínio
 
@@ -75,7 +75,7 @@ O acesso protocolo LDAP (Lightweight Directory) é utilizado para leem e escreve
 
 **Para estabelecer ligação com o PDC utilizando o ambiente de trabalho remoto**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o grupo de recursos e, em seguida, abra a máquina de virtual do domínio principal (PDC) do controlador. O nome predefinido do PDC é adPDC. 
 3. Clique em **Connect** para estabelecer ligação com o PDC utilizando o ambiente de trabalho remoto.
 
@@ -138,9 +138,9 @@ Nesta secção, utilize o portal do Azure para adicionar um cluster do HDInsight
     Existem seis secções utilizando a opção de configuração personalizada: Noções básicas, armazenamento, aplicações, Cluster tamanho, as definições avançadas e resumo.
 5. No **Noções básicas** secção:
 
-    - Tipo de cluster: escolha **PREMIUM**. Atualmente, só pode criar premium cluster com os seguintes tipos de cluster: Hadoop, consulta interativa e Spark.
+    - Tipo de cluster: selecione **pacote de segurança empresarial**. Atualmente o pacote de segurança de empresa só pode ser ativado para os seguintes tipos de cluster: Hadoop, consulta interativa e Spark.
 
-        ![Associado a um domínio do HDInsight Premium](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-cluster-premium.png)
+        ![Pacote de segurança da empresa associado de domínio de HDInsight](./media/apache-domain-joined-configure/hdinsight-creation-enterprise-security-package.png)
     - Nome de utilizador de início de sessão do cluster: Este é o utilizador de HTTP do Hadoop. Esta conta é diferente da conta de administrador de domínio.
     - Grupo de recursos: selecione o grupo de recursos que criou anteriormente utilizando o modelo do Resource Manager.
     - Localização: A localização tem de ser igual à que utilizou ao criar a vnet e os controladores de domínio com o modelo do Resource Manager.
@@ -163,7 +163,7 @@ Nesta secção, utilize o portal do Azure para adicionar um cluster do HDInsight
 
 Depois de concluir o tutorial, pode querer eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. Para instruções de eliminação de um cluster, consulte [clusters do Hadoop gerir no HDInsight ao utilizar o portal do Azure](../hdinsight-administer-use-management-portal.md#delete-clusters).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para configurar políticas do Hive e executar consultas do Hive, veja [Configurar políticas do Hive para clusters do HDInsight associados a um domínio](apache-domain-joined-run-hive.md).
 * Para utilizar o SSH para ligar a clusters do HDInsight associados a um domínio, consulte [utilizar o SSH com Hadoop baseado em Linux no HDInsight a partir do Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
