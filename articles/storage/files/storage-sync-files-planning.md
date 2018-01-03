@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 69150acf483d776e8ecad6e5076a54675bff7439
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -57,10 +57,10 @@ Se adicionar uma localização do servidor que tenha um conjunto de ficheiros co
 Um ponto final da nuvem é uma partilha de ficheiros do Azure que faz parte de um grupo de sincronização. As sincronizações de partilha de ficheiros do Azure completa e uma partilha de ficheiros do Azure podem ser um membro do ponto final de uma nuvem apenas. Por conseguinte, uma partilha de ficheiros do Azure pode ser um membro de apenas um grupo de sincronização. Se adicionar uma partilha de ficheiros do Azure que tenha um conjunto de ficheiros como um ponto final da nuvem para um grupo de sincronização, os ficheiros existentes são intercalados com outros ficheiros que já estejam nesse outros pontos finais no grupo de sincronização.
 
 > [!Important]  
-> Sincronização de ficheiros do Azure suporta diretamente a efetuar alterações à partilha de ficheiros do Azure. No entanto, quaisquer alterações efetuadas na partilha de ficheiros do Azure primeiro tem de ser detetados por uma tarefa de deteção de alteração de sincronização de ficheiros do Azure. Uma tarefa de deteção de alteração é iniciada, para um ponto final da nuvem, apenas uma vez a cada 24 horas. Para obter mais informações, consulte [ficheiros do Azure perguntas mais frequentes](storage-files-faq.md#afs-change-detection).
+> Sincronização de ficheiros do Azure suporta diretamente a efetuar alterações à partilha de ficheiros do Azure. No entanto, quaisquer alterações efetuadas na partilha de ficheiros do Azure primeiro tem de ser detetados por uma tarefa de deteção de alteração de sincronização de ficheiros do Azure. Uma tarefa de deteção de alteração é iniciada, para um ponto final da nuvem, apenas uma vez a cada 24 horas. Além disso, as alterações efetuadas para uma partilha de ficheiros do Azure através do protocolo REST não irão atualizar o hora da última modificação do SMB e não serão visível como uma alteração por uma sincronização. Para obter mais informações, consulte [ficheiros do Azure perguntas mais frequentes](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Disposição em camadas na cloud 
-Nuvem camadas é uma funcionalidade opcional de sincronização de ficheiros do Azure na qual raramente utilizados ou acedidos ficheiros podem ser colocado em camadas para ficheiros do Azure. Quando um ficheiro está em camadas, o filtro de sistema de ficheiros de sincronização de ficheiros do Azure (StorageSync.sys) substitui o ficheiro localmente com um ponteiro, ou um ponto de reanálise. O ponto de reanálise representa um URL para o ficheiro nos ficheiros do Azure. Um ficheiro em camadas tem o atributo "offline" definido no NTFS, para que aplicações de terceiros podem identificar os ficheiros em camadas. Quando um utilizador abre um ficheiro em camadas, sincronização de ficheiros do Azure recalls totalmente os dados de ficheiro de ficheiros do Azure sem o necessidade de saber o que não é armazenado o ficheiro localmente no sistema do utilizador. Esta funcionalidade também é conhecido como gestão de armazenamento hierárquico (HSM).
+Criação de camadas de nuvem é uma funcionalidade opcional de sincronização de ficheiros do Azure que raramente utilizado ou aceder a ficheiros maiores do que 64 KiB tamanho pode ser colocado em camadas para ficheiros do Azure. Quando um ficheiro está em camadas, o filtro de sistema de ficheiros de sincronização de ficheiros do Azure (StorageSync.sys) substitui o ficheiro localmente com um ponteiro, ou um ponto de reanálise. O ponto de reanálise representa um URL para o ficheiro nos ficheiros do Azure. Um ficheiro em camadas tem o atributo "offline" definido no NTFS, para que aplicações de terceiros podem identificar os ficheiros em camadas. Quando um utilizador abre um ficheiro em camadas, sincronização de ficheiros do Azure recalls totalmente os dados de ficheiro de ficheiros do Azure sem o necessidade de saber o que não é armazenado o ficheiro localmente no sistema do utilizador. Esta funcionalidade também é conhecido como gestão de armazenamento hierárquico (HSM).
 
 > [!Important]  
 > Nuvem em camadas não é suportada para pontos finais de servidor nos volumes de sistema do Windows.
@@ -85,11 +85,11 @@ Versões futuras do Windows Server serão adicionadas à medida que são lançad
 | Funcionalidade | Estado de suporte | Notas |
 |---------|----------------|-------|
 | Listas de controlo de acesso (ACLs) | Totalmente suportado | ACLs do Windows são mantidas através da sincronização de ficheiros do Azure e são impostas pelo Windows Server em pontos finais do servidor. ACLs do Windows não são (ainda) suportado pelo Azure ficheiros se os ficheiros são acedidos diretamente na nuvem. |
-| Ligações fixas | Ignorada | |
-| Ligações simbólicas | Ignorada | |
+| Ligações fixas | Ignorado | |
+| Ligações simbólicas | Ignorado | |
 | Os pontos de montagem | Parcialmente suportada | Pontos de montagem poderão ser a raiz de um ponto final do servidor, mas são ignorados se estes estão contidos no espaço de nomes de um ponto final do servidor. |
-| Junctions | Ignorada | Por exemplo, as DfrsrPrivate de sistema de ficheiros distribuído e DFSRoots pastas. |
-| Pontos de reanálise | Ignorada | |
+| Junctions | Ignorado | Por exemplo, as DfrsrPrivate de sistema de ficheiros distribuído e DFSRoots pastas. |
+| Pontos de reanálise | Ignorado | |
 | Compressão NTFS | Totalmente suportado | |
 | Ficheiros dispersos | Totalmente suportado | Sincronização de ficheiros dispersos (não são bloqueadas), mas que a sincronização na nuvem como um ficheiro completo. Se alterar o conteúdo do ficheiro na nuvem (ou noutro servidor), o ficheiro já não consta disperso quando a alteração é transferida. |
 | Fluxos de dados alternativos (anúncios) | Preservados, mas não sincronizado | |
@@ -169,7 +169,7 @@ Pré-visualização, suportamos a sincronizar apenas com uma partilha de ficheir
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Planear uma implementação de ficheiros do Azure](storage-files-planning.md)
 * [Implementar ficheiros do Azure](storage-files-deployment-guide.md)
 * [Implementar a sincronização de ficheiros do Azure](storage-sync-files-deployment-guide.md)

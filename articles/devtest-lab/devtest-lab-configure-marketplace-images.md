@@ -3,7 +3,7 @@ title: "Configurar definições de imagem do Azure Marketplace no Azure DevTest 
 description: Configurar as imagens do Azure Marketplace podem ser utilizadas ao criar uma VM no Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 804c6af2-17e9-4320-af3a-f454bd398379
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
-ms.openlocfilehash: 5f888c9d92a9164cc7d3d1aed66c29a724b365d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: a3b52bb8db0bcd46badb15d4bc65b85977faaadc
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Configurar definições de imagem do Azure Marketplace no Azure DevTest Labs
 DevTest Labs suporta criar VMs baseadas nas imagens do Azure Marketplace, dependendo de como tiver configurado imagens do Azure Marketplace para ser utilizado no laboratório. Este artigo mostra como especificar que, se existirem, as imagens do Azure Marketplace podem ser utilizado ao criar as VMs num laboratório. Isto garante que a equipa de apenas tem acesso a imagens do Marketplace que precisam. 
@@ -47,6 +47,6 @@ DevTest Labs suporta criar VMs baseadas nas imagens do Azure Marketplace, depend
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Passos seguintes
-Assim que tiver configurado como imagens do Azure Marketplace são permitidas quando criar uma VM, o passo seguinte consiste em [adicionar uma VM para o laboratório](devtest-lab-add-vm-with-artifacts.md).
+## <a name="next-steps"></a>Passos Seguintes
+Assim que tiver configurado como imagens do Azure Marketplace são permitidas quando criar uma VM, o passo seguinte consiste em [adicionar uma VM para o laboratório](devtest-lab-add-vm.md).
 

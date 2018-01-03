@@ -6,35 +6,35 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 568a99d44a5a32339d438ed1025670d12ecce791
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b4a0af8fffd3ce012bf9addeec7029884d4ccf25
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contentor em instâncias de contentor do Azure
 
-O recurso mais superior em instâncias de contentor do Azure é um grupo de contentor. Este artigo descreve quais são os grupos de contentor e os tipos de cenários ativar.
+O recurso de nível superior em instâncias de contentor do Azure está a *grupo contentor*. Este artigo descreve quais são os grupos de contentor e os tipos de cenários que ativar.
 
 ## <a name="how-a-container-group-works"></a>Como funciona um grupo contentor
 
-Um grupo contentor é uma coleção de contentores que obter agendada no mesmo computador anfitrião e partilhar um ciclo de vida, rede local e volumes de armazenamento. É semelhante ao conceito de uma *pod* no [Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/pod/) e [DC/SO](https://dcos.io/docs/1.9/deploying-services/pods/).
+Um grupo contentor é uma coleção de contentores que obter agendada no mesmo computador anfitrião. Os contentores de um grupo contentor partilham um ciclo de vida, rede local e volumes de armazenamento. É semelhante ao conceito de uma *pod* no [Kubernetes] [ kubernetes-pod] e [DC/SO][dcos-pod].
 
 O diagrama seguinte mostra um exemplo de um grupo contentor, que inclui vários contentores.
 
-![Exemplo de grupos de contentor][container-groups-example]
+![Diagrama de grupos de contentor][container-groups-example]
 
-Tenha em atenção que:
+Este grupo de contentor de exemplo:
 
-- O grupo está agendado uma máquina de anfitrião único.
-- O grupo expõe um único endereço IP público, com uma porta exposto.
-- O grupo é constituído por dois contentores. Um contentor escuta na porta 80, enquanto o outro escuta na porta 5000.
-- O grupo inclui duas partilhas de ficheiros do Azure como volume monta e cada contentor monta uma das partilhas localmente.
+* Está agendada uma máquina de anfitrião único.
+* Expõe um único endereço IP público, com uma porta exposto.
+* É composta por dois contentores. Um contentor escuta na porta 80, enquanto o outro escuta na porta 5000.
+* Inclui duas partilham de ficheiros do Azure como volume monta e cada contentor monta uma das partilhas localmente.
 
-### <a name="networking"></a>Funcionamento em rede
+### <a name="networking"></a>Redes
 
 Grupos de contentor partilham um endereço IP e um espaço de nomes de porta nesse endereço IP. Para permitir aos clientes externos atingir um contentor dentro do grupo, tem de expor a porta no endereço IP de e para o contentor. Porque contentores dentro do grupo de partilham de um espaço de nomes de porta, o mapeamento de porta não é suportado. Contentores dentro de um grupo podem aceder entre si através de localhost nas portas que possam tem expostos, mesmo que essas portas não são expostas externamente no endereço IP do grupo.
 
@@ -44,16 +44,21 @@ Pode especificar volumes externos para montar dentro de um grupo contentor. Pode
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
-Os grupos de contentor multi são útil nos casos em que pretende dividir segurança uma única tarefa funcional num pequeno número de imagens de contentor, que podem ser fornecidas por equipas diferentes e tem os requisitos de recursos separado. Exemplo de utilização pode incluir:
+Os grupos de contentor multi são útil nos casos em que pretende dividir segurança uma única tarefa funcional num pequeno número de imagens de contentor, que podem ser fornecidas por equipas diferentes e tem os requisitos de recursos separado.
 
-- Um contentor de aplicação e um contentor de registo. O contentor de registo recolhe a saída de registos e as métricas pela aplicação principal e escreve-as para armazenamento de longa duração.
-- Uma aplicação e um contentor de monitorização. O contentor de monitorização periodicamente faz um pedido para a aplicação para se certificar de que está em execução e corretamente a responder e gera um alerta se não estiver.
-- Um contentor que serve uma aplicação web e um contentor, a extrair o conteúdo mais recente do controlo de origem.
+Exemplo de utilização pode incluir:
 
-## <a name="next-steps"></a>Passos seguintes
+* Um contentor de aplicação e um contentor de registo. O contentor de registo recolhe a saída de registos e as métricas pela aplicação principal e escreve-as para armazenamento de longa duração.
+* Uma aplicação e um contentor de monitorização. O contentor de monitorização periodicamente faz um pedido para a aplicação para se certificar de que está em execução e corretamente a responder e gera um alerta se não estiver.
+* Um contentor que serve uma aplicação web e um contentor, a extrair o conteúdo mais recente do controlo de origem.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como [implementar um grupo contentor Multi](container-instances-multi-container-group.md) com um modelo Azure Resource Manager.
 
 <!-- IMAGES -->
-
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png
+
+<!-- LINKS - External -->
+[dcos-pod]: https://dcos.io/docs/1.10/deploying-services/pods/
+[kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

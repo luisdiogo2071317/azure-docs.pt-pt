@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ded33a94205a67c7a9bcd37a8f0c7747f1d709fa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ffbc8af54ce542630f9bdc77a8823d3c2a22afd6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução de integrar o Azure Active Directory com aplicações de introdução
 ## <a name="overview"></a>Descrição geral
@@ -88,8 +88,8 @@ Os artigos seguintes descrevem formas pode gerir o acesso a aplicações depois 
 ## <a name="integrating-custom-applications"></a>Integrar aplicações personalizadas
 Se estiver a escrever uma nova aplicação e pretender para ajudar os programadores tirar partido do poder do Azure AD, consulte [Guiding programadores](active-directory-applications-guiding-developers-for-lob-applications.md).
 
-Se pretende adicionar a sua aplicação personalizada para a Galeria de aplicações do Azure, consulte o artigo ["Traga a sua própria aplicação" com a configuração SAML do Self-Service do Azure AD](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+Se pretende adicionar a sua aplicação personalizada para a Galeria de aplicações do Azure, consulte o artigo ["Traga a sua própria aplicação" com a configuração SAML do Self-Service do Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
 

@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Emparelhado detalhes de implementação do espaço de nomes e as implicações de custos
+
 O [PairNamespaceAsync] [ PairNamespaceAsync] método, utilizando um [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] instância, executa tarefas visível no o nome. Porque não existe são custo considerações quando utilizar a funcionalidade, é útil para entender as tarefas necessárias para que espera que o comportamento quando ocorre. A API envolva o seguinte comportamento automático em seu nome:
 
 * Criação de filas de registo de segurança.
@@ -60,8 +61,8 @@ O [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOpti
 | DefaultMessageTimeToLive |TimeSpan. MaxValue |
 | AutoDeleteOnIdle |TimeSpan. MaxValue |
 | LockDuration |um minuto |
-| EnableDeadLetteringOnMessageExpiration |VERDADEIRO |
-| EnableBatchedOperations |VERDADEIRO |
+| EnableDeadLetteringOnMessageExpiration |true |
+| EnableBatchedOperations |true |
 
 Por exemplo, a fila de registo de segurança primeiro criada para o espaço de nomes **contoso** é denominado `contoso/x-servicebus-transfer/0`.
 
@@ -97,7 +98,7 @@ Pelo menos um programa executável da aplicação deve ser ativamente em execuç
 ## <a name="closefault-behavior"></a>Comportamento de fecho/falhas
 Dentro de uma aplicação que aloja o syphon, uma vez primário ou secundário [MessagingFactory] [ MessagingFactory] falhas ou está fechado sem o respetivo parceiro também a ser falhou ou fechado e o syphon Deteta neste estado, o syphon funciona. Se o outro [MessagingFactory] [ MessagingFactory] não estiver fechada dentro de cinco segundos, o syphon faults o aberto ainda [MessagingFactory][MessagingFactory].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte [padrões e elevada disponibilidade de mensagens assíncronas] [ Asynchronous messaging patterns and high availability] para um debate detalhado de mensagens assíncronas do Service Bus. 
 
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_

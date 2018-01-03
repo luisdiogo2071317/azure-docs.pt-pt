@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: abnarain
-ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o tempo de execução do Self-hosted integração
 O tempo de execução de integração (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados entre ambientes de rede diferentes. Para obter detalhes sobre a resposta a incidentes, consulte [descrição geral de tempo de execução de integração](concepts-integration-runtime.md).
@@ -110,7 +110,20 @@ Um tempo de execução de integração Self-hosted pode ser associado a várias 
 Pode associar vários nós instalando o software de tempo de execução de integração de Self-hosted simplesmente o [Centro de transferências](https://www.microsoft.com/download/details.aspx?id=39717) e registando-lo por qualquer uma das chaves de autenticação obtido a partir do Cmdlet de novo AzureRmDataFactoryV2IntegrationRuntimeKey conforme descrito no [Tutorial](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> Não é necessário criar um novo Runtime de integração Self-hosted para associar cada nó.
+> Não é necessário criar um novo Runtime de integração Self-hosted para associar cada nó. Pode instalar o runtime de integração personalizada alojada noutra máquina e registá-lo utilizando a mesma chave de autenticação. 
+
+> [!NOTE]
+> Antes de adicionar outro nó para **elevada disponibilidade e escalabilidade**, certifique-se **'Acesso remoto à intranet'** opção é **ativada** no nó de 1ª (Microsoft Integração Runtime Configuration Manager -> Definições -> remoto acesso à intranet). 
+
+### <a name="tlsssl-certificate-requirements"></a>Requisitos de certificado TLS/SSL
+Eis os requisitos para o certificado TLS/SSL que é utilizado para proteger as comunicações entre integração nós de tempo de execução:
+
+- O certificado tem de ser um publicamente fidedigna X509 v3 certificado. Recomendamos que utilize certificados que são emitidos por uma autoridade de certificação (terceiros) pública (AC).
+- Cada nó de tempo de execução de integração tem de confiar este certificado.
+- São suportados certificados de caráter universal. Se o nome FQDN for **node1.domain.contoso.com**, pode utilizar ***. domain.contoso.com** como nome do requerente do certificado.
+- Certificados SAN não são recomendados uma vez que será utilizado apenas o último item dos nomes de alternativo do requerente e todos os outros serão ignorados devido a limitação atual. Por exemplo, tem um certificado SAN cujo SAN é **node1.domain.contoso.com** e **node2.domain.contoso.com**, só pode utilizar este certificado na máquina cujo FQDN é **node2.domain.contoso.com**.
+- Suporta qualquer tamanho da chave suportado pelo Windows Server 2012 R2 para certificados SSL.
+- Certificados CNG a utilizar as chaves não são suportadas. Doesrted DoesDoes não suporta certificados que utilizar chaves CNG.
 
 ## <a name="system-tray-icons-notifications"></a>Os ícones do tabuleiro de sistema / notificações
 Se mova o cursor sobre a mensagem de notificação/ícone de tabuleiro de sistema, pode encontrar os detalhes sobre o estado do tempo de execução automática alojada integração.
@@ -225,17 +238,23 @@ Se encontrar erros semelhantes dos seguintes, trata-se provavelmente devido a co
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="open-port-8060-for-credential-encryption"></a>Abra a porta 8060 para encriptação de credenciais
-O **definição credenciais** aplicação (atualmente não suportada) utiliza a porta de entrada 8060 às credenciais de reencaminhamento para o tempo de execução automática alojada integração quando configurar um serviço ligado no local no portal do Azure. Durante a configuração de tempo de execução automática alojada integração, por predefinição, a instalação de tempo de execução automática alojada integração abre-lo na máquina de tempo de execução automática alojada integração.
+### <a name="enable-remote-access-from-intranet"></a>Ativar o acesso remoto a partir da Intranet  
+Caso se utilizar **PowerShell** ou **aplicação do Gestor de credenciais** para encriptar as credenciais de outro computador (numa rede) diferente onde o tempo de execução automática alojada integração está instalado, em seguida, iriam requerer o **'Acesso remoto a partir da Intranet'** opção seja activada. Se executar o **PowerShell** ou **aplicação do Gestor de credenciais** para encriptar credenciais no mesmo computador onde o tempo de execução automática alojada integração está instalado, em seguida, **' acesso remoto de Intranet'** poderá não estar ativada.
 
-Se estiver a utilizar uma firewall de terceiros, pode abrir a porta 8050 manualmente. Caso se depare com problema firewall durante a configuração de tempo de execução automática alojada integração, pode tentar utilizar o seguinte comando para instalar o runtime de integração personalizada alojada sem configurar a firewall.
+Acesso remoto a partir da Intranet deve ser **ativada** antes de adicionar outro nó para **elevada disponibilidade e escalabilidade**.  
+
+Durante a integração personalizada alojada runtime configuração (em diante 3.3.xxxx.x v), por predefinição, a instalação de tempo de execução automática alojada integração desativa o **'Acesso remoto a partir da Intranet'** na máquina de tempo de execução automática alojada integração.
+
+Se estiver a utilizar uma firewall de terceiros, manualmente pode abrir a porta 8060 (ou a porta de utilizador configurado). Caso se depare com problema firewall durante a configuração de tempo de execução automática alojada integração, pode tentar utilizar o seguinte comando para instalar o runtime de integração personalizada alojada sem configurar a firewall.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> **Aplicação do Gestor de credenciais** ainda não está disponível para encriptar as credenciais no ADFv2. Iremos adicionar este suporte mais tarde.  
 
 Se optar por não abrir a porta 8060 na máquina de tempo de execução automática alojada integração, utilize mecanismos que não a utilização de * * definição credenciais * * aplicação a configurar credenciais do arquivo de dados. Por exemplo, pode utilizar cmdlet New-AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell. Consulte a secção de definição de credenciais e segurança na forma como as credenciais do arquivo de dados pode ser definida.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte o tutorial seguinte para obter instruções passo a passo: [Tutorial: copiar dados no local para a nuvem](tutorial-hybrid-copy-powershell.md).

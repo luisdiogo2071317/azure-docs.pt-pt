@@ -6,28 +6,26 @@ author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 12/19/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: dc1bd6502a5362bebd845f3938ab6502e0d91c74
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="deploy-a-container-group"></a>Implementar um grupo contentor
 
 Instâncias de contentor do Azure suporta a implementação de vários contentores para um anfitrião único através de um *grupo contentor*. Isto é útil ao criar um sidecar de aplicação para o registo, monitorização ou qualquer outra configuração em que um processo anexado segundo as necessita de um serviço.
 
-Este documento explica como através de uma configuração de sidecar de contentor multi simples utilizando um modelo Azure Resource Manager a executar.
+Este documento explica como executar uma configuração simples contentor multi sidecar ao implementar um modelo Azure Resource Manager.
 
 ## <a name="configure-the-template"></a>Configurar o modelo
 
-Crie um ficheiro denominado `azuredeploy.json` e copie o seguinte json para a mesma.
+Crie um ficheiro denominado `azuredeploy.json` e copie o seguinte JSON para a mesma.
 
-Neste exemplo, um grupo de contentor com dois contentores e um endereço IP público é definido. O primeiro contentor do grupo é executada uma aplicação com acesso à internet. O contentor segundo, sidecar, faz um pedido de HTTP para a aplicação web principal através de rede local do grupo.
-
-Neste exemplo sidecar foi ser expandido para acionar um alerta se recebeu um código de resposta HTTP diferente de 200 OK.
+Neste exemplo, um grupo de contentor com dois contentores e um endereço IP público é definido. O primeiro contentor no grupo executa uma aplicação da Internet. O contentor segundo, sidecar, faz um pedido de HTTP para a aplicação web principal através de rede local do grupo.
 
 ```json
 {
@@ -101,7 +99,7 @@ Neste exemplo sidecar foi ser expandido para acionar um alerta se recebeu um có
   }
 ```
 
-Para utilizar um registo de imagem do contentor privada, adicione um objeto para o documento json com o seguinte formato.
+Para utilizar um registo de imagem do contentor privada, adicione um objeto para o documento JSON com o seguinte formato.
 
 ```json
 "imageRegistryCredentials": [
@@ -115,81 +113,90 @@ Para utilizar um registo de imagem do contentor privada, adicione um objeto para
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create).
+Crie um grupo de recursos com o comando [az group create][az-group-create].
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Implementar o modelo com o [criar a implementação do grupo az](/cli/azure/group/deployment#create) comando.
+Implementar o modelo com o [criar a implementação do grupo az] [ az-group-deployment-create] comando.
 
 ```azurecli-interactive
-az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
+az group deployment create --resource-group myResourceGroup --name myContainerGroup --template-file azuredeploy.json
 ```
 
-Dentro de alguns segundos, irá receber uma resposta inicial a partir do Azure.
+Dentro de alguns segundos, deverá receber uma resposta inicial a partir do Azure.
 
 ## <a name="view-deployment-state"></a>Ver o estado de implementação
 
-Para ver o estado da implementação, utilize o `az container show` comando. Esta ação devolve o endereço IP público aprovisionado através do qual a aplicação pode ser acedida.
+Para ver o estado da implementação, utilize o [mostrar de contentor az] [ az-container-show] comando. Esta ação devolve o endereço IP público aprovisionado, pelo que a aplicação pode ser acedida.
 
 ```azurecli-interactive
-az container show --name myContainerGroup --resource-group myResourceGroup -o table
-```
-
-Saída:
-
-```azurecli
-Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
-----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
-myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
-```
-
-## <a name="view-logs"></a>Ver registos
-
-Ver o resultado de registo de um contentor utilizando o `az container logs` comando. O `--container-name` argumento especifica o contentor a partir da qual pretende extrair os registos. Neste exemplo, o primeiro contentor está especificado.
-
-```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup
+az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
 Saída:
 
 ```bash
-istening on port 80
-::1 - - [27/Jul/2017:17:35:29 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:32 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:35 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [27/Jul/2017:17:35:38 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+Name              ResourceGroup    ProvisioningState    Image                                                             IP:ports           CPU/Memory    OsType    Location
+----------------  ---------------  -------------------  ----------------------------------------------------------------  -----------------  ------------  --------  ----------
+myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
+```
+
+## <a name="view-logs"></a>Ver registos
+
+Ver o resultado de registo de um contentor utilizando o [az contentor registos] [ az-container-logs] comando. O `--container-name` argumento especifica o contentor a partir da qual pretende extrair os registos. Neste exemplo, o primeiro contentor está especificado.
+
+```azurecli-interactive
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
+```
+
+Saída:
+
+```bash
+listening on port 80
+::1 - - [18/Dec/2017:21:31:08 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:11 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [18/Dec/2017:21:31:15 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 Para ver os registos para o contentor do lado do automóvel, execute o mesmo comando, especificando o segundo nome do contentor.
 
 ```azurecli-interactive
-az container logs --name myContainerGroup --container-name aci-tutorial-sidecar --resource-group myResourceGroup
+az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
 Saída:
 
 ```bash
-Every 3.0s: curl -I http://localhost                                                                                                                       Mon Jul 17 11:27:36 2017
+Every 3s: curl -I http://localhost                          2017-12-18 23:19:34
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0  1663    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
 HTTP/1.1 200 OK
+X-Powered-By: Express
 Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
+ETag: W/"67f-16006818640"
+Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Content-Type: text/html; charset=utf-8
-Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
-Date: Mon, 17 Jul 2017 18:27:36 GMT
+Date: Mon, 18 Dec 2017 23:19:34 GMT
+Connection: keep-alive
 ```
 
-Como pode ver, a sidecar periodicamente é efetuar um pedido de HTTP para a aplicação web principal através de rede local do grupo para se certificar de que está em execução.
+Como pode ver, a sidecar periodicamente é efetuar um pedido de HTTP para a aplicação web principal através de rede local do grupo para se certificar de que está em execução. Neste exemplo sidecar foi ser expandido para acionar um alerta se recebeu um código de resposta HTTP diferente de 200 OK.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Este documento abrange os passos necessários para implementar uma instância de contentor do Azure multi contentor. Para uma experiência de instâncias de contentor do Azure de ponto a ponto, consulte o tutorial de instâncias de contentor do Azure.
+Este artigo abrange os passos necessários para implementar uma instância de contentor do Azure multi contentor. Para uma experiência de instâncias de contentor do Azure do ponto-a-ponto, consulte o tutorial de instâncias de contentor do Azure.
 
 > [!div class="nextstepaction"]
-> [Tutorial de instâncias de contentor do azure]:./container-instances-tutorial-prepare-app.md
+> [Tutorial de instâncias de contentor do azure]: container-instances-tutorial-prepare-app.md
+
+<!-- LINKS - Internal -->
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create

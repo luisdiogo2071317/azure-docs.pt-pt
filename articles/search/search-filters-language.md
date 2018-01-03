@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/23/2017
 ms.author: heidist
-ms.openlocfilehash: 31404e9ae2dac559f6b4f9f8c0edd0a785142912
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 2c09de74405394d4c385dbbd0535913cf2488744
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Como filtrar por idioma na Azure Search 
 
@@ -39,7 +39,7 @@ Na Azure Search, consultas de destino num índice único. Os programadores que p
 
 No nossos exemplos, incluindo o [disponível exemplo](search-get-started-portal.md) mostrado abaixo, poderá ter visto definições de campo semelhantes à seguinte captura de ecrã. Repare como este exemplo mostra o idioma atribuições de analisador para os campos neste índice. Os campos que contêm cadeias melhor efetuar na pesquisa de texto completo quando emparelhado com um analisador foi desenvolvido para processar as regras linguístico do idioma de destino.
 
-  ![](./media/search-filters/lang-fields.png)
+  ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > Para obter exemplos de código que mostra as definições de campo com analisadores de idiomas, consulte [definir um índice (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) e [definir um índice (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).
@@ -65,7 +65,7 @@ parameters =
 > [!Note]
 > Embora o argumento de no $filter na consulta, este caso de utilização é vivamente afiliado conceitos de filtro, pelo que iremos apresentá-lo como um cenário de filtragem.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 + [Filtros na pesquisa do Azure](search-filters.md)
 + [Analisadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support)

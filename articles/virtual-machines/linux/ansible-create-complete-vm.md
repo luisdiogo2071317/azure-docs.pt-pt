@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 8f0e2fff8ea32874729cf9c4645d547df2449089
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Criar um ambiente de máquina virtual completado do Linux no Azure com Ansible
 Ansible permite-lhe automatizar a implementação e configuração de recursos no seu ambiente. Pode utilizar Ansible para gerir as máquinas virtuais (VMs) no Azure, os mesmos como faria com qualquer outro recurso. Este artigo mostra como criar um ambiente de Linux completado e de recursos com Ansible de suporte. Também pode aprender como [criar uma VM básica com Ansible](ansible-create-vm.md).
@@ -105,7 +105,7 @@ Uma placa de interface de rede virtual (NIC) liga-se a VM para uma determinada r
 
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
-O último passo consiste em criar uma VM e utilizar todos os recursos criados. A secção seguinte um manual de comunicação social Ansible cria uma VM chamada *myVM* e anexa o NIC virtual com o nome *myNIC*. Introduza os seus próprios dados de chaves públicos no *key_data* emparelhe da seguinte forma:
+O último passo consiste em criar uma VM e utilizar todos os recursos criados. A secção seguinte um manual de comunicação social Ansible cria uma VM chamada *myVM* e anexa o NIC virtual com o nome *myNIC*. Introduza os seus próprios dados de chaves públicos completos no *key_data* emparelhe da seguinte forma:
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ O último passo consiste em criar uma VM e utilizar todos os recursos criados. A
 ```
 
 ## <a name="complete-ansible-playbook"></a>Concluir o manual de comunicação social Ansible
-Para reunir todas estas secções, crie um manual de comunicação social Ansible denominado *azure_create_complete_vm.yml* e cole o seguinte conteúdo:
+Para reunir todas estas secções, crie um manual de comunicação social Ansible denominado *azure_create_complete_vm.yml* e cole o seguinte conteúdo. Introduza os seus próprios dados de chaves públicos completos no *key_data* par:
 
 ```yaml
 - name: Create Azure VM
@@ -229,5 +229,5 @@ PLAY RECAP ****************************************************************
 localhost                  : ok=7    changed=6    unreachable=0    failed=0
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este exemplo cria um ambiente de VM completado, incluindo os recursos de rede virtuais necessários. Para obter um exemplo mais direto criar uma VM para recursos de rede existentes com opções predefinidas, consulte [criar uma VM](ansible-create-vm.md).

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7d8eb900bdc90a391d4121b7bfb863fc274fc564
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Localizar rotas para os diferentes modos de levar a utilizar com base dos serviços de localização do Azure
 
@@ -209,9 +209,9 @@ Esta secção mostra como utilizar API do Azure com base dos serviços de locali
     ```
     Este fragmento de código cria um [XMLHttpRequest](https://xhr.spec.whatwg.org/), e adiciona um processador de eventos ao analisar a resposta de entrada. Para uma resposta com êxito, cria uma matriz de coordenadas para a rota devolvido e adiciona-o mapa `truckRouteLayerName` camada. 
     
-    Este fragmento de código também envia a consulta para o serviço de rota, para obter a rota de início especificado e o ponto final, para a chave de subscrição da sua conta. Os parâmetros opcionais seguintes são utilizados para indicar a rota de um camião pesada:-o parâmetro `travelMode=truck` Especifica o modo da levar como *camião*. Outros modos de levar suportados são *taxi*, *bus*, *van*, *motorcycle*e a predefinição *carro* . 
-        -Os parâmetros `vehicleWidth`, `vehicleHeight`, e `vehicleLength` especifique as dimensões do veículo no medidores e são considerados apenas se o modo de levar é *camião*. 
-        -O `vehicleLoadType` classifica carga como hazardous e restrito em algumas roads. Isto é considerado também atualmente apenas para o *camião* modo. 
+    Este fragmento de código também envia a consulta para o serviço de rota, para obter a rota de início especificado e o ponto final, para a chave de subscrição da sua conta. Os parâmetros opcionais seguintes são utilizados para indicar a rota de um camião pesada:-o parâmetro `travelMode=truck` Especifica o modo da levar como *camião*. Outros modos de levar suportados são *taxi*, *bus*, *van*, *motorcycle*e a predefinição *carro* .  
+        -Os parâmetros `vehicleWidth`, `vehicleHeight`, e `vehicleLength` especifique as dimensões do veículo no medidores e são considerados apenas se o modo de levar é *camião*.  
+        -O `vehicleLoadType` classifica carga como hazardous e restrito em algumas roads. Isto é considerado também atualmente apenas para o *camião* modo.  
 
 2. Adicione o seguinte código JavaScript para obter a rota de um carro através do serviço de rota:
 
@@ -255,7 +255,7 @@ Esta secção mostra como utilizar API do Azure com base dos serviços de locali
 
     Tenha em atenção que a rota camião na cor azul, enquanto a rota carro é roxa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]

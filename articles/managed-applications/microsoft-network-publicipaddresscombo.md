@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 94f1f64a57784254912cb6cf568fafc15c8e74ec
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 990b84cf0df74b7b08a5fa105c2c2213aa251f9d
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Elemento de IU Microsoft.Network.PublicIpAddressCombo
 Um grupo de controlos para selecionar um endereço IP público novo ou existente. Utilize este elemento quando [criar uma aplicação gerida do Azure](publish-service-catalog-app.md).
@@ -80,13 +80,14 @@ Se o utilizador seleciona um endereço IP novo ou existente, é esperado o segui
   "name": "ip01",
   "resourceGroup": "rg01",
   "domainNameLabel": "foobar",
+  "publicIPAllocationMethod": "Dynamic",
   "newOrExistingOrNone": "new"
 }
 ```
 - Quando `options.hideNone` está especificado como **verdadeiro**, `newOrExistingOrNone` apenas terá um valor de **novo** ou **existente**.
 - Quando `options.hideDomainNameLabel` está especificado como **verdadeiro**, `domainNameLabel` é não declarado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para uma introdução para aplicações geridas, consulte [descrição geral do Azure gerida aplicações](overview.md).
 * Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).
 * Para obter uma descrição de propriedades comuns de elementos de IU, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).

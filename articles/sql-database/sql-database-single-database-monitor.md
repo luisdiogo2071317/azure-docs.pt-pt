@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 211036f32df719bf329783b3e4333a8496aa1676
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8513ace2589056387d8a1959c5727ee6bd5674cd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitorizar o desempenho de base de dados na Base de Dados SQL do Azure
 A monitorização do desempenho de uma base de dados SQL do Azure é iniciada com a monitorização da utilização de recursos em relação ao nível de desempenho de base de dados que escolher. A monitorização ajuda-o a determinar se a base de dados tem excesso de capacidade ou está a ter problemas porque os recursos estão a ser excessivamente utilizados e a decidir se está na altura de ajustar o nível de desempenho e a [camada de serviços](sql-database-service-tiers.md) da base de dados. Pode monitorizar a base de dados com as ferramentas gráficas no [portal do Azure](https://portal.azure.com) ou através de [vistas de gestão dinâmica](https://msdn.microsoft.com/library/ms188754.aspx) do SQL.
@@ -39,7 +39,7 @@ No [portal do Azure](https://portal.azure.com/), pode monitorizar a utilização
 
 Depois de adicionar estas métricas, pode continuar a visualizá-las no gráfico **Monitorização** com mais detalhes sobre a janela **Métricas**. As quatro métricas mostram a percentagem de utilização média relativa à **DTU** da base de dados. Consulte o artigo [camadas do serviço](sql-database-service-tiers.md) para detalhes sobre as DTUs.
 
-![Monitorização da camada de serviços do desempenho da base de dados.](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
+![Monitorização da camada de serviços do desempenho da base de dados.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
 Também pode configurar alertas para as métricas de desempenho. Clique no botão **Adicionar alerta** na janela **Métricas**. Siga o assistente para configurar o alerta. Tem a opção de alertar se as métricas excederem um determinado limiar ou se a métrica descer abaixo de um determinado limiar.
 
@@ -212,7 +212,7 @@ Novamente, estas consultas devolvem uma contagem de ponto no tempo. Se recolher 
 
 Para análise de base de dados SQL, pode obter estatísticas históricas sessões consultando o [resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) vista e rever o **active_session_count** coluna. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Otimizar os índices de base de dados e consultar planos de execução utilizando automaticamente [otimização automática da base de dados do Azure SQL](sql-database-automatic-tuning.md).
 - Monitorizar o desempenho de base de dados automaticamente utilizando [Azure SQL inteligente Insights](sql-database-intelligent-insights.md). Esta funcionalidade fornece informações de diagnóstico e análise de problemas de desempenho da causa raiz.

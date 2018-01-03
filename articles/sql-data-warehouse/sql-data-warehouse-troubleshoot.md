@@ -15,16 +15,16 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: c49b49cf832097bd5fbc423a36432a3eaff9bf14
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Resolução de problemas do armazém de dados SQL do Azure
 Este tópico apresenta alguns das perguntas de resolução de problemas mais comuns que recebemos dos nossos clientes.
 
-## <a name="connecting"></a>A ligação
+## <a name="connecting"></a>A ligar
 | Problema | Resolução |
 |:--- |:--- |
 | Falha ao iniciar sessão para o utilizador 'Início de sessão do NT AUTHORITY\ANONYMOUS'. (Microsoft SQL Server, erro: 18456) |Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no mestre.  Para corrigir este problema é especificar o armazém de dados do SQL Server que pretende ligar ao tempo de ligação ou adicione o utilizador para a base de dados mestra.  Consulte [descrição geral de segurança] [ Security overview] artigo para obter mais detalhes. |
@@ -73,7 +73,7 @@ Este tópico apresenta alguns das perguntas de resolução de problemas mais com
 | Limitações do procedimento armazenado |Consulte [armazenados limitações do procedimento] [ Stored procedure limitations] para compreender algumas das limitações de procedimentos armazenados. |
 | UDFs não suportam instruções SELECT |Esta é uma limitação atual do nosso UDFs.  Consulte [CREATE FUNCTION] [ CREATE FUNCTION] para a sintaxe é suportada. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se estiver foram não é possível encontrar uma solução para o seu problema acima, seguem-se alguns outros recursos, pode tentar.
 
 * [Blogues]
@@ -96,7 +96,7 @@ Se estiver foram não é possível encontrar uma solução para o seu problema a
 [Criar pedido de suporte]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md
-[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md

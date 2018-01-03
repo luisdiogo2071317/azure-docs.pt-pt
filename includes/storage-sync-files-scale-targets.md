@@ -8,3 +8,4 @@
 | Tamanho de ponto final | 4 TiB | Não |
 | Objetos do sistema (ficheiros e diretórios) por grupo de sincronização de ficheiros | 6 milhões de objetos | Não |
 | Tamanho dos ficheiros | 100 giB | Não |
+| Tamanho mínimo do ficheiro de um ficheiro a ser colocado em camadas | 64 KiB | Sim |

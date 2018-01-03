@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="reserved-ip-addresses-classic"></a>Endereços IP reservados (clássico)
 
@@ -163,7 +163,7 @@ Também pode associar um IP reservado para um serviço em nuvem, utilizando um f
       </NetworkConfiguration>
     </ServiceConfiguration>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Compreender como [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implementação clássica.
 * Saiba mais sobre [reservado de endereços IP privados](virtual-networks-reserved-private-ip.md).
 * Saiba mais sobre [endereços IP de público ao nível do instância (ILPIP)](virtual-networks-instance-level-public-ip.md).

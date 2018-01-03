@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Depurar aplicações num contentor do Docker local
 ## <a name="overview"></a>Descrição geral
@@ -54,7 +54,7 @@ Para iterar rapidamente as alterações, pode iniciar a aplicação num contento
 
 1. Definir a configuração de solução `Debug` e prima  **&lt;CTRL + F5 >** para compilar a imagem de docker e executá-la localmente.
 
-    Depois da imagem do contentor foi criada e estiver em execução num contentor de Docker, Visual Studio irá iniciar a aplicação Web no browser predefinido.
+    Depois da imagem do contentor foi criada e estiver em execução num contentor de Docker, o Visual Studio inicia a aplicação Web no browser predefinido.
     Se estiver a utilizar o browser Microsoft Edge ou tiverem erros, caso contrário, consulte o artigo [resolução de problemas](vs-azure-tools-docker-troubleshooting-docker-errors.md) secção.
 2. Aceda à página acerca, que é onde vamos para tornar as nossas alterações.
 3. Regresse ao Visual Studio e abrir `Views\Home\About.cshtml`.

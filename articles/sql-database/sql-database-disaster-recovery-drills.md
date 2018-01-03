@@ -16,11 +16,11 @@ ms.date: 10/20/2016
 ms.workload: Inactive
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 55f73c30db96d91a642daee98832b1e1c9a38035
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 73c2cbe978c980cbe1269b34cdb9f5ff86113e61
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Efetuar exercício de recuperação de desastre
 Recomenda-se que a validação da preparação da aplicação para o fluxo de trabalho de recuperação é efetuada periodicamente. Verificar o comportamento da aplicação e as implicações de perda de dados e/ou a interrupção envolve a que a ativação pós-falha é uma boa prática de engenharia. Também é um requisito pela maioria das normas da indústria como parte da certificação de continuidade do negócio.
@@ -37,7 +37,7 @@ Dependendo de como pode [concebido a aplicação para a continuidade do negócio
 Para evitar a potencial perda de dados quando realizar um exercício de recuperação após desastre, execute o exercício utilizando um ambiente de teste ao criar uma cópia de ambiente de produção e utilizá-la para verificar o fluxo de trabalho de ativação pós-falha da aplicação.
 
 #### <a name="outage-simulation"></a>Simulação de falha
-Para simular a interrupção, pode eliminar ou mudar o nome da base de dados de origem. Isto faz com que as falhas de conectividade de aplicação.
+Para simular a interrupção, pode mudar o nome da base de dados de origem. Isto faz com que as falhas de conectividade de aplicação.
 
 #### <a name="recovery"></a>Recuperação
 * Efetuar o restauro georreplicação da base de dados para um servidor diferente, tal como descrito [aqui](sql-database-disaster-recovery.md).
@@ -60,7 +60,7 @@ Para simular a interrupção, pode desativar a aplicação web ou a máquina vir
 #### <a name="validation"></a>Validação
 Conclua a desagregação ao verificar a recuperação de post de integridade de aplicação (incluindo conectividade, testar a funcionalidade básica ou outras validações necessárias para o signoffs desagregação).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre cenários de continuidade do negócio, consulte [cenários de continuidade](sql-database-business-continuity.md).
 * Para saber mais sobre o SQL do Azure, base de dados automática de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md)
 * Para saber mais sobre a utilização de cópias de segurança automatizadas para recuperação, consulte [restaurar uma base de dados de cópias de segurança iniciou o serviço](sql-database-recovery-using-backups.md).

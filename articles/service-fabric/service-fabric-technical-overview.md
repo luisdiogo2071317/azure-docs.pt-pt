@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 12/18/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2204fe7393cddb88c18415768a4c6f8494e83d7b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: dc7e536ce40bf95e1950e1e44844cd8fe26ea1a1
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="service-fabric-terminology-overview"></a>Descrição geral de terminologia do Service Fabric
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis. Este artigo fornece detalhes sobre a terminologia utilizada pelo serviço de recursos de infraestrutura para compreender os termos utilizados na documentação.
@@ -99,11 +99,11 @@ Modelos de programação do .NET Framework estão disponíveis para que possa cr
 Leia o [escolher um modelo de programação para o seu serviço](service-fabric-choose-framework.md) artigo para obter mais informações.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre o Service Fabric:
 
 * [Descrição geral do Service Fabric](service-fabric-overview.md)
-* [Por que motivo um micro-serviços abordagem de criação de aplicações?](service-fabric-overview-microservices.md)
+* [Why a microservices approach to building applications?](service-fabric-overview-microservices.md) (Porquê seguir a abordagem de microsserviços para criar aplicações?)
 * [Cenários de aplicações](service-fabric-application-scenarios.md)
 
 

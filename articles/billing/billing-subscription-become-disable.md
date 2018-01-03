@@ -14,13 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 3c6b190c3ddc8e474175693229d2e043196eac92
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 0b573a3745cbaa3deb583458159faaa0ac93f202
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que razão a minha subscrição do Azure está desativada e como reativá-lo?
 
@@ -60,6 +60,6 @@ Se estiver ao administrador da conta e acidentalmente cancelar uma subscrição 
 
 Para outros tipos de subscrição, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para que a sua subscrição reativada.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 
 Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.

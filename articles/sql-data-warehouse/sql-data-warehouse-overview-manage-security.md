@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: security
-ms.date: 10/31/2016
+ms.date: 12/14/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: aa0d6cb03196167ec077b0ed4bbbb9d118951219
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteger uma base de dados no armazém de dados do SQL Server
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Este artigo explica as noções básicas de proteger a base de dados do Azure SQ
 ## <a name="connection-security"></a>Segurança da Ligação
 A Segurança da Ligação diz respeito à forma como restringe e protege as ligações à sua base de dados através de regras de firewall e de encriptação da ligação.
 
-As regras de firewall são utilizadas pelo servidor e pela base de dados para rejeitar as tentativas de ligação de endereços IP que não estejam explicitamente na lista de permissões. Para permitir ligações a partir da sua aplicação ou o endereço IP público do computador de cliente, tem primeiro de criar uma regra de firewall ao nível do servidor utilizando o Portal do Azure, a REST API ou o PowerShell. Como melhor prática, deve restringir o máximo possível os intervalos de endereços IP permitidos na firewall do servidor.  Para aceder ao Azure SQL Data Warehouse do seu computador local, certifique-se de que a firewall na sua rede e o computador local permite a comunicação de saída na porta TCP 1433.  Para obter mais informações, consulte [firewall da SQL Database do Azure][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule], e [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
+As regras de firewall são utilizadas pelo servidor e pela base de dados para rejeitar as tentativas de ligação de endereços IP que não estejam explicitamente na lista de permissões. Para permitir ligações a partir da sua aplicação ou o endereço IP público do computador de cliente, tem primeiro de criar uma regra de firewall ao nível do servidor utilizando o Portal do Azure, a REST API ou o PowerShell. Como melhor prática, deve restringir o máximo possível os intervalos de endereços IP permitidos na firewall do servidor.  Para aceder ao Azure SQL Data Warehouse do seu computador local, certifique-se de que a firewall na sua rede e o computador local permite a comunicação de saída na porta TCP 1433.  Para obter mais informações, consulte [firewall da SQL Database do Azure][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule].
 
 As ligações ao seu armazém de dados do SQL Server estão encriptadas por predefinição.  Definições de ligação de modificação para desativar a encriptação são ignoradas.
 
@@ -73,11 +73,17 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 A conta de administrador do servidor que está a ligar é membro de db_owner, que tem autoridade para fazer todas as operações na base de dados. Guarde esta conta para a implementação de atualizações de esquema e outras operações de gestão. Utilize a conta "ApplicationUser" com permissões mais limitadas para se ligar da sua aplicação à base de dados com o mínimo de privilégios necessários para a sua aplicação.
 
-Existem formas de limitar ainda mais o que um utilizador pode fazer com a Base de Dados SQL do Azure:
+Existem formas para limitar ainda mais que um utilizador pode fazer com o Azure SQL Data Warehouse:
 
-* Granulares [permissões] [ Permissions] permitem-lhe controlo as operações que pode em colunas individuais, tabelas, vistas, procedimentos e outros objetos na base de dados. Utilize permissões granulares para ter a maioria dos controlo e conceder as permissões mínimas necessárias. O sistema de permissões granulares é um pouco complicado e irá exigir algumas prático utilizar de forma eficiente.
+* Granulares [permissões] [ Permissions] permitem-lhe controlo as operações que pode em colunas individuais, tabelas, vistas, esquemas, procedimentos e outros objetos na base de dados. Utilize permissões granulares para ter a maioria dos controlo e conceder as permissões mínimas necessárias. O sistema de permissões granulares é um pouco complicado e irá exigir algumas prático utilizar de forma eficiente.
 * [Funções de base de dados] [ Database roles] diferentes db_datareader e db_datawriter podem ser utilizados para criar contas de utilizador de aplicação mais potentes ou menos poderosas contas de gestão. As funções de base de dados fixa incorporadas fornecem uma forma fácil para conceder permissões, mas podem resultar em conceder mais permissões que são necessários.
 * [Procedimentos armazenados] [ Stored procedures] pode ser utilizado para limitar as ações que podem ser executadas na base de dados.
+
+Segue-se um exemplo de conceder acesso de leitura para um esquema definido pelo utilizador.
+```sql
+--CREATE SCHEMA Test
+GRANT SELECT ON SCHEMA::Test to ApplicationUser
+```
 
 Gerir bases de dados e servidores lógicas do portal do Azure ou utilizar a API do Azure Resource Manager é controlada pelas atribuições de função da sua conta de utilizador do portal. Para obter mais informações sobre este tópico, consulte [controlo de acesso baseado em funções no Portal do Azure][Role-based access control in Azure Portal].
 
@@ -86,7 +92,7 @@ Do Azure SQL Data Warehouse transparente dados encriptação (TDE) ajuda a prote
 
 Pode encriptar a sua base de dados ao utilizar o [Portal do Azure] [ Encryption with Portal] ou [T-SQL][Encryption with TSQL].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter detalhes e exemplos sobre a ligação ao SQL Data Warehouse com protocolos diferentes, consulte [ligar ao SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 <!--Image references-->

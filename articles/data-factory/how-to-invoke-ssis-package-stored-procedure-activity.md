@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 664c900bae580f4eb7421e3dffdfef8c9a29b720
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 713e9ad7a76c15cbde912954e00991a80b995683
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote SSIS utilizando a atividade de procedimento armazenado no Azure Data Factory
 Este artigo descreve como invocar um pacote SSIS de um pipeline do Azure Data Factory através da utilização de uma atividade de procedimento armazenado. 
@@ -34,7 +34,7 @@ As instruções neste artigo utilizam uma base de dados SQL do Azure que aloja o
 Criar um tempo de execução de integração do Azure-SSIS se não tiver uma, seguindo as instruções passo a passo no [Tutorial: pacotes SSIS implementar](tutorial-deploy-ssis-packages-azure.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Instalar os módulos do PowerShell do Azure mais recentes ao seguir as instruções em [como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps). 
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 Pode utilizar a mesma fábrica de dados que tenha a resposta a incidentes SSIS do Azure ou criar uma fábrica de dados separada. O procedimento seguinte fornece os passos para criar uma fábrica de dados. Criar um pipeline com uma atividade de procedimento armazenado neste data Factory. A atividade de procedimento armazenado executa um procedimento armazenado na base de dados SSISDB para executar o pacote de SSIS. 
@@ -80,10 +80,10 @@ Tenha em atenção os seguintes pontos:
 ### <a name="create-an-azure-sql-database-linked-service"></a>Criar um serviço ligado da Base de Dados SQL do Azure
 Crie um serviço ligado para ligar a base de dados SQL do Azure que aloja o catálogo SSIS à fábrica de dados. Fábrica de dados utiliza informações neste serviço ligado para ligar à base de dados SSISDB e executa um procedimento armazenado para ser executado um pacote SSIS. 
 
-1. Crie um ficheiro JSON com o nome **AzureSqlDatabaseLinkedService.json** no **C:\ADF\RunSSISPackage** pasta com o seguinte conteúdo: (criar a pasta ADFv2TutorialBulkCopy se já existir.)
+1. Crie um ficheiro JSON com o nome **AzureSqlDatabaseLinkedService.json** no **C:\ADF\RunSSISPackage** pasta com o seguinte conteúdo: 
 
     > [!IMPORTANT]
-    > Substitua &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;,&lt;servername&gt;, e &lt;palavra-passe&gt; com valores da SQL Database do Azure antes de guardar o ficheiro.
+    > Substitua &lt;servername&gt;, &lt;username&gt;, e &lt;palavra-passe&gt; com valores do seu SQL Database do Azure antes de guardar o ficheiro.
 
     ```json
     {
@@ -93,7 +93,7 @@ Crie um serviço ligado para ligar a base de dados SQL do Azure que aloja o cat�
             "typeProperties": {
                 "connectionString": {
                     "type": "SecureString",
-                    "value": "Server=tcp:<AZURE SQL SERVER NAME>.database.windows.net,1433;Database=SSISDB;User ID=<USER ID>;Password=<PASSWORD>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                    "value": "Server=tcp:<servername>.database.windows.net,1433;Database=SSISDB;User ID=<username>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
                 }
             }
         }
@@ -163,7 +163,7 @@ Neste passo, cria um pipeline com uma atividade de procedimento armazenado. A at
 Utilize o **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet para executar o pipeline. O cmdlet devolve o ID de execução do pipeline para monitorização futura.
 
 ```powershell
-$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name -ParameterFile .\PipelineParameters.json
+$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name
 ```
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
@@ -217,17 +217,17 @@ No passo anterior, invocar a pipeline a pedido. Também pode criar um acionador 
     }    
     ```
 2. No **Azure PowerShell**, mude para o **C:\ADF\RunSSISPackage** pasta.
-3. Execute o **conjunto AzureRmDataFactoryV2LinkedService** cmdlet para criar o acionador. 
+3. Execute o **conjunto AzureRmDataFactoryV2Trigger** cmdlet para criar o acionador. 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
     ```
-4. Por predefinição, o acionador está no estado parado. Inicie o acionador executando o cmdlet Start-AzureRmDataFactoryV2Trigger. 
+4. Por predefinição, o acionador está no estado parado. Inicie o acionador executando o **início AzureRmDataFactoryV2Trigger** cmdlet. 
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" 
     ```
-5. Certifique-se de que o acionador foi iniciado executando o cmdlet Get-AzureRmDataFactoryV2TriggerRun. 
+5. Confirme que o acionador foi iniciado executando o **Get-AzureRmDataFactoryV2Trigger** cmdlet. 
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"     
@@ -244,5 +244,5 @@ No passo anterior, invocar a pipeline a pedido. Também pode criar um acionador 
     select * from catalog.executions
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Também pode monitorizar o pipeline com o portal do Azure. Para obter instruções passo a passo, consulte [monitorizar o pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).

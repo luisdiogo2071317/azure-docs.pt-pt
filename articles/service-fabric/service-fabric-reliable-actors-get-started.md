@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
 ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução a Reliable Actors
 > [!div class="op_single_selector"]
@@ -156,7 +156,7 @@ Quando a saída contém o texto, *a aplicação esteja pronta*, é possível tes
 > [!TIP]
 > O tempo de execução de Atores do Service Fabric emite algumas [eventos e contadores de desempenho relacionados com métodos de ator](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Estes são úteis em diagnóstico e monitorização do desempenho.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [como Reliable Actors utilizar a plataforma de Service Fabric](service-fabric-reliable-actors-platform.md).
 
 

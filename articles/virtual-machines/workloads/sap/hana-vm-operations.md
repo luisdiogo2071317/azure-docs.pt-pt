@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 11/17/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8ddfd5e2ee57d79fecacdc648af9264b6c95240
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 1d6991d40b9bb8543898bbbdc9d7c905dfe11536
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA no guia de operações do Azure
 Este documento fornece orientações para o funcionamento sistemas de SAP HANA que são implementados em máquinas de virtuais (VMs) nativas do Azure. Este documento destina-se não substitui a documentação do SAP padrão, que inclui o seguinte conteúdo:
@@ -80,16 +80,23 @@ Para volumes /hana/data e /hana/log, recomenda-se os discos Premium do Azure. Po
 
 A tabela seguinte mostra uma configuração de VM de tipos de que os clientes utilizam frequentemente para o anfitrião SAP HANA em VMs do Azure:
 
-| SKU DE VM | RAM | hana/dados e de hana/registo<br /> repartidos com LVM ou MDADM | hana/partilhado | /root volume | usr/sap | Hana/cópia de segurança |
-| --- | --- | --- | --- | --- | --- | -- |
-| E16v3 | 128 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S10 |
-| E32v3 | 256 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| GS5 | 448 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M64s | 1 TB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
-| M64ms | 1.7 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128s | 2 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128ms | 3.8 TB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 5 x S30 |
+| SKU DE VM | RAM | Um máximo de E/S DE VM<br /> Débito | hana/dados e de hana/registo<br /> repartidos com LVM ou MDADM | hana/partilhado | /root volume | usr/sap | Hana/cópia de segurança |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| E16v3 | 128 GiB | 384 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| E32v3 | 256 giB | 768 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| E64v3 | 443 giB | 1200 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| GS5 | 448 giB | 2000 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| M64s | 1000 giB | 1000 GB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
+| M64ms | 1750 giB | 1000 GB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
+| M128s | 2000 giB | 2000 GB |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
+| M128ms | 3800 giB | 2000 GB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
+
+
+> [!NOTE]
+> Os discos recomendados para a VM mais pequena tipos com 3 x P20 oversize os volumes sobre as recomendações de espaço de acordo com o [SAP TDI armazenamento documento](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). No entanto, a escolha, tal como apresentado na tabela foi efetuada para fornecer o débito de disco suficientes para SAP HANA. Se precisar de menos débito de e/s, pode ajustar a escolha de discos de armazenamento Premium para /hana/data e /hana/log. Mesmo se aplica o dimensionamento de volume /hana/backup, que foi dimensão adequado para manter as cópias de segurança que representam o dobro do volume de memória. Se precisar de menos espaço, em seguida, pode ajustar. Tenha também o débito global de e/s de VM em mente quando o dimensionamento ou decidir para uma VM. Em geral débito VM é descrito no artigo [tamanhos de máquina virtual com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)  
+
+> [!NOTE]
+> Se pretender beneficiar [máquina virtual do Azure único SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) precisar de alterar a todos os VHDs que estão listados como armazenamento Standard (Sxx) para o Premium Storage (Pxx). 
 
 
 ### <a name="set-up-azure-virtual-networks"></a>Configurar as redes virtuais do Azure

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução para o processador de extensão de configuração de estado pretendido do Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,11 +37,9 @@ Este artigo apresenta a extensão de PowerShell pretendido Estado Configuration 
 ## <a name="terms-and-concepts"></a>Conceitos e termos de licenciamento
 Este guia presumes familiaridade com os seguintes conceitos:
 
-Configuração - um documento de configuração de DSC. 
-
-Nó - um destino para uma configuração de DSC. Neste documento, "nó" sempre refere-se para uma VM do Azure.
-
-Dados de configuração - um. psd1 ficheiros que contêm dados ambientais para uma configuração
+* **Configuração** -documento de configuração de A DSC. 
+* **Nó** -um destino para uma configuração de DSC. Neste documento, "nó" sempre refere-se para uma VM do Azure.
+* **Dados de configuração** - um ficheiro. psd1 que contenha dados ambientais para uma configuração
 
 ## <a name="architectural-overview"></a>Descrição geral da arquitetura
 A extensão de DSC do Azure utiliza o framework de agente da VM do Azure para fornecer, enact e relatórios sobre configurações de DSC em execução em VMs do Azure. A extensão de DSC espera um ficheiro. zip que contém, pelo menos, um documento de configuração e um conjunto de parâmetros fornecidos através do SDK do Azure PowerShell ou através do portal do Azure.
@@ -146,9 +144,11 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>Registo
 Os registos são colocados em:
 
-C:\WindowsAzure\Logs\Plugins\Microsoft.PowerShell.DSC\[número de versão]
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre o PowerShell DSC, [visitar o Centro de documentação do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
 
 Examine o [modelo Azure Resource Manager para a extensão de DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

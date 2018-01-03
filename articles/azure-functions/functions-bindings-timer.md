@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador para as funções do Azure 
 
@@ -33,14 +33,14 @@ Este artigo explica como trabalhar com os acionadores de temporizador nas funç�
 
 Veja o exemplo de específicas do idioma:
 
-* [Pré-compilada c#](#trigger---c-example)
-* [Script do c#](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [Script do c# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="c-example"></a>Exemplo do c#
 
-O seguinte exemplo mostra um [pré-compilada c# função](functions-dotnet-class-library.md) que é executado a cada cinco minutos:
+O seguinte exemplo mostra um [c# função](functions-dotnet-class-library.md) que é executado a cada cinco minutos:
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -136,7 +136,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>Atributos
 
-Para [pré-compilada c#](functions-dotnet-class-library.md) funções, utilize o [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), definida no pacote NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+No [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), definida no pacote NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
 O construtor do atributo aceita uma expressão de CRON, conforme mostrado no exemplo seguinte:
 
@@ -150,7 +150,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 Pode especificar um `TimeSpan` em vez de uma expressão de CRON se a sua aplicação de função é executada num plano de serviço de aplicações (não um plano de consumo).
 
-Para obter um exemplo completado, consulte [PRÉ-COMPILADA c# exemplo](#c-example).
+Para obter um exemplo completado, consulte [c# exemplo](#c-example).
 
 ## <a name="configuration"></a>Configuração
 
@@ -251,7 +251,7 @@ Quando uma função de Acionador de temporizador é invocada, o [objeto temporiz
 
 O acionador de temporizador suporta várias instâncias Escalamento horizontal. Uma única instância de uma função de temporizador específico é executada em todas as instâncias.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Ir para um guia de introdução que utiliza um acionador de temporizador](functions-create-scheduled-function.md)

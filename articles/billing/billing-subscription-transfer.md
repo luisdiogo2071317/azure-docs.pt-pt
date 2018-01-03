@@ -14,42 +14,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/15/2017
+ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9beef44b3fbaf26d49757544f32b97c7ef2cf425
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma subscrição do Azure para outra conta
 
-Pode transferir a sua subscrição para outro utilizador no Centro de contas do. Utilize esta funcionalidade para entregar através de propriedade para alguém de faturação da subscrição, alterar a conta de início de sessão ou mover subscrição para um diretório diferente. Para alterar a sua subscrição para uma oferta diferentes, consulte [mudar a sua subscrição do Azure para outra oferta](billing-how-to-switch-azure-offer.md).
+Transferir a sua subscrição para outro utilizador no Centro de contas para alterar o administrador de conta e entregar a propriedade faturação da subscrição. Para alterar a sua subscrição para uma oferta diferentes, consulte [mudar a sua subscrição do Azure para outra oferta](billing-how-to-switch-azure-offer.md).
 
 > [!IMPORTANT]
 > 
 > Atualmente não suportamos das transferências de subscrições de avaliação gratuita ou [do Azure no Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscrições. Para obter uma solução, consulte [mover recursos para o novo grupo de recursos ou subscrição](../azure-resource-manager/resource-group-move-resources.md).
-
-<a id="supported"></a>
-
-## <a name="whats-supported"></a>O que é suportado:
-
-Transferência de subscrição de gestão personalizada está disponível para o ofertas ou tipos de subscrição listados na seguinte tabela. Para transferir a outras subscrições, como [patrocínio](https://azure.microsoft.com/offers/ms-azr-0036p/) ou suportam esquemas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-| Nome da Oferta                                                                             | Número da oferta |
-|----------------------------------------------------------------------------------------|--------------|
-| [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR - 0017P        |
-| [Rede de parceiro da Microsoft](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR - 0025P        |
-| [Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR - 0062P        |
-| [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR - 0003P        |
-| [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR - 0023P        |
-| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR - 0063P        |
-| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR - 0064P        |
-| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR - 0059P        |
-| [Visual Studio Professional de teste](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR - 0060P        |
-
-\*[Portal através de EA](#EA)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferir a propriedade de uma subscrição do Azure
 
@@ -57,7 +37,7 @@ Transferência de subscrição de gestão personalizada está disponível para o
 >
 >
 
-1. Inicie sessão em [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o administrador da conta. Para saber quem é o administrador da conta da subscrição, consulte [perguntas mais frequentes](#faq).
+1. Inicie sessão em [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions) como o administrador de conta. Para saber quem é o administrador da conta da subscrição, consulte [perguntas mais frequentes](#faq).
 
 1. Selecione a subscrição a transferência.
 
@@ -88,14 +68,33 @@ O administrador de empresa pode transferir a propriedade das subscrições dentr
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Passos seguintes após a aceitação de propriedade de uma subscrição
 
-1. É agora o administrador de conta. Rever e atualizar o administrador de serviços e Coadministradores. Gerir administradores no [portal clássico do Azure](https://manage.windowsazure.com) acedendo às definições. [Saiba mais sobre as funções de administrador](billing-add-change-azure-subscription-administrator.md).
-1. Também pode utilizar o controlo de acesso baseado em funções (RBAC) para a sua subscrição e serviços. Visite o [Portal do Azure](https://portal.azure.com). [Saiba mais sobre o RBAC](../active-directory/role-based-access-control-configure.md)
+1. É agora o administrador de conta. Rever e atualizar o administrador de serviço, Coadministradores e outras funções RBAC. Para obter mais informações, consulte [adicionar ou alterar funções de administrador do Azure que gerem a subscrição ou serviços](billing-add-change-azure-subscription-administrator.md).
 1. Atualize as credenciais associadas com serviços nesta subscrição, incluindo:
    1. Certificados de gestão que conceder ao utilizador direitos de administrador aos recursos da subscrição. Para obter mais informações, consulte [criar e carregar um gestão de certificados para o Azure](../cloud-services/cloud-services-certs-create.md)
    1. Chaves de acesso para serviços como o armazenamento. Para obter mais informações, consulte [contas do storage do Azure sobre](../storage/common/storage-create-storage-account.md)
    1. Credenciais de acesso remoto para os serviços, como máquinas virtuais do Azure. 
 1. [Atualizar faturação alertas para esta subscrição](billing-set-up-alerts.md) no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions). 
-1. Se estiver a trabalhar com um parceiro, considere atualizar o ID de parceiro nesta subscrição. Pode atualizar o ID de parceiro no [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions).
+1. Se estiver a trabalhar com um parceiro, considere atualizar o ID de parceiro nesta subscrição. Pode atualizar o ID de parceiro no [portal do Azure](https://portal.azure.com).
+
+<a id="supported"></a>
+
+## <a name="whats-supported"></a>O que é suportado:
+
+Transferência de subscrição de gestão personalizada está disponível para o ofertas ou tipos de subscrição listados na seguinte tabela. Para transferir a outras subscrições, como [patrocínio](https://azure.microsoft.com/offers/ms-azr-0036p/) ou suportam esquemas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+| Nome da Oferta                                                                             | Número da oferta |
+|----------------------------------------------------------------------------------------|--------------|
+| [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR - 0017P        |
+| [Rede de parceiro da Microsoft](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR - 0025P        |
+| [Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR - 0062P        |
+| [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR - 0003P        |
+| [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR - 0023P        |
+| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR - 0063P        |
+| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR - 0064P        |
+| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR - 0059P        |
+| [Visual Studio Professional de teste](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR - 0060P        |
+
+\*[Portal através de EA](#EA)
 
 <a id="faq"></a>
 
@@ -111,7 +110,7 @@ O administrador da conta é a pessoa que inscreveu no ou comprou a subscrição 
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Tudo transferência? Incluindo grupos de recursos, VMs, discos e outros serviços em execução?
 
-Sim, todos os recursos, como VMs, discos e transferência de Web sites para o novo proprietário. No entanto, quaisquer [funções de administrador](billing-add-change-azure-subscription-administrator.md) e [controlo de acesso baseado em funções (RBAC)](../active-directory/role-based-access-control-configure.md) configurou as políticas não são transferidos em diretórios diferentes.
+Todos os recursos, como VMs, discos e transferência de Web sites para o novo proprietário. No entanto, quaisquer [funções de administrador](billing-add-change-azure-subscription-administrator.md) e [controlo de acesso baseado em funções (RBAC)](../active-directory/role-based-access-control-configure.md) configurou as políticas não são transferidos em diretórios diferentes. Além disso, [registos de aplicação](../active-directory//develop/active-directory-integrating-applications.md) e outros serviços de inquilino específico não transferência ao longo.
 
 ### <a id="no-button"></a>Por que motivo não vejo o botão "Transferir a subscrição"?
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 019d4ba9124173a7de555c46d32881ecf639a34c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 958533079c0e0864ff0e561ad865114ef2a415a8
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir no portal do Azure do Azure DDoS proteção padrão
 
@@ -31,21 +31,21 @@ Saiba como ativar e desativar distribuída recusa de protection service (DDoS di
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Ativar o padrão de proteção DDoS - nova rede virtual
 
 1. Inicie sessão no portal do Azure em http://portal.azure.com. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-2. Clique no botão **Novo** localizado no canto superior esquerdo do portal do Azure.
+2. Clique em **crie um recurso** no canto superior esquerdo do portal do Azure.
 3. Selecione **redes**e, em seguida, selecione **rede Virtual**.
-4. Crie uma rede virtual com as definições que escolheu. Para obter mais informações sobre a criação de redes virtuais, consulte [criar uma rede virtual](virtual-networks-create-vnet-arm-pportal.md). Em *proteção DDoS*, clique em **ativado**e, em seguida, clique em **criar**.
+4. Crie uma rede virtual com as definições que escolheu. Para obter mais informações sobre a criação de redes virtuais, consulte [criar uma rede virtual](virtual-networks-create-vnet-arm-pportal.md). Em **proteção DDoS**, clique em **ativado**e, em seguida, clique em **criar**. Se não vir **proteção DDoS**, uma causa provável é que a sua subscrição não está registada para a funcionalidade. Tem de concluir [registo](http://aka.ms/ddosprotection)e receber a notificação a indicar que a sua subscrição tiver sido ativada para a funcionalidade, antes de **proteção DDoS** aparece.
 
     ![Criar a rede virtual](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
     > [!WARNING]
-    > Quando seleciona uma região, escolha uma região suportada na lista na [descrição geral do Azure DDoS proteção padrão](ddos-protection-overview.md).
+    > Quando seleciona uma região, escolha uma região suportada na lista na [descrição geral do Azure DDoS proteção padrão](ddos-protection-overview.md). Se selecionar uma região suportada, a criação da rede virtual falha.
 
     Um aviso indica que a ativação da proteção DDoS implica os encargos. Não existem custos de proteção DDoS são cobrados durante a pré-visualização. Os encargos serão cobrado na disponibilidade geral. Receberá aviso de 30 dias, antes do início de encargos e disponibilidade geral.
 
 ## <a name="enable-ddos-protection-standard---existing-virtual-network"></a>Ativar o padrão de proteção DDoS - rede virtual existente 
 
 1. Clique em **redes virtuais** no menu do portal do Azure e, em seguida, selecione a rede virtual.
-2. Clique em **proteção DDoS**, clique em **ativado** no *proteção DDoS* ecrã e, em seguida, clique em **guardar**. 
+2. Clique em **proteção DDoS**, clique em **ativado** no *proteção DDoS* ecrã e, em seguida, clique em **guardar**. Se não vir **proteção DDoS**, uma causa provável é que a sua subscrição não está registada para a funcionalidade. Tem de concluir [registo](http://aka.ms/ddosprotection)e receber a notificação a indicar que a sua subscrição tiver sido ativada para a funcionalidade, antes de **proteção DDoS** aparece. 
 
     > [!WARNING]
     > A rede virtual tem de existir numa região suportada. Para obter uma lista de regiões suportadas, consulte [descrição geral do Azure DDoS proteção padrão](ddos-protection-overview.md).
@@ -99,7 +99,7 @@ Os nomes de métricos apresentam tipos de pacote diferente e bytes vs pacotes, c
 - **O nome da etiqueta forwarded (por exemplo: DDoS de reencaminhados de pacotes de entrada)**: O número de pacotes reencaminhados pelo sistema DDoS para o VIP – tráfego que não foi filtrado de destino.
 - **Nenhum nome de etiqueta (por exemplo: DDoS de pacotes de entrada):** o número total de pacotes fornecido para o sistema limpeza – que representa a soma de pacotes ignorados e reencaminhados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Leia mais sobre os registos de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Analisar os registos do armazenamento do Azure com a análise de registos](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

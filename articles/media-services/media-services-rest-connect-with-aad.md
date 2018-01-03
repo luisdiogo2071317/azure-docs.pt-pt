@@ -11,130 +11,181 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: e5d7a5ec1c28a552420aba5e2cd6c8c7bbf4213d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Utilize a autenticação do Azure AD para aceder à API de serviços de suporte de dados do Azure com REST
 
-A equipa de Media Services do Azure lançou suporte de autenticação do Azure Active Directory (Azure AD) para acesso de Media Services do Azure. Anunciou também a planos para preterir a autenticação do serviço de controlo de acesso do Azure para o acesso de Media Services. Dado que cada subscrição do Azure e cada conta de Media Services, está ligado a um inquilino do Azure AD, o suporte de autenticação do Azure AD tem muitas vantagens de segurança. Para obter mais informações sobre esta alteração e a migração (se utilizar o SDK do .NET dos serviços de suporte de dados para a sua aplicação), consulte as seguintes mensagens de blogue e artigos:
+Quando estiver a utilizar a autenticação do Azure AD com Media Services do Azure, pode autenticar-se de uma das seguintes formas:
 
-- [Media Services do Azure announces suporte para o Azure AD e descontinuação de autenticação de controlo de acesso](https://azure.microsoft.com/blog/azure%20media%20service%20aad%20auth%20and%20acs%20deprecation)
-- [API dos serviços de suporte de dados de Azure do acesso através da autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md)
-- [Utilize a autenticação do Azure AD para aceder à API de serviços de suporte de dados do Azure com o Microsoft .NET](media-services-dotnet-get-started-with-aad.md)
-- [Introdução à autenticação do Azure AD através do portal do Azure](media-services-portal-get-started-with-aad.md)
+- **Autenticação de utilizador** efetua a autenticação de uma pessoa que está a utilizar a aplicação para interagir com recursos de Media Services do Azure. A aplicação interativa do primeiro deve solicitar credenciais ao utilizador. Um exemplo é uma aplicação de consola de gestão que é utilizada por utilizadores autorizados para monitorizar as tarefas de codificação ou transmissão em direto. 
+- **Autenticação principal de serviço** autentica um serviço. As aplicações que utilizam frequentemente este método de autenticação são aplicações que executem serviços de daemon, serviços de camada média ou tarefas agendadas, tais como as web apps, aplicações de função, as logic apps, APIs ou micro-serviços.
 
-Alguns clientes precisam desenvolver as soluções de Media Services com as seguintes restrições:
+    Este tutorial mostra como utilizar o Azure AD **principal de serviço** autenticação para aceder à API do AMS com REST. 
 
-*   Utilizam uma linguagem de programação que não é o Microsoft .NET ou c# ou o ambiente de tempo de execução não é Windows.
-*   Azure AD bibliotecas, tais como bibliotecas de autenticação do Active Directory não estão disponíveis para a linguagem de programação ou não podem ser utilizadas para o respetivo ambiente de tempo de execução.
+    > [!NOTE]
+    > **Principal de serviço** é a melhor prática recomendada para a maioria das aplicações ligar aos Media Services do Azure. 
 
-Alguns clientes tem programado aplicações utilizando a REST API para autenticação de controlo de acesso e acesso de Media Services do Azure. Para estes clientes, terá de uma forma de utilizar apenas a API de REST de autenticação do Azure AD e subsequente acesso de Media Services do Azure. É necessário não confie em qualquer uma das bibliotecas do Azure AD ou o SDK de .NET de Media Services. Neste artigo, vamos descrevem uma solução e forneça o código de exemplo para este cenário. Porque o código de todas as chamadas da REST API, com nenhuma dependência em qualquer do Azure AD ou biblioteca de Media Services do Azure, o código facilmente pode ser convertido em qualquer linguagem de programação.
+Neste tutorial, ficará a saber como:
+
+> [!div class="checklist"]
+> * Obter as informações de autenticação do portal do Azure
+> * Obter o token de acesso utilizando o Postman
+> * Teste o **ativos** API utilizando o token de acesso
+
 
 > [!IMPORTANT]
-> Atualmente, os Media Services suportam o modelo de autenticação de serviços de controlo de acesso do Azure. No entanto, vai ser preterida a autenticação de controlo de acesso 1 de Junho de 2018. Recomendamos a migração para o modelo de autenticação do Azure AD logo que possível.
+> Atualmente, os Media Services suportam o modelo de autenticação de serviços de controlo de acesso do Azure. No entanto, vai ser preterida a autenticação de controlo de acesso 1 de Junho de 2018. Recomendamos que migre para o modelo de autenticação do Azure AD assim que for possível.
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="design"></a>Design
+- Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- [Criar uma conta de Media Services do Azure no portal do Azure](media-services-portal-create-account.md).
+- Reveja o [aceder à API do Azure suporte de dados de serviços com descrição geral da autenticação do AAD](media-services-use-aad-auth-to-access-ams-api.md) artigo.
+- Instalar o [Postman](https://www.getpostman.com/) cliente REST para executar as APIs REST apresentadas neste artigo. 
 
-Neste artigo, utilizamos a seguinte estrutura de autenticação e autorização:
+    Neste tutorial, estamos uring **Postman** , mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in REST ou **Telerik Fiddler**. 
 
-*  Protocolo de autorização: OAuth 2.0. OAuth 2.0 é uma norma de segurança de web que abrange a autenticação e autorização. É suportada pela Google, Microsoft, Facebook e PayPal. -Foi ratified Outubro de 2012. Microsoft corretas oferece suporte a OAuth 2.0 e o OpenID Connect. Ambos estes padrões são suportados em vários serviços e bibliotecas de cliente, incluindo o Azure Active Directory, Open Web Interface para Katana .NET (OWIN) e bibliotecas do Azure AD.
-*  Tipo de conceder: tipo de conceder de credenciais do cliente. Credenciais do cliente é um dos tipos de concessão de quatro OAuth 2.0. Muitas vezes, é utilizado para acesso ao Microsoft Azure AD Graph API.
-*  Modo de autenticação: principal de serviço. O modo de autenticação é o utilizador ou a autenticação interativa.
+## <a name="get-the-authentication-information-from-the-azure-portal"></a>Obter as informações de autenticação do portal do Azure
 
-Um total de quatro aplicações ou serviços estão envolvidos na autenticação do Azure AD e autorização fluxo por utilizar os serviços de suporte de dados. As aplicações e serviços e o fluxo, descritas na tabela seguinte:
+### <a name="overview"></a>Descrição geral
 
-|Tipo de aplicação |Aplicação |Fluxo|
-|---|---|---|
-|Cliente | Aplicação de cliente ou solução | Esta aplicação (na realidade, o proxy) está registada no inquilino do Azure AD no qual residem a subscrição do Azure e a conta de serviço de suporte de dados. O principal de serviço da aplicação registada, em seguida, é concedido a função de proprietário ou contribuinte no controlo de acesso (IAM) da conta de serviço de suporte de dados. O principal de serviço é representado por aplicação segredo do cliente e o ID de cliente. |
-|Fornecedor de identidade (IDP) | Azure AD como IDP | A aplicação registada principal de serviço (ID de cliente e segredo do cliente) é autenticado pelo Azure AD como IDP. Esta autenticação é efetuada internamente e implicitamente. Como no fluxo de credenciais do cliente, o cliente é autenticado em vez do utilizador. |
-|Proteger o serviço de Token (STS) / servidor OAuth | Azure AD como STS | Após a autenticação do IDP (ou o servidor de OAuth em termos de OAuth 2.0), um token de acesso ou um Token Web JSON (JWT) é emitido pelo Azure AD como servidor de STS/OAuth para acesso ao recurso de camada média: no nosso caso, o ponto final de API de REST dos serviços de suporte de dados. |
-|Recurso | API REST dos Serviços de Multimédia | Cada chamada de API de REST dos serviços de suporte de dados está autorizada por um token de acesso que é emitido pelo Azure AD como STS ou o servidor de OAuth. |
+Para aceder à API de serviços de suporte de dados, terá de recolher os seguintes pontos de dados.
 
-Se executar o código de exemplo e capturar um JWT ou um token de acesso, o JWT tem os seguintes atributos:
+|Definição|Exemplo|Descrição|
+|---|-------|-----|
+|Domínio de inquilino do Azure Active Directory|Microsoft.onmicrosoft.com|Azure AD como um ponto final de proteger o Token serviço (STS) é criado utilizando o seguinte formato: https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token. O Azure AD emite um JWT para poder aceder aos recursos (um token de acesso).|
+|Ponto final de API REST|https://amshelloworld.restv2.westus.Media.Azure.NET/API/|Este é o ponto final com que todas as API de REST de serviços de suporte de dados são efetuadas chamadas na sua aplicação.|
+|ID de cliente (ID de aplicação)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID de aplicação (cliente) do Azure AD O ID de cliente é necessária para obter o token de acesso. |
+|Segredo do Cliente|+ mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq + Dbim0 =|Chaves de aplicação do Azure AD (segredo do cliente). O segredo do cliente é necessária para obter o token de acesso.|
 
-    aud: "https://rest.media.azure.net",
+### <a name="get-aad-auth-info-from-the-azure-portal"></a>Obter informações de autenticação do AAD do portal do Azure
 
-    iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+Para obter as informações, siga estes passos:
 
-    iat: 1497146280,
+1. Inicie sessão no [Portal do Azure](http://portal.azure.com).
+2. Navegue para a instância de AMS.
+3. Selecione **acesso à API**.
+4. Clique em **ligar a API de serviços de suporte de dados do Azure com o principal de serviço**.
 
-    nbf: 1497146280,
-    exp: 1497150180,
+    ![Acesso à API](./media/connect-with-rest/connect-with-rest01.png)
 
-    aio: "Y2ZgYDjuy7SptPzO/muf+uRu1B+ZDQA=",
+5. Selecione um existente **aplicação do Azure AD** ou crie um novo (mostrado abaixo).
 
-    appid: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6",
+    > [!NOTE]
+    > Para o pedido de REST de suporte de dados do Azure com êxito, o utilizador chamado tem de ter um **contribuinte** ou **proprietário** função para a conta de Media Services está a tentar aceder. Se obtiver uma exceção que diz "o servidor remoto devolveu um erro: não autorizado (401)," consulte [controlo de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
-    appidacr: "1",
+    Se precisar de criar uma nova aplicação AD, siga estes passos:
+    
+    1. Prima **criar novos**.
+    2. Introduza um nome.
+    3. Prima **criar novo** novamente.
+    4. Prima **guardar**.
 
-    idp: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+    ![Acesso à API](./media/connect-with-rest/new-app.png)
 
-    oid: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+    A nova aplicação aparece na página.
 
-    sub: "a938cfcc-d3de-479c-b0dd-d4ffe6f50f7c",
+6. Obter o **ID de cliente** (ID de aplicação).
+    
+    1. Selecione a aplicação.
+    2. Obter o **ID de cliente** na janela à direita. 
 
-    tid: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ![Acesso à API](./media/connect-with-rest/existing-client-id.png).
 
-Seguem-se os mapeamentos entre os atributos a JWT e a quatro aplicações ou serviços na tabela anterior:
+7.  Obter a aplicação **chave** (segredo do cliente). 
 
-|Tipo de aplicação |Aplicação |Atributo JWT |
-|---|---|---|
-|Cliente |Aplicação de cliente ou solução |AppID: "02ed1e8e-af8b-477e-af3d-7e7219a99ac6". O ID de cliente de uma aplicação que irá registar com o Azure AD na secção seguinte. |
-|Fornecedor de identidade (IDP) | Azure AD como IDP |IDP: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/" o GUID é o inquilino de ID da Microsoft (microsoft.onmicrosoft.com). Cada inquilino tem um ID próprio, exclusivo. |
-|Proteger o serviço de Token (STS) / servidor OAuth |Azure AD como STS | iss: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/". O GUID é o inquilino de ID da Microsoft (microsoft.onmicrosoft.com). |
-|Recurso | API REST dos Serviços de Multimédia |aud: "https://rest.media.azure.net". O destinatário ou o público-alvo do token de acesso. |
+    1. Clique em de **Gerir aplicação** botão (tenha em atenção que as informações de ID de cliente se encontra sob **ID da aplicação**). 
+    2. Prima **chaves**.
+    
+        ![Acesso à API](./media/connect-with-rest/manage-app.png)
+    3. Gerar a chave de aplicação (segredo do cliente) por preencher **Descrição** e **EXPIRA** e premindo **guardar**.
+    
+        Uma vez a **guardar** botão é premido, é apresentado o valor da chave. Copie o valor da chave antes de deixarem de painel.
 
-## <a name="steps-for-setup"></a>Passos de configuração
+    ![Acesso à API](./media/connect-with-rest/connect-with-rest03.png)
 
-Registar e configurar uma aplicação do Azure Active Directory (AAD) e obter chaves para chamar o ponto final de API de REST dos serviços de suporte de dados do Azure, consulte o artigo [começar com a autenticação do Azure AD através do portal do Azure](media-services-portal-get-started-with-aad.md)
+Pode adicionar valores para parâmetros de ligação do AD para o ficheiro Web. config ou o App. config, para utilização posterior no seu código.
 
+> [!IMPORTANT]
+> O **chave cliente** é um segredo importante e deve estar corretamente protegida no Cofre de chaves ou encriptados na produção.
 
-## <a name="info-to-collect"></a>Informações a recolher
+## <a name="get-the-access-token-using-postman"></a>Obter o token de acesso utilizando o Postman
 
-Para preparar a codificação de REST, recolha os seguintes pontos de dados a incluir no código:
+Esta secção mostra como utilizar **Postman** para executar uma API de REST que devolva um Token de portador do JWT (token de acesso). Para chamar qualquer API de REST de serviços de suporte de dados, tem de adicionar o cabeçalho "Authorization" para as chamadas e adicione o valor de "portador *your_access_token*" para cada chamada (conforme ilustrado na secção seguinte deste tutorial). 
 
-*   Azure AD como um ponto final STS: https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token. Deste ponto final, é pedido um token de acesso JWT. Para além das que serve como um IDP, o Azure AD também serve como um STS. O Azure AD emite um JWT para acesso a recursos (um token de acesso). Um token JWT tem várias afirmações.
-*   API de REST do suporte de dados dos serviços do Azure como recursos ou o público-alvo: https://rest.media.azure.net.
-*   ID de cliente: Ver passo 2 [passos para a configuração](#steps-for-setup).
-*   Segredo do cliente: ver passo 2 [passos para a configuração](#steps-for-setup).
-*   Os serviços de suporte de dados de conta de ponto final de REST API no seguinte formato:
+1. Abra **Postman**.
+2. Selecione **PUBLICAR**.
+3. Introduza o URL que inclua o nome do inquilino com o seguinte formato: o nome de inquilino deve terminar com **. onmicrosoft.com** e o URL deve terminar com **oauth2/token**: 
 
-    https://[media_service_account_name].restv2. [data_center].media.azure.net/API 
+    https://login.microsoftonline.com/ {your-aad-tenant-name.onmicrosoft.com}/oauth2/token
 
-    Este é o ponto final com que todas as API de REST de serviços de suporte de dados são efetuadas chamadas na sua aplicação. Por exemplo, https://willzhanmswjapan.restv2.japanwest.media.azure.net/API.
+4. Selecione o **cabeçalhos** separador.
+5. Introduza o **cabeçalhos** informações utilizando a grelha de dados de "Chave/valor". 
 
-Em seguida, pode colocar estes cinco parâmetros no seu ficheiro Web. config ou o App. config, para utilizar no seu código.
+    ![Grelha de dados](./media/connect-with-rest/headers-data-grid.png)
 
-## <a name="sample-code"></a>Código de exemplo
+    Em alternativa, clique em **editar em massa** ligação no lado direito da janela Postman e cole o seguinte código.
 
-Pode encontrar o código de exemplo no [do Azure AD Authentication para acesso de serviços de suporte de dados do Azure: ambos através da REST API](https://github.com/willzhan/WAMSRESTSoln).
+        Content-Type:application/x-www-form-urlencoded
+        Keep-Alive:true
 
-O código de exemplo tem duas partes:
+6. Prima a **corpo** separador.
+7. Introduza as informações de corpo utilizando a grelha de dados "Chave/valor" (substituir o ID de cliente e segredos valores). 
 
-*   Um projeto de biblioteca DLL tem todos os o código de REST API para autorização e autenticação do Azure AD. Também tem um método para efetuar chamadas da REST API para o ponto final de API de REST dos serviços de suporte de dados, com o token de acesso.
-*   Um cliente de teste da consola, que inicia a autenticação do Azure AD e chama a API de REST de serviços de suporte de dados diferentes.
+    ![Grelha de dados](./media/connect-with-rest/data-grid.png)
 
-O projeto de exemplo tem três funcionalidades:
+    Em alternativa, clique em **editar em massa** no lado direito da janela de Postman e cole o seguinte corpo (substituir o ID de cliente e segredos valores):
 
-*   Conceder do Azure AD as autenticações através das credenciais do cliente utilizando apenas a API REST.
-*   Acesso de Media Services do Azure utilizando apenas a API REST.
-*   Acesso de armazenamento do Azure, utilizando apenas a API REST (como utilizado para criar uma conta de Media Services, utilizando a REST API).
+        grant_type:client_credentials
+        client_id:{Your Client ID that you got from your AAD Application}
+        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        resource:https://rest.media.azure.net
 
+8. Prima **Enviar**.
 
-## <a name="where-is-the-refresh-token"></a>Onde está o token de atualização?
+    ![Obtenha o token](./media/connect-with-rest/connect-with-rest04.png)
 
-Poderão pedir-lhe algumas leitores: onde está o token de atualização? Por que motivo não utilizar um token de atualização aqui?
+A resposta devolvida contém o **token de acesso** que terá de utilizar para aceder a qualquer APIs do AMS.
 
-O objetivo de um token de atualização não é um token de acesso de atualização. Foi concebido para ignorar a autenticação de utilizador final e receber um token de acesso válido quando expira um token de anterior. Um nome melhor para um token de atualização poderá ser algo como "Ignorar re-sessão-no token de utilizador do".
+## <a name="test-the-assets-api-using-the-access-token"></a>Teste o **ativos** API utilizando o token de acesso
 
-Se utilizar o fluxo (nome de utilizador e palavra-passe, agir em nome de um utilizador) de concessão de autorização do OAuth 2.0, um token de atualização ajuda a obter um acesso renovado token sem pedir intervenção do utilizador. No entanto, para o OAuth 2.0 fluxo descrita neste artigo de concessão de credenciais do cliente, o cliente funciona no seu próprio nome. Não precisa de intervenção do utilizador em todas as e o servidor de autorização não precisa de fornecer um token de atualização. Se a depuração de **GetUrlEncodedJWT** método, tenha em atenção que a resposta do ponto final do token tem um token de acesso, mas nenhum token de atualização.
+Esta secção mostra como pode aceder a **ativos** API utilizando **Postman**.
 
-## <a name="next-steps"></a>Passos seguintes
+1. Abra **Postman**.
+2. Selecione **OBTER**.
+3. Cole o ponto final de REST API (por exemplo, https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+4. Selecione o **autorização** separador. 
+5. Selecione **Token de portador**.
+6. Cole o token que foi criado na secção anterior.
 
-Introdução ao [carregar ficheiros para a conta](media-services-dotnet-upload-files.md).
+    ![Obtenha o token](./media/connect-with-rest/connect-with-rest05.png)
+
+    > [!NOTE]
+    > O UX Postman pode ser diferente entre um Mac e o PC. Se a versão de Mac não tem a opção "Portador Token" no **autenticação** pendente da secção, deve adicionar o **autorização** cabeçalho manualmente no cliente Mac.
+
+   ![Cabeçalho de autenticação](./media/connect-with-rest/auth-header.png)
+
+7. Selecione **cabeçalhos**.
+5. Clique em **editar em massa** ligação no lado direito da janela de Postman.
+6. Cole os cabeçalhos seguintes:
+
+        x-ms-version:2.15
+        Accept:application/json
+        Content-Type:application/json
+        DataServiceVersion:3.0
+        MaxDataServiceVersion:3.0
+
+7. Prima **Enviar**.
+
+A resposta devolvida contém os elementos que estão na sua conta.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+* Repita este código de exemplo no [do Azure AD Authentication para acesso de serviços de suporte de dados do Azure: ambos através da REST API](https://github.com/willzhan/WAMSRESTSoln)
+* [Carregar ficheiros com o .NET](media-services-dotnet-upload-files.md)

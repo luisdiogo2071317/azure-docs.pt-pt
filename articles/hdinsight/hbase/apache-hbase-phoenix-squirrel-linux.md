@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/22/2017
 ms.author: jgao
-ms.openlocfilehash: 4ec2d5d82c5a6fa0b4a6a485bcacf592ba28a89c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 70f8786bae555456dd019ad76bda974667cec5ba
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Utilizar o Apache Phoenix com clusters de HBase baseado em Linux no HDInsight
 Saiba como utilizar [Apache Phoenix](http://phoenix.apache.org/) no Azure HDInsight e como utilizar SQLLine. Para obter mais informações sobre o Phoenix, consulte [Phoenix em 15 minutos ou menos](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Para a gramática Phoenix, consulte [gramática Phoenix](http://phoenix.apache.org/language/index.html).
@@ -68,7 +68,7 @@ Quando ligar a um cluster HBase, terá de ligar a uma das ZooKeeper VMs. Cada cl
 
 Para obter mais informações, consulte o [SQLLine manual](http://sqlline.sourceforge.net/#manual) e [gramática Phoenix](http://phoenix.apache.org/language/index.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a utilizar o Apache Phoenix no HDInsight. Para obter mais informações, consulte estes artigos:
 
 * [Descrição geral do HBase do HDInsight][hdinsight-hbase-overview].
@@ -85,10 +85,4 @@ Neste artigo, aprendeu a utilizar o Apache Phoenix no HDInsight. Para obter mais
 [hdinsight-hbase-provision-vnet]:apache-hbase-provision-vnet.md
 [hdinsight-hbase-overview]:apache-hbase-overview.md
 
-[hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
-[img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png
-[img-vnet-diagram]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vnet-point-to-site.png
-[img-squirrel-driver]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-driver.png
-[img-squirrel-alias]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-alias.png
-[img-squirrel]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel.png
-[img-squirrel-sql]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-sql.png
+

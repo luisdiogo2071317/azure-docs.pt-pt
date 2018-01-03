@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5464eea75c89a95e6bf74b3f24fe92f3652f5db9
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurar a recuperação após desastre para as VMs do Azure para uma região secundária do Azure (pré-visualização)
 
@@ -129,10 +129,10 @@ Recuperação de site obtém uma lista de VMs associados à subscrição e servi
 
 Recuperação de sites cria as predefinições e política de replicação para a região de destino. Pode alterar as definições com base nos seus requisitos.
 
-1. Clique em **definições** para ver as definições de destino.
-2. Para substituir as predefinições de destino, clique em **personalizar**. 
+1. Clique em **definições** para ver as definições de replicação e de destino.
+2. Para substituir as predefinições de destino, clique em **personalizar** junto a **grupo de recursos, rede, armazenamento e conjuntos de disponibilidade**.
 
-![Configurar definições](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+  ![Configurar definições](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **Localização de destino**: A região de destino utilizada para recuperação após desastre. Recomendamos que a localização de destino corresponde a localização do cofre do Site Recovery.
@@ -148,11 +148,23 @@ Recuperação de sites cria as predefinições e política de replicação para 
 
 - **Conjuntos de disponibilidade de destino**: por predefinição, a recuperação de Site cria uma novo conjunto de disponibilidade na região de destino com o sufixo "asr". Só é possível adicionar conjuntos de disponibilidade se VMs fizerem parte de um conjunto na região de origem.
 
+Para substituir as predefinições da política de replicação, clique em **personalizar** junto a **política de replicação**.  
+
 - **Nome da política de replicação**: nome da política.
 
 - **Retenção do ponto de recuperação**: por predefinição, a recuperação de sites mantém pontos de recuperação durante 24 horas. Pode configurar um valor entre 1 e 72 horas.
 
 - **Frequência de instantâneos consistentes com aplicação**: por predefinição, a recuperação de sites tira um instantâneo consistentes da aplicação todas as 4 horas. Pode configurar qualquer valor entre 1 e 12 horas. Um instantâneo consistentes da aplicação é um instantâneo de ponto no tempo dos dados de aplicação dentro da VM. Serviço de cópia de sombra de volume (VSS) assegura que aplicações na VM estão num estado consistente quando se obtém o instantâneo.
+
+- **Grupo de replicação**: se a sua aplicação tiver a consistência multi VM entre VMs, pode criar um grupo de replicação para as VMs. Por predefinição, as VMs selecionadas não fazem parte de qualquer grupo de replicação.
+
+  Clique em **personalizar** junto a **política de replicação** e, em seguida, selecione **Sim** por razões de consistência de várias VMS tornar as VMs fazem parte de um grupo de replicação. Pode criar um novo grupo de replicação ou utilizar um grupo de replicação existente. Selecione as VMs para fazer parte do grupo de replicação e clique em **OK**.
+
+> [!IMPORTANT]
+  Todas as máquinas num grupo de replicação irão ter partilhado pontos de recuperação de falha consistente e consistentes da aplicação quando a ativação pós-falha. Ativar consistência de várias VMS pode afetar o desempenho da carga de trabalho e deve ser utilizada apenas se máquinas a executar a mesma carga de trabalho e necessitar de consistência entre várias máquinas.
+
+> [!IMPORTANT]
+  Se ativar a consistência multi VM, as máquinas do grupo de replicação comunicam entre si através da porta 20004. Certifique-se de que não há nenhum dispositivo de firewall a bloquear a comunicação entre as VMs através da porta 20004 interna. Se pretender que as VMs do Linux fazer parte de um grupo de replicação, certifique-se de que o tráfego de saída na porta 20004 é aberto manualmente de acordo com as orientações da versão específica do Linux.
 
 ### <a name="track-replication-status"></a>Controlar o estado de replicação
 
@@ -162,9 +174,9 @@ Recuperação de sites cria as predefinições e política de replicação para 
 
 3. No **definições** > **itens replicados**, pode ver o estado de VMs e o progresso da replicação inicial. Clique na VM para desagregar as respetivas definições.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial que configurou recuperação após desastre para uma VM do Azure. Passo seguinte consiste em testar a configuração.
+Neste tutorial, configurou recuperação após desastre para uma VM do Azure. Passo seguinte consiste em testar a configuração.
 
 > [!div class="nextstepaction"]
 > [Executar um teste de recuperação após desastre](azure-to-azure-tutorial-dr-drill.md)

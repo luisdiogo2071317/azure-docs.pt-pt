@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdbac0fd18ad440ece35881cbe165c3c7eff8914
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>Autenticação de Service Bus com assinaturas de acesso partilhado
 
@@ -344,7 +344,7 @@ A tabela seguinte mostra os direitos de acesso necessários para várias operaç
 | Enviar para o tópico |Enviar |Qualquer endereço de tópico válido |
 | **Subscrição** | | |
 | Criar uma subscrição |Gerir |Qualquer endereço de espaço de nomes |
-| Eliminar a subscrição |Gerir |../myTopic/subscriptions/mySubscription |
+| Eliminar subscrição |Gerir |../myTopic/subscriptions/mySubscription |
 | Enumerar subscrições |Gerir |../myTopic/subscrições |
 | Obter a descrição da subscrição |Gerir |../myTopic/subscriptions/mySubscription |
 | Abandonar ou concluir mensagens depois de receber a mensagem no modo de bloqueio peek |Escutar |../myTopic/subscriptions/mySubscription |
@@ -357,7 +357,7 @@ A tabela seguinte mostra os direitos de acesso necessários para várias operaç
 | Eliminar uma regra |Gerir |../myTopic/subscriptions/mySubscription |
 | Enumerar regras |Gerir ou escutar |../myTopic/subscriptions/mySubscription/Rules 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para mais informações sobre mensagens do Service Bus, consulte os seguintes tópicos.
 

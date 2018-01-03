@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: a28cb1f8a2e48332b344566620dc49b29d9d3c99
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>A criação de partições de tabelas no armazém de dados do SQL Server
 > [!div class="op_single_selector"]
@@ -349,7 +349,7 @@ DROP TABLE #partitions;
 
 Com esta abordagem o código de controlo de origem permanece estático e os valores de limite de criação de partições têm permissão para ser dinâmico; com o armazém a evolução ao longo do tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte os artigos no [descrição geral da tabela][Overview], [tipos de dados de tabela][Data Types], [distribuir uma tabela] [ Distribute], [Uma tabela de indexação][Index], [manter as estatísticas da tabela] [ Statistics] e [Tabelas temporárias][Temporary].  Para obter mais informações sobre as melhores práticas, consulte [melhores práticas do SQL Data Warehouse][SQL Data Warehouse Best Practices].
 
 <!--Image references-->

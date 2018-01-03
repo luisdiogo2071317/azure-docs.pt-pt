@@ -17,10 +17,10 @@ ms.custom: security
 ms.date: 03/21/2017
 ms.author: rortloff;barbkess
 ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Authentication to Azure SQL Data Warehouse (Autenticação no Azure SQL Data Warehouse)
 > [!div class="op_single_selector"]
@@ -90,7 +90,7 @@ Atualmente, os utilizadores do Azure Active Directory não são apresentados no 
 * Os passos para configurar e utilizar a autenticação do Azure Active Directory são praticamente idênticos para SQL Database do Azure e Azure SQL Data Warehouse. Siga os passos detalhados no tópico [ligar à base de dados SQL ou SQL dados do armazém por utilizar o Azure autenticação do Active Directory](../sql-database/sql-database-aad-authentication.md).
 * Criar funções de base de dados personalizada e adicionar utilizadores a funções. Em seguida, conceda permissões granulares para as funções. Para obter mais informações, consulte [introdução de permissões do motor de base de dados](https://msdn.microsoft.com/library/mt667986.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para começar a consultar o armazém de dados com o Visual Studio e outras aplicações, consulte [consulta com o Visual Studio][Query with Visual Studio].
 
 <!-- Article references -->

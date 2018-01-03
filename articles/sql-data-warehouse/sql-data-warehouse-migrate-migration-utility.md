@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
 ms.openlocfilehash: e8a8a84153a950f2d1bc002b34c83dc5ed8a5eb8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>Utilitário de migração do armazém de dados (pré-visualização)
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Ao clicar na opção 'Migrar dados' pode gerar scripts BCP que irão mover os da
 
 Depois de ter preenchidos parâmetros acima simplesmente tem de clicar em execução de migração e será gerado um conjunto de dois pacotes para a localização especificada. Execute o ficheiro de exportação para exportar os dados da sua origem de migração para ficheiros simples e execute o ficheiro de importação para importar os seus dados para o SQL Data Warehouse.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que tenha migrado alguns dados, consulte como [desenvolver][develop].
 
 <!--Image references-->

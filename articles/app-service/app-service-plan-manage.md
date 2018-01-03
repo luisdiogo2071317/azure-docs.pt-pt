@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 61179c5bf29ed2c338b45ba909ec01237806cf26
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerir um plano de serviço de aplicações no Azure
 
-Um [plano do App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) fornece os recursos de uma aplicação do app Service tem de executar. Este guia de procedimentos mostra como gerir um plano de serviço de aplicações. 
+Um [plano do App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) fornece os recursos de uma aplicação do app Service tem de executar. Este guia de procedimentos mostra como gerir um plano de serviço de aplicações.
 
 ## <a name="create-an-app-service-plan"></a>Crie um plano do Serviço de Aplicações
 
@@ -69,6 +69,8 @@ Selecione **plano de serviço de aplicações de alteração** para iniciar o pr
 
 ![Seletor do plano de serviço de aplicações.][change]
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 Cada plano tem o seu próprio escalão de preço. Por exemplo, mover um site a partir um **livres** camada para um **padrão** camada, permite que todas as aplicações atribuídas para utilizar as funcionalidades e recursos do **padrão** camada. No entanto, a mover uma aplicação de um plano em camadas superior a um plano em camadas inferior significa que já não tem acesso a algumas funcionalidades. Se a sua aplicação utiliza uma funcionalidade que não está disponível no plano de destino, receberá um erro que indica qual o recurso está em utilização que não está disponível. Por exemplo, se uma das suas aplicações utiliza certificados SSL, poderá ver a mensagem de erro: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`neste caso, terá de aumentar verticalmente o escalão de preço do plano de destino para **básico** ou superior, ou se tiver de remover todas as ligações SSL a aplicação, antes de pode mover a aplicação para o plano de destino.
 
 ## <a name="move-an-app-to-a-different-region"></a>Mover uma aplicação numa região diferente
@@ -95,7 +97,7 @@ Para evitar encargos inesperados, ao eliminar a última aplicação num plano do
 > [!IMPORTANT]
 > **Planos do App Service** que não tem aplicações associadas aos mesmos ainda pagar, uma vez que continuam a reserva de instâncias VM configuradas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Aumentar verticalmente a uma aplicação no Azure](web-sites-scale.md)

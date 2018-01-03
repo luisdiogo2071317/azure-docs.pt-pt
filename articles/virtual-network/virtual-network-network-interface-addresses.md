@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c309c7c25a3ed75e96dec8046934530e24890f38
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: d06dd0a8ec63202825be347c4b69e21a6dd4b7db
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover os endereços IP para uma interface de rede do Azure
 
@@ -65,7 +65,7 @@ Pode adicionar como muitas [privada](#private) e [pública](#public) [IPv4](#ipv
 
 ## <a name="change-ip-address-settings"></a>Alterar definições do endereço IP
 
-Pode precisar de alterar o método de atribuição de um endereço IPv4, alterar o endereço IPv4 estático, ou alterar o endereço IP público atribuído a uma interface de rede. Se estiver a alterar o endereço IPv4 privado de uma configuração de IP secundária associada uma interface de rede secundárias numa máquina virtual (Saiba mais sobre [interfaces de rede principal e secundário](virtual-network-network-interface-vm.md#about)), coloque a máquina virtual no estado parado (desalocado) antes de concluir os seguintes passos: 
+Pode precisar de alterar o método de atribuição de um endereço IPv4, alterar o endereço IPv4 estático, ou alterar o endereço IP público atribuído a uma interface de rede. Se estiver a alterar o endereço IPv4 privado de uma configuração de IP secundária associada uma interface de rede secundárias numa máquina virtual (Saiba mais sobre [interfaces de rede principal e secundário](virtual-network-network-interface-vm.md)), coloque a máquina virtual no estado parado (desalocado) antes de concluir os seguintes passos: 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta que seja atribuídas (no mínimo) permissões para a função de contribuinte de rede para a sua subscrição. Leia o [funções incorporadas para controlo de acesso baseado em funções do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) artigo para obter mais informações sobre a atribuição de funções e permissões a contas.
 2. Na caixa que contém o texto *procurar recursos* na parte superior do portal do Azure, escreva *interfaces de rede*. Quando **interfaces de rede** é apresentado nos resultados da pesquisa, clique no mesmo.
@@ -143,7 +143,7 @@ Existem cenários onde é necessário definir o endereço IP de uma interface de
 1. Certifique-se de que a máquina virtual está a receber um endereço de servidores DHCP do Azure, altere a atribuição do endereço IP para DHCP no sistema operativo e reinicie a máquina virtual.
 2. Parar (desalocar) a máquina virtual.
 3. Altere o endereço IP para a configuração de IP no Azure.
-4. Inicie a máquina virtual.
+4. Inicia a máquina virtual.
 5. [Configurar manualmente](virtual-network-multiple-ip-addresses-portal.md#os-config) os endereços IP secundários dentro do sistema operativo (e também o endereço IP primário no Windows) para corresponder ao que definiu no Azure.
  
 Ao seguir os passos anteriores, o endereço IP privado atribuído à interface de rede no Azure e no sistema de operativo de uma máquina virtual, se alteram. Para controlar as máquinas virtuais na sua subscrição que definiu manualmente endereços IP dentro de um sistema operativo, considere adicionar um Azure [tag](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) às máquinas virtuais. Poderá utilizar "atribuição de endereços IP: estático", por exemplo. Desta forma, pode localizar facilmente as máquinas virtuais na sua subscrição que definiu manualmente do endereço IP no sistema operativo.
@@ -168,14 +168,14 @@ Endereços IP públicos e privados atribuídos, utilizando um dos seguintes mét
 IPv4 privada dinâmico e IPv6 (opcionalmente) endereços são atribuídos por predefinição. 
 
 - **Público só**: Azure atribui o endereço de um intervalo de exclusivo para cada região do Azure. Para saber quais os intervalos são atribuídos a cada região, consulte [intervalos de IP de centro de dados do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). O endereço pode alterar quando uma máquina virtual é parada (desalocada), em seguida, iniciar novamente. Não é possível atribuir um endereço IPv6 público para uma configuração de IP utilizando o método de atribuição.
-- **Apenas privada**: Azure reserva de quatro primeiras endereços cada intervalo de endereços da sub-rede e não atribuir os endereços. Azure atribui o seguinte endereço disponível a um recurso do intervalo de endereços de sub-rede. Por exemplo, se o intervalo de endereços da sub-rede é 10.0.0.0/16 e 10.0.0.0.4-10.0.0.14 endereços já estão atribuídos (.0.3 está reservadas), Azure atribui 10.0.0.15 ao recurso. Dinâmico é o método de alocação de predefinição. Após atribuída, endereços IP dinâmicos só são lançados se uma interface de rede é eliminada, atribuído a uma sub-rede diferente dentro da mesma rede virtual, ou o método de atribuição é alterado para estática e for especificado um endereço IP diferente. Por predefinição, o Azure atribui o endereço de atribuídas dinamicamente anterior como o endereço estático quando a altera o método de alocação dinâmica para estático. Só é possível atribuir um endereço IPv6 privado utilizando o método de atribuição dinâmico.
+- **Apenas privada**: Azure reserva de quatro primeiras endereços cada intervalo de endereços da sub-rede e não atribuir os endereços. O Azure atribui o endereço disponível seguinte a um recurso do intervalo de endereços da sub-rede. Por exemplo, se o intervalo de endereços da sub-rede for 10.0.0.0/16 e os endereços 10.0.0.0.4-10.0.0.14 já estiverem atribuídos (.0-.3 está reservado), o Azure atribui o 10.0.0.15 ao recurso. Dinâmico é o método de alocação predefinido. Após a atribuição, os endereços IP dinâmicos só são lançados se uma interface de rede for eliminada, atribuída a uma sub-rede diferente dentro da mesma rede virtual, ou se o método de alocação for alterado para estático e for especificado um endereço IP diferente. Por predefinição, o Azure atribui o endereço atribuído de forma dinâmica anterior como o endereço estático quando altera o método de alocação de dinâmico para estático. Só é possível atribuir um endereço IPv6 privado utilizando o método de atribuição dinâmico.
 
 ### <a name="static"></a>Estático
 
 (Opcionalmente) pode atribuir um endereço de IPv4 estático público ou privado para uma configuração de IP. Não é possível atribuir o endereço IPv6 estático público ou privado para uma configuração de IP. Para saber mais sobre como o Azure atribui os endereços IPv4 públicos estáticos, consulte o [endereço IP público](virtual-network-public-ip-address.md) artigo.
 
 - **Público só**: Azure atribui o endereço de um intervalo de exclusivo para cada região do Azure. Para saber quais os intervalos são atribuídos a cada região, consulte [intervalos de IP de centro de dados do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). O endereço não irá alterar até que o recurso de endereço IP público que está atribuído à é eliminado ou o método de atribuição é alterado dinâmico. Se o recurso de endereço IP público está associado a uma configuração de IP, tem de ser desassociada da configuração de IP antes de alterar o método de atribuição.
-- **Apenas privada**: selecione e atribuir um endereço do intervalo de endereços da sub-rede. O endereço que atribuir pode ser qualquer endereço dentro do intervalo de endereços de sub-rede que não é um dos quatro primeiras endereços no intervalo de endereços da sub-rede e não está atualmente atribuído a quaisquer outros recursos na sub-rede. Endereços estáticos só são lançados se uma interface de rede é eliminada. Se alterar o método de alocação para estático, o Azure atribui dinamicamente o endereço IP estático atribuído anteriormente como endereço dinâmico, mesmo que o endereço não é o seguinte endereço disponível no intervalo de endereços da sub-rede. O endereço também altera se a interface de rede é atribuída a uma sub-rede diferente dentro da mesma rede virtual, mas para atribuir a interface de rede para uma sub-rede diferente, primeiro tem de alterar o método de alocação de estático em dinâmico. Assim que tiver atribuído a interface de rede para uma sub-rede diferente, pode alterar o método de alocação para estática e atribuir um endereço IP intervalo da sub-rede novo de endereços.
+- **Apenas privada**: selecione e atribuir um endereço do intervalo de endereços da sub-rede. O endereço que atribuir pode ser qualquer endereço dentro do intervalo de endereços da sub-rede que não seja um dos primeiros quatro endereços no intervalo de endereços da sub-rede e que não esteja atualmente atribuído a qualquer outro recurso na sub-rede. Os endereços estáticos só são lançados se uma interface de rede for eliminada. Se alterar o método de alocação para estático, o Azure atribui de forma dinâmica o endereço IP estático atribuído anteriormente como endereço dinâmico, mesmo que o endereço não seja o endereço seguinte disponível no intervalo de endereços da sub-rede. O endereço também muda se a interface de rede for atribuída a uma sub-rede diferente dentro da mesma rede virtual, mas, para atribuir a interface de rede a uma sub-rede diferente, tem, primeiro, de alterar o método de alocação de estático para dinâmico. Assim que tiver atribuído a interface de rede a uma sub-rede diferente, pode alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
 
 ## <a name="ip-address-versions"></a>Versões de endereços IP
 
@@ -201,7 +201,7 @@ Um endereço IP público é criado com o SKU básico ou padrão.  Para obter mai
 > [!NOTE]
 > Quando atribui um endereço IP público de SKU standard a uma interface de rede de máquina virtual, tem de permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até criar e associar um grupo de segurança de rede e permitir explicitamente o tráfego pretendido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para criar uma máquina virtual com diferentes configurações de IP, leia os artigos seguintes:
 
 |Tarefa|Ferramenta|

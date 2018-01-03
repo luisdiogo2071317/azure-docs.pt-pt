@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: 3c51348be75a11419c12bc517ab7131323016a55
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Atualização de pilha 1711 do Azure
 
@@ -51,6 +51,7 @@ Esta atualização inclui as seguintes melhorias e correções para pilha do Azu
 - Os utilizadores podem agora ativar VMs do Windows automaticamente
 - Ponto final com privilégios adicionado cmdlet do PowerShell para obter chaves de recuperação do BitLocker para fins de retenção
 - Suporte para a atualização de imagens offline ao atualizar a infraestrutura
+- Ativar a cópia de segurança de infraestrutura com o serviço de cópia de segurança ativar
 
 #### <a name="fixes"></a>Correções
 
@@ -139,6 +140,17 @@ No Azure Active Directory serviços de Federação (ADFS) implementar ambientes,
 > [!IMPORTANT]
 > Apesar do **azurestack\cloudadmin** conta é o proprietário da subscrição de fornecedor predefinido em ambientes de ADFS implementada, não tem permissões para RDP num anfitrião. Continuar a utilizar o **azurestack\azurestackadmin** conta ou a conta de administrador local para iniciar sessão, aceder e gerir o anfitrião, conforme necessário.
 
+#### <a name="infrastructure-backup-sevice"></a>Serviço de cópia de segurança de infraestrutura
+<!-- 1974890-->
+
+- **Pré-1711 cópias de segurança não são suportadas para recuperação na nuvem.**  
+  Pré-1711 cópias de segurança não são compatíveis com a recuperação da nuvem. Tem de atualizar primeiro para 1711 e ativar as cópias de segurança. Se ativou a cópias de segurança, certifique-se efetuar uma cópia de segurança depois de atualizar para 1711. Pré-1711 cópias de segurança devem ser eliminadas.
+
+- **Ativar infraestrutura cópia de segurança em ASDK destina-se apenas a fins de teste.**  
+  Cópias de segurança de infraestrutura podem ser utilizadas para restaurar as soluções de vários nós. Pode ativar a cópia de segurança de infraestrutura no ASDK mas não existe nenhuma forma de testar a recuperação.
+
+Para obter mais informações consulte [dados de cópia de segurança e recuperação para a pilha do Azure com o serviço de cópia de segurança da infraestrutura](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+
 ## <a name="download-the-update"></a>Transferir a atualização
 
 Pode transferir o pacote de atualização de 1711 de pilha do Azure do [aqui](https://aka.ms/azurestackupdatedownload).
@@ -149,7 +161,7 @@ Microsoft forneceu uma forma para monitorizar e retomar a atualizações com o P
 
 - Consulte o [monitorizar atualizações na pilha do Azure, consultando a documentação do ponto final com privilégios](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 - Consulte [gerir atualizações na descrição geral do Azure pilha](azure-stack-updates.md) para uma descrição geral da gestão de atualização na pilha do Azure.
 - Consulte [aplicar atualizações na pilha de Azure](azure-stack-apply-updates.md) para obter mais informações sobre como aplicar atualizações com a pilha do Azure.

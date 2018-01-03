@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: pratshar
-ms.openlocfilehash: 04fb9ebc8a235dd15817fbb5efd08922ae287aa1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7981173b419632683a40a54bc07f51f0fccab531
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Proteger o SQL Server utilizando a recuperação de desastres do SQL Server e o Azure Site Recovery
 
@@ -66,7 +66,7 @@ Recuperação de sites pode ser integrada com tecnologias de SQL Server BCDR nat
 
 **Funcionalidade** | **Detalhes** | **SQL Server** |
 --- | --- | ---
-**Grupo de disponibilidade Always On** | Executam várias instâncias de autónoma do SQL Server num cluster de ativação pós-falha com vários nós.<br/><br/>Bases de dados podem ser agrupados em grupos de ativação pós-falha que podem ser copiados (espelhadas) nas instâncias do SQL Server, de modo que não é necessário nenhum armazenamento partilhado.<br/><br/>Permite a recuperação de desastre entre um site primário e um ou mais sites secundários. Dois nós podem ser configurados num partilhado nada cluster com bases de dados do SQL Server configurado num grupo de disponibilidade com replicação síncrona e ativação pós-falha automática. | SQL Server 2014 & 2012 Enterprise edition
+**Grupo de disponibilidade Always On** | Executam várias instâncias de autónoma do SQL Server num cluster de ativação pós-falha com vários nós.<br/><br/>Bases de dados podem ser agrupados em grupos de ativação pós-falha que podem ser copiados (espelhadas) nas instâncias do SQL Server, de modo que não é necessário nenhum armazenamento partilhado.<br/><br/>Permite a recuperação de desastre entre um site primário e um ou mais sites secundários. Dois nós podem ser configurados num partilhado nada cluster com bases de dados do SQL Server configurado num grupo de disponibilidade com replicação síncrona e ativação pós-falha automática. | SQL Server 2016, o SQL Server 2014 e SQL Server 2012 Enterprise edition
 **(Sempre no FCI) de clustering de ativação pós-falha** | SQL Server utiliza o Windows clustering de ativação pós-falha elevada disponibilidade de cargas de trabalho no local do SQL Server.<br/><br/>Nós com instâncias do SQL Server com discos partilhados estão configurados num cluster de ativação pós-falha. Se uma instância não está disponível o cluster de ativação pós-falha para outro.<br/><br/>O cluster não protege contra a falha ou falhas no armazenamento partilhado. O disco partilhado pode ser implementado com o iSCSI, canal de fibra, ou partilhados VHDXs. | Edições do SQL Server para empresas<br/><br/>SQL Server Standard edition (limitado a dois nós apenas)
 **Base de dados de espelhamento (modo de segurança alta)** | Protege uma base de dados para uma única cópia secundária. Disponível em ambos os segurança elevada (síncrona) e modos de replicação (assíncrona) de elevado desempenho. Não necessita de um cluster de ativação pós-falha. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise todas as edições
 **Servidor do SQL autónomo** | O SQL Server e base de dados estão alojados num único servidor (físico ou virtual). Clustering do anfitrião é utilizado para elevada disponibilidade se o servidor virtual. Elevada disponibilidade não ao nível do convidado. | Edição Enterprise ou Standard
@@ -118,7 +118,7 @@ Eis o que precisa de fazer:
 
 SQL Always On não suporta nativamente ativação pós-falha de teste. Por conseguinte, recomendamos o seguinte:
 
-1. Configurar [cópia de segurança do Azure](../backup/backup-azure-vms.md) na máquina virtual que aloja a réplica do grupo de disponibilidade no Azure.
+1. Configurar [cópia de segurança do Azure](../backup/backup-azure-arm-vms.md) na máquina virtual que aloja a réplica do grupo de disponibilidade no Azure.
 
 1. Antes de acionar a ativação pós-falha de teste do plano de recuperação, recupere a máquina virtual a partir de cópia de segurança criada no passo anterior.
 
@@ -201,5 +201,5 @@ Recuperação de sites não fornece convidado suporte do cluster quando replicar
 
 Para clusters do SQL Server Standard, a reativação pós-falha após uma ativação pós-falha não planeada requer uma cópia de segurança do SQL server e o restauro, a instância de espelho para o cluster original, com reestablishment do espelhamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais](site-recovery-components.md) sobre a arquitetura de recuperação de sites.

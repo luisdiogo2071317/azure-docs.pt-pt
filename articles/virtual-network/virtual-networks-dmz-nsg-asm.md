@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Exemplo 1 – criar uma rede de Perímetro simple utilizando NSGs com o PowerShell clássico
 [Regressar à página de segurança limites melhores práticas][HOME]
@@ -267,7 +267,7 @@ Modifique as variáveis definidas pelo utilizador, conforme necessário e execut
 Este script irá, com base nas variáveis definidas pelo utilizador;
 
 1. Ligar a uma subscrição do Azure
-2. Criar uma conta de armazenamento
+2. Criar uma conta do Storage
 3. Criar uma VNet e duas sub-redes, tal como definido no ficheiro de configuração de rede
 4. Criar quatro windows VMs de servidor
 5. Configure o NSG, incluindo:
@@ -577,7 +577,7 @@ Guarde este ficheiro xml com localização atualizada e adicionar a ligação a 
 #### <a name="sample-application-scripts"></a>Scripts de aplicação de exemplo
 Se pretender instalar uma aplicação de exemplo para isto e outros exemplos de rede de Perímetro, um foi fornecido na seguinte hiperligação: [Script de aplicação de exemplo][SampleApp]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Atualizar e guarde o ficheiro XML
 * Execute o script do PowerShell para criar o ambiente
 * Instalar a aplicação de exemplo

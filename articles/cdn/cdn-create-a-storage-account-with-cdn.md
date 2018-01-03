@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Integrar uma conta de armazenamento do Azure CDN do Azure
 CDN pode ser ativada para o conteúdo da cache do seu armazenamento do Azure. Oferece aos programadores uma solução global para a entrega de conteúdo de largura de banda alta ao colocar em cache blobs e conteúdo estático de instâncias de computação em nós físicos nos Estados Unidos, Europa, Ásia, Austrália e América do Sul.
@@ -40,7 +40,7 @@ Para criar uma conta do storage, tem de ser administrador de serviço ou coadmin
     
     O **criar conta de armazenamento** é apresentado o painel.   
 
-    ![Criar conta de armazenamento][create-new-storage-account]  
+    ![Criar Conta de Armazenamento][create-new-storage-account]  
 
 3. No **nome** campo, escreva um nome de subdomínio. Esta entrada pode conter 3 a 24 letras minúsculas e números.
    

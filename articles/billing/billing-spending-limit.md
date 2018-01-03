@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Compreender o limite e como removê-lo de gastos do Azure
 
@@ -48,8 +48,10 @@ Para remover o seu limite de gastos, siga estes passos:
 
 1. Iniciar sessão para o [Centro de contas](https://account.windowsazure.com/Subscriptions).
 1. Selecione uma subscrição.
-1. Se a subscrição está desativada devido a ser atingido o limite de gastos, clique nesta notificação: "Subscrição atingiu o limite de gastos e foi desativada para evitar encargos." Caso contrário, clique em **remover limite de gastos** no **o estado da subscrição** área.
+. Se a subscrição está desativada devido a ser atingido o limite de gastos, clique nesta notificação: "Subscrição atingiu o limite de gastos e foi desativada para evitar encargos." Caso contrário, clique em **remover limite de gastos** no **o estado da subscrição** área.
 1. Selecione uma opção que seja apropriada para si.
+
+![Se selecionar uma opção para remover limite de gastos](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |Opção|Efeito|
 |-------|-----|
@@ -80,8 +82,10 @@ Temos personalizada gaste os limites de hoje. No entanto, pode optar por [utiliz
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>O limite de gastos impedir que todos os custos do Azure?
 
-Alguns [serviços da Microsoft e de terceiros imagem corporativa serviços](billing-understand-your-azure-marketplace-charges.md) pode implicar custos sob o método de pagamento, mesmo se está definido um limite de gastos. Os exemplos incluem licenças do Visual Studio, premium do Azure Active Directory, planos de suporte e a maioria dos terceiros imagem corporativa serviços vendida através de [Azure Marketplace](https://azure.microsoft.com/marketplace/).
+[Alguns serviços externos publicaram no Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) não pode ser utilizado com os créditos de subscrição e pode implicar custos separados, mesmo quando o limite de gastos está definido. Os exemplos incluem licenças do Visual Studio, Azure Active Directory premium, planos de suporte e a maioria dos terceiros imagem corporativa serviços. Quando aprovisionar um novo serviço externo, é apresentado um aviso para informá-lo que os serviços são cobrados separadamente:
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
+![Aviso de compra do Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 
 Se ainda precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para obter o seu problema resolvido rapidamente.

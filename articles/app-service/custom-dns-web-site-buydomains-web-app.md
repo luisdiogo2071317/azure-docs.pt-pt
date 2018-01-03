@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Compre um nome de domínio personalizado para Web Apps do Azure
 
@@ -34,6 +34,8 @@ Para concluir este tutorial:
 * [Remover o limite de gastos na sua subscrição](../billing/billing-spending-limit.md#remove). Não é possível comprar a domínios do serviço de aplicações com os créditos de subscrição gratuita.
 
 ## <a name="prepare-the-app"></a>Preparar a aplicação
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Para utilizar domínios personalizados do Web Apps do Azure, a aplicação web [plano do App Service](https://azure.microsoft.com/pricing/details/app-service/) tem de ser uma camada paga (**partilhados**, **básico**, **padrão**, ou **Premium**). Neste passo, certifique-se de que a aplicação web é suportado no escalão de preço.
 

@@ -17,22 +17,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jejiang
-ms.openlocfilehash: 6ed5ddab021006da633b30cafc4e1988a064ab92
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: fa91630674151ac434c7f97fa2795e47bb38f16f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Gerir o Azure Cosmos DB no Explorador de armazenamento do Azure (pré-visualização)
 
-Utilizar base de dados do Azure Cosmos no Explorador de armazenamento do Azure permite aos utilizadores gerir entidades de base de dados do Azure Cosmos, manipular dados, atualizar e acionadores juntamente com outras entidades do Azure como armazenamento de blobs e filas de procedimentos armazenados. Agora pode utilizar a mesma ferramenta para gerir a sua do Azure de entidades diferentes num único local. Neste momento, o Explorador de armazenamento do Azure suporta contas de SQL e MongoDB. O Explorador de armazenamento do Azure não funciona com o emulador Local do Azure Cosmos DB. 
+Utilizar base de dados do Azure Cosmos no Explorador de armazenamento do Azure permite aos utilizadores gerir entidades de base de dados do Azure Cosmos, manipular dados, atualizar e acionadores juntamente com outras entidades do Azure como armazenamento de blobs e filas de procedimentos armazenados. Agora pode utilizar a mesma ferramenta para gerir a sua do Azure de entidades diferentes num único local. Neste momento, o Explorador de armazenamento do Azure suporta SQL <!--and MongoDB--> contas. O Explorador de armazenamento do Azure não funciona com o emulador Local do Azure Cosmos DB. 
 
 Neste artigo, pode saber como utilizar o Explorador de armazenamento para gerir a base de dados do Azure Cosmos.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma conta de base de dados do Azure Cosmos para a API do SQL Server ou a API do MongoDB. Se não tiver uma conta, pode criar uma no portal do Azure, conforme descrito em [BD do Azure Cosmos: criar uma aplicação de web API do SQL Server com o .NET e o portal do Azure](create-sql-api-dotnet.md).
+Uma conta de base de dados do Azure Cosmos para a API do SQL Server <!--or MongoDB API-->. Se não tiver uma conta, pode criar uma no portal do Azure, conforme descrito em [BD do Azure Cosmos: criar uma aplicação de web API do SQL Server com o .NET e o portal do Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Instalação
 
@@ -70,7 +70,7 @@ Uma maneira de ligar a uma base de dados do Azure Cosmos consiste em utilizar um
 
     ![ligar à base de dados do Azure Cosmos pela cadeia de ligação](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Escolha apropriados **experiência predefinido** para o tipo de conta qualquer um dos **DocumentDB** ou **MongoDB**, colar na sua **cadeia de ligação**e, em seguida, clique em **OK** para ligar a conta de base de dados do Azure Cosmos. Para informações sobre como obter a cadeia de ligação, consulte [obter a cadeia de ligação](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Escolha as adequadas **predefinido experiência** para o tipo de conta <!--either--> **DocumentDB** <!--or **MongoDB**-->, cole no seu **cadeia de ligação**e, em seguida, Clique em **OK** para ligar a conta de base de dados do Azure Cosmos. Para informações sobre como obter a cadeia de ligação, consulte [obter a cadeia de ligação](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![cadeia de ligação](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -149,7 +149,7 @@ Editar o filtro de documento introduzindo um [consulta SQL](sql-api-sql-query.md
 
 * As operações de **Acionadores** e **UDF** são semelhantes às de **procedimentos armazenados**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Veja o vídeo seguinte para ver como utilizar a base de dados do Azure Cosmos no Explorador de armazenamento do Azure: [utilizar o Azure Cosmos DB no Explorador de armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Saiba mais sobre o Explorador de armazenamento e ligue-se mais serviços [introdução ao Explorador de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).

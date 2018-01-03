@@ -3,16 +3,18 @@ title: "Classificação de imagem com vista aérea | Microsoft Docs"
 description: "Fornece instruções para o cenário do mundo real na classificação de imagem com vista aérea"
 author: mawah
 ms.author: mawah
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
+ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: 57b81dfb2cb58fb43d4c420e8ce58c0c226316df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="aerial-image-classification"></a>Classificação de imagem com vista aérea
 
@@ -44,7 +46,7 @@ Neste exemplo, os dados de imagem e modelos pretrained são alojados numa conta 
 
 ![Schematic para o cenário de mundo real de classificação de imagem com vista aérea](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-O [instruções passo a passo](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-ignite-aml-v2/articles/machine-learning/) comece por ao servir pelos através da criação e a preparação de uma conta de armazenamento do Azure e o cluster do Spark, incluindo a instalação de transferência e de dependência de dados. Em seguida, descrevem como iniciar tarefas de preparação e compare o desempenho dos modelos de resultantes. Por fim, estes mostram como aplicar um modelo que escolheu para um conjunto de imagem grande no cluster do Spark e analise os resultados de predição localmente.
+Estas instruções passo a passo começam, ao servir pelos através da criação e a preparação de uma conta de armazenamento do Azure e o cluster do Spark, incluindo a instalação de transferência e de dependência de dados. Em seguida, descrevem como iniciar tarefas de preparação e compare o desempenho dos modelos de resultantes. Por fim, estes mostram como aplicar um modelo que escolheu para um conjunto de imagem grande no cluster do Spark e analise os resultados de predição localmente.
 
 
 ## <a name="set-up-the-execution-environment"></a>Configurar o ambiente de execução
@@ -52,7 +54,7 @@ O [instruções passo a passo](https://github.com/MicrosoftDocs/azure-docs-pr/tr
 As seguintes instruções descrevem o processo de configuração de ambiente de execução para este exemplo.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-- Um [conta do Azure](https://azure.microsoft.com/en-us/free/) (gratuitas estão disponíveis)
+- Um [conta do Azure](https://azure.microsoft.com/free/) (gratuitas estão disponíveis)
     - Irá criar um cluster do HDInsight Spark com 40 nós de trabalho (168 núcleos no totais). Certifique-se de que a conta tem suficiente disponíveis núcleos revendo "utilização + quotas" separador para a sua subscrição no portal do Azure.
        - Se tiver menos núcleos disponíveis, pode modificar o modelo de cluster do HDInsight para reduzir o número de funcionários aprovisionado. Instruções para isto são apresentados na secção "Criar o cluster do HDInsight Spark".
     - Este exemplo cria um cluster de formação de AI do Batch, com dois NC6 (1 GPU, 6 vCPU) VMs. Certifique-se de que a conta tem suficiente núcleos disponíveis na região EUA leste, revendo "utilização + quotas" separador para a sua subscrição no portal do Azure.
@@ -68,7 +70,7 @@ As seguintes instruções descrevem o processo de configuração de ambiente de 
     - Registo o ID de cliente, o segredo e o ID do inquilino da aplicação do Azure Active Directory que são direcionados para criar. Irá utilizar as credenciais mais tarde no tutorial.
     - A partir desta redação, do Azure Machine Learning Workbench e o Azure Batch AI utilizam separadas bifurcações de 2.0 de CLI do Azure. Para efeitos de clareza, denominamos versão o Workbench do CLI como "CLI iniciado a partir do Workbench de aprendizagem máquina do Azure" e a versão de lançamento geral (que inclui o Batch AI) "CLI do Azure 2.0."
 - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), um livre utilitário para coordenar a transferência de ficheiros entre contas de armazenamento do Azure
-    - Certifique-se de que a pasta que contém o executável do AzCopy na variável de ambiente PATH do sistema. (Estão disponíveis instruções sobre a modificação de variáveis de ambiente [aqui](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
+    - Certifique-se de que a pasta que contém o executável do AzCopy na variável de ambiente PATH do sistema. (Estão disponíveis instruções sobre a modificação de variáveis de ambiente [aqui](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Um cliente SSH; Recomendamos [PuTTY](http://www.putty.org/).
 
 Este exemplo foi testado em PCs Windows 10; poderá executá-la a partir de qualquer máquina Windows, incluindo máquinas de virtuais de ciência de dados do Azure. O 2.0 CLI do Azure foi instalado a partir de um MSI em conformidade com [estas instruções](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Pequenas alterações poderão ser necessárias (por exemplo, as alterações à filepaths) ao executar este exemplo no macOS.
@@ -416,7 +418,7 @@ Quando tiver concluído o exemplo, recomendamos que elimina todos os recursos qu
 
 Workbench de aprendizagem máquina do Azure ajuda a cientistas de dados facilmente implementar o seu código destinos remoto de computação. Neste exemplo, código de formação MMLSpark local foi implementado para uma execução remota num cluster do HDInsight e um script local iniciada uma tarefa de preparação num cluster do Azure Batch AI GPU. Funcionalidade de histórico de execução do Workbench do Azure Machine Learning controlados o desempenho dos vários modelos e ajudou-na identificar o modelo mais exato. Funcionalidade de blocos de notas do Jupyter do Workbench ajudou a visualizar predições dos nossos modelos num ambiente interativa e gráfica.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para aprofundar mais aprofundado deste exemplo:
 - Na funcionalidade de histórico de execuções do Workbench do Azure Machine Learning, clique nos símbolos de equipamento para selecionar os gráficos e métricas que são apresentadas.
 - Examine os scripts de exemplo para chamar as instruções de `run_logger`. Certifique-se de que compreende a forma como cada métrica é a ser registada.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 3480fbbecf59fe985103fe39ec27fef2668b3c0a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Como criar um filtro de aspeto de restrições na Azure Search 
 
@@ -33,7 +33,7 @@ Navegação por facetas é utilizada para filtragem auto-direcionada nos resulta
 
 Facetas são dinâmicas e devolvido numa consulta. Colocar as respostas de pesquisa com os mesmos as categorias de faceta utilizadas para navegar os resultados. Se não estiver familiarizado com as facetas, o exemplo seguinte é uma ilustração de uma estrutura de navegação de faceta.
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 Navegação por facetas a primeira e pretender mais detalhes? Consulte [como implementar navegação por facetas na Azure Search](search-faceted-navigation.md).
 
@@ -127,7 +127,7 @@ Um dos desafios com navegação de faceta na Azure Search é que as facetas exis
 
 Apesar de este ser um caso de utilização comum, não é algo a estrutura de navegação de faceta atualmente fornece out of box. Os programadores que pretendem facetas estáticas normalmente contornar a limitação ao emitir duas consultas filtradas: um âmbito para os resultados, outros utilizado para criar uma lista estática de faceta para fins de navegação.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 + [Filtros na pesquisa do Azure](search-filters.md)
 + [Criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index)

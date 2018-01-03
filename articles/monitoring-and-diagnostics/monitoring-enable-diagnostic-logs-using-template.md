@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/30/2017
+ms.date: 12/22/2017
 ms.author: johnkem
-ms.openlocfilehash: 2f764bc14e882f71957299b833d5bc1a6765622a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee9f4d8846f7549d0a4cd0be1d6f726293716a69
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Ativar automaticamente definições de diagnóstico durante a criação de recursos através de um modelo do Resource Manager
 Neste artigo mostramos como pode utilizar um [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar definições de diagnóstico num recurso quando é criado. Isto permite-lhe iniciar automaticamente a transmissão em fluxo os registos de diagnóstico e métricas para os Event Hubs, arquivá-los numa conta de armazenamento ou enviando-as à análise de registos quando um recurso é criado.
@@ -40,19 +40,31 @@ Abaixo que lhe damos um exemplo do ficheiro de JSON do modelo que tem de gerar d
 ## <a name="non-compute-resource-template"></a>Modelo de recursos de computação não
 Não-recursos de computação, terá de efetuar dois procedimentos:
 
-1. Adicione parâmetros para o blob de parâmetros para o nome da conta de armazenamento, ID de regra de barramento de serviço, e/ou ID da área de trabalho de análise de registos do OMS (ativar o arquivo de registos de diagnóstico numa conta do storage, transmissão em fluxo de registos para os Event Hubs, e/ou enviar registos ao Log Analytics).
+1. Adicionar parâmetros para o blob de parâmetros para o nome da conta de armazenamento, ID de regra de autorização de hub de eventos e/ou ID da área de trabalho de análise de registos do OMS (ativar o arquivo de registos de diagnóstico numa conta do storage, transmissão em fluxo de registos para os Event Hubs, e/ou enviar registos ao registo Análise).
    
     ```json
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the setting."
+      }
+    },
     "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "serviceBusRuleId": {
+    "eventHubAuthorizationRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Resource ID of the Service Bus Rule for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+      }
+    },
+    "eventHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
       }
     },
     "workspaceId":{
@@ -72,10 +84,12 @@ Não-recursos de computação, terá de efetuar dois procedimentos:
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
-        "apiVersion": "2015-07-01",
+        "apiVersion": "2017-05-01-preview",
         "properties": {
+          "name": "[parameters('settingName')]",
           "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-          "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+          "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+          "eventHubName": "[parameters('eventHubName')]",
           "workspaceId": "[parameters('workspaceId')]",
           "logs": [ 
             {
@@ -89,7 +103,7 @@ Não-recursos de computação, terá de efetuar dois procedimentos:
           ],
           "metrics": [
             {
-              "timeGrain": "PT1M",
+              "category": "AllMetrics",
               "enabled": true,
               "retentionPolicy": {
                 "enabled": false,
@@ -102,7 +116,7 @@ Não-recursos de computação, terá de efetuar dois procedimentos:
     ]
     ```
 
-O blob de propriedades para a definição de diagnóstico segue [o formato descrito neste artigo](https://msdn.microsoft.com/library/azure/dn931931.aspx). Adicionar o `metrics` propriedade permitirá também enviar métricas de recurso para estes mesmas saídas, fornecidas que [o recurso suporta métricas de Monitor de Azure](monitoring-supported-metrics.md).
+O blob de propriedades para a definição de diagnóstico segue [o formato descrito neste artigo](https://docs.microsoft.com/en-us/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Adicionar o `metrics` propriedade permitirá também enviar métricas de recurso para estes mesmas saídas, fornecidas que [o recurso suporta métricas de Monitor de Azure](monitoring-supported-metrics.md).
 
 Eis um exemplo completo que cria uma aplicação lógica e ativa a transmissão em fluxo para armazenamento numa conta do storage e Hubs de eventos.
 
@@ -122,16 +136,28 @@ Eis um exemplo completo que cria uma aplicação lógica e ativa a transmissão 
       "type": "string",
       "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
     },
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the setting."
+      }
+    },
     "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "serviceBusRuleId": {
+    "eventHubAuthorizationRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+      }
+    },
+    "eventHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
       }
     },
     "workspaceId": {
@@ -188,10 +214,12 @@ Eis um exemplo completo que cria uma aplicação lógica e ativa a transmissão 
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],
-          "apiVersion": "2015-07-01",
+          "apiVersion": "2017-05-01-preview",
           "properties": {
+            "name": "[parameters('settingName')]",
             "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-            "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+            "eventHubName": "[parameters('eventHubName')]",
             "workspaceId": "[parameters('workspaceId')]",
             "logs": [
               {
@@ -237,7 +265,7 @@ Para ativar o diagnóstico num recurso de computação, por exemplo um cluster d
 
 O processo completo, incluindo exemplos, está descrito [neste documento](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [Leia mais sobre os registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Transmitir os registos de diagnóstico do Azure para os Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: fd8bb41925753b9955d2cbd7a0e13a5e9451d5b1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: c709be1a509ce9ad6b6b494dea80419b3ea126c4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure (pré-visualização)
 
-Este artigo contém a versão de lançamento de notas do Explorador de armazenamento do Azure 0.9.2 (pré-visualização), bem como as notas de versão para versões anteriores.
+Este artigo contém a versão de lançamento de notas do Explorador de armazenamento do Azure 0.9.3 (pré-visualização), bem como as notas de versão para versões anteriores.
 
 [Explorador de armazenamento do Microsoft Azure (pré-visualização)](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
 

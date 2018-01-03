@@ -1,24 +1,16 @@
 ---
-title: "Reveja a arquitetura da replicação do servidor físico para o Azure | Microsoft Docs"
+title: "Servidor físico à arquitetura de replicação do Azure no Azure Site Recovery | Microsoft Docs"
 description: "Este artigo fornece uma descrição geral da arquitetura de utilizada quando replicar servidores físicos no local para o Azure com o serviço do Azure Site Recovery e componentes"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: aac3450e-dfac-4e20-b377-1a6cd39d04ca
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 02dafa60f19df88123358446ac72d9be85577554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Servidor físico à arquitetura de replicação do Azure
 
@@ -63,22 +55,18 @@ A seguinte tabela e o gráfico fornecem uma vista detalhada dos componentes util
 Depois de configurar a replicação e tiver de executar um exercício de recuperação após desastre (ativação pós-falha de teste) para verificar que tudo está a funcionar conforme esperado, pode executar a ativação pós-falha e reativação pós-falha conforme necessário para. Tenha em atenção que:
 
 - A ativação pós-falha planeada não é suportada.
-- Tem de falhar novamente para uma VM de VMware no local. O que significa que precisa de uma infraestrutura de VMware no local, mesmo se estiver a replicar servidores físicos no local para o Azure.
-
-
-1. Efetuar a ativação pós-falha de um único computador ou, criar planos de recuperação, para efetuar a ativação pós-falha de várias máquinas em conjunto.
-2. Quando executar uma ativação pós-falha, as VMs do Azure são criadas a partir dos dados replicados no armazenamento do Azure.
-3. Após a acionar a ativação pós-falha inicial, a consolidação-o para iniciar a aceder a carga de trabalho a partir da VM do Azure.
-
-Quando o site no local primário estiver novamente disponível, pode fazer a reativação pós-falha.
-
-1. Terá de configurar uma infraestrutura de reativação pós-falha, incluindo:
+- Tem de falhar novamente para uma VM de VMware no local. Isto significa que terá de uma infraestrutura de VMware no local, mesmo quando replicar servidores físicos no local para o Azure.
+- Efetuar a ativação pós-falha de um único computador ou, criar planos de recuperação, para efetuar a ativação pós-falha de várias máquinas em conjunto.
+- Quando executar uma ativação pós-falha, as VMs do Azure são criadas a partir dos dados replicados no armazenamento do Azure.
+- Após a acionar a ativação pós-falha inicial, a consolidação-o para iniciar a aceder a carga de trabalho a partir da VM do Azure.
+- Quando o site no local primário estiver novamente disponível, pode fazer a reativação pós-falha.
+- Terá de configurar uma infraestrutura de reativação pós-falha, incluindo:
     - **Servidor de processo temporário no Azure**: falhar novamente a partir do Azure, configurar uma VM do Azure para atuar como um servidor de processos, para lidar com a replicação a partir do Azure. É possível eliminar esta VM após a conclusão da reativação pós-falha.
     - **Ligação VPN**: para falhar novamente, precisa de uma ligação VPN (ou Azure ExpressRoute) da rede do Azure para o site no local.
     - **Servidor de destino principal separado**: por predefinição, o servidor de destino principal foi instalado com o servidor de configuração, em que a VM, de VMware no local processa a reativação pós-falha. No entanto, se precisar de falhar novamente grandes volumes de tráfego, deve configurar um servidor de destino principal independente no local para esta finalidade.
     - **Política de reativação pós-falha**: para replicar de novo para o site no local, precisa de uma política de reativação pós-falha. Isto foi criado automaticamente quando criou a política de replicação no local para o Azure.
     - **Infraestrutura do VMware**: precisa de uma infraestrutura do VMware para reativação pós-falha. Não pode efetuar a reativação pós-falha num servidor físico.
-2. Depois dos componentes estão em vigor, a reativação pós-falha ocorre em três fases:
+- Depois dos componentes estão em vigor, a reativação pós-falha ocorre em três fases:
     - Fase 1: Voltar a proteger as VMs do Azure para que o se replicar a partir do Azure para as VMs de VMware no local.
     - Fase 2: Executar uma ativação pós-falha para o site no local.
     - Fase 3: Depois de cargas de trabalho falharam novamente, reativar a replicação.
@@ -88,7 +76,6 @@ Quando o site no local primário estiver novamente disponível, pode fazer a rea
 ![Reativação pós-falha](./media/concepts-physical-to-azure-architecture/enhanced-failback.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Rever a matriz de suporte siga o tutorial para ativar o VMware para a replicação do Azure.
-Execute uma ativação pós-falha e a reativação pós-falha.
+Siga [neste tutorial](tutorial-physical-to-azure.md) para ativar o servidor físico para a replicação do Azure.

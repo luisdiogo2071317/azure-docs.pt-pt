@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 011812f5e32537321301dad0c654bca341b3606d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0fd1cd93ca6faabcbe0007136fe427028e722733
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Criar uma máquina virtual e a conta de armazenamento para uma aplicação dimensionável
 
@@ -27,7 +27,7 @@ Este tutorial faz parte de um de uma série. Este tutorial mostra que implementa
 Na parte de uma série, saiba como:
 
 > [!div class="checklist"]
-> * Criar uma conta de armazenamento
+> * Criar uma conta do Storage
 > * Criar uma máquina virtual
 > * Configurar uma extensão de script personalizado
 
@@ -45,7 +45,7 @@ Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/mo
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
  
 O exemplo carrega 50 ficheiros grandes para um contentor de BLOBs numa conta do Storage do Azure. Uma conta do storage fornece um espaço de nomes exclusivo para armazenar e aceder aos seus objetos de dados de armazenamento do Azure. Criar uma conta de armazenamento no grupo de recursos que criou utilizando o [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount) comando.
 
@@ -117,7 +117,7 @@ Para este tutorial, existem pré-requisitos que devem ser instalados na máquina
 Execute o seguinte cmdlet para finalizar a configuração da máquina virtual. Este passo demora 5-15 minutos a concluir.
 
 ```azurepowershell-interactive
-# Start a CustomScript extension to use a simple PowerShell script to instal .NET core, dependancies, and pre-create the files to upload.
+# Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
 Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location EastUS `
@@ -126,12 +126,12 @@ Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -Name DemoScriptExtension
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Parte de uma série, aprendeu sobre como criar uma conta de armazenamento, implementar uma máquina virtual e configurar a máquina virtual com os pré-requisitos necessários, tais como:
 
 > [!div class="checklist"]
-> * Criar uma conta de armazenamento
+> * Criar uma conta do Storage
 > * Criar uma máquina virtual
 > * Configurar uma extensão de script personalizado
 

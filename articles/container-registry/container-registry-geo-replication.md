@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: dfab0a371ffb2d8ea52bea2cdcf3d92d6c669a9d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicação geográfica no registo de contentor do Azure
 
@@ -94,7 +94,7 @@ ACR começa a sincronização imagens entre as réplicas configuradas. Depois de
 
 ## <a name="geo-replication-pricing"></a>A georreplicação de preços
 
-Replicação geográfica é uma funcionalidade do [Premium SKU](container-registry-skus.md#premium) do registo de contentor do Azure. Quando se replica um registo para as regiões pretendidas, pode implicar taxas de registo Premium para cada região.
+Replicação geográfica é uma funcionalidade do [Premium SKU](container-registry-skus.md) do registo de contentor do Azure. Quando se replica um registo para as regiões pretendidas, pode implicar taxas de registo Premium para cada região.
 
 No exemplo anterior, a Contoso consolidados dois registos para um, a adição de réplicas para EUA leste, Canadá Central e Europa Ocidental. Contoso seria paga Premium quatro vezes por mês, sem qualquer configuração adicional ou a gestão. Cada região agora obtém as imagens localmente, melhorando o desempenho, fiabilidade sem taxas de saída de rede dos EUA oeste para Canadá e EUA Leste.
 
@@ -102,7 +102,7 @@ No exemplo anterior, a Contoso consolidados dois registos para um, a adição de
 
 A georreplicação, pode gerir os seus centros de dados regionais como uma nuvem global. Como as imagens são utilizadas em vários serviços do Azure, pode beneficiar de uma plane de gestão única enquanto mantém o fecho de rede, rápida e fiável imagem local obtém.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte a série de três partes tutorial, [georreplicação no registo de contentor do Azure](container-registry-tutorial-prepare-registry.md). Percorrer a criar um registo georreplicação, criar um contentor e, em seguida, implementar com um único `docker push` comando para várias aplicações Web regional para instâncias de contentores.
 

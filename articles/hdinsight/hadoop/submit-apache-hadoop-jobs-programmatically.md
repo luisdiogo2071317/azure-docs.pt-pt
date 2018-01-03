@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: c22874facd43b784f02d2df553f74697e4c87c4e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f6173fed78345a2339e9bf40f414202c0ce62c0b
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>Submeta tarefas Hadoop no HDInsight
 
@@ -50,6 +50,6 @@ Pode submeter tarefas do Hadoop no HDInsight do Azure utilizando o SDK do Micros
   - [Utilizar o Sqoop com o Hadoop no HDInsight](apache-hadoop-use-sqoop-powershell.md)
   - [Executar tarefas de MapReduce com o Hadoop no HDInsight com o PowerShell](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 - [Documentação do Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)
