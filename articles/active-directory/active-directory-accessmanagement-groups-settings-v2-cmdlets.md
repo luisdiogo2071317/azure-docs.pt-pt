@@ -17,10 +17,10 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
 ms.openlocfilehash: 3f57e1a0ded679325c8c739e73cc79f69c037191
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets de versão 2 do Azure Active Directory para gestão de grupo
 > [!div class="op_single_selector"]
@@ -167,7 +167,7 @@ Para eliminar grupos do seu diretório, utilize o cmdlet Remove-AzureADGroup da 
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## <a name="manage-group-membership"></a>Gerir associação a um grupo 
+## <a name="manage-group-membership"></a>Gerir a associação ao grupo 
 ### <a name="add-members"></a>Adicionar membros
 Para adicionar novos membros a um grupo, utilize o cmdlet Add-AzureADGroupMember. Este comando adiciona um membro do grupo de administradores do Intune que é utilizado no exemplo anterior:
 
@@ -263,7 +263,7 @@ Quando é criado um grupo, determinado pontos finais de permitir que o utilizado
 * administrador de SSL 
 * Webmaster 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode encontrar mais documentação do Azure Active Directory PowerShell em [Cmdlets do Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Gerir o acesso aos recursos com grupos do Azure Active Directory](active-directory-manage-groups.md)

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
 ms.openlocfilehash: 2f7f5d4132e28c8c192d90d5f4bfb2a9034f8b8c
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-azure-portal"></a>Configurar um gateway de aplicação para a descarga de SSL com o portal do Azure
 
@@ -80,7 +80,7 @@ O serviço de escuta agora foi criado. Em seguida, crie uma regra para processar
 
 As definições são agora guardadas para o gateway de aplicação. A guardar processar para estas definições podem demorar algum tempo antes de serem disponíveis para ver através do portal ou através do PowerShell. Depois de é guardada, o gateway de aplicação processa a encriptação e desencriptação de tráfego. Todo o tráfego entre o gateway de aplicação e os servidores web de back-end será processado através de HTTP. Qualquer comunicação de volta para o cliente se iniciada através de HTTPS, será devolvida ao cliente encriptado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber como configurar uma sonda do Estado de funcionamento personalizado com Gateway de aplicação do Azure, consulte [criar uma sonda do Estado de funcionamento personalizado](application-gateway-create-gateway-portal.md).
 

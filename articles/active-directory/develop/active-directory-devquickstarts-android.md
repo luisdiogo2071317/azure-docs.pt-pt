@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Android, introdução | Microsoft Docs"
-description: "Como criar uma aplicação Android que se integra com o Azure AD para início de sessão e chamadas do Azure AD protegido APIs através da utilização de OAuth."
+description: "Como criar uma aplicação Android que se integra com o Azure AD para início de sessão e chamadas do Azure AD protegido APIs OAuth2.0 a utilizar."
 services: active-directory
 documentationcenter: android
 author: danieldobalian
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 1ea39854766332a87eae4f44f52a4853848d2120
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-android-app"></a>Integrar o Azure AD para uma aplicação Android
+# <a name="azure-ad-android-getting-started"></a>Azure AD Android, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Experimentar a pré-visualização do nosso novo [portal do programador](https://identity.microsoft.com/Docs/Android), que irá ajudar a começar a trabalhar com o Azure AD em apenas alguns minutos. O portal do programador irá guiá-lo durante o processo de registar uma aplicação e a integração do Azure AD para o seu código. Quando tiver terminado, terá uma aplicação simples que pode autenticar utilizadores no seu inquilino e um back-end que podem aceitar tokens e efetuar a validação.
->
->
 
 Se estiver a desenvolver uma aplicação de ambiente de trabalho, o Azure Active Directory (Azure AD) faz com que simples e fácil para si autenticar os utilizadores através das respetivas contas do Active Directory no local. Também permite que a aplicação de forma segura consumir qualquer API web protegida pelo Azure AD, como as APIs do Office 365 ou a API do Azure.
 
@@ -55,7 +50,7 @@ Neste passo, que está a registar a API web que está a executar localmente para
 
 Partimos do princípio que está a registar a API de REST de TODO referenciado anteriormente. Mas isto funciona para qualquer API web que pretende que o Azure Active Directory para ajudar a proteger.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique em sua conta. No **diretório** lista, escolha o inquilino do Azure AD, onde é necessário registar a sua aplicação.
 3. Clique em **mais serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
 4. Clique em **registos de aplicação**e, em seguida, selecione **adicionar**.
@@ -73,7 +68,7 @@ Partimos do princípio que está a registar a aplicação de exemplo referenciad
 > [!NOTE]
 > Poderá wonder por que motivo está a colocar uma aplicação e uma API web no um inquilino. Como o poderá ter adivinhado, pode criar uma aplicação que acede a uma API externa que está registada no Azure AD a partir de outro inquilino. Se, fazê-lo, os seus clientes á consentimento para a utilização da API na aplicação. Biblioteca de autenticação do Active Directory para iOS encarrega-se deste consentimento para si. Como podemos explorar as funcionalidades mais avançadas, verá que se trata de uma parte importante do trabalho necessário para aceder ao conjunto de APIs do Microsoft Azure e Office, bem como qualquer outro fornecedor de serviços. Por agora, porque registado web API e a aplicação sob o mesmo inquilino, não verão qualquer pede consentimento. Isto é normalmente o caso se estiver a desenvolver uma aplicação apenas para a sua própria empresa a utilizar.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique em sua conta. No **diretório** lista, escolha o inquilino do Azure AD, onde é necessário registar a sua aplicação.
 3. Clique em **mais serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
 4. Clique em **registos de aplicação**e, em seguida, selecione **adicionar**.

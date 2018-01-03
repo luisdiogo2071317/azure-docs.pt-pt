@@ -1,5 +1,5 @@
 ---
-title: "Web AD .NET do Azure API introdução | Microsoft Docs"
+title: "API de Web .NET do Azure AD introdução | Microsoft Docs"
 description: "Como criar uma API que se integra com o Azure AD para autenticação e autorização da web de MVC do .NET."
 services: active-directory
 documentationcenter: .net
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 096beac3a1acae312ccddc6cbd88378370feed39
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Ajudar a proteger uma API web utilizando tokens de portador do Azure AD
+# <a name="azure-ad-net-web-api-getting-started"></a>API de Web .NET do Azure AD introdução
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Se estiver a criar uma aplicação que fornece acesso a recursos protegidos, terá de saber como impedir unwarranted acesso a esses recursos.
@@ -43,7 +43,7 @@ Para começar, [transferir a estrutura de aplicação](https://github.com/AzureA
 ## <a name="step-1-register-an-application-with-azure-ad"></a>Passo 1: Registar uma aplicação com o Azure AD
 Para ajudar a proteger a aplicação, terá primeiro de criar uma aplicação no seu inquilino e fornecer do Azure AD com alguns peças chave de informações.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Na barra superior, clique em sua conta. No **diretório** lista, escolha o inquilino do Azure AD, onde é necessário registar a sua aplicação.
 
@@ -147,7 +147,7 @@ Antes de poder ver a fazer lista serviços em ação, terá de configurar o clie
   * `ida:ClientId`é o ID da aplicação que copiou do portal do Azure.
   * `todo:TodoListResourceId`é o URI de ID de aplicação da aplicação para o fazer de serviço de lista que introduziu no portal do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Por fim, apagar, criar e executar cada projeto. Se ainda não o fez, agora é o tempo para criar um novo utilizador no seu inquilino com um *. c o m domínio. Iniciar sessão para o cliente de lista de tarefas com esse utilizador e adicionar algumas tarefas à lista de tarefas do utilizador.
 
 Para referência, o exemplo concluído (sem os valores de configuração) está disponível no [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Agora pode passar para os cenários mais de identidade.

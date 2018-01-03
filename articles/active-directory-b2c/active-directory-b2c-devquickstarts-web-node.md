@@ -1,32 +1,31 @@
 ---
-title: "Adicionar início de sessão a uma aplicação Web Node.js para o Azure B2C | Microsoft Docs"
-description: "Como criar uma aplicação Web Node.js que inicia sessão dos utilizadores através da utilização de um inquilino do B2C."
+title: "Adicionar início de sessão a uma aplicação web do Node.js - Azure Active Directory B2C"
+description: "Como criar uma aplicação web Node.js que inicia sessão dos utilizadores com o Azure Active Directory B2C."
 services: active-directory-b2c
-documentationcenter: 
-author: dstrockis
+author: PatAltimore
 manager: mtillman
-editor: 
-ms.assetid: db97f84a-1f24-447b-b6d2-0265c6896b27
+editor: dstrockis
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: article
 ms.date: 03/10/2017
 ms.author: xerners
-ms.openlocfilehash: b306a79d0daa1c6d51557b6abad617182c76e9ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: HT
+ms.openlocfilehash: b4a5db7e6769d7ebb0bcf0287b3a1bfb7932984a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: Adicionar início de sessão a uma aplicação Web Node.js
 
-**Passport** é o middleware de autenticação do Node.js. Extremamente flexível e modular, o Passport pode ser instalado discretamente em qualquer aplicação Web baseada em Express ou Restify. Um conjunto abrangente de estratégias suporta a autenticação utilizando um nome de utilizador e palavra-passe, o Facebook, o Twitter e muito mais.
+**Passport** é o middleware de autenticação do Node.js. Flexível e modular, o Passport pode ser instalado discretamente em qualquer aplicação Web baseada no Express ou Restify. Um conjunto abrangente de estratégias suporta a autenticação utilizando um nome de utilizador e palavra-passe, o Facebook, o Twitter e muito mais.
 
-Desenvolvemos uma estratégia para o Azure Active Directory (Azure AD). Instala este módulo e, em seguida, adiciona o plug-in `passport-azure-ad` do Azure AD.
+Para o Azure Active Directory (Azure AD), pode instalar este módulo e, em seguida, adicionar o Azure AD `passport-azure-ad` Plug-in.
 
-Para efetuar este procedimento, tem de:
+Tem de:
 
 1. Registar uma aplicação utilizando o Azure AD.
 2. Configurar a sua aplicação para utilizar o plug-in `passport-azure-ad`.
@@ -51,8 +50,6 @@ Em seguida, precisa de criar uma aplicação no diretório do B2C. Isto proporci
 - Introduzir `http://localhost:3000/auth/openid/return` como um **URL de resposta**. É o URL predefinido para este exemplo de código.
 - Criar um **Segredo de aplicação** para a aplicação e copiá-lo. Precisará dele mais tarde. Tenha em atenção que este valor de ser [XML de escape](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) antes de o utilizar.
 - Copiar a **ID da Aplicação** atribuída à aplicação. Também irá precisar deste mais tarde.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Criar as políticas
 
@@ -104,7 +101,7 @@ Abra o ficheiro `config.js` na raiz do projeto e introduza os valores de configu
 Abra o ficheiro `app.js` na raiz do projeto. Adicione a chamada seguinte para invocar a estratégia `OIDCStrategy` que vem com `passport-azure-ad`.
 
 
-```JavaScript
+```javascript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
 // Add some logging
@@ -115,7 +112,7 @@ var log = bunyan.createLogger({
 
 Utilize a estratégia de acabou de referenciar para processar pedidos de início de sessão.
 
-```JavaScript
+```javascript
 // Use the OIDCStrategy in Passport (Section 2).
 //
 //   Strategies in Passport require a "validate" function that accepts
@@ -158,7 +155,7 @@ O código anterior entra em todos os utilizadores a quem o servidor autentica. E
 
 Adicione os métodos que lhe permitem controlar utilizadores que tenham iniciado sessão, conforme requerido pelo Passport. Isto inclui informações de utilizador de serialização e não serialização:
 
-```JavaScript
+```javascript
 
 // Passport session setup. (Section 2)
 
@@ -194,7 +191,7 @@ var findByEmail = function(email, fn) {
 
 Adicione o código para carregar o motor Express. A seguir, pode ver que utilizamos a predefinição `/views` e o padrão `/routes` que o Express fornece.
 
-```JavaScript
+```javascript
 
 // configure Express (Section 2)
 
@@ -221,7 +218,7 @@ app.configure(function() {
 
 Adicione as rotas `POST` que entregam os pedidos reais de início de sessão ao motor `passport-azure-ad`:
 
-```JavaScript
+```javascript
 
 // Our Auth routes (Section 3)
 
@@ -271,7 +268,7 @@ A aplicação agora está corretamente configurada para comunicar com o ponto fi
 
 Primeiro, adicione os métodos predefinição, início de sessão, conta e fim de sessão ao ficheiro `app.js`:
 
-```JavaScript
+```javascript
 
 //Routes (Section 4)
 
@@ -306,7 +303,7 @@ Para rever estes métodos em detalhe:
 
 Para a última parte do `app.js`, adicione o `EnsureAuthenticated` método que é utilizado na rota `/account`.
 
-```JavaScript
+```javascript
 
 // Simple route middleware to ensure that the user is authenticated. (Section 4)
 
@@ -323,7 +320,7 @@ function ensureAuthenticated(req, res, next) {
 
 Por fim, crie o próprio servidor no `app.js`.
 
-```JavaScript
+```javascript
 
 app.listen(3000);
 
@@ -336,7 +333,7 @@ O `app.js` está agora concluído. Precisa apenas de adicionar as rotas e vistas
 
 Crie a rota `/routes/index.js` no diretório de raiz.
 
-```JavaScript
+```javascript
 
 /*
  * GET home page.
@@ -349,7 +346,7 @@ exports.index = function(req, res){
 
 Crie a rota `/routes/user.js` no diretório de raiz.
 
-```JavaScript
+```javascript
 
 /*
  * GET users listing.
@@ -364,7 +361,7 @@ Estas rotas simples transferem pedidos para as vistas. Incluem o utilizador, se 
 
 Crie a vista `/views/index.ejs` no diretório de raiz. Esta é uma página simples que chama as políticas para o início de sessão e fim de sessão. Também pode utilizá-la para captar informações da conta. Tenha em atenção que pode utilizar o `if (!user)` condicional quando o utilizador é transferido no pedido para fornecer provas de que o utilizador tem sessão iniciada.
 
-```JavaScript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login/?p=your facebook policy">Sign in with Facebook</a>
@@ -379,7 +376,7 @@ Crie a vista `/views/index.ejs` no diretório de raiz. Esta é uma página simpl
 
 Crie a vista `/views/account.ejs` no diretório de raiz, para que possa visualizar informações adicionais que `passport-azure-ad` colocam no pedido de utilizador.
 
-```Javascript
+```javascript
 <% if (!user) { %>
     <h2>Welcome! Please sign in.</h2>
     <a href="/login">Sign in</a>
@@ -403,7 +400,7 @@ Executar `node app.js` e navegar para `http://localhost:3000`
 
 Inscreva-se ou inicie sessão na aplicação utilizando o correio eletrónico ou o Facebook. Termine sessão e inicie sessão novamente como um utilizador diferente.
 
-##<a name="next-steps"></a>Passos seguintes
+##<a name="next-steps"></a>Passos Seguintes
 
 Para sua referência, o exemplo concluído (sem os valores de configuração) [é fornecido como um ficheiro .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Também pode clonar a partir do GitHub:
 

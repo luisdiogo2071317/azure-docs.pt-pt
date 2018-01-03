@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
 ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Instalar a CLI do Azure 1.0
 > [!div class="op_single_selector"]
@@ -128,7 +128,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Ligar a partir da CLI para a sua subscrição do Azure](/cli/azure/authenticate-azure-cli) para criar e gerir recursos do Azure.
 * Para obter mais informações sobre a CLI do Azure, código de origem da transferência, problemas de relatório, ou a contribuir para o projeto, visite o [repositório do GitHub para a CLI do Azure](https://github.com/azure/azure-xplat-cli).
 * Se tiver dúvidas sobre como utilizar a CLI do Azure ou do Azure, visite o [fóruns do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).

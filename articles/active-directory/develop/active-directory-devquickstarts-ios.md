@@ -1,5 +1,5 @@
 ---
-title: "Integrar o Azure AD para uma aplicação iOS | Microsoft Docs"
+title: "Azure AD iOS, introdução | Microsoft Docs"
 description: "Como criar uma aplicação iOS que se integra com o Azure AD para início de sessão e chamadas do Azure AD protegido APIs através da utilização de OAuth."
 services: active-directory
 documentationcenter: ios
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e497b9e02e21967e71fc9b4fef8dfe0e63e682c3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a631e1104bcda8d69aa2f2fdf336ed407a2c33b9
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-ios-app"></a>Integrar o Azure AD para uma aplicação iOS
+# <a name="azure-ad-ios-getting-started"></a>Azure AD iOS, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> Experimentar a pré-visualização do nosso novo [portal do programador](https://identity.microsoft.com/Docs/iOS) que ajuda-o a começar a trabalhar com o Azure Active Directory em apenas alguns minutos!  O portal do programador orienta-o ao longo do processo de registar uma aplicação e a integração do Azure AD para o seu código.  Quando tiver terminado, terá uma aplicação simples que pode autenticar utilizadores no seu inquilino e um back-end que podem aceitar tokens e efetuar a validação. 
-> 
-> 
 
 Azure Active Directory (Azure AD) fornece a biblioteca de autenticação do Active Directory ou a ADAL para clientes de iOS que precisam de aceder aos recursos protegidos. ADAL simplifica o processo que utiliza a sua aplicação para obter os tokens de acesso. Para demonstrar como é fácil, neste artigo iremos criar uma aplicação de lista de tarefas do objetivo C que:
 
@@ -66,7 +61,7 @@ Um exemplo para este código de início rápido: ***msquickstart://com.microsoft
 ## <a name="2-register-the-directorysearcher-application"></a>2. Registar a aplicação de DirectorySearcher
 Para configurar a sua aplicação para obter os tokens, terá primeiro de registá-lo no seu inquilino do Azure AD e conceder permissão para aceder à API do Azure AD Graph:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique em sua conta. Sob o **diretório** lista, escolha o inquilino do Active Directory onde é necessário registar a sua aplicação.
 3. Clique em **mais serviços** no painel de navegação mais à esquerda e, em seguida, selecione **do Azure Active Directory**.
 4. Clique em **registos de aplicação**e, em seguida, selecione **adicionar**.
@@ -237,7 +232,7 @@ ADAL torna mais fácil incorporar todas estas funcionalidades de identidade comu
 
 Para referência, o exemplo concluído (sem os valores de configuração) é fornecido no [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora pode passar para cenários adicionais.  Poderá querer experimentar:
 
 * [Proteger uma API com o Azure AD da Web de Node.JS](active-directory-devquickstarts-webapi-nodejs.md)

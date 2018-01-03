@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: c336cda6f3af4e2a4647371458b2db3e97917105
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>Autenticação do serviço de serviço com o Data Lake Store com .NET SDK
 > [!div class="op_single_selector"]
 > * [Utilizar o Java](data-lake-store-service-to-service-authenticate-java.md)
-> * [Com o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [Utilizar o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Utilizar o Python](data-lake-store-service-to-service-authenticate-python.md)
 > * [Utilizar a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
@@ -116,7 +116,7 @@ Adicione este fragmento na sua aplicação de cliente do .NET. Substitua os valo
 
 O fragmento de que precede utiliza uma função de programa auxiliar `GetCreds_SPI_Cert`. O código para esta função auxiliar está disponível [aqui no Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a utilizar a autenticação de serviço a serviço para autenticar com o Azure Data Lake Store com .NET SDK. Agora pode ver os seguintes artigos falar sobre como utilizar o SDK .NET para trabalhar com o Azure Data Lake Store.
 
 * [Operações de gestão de contas no Data Lake Store com o SDK .NET](data-lake-store-get-started-net-sdk.md)

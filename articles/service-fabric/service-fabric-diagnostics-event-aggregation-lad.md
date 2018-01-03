@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: b70780b2e1d169aced3412f6fe6d13ad4dab82be
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregação de eventos e a coleção com Linux do diagnóstico do Azure
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Para implementar a extensão de diagnóstico para as VMs no cluster como parte d
 Esta ação configura o agente LAD para monitorizar os ficheiros de registo especificado. Sempre que uma nova linha é acrescentada ao ficheiro, cria uma entrada de syslog que é enviada para o armazenamento (tabela) que especificou.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 1. Para saber mais detalhadamente que eventos deve examinar durante a resolução de problemas, consulte [LTTng documentação](http://lttng.org/docs) e [utilizando LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 2. [Configurar o agente do OMS](service-fabric-diagnostics-event-analysis-oms.md) para ajudar a recolher métricas, monitorizar contentores implementadas no seu cluster e visualizar os seus registos 

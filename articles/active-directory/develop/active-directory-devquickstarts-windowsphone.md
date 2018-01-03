@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5edaee6a4adedc440b16e936462df5e224fe8609
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Integrar o Azure AD com uma aplicação do Windows Phone
+# <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -53,7 +53,7 @@ Para começar, [transferir um projeto de estrutura](https://github.com/AzureADQu
 ## <a name="1-register-the-directory-searcher-application"></a>1. Registar a aplicação de Searcher de diretório
 Para ativar a sua aplicação obter os tokens, primeiro tem de registá-lo no seu inquilino do Azure AD e conceder permissão para aceder à API do Azure AD Graph:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique na sua conta e, no **diretório** lista, escolha o inquilino do Active Directory onde pretende registar a sua aplicação.
 3. Clique em **mais serviços** na navegação esquerda e escolha **do Azure Active Directory**.
 4. Clique em **registos de aplicação** e escolha **adicionar**.
@@ -72,7 +72,7 @@ Agora que tem uma aplicação no Azure AD, pode instalar ADAL e escrever o seu c
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* No projeto DirectorySearcher, abra `MainPage.xaml.cs`.  Substitua os valores no `Config Values` região para refletir os valores de entrada no Portal do Azure.  O código será referenciar estes valores, sempre que utilizar a ADAL.
+* No projeto DirectorySearcher, abra `MainPage.xaml.cs`.  Substitua os valores no `Config Values` região para refletir os valores de entrada no portal do Azure.  O código será referenciar estes valores, sempre que utilizar a ADAL.
   * O `tenant` é o domínio de inquilino do Azure AD, por exemplo, contoso.onmicrosoft.com
   * O `clientId` é o ID de cliente da aplicação que copiou do portal.
 * Agora tem de detetar o uri de chamada de retorno para a sua aplicação do Windows Phone.  Definir um ponto de interrupção nesta linha no `MainPage` método:
@@ -156,7 +156,7 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-* Também pode utilizar o `AuthenticationResult` objetos para apresentar informações sobre o utilizador na sua aplicação. No `QueryGraph(...)` método, utilize o resultado para mostrar o id do utilizador na página:
+* Também pode utilizar o `AuthenticationResult` objetos para apresentar informações sobre o utilizador na sua aplicação. No `QueryGraph(...)` método, utilize o resultado para mostrar o ID do utilizador na página:
 
 ```C#
 // Update the Page UI to represent the signed in user

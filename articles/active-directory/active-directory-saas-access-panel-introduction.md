@@ -15,11 +15,11 @@ ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d40f67c354e29f3a58c9d0f1967e0154b5b998d0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 23f932f6a82a041ba7c54d00cdee7aa98bfce479
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -62,7 +62,7 @@ Terá de distribuir o URL para todos os utilizadores que irá iniciar sessão pa
 
 Para alcançar o painel de acesso, tem de ser autenticado através de uma conta escolar ou profissional no Azure AD. Pode ser autenticado para o Azure AD diretamente. Em alternativa, se uma organização tiver configurado a Federação ao utilizar serviços de Federação do Active Directory (AD FS) ou outras tecnologias, pode ser autenticada pelo Windows Server Active Directory.
 
-Se tiver uma subscrição do Azure ou do Office 365 e utiliza o portal do Azure ou uma aplicação do Office 365, pode ver a lista de aplicações sem iniciar sessão novamente. Não são autenticados se lhe for pedido que inicie sessão com o nome de utilizador e palavra-passe para a sua conta no Azure AD. Se a sua organização tiver configurado a Federação, escrever o nome de utilizador é suficiente.
+Se tiver uma subscrição do Azure ou do Office 365 e utiliza o portal do Azure ou uma aplicação do Office 365, pode ver a lista de aplicações sem iniciar sessão novamente. Se não são autenticados lhe for pedido que inicie sessão com o nome de utilizador e palavra-passe para a sua conta no Azure AD. Se a sua organização tiver configurado a Federação, escrever o nome de utilizador é suficiente.
 
 Quando são autenticados, pode interagir com as aplicações que o administrador tem integrado com o diretório. Para saber como integrar aplicações com o Azure AD, consulte [que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
@@ -176,7 +176,7 @@ Para configurar o SSO para uma aplicação, o portal do Azure fornece uma tercei
 Por exemplo, se uma aplicação estiver configurada para autenticar os utilizadores através do AD FS 2.0, o administrador pode utilizar o **existente Single Sign-On** opção para criar uma ligação ao mesmo no painel de acesso. Quando acedem a ligação, são autenticada através do AD FS 2.0 ou qualquer SSO solução existente que a aplicação fornece.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para ver uma lista de todos os tópicos relacionados com a gestão de aplicações, consulte o [índice de artigos da gestão de aplicações no Azure Active Directory](active-directory-apps-index.md).
  

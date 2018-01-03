@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
 ms.author: parja
-ms.openlocfilehash: d6b25d6b9a0d5b3bcf613046a82a9c6c99475d6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 063c00fe47be25b9359e80d71abfaf453c7a7074
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Ligar uma subscrição do Azure para um inquilino do Azure AD B2C
 
@@ -68,9 +68,9 @@ Selecione um grupo de recursos e localização do grupo de recursos. A seleção
 
 ![Criar o recurso do B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
-## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Gerir os recursos de inquilino do Azure AD B2C
+## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gerir os recursos de inquilino do Azure AD B2C
 
-Depois de um recurso do Azure AD B2C foi criado com êxito dentro da subscrição do Azure, verá um novo recurso do tipo "Inquilino B2C" adicionado juntamente com os outros recursos do Azure.
+Depois de um recurso do Azure AD B2C foi criado com êxito dentro da subscrição do Azure, verá um novo recurso do tipo "Inquilino do B2C" adicionado juntamente com os outros recursos do Azure.
 
 Pode utilizar este recurso:
 
@@ -91,7 +91,7 @@ Atualmente, um inquilino do Azure AD B2C **não é possível** ligação a subsc
 
 Um utilizador pode estabelecer uma restrição regional para a criação de recursos do Azure. Esta restrição poderá impedir a criação de recursos do Azure AD B2C. Para atenuar, reduzir esta restrição.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Assim que estes passos estiverem concluídos para cada um dos seus inquilinos do Azure AD B2C, a sua subscrição do Azure é faturada de acordo com os detalhes da sua direta do Azure ou contrato Enterprise.
 

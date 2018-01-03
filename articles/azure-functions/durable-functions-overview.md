@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f9dabe2644553ab1f4ed02ae026c7dbf1a0db264
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="durable-functions-overview-preview"></a>Descrição geral das funções durável (pré-visualização)
 
@@ -235,7 +235,7 @@ Nos bastidores, a extensão de funções durável está incorporada do [durável
 
 As funções do Orchestrator fiável manter o respetivo estado de execução utilizando um padrão de conceção de nuvem conhecido como [eventos Sourcing](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Em vez de armazenar diretamente o *atual* estado de uma orquestração, a extensão durável utiliza um arquivo só de acréscimo para registar o *completa série de ações* executadas pela orquestração de função. Isto tem muitas vantagens, incluindo a melhorar o desempenho, escalabilidade e capacidade de resposta em comparação com "captura" o estado de runtime completa. Outras vantagens incluem que fornece a consistência eventual para dados transacionais e manter registos de auditoria completa e histórico. Os registos de auditoria próprios ativar ações de compensação fiáveis.
 
-A utilização de evento Sourcing por esta extensão é transparente. Nos bastidores, a `await` operador numa função orchestrator gera o controlo do thread do orchestrator para o distribuidor de estrutura de tarefas durável. O dispatcher consolida, em seguida, as novas ações de que a função do orchestrator agendada (como chamar as funções de subordinados de um ou mais ou agendar um temporizador durável) para o armazenamento. Esta ação de consolidação transparente acrescenta ao *histórico de execução* da instância de orquestração. O histórico é armazenado no armazenamento durável. A ação de consolidação em seguida, adiciona as mensagens a uma fila de agendar o trabalho real. Neste momento, a função do orchestrator pode ser descarregada da memória. Faturação para o mesmo deixa de se estiver a utilizar o plano de consumo de funções do Azure.  Quando existe mais de trabalho para o fazer, a função é reiniciada e o estado é é reconstruir.
+A utilização de evento Sourcing por esta extensão é transparente. Nos bastidores, a `await` operador numa função orchestrator gera o controlo do thread do orchestrator para o distribuidor de estrutura de tarefas durável. O dispatcher consolida, em seguida, as novas ações de que a função do orchestrator agendada (como chamar as funções de subordinados de um ou mais ou agendar um temporizador durável) para o armazenamento. Esta ação de consolidação transparente acrescenta ao *histórico de execução* da instância de orquestração. O histórico é armazenado numa tabela de armazenamento. A ação de consolidação em seguida, adiciona as mensagens a uma fila de agendar o trabalho real. Neste momento, a função do orchestrator pode ser descarregada da memória. Faturação para o mesmo deixa de se estiver a utilizar o plano de consumo de funções do Azure.  Quando existe mais de trabalho para o fazer, a função é reiniciada e o estado é é reconstruir.
 
 Depois de uma função de orquestração é dado o trabalho mais fazer (por exemplo, é recebida uma mensagem de resposta ou um temporizador durável expira), o orchestrator reativado novamente e executa novamente a função completa desde o início para reconstruir o estado do local. Se, durante este reproduzir o código tenta chamar uma função (ou efetuar quaisquer outra async trabalho), a estrutura de tarefas durável consulta com o *histórico de execução* da orquestração da atual. Se encontrar que a função de atividade já tiver sido executada geraram algumas resultado,-lo, partirá resultado que funcionam e o código do orchestrator continua em execução. Isto continua a ocorrer até que o código de função obtém a um ponto onde estiver concluída ou que tem trabalho async novo agendado.
 
@@ -249,7 +249,7 @@ Atualmente c# é o idioma suportado apenas para funções durável. Isto inclui 
 
 ## <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
 
-A extensão de funções durável emite automaticamente dados de controlo estruturados para [Application Insights](functions-monitoring.md) quando a aplicação de função está configurada com uma chave do Application Insights. Dados de controlo podem ser utilizados para monitorizar o comportamento e o progresso da sua orchestrations.
+A extensão de funções durável emite automaticamente dados de controlo estruturados para [Application Insights](functions-monitoring.md) quando a aplicação de função está configurada com uma chave de instrumentação do Application Insights. Dados de controlo podem ser utilizados para monitorizar o comportamento e o progresso da sua orchestrations.
 
 Eis um exemplo do aspeto as funções durável eventos de controlo no Application Insights portal com [Application Insights Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics):
 
@@ -278,7 +278,7 @@ O Table storage é utilizado para armazenar o histórico de execução para cont
 
 Em geral, todos os problemas conhecidos devem ser controlados no [GitHub problemas](https://github.com/Azure/azure-functions-durable-extension/issues) lista. Se um problema e não é possível localizar o problema no GitHub, abra um novo problema e incluem uma descrição detalhada do problema. Mesmo se pretender fazer uma pergunta simplesmente, não hesite em abrir um problema no GitHub e marcá-la como uma pergunta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Continuar a ler a documentação de funções durável](durable-functions-bindings.md)

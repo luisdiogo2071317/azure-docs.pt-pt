@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: d285e63e64d8f4a260c45143f0ae3f7fddd4a2b6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a sua aplicação com uma Azure Virtual Network
 Este documento descreve a funcionalidade de integração de rede virtual do App Service do Azure e mostra como configurá-lo com aplicações [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Se estiver familiarizado com o Azure redes virtuais (VNets), esta é uma funcionalidade que permite-lhe colocar muitos dos seus recursos do Azure numa rede routeable não internet que controla o acesso a. Estas redes, em seguida, podem ser ligadas a suas redes no local utilizando uma variedade de tecnologias VPN. Para saber mais sobre redes virtuais do Azure, comece com as informações aqui: [descrição geral de rede Virtual do Azure][VNETOverview]. 
@@ -257,6 +257,10 @@ Agora se a sua VNet alojada VM pode alcançar o sistema local, mas a aplicação
 * os grupos de segurança de rede estão a bloquear o acesso para o ponto de intervalo de IP do Site
 * das firewalls no local estão a bloquear o tráfego do ponto de para o intervalo de IP do Site
 * tiver uma Route(UDR) do utilizador definida na sua VNet, que impede que o ponto de para o tráfego do Site com base em atingir a sua rede no local
+
+## <a name="powershell-automation"></a>Automatização de PowerShell
+
+Pode integrar o serviço de aplicações com uma rede Virtual do Azure com o PowerShell. Para um script de prontos para execução, consulte [ligar uma aplicação no App Service do Azure a uma rede Virtual do Azure](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>As ligações híbridas e ambientes de serviço de aplicações
 Existem três funcionalidades que permitem o acesso aos recursos da VNet alojado. São:

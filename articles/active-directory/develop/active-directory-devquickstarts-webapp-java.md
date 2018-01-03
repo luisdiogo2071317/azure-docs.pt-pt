@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0e849f99edfc80f7f175c0829552f39da456a204
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Aplicação web de Java início de sessão e fim de sessão com o Azure AD
+# <a name="azure-ad-java-web-app-getting-started"></a>Aplicação web do Azure AD Java, introdução
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Ao fornecer um único início de sessão e fim de sessão com apenas alguns linhas de código, Azure Active Directory (Azure AD) permite simples para que possa outsource gestão de identidade da aplicação web. Pode iniciar a sessão de utilizadores e para as web apps Java utilizando a implementação Microsoft da Comunidade do Azure Active Directory Authentication Library para Java (ADAL4J).
@@ -42,7 +42,7 @@ Quando estiver pronto, siga os procedimentos das nove seguinte secções.
 ## <a name="step-1-register-the-new-app-with-azure-ad"></a>Passo 1: Registar a nova aplicação com o Azure AD
 Para configurar a aplicação para autenticar os utilizadores, primeiro registá-lo no seu inquilino efetuando o seguinte procedimento:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique em nome da sua conta. Sob o **diretório** lista, selecione o inquilino do Active Directory onde é necessário registar a aplicação.
 3. Clique em **mais serviços** no painel esquerdo e, em seguida, selecione **do Azure Active Directory**.
 4. Clique em **registos de aplicação**e, em seguida, selecione **adicionar**.
@@ -1713,7 +1713,7 @@ Agora, deve ter um ficheiro de adal4jsample.war no seu diretório /targets. Pode
 > Pode facilmente implementar um ficheiro de .war com os servidores de Tomcat mais recentes. Aceda a http://localhost:8080/manager / e siga as instruções para carregar o ficheiro adal4jsample.war. Irá autodeploy por si com o ponto final correto.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora tem uma aplicação de Java que pode autenticar os utilizadores, em segurança chamar as APIs de utilização de OAuth 2.0 web e obter informações básicas sobre os utilizadores. Se ainda não já preenchidos do inquilino com utilizadores, agora é uma boa altura para fazê-lo.
 
 Para referência adicional, pode obter o exemplo concluído (sem os valores de configuração) em qualquer uma das seguintes formas:

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: 54ca664a29ed8c6337bb27fe1fa17276e480c911
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Atualização da aplicação de Service Fabric com o PowerShell
 > [!div class="op_single_selector"]
@@ -135,7 +135,7 @@ Dentro de alguns minutos, o estado de que recebeu utilizando o comando PowerShel
 
 Pode experimentar atualizar da versão 2 para a versão 3 ou a partir da versão 2 para a versão 1 como um exercício. Mover da versão 2, a versão 1 também é considerado uma atualização. Reproduzir com tempos limite e políticas de estado de funcionamento para tornar-se familiarizado com os mesmos. Quando estiver a implementar um cluster do Azure, os parâmetros tem de estar definidas corretamente. É boa definir os tempos limite moderadamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Atualizar a sua aplicação com o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta-o através de uma atualização da aplicação com o Visual Studio.
 
 Controlar a forma como a aplicação atualiza utilizando [atualizar parâmetros](service-fabric-application-upgrade-parameters.md).

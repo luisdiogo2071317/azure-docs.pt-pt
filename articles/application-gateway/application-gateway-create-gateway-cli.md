@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
 ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Criar um gateway de aplicação utilizando o 2.0 CLI do Azure
 
@@ -197,7 +197,7 @@ Para eliminar todos os recursos criados neste artigo, execute o seguinte comando
 az group delete --name AdatumAppGatewayRG
 ```
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber como criar sondas de estado de funcionamento personalizados, aceda à [criar uma sonda personalizada para o Gateway de aplicação utilizando o portal](application-gateway-create-probe-portal.md).
 
