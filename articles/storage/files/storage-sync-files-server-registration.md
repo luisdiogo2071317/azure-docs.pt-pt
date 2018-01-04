@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8e707c193c5a8e294710973e128e1cf96d4f6461
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: ae50f2f76af890e1dbabd892dc587b762beab38e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Gerir servidores registados com sincronização de ficheiros do Azure (pré-visualização)
 O Azure File Sync (pré-visualização) permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Isto é feito ao transformar os Servidores do Windows numa cache rápida da partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
@@ -147,7 +147,7 @@ Uma vez que a sincronização de ficheiros do Azure estará raramente o serviço
 > A definição demasiado baixa limites terá impacto no desempenho da sincronização de sincronização de ficheiros do Azure e devolução de chamada.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Definir limites de rede de sincronização de ficheiros do Azure
-Pode restringir a utilitization de rede de sincronização de ficheiros do Azure, utilizando os cmdlets de 'StorageSyncNetworkLimit'. 
+Pode restringir a utilização de rede de sincronização de ficheiros do Azure utilizando o `StorageSyncNetworkLimit` cmdlets. 
 
 Por exemplo, pode criar um novo limite de rede para se certificar de que a sincronização de ficheiros do Azure não utiliza mais de 10 Mbps entre as 09: 00 e as 17: 00 (17:00 h) durante a semana de trabalho: 
 
@@ -171,7 +171,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ### <a name="use-windows-server-storage-qos"></a>Utilizar o QoS de armazenamento do Windows Server 
 Quando a sincronização de ficheiros do Azure está alojada numa máquina virtual em execução no anfitrião de Virtualização do Windows Server, pode utilizar o QoS de armazenamento (qualidade de serviço de armazenamento) regular o consumo de e/s de armazenamento. A política QoS de armazenamento pode ser definida como um máximo (ou limite, como como StorageSyncNetwork limite é imposta acima) ou como um mínimo (ou reservas). Definição mínimo em vez de um máximo permite a sincronização de ficheiros do Azure impulsar para utilizar a largura de banda de armazenamento disponível se outras cargas de trabalho não estão a utilizá-la. Para obter mais informações, consulte [qualidade do serviço de armazenamento](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 - [Planear uma implementação de sincronização de ficheiros do Azure (pré-visualização)](storage-sync-files-planning.md)
 - [Implementar a sincronização de ficheiros do Azure (pré-visualização)](storage-sync-files-deployment-guide.md) 
 - [Resolver problemas de sincronização de ficheiros do Azure (pré-visualização)](storage-sync-files-troubleshoot.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: d424eae90d82c7306b4ef948dbc793d867c8b26f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar o débito de rede para máquinas virtuais do Azure
 
@@ -26,16 +26,16 @@ Máquinas virtuais do Azure (VM) tem predefinições de rede que podem ser mais 
 
 ## <a name="windows-vm"></a>VM do Windows
 
-Se a VM do Windows é suportada com [acelerados redes](virtual-network-create-vm-accelerated-networking.md), ativar essa funcionalidade seria a configuração ideal para débito. Para todas as outras VMs do Windows, utilizar o dimensionamento do lado da receção (RSS) pode contactar um maior débito garantido que uma VM sem RSS. O RSS pode estar desativado por predefinição numa VM do Windows. Conclua os passos seguintes para determinar se o RSS está ativado e ativá-la se está desativada.
+Se a VM do Windows suportar [acelerados redes](create-vm-accelerated-networking-powershell.md), ativar essa funcionalidade seria a configuração ideal para débito. Para todas as outras VMs do Windows, utilizar o dimensionamento do lado da receção (RSS) pode contactar um maior débito garantido que uma VM sem RSS. O RSS pode estar desativado por predefinição numa VM do Windows. Para determinar se o RSS está ativado e ativá-la se está atualmente desativada, conclua os seguintes passos:
 
-1. Introduza o `Get-NetAdapterRss` comando do PowerShell para ver se o RSS está ativado para um adaptador de rede. No seguinte exemplo de saída devolvido do `Get-NetAdapterRss`, o RSS não está ativado.
+1. Se o RSS está ativada para um adaptador de rede com o `Get-NetAdapterRss` comando do PowerShell. No seguinte exemplo de saída devolvido do `Get-NetAdapterRss`, o RSS não está ativado.
 
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-2. Introduza o seguinte comando para ativar o RSS:
+2. Para ativar o RSS, introduza o seguinte comando:
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
@@ -55,13 +55,15 @@ O RSS está sempre ativado por predefinição no VM Linux do Azure. Kernels Linu
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu para novas implementações
 
-O kernel do Ubuntu Azure fornece o melhor desempenho de rede no Azure e foi kernel predefinido desde o dia 21 de Setembro de 2017. Para obter esta kernel, primeiro de instalar mais recente versão suportada do 16.04-LTS, conforme descrito abaixo:
+O kernel do Ubuntu Azure fornece o melhor desempenho de rede no Azure e foi kernel predefinido desde o dia 21 de Setembro de 2017. Para obter esta kernel, a versão mais recente de instalar primeiro a versão suportada do 16.04-LTS, da seguinte forma:
+
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
+
 Depois de concluída a criação, introduza os seguintes comandos para obter as atualizações mais recentes. Estes passos também funcionam para as VMs em execução kernel Ubuntu Azure.
 
 ```bash
@@ -96,7 +98,8 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-Se a VM não tem o kernel do Azure, o número de versão normalmente, irá começar com "4.4". Nesses casos, execute os seguintes comandos como raiz.
+Se a VM não tem o kernel do Azure, o número de versão normalmente começa com "4.4." Se a VM não tem o kernel do Azure, execute os seguintes comandos como raiz:
+
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -109,14 +112,15 @@ reboot
 ### <a name="centos"></a>CentOS
 
 Para obter as otimizações mais recentes, é melhor criar uma VM com a versão mais recente suportada ao especificar os parâmetros seguintes:
+
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-VMs novas e existentes podem beneficiar de instalar os serviços de integração de Linux (LIS) mais recente.
-A otimização de débito está a ser LIS, começando 4.2.2-2, embora as versões posteriores contém ainda outras melhorias. Introduza os comandos seguintes para instalar os LIS mais recentes:
+
+VMs novas e existentes podem beneficiar de instalar os serviços de integração de Linux (LIS) mais recente. A otimização de débito está a ser LIS, começando 4.2.2-2, embora as versões posteriores contém ainda outras melhorias. Introduza os comandos seguintes para instalar os LIS mais recentes:
 
 ```bash
 sudo yum update
@@ -127,14 +131,15 @@ sudo yum install microsoft-hyper-v
 ### <a name="red-hat"></a>Red Hat
 
 Para obter as otimizações, é melhor criar uma VM com a versão mais recente suportada ao especificar os parâmetros seguintes:
+
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-VMs novas e existentes podem beneficiar de instalar os serviços de integração de Linux (LIS) mais recente.
-A otimização de débito está a ser LIS, começando 4.2. Introduza os comandos seguintes para transferir e instalar o LIS:
+
+VMs novas e existentes podem beneficiar de instalar os serviços de integração de Linux (LIS) mais recente. A otimização de débito está a ser LIS, começando 4.2. Introduza os comandos seguintes para transferir e instalar o LIS:
 
 ```bash
 mkdir lis4.2.3-1
@@ -147,6 +152,6 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 
 Saiba mais sobre 4.2 de versão de serviços de integração Linux para Hyper-V, visualizando o [página de transferência](https://www.microsoft.com/download/details.aspx?id=55106).
 
-## <a name="next-steps"></a>Passos seguintes
-* Agora que a VM está otimizada, consulte o resultado com [testar VM do Azure de largura de banda/débito](virtual-network-bandwidth-testing.md) para o seu cenário.
+## <a name="next-steps"></a>Passos Seguintes
+* Consulte o resultado otimizado com [testar VM do Azure de largura de banda/débito](virtual-network-bandwidth-testing.md) para o seu cenário.
 * Saiba mais com [Azure Virtual Network perguntas mais frequentes sobre (FAQ)](virtual-networks-faq.md)

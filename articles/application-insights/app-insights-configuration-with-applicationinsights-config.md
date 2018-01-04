@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e59df358f25663c742b0da09cf27b974787536dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 87eed377528db60724ba2f37bc22d916dfd7c0eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou .xml
 O SDK .NET do Application Insights é composta por um número de pacotes NuGet. O [pacote core](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria para o Application Insights. [Pacotes adicionais](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecer telemetria *módulos* e *inicializadores* para controlo automaticamente telemetria da sua aplicação e o respetivo contexto. Ao ajustar o ficheiro de configuração, pode ativar ou desativar os módulos de telemetria e inicializadores e definir os parâmetros de algumas delas.
 
-O ficheiro de configuração é denominado `ApplicationInsights.config` ou `ApplicationInsights.xml`, consoante o tipo da sua aplicação. É automaticamente adicionada ao seu projeto quando que [instalar a maioria das versões do SDK][start]. Também é adicionada a uma aplicação web [Monitor de estado num servidor IIS][redfield], ou quando seleciona o Insights Appplication [extensão para um Web site Azure ou VM](app-insights-azure-web-apps.md).
+O ficheiro de configuração é denominado `ApplicationInsights.config` ou `ApplicationInsights.xml`, consoante o tipo da sua aplicação. É automaticamente adicionada ao seu projeto quando que [instalar a maioria das versões do SDK][start]. Também é adicionada a uma aplicação web [Monitor de estado num servidor IIS][redfield], ou quando seleciona o Application Insights [extensão para um Web site Azure ou VM](app-insights-azure-web-apps.md).
 
 Não é um ficheiro equivalente para controlar o [SDK numa página web][client].
 
@@ -125,7 +125,6 @@ Os inicializadores padrão estão todos definidos pelos pacotes de Web ou Window
 * `SyntheticTelemetryInitializer`ou `SyntheticUserAgentTelemetryInitializer` atualizações a `User`, `Session` e `Operation` controlado de propriedades de contextos de todos os itens de telemetria ao processar um pedido de uma origem sintética, tal como um disponibilidade testar ou bot do motor de pesquisa. Por predefinição, [Explorador de métricas](app-insights-metrics-explorer.md) não apresenta a telemetria sintética.
 
     O `<Filters>` definir identificar as propriedades dos pedidos.
-* `UserAgentTelemetryInitializer`atualizações a `UserAgent` propriedade o `User` contexto de todos os itens de telemetria com base no `User-Agent` cabeçalho HTTP do pedido.
 * `UserTelemetryInitializer`atualizações a `Id` e `AcquisitionDate` propriedades de `User` contexto de todos os itens de telemetria com valores extraídos do `ai_user` cookie gerado pelo código de instrumentação do Application Insights JavaScript em execução no browser do utilizador.
 * `WebTestTelemetryInitializer`Define o id de utilizador, id de sessão e propriedades da origem sintético para pedidos de HTTP que provenientes do [testes de disponibilidade](app-insights-monitor-web-app-availability.md).
   O `<Filters>` definir identificar as propriedades dos pedidos.
@@ -262,7 +261,7 @@ Se pretender enviar um conjunto específico de eventos para um recurso diferente
 
 Para obter uma nova chave, [criar um novo recurso no portal do Application Insights][new].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre a API][api].
 
 <!--Link references-->

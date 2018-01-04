@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Classificar Íris, parte 1 : preparar os dados
 Os serviços do Azure Machine Learning (pré-visualização) são uma solução de análise avançada e ciência de dados ponto a ponto integrada para os cientistas de dados profissionais prepararem dados, desenvolverem experimentações e implementarem modelos à escala da cloud.
@@ -95,7 +95,7 @@ Pode seguir as instruções do artigo [Início rápido de instalação e criaç�
 
 7. Agora, vamos fazer uma preparação de dados simples. Mude os nomes das colunas. Selecione cada cabeçalho de coluna para tornar o texto do cabeçalho editável. 
 
-   Introduza **Sepal Lenght** (Comprimento da Sépala), **Sepal Width** (Largura da Sépala), **Petal Length** (Comprimento da Pétala), **Petal Width** (Largura da Pétada) e **Species** (Espécies) nas cinco colunas, respetivamente.
+   Introduza **Sepal Lenght** (Comprimento da Sépala), **Sepal Width** (Largura da Sépala), **Petal Length** (Comprimento da Pétala), **Petal Width** (Largura da Pétala) e **Species** (Espécies) nas cinco colunas, respetivamente.
 
    ![Mudar o nome das colunas](media/tutorial-classifying-iris/rename_column.png)
 
@@ -144,7 +144,7 @@ Pode seguir as instruções do artigo [Início rápido de instalação e criaç�
 
    Para obter mais informações sobre como preparar dados no Azure Machine Learning Workbench, veja o guia [Get started with data preparation](data-prep-getting-started.md) (Introdução à preparação de dados).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Nesta primeira parte da série do tutorial de três partes, utilizou o Azure Machine Learning Workbench para:
 > [!div class="checklist"]
 > * Criar um projeto novo. 

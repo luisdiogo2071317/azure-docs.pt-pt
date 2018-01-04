@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: caa13099b22311502f7a527e4fa017aefeee73c7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 90a8229b3d4974b8385039c7d85f916a168947d8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Conceitos chave do fluxo de trabalho do Windows PowerShell para runbooks de automatização de aprendizagem 
 Os Runbooks na automatização do Azure são implementados como fluxos de trabalho do Windows PowerShell.  Um fluxo de trabalho do Windows PowerShell é semelhante a um script do Windows PowerShell, mas com algumas diferenças significativas que podem ser confusas para um novo utilizador.  Embora este artigo destina-se para o ajudar a escrever runbooks com o fluxo de trabalho do PowerShell, recomendamos que escrever runbooks com o PowerShell, a menos que precisa de pontos de verificação.  Existem várias diferenças de sintaxe durante a criação de runbooks do fluxo de trabalho do PowerShell e estas diferenças requerem um pouco mais trabalho escrever fluxos de trabalho efetivos.  
@@ -199,7 +199,7 @@ O exemplo seguinte é semelhante ao anterior exemplo copiar ficheiros em paralel
 >
 
 ## <a name="checkpoints"></a>Pontos de Verificação
-A *ponto de verificação* é um instantâneo do estado atual do fluxo de trabalho que inclui o valor atual para variáveis e qualquer resultado gerado até esse ponto. Se um fluxo de trabalho termina no registo de erros ou está suspenso, em seguida, da próxima vez que é executado será iniciada do último ponto de verificação em vez do início do worfklow.  Pode definir um ponto de verificação num fluxo de trabalho com o **Checkpoint-Workflow** atividade.
+A *ponto de verificação* é um instantâneo do estado atual do fluxo de trabalho que inclui o valor atual para variáveis e qualquer resultado gerado até esse ponto. Se um fluxo de trabalho termina no registo de erros ou está suspenso, em seguida, da próxima vez que é executado será iniciada do último ponto de verificação em vez do início do fluxo de trabalho.  Pode definir um ponto de verificação num fluxo de trabalho com o **Checkpoint-Workflow** atividade.
 
 No seguinte código de exemplo, ocorre uma exceção após Activity2 causando o fluxo de trabalho terminar. Quando o fluxo de trabalho é executado novamente, começa por executar Activity2 porque foi imediatamente depois do último ponto de verificação definido.
 
@@ -209,7 +209,7 @@ No seguinte código de exemplo, ocorre uma exceção após Activity2 causando o 
     <Exception>
     <Activity3>
 
-Deve definir pontos de verificação num fluxo de trabalho após as atividades que poderão estar expostos a exceção e não devem ser repetido se o fluxo de trabalho é retomado. Por exemplo, o fluxo de trabalho pode criar uma máquina virtual. Pode configurar um ponto de verificação antes e depois dos comandos para criar a máquina virtual. Se a criação falhar, em seguida, os comandos iriam ser repetidos se o fluxo de trabalho for iniciado novamente. Se o worfklow falhar após a criação for bem sucedida, em seguida, a máquina virtual não será criada novamente quando o fluxo de trabalho é retomado.
+Deve definir pontos de verificação num fluxo de trabalho após as atividades que poderão estar expostos a exceção e não devem ser repetido se o fluxo de trabalho é retomado. Por exemplo, o fluxo de trabalho pode criar uma máquina virtual. Pode configurar um ponto de verificação antes e depois dos comandos para criar a máquina virtual. Se a criação falhar, em seguida, os comandos iriam ser repetidos se o fluxo de trabalho for iniciado novamente. Se o fluxo de trabalho falhar após a criação for bem sucedida, em seguida, a máquina virtual não será criada novamente quando o fluxo de trabalho é retomado.
 
 O exemplo seguinte copia vários ficheiros para uma localização de rede e define um ponto de verificação após cada ficheiro.  Se a localização de rede se tenha perdida, em seguida, o fluxo de trabalho termina no registo de erros.  Quando é iniciada novamente, será retomada no último ponto de verificação, o que significa que apenas os ficheiros que já foram copiados são ignorados.
 
@@ -258,5 +258,5 @@ Isto não é necessário se estão a autenticar utilizando uma conta Run as conf
 
 Para obter mais informações sobre pontos de verificação, consulte [adicionar pontos de verificação para um fluxo de trabalho de Script](http://technet.microsoft.com/library/jj574114.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)

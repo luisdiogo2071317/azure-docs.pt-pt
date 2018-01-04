@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: 9d9d9556c37cfa5a1a740569b4c7fd4fd07a467a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Utilizar consultas interativas com o HDInsight
 Consulta interativa (também denominado de ramo de registo LLAP, ou [longo em direto e o processo](https://cwiki.apache.org/confluence/display/Hive/LLAP)) é um Azure HDInsight [tipo de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Consulta interativa suporta a colocação em cache na memória, que faz com que as consultas do Hive mais rápidas e interativas muito mais.
@@ -43,8 +43,8 @@ Para executar consultas do Hive, tem as seguintes opções:
 
 * Utilizar o Power BI
 
-    Consulte [visualizar macrodados com o Power BI no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-
+    Consulte [dados visualizar interativa consulta do Hive com o Power BI no Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) consulte [visualizar macrodados com o Power BI no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+ 
 * Utilizar Zeppelin
 
     Consulte [Zeppelin de utilização para executar consultas do Hive no Azure HDInsight ](../hdinsight-connect-hive-zeppelin.md).
@@ -76,7 +76,7 @@ Para localizar a cadeia de ligação de conectividade de base de dados de Java (
    
    ![HDInsight Hadoop consulta interativa LLAP JDBC](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba como [criar clusters de consulta interativo no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Saiba como [visualizar macrodados com o Power BI no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).

@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-management-solution-in-oms"></a>Solução de Gestão de Atualizações no OMS
 
@@ -142,7 +142,7 @@ Para confirmar se um grupo de gestão do Operations Management está a comunicar
 ### <a name="supported-agents"></a>Agentes suportados
 A tabela seguinte descreve as origens ligadas que são suportadas por esta solução.
 
-| Origem Ligada | Suportado | Descrição |
+| Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |
 | Agentes do Windows |Sim |A solução recolhe informações sobre atualizações do sistema de agentes do Windows e inicia a instalação das atualizações necessárias. |
 | Agentes do Linux |Sim |A solução recolhe informações sobre atualizações de sistema a partir dos agentes do Linux e inicia a instalação das atualizações obrigatórias em distribuições suportadas. |
@@ -247,7 +247,7 @@ A solução de Gestão de Atualizações cria dois tipos de registos no reposit�
 | RevisionNumber |O número de revisão da atualização. |
 | SourceComputerId |O GUID para identificar exclusivamente o computador. |
 | TimeGenerated |A data e a hora em que o registo foi atualizado pela última vez. |
-| Título |O nome da atualização. |
+| Cargo |O nome da atualização. |
 | UpdateID |O GUID para identificar exclusivamente a atualização. |
 | UpdateState |Especifica se a atualização está instalada neste computador.<br>Os valores possíveis são:<br>- Instalada - a atualização está instalada neste computador.<br>- Necessária - a atualização não está instalada e é necessária neste computador. |
 
@@ -339,7 +339,7 @@ Pode ver os resultados do runbook responsável pela implementação das atualiza
 
 Para obter mais informações, veja [Automation runbook output and messages](../automation/automation-runbook-output-and-messages.md) (Resultado e mensagens do runbook de Automatização).   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Utilizar as Pesquisas de Registos no [Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver dados de atualizações detalhados.
 * [Criar os seus próprios dashboards](../log-analytics/log-analytics-dashboards.md), que mostram a conformidade das atualizações para os seus computadores geridos.
 * [Criar alertas](../log-analytics/log-analytics-alerts.md) para quando são detetadas atualizações críticas em falta nos computadores ou quando um computador tiver as atualizações automáticas desativadas.  

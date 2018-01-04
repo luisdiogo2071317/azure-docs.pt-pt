@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Resolver problemas de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -42,6 +42,9 @@ Reveja installer.log para determinar a causa da falha de instalação.
 
 > [!Note]  
 > A instalação do agente irá falhar se a máquina está configurada para utilizar o Microsoft Update e o serviço Windows Update não está em execução.
+
+<a id="agent-installation-websitename-failure"></a>**Instalação do agente falhar com este erro: "Assistente do agente de sincronização de armazenamento terminou prematuramente"**  
+Este problema pode ocorrer se o nome do Web site predefinido do IIS é alterado. Para contornar este problema, mude o nome do Web site predefinido do IIS como "Default Web Site" e repita a instalação. O problema será resolvido numa atualização futura do agente. 
 
 <a id="server-registration-missing"></a>**Servidor não está listado em servidores registados no portal do Azure**  
 Se um servidor não está listado em **registado servidores** para um serviço de sincronização de armazenamento:
@@ -208,7 +211,7 @@ Se o problema não for resolvido, execute a ferramenta de AFSDiag:
 5. Reproduza o problema. Quando tiver terminado, introduza **D**.
 6. Um ficheiro. zip que contém os registos e ficheiros de rastreio são guardados para o diretório de saída que especificou.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 - [Perguntas mais frequentes sobre os ficheiros do Azure](storage-files-faq.md)
 - [Resolução de problemas de ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Resolução de problemas de ficheiros do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)

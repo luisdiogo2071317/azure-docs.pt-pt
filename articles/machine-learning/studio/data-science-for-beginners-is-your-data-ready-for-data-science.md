@@ -1,6 +1,6 @@
 ---
 title: "Os seus dados estão prontos para a ciência de dados? Avaliação de dados - Azure Machine Learning | Microsoft Docs"
-description: "Saiba os 4 critérios dos dados estar preparado para ciência de dados. Dados de ciência para principiantes, vídeo 2 tem concretos exemplos para ajudar a avaliação de dados básicos."
+description: "Critérios de quatro estes têm de cumprir para ser preparado para ciência de dados. Este vídeo tem concretos exemplos para ajudar a avaliação de dados básicos."
 keywords: "dados relevantes, avaliar dados, preparar dados, os critérios de dados, dados prontos"
 services: machine-learning
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 9b5cf776981af0dff57195d5c7f1923b8d9a3862
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Os seus dados estão prontos para a ciência de dados?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Ciência de dados para a série de principiantes
@@ -85,11 +85,11 @@ A seguinte ingredient que precisamos é precisão. Seguem-se quatro destinos que
 
 ![Dados exatos vs. dados incorretos - critérios de dados](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Observe o destino no canto superior direito. Iremos já tem um agrupamento sólido à direita à volta a bullseye. Que, obviamente, é preciso. Oddly, o idioma de ciência de dados, nosso desempenho à direita de destino abaixo do mesmo é também considerado preciso.
+Observe o destino no canto superior direito. Iremos já tem um agrupamento sólido à direita em torno os olhos bulls. Que, obviamente, é preciso. Oddly, o idioma de ciência de dados, nosso desempenho à direita de destino abaixo do mesmo é também considerado preciso.
 
-Se mapear o Centro destas setas, verá que estiver muito próximo do bullseye. As setas são distribuir todos em torno do destino, que está a consideradas imprecisa, mas que está a centra-se bullseye, pelo que está a consideradas exata.
+Se mapear o Centro destas setas, verá que estiver muito próximo os olhos bulls. As setas são distribuir todos em torno do destino, que está a consideradas imprecisa, mas que está a centra-se olho bulls, pelo que está a consideradas exata.
 
-Observe agora o destino do canto superior esquerdo. Aqui o nosso setas muito fechar em conjunto, atingiu um agrupamento sólido. Estiverem exatos, mas está incorretas porque o Centro de forma desativar o bullseye. E, obviamente, as setas no destino da parte inferior esquerda estão incorretas e imprecisa. Este archer tem mais prática.
+Observe agora o destino do canto superior esquerdo. Aqui o nosso setas muito fechar em conjunto, atingiu um agrupamento sólido. Estiverem exatos, mas está incorretas porque o Centro de forma desativar os olhos bulls. E, obviamente, as setas no destino da parte inferior esquerda estão incorretas e imprecisa. Este archer tem mais prática.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>Tem dados suficientes para trabalhar com?
 Por fim, ingredient #4 - temos de tem dados suficientes.
@@ -108,6 +108,6 @@ Com dados que são relevantes, ligado, exata e suficiente, podemos ter todos os 
 
 Lembre-se de que veja os vídeos de quatro em *dados de ciência para principiantes* do Microsoft Azure Machine Learning.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Tente uma primeira experimentação de ciência de dados com Machine Learning Studio](create-experiment.md)
 * [Obtenha uma introdução ao Machine Learning no Microsoft Azure](what-is-machine-learning.md)

@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b577a427590b058319f9315a6d54deb6ec1c7634
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4fd80e147f3f24676bde77a1aa4e9f29432f544d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicações e início de sessão no Azure Active Directory?
 O início de sessão único significa que está a ser capazes de aceder a todas as aplicações e recursos que precisa para fins comerciais, ao iniciar sessão apenas depois de utilizar uma conta de utilizador único. Depois de iniciar sessão, pode aceder a todas as aplicações que precisar, sem ser necessário para autenticação (por exemplo, escreva uma palavra-passe) uma segunda vez.
@@ -54,7 +54,7 @@ Depois de ter autenticar um utilizador com uma aplicação, também têm de ter 
  Obter mais detalhes sobre estes modos de início de sessão único e o aprovisionamento abaixo.
 
 ### <a name="federated-single-sign-on"></a>Federado Single Sign-On
-Federado Single Sign-On permite início de sessão permite que os utilizadores na sua organização a ser iniciada automaticamente uma aplicação SaaS de terceiros pelo Azure AD utilizando as informações de conta de utilizador do Azure AD.
+Federado Single Sign-On permite que os utilizadores na sua organização a ser iniciada automaticamente uma aplicação SaaS de terceiros pelo Azure AD utilizando as informações de conta de utilizador do Azure AD.
 
 Neste cenário, quando que já foram registados com o Azure AD e, se pretender aceder a recursos que são controlados por uma aplicação SaaS de terceiros, Federação elimina a necessidade de um utilizador ser novamente autenticados.
 
@@ -190,7 +190,7 @@ Quando um utilizador autorizado clica destas ligações específicas da aplicaç
 
 Estas ligações utilizam os mesmos mecanismos de controlo de acesso, como o painel de acesso e o Office 365, e apenas esses utilizadores ou grupos que tenham sido atribuídos a aplicação no portal de gestão do Azure conseguirá autenticar com êxito. No entanto, a qualquer utilizador que não está autorizada verá uma mensagem explicar o que não tenha sido concedidos acesso e recebem uma hiperligação para o painel de acesso para ver as aplicações disponíveis para os quais têm acesso de carga.
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="related-articles"></a>Artigos Relacionados
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Localizar não sancionadas aplicações em nuvem com o Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)

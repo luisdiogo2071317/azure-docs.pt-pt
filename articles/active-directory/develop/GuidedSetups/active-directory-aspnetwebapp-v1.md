@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/08/2017
 ms.author: andret
-ms.openlocfilehash: 7708304dd49535d6881641fcafdbfdcb791f9fdf
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Adicionar início de sessão com a Microsoft para uma aplicação web ASP.NET
@@ -42,7 +42,7 @@ No final deste guia, a aplicação irá aceitar inícios de sessão das contas p
 Este guia baseia-se no cenário onde um browser acede a um web site do ASP.NET, pedir um utilizador para autenticar através de um botão de início de sessão. Neste cenário, a maioria do trabalho para compor a página web ocorre no lado do servidor.
 
 > [!NOTE]
-> Esta configuração orientada demonstra como os utilizadores sobre uma aplicação Web de ASP.NET a partir de um modelo em branco a iniciar sessão e incluir passos como adicionar um início de sessão no botão e cada controlador e métodos, enquanto também explicar alguns conceitos. Alternativelly, também pode criar um projeto de início de sessão do Azure Active Directory utilizadores (contas profissionais e escolares) utilizando o [modelo de web do Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) e selecionando *contas institucionais* e em seguida, uma das opções em nuvem - esta opção utiliza um modelo mais rico, com vistas, métodos e controladores adicionais.
+> Esta configuração orientada demonstra como os utilizadores sobre uma aplicação Web de ASP.NET a partir de um modelo em branco a iniciar sessão e incluir passos como adicionar um início de sessão no botão e cada controlador e métodos, enquanto também explicar alguns conceitos. Em alternativa, também pode criar um projeto de início de sessão do Azure Active Directory utilizadores (contas profissionais e escolares) utilizando o [modelo de web do Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) e selecionando *contas institucionais* e, em seguida, uma das opções em nuvem - esta opção utiliza um modelo mais rico, com vistas, métodos e controladores adicionais.
 
 ## <a name="libraries"></a>Bibliotecas
 

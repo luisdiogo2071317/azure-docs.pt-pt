@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2017
+ms.date: 1/3/2018
 ms.author: raiye
-ms.openlocfilehash: fa90953d4bf88ac9aab1c9277ef6767153862111
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: ab79820a00cb52367d99e3eb3a2b717f1bca44e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versões de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema operativo convidado versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de um SO convidado está desativado. Se configurar as funções de utilizar *automática* atualizações de SO convidado, conforme descrito em [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -159,7 +159,7 @@ Devido a um erro de segurança, iremos desativação as seguintes Dezembro de 20
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
-| WA-CONVIDADO-SO-2.68_201710-01 |14 de Dezembro de 2017 |Post 2.70 |TBD |
+| WA-CONVIDADO-SO-2.68_201711-01 |14 de Dezembro de 2017 |Post 2.70 |TBD |
 | WA-CONVIDADO-SO-2.67_201710-02 |8 de Novembro de 2017 |Post 2.69 |TBD |
 |~~WA-CONVIDADO-SO-2.66_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-2.65_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |

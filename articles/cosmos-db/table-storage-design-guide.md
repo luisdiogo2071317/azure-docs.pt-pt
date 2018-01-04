@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: eaa9d2208406afece5c77859546e888c1e49e902
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d93b6a25c1781c7d4f1f0534eda146963f439dd5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design da tabela de armazenamento do Azure: Estruturar dimensionável e tabelas Performant
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -41,7 +41,7 @@ O exemplo seguinte mostra um design de tabela simples para armazenar as entidade
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Timestamp</th>
+<th>Carimbo de data/hora</th>
 <th></th>
 </tr>
 <tr>
@@ -77,7 +77,7 @@ O exemplo seguinte mostra um design de tabela simples para armazenar as entidade
 <th>E-mail</th>
 </tr>
 <tr>
-<td>Jun</td>
+<td>Jun.</td>
 <td>CaO</td>
 <td>47</td>
 <td>junc@contoso.com</td>
@@ -91,7 +91,7 @@ O exemplo seguinte mostra um design de tabela simples para armazenar as entidade
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>Nome do Departamento</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -251,7 +251,7 @@ O serviço tabela indexa automaticamente os seus entidades utilizando o **Partit
 Muitas estruturas têm de cumprir os requisitos para ativar a pesquisa de entidades com base em vários critérios. Por exemplo, localizar entidades de empregado com base no correio eletrónico, id de empregado ou apelido. Os seguintes padrões na secção [padrões de conceção de tabela](#table-design-patterns) endereço estes tipos de requisito e descrevem formas de resolver o facto de que o serviço tabela fornecem índices secundários:  
 
 * [Padrão de índice secundário intra partição](#intra-partition-secondary-index-pattern) -armazenar várias cópias de cada entidade utilizando diferentes **RowKey** valores (na mesma partição) para ativar rápido e eficiente pesquisas e as ordens de ordenação alternada utilizando diferentes **RowKey** valores.  
-* [Padrão de índice secundário partição entre](#inter-partition-secondary-index-pattern) - armazenar várias cópias de cada entidade a utilizar valores diferentes de RowKey em partições separadas ou em tabelas separadas para ativar rápido e eficiente pesquisas e ordenação alternada ordena utilizando diferentes **RowKey** valores.  
+* [Padrão de índice secundário partição entre](#inter-partition-secondary-index-pattern) -armazenar várias cópias de cada entidade utilizando diferentes **RowKey** valores separar em partições ou separadas em tabelas para ativar as pesquisas de rápidos e eficientes e ordenação alternada as ordens utilizando diferentes **RowKey** valores.  
 * [Padrão de entidades do índice](#index-entities-pattern) -manter entidades de índice para ativar pesquisas eficiente que devolvem apresenta uma lista de entidades.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Ordenação de dados no serviço tabela
@@ -301,7 +301,7 @@ Os seguintes padrões na secção [padrões de conceção de tabela](#table-desi
 ## <a name="encrypting-table-data"></a>Encriptar dados da tabela
 A biblioteca de clientes do Storage de Azure .NET suporta a encriptação das propriedades de entidade de cadeia para inserção e substitua operações. As cadeias de encriptados são armazenadas no serviço como propriedades binárias e estes são convertidos para cadeias depois de desencriptação.    
 
-Para as tabelas, além da política de encriptação, os utilizadores tem de especificar as propriedades sejam encriptados. Pode fazê-lo especificando a um atributo [EncryptProperty] \(para entidades POCO que derivem de TableEntity) ou um resolvedor de encriptação nas opções de pedido. Um resolvedor de encriptação é um delegado que utiliza uma chave de partição, chave de linha e nome de propriedade e devolve um valor boleano que indica se essa propriedade deve ser encriptada. Durante a encriptação, a biblioteca de cliente utilizará estas informações para decidir se uma propriedade deve ser encriptada durante a escrita para a transmissão. Também fornece o delegado para a possibilidade de lógica em torno da forma como as propriedades são encriptadas. (Por exemplo, se X, então encriptar propriedade um; caso contrário, encriptar propriedades A e B.) Tenha em atenção que não seja necessário fornecer estas informações ao ler ou consultar entidades.
+Para as tabelas, além da política de encriptação, os utilizadores tem de especificar as propriedades sejam encriptados. Pode fazê-lo especificando a um atributo [EncryptProperty] (para entidades POCO que derivem de TableEntity) ou um resolvedor de encriptação nas opções de pedido. Um resolvedor de encriptação é um delegado que utiliza uma chave de partição, chave de linha e nome de propriedade e devolve um valor boleano que indica se essa propriedade deve ser encriptada. Durante a encriptação, a biblioteca de cliente utilizará estas informações para decidir se uma propriedade deve ser encriptada durante a escrita para a transmissão. Também fornece o delegado para a possibilidade de lógica em torno da forma como as propriedades são encriptadas. (Por exemplo, se X, então encriptar propriedade um; caso contrário, encriptar propriedades A e B.) Tenha em atenção que não seja necessário fornecer estas informações ao ler ou consultar entidades.
 
 Tenha em atenção que merge não é atualmente suportado. Uma vez que um subconjunto de propriedades poderá ter sido encriptado anteriormente com uma chave diferente, basta intercalar as propriedades de novo e atualizar os metadados resultará na perda de dados. Intercalar o requer efetuar chamadas de serviço adicional para a entidade pré-existente de leitura do serviço ou utilizar uma nova chave por propriedade, que não são adequadas por motivos de desempenho.     
 
@@ -1107,7 +1107,7 @@ O serviço de tabela é um *sem esquema* arquivo de tabela, que significa que um
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Timestamp</th>
+<th>Carimbo de data/hora</th>
 <th></th>
 </tr>
 <tr>
@@ -1157,7 +1157,7 @@ O serviço de tabela é um *sem esquema* arquivo de tabela, que significa que um
 <td>
 <table>
 <tr>
-<th>DepartmentName</th>
+<th>Nome do Departamento</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -1199,7 +1199,7 @@ Tenha em atenção que cada entidade ainda tem de ter **PartitionKey**, **RowKey
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Timestamp</th>
+<th>Carimbo de data/hora</th>
 <th></th>
 </tr>
 <tr>
@@ -1254,7 +1254,7 @@ Tenha em atenção que cada entidade ainda tem de ter **PartitionKey**, **RowKey
 <table>
 <tr>
 <th>EntityType</th>
-<th>DepartmentName</th>
+<th>Nome do Departamento</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>

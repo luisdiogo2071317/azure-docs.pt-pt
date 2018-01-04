@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763007f004ab82ef5a6b2cac6dbef1ab221a060f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cedba7397e29cb397560c65a2408cd27442ec01c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory
 Este artigo é sobre uma funcionalidade que permite aos administradores configurar início de sessão único para aplicações não estão presentes na Galeria de aplicações do Azure Active Directory *sem escrever código*. Esta funcionalidade foi lançada a partir do technical preview no 18 de Novembro de 2015 e está incluída no [Azure Active Directory Premium](active-directory-editions.md). Se estiver em vez disso, a procurar orientações para programadores sobre como integrar aplicações personalizadas com o Azure AD através do código, consulte o artigo [cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
@@ -59,7 +59,7 @@ Selecione esta opção para configurar a autenticação baseada em SAML para a a
 
 Nomeadamente:
 
-* **URL de início de sessão (iniciado por SP apenas)** – onde o utilizador passa para início de sessão para esta aplicação. Se a aplicação estiver configurada para efetuar serviço iniciada pelo fornecedor de sessão único, em seguida, quando um utilizador navega para este URL, o fornecedor de serviço irá efetuar o redirecionamento necessário para o Azure AD para autenticar e iniciar sessão do utilizador no. Se este campo é preenchido, Azure AD irá utilizar este URL para iniciar a aplicação do Office 365 e o painel de acesso do Azure AD. Se este campo é ommited, em seguida, do Azure AD em vez disso, executará o fornecedor de identidade-início de sessão iniciada quando a aplicação é iniciada a partir do Office 365, o painel de acesso do Azure AD, ou do Azure AD único URL sign-on (copiable a partir do separador Dashboard).
+* **URL de início de sessão (iniciado por SP apenas)** – onde o utilizador passa para início de sessão para esta aplicação. Se a aplicação estiver configurada para efetuar serviço iniciada pelo fornecedor de sessão único, em seguida, quando um utilizador navega para este URL, o fornecedor de serviço irá efetuar o redirecionamento necessário para o Azure AD para autenticar e iniciar sessão do utilizador no. Se este campo é preenchido, Azure AD irá utilizar este URL para iniciar a aplicação do Office 365 e o painel de acesso do Azure AD. Se este campo for omitido, em seguida, do Azure AD em vez disso, executará o fornecedor de identidade-início de sessão iniciada quando a aplicação é iniciada a partir do Office 365, o painel de acesso do Azure AD, ou do Azure AD único URL sign-on (copyable a partir do separador Dashboard).
 * **URL do emissor** -o URL do emissor deve identificar exclusivamente a aplicação para o qual único início de sessão está a ser configurado. Este é o valor do Azure AD envia a aplicação como o **público-alvo** parâmetro do SAML token e a aplicação deverá validá-lo. Este valor é também apresentado como o **ID de entidade** nos metadados qualquer SAML fornecido pela aplicação. Consulte a documentação de SAML da aplicação para obter detalhes sobre o que é o ID de entidade ou valor de audiência está. Abaixo está um exemplo de como o URL público-alvo é apresentado no token SAML devolvido para a aplicação:
 
 ```
@@ -128,7 +128,7 @@ Depois de selecionar **seguinte**, será solicitado para introduzir o URL da apl
 
 Nota: Pode carregar um logótipo de mosaico para a aplicação utilizando o **carregar o logótipo** botão no **configurar** separador para a aplicação.
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="related-articles"></a>Artigos Relacionados
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
 * [Como personalizar afirmações emitidas no Token SAML para aplicações previamente integradas](active-directory-saml-claims-customization.md)
 * [Resolução de problemas baseados em SAML Single Sign-On](active-directory-saml-debugging.md)

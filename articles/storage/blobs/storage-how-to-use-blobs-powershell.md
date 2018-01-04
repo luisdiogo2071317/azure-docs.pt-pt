@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 170c3091efc90f640792682377ed10e2eab0cab3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Efetuar operações de armazenamento de Blobs do Azure com o Azure PowerShell
 
@@ -40,7 +40,7 @@ Este tutorial requer a versão do módulo 3.6 ou posterior do Azure PowerShell. 
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Os BLOBs sempre são carregados num contentor. Contentores são semelhantes aos diretórios no seu computador, permitindo-lhe organizar grupos de blobs contentores como organizar os seus ficheiros em pastas no seu computador. Uma conta de armazenamento pode ter qualquer número de contentores; apenas é limitada pela quantidade de espaço efetuada cópias de segurança na conta de armazenamento (até 500TB). 
+Os Blobs são sempre carregados para um contentor. Contentores são semelhantes aos diretórios no seu computador, permitindo-lhe organizar grupos de blobs contentores como organizar os seus ficheiros em pastas no seu computador. Uma conta de armazenamento pode ter qualquer número de contentores; apenas é limitada pela quantidade de espaço efetuada cópias de segurança na conta de armazenamento (até 500TB). 
 
 Quando cria um contentor, pode definir o nível de acesso, o que ajuda a definir quem pode aceder a blobs no contentor. Por exemplo, pode ser privados (nível de acesso = `Off`), que significa que ninguém pode aceder aos mesmos sem uma assinatura de acesso partilhado ou as chaves de acesso para a conta de armazenamento. Se não especificar o nível de acesso ao criar o contentor, assume como privada.
 
@@ -57,9 +57,9 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 ## <a name="upload-blobs-into-a-container"></a>Carregar os blobs num contentor
 
-Armazenamento de Blobs do Azure suporta blobs de blocos, blobs de páginas e blobs de acréscimo.  Ficheiros VHD utilizados para efetuar cópias de VMs de IaaS são blobs de páginas. Acrescentar blobs são utilizados para registo, por exemplo, se pretender escrever um ficheiro e, em seguida, mantenha a adição de mais informações. A maioria dos ficheiros armazenados no Blob storage são blobs de blocos. 
+Armazenamento de Blobs do Azure suporta blobs de blocos, blobs de páginas e blobs de acréscimo.  Os ficheiros VHD utilizados nas cópias de segurança de VMs IaaS são blobs de páginas. Os blobs de acréscimo são utilizados para registo, como quando quer escrever num ficheiro e continuar a adicionar mais informações. A maioria dos ficheiros guardados no armazenamento de Blobs são blobs de blocos. 
 
-Para carregar um ficheiro para um blob de blocos, obtenha uma referência de contentor, em seguida, obtenha uma referência para o blob de bloco no contentor. Assim que tiver a referência de blob, pode carregar dados para a mesma utilizando [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Esta operação cria o blob, se não existir ou substitui-lo se já existir.
+Para carregar um ficheiro para um blob de blocos, obtenha uma referência de contentor e uma referência de blob de blocos nesse contentor. Assim que tiver a referência de blob, pode carregar dados para o mesmo com o comando [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Esta operação cria o blob, se não existir ou substitui-lo se já existir.
 
 O seguinte mostra como carregar um blob para um contentor. Em primeiro lugar, definir variáveis que apontam para o diretório no computador local onde estão localizados os ficheiros e definir uma variável para o nome do ficheiro a ser carregado. Esta ação é útil quando pretender executar repetidamente a mesma operação. Carregar alguns dos ficheiros para que possa ver várias entradas quando listar os blobs no contentor.
 
@@ -87,7 +87,7 @@ Set-AzureStorageBlobContent -File $localFile `
   -Context $ctx
 ```
 
-Carregar ficheiros tantos como pretender antes de continuar.
+Carregue os ficheiros que quiser antes de continuar.
 
 ## <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
@@ -99,7 +99,7 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Transferir blobs
 
-Transferir os blobs para o seu disco local. Em primeiro lugar, defina uma variável que aponta para a pasta local para o qual pretende transferir os blobs. Em seguida, para cada blob ser transferidos, defina o nome e a chamada [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) para transferir o blob.
+Transfira os blobs para o disco local. Em primeiro lugar, defina uma variável que aponta para a pasta local para o qual pretende transferir os blobs. Em seguida, para cada blob ser transferidos, defina o nome e a chamada [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) para transferir o blob.
 
 Neste exemplo copia os blobs para d:\\_TestImages\Downloads no disco local. 
 
@@ -152,7 +152,7 @@ Poderá copiar um blob para uma conta de armazenamento separada. Um exemplo para
 Configurar uma segunda conta de armazenamento, obter o contexto, configurar um contentor nessa conta de armazenamento e efetuar a cópia. Esta parte do script é quase idêntico ao script acima, exceto para utilizar a segunda conta de armazenamento em vez do primeiro.
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `
@@ -365,7 +365,7 @@ Remova todos os recursos que criou. Para tal, pode remover o grupo de recursos, 
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu sobre a gestão de armazenamento de BLOBs básico tais como:
 
@@ -380,7 +380,7 @@ Neste tutorial, aprendeu sobre a gestão de armazenamento de BLOBs básico tais 
 > * Gerir a segurança através de assinaturas de acesso partilhado
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Cmdlets de armazenamento do Microsoft Azure PowerShell
-* [Cmdlets do PowerShell do armazenamento](/powershell/module/azurerm.storage#storage)
+* [Cmdlets do Armazenamento do PowerShell](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorador de Armazenamento do Microsoft Azure
 * O [Explorador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.

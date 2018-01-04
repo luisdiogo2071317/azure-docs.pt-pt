@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 081da55bb956db2879d7f2c5c91d25f5c36d5507
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Código e teste das funções do Azure localmente
 
@@ -29,7 +29,7 @@ Se for um programador Visual Studio c#, as funções do Azure também [integra-s
 >[!IMPORTANT]  
 > Não misture desenvolvimento local com o desenvolvimento portal na mesma aplicação de função. Quando criar e publicar as funções de um projeto local, não deve tentar manter ou modificar o código de projeto no portal.
 
-## <a name="install-the-azure-functions-core-tools"></a>Instalar as ferramentas de núcleos de funções do Azure
+## <a name="install-the-azure-functions-core-tools"></a>Instalar as Ferramentas de Núcleo de Funções do Azure
 
 [Ferramentas de núcleos de funções do Azure] é uma versão local do tempo de execução das funções do Azure que pode executar no seu computador de desenvolvimento local. Não é um emulador ou simulador. É o mesmo runtime powers funciona no Azure. Existem duas versões do Azure funções principais ferramentas, uma versão 1. x de tempo de execução e outra para a versão 2. x. Ambas as versões são fornecidas como um [pacote npm](https://docs.npmjs.com/getting-started/what-is-npm).
 
@@ -132,7 +132,7 @@ O ficheiro local.settings.json armazena as definições de aplicação, cadeias 
 | **Valores** | Coleção de definições da aplicação utilizada ao executar localmente. **AzureWebJobsStorage** e **AzureWebJobsDashboard** são exemplos; para obter uma lista completa, consulte [referência de definições de aplicação](functions-app-settings.md).  |
 | **Anfitrião** | As definições nesta secção personalizar o processo de anfitrião de funções ao executar localmente. | 
 | **LocalHttpPort** | Define a porta predefinida utilizada ao executar o anfitrião de funções local (`func host start` e `func run`). O `--port` opção da linha de comandos tem precedência sobre este valor. |
-| **CORS** | Define as origens permitidas para [recursos de várias origens (CORS) de partilha](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origens são fornecidas como uma lista de valores separados por vírgulas de mensagens em fila sem espaços. O valor de caráter universal (**\***) é suportada, que permite que os pedidos de qualquer origem. |
+| **CORS** | Define as origens permitidas para [recursos de várias origens (CORS) de partilha](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origens são fornecidas como uma lista de valores separados por vírgulas de mensagens em fila sem espaços. O valor de caráter universal (\*) é suportada, que permite que os pedidos de qualquer origem. |
 | **ConnectionStrings** | Contém as cadeias de ligação de base de dados para as suas funções. Cadeias de ligação neste objeto são adicionadas para o ambiente com o tipo de fornecedor de **SqlClient**.  | 
 
 A maioria dos acionadores e enlaces têm um **ligação** propriedade mapeia para o nome de uma definição de aplicação ou variável de ambiente. Para cada propriedade de ligação, deve ser definida no ficheiro local.settings.json de definição de aplicação. 
@@ -337,7 +337,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=beta   
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Ferramentas de núcleos de funções do Azure é [abrir a origem e está lojado no GitHub](https://github.com/azure/azure-functions-cli).  
 No ficheiro de um pedido de erros ou funcionalidade, [abrir um problema no GitHub](https://github.com/azure/azure-functions-cli/issues). 

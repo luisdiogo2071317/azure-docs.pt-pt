@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Ferramentas de funções do Azure para Visual Studio  
 
@@ -68,7 +68,7 @@ O tempo de execução de funções utiliza uma conta de armazenamento do Azure i
 
 1. No Visual Studio, abra **Cloud Explorer**, expanda **conta de armazenamento** > **da conta de armazenamento**, em seguida, selecione **propriedades**e copie o **cadeia de ligação principal** valor.   
 
-2. No seu projeto, abra o ficheiro de projeto local.settings.json e defina o valor da **AzureWebJobsStorage** chave para a cadeia de ligação que copiou.
+2. No seu projeto, abra o ficheiro de local.settings.json e defina o valor da **AzureWebJobsStorage** chave para a cadeia de ligação que copiou.
 
 3. Repita o passo anterior para adicionar as chaves exclusivas para o **valores** matriz para ligações de necessária para as suas funções.  
 
@@ -106,7 +106,7 @@ Nas funções de pré-compiladas, os enlaces utilizados pela função são defin
     } 
     ````
  
-    Um atributo específico do enlace é aplicado a cada parâmetro de enlace fornecido para o método de ponto de entrada. O atributo demora as informações de enlace como parâmetros. No exemplo anterior, o primeiro parâmetro tem um **QueueTrigger** atributo aplicado, que indica que a função de acionada de fila. O nome da fila e o nome de definição da cadeia de ligação são transmitidos como parâmetros.  
+    Um atributo específico do enlace é aplicado a cada parâmetro de enlace fornecido para o método de ponto de entrada. O atributo demora as informações de enlace como parâmetros. No exemplo anterior, o primeiro parâmetro tem um **QueueTrigger** atributo aplicado, que indica que a função de acionada de fila. O nome da fila e o nome de definição da cadeia de ligação são transmitidos como parâmetros para o **QueueTrigger** atributo.
 
 ## <a name="testing-functions"></a>Testar funções
 
@@ -131,7 +131,7 @@ Para saber mais sobre como utilizar as ferramentas de núcleos de funções do A
 >* [Utilizar o `--publish-local-settings` publicar opção nas ferramentas de núcleos de funções do Azure](functions-run-local.md#publish).
 >* [Utilizar a CLI do Azure](/cli/azure/functionapp/config/appsettings#set). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre as ferramentas de funções do Azure, consulte a secção perguntas comuns a [as ferramentas de 2017 do Visual Studio para as funções do Azure](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blogue.
 

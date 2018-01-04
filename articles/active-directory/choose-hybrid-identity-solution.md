@@ -5,19 +5,19 @@ keywords:
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
-ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.author: billmath
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4bed74307f6f95cff9c779abc72da6514d869ea3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Soluções de identidade híbrida da Microsoft
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) soluções de identidade híbrida permitem-lhe sincronizar objetos de diretório no local com o Azure AD enquanto ainda gerir os utilizadores no local. A primeira decisão a tomar ao planear a sincronizar o seu no Windows Server Active Directory local com o Azure AD é se pretende utilizar sincronizada identidade ou identidade federada. Identidades sincronizadas e, opcionalmente hashes de palavra-passe, permitem aos utilizadores utilizar a mesma palavra-passe para aceder a recursos organizacionais baseados em nuvem e no local. Para requisitos de cenário mais avançados, tais como single-sign-on (SSO) ou a MFA no local, terá de implementar os serviços de Federação do Active Directory (AD FS) para federar identidades. 
@@ -50,9 +50,6 @@ A autenticação pass-through está configurada com o Azure AD Connect, que util
 
 - Windows Server 2012 R2 ou superior
 - Associado a um domínio na floresta através do qual os utilizadores são validados
-
-> [!NOTE]
-> Autenticação pass-through do Azure AD está atualmente em pré-visualização e é suportada para clientes de baseada no browser da web e os clientes do Office que suportam a autenticação moderna. Para clientes que não são suportados, tais como clientes legados do Office e do Exchange ActiveSync (incluindo clientes de e-mail nativo em dispositivos móveis), é recomendado que utilize a autenticação moderna equivalente. A autenticação moderna não só permite a autenticação pass-through, mas também permite a políticas de acesso condicional ser aplicado, tais como a autenticação multifator. 
 
 A autenticação pass-through não é atualmente suportada quando utilizam dispositivos Windows 10 associados para o Azure AD. No entanto, pode utilizar a sincronização de hash de palavra-passe como uma reversão automática para o suporte do Windows 10 e os clientes legados mencionado anteriormente. Durante a pré-visualização, sincronização de hash de palavra-passe está ativada por predefinição, quando a autenticação pass-through é selecionada como a opção de início de sessão no Azure AD Connect.
 
@@ -91,7 +88,7 @@ Seguem-se alguns cenários comuns de híbrida identidades e acessos gestão com 
 > <sup>4</sup> do AD FS pode ser integrado com a sua empresa PKI para permitir início de sessão através de certificados. Estes certificados podem ser implementados através de canais de aprovisionamento fidedignos, tais como certificados MDM ou GPO ou smart card (incluindo cartões PIV/CAC) ou Hello para empresas (confiança de certificados) de certificados de forma recuperável. Para obter mais informações sobre o suporte de autenticação de smart card, consulte [este blogue](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais num ambiente do Azure prova de conceito](https://aka.ms/aad-poc)
 
 [Instalar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)

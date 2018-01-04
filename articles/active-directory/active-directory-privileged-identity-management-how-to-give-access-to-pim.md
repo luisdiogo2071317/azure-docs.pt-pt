@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 2fccf7cae61f4d8862640b89d39f9d4480362429
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 39caeef2648730194827e04e020d8eaea5414f4f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Conceder acesso para gerir o Azure AD Privileged Identity Management
-Administrador global que permite o Azure AD Privileged Identity Management (PIM) para uma organização automaticamente obter as atribuições de funções e acesso a PIM. Ninguém mais obtém acesso de escrita por predefinição, no entanto, incluindo outros administradores globais. Outros adminstrators globais, administradores de segurança e leitores de segurança têm acesso só de leitura para o Azure AD PIM. Para conceder acesso a PIM, o primeiro utilizador pode atribuir outras pessoas para o **administrador com função privilegiada** função. Esta atribuição tem de ser efetuada a partir da PIM em si e não pode ser alterada através do PowerShell ou outros portais.
+Administrador global que permite o Azure AD Privileged Identity Management (PIM) para uma organização automaticamente obter as atribuições de funções e acesso a PIM. Ninguém mais obtém acesso de escrita por predefinição, no entanto, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso só de leitura para o Azure AD PIM. Para conceder acesso a PIM, o primeiro utilizador pode atribuir outras pessoas para o **administrador com função privilegiada** função. Esta atribuição tem de ser efetuada a partir da PIM em si e não pode ser alterada através do PowerShell ou outros portais.
 
 > [!NOTE]
 > Gestão do Azure AD PIM requer o MFA do Azure. Uma vez que não é possível registar as contas Microsoft para o MFA do Azure, um utilizador que inicia sessão com uma conta Microsoft não é possível aceder a Azure AD PIM.
@@ -54,7 +54,7 @@ Antes de remover alguém da função de administrador com função privilegiada,
 4. Clique em **Sim** para remover o utilizador da função.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->

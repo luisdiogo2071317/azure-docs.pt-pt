@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator para Android
 O administrador de TI pode ter recomenda a utilizar o Microsoft Azure Authenticator para início de sessão para aceder aos seus recursos de trabalho. Esta aplicação fornece estas duas opções de início de sessão:
@@ -41,7 +41,7 @@ As instruções seguintes são aplicáveis a Samsung GS3 e acima telemóveis ou 
 4. No ecrã de administrador de dispositivo de ativar, clique em **ativar**.
 5. No ecrã da política de privacidade, selecione a caixa de verificação e clique em **confirmar**.
 6. No ecrã da associação à área de trabalho, introduza o ID de utilizador fornecida pela sua organização e clique em **associar**.
-7. Para iniciar sessão na aplicação Azure Authenticator, introduza o organizacional um *** onta e palavra-passe e clique em **sessão**.
+7. Para iniciar sessão na aplicação Azure Authenticator, introduza a conta institucional e a palavra-passe e clique em **sessão**.
 8. O aparecimento do ecrã que mostra informações sobre a autenticação multifator (MFA) é adicionada segurança e é opcional. Será apresentada neste ecrã se sua empresa ou escola requer autenticação de segundo fator para criar a conta profissional. Fornece instruções para verificar a sua conta.
 9. Associação ao ecrã apresenta a mensagem "**a associar a sua área de trabalho**". A aplicação Azure authenticator está a tentar associar o seu dispositivo à área de trabalho.
 10. Deverá ver a mensagem à área de trabalho no ecrã seguinte.

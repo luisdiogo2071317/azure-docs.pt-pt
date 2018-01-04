@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 5355b3ffcddf0ad0c23566dde00663bd4dc99fbc
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Configurar o mapa de serviço no Operations Management Suite
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode utilizá-lo para ver os servidores que acha que deles – como interligados sistemas que fornecem serviços críticos. Mapa de serviço mostra as ligações entre servidores, processos e portas em qualquer arquitetura TCP ligados sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -35,7 +35,7 @@ Este artigo descreve os detalhes de configuração de agentes de mapa de serviç
 ## <a name="connected-sources"></a>Origens ligadas
 Mapa de serviço obtém os dados do agente de dependência do Microsoft. O agente de dependência depende do agente do OMS para as suas ligações no Operations Management Suite. Isto significa que um servidor tem de ter o agente do OMS instalado e configurado pela primeira vez e, em seguida, pode ser instalado o agente de dependência. A tabela seguinte descreve as origens ligadas que suporte a solução de mapa de serviço.
 
-| Origem ligada | Suportado | Descrição |
+| Origem ligada | Suportadas | Descrição |
 |:--|:--|:--|
 | Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados de computadores de agente do Windows. <br><br>Para além de [agente do OMS](../log-analytics/log-analytics-windows-agent.md), agentes Windows requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
 | Agentes do Linux | Sim | Mapa de serviço analisa e recolhe dados de computadores de agente do Linux. <br><br>Para além de [agente do OMS](../log-analytics/log-analytics-linux-agents.md), agentes Linux requerem o agente de dependência da Microsoft. Consulte o [sistemas operativos suportados](#supported-operating-systems) para uma lista completa das versões do sistema operativo. |
@@ -367,8 +367,6 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 | Versão do SO | Versão de kernel
 |:--|:--|
-| 5.8 | Oracle 2.6.32-300 (UEK R1) |
-| 5.9 | Oracle 2.6.39-300 (UEK R2) |
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
@@ -377,23 +375,17 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 | Versão do SO | Versão de kernel
 |:--|:--|
-| 11 | 2.6.27 |
-| 11 SP1 | 2.6.32 |
-| 11 SP2 | 3.0.13 |
-| 11 SP3 | 3.0.76 |
-| 11 SP4 | 3.0.101 |
+| 11 SP2 | 3.0.101-0.7 |
+| 11 SP3 | 3.0.101-0.47 |
+| 11 SP4 | 3.0.101-65 |
 
-#### <a name="suse-linux-10"></a>SUSE Linux 10
-| Versão do SO | Versão de kernel
-|:--|:--|
-| 10 SP4 | 2.6.16.60 |
 
-## <a name="diagnostic-and-usage-data"></a>Diagnóstico e dados de utilização
+## <a name="diagnostic-and-usage-data"></a>dados de diagnóstico e utilização
 A Microsoft recolhe automaticamente dados de utilização e desempenho através da utilização do serviço de mapa de serviço. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço de mapa de serviço. Os dados incluem informações sobre a configuração do seu software, como o sistema operativo e versão. Também inclui endereço IP, o nome DNS e o nome da estação de trabalho para fornecer capacidades de resolução de problemas exatas e eficientes. Não recolhemos nomes, moradas ou outras informações de contacto.
 
 Para obter mais informações sobre a utilização e recolha de dados, consulte o [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba como [utilizar o mapa de serviço](operations-management-suite-service-map.md) depois foi implementado e configurado.

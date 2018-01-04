@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38499fd1e27cf6e8253ad1172701fd18b338abad
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala de funções do Azure e de alojamento
 
@@ -90,7 +90,7 @@ Para saber mais sobre os tipos de conta de armazenamento, consulte o artigo [int
 
 ## <a name="how-the-consumption-plan-works"></a>Como funciona o plano de consumo
 
-O plano de consumo, o controlador de escala dimensiona automaticamente recursos de CPU e memória adicionando instâncias adicionais do anfitrião de funções, com base no número de eventos que as funções são acionadas no. Cada instância de anfitrião de funções está limitada a 1,5 GB de memória.  Uma instância do anfitrião é a aplicação de função, que significa que todas as funções dentro de um funciton recursos de partilha de aplicações dentro de uma instância e o dimensionamento ao mesmo tempo.
+O plano de consumo, o controlador de escala dimensiona automaticamente recursos de CPU e memória adicionando instâncias adicionais do anfitrião de funções, com base no número de eventos que as funções são acionadas no. Cada instância de anfitrião de funções está limitada a 1,5 GB de memória.  Uma instância do anfitrião é a aplicação de função, que significa que todas as funções dentro de uma função de recursos de partilha de aplicações dentro de uma instância e o dimensionamento ao mesmo tempo.
 
 Quando utiliza o consumo de plano de alojamento, ficheiros de código de função são armazenados em partilhas de ficheiros do Azure numa conta de armazenamento principal da função. Ao eliminar a conta de armazenamento principal da aplicação de função, os ficheiros de código de função são eliminados e não podem ser recuperados.
 
@@ -119,7 +119,7 @@ Acionadores diferentes podem também ter diferentes limites de dimensionamento, 
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Melhores práticas e padrões para aplicações dimensionáveis
 
-Há vários aspetos de uma aplicação de função que afetará o quão bem sejam dimensionadas, incluindo a configuração do anfitrião, requisitos de espaço de tempo de execução e effeciency de recursos.  Ver o [secção de escalabilidade do artigo de considerações de desempenho](functions-best-practices.md#scalability-best-practices) para obter mais informações.
+Há vários aspetos de uma aplicação de função que vai afetar a forma sejam dimensionadas de, incluindo configuração do anfitrião, requisitos de espaço de tempo de execução e a eficiência do recurso.  Ver o [secção de escalabilidade do artigo de considerações de desempenho](functions-best-practices.md#scalability-best-practices) para obter mais informações.
 
 ### <a name="billing-model"></a>Modelo de faturação
 

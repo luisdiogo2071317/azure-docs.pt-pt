@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 1bff8e4b052ffe8274c290abdebfbac7bf9a883d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 6cc7035e798ef72f69958a7536a741f80939d4fe
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-virtual-network"></a>Rede Virtual do Azure
 
-O serviço de rede Virtual do Microsoft Azure permite que os recursos do Azure comunicar de forma segura com outros, numa rede virtual. Uma rede virtual é uma representação da sua própria rede na nuvem. Uma rede virtual é um isolamento lógico da nuvem do Azure dedicado à sua subscrição. Pode ligar redes virtuais para outras redes virtuais ou à sua rede no local. A imagem seguinte mostra algumas das funcionalidades do serviço de rede Virtual do Azure:
+O serviço de rede Virtual do Microsoft Azure permite que os recursos do Azure comunicar de forma segura entre si numa rede virtual. Uma rede virtual é um isolamento lógico da nuvem do Azure dedicado à sua subscrição. Pode ligar redes virtuais para outras redes virtuais ou à sua rede no local. A imagem seguinte mostra algumas das funcionalidades do serviço de rede Virtual do Azure:
 
 ![Diagrama de rede](./media/virtual-networks-overview/virtual-network-overview.png)
 

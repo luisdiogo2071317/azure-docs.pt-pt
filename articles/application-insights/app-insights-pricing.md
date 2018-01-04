@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gerir o volume de preços e os dados no Application Insights
 
@@ -90,7 +90,7 @@ Como [anunciou recentemente](https://blogs.technet.microsoft.com/msoms/2017/05/1
  
 ## <a name="review-pricing-plans-and-estimate-costs"></a>Reveja os planos de preços e estimar os custos
 
-Applicaition Insights torna mais fácil de compreender os planos de preços disponíveis e que os custos são provável que ser com base nos padrões de utilização recente. Comece por abrir o **funcionalidades + preços** painel no recurso do Application Insights no portal do Azure:
+Application Insights torna mais fácil de compreender os planos de preços disponíveis e que os custos são provável que ser com base nos padrões de utilização recente. Comece por abrir o **funcionalidades + preços** painel no recurso do Application Insights no portal do Azure:
 
 ![Escolha o preço.](./media/app-insights-pricing/01-pricing.png)
 
@@ -134,11 +134,11 @@ Eis algumas coisas que pode fazer para reduzir o volume de dados:
 
 ## <a name="managing-the-maximum-daily-data-volume"></a>Gerir o volume de dados diária máximo
 
-Pode utilizar a extremidade de volume diária para limitar os dados recolhidos, mas se a extremidade for cumprida, irá resultar em perda de todos os telemetery enviados a partir da sua aplicação para o resto do dia. É **não recomendado** ter a sua aplicação para atingiu o limite diário, uma vez que não é possível controlar o estado de funcionamento e desempenho da aplicação depois é atingido. 
+Pode utilizar a extremidade de volume diária para limitar os dados recolhidos, mas se a extremidade for cumprida, irá resultar em perda de toda a telemetria enviada a partir da sua aplicação para o resto do dia. É **não recomendado** ter a sua aplicação para atingiu o limite diário, uma vez que não é possível controlar o estado de funcionamento e desempenho da aplicação depois é atingido. 
 
-Em alternativa, utilize [amostragem](app-insights-sampling.md) para otimizar o volume de dados para o nível de seria como e utilizar a cap diária apenas como um "último recurso", no caso da aplicação começa a enviar muito superiores dos volumes de telemetery inesperadamente. 
+Em alternativa, utilize [amostragem](app-insights-sampling.md) para otimizar o volume de dados para o nível de seria como e utilizar a cap diária apenas como um "último recurso", no caso da aplicação começa a enviar muito superiores dos volumes de telemetria inesperadamente. 
 
-Para alterar a cap diária, na secção de configuração do seu recurso Insihgts de aplicação, clique em **gestão de volumes de dados** , em seguida, **extremidade diária**.
+Para alterar a cap diária, na secção de configuração do recurso do Application Insights, clique em **gestão de volumes de dados** , em seguida, **extremidade diária**.
 
 ![Ajustar a extremidade de volume de telemetria diária](./media/app-insights-pricing/daily-cap.png) 
 
@@ -176,7 +176,7 @@ Pode escrever um script para definir o plano de preços, utilizando a gestão de
 ## <a name="limits-summary"></a>Resumo de limites
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Amostragem](app-insights-sampling.md)
 
