@@ -70,7 +70,7 @@
 ##### Clássica
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
 
-#### Criar uma VM com um endereço IP privado estático
+#### Criar VM - endereço IP privado estático
 ##### [Portal do Azure](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [Azure PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI do Azure](virtual-networks-static-private-ip-arm-cli.md)
@@ -79,7 +79,7 @@
 ###### [Azure PowerShell](virtual-networks-static-private-ip-classic-ps.md)
 ###### [CLI do Azure](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Criar uma VM com várias interfaces de rede
+#### Criar VM - várias interfaces de rede
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [CLI do Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Modelo](virtual-network-deploy-multinic-arm-template.md)
@@ -88,13 +88,15 @@
 ###### [Azure PowerShell](virtual-network-deploy-multinic-classic-ps.md)
 ###### [CLI do Azure](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Criar uma VM com vários endereços IP
+#### Criar VM - vários endereços IP
 ##### [Portal do Azure](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI do Azure](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Modelo](virtual-network-multiple-ip-addresses-template.md)
 
-#### [Criar uma VM com a rede acelerada](virtual-network-create-vm-accelerated-networking.md)
+#### Criar VM - redes aceleradas
+##### [Azure PowerShell](create-vm-accelerated-networking-powershell.md)
+##### [CLI do Azure](create-vm-accelerated-networking-cli.md)
 
 ### Cenários de conectividade
 #### [Rede virtual (VNet) para VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

@@ -187,8 +187,10 @@
               href: programming.md
             - name: Teste de desempenho
               href: performance-testing.md
-            - name: Sugestões de desempenho
+            - name: Sugestões de desempenho para .NET
               href: performance-tips.md
+            - name: Sugestões de desempenho para Java
+              href: performance-tips-java.md
             - name: Configuração com múltiplos principais
               href: multi-region-writers.md
             - name: DateTimes

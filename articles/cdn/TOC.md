@@ -8,7 +8,9 @@
 ## Integrar
 ### [Aplicações Web](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Serviços Cloud](cdn-cloud-service-with-cdn.md)
-### [Armazenamento](cdn-create-a-storage-account-with-cdn.md)
+### Armazenamento
+#### [Criar uma conta de armazenamento](cdn-create-a-storage-account-with-cdn.md)
+#### [Suporte de armazenamento de SAS](cdn-sas-storage-support.md)
 ### [Partilha de recursos de várias origens](cdn-cors.md)
 ### [Adicionar um domínio personalizado ao ponto final de CDN](cdn-map-content-to-custom-domain.md)
 ### [Configurar HTTPS num domínio personalizado](cdn-custom-ssl.md)

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: f305f6ca3c92824aeed8a3b04181cc87e34b5321
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerir a capacidade de armazenamento para a pilha do Azure
 
@@ -63,7 +63,7 @@ Depois de um blob é colocado num contentor, pode aumentar esse blob utilizar ma
 
 Contentores não estão limitados a uma única partilha. Quando os dados de blob combinados num contentor que cresce utilize 80% ou mais do espaço disponível, o contentor entra *capacidade excedida* modo. No modo de capacidade excedida, novos blobs que são criados no contentor são atribuídos para um volume diferente que tenha espaço suficiente. Ao longo do tempo, um contentor no modo de capacidade excedida pode ter blobs que estão distribuídos por vários volumes.
 
-Quando é utilizada a 80% e 90% de espaço disponível no volume, o sistema gera alertas no portal de administrador da pilha do Azure. Os operadores da nuvem deverão consultar a capacidade de armazenamento disponível e planeie a rebalancear o conteúdo. O serviço de armazenamento deixa de funcionar quando um disco é 100% utilizado e existem que não existem alertas adicionais.
+Quando é utilizada a 80% e 90% de espaço disponível no volume, o sistema gera alertas no portal de administrador da pilha do Azure. Os operadores da nuvem deverão consultar a capacidade de armazenamento disponível e planeie a rebalancear o conteúdo. O serviço de armazenamento deixa de funcionar quando um disco é 100% utilizado e não existem alertas adicionais.
 
 ### <a name="disks"></a>Discos
 Discos VM são adicionados a contentores pelos inquilinos e incluem um disco de sistema operativo. As VMs podem também ter um ou mais discos de dados. Ambos os tipos de discos são armazenados como blobs de páginas. As orientações para inquilinos é colocar todos os discos para um contentor separado para melhorar o desempenho da VM.
@@ -123,7 +123,7 @@ Pode tentar libertar espaço numa partilha overused migrando manualmente alguns 
 
 Migração consolida todas as um blob de contentores na partilha de novo.
 
-- Se um contentor entrou no modo de capacidade excedida e colocou blobs em volumes adicionais, a nova partilha tem de ter capacidade suficiente para conter todos os blobs para o contentor que migrar. Isto inclui os blogues que estão localizados em partilhas adicionais.
+- Se um contentor entrou no modo de capacidade excedida e colocou blobs em volumes adicionais, a nova partilha tem de ter capacidade suficiente para conter todos os blobs para o contentor que migrar. Isto inclui os blobs que se encontram em partilhas adicionais.
 
 - O cmdlet do PowerShell *Get-AzsStorageContainer* identifica apenas o espaço utilizado no volume inicial para um contentor. O cmdlet não identifica espaço utilizado por blobs colocados em volumes adicionais. Por conseguinte, o respetivo tamanho total de um contentor pode não estar evidente. É possível que a consolidação de um contentor numa nova partilha pode enviar essa nova partilha numa condição excedida onde coloca dados nas partilhas adicionais. Como resultado, poderá ter de rebalancear partilhas novamente.
 
@@ -187,5 +187,5 @@ Migração consolida todas as um blob de contentores na partilha de novo.
 
 O método mais extremos para gerir o espaço envolve a mudança de discos da máquina virtual. Como mover um contentor anexado (um que contém um disco da VM) é complexa, contacte a Microsoft Support para realizar esta ação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Saiba mais sobre [oferta de máquinas virtuais para os utilizadores](azure-stack-tutorial-tenant-vm.md).

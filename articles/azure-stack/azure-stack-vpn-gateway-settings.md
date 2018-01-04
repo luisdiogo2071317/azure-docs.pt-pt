@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ed4a84965c37f66bbc7734f6043ad6f8f1666c1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Definições de configuração do gateway VPN do Azure pilha
 
@@ -31,7 +31,7 @@ Uma ligação de gateway VPN baseia-se na configuração de vários recursos, ca
 ## <a name="vpn-gateway-settings"></a>Definições do gateway de VPN
 
 ### <a name="gateway-types"></a>Tipos de gateway
-Cada rede virtual do Azure pilha suporta um gateway de rede virtual único, que têm de ser do tipo **Vpn**.  Isto é diferente do Azure, o que suporta os tipos de adicionais.  
+Cada rede virtual do Azure pilha suporta um gateway de rede virtual único, que têm de ser do tipo **Vpn**.  Este suporte difere do Azure, o que suporta os tipos de adicionais.  
 
 Quando estiver a criar um gateway de rede virtual, tem de se certificar de que o tipo de gateway está correto para a sua configuração. Necessita de um gateway de VPN a `-GatewayType Vpn`.
 
@@ -90,9 +90,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 Quando criar o gateway de rede virtual para uma configuração de gateway VPN, tem de especificar um tipo de VPN. O tipo de VPN que escolher depende da topologia de ligação que pretende criar.  Também pode dependem de um tipo de VPN no hardware que está a utilizar. Configurações de S2S requerem um dispositivo VPN. Alguns dispositivos VPN só suportam um determinado tipo VPN.
 
 > [!IMPORTANT]  
-> Neste momento, a pilha do Azure só suporta o tipo de VPN de baseada na rota.  Se o dispositivo suporta apenas as VPNs baseadas de política, ligações a esses dispositivos do Azure pilha não são suportadas.
+> Neste momento, a pilha do Azure só suporta o tipo de VPN de baseada na rota. Se o dispositivo suporta apenas as VPNs baseadas de política, ligações a esses dispositivos do Azure pilha não são suportadas.
 
-- **PolicyBased**: *(suportado pelo Azure, mas não através da pilha do Azure)* VPNs baseadas em políticas encriptam e direcionam os pacotes através de túneis IPsec baseados nas políticas IPsec configuradas com as combinações de prefixos de endereços entre a rede no local e a VNet de pilha do Azure. Normalmente, a política (ou o seletor de tráfego), é definido como uma lista de acesso na configuração do dispositivo VPN.
+- **PolicyBased**: *(suportado pelo Azure, mas não através da pilha do Azure)* VPNs baseadas em políticas encriptam e direcionam os pacotes através de túneis IPsec com as políticas de IPsec que estão configuradas com as combinações de prefixos de endereços entre a rede no local e a VNet de pilha do Azure. Normalmente, a política (ou o seletor de tráfego), é definido como uma lista de acesso na configuração do dispositivo VPN.
 
 - **RouteBased**: RouteBased VPNs utilizam "rotas" no reencaminhamento IP ou na tabela de encaminhamento para direcionar os pacotes para as respetivas interfaces de túnel. As interfaces de túnel, em seguida, encriptam ou desencriptam os pacotes dentro e fora dos túneis. A política (ou o Seletor de tráfego) para as VPNs de RouteBased estão configuradas como qualquer a qualquer (ou carateres universais). O valor para um tipo de RouteBased VPN é RouteBased.
 
@@ -108,13 +108,13 @@ A tabela seguinte lista os requisitos para gateways de VPN.
 
 | |Gateway de VPN PolicyBased básico | Gateway de VPN RouteBased básico | Gateway de VPN RouteBased padrão | Gateway de VPN RouteBased elevado desempenho|
 |--|--|--|--|--|
-| **Conetividade site a Site (S2S)** | Não suportado | Configuração de RouteBased VPN | Configuração de RouteBased VPN | Configuração de RouteBased VPN |
+| **Conetividade site a Site (conetividade S2S)** | Não suportado | Configuração de RouteBased VPN | Configuração de RouteBased VPN | Configuração de RouteBased VPN |
 | **Método de autenticação**  | Não suportado | Chave pré-partilhada para a conetividade S2S  | Chave pré-partilhada para a conetividade S2S  | Chave pré-partilhada para a conetividade S2S  |   
 | **Número máximo de ligações S2S**  | Não suportado | 10 | 10| 30|
-|**Suporte de encaminhamento ativo (BGP)** | Não suportado | Não suportado | Suportado | Suportado |
+|**Suporte de encaminhamento ativo (BGP)** | Não suportado | Não suportado | Suportadas | Suportadas |
 
 ### <a name="gateway-subnet"></a>Sub-rede de gateway
-Antes de criar um gateway de VPN, terá de criar uma sub-rede de gateway. A sub-rede do gateway contém os endereços IP que utilizam os serviços e VMs de gateway de rede virtual. Ao criar o gateway de rede virtual, VMs de gateway são implementadas para a sub-rede do gateway e configuradas com as definições do gateway VPN necessárias. Não implemente há mais alguma coisa (por exemplo, VMs adicionais) para a sub-rede do gateway. A sub-rede do gateway tem de ser o nome "GatewaySubnet" para funcionar corretamente. A sub-rede do gateway de atribuição de nome "GatewaySubnet" permite que a pilha de Azure saber que se trata de sub-rede para implementar as VMs de gateway de rede virtuais e serviços para.
+Antes de criar um gateway de VPN, terá de criar uma sub-rede de gateway. A sub-rede do gateway contém os endereços IP que utilizam os serviços e VMs de gateway de rede virtual. Ao criar o gateway de rede virtual, VMs de gateway são implementadas para a sub-rede do gateway e configuradas com as definições do gateway VPN necessárias. Não implemente há mais alguma coisa (por exemplo, VMs adicionais) para a sub-rede do gateway. A sub-rede do gateway tem de ser o nome "GatewaySubnet" para funcionar corretamente. A sub-rede do gateway de atribuição de nome "GatewaySubnet" permite que a pilha do Azure para identificar a sub-rede para implementar as VMs de gateway de rede virtual e os serviços.
 
 Quando cria a sub-rede do gateway, especifica o número de endereços IP que a sub-rede contém. Os endereços IP na sub-rede de gateway são atribuídos às VMs de gateway e os serviços de gateway. Algumas configurações requerem mais endereços IP do que outras. Observe as instruções para a configuração que pretende criar e certifique-se de que a sub-rede do gateway que pretende criar cumpre os requisitos. Além disso, pode querer Certifique-se que à sub-rede do gateway contém endereços IP suficientes para acomodar possíveis configurações adicionais futuras. Embora seja possível criar uma sub-rede do gateway tão pequena como/29, recomendamos que crie uma sub-rede de gateway de/28 ou superior (/ 28, / 27, /26 etc.). Dessa forma, se adicionar a funcionalidade no futuro, não dispõe que fechar as suas gateway, em seguida, elimine e recrie a sub-rede do gateway para permitir mais endereços IP.
 
@@ -128,9 +128,9 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 > Ao trabalhar com sub-redes de gateway, evite associar um grupo de segurança de rede (NSG) às mesmas. A associação de um grupo de segurança de rede a esta sub-rede poderá fazer com que o gateway de VPN deixe de funcionar conforme esperado. Para obter mais informações sobre grupos de segurança de rede, consulte [que é um grupo de segurança de rede?](/azure/virtual-network/virtual-networks-nsg).
 
 ### <a name="local-network-gateways"></a>Gateways de rede local
-Ao criar uma configuração de gateway VPN no Azure, o gateway de rede local representa com frequência a sua localização no local. Na pilha de Azure representa todos os dispositivos remotos de VPN que se encontra fora da pilha do Azure.  Isto pode ser um dispositivo VPN no seu centro de dados, um centro de dados remoto ou um Gateway de VPN no Azure.
+Ao criar uma configuração de gateway VPN no Azure, o gateway de rede local representa com frequência a sua localização no local. Na pilha do Azure, representa todos os dispositivos remotos de VPN que se encontra fora da pilha do Azure.  Isto pode ser um dispositivo VPN no seu centro de dados, um centro de dados remoto ou um Gateway de VPN no Azure.
 
-Dê um nome, o endereço IP público do dispositivo VPN, de gateway de rede local e especificar os prefixos de endereço que se encontram na localização no local. Azure analisa os prefixos de endereço de destino para o tráfego de rede, consulta a configuração que especificou para o gateway de rede local e encaminha os pacotes em conformidade.
+Dê um nome, o endereço IP público do dispositivo VPN, de gateway de rede local e especificar os prefixos de endereços que estão na localização no local. Azure analisa os prefixos de endereço de destino para o tráfego de rede, consulta a configuração que especificou para o gateway de rede local e encaminha os pacotes em conformidade.
 
 O exemplo do PowerShell seguinte cria um novo gateway de rede local:
 
@@ -141,7 +141,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 Por vezes, terá de modificar as definições do gateway de rede local. Por exemplo, quando adiciona ou modifica o intervalo de endereços, ou se o endereço IP do dispositivo VPN é alterado. Consulte [modificar as definições do gateway de rede local com o PowerShell](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
 
 ## <a name="ipsecike-parameters"></a>Parâmetros IPsec/IKE
-Quando configurar uma ligação VPN na pilha do Azure, terá de configurar a ligação em ambas as extremidades.  Se estiver a configurar uma ligação VPN entre a pilha do Azure e um dispositivo de hardware, tais como um comutador ou um router que está a agir como um Gateway de VPN, o que o dispositivo poderá pedir-lhe o definições adicionais.
+Quando configurar uma ligação VPN na pilha do Azure, terá de configurar a ligação em ambas as extremidades.  Se estiver a configurar uma ligação VPN entre a pilha do Azure e um dispositivo de hardware, como um comutador ou um router, que está a atuar como um Gateway de VPN, o que o dispositivo poderá pedir-lhe o definições adicionais.
 
 Ao contrário do Azure, o que suporta vários ofertas como um iniciador e um dispositivo de resposta, a pilha do Azure suporta apenas uma oferta.
 
@@ -163,4 +163,4 @@ Ao contrário do Azure, o que suporta vários ofertas como um iniciador e um dis
 |Duração de SA (Tempo)  | 3600 segundos |
 |Duração de SA (Bytes) | 819,200       |
 |Perfect Forward Secrecy (PFS) |PFS2048 |
-|Deteção de Elemento Inutilizado | Suportado|  
+|Deteção de Elemento Inutilizado | Suportadas|  
