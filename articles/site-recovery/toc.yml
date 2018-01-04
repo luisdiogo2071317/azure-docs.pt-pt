@@ -1,5 +1,9 @@
 - name: Documentação do Site Recovery
   href: index.yml
+- name: Migração de máquinas locais e VMs do Azure
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Recuperação após desastre do Azure
+  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Descrição geral
   items:
     - name: O que é a Recuperação de Sites?
@@ -55,6 +59,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: Matriz de suporte do local para o Azure
       href: site-recovery-support-matrix-to-azure.md
+    - name: Matriz de suporte do Hyper-V para o Azure
+      href: support-matrix-hyper-v-to-azure.md
     - name: Matriz de suporte de local para site secundário
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Recuperação após desastre para cargas de trabalho
@@ -83,8 +89,12 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Recuperação após desastre
       items:
+        - name: Preparar o Hyper-V para replicação no Azure
+          href: tutorial-prepare-on-premises-hyper-v.md
         - name: VMs de Hyper-V para o Azure
           href: tutorial-hyper-v-to-azure.md
+        - name: VMs de Hyper-V em clouds do VMM para o Azure
+          href: tutorial-hyper-v-vmm-to-azure.md
         - name: Servidores físicos para o Azure
           href: tutorial-physical-to-azure.md
         - name: VMs de Hyper-V para um site secundário

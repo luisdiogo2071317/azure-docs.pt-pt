@@ -98,6 +98,8 @@
         - name: Analisar com o Power Query
           href: ../hadoop/apache-hadoop-connect-excel-power-query.md
           maintainContext: true
+        - name: Ligar o Power BI ao Interactive Query
+          href: ./apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Ligar o Power BI ao Hadoop
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
           maintainContext: true

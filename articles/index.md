@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentação do Microsoft Azure"
 description: "Saiba como criar e gerir aplicações poderosas com os serviços cloud do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 featureFlags: clicktale
-ms.openlocfilehash: 57c55fd3b7bf0152c30fb9dc1fb9348e63a89003
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2df814a9132e13bd177e5690f97376bd793bd9b7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/02/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -539,7 +539,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/load-balancer/">
                                                 <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>Balanceador de Carga</p>
+                                                <p>Load balancer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1515,7 +1515,7 @@ ms.lasthandoff: 12/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Balanceador de Carga</h3>
+                                                    <h3>Load balancer</h3>
                                                     <p>Aumente a disponibilidade e o desempenho da rede das suas aplicações</p>
                                                 </div>
                                             </div>
@@ -2163,7 +2163,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Base de Dados SQL</h3>
+                                                    <h3>SQL Database</h3>
                                                     <p>Base de dados relacional gerida como serviço</p>
                                                 </div>
                                             </div>
@@ -4161,6 +4161,34 @@ CLI do Azure </h3>
                                                 </h3>
                                                 <p>
                                                     <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Transferência</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Ferramentas de SQL </h3>
+                                                <p>
+                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio <sup>PRÉ-VISUALIZAÇÃO</sup></a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/tools/overview-sql-tools">Ver todas as ferramentas de SQL</a>
                                                 </p>
                                             </div>
                                         </div>
