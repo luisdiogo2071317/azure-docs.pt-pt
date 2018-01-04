@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 739e820a44194af984750932d6023c90fcd11e42
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: c3ef75a2a157190b24c171309c4d5c39596b5045
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e fiabilidade das funções do Azure
 
@@ -44,7 +44,7 @@ Sempre que possível, as funções de grande refactorize para a função de meno
 
 Se não utilizar funções durável ou Logic Apps para integrar com várias funções, normalmente, é uma melhor prática para utilizar as filas de armazenamento para cruzada comunicação de função.  O principal motivo é que as filas de armazenamento são mais barata e muito mais fácil para aprovisionar. 
 
-As mensagens individuais numa fila de armazenamento são limitadas de tamanho para 64 KB. Se precisar de transmitir mensagens maior entre as funções, uma fila pode ser utilizada para a mensagem de suporte do Azure Service Bus tamanhos 256 KB.
+As mensagens individuais numa fila de armazenamento são limitadas de tamanho para 64 KB. Se precisar de transmitir mensagens maior entre as funções, uma fila pode ser utilizada para a mensagem de suporte do Azure Service Bus tamanhos até 256 KB no escalão Standard e até 1 MB no escalão Premium.
 
 Tópicos do Service Bus são úteis se necessitar de filtragem antes do processamento de mensagens.
 
@@ -115,7 +115,7 @@ As definições no ficheiro de anfitriões aplicam a todas as funções dentro d
 
 Podem encontrar outras opções de configuração de anfitrião [no documento de configuração de anfitrião](functions-host-json.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte os seguintes recursos:
 
 Uma vez que as funções do Azure utiliza o App Service do Azure, deve também estar ciente de diretrizes de serviço de aplicações.

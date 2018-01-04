@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a49b4c2d4ddd6d686675cee53d46cd4dd6ad3811
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 0e7f4308290a14e592cf1739fa5b0b3360d7c68b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Gerir redes virtuais do Azure e máquinas virtuais do Linux com a CLI do Azure
 
@@ -157,6 +157,8 @@ Regras do NSG definem portas de rede durante o qual o tráfego é permitido ou n
 
 Todos os NSGs contêm um conjunto de regras predefinidas. As regras predefinidas não podem ser eliminadas, mas como lhes é atribuída a prioridade mais baixa, podem ser substituídas pelas regras que criar.
 
+As regras predefinidas para os NSGs são:
+
 - **Rede virtual** - tráfego com origem e de fim numa rede virtual é permitido nas direções de entrada e saídas.
 - **Internet** - o tráfego de saída é permitido, mas o tráfego de entrada está bloqueado.
 - **O Balanceador de carga** -Balanceador de carga permitir do Azure sonde o estado de funcionamento das VMs e instâncias de função. Se não estiver a utilizar um conjunto com balanceamento de carga, pode substituir esta regra.
@@ -289,7 +291,7 @@ A VM de back-end só é acessível na porta *22* e a porta *3306* partir da sub-
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou e redes do Azure como relacionados para máquinas virtuais protegidas. Aprendeu a:
 

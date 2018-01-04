@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 806d297c40af6ae2834ad529aaa11c51d26826dd
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 4b677a4063ebef84dbd2fa476b5f633b859f90ed
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Como criar e utilizar um par de chaves públicas e privadas SSH para VMs do Linux no Azure
 Com um par de chaves SSH (secure shell), pode criar máquinas virtuais (VMs) no Azure que utilizam chaves SSH para autenticação e eliminar a necessidade de palavras-passe para iniciar sessão. Este artigo mostra-lhe como gerar e utilizar rapidamente um par de ficheiros de chaves públicas e privadas RSA versão 2 do protocolo SSH para VMs do Linux. Pode concluir estes passos com o Azure Cloud Shell, um anfitrião do macOS ou Linux ou um Subsistema do Windows para Linux. Para obter passos mais detalhados e exemplos adicionais, veja [passos detalhados para criar pares e certificados de chaves SSH](create-ssh-keys-detailed.md).
@@ -48,7 +48,7 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 
 Se tiver indicado uma frase de acesso quando criou o par de chaves, introduza-a quando lhe for pedido durante o processo de início de sessão. (O servidor é adicionado à pasta `~/.ssh/known_hosts` e não lhe será pedido para ligar novamente até a chave pública na VM do Azure ser alterada ou o nome do servidor ser removido do `~/.ssh/known_hosts`.)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 As VMs criadas com chaves SSH são, por predefinição, configuradas com as palavras-passe desativadas, para tornar as tentativas de adivinhação forçadas muito mais dispendiosas e, desse modo, difíceis. Este tópico descreve a criação de um par de chaves SSH simples para utilização rápida. Se necessitar de mais assistência na criação do par de chaves SSH ou precisar de certificados adicionais, veja [Passos detalhados para criar pares de chaves e certificados SSH](create-ssh-keys-detailed.md).
 

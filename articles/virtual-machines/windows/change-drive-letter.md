@@ -4,7 +4,7 @@ description: 'Descreve como alterar as letras de unidade para uma VM do Windows 
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 7667175c01be2421bfc3badd83b1d8aaeb29bfde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a4e29ce7ebb20753c3313e1148e1c91e853f49f5
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Utilizar a unidade d: como uma unidade de dados numa VM do Windows
 Se a aplicação tem de utilizar a unidade D para armazenar dados, siga estas instruções para utilizar uma letra de unidade diferente para o disco temporário. Nunca utilize o disco temporário para armazenar dados que precisa para manter.
@@ -62,6 +62,6 @@ Em primeiro lugar, terá de anexar o disco de dados para a máquina virtual. Par
 8. Clique em **Aplicar**. Irá receber um aviso se o computador tem de ser reiniciado para que as alterações surtam efeito.
 9. Reinicie a máquina virtual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Pode aumentar o armazenamento disponível para a máquina virtual por [anexar um disco de dados adicionais](attach-managed-disk-portal.md).
 

@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1e7b5d4409b3e53db9313cf353894d5818837588
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para as métricas e eventos personalizados
 
@@ -900,7 +900,7 @@ Pode escrever o código para processar a telemetria antes do envio do SDK. O pro
 
 [Adicionar propriedades](app-insights-api-filtering-sampling.md#add-properties) a telemetria implementando `ITelemetryInitializer`. Por exemplo, pode adicionar valores que são calculados ou números de versão de outras propriedades.
 
-[Filtragem](app-insights-api-filtering-sampling.md#filtering) pode modificar ou eliminar telemetria antes de ser enviada do SDK implementando `ITelemetryProcesor`. Controlar o que é enviado ou eliminado, mas tem em conta o efeito nas suas métricas. Dependendo de como eliminar itens, poderá perder a capacidade de navegar entre itens relacionados.
+[Filtragem](app-insights-api-filtering-sampling.md#filtering) pode modificar ou eliminar telemetria antes de ser enviada do SDK implementando `ITelemetryProcessor`. Controlar o que é enviado ou eliminado, mas tem em conta o efeito nas suas métricas. Dependendo de como eliminar itens, poderá perder a capacidade de navegar entre itens relacionados.
 
 [Amostragem](app-insights-api-filtering-sampling.md) é uma solução para reduzir o volume de dados enviados para o portal da sua aplicação em pacote. Isto é feito sem afetar as métricas apresentadas. E copia-sem afetar a capacidade de diagnosticar problemas ao navegar entre itens relacionados, tais como exceções, dos pedidos e vistas de página.
 

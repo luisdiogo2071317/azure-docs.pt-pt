@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud
 ## <a name="overview"></a>Descrição geral
@@ -111,6 +111,8 @@ O Serviço de Aplicações do Azure é uma excelente solução para este cenári
 * Adicionar mais funcionalidades e serviços do Azure à aplicação, conforme necessário.
 * Proteger a sua aplicação Web com HTTPS.
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 ### <a id="designer"></a>Sou Web designer ou designer gráfico e quero desenhar e criar sites para os meus clientes.
 Para os programadores e Web designers, o Serviço de Aplicações do Azure integra-se facilmente com diversas arquiteturas e ferramentas, inclui suporte de implementação para Git e FTP e oferece uma estreita integração com ferramentas e serviços, como o Visual Studio e a Base de Dados SQL. Com o Serviço de aplicações, pode:
 
@@ -146,7 +148,7 @@ Se o Serviço de Aplicações não suportar a sua arquitetura de código aberto,
 Se pretender criar uma aplicação de linha de negócio, o seu site poderá precisar de acesso direto aos serviços ou dados na rede empresarial. Isto é possível no Serviço de Aplicações, no Service Fabric e nas Máquinas Virtuais mediante a utilização do [serviço de Rede Virtual do Azure](/azure/virtual-network/). No Serviço de Aplicações, pode utilizar a [funcionalidade de integração de VNET](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite que as aplicações do Azure sejam executadas como se estivessem na sua rede empresarial.
 
 ### <a id="mobile"></a>Quero alojar uma API REST ou um serviço Web para clientes móveis.
-Com os serviços Web baseados em HTTP, pode suportar uma grande variedade de clientes, incluindo clientes móveis. Algumas arquiteturas, como a API Web ASP.NET, integram-se no Visual Studio para permitir criar e consumir serviços REST mais facilmente.  Estes serviços são expostos a partir de um ponto final da Web, pelo que é possível utilizar qualquer técnica de alojamento Web no Azure, de modo a suportar este cenário. No entanto, o Serviço de Aplicações é uma escolha ideal para alojar APIs REST. Com o Serviço de Aplicações, pode:
+Com os serviços Web baseados em HTTP, pode suportar uma grande variedade de clientes, incluindo clientes móveis. Algumas arquiteturas, como a API Web ASP.NET, integram-se no Visual Studio para permitir criar e consumir serviços REST mais facilmente.  Estes serviços são expostos a partir de um ponto final da Web, pelo que é possível utilizar qualquer técnica de alojamento Web no Azure, de modo a suportar este cenário. No entanto, o Serviço de Aplicações é uma escolha ideal para alojar APIs REST. Com o Serviço de aplicações, pode:
 
 * Criar rapidamente uma [aplicação móvel](../app-service-mobile/app-service-mobile-value-prop.md) ou uma aplicação API para alojar o serviço Web HTTP num dos datacenters globalmente distribuídos do Azure.
 * Migrar os serviços existentes ou criar novos.

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 07/09/2017
 ms.author: gwallace
-ms.openlocfilehash: dc283973efd936d50418d303bbc359dd4312a121
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 63c8f1b1190e19e1f1d2a7871bffee44ef5c7877
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implementar um modelo Azure Resource Manager num runbook do PowerShell de automatização do Azure
+# <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implementar um modelo do Azure Resource Manager num runbook do PowerShell da Automatização do Azure
 
 Pode escrever um [runbook do PowerShell de automatização do Azure](automation-first-runbook-textual-powershell.md) que implementa um recurso do Azure utilizando um [modelo de gestão de recursos do Azure](../azure-resource-manager/resource-manager-create-first-template.md).
 
@@ -156,7 +156,7 @@ $Parameters = @{
     }
 
 # Create a new context
-$Context = New-AzureStorageContext -StorageAccountKey $StorageAccountKey
+$Context = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 Get-AzureStorageFileContent -ShareName 'resource-templates' -Context $Context -path 'TemplateTest.json' -Destination 'C:\Temp'
 
@@ -185,7 +185,7 @@ $importParams = @{
     AutomationAccountName = 'MyAutomationAccount'
     Type = 'PowerShell'
 }
-Import-AzureRmAutomationRunbook @
+Import-AzureRmAutomationRunbook @importParams
 
 # Publish the runbook
 $publishParams = @{
@@ -237,7 +237,7 @@ Get-AzureRmStorageAccount
 
 Já está! Agora pode utilizar modelos de automatização do Azure e o armazenamento do Azure e o Resource Manager para implementar todos os seus recursos do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre modelos do Resource Manager, consulte o artigo [descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * Para começar a utilizar com o Storage do Azure, consulte o artigo [introdução ao Storage do Azure](../storage/common/storage-introduction.md).

@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: 79374f18d46e8e7d84772423c2cd40d9acb4d7dd
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: f3b4b41593e0956e98f05c7f8d1c71632a489e56
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Classificar Íris, parte 2: criar um modelo
 Os serviços do Azure Machine Learning (pré-visualização) são uma solução de análise avançada e ciência de dados ponto a ponto integrada para os cientistas de dados profissionais prepararem dados, desenvolverem experimentações e implementarem modelos à escala da cloud.
@@ -373,7 +373,7 @@ Também pode executar este script num cluster do HDInsight Spark. Saiba [como cr
    >Quando executa num cluster do HDInsight remoto, também pode ver os detalhes da execução do trabalho do Yet Another Resource Negotiator (YARN), em `https://<cluster_name>.azurehdinsight.net/yarnui`, com a conta de utilizador `admin`.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Nesta segunda parte da série do tutorial de três partes, aprendeu a utilizar os serviços do Azure Machine Learning para:
 > [!div class="checklist"]
 > * Utilizar o Azure Machine Learning Workbench.

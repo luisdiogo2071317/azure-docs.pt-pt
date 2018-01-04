@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: be264693b579aacee39acd9196b4e6834da322b2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: abe6abb942d206330e809f3aef388b846d7d7c7f
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Interfaces de rede para adicionar ou remover as interfaces de rede de máquinas virtuais
 
@@ -118,4 +118,4 @@ Para criar uma VM com várias interfaces de rede ou endereços IP, leia os artig
 - Pode adicionar qualquer endereço IP de qualquer configuração de IP de qualquer interface de rede primária ou secundária para um conjunto de back-end de Balanceador de carga do Azure. No passado, apenas o endereço IP primário para a interface de rede principal foi possível adicionar a um conjunto de back-end. Para obter mais informações sobre endereços IP e as configurações, leia o [adicionar, alterar ou remover endereços IP](virtual-network-network-interface-addresses.md) artigo.
 - Eliminar uma VM não elimina as interfaces de rede que estão anexadas ao mesmo. Quando uma VM é eliminada, as interfaces de rede estiverem desligadas da VM. Pode adicionar as interfaces de rede para diferentes VMs ou eliminá-los.
 - Se uma interface de rede tem um endereço IPv6 privado atribuído, tem de adicionar (ligar) para uma VM ao criar a VM. Não é possível adicionar uma interface de rede com um endereço de IPv6 atribuído a uma VM, depois da VM é criada. Se adicionar uma interface de rede com um endereço IPv6 privada atribuído ao criar uma máquina virtual, só é possível adicionar essa interface de rede à máquina virtual, independentemente de quantas interfaces de rede suporta o tamanho da VM. Consulte [endereços IP da interface de rede](virtual-network-network-interface-addresses.md) para saber mais sobre a atribuição de endereços IP a interfaces de rede.
-- Semelhante para o IPv6, não é possível anexar uma interface de rede com redes na melhoria ativada para uma VM após a VM ser criada. Além disso, para tirar partido do funcionamento em rede na melhoria, também tem de concluir os passos no sistema de operativo VM. Para obter mais informações sobre redes na melhoria e outras limitações quando a utilizar, consulte [criar uma VM com redes na melhoria](virtual-network-create-vm-accelerated-networking.md).
+- Semelhante para o IPv6, não é possível anexar uma interface de rede com redes na melhoria ativada para uma VM após a VM ser criada. Além disso, para tirar partido do funcionamento em rede na melhoria, também tem de concluir os passos no sistema de operativo VM. Para obter mais informações sobre redes na melhoria e outras limitações quando a utilizar, consulte Accelerated redes para [Windows](create-vm-accelerated-networking-powershell.md) ou [Linux](create-vm-accelerated-networking-cli.md) máquinas virtuais.

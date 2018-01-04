@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: d6ca3bcb91261a863444bc331c78adf44844be56
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar as ferramentas do Azure HDInsight para Visual Studio Code
 
@@ -270,7 +270,7 @@ HDInsight para o VS Code suporta as seguintes funcionalidades:
 
     ![Ferramentas do HDInsight para Visual Studio Code sintaxe destaques](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="demo"></a>Demonstração
 * HDInsight para o código de VS: [vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
@@ -286,6 +286,7 @@ HDInsight para o VS Code suporta as seguintes funcionalidades:
 * [Utilizar pacotes externos com blocos de notas do Jupyter](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Visualizar dados do Hive com o Microsoft Power BI no Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Visualizar dados de ramo de registo de consultas interativas com o Power BI no Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Configurar o ambiente interativa PySpark para Visual Studio Code](set-up-pyspark-interactive-environment.md)
 * [Utilize Zeppelin para executar consultas do Hive no Azure HDInsight](./hdinsight-connect-hive-zeppelin.md)
 

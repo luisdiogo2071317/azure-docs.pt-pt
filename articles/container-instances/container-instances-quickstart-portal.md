@@ -2,32 +2,24 @@
 title: "Guia de introdução - Criar o seu primeiro contentor do Azure Container Instances com o portal do Azure"
 description: "Implementar e começar a utilizar o Azure Container Instances"
 services: container-instances
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/25/2017
+ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 0179107ece1e150246ab40836783d810425be3ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 823d06d8524a937a8d2098262cf97f868672f4d0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Criar o seu primeiro contentor no Azure Container Instances
 
 O Azure Container Instances permite criar e gerir facilmente contentores no Azure. Neste guia de introdução, cria um contentor no Azure e expõe-no na Internet com um endereço IP público. Esta operação foi concluída com o portal do Azure. Com apenas alguns cliques, verá isto no seu browser:
 
-![Aplicação implementada com o Azure Container Instances vista no browser][aci-app-browser]
+![Aplicação implementada com o Azure Container Instances vista no browser][aci-portal-07]
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -67,7 +59,7 @@ Selecione o grupo de contentores **mycontainer-myc1** para apresentar as proprie
 
 Assim que o contentor é movido para o estado **Em execução**, navegue para o endereço IP que anotou no passo anterior para apresentar a aplicação alojada no novo contentor.
 
-![Aplicação implementada com o Azure Container Instances vista no browser][aci-app-browser]
+![Aplicação implementada com o Azure Container Instances vista no browser][aci-portal-07]
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
@@ -76,7 +68,7 @@ Assim que o contentor é movido para o estado **Em execução**, navegue para o 
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
-[aci-app-browser]: ./media/container-instances-quickstart-portal/qs-portal-07.png
+[aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
 
 ## <a name="next-steps"></a>Passos seguintes

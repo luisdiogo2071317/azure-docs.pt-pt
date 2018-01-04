@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 875e5c804251047f4a413e99018968564b6107c8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 415eddaec9702a42ceee51858a39840fcd6a202b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Resultados de Runbook e mensagens na automatização do Azure
 A maioria dos runbooks de automatização do Azure têm algum tipo de resultado, como uma mensagem de erro para o utilizador ou um objeto complexo destinado a ser consumidos por outro fluxo de trabalho. O Windows PowerShell oferece [vários fluxos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para enviar o resultado de um script ou o fluxo de trabalho. A automatização do Azure funciona com cada um destes fluxos de forma diferente e devem seguir as melhores práticas utilizar cada quando estiver a criar um runbook.
@@ -206,7 +206,7 @@ Pode ver de captura de ecrã acima que, quando ativar verboso registo e rastreio
 2. Clique no mosaico **Runbooks** para abrir a lista de runbooks.
 3. No painel de Runbooks, clique para selecionar um runbook gráfico da sua lista de runbooks.
 4. No painel de definições para o runbook selecionado, clique em **registo e rastreio**.
-5. O registo e rastreio painel, sob criar registos verbosos, clique em **no** para ativar o registo verboso e rastreio udner nível de actividade, altere o nível de rastreio para **básico** ou **detalhados** com base no nível de rastreio precisa.<br>
+5. O registo e rastreio painel, sob criar registos verbosos, clique em **no** para ativar o registo verboso e sob o rastreio de nível de atividade, alterar o nível de rastreio para **básico** ou **detalhados** com base no nível de rastreio precisa.<br>
    
    ![Registo de criação gráfico e painel de rastreio](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
@@ -221,7 +221,7 @@ Automatização pode enviar as runbook fluxos de trabalho e o estado da tarefa p
 
 Para obter mais informações sobre como configurar a integração com a análise de registos para recolher, correlacionar e atuar sobre dados da tarefa, consulte [reencaminhar estado da tarefa e fluxos de trabalho da automatização para análise de registos (OMS)](automation-manage-send-joblogs-log-analytics.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre a execução dos runbooks, como monitorizar trabalhos de runbooks e outros detalhes técnicos, veja [Track a runbook job (Acompanhar um trabalho de runbook)](automation-runbook-execution.md)
 * Para compreender como estruturar e utilizar runbooks subordinados, consulte [runbooks subordinados na automatização do Azure](automation-child-runbooks.md)
 

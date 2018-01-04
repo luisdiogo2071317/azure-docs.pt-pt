@@ -5,7 +5,7 @@ Assim que estiver agendada uma onda de manutenção planeada e as notificações
 
 Pode utilizar o portal do Azure e procure VMs agendadas para manutenção.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No painel de navegação esquerdo, clique em **máquinas virtuais**.
 
@@ -18,11 +18,10 @@ Pode utilizar o portal do Azure e procure VMs agendadas para manutenção.
       | Valor | Descrição |
       |-------|-------------|
       | Começar agora | A VM está na janela de manutenção de self-service que permite-lhe iniciar a manutenção por si. Consulte abaixo sobre como iniciar manutenção a VM | 
-      | Agendadas | A VM está agendada para manutenção sem qualquer opção para que possa iniciar manutenção. Pode saber da janela de manutenção, selecionando a janela de Auto-agendada nesta vista ou clicando na VM | 
-      | Foi concluída | Iniciou com êxito e concluída a manutenção no VM. | 
-      | Foi ignorada| Selecionou a iniciar manutenção sem sucesso. Azure cancelou a manutenção para a VM e será o reprogramar num horário posterior | 
-      | Tente novamente mais tarde| Que selecionou para iniciar a manutenção e o Azure não conseguiu efetuar o seu pedido. Neste caso, pode tentar novamente dentro de um período posterior. | 
-   
+      | Agendado | A VM está agendada para manutenção sem qualquer opção para que possa iniciar manutenção. Pode saber da janela de manutenção, selecionando a janela de Auto-agendada nesta vista ou clicando na VM | 
+      | Concluído | Iniciou com êxito e concluída a manutenção no VM. | 
+      | Ignorado| Selecionou a iniciar manutenção sem sucesso. Não será possível utilizar a opção manutenção do self-service. A VM tem de ser reiniciado pelo Azure durante a fase de manutenção agendada. | 
+
    **Manutenção profissional para Active Directory** -mostra a janela de tempo quando Self-pode iniciar manutenção nas suas VMs.
    
    **Manutenção agendada** -mostra a janela de tempo, quando o Azure irá reiniciar a VM para concluir a manutenção. 
@@ -32,9 +31,9 @@ Pode utilizar o portal do Azure e procure VMs agendadas para manutenção.
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificações e alertas no portal do
 
-Azure comunica um agendamento para a manutenção planeada, enviando um e-mail para o grupo de proprietário e os coproprietários de subscrição. Pode adicionar destinatários adicionais e canais para esta comunicação através da criação de alertas de registo de atividade do Azure. Para obter mais informações, consulte [monitorizar a atividade subscrição com o registo de atividade do Azure] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+Azure comunica um agendamento para a manutenção planeada, enviando um e-mail para o grupo de proprietário e os coproprietários de subscrição. Pode adicionar destinatários adicionais e canais para esta comunicação através da criação de alertas de registo de atividade do Azure. Para obter mais informações, consulte [monitorizar a atividade subscrição com o registo de atividade do Azure] (.. / articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu à esquerda, selecione **Monitor**. 
 3. No **Monitor - registo de atividade** painel, selecione **alertas**.
 4. No **Monitor - alertas** painel, clique em **+ Adicionar alerta de registo de atividade**.

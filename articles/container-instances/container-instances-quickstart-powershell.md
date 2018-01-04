@@ -2,26 +2,18 @@
 title: "Guia de introdução - Criar o seu primeiro contentor do Azure Container Instances com o PowerShell"
 description: "Comece a trabalhar com o Azure Container Instances ao criar uma instância de contentor do Windows com o PowerShell."
 services: container-instances
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: ca10274fc6a23d7f5e7436dbaf72a6e7a918f275
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 3d8516c0f3f6cc8185b16f4cdabcc391e31cc605
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Criar o seu primeiro contentor no Azure Container Instances
 
@@ -97,11 +89,11 @@ Neste guia de introdução iniciou um contentor do Windows pré-criado no Azure 
 > [!div class="nextstepaction"]
 > [Tutorial do Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
+<!-- IMAGES -->
+[qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png
+
 <!-- LINKS -->
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
 [Remove-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/remove-azurermcontainergroup
-
-<!-- IMAGES -->
-[qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png

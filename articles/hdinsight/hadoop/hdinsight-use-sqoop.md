@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 96d6d707d69f80a866f6ac17addabc0db076b079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Sqoop com o Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -47,14 +47,14 @@ Cluster do HDInsight é fornecido com alguns dados de exemplo. Utilize os seguin
   
   | Campo | Tipo de dados |
   | --- | --- |
-  | ID de cliente |Cadeia |
-  | querytime |Cadeia |
-  | mercado |Cadeia |
-  | deviceplatform |Cadeia |
-  | devicemake |Cadeia |
-  | devicemodel |Cadeia |
-  | state |Cadeia |
-  | País |Cadeia |
+  | ID de cliente |string |
+  | querytime |string |
+  | mercado |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | País |string |
   | querydwelltime |duplo |
   | ID de sessão |bigint |
   | sessionpagevieworder |bigint |
@@ -161,7 +161,7 @@ HDInsight pode executar tarefas de Sqoop utilizando uma variedade de métodos. U
 * Exportação em massa - baseado em Linux com o HDInsight, o conector de Sqoop utilizado para exportar dados para o Microsoft SQL Server ou SQL Database do Azure não suporta atualmente inserções em massa.
 * Criação de batches - com o HDInsight baseado em Linux, ao utilizar o `-batch` mudar quando efetuar inserções, Sqoop efetua várias inserções em vez das operações de inserção de criação de batches.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora tem aprendeu a utilizar o Sqoop. Para saber mais, consulte:
 
 * [Utilizar o Hive com o HDInsight](../hdinsight-use-hive.md)
@@ -221,7 +221,7 @@ O exemplo do PowerShell efetua os seguintes passos:
    > Além de informações da cadeia de ligação, os passos nesta secção devem funcionar para uma base de dados SQL do Azure ou para o SQL Server. Estes passos foram testados utilizando a seguinte configuração:
    > 
    > * **Configuração de ponto a site de rede virtual do Azure**: uma rede virtual ligado do cluster do HDInsight para um servidor de SQL no Centro de dados privado. Consulte [configurar uma VPN ponto a Site no Portal de gestão](../../vpn-gateway/vpn-gateway-point-to-site-create.md) para obter mais informações.
-   > * **Azure HDInsight 3.1**: consulte [clusters do Hadoop criar no HDInsight utilizando opções personalizadas](../hdinsight-hadoop-provision-linux-clusters.md) para obter informações sobre como criar um cluster de uma rede virtual.
+   > * **O Azure HDInsight**: consulte [clusters do Hadoop criar no HDInsight utilizando opções personalizadas](../hdinsight-hadoop-provision-linux-clusters.md) para obter informações sobre como criar um cluster de uma rede virtual.
    > * **SQL Server 2014**: configurado para permitir a autenticação e a executar o cliente VPN do pacote de configuração para ligar de forma segura à rede virtual.
    > 
    > 

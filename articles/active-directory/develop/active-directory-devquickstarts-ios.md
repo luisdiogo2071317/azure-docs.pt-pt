@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a631e1104bcda8d69aa2f2fdf336ed407a2c33b9
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Azure AD iOS, introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -54,7 +54,7 @@ O formato de iOS para um redirecionamento URI é:
 ```
 
 * **esquema de aplicação** -Isto está registado no projeto XCode. É como outras aplicações podem chamar-lhe. Pode encontrar isto em Info. plist -> tipos de URL -> URL de identificador. Deve criar um, se ainda não tiver uma ou mais configurado.
-* **id do pacote** -este é o identificador de pacote localizado em "identity" anular as definições do projeto XCode.
+* **id do pacote** -este é o identificador de pacote localizado em "identity" nas definições do projeto XCode.
 
 Um exemplo para este código de início rápido: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 

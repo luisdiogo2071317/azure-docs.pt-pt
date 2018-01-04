@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção inteligente - anomalias de desempenho
 
@@ -103,7 +103,7 @@ Utilize a instrução de impacto (utilizadores afectados ou % de tráfego) como 
 Considere os parâmetros do problema. Se for geografia dependentes, configurar [testes de disponibilidade](app-insights-monitor-web-app-availability.md) incluindo nessa região: pode simplesmente ter problemas de rede dessa área.
 
 ### <a name="diagnose-slow-page-loads"></a>Diagnosticar carregamentos lentos de página
-Onde está o problema? É o servidor lentas a responder, é a página muito ou o browser precisa de executar uma grande quantidade de trabalho para apresentá-la?
+Onde está localizado o problema? É o servidor lentas a responder, é a página muito ou o browser precisa de executar uma grande quantidade de trabalho para apresentá-la?
 
 Abra o painel de métrico de Browsers. A apresentação segmentada mostra tempo browser página carga onde vai a hora. 
 
@@ -157,7 +157,7 @@ Tenha em atenção que o informa sobre:
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Deteção inteligente de padrões de execução lentas 
 
-Application Insights localiza os problemas de desempenho que podem afetar apenas uma parte dos utilizadores ou afetam apenas os utilizadores em alguns casos. Por exemplo, a notificação sobre o carregamento de páginas é slowler um tipo de browser que nos outros tipos de browsers, ou se os pedidos são servidos mais lentamente a partir de um servidor específico. Também pode detetar problemas relacionados com combinações de propriedades, tais como páginas lento carrega uma área geográfica para clientes que utilizam o sistema operativo específico.  
+Application Insights localiza os problemas de desempenho que podem afetar apenas uma parte dos utilizadores ou afetam apenas os utilizadores em alguns casos. Por exemplo, a notificação sobre o carregamento de páginas é mais lenta um tipo de browser que nos outros tipos de browsers, ou se os pedidos são servidos mais lentamente a partir de um servidor específico. Também pode detetar problemas relacionados com combinações de propriedades, tais como páginas lento carrega uma área geográfica para clientes que utilizam o sistema operativo específico.  
 
 Anomalias como estas são muito difícil detetar apenas ao inspecionar os dados, mas são mais comuns que se pensa. Muitas vezes, estes apenas superfície quando queixarem os seus clientes. Por esse tempo, é demasiado enlace tardio: os utilizadores afetados já estão mudar para seus concorrentes!
 
@@ -178,7 +178,7 @@ Clique nas hiperligações para abrir o Explorador de métrica e pesquisa em rel
 
 Modificar o intervalo de tempo e os filtros para explorar a telemetria.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Estas ferramentas de diagnóstico de ajudam a inspecionar a telemetria da sua aplicação:
 
 * [Gerador de perfis](app-insights-profiler.md) 

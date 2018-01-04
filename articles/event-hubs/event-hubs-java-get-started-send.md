@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: b31771001989e20b88bc8d7bca1afceb58ec197c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28585a1b6a6c7c642c8bccf4615382d15f89d11c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Enviar eventos para utilizando Java de Event Hubs do Azure
 
@@ -32,7 +32,7 @@ Este tutorial mostra como enviar eventos para um hub de eventos utilizando uma a
 Para concluir este tutorial, irá precisar do seguinte:
 
 * Ambiente de desenvolvimento Java. Para este tutorial, partimos do pressuposto [Eclipse](https://www.eclipse.org/).
-* Uma conta ativa do Azure. <br/>Se não tiver uma conta, pode criar uma conta gratuita em apenas alguns minutos. Para obter mais detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>.
+* Uma conta ativa do Azure. <br/>Se não tiver uma conta, pode criar uma conta gratuita em apenas alguns minutos. Para obter mais detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
 
 ## <a name="send-messages-to-event-hubs"></a>Enviar mensagens para os Event Hubs
 A biblioteca de cliente de Java para os Event Hubs está disponível para utilização em projetos Maven a partir de [repositório Central Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Pode referenciar esta biblioteca utilizando a seguinte declaração de dependência dentro do ficheiro de projeto Maven:    
@@ -86,12 +86,15 @@ Em seguida, crie um evento único, transformar uma cadeia na respectiva codifica
 
     EventHubClient ehClient = EventHubClient.createFromConnectionStringSync(connStr.toString());
     ehClient.sendSync(sendEvent);
+    
+    // close the client at the end of your program
+    ehClient.closeSync();
     }
 }
 
 ``` 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Receber eventos utilizando o EventProcessorHost](event-hubs-java-get-started-receive-eph.md)

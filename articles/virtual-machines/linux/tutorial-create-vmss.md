@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 04fe3948f37936b43d1f2155635f0f52583d5e1b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8703d0c06f2507cc3c21d4280d887a8772145a28
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>Criar um conjunto de dimensionamento de Máquina Virtual e implementar uma aplicação altamente disponível no Linux
 Um conjunto de dimensionamento de máquina virtual permite-lhe implementar e gerir um conjunto de máquinas virtuais idênticas de dimensionamento automático. Pode aumentar o número de VMs no conjunto de dimensionamento manualmente ou definir as regras para dimensionar automaticamente com base na utilização de recursos, tais como CPU, a pedido de memória ou tráfego de rede. Neste tutorial, implementa um conjunto no Azure de dimensionamento de máquina virtual. Saiba como:
@@ -40,7 +40,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial, necessita que 
 ## <a name="scale-set-overview"></a>Descrição geral do conjunto de dimensionamento
 Um conjunto de dimensionamento de máquina virtual permite-lhe implementar e gerir um conjunto de máquinas virtuais idênticas de dimensionamento automático. VMs num conjunto de dimensionamento estão distribuídas por domínios de falhas e de atualização de lógica num ou mais *grupos colocação*. Estes são os grupos de VMs configurados da mesma forma, semelhantes à [conjuntos de disponibilidade](tutorial-availability-sets.md).
 
-As VMs são criadas conforme necessário de um conjunto de dimensionamento. Pode definir regras de dimensionamento automático para controlar como e quando VMs são adicionadas ou removidas do conjunto de dimensionamento. Estas regras podem acionar com base nas métricas, tais como a carga de CPU, utilização de memória ou tráfego de rede.
+As VMs são criadas conforme necessário de um conjunto de dimensionamento. Pode definir regras de dimensionamento automático para controlar como e quando VMs são adicionadas ou removidas do conjunto de dimensionamento. Podem ser acionadas estas regras com base nas métricas, tais como a carga de CPU, utilização de memória ou tráfego de rede.
 
 A conjuntos de dimensionamento suporte até 1000 VMs ao utilizar uma imagem de plataforma do Azure. Para cargas de trabalho com requisitos de personalização de VM ou instalação significativa, poderá pretender [criar uma imagem VM personalizada](tutorial-custom-images.md). Pode criar até 300 VMs em escala definida quando utilizar uma imagem personalizada.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 12/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 63e6b21dad4f58dbaa1df58e8eb1d6e3f6b7f762
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 6bc8979eebb2b727d0cae02fe7ca4e95cb32dc36
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de recursos de base de dados SQL do Azure
 
@@ -139,10 +139,11 @@ Quando encontrar elevada utilização de sessão ou de trabalho, opções de mit
 - Aumentar o nível de desempenho ou camada de serviço do agrupamento de base de dados ou elástico. Consulte [única base de dados: Altere o tamanho de armazenamento](#single-database-change-storage-size), [única base de dados: alterar DTUs](#single-database-change-dtus), [conjunto elástico: Altere o tamanho de armazenamento](#elastic-pool-change-storage-size), e [conjunto elástico: alterar eDTUs ](#elastic-pool-change-edtus).
 - Otimizar as consultas para reduzir a utilização de recursos de cada consulta, se a causa da utilização de trabalho maior se dever a contenção de recursos de computação. Para obter mais informações, consulte [consulta Tuning/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre os escalões de serviço, consulte [escalões de serviço](sql-database-service-tiers.md).
 - Para obter informações sobre bases de dados individuais, consulte [único recursos de base de dados](sql-database-resource-limits.md).
 - Para obter informações sobre conjuntos elásticos, consulte [conjuntos elásticos](sql-database-elastic-pool.md).
 - Para obter informações sobre os limites do Azure gerais, consulte [subscrição do Azure e limites de serviço, quotas e restrições](../azure-subscription-service-limits.md).
 - Para obter informações sobre as DTUs e eDTUs, consulte [DTUs e eDTUs](sql-database-what-is-a-dtu.md).
+- Para obter informações sobre limites de tamanho de tempdb, consulte https://docs.microsoft.com/en-us/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

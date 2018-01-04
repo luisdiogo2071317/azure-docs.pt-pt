@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 9a013820689742faa732971c00b82c7ad8638a95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -57,7 +57,7 @@ Pode começar a utilizar o Azure AD Privileged Identity Management no [portal do
 3. Selecione **Mais serviços** e utilize a caixa de texto Filtro para procurar **Azure AD Privileged Identity Management**.
 4. Marque **Afixar ao dashboard** e, em seguida, clique em **Criar**. A aplicação Privileged Identity Management abre.
 
-Se estiver a primeira pessoa a utilizar o Azure AD Privileged Identity Management no diretório e navegar para funções de diretório do Azure AD, aand navegar para funções de diretório do Azure AD, uma [Assistente de segurança](active-directory-privileged-identity-management-security-wizard.md) orienta-o inicial experiência de atribuição. Após a que fiquem automaticamente o primeiro **administrador de segurança** e **administrador com função privilegiada** do diretório.
+Se estiver a primeira pessoa a utilizar o Azure AD Privileged Identity Management no diretório e navegar para funções de diretório do Azure AD e navegar para funções de diretório do Azure AD, uma [Assistente de segurança](active-directory-privileged-identity-management-security-wizard.md) orienta-o inicial experiência de atribuição. Após a que fiquem automaticamente o primeiro **administrador de segurança** e **administrador com função privilegiada** do diretório.
 
 Para funções do Azure AD, apenas um utilizador que está na função de administrador com privilégios de função pode gerir atribuições de outros administradores no Azure AD PIM. Pode [conceder outros utilizadores a capacidade de gerir funções de diretório no PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md). Os administradores globais, administradores de segurança e leitores de segurança podem ver atribuições de funções do Azure AD no Azure AD PIM.
 Para funções do RBAC do Azure, apenas um administrador de subscrição, um proprietário de recursos ou um administrador de acesso de utilizador de recurso pode gerir atribuições de outros administradores no Azure AD PIM.  Os utilizadores que são administradores com privilégios de função, os administradores de segurança ou leitores de segurança, não por predefinição, tem acesso para ver as atribuições de funções de RBAC do Azure no Azure AD PIM.
@@ -80,7 +80,7 @@ Ativar funções para recursos do Azure (pré-visualização) apresenta uma nova
 
 Nos eventos já não é necessária uma ativação agendada, os utilizadores podem cancelar os respetivos pedido pendente, ao navegar para pedidos pendentes a partir do menu de navegação esquerdo e clicando a cancelar botão em linha com esse pedido.
 
-![pedidos pendentes](./media/active-directory-privileged-identity-management-configure/pending-requests.png)
+![Pedidos pendentes](./media/active-directory-privileged-identity-management-configure/pending-requests.png)
 
 ## <a name="privileged-identity-management-admin-dashboard"></a>Dashboard de administração do Privileged Identity Management
 
@@ -148,7 +148,7 @@ A segunda opção consiste em Configurar regular [aceder revisões](active-direc
 Um inquilino tem de ter uma subscrição do Azure AD Premium P2 (ou do EMS E5) avaliação ou paga no seu inquilino antes de utilizar o Azure AD PIM.  Além disso, as licenças devem ser atribuídas aos administradores do inquilino.  Especificamente, as licenças devem ser atribuídas aos administradores nas funções do Azure AD geridos através do Azure AD PIM, os administradores de funções de RBAC do Azure é gerido através do Azure AD PIM e os utilizadores de não administrador que efetuar revisões de acesso.
 Se a sua organização não renovar o Azure AD Premium P2 ou a versão de avaliação expira, as funcionalidades do Azure AD PIM deixará de estar disponíveis no seu inquilino, atribuições de funções elegível serão removidas e os utilizadores já não será possível ativar funções. Pode ler mais no [requisitos da subscrição do Azure AD PIM](./privileged-identity-management/subscription-requirements.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

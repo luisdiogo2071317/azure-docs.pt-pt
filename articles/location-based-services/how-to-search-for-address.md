@@ -6,13 +6,13 @@ keywords: "Não adicionar ou editar as palavras-chave sem consultadoria seu peri
 author: philmea
 ms.author: philmea
 ms.date: 11/29/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 014dbb38d0f47d926db192a6117f7acd06b41a20
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Como localizar um endereço utilizando o serviço de pesquisa do Azure com base dos serviços de localização (pré-visualização)
 O serviço de pesquisa é um conjunto de APIs concebidos para programadores procurar endereços, de locais, de pontos de interesse, listagens de empresas e outras informações geográficas RESTful. O serviço de pesquisa atribui um latitude/longitude para um endereço específico, Rua cruzada, funcionalidade geográfica ou ponto de interesse (POI). Os valores de latitude e longitude devolvidos pelas APIs do serviço de pesquisa podem ser utilizados como parâmetros outros do Azure com base os serviços de localização, tais como a rota e APIs de fluxo de tráfego.
@@ -40,7 +40,7 @@ A maioria das consultas de pesquisa predefinido para ' maxFuzzyLevel = 1' para o
 
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
-    | Método HTTP | INTRODUÇÃO |
+    | Método HTTP | GET |
     | URL do pedido | https://Atlas.microsoft.com/search/Fuzzy/JSON? |
     | Autorização | Sem autenticação |
 
@@ -92,7 +92,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
-    | Método HTTP | INTRODUÇÃO |
+    | Método HTTP | GET |
     | URL do pedido | https://Atlas.microsoft.com/search/Address/JSON? |
     | Autorização | Sem autenticação |
 
@@ -119,7 +119,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
 
     | Chave | Valor |
     |-----|------------|
-    | typeahead | verdadeiro |
+    | typeahead | true |
 
     O **typeahead** sinalizador indica a API de pesquisa de endereço para processar a consulta como uma entrada parcial e devolver uma matriz de valores preditivos.
 
@@ -132,7 +132,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
-    | Método HTTP | INTRODUÇÃO |
+    | Método HTTP | GET |
     | URL do pedido | https://Atlas.microsoft.com/search/Address/reverse/JSON? |
     | Autorização | Sem autenticação |
     
@@ -154,7 +154,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
 
     | Chave | Valor |
     |-----|------------|
-    | Número | verdadeiro |
+    | número | true |
 
     Se o [número](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta é enviado com o pedido, a resposta pode incluir o lado da rua (esquerda/direita) e também uma posição de deslocamento para esse número.
     
@@ -162,7 +162,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
 
     | Chave | Valor |
     |-----|------------|
-    | spatialKeys | verdadeiro |
+    | spatialKeys | true |
 
     Quando o [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta está definido, a resposta contém proprietárias georreplicação geográficos as informações de chave numa localização especificada.
 
@@ -170,7 +170,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
 
     | Chave | Valor |
     |-----|------------|
-    | returnSpeedLimit | verdadeiro |
+    | returnSpeedLimit | true |
     
     Quando o [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta está definido, a resposta devolver do que o limite de velocidade publicado.
 
@@ -178,7 +178,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
 
     | Chave | Valor |
     |-----|------------|
-    | returnRoadUse | verdadeiro |
+    | returnRoadUse | true |
 
     Quando o [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta está definido, a resposta devolve matriz de utilização da estrada para reversegeocodes nível completo.
 
@@ -186,7 +186,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
 
     | Chave | Valor |
     |-----|------------|
-    | roadUse | verdadeiro |
+    | roadUse | true |
 
     Pode restringir a consulta inversa geocode a um tipo específico de utilização de utilização da estrada o [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) parâmetro de consulta.
     
@@ -200,7 +200,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
-    | Método HTTP | INTRODUÇÃO |
+    | Método HTTP | GET |
     | URL do pedido | https://Atlas.microsoft.com/search/Address/reverse/crossstreet/JSON? |
     | Autorização | Sem autenticação |
     
@@ -214,5 +214,5 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     
 4. Clique em **enviar** e rever o corpo da resposta. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Explorar o [serviço da Azure localização com base Serices Search](https://docs.microsoft.com/rest/api/location-based-services/search) documentação da API 

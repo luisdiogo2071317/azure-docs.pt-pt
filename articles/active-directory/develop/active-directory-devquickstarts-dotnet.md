@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1e21af66f91835919b67af3492f55f113a00910e
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET ambiente de trabalho (WPF) introdução
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -85,7 +85,7 @@ public MainWindow()
 }
 ```
 
-* Localizar agora o `Search(...)` método, o que irá ser invocado quando os utilizador cliks "Procurar" botão na IU da aplicação.  Este método envia um pedido GET para a Azure AD Graph API a consulta para os utilizadores cujo UPN começa com o termo de pesquisa especificada.  Mas para consultar a Graph API, terá de incluir um access_token no `Authorization` cabeçalho do pedido - esta é onde ADAL é apresentada no.
+* Localizar agora o `Search(...)` método, o que irá ser invocado quando o utilizador clica no botão "Procurar" na IU da aplicação.  Este método envia um pedido GET para a Azure AD Graph API a consulta para os utilizadores cujo UPN começa com o termo de pesquisa especificada.  Mas para consultar a Graph API, terá de incluir um access_token no `Authorization` cabeçalho do pedido - esta é onde ADAL é apresentada no.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)

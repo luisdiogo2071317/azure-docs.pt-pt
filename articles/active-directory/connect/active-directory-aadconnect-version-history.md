@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 76415de270ddd6eef0100263e5c8db8e69ff500f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Do Azure AD Connect: Histórico de lançamento de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funções. Nem todas as adições são aplicáveis a todos os público.
@@ -31,7 +31,7 @@ Esta é uma lista de tópicos relacionados:
 Tópico |  Detalhes
 --------- | --------- |
 Passos para atualizar a partir do Azure AD Connect | Métodos diferentes para [atualizar de uma versão anterior para a versão mais recente](active-directory-aadconnect-upgrade-previous-version.md) versão do Azure AD Connect.
-Permissões necessárias | Para as permissões necessárias para aplicar uma atualização, consulte [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
+Permissões obrigatórias | Para as permissões necessárias para aplicar uma atualização, consulte [contas e permissões](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
@@ -48,7 +48,7 @@ Um melhoramento foi adicionado para o Azure AD Connect versão 1.1.654.0 (e depo
 - Para os clientes que atualizar de uma versão mais antiga do Azure AD Connect para 1.1.654.0 (ou após), a permissão alterações não serão retroactively aplicadas às contas existentes do AD DS criadas antes da atualização. Só serão aplicadas às novas contas de AD DS criadas após a atualização. Isto ocorre quando estiver a adicionar novas florestas do AD sejam sincronizados com o Azure AD.
 
 >[!NOTE]
->Nesta versão apenas remove a vulnerabilidade para novas instalações do Azure AD Connect, onde a conta de serviço é criada pelo processo de instalação. Para instalações existentes, ou em casos onde pode fornecer a conta de si próprio, sould, certifique-se de que esta vulnerabilidade não existe.
+>Nesta versão apenas remove a vulnerabilidade para novas instalações do Azure AD Connect, onde a conta de serviço é criada pelo processo de instalação. Para instalações existentes, ou em casos onde pode fornecer a conta de si próprio, deve certificar-se de que esta vulnerabilidade não existe.
 
 #### <a name="lock"></a>Bloqueie o acesso à conta do AD DS
 Bloqueio para baixo de acesso à conta do AD DS através da implementação as seguintes alterações de permissão na no local AD:  
@@ -564,7 +564,7 @@ Autenticação pass-through
 * Foi corrigido um problema que faz com que o Assistente do Azure AD Connect falhar caso a passar através de autenticação está selecionada, mas falha de registo do seu conector.
 * Foi corrigido um problema que faz com que o Assistente do Azure AD Connect para ignorar a validação verifica no método de início de sessão selecionado quando a funcionalidade de ambiente de trabalho SSO está ativada.
 
-Reposição de palavra-passe
+Reposição de Palavra-passe
 * Foi corrigido um problema que pode fazer com que o servidor do Azure AAD Connect tente ligar novamente se a ligação foi cancelada por uma firewall ou proxy.
 
 **Funcionalidades novas/melhorias:**
@@ -579,7 +579,7 @@ Gestão do AD FS
 * Pode agora especificar gMSA existente (grupo conta de serviço gerida) durante a instalação do AD FS.
 * Agora, pode configurar o SHA-256 como o algoritmo de hash de assinatura do Azure AD confiança da entidade confiadora.
 
-Reposição de palavra-passe
+Reposição de Palavra-passe
 * Introduziu melhorias para permitir que o produto para a função em ambientes com regras de firewall mais rigorosos.
 * Fiabilidade melhorada de ligação para o Service Bus do Azure.
 
@@ -919,5 +919,5 @@ Data da versão: Setembro de 2014
 
 **Versão inicial do Azure AD Sync.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

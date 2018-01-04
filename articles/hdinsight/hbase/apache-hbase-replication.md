@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/09/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 6d7c2eaf139ddbff46a2fba99bdf5515f64be40c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase em redes virtuais do Azure
 
@@ -79,7 +79,7 @@ A replicação do HBase utiliza endereços IP das ZooKeeper VMs. Tem de configur
 
 **Para configurar endereços IP estáticos**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu da esquerda, selecione **grupos de recursos**.
 3. Selecione o grupo de recursos que tem o cluster de HBase de destino. Este é o grupo de recursos que especificou quando utilizou o modelo do Resource Manager para criar o ambiente. Pode utilizar o filtro para restringir a lista. Pode ver uma lista de recursos que contêm as duas redes virtuais.
 4. Selecione a rede virtual que contém o cluster de HBase de destino. Por exemplo, seleccione **xxxx-vnet2**. Três dispositivos com nomes que começam com **nic-zookeepermode -** estão listados. Esses dispositivos são as VMs de ZooKeeper três.
@@ -161,7 +161,7 @@ Os passos seguintes descrevem como chamar o script de ação de script do portal
 
 **Para ativar a replicação do HBase do portal do Azure**
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Abra o cluster de HBase de origem.
 3. No menu do cluster, selecione **ações de Script**.
 4. Na parte superior da página, selecione **submeter novo**.
@@ -276,7 +276,7 @@ O `print_usage()` secção o [script](https://raw.githubusercontent.com/Azure/hb
 
         -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a configurar a replicação do HBase dentro de uma rede virtual, ou entre duas redes virtuais. Para saber mais sobre o HBase e o HDInsight, consulte estes artigos:
 

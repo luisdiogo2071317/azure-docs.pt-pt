@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Perguntas mais frequentes
 
@@ -242,7 +242,7 @@ Isto não depende do local onde o recurso do Application Insights está alojado.
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Pode enviar telemetria ao portal do Application Insights?
 
-Recomendamos que utilize os nossos SDKs e utiliza a API do SDK (app-insights-api-custom-events-metrics.md). Existem variantes do SDK para várias [plataformas](app-insights-platforms.md). Estes SDKs lidar com colocação em memória intermédia, compressão, limitação, tentativas e assim sucessivamente. No entanto, o [esquema de ingestão](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) e [protocolo de ponto final](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) são públicas.
+Recomendamos que utilize os nossos SDKs e utiliza o [API do SDK](app-insights-api-custom-events-metrics.md). Existem variantes do SDK para várias [plataformas](app-insights-platforms.md). Estes SDKs lidar com colocação em memória intermédia, compressão, limitação, tentativas e assim sucessivamente. No entanto, o [esquema de ingestão](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) e [protocolo de ponto final](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) são públicas.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Pode monitorizar um servidor de web da intranet?
 

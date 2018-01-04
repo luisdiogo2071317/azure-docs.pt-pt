@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
-ms.author: genli;markgal;
-ms.openlocfilehash: ad98262af8ccebcc71013f1aac24eaa0b80a7c3b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: genli;markgal;sogup;
+ms.openlocfilehash: 2112d332faba194285ac35cf936000b399cd3e83
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com agentes e/ou extensão
 
@@ -66,6 +66,7 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [o agente instalado na VM está desatualizado (para VMs com Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [não é possível obter o estado de instantâneo ou não pode ser obtido um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [a extensão de cópia de segurança não consegue atualizar ou carregar](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Causa 6: [serviço de cópia de segurança não tem permissão para eliminar os pontos de restauro antigos devido a bloqueio de grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>A configuração de disco especificada não é suportada
 
@@ -203,4 +204,30 @@ Depois de instalar o agente convidado da VM, inicie o Azure PowerShell <br>
         `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
 5. Tente iniciar a cópia de segurança. <br>
 
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Serviço de cópia de segurança não tem permissão para eliminar os pontos de restauro antigos devido a bloqueio de grupo de recursos
+Este problema é específico para VMs gerido onde o utilizador bloqueia o grupo de recursos e o serviço de cópia de segurança não é possível eliminar os pontos de restauro mais antigos. Devido a esta novas cópias de segurança começam a falhar, há um limite de pontos de restauro 18 máxima imposta de back-end.
+
+#### <a name="solution"></a>Solução
+
+Para resolver o problema, utilize os seguintes passos para remover a recolha de ponto de restauro: <br>
+ 
+1. Remova o grupo de recursos de bloqueio no qual a VM reside 
+     
+2. Instalar ARMClient utilizando Chocolatey <br>
+   https://github.com/projectkudu/ARMClient
+     
+3. Início de sessão para ARMClient <br>
+             `.\armclient.exe login`
+         
+4. Coleção de ponto de restauro Get correspondente para a VM <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+
+    Exemplo:`.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+             
+5. Elimine a coleção de ponto de restauro <br>
+            `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+ 
+6. Cópia de segurança agendada seguinte irá criar automaticamente novos pontos de restauro e recolha de ponto de restauro 
+ 
+7. O problema voltar será apresentada se bloquear o grupo de recursos novamente como é apenas um limite de 18 pontos de restauro após o qual as cópias de segurança começam a falhar 
 

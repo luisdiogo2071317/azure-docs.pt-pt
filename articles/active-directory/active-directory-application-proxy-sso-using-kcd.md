@@ -15,11 +15,11 @@ ms.date: 07/25/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: d93dcdd1d6ae8de262c08ba095ca773795f0dec3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f2d3072e52c35cc9632ed3204634f67506b9bf4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para o início de sessão único às suas aplicações com o Proxy da aplicação
 
@@ -91,7 +91,7 @@ Para mais informações sobre o Kerberos, consulte [todas quiser saber sobre o d
 Aplicações do Windows não normalmente nomes de utilizador do utilizador ou nomes de conta do SAM em vez do domínio endereços de correio eletrónico. Se essa situação aplica-se às suas aplicações, terá de configurar o campo de identidade do delegado de início de sessão para ligar as identidades de nuvem para as identidades de aplicação. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Trabalhar com diferentes no local e identidades de nuvem
-Proxy de aplicações parte do princípio de que os utilizadores têm exatamente a mesma identidade na nuvem e no local. Se não for esse o caso, pode pode ainda utilizar KCD para o início de sessão único. Configurar um **delegado a identidade de início de sessão** para cada aplicação especificar que identidade deve ser utilizada ao efetuar o início de sessão único.  
+Proxy de aplicações parte do princípio de que os utilizadores têm exatamente a mesma identidade na nuvem e no local. Se não for esse o caso, pode continuar a utilizar KCD para o início de sessão único. Configurar um **delegado a identidade de início de sessão** para cada aplicação especificar que identidade deve ser utilizada ao efetuar o início de sessão único.  
 
 Esta capacidade permite muitas organizações que tenham diferentes no local e identidades de nuvem para terem SSO da nuvem para aplicações no local, sem que os utilizadores introduzam diferentes nomes de utilizador e palavras-passe. Isto inclui as organizações que:
 
@@ -121,7 +121,7 @@ Se for utilizada a identidade do delegado de início de sessão, o valor pode n�
 Se existir um erro no processo de SSO, é apresentado no registo de eventos do conector máquina conforme explicado no [resolução de problemas](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 No entanto, em alguns casos, o pedido é enviado com êxito para a aplicação de back-end enquanto esta aplicação responde em diversas outras respostas HTTP. Nestes casos de resolução de problemas, deve começar, examinando o número de evento 24029 na máquina de conector no registo de eventos de sessão do Proxy de aplicações. A identidade do utilizador que foi utilizada para delegação é apresentado no campo "utilizador" dentro os detalhes do evento. Para ativar o registo da sessão, selecione **Mostrar análise e os registos de depuração** no menu de vista do Visualizador de eventos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Como configurar uma aplicação de Proxy de aplicações a utilizar a delegação restrita de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Resolver problemas com o Proxy da aplicação](active-directory-application-proxy-troubleshoot.md)

@@ -13,17 +13,17 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/20/2017
+ms.date: 12/15/2017
 ms.author: lbosq
-ms.openlocfilehash: 6ac59cb3d669e0dc197787311beedd44f888e8ab
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e90879c70e47d2bc5034b4fbf2b0ed7172fe131e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar uma base de dados de gráficos com Java e o portal do Azure
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Com o Azure Cosmos DB, pode criar e consultar rapidamente documentos geridos, tabelas e bases de dados de gráfico. 
+O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Com o Azure Cosmos DB, pode criar e consultar rapidamente documentos geridos, tabelas e bases de dados de gráfico. 
 
 Este guia de início rápido cria uma base de dados de gráficos simples com as ferramentas do portal do Azure para o Azure Cosmos DB. Este guia de início rápido também lhe mostra como criar rapidamente uma aplicação de consola Java com o controlador [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver). As instruções deste guia de início rápido podem ser seguidas em qualquer sistema operativo capaz de executar Java. Esta início rápido irá familiarizá-lo-á com a criação e modificação de gráficos na IU ou programaticamente, conforme a sua preferência. 
 
@@ -60,11 +60,10 @@ Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar um
 
     Definição|Valor sugerido|Descrição
     ---|---|---
-    ID da base de dados|base de dados de exemplo|Designe a nova base de dados como *base de dados de exemplo*. Os nomes das bases de dados têm de ter entre um e 255 carateres e não podem conter `/ \ # ?` nem espaços à direita.
-    ID do Graph|gráfico de exemplo|Denomine a nova coleção como *gráfico de exemplo*. Os nomes dos gráficos têm os mesmos requisitos de carateres que os IDs das bases de dados.
+    ID da base de dados|base de dados de exemplo|Designe a nova base de dados como *sample-database*. Os nomes das bases de dados têm de ter entre um e 255 carateres e não podem conter `/ \ # ?` nem espaços à direita.
+    ID do Graph|gráfico de exemplo|Denomine a nova coleção como *sample-graph*. Os nomes dos gráficos têm os mesmos requisitos de carateres que os IDs das bases de dados.
     Capacidade de Armazenamento|Fixa (10 GB)|Altere o valor para **Fixo (10 GB)**. Este valor é a capacidade de armazenamento da base de dados.
     Débito|400 RUs|Altere o débito para 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.
-    Chave de partição|Deixar em branco|Para fins deste guia de início rápido, deixe a chave de partição em branco.
 
 3. Assim que o formulário estiver preenchido, clique em **OK**.
 
@@ -115,7 +114,7 @@ Este passo é opcional. Se estiver interessado em aprender de que forma os recur
     }
     ```
 
-## <a name="update-your-connection-information"></a>Atualizar a informação de ligação
+## <a name="update-your-connection-information"></a>Atualizar as informações da ligação
 
 Agora, regresse ao portal do Azure para obter as informações da ligação e copie-as para a aplicação. Estas definições permitem à aplicação comunicar com a base de dados alojada.
 
@@ -170,7 +169,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
     
     Se ocorrerem erros de tempo limite, verifique se atualizou as informações de ligação corretamente em [Atualizar as suas informações de ligação](#update-your-connection-information) e tente executar o último comando novamente. 
     
-    Assim que o programa para, prima Enter e, em seguida, mude novamente para o portal do Azure no browser. 
+    Assim que o programa parar, prima Enter e, em seguida, mude novamente para o portal do Azure no browser. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Rever e adicionar dados de exemplo
@@ -181,7 +180,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
-2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **ben** e repare que está ligado a robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato, e expandir o tamanho do gráfico com a seta dupla. 
+2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **ben** e repare que está ligado a robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
 
    ![Vértices novos no gráfico no Data Explorer no portal do Azure](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
@@ -222,7 +221,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
     À medida que adiciona mais dados, pode utilizar filtros para limitar os resultados. Por predefinição, o Data Explorer utiliza o `g.V()` para obter todos os vértices num gráfico. Pode alterá-lo para uma [consulta de gráfico](tutorial-query-graph.md) diferente, como `g.V().count()`, para devolver uma contagem de todos os vértices no gráfico no formato JSON. Se tiver alterado o filtro, altere o filtro de volta para `g.V()` e clique em **Aplicar Filtro** para apresentar todos os resultados novamente.
 
-12. Agora, podemos ligar rakesh e ashley. Confirme que **ashley** está selecionada na lista **Resultados**, e clique no botão Editar junto a **Destinos**, no canto inferior direito. Poderá ter de alargar a janela para ver a área **Propriedades**.
+12. Agora, podemos ligar rakesh e ashley. Confirme que **ashley** está selecionada na lista **Resultados** e clique no botão Editar junto a **Destinos**, no canto inferior direito. Poderá ter de alargar a janela para ver a área **Propriedades**.
 
    ![Alterar o destino de um vértice de um gráfico](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 

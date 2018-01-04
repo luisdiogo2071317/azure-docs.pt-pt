@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41b122cdb4dcb836b431004fc162ebe06d0c8b17
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gerir discos do Azure com a CLI do Azure
 
@@ -28,7 +28,7 @@ Máquinas virtuais do Azure utilizar discos para armazenar as VMs do sistema ope
 
 > [!div class="checklist"]
 > * Discos de SO e discos temporários
-> * Discos dos dados
+> * Discos de dados
 > * Standard e discos Premium
 > * Desempenho de disco
 > * Anexar e preparar os discos de dados
@@ -225,7 +225,7 @@ Depois de concluída a operação de redimensionamento, inicie a VM.
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-Se tiver redimensionado disco do sistema operativo, a partição é automaticamente expandido. Se tiver redimensionado um disco de dados, quaisquer partições atuais tem de ser expandido no sistema de operativo VMs.
+Se tiver redimensionado disco do sistema operativo, a partição é automaticamente expandida. Se tiver redimensionado um disco de dados, quaisquer partições atuais tem de ser expandido no sistema de operativo VMs.
 
 ## <a name="snapshot-azure-disks"></a>Instantâneos de discos do Azure
 
@@ -283,13 +283,13 @@ Utilize o [anexar o disco da vm az](https://docs.microsoft.com/cli/azure/vm/disk
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu sobre os tópicos de discos VM, tais como:
 
 > [!div class="checklist"]
 > * Discos de SO e discos temporários
-> * Discos dos dados
+> * Discos de dados
 > * Standard e discos Premium
 > * Desempenho de disco
 > * Anexar e preparar os discos de dados

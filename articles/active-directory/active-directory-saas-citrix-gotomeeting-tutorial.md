@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 1c3ea5175b02e35e7c624ce936d59fd82163b0fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e3dadac0bcec3242804e90b1c0fa68d25bb9ffa4
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Tutorial: Integração do Azure Active Directory com GoToMeeting
 
@@ -104,24 +104,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
  
     ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
 
-3. No **GoToMeeting domínio e os URLs** secção, clique em **Mostrar avançadas definições de URL** e efetuar os seguintes ações -
+3. No **GoToMeeting domínio e os URLs** secção, execute os seguintes passos:
 
-    ![Domínio GoToMeeting e os URLs únicos de informações de início de sessão](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_ssourl.png)
+    ![Domínio GoToMeeting e os URLs únicos de informações de início de sessão](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    a. No **identificador** caixa de texto, escreva o URL:`https://authentication.logmeininc.com/saml/sp`
-
-    b. No **URL de resposta** caixa de texto, escreva o URL:`https://authentication.logmeininc.com/saml/acs`
-
-    c. No **reencaminhamento estado** caixa de texto, tipo de um dos seguintes URLs:
-
-    **Para GoToMeeting**:`https://global.gotomeeting.com`
-    
-    **Para GoToTraining**:`https://global.gototraining.com`
-
-    **Para GoToWebinar**:`https://global.gotowebinar.com`
-
-    **Para GoToAssist**:`https://app.gotoassist.com`
-
+    No **identificador** caixa de texto, escreva o URL:`https://login.citrixonline.com/saml/sp`
 
 4. No **certificado de assinatura de SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -155,7 +142,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configuração de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
 
-8. Numa janela do browser diferente, inicie sessão no seu [GoToMeeting organização Center](https://account.citrixonline.com/organization/administration/)
+8. Numa janela do browser diferente, inicie sessão no seu [GoToMeeting organização Center](https://organization.logmeininc.com/)
 
 9. Em **fornecedor de identidade** separador, pode configurar as definições do Azure está a fornecer gerada **URL de metadados** ou o transferido **ficheiro de metadados** ou **Manual**.
 
@@ -279,7 +266,7 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Configurar o aprovisionamento de utilizadores](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
+* [Configurar o aprovisionamento de utilizadores](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
 
 
 <!--Image references-->

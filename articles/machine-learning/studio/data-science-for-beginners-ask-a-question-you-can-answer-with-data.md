@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 3423f704a435c3bab463461d05ede468a7a2dd93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f3d8d5c2e7cf1ebc88dc1ff1d7d03bf85383884
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Fazer perguntas que podem ser respondidas com dados
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Ciência de dados para a série de principiantes
@@ -95,6 +95,6 @@ Tiver abordámos algumas princípios básicos para solicitar uma pergunta, poder
 
 Lembre-se de que veja vídeos em "Dados de ciência para principiantes" do Microsoft Azure Machine Learning.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Tente uma primeira experimentação de ciência de dados com Machine Learning Studio](create-experiment.md)
 * [Obtenha uma introdução ao Machine Learning no Microsoft Azure](what-is-machine-learning.md)

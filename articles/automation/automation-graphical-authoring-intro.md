@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5cf9ef392a5a4e33f6413495e1c81e969d50dcad
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Gráfico de criação na automatização do Azure
 ## <a name="introduction"></a>Introdução
@@ -122,7 +122,7 @@ Quando especificar um valor para um parâmetro, selecione uma origem de dados pa
 | Recurso de certificado |Selecione um certificado da automatização como entrada. |
 | Recurso de ligação |Selecione uma ligação de automatização como entrada. |
 | Expressão do PowerShell |Especifique simples [expressão do PowerShell](#powershell-expressions).  A expressão será avaliada antes da atividade e o resultado utilizado para o valor do parâmetro.  Pode utilizar variáveis para fazer referência à saída de uma atividade ou um parâmetro de entrada do runbook. |
-| Não configurada |Limpa qualquer valor que foi configurada anteriormente. |
+| Não configurado |Limpa qualquer valor que foi configurada anteriormente. |
 
 #### <a name="optional-additional-parameters"></a>Parâmetros adicionais opcionais
 Todos os cmdlets terá a opção para fornecer parâmetros adicionais.  Estes são os parâmetros comuns do PowerShell ou outros parâmetros personalizados.  É-lhe apresentada uma caixa de texto, onde pode fornecer os parâmetros que utilizam a sintaxe do PowerShell.  Por exemplo, para utilizar o **verboso** parâmetro comum, tem de especificar **"-Verbose: $True"**.
@@ -198,7 +198,7 @@ Para uma ligação de pipeline, especifique uma condição para um único objeto
     $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
 Para uma ligação de sequência, a condição é avaliada apenas uma vez, uma vez que uma única matriz é devolvida que contém todos os objetos saída da atividade de origem.  Por este motivo, uma ligação de sequência não pode ser utilizada para filtragem como uma ligação de pipeline mas basta irá determinar se é ou não a atividade seguinte é executada. Tome por exemplo o seguinte conjunto de atividades no nosso runbook iniciar VM.<br> ![Ligação condicional com sequências](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
-Existem três ligações de sequência diferente que estiver a verificar os valores fornecidos para duas runbook parâmetros de entrada que representa o nome da VM e o nome do grupo de recursos para determinar qual é a ação adequada a tomar - iniciar uma única VM, iniciar todas as VMs no grupo de recurso, ou todas as VMs numa subscrição.  Para a ligação de sequência entre ligar ao Azure e obter única VM, eis a lógica de condição:
+Existem três ligações de sequência diferente que estiver a verificar os valores fornecidos para duas runbook parâmetros de entrada que representa o nome da VM e o nome do grupo de recursos para determinar qual é a ação adequada a tomar - iniciar uma única VM, iniciar todas as VMs no recurso o grupo, ou todas as VMs numa subscrição.  Para a ligação de sequência entre ligar ao Azure e obter única VM, eis a lógica de condição:
 
     <# 
     Both VMName and ResourceGroupName runbook input parameters have values 
@@ -376,7 +376,7 @@ O exemplo seguinte utiliza o resultado de uma atividade chamado *obter ligação
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md) 
 * Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para saber mais sobre os tipos de runbook, as vantagens e limitações, consulte o artigo [Tipos de runbook da Automatização do Azure](automation-runbook-types.md)

@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: b389151b8a1dd0c7a367f83db968bac7b832897a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3471792bba92879e446837434cbdba667cf679ad
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrar VMs do Azure para discos geridos no Azure
 
-Discos gerida do Azure simplifica a gestão de armazenamento, removendo a necessidade de gerir separadamente as contas de armazenamento.  Também pode migrar as suas VMs do Azure existente para discos geridos para beneficiar do melhor fiabilidade das VMs num conjunto de disponibilidade. Garante que os discos de VMs diferentes num conjunto de disponibilidade será suficientemente isolados umas das outras para evitar ponto único de falhas. Coloca automaticamente discos de VMs diferentes num conjunto de disponibilidade em diferentes unidades de escala de armazenamento (carimbos) que limita o impacto de falhas de unidade de escala de armazenamento únicas provocadas por hardware e falhas de software.
+Discos gerida do Azure simplifica a gestão de armazenamento, removendo a necessidade de gerir separadamente as contas de armazenamento.  Também pode migrar as suas VMs do Azure existente para discos geridos para beneficiar do melhor fiabilidade das VMs num conjunto de disponibilidade. Garante que os discos de VMs diferentes num conjunto de disponibilidade é suficientemente isoladas umas das outras para evitar ponto único de falhas. Coloca automaticamente discos de VMs diferentes num conjunto de disponibilidade em diferentes unidades de escala de armazenamento (carimbos) que limita o impacto de falhas de unidade de escala de armazenamento únicas provocadas por hardware e falhas de software.
 Com base nas suas necessidades, pode escolher entre dois tipos de opções de armazenamento:
 
-- [Os discos Premium geridos](premium-storage.md) -se a unidade de estado sólido (SSD) baseado no suporte de dados de armazenamento que disponibiliza highperformance, suporte de disco de baixa latência para máquinas virtuais em execução I/O intensivo cargas de trabalho. Pode tirar partido da velocidade e o desempenho destes discos ao migrar discos geridos de Premium.
+- [Os discos Premium geridos](premium-storage.md) -se a unidade de estado sólido (SSD) baseado no suporte de dados de armazenamento que disponibiliza suporte de disco de baixa latência para máquinas virtuais em execução I/O intensivo cargas de trabalho de elevado desempenho. Pode tirar partido da velocidade e o desempenho destes discos ao migrar discos geridos de Premium.
 
 - [Discos padrão geridos](standard-storage.md) utilizar suportes de dados de armazenamento de disco rígido (HDD) com base e melhor se adequam Dev/Test e outras cargas de trabalho de acesso influxo são menos sensíveis a variabilidade de desempenho.
 
@@ -63,21 +63,21 @@ Reveja as características de desempenho de máquinas virtuais que funcionam com
 
 Existem sete tipos de discos premium gerido que podem ser utilizados com a VM e cada um tem IOPs específicos e débito limites. Tenha em consideração estes limites quando escolher o tipo de disco Premium para VM com base nas necessidades da sua aplicação em termos de capacidade, desempenho, escalabilidade e carrega das horas de ponta.
 
-| Tipo de discos Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Tamanho do disco           | 128 GB| 512 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPs por disco       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Débito por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
+| Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Tamanho do disco           | 128 GB| 512 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPs por disco       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
+| Débito por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo |150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
 **Discos geridos padrão**
 
 Existem sete tipos de discos padrão geridos que podem ser utilizados com a VM. Cada um deles tem capacidade de diferentes, mas tem o mesmo IOPS e limites de débito. Escolha o tipo de discos padrão geridos com base nas necessidades de capacidade da sua aplicação.
 
-| Tipo de Disco Standard  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
-| Tamanho do disco           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
-| IOPs por disco       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
-| Débito por disco | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 
+| Tipo de Disco Standard  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
+| Tamanho do disco           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
+| IOPs por disco       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| Débito por disco | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo |60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 
 
 ## <a name="disk-caching-policy"></a>Política de colocação em cache em disco
 
@@ -87,10 +87,10 @@ Por predefinição, o disco de política de colocação em cache é *só de leit
 
 ## <a name="pricing"></a>Preços
 
-Reveja o [preços para discos geridos](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Preços dos discos de geridos Premium é a mesmo discos Premium não gerido. Mas preços para os discos padrão geridos são diferente de discos padrão de não gerido.
+Reveja o [preços para discos geridos](https://azure.microsoft.com/pricing/details/managed-disks/). Preços dos discos de geridos Premium é a mesmo discos Premium não gerido. Mas preços para os discos padrão geridos são diferente de discos padrão de não gerido.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [discos geridos](managed-disks-overview.md)

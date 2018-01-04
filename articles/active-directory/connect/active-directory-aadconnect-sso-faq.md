@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 8eb575d6647b123119ceff9452ee8fc4a489f1ca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory totalmente integrada Single Sign-On: Perguntas mais frequentes
 
@@ -30,7 +30,11 @@ SSO totalmente integrada pode ser combinado com uma o [sincronização de Hash d
 
 ## <a name="is-seamless-sso-a-free-feature"></a>É uma funcionalidade livre de SSO totalmente integrado?
 
-SSO totalmente integrada é uma funcionalidade livre e não precisa de quaisquer edições pagas do Azure AD para utilizá-lo. Continua a ser livre quando a funcionalidade atinge disponibilidade geral.
+SSO totalmente integrada é uma funcionalidade livre e não precisa de quaisquer edições pagas do Azure AD para utilizá-lo.
+
+## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Se encontra disponível numa SSO totalmente integrado a [cloud do Microsoft Azure Datacenters](http://www.microsoft.de/cloud-deutschland) e o [cloud do Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
+
+Não. SSO totalmente integrado só está disponível a instância mundial do Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Que aplicações tirar partido das `domain_hint` ou `login_hint` capacidade de parâmetro do SSO totalmente integrado?
 
@@ -57,7 +61,7 @@ Siga estes passos no servidor no local onde está a executar o Azure AD Connect:
 
 1. Em primeiro lugar, transfira e instale o [assistente Microsoft Online Services início de sessão](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Em seguida, transferir e instalar o [módulo do Azure Active Directory de 64 bits do Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navegue para o `%programfiles%\Microsoft Azure Active Directory Connect` pasta.
+3. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importe o módulo do PowerShell de SSO totalmente integrada utilizando este comando: `Import-Module .\AzureADSSO.psd1`.
 5. Execute o PowerShell como administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Este comando deverá dar-lhe um pop-up para introduzir as credenciais de Administrador Global do inquilino.
 6. Chamar `Get-AzureADSSOStatus`. Este comando apresenta a lista de florestas do AD (ver a lista de "Domínios") em que esta funcionalidade foi ativada.
@@ -87,14 +91,14 @@ Para concluir o processo, siga estes passos manuais no servidor no local onde es
 
 1. Em primeiro lugar, transfira e instale o [assistente Microsoft Online Services início de sessão](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Em seguida, transferir e instalar o [módulo do Azure Active Directory de 64 bits do Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navegue para o `%programfiles%\Microsoft Azure Active Directory Connect` pasta.
+3. Navegue para a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importe o módulo do PowerShell de SSO totalmente integrada utilizando este comando: `Import-Module .\AzureADSSO.psd1`.
 5. Execute o PowerShell como administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Este comando deverá dar-lhe um pop-up para introduzir as credenciais de Administrador Global do inquilino.
 6. Chamar `Get-AzureADSSOStatus`. Este comando apresenta a lista de florestas do AD (ver a lista de "Domínios") em que esta funcionalidade foi ativada.
 
 ### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Passo 2. Elimine manualmente o `AZUREADSSOACCT` conta de computador de cada floresta do AD que vê listados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [**Início Rápido** ](active-directory-aadconnect-sso-quick-start.md) - obter cópias de segurança e executar o SSO totalmente integrada de AD do Azure.
 - [**Descrição detalhada da Technical** ](active-directory-aadconnect-sso-how-it-works.md) -compreender como funciona esta funcionalidade.

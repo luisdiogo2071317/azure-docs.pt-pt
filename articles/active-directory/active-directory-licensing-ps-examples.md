@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: cbc432c411e80c7fc49daecd727d8e1969faede5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Exemplos do PowerShell para baseado no grupo de licenciamento no Azure AD
 
@@ -141,7 +141,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Obter todos os utilizadores com erros de licença de um grupo
 
-Fornecido um grupo que contém alguns erros relacionados com de licença, agora pode listar todos os utilizadores afetados por esses erros. Um jser pode ter demasiado erros de outros grupos. No entanto, neste exemplo, vamos limitar os resultados apenas a erros relevantes para o grupo em questão verificando o **ReferencedObjectId** propriedade de cada **IndirectLicenseError** entrada no utilizador.
+Fornecido um grupo que contém alguns erros relacionados com de licença, agora pode listar todos os utilizadores afetados por esses erros. Um utilizador pode ter demasiado erros de outros grupos. No entanto, neste exemplo, vamos limitar os resultados apenas a erros relevantes para o grupo em questão verificando o **ReferencedObjectId** propriedade de cada **IndirectLicenseError** entrada no utilizador.
 
 ```
 #a sample group with errors
@@ -474,7 +474,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.                                                
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre a funcionalidade definido para a gestão de licenças através de grupos, consulte o seguinte:
 

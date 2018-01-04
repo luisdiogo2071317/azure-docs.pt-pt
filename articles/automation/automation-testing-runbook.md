@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: df675dbf915d0fe08905a83b7874fdd95deed42d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 49e8dfa341940386f15932ec4346c8811effbf0b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Testar um runbook na automatização do Azure
 Quando testa um runbook, o [versão de rascunho](automation-creating-importing-runbook.md#publishing-a-runbook) é executado e todas as ações que executar são concluídas. Nenhum histórico da tarefa é criado, mas o [saída](automation-runbook-output-and-messages.md#output-stream) e [avisos e erros](automation-runbook-output-and-messages.md#message-streams) fluxos são apresentados no teste de saída do painel. As mensagens para o [fluxo verboso](automation-runbook-output-and-messages.md#message-streams) são apresentados do painel de resultados apenas se for o [$VerbosePreference variável](automation-runbook-output-and-messages.md#preference-variables) está definido para continuar.
@@ -38,9 +38,9 @@ Pode trabalhar com qualquer [tipo de runbook](automation-runbook-types.md) no po
 6. Se o runbook for [fluxo de trabalho do PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) ou [gráfico](automation-runbook-types.md#graphical-runbooks), em seguida, pode parar ou suspender-enquanto está a ser testado com os botões por baixo do painel de resultados. Quando suspende o runbook, conclui a atividade atual antes de ser suspenso. Depois do runbook está suspenso, pode pará-la ou reiniciá-lo.
 7. Verifique os resultados do runbook no painel de resultados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Para saber como criar ou importar um runbook, consulte [criar ou importar um runbook na automatização do Azure](automation-creating-importing-runbook.md)
 * Para obter mais informações sobre a Criação de Gráficos, consulte [Criação de gráficos na Automatização do Azure](automation-graphical-authoring-intro.md)
 * Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
-* Para obter mais informações sobre como configurar runboks para devolver mensagens de estado e de erros, incluindo recomendado práticas, consulte o artigo [Runbook resultados e mensagens na automatização do Azure](automation-runbook-output-and-messages.md)
+* Para obter mais informações sobre como configurar os runbooks para devolver mensagens de estado e de erros, incluindo recomendado práticas, consulte o artigo [Runbook resultados e mensagens na automatização do Azure](automation-runbook-output-and-messages.md)
 

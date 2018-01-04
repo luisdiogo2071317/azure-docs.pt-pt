@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: cb87b166a32c47395f99c9cd59442a7ccd65b7ed
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas suas aplicações web com o Application Insights
 Exceções na sua aplicação web em direto são reportadas pelo [Application Insights](app-insights-overview.md). Pode correlacionar pedidos falhados com exceções e outros eventos no cliente e no servidor, para que pode Diagnostique rapidamente as causas.
@@ -57,7 +57,7 @@ No código, tenha em atenção que CodeLens mostra os dados sobre as exceções:
 ![Notificação de CodeLens de exceções.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnosticar falhas no portal do Azure
-Application Insights é fornecido com uma experiência APM organizada para o ajudar a diagnosticar falhas nas aplicações monitorizadas. Para iniciar, clique na opção de falhas no menu de recurso do Application Insights localizada na secção investigar. Deverá ver uma vista de total de ecrã que mostra as tendências de taxa de falhas para os seus pedidos, como muitos dos mesmos estão a falhar e quantos utilizadores são afetados. No lado direito, verá alguns das distribuições mais úteis específicas selecionado para efetuar a operação, incluindo os códigos de resposta de 3 principais, tipos de exceção da parte superior 3 e superior 3 tipos de depedency a falhar. 
+Application Insights é fornecido com uma experiência APM organizada para o ajudar a diagnosticar falhas nas aplicações monitorizadas. Para iniciar, clique na opção de falhas no menu de recurso do Application Insights localizada na secção investigar. Deverá ver uma vista de total de ecrã que mostra as tendências de taxa de falhas para os seus pedidos, como muitos dos mesmos estão a falhar e quantos utilizadores são afetados. No lado direito, verá alguns das distribuições mais úteis específicas selecionado para efetuar a operação, incluindo os códigos de resposta de 3 principais, tipos de exceção da parte superior 3 e superior 3 tipos de dependência a falhar. 
 
 ![Falhas de triagem de vista (separador operações)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
@@ -440,7 +440,7 @@ Isto é diferente da contagem de 'Exceções' calculada pelo portal do Applicati
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Monitorizar REST, SQL e outras chamadas para dependências](app-insights-asp-net-dependencies.md)
 * [Monitorizar os tempos de carregamento de página, exceções de browser e chamadas AJAX](app-insights-javascript.md)
 * [Contadores de monitor de desempenho](app-insights-performance-counters.md)

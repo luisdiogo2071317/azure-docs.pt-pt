@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: b1b9b804aa696419b52a03f127c59037c337be66
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 03d1617eb64c48b6a90925ae76e1ab3ce0312ff1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook de automatização do Azure com um webhook
 A *webhook* permite-lhe iniciar um determinado runbook na automatização do Azure através de um único pedido HTTP. Isto permite que os serviços externos, como o Visual Studio Team Services, o GitHub, análise de registos do Microsoft Operations Management Suite ou aplicações personalizadas para iniciar runbooks sem a implementar uma solução completa utilizando a API de automatização do Azure.  
@@ -33,11 +33,11 @@ A tabela seguinte descreve as propriedades que é necessário configurar para um
 |:--- |:--- |
 | Nome |Pode fornecer um nome que pretende para um webhook, uma vez que este não está exposta ao cliente.  Só é utilizada por si para identificar o runbook na automatização do Azure. <br>  Como melhor prática, deve dar o webhook um nome relacionadas com o cliente que irão utilizá-lo. |
 | URL |O URL do webhook é o endereço exclusivo que chama um cliente com um POST de HTTP para iniciar o runbook associado para o webhook.  É gerado automaticamente quando criar o webhook.  Não é possível especificar um URL personalizado. <br> <br>  O URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por este motivo, deve ser tratado como uma palavra-passe.  Por motivos de segurança, só pode ver o URL no portal do Azure no momento que é criar o webhook. Deve ter em consideração o URL numa localização segura para utilização futura. |
-| Data de expiração |Como um certificado, cada webhook tem uma data de expiração em que momento que já não pode ser utilizado.  Esta data de expiração pode ser modificada depois de criar o webhook. |
+| Data de validade |Como um certificado, cada webhook tem uma data de expiração em que momento que já não pode ser utilizado.  Esta data de expiração pode ser modificada depois de criar o webhook. |
 | Ativado |Um webhook está ativado por predefinição, quando é criado.  Se definir como desativado, nenhum cliente será conseguir utilizá-lo.  Pode definir o **ativado** propriedade ao criar o webhook ou em qualquer altura uma vez é criada. |
 
 ### <a name="parameters"></a>Parâmetros
-Um webhook pode definir valores de parâmetros do runbook que são utilizados quando o runbook for iniciado por essa webhook. O webhook tem de incluir valores para todos os parâmetros obrigatórios do runbook e pode incluir valores de parâmetros opcionais. Um valor de parâmetro configurado para um webhook pode ser modificado, mesmo depois de criar o webhoook. Cada um vários webhooks associados a um único runbook pode utilizar valores de parâmetro diferentes.
+Um webhook pode definir valores de parâmetros do runbook que são utilizados quando o runbook for iniciado por essa webhook. O webhook tem de incluir valores para todos os parâmetros obrigatórios do runbook e pode incluir valores de parâmetros opcionais. Um valor de parâmetro configurado para um webhook pode ser modificado depois de criar o webhook. Cada um vários webhooks associados a um único runbook pode utilizar valores de parâmetro diferentes.
 
 Quando um cliente inicia um runbook com um webhook, este não pode substituir os valores de parâmetros definidos no webhook.  Para receber dados do cliente, o runbook pode aceitar um único parâmetro chamado **$WebhookData** do tipo [object], que contêm dados que inclui o cliente no pedido POST.
 
@@ -262,7 +262,7 @@ O runbook de exemplo seguinte é acionado quando a regra de alerta fica ativa e 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter detalhes sobre diferentes formas de iniciar um runbook, consulte [iniciar um Runbook](automation-starting-a-runbook.md).
 * Para obter informações sobre como visualizar o estado de uma tarefa de Runbook, consulte [execução do Runbook na automatização do Azure](automation-runbook-execution.md).
 * Para saber como utilizar a automatização do Azure para executar ações em alertas do Azure, consulte [remediar alertas de VM do Azure com Runbooks de automatização](automation-azure-vm-alert-integration.md).

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d73599164589d672d6d6cde57e4a5b40774aca19
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Como criar uma infraestrutura de desenvolvimento numa VM com Linux no Azure com Jenkins, GitHub e Docker
 Para automatizar a fase de criação e teste de desenvolvimento de aplicações, pode utilizar uma integração contínua e o pipeline de implementação (CI/CD). Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure incluindo como:
@@ -146,7 +146,7 @@ No seu Web site Jenkins, selecione **criar novas tarefas** na home page:
 - Sob o **geral** secção, selecione **GitHub** projeto e introduza o URL do repositório escolhido, tais como *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - Sob o **gestão de código de origem** secção, selecione **Git**, introduza o seu repositório forked *.git* URL, tais como *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - Sob o **criar Acionadores** secção, selecione **acionador de rotina do GitHub para consulta GITscm**.
-- Sob o **criar** secção, escolha **Adicionar passo de compilação**. Selecione **executar shell**, em seguida, introduza `echo "Testing"` na janela de comando.
+- Sob o **criar** secção, escolha **Adicionar passo de compilação**. Selecione **executar shell**, em seguida, introduza `echo "Testing"` na janela de comandos.
 - Selecione **guardar** na parte inferior da janela tarefas.
 
 
@@ -161,7 +161,7 @@ response.end("Hello World!");
 
 Para consolidar as alterações, selecione o **consolidar alterações** na parte inferior.
 
-No Jenkins, uma nova compilação inicia sob o **histórico de compilação** secção do canto inferior esquerdo da sua página de tarefa. Escolha a ligação de número de compilação e selecione **consola saída** no tamanho da esquerda. Pode ver os passos Jenkins demora como o seu código é solicitado a partir do GitHub e a ação de compilação produz a mensagem `Testing` para a consola. Sempre que uma consolidação é efetuada no GitHub, o webhook acede ao Jenkins e acionam uma nova compilação desta forma.
+No Jenkins, uma nova compilação inicia sob o **histórico de compilação** secção do canto inferior esquerdo da sua página de tarefa. Escolha a ligação de número de compilação e selecione **consola saída** no lado esquerdo. Pode ver os passos Jenkins demora como o seu código é solicitado a partir do GitHub e a ação de compilação produz a mensagem `Testing` para a consola. Sempre que uma consolidação é efetuada no GitHub, o webhook acede ao Jenkins e aciona uma nova compilação desta forma.
 
 
 ## <a name="define-docker-build-image"></a>Definir imagem de compilação do Docker
@@ -173,7 +173,7 @@ A ligação de SSH para a VM, mude para o diretório de área de trabalho de Jen
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Criar um ficheiro com neste diretório de área de trabalho com `sudo sensible-editor Dockerfile` e cole o seguinte conteúdo. Certifique-se de que o Dockerfile todo é copiado corretamente, especialmente a primeira linha:
+Criar um ficheiro no diretório área de trabalho com `sudo sensible-editor Dockerfile` e cole o seguinte conteúdo. Certifique-se de que o Dockerfile todo é copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 FROM node:alpine

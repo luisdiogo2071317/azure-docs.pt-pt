@@ -2,24 +2,19 @@
 title: "Guia de Introdução do Azure – Transferir objetos de/para o armazenamento de Blobs do Azure com o Python | Microsoft Docs"
 description: Aprenda rapidamente a transferir objetos de/para o armazenamento de Blobs do Azure com o Python
 services: storage
-documentationcenter: storage
 author: ruthogunnnaike
-manager: cwatson
-editor: tysonn
-ms.assetid: 
-ms.custom: mvc
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 50f43e6ef9ee60cbf489bb8d0c1c64ca61a393e1
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Transferir objetos de/para o armazenamento de Blobs do Azure com o Python
 Neste guia de introdução, vai aprender a utilizar o Python, para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. 
@@ -174,4 +169,4 @@ Neste guia de introdução, aprendeu a transferir ficheiros entre um disco local
 > [Procedimentos de Operações de Armazenamento de Blobs](./storage-python-how-to-use-blob-storage.md)
  
 
-Para obter mais informações sobre o Explorador de armazenamento e os Blobs, veja [Manage Azure Blob storage resources with Storage Explorer (Gerir recursos de armazenamento do Blob do Azure com o Explorador de Armazenamento](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)).
+Para obter mais informações sobre o Explorador de armazenamento e os Blobs, veja [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Gerir recursos do armazenamento de Blobs do Azure com o Explorador de Armazenamento).

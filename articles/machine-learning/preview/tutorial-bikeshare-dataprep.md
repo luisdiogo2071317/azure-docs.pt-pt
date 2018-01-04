@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: e71680887c4e81eba831ab0b7af9fa2cceed74a0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Tutorial de partilha de bicicletas: preparação de dados avançada com o Azure Machine Learning Workbench
 Os serviços do Azure Machine Learning (pré-visualização) são uma solução de análise avançada e ciência de dados ponto a ponto integrada para os cientistas de dados profissionais prepararem dados, desenvolverem experimentações e implementarem modelos à escala da cloud.
@@ -613,7 +613,7 @@ Nos passos anteriores, utilizou as origens de dados `201701-hubway-tripdata.csv`
         > [!NOTE]
         > A entrada __+5__ indica que existem cinco ficheiros adicionais para além do que está listado.
 
-    * __Detalhes do Ficheiro__: defina __Modo de Promoção de Cabeçalhos__ como **Todos os Ficheiros Têm os Mesmos Cabeçalhos.**. Este valor indica que cada um dos ficheiros contém o mesmo cabeçalho.
+    * __Detalhes do Ficheiro__: defina __Modo de Promoção de Cabeçalhos__ como **Todos os Ficheiros Têm os Mesmos Cabeçalhos.** Este valor indica que cada um dos ficheiros contém o mesmo cabeçalho.
 
         ![Seleção de detalhes do ficheiro](media/tutorial-bikeshare-dataprep/headerfromeachfile.png) 
 
@@ -647,7 +647,7 @@ df.to_csv('Your Training Data File Path here')
 
 Para submeter um trabalho novo, utilize o ícone **Executar**, na parte superior da página. É submetido um **Trabalho** com a configuração nova. O resultado deste trabalho são os Dados de Aprendizagem. Estes dados são criados com os mesmos passos de Preparação de Dados que criou anteriormente. O trabalho pode demorar alguns minutos até ser concluído.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Concluiu o tutorial de Preparação de Dados de Partilha de Bicicletas. Neste tutorial, utilizou os serviços do Azure Machine Learning (pré-visualização) para aprender a:
 > [!div class="checklist"]
 > * Preparar os dados de forma interativa com a ferramenta Preparação de Dados do Azure Machine Learning

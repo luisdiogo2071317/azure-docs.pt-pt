@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/20/2017
-ms.author: masaran;trinadhk;pullabhk;markgal
-ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: masaran;trinadhk;pullabhk;markgal;adigan
+ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparar a criação de cópias de segurança de cargas de trabalho com o Azure Backup Server
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ Se não pretender executar o servidor de base no Azure, pode executar o servidor
 
 | Sistema Operativo | Plataforma | SKU |
 |:--- | --- |:--- |
+| Windows Server 2016 e SPs mais recentes |64 bits |Standard, Datacenter, Essentials (em diante no MABS v2) |
 | Windows Server 2012 R2 SPs mais recentes |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 e SPs mais recentes |64 bits |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 e SPs mais recentes |64 bits |Standard, Workgroup |

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e5ed66e263c3048981279ad26cb204ded8e8fba3
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight utilizando o arranque de configuração
 
@@ -76,7 +76,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes $clusterSizeInNodes `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.5" `
+    -Version "3.6" `
     -HttpCredential $httpCredential `
     -Config $config 
 ```
@@ -133,7 +133,7 @@ Pode utilizar o arranque no modelo do Resource Manager:
 
 ![HDInsight Hadoop customizes modelo Azure Resource Manager arranque de configuração do cluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Criar clusters do Hadoop no HDInsight] [ hdinsight-provision-cluster] fornece instruções sobre como criar um cluster do HDInsight utilizando outras opções personalizadas.
 * [Desenvolver scripts de ação de Script para o HDInsight][hdinsight-write-script]
 * [Instalar e utilizar o Spark nos clusters do HDInsight][hdinsight-install-spark]
@@ -249,7 +249,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes 1 `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.5" `
+    -Version "3.6" `
     -HttpCredential $httpCredential `
     -SshCredential $sshCredential `
     -Config $config
