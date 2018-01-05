@@ -29,6 +29,8 @@
       items:
         - name: .NET Core com BD SQL
           href: tutorial-dotnetcore-sqldb-app.md
+        - name: Ruby com MySQL
+          href: tutorial-ruby-mysql-app.md
         - name: PHP com MySQL
           href: tutorial-php-mysql-app.md
         - name: Node.js com MongoDB
