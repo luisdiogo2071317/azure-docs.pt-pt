@@ -191,6 +191,8 @@
           href: agent-user-guide.md
         - name: Manutenção planeada
           href: maintenance-notifications.md
+        - name: FAQ de manutenção acelerada
+          href: accelerated-maintenance.md
         - name: Eventos agendados
           href: scheduled-events.md
         - name: Monitorizar metadados
@@ -304,6 +306,8 @@
           href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Utilizar vários NICs
           href: multiple-nics.md
+        - name: Utilizar redes aceleradas
+          href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Atribuir um nome DNS público
           href: portal-create-fqdn.md
         - name: Resolução de DNS

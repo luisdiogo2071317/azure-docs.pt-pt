@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerir a capacidade de armazenamento para a pilha do Azure
 
@@ -53,7 +53,7 @@ Partilhas em volumes armazena dados de inquilino. Dados de inquilino incluem os 
 Quando é uma partilha baixa no espaço livre e as ações para [recuperar](#reclaim-capacity) espaço não são efetuadas com êxito ou disponível, o operador da nuvem do Azure pilha pode [migrar](#migrate-a-container-between) os contentores de BLOBs de uma partilha para outro.
 
 - Para obter mais informações sobre contentores e blobs, consulte [armazenamento de BLOBs](azure-stack-key-features.md#blob-storage) em funcionalidades de chave e conceitos na pilha do Azure.
-- Para obter informações sobre como funcionam os utilizadores do inquilino com o armazenamento do blogue na pilha do Azure, consulte [dos serviços de armazenamento do Azure pilha](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Para obter informações sobre como funcionam os utilizadores do inquilino com o blob storage na pilha do Azure, consulte [dos serviços de armazenamento do Azure pilha](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
 ### <a name="containers"></a>Contentores

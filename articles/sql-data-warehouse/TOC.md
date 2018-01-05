@@ -91,11 +91,11 @@
 
 ## Carregar e mover dados
 ### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Dados públicos da Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase a partir do armazenamento de blobs](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase a partir do SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AZCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 

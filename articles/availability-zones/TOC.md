@@ -20,7 +20,7 @@
 #### [Adicionar um disco gerido em Zonas de Disponibilidade com o PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### Conjuntos de dimensionamento de máquinas virtuais
-#### [Criar um conjunto de dimensionamento de máquinas virtuais com o portal do Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+#### [Criar um conjunto de dimensionamento numa Zona de Disponibilidade](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Load balancer
 #### [O que é o Balanceador de Carga?](../load-balancer/load-balancer-standard-overview.md)

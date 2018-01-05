@@ -9,6 +9,7 @@
 ## [Resolução de problemas de conectividade de VPN](network-watcher-troubleshoot-overview.md)
 ## [Verificação de conectividade](network-watcher-connectivity-overview.md)
 ## [Limites do serviço](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
+
 # Introdução
 ## [Configurar o Observador de Rede](network-watcher-create.md)
 ## Captura de pacote variável
@@ -56,6 +57,7 @@
 ### [CLI do Azure 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
+
 # Procedimento
 ## [Monitorizar Gateway de VPN com a Automatização do Azure](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnosticar conectividade no local através do Gateway de VPN](network-watcher-diagnose-on-premises-connectivity.md)
@@ -72,13 +74,14 @@
 ### [Utilizar o Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Utilizar o Grafana](network-watcher-nsg-grafana.md)
 ### [Utilizar o Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+## [Determinar a latência relativa entre uma localização e a região do Azure](view-relative-latencies.md)
 
 # Referência
 ## [CLI do Azure](/cli/azure/network/watcher)
 ## [Azure PowerShell](/powershell/module/azurerm.network/#network_watcher)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher) 
-## [python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html#azure.mgmt.network.NetworkManagementClient.network_watchers)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html#azure.mgmt.network.NetworkManagementClient.network_watchers)
 
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/networkwatcher/)

@@ -23,8 +23,8 @@
       href: container-instances-tutorial-deploy-app.md
 - name: Conceitos
   items:
-    - name: Regiões e disponibilidade
-      href: container-instances-region-availability.md
+    - name: Quotas e limites regionais
+      href: container-instances-quotas.md
     - name: Relação com orquestradores
       href: container-instances-orchestrator-relationship.md
     - name: Grupos de contentores

@@ -1,5 +1,5 @@
 # Descrição geral
-## [O que é o Azure Analysis Services?](analysis-services-overview.md)
+## [Sobre o Analysis Services](analysis-services-overview.md)
 ## [Origens de dados suportadas](analysis-services-datasource.md)
 ## [Autenticação e permissões de utilizador](analysis-services-manage-users.md)
 ## [Ligar a origens de dados no local](analysis-services-gateway.md)
