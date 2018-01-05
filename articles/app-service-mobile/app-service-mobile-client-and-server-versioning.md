@@ -3,8 +3,8 @@ title: "Cliente e o servidor SDK controlo de versões em aplicações móveis e 
 description: "Lista de SDKs de cliente e a compatibilidade com versões do SDK do Mobile Services e as Mobile Apps do Azure"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controlo de versões de cliente e servidor de aplicações móveis e dos Mobile Services
 A versão mais recente dos Mobile Services do Azure é a **Mobile Apps** funcionalidade do App Service do Azure.
@@ -87,7 +87,7 @@ Nota: o cliente de Mobile Services SDKs *não* enviar um valor de cabeçalho `ZU
 ### <a name="behavior-of-mobile-services-backends"></a>Comportamento de back-ends de Mobile Services
 | VERSÃO DA API DE ZUMO | Valor de MS_SkipVersionCheck | Resposta |
 | --- | --- | --- |
-| Não foi especificado |Qualquer |200 - OK |
+| Não especificado |Qualquer |200 - OK |
 | Qualquer valor |Verdadeiro |200 - OK |
 | Qualquer valor |FALSO/não especificado |400 - pedido de incorreto |
 
@@ -120,7 +120,7 @@ A verificar a versão está incluída nos seguintes versões do SDK de servidor:
 | 2.0.0-2.x.y |FALSO/não especificado |200 - OK |
 | 3.0.0-3.x.y |FALSO/não especificado |400 - pedido de incorreto |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [migrar um serviço móvel para o App Service do Azure]
 
 [Clientes de Mobile Services]: #MobileServicesClients

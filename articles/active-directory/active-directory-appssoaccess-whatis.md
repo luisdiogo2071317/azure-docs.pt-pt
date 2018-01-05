@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 4fd80e147f3f24676bde77a1aa4e9f29432f544d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 604c4e850ac88fde4124c0acdd5550654c442108
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicações e início de sessão no Azure Active Directory?
 O início de sessão único significa que está a ser capazes de aceder a todas as aplicações e recursos que precisa para fins comerciais, ao iniciar sessão apenas depois de utilizar uma conta de utilizador único. Depois de iniciar sessão, pode aceder a todas as aplicações que precisar, sem ser necessário para autenticação (por exemplo, escreva uma palavra-passe) uma segunda vez.
@@ -49,7 +49,7 @@ Azure AD suporta três formas diferentes de iniciar sessão para aplicações:
 * **Baseado em palavra-passe Single Sign-On** permite proteger o armazenamento de palavra-passe de aplicação e utilizar uma extensão de browser da web ou aplicação móvel de repetição. Isto melhora o início de sessão no processo existente fornecido pela aplicação, mas permite que um administrador gerir as palavras-passe e requer que o utilizador saber a palavra-passe.
 * **Existente Single Sign-On** permite ao Azure AD tirar partido de qualquer existente-início de sessão único que foi configurado para a aplicação, mas permite que estas aplicações estar ligado ao portais de painel de acesso do Office 365 ou do Azure AD e também permite adicionais relatórios no Azure AD quando as aplicações são iniciadas não existe.
 
-Depois de ter autenticar um utilizador com uma aplicação, também têm de ter um registo de conta aprovisionado a aplicação que indica a aplicação onde existe nível de acesso e permissões são dentro da aplicação. O aprovisionamento deste registo de conta ou pode ocorrer automaticamente, ou pode ocorrer manualmente por um administrador antes do utilizador é fornecido acesso de início de sessão único.
+Depois de um utilizador foi autenticado com uma aplicação, também têm de ter um registo de conta aprovisionado a aplicação que indica a aplicação onde existe nível de acesso e permissões são dentro da aplicação. O aprovisionamento deste registo de conta ou pode ocorrer automaticamente, ou pode ocorrer manualmente por um administrador antes do utilizador é fornecido acesso de início de sessão único.
 
  Obter mais detalhes sobre estes modos de início de sessão único e o aprovisionamento abaixo.
 

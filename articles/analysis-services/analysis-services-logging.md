@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/29/2017
 ms.author: owend
-ms.openlocfilehash: 982626b3bafbb3857d2d85e9442982e8f46f0501
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Registo de diagnóstico de configuração
 
@@ -34,9 +34,9 @@ Pode selecionar **motor**, **serviço**, e **métricas** categorias.
 
 ### <a name="engine"></a>Motor
 
-Selecionar o motor de registos de todos os [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Não é possível selecionar eventos individuais. 
+Selecionar **motor** regista todos os [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Não é possível selecionar eventos individuais. 
 
-|Categorias de XEvent |Nome do Evento  |
+|Categorias de XEvent |Nome do evento  |
 |---------|---------|
 |Auditoria de Segurança    |   Início de sessão de auditoria      |
 |Auditoria de Segurança    |   Fim de sessão de auditoria      |
@@ -73,17 +73,17 @@ Selecionar o motor de registos de todos os [xEvents](https://docs.microsoft.com/
 
 ### <a name="all-metrics"></a>Todas as métricas
 
-A categoria de AllMetrics regista o mesmo [métricas do servidor](analysis-services-monitor.md#server-metrics) apresentado no métricas.
+A categoria de métricas regista o mesmo [métricas do servidor](analysis-services-monitor.md#server-metrics) apresentado no métricas.
 
 ## <a name="setup-diagnostics-logging"></a>Configurar o registo de diagnóstico
 
-### <a name="by-using-the-azure-portal"></a>Utilizando o portal do Azure
+### <a name="azure-portal"></a>Portal do Azure
 
-1. No [portal do Azure](https://portal.azure.com), no seu servidor de Analysis Services do Azure, clique em **registos de diagnóstico** na navegação à esquerda e, em seguida, clique em **ative os diagnósticos**.
+1. No [portal do Azure](https://portal.azure.com) > servidor, clique em **registos de diagnóstico** na navegação à esquerda e, em seguida, clique em **ative os diagnósticos**.
 
     ![Ativar o registo de diagnóstico para a BD do Cosmos do Azure no portal do Azure](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. No **definições de diagnóstico** página, efetue o seguinte: 
+2. No **definições de diagnóstico**, efetue o seguinte procedimento: 
 
     * **Nome**. Introduza um nome para os registos para o criar.
 
@@ -101,8 +101,9 @@ A categoria de AllMetrics regista o mesmo [métricas do servidor](analysis-servi
 
     Se pretender alterar a forma como em que os registos de diagnóstico são guardados no futuro em qualquer momento, pode regressar a esta página para modificar as definições.
 
-### <a name="by-using-powershell"></a>Utilizando o PowerShell
-Seguem-se os comandos básicos para ajudá-lo a aceder. Se quiser ajuda passo a passo sobre como configurar o registo para uma conta de armazenamento utilizando o PowerShell, consulte o [tutorial](#tutorial) posteriormente neste artigo.
+### <a name="powershell"></a>PowerShell
+
+Seguem-se os comandos básicos para ajudá-lo a aceder. Se pretender que o ajuda passo a passo sobre como configurar o registo para uma conta de armazenamento utilizando o PowerShell, consulte o tutorial neste artigo.
 
 Para ativar as métricas e ao diagnóstico do registo utilizando o PowerShell, utilize os seguintes comandos:
 
@@ -156,13 +157,11 @@ Os registos estão normalmente disponíveis dentro de alguns horas de configura�
 * Elimine os registos que já não pretende manter na sua conta de armazenamento.
 * Não se esqueça de definir um período de retenção para para que registos antigos são eliminados da sua conta de armazenamento.
 
-
-<a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Ver registos na análise de registos
 
 Eventos de métricas e servidor estão integrados no xEvents na análise de registos de análise de lado a lado. Análise de registos pode também ser configurado para receber eventos de outros serviços do Azure que fornece uma vista holística de dados de registo de diagnóstico em sua arquitetura.
 
-Para ver os dados de diagnóstico na análise de registos, abra a página de pesquisa de registo do menu à esquerda ou a área de gestão da página, conforme mostrado na imagem seguinte:
+Para ver os dados de diagnóstico na análise de registos, abra a página de pesquisa de registo do menu à esquerda ou a área de gestão, como mostrado abaixo.
 
 ![Opções de pesquisa de registo no portal do Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
@@ -174,7 +173,6 @@ Clique em **EventClass\_s** ou um dos nomes do evento e análise de registos con
 
 Lembre-se de que finalizar Operations Management Suite, que fornece um Web site com consulta avançada, dashboarding e as capacidades de alertas do dados de análise de registos.
 
-<a id="#queries"></a>
 ### <a name="queries"></a>Consultas
 
 Existem centenas de consultas que pode utilizar. Seguem-se alguns para ajudar a começar.
@@ -199,7 +197,6 @@ Para saber mais sobre como utilizar o novo idioma de consulta de pesquisa de reg
 > Tem uma grande consulta de análise de registos que pretende partilhar? Se tiver uma conta GitHub, pode adicioná-lo a este artigo. Basta clicar **editar** na parte superior direita desta página.
 
 
-<a id="#tutorial"></a>
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Tutorial - ativar o registo com o PowerShell
 Neste tutorial rápido, crie uma conta do storage na mesma subscrição e grupo de recursos como o servidor do Analysis Service. Em seguida, utilize Set-AzureRmDiagnosticSetting para ativar o diagnóstico de registo, enviar o resultado para a nova conta de armazenamento.
 
@@ -208,8 +205,7 @@ Para concluir este tutorial, tem de ter os seguintes recursos:
 
 * Um servidor de Analysis Services do Azure existente. Para obter instruções sobre como criar um recurso de servidor, consulte [criar um servidor no portal do Azure](analysis-services-create-server.md), ou [criar um servidor de Analysis Services do Azure utilizando o PowerShell](analysis-services-create-powershell.md).
 
-
-### <a id="connect"></a>Ligar às suas subscrições
+### <a name="aconnect-to-your-subscriptions"></a></a>Ligar a subscrições do
 
 Abra uma sessão no Azure PowerShell e inicie sessão na sua conta do Azure com o seguinte comando:  
 
@@ -236,7 +232,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 >
 >
 
-### <a id="storage"></a>Criar uma nova conta de armazenamento para os seus registos
+### <a name="create-a-new-storage-account-for-your-logs"></a>Criar uma nova conta de armazenamento para os seus registos
 
 Pode utilizar uma conta de armazenamento existente para os seus registos, fornecido na mesma subscrição do seu servidor. Para este tutorial cria uma nova conta de armazenamento dedicada aos registos de Analysis Services. Para facilitar, que está a armazenar os detalhes da conta de armazenamento numa variável designada **sa**.
 
@@ -247,7 +243,7 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
-### <a id="identify"></a>Identificar a conta de servidor para os seus registos
+### <a name="identify-the-server-account-for-your-logs"></a>Identificar a conta de servidor para os seus registos
 
 Defina o nome da conta a uma variável com o nome **conta**, onde ResourceName é o nome da conta.
 
@@ -256,7 +252,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a id="enable"></a>Ativar registo
+### <a name="enable-logging"></a>Ativar registo
 
 Para ativar o registo, utilize o cmdlet Set-AzureRmDiagnosticSetting, juntamente com as variáveis para a nova conta de armazenamento, a conta de servidor e a categoria. Execute o seguinte comando, a definição de **-ativado** sinalizador para **$true**:
 

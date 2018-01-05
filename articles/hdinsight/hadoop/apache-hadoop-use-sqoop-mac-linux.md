@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: 250fb1dfed5cdab5308c2d91744e0cf051c32ccc
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a0a63c414bc68f5125b65e288d78fb546c376c04
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Utilizar o Apache Sqoop para importar e exportar dados entre o Hadoop no HDInsight e a base de dados SQL
 
@@ -39,7 +39,7 @@ Saiba como utilizar o Apache Sqoop para importar e exportar entre um cluster do 
 >
 > * [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)
 > * [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)
-> * O [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) utilitário.
+> * O [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) utilitário
 
 ## <a name="create-the-table-in-sql-database"></a>Criar a tabela na base de dados do SQL Server
 
@@ -95,7 +95,7 @@ GO
 
     ```sql
     SET ROWCOUNT 50;
-    SELECT * FROM mobiledata;"
+    SELECT * FROM mobiledata;
     ```
 
     Este comando lista 50 linhas que foram importadas para a tabela.
@@ -105,7 +105,7 @@ GO
 1. Utilize o seguinte comando para importar dados a partir de **mobiledata** tabela na base de dados do SQL Server, para o **wasb: / / / tutoriais/usesqoop/importeddata** diretório no HDInsight:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
     Os campos de dados são separados por um caráter de separador e as linhas são terminadas por um caráter de nova linha.
@@ -153,7 +153,7 @@ Também pode utilizar o Sqoop para importar e exportar dados do SQL Server. As d
 * Ao ligar ao SQL Server do HDInsight, poderá ter de utilizar o endereço IP do SQL Server. Por exemplo:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P <adminPassword> -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
 ## <a name="limitations"></a>Limitações
@@ -162,7 +162,7 @@ Também pode utilizar o Sqoop para importar e exportar dados do SQL Server. As d
 
 * Criação de batches - com o HDInsight baseado em Linux, ao utilizar o `-batch` comutador quando efetuar inserções, Sqoop faz com que várias inserções em vez das operações de inserção de criação de batches.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora tem aprendeu a utilizar o Sqoop. Para saber mais, consulte:
 

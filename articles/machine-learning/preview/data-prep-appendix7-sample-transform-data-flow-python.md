@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 9139866b0dffd102f9b7c34835443d6337e7d39a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4a716c1934258e687eb48ecb4077c6be7b269c1f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Exemplo de transformações de fluxo de dados personalizados (Python) 
 O nome da transformação no menu é **transformar fluxo de dados (scripts)**. Antes de ler este anexo, leia [descrição geral de extensibilidade do Python](data-prep-python-extensibility-overview.md).
@@ -82,3 +82,8 @@ Os dados agora o seguinte aspeto:
 |              |Texas         |San Antonio|
 |              |Texas         |Houston    |
 
+
+### <a name="min-max-normalization"></a>Min normalização de máx.
+```python
+    df["NewCol"] = (df["Col1"]-df["Col1"].mean())/df["Col1"].std()
+```

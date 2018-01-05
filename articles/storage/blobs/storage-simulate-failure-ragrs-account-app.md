@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: f709e216f9308c4405776b25ca44b0aaddd3d3f8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simule uma falha ao aceder ao armazenamento com redundância de acesso de leitura
 
@@ -88,7 +88,7 @@ Navegue para o Fiddler e selecione **regras** -> **personalizar regras...** .  A
 
 Para retomar a aplicação, prima **qualquer tecla** .
 
-Assim que a aplicação for iniciada novamente a ser executado, os pedidos para o ponto final principal começarem a falhar. A aplicação tenta restabelecer a ligação ao ponto final do primário 5 vezes. Após o limiar de falha de cinco tentativas, a imagem que solicita secundária só de leitura ponto final. Depois da aplicação com êxito obtém a imagem de 20 vezes do ponto final secundário, a aplicação tenta estabelecer ligação ao ponto final do principal. Se o ponto final principal está inacessível ainda, a aplicação retoma ler a partir do ponto final secundário. Este padrão está a [disjuntor](/azure/architecture/patterns/circuit-breaker.md) padrão descrita no tutorial anterior.
+Assim que a aplicação for iniciada novamente a ser executado, os pedidos para o ponto final principal começarem a falhar. A aplicação tenta restabelecer a ligação ao ponto final do primário 5 vezes. Após o limiar de falha de cinco tentativas, a imagem que solicita secundária só de leitura ponto final. Depois da aplicação com êxito obtém a imagem de 20 vezes do ponto final secundário, a aplicação tenta estabelecer ligação ao ponto final do principal. Se o ponto final principal está inacessível ainda, a aplicação retoma ler a partir do ponto final secundário. Este padrão está a [disjuntor](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) padrão descrita no tutorial anterior.
 
 ![Colar regra personalizada](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
@@ -108,7 +108,7 @@ Quando terminar, prima **qualquer tecla** para retomar a aplicação. A aplicaç
 
 ![Retomar a aplicação](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Parte dois da série, aprendeu sobre simulando uma falha ao testar o armazenamento georredundante com acesso de leitura tais como:
 

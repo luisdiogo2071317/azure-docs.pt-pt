@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 01/02/2018
 ms.author: billmath
-ms.openlocfilehash: 9c0ff3394dac12bdcac9d618832566ef0d3a6609
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fddbbeda50764ade149e8a8f370bf7341da01736
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>O Azure AD Connect: Ativar a repetição de escrita do dispositivo
 > [!NOTE]
 > Uma subscrição do Azure AD Premium é necessária para a repetição de escrita do dispositivo.
-> 
-> 
+>
+>
 
 A seguinte documentação fornece informações sobre como ativar a funcionalidade de repetição de escrita do dispositivo no Azure AD Connect. Repetição de escrita do dispositivo é utilizada nos seguintes cenários:
 
@@ -34,7 +34,8 @@ Esta opção fornece segurança adicional e garantia que é concedido acesso a a
 
 > [!IMPORTANT]
 > <li>Dispositivos devem estar localizados na mesma floresta que os utilizadores. Uma vez que os dispositivos têm de ser escritos novamente para uma floresta única, esta funcionalidade não suporta atualmente uma implementação com várias florestas de utilizador.</li>
-> <li>Objeto de configuração de registo de dispositivos apenas pode ser adicionado à floresta do Active Directory no local. Esta funcionalidade não é compatível com uma topologia em que o Active Directory no local é sincronizado a fim de vários diretórios do Azure AD.</li>> 
+> <li>Objeto de configuração de registo de dispositivos apenas pode ser adicionado à floresta do Active Directory no local. Esta funcionalidade não é compatível com uma topologia em que o Active Directory no local é sincronizado a fim de vários inquilinos do Azure AD.</li>
+>
 
 ## <a name="part-1-install-azure-ad-connect"></a>Parte 1: Instalar o Azure AD Connect
 1. Instale o Azure AD Connect utilizando personalizado ou definições rápidas. A Microsoft recomenda começar com todos os utilizadores e grupos sincronizados com êxito antes de ativar a repetição de escrita do dispositivo.
@@ -43,15 +44,15 @@ Esta opção fornece segurança adicional e garantia que é concedido acesso a a
 Utilize os seguintes passos para preparar para utilizar a repetição de escrita do dispositivo.
 
 1. Da máquina onde está instalado o Azure AD Connect, inicie o PowerShell no modo elevado.
-2. Se o módulo PowerShell do Active Directory não estiver instalado, instale as ferramentas de administração remota do servidor que contém o módulo PowerShell do AD e dsacls.exe que é necessário para executar o script.  Execute o seguinte comando:
-  
+2. Se o módulo PowerShell do Active Directory não estiver instalado, instale as ferramentas de administração do servidor remoto, que contém o módulo PowerShell do AD e dsacls.exe, que é necessário para executar o script. Execute o seguinte comando:
+
    ``` powershell
    Add-WindowsFeature RSAT-AD-Tools
    ```
 
 3. Se o módulo do Azure Active Directory PowerShell não está instalado, em seguida, transfira e instale-à partir [módulo Azure Active Directory para Windows PowerShell (versão de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297). Este componente não tem uma dependência no assistente início de sessão, que é instalado com o Azure AD Connect.  
 4. Com credenciais de administrador de empresa, execute os seguintes comandos e, em seguida, saia do PowerShell.
-   
+
    ``` powershell
    Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
    ```
@@ -62,8 +63,7 @@ Utilize os seguintes passos para preparar para utilizar a repetição de escrita
 
 São necessárias credenciais de administrador de empresa, uma vez que forem necessárias alterações para o espaço de nomes de configuração. Um administrador de domínio será tem permissões suficientes.
 
-![PowerShell para ativar a repetição de escrita do dispositivo](./media/active-directory-aadconnect-feature-device-writeback/powershell.png) d
-
+![PowerShell para ativar a repetição de escrita do dispositivo](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)  
 
 Descrição:
 
@@ -87,18 +87,22 @@ Utilize o procedimento seguinte para ativar a repetição de escrita do disposit
 3. Na página de repetição de escrita, verá o domínio fornecido como a floresta de repetição de escrita do dispositivo predefinido.
    ![Personalizado floresta de destino de repetição de escrita a dispositivos de instalação](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
 4. Conclua a instalação do assistente sem alterações de configuração adicionais. Se necessário, consulte [instalação personalizada do Azure AD Connect.](active-directory-aadconnect-get-started-custom.md)
+5. Se tiver ativado o [filtragem](active-directory-aadconnectsync-configure-filtering.md) no Azure AD Connect, em seguida, certifique-se contentor criado recentemente CN = RegisteredDevices está incluído no seu âmbito.
 
-## <a name="enable-conditional-access"></a>Ativar o acesso condicional
-Instruções detalhadas para ativar este cenário estão disponíveis no [configurar o acesso condicional no local utilizando o registo de dispositivos do Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
-
-## <a name="verify-devices-are-synchronized-to-active-directory"></a>Certifique-se de que são sincronizados dispositivos ao Active Directory
-Agora a repetição de escrita do dispositivo deve ser funcionar corretamente. Lembre-se de que pode demorar até 3 horas para os objetos de dispositivo ser a repetição de escrita para o AD.  Para verificar que os seus dispositivos estão a ser sincronizados corretamente, efetue o seguinte depois de concluir as regras de sincronização:
+## <a name="part-4-verify-devices-are-synchronized-to-active-directory"></a>Parte 4: Verificar dispositivos são sincronizados com o Active Directory
+Agora a repetição de escrita do dispositivo deve ser funcionar corretamente. Lembre-se de que pode demorar até 3 horas para os objetos de dispositivo ser a repetição de escrita para o AD. Para verificar que os seus dispositivos estão a ser sincronizados corretamente, efetue o seguinte depois de concluída a sincronização:
 
 1. Inicie o Centro de administração do Active Directory.
-2. Expanda RegisteredDevices, dentro do domínio que está a ser federado.
-   ![Centro de administração do Active Directory registar dispositivos](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
-3. Dispositivos registados atuais serão listados não existe.
-   ![Centro de administração do Active Directory registado a lista de dispositivos](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
+2. Expanda RegisteredDevices, dentro do domínio que foi configurado no [parte 2](#part-2-prepare-active-directory).  
+
+   ![Centro de administração do Active Directory registar dispositivos](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)  
+   
+3. Dispositivos registados atuais serão listados não existe.  
+
+   ![Centro de administração do Active Directory registado a lista de dispositivos](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)  
+
+## <a name="enable-conditional-access"></a>Ativar o acesso condicional
+   Instruções detalhadas para ativar este cenário estão disponíveis no [configurar o acesso condicional no local utilizando o registo de dispositivos do Azure Active Directory](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>A caixa de verificação de repetição de escrita ainda está desativada
@@ -113,7 +117,8 @@ Primeiros aspetos primeiro:
   * Abra o **conectores** separador.
   * Localize o conector com o tipo de serviços de domínio do Active Directory e selecione-o.
   * Em **ações**, selecione **propriedades**.
-  * Aceda a **ligar à floresta do Active Directory**. Certifique-se de que o nome de utilizador e domínio especificado nesta correspondência de ecrã, a conta fornecida para o script.
+  * Aceda a **ligar à floresta do Active Directory**. Certifique-se de que o nome de utilizador e domínio especificado nesta correspondência de ecrã, a conta fornecida para o script.  
+  
     ![Conta do conector no Gestor de serviço de sincronização](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
 
 Verifique a configuração no Active Directory:
@@ -144,6 +149,5 @@ Verifique a configuração no Active Directory:
 * [Gerir o risco com o acesso condicional](../active-directory-conditional-access-azure-portal.md)
 * [Configurar o acesso condicional no local utilizando o registo de dispositivos do Azure Active Directory](../active-directory-device-registration-on-premises-setup.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).
-

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 986cc450302a04720dc92e55eb8d1248cd3b8f26
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Criar uma máquina virtual Linux uma zona de disponibilidade com a CLI do Azure
 
@@ -29,6 +29,35 @@ Passos neste artigo, através de utilizar a CLI do Azure para criar uma VM com L
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
 Certifique-se de que instalou a versão mais recente [Azure CLI 2.0](/cli/azure/install-az-cli2) e com sessão iniciada numa conta do Azure com [início de sessão az](/cli/azure/#login).
+
+
+## <a name="check-vm-sku-availability"></a>Verifique a disponibilidade de SKU de VM
+A disponibilidade de tamanhos de VM ou SKUs, poderá variam consoante a região e zona. Para ajudar a planear a utilização das zonas de disponibilidade, pode listar os SKUs disponíveis de VM por região do Azure e zona. Esta capacidade certifica-se de que escolha um tamanho VM adequado e obter a resiliência desejado através de zonas. Para obter mais informações sobre os diferentes tipos de VM e tamanhos, consulte [descrição geral de tamanhos de VM](sizes.md).
+
+Pode ver os SKUs disponíveis da VM com o [az vm lista-skus](/cli/azure/vm#az_vm_list_skus) comando. O exemplo seguinte lista os SKUs de VM disponíveis no *eastus2* região:
+
+```azurecli
+az vm list-skus --location eastus2 --output table
+```
+
+O resultado será semelhante ao seguinte exemplo condensed, que mostra as zonas de disponibilidade em que cada tamanho da VM está disponível:
+
+```azurecli
+ResourceType      Locations  Name               Tier       Size     Zones
+----------------  ---------  -----------------  ---------  -------  -------
+virtualMachines   eastus2    Standard_DS1_v2    Standard   DS1_v2   1,2,3
+virtualMachines   eastus2    Standard_DS2_v2    Standard   DS2_v2   1,2,3
+[...]
+virtualMachines   eastus2    Standard_F1s       Standard   F1s      1,2,3
+virtualMachines   eastus2    Standard_F2s       Standard   F2s      1,2,3
+[...]
+virtualMachines   eastus2    Standard_D2s_v3    Standard   D2_v3    1,2,3
+virtualMachines   eastus2    Standard_D4s_v3    Standard   D4_v3    1,2,3
+[...]
+virtualMachines   eastus2    Standard_E2_v3     Standard   E2_v3    1,2,3
+virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
+```
+
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 

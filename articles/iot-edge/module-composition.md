@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6f9ca3d9b0f41210a3f43a8ae505f0a90b130b34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Compreender como módulos de IoT limite podem ser utilizados, configurado e reutilizada - pré-visualização
 
@@ -99,7 +99,7 @@ O sink pode ser um dos seguintes:
 | sink | Descrição |
 | ---- | ----------- |
 | `$upstream` | Enviar a mensagem ao IoT Hub |
-| `BrokeredEndpoint(/modules/{moduleId}/inputs/{input})` | Enviar a mensagem de entrada `{input}` do módulo`{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Enviar a mensagem de entrada `{input}` do módulo`{moduleId}` |
 
 É importante ter em atenção que Edge hub fornece garantias em-menos-uma vez, que significa que as mensagens serão armazenadas localmente no caso de uma rota não é possível entregar a mensagem à respetiva dependente, por exemplo, o hub Edge não é possível ligar ao IoT Hub ou o módulo de destino não está ligado.
 
@@ -281,7 +281,7 @@ As propriedades pretendidas são definidas ao aplicar um manifesto de implementa
 | clientes. .lastConnectTime {identidade de dispositivo ou módulo} | Última hora no dispositivo ou módulo ligado |
 | clientes. .lastDisconnectTime {identidade de dispositivo ou módulo} | Última vez que o dispositivo ou módulo desligado |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que já sabe como são utilizados os módulos de IoT Edge, [compreender os requisitos e ferramentas para o desenvolvimento de módulos de limite de IoT][lnk-module-dev].
 

@@ -3,7 +3,7 @@ title: "Adicionar autenticação à sua aplicação plataforma Universal do Wind
 description: "Saiba como utilizar Mobile Apps do Azure App Service para autenticar os utilizadores da sua aplicação plataforma Universal do Windows (UWP) utilizando uma variedade de fornecedores de identidade, incluindo: AAD, Google, Facebook, Twitter e Microsoft."
 services: app-service\mobile
 documentationcenter: windows
-author: ggailey777
+author: conceptdev
 manager: panarasi
 editor: 
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
-ms.openlocfilehash: 47da343d4ec956ec2e669757f56e853675f887a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cc597f8aca13445034c8a1691b41018d4d9bc4b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Adicionar autenticação à sua aplicação do Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -155,7 +155,7 @@ O exemplo anterior mostrou uma norma início de sessão, que exige que o cliente
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que concluiu este tutorial de autenticação básica, considere continuar para um dos seguintes tutoriais:
 
 * [Adicionar notificações push à aplicação](app-service-mobile-windows-store-dotnet-get-started-push.md)  

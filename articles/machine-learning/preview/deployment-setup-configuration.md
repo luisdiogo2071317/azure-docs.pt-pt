@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>Configuração de gestão de modelo
 
@@ -81,7 +81,7 @@ Para começar, terá de configurar o ambiente de implementação. O programa de 
 
 Quando concluir a configuração de ambiente:
 - Lhe for pedido para iniciar sessão no Azure. Para iniciar sessão, utilize um web browser para abrir a página https://aka.ms/devicelogin e introduza o código fornecido para se autenticar.
-- Durante o processo de autenticação, é-lhe pedida uma conta autenticar com. Importante: Selecione uma conta que tenha uma subscrição do Azure válida e de permissões suficientes para criar recursos na conta. - quando o início de sessão estiver concluída, são apresentadas informações da sua subscrição e lhe for perguntado se pretende continuar com o conta selecionada.
+- Durante o processo de autenticação, é-lhe pedida uma conta autenticar com. Importante: Selecione uma conta que tenha uma subscrição do Azure válida e de permissões suficientes para criar recursos na conta. Quando o início de sessão estiver concluída, são apresentadas informações da sua subscrição e lhe for perguntado se pretende continuar com a conta selecionada.
 
 ### <a name="environment-setup"></a>Configuração do ambiente
 Para iniciar o processo de configuração, tem de registar alguns fornecedores de ambiente, introduzindo os seguintes comandos:

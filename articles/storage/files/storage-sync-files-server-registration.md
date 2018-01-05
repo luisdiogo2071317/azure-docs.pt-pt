@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: ae50f2f76af890e1dbabd892dc587b762beab38e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 10c8b708cad245f4ac0304489beb36dcf63cd4b1
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Gerir servidores registados com sincronização de ficheiros do Azure (pré-visualização)
 O Azure File Sync (pré-visualização) permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Isto é feito ao transformar os Servidores do Windows numa cache rápida da partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
@@ -147,9 +147,9 @@ Uma vez que a sincronização de ficheiros do Azure estará raramente o serviço
 > A definição demasiado baixa limites terá impacto no desempenho da sincronização de sincronização de ficheiros do Azure e devolução de chamada.
 
 ### <a name="set-azure-file-sync-network-limits"></a>Definir limites de rede de sincronização de ficheiros do Azure
-Pode restringir a utilização de rede de sincronização de ficheiros do Azure utilizando o `StorageSyncNetworkLimit` cmdlets. 
+Pode limitar a utilização de rede de sincronização de ficheiros do Azure utilizando o `StorageSyncNetworkLimit` cmdlets. 
 
-Por exemplo, pode criar um novo limite de rede para se certificar de que a sincronização de ficheiros do Azure não utiliza mais de 10 Mbps entre as 09: 00 e as 17: 00 (17:00 h) durante a semana de trabalho: 
+Por exemplo, pode criar um novo limite de limitação para se certificar de que a sincronização de ficheiros do Azure não utiliza mais de 10 Mbps entre as 09: 00 e as 17: 00 (17:00 h) durante a semana de trabalho: 
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"

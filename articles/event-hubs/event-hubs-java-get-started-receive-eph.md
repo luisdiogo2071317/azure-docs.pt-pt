@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3c1b455e6298367dc50f0943b58f6cf1e7f1c5fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94b56fdd1ad350d861b27644c6bedcc59e1cefb0
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Receber eventos de linguagem Java de Event Hubs do Azure
 
@@ -35,13 +35,13 @@ Este tutorial mostra como receber eventos para um hub de eventos utilizando uma 
 Para concluir este tutorial, terá dos seguintes pré-requisitos:
 
 * Ambiente de desenvolvimento Java. Para este tutorial, partimos do pressuposto [Eclipse](https://www.eclipse.org/).
-* Uma conta ativa do Azure. <br/>Se não tiver uma conta, pode criar uma conta gratuita em apenas alguns minutos. Para obter mais detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação Gratuita do Azure</a>.
+* Uma conta ativa do Azure. <br/>Se não tiver uma conta, pode criar uma conta gratuita em apenas alguns minutos. Para obter mais detalhes, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Avaliação gratuita do Azure</a>.
 
 ## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Receber mensagens com o EventProcessorHost em Java
 
 **EventProcessorHost** é uma classe do Java que simplifica a receção de eventos provenientes dos Event Hubs ao gerir pontos de verificação persistentes e receções em paralelo desses Event hubs. Se utilizar o EventProcessorHost, pode dividir eventos por vários recetores, mesmo quando alojados em nós diferentes. Este exemplo mostra como utilizar o EventProcessorHost para um recetor único.
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Criar uma conta do Storage
 Para utilizar o EventProcessorHost, tem de ter um [conta de armazenamento do Azure][Azure Storage account]:
 
 1. Inicie sessão no [portal do Azure][Azure portal]e clique em **+ novo** no lado esquerdo do ecrã.
@@ -68,11 +68,6 @@ A biblioteca de cliente de Java para os Event Hubs está disponível para utiliz
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
     <version>{VERSION}</version>
-</dependency>
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>azure-eventhubs-eph</artifactId>
-  <version>0.14.0</version>
 </dependency>
 ```
 
@@ -229,7 +224,7 @@ Para diferentes tipos de ambientes de compilação, pode obter explicitamente os
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)

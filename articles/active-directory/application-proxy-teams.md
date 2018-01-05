@@ -3,7 +3,7 @@ title: "Aceder a aplicações de Proxy de aplicações do Azure AD no equipas | 
 description: "Utilize o Proxy de aplicações do Azure AD para aceder a sua aplicação no local através de Teams da Microsoft."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 57ae4c38a528251dee89d56f6fdb7cf1d1dc922d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a8dca307bb97898f229b39710a3b566ee913fcca
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Aceder as aplicações no local através de Teams da Microsoft
 
@@ -52,7 +52,7 @@ Depois de publicar a aplicação através do Proxy de aplicações, informar os 
 
 Depois de um membro de um agrupamento adiciona o separador, aparece para todos os membros do canal. Os utilizadores que têm acesso à aplicação aceder único início de sessão com as credenciais que utilizam para Teams da Microsoft. Os utilizadores que não tem acesso à aplicação podem ver o separador equipas, mas estão bloqueados até, dar-lhes permissões para a aplicação no local e a versão publicada da aplicação do portal do Azure. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [publicar sites do SharePoint no local](application-proxy-enable-remote-access-sharepoint.md) com o Proxy da aplicação.
 - Configurar as suas aplicações a utilizar [domínios personalizados](active-directory-application-proxy-custom-domains.md) para as respetivas URL externo. 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 01/04/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f503f373ec32ffcdd9be3ca03da6ec5e1b10e35a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos do Azure Active Directory associados de híbrida
 
@@ -32,11 +32,12 @@ Se tiver um ambiente do Active Directory no local e que pretende associar os dis
 
 Antes de iniciar a configuração híbrida do Azure AD associado dispositivos no seu ambiente, deve ser familiarizar com os cenários suportados e as restrições.  
 
+Se estão a depender de [ferramenta de preparação do sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), certifique-se a criar imagens a partir de uma instalação do Windows que não foi ainda registado com o Azure AD.
+
 Para melhorar a legibilidade das descrições, este tópico utiliza o termo seguinte: 
 
 - **Dispositivos atuais do Windows** -este prazo refere-se a dispositivos associados a um domínio a executar o Windows 10 ou Windows Server 2016.
 - **Dispositivos de nível inferior do Windows** -este prazo refere-se a todos os **suportado** dispositivos Windows associados a um domínio, que estão em execução Windows 10 nem do Windows Server 2016.  
-
 
 ### <a name="windows-current-devices"></a>Dispositivos atuais do Windows
 
@@ -66,6 +67,15 @@ Do Azure AD Connect:
 - Mantém a associação entre a conta de computador no seu no local do Active Directory (AD) e o objeto de dispositivo no Azure AD. 
 - Permite que outros dispositivos relacionados com funcionalidades como o Windows Hello para empresas.
 
+Certifique-se de que os seguintes URLs são acessíveis a partir de computadores no interior da rede da sua organização para o registo dos computadores com o Azure AD:
+
+- https://enterpriseregistration.Windows.NET
+
+- https://login.microsoftonline.com
+
+- https://Device.login.microsoftonline.com
+
+Se o seu organizações requer acesso à Internet através de um proxy de saída, tem de implementar a deteção automática de Proxy Web (WPAD) para permitir que os computadores Windows 10 registar com o Azure AD.
 
 
 ## <a name="configuration-steps"></a>Passos de configuração
@@ -574,7 +584,7 @@ Pode verificar os dispositivos associados com êxito na sua organização utiliz
 
 O resultado deste cmdlet mostra os dispositivos que são registados e associados com o Azure AD. Para obter todos os dispositivos, utilize o **-todos os** parâmetro e, em seguida, filtre-los utilizando o **deviceTrustType** propriedade. Associado a um domínio dispositivos têm um valor de **associados a um domínio**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Introdução à gestão de dispositivos no Azure Active Directory](device-management-introduction.md)
 

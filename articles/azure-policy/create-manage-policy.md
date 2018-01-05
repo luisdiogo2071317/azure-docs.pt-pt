@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/20/2017
+ms.date: 01/03/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 27056d5be99a6d2737e5583b0cda6f2e24895901
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerir políticas para impor a compatibilidade
 
@@ -51,7 +51,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 6. Indique um **Nome** de apresentação para a atribuição de política. Neste caso, vamos utilizar *requerem o SQL Server versão 12.0*. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre a forma como esta atribuição de política assegura a todos os servidores SQL criados neste ambiente têm a versão 12.0.
 7. Altere o escalão de preço para **Standard** para se certificar de que a política é aplicada aos recursos existentes.
 
-   Existem dois escalões de preços no Azure Policy – *Gratuito* e *Standard*. No Escalão gratuito, apenas pode impor políticas em recursos futuros, enquanto no Standard, também pode impô-los em recursos existentes para compreender melhor o seu estado de compatibilidade. Uma vez que estamos na Pré-visualização Limitada, ainda não lançámos um modelo de preços, pelo que não irá receber uma fatura para selecionar *Standard*. Para obter mais informações sobre preços, veja: [Azure Policy pricing (Preços do Azure Policy)](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   Existem dois escalões de preços no Azure Policy – *Gratuito* e *Standard*. No Escalão gratuito, apenas pode impor políticas em recursos futuros, enquanto no Standard, também pode impô-los em recursos existentes para compreender melhor o seu estado de compatibilidade. Uma vez que estamos na Pré-visualização Limitada, ainda não lançámos um modelo de preços, pelo que não irá receber uma fatura para selecionar *Standard*. Para obter mais informações sobre preços, veja: [Azure Policy pricing (Preços do Azure Policy)](https://azure.microsoft.com/pricing/details/azure-policy).
 
 8. Selecione o **âmbito** -subscrição (ou grupo de recursos) anteriormente registados. Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos.
 

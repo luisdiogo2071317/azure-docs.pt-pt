@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2017
+ms.date: 01/04/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86bc61ffcefd12289168d35b2773d61fac4c3652
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b852712edd897e99c89341a90a44ae50538212a1
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e o dimensionamento do BD Azure Cosmos
 
@@ -31,19 +31,29 @@ Divisão em partições e chaves de partição são apresentadas neste Azure sex
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>A criação de partições no Azure Cosmos DB
-BD do Cosmos do Azure, pode armazenar e consultar dados sem esquema com tempos de resposta de ordem de milissegundo em qualquer escala. BD do Azure do Cosmos fornece contentores para armazenar dados denominado *coleções* (para documentos), *gráficos*, ou *tabelas*. Contentores são recursos lógicos e podem abranger uma ou mais partições físicas ou servidores. O número de partições é determinado pelo Azure Cosmos DB com base no tamanho de armazenamento e o débito aprovisionado do contentor. Cada partição do BD Azure Cosmos tem uma quantidade fixa de armazenamento SSD de segurança associada e é replicada para elevada disponibilidade. Gestão de partição é totalmente gerida por base de dados do Azure Cosmos e não tem de escrever código complexo ou gerir as partições. Contentores do Cosmos BD do Azure são ilimitados em termos de armazenamento e débito. 
+BD do Cosmos do Azure, pode armazenar e consultar dados sem esquema com tempos de resposta de ordem de milissegundo em qualquer escala. BD do Azure do Cosmos fornece contentores para armazenar dados denominado *coleções* (para documentos), *gráficos*, ou *tabelas*. 
+
+Contentores são recursos lógicos e podem abranger uma ou mais partições físicas ou servidores. O número de partições é determinado pelo Azure Cosmos DB com base no tamanho de armazenamento e o débito aprovisionado do contentor. 
+
+Uma partição física é uma quantidade fixa de armazenamento reservada em cópia em SSD, com um máximo de 10 GB. Cada partição física é replicada para elevada disponibilidade. Uma ou mais partições físicas constituem um contentor. Gestão de partição física é completamente geridos pela base de dados do Azure Cosmos e não tem de escrever código complexo ou gerir as partições. Contentores do Cosmos BD do Azure são ilimitados em termos de armazenamento e débito. 
+
+Uma partição lógica é uma partição dentro de uma partição física, que armazena todos os dados associados a um valor de chave de partição única. O diagrama a seguir, um único contentor tem três partições lógicas. Cada partição lógica armazena os dados para uma chave de partição, LAX, AMS e MEL respetivamente. Cada uma das partições lógicas LAX, AMS e MEL não é possível crescer além do limite a partição física máximo de 10 GB. 
 
 ![A criação de partições de recursos](./media/introduction/azure-cosmos-db-partitioning.png) 
 
-Criação de partições é transparente para a aplicação. BD do Azure do Cosmos suporta rápidas leituras e escritas, consultas, lógica transacional, níveis de consistência e controlo de acesso detalhada através de métodos/APIs a um recurso de contentor único. O serviço processa dados de distribuição em partições e o encaminhamento de pedidos de consulta para a partição à direita. 
+Quando uma coleção cumpre o [pré-requisitos de criação de partições](#prerequisites), o ato de criação de partições é transparente para a aplicação. BD do Azure do Cosmos suporta rápidas leituras e escritas, consultas, lógica transacional, níveis de consistência e controlo de acesso detalhada através de métodos/APIs a um recurso de contentor único. Os identificadores de serviço distribui dados em partições físicas e lógicas e encaminhamento consultar pedidos para a partição à direita. 
 
-Como funciona a criação de partições? Cada item tem de ter uma chave de partição e uma chave de linha, identificar exclusivamente. A chave de partição atua como uma partição lógica para os seus dados e fornece BD do Cosmos do Azure com um limite natural para distribui dados em partições. No brief, eis como criação de partições funciona do BD Azure Cosmos:
+## <a name="how-does-partitioning-work"></a>Como funciona a criação de partições
 
-* Aprovisionar um contentor de base de dados do Azure Cosmos com `T` débito de pedidos/s.
-* Nos bastidores, base de dados do Azure Cosmos Aprovisiona partições necessárias para servir `T` pedidos/s. Se `T` é superior ao débito máximo por partição `t`, em seguida, a base de dados do Azure Cosmos Aprovisiona `N`  =  `T/t` partições.
-* BD do Azure do Cosmos aloca uniformemente across hashes de chaves de espaço de chave de partição a `N` partições. Deste modo, anfitriões cada partição (partição física) `1/N` (partições lógicas) de valores de chave de partição.
-* Quando uma partição física `p` atingir o limite de armazenamento, base de dados do Azure Cosmos perfeitamente divide `p` em duas novas partições `p1` e `p2`. Distribui-lo valores que correspondem a meio aproximadamente as chaves para cada uma das partições. Dividir a operação é invisível à sua aplicação.
-* Da mesma forma, quando aprovisionar débito superior `t*N`, base de dados do Azure Cosmos divide uma ou mais das suas partições para suportar um maior débito.
+Como funciona a criação de partições? Cada item tem de ter uma chave de partição e uma chave de linha, identificar exclusivamente. A chave de partição atua como uma partição lógica para os seus dados e fornece BD do Cosmos do Azure com um limite natural para distribui dados em partições. Lembre-se de que uma partição lógica pode abranger várias partições físicas, mas a gestão de partição física é gerida pelo Azure Cosmos DB. 
+
+No brief, eis como criação de partições funciona do BD Azure Cosmos:
+
+* Aprovisionar um contentor de base de dados do Azure Cosmos com **T** pedidos por segundo débito.
+* Nos bastidores, base de dados do Azure Cosmos Aprovisiona partições necessárias para servir **T** pedidos por segundo. Se **T** é superior ao débito máximo por partição **t**, em seguida, a base de dados do Azure Cosmos Aprovisiona **N = T/t** partições.
+* BD do Azure do Cosmos aloca uniformemente across hashes de chaves de espaço de chave de partição a **N** partições. Deste modo, anfitriões cada partição (partição física) **1/N** (partições lógicas) de valores de chave de partição.
+* Quando uma partição física **p** atingir o limite de armazenamento, base de dados do Azure Cosmos perfeitamente divide **p** em duas novas partições **p1** e **p2** . Distribui-lo valores que correspondem a meio aproximadamente as chaves para cada uma das partições. Dividir a operação é invisível à sua aplicação. Se uma partição física atinge o limite de armazenamento e todos os dados na partição física pertence a mesma chave de partição lógica, a operação de divisão não ocorrer. Isto acontece porque todos os dados para uma chave de partição lógica única tem de residir na mesma partição física e, por conseguinte, a partição física não pode ser dividida em p1 e p2. Neste caso, deve ser utilizada uma estratégia de chave de partição diferentes.
+* Quando aprovisionar o débito superior  **t*N**, base de dados do Azure Cosmos divide uma ou mais das suas partições para suportar um maior débito.
 
 A semântica para as chaves de partição é ligeiramente diferente para corresponder a semântica de cada API, conforme mostrado na seguinte tabela:
 
@@ -54,19 +64,28 @@ A semântica para as chaves de partição é ligeiramente diferente para corresp
 | Graph | propriedade de chave de partição personalizado | `id` corrigido | 
 | Tabela | `PartitionKey` corrigido | `RowKey` corrigido | 
 
-BD do Azure do Cosmos utiliza a criação de partições com base em hash. Quando escreve um item, base de dados do Azure Cosmos codifica o valor da chave de partição e utiliza o resultado com hash para determinar que partição que pretende armazenar no item. BD do Azure do Cosmos armazena todos os itens com a mesma chave de partição na mesma partição física. A escolha da chave de partição é uma decisão importante que terá de fazer no momento da concepção. Tem de escolher um nome de propriedade que tenha uma vasta gama de valores e tem o mesmo padrões de acesso.
+BD do Azure do Cosmos utiliza a criação de partições com base em hash. Quando escreve um item, base de dados do Azure Cosmos codifica o valor da chave de partição e utiliza o resultado com hash para determinar que partição que pretende armazenar no item. BD do Azure do Cosmos armazena todos os itens com a mesma chave de partição na mesma partição física. A escolha da chave de partição é uma decisão importante que terá de fazer no momento da concepção. Tem de escolher um nome de propriedade que tenha uma vasta gama de valores e tem o mesmo padrões de acesso. Se uma partição física atinge o limite de armazenamento da mesma chave de partição está em todos os dados na partição, base de dados do Azure Cosmos devolve o erro "a chave de partição atingido o tamanho máximo de 10 GB" e a partição não é dividida, deste modo, escolher uma chave de partição é uma importação muito Decisão de Ant.
 
 > [!NOTE]
 > É uma melhor prática de ter uma chave de partição com vários valores distintos (centenas e os milhares, no mínimo).
 >
 
-Contentores do Cosmos BD do Azure podem ser criados como *fixo* ou *ilimitados*. Os contentores de tamanho fixo têm um limite máximo de 10 GB e 10 000 de RU/s débito. Para criar um contentor como ilimitado, tem de especificar um débito mínimo de 1.000 RU/s e tem de especificar uma chave de partição.
+Contentores do Cosmos BD do Azure podem ser criados como *fixo* ou *ilimitados* no portal do Azure. Os contentores de tamanho fixo têm um limite máximo de 10 GB e 10 000 de RU/s débito. Para criar um contentor como ilimitado, tem de especificar um débito mínimo de 1.000 RU/s e tem de especificar uma chave de partição.
 
 É uma boa ideia confirmar a forma como os seus dados são distribuídos em partições. Para verificar isto no portal, aceda à sua conta de base de dados do Azure Cosmos e clique em **métricas** no **monitorização** secção e, em seguida, no painel direito, clique em **armazenamento** separador para ver como os seus dados são partições na partição física diferente.
 
 ![A criação de partições de recursos](./media/partition-data/partitionkey-example.png)
 
 A imagem à esquerda mostra o resultado de uma chave de partição inválido e a imagem correta mostra o resultado de uma chave de partição. Na imagem à esquerda, pode ver que os dados não são distribuídos uniformemente entre as partições. Deve esforçar-nos distribuir os seus dados pelo seu gráfico semelhante a imagem correta.
+
+<a name="prerequisites"></a>
+## <a name="prerequisites-for-partitioning"></a>Pré-requisitos para a criação de partições
+
+Para partições físicas a divisão de automático para **p1** e **p2** conforme descrito em [como funciona o trabalho de criação de partições](#how-does-partitioning-work), o contentor tem de ser criado com um débito de 1.000 RU/s ou mais , e uma chave de partição tem de ser fornecida. Ao criar um contentor no portal do Azure, selecione o **ilimitada** opção de capacidade de armazenamento para tirar partido da criação de partições e o dimensionamento automático. 
+
+Se criou um contentor no portal do Azure ou através de programação e o débito inicial foi 1.000 RU/s ou mais e os dados incluem uma chave de partição, pode tirar partido de criação de partições sem alterações à sua contentor - Isto inclui **fixo**  tamanho contentores, desde que o contentor inicial foi criado com, pelo menos, 1000 RU/s througput e uma chave de partição está presente nos dados.
+
+Se tiver criado uma **Fixed** contentor de tamanho com nenhuma partição criado ou chave um **Fixed** contentor de tamanho com débito inferior a 1000 RU/s, o contentor não é automática-divisão conforme descrito neste artigo. Para migrar dados a partir do contentor como esta para um contentor ilimitado (um com, pelo menos, 1000 RU/s no débito e uma chave de partição), tem de utilizar o [ferramenta de migração de dados](import-data.md) ou [biblioteca de Feeds de alteração](change-feed.md) para Migre as alterações. 
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Débito aprovisionado e criação de partições
 BD do Azure do Cosmos foi concebida para um desempenho previsível. Quando cria um contentor, reservar débito em termos de  *[unidades de pedido](request-units.md) (RU) por segundo*. Cada pedido está atribuído um custo de RU é proporcional para a quantidade de recursos do sistema, tais como CPU, memória e consumidas pela operação de e/s. Uma leitura de um documento de 1 KB com consistência de sessão consome 1 RU. Uma leitura é 1 RU independentemente do número de itens armazenados ou o número de pedidos simultâneos em execução ao mesmo tempo. Itens de maior requerem RUs superiores, dependendo do tamanho. Se souber o tamanho do seu entidades e o número de leituras que tiver de suportar para a sua aplicação, pode aprovisionar a quantidade exata de débito necessário para a aplicação do leia necessidades. 

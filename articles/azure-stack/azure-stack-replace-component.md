@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5f760ae0cc33e138fc3d484711b8747b984977d4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Substituir um componente de hardware num nó de unidade de escala de pilha do Azure
 
@@ -40,7 +40,7 @@ Componentes não frequente-swappable incluem o seguinte:
 
 O diagrama de fluxo seguinte mostra o processo FRU geral para substituir um componente de hardware não frequente-swappable.
 
-![Diagrama de fluxo que mostra o fluxo de substituição de componente](media/azure-stack-replace-component/ReplaceComponentFlow.PNG)
+![Diagrama de fluxo que mostra o fluxo de substituição de componente](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
 * Esta ação não pode ser necessária com base na condição do hardware física.
 
@@ -48,11 +48,11 @@ O diagrama de fluxo seguinte mostra o processo FRU geral para substituir um comp
 
 ## <a name="review-alert-information"></a>Rever as informações de alerta
 
-O estado de funcionamento de pilha do Azure e o sistema de monitorização monitoriza o estado de funcionamento de unidades de dados que são controladas pela direta de espaços de armazenamento e de adaptadores de rede. Não monitoriza outros componentes de hardware. Para todos os outros componentes de hardware, os alertas são gerados no hardware específicos do fornecedor de solução que é executado no anfitrião de ciclo de vida de hardware de monitorização.
+O estado de funcionamento de pilha do Azure e o sistema de monitorização controlam o estado de funcionamento de unidades de dados controladas pelo direta de espaços de armazenamento e de adaptadores de rede. Controlar outros componentes de hardware. Para todos os outros componentes de hardware, os alertas são gerados no hardware específicos do fornecedor de solução que é executado no anfitrião de ciclo de vida de hardware de monitorização.
 
 ## <a name="component-replacement-process"></a>Processo de substituição de componente
 
-Os seguintes passos são fornecidos como uma descrição geral de alto nível do processo de substituição de componente. Não siga estes passos sem referir-se a sua documentação de FRU fornecida pelo OEM.
+Os passos seguintes fornecem uma descrição geral de alto nível do processo de substituição de componente. Não siga estes passos sem referir-se a sua documentação de FRU fornecida pelo OEM.
 
 1. Utilize o [drenar](azure-stack-node-actions.md#scale-unit-node-actions) ação para colocar o nó de unidade de escala em modo de manutenção. Esta ação não pode ser necessária com base na condição do hardware física.
 2. Depois do nó de unidade de escala está no modo de manutenção, utilize o [desligar](azure-stack-node-actions.md#scale-unit-node-actions) ação. Esta ação não pode ser necessária com base na condição do hardware física.
@@ -66,7 +66,8 @@ Os seguintes passos são fornecidos como uma descrição geral de alto nível do
 6. Utilizar o ponto final com privilégios para [verificar o estado de reparação de disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Com unidades de dados nova, uma tarefa de reparação de armazenamento completa pode demorar várias horas, consoante a carga de sistema e consumidas espaço.
 7. Após concluir a ação de reparação, confirme que todos os alertas ativos tem sido fechados automaticamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre como substituir um disco físico de acesso frequente-swappable, consulte [substituir um disco](azure-stack-replace-disk.md).
-- Para obter informações sobre como substituir um nó físico, consulte [substituir um nó de unidade de escala](azure-stack-replace-node.md). 
+- Para obter informações sobre como substituir um nó físico, consulte [substituir um nó de unidade de escala](azure-stack-replace-node.md).
+- 

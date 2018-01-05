@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c9b68ee25ae3d675b71ec5543738493216b1212
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: fa9b11e754ab86f0e4c88923d4b895aa5dd0e271
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Node.js do Cosmos BD do Azure para a API do SQL Server: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -62,6 +62,13 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="1.14.2"/>1.14.2</a>
+* Documentação atualizada a referência de base de dados do Azure Cosmos em vez do Azure DocumentDB.
+* Suporte adicionado para definição de proxyUrl na ConnectionPolicy.
+
+### <a name="1.14.1"/>1.14.1</a>
+* Corrigir secundária para sistemas de ficheiros sensíveis a maiúsculas e minúsculas.
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Adiciona suporte para a consistência de sessão.
@@ -187,6 +194,8 @@ Qualquer pedido de BD do Cosmos utilizando que um SDK extinto é rejeitadas pelo
 
 | Versão | Data da versão | Data de retirada |
 | --- | --- | --- |
+| [1.14.2](#1.14.2) |21 de Dezembro de 2017 |--- |
+| [1.14.1](#1.14.1) |10 de Novembro de 2017 |--- |
 | [1.14.0](#1.14.0) |9 de Novembro de 2017 |--- |
 | [1.13.0](#1.13.0) |11 de Outubro de 2017 |--- |
 | [1.12.2](#1.12.2) |10 de Agosto de 2017 |--- |
@@ -221,6 +230,6 @@ Qualquer pedido de BD do Cosmos utilizando que um SDK extinto é rejeitadas pelo
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço.
 

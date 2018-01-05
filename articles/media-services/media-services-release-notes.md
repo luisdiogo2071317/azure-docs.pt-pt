@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 9289958e63be9b853daf6dddd23c403cf6ff2c40
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão de Media Services do Azure
 Estas notas de versão resumem as alterações de versões anteriores e problemas conhecidos.
@@ -59,13 +59,7 @@ Para obter informações sobre o histórico da versão de API de REST dos servi�
 2.  Se tiver as vídeo de origem que está codificada com H.265(HEVC) codec vídeo, tais como as vídeo capturado usando iOS11 ou GoPro heroína 6, podem agora utilizar o codificador Premium ou o codificador padrão para codificar os vídeos. Consulte o [termos de serviço Online](https://azure.microsoft.com/support/legal/) para uma nota importante sobre license(s) patente.
 3.  Se tiver conteúdo que contém vários idiomas áudio pistas, em seguida, desde que os valores de idioma estão identificados corretamente, de acordo com a especificação de formato de ficheiro correspondente (por exemplo, MP4 ISO), em seguida, pode utilizar o codificador padrão para codificar esse conteúdo para transmissão em fluxo. O localizador de transmissão em fluxo resultante será uma lista os idiomas de áudio disponíveis.
 4.  Codificador padrão suporta agora dois novos só de áudio predefinições do sistema, "AAC áudio" e "AAC boa qualidade áudio". Ambos produzem saída AAC stereo, às taxas de bits de 128 kbps e 192 kbps, respetivamente.
-5.  Codificador Premium agora suporta os formatos de ficheiro de QuickTime/MOV como entrada, desde que o vídeo codec é uma do [Apple ProRes tipos listados aqui](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), sendo áudio AAC ou PCM.
-
-> [!NOTE]
-> Codificador Premium não suporta, por exemplo, as vídeo DVC/DVCPro encapsulada nos ficheiros de QuickTime/MOV, como entrada.  No entanto, o codificador padrão suporta estas codecs vídeos.
->
->
-
+5.  Codificador Premium agora suporta os formatos de ficheiro de QuickTime/MOV como entrada, desde que o vídeo codec é uma do [Apple ProRes tipos listados aqui](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), sendo áudio AAC ou PCM. Codificador Premium não suporta, por exemplo, as vídeo DVC/DVCPro encapsulada nos ficheiros de QuickTime/MOV, como entrada.  No entanto, o codificador padrão suporta estas codecs vídeos.
 6.  Correções de erros em codificadores:
     * Pode submeter as tarefas com um recurso de entrada e depois destas concluída, modifique o elemento (por exemplo, ao adicionar/eliminar/mudar o nome de ficheiros dentro do elemento) e submeter tarefas adicionais. 
     * Qualidade melhorada de miniaturas JPEG produzido pelo codificador padrão
@@ -563,7 +557,7 @@ A seguinte funcionalidade foi novidade da versão de Novembro do SDK.
 [Preview features]: http://azure.microsoft.com/services/preview/
 [descrição de geral do suporte de dados dos serviços PlayReady licença modelo]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [encriptados conteúdo da armazenamento de transmissão em fluxo]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [empacotamento dinâmico]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [blogue de Nick Drouin]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protecting transmissão em fluxo uniforme com PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx

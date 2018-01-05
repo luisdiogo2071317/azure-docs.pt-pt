@@ -12,24 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2017
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 27ab6b97610ab27500cbef703120e2c67cd07183
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas para o SO convidado do Azure. Procure este artigo para determinar se uma atualização específica aplica-se para o SO convidado está a utilizar. Atualizações sempre transportem para específico [família] [ family-explain] foram introduzidas no.
 
+## <a name="december-guest-os"></a>SO de convidado de Dezembro
+| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 17-12 | [4053579], [4054517] |Atualizações de segurança do Windows 10 |4.49, 5.14 |12 de Dezembro de 2017 |
+| Rel 17-12 | [4054521], [4054522], [4054523] |Apenas a segurança do Windows |2.69, 3.56, 4.49 |12 de Dezembro de 2017 |
+| Rel 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 de Dezembro de 2017 |
+| Rel 17-12 | [4052978] |Flash |3.56, 4.49, 5.14 |12 de Dezembro de 2017 |
+| N/A | [4048957] |Agregação de segurança não Novembro |2.67 |14 de novembro de 2017 |
+| N/A | [4048959] |Agregação de segurança não Novembro |3.56 |14 de novembro de 2017 |
+| N/A | [4048958] |Agregação de segurança não Novembro |4.49 |14 de novembro de 2017 |
+| N/A | [4049068] |Fuso horário de Dezembro de atualização |2.69, 3.56, 4.49 |12 de Dezembro de 2017 |
+
 ## <a name="november-guest-os"></a>SO de convidado de Novembro
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| Rel 17 10 | [4048953] |Atualizações do Windows 10 |5.13 |14 de novembro de 2017 |
-| Rel 17 10 | [4048960], [4048962], [4048961] |Apenas a segurança do Windows |2.68, 3.55, 4.48 |14 de novembro de 2017 |
-| Rel 17 10 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 de novembro de 2017 |
-| Rel 17 10 | [4048951] |Flash |3.55, 4.48, 5.13 |14 de novembro de 2017 |
+| Rel 17 11 | [4048953] |Atualizações do Windows 10 |5.13 |14 de novembro de 2017 |
+| Rel 17 11 | [4048960], [4048962], [4048961] |Apenas a segurança do Windows |2.68, 3.55, 4.48 |14 de novembro de 2017 |
+| Rel 17 11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 de novembro de 2017 |
+| Rel 17 11 | [4048951] |Flash |3.55, 4.48, 5.13 |14 de novembro de 2017 |
 | N/A | [4041681] |Agregação de segurança não Outubro |2.67 |10 de Outubro de 2017 |
 | N/A | [4041690] |Agregação de segurança não Outubro |3.55 |10 de Outubro de 2017 |
 | N/A | [4041693] |Agregação de segurança não Outubro |4.48 |10 de Outubro de 2017 |
@@ -562,6 +574,19 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[3007054] |Protegida por PIN impressão opção sempre mostra quando a imprimir um documento dentro de uma aplicação da loja Windows no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 | N/A |[2999802] |Linhas sólidas em vez de linhas ponteada são indicadas no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 | N/A |[2896881] |Hora de início de sessão longa ao utilizar o comando AddPrinterConnection VBScript para mapear impressoras para os utilizadores durante o processo de início de sessão no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
+
+[4053579]: http://support.microsoft.com/kb/4053579
+[4054517]: http://support.microsoft.com/kb/4054517 
+[4054521]: http://support.microsoft.com/kb/4054521
+[4054522]: http://support.microsoft.com/kb/4054522
+[4054523]: http://support.microsoft.com/kb/4054523
+[4052978]: http://support.microsoft.com/kb/4052978
+[4048951]: http://support.microsoft.com/kb/4048951
+[4048957]: http://support.microsoft.com/kb/4048957
+[4048959]: http://support.microsoft.com/kb/4048959
+[4048958]: http://support.microsoft.com/kb/4048958
+[4049068]: http://support.microsoft.com/kb/4049068
+
 
 [4048953]: http://support.microsoft.com/kb/4048953
 [4048960]: http://support.microsoft.com/kb/4048960 

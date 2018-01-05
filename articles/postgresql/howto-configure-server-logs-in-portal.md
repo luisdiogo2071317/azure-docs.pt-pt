@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 9e22d96d20f3201a8d1618c5ff1878e99d50ad79
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurar e iniciar sessão no servidor de acesso no portal do Azure
 
@@ -26,7 +26,7 @@ Para seguir este guia de procedimentos, tem de:
 ## <a name="configure-logging"></a>Configurar o registo
 Configure o acesso aos registos de consulta e registos de erros. 
 
-1. Inicie sessão no [Portal do Azure](http://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](http://portal.azure.com/).
 
 2. Selecione a base de dados do Azure para o servidor de PostgreSQL.
 
@@ -72,8 +72,8 @@ Depois de inicia o registo, pode ver uma lista de registos disponíveis e transf
 
    ![Clique em transferir ícone](./media/howto-configure-server-logs-in-portal/6-download.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Consulte [registos do servidor de acesso na CLI](howto-configure-server-logs-using-cli.md) para saber como transferir os registos através de programação.
 - Saiba mais sobre [registos do servidor](concepts-server-logs.md) do BD Azure para PostgreSQL. 
-- Para obter mais informações sobre as definições de parâmetro e PostgreSQL registo, consulte a documentação de PosgreSQL no [relatório de erros e de registo](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- Para obter mais informações sobre as definições de parâmetro e PostgreSQL registo, consulte a documentação de PostgreSQL no [relatório de erros e de registo](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 30b3ed453cb67516b49bcf27376a1a0aea43d9b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c7e6cc4a78b3e31b1357671fdb19d8eb9cf927ce
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Tutorial: Integração do Azure Active Directory com SCC ciclo de vida
 
@@ -132,10 +132,8 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 6. Para configurar o início de sessão único em **SCC ciclo de vida** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte do ciclo de vida SCC](mailto:lifecycle.support@scc.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
-     >[!NOTE]
-   >O início de sessão único tem de ser ativado pela equipa de suporte do ciclo de vida SCC.
-   > 
-   > 
+  >[!NOTE]
+  >O início de sessão único tem de ser ativado pela equipa de suporte do ciclo de vida SCC.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -179,7 +177,7 @@ Para permitir que os utilizadores do Azure AD inicie sessão no ciclo de vida SC
 Quando um utilizador atribuído tenta iniciar sessão no ciclo de vida SCC, uma conta de ciclo de vida SCC é criada automaticamente se necessário.
 
 > [!NOTE]
-    > Titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue-se de uma ligação para confirmar a respetiva conta para ficar ativa.
+> Titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue-se de uma ligação para confirmar a respetiva conta para ficar ativa.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

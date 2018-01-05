@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 11b141617bea5962c45e1b91cf6629c2edd26c3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Acesso seguro aos dados de uma aplicação na nuvem
 
@@ -55,7 +55,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 Na parte de uma série neste tutorial, a aplicação web foi Mostrar imagens a partir de um contentor público. Nesta parte da série, utilize [assinatura de acesso seguro (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) tokens para obter as imagens em miniatura. Os tokens SAS permitem-lhe fornecer acesso restrito a um contentor ou BLOBs com base em IP, o protocolo, o intervalo de tempo ou direitos permitidos.
 
-Neste exemplo, o repositório de código de origem utiliza a `sasTokens` ramo, que tem um exemplo de código atualizado. Elimine a implementação existente do GitHub com o [delete de origem de implementação de webapp az](/cli/azure/webapp/deployments/source#delete). Em seguida, configurar a implementação de GitHub para a aplicação web com o [az webapp configuração da origem de implementação](/cli/azure/webapp/deployment/source#config) comando.  
+Neste exemplo, o repositório de código de origem utiliza a `sasTokens` ramo, que tem um exemplo de código atualizado. Elimine a implementação existente do GitHub com o [delete de origem de implementação de webapp az](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_delete). Em seguida, configurar a implementação de GitHub para a aplicação web com o [az webapp configuração da origem de implementação](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) comando.  
 
 O comando seguinte, `<web-app>` é o nome da sua aplicação web.  
 
@@ -194,7 +194,7 @@ Date: Mon, 11 Sep 2017 19:27:46 GMT
 
 ## <a name="enable-https-only"></a>Permitir apenas HTTPS
 
-Para garantir que os pedidos de dados de e para uma conta de armazenamento são seguros, pode limitar pedidos apenas para HTTPS. Atualize o protocolo necessário de conta de armazenamento utilizando o [atualização az da conta de armazenamento](/cli/azure/storage/account#update) comando.
+Para garantir que os pedidos de dados de e para uma conta de armazenamento são seguros, pode limitar pedidos apenas para HTTPS. Atualize o protocolo necessário de conta de armazenamento utilizando o [atualização az da conta de armazenamento](/cli/azure/storage/account#az_storage_account_update) comando.
 
 ```azurecli-interactive
 az storage account update --resource-group myresourcegroup --name <storage-account-name> --https-only true
@@ -212,7 +212,7 @@ Agora que a transferência segura não é necessária, receber a mensagem seguin
 HTTP/1.1 400 The account being accessed does not support http.
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Na parte três da série, aprendeu a proteger o acesso à conta de armazenamento, tais como:
 

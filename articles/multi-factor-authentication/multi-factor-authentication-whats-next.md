@@ -4,21 +4,21 @@ description: "Este artigo descreve como configurar definições do multi-factor 
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4dce84becbf7d9758bd507e258b781b903fc64d9
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 4421b995e69e115fbb6c7379af79aaef537aed0d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar definições de multi-factor Authentication do Azure
 
@@ -37,42 +37,37 @@ Este artigo ajuda-o a gerir o Azure multi-factor Authentication agora que está 
 | [Métodos de verificação selecionável](#selectable-verification-methods) |Utilize esta funcionalidade para selecionar a lista de métodos de autenticação que os utilizadores têm capacidade para utilizar. |
 
 ## <a name="block-and-unblock-users"></a>Bloquear e desbloquear utilizadores
+
 Utilize o _bloquear e desbloquear utilizadores_ funcionalidade para impedir que os utilizadores receber pedidos de autenticação. Quaisquer tentativas de autenticação para utilizadores bloqueados são rejeitadas automaticamente. Os utilizadores permanecerem bloqueados 90 dias desde o momento em que este é bloqueado.
 
 ### <a name="block-a-user"></a>Bloquear um utilizador
+
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-
 2. Navegue até à **do Azure Active Directory** > **servidor MFA** > **bloquear/desbloquear utilizadores**.
-
 3. Selecione **adicionar** para bloquear um utilizador.
-
 4. Selecione o **grupo de replicação**. Introduza o nome de utilizador para o utilizador bloqueado **username<span></span>@domain.com**. Introduza um comentário no **razão** campo.
-
 5. Selecione **adicionar** para concluir a bloquear o utilizador.
 
 ### <a name="unblock-a-user"></a>Desbloquear um utilizador
+
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-
 2. Navegue até à **do Azure Active Directory** > **servidor MFA** > **bloquear/desbloquear utilizadores**.
-
 3. Selecione **desbloqueio** no **ação** coluna junto ao utilizador a desbloquear.
-
 4. Introduza um comentário no **pelo motivo para desbloquear** campo.
-
 5. Selecione **desbloqueio** para concluir a desbloquear o utilizador.
 
 ## <a name="fraud-alert"></a>Alerta de fraudes
+
 Configurar o _alerta de fraude_ funcionalidade para que os utilizadores podem comunicar fraudulenta tenta aceder aos respetivos recursos. Os utilizadores podem comunicar tentativas de fraude utilizando a aplicação móvel ou através do seu telefone.
 
 ### <a name="turn-on-fraud-alerts"></a>Ativar alertas de fraude
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
 2. Navegue até à **do Azure Active Directory** > **servidor MFA** > **alerta de fraude**.
 
    ![Ativar alertas de fraude](./media/multi-factor-authentication-whats-next/fraudalert.png)
 
 3. Definir o **permitir que os utilizadores enviem alertas de fraude** definição **no**.
-
 4. Selecione **Guardar**.
 
 ### <a name="configuration-options"></a>Opções de configuração
@@ -85,61 +80,30 @@ Configurar o _alerta de fraude_ funcionalidade para que os utilizadores podem co
   >
 
 ### <a name="view-fraud-reports"></a>Ver relatórios de fraude
-1. Inicie sessão no [Portal Clássico do Azure](https://manage.windowsazure.com).
 
-2. No lado esquerdo, selecione **Active Directory**.
-
-3. Selecione o diretório que pretende gerir. 
-
-4. Selecione **configurar**.
-
-5. Em **multi-factor Authentication**, selecione **gerir definições do serviço**.
-
-6. Na parte inferior do **definições do serviço** página, selecione **aceda ao portal do**.
-
-7. No Portal de gestão do Azure multi-factor Authentication, sob **ver um relatório**, selecione **alerta de fraude**.
-
-8. Introduza o intervalo de datas que pretende ver o relatório. Também pode especificar nomes de utilizador, números de telefone e o estado do utilizador.
-
-9. Selecione **executar** para ver um relatório de alertas de fraude. Para exportar o relatório, selecione **exportar para CSV**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Selecione **do Azure Active Directory** > **inícios de sessão**. O relatório de fraude faz agora parte do relatório padrão do Azure AD inícios de sessão.
 
 ## <a name="one-time-bypass"></a>Omissão de uso individual
+
 O _omissão de uso individual_ funcionalidade permite ao utilizador autenticar-se de uma única vez sem efetuar verificação de dois passos. A omissão é temporária e expira após um número de segundos especificado. Em situações onde a aplicação móvel ou por telefone não está a receber uma notificação ou uma chamada telefónica, pode permitir que uma omissão de uso individual para que o utilizador possa aceder o recursos desejados.
 
 ### <a name="create-a-one-time-bypass"></a>Criar uma omissão de uso individual
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-
 2. Navegue até à **do Azure Active Directory** > **servidor MFA** > **omissão de uso individual**.
 
    ![Criar a omissão de uso individual](./media/multi-factor-authentication-whats-next/onetimebypass.png)
 
 3. Selecione **Adicionar**.
-
 4. Se necessário, selecione o grupo de replicação para a omissão.
-
 5. Introduza o nome de utilizador como **username<span></span>@domain.com**. Introduza o número de segundos que a omissão deve última. Introduza a razão para a omissão. 
-
 6. Selecione **Adicionar**. O limite de tempo entra em vigor imediatamente. O utilizador tem de iniciar sessão antes de expira a omissão de uso individual. 
 
 ### <a name="view-the-one-time-bypass-report"></a>Ver o relatório de omissão de uso individual
-1. Inicie sessão no [Portal Clássico do Azure](https://manage.windowsazure.com).
 
-2. No lado esquerdo, selecione **Active Directory**.
-
-3. Selecione o diretório que pretende gerir. 
-
-4. Selecione **configurar**.
-
-5. Em **multi-factor Authentication**, selecione **gerir definições do serviço**.
-
-6. Na parte inferior do **definições do serviço** página, selecione **aceda ao portal do**.
-
-7. No Portal de gestão do Azure multi-factor Authentication, sob **ver um relatório**, selecione **omissão de uso individual**.
-
-8. Introduza o intervalo de datas que pretende ver o relatório. Também pode especificar nomes de utilizador, números de telefone e o estado do utilizador.
-
-9. Selecione **executar** para ver um relatório de omissões. Para exportar o relatório, selecione **exportar para CSV**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Navegue até à **do Active Directory** > **servidor MFA** > **omissão de uso individual**.
 
 ## <a name="custom-voice-messages"></a>Mensagens de voz personalizadas
 Pode utilizar os seus próprios gravações ou saudações para verificação de dois passos com o _mensagens de voz personalizadas_ funcionalidade. Estas mensagens podem ser utilizadas na adição ou substituir as gravações de Microsoft.
@@ -153,42 +117,37 @@ Antes de começar, tenha em atenção as seguintes restrições:
 ### <a name="set-up-a-custom-message"></a>Configurar uma mensagem personalizada
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
-
 2. Navegue até à **do Azure Active Directory** > **servidor MFA** > **definições de chamada telefónica**.
 
    ![Mensagens de telefone personalizado do registo](./media/multi-factor-authentication-whats-next/phonecallsettings.png)
 
 3. Selecione **adicionar saudação**.
-
 4. Escolha o tipo de saudação. Escolha o idioma.
-
 5. Selecione um ficheiro de som. mp3 ou WAV para carregar.
-
 6. Selecione **Adicionar**.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>A colocação em cache no multi-factor Authentication do Azure
- Pode definir um período de tempo para permitir que as tentativas de autenticação, depois de um utilizador é autenticado utilizando o _colocação em cache_ funcionalidade. Tentativas de autenticação subsequentes para o utilizador especificado no período de tempo autenticar-se automaticamente. A colocação em cache é principalmente utilizada quando sistemas no local, tais como VPN, enviam vários pedidos de verificação, enquanto o primeiro pedido ainda está em curso. Esta funcionalidade permite que os pedidos subsequentes seja bem sucedida automaticamente, após o utilizador é concluída com êxito a primeira verificação em curso. 
+
+Pode definir um período de tempo para permitir que as tentativas de autenticação, depois de um utilizador é autenticado utilizando o _colocação em cache_ funcionalidade. Tentativas de autenticação subsequentes para o utilizador especificado no período de tempo autenticar-se automaticamente. A colocação em cache é principalmente utilizada quando sistemas no local, tais como VPN, enviam vários pedidos de verificação, enquanto o primeiro pedido ainda está em curso. Esta funcionalidade permite que os pedidos subsequentes seja bem sucedida automaticamente, após o utilizador é concluída com êxito a primeira verificação em curso. 
 
 >[!NOTE]
 >A funcionalidade de colocação em cache não se destina a ser utilizado para inícios de sessão ao Azure Active Directory (Azure AD).
 
 ### <a name="set-up-caching"></a>Configurar a colocação em cache 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
 2. Navegue até à **do Azure Active Directory** > **servidor MFA** > **regras a colocação em cache**.
 
    ![Configurar regras de colocação em cache](./media/multi-factor-authentication-whats-next/cachingrules.png)
 
 3. Selecione **Adicionar**.
-
 4. Selecione o **tipo de cache** na lista pendente. Introduza o número máximo de **segundos de cache**. 
-
 5. Se necessário, selecione um tipo de autenticação e especifique uma aplicação. 
-
 6. Selecione **Adicionar**.
 
 
 ## <a name="trusted-ips"></a>IPs Fidedignos
+
 O _IPs fidedignos_ funcionalidade do Azure multi-factor Authentication é utilizada por administradores de um inquilino federado ou não geridos. A funcionalidade ignora a verificação de dois passos para os utilizadores que iniciar sessão a partir da intranet da empresa. A funcionalidade está disponível com a versão completa do multi-factor Authentication do Azure e não a versão gratuita para administradores. Para obter mais informações sobre como obter a versão completa do multi-factor Authentication do Azure, consulte [Azure multi-factor Authentication](multi-factor-authentication.md).
 
 | Tipo de inquilino do Azure AD | Opções de funcionalidades de IPs fidedignas |
@@ -210,28 +169,19 @@ Independentemente se estiver ativada a funcionalidade de IPs fidedignos, verific
 
 ### <a name="enable-named-locations-by-using-conditional-access"></a>Ativar localizações com nome utilizando o acesso condicional
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, selecione **do Azure Active Directory** > **acesso condicional** > **denominado localizações**.
-
 3. Selecione **nova localização**.
-
 4. Introduza um nome para a localização.
-
 5. Selecione **marcar como localização fidedigna**.
-
 6. Introduza o intervalo de IP na notação CIDR como **192.168.1.1/24**.
-
 7. Selecione **Criar**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Ativar a funcionalidade de IPs fidedignos ao utilizar o acesso condicional
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, selecione **do Azure Active Directory** > **acesso condicional** > **denominado localizações**.
-
 3. Selecione **MFA configurar IPs fidedignos**.
-
 4. No **definições do serviço** página **IPs fidedignos**, escolha entre as duas opções seguintes:
    
    * **Para pedidos de utilizadores federados com origem na minha intranet**: escolher esta opção, selecione a caixa de verificação. Todos os utilizadores federados que o início de sessão da rede empresarial ignorar a verificação em dois passos, utilizando uma afirmação que é emitida pelo AD FS. Certifique-se de que o AD FS tem uma regra para adicionar a afirmação de intranet para o tráfego adequado. Se a regra não existir, crie a seguinte regra no AD FS:<br/>
@@ -251,14 +201,10 @@ Independentemente se estiver ativada a funcionalidade de IPs fidedignos, verific
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Ativar a funcionalidade de IPs fidedignos, utilizando as definições de serviço
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores e grupos** > **todos os utilizadores**.
-
 3. Selecione **multi-factor Authentication**.
-
 4. Em multi-factor Authentication, selecione **definições do serviço**.
-
 5. No **definições do serviço** página **IPs fidedignos**, escolha entre as duas opções seguintes:
    
    * **Para pedidos de utilizadores federados na minha intranet**: escolher esta opção, selecione a caixa de verificação. Todos os utilizadores federados que o início de sessão da rede empresarial ignorar a verificação em dois passos, utilizando uma afirmação que é emitida pelo AD FS. Certifique-se de que o AD FS tem uma regra para adicionar a afirmação de intranet para o tráfego adequado. Se a regra não existir, crie a seguinte regra no AD FS:<br/>
@@ -289,6 +235,7 @@ Algumas aplicações, como o Office 2010 ou anterior e Apple Mail, não suportam
 >
 
 ### <a name="considerations-about-app-passwords"></a>Considerações sobre palavras-passe de aplicação
+
 Quando utilizar palavras-passe de aplicação, considere os seguintes pontos importantes:
 
 * As palavras-passe de aplicação só são introduzidas uma vez por aplicação. Os utilizadores não têm de manter um registo das palavras-passe ou introduzi-las sempre.
@@ -302,12 +249,14 @@ Quando utilizar palavras-passe de aplicação, considere os seguintes pontos imp
 >
 
 ### <a name="guidance-for-app-password-names"></a>Orientações para nomes de palavra-passe de aplicação
+
 Os nomes de palavra-passe de aplicações reflitam o dispositivo no qual está a utilizar. Se tiver um portátil com aplicações não baseadas no browser como o Outlook, Word e Excel, crie uma palavra-passe com o nome **portátil** para estas aplicações. Criar outra aplicação palavra-passe com o nome **ambiente de trabalho** para as mesmas aplicações que são executados no seu computador de secretária. 
 
 >[!NOTE]
 >Recomendamos que crie uma palavra-passe por dispositivo, em vez de uma palavra-passe por aplicação.
 
 ### <a name="federated-or-single-sign-on-app-passwords"></a>Palavras-passe de federada ou único início de sessão na aplicação
+
 AD do Azure suporta a Federação ou início de sessão único (SSO), com local no Windows Server Active Directory Domain Services (AD DS). Se a sua organização estiver federada com o Azure AD e estiver a utilizar o Azure multi-factor Authentication, considere os seguintes pontos sobre palavras-passe de aplicação.
 
 >[!NOTE]
@@ -334,21 +283,19 @@ AD do Azure suporta a Federação ou início de sessão único (SSO), com local 
   * Para aceder o livro de endereços a partir de um cliente do Outlook que liga ao Exchange online, utilize uma palavra-passe de aplicação.
 
 ### <a name="allow-users-to-create-app-passwords"></a>Permitir que os utilizadores criem palavras-passe de aplicação
+
 Por predefinição, os utilizadores não é possível criar palavras-passe de aplicação. A funcionalidade de palavras-passe de aplicação tem de estar ativada. Para conceder aos utilizadores a capacidade de criar palavras-passe de aplicação, utilize o seguinte procedimento:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores e grupos** > **todos os utilizadores**.
-
 3. Selecione **multi-factor Authentication**.
-
 4. Em multi-factor Authentication, selecione **definições do serviço**.
-
 5. No **definições do serviço** página, selecione o **permitir aos utilizadores criar palavras-passe de aplicação para iniciar sessão em aplicações não baseadas no browser** opção.
 
    ![Permitir que os utilizadores criem palavras-passe de aplicação](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
 ### <a name="create-app-passwords"></a>Criar palavras-passe de aplicação
+
 Os utilizadores podem criar palavras-passe de aplicação durante o respetivo registo inicial. O utilizador tem a opção de criar palavras-passe de aplicação no final do processo de registo.
 
 Os utilizadores também podem criar palavras-passe de aplicação após o registo. As palavras-passe de aplicação podem ser alteradas via as definições no portal do Azure ou no portal do Office 365. Para obter mais informações e os passos detalhados para os seus utilizadores, consulte [quais são as palavras-passe de aplicação no Azure multi-factor Authentication?](./end-user/multi-factor-authentication-end-user-app-passwords.md)
@@ -378,20 +325,16 @@ A funcionalidade reduz o número de autenticações nas aplicações web, que no
 >
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Lembre-se de ativar multi-factor Authentication
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores e grupos** > **todos os utilizadores**.
-
 3. Selecione **multi-factor Authentication**.
-
 4. Em multi-factor Authentication, selecione **definições do serviço**.
-
 5. No **definições do serviço** página **gerir Lembre-se a autenticação multifator**, selecione o **permitir que os utilizadores memorizem a autenticação multifator em dispositivos eles confiam**opção.
 
    ![Lembre-se de multi-factor Authentication para dispositivos fidedignos](./media/multi-factor-authentication-whats-next/remember.png)
 
 6. Defina o número de dias para permitir que os dispositivos fidedignos ignorar a verificação de dois passos. A predefinição é 14 dias.
-
 7. Selecione **Guardar**.
 
 ### <a name="mark-a-device-as-trusted"></a>Marcar um dispositivo como fidedigna
@@ -401,6 +344,7 @@ Depois de ativar a funcionalidade de multi-factor Authentication de lembrar, os 
 ![Selecione "Não voltar a perguntar" para dispositivos fidedignos](./media/multi-factor-authentication-whats-next/trusted.png)
 
 ## <a name="selectable-verification-methods"></a>Métodos de verificação selecionável
+
 Pode escolher os métodos de verificação que estão disponíveis para os seus utilizadores utilizando o _métodos de verificação selecionável_ funcionalidade. A tabela seguinte fornece uma breve descrição geral dos métodos.
 
 Quando os utilizadores inscrevem das respetivas contas de Azure multi-factor Authentication, o método de verificação preferida que escolherem entre as opções que tiver ativado. É fornecida orientação para o processo de inscrição de utilizador no [configurar a minha conta para a verificação de dois passos](multi-factor-authentication-end-user-first-time.md).
@@ -413,14 +357,11 @@ Quando os utilizadores inscrevem das respetivas contas de Azure multi-factor Aut
 | Código de verificação da aplicação móvel |A aplicação Microsoft Authenticator gera um novo código de verificação de OATH cada 30 segundos. O utilizador introduz o código de verificação para a interface de início de sessão. A aplicação Authenticator da Microsoft está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>Ativar e desativar os métodos de verificação
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores e grupos** > **todos os utilizadores**.
-
 3. Selecione **multi-factor Authentication**.
-
 4. Em multi-factor Authentication, selecione **definições do serviço**.
-
 5. No **definições do serviço** página **opções de verificação**, selecionar/anular a seleção de métodos para fornecer aos seus utilizadores.
 
    ![Selecionar os métodos de verificação](./media/multi-factor-authentication-whats-next/authmethods.png)

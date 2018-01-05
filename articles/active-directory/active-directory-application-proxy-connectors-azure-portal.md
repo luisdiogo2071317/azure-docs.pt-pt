@@ -3,7 +3,7 @@ title: "Publicação de aplicações em redes separadas e localizações de util
 description: "Aborda como criar e gerir grupos de conectores no Proxy de aplicações do Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: afa710e2605bc1416b082f266010c52d13e83973
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c409e5419a2bd393cb5c7ec265e44310f7e9027
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicações em redes separadas e localizações utilizar grupos de conector
 
@@ -38,7 +38,7 @@ Para os conectores de grupo, tem de certificar-se de [instalados vários conecto
 ## <a name="create-connector-groups"></a>Criar grupos de conector
 Utilize estes passos para criar grupos de conector tantos conforme pretender. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione **do Azure Active Directory** > **aplicações empresariais** > **proxy de aplicações**.
 2. Selecione **novo grupo de conector**. É apresentado o painel do novo grupo de conector.
 
@@ -123,7 +123,7 @@ No exemplo abaixo, a empresa tem dois centros de dados, A e B, com dois conector
 
 ![AzureAD não existem grupos de conector](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-understand-connectors.md)
 * [Ativar o início de sessão único](application-proxy-sso-overview.md)

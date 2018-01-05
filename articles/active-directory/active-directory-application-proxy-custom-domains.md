@@ -3,7 +3,7 @@ title: "Domínios personalizados no Proxy de aplicações do Azure AD | Microsof
 description: "Gerir domínios personalizados no Proxy de aplicações do Azure AD para que o URL para a aplicação é o mesmo, independentemente de onde os utilizadores aceder ao mesmo."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 2fe9f895-f641-4362-8b27-7a5d08f8600f
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: billmath
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 48e074f3f7bd60bc02e26c4bd634ec646b1ff401
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a5b7731cfd98a53f83a9882529a713381b4f848
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Trabalhar com domínios personalizados no Proxy de aplicações do Azure AD
 
@@ -45,7 +45,7 @@ Antes de configurar um domínio personalizado, certifique-se de que tem os segui
 
 Quando tiver esses três requisitos prontos, siga estes passos para configurar o domínio personalizado:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue para **do Azure Active Directory** > **aplicações empresariais** > **todas as aplicações** e escolha a aplicação que pretende gerir.
 3. Selecione **Proxy de aplicações**. 
 4. No campo URL externo, utilize a lista pendente para selecionar o domínio personalizado. Se não vir o seu domínio na lista, em seguida, se ainda não foi verificado ainda. 
@@ -80,7 +80,7 @@ Receberá um aviso quando um certificado expira, informá-lo carregue outro cert
 
 Atualmente os toda a gestão de certificados é através de páginas de aplicações individuais, pelo que necessita gerir os certificados no contexto das aplicações relevantes. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Ativar o início de sessão único](active-directory-application-proxy-sso-using-kcd.md) às suas aplicações publicadas com a autenticação do Azure AD.
 * [Ativar o acesso condicional](application-proxy-enable-remote-access-sharepoint.md) às suas aplicações publicadas.
 * [Adicionar o seu nome de domínio personalizado ao Azure AD](active-directory-domains-add-azure-portal.md)

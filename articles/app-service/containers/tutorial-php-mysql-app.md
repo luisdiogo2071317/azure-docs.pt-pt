@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bf6efd96bea8a6f563ec72d5469d91b4cbfbd5fe
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: cf398d18091a008afc24cbe583001fd538039db2
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação web PHP e o MySQL no Azure App Service no Linux
 
@@ -164,7 +164,7 @@ Criar um servidor na base de dados do Azure para MySQL (pré-visualização) com
 O seguinte comando, substitua o nome do servidor MySQL onde vir o  _&lt;mysql_server_name >_ marcador de posição (carateres válidos são `a-z`, `0-9`, e `-`). Este nome é parte do nome de anfitrião do servidor MySQL (`<mysql_server_name>.database.windows.net`), tem de ser globalmente exclusivo.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password MySQLAzure2017 --ssl-enforcement Disabled
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --ssl-enforcement Disabled
 ```
 
 Quando o servidor de MySQL é criado, a CLI do Azure mostra as informações semelhante ao seguinte exemplo:
@@ -202,7 +202,7 @@ Na janela de terminal, ligar ao servidor MySQL no Azure. Utilize o valor que esp
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-Quando lhe for pedido para uma palavra-passe, utilize _$tr0ngPa$ w0rd!_, que especificou quando criou a base de dados.
+Quando lhe for pedido para uma palavra-passe, utilize _$tr0ngPa$ w0rd!_, que especificou quando criou o servidor de base de dados.
 
 ### <a name="create-a-production-database"></a>Criar uma base de dados de produção
 
@@ -243,7 +243,7 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.database.windows.net
+DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017
@@ -333,7 +333,7 @@ Neste passo, a aplicação é implementada ligados MySQL PHP App Service do Azur
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-### <a name="configure-database-settings"></a>Configurar definições de base de dados
+### <a name="configure-database-settings"></a>Configurar as definições de base de dados
 
 No App Service, definir variáveis de ambiente como _as definições de aplicação_ utilizando o [az webapp configuração appsettings conjunto](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) comando.
 
@@ -596,7 +596,7 @@ O menu à esquerda fornece páginas para configurar a sua aplicação.
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

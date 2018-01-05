@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: danis
-ms.openlocfilehash: 25677c2a4ab78c601f4d4a8630787f6f16dda3c4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9a8eae62d2dcb4c422b707909a27c84c7bf1aab3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script personalizado para o Windows
 
@@ -28,6 +28,11 @@ A extensão de Script personalizado transfere e executa os scripts em máquinas 
 Este documento fornece detalhes sobre como utilizar a extensão de Script personalizado com o módulo Azure PowerShell, os modelos Azure Resource Manager e detalhes de resolução de problemas de passos em sistemas Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+> [!NOTE]  
+> Não utilize a extensão de Script personalizado para executar a atualização-AzureRmVM com a mesma VM que o respectivo parâmetro, uma vez que este irá esperar em si próprio.  
+>   
+> 
 
 ### <a name="operating-system"></a>Sistema Operativo
 

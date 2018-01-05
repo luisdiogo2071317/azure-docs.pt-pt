@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 74051c5a6c7cb58f5132411bfc66d4947ed916d6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -112,7 +112,9 @@ O método devolve um dicionário que pode ser utilizado encadear atividades pers
      <li>Selecione <b>C:\ADFGetStarted</b> para o <b>localização</b>.</li>
      <li>Clique em <b>OK</b> para criar o projeto.</li>
    </ol>
-2.Clique em **ferramentas**, aponte para **Gestor de pacotes NuGet**e clique em **consola do Gestor de pacotes**.
+   
+2. Clique em **Ferramentas**, aponte para **Gestor de Pacotes NuGet** e clique em **Consola do Gestor de Pacotes**.
+
 3. Na consola do Gestor de pacotes, execute o seguinte comando para importar **Microsoft.Azure.Management.DataFactories**.
 
     ```PowerShell

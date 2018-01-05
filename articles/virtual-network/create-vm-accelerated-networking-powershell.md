@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/20/2017
 ms.author: jimdial
-ms.openlocfilehash: c1a86e6f235964b4019cedb13833d01f99a59997
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8c2cc9ef487ee754f904f04e604ef76c3f9e07af
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual do Windows com acelerados da rede
 
@@ -28,7 +28,7 @@ Neste tutorial, irá aprender a criar uma máquina virtual (VM) do Windows com a
 
 Sem redes na melhoria, todo o tráfego de rede que entra e sai da VM tem atravessar o anfitrião e o comutador virtual. O comutador virtual fornece todos os imposição de política, tais como grupos de segurança de rede, listas de controlo de acesso, isolamento e outros serviços de rede virtualizado para tráfego de rede. Para obter mais informações sobre comutadores virtuais, leia o [Virtualização de rede do Hyper-V e do comutador virtual](https://technet.microsoft.com/library/jj945275.aspx) artigo.
 
-Com redes na melhoria, o tráfego de rede chega à interface de rede da VM (NIC) e, em seguida, é reencaminhado para a VM. Todas as políticas de rede que se aplica o comutador virtual sem redes na melhoria são descarregadas sendo aplicadas no hardware. Aplicar a política de hardware permite que o NIC para reencaminhar o tráfego de rede diretamente para a VM, ignorando o anfitrião e o comutador virtual, enquanto mantém todos os a política que aplicada no anfitrião.
+Com redes na melhoria, o tráfego de rede chega à interface de rede da VM (NIC) e, em seguida, é reencaminhado para a VM. Todas as políticas de rede que o comutador virtual aplica-se agora são descarregadas sendo aplicadas no hardware. Aplicar a política de hardware permite que o NIC para reencaminhar o tráfego de rede diretamente para a VM, ignorando o anfitrião e o comutador virtual, enquanto mantém todos os a política que aplicada no anfitrião.
 
 As vantagens do funcionamento em rede na melhoria só se aplicam à VM que está ativada no. Para obter os melhores resultados, é ideal ativar esta funcionalidade em, pelo menos, duas VMs ligadas à mesma rede de Virtual do Azure (VNet). Quando a comunicação entre VNets ou ligação no local, esta funcionalidade tem um impacto mínimo para geral de latência.
 
@@ -37,14 +37,22 @@ As vantagens do funcionamento em rede na melhoria só se aplicam à VM que está
 * **Reduzido interferência:** comutador Virtual de processamento depende da quantidade de política que tem de ser aplicadas e a carga de trabalho da CPU que está a fazer o processamento. Descarregar a imposição de política para o hardware remove esse variabilidade fornecendo pacotes diretamente para a VM, a remoção do anfitrião para comunicação de VM e todas as interrupções de software e comutadores de contexto.
 * **Diminuir a utilização da CPU:** ignorar o comutador virtual no anfitrião leva a menor utilização da CPU para processar o tráfego de rede.
 
+## <a name="supported-operating-systems"></a>Sistemas operativos suportados
+O Centro de dados do Microsoft Windows Server 2012 R2 e o Windows Server 2016.
+
+## <a name="supported-vm-instances"></a>Instâncias VM suportadas
+É suportada na melhoria de redes objetivo mais comum e tamanhos de instância com otimização de computação com vCPUs 4 ou mais. Instâncias como D/DSv3 ou I/ESv3 que suportam o Hyper-Threading, acelerados redes é suportada em instâncias VM com 8 ou mais vCPUs. Série suportado é: D/série DSv2, D/DSv3, I/ESv3, Fs/F/Fsv2 e Ms/Mms.
+
+Para obter mais informações sobre as instâncias VM, consulte [tamanhos de Windows VM](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+## <a name="regions"></a>Regiões
+Disponível em todas as regiões do Azure públicas e na nuvem do Azure Government. 
+
 ## <a name="limitations"></a>Limitações
 Existem as seguintes limitações ao utilizar esta capacidade:
 
 * **Criação de interface de rede:** Accelerated redes só podem ser ativada para uma NIC de novo. Não pode ser ativada para uma NIC que existente.
 * **A criação de VM:** A NIC com redes na melhoria ativada só podem ser anexado a uma VM quando é criada a VM. O NIC não pode ser ligado a uma VM existente. Se adicionar a VM para um disponibilidade existente, todas as VMs no conjunto de disponibilidade tem também de ter acelerados rede ativada.
-* **Regiões:** disponível em regiões mais do Azure. 
-* **Sistemas operativos suportados:** Centro de dados do Microsoft Windows Server 2012 R2 e Windows Server 2016
-* **Tamanho da VM:** fins gerais e os tamanhos de instância com otimização de computação com oito ou vários núcleos. Para obter mais informações, consulte [tamanhos de Windows VM](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **Apenas a implementação através do Gestor de recursos do Azure:** não é possível implementar máquinas virtuais (clássicas) com acelerados da rede.
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual

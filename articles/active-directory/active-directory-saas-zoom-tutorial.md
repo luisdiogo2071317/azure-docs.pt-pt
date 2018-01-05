@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 12/28/2017
 ms.author: jeedes
-ms.openlocfilehash: a525bab0409dc212da9fe46a23b8320aed9a4463
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Tutorial: Integração do Azure Active Directory com o Zoom
 
@@ -113,29 +113,57 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`<companyname>.zoom.us`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de Zoom](https://support.zoom.us/hc) para obter estes valores. 
+    > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de Zoom](https://support.zoom.us/hc) para obter estes valores.
+
+4. A aplicação de Zoom espera as asserções de SAML num formato específico, que necessita para adicionar mapeamentos de atributos personalizado à sua configuração de atributos token SAML. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos a partir de "**atributos de utilizador**" secção na página de integração de aplicações. 
+
+    ![Configurar o início de sessão único](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
+
+5. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributos token SAML, conforme mostrado na imagem anterior e execute os seguintes passos:
+    
+    | Nome do Atributo | Valor do Atributo | Valor de espaço de nomes |
+    | ------------------- | -----------|--------- |    
+    | Endereço de e-mail | User.Mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail`|
+    | Nome próprio | User.givenName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`|
+    | Apelido | User.Surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname `|
+    | Número de telefone | User.telephoneNumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
+    | Departamento | User.Department | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`|
+
+    a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
+
+    ![Configurar o início de sessão único](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_04.png)
+
+    ![Configurar o início de sessão único](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_05.png)
+
+    b. No **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+
+    c. Do **valor** lista, digite o valor de atributo apresentado para essa linha.
+
+    d. No **espaço de nomes** caixa de texto, digite o valor do espaço de nomes mostrado para essa linha.
+    
+    e. Clique em **OK**. 
  
-4. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+6. No **certificado de assinatura de SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![A hiperligação de transferência do certificado](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png)
 
-5. Clique em **guardar** botão.
+7. Clique em **guardar** botão.
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-6. No **Zoom configuração** secção, clique em **configurar Zoom** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+8. No **Zoom configuração** secção, clique em **configurar Zoom** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
 
-    ![Configuração de zoom](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png) 
+    ![Configuração de zoom](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png)
 
-7. Numa janela do browser web diferente, inicie sessão no site da sua empresa Zoom como administrador.
+9. Numa janela do browser web diferente, inicie sessão no site da sua empresa Zoom como administrador.
 
-8. Clique em de **Single Sign-On** separador.
+10. Clique em de **Single Sign-On** separador.
    
     ![Separador de início de sessão único](./media/active-directory-saas-zoom-tutorial/IC784700.png "de sessão único-")
 
-9. Clique em de **controlo de segurança** separador e, em seguida, avance para o **Single Sign-On** definições.
+11. Clique em de **controlo de segurança** separador e, em seguida, avance para o **Single Sign-On** definições.
 
-10. Na secção de Single Sign-On, execute os seguintes passos:
+12. Na secção de Single Sign-On, execute os seguintes passos:
    
     ![Único início de sessão na secção](./media/active-directory-saas-zoom-tutorial/IC784701.png "de sessão único-")
    
@@ -148,6 +176,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     d. No **emissor** caixa de texto, cole o valor de **ID de entidade de SAML** que copiou do portal do Azure. 
 
     e. Clique em **Guardar**.
+
+    > [!NOTE] 
+    > Para mais informações, veja a documentação de zoom [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)

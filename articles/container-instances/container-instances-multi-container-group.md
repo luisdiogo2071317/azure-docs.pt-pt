@@ -9,17 +9,20 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5de818b0b47ee3345ddbc41455f5e953c5b96aa4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2ffebf06e2e013f909410fa4861420a5ae3d4dcf
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="deploy-a-container-group"></a>Implementar um grupo contentor
 
-Instâncias de contentor do Azure suporta a implementação de vários contentores para um anfitrião único através de um *grupo contentor*. Isto é útil ao criar um sidecar de aplicação para o registo, monitorização ou qualquer outra configuração em que um processo anexado segundo as necessita de um serviço.
+Instâncias de contentor do Azure suporta a implementação de vários contentores para um anfitrião único através de um [grupo contentor](container-instances-container-groups.md). Isto é útil ao criar um sidecar de aplicação para o registo, monitorização ou qualquer outra configuração em que um processo anexado segundo as necessita de um serviço.
 
 Este documento explica como executar uma configuração simples contentor multi sidecar ao implementar um modelo Azure Resource Manager.
+
+> [!NOTE]
+> Os grupos de contentor multi são atualmente restritos para contentores de Linux. Enquanto que estamos a trabalhar para colocar todas as funcionalidades de contentores do Windows, pode encontrar a atual plataforma as diferenças no [Quotas e disponibilidade de região para instâncias de contentor do Azure](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Configurar o modelo
 

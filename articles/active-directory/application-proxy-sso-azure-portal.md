@@ -3,7 +3,7 @@ title: "Início de sessão único para aplicações com o Proxy de aplicações 
 description: "Ative único início de sessão para as suas aplicações publicadas no local com o Proxy de aplicações do Azure AD no portal do Azure."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 4ca913d79d9abd4b50e4f280eb993235ca543b0f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 501017ae416cc8aa473077c98ae0a213db749547
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Palavra-passe vaulting para início de sessão com o Proxy da aplicação
 
@@ -53,7 +53,7 @@ Já deverá ter publicado e testado a sua aplicação com o Proxy de aplicaçõe
 
 Aceda ao URL externo que configurou para o acesso remoto à sua aplicação. Inicie sessão com as suas credenciais para essa aplicação (ou as credenciais para uma conta de teste que configurou com acesso). Depois de iniciar sessão com êxito, deverá conseguir deixar a aplicação e voltar atrás sem introduzir as suas credenciais novamente. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Leia sobre outras formas de implementar [-início de sessão único com o Proxy da aplicação](application-proxy-sso-overview.md)
 - Saiba mais sobre [considerações de segurança para aceder a aplicações remotamente com o Proxy de aplicações do Azure AD](application-proxy-security-considerations.md)

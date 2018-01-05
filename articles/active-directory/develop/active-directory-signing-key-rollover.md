@@ -1,12 +1,11 @@
 ---
-title: O Rollover da chave de assinatura no Azure AD | Microsoft Docs
+title: O Rollover da chave de assinatura no Azure AD
 description: "Este artigo aborda as assinatura rollover de chave melhores práticas para o Azure Active Directory"
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: ed964056-0723-42fe-bb69-e57323b9407f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,17 +14,17 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ac68839795dfd69daba16a0f7a01fc9ff16f616e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5396baa57fe0b49809d9fe06eb2b2feda2ed9ba8
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Iniciar o rollover da chave no Azure Active Directory
-Este tópico descreve o que precisa de saber sobre as chaves públicas que são utilizadas para assinar os tokens de segurança no Azure Active Directory (Azure AD). É importante ter em atenção que estas rollover de chaves periodicamente e, numa emergência, pode ser feito imediatamente. Todas as aplicações que utilizam o Azure AD devem ser capazes de lidar com o processo de rollover de chave ou estabelecer um processo manual de rollover periódica de através de programação. Continuar a ler para compreender como funcionam as chaves, como a avaliar o impacto de rollover à sua aplicação e como atualizar a sua aplicação ou estabelecer um processo manual de rollover periódica para processar o rollover da chave, se necessário.
+Este artigo descreve o que precisa de saber sobre as chaves públicas que são utilizadas para assinar os tokens de segurança no Azure Active Directory (Azure AD). É importante ter em atenção que estas rollover de chaves periodicamente e, numa emergência, pode ser feito imediatamente. Todas as aplicações que utilizam o Azure AD devem ser capazes de lidar com o processo de rollover de chave ou estabelecer um processo manual de rollover periódica de através de programação. Continuar a ler para compreender como funcionam as chaves, como a avaliar o impacto de rollover à sua aplicação e como atualizar a sua aplicação ou estabelecer um processo manual de rollover periódica para processar o rollover da chave, se necessário.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Descrição geral das chaves de assinatura no Azure AD
-Do Azure AD utiliza a criptografia de chave pública incorporada nas normas da indústria para estabelecer fidedignidade entre si próprio e as aplicações que a utilizam. Em termos práticos, isto funciona da seguinte forma: AD do Azure utiliza uma chave de assinatura que é composta por um par de chaves público e privado. Quando um utilizador inicia sessão a uma aplicação que utiliza o Azure AD para autenticação, o Azure AD cria um token de segurança que contém informações sobre o utilizador. Este token é assinada pelo Azure AD utilizando a respetiva chave privada antes de ser enviada para a aplicação. Para verificar que o token é válido e, na verdade, teve origem do Azure AD, a aplicação tem de validar a assinatura do token utilizando a chave pública exposta pelo Azure AD que está contido no inquilino do [OpenID Connect documento de identificação](http://openid.net/specs/openid-connect-discovery-1_0.html) ou SAML/WS-Fed [documento de metadados de Federação](active-directory-federation-metadata.md).
+Do Azure AD utiliza a criptografia de chave pública incorporada nas normas da indústria para estabelecer fidedignidade entre si próprio e as aplicações que a utilizam. Em termos práticos, isto funciona da seguinte forma: AD do Azure utiliza uma chave de assinatura que é composta por um par de chaves público e privado. Quando um utilizador inicia sessão a uma aplicação que utiliza o Azure AD para autenticação, o Azure AD cria um token de segurança que contém informações sobre o utilizador. Este token é assinada pelo Azure AD utilizando a respetiva chave privada antes de ser enviada para a aplicação. Para verificar que o token é válido e de origem do Azure AD, a aplicação tem de validar a assinatura do token utilizando a chave pública exposta pelo Azure AD que está contido no inquilino do [OpenID Connect documento de identificação](http://openid.net/specs/openid-connect-discovery-1_0.html) ou SAML / Sejam fornecidas WS [documento de metadados de Federação](active-directory-federation-metadata.md).
 
 Por motivos de segurança, do Azure AD assinatura faz chave periodicamente e, em caso de emergência, pode ser feito imediatamente. Qualquer aplicação que se integra com o Azure AD deve estar preparada para processar um evento de rollover de chave, independentemente da frequência podem ocorrer. Se não, e a aplicação tenta utilizar uma chave expirada para verificar a assinatura de um token, o pedido de início de sessão irá falhar.
 
@@ -183,7 +182,7 @@ namespace JWTValidation
 
             TokenValidationParameters validationParams = new TokenValidationParameters()
             {
-                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Classic Portal]",
+                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Portal]",
                 ValidIssuer = "[The issuer for the token goes here, such as https://sts.windows.net/68b98905-130e-4d7c-b6e1-a158a9ed8449/]",
                 SigningTokens = GetSigningCertificates(MetadataAddress)
 
@@ -284,7 +283,7 @@ Siga os passos abaixo para confirmar que a lógica de rollover de chave está a 
           </keys>
    ```
 2. No  **<add thumbprint=””>**  definição, altere o valor de thumbprint ao substituir qualquer caráter com outro. Guardar o **Web. config** ficheiro.
-3. Criar a aplicação e volte a executar. Se pode concluir o processo de início de sessão, a aplicação está com êxito a atualizar a chave ao transferir as informações necessárias do documento de metadados de Federação do Active. Se estiver a ter problemas em iniciar sessão, certifique-se de que as alterações na sua aplicação estão corretas ao ler o [adicionar início de sessão no seu Using de aplicação Web do Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) tópico, ou transferir e inspecionar o seguinte exemplo de código: [ Aplicação multi-inquilino de nuvem do Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+3. Criar a aplicação e volte a executar. Se pode concluir o processo de início de sessão, a aplicação está com êxito a atualizar a chave ao transferir as informações necessárias do documento de metadados de Federação do Active. Se estiver a ter problemas em iniciar sessão, certifique-se de que as alterações na sua aplicação estão corretas ao ler o [adicionar início de sessão no seu Using de aplicação Web do Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) artigo, ou transferir e inspecionar o seguinte exemplo de código: [ Aplicação multi-inquilino de nuvem do Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Aplicações Web de proteger os recursos e criados com o Visual Studio 2008 ou 2010 e a v 1.0 do Windows Identity Foundation (WIF) para o .NET 3.5
 Se criou uma aplicação no v 1.0 do WIF, não há nenhum mecanismo fornecido para atualizar automaticamente a configuração da sua aplicação para utilizar uma nova chave.
@@ -303,11 +302,11 @@ Instruções para utilizar o FedUtil para atualizar a configuração:
 ### <a name="other"></a>As aplicações Web / APIs proteger recursos utilizar quaisquer outras bibliotecas de ou implementar manualmente a qualquer um dos protocolos suportados
 Se estiver a utilizar outras bibliotecas algumas ou manualmente implementado qualquer um dos protocolos suportados, terá de rever a biblioteca ou a implementação para se certificar de que a chave a ser obtida a partir do documento de identificação OpenID Connect ou os metadados de Federação documento. Uma forma para verificar isto é fazer uma pesquisa no seu código ou um código da biblioteca de quaisquer chamadas enviados para o documento de identificação de OpenID ou o documento de metadados de Federação.
 
-Se a chave que estão a ser armazenados algures ou codificado na sua aplicação, pode manualmente obter a chave e a atualização, em conformidade por efetuar um rollover manual de acordo com as instruções no final deste documento de orientação. **É vivamente encouraged que melhorar a sua aplicação para suportar o rollover automático** utilizando qualquer um dos contorno abordagens neste artigo para evitar interrupções futuras e a sobrecarga se o Azure AD aumenta a cadência de rollover de ou tem de emergência rollover de fora de banda.
+Se a chave que estão a ser armazenados algures ou codificado na sua aplicação, pode manualmente obter a chave e atualizá-lo em conformidade por efetuar um rollover manual de acordo com as instruções no final deste documento de orientação. **É vivamente encouraged que melhorar a sua aplicação para suportar o rollover automático** utilizando qualquer um dos contorno abordagens neste artigo para evitar interrupções futuras e a sobrecarga, se o Azure AD aumenta a cadência da ou tem de emergência rollover de fora de banda.
 
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Como testar a aplicação para determinar se vai ser afetado
 Pode validar se a aplicação suporta o rollover de chave automático, transferir os scripts e siga as instruções no [este repositório do GitHub.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
-## <a name="how-to-perform-a-manual-rollover-if-you-application-does-not-support-automatic-rollover"></a>Como efetuar um rollover manual se a aplicação não suporta o rollover automático
+## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Como efetuar um rollover manual se a aplicação não suporta o rollover automático
 Se a aplicação **não** suporta rollover automático, é necessário estabelecer um processo que periodicamente monitores do Azure AD da assinatura de chaves e efetua um rollover manual em conformidade. [Este repositório do GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contém scripts e obter instruções sobre como fazê-lo.
 

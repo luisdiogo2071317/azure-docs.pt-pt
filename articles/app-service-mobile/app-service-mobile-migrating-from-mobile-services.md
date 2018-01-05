@@ -3,8 +3,8 @@ title: "Migrar a partir dos Mobile Services a uma aplicação móvel do serviço
 description: "Saiba como migrar facilmente a sua aplicação de Mobile Services a uma aplicação de Mobile do serviço de aplicações"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: glenga
-ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="article-top"></a>Migrar o serviço de móvel do Azure existente para o App Service do Azure
 Com o [disponibilidade geral do App Service do Azure], sites de Mobile Services do Azure podem ser migrados facilmente no local para tirar partido de todas as funcionalidades do serviço de aplicações do Azure.  Este documento explica o que esperar quando migrar o seu site de Mobile Services do Azure App Service do Azure.
@@ -167,7 +167,7 @@ Pode atualizar várias definições de aplicação ao mesmo tempo.
 ### <a name="authentication"></a>Autenticação
 Todas as definições de autenticação estão disponíveis como definições de aplicação no seu site migrado.  Para atualizar as definições de autenticação, tem de alterar as definições da aplicação adequado.  A tabela seguinte mostra as definições de aplicação adequado para o fornecedor de autenticação:
 
-| Fornecedor | ID de cliente | Segredo do cliente | Outras definições |
+| Fornecedor | ID do Cliente | Segredo do Cliente | Outras definições |
 |:--- |:--- |:--- |:--- |
 | Conta Microsoft |**MS\_MicrosoftClientID** |**MS\_MicrosoftClientSecret** |**MS\_MicrosoftPackageSID** |
 | Facebook |**MS\_FacebookAppID** |**MS\_FacebookAppSecret** | |
