@@ -12,8 +12,6 @@
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Configure políticas do Hive
       href: apache-domain-joined-run-hive.md
-    - name: Planeamento de capacidade
-      href: ../hdinsight-capacity-planning.md
       maintainContext: true
     - name: Gerir clusters associados a um domínio
       href: apache-domain-joined-manage.md

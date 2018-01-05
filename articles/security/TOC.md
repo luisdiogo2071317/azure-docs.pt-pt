@@ -54,6 +54,8 @@
 #### [Conformidade - UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Descrição geral](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Descrição geral de princípios](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### Conformidade - Serviços Financeiros
+##### [Serviços Financeiros para Cargas de Trabalho Reguladas](./blueprints/financial-services-regulated-workloads.md)
 
 # Introdução
 ## [Introdução à segurança do Azure](azure-security-getting-started.md)
