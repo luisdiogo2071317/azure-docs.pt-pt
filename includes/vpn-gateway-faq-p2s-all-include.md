@@ -59,6 +59,6 @@ Os utilizadores podem ligar-se ao Azure através do cliente VPN do Windows incor
 
 O Azure suporta apenas Windows e Mac na VPN P2S.
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enabled-radius-andor-ikev2-vpn-on-it"></a>Já tenho um Gateway de VPN do Azure implementado. Posso ativar a VPN RADIUS e/ou IKEv2 no mesmo?
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Já tenho um Gateway de VPN do Azure implementado. Posso ativar RADIUS e/ou IKEv2 VPN no mesmo?
 
-Sim, pode ativar estas novas funcionalidades no gateway já implementado, através da Powershell e do portal do Azure.
+Sim, pode ativar estas novas funcionalidades nos gateways já implementadas utilizando o Powershell ou o portal do Azure, desde que o SKU de gateway que estiver a utilizar suporta RADIUS e/ou IKEv2. Por exemplo, o SKU básico de gateway VPN não suporta RADIUS ou IKEv2.
