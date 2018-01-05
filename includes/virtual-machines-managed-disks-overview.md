@@ -32,7 +32,7 @@ Utilize o serviço de cópia de segurança do Azure com discos geridos para cria
 ## <a name="pricing-and-billing"></a>Preços e Faturação
 
 Ao utilizar discos geridos, aplicam as seguintes considerações de faturação:
-* Tipo de armazenamento
+* Tipo de Armazenamento
 
 * Tamanho do Disco
 
@@ -51,9 +51,9 @@ Vamos um olhar estes.
 
 Aqui estão os tamanhos de disco disponíveis para um disco gerido premium:
 
-| **Premium gerido <br>tipo de disco** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Tamanho do Disco        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| **Premium gerido <br>tipo de disco** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Tamanho do Disco        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
 Seguem-se disponível para um disco gerido standard os tamanhos de disco:
@@ -111,7 +111,7 @@ Existem dois tipos de encriptação para discutir no contexto de discos geridos.
 
 Encriptação de disco do Azure permite-lhe encriptar os SO e discos de dados utilizados pela máquina Virtual IaaS. A lista inclui discos geridos. Para o Windows, as unidades estão encriptadas com tecnologia de encriptação do BitLocker de norma da indústria. Para Linux, os discos estão encriptados com a tecnologia de DM-Crypt. Isto é integrado com o Cofre de chaves do Azure para permitem controlar e gerir as chaves de encriptação de disco. Para obter mais informações, consulte [encriptação de disco do Azure para Windows e as VMs de IaaS Linux](../articles/security/azure-security-disk-encryption.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre discos geridos, consulte os artigos seguintes.
 

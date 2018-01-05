@@ -33,5 +33,5 @@ Pode comprar instâncias de Máquina Virtual reservada [portal do Azure](https:/
 ## <a name="next-steps-after-buying-a-reservation"></a>Próximos passos depois de comprar uma reserva
 O desconto de reserva é aplicado automaticamente para o número de máquinas virtuais que corresponder ao âmbito de reserva e atributos em execução. Pode atualizar o âmbito da reserva através de [portal do Azure](https://portal.azure.com), PowerShell, CLI ou através da API. 
 
-Para saber como gerir uma reserva, consulte [gerir Azure reservado instâncias de Máquina Virtual](https://go.microsoft.com/fwlink/?linkid=861613).
+Para saber como gerir uma reserva, consulte [gerir Azure reservado instâncias de Máquina Virtual](../articles/billing/billing-manage-reserved-vm-instance.md).
 
