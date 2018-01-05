@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 0b7397e00c2d11c4c7be51421fb40ca6a9fe5779
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Resolver problemas de implementação com instâncias de contentor do Azure
 
@@ -203,7 +203,7 @@ Devido a vários recursos regional carregar no Azure, poderá receber o erro seg
 
 Este erro indica que, devido a sobrecarga na região na qual está a tentar implementar, não não possível alocar os recursos especificados para o contentor nessa altura. Utilize um ou mais dos seguintes passos de mitigação para ajudar a resolver o problema.
 
-* Certifique-se de que as definições de implementação do contentor coincidir com parâmetros definidos na [disponibilidade de região para instâncias de contentor do Azure](container-instances-region-availability.md)
+* Certifique-se de que as definições de implementação do contentor coincidir com parâmetros definidos na [Quotas e disponibilidade de região para instâncias de contentor do Azure](container-instances-quotas.md#region-availability)
 * Especificar definições de CPU e memória inferiores para o contentor
 * Implementar noutra região do Azure
 * Implementar numa altura posterior

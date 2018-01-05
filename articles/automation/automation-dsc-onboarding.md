@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: 0c399a24962efc1263ed35361a96c98bc60633ee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Máquinas de integração de gestão do Automation DSC do Azure
 
@@ -36,7 +36,7 @@ Automation DSC do Azure podem ser utilizado para gerir uma variedade de máquina
 Além disso, se não estiver pronto para gerir a configuração da máquina da nuvem, DSC de automatização do Azure também pode ser utilizado como um ponto final só de relatório. Isto permite-lhe definir a configuração pretendida do (emitir) através do DSC no local e visualizar detalhes de relatórios avançados conformidade de nó com o estado pretendido na automatização do Azure.
 
 > [!NOTE]
-> Gerir as VMs do Azure com o DSC está incluído, sem encargos adicionais se a extensão de máquina virtual DSC instalada é superior ao 2.7.  Consulte o [ **automatização página de preços** ](https://azure.microsoft.com/en-us/pricing/details/automation/) para obter mais detalhes.
+> Gerir as VMs do Azure com o DSC está incluído, sem encargos adicionais se a extensão de máquina virtual DSC instalada é superior ao 2.70. Consulte o [ **automatização página de preços** ](https://azure.microsoft.com/en-us/pricing/details/automation/) para obter mais detalhes.
 
 
 As secções seguintes descrevem como pode carregar cada tipo de máquina Automation DSC do Azure.
@@ -390,7 +390,7 @@ Depois de registar uma máquina como um nó de DSC no Automation DSC do Azure, e
 
 O novo registo pode ser executado da mesma forma que registou o nó inicialmente, utilizando qualquer um dos métodos de integração descritos neste documento. Não é necessário anular o registo de um nó do DSC da automatização do Azure antes de ao registar novamente-lo.
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="related-articles"></a>Artigos Relacionados
 
 * [Descrição geral do DSC da automatização do Azure](automation-dsc-overview.md)
 * [Cmdlets do DSC da automatização do Azure](/powershell/module/azurerm.automation/#automation)

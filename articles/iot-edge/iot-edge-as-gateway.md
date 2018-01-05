@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/27/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c1ae74127fce40a6f1ab412f25797076dda9d888
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 3f2f9258b97d4886f41a2b991ff4de7e16379245
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Como um dispositivo de limite de IoT que pode ser utilizado como um gateway de - de pré-visualização
 
@@ -23,7 +23,7 @@ O objetivo de gateways em soluções de IoT é específico para a solução e co
 Existem três padrões de utilização de um dispositivo de limite de IoT como um gateway: protocolo transparente, tradução e a tradução de identidade:
 * **Transparente** – dispositivos teoria conseguiu estabelecer ligação ao IoT Hub podem ligar a um dispositivo de gateway em vez disso. Isto implica que os dispositivos a jusante tem as suas próprias identidades do IoT Hub e estiver a utilizar qualquer um dos protocolos MQTT, AMQP ou HTTP. O gateway transmite simplesmente as comunicações entre os dispositivos e o IoT Hub. Os dispositivos não estiverem cientes que estão a comunicar com a nuvem através de um gateway e um utilizador interage com os dispositivos no IoT Hub não tem conhecimento do dispositivo de gateway intermédio. Assim, o gateway é transparente. Consulte o [criar um gateway transparente] [ lnk-iot-edge-as-transparent-gateway] procedimentos para informações específicas sobre a utilização de um dispositivo de limite de IoT como um gateway transparente.
 * **Tradução de protocolo** – dispositivos que não suportam MQTT, AMQP ou HTTP utilizam um dispositivo de gateway para enviar dados para o IoT Hub. O gateway está inteligente compreender esse protocolo utilizado pelos dispositivos a jusante; No entanto é o único dispositivo que tenha a identidade do IoT Hub. Todas as informações parece que este for proveniente de um dispositivo, o gateway. Isto implica que dispositivos a jusante tem incorporar as informações de identificação adicionais as mensagens se quiser aplicações em nuvem razão sobre os dados numa base por dispositivo. Além disso, o IoT Hub primitivos como duplo e métodos só estão disponíveis para o dispositivo de gateway, não a jusante dispositivos.
-* **Tradução de identidade** -os dispositivos que não é possível ligar ao IoT Hub ligar a um dispositivo de gateway que fornece o IoT Hub tradução de identidade e protocolo em nome dos dispositivos a jusante. O gateway é inteligente compreender o protocolo utilizado pelos dispositivos a jusante, fornecer-lhes a identidade e traduzir primitivos do IoT Hub. Dispositivos a jusante aparecem no IoT Hub como primeira classe dispositivos duplos e métodos. Um utilizador pode interagir com os dispositivos do IoT Hub does não tem conhecimento do dispositivo de gateway intermédio.
+* **Tradução de identidade** -os dispositivos que não é possível ligar ao IoT Hub ligar a um dispositivo de gateway que fornece o IoT Hub tradução de identidade e protocolo em nome dos dispositivos a jusante. O gateway é inteligente compreender o protocolo utilizado pelos dispositivos a jusante, fornecer-lhes a identidade e traduzir primitivos do IoT Hub. Dispositivos a jusante aparecem no IoT Hub como primeira classe dispositivos duplos e métodos. Um utilizador pode interagir com os dispositivos do IoT Hub e não tem conhecimento do dispositivo de gateway intermédio.
 
 ![Diagramas de padrões de gateway][1]
 
@@ -49,9 +49,9 @@ Eis uma referência rápida folha que compara primitivos do IoT Hub quando utili
 | Métodos Direct e mensagens da nuvem para dispositivo | A nuvem pode resolver individualmente cada dispositivo ligado | Nuvem apenas pode resolver o dispositivo de gateway | A nuvem pode resolver individualmente cada dispositivo ligado |
 | [Limitações do IoT Hub e quotas][lnk-iothub-throttles-quotas] | Aplicar a cada dispositivo | Se aplicam ao dispositivo de gateway | Aplicar a cada dispositivo |
 
-Quando utiliza um padrão de gateway opaco, todos os dispositivos que se ligam através desse gateway partilham a mesma fila de nuvem para o dispositivo, que pode conter no máximo 50 mensagens. Segue-se que o padrão de gateway opaco deve ser utilizado apenas quando muito alguns dispositivos se ligam através de cada gateway de campo e os respetivos tráfego de nuvem para o dispositivo é reduzido.
+Quando utiliza um padrão de gateway opaco (tradução de protocolos), todos os dispositivos que se ligam através desse gateway partilham a mesma fila de nuvem para o dispositivo, que pode conter no máximo 50 mensagens. Segue-se que o padrão de gateway opaco deve ser utilizado apenas quando muito alguns dispositivos se ligam através de cada gateway de campo e os respetivos tráfego de nuvem para o dispositivo é reduzido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Utilizar um dispositivo de limite de IoT como uma [gateway transparente][lnk-iot-edge-as-transparent-gateway] 
 
 [lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md

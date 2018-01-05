@@ -3,8 +3,8 @@ title: Atualizar dos Mobile Services para o App Service do Azure
 description: "Saiba como atualizar facilmente a sua aplicação de Mobile Services a uma aplicação de Mobile do serviço de aplicações"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 81c8ba6245565368eab4cdaca297ff7656180605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Atualizar o seu serviço móvel do Azure de .NET atual para o App Service
 Serviço de aplicações móveis é uma nova forma de criar aplicações móveis com o Microsoft Azure. Para obter mais informações, consulte [que são Mobile Apps?].
@@ -89,7 +89,7 @@ Em seguida, no WebApiConfig.cs, pode substituir:
         // Use this class to set WebAPI configuration options
         HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
 
-com o
+com
 
         HttpConfiguration config = new HttpConfiguration();
         new MobileAppConfiguration()
@@ -123,7 +123,7 @@ Para se certificar de que tem o mesmo esquema referenciado como anteriormente, u
 
 Certifique-se que tiver MS_MobileServiceName definido se o fizer acima. Também pode fornecer outro nome de esquema se a aplicação personalizado isto anteriormente.
 
-### <a name="system-properties"></a>Propriedades do sistema
+### <a name="system-properties"></a>Propriedades do Sistema
 #### <a name="naming"></a>Atribuição de nomes
 No servidor SDK de Mobile Services do Azure, as propriedades do sistema sempre contêm um caráter de sublinhado duplo (`__`) prefixo para as propriedades:
 
@@ -139,7 +139,7 @@ Mobile Apps do Azure, as propriedades do sistema já não tem um formato especia
 * createdAt
 * updatedAt
 * eliminar
-* Versão
+* versão
 
 O cliente de Mobile Apps SDKs utilizar novos nomes de propriedades do sistema, pelo que não são necessárias para o código de cliente alterações. No entanto, se estiver a efetuar diretamente chamadas REST ao seu serviço, em seguida, deve alterar as suas consultas em conformidade.
 
@@ -155,7 +155,7 @@ No iOS, deve alterar o esquema de dados de núcleos para as entidades de dados f
 | ID |Cadeia, marcada como necessária |chave primária no arquivo remoto |
 | createdAt |Data |(opcional) é mapeado para a propriedade de sistema createdAt |
 | updatedAt |Data |(opcional) é mapeado para a propriedade de sistema updatedAt |
-| Versão |Cadeia |(opcional) utilizado para detetar conflitos, é mapeado para a versão |
+| versão |Cadeia |(opcional) utilizado para detetar conflitos, é mapeado para a versão |
 
 #### <a name="querying-system-properties"></a>Consultar as propriedades do sistema
 Nos Mobile Services do Azure, as propriedades do sistema não são enviadas por predefinição, mas apenas quando forem necessários utilizando a cadeia de consulta `__systemProperties`. Em contrapartida, no sistema de Mobile Apps do Azure propriedades são **sempre selecionado** , uma vez que fazem parte do modelo de objeto do SDK de servidor.
@@ -199,7 +199,7 @@ As principais áreas de preocupação se utilizando a CORS são que os `eTag` e 
 ### <a name="push-notifications"></a>Notificações Push
 Para enviar por push, o item principal que pode encontrar em falta do SDK do servidor é a classe de PushRegistrationHandler. Registos são processados de forma ligeiramente diferente em Mobile Apps e tagless registos estão ativados por predefinição. Gerir as etiquetas pode ser realizada com APIs personalizadas. Consulte o [etiquetas a registar](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) instruções para obter mais informações.
 
-### <a name="scheduled-jobs"></a>Tarefas agendadas
+### <a name="scheduled-jobs"></a>Tarefas Agendadas
 Tarefas agendadas não são incorporadas em Mobile Apps, pelo que quaisquer tarefas existentes na sua back-end de .NET, terá de ser atualizado individualmente. Uma das alternativas consiste em criar um agendada [Web Job] no site de código de aplicação móvel. Também pode configurar um controlador que contém o código de tarefa e configurar o [agendador do Azure] para aceder esse ponto final na agenda esperada.
 
 ### <a name="miscellaneous-changes"></a>Diversas alterações

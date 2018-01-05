@@ -1,5 +1,5 @@
 ---
-title: "Os elementos do e-mail de convite de colaboração do Azure Active Directory B2B | Microsoft Docs"
+title: "Os elementos do e-mail de convite de colaboração B2B - Azure Active Directory | Microsoft Docs"
 description: "Modelo do e-mail de convite de colaboração do Azure Active Directory B2B"
 services: active-directory
 documentationcenter: 
@@ -7,21 +7,19 @@ author: sasubram
 manager: mtillman
 editor: 
 tags: 
-ms.assetid: 
+ms.custom: seohack1
 ms.service: active-directory
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: ae8f96caaaeb9f3dad9f9f122b56fe264a5d7aec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7b82565a337f331b8b0eda723ccd58c3beaebdd9
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>Os elementos do e-mail de convite de colaboração B2B
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do e-mail de convite de colaboração B2B - Azure Active Directory
 
 Mensagens de e-mail de convite são um componente crítico de traga parceiros no board como utilizadores de colaboração B2B do Azure AD. Pode utilizá-los para aumentar a confiança do destinatário. Pode adicionar legitimidade e prova redes social para o e-mail, para se certificar de que o destinatário de um aspeto semelhante confortável com a seleção de **começar** botão para aceitar o convite. Esta confiança é que uma chave significa reduzir friction partilha. E também deve certificar-o e-mail parecer excelente!
 
@@ -33,7 +31,7 @@ Vamos ver alguns elementos da mensagem de e-mail para saber como melhor para uti
 ### <a name="subject"></a>Assunto
 O assunto do e-mail segue o padrão seguinte: está convidado para o &lt;tenantname&gt; organização
 
-### <a name="from-address"></a>Endereço de
+### <a name="from-address"></a>Do endereço
 Podemos utilizar um padrão como o LinkedIn para o endereço.  Deve ser claro que seja o inviter e endereço de e-mail da empresa e também esclarecer que o e-mail é proveniente de um Microsoft. O formato é: &lt;nome a apresentar do inviter&gt; de &lt;tenantname&gt; (através do Microsoft) <invites@microsoft.com&gt;
 
 ### <a name="reply-to"></a>Responder A
@@ -71,7 +69,7 @@ O rodapé contém a marca de empresa da Microsoft e permite que o destinatário 
   ![Quando não precisa de destinatário resgatar convite](media/active-directory-b2b-invitation-email/when-recipient-doesnt-redeem.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
 

@@ -3,7 +3,7 @@ title: "Resolver problemas de Proxy de aplicações | Microsoft Docs"
 description: "Aborda como resolver erros no Proxy de aplicações do Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 87c88f9ba9932c101e979c949121aae0884e9f24
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d9342194c41c551123a6eb307da98f7a9248a265
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas de Proxy de aplicações e as mensagens de erro
 Se ocorrerem erros ao aceder a uma aplicação publicada ou numa publicação de aplicações, verifique as seguintes opções para ver se o Proxy de aplicações do Microsoft Azure AD está a funcionar corretamente:
@@ -86,7 +86,7 @@ Esta lista inclui os erros que os utilizadores finais podem surgir quando tentar
 
 Se ocorrer um erro ou problema com o Proxy da aplicação AD do Azure que não está listado neste guia de resolução de problemas, gostaríamos de ouvir acerca do mesmo. Enviar um e-mail ao nosso [equipa comentários](mailto:aadapfeedback@microsoft.com) com os detalhes do erro que encontrou.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Ativar o Proxy de aplicações do Azure Active Directory](active-directory-application-proxy-enable.md)
 * [Publicar aplicações com o Proxy de aplicações](active-directory-application-proxy-publish.md)
 * [Ativar o início de sessão único](active-directory-application-proxy-sso-using-kcd.md)

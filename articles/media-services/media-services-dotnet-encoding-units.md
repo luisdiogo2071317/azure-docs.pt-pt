@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Como dimensionar a codificação com o .NET SDK
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="overview"></a>Descrição geral
 > [!IMPORTANT]
-> Certifique-se de que revê o [descrição geral](media-services-scale-media-processing-overview.md) tópico para obter mais informações sobre dimensionamento processamento tópico de suporte de dados.
+> Certifique-se de que revê o [descrição geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre dimensionamento de processamento de suporte de dados.
 > 
 > 
 
@@ -56,17 +56,7 @@ Para alterar o tipo de unidade reservada e o número de unidades codificação r
 Por predefinição cada conta de Media Services pode ser dimensionados para até 25 codificação e 5 a pedido de transmissão em fluxo unidades reservadas. Pode pedir um limite superior ao abrir um pedido de suporte.
 
 ### <a name="open-a-support-ticket"></a>Abra um pedido de suporte
-Para abrir um suporte de permissão, efetue o seguinte:
-
-1. Clique em [obter suporte](https://manage.windowsazure.com/?getsupport=true). Se não tiver sessão iniciada, será solicitado para introduzir as suas credenciais.
-2. Selecione a sua subscrição.
-3. Em tipo de suporte, selecione "Técnica".
-4. Clique em "Criar pedido de".
-5. Selecione "Media Services do Azure" na lista de produto apresentado na página seguinte.
-6. Selecione um "tipo de problema" que é adequado para o seu problema.
-7. Clique em continuar.
-8. Siga as instruções na página seguinte e, em seguida, introduza os detalhes sobre o problema.
-9. Clique em Submeter para abrir o pedido de suporte.
+No portal do Azure, aceda a [ajuda + suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Se não tiver sessão iniciada Azure, lhe for pedido para introduzir as suas credenciais.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

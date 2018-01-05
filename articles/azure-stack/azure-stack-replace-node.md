@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Substituir um nó de unidade de escala num sistema de pilha do Azure integrada
 
@@ -28,23 +28,23 @@ Este artigo descreve o processo geral para substituir um computador físico (tam
 
 O diagrama de fluxo seguinte mostra o processo FRU geral para substituir um nó de unidade de escala completa.
 
-![Fluxograma de processo do nó de substituição](media/azure-stack-replace-node/ReplaceNodeFlow.PNG)
+![Fluxograma de processo do nó de substituição](media/azure-stack-replace-node/replacenodeflow.png)
 
 * Esta ação não pode ser necessária com base na condição do hardware física.
 
 ## <a name="review-alert-information"></a>Rever as informações de alerta
 
-Se um nó de unidade de escala estiver em baixo, receberá todos os alertas críticos seguintes:
+Se um nó de unidade de escala estiver em baixo, irá receber os alertas críticos seguintes:
 
 - Nó não ligado ao controlador de rede
 - Nó inacessível para o posicionamento das máquinas virtuais
 - Nó de unidade de escala está offline
 
-![Lista de alertas para a unidade de escala para baixo](media/azure-stack-replace-node/NodeDownAlerts.PNG)
+![Lista de alertas para a unidade de escala para baixo](media/azure-stack-replace-node/nodedownalerts.png)
 
-Se abrir o alerta "nó de unidade de escala é offline", a descrição do alerta contém o nó de unidade de escala que está inacessível. Poderá também receber alertas adicionais na solução de monitorização OEM específico que está a ser executado no anfitrião de ciclo de vida de hardware.
+Se abrir o **o nó de unidade de escala é offline** alerta, a descrição do alerta contém o nó de unidade de escala que está inacessível. Poderá também receber alertas adicionais na solução de monitorização OEM específico que está a ser executado no anfitrião de ciclo de vida de hardware.
 
-![Detalhes do alerta offline do nó](media/azure-stack-replace-node/NodeOffline.PNG)
+![Detalhes do alerta offline do nó](media/azure-stack-replace-node/nodeoffline.png)
 
 ## <a name="scale-unit-node-replacement-process"></a>Processo de substituição de nó de unidade de escala
 
@@ -53,7 +53,7 @@ Os seguintes passos são fornecidos como uma descrição geral de alto nível do
 1. Utilize o [drenar](azure-stack-node-actions.md#scale-unit-node-actions) ação para colocar o nó de unidade de escala em modo de manutenção. Esta ação não pode ser necessária com base na condição do hardware física.
 
    > [!NOTE]
-   > Em qualquer dos casos, apenas um nó pode ser drained e desligado em simultâneo sem ultrapassar o SSD (espaços de armazenamento direto).
+   > Em qualquer dos casos, apenas um nó pode ser drained e desligado em simultâneo sem ultrapassar o S2D (espaços de armazenamento direto).
 
 2. Se o nó ainda está ligado, utilize o [desligar](azure-stack-node-actions.md#scale-unit-node-actions) ação. Esta ação não pode ser necessária com base na condição do hardware física.
  
@@ -68,4 +68,4 @@ Os seguintes passos são fornecidos como uma descrição geral de alto nível do
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre como substituir um disco físico de acesso frequente-swappable, consulte [substituir um disco](azure-stack-replace-disk.md). 
-- Para obter informações sobre como substituir um componente de hardware não frequente-swappable, consulte [substituir um componente de hardware](azure-stack-replace-component.md). 
+- Para obter informações sobre como substituir um componente de hardware não frequente-swappable, consulte [substituir um componente de hardware](azure-stack-replace-component.md).

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, o planeamento de capacidade é um passo importante. Seguem-se alguns dos itens que terá de considerar como parte do processo.
@@ -69,7 +69,7 @@ O escalão de durabilidade é utilizado para indicar ao sistema os privilégios 
 
 Este privilégio é expresso nos seguintes valores:
 
-* Ouro - as tarefas de infraestrutura pode ser colocado em pausa durante um período de duas horas por UD. Características de durabilidade Gold só podem ser ativadas skus VM de nó completo como D15_V2, G5 etc.
+* Ouro - as tarefas de infraestrutura pode ser colocado em pausa durante um período de duas horas por UD. Características de durabilidade Gold podem ser ativada apenas no nó completa skus VM L32s, GS5, G5, DS15_v2, etc D15_v2 (em geral todos os tamanhos de VM listados em http://aka.ms/vmspecs, que são marcados como 'instância está isolada para hardware dedicado a um único cliente ' na nota VMS de nó completa)
 * Prata - as tarefas de infraestrutura pode ser colocado em pausa durante um período de dez minutos por UD e está disponíveis em todas as VMs padrão do único núcleo e acima.
 * Bronze – sem privilégios. Esta é a predefinição. Só utilize este nível de durabilidade para os tipos de nó que execute _apenas_ cargas de trabalho sem monitorização de estado. 
 
@@ -214,7 +214,7 @@ Para cargas de trabalho de produção
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de concluir o seu planeamento de capacidade e configurar um cluster, leia o seguinte:
 
 * [Segurança de cluster do Service Fabric](service-fabric-cluster-security.md)

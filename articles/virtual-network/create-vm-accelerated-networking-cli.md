@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: cd7889be101e718e309e630a04a2e23b6b5823ac
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: bd163e4168c844acab8d50c234115abf8ae874cf
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual Linux com acelerados da rede
 
@@ -30,7 +30,7 @@ Neste tutorial, irá aprender a criar uma máquina virtual (VM) do Linux com ace
 
 Sem redes na melhoria, todo o tráfego de rede que entra e sai da VM tem atravessar o anfitrião e o comutador virtual. O comutador virtual fornece todos os imposição de política, tais como grupos de segurança de rede, listas de controlo de acesso, isolamento e outros serviços de rede virtualizado para tráfego de rede. Para obter mais informações sobre comutadores virtuais, leia o [Virtualização de rede do Hyper-V e do comutador virtual](https://technet.microsoft.com/library/jj945275.aspx) artigo.
 
-Com redes na melhoria, o tráfego de rede chega à interface de rede da VM (NIC) e, em seguida, é reencaminhado para a VM. Todas as políticas de rede que se aplica o comutador virtual sem redes na melhoria são descarregadas sendo aplicadas no hardware. Aplicar a política de hardware permite que o NIC para reencaminhar o tráfego de rede diretamente para a VM, ignorando o anfitrião e o comutador virtual, enquanto mantém todos os a política que aplicada no anfitrião.
+Com redes na melhoria, o tráfego de rede chega à interface de rede da VM (NIC) e, em seguida, é reencaminhado para a VM. Todas as políticas de rede que o comutador virtual aplica-se agora são descarregadas sendo aplicadas no hardware. Aplicar a política de hardware permite que o NIC para reencaminhar o tráfego de rede diretamente para a VM, ignorando o anfitrião e o comutador virtual, enquanto mantém todos os a política que aplicada no anfitrião.
 
 As vantagens do funcionamento em rede na melhoria só se aplicam à VM que está ativada no. Para obter os melhores resultados, é ideal ativar esta funcionalidade em, pelo menos, duas VMs ligadas à mesma rede de Virtual do Azure (VNet). Quando a comunicação entre VNets ou ligação no local, esta funcionalidade tem um impacto mínimo para geral de latência.
 
@@ -39,16 +39,26 @@ As vantagens do funcionamento em rede na melhoria só se aplicam à VM que está
 * **Reduzido interferência:** comutador Virtual de processamento depende da quantidade de política que tem de ser aplicadas e a carga de trabalho da CPU que está a fazer o processamento. Descarregar a imposição de política para o hardware remove esse variabilidade fornecendo pacotes diretamente para a VM, a remoção do anfitrião para comunicação de VM e todas as interrupções de software e comutadores de contexto.
 * **Diminuir a utilização da CPU:** ignorar o comutador virtual no anfitrião leva a menor utilização da CPU para processar o tráfego de rede.
 
+## <a name="supported-operating-systems"></a>Sistemas operativos suportados
+* **Ubuntu 16.04**: 4.11.0-1013 ou a versão mais recente de kernel
+* **SLES SP3**: 4.4.92-6.18 ou a versão mais recente de kernel
+* **RHEL**: 7.4.2017120423 ou a versão mais recente de kernel
+* **CentOS**: 7.4.20171206 ou a versão mais recente de kernel
+
+## <a name="supported-vm-instances"></a>Instâncias VM suportadas
+É suportada na melhoria de redes objetivo mais comum e tamanhos de instância com otimização de computação com vCPUs 4 ou mais. Instâncias como D/DSv3 ou I/ESv3 que suportam o Hyper-Threading, acelerados redes é suportada em instâncias VM com 8 ou mais vCPUs.  Série suportado é: D/série DSv2, D/DSv3, I/ESv3, Fs/F/Fsv2 e Ms/Mms. 
+
+Para obter mais informações sobre as instâncias VM, consulte [tamanhos de VM com Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+## <a name="regions"></a>Regiões
+Disponível em todas as regiões do Azure públicas com a exceção Ásia Oriental.   Nuvem do Azure Government ainda não é suportada.
+
 ## <a name="limitations"></a>Limitações
 Existem as seguintes limitações ao utilizar esta capacidade:
 
 * **Criação de interface de rede:** Accelerated redes só podem ser ativada para uma NIC de novo. Não pode ser ativada para uma NIC que existente.
 * **A criação de VM:** A NIC com redes na melhoria ativada só podem ser anexado a uma VM quando é criada a VM. O NIC não pode ser ligado a uma VM existente. Se adicionar a VM para um disponibilidade existente, todas as VMs no conjunto de disponibilidade tem também de ter acelerados rede ativada.
-* **Regiões:** capacidade está disponível em várias regiões do Azure e continua a expandir. Para obter uma lista completa, consulte [atualizações de rede Virtual do Azure](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blogue.   
-* **Sistemas operativos suportados:** Ubuntu Server 16.04 LTS com 4.4.0-77 de kernel ou superior, SLES 12 SP2, RHEL 7.4 e 7.4 CentOS (publicados pelo Software de Wave não autorizado).
-* **Tamanho da VM:** fins gerais e os tamanhos de instância com otimização de computação com oito ou vários núcleos. Para obter mais informações, consulte [tamanhos de VM com Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). O conjunto de tamanhos de instância VM suportados continua a expandir.
 * **Apenas a implementação através do Gestor de recursos do Azure:** não é possível implementar máquinas virtuais (clássicas) com acelerados da rede.
-
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 

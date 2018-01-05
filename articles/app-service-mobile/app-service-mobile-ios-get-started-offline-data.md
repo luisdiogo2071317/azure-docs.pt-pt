@@ -2,8 +2,8 @@
 title: "Ativar a sincronização offline com aplicações móveis iOS | Microsoft Docs"
 description: "Saiba como utilizar aplicações móveis do App Service do Azure para a cache e sincronização de dados offline em aplicações iOS."
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: b676b51241e4883fb1b4c40caba8e281bfa68a4c
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Ativar a sincronização offline com aplicações móveis iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -163,7 +163,7 @@ Quando utilizar a funcionalidade de sincronização offline, defina as tabelas d
 | ID | Número inteiro de 64 |
 | itemId | Cadeia |
 | propriedades | Dados binários |
-| Tabela | Cadeia |
+| tabela | Cadeia |
 | tableKind | Número inteiro de 16 |
 
 
@@ -187,7 +187,7 @@ Quando utilizar a funcionalidade de sincronização offline, defina as tabelas d
 | ID |Cadeia |
 | key |Cadeia |
 | KeyType |Número inteiro de 64 |
-| Tabela |Cadeia |
+| tabela |Cadeia |
 | valor |Cadeia |
 
 ### <a name="data-table"></a>Tabela de dados
@@ -197,11 +197,11 @@ Quando utilizar a funcionalidade de sincronização offline, defina as tabelas d
 | Atributo | Tipo | Nota |
 | --- | --- | --- |
 | ID | Cadeia, marcada como necessária |chave primária no arquivo remoto |
-| Concluir | Valor booleano | Campo de item de tarefas |
+| Concluir | Booleano | Campo de item de tarefas |
 | Texto |Cadeia |Campo de item de tarefas |
 | createdAt | Data | (opcional) Mapeia para **createdAt** propriedade de sistema |
 | updatedAt | Data | (opcional) Mapeia para **updatedAt** propriedade de sistema |
-| Versão | Cadeia | (opcional) Utilizado para detetar conflitos, é mapeado para a versão |
+| versão | Cadeia | (opcional) Utilizado para detetar conflitos, é mapeado para a versão |
 
 ## <a name="setup-sync"></a>Alterar o comportamento de sincronização da aplicação
 Nesta secção, modificar a aplicação para que não sincroniza no início da aplicação ou quando insert e atualizar itens. Sincroniza-se apenas quando o botão de gesto de atualização é executado.

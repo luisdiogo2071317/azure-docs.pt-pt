@@ -6,23 +6,21 @@ documentationcenter:
 author: billmath
 manager: mtillman
 editor: 
-ms.assetid: 6a47ced8-cf34-4ce8-bea2-e4fc548cfe22
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/06/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.custom: pim;oldportal;it-pro;
-ms.openlocfilehash: 5a2150b67fb4926ac9bb04c74a281ba78692c5f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 53deb04a33a5f878c5e3f765099c54d30e6ac005
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Privileged Identity Management do Azure AD: como adicionar ou remover uma função de utilizador
-Com o Azure Active Directory (AD), um administrador global (ou o administrador da empresa) pode atualizar que os utilizadores são **permanentemente** atribuídos a funções no Azure AD. Isto é feito com os cmdlets do PowerShell como `Add-MsolRoleMember` e `Remove-MsolRoleMember`. Ou, podem utilizar o portal clássico do Azure conforme descrito em [atribuir funções de administrador no Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Com o Azure Active Directory (AD), um administrador global (ou o administrador da empresa) pode atualizar que os utilizadores são **permanentemente** atribuídos a funções no Azure AD. Isto é feito com os cmdlets do PowerShell como `Add-MsolRoleMember` e `Remove-MsolRoleMember`. Ou, podem utilizar o portal do Azure conforme descrito em [atribuir funções de administrador no Azure Active Directory](active-directory-assign-admin-roles.md).
 
 A aplicação Azure AD Privileged Identity Management permite aos administradores de com função privilegiada tornar atribuições de funções permanente, bem. Além disso, os administradores de com função privilegiada podem tornar utilizadores **elegível** para funções de administrador. Um administrador elegível pode ativar a função quando precisarem e, em seguida, as respetivas permissões expirarem assim que estiver pronto.
 
@@ -63,6 +61,6 @@ Siga estes passos para remover um utilizador específico a partir de uma funçã
 
 Se não tiver a certeza de que os utilizadores terão as respetivas atribuições de funções, em seguida, pode [iniciar uma revisão do acesso para a função](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

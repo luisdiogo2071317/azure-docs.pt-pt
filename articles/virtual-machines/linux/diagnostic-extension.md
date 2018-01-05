@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilizar a extensão de diagnóstico do Linux para monitorizar métricas e registos
 
@@ -135,6 +135,10 @@ storageAccountSasToken | Um [token SAS de conta](https://azure.microsoft.com/blo
 mdsdHttpProxy | (opcional) Informações de proxy HTTP necessárias para ativar a extensão para estabelecer ligação com a conta de armazenamento especificado e o ponto final.
 sinksConfig | (opcional) Detalhes de destinos alternativos para os quais podem ser fornecidos métricas e eventos. Os detalhes específicos de cada sink de dados suportado pela extensão são abordados nas secções que se seguem.
 
+
+> [!NOTE]
+> Quando implementar a extensão com um modelo de implementação do Azure, a conta de armazenamento e o SAS token tem criados previamente e, em seguida, transmitidos para o modelo. Não é possível implementar uma VM, a conta de armazenamento e configurar a extensão num único modelo. Criar um token SAS dentro de um modelo não é atualmente suportado.
+
 Pode criar facilmente o necessário token SAS através do portal do Azure.
 
 1. Selecione a conta de armazenamento para fins gerais a que pretende que a extensão de escrita
@@ -253,7 +257,7 @@ Elemento | Valor
 eventVolume | (opcional) Controla o número de partições criadas na tabela de armazenamento. Tem de ser um dos `"Large"`, `"Medium"`, ou `"Small"`. Se não for especificado, o valor predefinido é `"Medium"`.
 sampleRateInSeconds | (opcional) O intervalo predefinido entre a coleção de métricas (unaggregated) não processadas. A taxa de menor suportados exemplo é 15 segundos. Se não for especificado, o valor predefinido é `15`.
 
-#### <a name="metrics"></a>metrics
+#### <a name="metrics"></a>métricas
 
 ```json
 "metrics": {
@@ -699,7 +703,7 @@ Este instantâneo de uma sessão do Explorador de armazenamento do Microsoft Azu
 
 Consulte o relevante [EventHubs documentação](../../event-hubs/event-hubs-what-is-event-hubs.md) para aprender a consumir mensagens publicadas para um ponto final EventHubs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Criar métricas alertas no [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) para as métricas que recolhe.
 * Criar [monitorização gráficos](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para as métricas.

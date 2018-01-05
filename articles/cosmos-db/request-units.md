@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 40390c6f92136d5731ac9d6857f06852c8ee6d85
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no Azure Cosmos DB de pedido
 Agora disponível: BD do Azure do Cosmos [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner). Saiba mais em [estimar o débito tem](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Recomendamos que comece por ver o vídeo seguinte, onde Aravind Ramachandran exp
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Especificar a capacidade de unidade de pedido na base de dados do Azure Cosmos
 Ao iniciar uma nova coleção, a tabela ou o gráfico, especifique o número de unidades de pedido por segundo (RU por segundo) que pretende reservado. Com base no débito aprovisionado, base de dados do Azure Cosmos aloca partições físicas para alojar a sua coleção e divisões/rebalances dados em partições à medida que o que aumenta.
 
-BD do Azure do Cosmos requer uma chave de partição de ser especificado quando uma coleção é aprovisionada com 2500 unidades de pedido ou superior. Também é necessária uma chave de partição para aumentar o débito da sua coleção para além de 2500 unidades de pedido no futuro. Por conseguinte, recomenda-se vivamente para configurar um [chave de partição](partition-data.md) ao criar um contentor, independentemente da sua débito inicial. Uma vez que os dados poderão ter para serem divididas entre várias partições, é necessário escolher uma chave de partição tem uma cardinalidade elevada (100 para milhões de valores distintos). Ao selecionar uma chave de partição com vários valores distintos, certifique-se de que a tabela/coleção/gráfico e pedidos podem ser escalados uniformemente por base de dados do Azure Cosmos. 
+Podem ser criadas Azure contentores de BD do Cosmos como fixo ou ilimitado. Os contentores de tamanho fixo têm um limite máximo de 10 GB e 10 000 de RU/s débito. Para criar um contentor ilimitado tem de especificar um débito mínimo de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que os dados poderão ter para serem divididas entre várias partições, é necessário escolher uma chave de partição tem uma cardinalidade elevada (100 para milhões de valores distintos). Ao selecionar uma chave de partição com vários valores distintos, certifique-se de que a tabela/coleção/gráfico e pedidos podem ser escalados uniformemente por base de dados do Azure Cosmos. 
 
 > [!NOTE]
 > Uma chave de partição é um limite de lógico e não um físico. Por conseguinte, não é necessário limitar o número de valores de chave de partição distintos. Na realidade é melhor ter distintos mais valores de chaves de partição que inferior, como base de dados do Azure Cosmos tem mais opções de balanceamento de carga.
@@ -348,7 +348,7 @@ Se tiver mais do que um cliente cumulativamente e operativo acima a taxa de pedi
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a>Exceder os limites de débito reservado na API para MongoDB
 As aplicações que excedem as unidades de pedido aprovisionado para uma coleção serão limitadas até que a taxa de ignora abaixo do nível reservado. Quando ocorre uma limitação, o back-end preventivamente vai terminar o pedido com um *16500* código de erro - *demasiados pedidos*. Por predefinição, a API para o MongoDB seja automaticamente repetida até 10 vezes antes de o devolver um *demasiados pedidos* código de erro. Se está a receber muitas *demasiados pedidos* códigos de erro, poderá considerar o comportamento de repetição adicionar no rotinas de processamento de erros da aplicação ou [aumentar o débito reservado para a coleção](set-throughput.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre débito reservado com bases de dados do Azure Cosmos DB, explore estes recursos:
 
 * [Preços de base de dados do Cosmos do Azure](https://azure.microsoft.com/pricing/details/cosmos-db/)

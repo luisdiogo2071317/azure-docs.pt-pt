@@ -3,7 +3,7 @@ title: "Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Az
 description: "Abrange as noções básicas sobre conectores de Proxy de aplicações do Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: kgremban
+ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 06d217b38ff8e33bd6c5a42a93aa532c0d1efa4d
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD
 
@@ -124,7 +124,7 @@ Para utilizar autenticação pass-through, existem apenas duas alterações para
 1. No [publicar o ponto final de anfitrião de RD](#publish-the-rd-host-endpoint) passo 1, definir o método de pré-autenticação **Passthrough**.
 2. No [tráfego de RDS direta para o Proxy de aplicações](#direct-rds-traffic-to-application-proxy), ignore o passo 8 completamente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Ativar o acesso remoto ao SharePoint com o Proxy de aplicações do Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
 [Considerações de segurança para aceder remotamente a aplicações ao utilizar o Proxy de aplicações do Azure AD](application-proxy-security-considerations.md)

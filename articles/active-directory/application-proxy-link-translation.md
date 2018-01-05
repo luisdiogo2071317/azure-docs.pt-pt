@@ -3,7 +3,7 @@ title: "Traduzir ligações e URLs do Proxy de aplicação do Azure AD | Microso
 description: "Abrange as noções básicas sobre conectores de Proxy de aplicações do Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 877c4491b3ebc2164f7cb2ecb9392d9c71e1667a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar codificado ligações para aplicações publicadas com o Proxy de aplicações do Azure AD
 
@@ -86,7 +86,7 @@ Agora, quando os utilizadores acederem a esta aplicação, o proxy irá analisar
 
 Queremos a sua ajudá-lo para tornar esta funcionalidade funciona para todas as suas aplicações. Estamos a pesquisar mais de 30 etiquetas no HTML e CSS e estiver a considerar que o JavaScript casos para suportar. Se tiver um exemplo de ligações geradas que não estão a ser traduzidos, envie um fragmento de código para [comentários de Proxy de aplicação](mailto:aadapfeedback@microsoft.com). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Utilizar domínios personalizados com o Proxy de aplicações do Azure AD](active-directory-application-proxy-custom-domains.md) para ter o mesmo URL interno e externo
 
 [Configurar os mapeamentos de acesso alternativo para SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

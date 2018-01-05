@@ -3,7 +3,7 @@ title: "Atualizar para o Proxy de aplicações do Azure AD | Microsoft Docs"
 description: "Escolha que solução de proxy é melhor se estiver a atualizar a partir do Microsoft Forefront ou Unified Gateway de acesso."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: b124def6195da93eee61b0ec30698b935111ac4a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5323a9225adb9a9bfca2dccec5c84f288c4fd25d
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="compare-remote-access-solutions"></a>Comparar soluções de acesso remoto
 
@@ -60,7 +60,7 @@ Proxy de aplicações do Azure AD oferece vantagens únicas quando comparado com
 - Painel de um acesso que os utilizadores podem aceder a para todas as respetivas aplicações, incluindo o Office 365, Azure AD integradas aplicações SaaS, e no local aplicações web. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Utilize a aplicação Azure AD para fornecer acesso remoto seguro a aplicações no local](active-directory-application-proxy-get-started.md)
 - [Transição do Forefront TMG e UAG para o Proxy de aplicações](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

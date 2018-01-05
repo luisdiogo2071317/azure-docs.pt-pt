@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 9902af83125f596f6dd5a1a6c955d00e9b5a87bc
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1e85db7ce866943696979f61c0aa5104217acc62
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Ativação pós-falha de teste para o Azure no Site Recovery
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/18/2017
 
 Este artigo descreve como executar um exercício de recuperação após desastre para o Azure, utilizando uma ativação pós-falha de teste de recuperação de sites.  
 
-Execute uma ativação pós-falha de teste para validar a replicação e a estratégia de reecovery após desastre sem qualquer perda de dados ou o período de indisponibilidade. Uma ativação pós-falha de teste não tem impacto replicação em curso ou o seu ambiente de produção. Pode executar uma ativação pós-falha de teste a uma máquina virtual específica (VM) ou com um [plano de recuperação](site-recovery-create-recovery-plans.md) que contém várias VMs. 
+Execute uma ativação pós-falha de teste para validar a replicação e a estratégia de recuperação após desastre sem qualquer perda de dados ou o período de indisponibilidade. Uma ativação pós-falha de teste não tem impacto replicação em curso ou o seu ambiente de produção. Pode executar uma ativação pós-falha de teste a uma máquina virtual específica (VM) ou com um [plano de recuperação](site-recovery-create-recovery-plans.md) que contém várias VMs. 
 
 
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
@@ -119,5 +119,5 @@ Se pretende ligar as VMs do Azure com RDP após a ativação pós-falha, siga os
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de concluir um exercício de recuperação após desastre, saiba mais sobre outros tipos de [ativação pós-falha](site-recovery-failover.md).

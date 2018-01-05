@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: crdun
+ms.openlocfilehash: 336da28bea7de313bced97e447fc6b7b1fb1390d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Como utilizar o Azure Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -291,7 +291,7 @@ Aceder à base de dados através de uma ligação de TCP/IP e fornecer um nome d
 ### <a name="howto-config-localdev"></a>Como: configurar o seu projeto de desenvolvimento local
 Mobile Apps do Azure lê um ficheiro de JavaScript chamado *azureMobile.js* do sistema de ficheiros local.  Não utilize este ficheiro para configurar o SDK de aplicações móveis do Azure em produção - utilize as definições de aplicações dentro de [portal do Azure] em vez disso.  O *azureMobile.js* ficheiro deve exportar de um objeto de configuração.  As definições mais comuns são:
 
-* Definições de base de dados
+* Definições da Base de Dados
 * Definições de registo de diagnóstico
 * Definições CORS alternativo
 
@@ -320,9 +320,9 @@ A maioria das definições no *azureMobile.js* ficheiro ter uma definição de a
 
 | Definição de aplicação | *azureMobile.js* definição | Descrição | Valores válidos |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |nome |O nome da aplicação |Cadeia |
+| **MS_MobileAppName** |nome |O nome da aplicação |string |
 | **MS_MobileLoggingLevel** |Logging.level |Nível de registo mínimo de mensagens em fila para iniciar sessão |erro, aviso, informações, verbosa, depuração, silly |
-| **MS_DebugMode** |Depuração |Ativar ou desativar o modo de depuração |TRUE, false |
+| **MS_DebugMode** |depurar |Ativar ou desativar o modo de depuração |TRUE, false |
 | **MS_TableSchema** |data.Schema |Nome de esquema predefinido para tabelas SQL |cadeia (predefinição: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Ativar ou desativar o modo de depuração |TRUE, false |
 | **MS_DisableVersionHeader** |versão (defina a indefinido) |Desativa o cabeçalho X-ZUMO--versão do servidor |TRUE, false |
@@ -797,7 +797,7 @@ Tabelas fácil no portal do permitem-lhe criar e trabalhar com o direito de tabe
 * createdAt
 * updatedAt
 * eliminar
-* Versão
+* versão
 
 Pode editar mesmo operações de tabela utilizando o Editor de serviço de aplicações. Ao clicar em **tabelas fácil** nas definições de site do back-end, pode adicionar, modificar ou eliminar uma tabela. Também pode ver os dados da tabela.
 
@@ -827,7 +827,7 @@ O portal do Azure permite-lhe editar os ficheiros de script de back-end Node.js 
 
 1. No painel de back-end da aplicação móvel, clique em **todas as definições** > ou **tabelas fácil** ou **APIs fácil**, uma tabela ou a API, clique em **Editar script**. O ficheiro de script é aberto no Editor de serviço de aplicações.
 
-    ![Editor de serviço de aplicações](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+    ![Editor do Serviço de Aplicação](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 2. Efetue as alterações para o ficheiro de código no online editor. As alterações são guardadas automaticamente à medida que escreve.
 
 <!-- Images -->

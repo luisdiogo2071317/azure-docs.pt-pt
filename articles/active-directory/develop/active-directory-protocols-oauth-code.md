@@ -1,12 +1,11 @@
 ---
-title: "Compreender o fluxo de código de autorização do OAuth 2.0 no Azure AD | Microsoft Docs"
+title: "Compreender o fluxo de código de autorização do OAuth 2.0 no Azure AD"
 description: "Este artigo descreve como utilizar mensagens HTTP para autorizar o acesso a aplicações web e APIs web no seu inquilino utilizando o Azure Active Directory e OAuth 2.0."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a3aa69ce35ff6049478a4182afeda2ee62266b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d123a6b18baf8019a6dcea2faa938e9ee403f400
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Authorize access to web applications using OAuth 2.0 and Azure Active Directory (Autorizar o acesso a aplicações Web com OAuth 2.0 e o Azure Active Directory)
 Azure Active Directory (Azure AD) utiliza OAuth 2.0 para que possa autorizar o acesso a aplicações web e APIs web no inquilino do Azure AD. Este guia é independente de idioma e descreve como enviar e receber mensagens HTTP sem utilizar qualquer uma das nossas bibliotecas de open source.
@@ -34,7 +33,7 @@ Um nível elevado, o fluxo de autorização completa para uma aplicação um pou
 ![Fluxo de código de autenticação do OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>Pedir um código de autorização
-O fluxo de código de autorização começa com o cliente instruir o utilizador a `/authorize` ponto final. Este pedido, o cliente indica as permissões que necessita de adquirir do utilizador. Pode obter os pontos finais de OAuth 2.0 da página da sua aplicação no Portal clássico do Azure, além de **ver pontos finais** botão na gaveta de parte inferior do.
+O fluxo de código de autorização começa com o cliente instruir o utilizador a `/authorize` ponto final. Este pedido, o cliente indica as permissões que necessita de adquirir do utilizador. Pode obter o ponto final OAuth 2.0 para o seu inquilino selecionando **registos de aplicações > pontos finais** no Portal do Azure.
 
 ```
 // Line breaks for legibility only
@@ -50,13 +49,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| Inquilino |Necessário |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação.  Os valores permitidos são identificadores de inquilino, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens de inquilino independentes |
+| inquilino |Necessário |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação.  Os valores permitidos são identificadores de inquilino, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens de inquilino independentes |
 | client_id |Necessário |O Id de aplicação atribuída à aplicação quando é registado com o Azure AD. Pode encontrá-lo no Portal do Azure. Clique em **do Active Directory**, clique no diretório, escolha a aplicação e clique em **configurar** |
 | response_type |Necessário |Tem de incluir `code` para que o fluxo de código de autorização. |
 | redirect_uri |recomendado |Redirect_uri da sua aplicação, onde as respostas de autenticação podem ser enviadas e recebidas pela sua aplicação.  Este deve corresponder exatamente um dos redirect_uris registado no portal, exceto tem de ser codificados de url.  Para aplicações móveis & nativas, deve utilizar o valor predefinido de `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |recomendado |Especifica o método que deve ser utilizado para enviar a cópia de segurança de token resultante para a sua aplicação.  Pode ser `query` ou `form_post`. |
 | state |recomendado |Um valor incluído no pedido de que também é devolvido na resposta token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de pedidos entre sites](http://tools.ietf.org/html/rfc6749#section-10.12).  O estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes de ocorrer o pedido de autenticação, tais como a página ou a vista estivessem nas suas. |
-| Recurso |opcional |O URI de ID de aplicação da web API (recursos protegidos). Para obter o URI de ID de aplicação de API, web no Portal do Azure, clique em **do Active Directory**, clique no diretório, clique na aplicação e, em seguida, clique em **configurar**. |
+| recurso |opcional |O URI de ID de aplicação da web API (recursos protegidos). Para obter o URI de ID de aplicação de API, web no Portal do Azure, clique em **do Active Directory**, clique no diretório, clique na aplicação e, em seguida, clique em **configurar**. |
 | linha de comandos |opcional |Indica o tipo de interação do utilizador que é necessário.<p> Os valores válidos são: <p> *início de sessão*: O utilizador deve ser pedido para voltar. <p> *consentimento*: consentimento do utilizador foram concedido, mas tem de ser atualizado. Deve ser pedido ao utilizador consentimento. <p> *admin_consent*: um administrador deve ser-lhe pedido que consentimento em nome de todos os utilizadores da organização |
 | login_hint |opcional |Pode ser utilizado para a pré-preencher o campo de endereço de e-mail/nome de utilizador da página de início de sessão do utilizador, se souber o nome de utilizador antecedência.  Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação rápida, já ter extraiu o nome de utilizador de uma anterior início de sessão utilizando o `preferred_username` de afirmação. |
 | domain_hint |opcional |Fornece uma sugestão sobre o domínio que o utilizador deve utilizar para iniciar sessão ou inquilino. O valor da domain_hint é um domínio registado para o inquilino. Se o inquilino está federado para um diretório no local, AAD redireciona para o servidor de Federação do inquilino especificado. |
@@ -132,13 +131,13 @@ grant_type=authorization_code
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| Inquilino |Necessário |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação.  Os valores permitidos são identificadores de inquilino, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens de inquilino independentes |
-| client_id |Necessário |O Id de aplicação atribuída à aplicação quando é registado com o Azure AD. Pode encontrá-lo no Portal clássico do Azure. Clique em **do Active Directory**, clique no diretório, escolha a aplicação e clique em **configurar** |
+| inquilino |Necessário |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação.  Os valores permitidos são identificadores de inquilino, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens de inquilino independentes |
+| client_id |Necessário |O Id de aplicação atribuída à aplicação quando é registado com o Azure AD. Pode encontrá-lo no portal do Azure. O Id de aplicação é apresentado nas definições de registo de aplicação.  |
 | grant_type |Necessário |Tem de ser `authorization_code` para que o fluxo de código de autorização. |
 | código |Necessário |O `authorization_code` que obteve na secção anterior |
 | redirect_uri |Necessário |O mesmo `redirect_uri` valor que utilizou para adquirir o `authorization_code`. |
 | client_secret |necessário para aplicações web |O segredo de aplicação que criou no portal de registo de aplicação para a sua aplicação.  Não deve ser utilizado numa aplicação nativa, porque client_secrets não pode ser fiável armazenado nos dispositivos.  É necessário para as aplicações web e web APIs, que têm a capacidade de armazenar o `client_secret` em segurança no lado do servidor. |
-| Recurso |necessário se especificado num pedido de código de autorização, caso contrário, opcional |O URI de ID de aplicação da web API (recursos protegidos). |
+| recurso |necessário se especificado num pedido de código de autorização, caso contrário, opcional |O URI de ID de aplicação da web API (recursos protegidos). |
 
 Para obter o URI de ID de aplicação no Portal de gestão do Azure, clique em **do Active Directory**, clique no diretório, clique na aplicação e, em seguida, clique em **configurar**.
 
@@ -169,7 +168,7 @@ Uma resposta com êxito pode ter o seguinte aspeto:
 | token_type |Indica o valor de tipo de token. O único tipo que suporte do Azure AD é portador. Para mais informações sobre os tokens de portador, consulte [OAuth2.0 autorização Framework: utilização de tokens de portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Quanto o token de acesso é válido (em segundos). |
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até que a hora de expiração. Este valor é utilizado para determinar a duração de tokens em cache. |
-| Recurso |O URI de ID de aplicação da web API (recursos protegidos). |
+| recurso |O URI de ID de aplicação da web API (recursos protegidos). |
 | Âmbito |Representação, as permissões concedidas à aplicação de cliente. A permissão predefinida é `user_impersonation`. O proprietário do recurso protegido pode registar valores adicionais no Azure AD. |
 | refresh_token |Um token de atualização de OAuth 2.0. A aplicação pode utilizar este token para adquirir tokens de acesso adicionais depois do token de acesso atual expira.  Atualizar são os tokens e pode ser utilizados para manter o acesso a recursos para períodos de tempo prolongados. |
 | id_token |Um não assinados JSON Web tokens (JWT). Base64Url de pode aplicação descodificar os segmentos do token pedido informações sobre o utilizador que tem sessão iniciada. A aplicação pode colocar em cache os valores e apresentá-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. |
@@ -347,7 +346,7 @@ Uma resposta de token com êxito irá ter o seguinte aspeto:
 | token_type |O tipo de token. O único valor suportado é **portador**. |
 | expires_in |A duração restantes do token em segundos. Um valor típico é 3600 (uma hora). |
 | expires_on |A data e hora em que o token expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até que a hora de expiração. |
-| Recurso |Identifica o recurso seguro que o token de acesso pode ser utilizado para acesso. |
+| recurso |Identifica o recurso seguro que o token de acesso pode ser utilizado para acesso. |
 | Âmbito |Representação, as permissões concedidas à aplicação cliente nativa. A permissão predefinida é **user_impersonation**. O proprietário do recurso de destino pode registar valores alternativos no Azure AD. |
 | access_token |O novo token de acesso que foi pedido. |
 | refresh_token |Refresh_token OAuth 2.0 novo que pode ser utilizado para pedir tokens de acesso de novo quando expira desta resposta. |

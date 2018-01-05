@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: bb82eeda21fe4913acbe930696aa110ea1554f28
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar os administradores da subscrição do Azure
 
@@ -40,9 +40,11 @@ Para garantir a melhorar o controlo e para simplificar a gestão de acesso, reco
 Para adicionar um utilizador como um administrador para a administração do serviço de subscrição do Azure, conceda-lhes uma função de proprietário do RBAC para a subscrição. A função de proprietário pode gerir os recursos na subscrição que atribuídos e não tem privilégios de acesso a outras subscrições.
 
 1. Visite [ **subscrições** no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Selecione a subscrição que pretende conceder acesso.
-1. Selecione **(IAM) do controlo de acesso** no menu.
-1. Selecione **adicionar** > **função** > **proprietário**. Escreva o endereço de e-mail do utilizador que pretende adicionar como proprietário, selecione o utilizador e, em seguida, selecione **guardar**.
+2. Selecione a subscrição que pretende conceder acesso.
+3. Selecione **(IAM) do controlo de acesso** no menu.
+4. No **função** caixa, selecione **proprietário**. 
+5. No **atribuir acesso** caixa, selecione **utilizador do Azure AD, grupo ou aplicação**. 
+6. No **selecione** caixa, escreva o endereço de e-mail do utilizador que pretende adicionar como proprietário. Selecione o utilizador e, em seguida, selecione **guardar**.
 
     ![Captura de ecrã que mostra a função de proprietário selecionada](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 

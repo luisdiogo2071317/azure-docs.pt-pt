@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/16/2017
+ms.date: 1/4/2018
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 7b259009a8d96e81a141e7718c0d54d40d7b67d1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3444b13972ab9e5c435fc009e8ddb51bcafb1a41
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restaurar ficheiros para um servidor Windows ou para um computador cliente Windows com o modelo de implementação Resource Manager
 
@@ -33,7 +33,7 @@ Em Janeiro de 2017, a Microsoft lançou uma atualização de pré-visualização
 > O [Janeiro de 2017 atualização de cópia de segurança do Azure](https://support.microsoft.com/en-us/help/3216528?preview) é necessário se pretender utilizar o restauro instantâneas para restaurar dados. Também os dados de cópia de segurança devem ser protegidos no cofres em regiões listados no artigo de suporte. Consulte o [Janeiro de 2017 atualização de cópia de segurança do Azure](https://support.microsoft.com/en-us/help/3216528?preview) para a lista de regiões que suportam o restauro instantâneas mais recente. Restauro instantâneas **não** atualmente disponível em todas as regiões.
 >
 
-Restauro instantânea está disponível para utilização em cofres dos serviços de recuperação no portal do Azure e cofres de cópia de segurança no portal clássico. Se pretender utilizar a restaurar instantâneas, transferir a atualização de MARS e siga os procedimentos que mencionem restaurar instantânea.
+Utilize a restaurar instantânea com os cofres dos serviços de recuperação no portal do Azure. Se armazenar dados em cofres de cópia de segurança, ter foi convertidos para cofres dos serviços de recuperação. Se pretender utilizar a restaurar instantâneas, transferir a atualização de MARS e siga os procedimentos que mencionem restaurar instantânea.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 

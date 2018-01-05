@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 63ca91c2eadf7b003427e9716d99621fca1b1a19
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Tornar os dados da aplicação de elevada disponibilidade com armazenamento do Azure
 
-Este tutorial faz parte de um de uma série. Este tutorial mostra como disponibilizar os dados da aplicação altamente no Azure. Quando tiver terminado, tem uma aplicação de consola do .NET core que carrega e obtém um blob para um [acesso de leitura georredundante](../common/storage-redundancy.md#read-access-geo-redundant-storage) conta de armazenamento (RA-GRS). RA-GRS funciona ao replicar as transações do primário para a região secundária. Este processo de replicação garante que os dados na região secundária são eventualmente consistentes. A aplicação utiliza o [disjuntor](/azure/architecture/patterns/circuit-breaker.md) padrão para determinar o ponto final para ligar a. A aplicação muda para o ponto final secundário quando uma falha é simulada.
+Este tutorial faz parte de um de uma série. Este tutorial mostra como disponibilizar os dados da aplicação altamente no Azure. Quando tiver terminado, tem uma aplicação de consola do .NET core que carrega e obtém um blob para um [acesso de leitura georredundante](../common/storage-redundancy.md#read-access-geo-redundant-storage) conta de armazenamento (RA-GRS). RA-GRS funciona ao replicar as transações do primário para a região secundária. Este processo de replicação garante que os dados na região secundária são eventualmente consistentes. A aplicação utiliza o [disjuntor](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) padrão para determinar o ponto final para ligar a. A aplicação muda para o ponto final secundário quando uma falha é simulada.
 
 Na parte de uma série, saiba como:
 
@@ -85,7 +85,7 @@ O projeto de exemplo contém uma aplicação de consola.
 
 Na aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. Recomenda-se para armazenar esta cadeia de ligação dentro de uma variável de ambiente no computador local que executa a aplicação. Siga um dos exemplos abaixo, dependendo do sistema operativo para criar a variável de ambiente.
 
-No portal do Azure, navegue até à sua conta de armazenamento. Selecione **chaves de acesso** em **definições** na sua conta de armazenamento. Copiar o **cadeia de ligação** partir da chave primária ou secundária. Substitua \<yourconnectionstring\> com a ligação real cadeia executando um dos seguintes comandos com base no seu sistema operativo. Este comando guarda uma variável de ambiente para o computador local. No Windows, a variável de ambiente não está disponível até recarregar o **linha de comandos** ou shell estiver a utilizar. Substitua ** \<storageConnectionString\> ** no seguinte exemplo:
+No portal do Azure, navegue até à sua conta de armazenamento. Selecione **chaves de acesso** em **definições** na sua conta de armazenamento. Copiar o **cadeia de ligação** partir da chave primária ou secundária. Substitua \<yourconnectionstring\> com a ligação real cadeia executando um dos seguintes comandos com base no seu sistema operativo. Este comando guarda uma variável de ambiente para o computador local. No Windows, a variável de ambiente não está disponível até recarregar o **linha de comandos** ou shell estiver a utilizar. Substitua  **\<storageConnectionString\>**  no seguinte exemplo:
 
 ### <a name="linux"></a>Linux
 
@@ -109,11 +109,11 @@ Uma janela da consola é iniciado e começa a aplicação em execução. A aplic
 
 ![Aplicação de consola em execução](media/storage-create-geo-redundant-storage/figure3.png)
 
-No código de exemplo, o `RunCircuitBreakerAsync` de tarefas no `Program.cs` ficheiro é utilizado para transferir uma imagem da conta de armazenamento utilizando o [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) método. Antes da transferência um [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) está definido. O contexto da operação define processadores de eventos, que são acionados quando uma transferência for concluída com êxito ou se uma transferência falhe e repetir a operação.
+No código de exemplo, o `RunCircuitBreakerAsync` de tarefas no `Program.cs` ficheiro é utilizado para transferir uma imagem da conta de armazenamento utilizando o [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) método. Antes da transferência um [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) está definido. O contexto da operação define processadores de eventos, que são acionados quando uma transferência for concluída com êxito ou se uma transferência falhe e repetir a operação.
 
 ### <a name="retry-event-handler"></a>Repita o processador de eventos
 
-O `OperationContextRetrying` processador de eventos é chamado quando a transferência da imagem de falha e é definido para repetir. Se o número máximo de tentativas, o que são definidas na aplicação é atingido, o [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) do pedido é alterado para `SecondaryOnly`. Esta definição força o tentar transferir a imagem do ponto final secundário da aplicação. Esta configuração reduz o tempo decorrido para a imagem de pedidos, como o ponto final principal não for repetido indefinidamente.
+O `OperationContextRetrying` processador de eventos é chamado quando a transferência da imagem de falha e é definido para repetir. Se o número máximo de tentativas, o que são definidas na aplicação é atingido, o [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) do pedido é alterado para `SecondaryOnly`. Esta definição força o tentar transferir a imagem do ponto final secundário da aplicação. Esta configuração reduz o tempo decorrido para a imagem de pedidos, como o ponto final principal não for repetido indefinidamente.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -141,7 +141,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>Processador de eventos de pedido concluído
 
-O `OperationContextRequestCompleted` processador de eventos é chamado quando a transferência da imagem é efetuada com êxito. Se a aplicação estiver a utilizar o ponto final secundário, a aplicação continua a utilizar este ponto final até 20 vezes. Após 20 vezes, os conjuntos de aplicação a [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) para `PrimaryThenSecondary` e repete as tentativas o ponto final principal. Se um pedido for bem-sucedida, continua a aplicação de ler a partir do ponto final principal.
+O `OperationContextRequestCompleted` processador de eventos é chamado quando a transferência da imagem é efetuada com êxito. Se a aplicação estiver a utilizar o ponto final secundário, a aplicação continua a utilizar este ponto final até 20 vezes. Após 20 vezes, os conjuntos de aplicação a [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) para `PrimaryThenSecondary` e repete as tentativas o ponto final principal. Se um pedido for bem-sucedida, continua a aplicação de ler a partir do ponto final principal.
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)

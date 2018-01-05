@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 9b218756277e52a4d582b1e8e42200f78d38580e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Configurar e restaurar a partir de retenção de cópias de segurança de longa duração de SQL Database do Azure
 
@@ -82,6 +82,9 @@ As secções seguintes mostram como utilizar o portal do Azure para configurar o
 12. No **configurar** página, forneça um nome válido para a nova política de retenção, modifique a política de retenção predefinido conforme adequado e, em seguida, clique em **OK**.
 
    ![definir a política de retenção](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
+   
+   >[!NOTE]
+   >Os nomes das políticas de retenção não permitem alguns carateres, incluindo espaços.
 
 13. No **retenção de cópias de segurança de longa duração** página para a base de dados, clique em **guardar** e, em seguida, clique em **OK** para aplicar a política de retenção de cópias de segurança de longa duração para todas as bases de dados.
 
@@ -263,7 +266,7 @@ $restoredDb
 > [!NOTE]
 > Aqui, pode ligar à base de dados restaurada, utilizando o SQL Server Management Studio para efetuar tarefas de necessárias, como juntar extrair um bits de dados da base de dados restaurada para copiar para a base de dados existente ou elimine o existente da base de dados e mudar o nome de restaurada base de dados para o nome de base de dados existente. Consulte [ponto de restauro de tempo](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais sobre cópias de segurança automáticas geradas pelo serviço, veja [cópias de segurança automáticas](sql-database-automated-backups.md)
 - Para saber mais sobre a retenção de longa duração de cópia de segurança, veja [retenção de longa duração de cópia de segurança](sql-database-long-term-retention.md)

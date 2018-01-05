@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: juliako
-ms.openlocfilehash: 4b55b6cb87443871decf6f14ef3949e76433afcc
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 79de06407a66e936f19579574ef90478799c9953
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="quotas-and-limitations"></a>Quotas e Limitações
 Este artigo descreve as quotas e limitações associadas com Media Services do Microsoft Azure.
@@ -29,17 +29,8 @@ Este artigo descreve as quotas e limitações associadas com Media Services do M
 Para pedir alterações para as quotas predefinidas fornecidas, pode abrir um pedido de suporte. Inclua informações detalhadas no pedido no alterações de quota pretendido, cenários de caso de utilização e regiões necessárias.
 
 ### <a name="how-to-open-a-support-ticket"></a>Como abrir um pedido de suporte
-Para abrir um pedido de suporte, efetue o seguinte:
+No portal do Azure, aceda a [ajuda + suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Se não tiver sessão iniciada Azure, será solicitado para introduzir as suas credenciais.
 
-1. Clique em [obter suporte](https://manage.windowsazure.com/?getsupport=true). Se não tiver sessão iniciada, será solicitado para introduzir as suas credenciais.
-2. Selecione a sua subscrição.
-3. Em tipo de suporte, selecione "Técnica".
-4. Clique em "Criar pedido de".
-5. Selecione "Media Services do Azure" na lista de produto apresentado na página seguinte.
-6. Selecione um "tipo de problema" que é adequado para o seu problema.
-7. Clique em continuar.
-8. Siga as instruções na página seguinte e, em seguida, introduza os detalhes sobre o problema.
-9. Clique em Submeter para abrir o pedido de suporte.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

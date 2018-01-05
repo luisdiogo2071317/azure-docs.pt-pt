@@ -2,8 +2,8 @@
 title: "Sincronização de dados offline no Mobile Apps do Azure | Microsoft Docs"
 description: "Referência conceptual e descrição geral sobre a funcionalidade de sincronização de dados offline para Mobile Apps do Azure"
 documentationcenter: windows
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: 8e2bd755d14319f8c66f7ae7ec64fbd10801b39d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronização de Dados Offline nas Aplicações Móveis do Azure
 ## <a name="what-is-offline-data-sync"></a>O que é a sincronização de dados offline?
@@ -88,7 +88,7 @@ Quando utilizar tabelas de sincronização, o código de cliente controla quando
 
   Como um exemplo de dados obsoletos no cliente, suponha que o exemplo de "lista de tarefas", Device1 obtém apenas os itens que não estão concluídas. Um todoitem "Comprar milk" está marcado como concluído no servidor de por outro dispositivo. No entanto, Device1 ainda tem o todoitem "Comprar milk" no arquivo local porque-lo é extrair apenas itens que não estão marcadas como concluídas. Uma remoção limpa este item obsoleto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [iOS: Ativar a sincronização offline]
 * [Xamarin iOS: Ativar a sincronização offline]
 * [Xamarin Android: Ativar a sincronização offline]

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/05/2018
 ms.author: maheshu
-ms.openlocfilehash: cfab51f985dd0b9db109f1ca8e4030bc9d0de1cc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4e95cd128c0c8ee8492e7bd224afc317101f346c
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Serviços de domínio do Azure Active Directory: Perguntas mais frequentes (FAQ)
 Esta página respostas a perguntas mais frequentes sobre o Azure Active Directory Domain Services. Manter a verificação de volta para atualizações.
@@ -31,7 +31,7 @@ Consulte o [guia de resolução de problemas](active-directory-ds-troubleshootin
 Não. Só pode criar um único domínio gerido servido por serviços de domínio do Azure AD para um único diretório do Azure AD.  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Pode ativar os serviços de domínio do Azure AD numa rede virtual do Azure Resource Manager?
-Sim. Serviços de domínio do Azure AD pode ser ativados com uma rede virtual do Azure Resource Manager. Esta funcionalidade está atualmente em pré-visualização.
+Sim. Serviços de domínio do Azure AD pode ser ativados com uma rede virtual do Azure Resource Manager. Redes virtuais do Azure clássicas já não são suportadas para criar novos domínios geridos.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Posso migrar o meu domínio gerido existente de uma rede virtual clássica a uma rede virtual do Gestor de recursos?
 Atualmente não. Microsoft irá fornecer um mecanismo para migrar o seu domínio gerido existente de uma rede virtual clássica para uma rede virtual do Gestor de recursos no futuro.

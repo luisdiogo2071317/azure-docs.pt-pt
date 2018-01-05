@@ -3,7 +3,7 @@ title: Atualizar dos Mobile Services para o App Service do Azure - Node.js
 description: "Saiba como atualizar facilmente a sua aplicação de Mobile Services a uma aplicação de Mobile do serviço de aplicações"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: c58f6df0-5aad-40a3-bddc-319c378218e3
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 888717afe14f29fd50da6478c2bba077616a5379
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: crdun
+ms.openlocfilehash: 9a641bc667d07d1b674d2864c1f29151d527f46a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Atualizar o seu serviço móvel do Azure de Node.js atual para o App Service
 Serviço de aplicações móveis é uma nova forma de criar aplicações móveis com o Microsoft Azure. Para obter mais informações, consulte [que são Mobile Apps?].

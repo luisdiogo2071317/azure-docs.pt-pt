@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: ec6e6d07b0933504ffee17912aac9ee3ef937688
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gerir clusters do HDInsight utilizando a IU da Web do Ambari
 
@@ -32,7 +32,7 @@ Neste documento, irá aprender a utilizar a IU da Web do Ambari com um cluster d
 
 ## <a id="whatis"></a>O que é o Ambari?
 
-[Apache Ambari](http://ambari.apache.org) simplifica a gestão do Hadoop, fornecendo uma IU da web de fácil utilização. Pode utilizar Ambari criar, gerir e monitorizar clusters do Hadoop. Os programadores podem integrar estas capacidades nas suas aplicações utilizando o [APIs REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) simplifica a gestão do Hadoop, fornecendo uma IU da web de fácil utilização. Pode utilizar Ambari para gerir e monitorizar clusters do Hadoop. Os programadores podem integrar estas capacidades nas suas aplicações utilizando o [APIs REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 IU da Web do Ambari é fornecido por predefinição com clusters do HDInsight que utilizam o sistema operativo Linux.
 
@@ -246,6 +246,6 @@ As seguintes operações do Ambari não são suportadas no HDInsight:
 
 * __Mover o serviço do Recoletor de métricas__. Ao visualizar informações sobre o serviço do Recoletor de métricas, uma das ações disponíveis no menu de ações de serviço é __recoletor mover métricas__. Não é suportada com o HDInsight.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como utilizar o [API de REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) com o HDInsight.

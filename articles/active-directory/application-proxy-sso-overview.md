@@ -3,7 +3,7 @@ title: "Gerir o SSO para Proxy de aplicações do Azure AD | Microsoft Docs"
 description: "Saiba mais sobre as noções básicas do início de sessão com o Proxy da aplicação"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e3f2ed6f019760fd4109c6fc3d8449d95c4959a9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60422b4c8256df024bbc870fc43ec6b491f674f1
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Como Proxy de aplicações do Azure AD fornece o início de sessão único?
 
@@ -29,7 +29,7 @@ Para utilizar o Azure Active Directory para início de sessão às suas aplicaç
 
 Para ver as opções de início de sessão único, siga estes passos:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Navegue para **do Azure Active Directory** > **aplicações empresariais** > **todas as aplicações**.
 3. Selecione a aplicação cujas único início de sessão opções que pretende gerir.
 4. Selecione **de sessão único-**.
@@ -74,7 +74,7 @@ Se as suas aplicações utilizam cabeçalhos para autenticação, escolha **com 
 
 Para obter informações sobre como configurar a autenticação baseada no cabeçalho, consulte [autenticação baseada no cabeçalho para início de sessão com o Proxy da aplicação](application-proxy-ping-access.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Palavra-passe vaulting para início de sessão com o Proxy da aplicação](application-proxy-sso-azure-portal.md)
 - [Delegação restrita de Kerberos para o início de sessão único com o Proxy da aplicação](active-directory-application-proxy-sso-using-kcd.md)

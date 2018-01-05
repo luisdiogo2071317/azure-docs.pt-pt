@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: b4a0af8fffd3ce012bf9addeec7029884d4ccf25
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contentor em instâncias de contentor do Azure
 
@@ -33,6 +33,9 @@ Este grupo de contentor de exemplo:
 * Expõe um único endereço IP público, com uma porta exposto.
 * É composta por dois contentores. Um contentor escuta na porta 80, enquanto o outro escuta na porta 5000.
 * Inclui duas partilham de ficheiros do Azure como volume monta e cada contentor monta uma das partilhas localmente.
+
+> [!NOTE]
+> Os grupos de contentor multi são atualmente restritos para contentores de Linux. Enquanto que estamos a trabalhar para colocar todas as funcionalidades de contentores do Windows, pode encontrar a atual plataforma as diferenças no [Quotas e disponibilidade de região para instâncias de contentor do Azure](container-instances-quotas.md).
 
 ### <a name="networking"></a>Redes
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guia técnico para o modelo de solução do Cortana Intelligence para a pedido previsão de energia
 ## <a name="overview"></a>**Descrição geral**
@@ -150,7 +150,7 @@ Depois do gerador de dados é iniciado, o pipeline começa a obter hydrated e os
     Uma das tarefas do Stream Analytics escreve os dados de entrada não processados para o blob storage. Se clicar em **Blob Storage do Azure** componente da sua solução a partir do ecrã implementado com êxito a solução e, em seguida, clique em **abra** no painel correto, que demora ao [Azure Portal](https://portal.azure.com). Uma vez, clique em **Blobs**. No painel seguinte, é apresentada uma lista de contentores. Clique em **"energysadata"**. No painel seguinte, consulte o **"demandongoing"** pasta. Para a pasta de rawdata, verá que as pastas com nomes como data = 2016-01-28 etc. Se vir estas pastas, indica que os dados não processados com êxito a ser gerado no seu computador e armazenados no blob storage. Deverá ver os ficheiros que devem ter tamanhos finito em MB nessas pastas.
 2. Verifique os dados da SQL Database do Azure.
 
-    É o último passo do pipeline de escrever dados (por exemplo, predições do machine learning) na base de dados do SQL Server. Poderá ter de esperar um horas oftwo máximo para os dados são apresentados na base de dados do SQL Server. Uma forma para monitorizar a quantidade de dados está disponível na base de dados SQL é através de [portal do Azure](https://manage.windowsazure.com/). No painel esquerdo localizar bases de dados SQL![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) e clique no mesmo. Em seguida, localize a base de dados (ou seja, demo123456db) e clique no mesmo. Na página seguinte em **"Ligar à base de dados"** secção, clique em **"Transact-SQL de executar consultas da base de dados do SQL Server"**.
+    É o último passo do pipeline de escrever dados (por exemplo, predições do machine learning) na base de dados do SQL Server. Poderá ter de aguardar um máximo de duas horas para os dados são apresentados na base de dados do SQL Server. Uma forma para monitorizar a quantidade de dados está disponível na base de dados SQL é através de [portal do Azure](https://portal.azure.com/). No painel esquerdo, localize bases de dados SQL![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) e clique no mesmo. Em seguida, localize a base de dados (ou seja, demo123456db) e clique no mesmo. Na página seguinte em **"Ligar à base de dados"** secção, clique em **"Transact-SQL de executar consultas da base de dados do SQL Server"**.
 
     Aqui, pode clicar em nova consulta e a consulta para o número de linhas (por exemplo, "selecione Count do DemandRealHourly)" à medida que aumenta a sua base de dados, deve aumentar o número de linhas na tabela.)
 3. Verifique os dados a partir do dashboard do Power BI.
@@ -167,7 +167,7 @@ Os seguintes passos guiá-lo como visualizar a saída de dados em tempo real de 
 1. Adicione a saída do Power BI no Azure Stream Analytics (ASA).
 
    * Tem de seguir as instruções em [Azure Stream Analytics & Power BI: um dashboard de análise em tempo real de visibilidade em tempo real dos dados de transmissão em fluxo](stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar o resultado da tarefa do Azure Stream Analytics como seu dashboard do Power BI .
-   * Localize a tarefa do stream analytics na sua [portal do Azure](https://manage.windowsazure.com). O nome da tarefa deve ser: YourSolutionName + "streamingjob" + número aleatório + "asapbi" (ou seja, demostreamingjob123456asapbi).
+   * Localize a tarefa do stream analytics na sua [portal do Azure](https://portal.azure.com). O nome da tarefa deve ser: YourSolutionName + "streamingjob" + número aleatório + "asapbi" (ou seja, demostreamingjob123456asapbi).
    * Adicione uma saída de PowerBI para a tarefa do ASA. Definir o **Alias de saída** como **'PBIoutput'**. Definir o **nome de Dataset** e **nome de tabela** como **'EnergyStreamData'**. Depois de adicionar a saída, clique em **"Start"** na parte inferior da página para iniciar a tarefa de Stream Analytics. Deve obter uma mensagem de confirmação (por exemplo, "Iniciar tarefa de stream analytics myteststreamingjob12345asablob foi concluída com êxito").
 2. Inicie sessão no [Power BI online](http://www.powerbi.com)
 

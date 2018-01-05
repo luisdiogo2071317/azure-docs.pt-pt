@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09198355ecd862c73b728d8119bbf9d56e3b9f69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Descrição geral de SAP HANA (instâncias de grandes dimensões) e arquitetura no Azure
 
@@ -468,7 +468,7 @@ Implementar a camada de aplicação do SAP ou componentes, através de várias V
 
 Existem três considerações de encaminhamento de rede importantes para SAP HANA no Azure (instâncias de grande):
 
-1. SAP HANA no Azure (instâncias de grande) só pode ser acedido através de VMs do Azure e através da ligação de ExpressRoute dedicada; não diretamente a partir do local. Acesso direto do local para as unidades de instância grande HANA, conforme fornecidos pela Microsoft, não é possível imediatamente devido a restrições de encaminhamento transitórias da arquitetura de rede do Azure atual utilizado para instâncias de grandes dimensões do SAP HANA. Alguns clientes de administração e quaisquer aplicações que necessitam acesso direto, tal como o SAP solução Manager em execução no local, não é possível ligar à base de dados SAP HANA.
+1. SAP HANA no Azure (instâncias de grande) só pode ser acedido através de VMs do Azure e através da ligação de ExpressRoute dedicada; não diretamente a partir do local. Acesso direto do local para as unidades de instância grande HANA, conforme fornecidos pela Microsoft, não é possível imediatamente devido a restrições de encaminhamento transitivas da arquitetura de rede do Azure atual utilizado para instâncias de grandes dimensões do SAP HANA. Alguns clientes de administração e quaisquer aplicações que necessitam acesso direto, tal como o SAP solução Manager em execução no local, não é possível ligar à base de dados SAP HANA.
 
 2. Se tiver de unidades de instância grande HANA implementadas em duas regiões do Azure diferentes para fins de recuperação após desastre, aplicam-se as restrições de encaminhamento transitórias. Ou por outras palavras, endereços IP de uma unidade de instância grande HANA uma região (por exemplo, EUA oeste) não serão encaminhados para uma unidade de instância grande HANA implementada por si noutra região (por exemplo, EUA Leste). Este é independente da utilização de peering de rede do Azure em regiões ou cruzada ligar os circuitos ExpressRoute que se ligam unidades de instância grande HANA para as VNets do Azure. Como apresentado um pouco mais baixo desta documentação. Esta restrição, que é fornecido com a arquitetura de implementado, será proíbem a utilização imediata de replicação do sistema HANA como a funcionalidade de recuperação após desastre.
 

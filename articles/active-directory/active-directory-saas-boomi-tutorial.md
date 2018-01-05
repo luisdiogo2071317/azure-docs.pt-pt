@@ -4,20 +4,21 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.assetid: 8e05afa9-2eda-4975-a0cc-6d408065860f
+manager: femila
+ms.reviewer: joflore
+ms.assetid: 40d034ff-7394-4713-923d-1f8f2ed8bf36
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 77f79c4e57aa8dd90fb0a519e7217e4f4e3618e7
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6d1af05f40d6e57b2f6128261828791be7e516c7
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Tutorial: Integração do Azure Active Directory com Boomi
 
@@ -25,9 +26,9 @@ Neste tutorial, irá aprender a integrar Boomi com o Azure Active Directory (Azu
 
 Integrar Boomi com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Boomi
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Boomi (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso ao Boomi.
+- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Boomi (Single Sign-On) com as respetivas contas do Azure AD.
+- Pode gerir as contas numa localização central - portal do Azure.
 
 Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -44,7 +45,7 @@ Para configurar a integração do Azure AD com Boomi, terá dos seguintes itens:
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
@@ -59,25 +60,22 @@ Para configurar a integração de Boomi com o Azure AD, terá de adicionar Boomi
 
 1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
 
-    ![Active Directory][1]
+    ![O botão do Azure Active Directory][1]
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
-    ![Aplicações][2]
+    ![O painel de aplicações da empresa][2]
     
 3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
 
-    ![Aplicações][3]
+    ![O novo botão de aplicação][3]
 
-4. Na caixa de pesquisa, escreva **Boomi**.
+4. Na caixa de pesquisa, escreva **Boomi**, selecione **Boomi** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_search.png)
+    ![Boomi na lista de resultados](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_addfromgallery.png)
 
-5. No painel de resultados, selecione **Boomi**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
 Nesta secção, configure e teste do Azure AD-início de sessão único com Boomi com base num utilizador de teste chamado "Britta Simon".
 
 Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Boomi é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Boomi tem de ser estabelecida.
@@ -86,13 +84,13 @@ No Boomi, atribua o valor do **nome de utilizador** no Azure AD como o valor a *
 
 Para configurar e testar o Azure AD-início de sessão único com Boomi, tem de concluir os blocos modulares seguintes:
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste Boomi](#creating-a-boomi-test-user)**  - para ter um homólogo de Britta Simon Boomi que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
+3. **[Criar um utilizador de teste Boomi](#create-a-boomi-test-user)**  - para ter um homólogo de Britta Simon Boomi que está ligada a representação do Azure AD do utilizador.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
+5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
 
 Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação Boomi.
 
@@ -100,27 +98,23 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 1. No portal do Azure, no **Boomi** página de integração de aplicações, clique em **de sessão único-**.
 
-    ![Configurar o início de sessão único][4]
+    ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
  
-    ![Configurar o início de sessão único](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_samlbase.png)
+    ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_samlbase.png)
 
 3. No **Boomi domínio e os URLs** secção, execute os seguintes passos:
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
+    ![Domínio Boomi e os URLs únicos de informações de início de sessão](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_url.png)
 
-    a. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://platform.boomi.com/`
+    a. No **identificador** caixa de texto, escreva um URL:`https://platform.boomi.com/`
 
-    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://platform.boomi.com/sso/<accountname>/saml`
+    b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://platform.boomi.com/sso/<boomi-tenant>/saml`
 
     > [!NOTE] 
-    > Estes valores não estiverem reais. Atualize estes valores com o identificador e o URL de resposta real. Contacte [equipa de suporte de Boomi](https://boomi.com/company/contact/) para obter estes valores.
-
-4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
-    
-    ![Configurar o início de sessão único](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_certificate.png)
-
+    > O valor do URL de resposta não é real. Atualize o valor com o URL de resposta real. Contacte [equipa de suporte de Boomi](https://boomi.com/company/contact/) para obter o valor.
+ 
 4. Aplicação de Boomi espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos a partir de "**atributos de utilizador**" secção na página de integração de aplicações. A seguinte captura de ecrã mostra um exemplo para este.
     
     ![Configurar o início de sessão único](./media/active-directory-saas-boomi-tutorial/tutorial_attribute.png)
@@ -133,7 +127,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
     
-    ![Configurar o início de sessão único](./media/active-directory-saas-boomi-tutorial/tutorial_attribute_04.png)
+    ![Configurar o início de sessão único](./media/active-directory-saas-boomi-tutorial/tutorial_officespace_04.png)
     
     ![Configurar o início de sessão único](./media/active-directory-saas-boomi-tutorial/tutorial_attribute_05.png)
     
@@ -143,19 +137,23 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     d. Clique em **OK**.
 
-6. Clique em **guardar** botão.
+6. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-boomi-tutorial/tutorial_general_400.png)
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_certificate.png) 
 
-7. No **Boomi configuração** secção, clique em **configurar Boomi** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+7. Clique em **guardar** botão.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_configure.png) 
+    ![Configurar botão único início de sessão guardar](./media/active-directory-saas-boomi-tutorial/tutorial_general_400.png)
 
-8. Numa janela do browser web diferente, inicie sessão no site da sua empresa Boomi como administrador. 
+8. No **Boomi configuração** secção, clique em **configurar Boomi** para abrir **configurar início de sessão** janela. Copiar o **único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
 
-9. Navegue para **nome da empresa** e aceda a **configurar**.
+    ![Configuração de Boomi](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_configure.png) 
 
-10. Clique em de **SSO opções** separador e executar passos abaixo.
+9. Numa janela do browser web diferente, inicie sessão no site da sua empresa Boomi como administrador. 
+
+10. Navegue para **nome da empresa** e aceda a **configurar**.
+
+11. Clique em de **SSO opções** separador e executar passos abaixo.
 
     ![Configurar o início de sessão único no lado de aplicação](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_11.png)
 
@@ -171,40 +169,40 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
 
-![Criar utilizador do Azure AD][100]
+   ![Criar um utilizador de teste do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. No portal do Azure, no painel esquerdo, clique em de **do Azure Active Directory** botão.
 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-boomi-tutorial/create_aaduser_01.png) 
+    ![O botão do Azure Active Directory](./media/active-directory-saas-boomi-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-boomi-tutorial/create_aaduser_02.png) 
+2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-boomi-tutorial/create_aaduser_03.png) 
+    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/active-directory-saas-boomi-tutorial/create_aaduser_02.png)
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-boomi-tutorial/create_aaduser_04.png) 
+3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    ![O botão de adição](./media/active-directory-saas-boomi-tutorial/create_aaduser_03.png)
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+4. No **utilizador** diálogo caixa, execute os seguintes passos:
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    ![A caixa de diálogo de utilizador](./media/active-directory-saas-boomi-tutorial/create_aaduser_04.png)
+
+    a. No **nome** caixa, escreva **BrittaSimon**.
+
+    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-a-boomi-test-user"></a>Criar um utilizador de teste Boomi
+  
+### <a name="create-a-boomi-test-user"></a>Criar um utilizador de teste Boomi
 
 Para permitir que os utilizadores do Azure AD iniciem sessão nos Boomi, têm de ser aprovisionados para Boomi. No caso de Boomi, o aprovisionamento é uma tarefa manual.
 
@@ -235,13 +233,13 @@ Para permitir que os utilizadores do Azure AD iniciem sessão nos Boomi, têm de
     f. Clique em **OK**.
     
     > [!NOTE]
-    > O utilizador não irá receber um e-mail de notificação de boas-vindas com uma palavra-passe que pode ser utilizada para iniciar sessão para a conta de AtomSphere porque a palavra-passe é gerida através do fornecedor de identidade. Pode utilizar quaisquer outras Boomi utilizador conta criação ferramentas ou APIs fornecidas pelo Boomi para aprovisionar contas de utilizador do AAD. 
+    > O utilizador não irá receber um e-mail de notificação de boas-vindas com uma palavra-passe que pode ser utilizada para iniciar sessão para a conta de AtomSphere porque a palavra-passe é gerida através do fornecedor de identidade. Pode utilizar quaisquer outras Boomi utilizador conta criação ferramentas ou APIs fornecidas pelo Boomi para aprovisionar contas de utilizador do AAD.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para Boomi.
 
-![Atribua o utilizador][200] 
+![Atribuir a função de utilizador][200] 
 
 **Para atribuir Britta Simon a Boomi, execute os seguintes passos:**
 
@@ -251,15 +249,15 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 2. Na lista de aplicações, selecione **Boomi**.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_app.png) 
+    ![A ligação de Boomi na lista de aplicações](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_app.png)  
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![A ligação de "Utilizadores e grupos"][202]
 
 4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![O painel Adicionar atribuição][203]
 
 5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
 
@@ -267,16 +265,19 @@ Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Teste o início de sessão único
 
 Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
 Quando clica no mosaico Boomi no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de Boomi.
+Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
 
 <!--Image references-->
 

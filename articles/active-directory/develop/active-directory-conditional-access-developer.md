@@ -1,5 +1,5 @@
 ---
-title: "Orientações para programadores do acesso condicional do Azure Active Directory | Microsoft Docs"
+title: "Orientações para programadores do acesso condicional do Azure Active Directory"
 description: "Orientações para programadores e cenários de acesso condicional do Azure AD"
 services: active-directory
 keywords: 
@@ -8,17 +8,16 @@ manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
-ms.assetid: 115bdab2-e1fd-4403-ac15-d4195e24ac95
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientações para programadores do acesso condicional do Azure Active Directory
 
@@ -28,7 +27,7 @@ Azure Active Directory (AD) oferece várias formas de proteger a sua aplicação
 * Permitir que apenas o Intune inscritos para aceder a serviços específicos
 * Restringir as localizações de utilizador e IP intervalos
 
-Para obter mais informações sobre as funcionalidades completas do acesso condicional, consulte [acesso condicional no portal clássico do Azure](../active-directory-conditional-access-azure-portal.md). 
+Para obter mais informações sobre as funcionalidades completas do acesso condicional, consulte [acesso condicional no Azure Active Directory](../active-directory-conditional-access-azure-portal.md). 
 
 Neste artigo, iremos focar-se no significa que o acesso condicional aos programadores criar aplicações do Azure AD.  Pressupõe que os dados de conhecimento de [único](active-directory-integrating-applications.md) e [multi-inquilino](active-directory-devhowto-multi-tenant-overview.md) aplicações e [padrões comuns da autenticação](active-directory-authentication-scenarios.md).
 
@@ -216,9 +215,9 @@ A nossa aplicação precisa detetar o `error=interaction_required`.  Em seguida,
 Para experimentar este cenário, consulte a nossa [exemplo de código em-nome-de JS SPA](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca).  Código de exemplo utiliza a política de acesso condicional e que registou anteriormente com uma SPA JS para demonstrar neste cenário de API web. Mostra como corretamente processar o desafio de afirmações e obter um token de acesso que pode ser utilizado para a API Web. Em alternativa, consulte geral [exemplo de código Angular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) para obter orientações sobre uma SPA angular para
 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
-* Para saber mais sobre as funcionalidades, consulte [acesso condicional no Azure AD](../active-directory-conditional-access-azure-portal.md).
+* Para saber mais sobre as funcionalidades, consulte [acesso condicional no Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * Para exemplos de código de mais do Azure AD, consulte [repositório do Github dos exemplos de código](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Para obter mais informações sobre do ADAL SDK e acesso a documentação de referência, consulte [guia biblioteca](active-directory-authentication-libraries.md).
 * Para saber mais sobre os cenários de multi-inquilinos, consulte [como a sessão de utilizadores que utilizam o padrão de multi-inquilino](active-directory-devhowto-multi-tenant-overview.md).

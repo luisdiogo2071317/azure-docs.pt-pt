@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Extensões de Python preparativos de dados
 Como uma forma de preencher os intervalos de funcionalidade entre funções incorporadas, o Azure Machine Learning dados preparativos inclui extensibilidade em vários níveis. Neste documento, vamos descrevem a extensibilidade através do script do Python. 
@@ -123,6 +123,31 @@ Em seguida, execute um dos seguintes comandos:
 ou 
 
 `./pip install <libraryname>`
+
+## <a name="use-custom-modules"></a>Utilize módulos personalizados
+No transformar fluxo de dados (scripts), escreva python código como esta:
+
+```python
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction1
+df = ExtensionFunction1(df)
+```
+
+Na coluna Adicionar (Script), defina o tipo de bloco de código = módulo e escrever python código seguinte:
+
+```python 
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction2
+
+def newvalue(row):
+    return ExtensionFunction2(row)
+```
+Para contextos de execução diferente (local, spark de docker), aponte caminho absoluto para o local certo. Poderá querer utilizar "os.getcwd() + relativePath" a localizá-la.
+
 
 ## <a name="column-data"></a>Dados da coluna 
 Dados da coluna podem ser acedidos a partir de uma linha utilizando a notação de pontos ou notação de chave-valor. Nomes de colunas que contêm espaços ou carateres especiais não podem ser acedidos utilizando a notação de pontos. O `row` variável sempre deve ser definida em ambos os modos de extensões do Python (módulo e expressão). 

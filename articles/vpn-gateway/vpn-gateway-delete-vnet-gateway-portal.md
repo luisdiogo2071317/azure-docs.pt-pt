@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: cherylmc
-ms.openlocfilehash: b67fdfc82bbc132772186e3500079cfcfdafe02b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b014d43ab25124d3e08e19ca190b320fc8456593
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminar um gateway de rede virtual através do portal
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/21/2017
 
 Este artigo fornece instruções para eliminar um gateways de VPN do Azure implementadas utilizando o modelo de implementação Resource Manager. Existem duas abordagens diferentes que pode tomar quando pretender eliminar um gateway de rede virtual para uma configuração de gateway VPN.
 
-- Se pretender eliminar tudo e comece de novo, como no caso de um ambiente de teste, pode eliminar o grupo de recursos. Quando elimina um grupo de recursos, elimina todos os recursos dentro do grupo. Este é o método só é recomendada se não pretender manter qualquer um dos recursos no grupo de recursos. Não é possível eliminar seletivamente apenas alguns recursos através desta abordagem.
+- Se pretender eliminar tudo e comece de novo, como no caso de um ambiente de teste, pode eliminar o grupo de recursos. Quando elimina um grupo de recursos, elimina todos os recursos dentro do grupo. Este método só é recomendado se não pretender manter qualquer um dos recursos no grupo de recursos. Não é possível eliminar seletivamente apenas alguns recursos através desta abordagem.
 
 - Se pretender manter alguns dos recursos no seu grupo de recursos, ao eliminar um gateway de rede virtual fica ligeiramente mais complicado. Antes de poder eliminar o gateway de rede virtual, primeiro tem de eliminar todos os recursos dependentes no gateway. Os passos a que seguir dependem do tipo de ligações que criou e os recursos dependentes para cada ligação.
 

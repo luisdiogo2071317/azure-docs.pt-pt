@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/3/2018
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: ab79820a00cb52367d99e3eb3a2b717f1bca44e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versões de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema operativo convidado versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de um SO convidado está desativado. Se configurar as funções de utilizar *automática* atualizações de SO convidado, conforme descrito em [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -42,6 +42,10 @@ Fornece-lhe informações atualizadas sobre a Azure mais recente do sistema oper
 Se não souber sobre que o SO convidado ou como o SO convidado liberta o trabalho? Leitura [isto](#how-it-works) secção.
 
 ## <a name="news-updates"></a>Atualizações de notícias de última hora
+
+###### <a name="january-4-2018"></a>**4 de Janeiro de 2018**
+SO de convidado de Dezembro foi libertado.
+
 ###### <a name="december-14-2017"></a>**14 de Dezembro de 2017**
 SO de convidado de Novembro foi libertado.
 
@@ -69,12 +73,6 @@ SO de convidado de Junho foi libertado.
 ###### <a name="june-16-2017"></a>**16 de Junho de 2017**
 Implementação de SO convidado de Junho está a iniciar 16 de Junho e tem uma versão 11 de Julho prevista.
 
-###### <a name="june-5-2017"></a>**5 de Junho de 2017**
-Pode foi libertada SO convidado.
-
-###### <a name="may-17-2017"></a>**17 de Maio de 2017**
-Devido a um erro de segurança, iremos desativação as seguintes Dezembro de 2016 e Janeiro de 2017 versões de SO que não tenham o [corrigir] do portal: WA-convidado-so-5.4_201612-01, WA-convidado-SO-4.39_201612-01, WA-convidado-SO-3.46_201612-01, WA-CONVIDADO-SO-2.59_201701-01
-
 
 ## <a name="releases"></a>Versões
 ## <a name="family-5-releases"></a>Versões de família 5
@@ -90,8 +88,9 @@ Devido a um erro de segurança, iremos desativação as seguintes Dezembro de 20
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-5.14_201712-01 |4 de Janeiro de 2018 |Post 5.16 |TBD |
 | WA-CONVIDADO-SO-5.13_201711-01 |14 de Dezembro de 2017 |Post 5.15 |TBD |
-| WA-CONVIDADO-SO-5.12_201710-02 |8 de Novembro de 2017 |Post 5.14 |TBD |
+|~~WA-CONVIDADO-SO-5.12_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-CONVIDADO-SO-5.11_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-5.10_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-5.9_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
@@ -113,8 +112,9 @@ Devido a um erro de segurança, iremos desativação as seguintes Dezembro de 20
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-4.49_201712-01 |4 de Janeiro de 2018 |Post 4.51 |TBD |
 | WA-CONVIDADO-SO-4.48_201711-01 |14 de Dezembro de 2017 |Post 4,50 |TBD |
-| WA-CONVIDADO-SO-4.47_201710-02 |8 de Novembro de 2017 |Post 4.49 |TBD |
+|~~WA-CONVIDADO-SO-4.47_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-CONVIDADO-SO-4.46_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-4.45_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-4.44_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
@@ -136,8 +136,9 @@ Devido a um erro de segurança, iremos desativação as seguintes Dezembro de 20
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-3.56_201712-01 |4 de Janeiro de 2018 |Post 3.58 |TBD |
 | WA-CONVIDADO-SO-3.55_201711-01 |14 de Dezembro de 2017 |Post 3.57 |TBD |
-| WA-CONVIDADO-SO-3.54_201710-02 |8 de Novembro de 2017 |Post 3.56 |TBD |
+|~~WA-CONVIDADO-SO-3.54_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-CONVIDADO-SO-3.53_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-3.52_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-3.51_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
@@ -159,8 +160,9 @@ Devido a um erro de segurança, iremos desativação as seguintes Dezembro de 20
 
 | Cadeia de configuração | Data da versão | Desativar data | Data expirada |
 | --- | --- | --- | --- |
+| WA-CONVIDADO-SO-2.69_201712-01 |4 de Janeiro de 2018 |Post 2.71 |TBD |
 | WA-CONVIDADO-SO-2.68_201711-01 |14 de Dezembro de 2017 |Post 2.70 |TBD |
-| WA-CONVIDADO-SO-2.67_201710-02 |8 de Novembro de 2017 |Post 2.69 |TBD |
+|~~WA-CONVIDADO-SO-2.67_201710-02~~ |8 de Novembro de 2017 |4 de Janeiro de 2018 |TBD |
 |~~WA-CONVIDADO-SO-2.66_201709-01~~ |6 de Outubro de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-2.65_201708-01~~ |24 de Agosto de 2017 |14 de Dezembro de 2017 |TBD |
 |~~WA-CONVIDADO-SO-2.64_201707-01~~ |3 de Agosto de 2017 |8 de Novembro de 2017 |TBD |
@@ -246,4 +248,4 @@ A política de Suportabilidade e extinção de SO convidado é explicada [aqui][
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[corrigir]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx

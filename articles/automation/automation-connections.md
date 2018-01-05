@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d442fd3c1713f4cdc53ef0dc6f7e15cd74b21d1a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Recursos de ligação da automatização do Azure
 
@@ -71,14 +71,6 @@ A função na tabela seguinte é utilizada para aceder a ligações num Python2 
 3. Clique em **adicionar uma ligação** na parte superior do painel.
 4. No **tipo** lista pendente, selecione o tipo de ligação que pretende criar. O formulário irá apresentar as propriedades para esse tipo específico.
 5. Preencha o formulário e clique em **criar** para guardar a nova ligação.
-
-### <a name="to-create-a-new-connection-with-the-azure-classic-portal"></a>Para criar uma nova ligação com o portal clássico do Azure
-
-1. Da sua conta de automatização, clique em **ativos** na parte superior da janela.
-2. Na parte inferior da janela, clique em **Adicionar definição**.
-3. Clique em **adicionar ligação**.
-4. No **tipo de ligação** lista pendente, selecione o tipo de ligação que pretende criar.  O assistente irá apresentar as propriedades para esse tipo específico.
-5. Conclua o assistente e clique na caixa de verificação para guardar a nova ligação.
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Para criar uma nova ligação com o Windows PowerShell
 
@@ -154,7 +146,7 @@ O exemplo seguinte mostra como autenticar a ligação Run As a utilizar num Pyth
     runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
     azure_credential = get_automation_runas_credential(runas_connection)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja [nas hiperligações na criação de gráficos](automation-graphical-authoring-intro.md#links-and-workflow) para compreender como direcionar e controlar o fluxo de lógica nos runbooks.  
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 1/3/2017
 ms.author: jeedes
-ms.openlocfilehash: bc04f4c632daef99a4f12e237dfe395040039afe
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: c8c56cd3e222e8e9ebf4cd3bb5109b6f552ec387
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Azure Active Directory com o Amazon Web Services (AWS)
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 4. A aplicação de Software do Amazon Web Services (AWS) espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos a partir de "**atributos de utilizador**" secção na página de integração de aplicações. A seguinte captura de ecrã mostra um exemplo para este.
 
-    ![Configurar atributos Single Sign-On](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)  
+    ![Configurar attb Single Sign-On](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)   
 
 5. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributos token SAML, conforme mostrado na imagem acima e execute os seguintes passos:
     
@@ -126,7 +126,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar o início de sessão único adicionar](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
 
-    ![Configurar atributos Single Sign-On](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
+    ![Configurar addattb Single Sign-On](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
     b. No **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -230,18 +230,18 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Criar nova política](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Crie a sua própria política para obter todas as funções de contas do AWS. No **criar sua própria política** secção, clique em **selecione** botão.
+25. Crie a sua própria política para obter todas as funções de contas do AWS. No **criar a sua própria política** secção, clique em **selecione** botão.
     
     ![Criar nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
 26. Defina a nova política, efetuando os seguintes passos:
 
-    ![Definir a nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
+    ![Definir a nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
     a. Forneça o **nome da política** como **AzureAD_SSOUserRole_Policy**.
 
     b. Pode fornecer **Descrição** para a política conforme **esta política irá permitir ao obter as funções do contas AWS**.
-
+    
     c. O documento de política, adicione o abaixo JSON.
     
     ```
@@ -271,14 +271,12 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     }
     
     ```
-
+    
     d. Certifique-se de que verifique no **utilizar autoformatting para edição de política**.
-
+    
     e. Clique em **validar política** na parte inferior.
-
+    
     f. Depois da política é foi validada corretamente, em seguida, pode clicar em **criar política** botão.
-
-    ![Criar nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
     
 27. Crie uma nova conta de utilizador no serviço de IAM AWS, efetuando os seguintes passos:
 
@@ -302,7 +300,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
 28. Agora, crie uma nova política para este utilizador, efetuando os seguintes passos:
 
-    ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/policy6.png)
+    ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
     a. Clique em de **anexar diretamente as políticas existentes** botão.
 
@@ -332,7 +330,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. Introduza o **chave de acesso** e **segredo** no **segredo do cliente** e **segredo Token** campos, respetivamente.
+32. Introduza o **chave de acesso** e **segredo** no **segredo do cliente** e **segredo Token** campo respetivamente.
 
     ![Adicionar utilizador](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -424,13 +422,6 @@ Nesta secção, testar a configuração do Azure AD único início de sessão at
 
 Quando clica no mosaico do Amazon Web Services (AWS) no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação do Amazon Web Services (AWS).
 Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md). 
-
-## <a name="known-issues"></a>Problemas conhecidos
-
- * No **aprovisionamento** secção, o **mapeamentos** subsecção irá mostrar uma mensagem "A carregar..." e nunca apresentar os mapeamentos de atributos. O fluxo de trabalho de aprovisionamento apenas suportado atualmente é a importação de funções do AWS com o Azure AD para seleção durante a atribuição de utilizador/grupo. Os mapeamentos de atributos para isto são predeterminado e não configurável.
- 
- * O **aprovisionamento** secção suporta apenas a introdução de um conjunto de credenciais para um inquilino do AWS cada vez. Todas as funções importadas são escritas para a propriedade appRoles do Azure AD [servicePrincipal objeto](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) para o AWS de inquilino. Vários inquilinos do AWS (representados pelo servicePrincipals) podem ser adicionados para o Azure AD da Galeria para o aprovisionamento, no entanto, é um problema conhecido com a automaticamente escrever todas as funções importadas a partir de vários servicePrincipals AWS utilizado para Aprovisionamento para o servicePrincipal único utilizado para o início de sessão único. Como solução, o [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) pode ser utilizado para extrair todos os appRoles importado para cada servicePrincipal AWS onde o aprovisionamento estiver configurado. Estas cadeias de função podem ser adicionadas posteriormente para o servicePrincipal AWS onde o início de sessão único é configurado.
-
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

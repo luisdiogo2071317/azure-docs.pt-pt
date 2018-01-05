@@ -3,7 +3,7 @@ title: "Considerações de segurança para o Proxy de aplicações do Azure AD |
 description: "Abrange as considerações de segurança para utilizar o Proxy de aplicações do Azure AD"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 5a2ab5c68345deee3a34173d38d529a911c7ff3e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2370c4717e2cff6b4b8113b09624ef873b309647
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para aceder a aplicações remotamente com o Proxy de aplicações do Azure AD
 
@@ -180,7 +180,7 @@ Depois de receber uma resposta, o conector estabelece uma ligação de saída pa
 Alguns processamento da aplicação pode ocorrer aqui. Se tiver configurado o Proxy de aplicações para traduzir cabeçalhos ou URLs na sua aplicação, esse processamento acontece conforme necessário durante este passo.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Considerações de topologia de rede ao utilizar o Proxy de aplicações do Azure AD](application-proxy-network-topology-considerations.md)
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f1f9f306d7759cbd1202c985da27a2a3b879ebd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicações de .NET
 
@@ -62,8 +62,6 @@ São suportados os seguintes ambientes:
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
-        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
@@ -174,8 +172,8 @@ Para conceder permissão, atribua o `Application Insights Snapshot Debugger` fun
 1. Clique no botão Guardar para adicionar o utilizador à função.
 
 
-[!IMPORTANT]
-    Instantâneos potencialmente podem conter pessoais e outras informações confidenciais numa variável e o parâmetro de valores.
+> [!IMPORTANT]
+> Instantâneos potencialmente podem conter pessoais e outras informações confidenciais numa variável e o parâmetro de valores.
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Depurar instantâneos no portal do Application Insights
 
@@ -277,6 +275,17 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 Para aplicações que são _não_ alojada no App Service, os registos de /carregador estão na mesma pasta que o mini-cópias de informação: `%TEMP%\Dumps\<ikey>` (onde `<ikey>` é a sua chave de instrumentação).
 
+Para funções nos serviços em nuvem, a pasta temporária predefinida poderá ser demasiado pequena para conter os ficheiros de mini-cópia de segurança. Nesse caso, pode especificar uma pasta alternativa através da propriedade TempFolder no Applicationinsights.
+
+```xml
+<TelemetryProcessors>
+  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+    <!-- Use an alternative folder for minidumps -->
+    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+    </Add>
+</TelemetryProcessors>
+```
+
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Utilize Application Insights procura para localizar exceções com instantâneos
 
 Quando é criado um instantâneo, a exceção throwing é marcada com um ID de instantâneo. Quando é reportada a telemetria de exceção para o Application Insights, que o ID de instantâneo é incluído como uma propriedade personalizada. Utilizando o painel de pesquisa do Application Insights, pode encontrar toda a telemetria com o `ai.snapshot.id` propriedade personalizada.
@@ -297,7 +306,7 @@ Para procurar um ID de instantâneo específico dos registos de /carregador, esc
 
 Se ainda não vir uma exceção com esse ID de instantâneo, não foi reportada a telemetria de exceção para o Application Insights. Esta situação pode acontecer se a sua aplicação falhou após demorou o instantâneo, mas antes da telemetria de exceção foi declarada. Neste caso, verifique os registos do serviço de aplicações em `Diagnose and solve problems` para ver se ocorreram reinicialização inesperada ou não processada exceções.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Definir snappoints no seu código](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) obter instantâneos sem aguardar por uma exceção.
 * [Diagnosticar exceções nas suas aplicações web](app-insights-asp-net-exceptions.md) explica como tornar mais exceções visíveis para o Application Insights. 
