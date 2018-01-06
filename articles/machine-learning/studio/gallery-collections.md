@@ -1,6 +1,6 @@
 ---
-title: "Coleções de galeria da Cortana Intelligence | Microsoft Docs"
-description: "Detetar e partilhar coleções na galeria da Cortana Intelligence."
+title: "Coleções de AI galeria do Azure | Microsoft Docs"
+description: "Detetar e partilhar coleções na Galeria de AI do Azure."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9ca9b45bf977a562982535feb4093fcee0f10a05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-collections-in-cortana-intelligence-gallery"></a>Detetar e partilhar coleções na galeria da Cortana Intelligence
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Detetar e partilhar coleções na Galeria de AI do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>Coleções
@@ -71,7 +71,7 @@ Por exemplo, pode utilizar uma coleção para agrupar itens de um tópico espec�
     ![Selecione "Público" ou "Não listados"](./media/gallery-collections/create-collection-page-3.png)
 7. Selecione **Criar**.
 
-A coleção está agora na galeria da Cortana Intelligence. As coleções são listadas na sua página de conta, no **coleção** separador.
+A coleção está agora na Galeria de AI do Azure. As coleções são listadas na sua página de conta, no **coleção** separador.
 
 ### <a name="add-items-to-a-collection"></a>Adicionar itens a uma coleção
 Para adicionar itens à sua coleção, abra a coleção, selecione **editar**e, em seguida, selecione **Adicionar Item**.

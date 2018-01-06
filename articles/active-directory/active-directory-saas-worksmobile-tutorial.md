@@ -1,42 +1,43 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com FUNCIONA MOBILE | Microsoft Docs"
-description: "Saiba como configurar o início de sessão entre o Azure Active Directory e FUNCIONA MOBILE."
+title: "Tutorial: Integração do Azure Active Directory com linha FUNCIONA | Microsoft Docs"
+description: "Saiba como configurar o início de sessão entre o Azure Active Directory e FUNCIONA de linha."
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 725f32fd-d0ad-49c7-b137-1cc246bf85d7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 23d57bf81e15bf23d26a1e323f7cd04ee5f35d13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b15f5d02a7baff0bc56f2928f73822214c595ab0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-works-mobile"></a>Tutorial: Integração do Azure Active Directory com FUNCIONA MOBILE
+# <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Tutorial: Integração do Azure Active Directory com FUNCIONA de linha
 
-Neste tutorial, irá aprender a integrar o MOBILE FUNCIONA com o Azure Active Directory (Azure AD).
+Neste tutorial, irá aprender a integrar linha FUNCIONA com o Azure Active Directory (Azure AD).
 
-Integrar o MOBILE FUNCIONA com o Azure AD fornece as seguintes vantagens:
+Integrar linha FUNCIONA com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao MOBILE FUNCIONA
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para MOBILE FUNCIONA (Single Sign-On) com as respetivas contas do Azure AD
-- Pode gerir as contas numa localização central - portal do Azure
+- Pode controlar no Azure AD que tenha acesso ao FUNCIONA de linha.
+- Pode permitir aos utilizadores automaticamente obter com sessão iniciada para FUNCIONA de linha (Single Sign-On) com as respetivas contas do Azure AD.
+- Pode gerir as contas numa localização central - portal do Azure.
 
 Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com FUNCIONA móveis, terá dos seguintes itens:
+Para configurar a integração do Azure AD com linha FUNCIONA, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Um FUNCIONA MOBILE-início de sessão único ativada subscrição
+- Uma linha FUNCIONA-início de sessão único ativada subscrição
 
 > [!NOTE]
 > Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
@@ -44,162 +45,153 @@ Para configurar a integração do Azure AD com FUNCIONA móveis, terá dos segui
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 - Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, teste do Azure AD-início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos modulares principais:
 
-1. Adicionar MOBILE FUNCIONA na galeria do
+1. Adicionar a linha FUNCIONA na galeria do
 2. Configurar e testar o Azure AD de sessão único-
 
-## <a name="adding-works-mobile-from-the-gallery"></a>Adicionar MOBILE FUNCIONA na galeria do
-Para configurar a integração do MOBILE FUNCIONA com o Azure AD, tem de adicionar MOBILE FUNCIONA na Galeria à sua lista de aplicações SaaS geridas.
+## <a name="adding-line-works-from-the-gallery"></a>Adicionar a linha FUNCIONA na galeria do
+Para configurar a integração da linha FUNCIONA com o Azure AD, tem de Adicionar linha FUNCIONA na Galeria à sua lista de aplicações SaaS geridas.
 
-**Para adicionar MOBILE FUNCIONA na galeria do, execute os seguintes passos:**
+**Para adicionar a linha FUNCIONA na galeria do, execute os seguintes passos:**
 
 1. No  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone. 
 
-    ![Active Directory][1]
+    ![O botão do Azure Active Directory][1]
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
-    ![Aplicações][2]
+    ![O painel de aplicações da empresa][2]
     
 3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
 
-    ![Aplicações][3]
+    ![O novo botão de aplicação][3]
 
-4. Na caixa de pesquisa, escreva **FUNCIONA MOBILE**.
+4. Na caixa de pesquisa, escreva **linha FUNCIONA**, selecione **linha FUNCIONA** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_search.png)
+    ![LINHA FUNCIONA na lista de resultados](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_addfromgallery.png)
 
-5. No painel de resultados, selecione **FUNCIONA MOBILE**e, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_addfromgallery.png)
+Nesta secção, configure e teste do Azure AD-início de sessão único com FUNCIONA a linha com base num utilizador de teste chamado "Britta Simon".
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD de sessão único-
-Nesta secção, configure e teste do Azure AD-início de sessão único com MOBILE FUNCIONA com base num utilizador de teste chamado "Britta Simon."
+Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo na linha FUNCIONA é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na linha FUNCIONA tem de ser estabelecida.
 
-Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no FUNCIONA MOBILE for para um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no FUNCIONA MOBILE tem de ser estabelecida.
+Na linha FUNCIONA, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
 
-Esta relação de ligação é estabelecida ao atribuir o valor da **nome de utilizador** no Azure AD como o valor do **Username** no FUNCIONA MOBILE.
+Para configurar e testar o Azure AD-início de sessão único com linha FUNCIONA, tem de concluir os blocos modulares seguintes:
 
-Para configurar e testar o Azure AD-início de sessão único com FUNCIONA móveis, tem de concluir os blocos modulares seguintes:
+1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
+3. **[Criar um utilizador de teste de linha FUNCIONA](#create-a-line-works-test-user)**  - para ter um homólogo de Britta Simon FUNCIONA linha que está ligada a representação do Azure AD do utilizador.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
+5. **[Teste o início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-1. **[Configurar o Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
-3. **[Criar um utilizador de teste FUNCIONA MOBILE](#creating-a-works-mobile-test-user)**  - para ter um homólogo de Britta Simon MOBILE FUNCIONA que está ligada a representação do Azure AD do utilizador.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar Britta Simon utilizar o Azure AD-início de sessão único.
-5. **[Teste o início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configurar o Azure AD-início de sessão único
+Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação FUNCIONA de linha.
 
-Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e configurar o início de sessão único na sua aplicação móvel FUNCIONA.
+**Para configurar o Azure AD-início de sessão único com FUNCIONA de linha, execute os seguintes passos:**
 
-**Para configurar o Azure AD-início de sessão único com MOBILE FUNCIONA, execute os seguintes passos:**
+1. No portal do Azure, no **linha FUNCIONA** página de integração de aplicações, clique em **de sessão único-**.
 
-1. No portal do Azure, no **FUNCIONA MOBILE** página de integração de aplicações, clique em **de sessão único-**.
-
-    ![Configurar o início de sessão único][4]
+    ![Configurar a ligação de início de sessão único][4]
 
 2. No **de sessão único-** caixa de diálogo, selecione **modo** como **baseados em SAML início de sessão** para ativar o início de sessão único.
  
-    ![Configurar o início de sessão único](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_samlbase.png)
+    ![Caixa de diálogo de início de sessão único](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_samlbase.png)
 
-3. No **FUNCIONA MOBILE domínio e os URLs** secção, execute os seguintes passos:
+3. No **linha FUNCIONA domínio e os URLs** secção, execute os seguintes passos:
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_url.png)
+    ![LINHA FUNCIONA domínio e os URLs únicos de informações de início de sessão](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_url.png)
 
     a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`
 
-    b. No **identificador** caixa de texto, digite o valor como`worksmobile.com`
+    b. No **identificador** caixa de texto, digite o valor:`worksmobile.com`
 
     > [!NOTE] 
-    > Este valor não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de MOBILE FUNCIONA](mailto:dl_ssoinfo@worksmobile.com) para obter este valor. 
- 
+    > Este valor não é real. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de linha FUNCIONA cliente](mailto:dl_ssoinfo@worksmobile.com) para obter este valor.
+
 4. No **certificado de assinatura de SAML** secção, clique em **Certificate(Raw)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_certificate.png) 
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_certificate.png) 
 
 5. Clique em **guardar** botão.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-worksmobile-tutorial/tutorial_general_400.png)
+    ![Configurar botão único início de sessão guardar](./media/active-directory-saas-lineworks-tutorial/tutorial_general_400.png)
 
-6. No **FUNCIONA MOBILE configuração** secção, clique em **configurar MOBILE de FUNCIONA** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
+6. No **linha FUNCIONA configuração** secção, clique em **configurar FUNCIONA de linha** para abrir **configurar início de sessão** janela. Copiar o **Sign-Out URL, o ID de entidade de SAML e o único início de sessão no URL do serviço SAML** do **secção de referência rápida.**
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_configure.png) 
+    ![Configuração de funcionamento de linha](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_configure.png) 
 
-7. Para obter SSO configurado para a sua aplicação, contacte [equipa de suporte de FUNCIONA MOBILE](mailto:dl_ssoinfo@worksmobile.com) e forneça-los com as seguintes informações: 
-
-    • O transferido **ficheiro de certificado**
-
-    • O **URL do serviço de início de sessão único SAML**
-
-    • O **ID de entidade SAML**
-
-    • O **URL de início de sessão**
+7. Para configurar o início de sessão único em **linha FUNCIONA** lado, terá de enviar o transferido **certificado ficheiro, Sign-Out URL, ID de entidade de SAML e único início de sessão no URL do serviço SAML** para [suporta FUNCIONA de linha equipa](mailto:dl_ssoinfo@worksmobile.com). Se definir esta definição para que a ligação de SAML SSO corretamente em ambos os lados.
 
 > [!TIP]
 > Pode agora ler estas instruções dentro de uma versão concisa o [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir do **do Active Directory > aplicações da empresa** secção, basta clicar no **Single Sign-On** separador e aceder à documentação do embedded através de **configuração** secção na parte inferior. Pode ler mais sobre a funcionalidade de documentação incorporados aqui: [do Azure AD incorporado documentação]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+
 O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure chamado Britta Simon.
 
-![Criar utilizador do Azure AD][100]
+   ![Criar um utilizador de teste do Azure AD][100]
 
 **Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
 
-1. No **portal do Azure**, no painel de navegação esquerdo, clique em **do Azure Active Directory** ícone.
+1. No portal do Azure, no painel esquerdo, clique em de **do Azure Active Directory** botão.
 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_01.png) 
+    ![O botão do Azure Active Directory](./media/active-directory-saas-lineworks-tutorial/create_aaduser_01.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_02.png) 
+2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
 
-3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_03.png) 
+    !["Os utilizadores e grupos" e "Todos os utilizadores" ligações](./media/active-directory-saas-lineworks-tutorial/create_aaduser_02.png)
 
-4. No **utilizador** diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/active-directory-saas-worksmobile-tutorial/create_aaduser_04.png) 
+3. Para abrir o **utilizador** caixa de diálogo, clique em **adicionar** na parte superior do **todos os utilizadores** caixa de diálogo.
 
-    a. No **nome** caixa de texto, tipo **BrittaSimon**.
+    ![O botão de adição](./media/active-directory-saas-lineworks-tutorial/create_aaduser_03.png)
 
-    b. No **nome de utilizador** caixa de texto, tipo de **endereço de correio eletrónico** de BrittaSimon.
+4. No **utilizador** diálogo caixa, execute os seguintes passos:
 
-    c. Selecione **mostrar palavra-passe** e anote o valor da **palavra-passe**.
+    ![A caixa de diálogo de utilizador](./media/active-directory-saas-lineworks-tutorial/create_aaduser_04.png)
+
+    a. No **nome** caixa, escreva **BrittaSimon**.
+
+    b. No **nome de utilizador** caixa, escreva o endereço de e-mail do utilizador Britta Simon.
+
+    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado no **palavra-passe** caixa.
 
     d. Clique em **Criar**.
  
-### <a name="creating-a-works-mobile-test-user"></a>Criar um utilizador de teste FUNCIONA MOBILE
+### <a name="create-a-line-works-test-user"></a>Criar um utilizador de teste de linha FUNCIONA
 
- Nesta secção, vai criar um utilizador chamado Britta Simon FUNCIONA MOBILE. Consulte [equipa de suporte de FUNCIONA MOBILE](mailto:dl_ssoinfo@worksmobile.com) para adicionar os utilizadores na plataforma móvel FUNCIONA.
+Nesta secção, vai criar um utilizador chamado Britta Simon na linha FUNCIONA. Consulte [equipa de suporte de linha FUNCIONA](mailto:dl_ssoinfo@worksmobile.com) para adicionar os utilizadores na plataforma FUNCIONA de linha.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão único, conceder acesso ao MOBILE FUNCIONA.
+Nesta secção, vai ativar Britta Simon utilizar o Azure-início de sessão único, concedendo acesso para a linha FUNCIONA.
 
-![Atribua o utilizador][200] 
+![Atribuir a função de utilizador][200] 
 
-**Para atribuir Britta Simon a MOBILE FUNCIONA, execute os seguintes passos:**
+**Para atribuir Britta Simon a linha FUNCIONA, execute os seguintes passos:**
 
 1. No portal do Azure, abra a vista de aplicações e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todas as aplicações**.
 
     ![Atribua o utilizador][201] 
 
-2. Na lista de aplicações, selecione **FUNCIONA MOBILE**.
+2. Na lista de aplicações, selecione **linha FUNCIONA**.
 
-    ![Configurar o início de sessão único](./media/active-directory-saas-worksmobile-tutorial/tutorial_worksmobile_app.png) 
+    ![A ligação de linha FUNCIONA na lista de aplicações](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_app.png)  
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![Atribua o utilizador][202] 
+    ![A ligação de "Utilizadores e grupos"][202]
 
 4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![Atribua o utilizador][203]
+    ![O painel Adicionar atribuição][203]
 
 5. No **utilizadores e grupos** caixa de diálogo, selecione **Britta Simon** na lista utilizadores.
 
@@ -207,11 +199,11 @@ Nesta secção, vai ativar Britta Simon a utilizar Azure-início de sessão úni
 
 7. Clique em **atribuir** botão no **adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste o início de sessão único
+### <a name="test-single-sign-on"></a>Teste o início de sessão único
 
-Nesta secção, pode testa a configuração de SSO do Azure AD através do painel de acesso.
+Nesta secção, testar a configuração do Azure AD único início de sessão através do painel de acesso.
 
-Quando clica no mosaico MOBILE FUNCIONA no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação de MOBILE FUNCIONA.
+Quando clica no mosaico de linha FUNCIONA no painel de acesso, deve obter automaticamente com sessão iniciada para a aplicação FUNCIONA de linha.
 Para mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
@@ -219,19 +211,17 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_04.png
 
-[100]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_201.png
-[202]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_202.png
-[203]: ./media/active-directory-saas-worksmobile-tutorial/tutorial_general_203.png
+[200]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-lineworks-tutorial/tutorial_general_203.png
 

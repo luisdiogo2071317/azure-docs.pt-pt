@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: jroth
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 414c985d21112d658b6e22473f67ed1c3afd00ef
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 1d2b681660ae6f59dec8a287baa853085c64ebeb
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizar tarefas de gestão em Virtual Machines do Azure com a extensão de agente do SQL Server (Resource Manager)
 > [!div class="op_single_selector"]
@@ -72,6 +71,9 @@ A extensão de agente do IaaS do SQL Server é instalada automaticamente quando 
 Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
 ```
 
+> [!IMPORTANT]
+> Se a extensão já não estiver instalada, a instalação da extensão reinicia o serviço SQL Server.
+
 Também é possível instalar a extensão de agente do SQL Server IaaS numa máquina virtual apenas de SO Windows Server. Isto só é suportado se tiver instalado manualmente do SQL Server em que a máquina. Em seguida, instale a extensão manualmente utilizando o mesmo **conjunto AzureVMSqlServerExtension** cmdlet do PowerShell.
 
 > [!NOTE]
@@ -101,7 +103,7 @@ Também pode utilizar o **remover AzureRmVMSqlServerExtension** cmdlet do PowerS
 
     Remove-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension"
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Começar a utilizar um dos serviços de suportado pela extensão. Para obter mais detalhes, consulte os artigos referenciados no [serviços suportados pelo](#supported-services) secção deste artigo.
 
 Para obter mais informações sobre a execução do SQL Server em Azure Virtual Machines, consulte [SQL Server em Virtual Machines do Azure descrição-geral](virtual-machines-windows-sql-server-iaas-overview.md).

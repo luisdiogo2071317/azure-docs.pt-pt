@@ -15,39 +15,39 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Suporte de nuvem init para máquinas virtuais no Azure
 Este artigo explica o suporte se existe para [nuvem init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual ou máquina virtual (VM) conjuntos de dimensionamento (VMSS) no aprovisionamento de tempo no Azure. Estes scripts de nuvem init executam no primeiro arranque depois dos recursos foram aprovisionados através do Azure.  
 
-## <a name="cloud-init-overview"></a>Descrição geral da nuvem init
+## <a name="cloud-init-overview"></a>Descrição geral da inicialização de cloud
 [Nuvem init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux como efetua o arranque pela primeira vez. Pode utilizar a cloud init para instalar pacotes e escrever em ficheiros, ou para configurar utilizadores e de segurança. Uma vez init de nuvem é chamado durante o processo de arranque inicial, existem não existem passos adicionais ou agentes necessários para aplicar a configuração.  Para mais informações sobre como corretamente formatar o `#cloud-config` ficheiros, consulte o [site de documentação de nuvem init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`os ficheiros são ficheiros de texto codificados em base64.
 
 Nuvem init também funciona em distribuições. Por exemplo, não utilize **apt get instalação** ou **yum instalar** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes para instalar. Nuvem init utiliza automaticamente a ferramenta de gestão do pacote nativo para distro que selecionar.
 
  Estamos ativamente a trabalhar com os nossos parceiros de distro Linux endorsed para ter imagens de nuvem-init ativada disponíveis no Azure marketplace. Estas imagens fará com que as implementações de nuvem init e configurações funcionam sem problemas com as VMs e conjuntos de dimensionamento da VM (VMSS). A tabela seguinte descreve a disponibilidade de imagens de nuvem-init ativada atual na plataforma do Azure:
 
-| Fabricante | Oferta | SKU | Versão | nuvem init pronto
+| Publicador | Oferta | SKU | Versão | nuvem init pronto
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |Canónico |UbuntuServer |16.04 LTS |mais recente |sim | 
 |Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
 |CoreOS |CoreOS |Estável |mais recente |sim |
-|OpenLogic |CentOS |7 CI |mais recente |pré-visualização |
-|RedHat |RHEL |7 CI NÃO PROCESSADOS |mais recente |pré-visualização |
+|OpenLogic |CentOS |7 CI |mais recente |pré-visualizar |
+|RedHat |RHEL |7 CI NÃO PROCESSADOS |mais recente |pré-visualizar |
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>O que é a diferença entre init de nuvem e o agente Linux (WALA)?
 WALA é um agente específico da plataforma do Azure utilizado para aprovisionar, configurar VMs e processar extensões do Azure. Iremos são melhorando a tarefa de configurar VMs para utilizar init nuvem em vez do agente Linux para permitir que os clientes de nuvem init existentes utilizar os scripts de nuvem init atual.  Se tiver investimentos em scripts de nuvem init para configurar os sistemas Linux, existem **sem definições adicionais necessárias** para ativá-los. 
 
-Se não incluir o comutador de linha de comandos AzureCLI `--custom-data` na hora de aprovisionamento, WALA tira a mínimo parâmetros necessários para aprovisionar a VM e concluir a implementação com as predefinições de aprovisionamento de VM.  Se referenciar a nuvem-init `--custom-data` comutador, que está contido nos seus dados personalizados (definições individuais ou script completo) substitui as predefinições WALA definido. 
+Se não incluir a CLI do Azure `--custom-data` comutador no aprovisionamento de tempo, WALA assume a parâmetros necessários para aprovisionar a VM e concluir a implementação com as predefinições de aprovisionamento de VM mínima.  Se referenciar a nuvem-init `--custom-data` comutador, que está contido nos seus dados personalizados (definições individuais ou script completo) substitui as predefinições WALA. 
 
-Configurações de WALA de VMs são restringido a funcionar dentro do tempo de aprovisionamento de VM máximo de tempo.  Configurações de nuvem init aplicadas às VMs tem restrições de tempo e não irão causar uma falha por exceder o tempo limite da implementação. 
+Configurações de WALA de VMs são restrita tempo a funcionar dentro da tempo de aprovisionamento de VM máxima.  Configurações de nuvem init aplicadas às VMs tem restrições de tempo e não irão causar uma falha por exceder o tempo limite da implementação. 
 
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Implementação de uma nuvem-init ativada a Máquina Virtual
-Implementar uma máquina virtual de nuvem-init ativada é tão simple como referenciar uma distribuição de nuvem-init ativada durante a implementação.  Maintainers de distribuição de Linux têm de optar por ativar e integrar nuvem init nas suas imagens de publicados base do Azure. Assim que tiver confirmado a imagem que pretende implementar é nuvem-init ativado, pode utilizar o AzureCLI para implementar a imagem. 
+Implementar uma máquina virtual de nuvem-init ativada é tão simple como referenciar uma distribuição de nuvem-init ativada durante a implementação.  Maintainers de distribuição de Linux têm de optar por ativar e integrar nuvem init nas suas imagens de publicados base do Azure. Assim que tiver confirmado a imagem que pretende implementar é nuvem-init ativado, pode utilizar a CLI do Azure para implementar a imagem. 
 
 O primeiro passo para implementar esta imagem é criar um grupo de recursos com o [criar grupo az](/cli/azure/group#create) comando. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. 
 
@@ -89,7 +89,7 @@ Depois da VM tenha sido aprovisionada, init nuvem será executado através de to
 
 Para obter mais detalhes de registo de nuvem init, consulte o [documentação init de nuvem](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter exemplos de nuvem init das alterações de configuração, consulte os seguintes documentos:
  
 - [Adicionar um utilizador de Linux adicional para uma VM](cloudinit-add-user.md)

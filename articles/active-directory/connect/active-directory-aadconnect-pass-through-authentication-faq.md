@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentication do Azure Active Directory pass-through: Perguntas mais frequentes
 
@@ -82,6 +82,12 @@ Sim. Se a deteção automática de Proxy Web (WPAD) estiver ativado no seu ambie
 
 Não, apenas pode instalar um agente de autenticação pass-through num único servidor. Se pretender configurar a autenticação pass-through para elevada disponibilidade, siga as instruções em [autenticação pass-through do Active Directory do Azure: início rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Como posso remover um agente de autenticação pass-through?
+
+Enquanto estiver a executar um agente de autenticação pass-through, permanece ativa e continuamente processa pedidos de início de sessão do utilizador. Se pretender desinstalar um agente de autenticação, aceda a **painel de controlo -> programas -> programas e funcionalidades** e desinstalar o **agente do Microsoft Azure AD Connect autenticação** e o  **Microsoft Azure AD Connect agente Atualizador** programas.
+
+Se verifique o painel de autenticação pass-through no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) depois de concluir o passo anterior, verá que o agente de autenticação que mostra como **inativo**. Este é _esperado_. O agente de autenticação é automaticamente removido da lista após alguns dias.
+
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Já posso utilizar o AD FS para iniciar sessão Azure AD. Como posso alterná-lo para a autenticação pass-through?
 
 Se tiver configurado o AD FS como método de iniciar sessão através do Assistente do Azure AD Connect, altere o método que o utilizador utiliza para iniciar sessão para a autenticação pass-through. Esta alteração permite a autenticação pass-through no inquilino e converte _todos os_ os domínios em domínios geridos federados. A autenticação pass-through processa todos os pedidos subsequentes para iniciar sessão no seu inquilino. Atualmente, não é possível suportado dentro do Azure AD Connect para utilizar uma combinação de AD FS e a autenticação pass-through em domínios diferentes.
@@ -122,7 +128,7 @@ Executar novamente o Assistente do Azure AD Connect e alterar o método de iníc
 
 Se desinstalar um agente de autenticação pass-through a partir de um servidor, faz com que o servidor parar a aceitar pedidos de início de sessão. Para evitar interrompendo a capacidade de utilizador de início de sessão no seu inquilino, certifique-se de que tem outro agente de autenticação em execução antes de desinstalar um agente de autenticação pass-through.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Limitações atuais](active-directory-aadconnect-pass-through-authentication-current-limitations.md): saber que cenários são suportados e aqueles que não são.
 - [Início Rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md): começar a trabalhar na autenticação pass-through do Azure AD.
 - [Bloqueio do smart](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Saiba como configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.

@@ -1,5 +1,5 @@
 ## <a name="using-vault-credentials-to-authenticate-with-the-azure-backup-service"></a>Utilizar as credenciais do cofre para autenticar com o serviço de cópia de segurança do Azure
-O servidor no local (cliente Windows ou servidor Windows Server ou do Data Protection Manager) tem de ser autenticados com um cofre de cópia de segurança antes-pode fazer cópias de segurança de dados do Azure. A autenticação é conseguida utilizando "as credenciais do cofre". O conceito de credenciais do Cofre é semelhante ao conceito de um ficheiro de "publicar definições" que é utilizado no Azure PowerShell.
+Antes de pode criar cópias de segurança um servidor no local (cliente Windows ou servidor Windows Server ou do Data Protection Manager) para o Azure, autentica o servidor com um cofre dos serviços de recuperação. Utilize um ficheiro de credenciais do cofre para autenticar o servidor com o Azure. As credenciais do cofre são semelhantes ao conceito de um ficheiro de "publicar definições" utilizado no Azure PowerShell.
 
 ### <a name="what-is-the-vault-credential-file"></a>O que é o ficheiro de credenciais do cofre?
 O ficheiro de credenciais do cofre é um certificado gerado pelo portal para cada cofre de cópia de segurança. O portal, em seguida, carrega a chave pública para o Access Control Service (ACS). A chave privada do certificado é disponibilizada para o utilizador como parte do fluxo de trabalho que está indicado como uma entrada no fluxo de trabalho de registo da máquina. Isto autentica a máquina para enviar dados de cópia de segurança para um cofre identificado no serviço de cópia de segurança do Azure.
@@ -9,10 +9,10 @@ As credenciais do cofre são utilizadas apenas durante o fluxo de trabalho do re
 ### <a name="download-the-vault-credential-file"></a>Transfira o ficheiro de credenciais do Cofre
 O ficheiro de credenciais do Cofre é transferido através de um canal seguro do portal do Azure. O serviço de cópia de segurança do Azure não tem conhecimento da chave privada do certificado e a chave privada não é continuada no portal ou o serviço. Utilize os seguintes passos para transferir o ficheiro de credenciais do cofre para um computador local.
 
-1. Iniciar sessão para o [Portal de gestão](https://manage.windowsazure.com/)
-2. Clique em **dos serviços de recuperação** no painel de navegação esquerdo e selecione o Cofre de cópia de segurança que criou. Clique no ícone de nuvem para obter a vista de início rápido do Cofre de cópia de segurança.
-   
-   ![Vista rápida](./media/backup-download-credentials/quickview.png)
+1. Abra o [Portal do Azure](https://ms.azure.portal.com/)
+2. No menu da esquerda, selecione **todos os serviços** e na lista de serviços, escreva **dos serviços de recuperação**. Clique em **cofres dos serviços de recuperação**.
+
+   ![Abra o Cofre dos serviços de recuperação](../articles/backup/media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 3. Na página de início rápido, clique em **as credenciais do Cofre de transferência**. O portal gera o ficheiro de credenciais do cofre, que é disponibilizado para transferência.
    
    ![Transferência](./media/backup-download-credentials/downloadvc.png)

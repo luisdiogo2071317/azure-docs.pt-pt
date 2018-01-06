@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 6ff8e5ccdc7e14ed39466b4525fdbae86fdc4e9a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: b9673376d0b2d2fab9254ab4e9f20484a46adc4b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-content-keys-with-rest"></a>Criar chaves conteúdas com REST
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-Os Media Services permite-lhe criar um novo e fornecer recursos encriptados. A **ContentKey** proporciona acesso seguro ao seu **Asset**s. 
+Os Media Services permite-lhe fornecer recursos encriptados. A **ContentKey** proporciona acesso seguro ao seu **Asset**s. 
 
 Quando cria um novo elemento (por exemplo, antes de [carregar ficheiros](media-services-rest-upload-files.md)), pode especificar as seguintes opções de encriptação: **StorageEncrypted**, **CommonEncryptionProtected**, ou **EnvelopeEncryptionProtected**. 
 

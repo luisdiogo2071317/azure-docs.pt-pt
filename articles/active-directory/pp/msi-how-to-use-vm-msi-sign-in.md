@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2017
+ms.date: 01/05/2018
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 74d732709e1cc3c97b485cc45e3a4e2c8e3cd11e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Inicie sessão com uma VM atribuída utilizador da identidade de serviço geridas (MSI)
 
@@ -51,7 +51,7 @@ O script seguinte demonstra como:
 2. Chamar o Gestor de recursos do Azure e obter a localização da região do Azure para uma VM. CLI encarrega-se da gestão de aquisição token/utilização por si automaticamente. Não se esqueça de substituir o nome VM para `<VM NAME>`e o id de recurso MSI utilizador atribuído para `<MSI ID>`. O id de recurso do MSI é devolvido no `id` propriedade durante a criação de um MSI atribuída de utilizador (consulte [configurar um utilizador atribuído geridos serviço de identidade (MSI) para uma VM, utilizando a CLI do Azure](msi-qs-configure-cli-windows-vm.md) para obter exemplos do `az identity create` comando ).
 
     ```azurecli
-    az login -–msi –u <MSI ID>
+    az login --msi –u <MSI ID>
    
     vmLocation=$(az resource list -n <VM NAME> --query [*].location --out tsv)
     echo The VM region location is $vmLocation

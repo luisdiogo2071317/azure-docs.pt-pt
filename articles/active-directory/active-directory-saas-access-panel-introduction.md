@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23f932f6a82a041ba7c54d00cdee7aa98bfce479
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -70,7 +70,31 @@ Quando são autenticados, pode interagir com as aplicações que o administrador
 
 No mínimo, o painel de acesso necessita de um browser que suporte JavaScript e ativou CSS. Para o utilizador iniciar sessão no aplicações através do baseada em palavra-passe-início de sessão único (SSO), a extensão do painel de acesso tem de estar instalada no seu browser. A extensão é transferida automaticamente quando seleciona uma aplicação que está configurada para SSO baseada em palavra-passe.
 
-A extensão do painel de acesso está atualmente disponível para o Internet Explorer 8 e posteriores, limite, o Chrome e o Firefox browsers.
+A extensão do painel de acesso está atualmente disponível para:
+-   Limite de aniversário da edição do Windows 10 ou posterior 
+
+-   Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
+
+-   Firefox 26.0 ou posterior – no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
+
+-   Internet Explorer 8, 9, 10, 11 - no Windows 7 ou posterior (suporte limitado)
+
+## <a name="my-apps-secure-sign-in-extension"></a>Extensão de Início de Sessão Seguro das Minhas Aplicações
+A extensão é necessária para os utilizadores iniciar sessão em baseada em palavra-passe de início de sessão. Depois de instalado os utilizadores também podem ativar as funcionalidades adicionais ao iniciar sessão a extensão ao clicar em **iniciar sessão começar a utilizar**. 
+
+- Os utilizadores podem iniciar sessão em aplicações diretamente, visitando a aplicação **URL de início de sessão**. Quando o utilizador navega para o URL de início de sessão da aplicação a extensão será detetá-lo e fornecer a opção para o utilizador iniciar sessão em-lo a partir da extensão.
+- Os utilizadores também podem iniciar qualquer uma das respetivas aplicações a partir do painel de acesso utilizando o **pesquisa rápida** funcionalidade da extensão. 
+- A extensão também irão mostrar os utilizadores as últimas três aplicações estes iniciadas em **utilizados recentemente** secção.
+> [!NOTE]
+> Funcionalidades adicionais só estão disponíveis para o limite, o Chrome, o Firefox.
+
+
+Se estiver a utilizar outro URL aplicações My que https://myapps.microsoft.com, em seguida, tem de configurar o URL predefinido embora os seguintes passos:
+1. Enquanto não tiver sessão iniciada para a extensão, **certo** o ícone de extensão.
+2. Clique em **URL para selecionar os meus aplicações** no menu.
+3. **Selecione** o URL predefinido.
+4. Clique no ícone de extensão.
+5. Início de sessão para a extensão, selecionando **iniciar sessão começar a utilizar**.
 
 ## <a name="mobile-app-support"></a>Suporte de aplicações móveis
 

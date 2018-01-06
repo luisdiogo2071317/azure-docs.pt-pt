@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Como criar agendas complexas e periodicidade avançada com o agendador do Azure
 ## <a name="overview"></a>Descrição geral
@@ -59,7 +59,7 @@ Para criar uma agenda simples utilizando o [API de REST do agendador do Azure](h
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -90,12 +90,12 @@ Após esta descrição geral, vamos discutir sobre cada um destes elementos em d
 | **Nome JSON** | **Tipo de valor** | **Necessário?** | **Valor predefinido** | **Valores válidos** | **Exemplo** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | ***startTime*** |Cadeia |Não |Nenhuma |Datas-Horas ISO 8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
-| ***Periodicidade*** |Objeto |Não |Nenhuma |Objeto de periodicidade |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
-| ***frequência*** |Cadeia |Sim |Nenhuma |"minutos", "horas", "dia", "semanas", "meses" |<code>"frequency" : "hour"</code> |
-| ***intervalo*** |Número |Não |1 |1 a 1000. |<code>"interval":10</code> |
+| ***Periodicidade*** |Objeto |Não |Nenhum |Objeto de periodicidade |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
+| ***frequência*** |Cadeia |Sim |Nenhum |"minutos", "horas", "dia", "semanas", "meses" |<code>"frequency" : "hour"</code> |
+| ***intervalo*** |Número |Sim |Nenhuma |1 a 1000. |<code>"interval":10</code> |
 | ***endTime*** |Cadeia |Não |Nenhuma |Valor de data-hora que representa uma hora no futuro |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-| ***Contagem*** |Número |Não |Nenhuma |>= 1 |<code>"count": 5</code> |
-| ***agenda*** |Objeto |Não |Nenhuma |Objeto da agenda |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
+| ***Contagem*** |Número |Não |Nenhum |>= 1 |<code>"count": 5</code> |
+| ***agenda*** |Objeto |Não |Nenhum |Objeto da agenda |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
 
 ## <a name="deep-dive-starttime"></a>Descrição detalhada da: *startTime*
 A tabela seguinte capturas como *startTime* controla a forma de execução de uma tarefa.
@@ -125,11 +125,11 @@ A tabela seguinte descreve *agenda* elementos em detalhe.
 
 | **Nome JSON** | **Descrição** | **Valores válidos** |
 |:--- |:--- |:--- |
-| **minutos** |Minutos da hora em que a tarefa será executada |<ul><li>Número inteiro, ou</li><li>Matriz de números inteiros</li></ul> |
-| **horas** |Horas do dia em que a tarefa será executada |<ul><li>Número inteiro, ou</li><li>Matriz de números inteiros</li></ul> |
-| **dias da semana** |Dias da semana a tarefa será executada. Só podem ser especificados com uma frequência semanal. |<ul><li>"Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado" ou "Domingo"</li><li>Matriz de qualquer um dos valores acima (tamanho da matriz máximo 7)</li></ul>*Não* maiúsculas e minúsculas |
+| **minutos** |Minutos da hora em que a tarefa será executada |<ul><li>Matriz de números inteiros</li></ul> |
+| **horas** |Horas do dia em que a tarefa será executada |<ul><li>Matriz de números inteiros</li></ul> |
+| **dias da semana** |Dias da semana a tarefa será executada. Só podem ser especificados com uma frequência semanal. |<ul><li>Matriz de qualquer um do abaixo valores (tamanho da matriz máximo 7)<ul><li>"Segunda-feira"</li><li>"Terça-feira"</li><li>"Quarta-feira"</li><li>"Quinta-feira"</li><li>"Sexta-feira"</li><li>"Sábado"</li><li>"Domingo"</li></ul></li></ul>*Não* maiúsculas e minúsculas |
 | **monthlyOccurrences** |Determina os dias do mês em que a tarefa será executada. Só podem ser especificadas com uma frequência semanal. |<ul><li>Matriz de objetos de monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *dia* é o dia da semana em que a tarefa será executada, por exemplo, {Domingo} é cada Domingo do mês. Necessário.</p><p>A ocorrência é *ocorrência* do dia durante o mês, por exemplo, Domingo, -1 é Domingo último do mês. Opcional.</p> |
-| **dias do mês** |Dia do mês que a tarefa será executada. Só podem ser especificadas com uma frequência semanal. |<ul><li>Qualquer valor < = -1 e > =-31.</li><li>Qualquer valor > = 1 e < = 31.</li><li>Uma matriz dos valores acima</li></ul> |
+| **dias do mês** |Dia do mês que a tarefa será executada. Só podem ser especificadas com uma frequência semanal. |<ul><li>Uma matriz de abaixo valores</li><ul><li>Qualquer valor < = -1 e > =-31.</li><li>Qualquer valor > = 1 e < = 31.</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Exemplos: As agendas de periodicidade
 Seguem-se vários exemplos de agendas de periodicidade – concentrar-se o objeto de agenda e os respetivos elementos secundárias.
@@ -170,7 +170,7 @@ As agendas abaixo todas partem do princípio de que o *intervalo* está definido
 | <code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code> |Execute a cada 15 minutos na última sexta-feira do mês |
 | <code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code> |Executar em 5:15 AM, 5:45 AM, as 17:15:00 e 5:45 PM o 3rd quarta-feira de cada mês |
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
  [O que é o Scheduler?](scheduler-intro.md)
 
  [Conceitos, terminologia e hierarquia de entidades do Azure Scheduler](scheduler-concepts-terms.md)

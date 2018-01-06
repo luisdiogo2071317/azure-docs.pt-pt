@@ -1,5 +1,5 @@
 ---
-title: "Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação (pré-visualização) | Microsoft Docs"
+title: "Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação | Microsoft Docs"
 description: "As instruções e informações de suporte para atualizar o seu Cofre de cópia de segurança do Azure para um cofre dos serviços de recuperação."
 services: backup
 documentationcenter: dev-center-name
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
+ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação
 
@@ -120,7 +120,7 @@ Depois de atualizar para um cofre dos serviços de recuperação, configure os r
 Não. As cópias de segurança em curso continuam sem interrupções durante e após a atualização.
 
 **Se não planear a sobre a atualização em breve, o que acontece ao meu cofres?**</br>
-Uma vez que todas as novas funcionalidades aplicam apenas aos cofres dos serviços de recuperação, recomendamos vivamente a atualizar os cofres. Microsoft, eventualmente, irá Preterir o portal clássico. A partir de 1 de Setembro de 2017, Microsoft começará cofres de cópia de segurança a atualização automática para os cofres dos serviços de recuperação. Depois de Novembro 30,2017, já não pode criar cofres de cópia de segurança através do PowerShell. O Cofre pode ser atualizado automaticamente qualquer altura entre. A Microsoft recomenda a que atualizar o seu Cofre logo que possível.
+Uma vez que todas as novas funcionalidades aplicam apenas aos cofres dos serviços de recuperação, recomendamos vivamente a atualizar os cofres. A partir de 1 de Setembro de 2017, Microsoft começará cofres de cópia de segurança a atualização automática para os cofres dos serviços de recuperação. Depois de Novembro 30,2017, já não pode criar cofres de cópia de segurança através do PowerShell. O Cofre pode ser atualizado automaticamente qualquer altura entre. A Microsoft recomenda a que atualizar o seu Cofre logo que possível.
 
 **O que faz esta atualização média para os meus ferramentas existentes?**</br>
 Atualize as ferramentas para o modelo de implementação Resource Manager. Os serviços de recuperação cofres foram criadas para utilizar no modelo de implementação Resource Manager. Planeamento para o modelo de implementação Resource Manager e a gestão de contas para a diferença na sua cofres é importante. 
@@ -133,9 +133,6 @@ Não. A reversão não é suportada depois dos recursos foram atualizados com ê
 
 **Posso validar a minha subscrição ou recursos para ver se forem capazes de atualização?**</br>
 Sim. O primeiro passo na atualização valida que os recursos são capazes de atualização. No caso de falha de validação de pré-requisitos, poderá recebe mensagens para todos os motivos pelos quais que não foi possível concluir a atualização.
-
-**Que permissões devem ter acionar a atualização do Cofre?**</br>
-Para efetuar a atualização do cofre, tem de ser adicionado como coadministrador da subscrição no portal clássico do Azure. Isto é necessário, mesmo que já estão listados como proprietário no portal do Azure. Tente adicionar um coadministrador da subscrição no portal clássico do Azure para saber se está coadministrador da subscrição. Se não é possível adicionar um coadministrador, contacte um administrador de serviço ou coadministrador da subscrição, o que pode adicionar como coadministrador.
 
 **Pode atualizar o meu Cofre de cópia de segurança com base CSP?**</br>
 Não. Atualmente, não é possível atualizar os cofres de cópia de segurança com base CSP. Iremos adicionar suporte para atualização cofres de cópia de segurança com base CSP em versões do seguintes.

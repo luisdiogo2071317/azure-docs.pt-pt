@@ -1,6 +1,6 @@
 ---
-title: Competitions galeria da Cortana Intelligence | Microsoft Docs
-description: Detete competitions na galeria da Cortana Intelligence.
+title: Competitions de AI galeria do Azure | Microsoft Docs
+description: Detete competitions na Galeria de AI do Azure.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: e9c1ae9448ad7179c33bbbafa34a4643a4840d0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e39d636b3322201465700a4c9de83dda1bbefcc
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Detetar competitions na galeria da Cortana Intelligence
+# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Detetar competitions na Galeria de AI do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence Competitions
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 Para obter respostas a perguntas mais frequentes sobre Competitions, consulte [Microsoft Cortana Intelligence Competitions FAQ](competition-faq.md).
 
 ## <a name="discover"></a>Descobrir
-  Para procurar competitions na galeria, abra o [galeria](http://gallery.cortanaintelligence.com), aponte o rato para **mais** no topo da galeria da página inicial e selecione **Competitions**.
+O  **[Competitions](https://gallery.cortanaintelligence.com/competitions)**  página ([aka.ms/CIComp](http://aka.ms/CIComp)) apresenta uma lista dos competitions mais populares.
 
 ![Selecione Competitions na home page da Galeria](./media/gallery-competitions/select-competitions-in-gallery.png)
 
- O  **[Competitions](https://gallery.cortanaintelligence.com/competitions)**  página apresenta uma lista dos competitions mais populares.
-Clique em **ver todos os** para ver todos os competitions.
+ 
+ Clique em **ver todos os** para ver todos os competitions.
 Nesta página, pode procurar todos os competitions na galeria. Também pode pesquisar ao selecionar os critérios de filtro no lado esquerdo da página e entrar termos de pesquisa na parte superior.
 
  Clique em qualquer concorrência para abrir a página de detalhes de concorrência e ler mais informações. Nesta página pode comente, fornecer comentários ou fazer perguntas através da secção de comentários. Ainda pode partilhar com amigos ou colegas utilizando as capacidades de partilha de LinkedIn e o Twitter. Também pode enviar por e-mail uma hiperligação para a concorrência para convidar outros utilizadores para ver a página.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: fd047b8618f6e6814e0656ac2ab19e30016016fa
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 104c7465968f9dd063561dec011b8fd50f3ebaa8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Idioma de consulta do IoT Hub para dispositivos duplos, tarefas e o encaminhamento de mensagens
 
@@ -35,6 +35,17 @@ Por exemplo, suponha que os dispositivos duplos do IoT hub tem a seguinte estrut
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "US",
@@ -137,6 +148,12 @@ Esta consulta de agrupamento iria devolver um resultado semelhante ao seguinte e
         "status": "Error"
     }
 ]
+```
+
+Consultas de projecção permitem aos programadores devolver apenas as propriedades que são mais importantes para si. Por exemplo obter a última atividade de todos os desligada dispositivos utilize a seguinte consulta:
+
+```sql
+SELECT LastActivityTime FROM devices WHERE ConnectionState = 'Disconnected'
 ```
 
 ### <a name="c-example"></a>Exemplo do c#
@@ -514,7 +531,7 @@ Em condições de rotas, são suportadas as seguintes funções de cadeia:
 | ENDS_WITH (x, y) | Devolve um booleano que indica se a primeira expressão de cadeia termina com o segundo. |
 | CONTAINS(x,y) | Devolve um booleano que indica se a primeira cadeia de expressão contém o segundo. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba como executar consultas nas suas aplicações utilizando [SDKs IoT do Azure][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause

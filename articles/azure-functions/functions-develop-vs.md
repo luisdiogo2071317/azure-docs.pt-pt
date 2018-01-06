@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Ferramentas de funções do Azure para Visual Studio  
 
@@ -46,7 +46,8 @@ Para criar e implementar funções, é também necessário:
 
 * Uma subscrição ativa do Azure. Se não tiver uma subscrição do Azure, [livre contas](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) estão disponíveis.
 
-* Uma conta de armazenamento do Azure. Para criar uma conta de armazenamento, consulte [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
+* Uma conta de armazenamento do Azure. Para criar uma conta de armazenamento, consulte [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
 ## <a name="create-an-azure-functions-project"></a>Criar um projeto de funções do Azure 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
@@ -136,4 +137,4 @@ Para saber mais sobre como utilizar as ferramentas de núcleos de funções do A
 Para obter mais informações sobre as ferramentas de funções do Azure, consulte a secção perguntas comuns a [as ferramentas de 2017 do Visual Studio para as funções do Azure](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blogue.
 
 Para saber mais sobre as ferramentas de núcleos de funções do Azure, consulte [código e testar as funções do Azure localmente](functions-run-local.md).  
-Para obter mais informações sobre o desenvolvimento de funções como bibliotecas de classes do .NET, veja [Utilizar bibliotecas de classes do .NET com as Funções do Azure](functions-dotnet-class-library.md). Este tópico também fornece exemplos de como utilizar atributos para declarar vários tipos de enlaces suportadas funções do Azure.    
+Para obter mais informações sobre como desenvolver funciona como bibliotecas de classe de .NET, consulte [referência para programadores do Azure funções c#](functions-dotnet-class-library.md). Este tópico também contém ligações para obter exemplos de como utilizar atributos para declarar vários tipos de enlaces suportadas funções do Azure.    

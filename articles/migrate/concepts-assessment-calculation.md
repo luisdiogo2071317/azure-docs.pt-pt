@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 2b274244cc7b7fd0fc3eee22a57a51db77370370
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b8075f0e1149a6fc5194347fc34e2a16d5eb2ffc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -47,10 +47,11 @@ As máquinas que pretende migrar para o Azure tem de cumprir os requisitos do Az
 
 Depois de uma máquina está marcada como adequada para o Azure, Azure migrar mapeia-lo para um tamanho VM no Azure, utilizando os seguintes critérios:
 
-- **Verificação de armazenamento**: Migrar Azure tenta mapear todos os discos ligados à máquina a um disco no Azure:-Azure migrar multiplica a e/s por segundo (IOPS), o fator de comfort. -Múltiplos também o débito (em MBps) de cada disco, o fator de comfort. Isto fornece o eficaz IOPS e débito do disco. Com base nisso, Azure migrar mapeia o disco para um padrão ou disco premium no Azure.
-    - Se o serviço não é possível localizar um disco com o IOPS & débito necessário, marca a máquina como unsuitable para o Azure.
-    - Se encontrar um conjunto de discos adequados, Azure migrar seleciona aqueles que suportam o método de redundância do armazenamento e a localização especificada nas definições de avaliação.
-    - Se existirem vários discos elegíveis, seleciona um com o menor custo.
+- **Verificação de armazenamento**: Migrar Azure tenta mapear todos os discos ligados à máquina a um disco no Azure:
+    - Migrar do Azure multiplica a e/s por segundo (IOPS), o fator de comfort. -Múltiplos também o débito (em MBps) de cada disco, o fator de comfort. Isto fornece o eficaz IOPS e débito do disco. Com base nisso, Azure migrar mapeia o disco para um padrão ou disco premium no Azure.
+      - Se o serviço não é possível localizar um disco com o IOPS & débito necessário, marca a máquina como unsuitable para o Azure.
+      - Se encontrar um conjunto de discos adequados, Azure migrar seleciona aqueles que suportam o método de redundância do armazenamento e a localização especificada nas definições de avaliação.
+      - Se existirem vários discos elegíveis, seleciona um com o menor custo.
 - **Débito do disco de armazenamento**: [mais](../azure-subscription-service-limits.md#storage-limits) sobre o Azure limita por disco e a VM.
 - **Tipo de disco**: Migrar do Azure suporta apenas discos geridos.
 - **Verificação de rede**: Migrar Azure tenta localizar uma VM do Azure que consiga suportar o número de NICs na máquina no local.
@@ -73,6 +74,6 @@ Depois de concluídas as recomendações de dimensionamento, o Azure migrar calc
 Os custos são apresentados na moeda especificada nas definições de avaliação. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Configurar uma avaliação para VMs de VMware no local](tutorial-assessment-vmware.md)

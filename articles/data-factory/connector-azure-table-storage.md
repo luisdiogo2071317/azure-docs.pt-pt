@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: a80a947f5dc6176aaa6334a10eabf1a2b4be5847
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 0275a7b3965a7691ae396c9dbb2f164a9a47a3d4
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Copiar dados de ou para tabelas do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,7 +81,10 @@ Uma assinatura de acesso partilhado (SAS) concede acesso delegado a recursos na 
 
 > [!IMPORTANT]
 > Azure Data Factory agora só suporta **serviço SAS** , mas não a conta SAS. Consulte [tipos de assinaturas de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) para obter detalhes sobre estes dois tipos e de como construir. O URL de SAS generable a partir do portal do Azure ou no Explorador de armazenamento é um SAS de conta, que não é suportado.
->
+
+> [!TIP]
+> Pode executar abaixo comandos do PowerShell para gerar um SAS de serviço para a sua conta de armazenamento (substituir os proprietários da local e conceder a permissão necessária):`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Para utilizar a autenticação do serviço SAS, são suportadas as seguintes propriedades:
 
@@ -273,5 +276,5 @@ Quando mover dados para & tabela do Azure, o seguinte [mapeamentos definidos pel
 | Edm.Int64 |Int64 |Um número inteiro de 64 bits. |
 | Edm.String |Cadeia |Um valor com codificação UTF-16. Valores de cadeia poderão ser até 64 KB. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

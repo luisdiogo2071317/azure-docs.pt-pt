@@ -27,7 +27,10 @@ Uma assinatura de acesso partilhado (SAS) concede acesso delegado a recursos na 
 
 > [!IMPORTANT]
 > Azure Data Factory agora só suporta **serviço SAS** , mas não a conta SAS. Consulte [tipos de assinaturas de acesso partilhado](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) para obter detalhes sobre estes dois tipos e de como construir. Anote o URL de SAS generable a partir do portal do Azure ou o Explorador de armazenamento é um SAS de conta, que não é suportado.
-> 
+
+> [!TIP]
+> Pode executar abaixo comandos do PowerShell para gerar um SAS de serviço para a sua conta de armazenamento (substituir os proprietários da local e conceder a permissão necessária):`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 O serviço SAS de armazenamento do Azure ligado permite-lhe ligar uma conta de armazenamento do Azure a um Azure data factory com uma assinatura de acesso partilhado (SAS). Fornece a fábrica de dados com acesso restrito/vínculo de tempo para recursos de todos os/específico (/ contentor do blob) no armazenamento. A tabela seguinte fornece uma descrição para os elementos JSON específicos do serviço SAS de armazenamento do Azure ligado. 
 
