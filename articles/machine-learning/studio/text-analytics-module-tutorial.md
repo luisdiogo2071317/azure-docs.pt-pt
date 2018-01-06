@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Criar modelos de análise de texto no Azure Machine Learning Studio
 Pode utilizar o Azure Machine Learning para criar e operacionalizar modelos de análise de texto. Estes modelos podem ajudar a resolver, por exemplo, problemas de análise de classificação de recursos de dados de sentimento do documento.
@@ -33,7 +33,7 @@ Numa experimentação da análise de texto, normalmente, seria:
 
 Neste tutorial, aprende estes passos, iremos guiá-lo através de um modelo de análise de dados de sentimento utilizando o conjunto de dados do Amazon livro revisões (consulte neste documento research "Biographies, Bollywood, caixas de Boom e Blenders: Adaptation de domínio para classificação de dados de sentimento" pelo João Blitzer, Marcar Dredze e Fernando Pereira; Associação de Linguistics computacional (ACL), 2007.) Este conjunto de dados é constituído por pontuações de revisão (1-2 ou 4 a 5) e um texto livre. O objetivo é para prever a classificação de revisão: baixa (1 - 2) ou elevado (4-5).
 
-Pode encontrar experimentações abrangidas neste tutorial na galeria da Cortana Intelligence:
+Pode encontrar experimentações abrangidas neste tutorial na Galeria de AI do Azure:
 
 [Prever revisões de livro](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
@@ -88,6 +88,6 @@ Iremos selecionar colunas de inserção de módulo de conjunto de dados antes do
 
 Agora que temos uma experimentação que pode ser publicada como um serviço web e chamada utilizando a execução do pedido-resposta ou lote APIs.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Saiba mais sobre o módulos de análise de texto de [documentação MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 

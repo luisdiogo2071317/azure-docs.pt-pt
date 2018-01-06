@@ -14,14 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas para o SO convidado do Azure. Procure este artigo para determinar se uma atualização específica aplica-se para o SO convidado está a utilizar. Atualizações sempre transportem para específico [família] [ family-explain] foram introduzidas no.
+
+## <a name="january-guest-os"></a>SO de convidado de Janeiro
+| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| N/A | [4056898] |Apenas a segurança do Windows |4.50 |3 de Janeiro de 2018 |
+| N/A | [4056890] |Apenas a segurança do Windows |5.15 |3 de Janeiro de 2018 |
 
 ## <a name="december-guest-os"></a>SO de convidado de Dezembro
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
@@ -574,6 +580,9 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A |[3007054] |Protegida por PIN impressão opção sempre mostra quando a imprimir um documento dentro de uma aplicação da loja Windows no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 | N/A |[2999802] |Linhas sólidas em vez de linhas ponteada são indicadas no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
 | N/A |[2896881] |Hora de início de sessão longa ao utilizar o comando AddPrinterConnection VBScript para mapear impressoras para os utilizadores durante o processo de início de sessão no Windows |4.15, 3.22, 2.34 |13 de Janeiro de 2015 |
+
+[4056898]: http://support.microsoft.com/kb/4056898
+[4056890]: http://support.microsoft.com/kb/4056890 
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

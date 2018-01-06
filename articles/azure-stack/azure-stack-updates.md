@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4355e7a8c220dea03df5eda54ed4e94d6ebc5c94
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gerir as atualizações na descrição geral de pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas*
 
-Microsoft vai lançar pacotes de atualização para sistemas de pilha do Azure integrado uma cadência regulares que, normalmente, irá enquadram-se na quarta terça-feira de cada mês, começando disponibilidade geral. Colocar o OEM sobre o seu processo de notificação específicos para garantir a sua organização alcance de notificações de atualização ou verifique aqui em sistemas de notes\Integrated Concepts\Release notas de versão para obter mais informações sobre versões específicas.
+Microsoft vai lançar pacotes de atualização para sistemas de pilha do Azure integrado uma cadência regulares que, normalmente, irá enquadram-se na quarta terça-feira de cada mês, começando disponibilidade geral. Colocar o OEM sobre o seu processo de notificação específicos para garantir a sua organização alcance de notificações de atualização ou verifique aqui em sistemas de Notes\Integrated Overview\Release notas de versão para obter mais informações sobre versões específicas.
 
 Cada versão de atualizações de software da Microsoft é incluído como um pacote de atualização única. Como um operador de pilha do Azure, pode importar facilmente, instalação e monitorize o progresso de instalação destas de atualização de pacotes a partir do portal do administrador. 
 
@@ -62,7 +62,7 @@ O mosaico de atualização mostra a versão atual da pilha do Azure. Pode obter 
  
 - No **gestão região** mosaico, clique no nome de região. Ver a versão atual no **atualização** mosaico.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Pilha do Azure de política de manutenção](azure-stack-servicing-policy.md) 
 - [Gestão de região na pilha do Azure](azure-stack-region-management.md)     

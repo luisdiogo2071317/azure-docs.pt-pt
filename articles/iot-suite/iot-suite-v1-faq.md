@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: db928795cc38dea4ca9fc441e6053e3bb44da23e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Perguntas mais frequentes sobre o IoT Suite
 
@@ -86,17 +86,20 @@ Duas. Pode criar apenas dois Bing Maps de Transações Internas de Nível 1 para
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>Posso criar uma solução pré-configurada se tiver o Microsoft Azure para DreamSpark?
 
-Atualmente, não é possível criar uma solução pré-configurada com uma [Microsoft Azure para DreamSpark] [ lnk-dreamspark] conta. No entanto, pode criar um [conta de avaliação gratuita do Azure] [ lnk-30daytrial] em apenas alguns minutos que lhe permite criar uma solução pré-configurada.
+> [!NOTE]
+> Microsoft Azure para DreamSpark é agora conhecido como Microsoft Imagine para os estudantes que estejam.
+
+Atualmente, não é possível criar uma solução pré-configurada com uma [Microsoft Azure para DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) conta. No entanto, pode criar um [conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos que lhe permite criar uma solução pré-configurada.
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>Posso criar uma solução pré-configurada se tiver subscrição do fornecedor de solução em nuvem (CSP)?
 
 Atualmente, não é possível criar uma solução pré-configurada com uma subscrição do fornecedor de solução em nuvem (CSP). No entanto, pode criar um [conta de avaliação gratuita do Azure] [ lnk-30daytrial] em apenas alguns minutos que lhe permite criar uma solução pré-configurada.
 
-### <a name="how-do-i-delete-an-aad-tenant"></a>Como posso eliminar um inquilino do AAD?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Como posso eliminar um inquilino do Azure AD?
 
 Consulte a mensagem de blogue de Eric Golpe [instruções de eliminação de um inquilino do Azure AD][lnk-delete-aad-tennant].
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Passos Seguintes
 
 Também pode explorar algumas das outras funcionalidades e capacidades das soluções pré-configuradas do IoT Suite:
 

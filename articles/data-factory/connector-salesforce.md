@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d5bad9a3be9c3165e5d26001353b8955ff81a764
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 9ce027ca6c9ad71f2884d5187786d69a5ba1134f
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Copiar dados de/para Salesforce utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,10 +67,10 @@ As seguintes propriedades são suportadas para o serviço ligado do Salesforce:
 | o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
 | palavra-passe |Especifique uma palavra-passe da conta de utilizador.<br/><br/>Pode escolher marcar este campo como um SecureString armazena de forma segura na ADF ou armazenar a palavra-passe no Cofre de chaves do Azure e permitir que o concentre cópia solicitar a partir daí quando efetuar a cópia de dados - Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). |Sim |
 | securityToken |Especifique um token de segurança para a conta de utilizador. Consulte [obtenha o token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como repor/obter um token de segurança. Para saber mais sobre os tokens de segurança em geral, consulte [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Pode escolher marcar este campo como um SecureString armazena de forma segura na ADF ou armazenar o token de segurança no Cofre de chaves do Azure e permitir que o concentre cópia solicitar a partir daí quando efetuar a cópia de dados - Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). |Sim |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não para a origem, Sim para sink |
+| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não origem Sim para sink se ligado a origem de serviço não tem resposta a incidentes |
 
 >[!IMPORTANT]
->Para copiar dados para Salesforce, explicitamente [criar uma resposta a incidentes Azure](create-azure-integration-runtime.md#create-azure-ir) com uma localização perto do Salesforce e associar no serviço ligado do exemplo seguinte.
+>Quando copiar dados **para** Salesforce, predefinição Runtime de integração do Azure não pode ser utilizado para executar a cópia. Em outras palavras, se ligado a origem de serviço não tem uma resposta a incidentes especificada, explicitamente [criar uma resposta a incidentes Azure](create-azure-integration-runtime.md#create-azure-ir) com uma localização perto do Salesforce e associar do Salesforce ligado serviço como o exemplo seguinte.
 
 **Exemplo: armazenamento de credenciais no ADF**
 
@@ -304,7 +304,7 @@ Quando copiar dados do Salesforce, os seguintes mapeamentos são utilizados Sale
 | Caixa de verificação |Booleano |
 | Moeda |duplo |
 | Data |DateTime |
-| Data/hora |DateTime |
+| Data/Hora |DateTime |
 | E-mail |Cadeia |
 | Id |Cadeia |
 | Relação de referência |Cadeia |
@@ -320,5 +320,5 @@ Quando copiar dados do Salesforce, os seguintes mapeamentos são utilizados Sale
 | Texto (encriptado) |Cadeia |
 | URL |Cadeia |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

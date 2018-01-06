@@ -16,13 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: bd163e4168c844acab8d50c234115abf8ae874cf
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 908d81c363a556917d211e0bcc92188f849fb690
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual Linux com acelerados da rede
+
+> [!IMPORTANT] 
+> Máquinas virtuais têm de ser criadas com acelerados rede ativada. Esta funcionalidade não é possível ativar as máquinas virtuais existentes. Pode seguir os passos abaixo para ativar acelerados redes:
+>   1. Elimine a máquina virtual.
+>   2. Voltar a criar a máquina virtual com acelerados rede ativada.
+>
 
 Neste tutorial, irá aprender a criar uma máquina virtual (VM) do Linux com acelerados da rede. Na melhoria de rede permite que a virtualização de e/s de raiz única (SR-IOV) para uma VM, melhorando em grande medida o desempenho de rede. Este caminho de elevado desempenho ignora o anfitrião datapath, reduzindo a latência, interferência e utilização da CPU, para utilização com cargas de trabalho de rede mais demanding em tipos VM suportados. A imagem seguinte mostra a comunicação entre duas VMs com e sem redes na melhoria:
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: mabrigg
-ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Monitorizar as atualizações na pilha do Azure utilizando o ponto final com privilégios
 
 *Aplica-se a: Azure pilha integrado sistemas*
 
-Pode utilizar o ponto final com privilégios para monitorizar o progresso de uma execução de atualização de pilha do Azure e retomar uma atualização falhada executar no último passo com êxito. 
+Pode utilizar o ponto final com privilégios para monitorizar o progresso de uma execução de atualização de pilha do Azure e retomar uma atualização falhada executar no último passo com êxito, deve a pilha de Azure portal ficar indisponível.  Utilizar o portal de pilha do Azure é o método recomendado para gerir as atualizações na pilha do Azure.
 
 Os seguintes novos cmdlets de PowerShell para gestão de atualizações são incluídos na atualização 1710 para sistemas de pilha do Azure integrado.
 
@@ -111,7 +111,7 @@ Os valores possíveis incluem:
 
 - Em Execução
 - Concluído
-- Falhou 
+- Com Falhas 
 - Cancelado
 
 Pode executar estes comandos repetidamente para ver o estado mais atualizado. Não tem de voltar a estabelecer uma ligação para verificar novamente.
@@ -194,7 +194,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 O ponto final com privilégios está disponível em todas as máquinas de virtuais ERCS no ambiente de pilha do Azure. Uma vez que a ligação não é efetuada para um ponto final de elevada disponibilidade, pode deparar-se ocasionais interrupções, aviso ou mensagens de erro. Estas mensagens poderão indicar que a sessão foi desligada ou Ocorreu um erro ao comunicar com o serviço de ECE. Este comportamento é esperado. Pode repetir a operação dentro de alguns minutos ou criar uma nova sessão de ponto final com privilégios das outras máquinas virtuais ERCS. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Gerir atualizações na pilha do Azure](azure-stack-updates.md) 
 

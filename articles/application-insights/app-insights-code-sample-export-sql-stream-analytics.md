@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: e935350fbcdeb7a3192778b3dafb288aac281886
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Instruções: Exportação para o SQL Server do Application Insights com o Stream Analytics
 Este artigo mostra como mover os dados de telemetria [Azure Application Insights] [ start] para uma base de dados SQL do Azure utilizando [exportação contínua] [ export] e [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -141,29 +141,29 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 Neste exemplo, estamos a utilizar dados a partir de vistas de página. Para ver os dados disponíveis, Inspecione a saída JSON e vê o [exportar o modelo de dados](app-insights-export-data-model.md).
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Criar uma instância do Azure Stream Analytics
-Do [Portal clássico do Azure](https://manage.windowsazure.com/), selecione o serviço Azure Stream Analytics e criar uma nova tarefa de Stream Analytics:
+Do [portal do Azure](https://portal.azure.com/), selecione o serviço Azure Stream Analytics e criar uma nova tarefa de Stream Analytics:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-Quando é criada a nova tarefa, expanda os respectivos detalhes:
+Quando é criada a nova tarefa, selecione **aceda a recursos**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="set-blob-location"></a>Definir localização de blob
+#### <a name="add-a-new-input"></a>Adicionar uma nova entrada
+
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+
 Defina-o para tomar entrada a partir do seu blob exportação contínua:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
 
 Agora, terá a chave de acesso primária da sua conta de armazenamento, que anotou anteriormente. Defina esta opção como a chave de conta de armazenamento.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
-
 #### <a name="set-path-prefix-pattern"></a>Padrão de prefixo do caminho de conjunto
-![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Lembre-se de que definiu o formato de data como **aaaa-MM-DD** (com **traços**).
+**Lembre-se de que definiu o formato de data como aaaa-MM-DD (com traços).**
 
 O padrão de prefixo do caminho Especifica como o Stream Analytics localiza os ficheiros de entrada no armazenamento. Tem de defini-lo para corresponder à forma como a exportação contínua armazena os dados. Defina-o como esta:
 
@@ -178,22 +178,12 @@ Neste exemplo:
 
 Para obter o nome e a iKey do recurso do Application Insights, abra Essentials na sua página de descrição geral ou abra definições.
 
-#### <a name="finish-initial-setup"></a>Concluir a configuração inicial
-Confirme o formato de serialização:
-
-![Confirmar e fechar o Assistente](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
-
-Fechar o assistente e aguarde a conclusão da configuração.
-
 > [!TIP]
 > Utilize a função de exemplo para verificar que tem de definir o caminho de entrada corretamente. Se não conseguir: Verifique se há dados com o armazenamento para o intervalo de tempo de exemplo que escolheu. Editar a definição de entrada e verificar a definir a conta de armazenamento, o prefixo do caminho e data formato corretamente.
 > 
 > 
-
 ## <a name="set-query"></a>Consulta de conjunto
 Abra a secção de consulta:
-
-![Do stream analytics, selecione a consulta](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
 Substitua a consulta predefinida com:
 
@@ -238,22 +228,20 @@ Tenha em atenção que o primeiro algumas propriedades são específicas para da
 ## <a name="set-up-output-to-database"></a>Configurar a saída à base de dados
 Selecione o SQL Server como o resultado.
 
-![Do stream analytics, selecione saídas](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
+![Do stream analytics, selecione saídas](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 Especifique a base de dados do SQL Server.
 
-![Preencha os detalhes da base de dados](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![Preencha os detalhes da base de dados](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 Fechar o assistente e aguarde que uma notificação que o resultado foi configurado.
 
 ## <a name="start-processing"></a>Iniciar o processamento
 Inicie a tarefa na barra de ação:
 
-![Do stream analytics, clique em Iniciar](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![Do stream analytics, clique em Iniciar](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
 Pode escolher se pretende iniciar o processamento dos dados a partir de agora ou em anteriores para começar com dados. A última opção é útil se tiver tido a exportação contínua já em execução para um pouco.
-
-![Do stream analytics, clique em Iniciar](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 Após alguns minutos, volte atrás para ferramentas de gestão do SQL Server e veja os dados que fluem no. Por exemplo, utilize uma consulta como esta:
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -36,7 +36,7 @@ Atualmente, o Azure Active Directory Deteta seis tipos de eventos de risco:
 
 ![Eventos de risco](./media/active-directory-reporting-risk-events/91.png)
 
-As informações que obtém para um evento de risco detetados está associada à sua subscrição do Azure AD. Se tiver uma edição do Azure AD Premium P1 (incluída no EMS E3 oferta), as deteções que não são abrangidas pelo seu licença são reportadas como **início de sessão com o risco adicional detetado**. Por outras palavras, verá um evento de risco início de sessão com o risco adicional detetado para deteções exclusivas para subscritores do Azure AD Identity Protection.
+As informações que obtém para um evento de risco detetados está associada à sua subscrição do Azure AD. Com a edição do Azure AD Premium P2, obter as informações mais detalhadas sobre todas as deteções subjacentes. Com a edição do Azure AD Premium P1, deteções que não são abrangidas pelo seu licença aparecem como o evento de risco **início de sessão com o risco adicional detetado**.
 
 
 Este tópico fornece-lhe uma descrição detalhada do que eventos de risco são e como pode utilizá-las para proteger as identidades do Azure AD.

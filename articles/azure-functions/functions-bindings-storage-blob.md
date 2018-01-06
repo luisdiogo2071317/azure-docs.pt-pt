@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 923bc54d9edc9aecdf27c674d3020c2f82f03b3d
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -210,10 +210,12 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 ## <a name="trigger---usage"></a>Acionador - utilização
 
-Em c# e c# script, aceder aos dados blob utilizando um parâmetro de método como `Stream paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. É possível vincular a qualquer um dos seguintes tipos:
+Em c# e c# script, aceder aos dados blob utilizando um parâmetro de método como `T paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. É possível vincular a qualquer um dos seguintes tipos:
 
-* `TextReader`
 * `Stream`
+* `TextReader`
+* `Byte[]`
+* `string`
 * `ICloudBlob`(requer a direção de enlace "inout" no *function.json*)
 * `CloudBlockBlob`(requer a direção de enlace "inout" no *function.json*)
 * `CloudPageBlob`(requer a direção de enlace "inout" no *function.json*)
@@ -498,10 +500,16 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 Bibliotecas de classes do c# e c# script, aceder a blob utilizando um parâmetro de método como `Stream paramName`. No script do c#, `paramName` é o valor especificado no `name` propriedade *function.json*. É possível vincular a qualquer um dos seguintes tipos:
 
-* `out string`
-* `TextWriter` 
-* `TextReader`
+* `TextReader`(só de entrada)
+* `string`(só de entrada)
+* `Byte[]`(só de entrada)
+* `TextWriter`(apenas de saída)
+* `out string`(apenas de saída)
+* `out Byte[]`(apenas de saída)
+*  `CloudBlobStream`(apenas de saída)
 * `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
 * `ICloudBlob`(requer a direção de enlace "inout" no *function.json*)
 * `CloudBlockBlob`(requer a direção de enlace "inout" no *function.json*)
 * `CloudPageBlob`(requer a direção de enlace "inout" no *function.json*)

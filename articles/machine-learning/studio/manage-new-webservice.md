@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9024bc82c0de5b8058a848cc809a2571baa7ce83
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 2e71fa46f88ce219bee96a223a034078a037b4d3
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Gerir um serviço Web utilizando o portal de serviços Web do Azure Machine Learning
 Pode gerir o Machine Learning novo e serviços Web clássicos através do portal de serviços Web do Microsoft Azure Machine Learning. Uma vez que os serviços Web clássicos e serviços Web novo são baseados em diferentes tecnologias subjacentes, tem capacidades de gestão ligeiramente diferente para cada um deles.
@@ -110,7 +110,7 @@ O dashboard de plano fornece as seguintes informações:
 
 ## <a name="manage-classic-web-services"></a>Gerir serviços Web clássicos
 > [!NOTE]
-> Os procedimentos nesta secção são relevantes para gerir os serviços web clássico através do portal de serviços Web do Azure Machine Learning. Para obter informações sobre a gestão de serviços Web clássicos através de Machine Learning Studio e o portal clássico do Azure, consulte [gerir uma área de trabalho do Azure Machine Learning](manage-workspace.md).
+> Os procedimentos nesta secção são relevantes para gerir os serviços web clássico através do portal de serviços Web do Azure Machine Learning. Para obter informações sobre a gestão de serviços Web clássicos através de Machine Learning Studio e o portal do Azure, consulte [gerir uma área de trabalho do Azure Machine Learning](manage-workspace.md).
 > 
 > 
 

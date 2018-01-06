@@ -1,6 +1,6 @@
 ---
 title: "Definições de Runbooks | Microsoft Docs"
-description: "Descreve as definições de configuração para um runbook na automatização do Azure e como alterá-los utilizando o Portal de gestão do Azure e o Windows PowerShell."
+description: "Descreve as definições de configuração para um runbook na automatização do Azure e como alterá-los utilizando o portal do Azure e o Windows PowerShell."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-ms.openlocfilehash: 8d626465bcfdb4efa9cf85c41a2ee679e30eadaf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 527c40c4a0c5c9a0eb4745f542a8afcc63281416
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="runbook-settings"></a>Definições de runbook
 Cada runbook na automatização do Azure tem várias definições que ajudam a ser identificados e alterar o respetivo comportamento de registo. Cada uma destas definições é descrita abaixo seguida pelos procedimentos sobre como modificá-las.
@@ -55,7 +55,7 @@ Os comandos de exemplo seguintes mostram como definir as propriedades de um runb
     Set-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber como criar e obter mensagens de erro e de saída a partir de runbooks, consulte [Runbook resultados e mensagens](automation-runbook-output-and-messages.md) 
 * Para compreender como adicionar um runbook que já foi desenvolvido pela Comunidade ou outra origem ou criar o seus próprios Consulte runbook [criar ou importar um Runbook](automation-creating-importing-runbook.md) 
 

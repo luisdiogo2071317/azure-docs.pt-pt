@@ -15,15 +15,16 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e utilizar dispositivos duplos no IoT Hub
 
 *Dispositivos duplos* são documentos JSON que armazenam informações de estado do dispositivo, incluindo metadados, configurações e condições. IoT Hub do Azure mantém um dispositivo duplo para cada dispositivo que se liga ao IoT Hub. Este artigo descreve:
+
 
 * A estrutura do dispositivo duplo: *etiquetas*, *pretendido* e *comunicadas propriedades*.
 * As operações que podem efetuar a aplicações de dispositivos e o back-ends nos dispositivos duplos.
@@ -51,8 +52,7 @@ Um dispositivo duplo é um documento JSON que inclui:
 * **Etiquetas**. Uma secção do documento JSON que a solução de back-end pode leem e escrevem para. As etiquetas não são visíveis para aplicações de dispositivos.
 * **Pretender propriedades**. Utilizado juntamente com propriedades comunicadas para sincronizar condições ou de configuração do dispositivo. O solução de back-end pode definir propriedades pretendidas e, a aplicação de dispositivo pode lê-los. A aplicação de dispositivo também pode receber notificações de alterações nas propriedades de pretendido.
 * **Comunicado propriedades**. Utilizado juntamente com propriedades pretendidas para sincronizar condições ou de configuração do dispositivo. A aplicação de dispositivo, pode definir propriedades comunicadas e o solução de back-end pode ler e consultá-los.
-
-Além disso, a raiz do documento dispositivo duplo JSON contém as propriedades só de leitura de identidade de dispositivo correspondente armazenado no [registo de identidade][lnk-identity].
+* **Propriedades de identidade de dispositivo**. A raiz do documento dispositivo duplo JSON contém as propriedades só de leitura da identidade de dispositivo correspondente armazenado no [registo de identidade][lnk-identity].
 
 ![][img-twin]
 
@@ -60,13 +60,19 @@ O exemplo seguinte mostra um dispositivo duplo documento JSON:
 
         {
             "deviceId": "devA",
-            "generationId": "123",
+            "etag": "AAAAAAAAAAc=", 
             "status": "enabled",
             "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
             "connectionState": "connected",
-            "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
             "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
             "tags": {
                 "$etag": "123",
                 "deploymentLocation": {
@@ -94,7 +100,7 @@ O exemplo seguinte mostra um dispositivo duplo documento JSON:
             }
         }
 
-O objeto de raiz, são as propriedades do sistema e contentor de objetos para `tags` e ambos `reported` e `desired` propriedades. O `properties` contentor contém alguns elementos de só de leitura (`$metadata`, `$etag`, e `$version`) descrito a [metadados do dispositivo duplo] [ lnk-twin-metadata] e [ Simultaneidade otimista] [ lnk-concurrency] secções.
+O objeto de raiz é o dispositivo propriedades de identidade e contentor de objetos para `tags` e ambos `reported` e `desired` propriedades. O `properties` contentor contém alguns elementos de só de leitura (`$metadata`, `$etag`, e `$version`) descrito a [metadados do dispositivo duplo] [ lnk-twin-metadata] e [ Simultaneidade otimista] [ lnk-concurrency] secções.
 
 ### <a name="reported-property-example"></a>Exemplo de propriedade comunicado
 No exemplo anterior, o dispositivo duplo contém um `batteryLevel` propriedade que é comunicada pela aplicação do dispositivo. Esta propriedade torna possível consultar e operar em dispositivos com base no nível de bateria comunicado último. Outros exemplos incluem as capacidades de dispositivos de relatórios de aplicações do dispositivo ou as opções de conectividade.
@@ -240,7 +246,7 @@ As etiquetas, propriedades pretendidas e propriedades comunicadas são objetos J
 * Todos os valores de cadeia podem ser, no máximo 4 KB de comprimento.
 
 ## <a name="device-twin-size"></a>Tamanho do dispositivo duplo
-IoT Hub impõe uma limitação de tamanho de 8KB nos valores totais das `tags`, `properties/desired`, e `properties/reported`, excluindo os elementos de só de leitura.
+IoT Hub impõe uma limitação de tamanho de 8KB em cada um dos respetivos valores totais de `tags`, `properties/desired`, e `properties/reported`, excluindo os elementos de só de leitura.
 O tamanho é calculado através da contagem de todos os carateres, excluindo carateres de controlo UNICODE (segmentos C0 e C1) e espaços que estejam fora as constantes string.
 IoT Hub com um erro rejeita todas as operações que podem aumentar o tamanho desses documentos supera o limite.
 
@@ -324,7 +330,7 @@ Outros tópicos de referência no guia de programadores do IoT Hub incluem:
 * O [idioma de consulta do IoT Hub para dispositivos duplos, tarefas e o encaminhamento de mensagens] [ lnk-query] artigo descreve o idioma de consulta do IoT Hub pode utilizar para obter informações a partir do IoT Hub sobre os dispositivos duplos e tarefas.
 * O [suporte do IoT Hub MQTT] [ lnk-devguide-mqtt] artigo fornece mais informações sobre o suporte de IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que tem aprendeu sobre dispositivos duplos, poderá estar interessado nos seguintes tópicos do guia de programadores do IoT Hub:
 
 * [Invocar um método direto num dispositivo][lnk-methods]

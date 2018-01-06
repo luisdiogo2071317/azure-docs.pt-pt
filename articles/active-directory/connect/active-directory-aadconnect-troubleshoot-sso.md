@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d5f47bd780de692a5e641fc49ea0c433809068bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolver problemas do Azure Active Directory totalmente integrada Single Sign-On
 
@@ -27,6 +27,7 @@ Este artigo ajuda-o a encontrar informações sobre problemas comuns sobre Azure
 ## <a name="known-problems"></a>Problemas conhecidos
 
 - Em alguns casos, a ativação SSO totalmente integrada pode demorar até 30 minutos.
+- Se desativar e reativar o SSO totalmente integrado no seu inquilino, os utilizadores não receberão a experiência de início de sessão único até as respetivas permissões de Kerberos em cache, normalmente válidos para 10 horas, tem expirado.
 - Suporte de browser Edge não está disponível.
 - A partir de clientes do Office, especialmente cenários de computador partilhado, faz com que pede extra início de sessão de utilizadores. Os utilizadores tem de introduzir os nomes de utilizador com frequência, mas não as palavras-passe.
 - Se tiver êxito SSO totalmente integrada, o utilizador não tem a oportunidade de selecionar **manter a minha sessão iniciada**. Devido a este comportamento, cenários de mapeamento do OneDrive e do SharePoint não funcionam.
@@ -68,13 +69,15 @@ Navegue até à **do Azure Active Directory** > **inícios de sessão** no [Cent
 Utilize a lista de verificação seguinte para resolver problemas de SSO totalmente integrado:
 
 - Certifique-se de que a funcionalidade de SSO totalmente integrada está ativada no Azure AD Connect. Se não é possível ativar a funcionalidade (por exemplo, devido a uma porta bloqueada), certifique-se de que tem todas as [pré-requisitos](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) no local.
+- Se tiver ativado o ambos [associação do Azure AD](../active-directory-azureadjoin-overview.md) e SSO totalmente integrado no seu inquilino, certifique-se de que o problema não com a associação do Azure AD. SSO de associação do Azure AD tem precedência sobre SSO totalmente integrada, se o dispositivo está registado com o Azure AD e associados a um domínio. Com o SSO de associação do Azure AD, o utilizador verá um mosaico de início de sessão no que diz "Ligado ao Windows".
 - Certifique-se de que os dois URLs do Azure AD (https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net) são parte integrante das definições de zona de Intranet do utilizador.
 - Certifique-se de que o dispositivo da empresa está associado ao domínio do Active Directory.
 - Certifique-se de que o utilizador iniciar sessão num dispositivo através de uma conta de domínio do Active Directory.
 - Certifique-se de que a conta de utilizador numa floresta do Active Directory onde SSO totalmente integrado tiver sido configurada.
 - Certifique-se de que o dispositivo está ligado à rede empresarial.
 - Certifique-se de que a hora do dispositivo está sincronizada com a hora no Active Directory e os controladores de domínio e que estão dentro de cinco minutos.
-- Lista de permissões de Kerberos existentes no dispositivo utilizando o `klist` comando numa linha de comandos. Certifique-se de que as permissões emitidas para o `AZUREADSSOACCT` conta de computador estão presentes. Permissões de Kerberos dos utilizadores são normalmente válidos para 12 horas. Poderá ter definições diferentes no Active Directory.
+- Lista de permissões de Kerberos existentes no dispositivo utilizando o `klist` comando numa linha de comandos. Certifique-se de que as permissões emitidas para o `AZUREADSSOACCT` conta de computador estão presentes. Permissões de Kerberos dos utilizadores são normalmente válidos para 10 horas. Poderá ter definições diferentes no Active Directory.
+- Se desativado e reativada SSO totalmente integrado no seu inquilino, os utilizadores não receberão a experiência de início de sessão único até as respetivas permissões de Kerberos em cache tem expirado.
 - Remover permissões Kerberos existentes são do dispositivo utilizando o `klist purge` comando e tente novamente.
 - Para determinar se existem problemas relacionados com JavaScript, reveja os registos da consola do browser (em **ferramentas de programador**).
 - Reveja o [registos de controlador de domínio](#domain-controller-logs).

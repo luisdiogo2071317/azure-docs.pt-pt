@@ -1,5 +1,5 @@
 ---
-title: Novidades do Microsoft Power BI Embedded? | Microsoft Docs
+title: Sobre o Azure Power BI Embedded | Microsoft Docs
 description: "Power BI Embedded destina-se para simplificar como programadores e os ISVs utilizam funcionalidades do Power BI, ajudando-os adicionar rapidamente fantásticas visuais, relatórios e dashboards para as suas aplicações."
 services: power-bi-embedded
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/04/2018
 ms.author: asaxton
-ms.openlocfilehash: 03ac36b2b3f3e26770f681b101824ddeca29b61f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e96575e74e20c80a79803ea56cdcbd4542e54a2
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-power-bi-embedded"></a>O que é o Power BI Embedded
+# <a name="about-power-bi-embedded"></a>Sobre o Power BI Embedded
 
 Power BI Embedded destina-se para simplificar como ISVs e programadores de utilizam as capacidades do Power BI. Power BI Embedded simplifica as capacidades do Power BI, ajudando-o a adicionar rapidamente fantásticas visuais, relatórios e dashboards para as suas aplicações. É semelhante para as aplicações criadas nos serviços de utilização do Microsoft Azure, como o Machine Learning e de IoT. Ao ativar a exploração de dados fácil de navegar nas suas aplicações, ISVs permitem aos respetivos clientes de decisões informadas, rápida no contexto.
 
@@ -52,7 +52,7 @@ Utilizando a API REST, Power BI Embedded permite desenvolver com qualquer idioma
 * [Power BI ideias](https://ideas.powerbi.com): pedido e votos para funcionalidades
 * [Reddit](https://www.reddit.com/r/PowerBI/): discutir Power BI
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte o [página de preços](https://azure.microsoft.com/pricing/details/power-bi-embedded/) para obter detalhes do nó de capacidade.
 

@@ -1,4 +1,4 @@
-**[Galeria da Cortana Intelligence](http://gallery.cortanaintelligence.com)**  é um site da Comunidade para detetar e partilha soluções criadas com Cortana Intelligence Suite.
+**[Galeria de AI do Azure](http://gallery.cortanaintelligence.com)**  é um site da Comunidade para detetar e partilha soluções criadas com Cortana Intelligence Suite.
 A Galeria tem uma variedade de recursos que pode utilizar para desenvolver as suas próprias soluções de análise.
 
 <!-- On the new DOCS platform, this is a drop-down list, not tabs, which doesn't work well in this context. So I'm just removing it for now.

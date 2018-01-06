@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: a91e46d3aa0b04015b60837ae4aef020acd42279
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory totalmente integrada Single Sign-On: Perguntas mais frequentes
 
@@ -38,11 +38,17 @@ Não. SSO totalmente integrado só está disponível a instância mundial do Azu
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Que aplicações tirar partido das `domain_hint` ou `login_hint` capacidade de parâmetro do SSO totalmente integrado?
 
-Estamos no processo de compilar a lista de aplicações que enviar estes parâmetros e aqueles que não. Se tiver aplicações estão interessadas nas, indique a secção de comentários.
+Estamos no processo de compilar a lista de aplicações que enviar estes parâmetros e aqueles que não. Se tiver aplicações que está interessado em, indique a secção de comentários.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Suporta SSO totalmente integrado `Alternate ID` como o nome de utilizador, em vez de `userPrincipalName`?
 
 Sim. Suporta SSO totalmente integrado `Alternate ID` como o nome de utilizador quando configurados no Azure AD Connect, conforme mostrado [aqui](active-directory-aadconnect-get-started-custom.md). Nem todas as aplicações do Office 365 suportam `Alternate ID`. Consulte a documentação específica da aplicação para a declaração de suporte.
+
+## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>O que é a diferença entre a experiência de início de sessão único fornecida pelo [associação do Azure AD](../active-directory-azureadjoin-overview.md) e SSO totalmente integrado?
+
+[A associação do Azure AD](../active-directory-azureadjoin-overview.md) fornece SSO para os utilizadores se os seus dispositivos estão registados com o Azure AD. Estes dispositivos não necessariamente tem de estar associado a um domínio. SSO é fornecido com *principal de atualização de tokens* ou *PRTs*e não Kerberos. A experiência de utilizador é ideal em dispositivos Windows 10. SSO ocorre automaticamente no Edge browser. Este exemplo também funciona no Chrome com a utilização de uma extensão de browser.
+
+Pode utilizar a associação do Azure AD e SSO totalmente integrado no seu inquilino. Estas duas funcionalidades são complementares. Se os dois recursos são ativados, o SSO de associação do Azure AD tem precedência sobre SSO totalmente integrada.
 
 ## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>Pretende registar dispositivos não Windows 10 com o Azure AD, sem utilizar o AD FS. Posso utilizar o SSO totalmente integrada em vez disso?
 

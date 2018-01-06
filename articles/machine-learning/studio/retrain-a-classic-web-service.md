@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Voltar a preparar um Serviço Web Clássico
 O serviço Web preditiva implementou é a predefinição da classificação de ponto final. Pontos finais predefinidos são mantidos sincronizados com a formação original e a classificação de experimentações, e, por conseguinte, não é possível substituir o modelo treinado para o ponto final predefinido. Para a reparametrização do serviço web, tem de adicionar um novo ponto final para o serviço web. 
@@ -116,7 +116,7 @@ O *apiKey* e *endpointUrl* para a chamada pode ser obtida a partir do dashboard 
 
 O valor da *nome* parâmetro *recursos* deve corresponder ao nome do recurso do modelo treinado guardado na experimentação preditiva. Para obter o nome do recurso:
 
-1. Iniciar sessão para o [portal clássico do Azure](https://manage.windowsazure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu à esquerda, clique em **Machine Learning**.
 3. No nome, clique em sua área de trabalho e, em seguida, clique em **serviços Web**.
 4. No nome, clique em **Census modelo [preditiva exp].** .
@@ -134,6 +134,6 @@ Utilizar APIs para a reparametrização, pode atualizar o modelo treinado de um 
 * Modelo periódico reparametrização com novos dados.
 * Distribuição de um modelo para clientes com o objetivo de permitir que os reparametrização do modelo utilizando os seus próprios dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Resolução de problemas a reparametrização de um serviço web clássico do Azure Machine Learning](troubleshooting-retraining-models.md)
 

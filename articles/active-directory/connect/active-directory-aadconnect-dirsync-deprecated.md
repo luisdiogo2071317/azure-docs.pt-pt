@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d30a0a6e293bd6659c8d39f94f11b0bb448e166
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5e7b0aa1fc555f0fe4773b6bd67db87a55d85bcf
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Atualizar a sincronização do Active Directory de sincronização do Azure Active Directory do Windows e do Azure
 O Azure AD Connect é a melhor forma de ligar o seu diretório no local ao Azure AD e ao Office 365. Esta é uma excelente altura para atualizar para o Azure AD Connect do Windows Azure Active Directory Sync (DirSync) ou do Azure AD Sync, estas ferramentas estão agora preteridas e já não são suportadas a partir de 13 de Abril de 2017.
@@ -62,7 +62,7 @@ Se quiser ver como efetuar uma atualização no local a partir do DirSync para o
 A notificação também foi enviada a clientes que utilizam o Azure AD Connect com um número de compilação 1.0. \*.0 (utilizando uma versão de pré-1.1). A Microsoft recomenda que os clientes Mantenha-se atualizado com as versões do Azure AD Connect. O [a atualização automática](active-directory-aadconnect-feature-automatic-upgrade.md) funcionalidade introduzida no 1.1 torna mais fácil ter sempre uma versão recente do Azure AD Connect instalado.
 
 **P: será DirSync/Azure AD Sync parar de funcionar em 13 de Abril de 2017?**  
-DirSync/Azure AD Sync irá continuar a trabalhar em 13 de Abril de 2017.  No entanto, do Azure AD já não irá aceitar comunicações de DirSync/Azure AD Sync após 31 de Dezembro de 2017.
+DirSync/Azure AD Sync irá continuar a trabalhar em 13 de Abril de 2017.  No entanto, do Azure AD já não pode aceitar comunicações de DirSync/Azure AD Sync após 31 de Dezembro de 2017.
 
 **P: quais as versões de DirSync pode atualizar do**  
 É possível para atualizar a partir de qualquer versão do DirSync atualmente a ser utilizado. Tenha em atenção que no local atualizar do DirSync para o Azure AD Connect não é suportado depois 31 de Dezembro de 2017. Os clientes que estão a utilizar o DirSync após essa data e pretendem mover para o Azure AD Connect poderão ter de em alternativa, efetue uma instalação de raiz do Azure AD Connect.

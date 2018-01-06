@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/05/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b852712edd897e99c89341a90a44ae50538212a1
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/05/2018
@@ -35,9 +35,9 @@ BD do Cosmos do Azure, pode armazenar e consultar dados sem esquema com tempos d
 
 Contentores são recursos lógicos e podem abranger uma ou mais partições físicas ou servidores. O número de partições é determinado pelo Azure Cosmos DB com base no tamanho de armazenamento e o débito aprovisionado do contentor. 
 
-Uma partição física é uma quantidade fixa de armazenamento reservada em cópia em SSD, com um máximo de 10 GB. Cada partição física é replicada para elevada disponibilidade. Uma ou mais partições físicas constituem um contentor. Gestão de partição física é completamente geridos pela base de dados do Azure Cosmos e não tem de escrever código complexo ou gerir as partições. Contentores do Cosmos BD do Azure são ilimitados em termos de armazenamento e débito. 
+Uma partição física é uma quantidade fixa de armazenamento de cópia de SSD reservada. Cada partição física é replicada para elevada disponibilidade. Uma ou mais partições físicas constituem um contentor. Gestão de partição física é completamente geridos pela base de dados do Azure Cosmos e não tem de escrever código complexo ou gerir as partições. Contentores do Cosmos BD do Azure são ilimitados em termos de armazenamento e débito. 
 
-Uma partição lógica é uma partição dentro de uma partição física, que armazena todos os dados associados a um valor de chave de partição única. O diagrama a seguir, um único contentor tem três partições lógicas. Cada partição lógica armazena os dados para uma chave de partição, LAX, AMS e MEL respetivamente. Cada uma das partições lógicas LAX, AMS e MEL não é possível crescer além do limite a partição física máximo de 10 GB. 
+Uma partição lógica é uma partição dentro de uma partição física que armazena todos os dados associados a um valor de chave de partição única. Uma partição lógica tem um máximo de 10 GB. O diagrama a seguir, um único contentor tem três partições lógicas. Cada partição lógica armazena os dados para uma chave de partição, LAX, AMS e MEL respetivamente. Cada uma das partições lógicas LAX, AMS e MEL não é possível crescer além do limite a partição lógica máximo de 10 GB. 
 
 ![A criação de partições de recursos](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -45,7 +45,7 @@ Quando uma coleção cumpre o [pré-requisitos de criação de partições](#pre
 
 ## <a name="how-does-partitioning-work"></a>Como funciona a criação de partições
 
-Como funciona a criação de partições? Cada item tem de ter uma chave de partição e uma chave de linha, identificar exclusivamente. A chave de partição atua como uma partição lógica para os seus dados e fornece BD do Cosmos do Azure com um limite natural para distribui dados em partições. Lembre-se de que uma partição lógica pode abranger várias partições físicas, mas a gestão de partição física é gerida pelo Azure Cosmos DB. 
+Como funciona a criação de partições? Cada item tem de ter uma chave de partição e uma chave de linha, identificar exclusivamente. A chave de partição atua como uma partição lógica para os seus dados e fornece BD do Cosmos do Azure com um limite natural para distribui dados em partições físicas. Lembre-se de que os dados para uma única partição lógica têm de residir no interior de uma única partição física, mas a gestão de partição física é gerida pelo Azure Cosmos DB. 
 
 No brief, eis como criação de partições funciona do BD Azure Cosmos:
 

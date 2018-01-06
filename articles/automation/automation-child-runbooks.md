@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: c136016ba885ec9ba999cb72ee6c1d4fc8770a0b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5c18444b5a2767ccdd9a61a3bc9218fa4c0aac04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks subordinados na automatização do Azure
 É uma boa prática na automatização do Azure para escrever runbooks modulares, reutilizáveis com uma função discreta que pode ser utilizada por outros runbooks. Um runbook principal chamará, frequentemente, um ou mais runbooks subordinados para executar a funcionalidade necessária. Existem duas formas de chamar runbooks subordinados e cada uma delas apresenta diferenças distintas que deverá compreender para que possa determinar qual é a mais adequada aos seus diferentes cenários.
@@ -30,7 +30,7 @@ Quando invoca um runbook inline, é executado na mesma tarefa que o runbook prin
 
 Quando um runbook for publicado, todos os runbooks subordinados que aquele invoque já tem de ser publicados. Isto acontece porque a automatização do Azure cria uma associação a todos os runbooks subordinados quando um runbook é compilado. Se não estão, o runbook principal irá aparecer publicar corretamente, mas gerará uma exceção quando é iniciada. Se isto acontecer, pode voltar a publicar o runbook principal para referenciar adequadamente os runbooks subordinados. Não é necessário voltar a publicar o runbook principal se qualquer um dos runbooks subordinados forem alterados, porque a associação será já foram criada.
 
-Os parâmetros de um runbook subordinado invocado inline podem ser qualquer tipo de dados, incluindo objetos complexos e não existe nenhum [serialização JSON](automation-starting-a-runbook.md#runbook-parameters) que estejam quando iniciar o runbook utilizando o Portal de gestão do Azure ou com o Cmdlet Start-AzureRmAutomationRunbook.
+Os parâmetros de um runbook subordinado invocado inline podem ser qualquer tipo de dados, incluindo objetos complexos e não existe nenhum [serialização JSON](automation-starting-a-runbook.md#runbook-parameters) que estejam quando iniciar o runbook utilizando o portal do Azure ou com o Cmdlet Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Tipos de runbooks
 Que tipos podem chamar entre si:
@@ -83,7 +83,7 @@ A tabela seguinte resume as diferenças entre os dois métodos para chamar um ru
 | Conta de Automatização |O runbook principal só pode utilizar o runbook subordinado na mesma conta de automatização. |O runbook principal pode utilizar o runbook subordinado a partir de qualquer conta de automatização da mesma subscrição do Azure e até mesmo uma subscrição diferente se tiver uma ligação ao mesmo. |
 | Publicação |O runbook subordinado tem de ser publicado antes de o runbook principal. |Runbook subordinado tem de ser publicado em qualquer altura antes do runbook principal ser iniciado. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Iniciar um runbook na automatização do Azure](automation-starting-a-runbook.md)
 * [Resultados de Runbook e mensagens na automatização do Azure](automation-runbook-output-and-messages.md)
 

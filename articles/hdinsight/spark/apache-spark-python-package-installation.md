@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: nitinme
-ms.openlocfilehash: c2921c6d7a0f46322fc4e0b3c84b743ee98e4a4d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 13c24a9fc08b4479a63d37fadb0fd02624e51b64
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Utilize a ação de Script para instalar pacotes de Python externos para blocos de notas do Jupyter nos clusters do Apache Spark no HDInsight
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Saiba como utilizar as ações de Script para configurar um cluster do Apache Sp
 > 
 > 
 
-Pode pesquisar o [índice de pacote](https://pypi.python.org/pypi) para a lista completa de pacotes que estão disponíveis. Também pode obter uma lista de pacotes disponíveis a partir de outras origens. Por exemplo, é possível instalar pacotes disponibilizados através de [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) ou [conda forge](https://conda-forge.github.io/feedstocks.html).
+Pode pesquisar o [índice de pacote](https://pypi.python.org/pypi) para a lista completa de pacotes que estão disponíveis. Também pode obter uma lista de pacotes disponíveis a partir de outras origens. Por exemplo, é possível instalar pacotes disponibilizados através de [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) ou [conda forge](https://conda-forge.org/feedstocks/).
 
 Neste artigo, ficará a saber como instalar o [TensorFlow](https://www.tensorflow.org/) pacote através da ação de Script no seu cluster e utilizá-lo através do bloco de notas do Jupyter.
 

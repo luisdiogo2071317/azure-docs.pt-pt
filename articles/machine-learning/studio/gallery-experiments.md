@@ -1,6 +1,6 @@
 ---
-title: "Galeria da Cortana Intelligence experimentações | Microsoft Docs"
-description: "Detetar e partilhar as experimentações na galeria da Cortana Intelligence."
+title: "Galeria de AI do Azure experimentações | Microsoft Docs"
+description: "Detetar e partilhar as experimentações na Galeria de AI do Azure."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 472ecac4ac1d9a86f0a3ad8271dd96257c331e5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Detetar as experimentações na galeria da Cortana Intelligence
+# <a name="discover-experiments-in-azure-ai-gallery"></a>Detetar as experimentações na Galeria de AI do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Experimentações de Machine Learning Studio
@@ -45,7 +45,7 @@ Pode obter mais informações sobre uma experimentação na página de detalhes 
 ## <a name="download"></a>Transferência
 Pode transferir uma cópia de quaisquer experimentação na Galeria para a sua área de trabalho do Machine Learning Studio. Em seguida, pode modificar a cópia para criar as suas próprias soluções.
 
-Galeria da Cortana Intelligence oferece duas formas para importar uma cópia de uma experimentação:
+Galeria de AI do Azure oferece duas formas para importar uma cópia de uma experimentação:
 
 * **Na galeria do**. Se encontrar uma experimentação que pretender na galeria, pode transferir uma cópia e, em seguida, abra-o na sua área de trabalho do Machine Learning Studio.
 * **A partir do Machine Learning Studio**. No Machine Learning Studio, pode utilizar qualquer experimentação na galeria como um modelo para criar uma nova experimentação.
@@ -132,7 +132,7 @@ Se for necessário, pode efetuar alterações ao fluxo de trabalho (módulos, pa
 
 Pode alterar qualquer uma das seguintes informações para a sua experimentação diretamente na galeria:
 
-* Nome da experimentação
+* Nome de experimentação
 * Resumo ou descrição
 * Etiquetas
 * Imagem
