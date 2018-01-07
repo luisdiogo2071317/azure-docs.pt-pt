@@ -8,11 +8,11 @@ Com a divulgação pública de vulnerabilidade de segurança, iremos [acelerados
  
 ## <a name="how-can-i-see-which-of-my-vms-are-already-updated"></a>Como posso ver quais das minhas VMs já são atualizados? 
 
-Pode ver o estado das suas VMs e se o reinício foi concluída dentro no [lista VM no portal do Azure](https://aka.ms/T08tdc). As suas VMs serão listadas como "Atualização já" se a atualização foi aplicada, ou "Agendada" se a atualização é ainda necessária. Se pretender ver apenas as suas VMs "Agendada" referir-se a sua [estado de funcionamento de serviço de Azure](https://portal.azure.com/).
+Pode ver o estado das suas VMs, e se o reinício foi concluída, além de [lista VM no portal do Azure](https://aka.ms/T08tdc). As VMs estão listadas como "Atualização já" se a atualização foi aplicada, ou "Agendada" se a atualização é ainda necessária. Se pretender ver apenas as suas VMs "Agendada" referir-se a sua [estado de funcionamento de serviço de Azure](https://portal.azure.com/).
 
 ## <a name="can-i-find-out-exactly-when-my-vms-will-be-rebooted"></a>Pode encontrar saída exatamente quando minhas VMs serão reiniciados?
 
-A melhor forma de obter um alerta sobre o reinício está a configurar [agendada eventos](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). Isto proporciona uma notificação de 15 minutos da VM ficar devido a manutenção – faz uma chamada à API para a VM e, além disso, a entrada de registo de atividade pode ser utilizado para acionar o Monitor do Azure para enviar mensagens de correio eletrónico, SMS ou webhooks. Não é possível fornecer qualquer aviso anterior.
+A melhor forma de obter um alerta sobre o reinício está a configurar [agendada eventos](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). Isto fornece uma notificação de 15 minutos da VM ficar devido a manutenção.
 
 ## <a name="can-i-manually-redeploy-now-to-perform-the-required-maintenance"></a>Pode posso manualmente Reimplementar agora a efetuar a manutenção necessária? 
 
@@ -24,7 +24,7 @@ A maioria dos reinícios estão a demorar, aproximadamente, **30 minutos**.
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>É o convidado SO tem de ser atualizados? 
 
-Esta atualização de infraestrutura do Azure aborda a vulnerabilidade disclosed ao nível do hipervisor e não necessita de uma atualização para as imagens do Windows ou a VM com Linux. No entanto, como sempre, deve continuar a aplicar procedimentos recomendados de segurança para as imagens VM. Consulte o fornecedor dos sistemas de operativos atualizações e obter instruções, conforme necessário. Para clientes de VM do Windows Server, agora foi publicada e orientações aqui.
+Esta atualização de infraestrutura do Azure aborda a vulnerabilidade disclosed ao nível do hipervisor e não necessita de uma atualização para as imagens do Windows ou a VM com Linux. No entanto, como sempre, deve continuar a aplicar procedimentos recomendados de segurança para as imagens VM. Consulte o fornecedor dos sistemas de operativos atualizações e obter instruções, conforme necessário. Para clientes de VM do Windows Server, a documentação de orientação agora foi publicada e está disponível [aqui](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Haverá um impacto no desempenho devido a resolver esta atualização?
 
