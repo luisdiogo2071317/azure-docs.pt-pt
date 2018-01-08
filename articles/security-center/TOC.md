@@ -90,6 +90,7 @@
 
 # Recursos
 ## [Mapa do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Plano de preparação do Centro de Segurança](security-center-readiness-roadmap.md)
 ## [Blogue sobre Segurança, Privacidade e Conformidade do Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/)
 ## [Descrição geral do serviço](https://azure.microsoft.com/services/security-center/)

@@ -71,10 +71,10 @@
       items:
         - name: Linguagens suportadas
           href: supported-languages.md
-        - name: 'Script C#'
-          href: functions-reference-csharp.md
-        - name: Biblioteca de classes do .NET
+        - name: 'C# (biblioteca de classes)'
           href: functions-dotnet-class-library.md
+        - name: 'Script C# (.csx)'
+          href: functions-reference-csharp.md
         - name: 'F#'
           href: functions-reference-fsharp.md
         - name: JavaScript
