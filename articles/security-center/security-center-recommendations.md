@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 32735a7dfaafd8bbfb983dd809b2204fb1b2fa10
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gerir recomendações de segurança no Centro de segurança do Azure
 Este documento explica como utilizar as recomendações no Centro de segurança do Azure para o ajudar a proteger os seus recursos do Azure.
@@ -73,7 +73,7 @@ Utilize a tabela abaixo como referência para ajudar a compreender as recomenda�
 | Recomendação | Descrição |
 | --- | --- |
 | [Ativar a recolha de dados para subscrições](security-center-enable-data-collection.md) |Recomenda-se que ative a recolha de dados na política de segurança para cada uma das suas subscrições e todas as máquinas de virtuais (VMs) do Azure e computadores não do Azure. |
-| [Remediar vulnerabilidades do SO](security-center-remediate-os-vulnerabilities.md) |Recomenda que alinhar as configurações de SO com as regras de configuração recomendada, por exemplo, não permitir palavras-passe sejam guardados. |
+| [Remediar configurações de segurança](security-center-remediate-os-vulnerabilities.md) |Recomenda que alinhar as configurações de SO com as regras de configuração de segurança recomendado, por exemplo, não permitir palavras-passe sejam guardados. |
 | [Aplicar atualizações do sistema](security-center-apply-system-updates.md) |Recomenda-se de que implemente atualizações críticas e de segurança do sistema em falta para o Windows e VMs com Linux e computadores. |
 | [Aplicar um Just-In-Time controlo de acesso de rede](security-center-just-in-time.md) | Recomenda-se de que se aplicam apenas no acesso VM de tempo. O apenas na hora funcionalidade em pré-visualização e está disponível na camada padrão do Centro de segurança. Consulte [preços](security-center-pricing.md) para saber mais acerca do Centro de segurança do escalões de preço. |
 | [Reiniciar após atualizações do sistema](security-center-apply-system-updates.md#reboot-after-system-updates) |Recomenda-se que reinicie uma VM para concluir o processo de aplicar atualizações do sistema. |
@@ -108,7 +108,7 @@ Depois de rever todas as recomendações, decida que um deve ser aplicada primei
 
 Na tabela de recomendações acima, selecione uma recomendação e guiá-lo como um exemplo de como aplicar a recomendação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste documento, foram introduzidas para recomendações de segurança no Centro de segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Definir políticas de segurança no Centro de segurança do Azure](security-center-policies.md) — Saiba como configurar políticas de segurança para as subscrições do Azure e os grupos de recursos.

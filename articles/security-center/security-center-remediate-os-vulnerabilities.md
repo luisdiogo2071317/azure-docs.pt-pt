@@ -1,6 +1,6 @@
 ---
-title: "Remediar vulnerabilidades do SO no Centro de segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação de centro de segurança do Azure * * remediar SO vulnerabilidades * *."
+title: "Remediar configurações de segurança no Centro de segurança do Azure | Microsoft Docs"
+description: "Este documento mostra como implementar a recomendação de centro de segurança do Azure **remediar configurações de segurança**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,33 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Remediar vulnerabilidades do SO no Centro de segurança do Azure
-Centro de segurança do Azure diariamente analisa o sistema operativo (SO) das suas máquinas virtuais (VMs) e para uma configuração que possam tornar as VMs e os computadores mais vulnerável a ataques. Centro de segurança recomenda que resolver vulnerabilidades quando a configuração do SO não coincide com as regras de configuração recomendada e recomenda alterações na configuração para resolver estas vulnerabilidades.
+# <a name="remediate-security-configurations-in-azure-security-center"></a>Remediar configurações de segurança no Centro de segurança do Azure
+Centro de segurança do Azure diariamente analisa o sistema operativo (SO) das suas máquinas virtuais (VMs) e para uma configuração que possam tornar as VMs e os computadores mais vulnerável a ataques. Centro de segurança recomenda que resolver vulnerabilidades quando a configuração do SO não coincide com as regras de configuração de segurança recomendados e recomenda alterações na configuração para resolver estas vulnerabilidades.
 
-> [!NOTE]
-> Para obter mais informações sobre as configurações específicas a serem monitorizados, consulte o [lista de regras de configuração recomendada](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
->
->
+Para obter mais informações sobre as configurações específicas a serem monitorizados, consulte o [lista de regras de configuração recomendada](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Consulte [personalizar as configurações do SO segurança](security-center-customize-os-security-config.md) para saber como personalizar as avaliações de configuração de segurança no Centro de segurança.
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
-Remediar SO vulnerabilidades é apresentada como uma recomendação no Centro de segurança. Esta recomendação será apresentada em **recomendações** e, em **computação**.
+Remediar a segurança, erro de correspondência de configurações é apresentado como uma recomendação no Centro de segurança. Esta recomendação será apresentada em **recomendações** e, em **computação**.
 
-Neste exemplo, iremos abordar o **vulnerabilidades do SO remediar (pela Microsoft)** recomendação em **computação**.
+Neste exemplo, iremos abordar o **remediar configurações de segurança** recomendação em **computação**.
 1. Selecione **computação** sob o menu principal do Centro de segurança.
 
-   ![Remediar vulnerabilidades do SO][1]
+   ![Remediar configurações de segurança][1]
 
-2. Em **computação**, selecione **vulnerabilidades do SO remediar (pela Microsoft)**. O **erro de correspondência de vulnerabilidades do SO (pela Microsoft)** dashboard abre.
+2. Em **computação**, selecione **remediar configurações de segurança**. **Configurações de segurança** abre.
 
-   ![Remediar vulnerabilidades do SO][2]
+   ![Configurações de segurança][2]
 
   Fornece a parte superior do dashboard:
 
@@ -77,11 +74,11 @@ Neste exemplo, iremos abordar o **vulnerabilidades do SO remediar (pela Microsof
   - VALOR real – O valor devolvido após a análise da sua configuração de SO de VM contra a regra
   - – REGRA regra operação utilizada pelo centro de segurança durante a análise da sua configuração de SO de VM contra a regra
 
-4. Selecione o **pesquisa** ícone na fita superior. Pesquisa abre listagem de áreas de trabalho que tenham VMs e os computadores com a Vulnerabilidade do SO selecionada. Este painel de seleção de área de trabalho só é apresentada se a regra selecionada aplica-se a várias VMs que estejam ligadas a diferentes áreas de trabalho.
+4. Selecione o **pesquisa** ícone na fita superior. Pesquisa abre listagem de áreas de trabalho que tenham VMs e os computadores com o erro de correspondência de configurações de segurança selecionados. Este painel de seleção de área de trabalho só é apresentada se a regra selecionada aplica-se a várias VMs que estejam ligadas a diferentes áreas de trabalho.
 
   ![Áreas de trabalho listadas][4]
 
-5. Selecione uma área de trabalho. Uma consulta de pesquisa de análise de registos abre filtrado à área de trabalho com a Vulnerabilidade do SO.
+5. Selecione uma área de trabalho. Uma consulta de pesquisa de análise de registos abre filtrado à área de trabalho com o erro de correspondência de configurações de segurança.
 
   ![Área de trabalho com vulnerabilidade do SO][5]
 
@@ -89,8 +86,10 @@ Neste exemplo, iremos abordar o **vulnerabilidades do SO remediar (pela Microsof
 
   ![Filtrada para esse computador][6]
 
-## <a name="next-steps"></a>Passos seguintes
-Este artigo mostrou como implementar a recomendação de centro de segurança "Remedeie SO vulnerabilidades." Pode rever o conjunto de regras de configuração [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Centro de segurança utiliza CCE (Common Configuration enumeração) para atribuir os identificadores exclusivos para as regras de configuração. Visite o [CCE](https://nvd.nist.gov/cce/index.cfm) site para obter mais informações.
+## <a name="next-steps"></a>Passos Seguintes
+Este artigo mostrou como implementar a recomendação de centro de segurança "Remedeie configurações de segurança". Consulte [personalizar as configurações do SO segurança](security-center-customize-os-security-config.md) para saber como personalizar as avaliações de configuração de segurança no Centro de segurança.
+
+Pode rever o conjunto de regras de configuração [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Centro de segurança utiliza CCE (Common Configuration enumeração) para atribuir os identificadores exclusivos para as regras de configuração. Visite o [CCE](https://nvd.nist.gov/cce/index.cfm) site para obter mais informações.
 
 Para saber mais acerca do Centro de segurança, consulte os seguintes recursos:
 

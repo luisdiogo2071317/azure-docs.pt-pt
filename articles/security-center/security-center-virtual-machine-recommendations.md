@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 6121717a8ce5661c70947e32dc877c6a898a9777
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 54375f6f98b4989a7af8bcde649d967f77c6c862
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="protecting-your-virtual-machines-in-azure-security-center"></a>Proteger as máquinas virtuais no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos Azure. Quando o Centro de segurança identificar potenciais vulnerabilidades de segurança, cria recomendações ajudá-lo durante o processo de configuração de controlos necessários.  Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs), redes, SQL e aplicações.
@@ -30,7 +30,7 @@ Este artigo aborda as recomendações que se aplicam a VMs.  Centro de recomenda
 | --- | --- |
 | [Ativar a recolha de dados para subscrições](security-center-enable-data-collection.md) |Recomenda-se que ative a recolha de dados na política de segurança para cada uma das suas subscrições e todas as máquinas virtuais (VMs) nas suas subscrições. |
 | [Ativar a encriptação da conta de armazenamento do Azure](security-center-enable-encryption-for-storage-account.md) | Recomenda-se de ativar a encriptação do serviço de armazenamento do Azure para dados inativos. Encriptação de serviço de armazenamento (SSE) funciona ao encriptar os dados quando são escritos no armazenamento do Azure e desencripta antes de obtenção. SSE está atualmente disponível apenas para o serviço Blob do Azure e pode ser utilizado para blobs de blocos, blobs de páginas e blobs de acréscimo. Para obter mais informações, consulte [encriptação do serviço de armazenamento para dados Inativos](../storage/common/storage-service-encryption.md).</br>SSE só é suportado em contas de armazenamento do Resource Manager. Contas de armazenamento clássicas não são atualmente suportadas. Para compreender clássica e modelos de implementação do Resource Manager, consulte [modelos de implementação do Azure](../azure-classic-rm.md). |
-| [Remediar vulnerabilidades do SO](security-center-remediate-os-vulnerabilities.md) |Recomenda-se que alinhe as configurações do SO com as regras de configuração recomendadas, por exemplo, não permitir que as palavras-passe sejam guardadas. |
+| [Remediar configurações de segurança](security-center-remediate-os-vulnerabilities.md) |Recomenda que alinhar as configurações de SO com as regras de configuração de segurança recomendado, por exemplo, não permitir palavras-passe sejam guardados. |
 | [Aplicar atualizações do sistema](security-center-apply-system-updates.md) |Recomenda-se que implemente o sistema de segurança em falta e atualizações críticas nas VMs. |
 | [Aplicar um Just-In-Time controlo de acesso de rede](security-center-just-in-time.md) | Recomenda-se de que se aplicam apenas no acesso VM de tempo. O apenas na hora funcionalidade em pré-visualização e está disponível na camada padrão do Centro de segurança. Consulte [preços](security-center-pricing.md) para saber mais acerca do Centro de segurança do escalões de preço. |
 | [Reiniciar após atualizações do sistema](security-center-apply-system-updates.md#reboot-after-system-updates) |Recomenda-se que reinicie uma VM para concluir o processo de aplicar atualizações do sistema. |
@@ -41,7 +41,7 @@ Este artigo aborda as recomendações que se aplicam a VMs.  Centro de recomenda
 | [Avaliação de vulnerabilidades não instalada](security-center-vulnerability-assessment-recommendations.md) |Recomenda-se de que instala uma solução de avaliação de vulnerabilidades na sua VM. |
 | [Remediar vulnerabilidades](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Permite-lhe ver as vulnerabilidades de sistema e de aplicações detetadas pela solução de avaliação de vulnerabilidade instalada na sua VM. |
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
 * [Proteger as suas aplicações no Centro de segurança do Azure](security-center-application-recommendations.md)

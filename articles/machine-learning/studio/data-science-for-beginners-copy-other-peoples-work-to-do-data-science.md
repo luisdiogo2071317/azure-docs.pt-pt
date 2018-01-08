@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f63911d8b48393ec8b0f041b1340bec40c768f38
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiar o trabalho de outras pessoas para fazer ciência de dados
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Ciência de dados para a série de principiantes
 Um dos segredos de negócio de ciência de dados está a obter outras pessoas para realizar o seu trabalho por si. Encontrar um exemplo de algoritmo de clustering na Galeria de AI do Azure a utilizar para a suas próprias experimentação do machine learning.
 
 > [!IMPORTANT]
-> Galeria da Cortana Intelligence foi mudada **galeria do Azure AI**. Como resultado, texto e as imagens neste transcript variam ligeiramente de vídeo, que utiliza a name anteriores.
+> **Galeria da Cortana Intelligence** nome foi mudado **galeria do Azure AI**. Como resultado, texto e as imagens neste transcript variam ligeiramente de vídeo, que utiliza a name anteriores.
 >
 
 Para tirar o máximo partido da série, veja todos eles. [Aceda à lista de vídeos](#other-videos-in-this-series)
@@ -52,7 +52,7 @@ Neste, irá detetar um local para encontrar exemplos que pode borrow de como um 
 
 Um dos segredos de negócio de ciência de dados está a obter outras pessoas para realizar o seu trabalho por si.
 
-## <a name="find-examples-in-the-azure-ai-intelligence-gallery"></a>Localizar exemplos na Galeria de Intelligence de AI do Azure
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Localizar exemplos na Galeria de AI do Azure
 
 A Microsoft tem um serviço baseado na nuvem denominado [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) que está bem-vindo ao tentar gratuitamente. Disponibiliza uma área de trabalho em que pode experimentar algoritmos de aprendizagem diferentes e, quando já tem a sua solução trabalhada, pode iniciá-lo como um serviço web.
 

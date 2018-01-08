@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 01/05/2018
 ms.author: terrylan
-ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Estas perguntas mais frequentes respondem a dúvidas sobre o Centro de segurança do Azure, um serviço que o ajuda a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos do Microsoft Azure.
@@ -41,7 +41,7 @@ Centro de segurança é oferecido na duas camadas:
 
 O **escalão gratuito** -lhe visibilidade para o estado de segurança dos seus recursos do Azure, política de segurança básica, recomendações de segurança e integração com serviços e produtos de segurança de parceiros.
 
-O **escalão Standard** adiciona ameaça avançada as capacidades de deteção, incluindo ameaça intelligence, a análise comportamental, a deteção de anomalias, incidentes de segurança e relatórios de atribuição da ameaça. O escalão Standard é gratuito durante os primeira 60 dias. Deverá optar por continuar a utilizar o serviço para além de 60 dias, vamos iniciar automaticamente a cobram para o serviço.  Para atualizar, selecione [escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança.
+O **escalão Standard** adiciona ameaça avançada as capacidades de deteção, incluindo ameaça intelligence, a análise comportamental, a deteção de anomalias, incidentes de segurança e relatórios de atribuição da ameaça. O escalão Standard é gratuito durante os 60 dias iniciais. Deverá optar por continuar a utilizar o serviço para além de 60 dias, vamos iniciar automaticamente a cobram para o serviço.  Para atualizar, selecione [escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança.
 
 ## <a name="permissions"></a>Permissões
 O Centro de Segurança do Azure utiliza o [Controlo de Acesso Baseado em Funções (RBAC)](../active-directory/role-based-access-control-configure.md), que fornece [funções incorporadas](../active-directory/role-based-access-built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços no Azure.
@@ -131,7 +131,7 @@ Esta mensagem é apresentada quando não existem dados de análise para uma VM. 
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Frequência análise do Centro de segurança de vulnerabilidades de sistema operativo, atualizações do sistema e problemas de proteção de ponto final?
 A latência no Centro de segurança verifica a existência de vulnerabilidades, atualizações, e é de problemas:
 
-- Vulnerabilidades do sistema operativo (pela Microsoft) – os dados são atualizados no prazo de 48 horas
+- Configurações de segurança do sistema operativo – dados é atualizado no prazo de 48 horas
 - Atualizações do sistema – dados são atualizadas dentro de 24 horas
 - Problemas do Endpoint Protection – os dados são atualizados dentro de 8 horas
 
