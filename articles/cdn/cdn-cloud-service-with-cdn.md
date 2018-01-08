@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="intro"></a>Integrar um serviço em nuvem a CDN do Azure
 Um serviço em nuvem pode ser integrado com a CDN do Azure, que serve qualquer conteúdo da localização do serviço em nuvem. Esta abordagem proporciona as seguintes vantagens:
@@ -111,7 +111,7 @@ Um perfil da CDN é uma coleção de pontos finais da CDN.  Cada perfil contém 
 ## <a name="create-a-new-cdn-endpoint"></a>Criar um novo ponto final da CDN
 **Para criar um novo ponto final da CDN para a sua conta de armazenamento**
 
-1. No [Azure Management Portal](https://portal.azure.com), navegue para o perfil de CDN.  É possível que o tenha afixado ao dashboard no passo anterior.  Se não o tiver feito, pode encontrá-lo ao clicar em **Procurar** e, em seguida, **Perfis da CDN** e clicar no perfil ao qual planeia adicionar o seu ponto final.
+1. No [portal do Azure](https://portal.azure.com), navegue para o seu perfil de CDN.  É possível que o tenha afixado ao dashboard no passo anterior.  Se não o tiver feito, pode encontrá-lo ao clicar em **Procurar** e, em seguida, **Perfis da CDN** e clicar no perfil ao qual planeia adicionar o seu ponto final.
    
     É apresentado o painel do perfil da CDN.
    

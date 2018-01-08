@@ -3,19 +3,19 @@ title: Criar um ambiente do Azure Time Series Insights | Microsoft Docs
 description: "Este artigo descreve como utilizar o portal do Azure para criar um novo ambiente de informações de séries de tempo."
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 6dba703851161a1eebce0101be8076682f09c76f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 20156432e17d5eca90779271bd18dc49fa988d7c
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Criar um novo ambiente do Time Series Insights no portal do Azure
 Este artigo descreve como criar um novo ambiente de informações de séries de tempo no portal do Azure.
@@ -25,7 +25,7 @@ Informações de séries de tempo permite-lhe começar a visualizar e consultar 
 ## <a name="steps-to-create-the-environment"></a>Passos para criar o ambiente
 Siga estes passos para criar um ambiente:
 
-1.  Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1.  Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2.  Selecione o **+ novo** botão.
 
@@ -60,7 +60,7 @@ Siga estes passos para criar um ambiente:
 
 Quando a implementação for bem sucedida, pode selecionar **aceda a recursos** para configurar outras propriedades, definir a segurança com políticas de acesso de dados, adicione as origens de eventos e outras ações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Definir políticas de acesso de dados](time-series-insights-data-access.md) para proteger o seu ambiente.
 * [Adicionar uma origem de evento do Hub de eventos](time-series-insights-how-to-add-an-event-source-eventhub.md) ao seu ambiente de informações de séries de tempo do Azure. 
 * [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
