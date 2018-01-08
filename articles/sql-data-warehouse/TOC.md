@@ -90,7 +90,6 @@
 
 
 ## Carregar e mover dados
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
 ### [Dados públicos da Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

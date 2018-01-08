@@ -39,14 +39,18 @@
       href: kubernetes-helm.md
     - name: Programar aplicações com Draft
       href: kubernetes-draft.md
-    - name: Manter os dados com os Ficheiros do Azure
-      href: azure-files.md
     - name: Integrar no Azure com OSBA
       href: integrate-azure.md
     - name: Utilizar o dashboard do Kubernetes
       href: kubernetes-dashboard.md
     - name: Criar um principal de serviço
       href: kubernetes-service-principal.md
+    - name: Configurar volumes de dados
+      items:
+        - name: Ficheiros do Azure - Volume persistente
+          href: azure-files-dynamic-pv.md
+        - name: Ficheiros do Azure - Volume
+          href: azure-files.md
 - name: Referência
   items:
     - name: CLI do Azure

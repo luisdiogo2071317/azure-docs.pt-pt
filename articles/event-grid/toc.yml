@@ -36,6 +36,8 @@
   items:
     - name: Dados de fluxo dos Hubs de Eventos no armazém de dados
       href: event-grid-event-hubs-integration.md
+    - name: Modelos para subscrições de eventos
+      href: event-subscription-template.md
 - name: Referência
   items:
     - name: CLI do Azure
