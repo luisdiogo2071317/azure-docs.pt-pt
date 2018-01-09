@@ -9,7 +9,7 @@
 | &nbsp; |[Base de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Índice do Azure Search](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
-| &nbsp; |[Armazenamento de Tabelas do Azure](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Table Storage do Azure](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **Armazéns de dados/bases de dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[Desagregação (Beta)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
@@ -61,9 +61,9 @@
 | &nbsp; |[ServiceNow (Beta)](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify (Beta)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Parênteses (Beta)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
-| &nbsp; |[Tabela Web (tabela HTML)](../articles/data-factory/connector-web-table.md) |✓ | |✓ |✓  |
+| &nbsp; |[Tabela Web (tabela HTML)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
 | &nbsp; |[Xero (Beta)](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
 | &nbsp; |[Zoho (Beta)](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  |
 
 > [!NOTE]
-> Qualquer conector marcada como *Beta* significa que pode tentar out e envie-nos comentários e não utilizar em ambientes de produção.
+> Qualquer conector marcada como *Beta* significa que pode experimentar e envie-nos comentários. Se pretender efetuar uma dependência em conectores de Beta na sua solução, entre em contacto com [suporte do Azure](https://azure.microsoft.com/support/).

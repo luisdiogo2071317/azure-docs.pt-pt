@@ -61,7 +61,7 @@ ACU: 160-180
 
 <sup>1</sup> funcionalidade da série M VM tecnologia® Hyper-Threading da Intel
 
-<sup>2</sup> necessita de mais de 64 vCPU uma destas convidados suportados sos: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux ou CentOS 7.3 com LIS 4.2.1 
+<sup>2</sup> necessita de mais de 64 vCPU uma destas convidados suportados sos: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 com LIS 4.2.1 
 
 <sup>3</sup> restrita tamanhos de núcleos disponíveis.
 
