@@ -35,7 +35,9 @@
 #### [Atualizar Serviços de Multimédia após a implementação de chaves de acesso ao armazenamento](media-services-roll-storage-access-keys.md)
 #### [Gerir recursos entre várias contas de armazenamento](meda-services-managing-multiple-storage-accounts.md)
 ### [Quotas e limitações](media-services-quotas-and-limitations.md)
-
+## [Configurar o Postman](media-rest-apis-with-postman.md)
+### [Ambiente](postman-environment.md)
+### [Coleção](postman-collection.md)
 ## Carregar conteúdo
 ### Carregar ficheiros para uma conta
 #### [Portal do Azure](media-services-portal-upload-files.md)
