@@ -6,13 +6,13 @@
 
 # Introdução
 ## [Utilizar o Portal](data-lake-store-get-started-portal.md)
-## [Com o PowerShell](data-lake-store-get-started-powershell.md)
+## [Utilizar o PowerShell](data-lake-store-get-started-powershell.md)
 ## [Utilizar a CLI 2.0 do Azure](data-lake-store-get-started-cli-2.0.md)
 
 
 # Procedimento
 ## Carregar e mover dados
-### [Utilizar o Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Utilizar o Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Utilizar o AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Utilizar o DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Utilizar o Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -29,22 +29,22 @@
 ### [Opções de autenticação](data-lakes-store-authentication-using-azure-active-directory.md)
 ### [Autenticação de utilizador final](data-lake-store-end-user-authenticate-using-active-directory.md)
 #### [Utilizar o Java](data-lake-store-end-user-authenticate-java-sdk.md)
-#### [Com o .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
+#### [Utilizar o SDK .NET](data-lake-store-end-user-authenticate-net-sdk.md)
 #### [Utilizar a API REST](data-lake-store-end-user-authenticate-rest-api.md)
 #### [Utilizar o Python](data-lake-store-end-user-authenticate-python.md)
 ### [Autenticação serviço a serviço](data-lake-store-service-to-service-authenticate-using-active-directory.md)
 #### [Utilizar o Java](data-lake-store-service-to-service-authenticate-java.md)
-#### [Com o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
+#### [Utilizar o SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 #### [Utilizar a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 #### [Utilizar o Python](data-lake-store-service-to-service-authenticate-python.md)
 
 ## Trabalhar com o Data Lake Store
 ### Operações de gestão de conta
-#### [Com o .NET SDK](data-lake-store-get-started-net-sdk.md)
+#### [Utilizar o SDK .NET](data-lake-store-get-started-net-sdk.md)
 #### [Utilizar a API REST](data-lake-store-get-started-rest-api.md)
 #### [Utilizar o Python](data-lake-store-get-started-python.md)
 ### Operações de sistema de ficheiros
-#### [Com o .NET SDK](data-lake-store-data-operations-net-sdk.md)
+#### [Utilizar o SDK .NET](data-lake-store-data-operations-net-sdk.md)
 #### [Utilizar o .Java SDK](data-lake-store-get-started-java-sdk.md)
 #### [Utilizar a API REST](data-lake-store-data-operations-rest-api.md)
 #### [Utilizar o Python](data-lake-store-data-operations-python.md)
