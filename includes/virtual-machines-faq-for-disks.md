@@ -101,6 +101,10 @@ Discos gerida do Azure suporta atualmente os discos de armazenamento apenas loca
 
 Não. Esta funcionalidade não é suportada atualmente. 
 
+**Pode dividir uma concessão no meu disco?**
+
+Não. Isto não é suportado atualmente como uma concessão está presente para evitar a eliminação acidental quando o disco está a ser utilizado.
+
 **Posso alterar a propriedade de nome do computador quando um especializadas (não criada utilizando a ferramenta de preparação do sistema ou generalizado) o disco do sistema operativo é utilizado para Aprovisionar uma VM?**
 
 Não. Não é possível atualizar a propriedade de nome de computador. A VM nova herda a VM, que foi utilizado para criar o disco de sistema operativo principal. 
