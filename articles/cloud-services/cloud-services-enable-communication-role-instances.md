@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96ca9bb2d7a9f30a7d6492be43bfb44edc02fd93
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Ativar a comunicação para instâncias de função no azure
 Funções de serviço na nuvem comunicam através de ligações internas e externas. Ligações externas são denominadas **pontos finais de entrada** enquanto são denominadas ligações internas **pontos finais internos**. Este tópico descreve como modificar o [definição de serviço](cloud-services-model-and-package.md#csdef) para criar pontos finais.
@@ -71,7 +71,7 @@ Também pode utilizar um intervalo de portas.
 ```xml
 <Endpoints>
   <InternalEndpoint name="Endpoint3" protocol="any">
-    <FixedPortRange max="8995" min="8999" />
+    <FixedPortRange max="8999" min="8995" />
   </InternalEndpoint>
 </Endpoints>
 ```
@@ -369,6 +369,6 @@ Permite apenas tráfego de rede do **WebRole1** para **WorkerRole1**, **WebRole1
 
 É possível localizar uma referência de esquema XML para os elementos utilizado acima [aqui](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o serviço em nuvem [modelo](cloud-services-model-and-package.md).
 

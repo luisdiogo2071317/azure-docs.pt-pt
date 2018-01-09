@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces de funções duráveis (funções do Azure)
 
@@ -66,7 +66,7 @@ Seguem-se algumas notas sobre o acionador orchestration:
 
 O acionador de orquestração enlace suporta entradas e saídas. Seguem-se alguns aspetos a conhecer a entrada e saída do processamento de:
 
-* **entradas** -as funções de orquestração suportam apenas [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) como um tipo de parâmetro. Entradas de anulação da serialização diretamente na assinatura da função não são suportadas. Código tem de utilizar o [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) método de obtenção do orchestrator entradas de função. Estas entradas tem de ser tipos serializáveis JSON.
+* **entradas** -as funções de orquestração suportam apenas [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) como um tipo de parâmetro. A anulação da serialização de entradas diretamente na assinatura da função não é suportada. Código tem de utilizar o [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) método de obtenção do orchestrator entradas de função. Estas entradas tem de ser tipos serializáveis JSON.
 * **produz** -os accionadores de orquestração suportam valores de saída, bem como entradas. O valor de retorno da função é utilizado para atribuir o valor de saída e tem de ser serializáveis JSON. Se uma função devolve `Task` ou `void`, um `null` valor será guardado como saída.
 
 > [!NOTE]
@@ -85,7 +85,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-A maioria das funções do orchestrator chamar outras funções, para que este é um exemplo de "Olá mundo" que demonstra como chamar uma função:
+A maioria das funções do orchestrator chamar funções de atividade, pelo que este é um exemplo de "Olá mundo" que demonstra como chamar uma função de atividade:
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -141,7 +141,7 @@ Seguem-se algumas notas sobre o acionador de atividade:
 O acionador de atividade enlace suporta entradas e saídas, tal como o acionador de orquestração. Seguem-se alguns aspetos a conhecer a entrada e saída do processamento de:
 
 * **entradas** -nativamente utilizarem funções de atividade [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como um tipo de parâmetro. Em alternativa, uma função de atividade pode ser declarada com qualquer tipo de parâmetro que é JSON serializável. Quando utiliza `DurableActivityContext`, pode chamar [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) obter e anular a serialização a função de atividade de entrada.
-* **produz** -os accionadores de atividade suportam valores de saída, bem como entradas. O valor de retorno da função é utilizado para atribuir o valor de saída e tem de ser serializáveis JSON. Se uma função devolve `Task` ou `void`, um `null` valor será guardado como saída.
+* **produz** -as funções de atividade suportam valores de saída, bem como entradas. O valor de retorno da função é utilizado para atribuir o valor de saída e tem de ser serializáveis JSON. Se uma função devolve `Task` ou `void`, um `null` valor será guardado como saída.
 * **Metadados** -as funções de atividade podem vincular a um `string instanceId` parâmetro para obter o ID de instância da orquestração do principal.
 
 > [!NOTE]
@@ -180,7 +180,7 @@ O cliente de orquestração de enlace permite-lhe escrever funções que interag
 
 Se estiver a utilizar o Visual Studio, é possível vincular ao cliente orchestration utilizando o [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) atributo .NET.
 
-Se estiver a utilizar linguagens de scripts (por exemplo, *.csx* ficheiros) para o desenvolvimento, o acionador de orquestração é definido do seguinte objeto JSON no `bindings` matriz de function.json:
+Se estiver a utilizar linguagens de scripts (por exemplo, *.csx* ficheiros) para o desenvolvimento, o acionador de orquestração é definido do seguinte objeto JSON no `bindings` matriz de *function.json*:
 
 ```json
 {
@@ -193,7 +193,7 @@ Se estiver a utilizar linguagens de scripts (por exemplo, *.csx* ficheiros) para
 ```
 
 * `taskHub`-Utilizar em cenários em que várias aplicações de função partilham a mesma conta de armazenamento, mas tem de ser isolados uns dos outros. Se não for especificado, o valor predefinido de `host.json` é utilizado. Este valor tem de corresponder ao valor utilizado pelas funções do orchestrator de destino.
-* `connectionName`-O nome de uma definição de aplicação que contém uma cadeia de ligação de armazenamento. A conta de armazenamento representada por esta cadeia de ligação tem de ser a mesma utilizado pelas funções do orchestrator de destino. Se não for especificado, a cadeia de ligação predefinido para a aplicação de função é utilizada.
+* `connectionName`-O nome de uma definição de aplicação que contém uma cadeia de ligação da conta de armazenamento. A conta de armazenamento representada por esta cadeia de ligação tem de ser a mesma utilizado pelas funções do orchestrator de destino. Se não for especificado, a cadeia de ligação de conta de armazenamento predefinido para a aplicação de função é utilizada.
 
 > [!NOTE]
 > Na maioria dos casos, recomendamos que omitir estas propriedades e dependem o comportamento predefinido.
@@ -228,7 +228,7 @@ public static Task Run(
 
 ### <a name="client-sample-not-visual-studio"></a>Exemplo de cliente (não o Visual Studio)
 
-Se não estiver a utilizar o Visual Studio para desenvolvimento, pode criar o ficheiro function.json seguinte. Este exemplo mostra como configurar uma função de acionada pela fila de mensagens em fila que utiliza o cliente de orquestração durável enlace:
+Se não estiver a utilizar o Visual Studio para desenvolvimento, pode criar o seguinte *function.json* ficheiro. Este exemplo mostra como configurar uma função de acionada pela fila de mensagens em fila que utiliza o cliente de orquestração durável enlace:
 
 ```json
 {
@@ -283,7 +283,7 @@ module.exports = function (context, input) {
 
 Obter mais detalhes sobre a partir de instâncias podem ser encontrados na [instância gestão](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre os comportamentos de pontos de verificação e repetição](durable-functions-checkpointing-and-replay.md)

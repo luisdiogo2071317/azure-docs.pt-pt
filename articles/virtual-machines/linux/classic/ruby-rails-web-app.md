@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
 ms.openlocfilehash: fb6ded1dcba2ac0f78fc6f1f4f7de9238cd752bd
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Aplicação Web Ruby on Rails numa VM do Azure
 Este tutorial mostra como alojar um Ruby no Web site de Rails no Azure através de uma máquina virtual Linux.  
@@ -127,7 +127,7 @@ Deverá ver um resultado semelhante ao seguinte.
 
     ![página de rails predefinida][default-rails-cloud]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, fez a maior parte dos passos manualmente. Num ambiente de produção, teria de escrever a sua aplicação no computador de desenvolvimento e implementá-la à VM do Azure. Além disso, a maior parte dos ambientes de produção alojar a aplicação de Rails juntamente com outro processo do servidor, tais como o Apache ou NginX, os identificadores de pedem de encaminhamento para várias instâncias da aplicação Rails e que serve recursos estáticos. Para obter mais informações, consulte http://rubyonrails.org/deploy/.
 
 Para mais informações sobre Ruby no Rails, visite o [Ruby no Rails guias][rails-guides].

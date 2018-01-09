@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 40390c6f92136d5731ac9d6857f06852c8ee6d85
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no Azure Cosmos DB de pedido
 Agora disponível: BD do Azure do Cosmos [Calculadora de unidade de pedido](https://www.documentdb.com/capacityplanner). Saiba mais em [estimar o débito tem](request-units.md#estimating-throughput-needs).
@@ -210,7 +210,7 @@ Por exemplo:
 5. O pedido unidade encargos de quaisquer scripts personalizados (procedimentos armazenados, acionadores, funções definidas pelo utilizador) utilizado pela aplicação de registo
 6. Calcule as unidades de pedido necessários indicadas o número estimado de operações que antecipa para ser executada a cada segundo.
 
-### <a id="GetLastRequestStatistics"></a>Utilizar a API para o comando de GetLastRequestStatistics do MongoDB
+## <a id="GetLastRequestStatistics"></a>Utilizar a API para o comando de GetLastRequestStatistics do MongoDB
 API para o MongoDB suporta um comando personalizado, *getLastRequestStatistics*, para obter a taxa de pedidos para operações especificadas.
 
 Por exemplo, na Shell do Mongo, execute a operação que pretende verificar a taxa de pedidos.

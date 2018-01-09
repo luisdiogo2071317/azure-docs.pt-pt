@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 1ba56eb9539a4295fdaaab523cfd2a7e1587ef54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5ac8c46f17d2d1c2f20ed2cc2348f50b7739ddf
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos de serviços Cloud
 Este tópico descreve os tamanhos disponíveis e as opções para instâncias de função do serviço em nuvem (funções da web e funções de trabalho). Também fornece considerações de implementação a ter em consideração quando planear utilizar estes recursos. Cada tamanho tem um ID que colocar no seu [ficheiro de definição de serviço](cloud-services-model-and-package.md#csdef). Os preços para cada tamanho estão disponíveis no [preços de serviços em nuvem](https://azure.microsoft.com/pricing/details/cloud-services/) página.
@@ -188,12 +188,12 @@ Como da natureza das suas alterações de carga de trabalho ou novos tamanhos VM
 >
 
 ## <a name="get-a-list-of-sizes"></a>Obter uma lista de tamanhos
-Pode utilizar o PowerShell ou a API REST para obter uma lista de tamanhos. A API de REST está documentada [aqui](https://msdn.microsoft.com/library/azure/dn469422.aspx). O código seguinte é um comando do PowerShell que irá listar todos os tamanhos atualmente disponíveis para o seu serviço de nuvem.
+Pode utilizar o PowerShell ou a API REST para obter uma lista de tamanhos. A API de REST está documentada [aqui](https://msdn.microsoft.com/library/azure/dn469422.aspx). O código seguinte é um comando do PowerShell que irá listar todos os tamanhos para uma localização especificada. 
 
 ```powershell
-Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+Get-AzureRmVMSize -Location 'West Europe'
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [Subscrição do Azure e limites de serviço, quotas e restrições](../azure-subscription-service-limits.md).
 * Saiba mais [sobre elevado desempenho tamanhos de VM de computação](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para cargas de trabalho HPC.

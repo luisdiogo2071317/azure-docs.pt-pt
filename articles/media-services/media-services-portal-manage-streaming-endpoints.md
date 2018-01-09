@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89b4f7cee6d00b5bbbca4799eeca74a280147fc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6f551a7970f226ba40753009b24bd4c5eeb67fb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gerir pontos finais de transmissão em fluxo com o portal do Azure
 
-Este tópico mostra como utilizar o portal do Azure para gerir pontos finais de transmissão em fluxo. 
+Este artigo mostra como utilizar o portal do Azure para gerir pontos finais de transmissão em fluxo. 
 
 >[!NOTE]
->Certifique-se de que revê o [descrição geral](media-services-streaming-endpoints-overview.md) tópico. 
+>Certifique-se de que revê o [descrição geral](media-services-streaming-endpoints-overview.md) artigo. 
 
-Para obter informações sobre como dimensionar o ponto final de transmissão em fluxo, consulte [isto](media-services-portal-scale-streaming-endpoints.md) tópico.
+Para obter informações sobre como dimensionar o ponto final de transmissão em fluxo, consulte [isto](media-services-portal-scale-streaming-endpoints.md) artigo.
 
 ## <a name="start-managing-streaming-endpoints"></a>Começar a gerir pontos finais de transmissão em fluxo 
 
@@ -69,7 +69,7 @@ Ponto final de transmissão em fluxo permite-lhe configurar as seguintes proprie
 Para obter informações detalhadas sobre estas propriedades, consulte [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
 >[!NOTE]
->Quando ativar a CDN não é possível aceder acesso IP. Acesso IP só é aplicável quando não tiver o CDN.
+>Quando a CDN estiver ativada, não é possível aceder acesso IP. Acesso IP só é aplicável quando não tiver o CDN.
 
 Pode configurar o ponto final de transmissão em fluxo efetuando o seguinte procedimento:
 
@@ -86,17 +86,17 @@ Segue uma breve descrição dos campos.
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>Dimensionar a sua Premium ponto final de transmissão em fluxo
 
-Para obter mais informações, veja [este](media-services-portal-scale-streaming-endpoints.md) tópico.
+Para obter mais informações, veja [este](media-services-portal-scale-streaming-endpoints.md) artigo.
 
 ## <a id="enable_cdn"></a>Ativar a integração da CDN do Azure
 
 Quando cria uma nova conta, a integração de CDN do Azure de ponto final de transmissão em fluxo predefinido está ativada por predefinição.
 
-Se, posteriormente, pretender desativar/ativar o CDN, o ponto final de transmissão em fluxo tem de constar da **parado** estado. Pode demorar até 2 horas para a integração da CDN do Azure obter ativada e para que as alterações estar ativas em todas as a CDN faz aparecer. No entanto, pode iniciar o ponto final de transmissão em fluxo e fluxo sem interrupções do ponto final da transmissão e assim que a integração estiver concluída, o fluxo serão entregues da CDN. Durante o período de aprovisionamento, o ponto final de transmissão em fluxo estarão disponíveis na **iniciar** estado e poderá reparar degredad desempenho.
+Se, posteriormente, pretender desativar/ativar o CDN, o ponto final de transmissão em fluxo tem de constar da **parado** estado. Pode demorar até duas horas para a integração da CDN do Azure obter ativada e para que as alterações estar ativas em todas as a CDN faz aparecer. No entanto, pode iniciar o ponto final de transmissão em fluxo e fluxo sem interrupções do ponto final da transmissão e assim que a integração estiver concluída, a transmissão é entregue da CDN. Durante o período de aprovisionamento, o ponto final de transmissão em fluxo estarão disponíveis na **iniciar** estado e poderá reparar degredad desempenho.
 
-Integração da CDN está ativada em todos os centros de dados do Azure execpt China e Federal Goverment regiões.
+Integração da CDN está ativada em todos os centros de dados do Azure, exceto regiões China e Governo Federal dos.
 
-Assim que estiver ativado, o **controlo de acesso**, **personalizada hostname** e **autenticação da assinatura da Akamai** configuração obtém desativada.
+Assim que estiver ativado, o **controlo de acesso**, * * nome de anfitrião personalizado, e **autenticação da assinatura da Akamai** configuração obtém desativada.
  
 > [!IMPORTANT]
 > Integração de Media Services do Azure com a CDN do Azure é implementada em **CDN do Azure da Verizon** para padrão de transmissão em fluxo pontos finais. Premium pontos finais de transmissão em fluxo pode ser configurada com todos os **CDN do Azure camadas e fornecedores de preço**. Para obter mais informações sobre as funcionalidades da CDN do Azure, consulte o [descrição geral da CDN](../cdn/cdn-overview.md).
@@ -106,7 +106,7 @@ Assim que estiver ativado, o **controlo de acesso**, **personalizada hostname** 
 * Quando a CDN estiver ativada para um ponto final de transmissão em fluxo, os clientes não podem pedir conteúdo diretamente a partir da origem. Se precisar de capacidade para testar o conteúdo com ou sem CDN, pode criar outro ponto final transmissão em fluxo que não esteja CDN ativada.
 * O hostname de ponto final de transmissão em fluxo permanece igual depois de ativar a CDN. Não precisa de fazer alterações ao seu fluxo de trabalho de serviços de suporte de dados depois de ativar a CDN. Por exemplo, se o nome de anfitrião de ponto final transmissão em fluxo é strasbourg.streaming.mediaservices.windows.net, depois de ativar a CDN, é utilizado o nome exato do mesmo anfitrião.
 * Para pontos finais de transmissão em fluxo novo, pode ativar a CDN simplesmente através da criação de um novo ponto de final; para pontos finais de transmissão em fluxo existentes, terá de parar pela primeira vez o ponto final e, em seguida, ativar/desativar a CDN.
-* Padrão de ponto final de transmissão em fluxo só pode ser configurada utilizando **fornecedor CDN Standard da Verizon** utilizando o portal de gestão do Azure. No entanto, pode ativar outros fornecedores de CDN do Azure através de REST APIs.
+* Padrão de ponto final de transmissão em fluxo só pode ser configurada utilizando **fornecedor CDN Standard da Verizon** através do portal clássico do Azure. No entanto, pode ativar outros fornecedores de CDN do Azure através de REST APIs.
 
 ## <a name="configure-cdn-profile"></a>Configurar o perfil de CDN
 
@@ -114,7 +114,7 @@ Pode configurar o perfil CDN, selecionando o **gerir CDN** botão do nível supe
 
 ![Ponto final de transmissão em fluxo](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints6.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

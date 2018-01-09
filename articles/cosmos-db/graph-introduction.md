@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 4ae7d7e2c6ac54a6063d9ac0342083105610f026
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 14921dbeb0b670e4ec29a224caca07da12bfb82b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introdução ao Azure Cosmos DB: Graph API
 
@@ -103,7 +103,7 @@ BD do Azure do Cosmos oferece as seguintes capacidades diferenciadas quando comp
 BD do Azure do Cosmos também pode utilizar vários modelos, como o documento e do graph, dentro do mesmos contentores/bases de dados. Pode utilizar uma coleção de documentos para armazenar dados de gráfico side by side with documentos. Pode utilizar consultas de SQL Server em JSON e consultas de Gremlin para consultar os mesmos dados que um gráfico.
 
 ## <a name="get-started"></a>Introdução
-Pode utilizar a interface de linha de comandos (CLI) do Azure, Azure PowerShell ou o portal do Azure com suporte para a graph API para criar contas de base de dados do Azure Cosmos. Depois de criar contas, o portal do Azure fornece um ponto final de serviço, como `https://<youraccount>.graphs.azure.com`, que fornece um WebSocket front-end para Gremlin. Pode configurar as ferramentas de TinkerPop compatível, como o [Gremlin consola](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), para ligar a este ponto final e criar aplicações Java, Node.js, ou qualquer controlador de cliente Gremlin.
+Pode utilizar a interface de linha de comandos (CLI) do Azure, Azure PowerShell ou o portal do Azure com suporte para a graph API para criar contas de base de dados do Azure Cosmos. Depois de criar contas, o portal do Azure fornece um ponto final de serviço, como `https://<youraccount>.gremlin.cosmosdb.azure.com`, que fornece um WebSocket front-end para Gremlin. Pode configurar as ferramentas de TinkerPop compatível, como o [Gremlin consola](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), para ligar a este ponto final e criar aplicações Java, Node.js, ou qualquer controlador de cliente Gremlin.
 
 A tabela seguinte mostra controladores Gremlin populares, que pode utilizar em relação a BD do Cosmos do Azure:
 
@@ -143,7 +143,7 @@ Seguem-se alguns cenários onde o suporte de gráfico de BD do Cosmos Azure pode
 
  Com a rede e as ligações entre dispositivos de IoT modelados como um gráfico, pode criar uma melhor compreensão do estado dos seus dispositivos e recursos. Também pode saber como as alterações numa parte da rede podem potencialmente afetar parte de outro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre o suporte do gráfico do BD Azure Cosmos, consulte:
 
 * Começar a utilizar o [tutorial de gráfico de base de dados do Azure Cosmos](create-graph-dotnet.md).

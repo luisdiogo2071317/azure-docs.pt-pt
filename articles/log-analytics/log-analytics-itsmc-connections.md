@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Ligar ITSM produtos/serviços com o conector de gestão de serviços de TI (pré-visualização)
 Este artigo fornece informações sobre como ligar o ITSM produtos/serviços para TI serviço de gestão conector (ITSMC) no OMS e gerir centralmente os itens de trabalho. Para obter mais informações sobre ITSMC, consulte [descrição geral](log-analytics-itsmc-overview.md).
@@ -171,17 +171,21 @@ A imagem de exemplo seguinte mostra os detalhes de uma ligação com êxito:
 As secções seguintes fornecem detalhes sobre como ligar o ServiceNow produto ITSMC no OMS.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-
 Certifique-se de que são cumpridos os seguintes pré-requisitos:
-
 - ITSMC instalado. Obter mais informações: [adicionar a solução de conector de gestão de serviço de TI](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow suportadas versões – Fuji, Geneva, Helsinki.
+- Versões suportadas do ServiceNow: Jakarta, Istanbul, Helsinki, Geneva
 
-Administradores do ServiceNow terá de efetuar o seguinte na sua instância do ServiceNow:
-- Geram o ID de cliente e o segredo do cliente para o produto de ServiceNow. Para obter informações sobre como gerar ID de cliente e o segredo, consulte [configuração de OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
-- Instale a aplicação de utilizador para a integração da Microsoft OMS (ServiceNow aplicação). [Saiba mais](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+**Administradores do ServiceNow tem de fazer o seguinte na sua instância do ServiceNow**:
+- Geram o ID de cliente e o segredo do cliente para o produto de ServiceNow. Para obter informações sobre como gerar ID de cliente e o segredo, consulte as seguintes informações conforme necessário:
+
+    - [Configurar a OAuth para Jakarta](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Configurar a OAuth para Istanbul](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Configurar a OAuth para Helsinki](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Configurar a OAuth para Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+
+
+- Instale a aplicação de utilizador para a integração da Microsoft OMS (ServiceNow aplicação). [Saiba mais](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1).
 - Crie função de utilizador de integração para a aplicação de utilizador instalada. Informações sobre como criar a função de utilizador de integração são [aqui](#create-integration-user-role-in-servicenow-app).
-
 
 ### <a name="connection-procedure"></a>**Procedimento de ligação**
 Utilize o procedimento seguinte para criar uma ligação de ServiceNow:
@@ -361,7 +365,7 @@ Para gerar o chave/ID de cliente para Cherwell, utilize o seguinte procedimento:
     ![Id de utilizador Cherwell](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
  - [Criar itens de trabalho ITSM para alertas do OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-for-oms-alerts)
  - [Criar itens de trabalho ITSM a partir de registos do OMS](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
  - [Criar itens de trabalho ITSM a partir dos alertas do Azure](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

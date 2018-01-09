@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde484dd59ec6e2821678766726c02362222d496
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Como monitorizar e atualizar uma máquina virtual do Linux no Azure
 
@@ -130,7 +130,7 @@ Uma VM com Linux tem um anfitrião dedicado no Azure que interage com. As métri
 >
 > Pode ser ativada em vez disso, a versão 3.0 a extensão de diagnóstico do Linux. Para obter mais informações, consulte [a documentação](./diagnostic-extension.md).
 
-As métricas de anfitrião básica estão disponíveis, mas mais granular e métricas específicas de VM, que tem de instalar a extensão de diagnóstico do Azure na VM. A extensão de diagnóstico do Azure permite a monitorização adicional e os dados de diagnóstico a obtenção da VM. Pode ver estas métricas de desempenho e criar alertas com base nos como efetua a VM. A extensão de diagnóstico é instalada através do portal do Azure da seguinte forma:
+As métricas de anfitrião básica estão disponíveis, mas para ver métricas mais granulares e VM específica, tem de instalar a extensão de diagnóstico do Azure na VM. A extensão de diagnóstico do Azure permite a monitorização adicional e os dados de diagnóstico a obtenção da VM. Pode ver estas métricas de desempenho e criar alertas com base nos como efetua a VM. A extensão de diagnóstico é instalada através do portal do Azure da seguinte forma:
 
 1. No portal do Azure, clique em **grupos de recursos**, selecione **myResourceGroup**e, em seguida, selecione **myVM** na lista de recursos.
 1. Clique em **definições de diagnóstico**. A lista mostra que *diagnóstico de arranque* já estão ativadas da secção anterior. Clique na caixa de verificação para *métricas básicas*.
@@ -271,7 +271,7 @@ No painel de pesquisa de registo do portal do OMS, deverá ver *myVM* , tais com
 
 ![Painel do OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, configurada, revistas e geridos atualizações para uma VM. Aprendeu a:
 

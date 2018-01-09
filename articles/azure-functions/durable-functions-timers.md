@@ -14,17 +14,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 27312846caf4f51e708b48655578846a52cbd1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e29e472860890e3f44af79c42c31ff524acb9276
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores nas funções duráveis (funções do Azure)
 
 [Funções duráveis](durable-functions-overview.md) fornece *temporizadores duráveis* para utilização nas funções do orchestrator para implementar atrasos ou definir tempos limite das ações de async. Os temporizadores duráveis devem ser utilizados nas funções do orchestrator em vez de `Thread.Sleep` ou `Task.Delay`.
 
-Criar um temporizador durável chamando [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_). O método devolve uma tarefa que retoma uma data e hora especificadas.
+Criar um temporizador durável ao chamar o [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) método [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). O método devolve uma tarefa que retoma uma data e hora especificadas.
 
 ## <a name="timer-limitations"></a>Limitações do temporizador
 
@@ -95,7 +95,7 @@ Este mecanismo não terminar, na verdade, execução de função da atividade em
 
 Para obter um exemplo mais aprofundado sobre como implementar tempos limite nas funções do orchestrator, consulte o [interação humana & tempos limite - verificação do telefone](durable-functions-phone-verification.md) explicação passo a passo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como gerar e processar eventos externos](durable-functions-external-events.md)

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: cabfbda3ea31a81248e7f87b79a5637063091be0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5a120cc38b8ecfc6ec29be35eda12978ca8b035e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Receber eventos provenientes dos Hubs de eventos a utilizar o Apache Storm
 
@@ -130,7 +130,7 @@ Este tutorial utiliza um [HDInsight Storm] [ HDInsight Storm] instalação, o qu
     }
     ```
     
-    Este bolt Storm regista o conteúdo dos eventos recebidos. Isto pode facilmente expandido para armazenar cadeias de identificação num serviço de armazenamento. O [tutorial de análise do HDInsight sensor] utiliza esta abordagem mesma para armazenar dados no HBase.
+    Este bolt Storm regista o conteúdo dos eventos recebidos. Isto pode facilmente expandido para armazenar cadeias de identificação num serviço de armazenamento. O [HDInsight Storm com o exemplo de Hub de eventos] utiliza esta abordagem mesma para armazenar dados no armazenamento do Azure e o Power BI.
 11. Criar uma classe denominada **LogTopology** com o seguinte código:
     
     ```java
@@ -237,7 +237,7 @@ Este tutorial utiliza um [HDInsight Storm] [ HDInsight Storm] instalação, o qu
 
     Esta classe cria um novo spout de Event Hubs, utilizando as propriedades no ficheiro de configuração ao instanciá-lo. É importante ter em atenção que este exemplo cria tantos spouts tarefas como o número de partições num hub de eventos, para poder utilizar o paralelismo máximo permitido por essa hub de eventos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Hubs de Eventos][Event Hubs overview]
@@ -247,7 +247,7 @@ Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[Tutorial de análise do sensor HDInsight]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
+[HDInsight Storm com o exemplo de Hub de eventos]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 

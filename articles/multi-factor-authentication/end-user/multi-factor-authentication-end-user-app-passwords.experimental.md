@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: af755683ba2e62f01b175b8eb53a34dfd6013e9e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0812719ddee8c0ff0c2fa9256c2819611692dfe5
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Quais são palavras-passe de aplicação no Azure multi-factor Authentication?
 Determinadas aplicações não baseadas no browser, por exemplo, o cliente de e-mail nativa Apple que utiliza o Exchange Active Sync, atualmente não suportam autenticação multifator. Autenticação multifator é ativada por utilizador.  Isto significa que um utilizador não é possível utilizar a autenticação multifator se:
@@ -40,52 +40,43 @@ Assim que tiver uma palavra-passe de aplicação, utilize-o em vez da palavra-pa
 Eis algumas coisas saber sobre palavras-passe de aplicação:
 
 * Não crie as suas próprias palavras-passe de aplicação. São geradas automaticamente.
-* Atualmente não há um limite de 40 palavras-passe por utilizador. 
+* Atualmente não há um limite de 40 palavras-passe por utilizador.
 * Se tentar criar uma palavra-passe de aplicação após ter atingido o limite, terá de eliminar uma das suas palavras-passe de aplicação existentes antes de criar um novo.
-* Utilize uma palavra-passe por dispositivo, não por aplicação. Por exemplo, pode criar uma palavra-passe de aplicação para o seu computador portátil e utilizar essa palavra-passe de aplicação para todas as aplicações desse portátil. Em seguida, crie uma segunda palavra-passe de aplicação a utilizar para todas as suas aplicações no seu ambiente de trabalho. 
+* Utilize uma palavra-passe por dispositivo, não por aplicação. Por exemplo, pode criar uma palavra-passe de aplicação para o seu computador portátil e utilizar essa palavra-passe de aplicação para todas as aplicações desse portátil. Em seguida, crie uma segunda palavra-passe de aplicação a utilizar para todas as suas aplicações no seu ambiente de trabalho.
 * É-lhe dada uma palavra-passe de aplicação pela primeira vez, registar para a verificação de dois passos.  Se precisar de adicionais, pode criá-los.
 
 
 
 ## <a name="creating-and-deleting-app-passwords"></a>Criar e eliminar as palavras-passe de aplicação
-Durante a sua inicial início de sessão, é-lhe dada uma palavra-passe de aplicação que pode utilizar.  Também pode criar e eliminar as palavras-passe de aplicação mais tarde. Como eliminar palavras-passe de aplicação depende de como utilizar a autenticação multifator. Responda às questões seguintes para determinar onde deve passar para gerir palavras-passe de aplicação: 
+Durante a sua inicial início de sessão, é-lhe dada uma palavra-passe de aplicação que pode utilizar.  Também pode criar e eliminar as palavras-passe de aplicação mais tarde. Como eliminar palavras-passe de aplicação depende de como utilizar a autenticação multifator. Responda às questões seguintes para determinar onde deve passar para gerir palavras-passe de aplicação:
 
 1. Utiliza a verificação da sua conta Microsoft pessoal? Se Sim, devem consultar ao [palavras-passe de aplicação e a verificação de dois passos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artigo para obter ajuda. Se não, continue a pergunta de dois.
 
-2. OK, pelo que utilizar a verificação de dois passos para a sua conta escolar ou profissional. Utilizá-la para iniciar sessão em aplicações do Office 365? Se Sim, devem consultar a [criar uma palavra-passe de aplicação para o Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) para obter ajuda. Se não, continue a pergunta três. 
+2. OK, pelo que utilizar a verificação de dois passos para a sua conta escolar ou profissional. Utilizá-la para iniciar sessão em aplicações do Office 365? Se Sim, devem consultar a [criar uma palavra-passe de aplicação para o Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) para obter ajuda. Se não, continue a pergunta três.
 
 3. Utiliza a verificação com o Microsoft Azure? Se Sim, continuar para o [gerir palavras-passe de aplicação no portal do Azure](#manage-app-passwords-in-the-Azure-portal) secção deste artigo. Se não, continue a pergunta quatro.
 
-4. Não tem a certeza, quando utiliza a verificação de dois passos? Avance para o [gerir palavras-passe de aplicação com o portal de MyApps](#manage-app-passwords-with-the-myapps-portal) secção deste artigo. 
+4. Não tem a certeza, quando utiliza a verificação de dois passos? Avance para o [gerir palavras-passe de aplicação com o portal de MyApps](#manage-app-passwords-with-the-myapps-portal) secção deste artigo.
 
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Gerir palavras-passe de aplicação no portal do Azure
 Se utilizar a verificação com o Azure, que pretende criar palavras-passe de aplicação através do portal do Azure.
 
 ### <a name="to-create-app-passwords-in-the-azure-portal"></a>Para criar palavras-passe de aplicação no portal do Azure
-1. Inicie sessão no Portal Clássico do Azure.
-2. Na parte superior, o nome de utilizador com o botão direito e selecione a verificação de segurança adicional.
-3. Na página proofup, na parte superior, selecione as palavras-passe de aplicação
-4. Clique em **Criar**.
-5. Introduza um nome para a palavra-passe de aplicação e clique em **seguinte**
+1. Inicie sessão no Portal do Azure.
+2. Na parte superior, clique em seu nome de utilizador e selecione **alterar palavra-passe**.
+3. Na página proofup, na parte superior, selecione **palavras-passe de aplicação**.
+4. Selecione **Criar**.
+5. Introduza um nome para a palavra-passe de aplicação e selecione **seguinte**.
 6. Copie a palavra-passe de aplicação para a área de transferência e cole-o sua aplicação.
-   
+
    ![Nuvem](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
-
-
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Para eliminar as palavras-passe de aplicação no portal do Azure
-1. Inicie sessão no Portal Clássico do Azure.
-2. Na parte superior, o nome de utilizador com o botão direito e selecione a verificação de segurança adicional.
-3. Na parte superior, junto a verificação de segurança adicional, selecione **palavras-passe de aplicação.**
-4. Junto a palavra-passe de aplicação que pretende eliminar, selecione **eliminar**.
-5. Confirmar a eliminação clicando **Sim**.
-6. Depois da palavra-passe de aplicação é eliminada, pode clicar em **fechar**.
 
 
 ## <a name="manage-app-passwords-with-the-myapps-portal"></a>Gerir palavras-passe de aplicação com o portal de MyApps.
 Se não tem a certeza de como utilizar a autenticação multifator, em seguida, pode sempre criar e eliminar palavras-passe de aplicação através do portal de myapps.
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Para criar uma palavra-passe de aplicação utilizando o portal de Myapps
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Para criar uma palavra-passe de aplicação utilizando o portal de MyApps
 1. Inicie sessão no [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Clique no seu nome no canto superior direito e selecione **perfil**.
 3. Selecione **verificação adicional de segurança**.
@@ -99,7 +90,7 @@ Se não tem a certeza de como utilizar a autenticação multifator, em seguida, 
 7. Copie a palavra-passe de aplicação para a área de transferência e cole-o sua aplicação.
    ![Criar uma palavra-passe de aplicação](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Para eliminar uma palavra-passe de aplicação utilizando o portal de Myapps
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Para eliminar uma palavra-passe de aplicação utilizando o portal de MyApps
 1. Inicie sessão no [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Na parte superior, selecione o perfil.
 3. Selecione **verificação adicional de segurança**.
@@ -117,8 +108,8 @@ Se não tem a certeza de como utilizar a autenticação multifator, em seguida, 
 6. Confirme que pretende eliminar essa palavra-passe clicando **Sim**.
 7. Depois da palavra-passe de aplicação é eliminada, pode clicar em **fechar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Gerir as definições da verificação de dois passos](multi-factor-authentication-end-user-manage-settings.md)
 
-- Experimentar o [aplicação Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para verificar os inícios de sessão com as notificações de aplicação, em vez de textos ou chamadas a receber. 
+- Experimentar o [aplicação Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para verificar os inícios de sessão com as notificações de aplicação, em vez de textos ou chamadas a receber.

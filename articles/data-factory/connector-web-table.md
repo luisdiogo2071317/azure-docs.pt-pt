@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 7271dc071c6a370ed15f5a1f6ea0f119716dd2c6
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: f9bcfbd9d229aa528123aeefdf0026460301241a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiar os dados da tabela da Web através do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -25,7 +25,6 @@ ms.lasthandoff: 11/10/2017
 > * [Versão 2 - Pré-visualização](connector-web-table.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de uma base de dados de tabela de Web. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
-
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [conector Web tabela no V1](v1/data-factory-web-table-connector.md).
@@ -36,8 +35,12 @@ Pode copiar dados da base de dados de tabela de Web para qualquer arquivo de dad
 
 Especificamente, este conector de tabela Web suporta **extrair conteúdo de tabela a partir de uma página HTML**. Para obter dados a partir de um ponto final de HTTP/s, utilize [conetor HTTP](connector-http.md) em vez disso.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para utilizar este conector de tabela da Web, terá de configurar um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
+
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](create-self-hosted-integration-runtime.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector de tabela de Web.
 
@@ -48,9 +51,9 @@ As seguintes propriedades são suportadas para o serviço ligado de tabela Web:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **Web** |Sim |
-| URL | URL para a origem da Web |Sim |
+| url | URL para a origem da Web |Sim |
 | authenticationType | Permitido é de valor: **anónimo**. |Sim |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Um tempo de execução de integração Self-hosted é necessário, tal como mencionado na [pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
 
@@ -62,6 +65,10 @@ As seguintes propriedades são suportadas para o serviço ligado de tabela Web:
         "typeProperties": {
             "url" : "https://en.wikipedia.org/wiki/",
             "authenticationType": "Anonymous"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -76,8 +83,8 @@ Para copiar dados da tabela da Web, defina a propriedade de tipo do conjunto de 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **WebTable** | Sim |
-| Caminho |Um URL relativo para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição de serviço ligado. |
-| Índice |O índice da tabela no recurso. Consulte [Get índice de uma tabela numa página HTML](#get-index-of-a-table-in-an-html-page) secção para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
+| caminho |Um URL relativo para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição de serviço ligado. |
+| índice |O índice da tabela no recurso. Consulte [Get índice de uma tabela numa página HTML](#get-index-of-a-table-in-an-html-page) secção para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
 
 **Exemplo:**
 
@@ -161,5 +168,5 @@ Para copiar dados da tabela da Web, defina o tipo de origem na atividade de cóp
 Se estiver a utilizar o Excel 2013, utilize [Microsoft Power Query para Excel](https://www.microsoft.com/download/details.aspx?id=39379) para obter o índice. Consulte [ligar a uma página web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) artigo para obter detalhes. Os passos são semelhantes, se estiver a utilizar [Microsoft Power BI para ambiente de trabalho](https://powerbi.microsoft.com/desktop/).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

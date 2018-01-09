@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 485320e500d71bd85b69cfcd9628e133ad1c417c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de série 8000 do StorSimple, elevada disponibilidade e requisitos de rede
 
@@ -95,7 +95,7 @@ Recomendamos que defina as regras de firewall para o tráfego de saída, com bas
 
 | Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Serviço do Gestor de dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de autenticação |Interfaces de rede com capacidade de nuvem |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Serviço do Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de autenticação |Interfaces de rede com capacidade de nuvem |
 | `https://*.backup.windowsazure.com` |Registo de dispositivo |Apenas dados 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revogação de certificados |Interfaces de rede com capacidade de nuvem |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitorização e de contas do storage do Azure |Interfaces de rede com capacidade de nuvem |
@@ -107,7 +107,7 @@ Recomendamos que defina as regras de firewall para o tráfego de saída, com bas
 
 | Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com` |Serviço do Gestor de dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de autenticação |Interfaces de rede com capacidade de nuvem |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |Serviço do Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de autenticação |Interfaces de rede com capacidade de nuvem |
 | `https://*.backup.windowsazure.us` |Registo de dispositivo |Apenas dados 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revogação de certificados |Interfaces de rede com capacidade de nuvem |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitorização e de contas do storage do Azure |Interfaces de rede com capacidade de nuvem |
@@ -241,7 +241,7 @@ Reveja com atenção estas melhores práticas para garantir a elevada disponibil
 * Configurar StorSimple com [configurações de cluster de servidor de ficheiros de dois nós][1]. Ao remover pontos únicos de falha e a criação de redundância do lado do anfitrião, a solução completa torna-se elevada.
 * Utilize partilhas continuamente disponíveis (AC) disponíveis no Windows Server 2012 (SMB 3.0) para elevada disponibilidade durante a ativação pós-falha dos controladores de armazenamento. Para obter informações adicionais para configurar clusters de servidor de ficheiros e partilhas continuamente disponíveis com o Windows Server 2012, consulte este [demonstração vídeo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba mais sobre os limites de sistema do StorSimple](storsimple-8000-limits.md).
 * [Saiba como implementar a sua solução StorSimple](storsimple-8000-deployment-walkthrough-u2.md).

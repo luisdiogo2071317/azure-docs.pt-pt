@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 17ebb1d61f3fff85580fe4f616477c5084d1537a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma origem de tabela Web utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,6 +35,23 @@ Fábrica de dados atualmente suporta apenas mover dados de uma tabela de Web out
 
 > [!IMPORTANT]
 > Este conector Web atualmente suporta apenas extrair conteúdo da tabela de uma página HTML. Para obter dados a partir de um ponto final de HTTP/s, utilize [conetor HTTP](data-factory-http-connector.md) em vez disso.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para utilizar este conector de tabela da Web, tem de definir um tempo de execução de integração Self-hosted (também conhecido como o Data Management Gateway) e configurar o `gatewayName` propriedade no sink de serviço ligado. Por exemplo, para copiar da tabela de Web para o Blob storage do Azure, configure o serviço ligado do Storage do Azure como o seguinte:
+
+```json
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
+    }
+  }
+}
+```
 
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia move os dados de um arquivo de dados no local Cassandra utilizando ferramentas diferentes/APIs. 
@@ -86,8 +103,8 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo |tipo do conjunto de dados. tem de ser definido como **WebTable** |Sim |
-| Caminho |Um URL relativo para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição de serviço ligado. |
-| Índice |O índice da tabela no recurso. Consulte [Get índice de uma tabela numa página HTML](#get-index-of-a-table-in-an-html-page) secção para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
+| caminho |Um URL relativo para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição de serviço ligado. |
+| índice |O índice da tabela no recurso. Consulte [Get índice de uma tabela numa página HTML](#get-index-of-a-table-in-an-html-page) secção para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
 
 **Exemplo:**
 
@@ -156,7 +173,8 @@ O exemplo seguinte mostra como copiar dados a partir de uma tabela de Web para u
   "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>",
+      "gatewayName": "<gateway name>"
     }
   }
 }
@@ -189,7 +207,7 @@ O exemplo seguinte mostra como copiar dados a partir de uma tabela de Web para u
 ```
 
 
-**Conjunto de dados de saída de Blobs do Azure**
+**Conjunto de dados dos Blobs do Azure**
 
 Dados são escritos num blob novo a cada hora (frequência: hora, intervalo: 1).
 

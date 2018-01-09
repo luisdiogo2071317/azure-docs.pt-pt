@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: f645890fc5e08dd468002c1ff0af79ba636ccce3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Como escolher algoritmos para o Microsoft Azure Machine Learning
 A resposta à pergunta "O algoritmo de aprendizagem devo utilizar?" é sempre "Depende." Depende do tamanho, qualidade e natureza dos dados. Depende das quais pretende fazer com a resposta. Depende de como as contas do algoritmo foi convertida instruções para o computador que estiver a utilizar. E depende quanto tempo tiver. Mesmo as cientistas de dados mais experiente não sabe qual algoritmo irá efetuar melhor antes de tentá-los.
@@ -42,7 +42,7 @@ As etiquetas de caminho e o algoritmo no gráfico como de leitura "para  *&lt;et
 Por vezes, nenhuma delas são uma opção perfeita. Está a se destina a ser recomendações de regra de botão, pelo que não se preocupe se a ser exato.
 Vários cientistas de dados que posso talked com referida que a forma apenas se encontrar o algoritmo muito mais é para experimentar todos eles.
 
-Eis um exemplo do [galeria da Cortana Intelligence](http://gallery.cortanaintelligence.com/) de uma experiência que tenta vários algoritmos contra os mesmos dados e compara os resultados: [comparar classificadores de classe multi: letra reconhecimento](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Eis um exemplo do [galeria do Azure AI](http://gallery.cortanaintelligence.com/) de uma experiência que tenta vários algoritmos contra os mesmos dados e compara os resultados: [comparar classificadores de classe multi: letra reconhecimento](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Para transferir e imprimir um diagrama da descrição geral das funcionalidades do Machine Learning Studio, consulte o artigo [Diagrama da descrição geral das funcionalidades do Azure Machine Learning Studio](studio-overview-diagram.md).

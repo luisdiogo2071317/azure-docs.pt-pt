@@ -22,7 +22,7 @@ Nas ofertas de seguintes, eis nosso ações recomendadas para atualizar o sistem
 <td>Máquinas virtuais do Linux do Azure</td> <td>Instale atualizações através do seu fornecedor de sistema operativo, quando disponível. </td>
 </tr>
 <tr>
-<td>Máquinas virtuais do Azure Windows </td> <td><ul><li>Certifique-se de que está a executar uma aplicação antivírus suportada antes de instalar atualizações do SO. Contacte o fabricante de software antivírus de informações de compatibilidade. </li> <li> Instalar o [agregação de segurança de Janeiro](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </li></ul></td>
+<td>Máquinas virtuais do Azure Windows </td> <td>Certifique-se de que está a executar uma aplicação antivírus suportada antes de instalar atualizações do SO. Contacte o fabricante de software antivírus de informações de compatibilidade.<p> Instalar o [agregação de segurança de Janeiro](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
 </tr>
 <tr>
 <td>Outros serviços do Azure PaaS</td> <td>Não há nenhuma ação necessária para clientes que utilizam estes serviços. Azure automaticamente mantém as versões de SO atualizado. </td>

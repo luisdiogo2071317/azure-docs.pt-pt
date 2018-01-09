@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: garye;haining
-ms.openlocfilehash: 3386e3bab7a92b080276c4f03f0b006bd5f68e98
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 44551908c31151e7d8945a3c7c03303b17d8f059
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Utilizar o PowerShell para criar muitos modelos do Machine Learning e pontos finais do serviço Web a partir de uma experimentação
-Segue-se um problema de aprendizagem máquina comum: onde pretende criar vários modelos que têm o mesmo fluxo de trabalho de formação e utilizam o mesmo algoritmo, mas tem conjuntos de dados de formação diferente como entrada. Este artigo mostra-lhe como fazê-lo à escala no Azure Machine Learning Studio com apenas uma único experimentação.
+Segue-se um problema de aprendizagem máquina comum: onde pretende criar vários modelos que tenham o mesmo fluxo de trabalho de formação e utilizam o mesmo algoritmo. Mas que pretende que tenham conjuntos de dados de formação diferente como entrada. Este artigo mostra-lhe como fazê-lo à escala no Azure Machine Learning Studio com apenas uma único experimentação.
 
-Por exemplo, vamos supor que é proprietário de uma bicicleta global rental franchise empresa. Pretender criar um modelo de regressão para prever a procura de rental com base nos dados históricos. Tem de 1.000 localizações de rental por todo o mundo. Foi recolhido um conjunto de dados para cada localização que inclui funcionalidades importantes, como data, hora, meteorologia e o tráfego que são específicas para cada localização.
+Por exemplo, vamos supor que é proprietário de uma bicicleta global rental franchise empresa. Pretender criar um modelo de regressão para prever a procura de rental com base nos dados históricos. Tiver 1.000 rental localizações por todo o mundo e ter recolhido um conjunto de dados para cada localização. Incluem funcionalidades importantes, tais como data, hora, meteorologia e o tráfego que são específicas para cada localização.
 
-Foi possível preparar o seu modelo uma vez com uma versão intercalada de todos os conjuntos de dados em todas as localizações. Mas, uma vez cada uma das suas localizações tem um ambiente exclusivo, uma abordagem de melhor seria preparar o seu modelo de regressão separadamente utilizando o conjunto de dados para cada localização. Dessa forma, cada modelo treinado foi ter em consideração os tamanhos de armazenamento diferentes, volume, geografia, população, ambiente de tráfego de bicicleta amigável e muito mais.
+Foi possível preparar o seu modelo uma vez com uma versão intercalada de todos os conjuntos de dados em todas as localizações. No entanto, cada um dos seus localizações tem um ambiente exclusivo. Por isso, uma abordagem de melhor seria de preparar o seu modelo de regressão separadamente utilizando o conjunto de dados para cada localização. Dessa forma, cada modelo treinado foi ter em consideração os tamanhos de armazenamento diferentes, volume, geografia, população, ambiente de tráfego de bicicleta amigável e muito mais.
 
 Que podem ser a melhor abordagem, mas não pretender criar 1.000 experimentações de formação no Azure Machine Learning com cada um, que representa uma localização única. Para além de ser uma tarefa muito confuso, também é parece ineficaz, uma vez que cada experimentação teria as mesmas componentes, exceto para o conjunto de dados de formação.
 
 Felizmente, pode conseguir isto utilizando o [reparametrização API do Azure Machine Learning](retrain-models-programmatically.md) e automatizar a tarefa com [PowerShell do Azure Machine Learning](powershell-module.md).
 
 > [!NOTE]
-> Para tornar o seu exemplo são executadas mais rápido, reduza o número de localizações de 1.000 para 10. Mas os mesmos princípios e procedimentos aplicam-se a 1000 localizações. A única diferença é que se pretende preparar de 1.000 conjuntos de dados, provavelmente pretende considerar os seguintes scripts do PowerShell a executar em paralelo. Como fazê-lo está fora do âmbito deste artigo, mas pode encontrar exemplos do PowerShell vários segmentos na Internet.  
+> Para tornar o seu exemplo são executadas mais rápido, reduza o número de localizações de 1.000 para 10. Mas os mesmos princípios e procedimentos aplicam-se a 1000 localizações. No entanto, se pretender preparar de 1.000 conjuntos de dados é aconselhável executar os seguintes scripts do PowerShell em paralelo. Como fazê-lo está fora do âmbito deste artigo, mas pode encontrar exemplos do PowerShell vários segmentos na Internet.  
 > 
 > 
 
@@ -40,7 +40,7 @@ Felizmente, pode conseguir isto utilizando o [reparametrização API do Azure Ma
 Utilize o exemplo [experimentação de preparação](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) que está a ser o [galeria da Cortana Intelligence](http://gallery.cortanaintelligence.com). Abrir este experimentação na sua [Azure Machine Learning Studio](https://studio.azureml.net) área de trabalho.
 
 > [!NOTE]
-> Para seguir este exemplo, poderá pretender utilizar uma área de trabalho padrão em vez de uma área de trabalho gratuita. Criar um ponto final de cada cliente - para um total de pontos 10 finais - e que necessita de uma área de trabalho padrão uma vez que a área de trabalho gratuita está limitada a 3 pontos finais. Se tiver apenas uma área de trabalho gratuita, basta altere os scripts para permitir apenas 3 localizações.
+> Para seguir este exemplo, poderá pretender utilizar uma área de trabalho padrão em vez de uma área de trabalho gratuita. Criar um ponto final de cada cliente - para um total de pontos 10 finais - e que necessita de uma área de trabalho padrão uma vez que a área de trabalho gratuita está limitada a 3 pontos finais. Se tiver apenas uma área de trabalho gratuita, basta altere os scripts para permitir apenas em localizações ésimo.
 > 
 > 
 
@@ -51,8 +51,8 @@ A experimentação utiliza um **importar dados** módulo para importar o conjunt
 Tenha em atenção que um **saída de serviço Web** módulo foi adicionado para o **preparar modelo** módulo.
 Quando esta fase experimental é implementado como um serviço web, o ponto final associado que saída devolve o modelo treinado no formato de um ficheiro de .ilearner.
 
-Também em atenção que configurou um parâmetro de serviço web para o URL que o **importar dados** módulo utiliza. Isto permite-lhe utilizar o parâmetro para especificar os conjuntos de dados de formação individuais para preparar o modelo para cada localização.
-Existem outras formas que pode ter efetuado esta ação. Pode utilizar uma consulta SQL com um parâmetro de serviço web para obter dados a partir de uma base de dados do SQL Azure ou utilize um **entrada de serviço Web** módulo passem um conjunto de dados para o serviço web.
+Tenha também em atenção que configurou um parâmetro de serviço web que define o URL que o **importar dados** módulo utiliza. Isto permite-lhe utilizar o parâmetro para especificar os conjuntos de dados de formação individuais para preparar o modelo para cada localização.
+Existem outras formas que pode ter efetuado esta ação. Pode utilizar uma consulta SQL com um parâmetro de serviço web para obter dados a partir de uma base de dados do SQL Azure. Ou pode utilizar um **entrada de serviço Web** módulo passem um conjunto de dados para o serviço web.
 
 ![Imagem](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
@@ -65,7 +65,7 @@ Agora tem de implementar o serviço web de classificação.
 Para tal, clique em **segurança serviço Web** abaixo a tela e selecione **preditiva serviço Web**. Esta ação cria uma experimentação de classificação.
 Terá de efetuar alguns ajustes secundários para torná-lo a funcionar como um serviço web. Remover a coluna de etiqueta "cnt" a partir dos dados de entrada e limitar a saída para apenas o id de instância e o valor previsto correspondente.
 
-Para guardar si próprio esse trabalho, pode simplesmente abrir o [experimentação preditiva](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) na galeria que já foi preparada.
+Para guardar si próprio esse trabalho, pode abrir o [experimentação preditiva](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) na galeria que já tenha sido preparada.
 
 Para implementar o serviço web, execute a experimentação preditiva, em seguida, clique em de **implementar serviço Web** no botão abaixo da tela. O serviço web de classificação "Bicicleta Rental classificação" o nome ".
 
@@ -94,9 +94,9 @@ Agora que criou 10 pontos finais e todos os contêm o mesmo preparado modelo pre
 ![Imagem](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Atualizar os pontos finais para utilizar conjuntos de dados de formação separado através do PowerShell
-O passo seguinte é atualizar os pontos finais com os modelos que preparado exclusivamente nos dados individuais de cada cliente. Mas tem primeiro de criar estes modelos do **bicicleta Rental formação** serviço web. Vamos voltar para o **bicicleta Rental formação** serviço web. tem de chamar o seu ponto final de BES 10 vezes com 10 formação diferentes conjuntos de dados para produzir 10 modelos diferentes. Utilizaremos o **InovkeAmlWebServiceBESEndpoint** cmdlet do PowerShell para efetuar este procedimento.
+O passo seguinte é atualizar os pontos finais com os modelos que preparado exclusivamente nos dados individuais de cada cliente. Mas tem primeiro de criar estes modelos do **bicicleta Rental formação** serviço web. Vamos voltar para o **bicicleta Rental formação** serviço web. tem de chamar o seu ponto final de BES 10 vezes com 10 formação diferentes conjuntos de dados para produzir 10 modelos diferentes. Utilize o **InovkeAmlWebServiceBESEndpoint** cmdlet do PowerShell para efetuar este procedimento.
 
-Também terá de fornecer credenciais para a sua conta de armazenamento de BLOBs para `$configContent`, nomeadamente, em campos `AccountName`, `AccountKey` e `RelativeLocation`. O `AccountName` pode ser um dos seus nomes de conta, visto no **portal do Azure** (*armazenamento* separador). Assim que clicar na conta de armazenamento, o `AccountKey` podem ser encontrados, premindo o **gerir chaves de acesso** botão na parte inferior e copiar a *chave de acesso primária*. O `RelativeLocation` é o caminho relativo ao seu armazenamento onde um novo modelo será armazenado. Por exemplo, o caminho `hai/retrain/bike_rental/` no script abaixo aponta para um contentor com o nome `hai`, e `/retrain/bike_rental/` estão subpastas. Atualmente, não é possível criar subpastas através da IU do portal, mas existem [várias exploradores de armazenamento do Azure](../../storage/common/storage-explorers.md) que permitem-lhe fazê-lo. Recomenda-se que crie um novo contentor no seu armazenamento para armazenar os novos modelos de formação (.ilearner ficheiros) da seguinte forma: a página de armazenamento, clique no **adicionar** botão na parte inferior e dê-lhe nome `retrain`. Em resumo, as alterações necessárias para o script abaixo dizem respeito ao `AccountName`, `AccountKey` e `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+Também terá de fornecer credenciais para a sua conta de armazenamento de BLOBs para `$configContent`. Nomeadamente, em campos `AccountName`, `AccountKey`, e `RelativeLocation`. O `AccountName` pode ser um dos seus nomes de conta, visto no **portal do Azure** (*armazenamento* separador). Assim que clicar na conta de armazenamento, o `AccountKey` podem ser encontrados, premindo o **gerir chaves de acesso** botão na parte inferior e copiar a *chave de acesso primária*. O `RelativeLocation` é o caminho relativo ao seu armazenamento onde um novo modelo será armazenado. Por exemplo, o caminho `hai/retrain/bike_rental/` nos seguintes pontos de script para um contentor com o nome `hai`, e `/retrain/bike_rental/` estão subpastas. Atualmente, não é possível criar subpastas através da IU do portal, mas existem [várias exploradores de armazenamento do Azure](../../storage/common/storage-explorers.md) que permitem-lhe fazê-lo. Recomenda-se que crie um novo contentor no seu armazenamento para armazenar os novos modelos de formação (.iLearner ficheiros) da seguinte forma: na página do seu armazenamento, clique em de **adicionar** botão na parte inferior e dê-lhe nome `retrain`. Em resumo, as alterações necessárias para o script a seguir dizem respeito ao `AccountName`, `AccountKey`, e `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service
@@ -116,9 +116,9 @@ Também terá de fornecer credenciais para a sua conta de armazenamento de BLOBs
 > 
 > 
 
-Como pode ver acima, em vez de construir 10 diferentes BES tarefa json ficheiros de configuração, criar em vez disso, a cadeia de configuração e dinamicamente feed-o para o *jobConfigString* parâmetro o  **InvokeAmlWebServceBESEndpoint** cmdlet, uma vez que é realmente necessário para manter uma cópia no disco.
+Como pode ver acima, em vez de construir 10 diferentes BES tarefa json ficheiros de configuração, pode cria dinamicamente a cadeia de configuração em vez disso. Em seguida, feed-o para o *jobConfigString* parâmetro do **InvokeAmlWebServceBESEndpoint** cmdlet. Não é realmente necessário para manter uma cópia no disco.
 
-Se tudo correr bem, ao fim de algum deve vir de 10 .ilearner os ficheiros, de *model001.ilearner* para *model010.ilearner*, na sua conta do storage do Azure. Agora está tudo prontos atualizar o nosso 10 pontos finais do serviço web de classificação com estes modelos utilizando o **Patch AmlWebServiceEndpoint** cmdlet do PowerShell. Lembre-se novamente que só pode corrigir os pontos finais de não predefinidas que programaticamente criou anteriormente.
+Se tudo correr bem, ao fim de algum deve vir de 10 .iLearner os ficheiros, de *model001.ilearner* para *model010.ilearner*, na sua conta do storage do Azure. Agora está pronto para atualizar a 10 da classificação de pontos finais do serviço web com estes modelos utilizando o **Patch AmlWebServiceEndpoint** cmdlet do PowerShell. Lembre-se novamente que só pode corrigir os pontos finais de não predefinidas que programaticamente criou anteriormente.
 
     # Patch the 10 endpoints with respective .ilearner models
     $baseLoc = 'http://bostonmtc.blob.core.windows.net/'
@@ -131,7 +131,7 @@ Se tudo correr bem, ao fim de algum deve vir de 10 .ilearner os ficheiros, de *m
         Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
     }
 
-Isto deve ser executada razoavelmente depressa. Quando a execução estiver concluída, iremos irá criada com êxito 10 web preditiva pontos finais de serviço, cada um com um modelo treinado exclusivamente preparado no conjunto de dados específico numa localização rental, tudo a partir de uma experimentação de preparação único. Para verificar isto, pode tentar chamar estes pontos finais utilizando o **InvokeAmlWebServiceRRSEndpoint** dados de entrada do cmdlet, fornecendo-las com a mesma e deverá ver resultados de predição diferentes, uma vez que os modelos são preparados com conjuntos de formação diferentes.
+Isto deve ser executada razoavelmente depressa. Quando a execução estiver concluída, será criada com êxito 10 pontos finais do serviço web preditiva. Cada um irá conter um modelo preparado exclusivamente preparado no conjunto de dados específico numa localização rental, tudo a partir de uma experimentação de preparação único. Para verificar isto, pode tentar chamar estes pontos finais utilizando o **InvokeAmlWebServiceRRSEndpoint** cmdlet, fornecendo-las com os mesmos dados de entrada. Deverá ver resultados de predição diferentes, uma vez que os modelos são preparados com conjuntos de formação diferentes.
 
 ## <a name="full-powershell-script"></a>Total de script do PowerShell
 Segue-se a listagem do código fonte completo:

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 7d6cb91f97020ad60bd2ea74b24df76511956f38
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d5864b8df85a5b3cec086d4cb2edc6d288f1639a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Implementar a sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -72,6 +72,7 @@ O agente de sincronização de ficheiros do Azure é um pacote transferível, qu
 > [!Important]  
 > Se pretender utilizar a sincronização de ficheiros do Azure com um Cluster de ativação pós-falha, o agente de sincronização de ficheiros do Azure tem de estar instalado em cada nó no cluster.
 
+
 O pacote de instalação do agente de sincronização de ficheiros do Azure deverá instalar relativamente rapidamente e sem demasiados pedidos adicionais. Recomendamos que efetue o seguinte:
 - Deixe o caminho de instalação predefinido (c:\Programas\Microsoft Files\Azure\StorageSyncAgent), para simplificar a manutenção de resolução de problemas e de servidor.
 - Ative o Microsoft Update manter a sincronização de ficheiros do Azure atualizada. Todas as atualizações, para o agente de sincronização de ficheiros do Azure, incluindo atualizações de funcionalidades e correções, ocorrerem do Microsoft Update. Recomendamos que instale a atualização mais recente para sincronização de ficheiros do Azure. Para obter mais informações, consulte [política de atualização de sincronização de ficheiros do Azure](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
@@ -119,6 +120,36 @@ Para adicionar o ponto final do servidor, selecione **criar**. Os ficheiros são
 > [!Important]  
 > Pode efetuar alterações a qualquer ponto final da nuvem ou no grupo de sincronização de ponto final do servidor e os ficheiros foram sincronizadas para os pontos finais no grupo de sincronização. Se fizer uma alteração para o ponto final da nuvem (partilha de ficheiros do Azure) diretamente, alterações primeiro tem de ser detetados por uma tarefa de deteção de alteração de sincronização de ficheiros do Azure. Uma tarefa de deteção de alteração é iniciada, para um ponto final da nuvem, apenas uma vez a cada 24 horas. Para obter mais informações, consulte [ficheiros do Azure perguntas mais frequentes](storage-files-faq.md#afs-change-detection).
 
+## <a name="onboarding-with-azure-file-sync"></a>Integração com a sincronização de ficheiros do Azure
+Os passos recomendados para carregar em sincronização de ficheiros do Azure para o primeiro com período de indisponibilidade de zero preservando a fidelidade de ficheiro completo e a lista de controlo de acesso (ACL) são os seguintes:
+ 
+1.  Implemente um serviço de sincronização de armazenamento.
+2.  Crie um grupo de sincronização.
+3.  Instale o agente de sincronização de ficheiros do Azure no servidor com o conjunto completo de dados.
+4.  Registar esse servidor e crie um ponto final do servidor na partilha. 
+5.  Permita sincronização de fazer o carregamento total à partilha de ficheiros do Azure (ponto final da nuvem).  
+6.  Depois do carregamento inicial estiver concluído, instale o agente de sincronização de ficheiros do Azure em cada um dos restantes servidores.
+7.  Crie novas partilhas de ficheiros em cada um dos restantes servidores.
+8.  Crie pontos finais do servidor em novas partilhas de ficheiros com a política de camadas na nuvem, se assim o desejar. (Este passo necessita de armazenamento adicional fique disponível para a configuração inicial.)
+9.  Permitir que o agente de sincronização de ficheiros do Azure para efetuar um restauro rápido do espaço de nomes completo sem a transferência de dados real. Após a sincronização completa do espaço de nomes, o motor de sincronização irá preencher o espaço de disco local com base na política de camadas na nuvem para o ponto final do servidor. 
+10. Certifique-se a sincronização estiver concluída e testar a sua topologia conforme pretendido. 
+11. Redireciona os utilizadores e aplicações para esta partilha de novo.
+12. Pode, opcionalmente, elimine quaisquer partilhas duplicadas nos servidores.
+ 
+Se não tiver armazenamento adicional para a integração inicial e pretende anexar pelas partilhas existentes, pode seeding previamente os dados das partilhas de ficheiros do Azure. Esta abordagem é sugerida, se, e apenas se pode aceitar o período de inatividade e garante absolutamente sem alterações de dados em partilhas de servidor durante o processo de integração inicial. 
+ 
+1.  Certifique-se de que os dados em qualquer servidor não é possível alterar durante o processo de integração.
+2.  Pré-seed Azure as partilhas de ficheiros com os dados de servidor utilizando qualquer ferramenta de transferência de dados através de SMB, por exemplo, Robocopy, cópia SMB direta. Uma vez que o AzCopy não carregar os dados através de SMB pelo que não pode ser utilizado para o seeding previamente.
+3.  Crie a topologia de sincronização de ficheiros do Azure com os pontos finais de servidor pretendido apontar para as partilhas existentes.
+4.  Permita sincronização de concluir o processo de reconciliação em todos os pontos finais. 
+5.  Depois de concluída a reconciliação, pode abrir partilhas para as alterações.
+ 
+. Lembre-se de que, atualmente, o seeding previamente abordagem tem algumas limitações- 
+- Não é preservada fidelidade completa em ficheiros. Por exemplo, ficheiros percam ACLs e carimbos.
+- Alterações de dados no servidor antes de topologia de sincronização está totalmente operacional e em execução podem causar conflitos em pontos finais do servidor.  
+- Depois de criar o ponto final da nuvem, sincronização de ficheiros do Azure é executado um processo para detetar os ficheiros na nuvem antes de iniciar a sincronização inicial. O tempo necessário para concluir este processo varia consoante vários fatores, como a velocidade da rede, a largura de banda disponível e o número de ficheiros e pastas. Para a estimativa aproximada na versão de pré-visualização, o processo de deteção é executada aproximadamente a cada 10 ficheiros/seg.  Por conseguinte, mesmo que o seeding previamente o executa rápido, o tempo geral para obter um sistema totalmente em execução pode ser significativamente maior, quando os dados pré-propagados na nuvem.
+
+
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrar uma implementação de replicação de DFS (DFS-R) a sincronização de ficheiros do Azure
 Para migrar uma implementação de DFS-R para sincronização de ficheiros do Azure:
 
@@ -135,6 +166,6 @@ Para migrar uma implementação de DFS-R para sincronização de ficheiros do Az
 
 Para obter mais informações, consulte [interoperabilidade de sincronização de ficheiros do Azure com o sistema de ficheiros distribuído (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Adicionar ou remover um Azure sincronização do ponto final do ficheiro](storage-sync-files-server-endpoint.md)
 - [Registar ou anular o registo de um servidor com sincronização de ficheiros do Azure](storage-sync-files-server-registration.md)
