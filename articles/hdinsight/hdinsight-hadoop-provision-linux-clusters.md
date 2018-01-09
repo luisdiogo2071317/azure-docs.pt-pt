@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: 052e65b72cc382168296dc1a4965000107d08881
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: af4538bb398e6b18aeb9703ba5099b0e2c70fa64
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais
 
@@ -248,7 +248,7 @@ Se a sua solução requer tecnologias que são distribuídas por vários tipos d
 
 Para obter mais informações sobre como utilizar uma rede virtual do Azure com o HDInsight, consulte [expandir HDInsight com redes virtuais do Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-Para obter um exemplo de utilização de dois tipos de cluster dentro de uma rede virtual do Azure, consulte [analisar dados de sensor com o Storm e HBase](storm/apache-storm-sensor-data-analysis.md). Para obter mais informações sobre como utilizar o HDInsight com uma rede virtual, incluindo requisitos de configuração específicos para a rede virtual, consulte [capacidades de expandir HDInsight utilizando a Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+Para obter um exemplo de utilização de dois tipos de cluster dentro de uma rede virtual do Azure, consulte [utilize Spark estruturados transmissão em fluxo com Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Para obter mais informações sobre como utilizar o HDInsight com uma rede virtual, incluindo requisitos de configuração específicos para a rede virtual, consulte [capacidades de expandir HDInsight utilizando a Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="troubleshoot-access-control-issues"></a>Resolver problemas de controlo de acesso
 

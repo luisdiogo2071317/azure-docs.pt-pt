@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e659c1906c99415ab1b53785a606330ef9068c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Cópia de segurança de computadores virtuais Linux no Azure
 
@@ -45,7 +45,7 @@ Quando a transferência de dados estiver concluída, o instantâneo é removido 
 ## <a name="create-a-backup"></a>Criar uma cópia de segurança
 Crie uma cópia de segurança diária simples para um Cofre dos Serviços de Recuperação. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No menu do lado esquerdo, selecione **Máquinas virtuais**. 
 3. Na lista, selecione uma VM da qual pretende criar uma cópia de segurança.
 4. No painel de VM, no **definições** secção, clique em **cópia de segurança**. O **ativar cópia de segurança** abre o painel.
@@ -62,7 +62,7 @@ A primeira cópia de segurança demora cerca de 20 minutos. Avance para a parte 
 
 ## <a name="restore-a-file"></a>Restaurar um ficheiro
 
-Se eliminar acidentalmente ou efetuar alterações a um ficheiro, pode utilizar a recuperação de ficheiros para recuperar o ficheiro do seu Cofre de cópia de segurança. Recuperação de ficheiros utiliza um script que é executado na VM, para o ponto de recuperação como unidade local de montagem. Estas unidades permanecerá montadas para 12 horas para que possa copiar os ficheiros do ponto de recuperação e restaurá-las para a VM.  
+Se eliminar acidentalmente ou efetuar alterações a um ficheiro, pode utilizar a recuperação de ficheiros para recuperar o ficheiro do seu Cofre de cópia de segurança. Recuperação de ficheiros utiliza um script que é executado na VM, para o ponto de recuperação como uma unidade local de montagem. Estas unidades permanecerá montadas para 12 horas para que possa copiar os ficheiros do ponto de recuperação e restaurá-las para a VM.  
 
 Neste exemplo, mostramos como recuperar a predefinição nginx página web /var/www/html/index.nginx-debian.html. O endereço IP público do nosso VM neste exemplo é *13.69.75.209*. Pode encontrar o endereço IP da vm utilizando:
 
@@ -157,10 +157,10 @@ Neste exemplo, mostramos como recuperar a predefinição nginx página web /var/
 
     ![Nginx predefinido de página web](./media/tutorial-backup-vms/nginx-working.png)
 
-18. No seu computador local, regressar ao separador do browser para o portal do Azure e no **passo 3: desmontar os discos após a recuperação** clique o **desmonte discos** botão. Caso se esqueça efetuar este passo, a ligação para a pontodemontagem é fechar automaticamente após 12 horas. Depois dessas 12 horas, terá de transferir um script novo para criar uma novo pontodemontagem.
+18. No seu computador local, regressar ao separador do browser para o portal do Azure e no **passo 3: desmontar os discos após a recuperação** clique o **desmonte discos** botão. Caso se esqueça efetuar este passo, a ligação para a pontodemontagem é fechada automaticamente após 12 horas. Depois dessas 12 horas, terá de transferir um script novo para criar uma novo pontodemontagem.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/5/2018
+ms.date: 1/8/2018
 ms.author: jeffgilb
-ms.openlocfilehash: c2edafbf483692d5a11771268a1755c11b74521f
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: b58b3fc538d2237c12a860d268d550c4223155ba
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Registar a pilha do Azure com a sua subscrição do Azure
 
@@ -36,7 +36,7 @@ Antes de registar a pilha do Azure com o Azure, tem de ter:
 
 - O ID de subscrição de uma subscrição do Azure. Para obter o ID, inicie sessão no Azure, clique em **mais serviços** > **subscrições**, clique na subscrição que pretende utilizar, e, em **Essentials** pode encontrar o **ID de subscrição**. China, Datacenters e subscrições de nuvem do Governo dos EUA não são atualmente suportados.
 - O nome de utilizador e palavra-passe para uma conta que é proprietário da subscrição (são suportadas contas MSA/2FA).
-- *Não é necessário a partir da versão de atualização de 1712 de pilha do Azure (1.0.180103.2):* o Azure Active Directory para a subscrição do Azure. Pode encontrar este diretório no Azure ao passar por cima do seu avatar no canto superior direito do portal do Azure.
+- *Não é necessário a partir da versão de atualização de 1712 de pilha do Azure (180106.1):* o Azure Active Directory para a subscrição do Azure. Pode encontrar este diretório no Azure ao passar por cima do seu avatar no canto superior direito do portal do Azure.
 
 Se não tiver uma subscrição do Azure que cumpra estes requisitos, pode [criar uma conta do Azure gratuita aqui](https://azure.microsoft.com/en-us/free/?b=17.06). Registar o Azure pilha incorreu sem qualquer custo na sua subscrição do Azure.
 
@@ -126,7 +126,7 @@ Se gostaria de alterar o modelo de faturação ou funcionalidades de sindicaçã
 
 
 ## <a name="disconnected-registration"></a>Registo desligado
-*As informações nesta secção aplicam-se de que começa com a versão de atualização de 1712 de pilha do Azure (1.0.180103.2) e não são suportadas com versões anteriores.*
+*As informações nesta secção aplicam-se de que começa com a versão de atualização de 1712 de pilha do Azure (180106.1) e não são suportadas com versões anteriores.*
 
 Se estiver a registar o Azure pilha num ambiente desligado, terá de obter um registo de token do ambiente de pilha do Azure e, em seguida, utilizar esse token numa máquina que pode ligar ao Azure para o registo.  
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Utilizar o Azure Machine Learning para Analisar a Taxa de Abandono de Clientes
 ## <a name="overview"></a>Descrição geral
@@ -28,14 +28,14 @@ Este artigo apresenta uma implementação de referência de um projeto de análi
 Esta fase experimental foi desenvolvido e testado pela Serge Berger, Scientist de dados Principal na Microsoft e Roger Barga, anteriormente o Gestor de produto do Microsoft Azure Machine Learning. A equipa de documentação do Azure gratefully reconhece os seus conhecimentos e obrigado-los para partilhar este documento técnico.
 
 > [!NOTE]
-> Os dados utilizados para esta fase experimental não estão disponíveis publicamente. Para obter um exemplo de como criar um modelo de machine learning para análise de volume de alterações, consulte: [revenda churn modelo](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) no [galeria da Cortana Intelligence](http://gallery.cortanaintelligence.com/)
+> Os dados utilizados para esta fase experimental não estão disponíveis publicamente. Para obter um exemplo de como criar um modelo de machine learning para análise de volume de alterações, consulte: [revenda churn modelo](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) no [Galeria de AI do Azure](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-problem-of-customer-churn"></a>O problema de volume de alterações do cliente
-Empresas no mercado de consumidor e em todos os setores de enterprise tem de lidar com o volume de alterações. Por vezes, volume de alterações é excessivo e influencia as decisões de políticas. A solução tradicional é a prever churners propensity elevado e a abordar as respetivas necessidades através de um serviço concierge, marketing campanhas, ou ao aplicar dispensations especiais. Estas abordagens podem variar da indústria da indústria e mesmo a partir de um cluster de consumidor específica para outro dentro de uma indústria (por exemplo, telecomunicações).
+Empresas no mercado de consumidor e em todos os setores de enterprise tem de lidar com o volume de alterações. Por vezes, volume de alterações é excessivo e influencia as decisões de políticas. A solução tradicional é a prever churners propensity elevado e a abordar as respetivas necessidades através de um serviço concierge, marketing campanhas, ou ao aplicar dispensations especiais. Estas abordagens podem variar da indústria para o setor. Mesmo podem variar de um cluster de consumidor específica para outro dentro de uma indústria (por exemplo, telecomunicações).
 
 O fator comum é que as empresas têm de minimizar os esforços de retenção estes cliente especiais. Assim, a metodologia natural seria para cada cliente com a probabilidade do volume de alterações de pontuação e resolver os principal N aqueles. Os clientes superiores poderão ser aqueles mais rentáveis. Por exemplo, em cenários mais sofisticados uma função de lucros estiver utilizada durante a seleção de candidatos para dispensation especial. No entanto, estas considerações são apenas uma parte da estratégia completa para lidar com o volume de alterações. Empresas também tem de ter em risco de conta (e tolerância ao risco associado), o nível e os custos da intervenção e segmentação plausible cliente.  
 
@@ -109,7 +109,7 @@ Os diagramas seguintes mostram os dados que foi utilizados.
  
 
 > Tenha em atenção que estes dados privados e, por conseguinte, não não possível partilhar o modelo e os dados.
-> No entanto, para um modelo semelhante utilizando dados publicamente disponíveis, consulte este exemplo experimentação no [galeria da Cortana Intelligence](http://gallery.cortanaintelligence.com/): [Telco cliente Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> No entanto, para um modelo semelhante utilizando dados publicamente disponíveis, consulte este exemplo experimentação no [galeria do Azure AI](http://gallery.cortanaintelligence.com/): [Telco cliente Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Para saber mais sobre como implementar um modelo de análise de volume de alterações com o Cortana Intelligence Suite, também recomendamos [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) pelo Gestor de programa sénior Wee Hyong Tok. 
 > 
@@ -222,7 +222,7 @@ Este documento descreve uma abordagem sensible para tackling o problema comum de
 
 [4] [Marketing de macrodados: interagir com os seus clientes de forma mais eficaz e valor de unidade](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco churn modelo](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) no [galeria da Cortana Intelligence](http://gallery.cortanaintelligence.com/) 
+[5] [Telco churn modelo](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) no [Galeria de AI do Azure](http://gallery.cortanaintelligence.com/) 
  
 
 ## <a name="appendix"></a>Apêndice

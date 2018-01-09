@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d0a9926f49e2be66a9d51a1bb0e4e19342205880
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionar a máquina de Virtual de ciência de dados Windows no Azure
 A máquina de Virtual de ciência de dados do Microsoft é uma imagem de máquina virtual (VM) do Windows Azure previamente instalado e configurado com várias ferramentas populares que são frequentemente utilizadas para análise de dados e de aprendizagem. As ferramentas incluídas são:
@@ -192,7 +192,7 @@ O [ **instalador de plataforma Web Microsoft** ](https://www.microsoft.com/web/d
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Seguem-se alguns passos seguintes para continuar a exploração e de aprendizagem. 
 
 * Explorar as várias ferramentas de ciência de dados de ciência de dados VM clicando no menu de início e a saída as ferramentas de verificação listado no menu.
@@ -200,5 +200,5 @@ Seguem-se alguns passos seguintes para continuar a exploração e de aprendizage
 * Navegue para **c:\Programas\Microsoft Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** para exemplos que utilizam a biblioteca de RevoScaleR do R suporta análise de dados à escala da empresa.  
 * Leia o artigo: [10 coisas que pode fazer na ciência de dados de Máquina Virtual](http://aka.ms/dsvmtenthings)
 * Aprenda a criar soluções analíticas ponto a ponto sistematicamente utilizando o [o processo de ciência de dados de equipa](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Visite o [galeria do Azure Machine Learning](http://gallery.cortanaintelligence.com) machine learning e dados de análise exemplos que utilizam o Azure Machine learning e os dados relacionados de serviços no Azure. Também fornecemos um ícone no **iniciar** menu e no ambiente de trabalho da máquina virtual para esta galeria.
+* Visite o [galeria do Azure AI](http://gallery.cortanaintelligence.com) machine learning e dados de análise exemplos que utilizam o Azure Machine learning e os dados relacionados de serviços no Azure. Também fornecemos um ícone no **iniciar** menu e no ambiente de trabalho da máquina virtual para esta galeria.
 

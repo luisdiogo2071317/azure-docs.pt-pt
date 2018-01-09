@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d1f2f77dbdfc96adc616e8e5dae8f5839c176096
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -34,7 +34,7 @@ Serviço de metadados de instância do Azure é um ponto final de REST acessíve
 ## <a name="service-availability"></a>Disponibilidade do serviço
 O serviço está disponível em todos os todos os geralmente disponível regiões do Azure. Nem todos os versão de API poderão estar disponíveis em todas as regiões do Azure.
 
-Regiões                                        | Disponibilidade?                                 | Versões suportadas
+Regiões                                        | Disponibilidade?                                 | Versões Suportadas
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Todas as regiões do Azure Global geralmente disponíveis](https://azure.microsoft.com/regions/)     | Geralmente disponível   | 2017-04-02, 2017-08-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Geralmente disponível | 2017-04-02
@@ -75,8 +75,8 @@ A tabela seguinte é uma referência de APIs podem suportar outros formatos de d
 
 API | Formato de dados predefinido | Outros formatos
 --------|---------------------|--------------
-/instance | JSON | Texto
-/scheduledevents | JSON | Nenhum
+/instance | json | Texto
+/scheduledevents | json | nenhum
 
 Para aceder a um formato de resposta não predefinido, especifique o formato de pedido como um parâmetro de cadeia de consulta no pedido. Por exemplo:
 
@@ -286,7 +286,7 @@ nome | Nome da VM | 2017-04-02
 oferta | Disponibilizam informações para a imagem VM. Este valor só está presente para imagens implementadas a partir da Galeria de imagem do Azure. | 2017-04-02
 Fabricante | Publicador de imagem de VM | 2017-04-02
 SKU | SKU específico para a imagem VM | 2017-04-02
-Versão | Versão da imagem VM | 2017-04-02
+versão | Versão da imagem VM | 2017-04-02
 osType | Linux ou do Windows | 2017-04-02
 platformUpdateDomain |  [Domínio de atualização](manage-availability.md) a VM está em execução no | 2017-04-02
 platformFaultDomain | [Domínio de falhas](manage-availability.md) a VM está em execução no | 2017-04-02
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Idioma | Exemplo 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.RB
-Aceda Lang  | https://github.com/Microsoft/azureimds/blob/Master/imdssample.go            
+Ir  | https://github.com/Microsoft/azureimds/blob/Master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.PY
 C++      | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample-Windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.CS
 JavaScript | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.SH
+Perl       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/Master/imdssample.Java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.VB
     
 
 ## <a name="faq"></a>FAQ
@@ -406,6 +409,6 @@ Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.SH
 
    ![Suporte de metadados de instância](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre o [agendada eventos](scheduled-events.md) API **em pré-visualização pública** fornecido pelo serviço de metadados de instância.

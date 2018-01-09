@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8792535eeeb71e7233c42bd9ea2a446a1c4d43c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="output-metadata"></a>Metadados de saída
 ## <a name="overview"></a>Descrição geral
@@ -26,10 +26,10 @@ Uma tarefa de codificação está associada a um recurso de entrada (ou ativos) 
 
 Se pretender examinar o ficheiro de metadados, pode criar um **SAS** localizador e transferir o ficheiro para o seu computador local.  
 
-Este tópico descreve os elementos e tipos de esquema XML nos quais o metada de saída (&lt;source_file_name&gt;_manifest.xml) baseia-se. Para obter informações sobre o ficheiro que contém metadados sobre o recurso de entrada, consulte [metadados entrada](media-services-input-metadata-schema.md).  
+Este artigo descreve os elementos e tipos de esquema XML nos quais o metada de saída (&lt;source_file_name&gt;_manifest.xml) baseia-se. Para obter informações sobre o ficheiro que contém metadados sobre o recurso de entrada, consulte [metadados entrada](media-services-input-metadata-schema.md).  
 
 > [!NOTE]
-> Pode encontrar o código de conclusão de esquema e o exemplo XML no final deste tópico.  
+> Pode encontrar o código de conclusão de esquema e o exemplo XML no final deste artigo.  
 >
 >
 
@@ -55,7 +55,7 @@ Pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schem
 | Nome | Descrição |
 | --- | --- |
 | **Origens** |Coleção de ficheiros de suporte de dados de entrada/origem, que foi processada para produzir este AssetFile. Para obter mais informações, consulte [elemento origem](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs = maxOccurs "0" = "1" |Cada AssetFile físico pode conter zero ou mais controla vídeo interleaved para um formato de contentor adequado no mesmo. Esta é uma coleção das vídeo controla. Para obter mais informações, consulte [VideoTracks elemento](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs = maxOccurs "0" = "1" |Cada AssetFile físico pode conter na mesma vídeos zero ou mais controla interleaved para um formato de contentor adequado. Para obter mais informações, consulte [VideoTracks elemento](media-services-output-metadata-schema.md). |
 | **AudioTracks**<br/><br/> minOccurs = maxOccurs "0" = "1" |Cada AssetFile físico pode conter zero ou mais controla áudio interleaved para um formato de contentor adequado no mesmo. Esta é uma coleção de todos os esses controla áudio. Para obter mais informações, consulte [AudioTracks elemento](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a>Elemento de origens
@@ -66,7 +66,7 @@ Pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schem
 ### <a name="child-elements"></a>Elementos subordinados
 | Nome | Descrição |
 | --- | --- |
-| **Origem**<br/><br/> minOccurs = maxOccurs "1" = "unbounded" |Um ficheiro de origem de entrada/utilizado ao gerar este recurso. Para obter mais informações consulte [elemento origem](media-services-output-metadata-schema.md). |
+| **Origem**<br/><br/> minOccurs = maxOccurs "1" = "unbounded" |Um ficheiro de origem de entrada/utilizado ao gerar este recurso. Para obter mais informações, consulte [elemento origem](media-services-output-metadata-schema.md). |
 
 ## <a name="Source "></a>Elemento de origem
 Um ficheiro de origem de entrada/utilizado ao gerar este recurso.  
@@ -79,7 +79,7 @@ Pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schem
 | **Nome**<br/><br/> Necessário |**xs:String** |Nome de ficheiro de origem de entrada. |
 
 ## <a name="VideoTracks "></a>Elemento VideoTracks
-Cada AssetFile físico pode conter zero ou mais controla vídeo interleaved para um formato de contentor adequado no mesmo. Esta é uma coleção das vídeo controla.  
+Cada AssetFile físico pode conter na mesma vídeos zero ou mais controla interleaved para um formato de contentor adequado. O **VideoTracks** elemento representa uma coleção de todas as controla as vídeo.  
 
 Pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schema.md#xml).  
 
@@ -96,7 +96,7 @@ Pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schem
 ### <a name="attributes"></a>Atributos
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **ID**<br/><br/> minInclusive = "0"<br/><br/> Necessário |**xs:int** |Índice baseado em zero de controlar este vídeo. **Nota:** esta não é necessariamente TrackID como utilizado num ficheiro MP4. |
+| **ID**<br/><br/> minInclusive = "0"<br/><br/> Necessário |**xs:int** |Índice baseado em zero de controlar este vídeo. **Nota:** isto **Id** não é necessariamente TrackID como utilizado num ficheiro MP4. |
 | **FourCC**<br/><br/> Necessário |**xs:String** |Codec vídeo FourCC código. |
 | **Perfil** |**xs:String** |Perfil de H264 (apenas aplicável a H264 codec). |
 | **Nível** |**xs:String** |Nível de H264 (apenas aplicável a H264 codec). |
@@ -111,7 +111,7 @@ Pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schem
 | **MaxGOPBitrate**<br/><br/> minInclusive = "0" |**xs:int** |Máx. GOP média velocidade de transmissão para este vídeo controlar, no kilobits por segundo. |
 
 ## <a name="AudioTracks "></a>Elemento AudioTracks
-Cada AssetFile físico pode conter zero ou mais controla áudio interleaved para um formato de contentor adequado no mesmo. Esta é uma coleção de todos os esses controla áudio.  
+Cada AssetFile físico pode conter zero ou mais controla áudio interleaved para um formato de contentor adequado no mesmo. O **AudioTracks** elemento representa uma coleção de todos os esses controla áudio.  
 
 Pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schema.md#xml).  
 
@@ -510,7 +510,8 @@ Pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schem
 
 
 ## <a name="xml"></a>Exemplo XML
- Segue-se um exemplo de ficheiro de metadados de saída.  
+
+O seguinte XML é um exemplo de ficheiro de metadados de saída.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  
@@ -598,7 +599,7 @@ Pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schem
       </AssetFile>  
     </AssetFiles>  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários

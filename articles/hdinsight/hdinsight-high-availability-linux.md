@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 39894ba73c691ad547d8b5ab67ec9d5786a5229c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: bf1840f77ebd39761a5ba1fd8fd1f98891dd8eca
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidade e fiabilidade dos clusters Hadoop no HDInsight.
 
@@ -60,7 +60,7 @@ Nós nimbus estão disponíveis com clusters de Storm. Os nós Nimbus fornecem u
 
 Nós de trabalho efetuar a análise de dados real, quando uma tarefa for submetida para o cluster. Se falhar um nó de trabalho, a tarefa que foi efetuar é submetida para outro nó de trabalho. Por predefinição, o HDInsight cria quatro nós de trabalho. Pode alterar este número de acordo com as suas necessidades, durante e após a criação do cluster.
 
-### <a name="edge-node"></a>Nó de extremidade
+### <a name="edge-node"></a>Nó periférico
 
 Um nó de extremidade não participar ativamente na análise de dados do cluster. É utilizado pelos programadores ou cientistas de dados ao trabalhar com o Hadoop. O nó de extremidade se encontra no mesmo Azure Virtual Network dos outros nós do cluster e pode aceder diretamente a todos os outros nós. O nó de extremidade pode ser utilizado sem colocar os recursos na direção oposta ao serviços críticos do Hadoop ou as tarefas de análise.
 
@@ -224,7 +224,7 @@ Quando criar um cluster, pode especificar o tamanho de nós. As seguintes inform
 
 * **O Azure PowerShell**: ao utilizar o `New-AzureRmHDInsightCluster` cmdlet, pode definir o tamanho do cabeçalho, worker e nós de ZooKeeper utilizando o `-HeadNodeVMSize`, `-WorkerNodeSize`, e `-ZookeeperNodeSize` parâmetros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Utilize as seguintes ligações para saber mais sobre coisas mencionadas neste documento.
 

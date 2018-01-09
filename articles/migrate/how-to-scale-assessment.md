@@ -4,13 +4,13 @@ description: "Descreve como avaliar grande número de máquinas no local ao util
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9b457252fdb7a1ad62b7e6038b341451df2e1590
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 67661e03e65cde3ec2f1aafd5ef755899cf0c77b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar num ambiente VMware grande
 
@@ -84,21 +84,21 @@ Verifique se o ficheiro de OVA é seguro antes de implementá-lo:
    Exemplo de utilização:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Certifique-se de que o hash gerado corresponde às seguintes definições.
  
-    Para a versão OVA 1.0.8.38:
+    Para a versão de OVA 1.0.8.49
+
     **Algoritmo** | **Valor de hash**
     --- | ---
-    MD5 | dd27dd6ace28f9195a2b5d52a4003067 
-    SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
-    SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+    MD5 | 8779eea842a1ac465942295c988ac0c7
+    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
+    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
 
     Para a versão OVA 1.0.8.40:
+
     **Algoritmo** | **Valor de hash**
     --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    MD5 |afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
-
 
 ## <a name="create-the-collector-vm"></a>Criar o recoletor de VM
 
@@ -168,9 +168,6 @@ Para cada deteção que é necessário executar, execute o recoletor para deteta
     - Especifique o nome (FQDN) ou endereço IP do vCenter Server.
     - No **nome de utilizador** e **palavra-passe**, especifique as credenciais da conta de só de leitura que o recoletor irá utilizar para detetar VMs no vCenter Server.
     - No **selecionar âmbito**, selecione um âmbito de deteção VM. O recoletor pode detetar apenas as VMs dentro do âmbito especificado. Âmbito pode ser definido para uma pasta específica, o Centro de dados ou o cluster. Esta não deve conter mais de 1000 VMs. 
-    - No **categoria de etiqueta de vCenter para o agrupamento**, selecione **nenhum**.
-
-    ![Selecionar âmbito](./media/how-to-scale-assessment/select-scope.png)
 
 6. No **projeto de migração de especificar**, especifique o ID e a chave para o projeto. Se não tiver copiá-los, abra o portal do Azure do recoletor VM. O projeto **descrição geral** página, selecione **detetar máquinas** e copie os valores.  
 7. No **ver o progresso da coleção**, monitorizar o processo de deteção e verificar esses metadados recolhidos a partir de VMs se encontra no âmbito. O recoletor fornece um período de tempo aproximado de deteção.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Como utilizar o serviço do Azure secundário Plug-in com a integração contínua Hudson
 O serviço do Azure secundário Plug-in para Hudson permite-lhe aprovisionar nós secundários no Azure, quando executar distribuída baseia-se.
@@ -181,7 +181,7 @@ Nesta secção, irá criar uma tarefa de Hudson que será executada num nó subo
 
 Hudson, em seguida, irá criar um nó subordinado utilizando o modelo que criou na secção anterior e execute o script que especificou no passo de compilação para esta tarefa.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Para obter mais informações sobre como utilizar o Azure com o Java, veja o [Centro de Programadores do Java do Azure].
 
 <!-- URL List -->

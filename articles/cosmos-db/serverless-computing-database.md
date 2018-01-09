@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 39481322d88a7674fce712dc24ef1f32f627f3cc
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Base de dados sem servidor informática utilizando as funções do Azure
 
@@ -34,6 +34,9 @@ BD do Azure do Cosmos e as funções do Azure permitem-lhe integrar as suas base
 * Em alternativa, vincular uma função do Azure para uma coleção de base de dados do Azure Cosmos utilizando um **enlace de entrada**. Enlaces de entrada ler dados a partir de um contentor quando executa uma função.
 * Vincular a uma função para uma coleção de base de dados do Azure Cosmos utilizando um **vínculo de saída**. Enlaces de saída escrever dados para um contentor ao concluir a uma função.
 
+> [!NOTE]
+> Neste momento, a base de dados do Azure Cosmos acionador, enlaces de entrada e enlaces de saída funcionam com apenas a contas de API do SQL Server e do Graph API.
+
 O diagrama seguinte ilustra cada uma destas três integrações: 
 
 ![Como integram a base de dados do Azure Cosmos e as funções do Azure](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
@@ -42,9 +45,6 @@ O acionador BD do Cosmos Azure, o enlace de entrada e o enlace de saída podem s
 * Um acionador de base de dados do Azure Cosmos pode ser utilizado com um enlace de saída para um contentor do Azure Cosmos BD diferentes. Depois de uma função executa uma ação num item do feed de alteração é possível escrever a outro contentor (escrita ao mesmo contentor provém eficazmente criaria um ciclo de recursiva). Em alternativa, pode utilizar um acionador de base de dados do Azure Cosmos para migrar eficazmente alteradas todos os itens a partir de um contentor para um contentor diferente, com a utilização de um enlace de saída.
 * Enlaces de entrada e saída enlaces para a base de dados do Azure Cosmos podem ser utilizados na mesma função do Azure. Isto funciona bem em casos quando pretender localizar certos dados com o enlace de entrada, modificá-lo na função do Azure e, em seguida, guarde-o mesmo contentor ou de um contentor diferente, após a modificação.
 * Um enlace de entrada para um contentor de BD do Cosmos Azure pode ser utilizado na mesma função que um acionador de base de dados do Azure Cosmos e pode ser utilizado com ou sem uma saída, bem como de enlace. Pode utilizar esta combinação para aplicar as informações de intercâmbio de moeda atualizado (solicitadas com um enlace de entrada para um contentor do exchange) para o feed de alteração das ordens de novo no seu serviço de carrinho de compras. Total carrinho de compras atualizada, com a conversão de moeda atual aplicada, pode ser escrito para um terceiro contentor utilizando um enlace de saída.
-
-> [!NOTE]
-> Neste momento, a base de dados do Azure Cosmos acionador, enlaces de entrada e enlaces de saída funcionam com apenas a contas de API do SQL Server e do Graph API.
 
 ## <a name="use-cases"></a>Casos de utilização
 
@@ -146,7 +146,7 @@ Benefícios das funções do Azure:
 
 Se não tiver a certeza se fluxo, as Logic Apps, as funções do Azure ou WebJobs são mais adequados para a sua implementação, consulte o artigo [escolha entre fluxo, as Logic Apps, funções e WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora vamos ligar BD do Cosmos do Azure e as funções do Azure por real: 
 

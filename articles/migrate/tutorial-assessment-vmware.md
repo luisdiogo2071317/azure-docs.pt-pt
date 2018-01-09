@@ -4,13 +4,13 @@ description: "Descreve como detetar e avaliar as VMs de VMware no local para a m
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/20/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: e2806486ffb76fa7c210c3d0ef0b8bb3f86b7cd4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a5019d3f729f2efbd01fca021b0089c7f99b0014
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detetar e avaliar as VMs de VMware no local para a migração para o Azure
 
@@ -73,17 +73,18 @@ Verifique se o. Ficheiro OVA é seguro, antes de implementá-lo.
     - Exemplo de utilização:```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. O hash gerado deve corresponder a estas definições.
     
-    Para a versão de OVA 1.0.8.38
+    Para a versão de OVA 1.0.8.49
     **Algoritmo** | **Valor de hash**
     --- | ---
-    MD5 | dd27dd6ace28f9195a2b5d52a4003067 
-    SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
-    SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+    MD5 | 8779eea842a1ac465942295c988ac0c7 
+    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
+    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
 
-    Para a versão de OVA 1.0.8.40
+    Para a versão OVA 1.0.8.40:
+
     **Algoritmo** | **Valor de hash**
     --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    MD5 |afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
@@ -123,7 +124,7 @@ Importe o ficheiro transferido para o vCenter Server.
     - Especifique o nome (FQDN) ou endereço IP do servidor vCenter.
     - No **nome de utilizador** e **palavra-passe**, especifique as credenciais da conta de só de leitura que o recoletor irá utilizar para detetar VMs no vCenter server.
     - No **âmbito de coleção**, selecione um âmbito de deteção VM. O recoletor só pode detetar a VMs dentro do âmbito especificado. Âmbito pode ser definido para uma pasta específica, o Centro de dados ou o cluster. Esta não deve conter mais de 1000 VMs. 
-    - No **categoria de Tag para agrupamento**, selecione **nenhum**.
+
 6. No **projeto de migração de especificar**, especifique o ID de projeto do Azure migrar e da chave que copiou do portal. Se não tiver copiá-los, abra o portal do Azure do recoletor VM. No projeto **descrição geral** página, clique em **detetar máquinas**e copie os valores.  
 7. No **ver o progresso da coleção**, monitorizar a deteção e verificar esses metadados recolhidos a partir de VMs se encontra no âmbito. O recoletor fornece um período de tempo aproximado de deteção.
 

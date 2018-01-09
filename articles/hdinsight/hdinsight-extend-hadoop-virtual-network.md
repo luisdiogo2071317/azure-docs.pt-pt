@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 7640c243495df88d89f61ed613d7fb68cef9a04b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 67a58c2377af129d8e2bc0c67d2dffe179fe998f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir o Azure HDInsight utilizando uma rede Virtual do Azure
 
@@ -424,17 +424,6 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Allow `
         -Priority 305 `
         -Direction Inbound `
-    | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "blockeverything" `
-        -Description "Block everything else" `
-        -Protocol "*" `
-        -SourcePortRange "*" `
-        -DestinationPortRange "*" `
-        -SourceAddressPrefix "Internet" `
-        -DestinationAddressPrefix "VirtualNetwork" `
-        -Access Deny `
-        -Priority 500 `
-        -Direction Inbound
 # Set the changes to the security group
 Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
 # Apply the NSG to the subnet
@@ -478,7 +467,6 @@ Utilize os seguintes passos para criar uma rede virtual que restringe o tráfego
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
 3. Para obter o identificador exclusivo para este grupo de segurança de rede, utilize o seguinte comando:
@@ -668,7 +656,7 @@ Este exemplo faz com que os seguintes pressupostos:
 
 Depois de concluir estes passos, pode ligar aos recursos na rede virtual, utilizando nomes de domínio completamente qualificado (FQDN). Agora, pode instalar o HDInsight para a rede virtual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter um exemplo de ponto a ponto de configuração do HDInsight para ligar a uma rede no local, consulte [HDInsight ligar a uma rede no local](./connect-on-premises-network.md).
 * Para configurar clusters de Hbase em redes virtuais do Azure, consulte [clusters criar HBase no HDInsight na Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).

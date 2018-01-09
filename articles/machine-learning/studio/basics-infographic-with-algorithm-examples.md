@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 9a7ad0cd7865923ed7356599044dfd79ff9e58cb
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 8c392740eb0c06b7a3c47e07e5beb667b17117ae
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico Transferível: Noções básicas do Machine Learning com exemplos de algoritmos
 Transfira esta descrição geral de gráfico informativo fácil de compreender de noções básicas de aprendizagem máquina para saber mais sobre populares algoritmos utilizados para responder a perguntas de aprendizagem máquina comuns. Exemplos de algoritmo ajudá-lo beginner de aprendizagem máquina compreender os algoritmos a utilizar e que são utilizados.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algoritmos mais populares no Machine Learning Studio
-[Azure Machine Learning Studio](https://studio.azureml.net/) vem com uma extensa biblioteca dos algoritmos de Análise Preditiva. O gráfico informativo identifica quatro famílias populares dos algoritmos - regressão, deteção de anomalias, clustering e classificação e fornece ligações para exemplos de trabalho a [galeria da Cortana Intelligence](https://gallery.cortanaintelligence.com/). A Galeria contém experimentações de exemplo e tutoriais que demonstram como estes algoritmos podem ser aplicados em muitas soluções do mundo real.
+[Azure Machine Learning Studio](https://studio.azureml.net/) vem com uma extensa biblioteca dos algoritmos de Análise Preditiva. O gráfico informativo identifica quatro famílias populares dos algoritmos - regressão, deteção de anomalias, clustering e classificação e fornece ligações para exemplos de trabalho a [galeria do Azure AI](https://gallery.cortanaintelligence.com/). A Galeria contém experimentações de exemplo e tutoriais que demonstram como estes algoritmos podem ser aplicados em muitas soluções do mundo real.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Transferir o gráfico informativo com exemplos do algoritmo
 **[Transferência: Gráfico informativo de noções básicas de aprendizagem máquina com ligações para exemplos de algoritmo (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
@@ -37,7 +37,7 @@ Transfira esta descrição geral de gráfico informativo fácil de compreender d
 * Para obter uma lista por categoria de todos os os algoritmos de machine learning disponíveis no Machine Learning Studio, consulte [inicializar modelo] [ initialize-model] no algoritmo do Machine Learning Studio e ajudar do módulo.
 * Para obter uma lista alfabética completa de algoritmos e módulos no Machine Learning Studio, consulte [lista A-Z dos módulos de Machine Learning Studio] [ a-z-list] no algoritmo do Machine Learning Studio e o módulo de ajuda.
 * Para transferir e imprimir um diagrama da descrição geral das funcionalidades do Machine Learning Studio, consulte o artigo [Diagrama da descrição geral das funcionalidades do Azure Machine Learning Studio](studio-overview-diagram.md).
-* Para uma descrição geral da galeria da Cortana Intelligence muitos geradas pela Comunidade recursos disponíveis, consulte o artigo [partilha e detetar recursos na galeria da Cortana Intelligence](gallery-how-to-use-contribute-publish.md).
+* Para uma descrição geral da Galeria de AI do Azure bem como muitas geradas pela Comunidade recursos disponíveis, consulte o artigo [partilha e detetar recursos na Galeria de AI do Azure](gallery-how-to-use-contribute-publish.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

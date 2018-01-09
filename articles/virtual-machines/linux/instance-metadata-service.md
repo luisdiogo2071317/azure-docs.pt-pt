@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40b684fe5681123f3c32d3984b2725f97b427f1b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -34,7 +34,7 @@ Serviço de metadados de instância do Azure é um ponto final de REST acessíve
 ## <a name="service-availability"></a>Disponibilidade do serviço
 O serviço está disponível em todos os todos os geralmente disponível regiões do Azure. Nem todos os versão de API poderão estar disponíveis em todas as regiões do Azure.
 
-Regiões                                        | Disponibilidade?                                 | Versões suportadas
+Regiões                                        | Disponibilidade?                                 | Versões Suportadas
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Todas as regiões do Azure Global geralmente disponíveis](https://azure.microsoft.com/regions/)     | Geralmente disponível   | 2017-04-02, 2017-08-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Geralmente disponível | 2017-04-02
@@ -75,8 +75,8 @@ A tabela seguinte é uma referência de APIs podem suportar outros formatos de d
 
 API | Formato de dados predefinido | Outros formatos
 --------|---------------------|--------------
-/instance | JSON | Texto
-/scheduledevents | JSON | nenhum
+/instance | json | Texto
+/scheduledevents | json | nenhum
 
 Para aceder a um formato de resposta não predefinido, especifique o formato de pedido como um parâmetro de cadeia de consulta no pedido. Por exemplo:
 
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Idioma | Exemplo 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.RB
-Aceda Lang  | https://github.com/Microsoft/azureimds/blob/Master/imdssample.go            
+Ir  | https://github.com/Microsoft/azureimds/blob/Master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.PY
 C++      | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample-Windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.CS
 JavaScript | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.SH
+Perl       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/Master/imdssample.Java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.VB
     
 
 ## <a name="faq"></a>FAQ
@@ -406,6 +409,6 @@ Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.SH
 
    ![Suporte de metadados de instância](./media/instance-metadata-service/InstanceMetadata-support.png)
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre o [agendada eventos](scheduled-events.md) API **em pré-visualização pública** fornecido pelo serviço de metadados de instância.

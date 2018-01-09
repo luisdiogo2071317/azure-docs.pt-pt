@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87a5a1981b05722f25a70fcb73a06db65bcbe0fd
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento Microsoft® uniforme transmissão em fluxo cliente transferências Kit
 ## <a name="overview"></a>Descrição geral
-Microsoft uniforme de transmissão em fluxo cliente transferências Kit (**SSPK** para abreviar) é uma implementação de cliente transmissão em fluxo uniforme que está otimizada para o ajudar fabricantes de dispositivos incorporados, cabo e móveis operadores, fornecedores de serviços de conteúdo, fabricantes handset, os fabricantes independentes de software (ISV) e fornecedores de soluções para criar conteúdo num formato de transmissão em fluxo uniforme de produtos e serviços para a transmissão em fluxo adaptável. SSPK é uma implementação independente de plataforma e de dispositivos do cliente de transmissão em fluxo uniforme de mensagens em fila que pode ser convertidos serem por licensee para qualquer plataforma e de dispositivos. 
+Microsoft uniforme de transmissão em fluxo cliente transferências Kit (**SSPK** para abreviar) é uma implementação de cliente transmissão em fluxo uniforme que está otimizada para ajudar a fabricantes de dispositivos incorporados, cabo e operadores móveis, os fornecedores de serviços de conteúdo, handset fabricantes, os fabricantes independentes de software (ISV) e fornecedores de soluções para criar os produtos e serviços para transmissão em fluxo adaptável conteúdo no formato de transmissão em fluxo uniforme. SSPK é um dispositivo e a implementação de independentes da plataforma do cliente de transmissão em fluxo uniforme de mensagens em fila que pode ser convertidos serem por licensee para qualquer plataforma e de dispositivos. 
 
-Incluída abaixo é uma arquitetura de alto nível e caixa IIS uniforme de transmissão em fluxo transferências Kit é a implementação de cliente de transmissão em fluxo uniforme fornecida pela Microsoft e inclui toda a lógica de núcleos para reprodução de conteúdos de transmissão em fluxo uniforme. Isto é, em seguida, convertidos serem por parceiros de uma plataforma ou dispositivo específico implementando interfaces adequadas. 
+Incluída abaixo é uma arquitetura de alto nível e caixa IIS uniforme de transmissão em fluxo transferências Kit é a implementação de cliente de transmissão em fluxo uniforme fornecida pela Microsoft e inclui toda a lógica de núcleos para reprodução de conteúdos de transmissão em fluxo uniforme. Este conteúdo, em seguida, convertidos serem por parceiros de uma plataforma ou dispositivo específico implementando interfaces adequadas. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
@@ -70,7 +70,7 @@ O cliente uniforme de transmissão em fluxo produto Final é oferecido com um mo
 * Não existem royalty para primeiro 10 000 implementações de dispositivo por ano 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Procedimento de licenciamento e SSPK acesso
-Envie um e-mail [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) para todas as consultas de licenciamento.
+E-mail [ sspkinfo@microsoft.com ](mailto:sspkinfo@microsoft.com) para todas as consultas de licenciamento.
 
 O [portal SSPK distribuição](https://microsoft.sharepoint.com/teams/SSPKDOWNLOAD/) está acessível para distribuição de provisório registada.
 
@@ -103,7 +103,7 @@ Distribuição provisório e Final SSPK pode submeter questões técnicas para [
 * SoftAtHome
 * Sony Corporation
 * Inc. de tecnologia de Tatung
-* TCL Technoly Electronics (Huizhou) Co., Ltd.
+* TCL tecnologia Electronics (Huizhou) Co., Ltd.
 * Parte superior Victory investimentos, Ltd.
 * Gra Vestel Elektronik Sanayi Ticaret A.S.
 * VisualOn, Inc.

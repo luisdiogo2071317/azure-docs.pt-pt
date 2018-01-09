@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 8bd46adc475af35d32b9e329a3765e064120a6e3
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: f48c9ef6b66cb3c9a687f1d063859e413866e88c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure funções c# de referência para programadores
 
@@ -89,7 +89,22 @@ O objetivo deste ficheiro é fornecer informações para o controlador de escala
 
 Gerado *function.json* ficheiro inclui um `configurationSource` propriedade que indica o tempo de execução para utilizar atributos do .NET para enlaces, vez *function.json* configuração. Eis um exemplo:
 
-{"generatedBy": "Microsoft.NET.Sdk.Functions-1.0.0.0", "configurationSource": "de atributos", "enlaces": [{"type": "queueTrigger", "queueName": "% % de nome da fila de entrada", "name": "myQueueItem"}], "desativado": false, "scriptFile": ".. \\bin\\FunctionApp1.dll ","entryPoint":"FunctionApp1.QueueTrigger.Run"}
+```json
+{
+  "generatedBy": "Microsoft.NET.Sdk.Functions-1.0.0.0",
+  "configurationSource": "attributes",
+  "bindings": [
+    {
+      "type": "queueTrigger",
+      "queueName": "%input-queue-name%",
+      "name": "myQueueItem"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "..\\bin\\FunctionApp1.dll",
+  "entryPoint": "FunctionApp1.QueueTrigger.Run"
+}
+```
 
 O *function.json* geração do ficheiro é realizada o pacote NuGet [Microsoft\.NET\.Sdk\.funções](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). O código de origem está disponível no repositório GitHub [azure\-funções\-vs\-criar\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 

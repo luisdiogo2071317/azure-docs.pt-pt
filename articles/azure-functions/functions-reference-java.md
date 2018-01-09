@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia para programadores do Java de funções do Azure
 > [!div class="op_single_selector"]
@@ -276,7 +276,7 @@ Por vezes, uma função tem de ter detalhadas controlo sobre entradas e saídas.
 | `HttpResponseMessage<T>` | Enlace de saída de HTTP | Devolver o estado diferente de 200   |
 
 > [!NOTE] 
-> Também pode utilizar `@BindingName` anotação para obter os cabeçalhos de HTTP e consultas. Por exemplo, `@Bind("name") String query` itera os cabeçalhos de pedido HTTP e consultas e transmitir esse valor para o método. Por exemplo, `query` será `"test"` se o URL do pedido for `http://example.org/api/echo?name=test`.
+> Também pode utilizar `@BindingName` anotação para obter os cabeçalhos de HTTP e consultas. Por exemplo, `@BindingName("name") String query` itera os cabeçalhos de pedido HTTP e consultas e transmitir esse valor para o método. Por exemplo, `query` será `"test"` se o URL do pedido for `http://example.org/api/echo?name=test`.
 
 ### <a name="metadata"></a>Metadados
 

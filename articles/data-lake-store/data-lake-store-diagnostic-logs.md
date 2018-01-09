@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 5e1c3df24b0fc3e733981ab3f8814a9e6641f5f1
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Aceder a registos de diagnóstico para o Azure Data Lake Store
 Saiba mais ativar o diagnóstico de registo para a sua conta do Data Lake Store e ver os registos recolhidos para a sua conta.
 
-As organizações podem ativar o registo de diagnóstico para a conta do Azure Data Lake Store recolher registos de auditoria de acesso de dados que fornece informações como a lista de utilizadores que acedem aos dados, frequência os dados são acedidos, quantidade de dados é armazenado na conta, etc.
+As organizações podem ativar o registo de diagnóstico para a conta do Azure Data Lake Store recolher registos de auditoria de acesso de dados que fornece informações como a lista de utilizadores que acedem aos dados, frequência os dados são acedidos, quantidade de dados é armazenado na conta, etc. Quando ativada, o diagnóstico de e/ou os pedidos são registados numa base de melhor esforço. Pedidos e diagnóstico entradas de registo são criadas apenas se não existirem pedidos efetuados relativamente ao ponto final de serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -188,7 +188,7 @@ search *
 
 O Azure Data Lake Store fornece um exemplo sobre como processar e analisar os dados de registo. Pode encontrar o exemplo em [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Descrição geral do Azure Data Lake Store](data-lake-store-overview.md)
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)
 

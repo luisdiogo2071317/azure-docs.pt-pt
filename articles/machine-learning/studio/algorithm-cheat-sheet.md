@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 31251e039414ee6f268aeb54f3eef755fcde9cb3
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5ecd569f68c2eada921193f2b7b88fe788120a9b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Referência rápida de algoritmos do Machine Learning para o Microsoft Azure Machine Learning Studio
 O **Microsoft Azure Machine Learning algoritmo Cheat folha** ajuda-o a escolher o algoritmo de direita para um modelo de Análise Preditiva.
@@ -53,7 +53,7 @@ Transferir e imprimir o Machine Learning algoritmo Cheat folha no tamanho de tab
 
 * As sugestões oferecidas nesta folha de referência do algoritmo são aproximado regras do botão. Alguns podem ser bent e alguns podem ser flagrantly violado. Destina-se sugerir um ponto de partida. Não possível afraid executar uma concorrência head-to-head entre vários algoritmos nos seus dados. Não é simplesmente sem substitute para compreender os princípios de cada algoritmo e compreender o sistema que geraram os seus dados.
 
-* Cada algoritmo do machine learning tem o suas próprias estilo ou *inductive bias*. Para um problema específico, vários algoritmos poderão ser apropriados e um algoritmo pode ser uma opção melhor que outros. Mas não é sempre possível saber antecipadamente qual é a melhor opção. Nestes casos, vários algoritmos estão listados em conjunto na folha de referência. Uma estratégia de adequado seria tentar um algoritmo, se os resultados ainda não estão satisfatório, tente a outras pessoas. Eis um exemplo do [galeria da Cortana Intelligence](http://gallery.cortanaintelligence.com/) de uma experiência que tenta vários algoritmos contra os mesmos dados e compara os resultados: [comparar classificadores de classe multi: letra reconhecimento](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+* Cada algoritmo do machine learning tem o suas próprias estilo ou *inductive bias*. Para um problema específico, vários algoritmos poderão ser apropriados e um algoritmo pode ser uma opção melhor que outros. Mas não é sempre possível saber antecipadamente qual é a melhor opção. Nestes casos, vários algoritmos estão listados em conjunto na folha de referência. Uma estratégia de adequado seria tentar um algoritmo, se os resultados ainda não estão satisfatório, tente a outras pessoas. Eis um exemplo do [galeria do Azure AI](http://gallery.cortanaintelligence.com/) de uma experiência que tenta vários algoritmos contra os mesmos dados e compara os resultados: [comparar classificadores de classe multi: letra reconhecimento](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 * Existem três categorias principais de aprendizagem: **aprendizagem supervisionada**, **learning não supervisionado**, e **reinforcement learning**.
 

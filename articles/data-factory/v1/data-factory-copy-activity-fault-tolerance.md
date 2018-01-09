@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5c32d4ac2c1179a83a82bd5deb41047b82e43b7e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6e7923e2e0a23f22f7dff8c316050a1757310456
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicione tolerância a falhas na atividade de cópia ao ignorar linhas incompatíveis
 > [!NOTE]
@@ -43,6 +43,9 @@ Atividade de cópia suporta três cenários para detetar, ignorar, dados e regis
 - **Violação da chave primária ao escrever para uma base de dados relacional**
 
     Por exemplo: copiar dados do SQL server para uma base de dados do SQL Server. É definida uma chave primária na base de dados do SQL Server sink, mas essa nenhuma chave primária está definido no servidor SQL de origem. As linhas duplicadas que existe na origem não não possível copiar o sink. Atividade de cópia copia apenas a primeira linha dos dados de origem para o sink. As linhas subsequentes de origem que contêm o valor de chave primária duplicado são detetadas como incompatíveis e são ignoradas.
+
+>[!NOTE]
+>Esta funcionalidade não se aplica quando a atividade de cópia está configurada para invocar incluindo mecanismo do carregamento de dados externos [Azure SQL Data Warehouse PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) ou [Amazon Redshift descarregamento](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Para carregar dados para o SQL Data Warehouse, utilizando o PolyBase, utilize o suporte de tolerância de falhas nativo do PolyBase especificando "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" na atividade de cópia.
 
 ## <a name="configuration"></a>Configuração
 O exemplo seguinte fornece uma definição de JSON para configurar a ignorar as linhas incompatíveis na atividade de cópia:
@@ -83,5 +86,5 @@ data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an inval
 data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre a atividade de cópia de fábrica de dados do Azure, consulte [mover dados utilizando a atividade de cópia](data-factory-data-movement-activities.md).
