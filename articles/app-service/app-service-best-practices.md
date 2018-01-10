@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 1a36c11fcce33c0148fa7d0a4e947a9cc37cd276
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-app-service"></a>Melhores Práticas do Serviço de Aplicações do Azure
 Este artigo resume as melhores práticas para utilizar [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -35,9 +35,9 @@ A colocalização na mesma região é melhor para composição uma solução com
 Quando é que uma aplicação consome mais memória do que era esperado dado indicados através da monitorização ou considere recomendações de serviço Repare o [funcionalidade aplicação serviço Autorrecuperação](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). Uma das opções para a funcionalidade de recuperação automática está a demorar ações personalizadas com base num limiar de memória. Ações span espetro de notificações por e-mail para investigação através do Estado da memória no-a-lugar para cima mitigação ao reciclar o processo de trabalho. Autorrecuperação pode ser configurado através da Web. config e através de uma interface de utilizador amigável conforme descrito neste blogue para o [extensão de Site de suporte de serviço de aplicação](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps).   
 
 ## <a name="CPUresources"></a>Quando as aplicações consumir mais CPU que o previsto
-Quando Repare que uma aplicação consome CPU mais que o esperado ou experiências repetido picos de CPU, conforme indicado através de monitorização ou recomendações de serviço considere como aumentar verticalmente ou aumentar horizontalmente o plano de serviço de aplicações. Se a aplicação for statefull, como aumentar verticalmente é a única opção, enquanto se a aplicação está fora do dimensionamento, sem monitorização de estado irá dar-lhe mais flexibilidade e a maior possibilidade de escala. 
+Quando Repare que uma aplicação consome CPU mais que o esperado ou experiências repetido picos de CPU, conforme indicado através de monitorização ou recomendações de serviço considere como aumentar verticalmente ou aumentar horizontalmente o plano de serviço de aplicações. Se a aplicação com monitorização de estado, como aumentar verticalmente é a única opção, enquanto se a aplicação está fora do dimensionamento, sem monitorização de estado irá dar-lhe mais flexibilidade e a maior possibilidade de escala. 
 
-Para obter mais informações sobre aplicações "sem monitorização de estado" do "statefull" vs pode ver este vídeo: [planeamento de uma aplicação de várias camadas dimensionável ponto-a-ponto na aplicação do Microsoft Azure Web](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para obter mais informações sobre as opções de dimensionamento e o dimensionamento automático do serviço de aplicações, leia: [dimensionar uma aplicação Web no App Service do Azure](web-sites-scale.md).  
+Para obter mais informações sobre aplicações "sem monitorização de estado" de "com monitorização de estado" vs pode ver este vídeo: [planeamento de uma aplicação de várias camadas dimensionável ponto-a-ponto na aplicação do Microsoft Azure Web](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para obter mais informações sobre as opções de dimensionamento e o dimensionamento automático do serviço de aplicações, leia: [dimensionar uma aplicação Web no App Service do Azure](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Quando os recursos de socket ficam esgotados
 Um motivo comum esgotar os ligações de TCP de saída é a utilização de bibliotecas de cliente que não são implementadas para reutilizar ligações TCP ou no caso de um protocolo de nível superior como HTTP - ligação Keep-Alive não a ser utilizada. Reveja a documentação de cada uma das bibliotecas referenciadas pelas aplicações no seu plano do App Service para garantir que estão configurados ou acedidos no seu código para reutilização eficiente de ligações de saída. Siga também as orientações de documentação de biblioteca para criação adequada e a versão ou a limpeza para evitar a fuga de dados de ligações. Embora estas bibliotecas de cliente são as investigações no impacto de progresso podem ser mitigadas ao aumentar horizontalmente a várias instâncias.

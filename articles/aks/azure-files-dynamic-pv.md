@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d468944883cca80946001724c38dd5ec9ba0d94f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Aprovisionamento de volumes persistentes com ficheiros do Azure - dinâmicos
 
@@ -79,7 +79,7 @@ parameters:
 Uma afirmação de volume persistente utiliza o objeto de classe de armazenamento para aprovisionar dinamicamente um conjunto de armazenamento. Quando utilizar uma ficheiros do Azure, é criada uma partilha de ficheiros do Azure na conta de armazenamento selecionada ou especificado no objeto de classe de armazenamento.
 
 >  [!NOTE]
->   Certifique-se de que uma conta de armazenamento adequado foi previamente criada no mesmo grupo de recursos do cluster AKS. A afirmação de volume persistente irão falhar para aprovisionar a Azure partilha de ficheiros se uma conta de armazenamento não está disponível. 
+>   Certifique-se de que uma conta de armazenamento adequado tiver sido previamente criada no mesmo grupo de recursos, como os recursos de cluster AKS. Este grupo de recursos possui um nome, como *MC_myAKSCluster_myAKSCluster_eastus*. A afirmação de volume persistente irão falhar para aprovisionar a Azure partilha de ficheiros se uma conta de armazenamento não está disponível. 
 
 O manifesto seguinte pode ser utilizado para criar uma afirmação de volume persistente `5GB` tamanho com `ReadWriteOnce` acesso. Para obter mais informações sobre modos de acesso de PVC, consulte [modos de acesso][access-modes].
 

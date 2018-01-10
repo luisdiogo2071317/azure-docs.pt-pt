@@ -1,24 +1,16 @@
 ---
 title: Acerca do Azure Migrate | Microsoft Docs
 description: "Disponibiliza uma descrição geral do serviço do Azure Migrate."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
-ms.service: migrate
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.service: azure-migrate
+ms.topic: overview
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -41,13 +33,12 @@ O Azure Migrate ajuda-o a:
 - Atualmente, pode avaliar máquinas virtuais (VMs) do VMware no local para migração para VMs do Azure.
 
 > [!NOTE]
-> O suporte para o Hyper-V está nas previsões e será ativado dentro de alguns meses. Até lá, recomendamos que utilize o Planeador de Implementações do Azure Site Recovery para planear a migração de cargas de trabalho do Hyper-V. 
+> O suporte para o Hyper-V está nas previsões e será ativado brevemente. Até lá, recomendamos que utilize o [Planeador de Implementações do Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) para planear a migração de cargas de trabalho do Hyper-V. 
 
-- Pode avaliar até mil VMs numa única avaliação e até 1500 máquinas num projeto do Azure Migrate individual. Se precisar de avaliar mais máquinas, pode aumentar o número de projetos ou de avaliações. [Saiba mais](how-to-scale-assessment.md).
+- Pode detetar até 1000 VMs numa única deteção e até 1500 VMs num único projeto. Além disso, pode avaliar até 400 VMs numa única avaliação. Se precisar de detetar ou avaliar mais máquinas, pode aumentar o número de deteções ou de avaliações. [Saiba mais](how-to-scale-assessment.md).
 - A VM que for avaliar tem de ser gerida por um vCenter Server, versão 5.5, 6.0 ou 6.5.
 - Só pode criar projetos do Azure Migrate na região E.U.A. Centro-Oeste. No entanto, esta limitação não afeta a possibilidade de planear a sua migração para outra localização de destino do Azure. A localização do projeto de migração é utilizada apenas para armazenar os metadados detetados a partir do ambiente no local.
-- Neste momento, portal do Azure Migrate portal só está disponível em inglês. 
-- Atualmente, o Azure Migrate só suporta a replicação [Armazenamento Localmente Redundante (LRS)](../storage/common/storage-introduction.md#replication).
+- O Azure Migrate só suporta discos geridos para avaliação de migrações.
 
 ## <a name="what-do-i-need-to-pay-for"></a>O que vou pagar?
 
@@ -91,7 +82,7 @@ A tabela resume as portas necessárias para as comunicações do Azure Migrate.
 |-------------------|------------------------|---------------|---------|
 |Recoletor          |Serviço do Azure Migrate   |TCP 443        |O recoletor liga-se ao serviço através da porta SSL 443|
 |Recoletor          |vCenter Server          |Predefinição 9443   | Por predefinição, o recoletor liga-se ao vCenter Server na porta 9443. Se o servidore escutar noutra porta, esta deve ser configurada como porta de saída na VM do recoletor. |
-|VM no local     | Área de trabalho do Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |O agente MMA utiliza a TCP 443 para ligar ao Log Analytics. Só precisa desta porta se estiver a utilizar a funcionalidade de visualização de dependências e a instalar o MMA (Microsoft Monitoring Agent). |
+|VM no local     | Área de trabalho do Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |O agente MMA utiliza a TCP 443 para ligar ao Log Analytics. Só precisa desta porta se estiver a utilizar a funcionalidade de visualização de dependências e a instalar o MMA (Microsoft Monitoring Agent). |
 
 
   

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: b8c181282dd28582a8fb02f611424ffd608fd1ec
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="api-management-advanced-policies"></a>API de gestão avançada de políticas
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -243,7 +243,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
 |tempo limite = "número inteiro"|O intervalo de tempo limite em segundos antes da chamada para o serviço de back-end irá falhar.|Não|300 segundos|  
-|seguir redirecionamentos = "true &#124; FALSE"|Especifica se redirecionamentos a partir do serviço de back-end são seguidos pelo gateway ou devolvidos ao autor da chamada.|Não|False|  
+|seguir redirecionamentos = "true &#124; FALSE"|Especifica se redirecionamentos a partir do serviço de back-end são seguidos pelo gateway ou devolvidos ao autor da chamada.|Não|falso|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -289,8 +289,8 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|--------------|  
-|key|Uma cadeia. Expressão permitido. Especifica o âmbito de concorrência. Pode ser partilhado por várias políticas.|Sim|N/D|  
-|contagem máxima|Um número inteiro. Especifica um número máximo de pedidos que estão autorizados a introduzir a política.|Sim|N/D|  
+|key|Uma cadeia. Expressão permitido. Especifica o âmbito de concorrência. Pode ser partilhado por várias políticas.|Sim|N/A|  
+|contagem máxima|Um número inteiro. Especifica um número máximo de pedidos que estão autorizados a introduzir a política.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -383,7 +383,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|--------------|  
 |código de estado|Especifica o código de estado de resposta e é utilizado para selecionar exemplo correspondente ou esquema.|Não|200|  
-|tipo de conteúdo|Especifica `Content-Type` valor de cabeçalho de resposta e é utilizado para selecionar exemplo correspondente ou esquema.|Não|Nenhuma|  
+|tipo de conteúdo|Especifica `Content-Type` valor de cabeçalho de resposta e é utilizado para selecionar exemplo correspondente ou esquema.|Não|Nenhum|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -412,7 +412,7 @@ status code and media type. If no example or schema found, the content is empty.
 ```  
   
 ### <a name="example"></a>Exemplo  
- O pedido de exemplo seguintes forewarding é repetida até dez vezes utilizando exponencial novamente o algoritmo. Uma vez que `first-fast-retry` é definido como FALSO, todas as tentativas de repetição estão sujeitos o algoritmo de repetição exponsntial.  
+ No exemplo seguinte, o reencaminhamento do pedido é repetido até dez vezes com um algoritmo de repetição exponencial. Uma vez que `first-fast-retry` é definido como FALSO, todas as tentativas de repetição estão sujeitos o algoritmo de repetição exponencial.  
   
 ```xml  
   
@@ -438,11 +438,11 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
-|condição|Um booleano literal ou [expressão](api-management-policy-expressions.md) especificar se as tentativas devem ser paradas (`false`) ou continuou (`true`).|Sim|N/D|  
-|contagem|Um número positivo que especifica o número máximo de tentativas a tentar.|Sim|N/D|  
-|intervalo|Um número positivo em segundos, especificando o intervalo de espera entre a repetição tenta.|Sim|N/D|  
-|intervalo máximo|Um número positivo no especificando o número máximo de segundos de espera intervalo entre tentativas de repetição. É utilizado para implementar um algoritmo de repetição exponencial.|Não|N/D|  
-|delta|Um número positivo em segundos, especificando o incremento de intervalo de espera. É utilizado para implementar os algoritmos de repetição linear e exponencial.|Não|N/D|  
+|condição|Um booleano literal ou [expressão](api-management-policy-expressions.md) especificar se as tentativas devem ser paradas (`false`) ou continuou (`true`).|Sim|N/A|  
+|contagem|Um número positivo que especifica o número máximo de tentativas a tentar.|Sim|N/A|  
+|intervalo|Um número positivo em segundos, especificando o intervalo de espera entre a repetição tenta.|Sim|N/A|  
+|intervalo máximo|Um número positivo no especificando o número máximo de segundos de espera intervalo entre tentativas de repetição. É utilizado para implementar um algoritmo de repetição exponencial.|Não|N/A|  
+|delta|Um número positivo em segundos, especificando o incremento de intervalo de espera. É utilizado para implementar os algoritmos de repetição linear e exponencial.|Não|N/A|  
 |primeiro-fast-repetir|Se definido como `true` , a primeira tentativa de repetição é executada imediatamente.|Não|`false`|  
   
 > [!NOTE]
@@ -564,7 +564,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
 |modo = "cadeia"|Determina se se trata de um novo pedido ou uma cópia do pedido atual. No modo de saída, modo = cópia não inicializou o corpo do pedido.|Não|Novo|  
-|nome|Especifica o nome do cabeçalho de ser definida.|Sim|N/D|  
+|nome|Especifica o nome do cabeçalho de ser definida.|Sim|N/A|  
 |ação existe|Especifica a ação a tomar quando o cabeçalho já está especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do cabeçalho existente.<br />-Ignorar - não substitui o valor de cabeçalho existente.<br />-Acrescentar - acrescenta o valor para o valor de cabeçalho existente.<br />-delete - remove o cabeçalho do pedido.<br /><br /> Quando definido como `override` inscrever várias entradas com o mesmo nome resulta no cabeçalho de que está a ser definido de acordo com todas as entradas (que serão apresentadas várias vezes); apenas os valores listados serão definidos no resultado.|Não|substituir|  
   
 ### <a name="usage"></a>Utilização  
@@ -643,10 +643,10 @@ status code and media type. If no example or schema found, the content is empty.
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
 |modo = "cadeia"|Determina se se trata de um novo pedido ou uma cópia do pedido atual. No modo de saída, modo = cópia não inicializou o corpo do pedido.|Não|Novo|  
-|nome da variável de resposta = "cadeia"|Se não estiver presente, `context.Response` é utilizado.|Não|N/D|  
+|nome da variável de resposta = "cadeia"|Se não estiver presente, `context.Response` é utilizado.|Não|N/A|  
 |tempo limite = "número inteiro"|O intervalo de tempo limite em segundos antes da chamada para o URL de falha.|Não|60|  
-|Ignorar-erro|Se VERDADEIRO e os resultados de pedido num erro:<br /><br /> -Se foi especificado o nome de variável de resposta irá conter um valor nulo.<br />-Se não foi especificado o nome da variável de resposta, contexto. Não será possível atualizar o pedido.|Não|False|  
-|nome|Especifica o nome do cabeçalho de ser definida.|Sim|N/D|  
+|Ignorar-erro|Se VERDADEIRO e os resultados de pedido num erro:<br /><br /> -Se foi especificado o nome de variável de resposta irá conter um valor nulo.<br />-Se não foi especificado o nome da variável de resposta, contexto. Não será possível atualizar o pedido.|Não|falso|  
+|nome|Especifica o nome do cabeçalho de ser definida.|Sim|N/A|  
 |ação existe|Especifica a ação a tomar quando o cabeçalho já está especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do cabeçalho existente.<br />-Ignorar - não substitui o valor de cabeçalho existente.<br />-Acrescentar - acrescenta o valor para o valor de cabeçalho existente.<br />-delete - remove o cabeçalho do pedido.<br /><br /> Quando definido como `override` inscrever várias entradas com o mesmo nome resulta no cabeçalho de que está a ser definido de acordo com todas as entradas (que serão apresentadas várias vezes); apenas os valores listados serão definidos no resultado.|Não|substituir|  
   
 ### <a name="usage"></a>Utilização  
@@ -684,9 +684,9 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
-|URL = "cadeia"|URL de proxy no formato http://host:port.|Sim|N/D|  
-|nome de utilizador = "cadeia"|Nome de utilizador a ser utilizado para a autenticação com o proxy.|Não|N/D|  
-|palavra-passe = "cadeia"|Palavra-passe a ser utilizado para a autenticação com o proxy.|Não|N/D|  
+|URL = "cadeia"|URL de proxy no formato http://host:port.|Sim|N/A|  
+|nome de utilizador = "cadeia"|Nome de utilizador a ser utilizado para a autenticação com o proxy.|Não|N/A|  
+|palavra-passe = "cadeia"|Palavra-passe a ser utilizado para a autenticação com o proxy.|Não|N/A|  
 
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -784,8 +784,8 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
-|código = "número inteiro"|O código de estado HTTP a devolver.|Sim|N/D|  
-|razão = "cadeia"|Uma descrição do motivo para devolver o código de estado.|Sim|N/D|  
+|código = "número inteiro"|O código de estado HTTP a devolver.|Sim|N/A|  
+|razão = "cadeia"|Uma descrição do motivo para devolver o código de estado.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -886,7 +886,7 @@ Tenha em atenção a utilização de [propriedades](api-management-howto-propert
   
 |Atributo|Descrição|Necessário|Predefinição|  
 |---------------|-----------------|--------------|-------------|  
-|origem|Literal de cadeia significativo para o Visualizador de rastreio e especificar a origem da mensagem.|Sim|N/D|  
+|origem|Literal de cadeia significativo para o Visualizador de rastreio e especificar a origem da mensagem.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
@@ -962,7 +962,7 @@ Esta política pode ser utilizada na política de seguinte [secções](http://az
 -   **As secções de política:** entrada, saída, back-end  
 -   **Âmbitos de política:** todos os âmbitos  
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações para trabalhar com as políticas, consulte:
 + [Políticas de gestão de API](api-management-howto-policies.md) 

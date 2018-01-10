@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 247cc4175b70e31c9496df7037d45e8c7e2c7494
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introdução ao servidor R e as capacidades de R de open source do HDInsight
 
@@ -46,7 +46,7 @@ Tem a opção de adição de acesso para o Blob adicional e armazena o Data lake
 Também pode utilizar [ficheiros do Azure](../../storage/files/storage-how-to-use-files-linux.md) como uma opção de armazenamento para utilização no nó de extremidade. Ficheiros do Azure permite-lhe montar uma partilha de ficheiros que foi criada no armazenamento do Azure para o sistema de ficheiros do Linux. Para obter mais informações sobre estas opções de armazenamento de dados para o servidor R num cluster do HDInsight, consulte [as opções de armazenamento do Azure para clusters de servidor R no HDInsight](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Acesso R Server no cluster
-Pode ligar ao servidor R no nó de extremidade utilizando um browser. É instalado por predefinição durante a criação do cluster. Para obter mais informações, consulte [obter stared com o servidor R no HDInsight](r-server-get-started.md).
+Pode ligar ao servidor R no nó de extremidade utilizando um browser. É instalado por predefinição durante a criação do cluster. Para obter mais informações, consulte [começar com o servidor R no HDInsight](r-server-get-started.md).
 
 Também pode ligar ao servidor R da linha de comandos utilizando SSH/PuTTY para aceder à consola do R. 
 
@@ -100,7 +100,7 @@ Por último, pode aceder à consola do servidor R no nó de extremidade, escreve
 ## <a name="learn-about-pricing"></a>Saiba mais sobre os preços
 As taxas associadas um cluster do HDInsight com o servidor de R estão estruturadas do mesmo modo para as taxas de standard para clusters do HDInsight. Têm como base o dimensionamento de VMs subjacentes entre o nome, dados e nós de limite, com a adição de um uplift horas de núcleo. Para obter mais informações sobre preços do HDInsight, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre como utilizar o R Server com clusters do HDInsight, consulte os seguintes tópicos:
 
 * [Introdução ao servidor R no HDInsight](r-server-get-started.md)

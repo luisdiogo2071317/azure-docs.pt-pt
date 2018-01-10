@@ -16,15 +16,15 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e2f6f764372b1a9786847c9382abfd18fe5b87c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ba2bd2b185c395e54f2f085317a424a2aa1b4421
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-powershell-samples"></a>Exemplos do PowerShell do Azure
 
-A tabela seguinte inclui ligações para bash scripts criadas com o Azure PowerShell.
+A tabela seguinte inclui ligações para os scripts do PowerShell criadas com o Azure PowerShell.
 
 | | |
 |-|-|

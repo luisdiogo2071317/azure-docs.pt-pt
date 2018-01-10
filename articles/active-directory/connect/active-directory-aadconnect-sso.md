@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: billmath
-ms.openlocfilehash: f259474e8e3ba8b9a3d9d1ad83c8d848e06cff8c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b71a2f19fee370ab1d732becd1c3b644505e2233
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory totalmente integrada Single Sign-On
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Azure Active Directory totalmente integrada Single Sign-On (Azure AD totalmente integrada SSO) inicia automaticamente os utilizadores quando estão nos respetivos dispositivos de empresa ligados à sua rede empresarial. Quando ativada, os utilizadores não precisam de escrever as palavras-passe para iniciar sessão Azure AD e, normalmente, mesmo escreva os nomes de utilizador. Esta funcionalidade fornece aos utilizadores o facilitar o acesso às suas aplicações baseado na nuvem sem necessidade de quaisquer componentes adicionais no local.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 SSO totalmente integrada pode ser combinado com uma o [sincronização de Hash de palavra-passe](active-directory-aadconnectsync-implement-password-synchronization.md) ou [autenticação pass-through](active-directory-aadconnect-pass-through-authentication.md) métodos de início de sessão.
 
@@ -55,20 +55,20 @@ SSO totalmente integrada pode ser combinado com uma o [sincronização de Hash d
 - É uma funcionalidade livre e não precisa de quaisquer edições pagas do Azure AD para utilizá-lo.
 - É suportada em clientes de baseada no browser da web e os clientes do Office que suportam [autenticação moderna](https://aka.ms/modernauthga) em plataformas e browsers com capacidade de autenticação Kerberos:
 
-| OS\Browser |Internet Explorer|Limite|Google Chrome|Mozilla Firefox|Safari|
+| OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sim|Não|Sim|Sim\*|N/D
-|Windows 8.1|Sim|N/D|Sim|Sim\*|N/D
-|Windows 8|Sim|N/D|Sim|Sim\*|N/D
-|Windows 7|Sim|N/D|Sim|Sim\*|N/D
-|Mac OS X|N/D|N/D|Sim\*|Sim\*|Sim\*
+|Windows 10|Sim|Não|Sim|Sim\*|N/A
+|Windows 8.1|Sim|N/A|Sim|Sim\*|N/A
+|Windows 8|Sim|N/A|Sim|Sim\*|N/A
+|Windows 7|Sim|N/A|Sim|Sim\*|N/A
+|Mac OS X|N/A|N/A|Sim\*|Sim\*|Sim\*
 
 \*Requer [configuração adicional](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >Para o Windows 10, a recomendação é utilizar [associação do Azure AD](../active-directory-azureadjoin-overview.md) para a único início de sessão uma experiência ideal com o Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [**Início Rápido** ](active-directory-aadconnect-sso-quick-start.md) - obter cópias de segurança e executar o SSO totalmente integrada de AD do Azure.
 - [**Descrição detalhada da Technical** ](active-directory-aadconnect-sso-how-it-works.md) -compreender como funciona esta funcionalidade.

@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d34862d96744e038d7c1890f703ead79c416ddfa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 544f189e79733c6476bf71e9ce39ab5f35e3d032
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-a-spring-boot-application"></a>Implementar uma Aplicação Spring Boot
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores. 
 
 Este guia de início rápido demonstra como implementar uma aplicação Spring Boot no Service Fabric. Este guia de início rápido utiliza o exemplo da [Introdução](https://spring.io/guides/gs/spring-boot/) do site de Spring. Através de ferramentas de linha de comandos familiares, este guia de início rápido irá guiá-lo através da implementação do exemplo de Spring Boot como uma aplicação de Service Fabric. Quando tiver terminado, terá o exemplo da Introdução ao Spring Boot a trabalhar no Service Fabric. 
 
-![Captura de Ecrã da Aplicação](./media/service-fabric-quickstart-java-spring-boot/springbootsf.png)
+![Captura de Ecrã da Aplicação](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
 Neste início rápido, vai aprender a:
 
@@ -51,7 +51,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
 ## <a name="package-the-spring-boot-application"></a>Empacotar a aplicação Spring Boot 
-1. Dentro do diretório `gs-spring-boot` que acabou de ser clonado, execute o comando `yo azuresfguest`. 
+1. Dentro do diretório `gs-spring-boot` que foi clonado, execute o comando `yo azuresfguest`. 
 
 2. Introduza os detalhes seguintes para cada pedido. 
 
@@ -76,7 +76,7 @@ Nesta fase, já criou uma aplicação de Service Fabric para o exemplo da Introd
     ```
     O arranque do cluster local demora algum tempo. Para confirmar que o cluster está totalmente operacional, aceda ao Service Fabric Explorer em **http://localhost:19080**. Os cinco nós em bom estado indicam que o cluster local está a funcionar. 
     
-    ![Cluster local em bom estado de funcionamento](./media/service-fabric-quickstart-java/localclusterup.png)
+    ![Cluster local em bom estado de funcionamento](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
 2. Navegue para a pasta `gs-spring-boot/SpringServiceFabric`.
 3. Execute o seguinte comando para ligar ao cluster local. 
@@ -92,7 +92,7 @@ Nesta fase, já criou uma aplicação de Service Fabric para o exemplo da Introd
 
 5. Abra o browser favorito e aceda à aplicação em **http://localhost:8080**. 
 
-    ![Front-end da aplicação Local](./media/service-fabric-quickstart-java-spring-boot/springbootsf.png)
+    ![Front-end da aplicação Local](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
     
 Agora pode aceder à aplicação de Spring Boot que foi implementada num cluster do Service Fabric.  
 
@@ -119,7 +119,7 @@ Agora que a aplicação e o cluster estão prontos, pode implementá-los num clu
     sfctl cluster select --endpoint http://<ConnectionIPOrURL>:19080
     ```
     
-    Se o cluster estiver protegido com um certficado autoassinado, executará o comando: 
+    Se o cluster estiver protegido com um certificado autoassinado, execute o comando: 
 
     ```bash
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
@@ -132,50 +132,54 @@ Agora que a aplicação e o cluster estão prontos, pode implementá-los num clu
 
 4. Abra o browser favorito e aceda à aplicação em **http://\<ConnectionIPOrUrl>:8080**. 
 
-    ![Front-end da aplicação Local](./media/service-fabric-quickstart-java-spring-boot/springsfazure.png)
+    ![Front-end da aplicação Local](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
     
 Agora pode aceder à aplicação de Spring Boot que foi implementada num cluster do Service Fabric.  
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Dimensionar aplicações e serviços num cluster
-Os serviços podem ser facilmente dimensionados num cluster para se prepararem para alterações à carga nos serviços. Para dimensionar um serviço, tem de alterar o número de instâncias em execução no cluster. Existem várias formas de dimensionar os seus serviços. Pode utilizar scripts ou comandos na CLI do Service Fabric (sfctl). Neste exemplo, estamos a utilizar o Service Fabric Explorer.
+Os serviços podem ser facilmente dimensionados num cluster para se prepararem para alterações à carga nos serviços. Para dimensionar um serviço, tem de alterar o número de instâncias em execução no cluster. Existem várias formas de dimensionar os seus serviços. Pode utilizar scripts ou comandos na CLI do Service Fabric (sfctl). Neste exemplo, é utilizado o Service Fabric Explorer.
 
-O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acedido num browser, navegando para a porta (19080) de gestão HTTP dos clusters; por exemplo `http://demolinuxsecure.westus.cloudapp.azure.com:19080`.
+O Service Fabric Explorer é executado em todos os clusters do Service Fabric e pode ser acedido num browser, navegando para a porta (19080) de gestão HTTP dos clusters; por exemplo `http://localhost:19080`.
 
 Para dimensionar o serviço de front-end da Web, execute os seguintes passos:
 
-1. Abra o Service Fabric Explorer no seu cluster - por exemplo, `http://demolinuxsecure.westus.cloudapp.azure.com:19080`.
+1. Abra o Service Fabric Explorer no seu cluster - por exemplo, `http://localhost:19080`.
 2. Clique nas reticências (três pontos) junto ao nó **fabric:/SpringServiceFabric/SpringGettingStarted**, na vista de árvore, e escolha**Dimensionar Serviço**.
 
-    ![Dimensionar Serviço no Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/springbootsfhowtoscale.png)
+    ![Dimensionar Serviço no Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     Agora, pode optar por dimensionar o número de instâncias do serviço.
 
-3. Altere o número para **5** e clique em **Dimensionar Serviço**.
+3. Altere o número para **3** e clique em **Dimensionar Serviço**.
 
     Segue-se uma maneira alternativa de dimensionar o serviço utilizando a linha de comandos.
 
     ```bash 
-    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 5 --stateless 
+    # Connect to your local cluster
+    sfctl cluster select --endpoint http://localhost:19080
+
+    # Run Bash command to scale instance count for your service
+    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 
     ``` 
 
 4. Clique no nó **fabric:/SpringServiceFabric/SpringGettingStarted**, na vista de árvore, e expanda o nó de partição (representado por uma GUID).
 
-    ![Dimensionar Serviço no Service Fabric Explorer Completo](./media/service-fabric-quickstart-java-spring-boot/springsfscaled.png)
+    ![Dimensionar Serviço no Service Fabric Explorer Completo](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
-    Agora, pode ver que o serviço tem cinco instâncias e na vista de árvore vê em que nós as instâncias são executadas.
+    O serviço tem três instâncias e a vista de árvore mostra em que nós as instâncias são executadas.
 
-Através desta simples tarefa de gestão, aumentámos os recursos disponíveis para o nosso serviço de Spring processar a carga de utilizador. É importante compreender que não precisa de várias instâncias de um serviço para o executar de forma fiável. Se um serviço falhar, o Service Fabric certifica-se de que uma nova instância de serviço é executado no cluster.
+Através desta simples tarefa de gestão, os recursos disponíveis são aumentados, para o serviço de Spring processar a carga de utilizador. É importante compreender que não precisa de várias instâncias de um serviço para o executar de forma fiável. Se um serviço falhar, o Service Fabric certifica-se de que uma nova instância de serviço é executado no cluster.
 
-## <a name="failover-services-in-a-cluster"></a>Serviços de ativação pós-falha num cluster 
-Para demonstrar a ativação pós-falha do serviço, podemos simular um reinício do nó utilizando o Service Fabric Explorer. Certifique-se de que apenas 1 instância do seu serviço está em execução. 
+## <a name="fail-over-services-in-a-cluster"></a>Serviços de ativação pós-falha num cluster 
+Para demonstrar a ativação pós-falha do serviço, simula-se um reinício do nó utilizando o Service Fabric Explorer. Certifique-se de que apenas uma instância do seu serviço está em execução. 
 
-1. Abra o Service Fabric Explorer no seu cluster - por exemplo, `http://demolinuxsecure.westus.cloudapp.azure.com:19080`.
+1. Abra o Service Fabric Explorer no seu cluster - por exemplo, `http://localhost:19080`.
 2. Clique no botão de reticências (três pontos) junto ao nó a executar a instância do seu serviço e Reinicie o nó. 
 
-    ![Nó de Reinício do Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/springbootsfrestart.png)
-3. A instância do seu serviço será agora movida para um nó diferente e a sua aplicação não terá períodos de indisponibilidade. 
+    ![Nó de Reinício do Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
+3. A instância do seu serviço é movida para um nó diferente e a sua aplicação não tem períodos de indisponibilidade. 
 
-    ![Nó de Reinício do Service Fabric Explorer com Êxito](./media/service-fabric-quickstart-java-spring-boot/springbootsfrestartsucceed.png)
+    ![Nó de Reinício do Service Fabric Explorer com Êxito](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste início rápido, aprendeu a:

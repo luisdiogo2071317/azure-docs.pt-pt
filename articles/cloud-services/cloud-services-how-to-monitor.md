@@ -1,178 +1,98 @@
 ---
-title: "Como monitorizar um serviço em nuvem | Microsoft Docs"
-description: "Saiba como monitorizar serviços em nuvem utilizando o portal clássico do Azure."
+title: "Monitorizar um serviço em nuvem do Azure | Microsoft Docs"
+description: "Descreve o que monitorizar um serviço em nuvem do Azure envolve e que algumas das suas opções são."
 services: cloud-services
 documentationcenter: 
 author: thraka
 manager: timlt
 editor: 
-ms.assetid: 5c48d2fb-b8ea-420f-80df-7aebe2b66b1b
+ms.assetid: 
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2015
+ms.date: 12/22/2017
 ms.author: adegeo
-ms.openlocfilehash: c369b22cf068a473343b006eb1b06fdd350d31db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c63a49c65f2d8261caa534308477888c752a89da
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="how-to-monitor-cloud-services"></a>Como Monitorizar os Serviços Cloud
-[!INCLUDE [disclaimer](../../includes/disclaimer.md)]
+# <a name="introduction-to-cloud-service-monitoring"></a>Introdução à monitorização do serviço de nuvem
 
-Pode monitorizar `key` métricas de desempenho para os seus serviços em nuvem no portal clássico do Azure. Pode definir o nível de monitorização para mínima e verboso para cada função de serviço e pode personalizar a monitorização apresenta. Dados de monitorização verbosos são armazenados numa conta do storage, que pode aceder ao fora do portal. 
+Pode monitorizar as métricas de chave de desempenho para qualquer serviço de nuvem. Cada função do serviço de nuvem recolhe dados mínimos: utilização de CPU, utilização de rede e utilização do disco. Se o serviço de nuvem tem o `Microsoft.Azure.Diagnostics` extensão aplicado a uma função, essa função pode recolher pontos adicionais de dados. Este artigo fornece uma introdução ao diagnóstico do Azure para serviços em nuvem.
 
-Monitorização apresenta no portal clássico do Azure é altamente configuráveis. Pode escolher as métricas que pretende monitorizar na lista de métricas no **Monitor** página e pode escolher quais as métricas para desenhar no métricas gráficos no **Monitor** página e o dashboard. 
+Com a monitorização básica, os dados de contador de desempenho das instâncias de função é amostragem e recolhidos em intervalos de 3 minutos. Estes dados de monitorização básicos não são armazenados na sua conta de armazenamento e tiverem sem custos adicionais associados à mesma.
 
-## <a name="concepts"></a>Conceitos
-Por predefinição, a monitorização mínima é fornecido para um novo serviço em nuvem através de contadores de desempenho recolhidos a partir do sistema operativo anfitrião para as instâncias de funções (máquinas virtuais). As métricas mínimas estão limitadas a percentagem de CPU, dados em, dados de saída, débito de leitura do disco e débito de escrita de disco. Ao configurar a monitorização verboso, pode receber métricas adicionais com base nos dados de desempenho nas máquinas virtuais (instâncias de função). As métricas verbosas ativar análise quanto mais próximo dos problemas que ocorrem durante as operações de aplicação.
+Com monitorização avançada, métricas adicionais são amostragem e recolhidas em intervalos de 5 minutos, 1 hora e 12 horas. Os dados agregados são armazenados numa conta do storage, nas tabelas e são removidos depois de 10 dias. A conta de armazenamento utilizada é configurada por função; Pode utilizar contas de armazenamento diferentes para diferentes funções. Este é configurado com uma cadeia de ligação no [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) e [. cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) ficheiros.
 
-Por predefinição, dados de contador de desempenho das instâncias de função é amostragem e transferidos da instância de função em intervalos de 3 minutos. Quando ativar a monitorização verboso, os dados de contador de desempenho em bruto são agregados em intervalos de 5 minutos, 1 hora e 12 horas para cada instância de função e entre instâncias de função para cada função. Os dados agregados são removidos depois de 10 dias.
 
-Após ativar a monitorização verboso, os dados agregados de monitorização são armazenados em tabelas na sua conta do storage. Para ativar a monitorização verboso para uma função, tem de configurar uma cadeia de ligação de diagnóstico que liga à conta de armazenamento. Pode utilizar contas de armazenamento diferentes para diferentes funções.
+## <a name="basic-monitoring"></a>Monitorização básica
 
-Ativar verbosa aumenta monitorização os custos de armazenamento relacionado com armazenamento de dados, a transferência de dados e armazenamento transações. Monitorização mínimo não necessita de uma conta de armazenamento. Os dados para as métricas que são expostos ao nível da monitorização mínimo não são armazenados na sua conta de armazenamento, mesmo que defina o nível de monitorização para verboso.
+Conforme indicado na introdução, um serviço em nuvem recolhe automaticamente dados de monitorização básicos a partir da máquina virtual do anfitrião. Estes dados incluem a percentagem de CPU, rede/out e leitura/escrita de disco. Os dados de monitorização recolhidos é automaticamente apresentados nas páginas de descrição geral e as métricas do serviço de nuvem, no portal do Azure. 
 
-## <a name="how-to-configure-monitoring-for-cloud-services"></a>Como: configurar a monitorização de serviços cloud
-Utilize os procedimentos seguintes para configurar a monitorização de verboso ou mínima no portal clássico do Azure. 
+A monitorização básica não necessita de uma conta de armazenamento. 
 
-### <a name="before-you-begin"></a>Antes de começar
-* Criar um *clássico* conta do storage para armazenar os dados de monitorização. Pode utilizar contas de armazenamento diferentes para diferentes funções. Para obter mais informações, consulte [como criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
-* Ative o diagnóstico do Azure para as funções do serviço de nuvem. Consulte [configurar diagnósticos para serviços em nuvem](cloud-services-dotnet-diagnostics.md).
+![monitorização de mosaicos do serviço de nuvem básico](media/cloud-services-how-to-monitor/basic-tiles.png)
 
-Certifique-se de que a cadeia de ligação de diagnóstico está presente na configuração da função. Não é possível ativar a monitorização verboso até ativar o diagnóstico do Azure e incluir uma cadeia de ligação de diagnóstico na configuração da função.   
+## <a name="advanced-monitoring"></a>Monitorização avançada
 
-> [!NOTE]
-> Projetos direcionada para o Azure SDK 2.5 não incluiu automaticamente a cadeia de ligação de diagnósticos no modelo de projeto. Para estes projetos, terá de adicionar manualmente a cadeia de ligação de diagnóstico para a configuração da função.
-> 
-> 
+Monitorização avançada envolve a utilização a extensão de diagnóstico do Azure (e opcionalmente o Application Insights SDK) na função de que pretende monitorizar. A extensão de diagnóstico utiliza um ficheiro de configuração (por função) com o nome **diagnostics.wadcfgx** para configurar as métricas de diagnóstico monitorizadas. Os dados de diagnóstico do Azure recolhe de extensão é armazenado numa conta de armazenamento do Azure, que está configurada no **.wadcfgx** e no [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) e [. cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) ficheiros. Isto significa que existe um extra custo associado avançadas de monitorização.
 
-**Para adicionar manualmente a cadeia de ligação de diagnóstico para a configuração da função**
+Como é criada a cada função, o Visual Studio adiciona a extensão de diagnóstico do Azure ao mesmo. Esta extensão pode recolher os seguintes tipos de informações:
 
-1. Abra o projeto de serviço em nuvem no Visual Studio
-2. Faça duplo clique no **função** para abrir a função estruturador e selecione o **definições** separador
-3. Procure uma definição denominada **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. 
-4. Se esta definição não estiver presente, clique em de **Adicionar definição** botão para adicioná-lo para a configuração e alterar o tipo para a nova definição **ConnectionString**
-5. Defina o valor de cadeia de ligação ao clicar no **...**  botão. Esta ação abre uma caixa de diálogo que permite selecionar uma conta de armazenamento.
-   
-    ![Definições do Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioDiagnosticsConnectionString.png)
+* Contadores de desempenho personalizado
+* Registos de aplicações
+* Registos de eventos do Windows
+* Origem de evento de .NET
+* Registos do IIS
+* O manifesto com base em ETW
+* Informações de falhas
+* Registos de erros do cliente
 
-### <a name="to-change-the-monitoring-level-to-verbose-or-minimal"></a>Para alterar o nível de monitorização para verboso ou mínima
-1. No [portal clássico do Azure](https://manage.windowsazure.com/), abra o **configurar** página para a implementação do serviço em nuvem.
-2. No **nível**, clique em **verboso** ou **mínima**. 
-3. Clique em **Guardar**.
+Enquanto são agregados todos os dados para a conta de armazenamento, o portal fornece uma forma de nativa para os dados de gráfico. Pode utilizar outro serviço, como o Application Insights, para correlacionar e apresentar os dados.
 
-Depois de ativar a monitorização verboso, deve começar a ver os dados de monitorização no portal clássico do Azure dentro da hora.
+### <a name="use-application-insights"></a>Utilizar o Application Insights
 
-Os dados do contador de desempenho em bruto e os dados agregados de monitorização são armazenados na conta de armazenamento nas tabelas qualificado pelo ID de implementação para as funções. 
+Quando publica o serviço em nuvem do Visual Studio, é-lhe dada a opção para enviar os dados de diagnóstico para o Application Insights. Pode criar o recurso do Application Insights nessa altura ou enviar os dados para um recurso existente. O serviço em nuvem pode ser monitorizado pelo Application Insights para disponibilidade, desempenho, falhas e utilização. Gráficos personalizados podem ser adicionados ao Application Insights para que possa ver os dados que lhe interessam mais. Podem ser recolhidos dados de instância de função utilizando o Application Insights SDK no projeto de serviço em nuvem. Para obter mais informações sobre como integrar o Application Insights, consulte [Application Insights com serviços em nuvem](../application-insights/app-insights-cloudservices.md).
 
-## <a name="how-to-receive-alerts-for-cloud-service-metrics"></a>Como: receber alertas para as métricas do serviço de nuvem
-Pode receber alertas com base nas suas métricas de monitorização do serviço de nuvem. No **dos serviços de gestão** página do Azure clássico portal, pode criar uma regra para acionar um alerta quando a métrica que escolher atinge um valor que especificar. Também pode optar por e-mail enviado quando o alerta é acionado. Para obter mais informações, consulte [como: receber notificações de alerta e gerir regras de alertas no Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
+Tenha em atenção que ao utilizar o Application Insights para apresentar os contadores de desempenho (e outras definições) que especificou através da extensão de diagnóstico do Windows Azure, apenas irá obter uma experiência mais rica, integrando o Application Insights SDK para as funções de trabalho e web.
 
-## <a name="how-to-add-metrics-to-the-metrics-table"></a>Como: Adicionar métricas para a tabela de métricas
-1. No [portal clássico do Azure](http://manage.windowsazure.com/), abra o **Monitor** página para o serviço em nuvem.
-   
-    Por predefinição, a tabela de métricas apresenta um subconjunto das métricas disponíveis. A ilustração mostra verboso nas métricas predefinidas de um serviço em nuvem, que tem um limite para o contador de desempenho Memória \ MBytes disponíveis, com os dados agregados ao nível da função. Utilize **adicionar métricas** para selecionar métricas adicionais de agregação e o nível de função para monitorizar no portal clássico do Azure.
-   
-    ![Apresentar verboso](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
-2. Para adicionar métricas para a tabela de métricas:
-   
-   1. Clique em **adicionar métricas** para abrir **escolha métricas**, mostrado abaixo.
-      
-       A primeira métrica disponível é expandida para mostrar as opções disponíveis. Para cada métrica, a opção superior apresenta dados de monitorização agregados para todas as funções. Além disso, pode escolher funções individuais para apresentar dados.
-      
-       ![Adicione as métricas](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics.png)
-   2. Para selecionar métricas para apresentar
-      
-      * Clique na seta para baixo pela métrica para expandir as opções de monitorização.
-      * Selecione a caixa de verificação para cada opção de monitorização que pretende apresentar.
-        
-        Pode visualizar as métricas de até 50 na tabela de métricas.
-        
-        > [!TIP]
-        > Na monitorização verboso, a lista de métricas pode conter dezenas de métricas. Para apresentar uma barra de deslocamento, coloque o cursor sobre o lado direito da caixa de diálogo. Para filtrar a lista, clique no ícone de pesquisa e introduza o texto na caixa de pesquisa, como mostrado abaixo.
-        > 
-        > 
-        
-        ![Adicionar a pesquisa de métricas](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png)
-3. Depois de concluir a seleção de métricas, clique em OK (marca de verificação).
-   
-    As métricas selecionadas são adicionadas à tabela de métricas, conforme mostrado abaixo.
-   
-    ![métricas de monitor](./media/cloud-services-how-to-monitor/CloudServices_Monitor_UpdatedMetrics.png)
-4. Para eliminar uma métrica da tabela de métricas, clique na métrica selecioná-lo e, em seguida, clique em **eliminar métrica**. (Apenas vir **eliminar métrica** quando tiver uma métrica selecionada.)
 
-### <a name="to-add-custom-metrics-to-the-metrics-table"></a>Para adicionar métricas personalizadas para a tabela de métricas
-O **verboso** monitorização nível fornece uma lista de nas métricas predefinidas de monitorização no portal. Além destas pode monitorizar as métricas personalizadas ou os contadores de desempenho definidos pela sua aplicação através do portal.
+## <a name="add-advanced-monitoring"></a>Adicionar monitorização avançada
 
-Os seguintes passos assumem que tiver ativado **verboso** nível de monitorização e tiver configurado a sua aplicação para recolher e transferir os contadores de desempenho personalizados. 
+Primeiro, se não tiver um **clássico** conta do storage, [criar um](../storage/common/storage-create-storage-account.md#create-a-storage-account). Certifique-se a conta de armazenamento é criada com o **modelo de implementação clássica** especificado.
 
-Para apresentar os contadores de desempenho personalizados no portal tem de atualizar a configuração no contentor de controlo de wad:
+Em seguida, navegue para o **conta de armazenamento (clássica)** recursos. Selecione **definições** > **chaves de acesso** e copie o **cadeia de ligação principal** valor. Este valor é necessário para o serviço em nuvem. 
 
-1. Abra o wad-controlo de contentor do blob na sua conta de armazenamento de diagnóstico. Pode utilizar o Visual Studio ou quaisquer outro Explorador de armazenamento para efetuar este procedimento.
-   
-    ![Explorador de servidores do Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioBlobExplorer.png)
-2. Navegue até o caminho de BLOBs através do padrão de **RoleName/DeploymentId/RoleInstance** para encontrar a configuração para a instância de função. 
-   
-    ![Explorador de armazenamento do Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. Transfira o ficheiro de configuração para a instância de função e atualizá-la para incluir os contadores de desempenho personalizados. Por exemplo, ao monitor *Bytes escritos do disco/seg* para o *unidade C* adicione o seguinte em **PerformanceCounters\Subscriptions** nós
-   
-    ```xml
-    <PerformanceCounterConfiguration>
-    <CounterSpecifier>\LogicalDisk(C:)\Disk Write Bytes/sec</CounterSpecifier>
-    <SampleRateInSeconds>180</SampleRateInSeconds>
-    </PerformanceCounterConfiguration>
-    ```
-4. Guardar as alterações e carregue o ficheiro de configuração novamente para a mesma localização substituir o ficheiro existente no blob.
-5. Alternar para o modo verboso na configuração do portal clássico do Azure. Se foram já em modo verboso terá de alternar para mínima e a verboso.
-6. O contador de desempenho personalizados agora estará disponível o **adicionar métricas** caixa de diálogo. 
+Existem dois ficheiros de configuração, tem de alterar para obter um diagnóstico avançado ativar a ser, **servicedefinition. Csdef** e **serviceconfiguration. Cscfg**. Provavelmente se tiver dois **. cscfg** ficheiros, um com o nome **Serviceconfiguration** para a implementação para o Azure e um com o nome **ServiceConfiguration.local.cscfg** que é utilizado para implementações de depuração local. Altere ambos os parâmetros.
 
-## <a name="how-to-customize-the-metrics-chart"></a>Como: personalizar o gráfico de métricas
-1. Na tabela de métricas, selecione métricas até 6 para desenhar no gráfico de métricas. Para selecionar uma métrica, clique na caixa de verificação no seu lado esquerdo. Para remover uma métrica do gráfico de métricas, desmarque a caixa de verificação na tabela de métricas.
-   
-    À medida que seleciona métricas na tabela de métricas, são adicionadas as métricas do gráfico de métricas. No ecrã restritas, uma **n mais** na lista pendente contém os cabeçalhos de métricos não cabem a apresentação.
-2. Alternar entre apresentar valores relativos (valor final apenas para cada métrica) e os valores absolutos (é apresentado um eixo Y), selecione o caminho relativo ou absoluto na parte superior do gráfico.
-   
-    ![Relativo ou absoluto](./media/cloud-services-how-to-monitor/CloudServices_Monitor_RelativeAbsolute.png)
-3. Para alterar o intervalo de tempo apresenta de gráfico métricas, selecione 1 hora, 24 horas ou sete dias na parte superior do gráfico.
-   
-    ![Período de visualização do monitor](./media/cloud-services-how-to-monitor/CloudServices_Monitor_DisplayPeriod.png)
-   
-    No gráfico de métricas de dashboard, o método para representar métricas é diferente. Um conjunto padrão de métricas está disponível e métricas são adicionadas ou removidas selecionando o cabeçalho da métrico.
+No **servicedefinition. Csdef** ficheiro, adicione uma nova definição denominada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` para cada função que utiliza o diagnóstico avançado. Visual Studio adiciona este valor para o ficheiro ao criar um novo projeto. No caso de este está em falta, pode adicioná-lo agora. 
 
-### <a name="to-customize-the-metrics-chart-on-the-dashboard"></a>Para personalizar o gráfico de métricas no dashboard
-1. Abra o dashboard para o serviço em nuvem.
-2. Adicionar ou remover as métricas do gráfico de:
-   
-   * Para representar uma métrica de novo, selecione a caixa de verificação para a métrica nos cabeçalhos do gráfico. No ecrã estreito, clique na seta para baixo por  ***n* ?? métricas** para desenhar uma métrica não é possível apresentar a área de cabeçalho do gráfico.
-   * Para eliminar uma métrica de que é representada no gráfico, limpe a caixa de verificação, o cabeçalho.
-   
-3. Alternar entre **relativo** e **absoluto** apresenta.
-4. Escolha 1 hora, 24 horas ou dados a apresentar de 7 dias.
-
-## <a name="how-to-access-verbose-monitoring-data-outside-the-azure-classic-portal"></a>Como: verboso dados fora do portal clássico do Azure de monitorização de acesso
-Dados de monitorização verbosos são armazenados nas tabelas nas contas do storage que especificar para cada função. Para cada implementação de serviço em nuvem, são criadas seis tabelas para a função. Duas tabelas são criadas para cada (5 minutos, 1 hora e 12 horas). Um destas tabelas armazena agregações ao nível de função; outra tabela armazena agregações para instâncias de função. 
-
-Os nomes de tabela com o seguinte formato:
-
-```
-WAD*deploymentID*PT*aggregation_interval*[R|RI]Table
+```xml
+<ServiceDefinition name="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+  <WorkerRole name="WorkerRoleWithSBQueue1" vmsize="Small">
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-Em que:
+Isto define uma nova definição tem de ser adicionada a cada **serviceconfiguration. Cscfg** ficheiro. Abra e altere cada **. cscfg** ficheiro. Adicionar uma definição denominada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Definir o valor para uma o **cadeia de ligação principal** da conta de armazenamento clássico ou para `UseDevelopmentStorage=true`, se pretender utilizar o armazenamento local no computador de desenvolvimento.
 
-* *deploymentID* é o GUID atribuído à implementação de serviço em nuvem
-* *aggregation_interval* = 5 M, H de 1 ou 12 H
-* agregações ao nível de função = R
-* agregações para instâncias de função = RI
+```xml
+<ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="WorkerRoleWithSBQueue1">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mystorage;AccountKey=KWwkdfmskOIS240jnBOeeXVGHT9QgKS4kIQ3wWVKzOYkfjdsjfkjdsaf+sddfwwfw+sdffsdafda/w==" />
 
-Por exemplo, as tabelas seguintes seriam armazenar dados de monitorização verbosos agregados em intervalos de 1 hora:
-
+<!-- or use the local development machine for storage
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+-->
 ```
-WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
-WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
-```
+## <a name="next-steps"></a>Passos Seguintes
+
+- [Saiba mais sobre o Application Insights com serviços em nuvem.](../application-insights/app-insights-cloudservices.md)
+

@@ -1,5 +1,5 @@
 ---
-title: Ver registos de atividade do Azure com o Log Analytics | Microsoft Docs
+title: Recolher e analisar registos de atividade do Azure no Log Analytics | Microsoft Docs
 description: "Pode utilizar a solução de registos de atividade do Azure para analisar e procurar o registo de atividade do Azure nas suas subscrições do Azure."
 services: log-analytics
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="view-azure-activity-logs"></a>Ver registos de atividade do Azure
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recolher e analisar registos de atividade do Azure na análise de registos
 
 ![Símbolo de registos de atividade do Azure](./media/log-analytics-activity/activity-log-analytics.png)
 
@@ -50,7 +50,7 @@ Quando estiver no escalão de preço gratuito, registos de atividade não se apl
 
 Ao contrário da maioria das outras soluções de análise de registos, os dados não estão recolhidos para registos de atividade por agentes. Todos os dados utilizados pela solução inclui diretamente a partir do Azure.
 
-| Origem Ligada | Suportado | Descrição |
+| Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |
 | [Agentes do Windows](log-analytics-windows-agent.md) | Não | A solução não recolhe informações de agentes do Windows. |
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não | A solução não recolhe informações de agentes Linux. |
@@ -97,7 +97,7 @@ Dados de registo de atividade só é apresentada *depois* que configurou os regi
 
 ![Dashboard de registos de atividade do Azure](./media/log-analytics-activity/activity-log-dash.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Criar um [alerta](log-analytics-alerts-creating.md) quando ocorre uma atividade específica.
 - Utilize [pesquisa registo](log-analytics-log-searches.md) para ver informações detalhadas dos registos de atividade.

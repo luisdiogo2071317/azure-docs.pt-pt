@@ -1,107 +1,67 @@
 ---
-title: "Preparar máquinas para configurar a recuperação após desastre entre regiões do Azure após a migração para o Azure utilizando a recuperação de Site | Microsoft Docs"
+title: "Configurar a recuperação após desastre para as VMs do Azure após a migração para o Azure com o Azure Site Recovery | Microsoft Docs"
 description: "Este artigo descreve como preparar máquinas para configurar a recuperação após desastre entre regiões do Azure após a migração para o Azure utilizando o Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: ponatara
-manager: abhemraj
-editor: 
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 01/07/2018
 ms.author: ponatara
-ms.openlocfilehash: 2aee0fb8d1ba1ff1584bee91b4d1cc34b654d97f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c06af21cd6e273b98c004e8bd0e6eac61ba7d644
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replicar VMs do Azure para noutra região após a migração para o Azure utilizando o Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurar a recuperação após desastre para as VMs do Azure após a migração para o Azure 
 
 >[!NOTE]
-> Azure Site Recovery replicação para máquinas de virtuais (VMs) do Azure está atualmente em pré-visualização.
+> Recuperação após desastre para as VMs do Azure utilizando o Azure Site Recovery está atualmente em pré-visualização.
 
-## <a name="overview"></a>Descrição geral
-
-Este artigo ajuda-o a preparar máquinas virtuais do Azure para a replicação entre duas regiões do Azure depois destas máquinas tiverem sido migradas do ambiente no local para o Azure utilizando o Azure Site Recovery.
-
-## <a name="disaster-recovery-and-compliance"></a>Recuperação após desastre e conformidade
-Hoje, as empresas mais estiver a mover as cargas de trabalho para o Azure. Com que as empresas mover fundamentais no local as cargas de trabalho de produção para o Azure, ao configurar a recuperação após desastre para estas cargas de trabalho é obrigatório para a compatibilidade e para salvaguardar contra quaisquer interrupções na região do Azure.
-
-## <a name="steps-for-preparing-migrated-machines-for-replication"></a>Passos para preparar máquinas migradas para a replicação
-Para preparar migrou máquinas para configurar a replicação para outra região do Azure:
-
-1. Concluir a migração.
-2. Instale o agente do Azure, se necessário.
-3. Remova o serviço de mobilidade.  
-4. Reinicie a VM.
-
-Estes passos são descritos mais detalhadamente nas secções seguintes.
-
-### <a name="step-1-migrate-workloads-running-on-hyper-v-vms-vmware-vms-and-physical-servers-to-run-on-azure-vms"></a>Passo 1: Migrar cargas de trabalho em execução em VMs Hyper-V, as VMs VMware e servidores físicos para ser executada em VMs do Azure
-
-Para configurar a replicação e efetue a migração no local, Hyper-V, VMware e cargas de trabalho de físicas para o Azure, siga os passos a [máquinas de virtuais do IaaS do Azure migrar entre regiões do Azure com o Azure Site Recovery](site-recovery-migrate-to-azure.md) artigo. 
-
-Após a migração, não precisa de consolidação ou eliminar uma ativação pós-falha. Em vez disso, selecione o **concluir a migração** opção para cada máquina que pretende migrar:
-1. Em **Itens Replicados**, clique com o botão direito na VM e clique em **Concluir a Migração**. Clique em **OK** para concluir o passo. Pode controlar o progresso nas propriedades da VM pela monitorização a tarefa de migração completa no **as tarefas de recuperação de Site**.
-2. O **concluir a migração** ação conclui o processo de migração, remove a replicação da máquina e deixa de faturação de recuperação de Site para a máquina.
-
-   ![completemigration](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
-
-### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>Passo 2: Instalar o agente da VM do Azure na máquina virtual
-O Azure [agente da VM](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) tem de estar instalado na máquina virtual para a extensão de recuperação de sites para funcionar e para ajudar a proteger a VM.
-
->[!IMPORTANT]
->O instalador do serviço de mobilidade a partir da versão 9.7.0.0, nas máquinas de virtuais do Windows, instala também o agente de VM do Azure mais recente disponível. Na migração, a máquina virtual cumpre a pré-requisitos para a utilização de qualquer extensão VM, incluindo a extensão de recuperação de Site a instalação do agente. O agente de VM do Azure tem de ser instalado manualmente apenas se o serviço de mobilidade instalado na máquina migrada versão 9.6 ou anterior.
-
-A tabela seguinte fornece informações adicionais sobre como instalar o agente da VM e a validar que tenha sido instalado:
-
-| **Operação** | **Windows** | **Linux** |
-| --- | --- | --- |
-| Instalar o agente da VM |Transfira e instale o [MSI do agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necessita de privilégios de administrador para concluir a instalação. |Instalar a versão mais recente [agente Linux](../virtual-machines/linux/agent-user-guide.md). Necessita de privilégios de administrador para concluir a instalação. Recomendamos que instale o agente do seu repositório de distribuição. Iremos *não é recomendada a* instalar o agente de VM com Linux diretamente a partir do GitHub.  |
-| A validar a instalação do agente VM |1. Procure a pasta de C:\WindowsAzure\Packages na VM do Azure. Deverá ver o ficheiro WaAppAgent.exe. <br>2. Clique com o botão direito do rato no ficheiro, aceda a **Propriedades** e, em seguida, selecione o separador **Detalhes**. O **versão do produto** campo deve ser 2.6.1198.718 ou superior. |N/D |
+Utilize este artigo depois de já [migrado máquinas no local para as VMs do Azure](tutorial-migrate-on-premises-to-azure.md) utilizando o [recuperação de Site](site-recovery-overview.md) serviço. Este artigo ajuda-o a preparar as VMs do Azure para configurar a recuperação de desastres para uma região secundária do Azure, utilizando a recuperação de sites.
 
 
-### <a name="step-3-remove-the-mobility-service-from-the-migrated-virtual-machine"></a>Passo 3: Remover o serviço de mobilidade da máquina virtual migrada
 
-Se tiver migrado sua máquinas de VMware no local ou servidores físicos Windows/Linux, tem de remover/desinstalar manualmente o serviço de mobilidade da máquina virtual migrada.
+## <a name="before-you-start"></a>Antes de começar
 
->[!IMPORTANT]
->Este passo não é necessário para as VMs de Hyper-V migrados para o Azure.
-
-#### <a name="uninstall-the-mobility-service-on-a-windows-server-vm"></a>Desinstale o serviço de mobilidade na VM do Windows Server
-Utilize um dos seguintes métodos para desinstalar o serviço de mobilidade num computador Windows Server.
-
-##### <a name="uninstall-by-using-the-windows-ui"></a>Desinstalar através da IU do Windows
-1. No painel de controlo, selecione **programas**.
-2. Selecione **servidor de destino mestre do serviço de mobilidade recuperação Microsoft Azure Site**e, em seguida, selecione **desinstalação**.
-
-##### <a name="uninstall-at-a-command-prompt"></a>Desinstalar uma linha de comandos
-1. Abra uma janela de linha de comandos como administrador.
-2. Para desinstalar o serviço de mobilidade, execute o seguinte comando:
-
-   ```
-   MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-   ```
-
-#### <a name="uninstall-the-mobility-service-on-a-linux-computer"></a>Desinstale o serviço de mobilidade num computador com Linux
-1. No seu servidor Linux, inicie sessão como um **raiz** utilizador.
-2. Num terminal, aceda a /user/local/ASR.
-3. Para desinstalar o serviço de mobilidade, execute o seguinte comando:
-
-   ```
-   uninstall.sh -Y
-   ```
-
-### <a name="step-4-restart-the-vm"></a>Passo 4: Reiniciar a VM
-
-Depois de desinstalar o serviço de mobilidade, reinicie a VM antes de configurar a replicação para outra região do Azure.
+Antes de configurar a recuperação após desastre, certifique-se de que a migração foi concluída conforme esperado. Para concluir uma migração com êxito, após a ativação pós-falha, deve selecionar o **concluir a migração** opção, para cada máquina que pretende migrar. 
 
 
-## <a name="next-steps"></a>Passos seguintes
-- Começar a proteger as cargas de trabalho por [replicar máquinas virtuais do Azure](site-recovery-azure-to-azure.md).
-- Saiba mais sobre [redes orientações para replicar máquinas virtuais do Azure](site-recovery-azure-to-azure-networking-guidance.md).
+
+## <a name="install-the-azure-vm-agent"></a>Instalar o agente da VM do Azure
+
+O Azure [agente da VM](../virtual-machines/windows/agent-user-guide.md) tem de estar instalado na VM, para que a recuperação de sites pode replicá-lo.
+
+
+1. Para instalar o agente da VM em VMs do Windows em execução, transfira e execute o [instalador do agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necessita de privilégios de administrador na VM para concluir a instalação.
+2. Para instalar o agente da VM em VMs do Linux em execução, instale a versão mais recente [agente Linux](../virtual-machines/linux/agent-user-guide.md). Necessita de privilégios de administrador para concluir a instalação. Recomendamos que instale a partir do repositório de distribuição. Recomendamos que não instale o agente de VM com Linux diretamente a partir do GitHub. 
+
+
+## <a name="validate-the-installation-on-windows-vms"></a>Validar a instalação em VMs do Windows
+
+1. Na VM do Azure, na pasta C:\WindowsAzure\Packages, deverá ver o ficheiro WaAppAgent.exe.
+2. O ficheiro com o botão direito e na **propriedades**, selecione o **detalhes** separador.
+3. Certifique-se de que o **versão do produto** campo mostra 2.6.1198.718 ou superior.
+
+
+
+## <a name="migration-from-vmware-vms-or-physical-servers"></a>Migração a partir de VMs de VMware ou servidores físicos
+
+Se migrar VMs de VMware no local (ou servidores físicos) para o Azure, tenha em atenção que:
+
+- Só precisa de instalar o agente da VM do Azure, se o serviço de mobilidade instalado na máquina migrada v9.6 ou anterior.
+- Em VMs do Windows com a versão 9.7.0.0 do serviço de mobilidade em diante, o instalador do serviço instala o agente de VM do Azure mais recente disponível. Quando migra, estas VMs já cumprem a instalação do agente pré-requisitos para qualquer extensão VM, incluindo a extensão de recuperação de sites.
+- Terá de desinstalar manualmente o serviço de mobilidade de VM do Azure, utilizando um dos seguintes métodos. Reinicie a VM antes de configurar a replicação.
+    - Para o Windows, no painel de controlo > **Adicionar/remover programas**, desinstalar **servidor de destino mestre do serviço de mobilidade recuperação Microsoft Azure Site**. Numa linha de comandos elevada, execute:
+        ```
+        MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+        ```
+    - Para Linux, iniciar sessão um utilizador raiz. Um terminal, aceda a **/user/local/ASR**, e execute o seguinte comando:
+        ```
+        uninstall.sh -Y
+        ```
+
+
+## <a name="next-steps"></a>Passos Seguintes
+
+[Replicar rapidamente](azure-to-azure-quickstart.md) uma VM do Azure para uma região secundária.

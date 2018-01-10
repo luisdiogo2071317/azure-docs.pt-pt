@@ -3,7 +3,7 @@ title: "Criar uma aplicação .NET Framework do Azure Cosmos DB ou Core com a Gr
 description: "Apresenta um exemplo de código .NET Framework/Core que pode utilizar para ligar e consultar o Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,19 +13,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: denlee
-ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.openlocfilehash: 29153180da576f144a3f21718c3044b7b843eafb
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: criar uma aplicação .NET Framework ou Core com a Graph API
 
-O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
+O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
-Este guia de introdução demonstra como criar uma conta do Azure Cosmos DB, bases de dados e gráficos (contentores) com o portal do Azure. Depois, vai criar e executar uma aplicação de consola criada na [Graph API](graph-sdk-dotnet.md) (pré-visualização).  
+Este guia de introdução demonstra como criar uma conta do Azure Cosmos DB, bases de dados e gráficos (contentores) com o portal do Azure. Depois, vai criar e executar uma aplicação de consola criada na [Graph API](graph-sdk-dotnet.md).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,19 +108,31 @@ Vamos fazer uma breve revisão do que está a acontecer à aplicação. Abra o f
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação.
 
-1. No Visual Studio 2017, abra o ficheiro appsettings.json. 
+1. No [portal do Azure](http://portal.azure.com/), clique em **Chaves**. 
 
-2. No portal do Azure, na sua conta do Azure Cosmos DB, clique em **Chaves**, na navegação do lado esquerdo. 
+    Copie a primeira parte do valor do URI.
 
-    ![Ver e copiar uma chave primária no portal do Azure, na página Chaves](./media/create-graph-dotnet/keys.png)
+    ![Ver e copiar uma chave de acesso no portal do Azure, página Chaves](./media/create-graph-dotnet/keys.png)
 
-3. Copie o valor **URI** a partir do portal e faça deste o valor da chave do Ponto Final no appsettings.json. Pode utilizar o botão Copiar conforme mostrado na captura de ecrã anterior para copiar o valor.
+2. No Visual Studio 2017, abra o ficheiro appsettings.json e cole o valor em `FILLME` no `endpoint`. 
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
+
+    O valor de ponto final deverá agora ter o seguinte aspeto:
+
+    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+
+3. Se criou a sua conta de base de dados de gráficos antes de 27 de novembro de 2017, altere `documents` para `graphs` no valor `endpoint`. Se criou a sua conta de base de dados de gráficos a partir de 27 de novembro de 2017, altere `documents` para `gremlin.cosmosdb` no valor `endpoint`.
+
+    O valor de ponto final deverá agora ter o seguinte aspeto:
+
+    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",` ou `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
 
 4. Copie o valor **CHAVE PRIMÁRIA** do portal, faça deste o valor da chave AuthKey no ficheiro App.config e, em seguida, guarde as alterações. 
 
     `"authkey": "FILLME"`
+
+5. Guarde o ficheiro appsettings.json. 
 
 Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
 

@@ -15,18 +15,18 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Introdução ao Azure AD
 Gestão de identidades moderna requer reliablity scaleable e consistente para garantir a disponibilidade da a das aplicações e serviços apenas aos utilizadores autenticados. Para suportar adequadamente as necessidades de gestão de identidades de utilizadores, TI precisam de uma forma de fornecer acesso ao software aprovado, público como um serviço (SaaS) de aplicações, uma forma de anfitrião interno aplicações de linha de negócio e até mesmo formas de melhorar no local desenvolvimento da aplicação e a utilização. Todos estes requisitos apontam para a necessidade de uma solução de gestão de identidade baseada na nuvem.      
 
 Azure Active Directory (Azure AD) é Microsoft do multi-inquilino, o serviço de gestão de identidades e diretórios baseados na nuvem. Azure AD combina serviços de diretório de principais, governação de identidades avançada e gestão de acesso de aplicação. A estrutura de multi-inquilino, geo-distribuição, de elevada disponibilidade do Azure AD significa que pode confiar na mesma para as suas necessidades de negócio mais importantes.
 
-AD do Azure inclui um conjunto completo de capacidades de gestão de identidade, incluindo a capacidade para sincronizar informações de recursos no local, imagem corporativa da empresa personalizável, gestão de licenças simples e gestão de palavra-passe do mesmo self-service.  Mais fácil configurar capacidades pode ajudar a começar a utilizar o Azure AD para aplicações baseadas na nuvem seguras, simplificar processos de TI, cortar os custos e ajudar a garantir que são cumpridos os objetivos de conformidade empresarial.
+AD do Azure inclui um conjunto completo de capacidades de gestão de identidade, incluindo a capacidade para sincronizar informações de recursos no local, imagem corporativa da empresa personalizável, gestão de licenças simples e gestão de palavra-passe do mesmo self-service. Estas capacidades fácil implementar podem ajudar a começar a utilizar o Azure AD para proteger as aplicações baseadas na nuvem, simplificar processos de TI, cortar os custos e ajudar a garantir que são cumpridos os objetivos de conformidade empresarial.
 
 ![Azure AD ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
@@ -80,14 +80,14 @@ Pode utilizar a atribuição baseada em grupo de licenças para configurar regra
 ### <a name="verification-step"></a>Passo de verificação
 Revisão atribuída e licenças disponíveis em **do Azure Active Directory** > **licenças** > **todos os produtos**.
 
-## <a name="configure-self-service-password-reset"></a>Configurar a reposição de palavra-passe self-service
+## <a name="configure-self-service-password-reset"></a>Configurar a reposição personalizada de palavra-passe
 [Reposição de palavra-passe self-service (SSPR)](active-directory-passwords-getting-started.md) oferece uma simples significa para administradores de TI permitir que os utilizadores reponham ou as respetivas contas ou palavras-passe de desbloqueio. O sistema inclui relatórios detalhados para controlar quando os utilizadores utilizam o sistema, juntamente com notificações para o alertar quanto a utilizações indevidas ou abusos.
 
 ### <a name="verification-step"></a>Passo de verificação
 Reveja ativada propriedades SSPR em **do Azure Active Directory** > **reposição de palavra-passe** para garantir que o utilizador adequado e atribuições de grupo foram efetuadas. 
 
 
-## <a name="next-steps"></a>Passos seguintes
-[Página de produto do Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+## <a name="next-steps"></a>Passos Seguintes
+[Página de serviço do Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 [Azure página de informações de preços de outros do Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de funcionamento em rede de contentor do Service Fabric
 
@@ -221,7 +221,17 @@ Quando um serviço de contentor é reiniciado ou movido para outro nó no cluste
     >Nos clusters do Linux, mistura modos de funcionamento em rede para serviços diferentes não é suportada. 
     >
 
-## <a name="next-steps"></a>Passos seguintes
+5. Quando o **abra** modo estiver seleccionado, o **Endpoint** definição no manifesto de serviço explicitamente deve apontar para o pacote do código correspondente para o ponto final, mesmo que o pacote de serviço tem apenas um código pacote no mesmo. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
+
+## <a name="next-steps"></a>Passos Seguintes
 * [Understand the Service Fabric application model (Compreender o modelo de aplicações do Service Fabric)](service-fabric-application-model.md)
 * [Saiba mais sobre os recursos de manifesto de serviço de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Implementar um contentor do Windows para o Service Fabric no Windows Server 2016](service-fabric-get-started-containers.md)

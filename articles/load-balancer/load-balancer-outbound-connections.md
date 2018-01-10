@@ -3,8 +3,8 @@ title: "Noções sobre ligações de saída no Azure | Microsoft Docs"
 description: "Este artigo explica como o Azure permite VMs a comunicar com serviços de Internet pública."
 services: load-balancer
 documentationcenter: na
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d02960017b8793eccc2990a17e3d854991e877b6
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: b8e225ba4374c73dbabac3dddab9ba37fa798a5a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Compreender as ligações de saída no Azure
 
@@ -46,7 +46,7 @@ Pode utilizar [análise de registos para o Balanceador de carga](load-balancer-m
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>VM de balanceamento de carga com nenhum endereço IP público de nível de instância
 
-Neste cenário, a VM faz parte de um conjunto de Balanceador de carga do Azure.  A VM não tem um endereço IP público atribuído. O recurso de Balanceador de carga tem de ser configurado com uma regra para ligar o público front-end IP com o conjunto de back-end.  Se não concluir esta configuração, o comportamento é conforme descrito na secção anterior para [autónoma de VM com nenhuma IP público de nível de instância](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+Neste cenário, a VM faz parte de um conjunto de Balanceador de carga do Azure.  A VM não tem um endereço IP público atribuído. O recurso de Balanceador de carga tem de ser configurado com uma regra de Balanceador de carga para criar uma ligação entre o público front-end IP com o conjunto de back-end. Se não concluir esta configuração, o comportamento é conforme descrito na secção anterior para [autónoma de VM com nenhuma IP público de nível de instância](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
 
 Quando a VM de balanceamento de carga cria um fluxo de saída, Azure traduz o endereço IP de origem privada do fluxo de saída para o endereço IP público do front-end de Balanceador de carga público. Azure utiliza origem rede endereço tradução (realizar o SNAT) para executar esta função. Portas efémeras do endereço IP público do Balanceador de carga são utilizadas para distinguir fluxos individuais teve originados pela VM. Realizar o SNAT atribui dinamicamente portas efémeras quando são criados os fluxos de saída. Neste contexto, as portas efémeras utilizadas para realizar o SNAT são referidas como portas de realizar o SNAT.
 

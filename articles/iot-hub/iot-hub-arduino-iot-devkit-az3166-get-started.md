@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 7d3f610674d9491f7689cc911ba21de0b6b615d7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1ad9200376bc4959e7572ae8d5be11b278a42cc0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Ligar IoT DevKit AZ3166 ao IoT Hub do Azure na nuvem
 
@@ -104,7 +104,7 @@ A aplicação de predefinido em execução no DevKit verifica a versão mais rec
 > [!NOTE] 
 > Desde v 1.1, DevKit permite ST SEGURA no bootloader. É necessário atualizar o firmware se estiver a executar em v 1.1 para torná-lo, provavelmente, a funcionar.
 
-Se precisar de uma atualização de firmware, o ecrã apresentará as versões de firmware mais recente e atual. Para atualizar, siga o [atualizar firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/) guia.
+Se precisar de uma atualização de firmware, o ecrã apresentará as versões de firmware mais recente e atual. Para atualizar, siga o [atualizar firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) guia.
 
 ![Apresentação das versões de firmware atual e mais recente](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
 
@@ -297,7 +297,7 @@ O exemplo de aplicação é executada com êxito quando vir os seguintes resulta
 
 Se tiver problemas, pode encontrar [perguntas mais frequentes](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/). Pode também enviar comentários para por deixar um comentário nesta página.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se ligou com êxito um DevKit de IoT MXChip ao seu IoT hub e ter enviado os dados de sensor capturada ao seu IoT hub.
 

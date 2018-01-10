@@ -10,25 +10,28 @@ ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 09/20/2017
-ms.openlocfilehash: aeca003a9b031a48804a057b627714b554298645
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.openlocfilehash: 6d27ec96f56e576d4af02c5e0e70e6364bd5a9ec
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar o Java para se ligar e consultar dados
-Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação Java. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com Java e que nunca trabalhou com a Base de Dados do Azure para MySQL.
+Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação Java e o controlador JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este artigo pressupõe que está familiarizado com a programação com Java e que nunca trabalhou com a Base de Dados do Azure para MySQL.
+
+Há muitos outros exemplos, além de código exemplo, na [página de exemplos do Conector MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido utiliza os recursos criados em qualquer um desTes guias como ponto de partida:
-- [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
+1. Este guia de início rápido utiliza os recursos criados em qualquer um desTes guias como ponto de partida:
+   - [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
+   - [Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-Também tem de:
-- Transferir o controlador JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
-- Incluir o ficheiro .jar do JDBC (por exemplo, mysql-connector-java-5.1.42-bin.jar) no caminho da sua classe de aplicações. Se tiver problemas, consulte a documentação do seu ambiente relativamente às especificações de caminho da classe, como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) ou [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
-- Confirmar que a segurança de ligação da sua Base de Dados do Azure para MySQL é configurada com a firewall aberta e as definições de SSL ajustadas para que a sua aplicação seja iniciada com sucesso.
+2. Confirmar que a segurança de ligação da sua Base de Dados do Azure para MySQL é configurada com a firewall aberta e as definições de SSL ajustadas para que a sua aplicação seja iniciada com sucesso.
+
+3. Obtenha o conector MySQL Connector/J através de uma das seguintes formas:
+   - Utilizar o pacote Maven [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) para incluir a [dependência mysql](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) no ficheiro POM do seu projeto.
+   - Transferir o controlador JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) e incluir o ficheiro .jar do JDBC (por exemplo, mysql-connector-java-5.1.42-bin.jar) no caminho da sua classe de aplicações. Se tiver problemas com caminhos de classe, consulte a documentação do seu ambiente relativamente às especificações de caminho da classe, como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) ou [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
@@ -392,5 +395,7 @@ public class DeleteTable {
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
+Há muitos outros exemplos, além de código de exemplo, na [página de exemplos do MySQL Connector/J](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
+
 > [!div class="nextstepaction"]
 > [Migrar a sua base de dados MySQL para a Dase de Dados do Azure para MySQL através da funcionalidade de captura e restauro](concepts-migrate-dump-restore.md)

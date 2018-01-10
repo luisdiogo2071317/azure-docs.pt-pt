@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 029ecaf43249175504cc1e22d246f24e927234af
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bc0913568be13aa348a6750f4304086aeec66b04
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Atualizar a autenticação da conta de Automatização com contas Run As 
 Pode atualizar a sua conta de Automatização existente a partir do portal do Azure ou utilizar o PowerShell, se:
@@ -57,16 +57,16 @@ Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccoun
 Para atualizar uma conta de Automatização, tem de ter os seguintes privilégios específicos e as permissões necessárias para concluir este tópico.   
  
 * A sua conta de utilizador do AD tem de ser adicionada a uma função com permissões equivalentes à função de Contribuidor para recursos Microsoft.Automation, conforme descrito no artigo [Controlo de acesso baseado em funções na Automatização do Azure](automation-role-based-access-control.md#contributor-role-permissions).  
-* Os utilizadores não administradores no inquilino do Azure AD podem [registar aplicações do AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) se a definição dos registos da aplicação for **Sim**.  Se a definição dos registos da aplicação for **Não**, o utilizador que executa esta ação tem de ser um administrador global no Azure AD. 
+* Os utilizadores não administradores no seu inquilino do Azure AD podem [registar aplicações AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) se a opção **Os utilizadores podem registar aplicações** do inquilino do Azure AD na página **Definições de utilizadores** está definida como **Sim**. Se a definição dos registos da aplicação for **Não**, o utilizador que executa esta ação tem de ser um administrador global no Azure AD.
 
 Se não for membro da instância do Active Directory da subscrição antes de ser adicionado à função de administrador global/coadministrador da mesma, é adicionado ao Active Directory como convidado. Nesta situação, recebe o aviso "Não tem permissões para criar..." no painel **Adicionar Conta de Automatização**. Os utilizadores que foram adicionados primeiro à função de administrador global/coadministrador podem ser removidos da instância do Active Directory da subscrição e adicionados novamente, para que se tornem em Utilizadores completos no Active Directory. Para verificar esta situação, no painel **Azure Active Directory**, no portal do Azure, selecione **Utilizadores e grupos**, **Todos os utilizadores** e, depois de selecionar o utilizador específico, selecione **Perfil**. O valor do atributo **Tipo de utilizador** sob o perfil de utilizadores não deve ser igual a **Convidado**.
 
 ## <a name="create-run-as-account-from-the-portal"></a>Criar conta Run As no portal
-Nesta secção, executa os seguintes passos para atualizar a sua conta de Automatização do Azure no portal do Azure.  Cria as contas Run As e Run As Clássica individualmente e, se não tiver de gerir recursos clássicos, pode criar apenas a conta Run As do Azure.  
+Nesta secção, execute os seguintes passos para atualizar a sua conta de Automatização do Azure no portal do Azure.  Crie as contas Run As e Classic Run As individualmente. Se não precisar de gerir os recursos clássicos, pode simplesmente criar a conta Run As do Azure.  
 
 1. Inicie sessão no portal do Azure com uma conta que seja membro da função Administradores da Subscrição e coadministrador da subscrição.
 2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
-3. Na página da conta de Automatização, selecione a sua conta de Automatização.  
+3. Na página **Contas de Automatização**, selecione a sua conta de Automatização a partir da lista de contas de Automatização.
 4. No painel da esquerda, selecione **Contas Run As** na secção **Definições da Conta**.  
 5. Consoante a conta que precisar, selecione **Conta Run As do Azure** ou **Conta Run As Clássica do Azure**.  Depois de selecionar **Adicionar Conta Run As do Azure** ou **Adicionar Conta Run As Clássica do Azure**, é apresentado o painel e, depois de rever as informações de descrição geral, clique em **Criar** para prosseguir com a criação da conta Run As.  
 6. Enquanto o Azure cria a conta Run As, pode acompanhar o progresso em **Notificações** a partir do menu.  Também é apresentada uma faixa a indicar que a conta está a ser criada.  Este processo pode demorar alguns minutos a concluir.  

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 27bc191c66b195692e324d1a10ab276b561ef129
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c0a10869477647820828b22b6291522be255844d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>O Azure Active Directory B2C: Configurar o self-service reposição palavra-passe para os consumidores
 Com a funcionalidade de reposição de palavra-passe self-service, os consumidores (que tenham efetuado a inscrição para contas locais) podem repor as palavras-passe por si próprios. Esta opção reduz significativamente a carga sobre a sua equipa de suporte, especialmente se a sua aplicação tiver milhões de consumidores utilizá-lo regularmente. Atualmente, é apenas suportado utilizando um endereço de correio eletrónico verificado como um método de recuperação. Iremos adicionar métodos de recuperação adicionais (número de telefone verificado, perguntas de segurança, etc.) no futuro.
@@ -30,14 +30,11 @@ Com a funcionalidade de reposição de palavra-passe self-service, os consumidor
 
 Por predefinição, o diretório não tem palavra-passe self-service reposição ativada. Utilize os seguintes passos para ativá-la:
 
-1. Inicie sessão no [Portal Clássico do Azure](https://manage.windowsazure.com/) como Administrador da Subscrição. Este é o mesmo ou conta profissional ou a mesma conta Microsoft que utilizou para criar o seu diretório.
-2. Navegue para a extensão do Active Directory na barra de navegação no lado esquerdo.
-3. Localizar o diretório sob o **diretório** separador e clique no mesmo.
-4. Clique no separador **Configurar**.
-5. Desloque para baixo até o **política de reposição de palavra-passe do utilizador** secção e ativar/desativar a **utilizadores ativados para a reposição de palavra-passe** opção para **Sim**. Tenha em atenção que o **endereço de correio eletrónico alternativo** opção for selecionada; deixá-lo tal como está.
-   
-    ![Reposição personalizada de palavra-passe](./media/active-directory-b2c-reference-sspr/sspr.png)
-6. Clique em **Guardar** na parte inferior da página. Terminar!
+1. Iniciar sessão para o [portal do Azure](https://portal.azure.com/) como administrador da subscrição. Este é o mesmo ou conta profissional ou a mesma conta Microsoft que utilizou para criar o seu diretório.
+2. Abrir o Active Directory (na barra de navegação no lado esquerdo).
+3. Selecione **propriedades**.
+4. Desloque para baixo até o **ativada de reposição de palavra-passe self-service** secção e ative-o para **todos os**. 
+5. Clique em **guardar** na parte superior da página. Terminar!
 
 Para testar, utilize a funcionalidade "Executar agora" em qualquer política de início de sessão que tenha contas locais como um fornecedor de identidade. No início de sessão-in de conta local página (onde introduziu um endereço de e-mail e a palavra-passe, ou um nome de utilizador e a palavra-passe), clique em **não é possível aceder à sua conta?** para verificar a experiência de consumidor.
 

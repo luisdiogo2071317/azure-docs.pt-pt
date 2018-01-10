@@ -1,32 +1,32 @@
 ---
-title: "Criar uma aplicação de função e implementar o código de função do Visual Studio Team Services | Microsoft Docs"
+title: "Criar uma função no Azure que é implementado a partir do Visual Studio Team Services | Microsoft Docs"
 description: "Criar uma aplicação de função e implementar o código de função do Visual Studio Team Services"
 services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/28/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 15d4001e656c456c2fbe3b3d63cdd094498940c8
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>Criar um serviço de aplicações
+# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Criar uma função no Azure que é implementado a partir do Visual Studio Team Services
 
-Neste cenário, irá aprender a criar uma aplicação de função que utiliza o [plano de consumo](../functions-scale.md#consumption-plan) e configurar a implementação contínua provém de um repositório de serviços de equipa do Visual Studio (VSTS). Para este exemplo, precisa de:
+Este tópico mostra como utilizar as funções do Azure para criar um [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) através da aplicação de função a [plano de consumo](../functions-scale.md#consumption-plan). A aplicação de função, o que é um contentor para as suas funções, continuamente for implementada a partir de um repositório de serviços de equipa do Visual Studio (VSTS). Para concluir este tópico, tem de ter:
 
-* Um repositório VSTS com o código de funções, que tem permissões administrativas.
-* A [pessoais acesso Token (TERESA)](https://help.github.com/articles/creating-an-access-token-for-command-line-use) para a sua conta do GitHub.
+* Um repositório VSTS que contém o projeto de aplicação de função e para o qual tem permissões administrativas.
+* A [token de acesso pessoal (TERESA)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) para aceder ao seu repositório VSTS.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, tem de executar a CLI do Azure versão 2.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se em vez disso utilizar a CLI do Azure localmente, terá de instalar e utilizar a versão 2.0 ou uma versão posterior. Para determinar a versão da CLI do Azure, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -38,7 +38,7 @@ Este exemplo cria uma aplicação de função do Azure e implementa o código de
 
 ## <a name="script-explanation"></a>Explicação de script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, aplicação web, o documentdb e recursos de todos os relacionados. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, conta de armazenamento, aplicação de função e todos os recursos relacionados. Cada comando nas ligações de tabela para a documentação específica do comando.
 
 | Comando | Notas |
 |---|---|

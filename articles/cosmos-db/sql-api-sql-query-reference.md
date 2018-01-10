@@ -2,7 +2,7 @@
 title: "Do Azure Cosmos DB: Referência de consulta de sintaxe SQL | Microsoft Docs"
 description: "Documentação de referência para o idioma de consulta de base de dados SQL do Azure Cosmos."
 services: cosmos-db
-author: mimig1
+author: LalithaMV
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
-ms.author: mimig
-ms.openlocfilehash: 64c5e1284cd8a0413ebc73b1659822078f62d2ef
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: laviswa
+ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referência de sintaxe Cosmos BD SQL do Azure
 
@@ -2791,7 +2791,7 @@ SELECT ST_ISVALIDDETAILED({
 }]  
 ```  
   
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Passos Seguintes  
  [Sintaxe SQL e consulta SQL para a base de dados do Azure Cosmos](sql-api-sql-query.md)   
  [Documentação do Cosmos BD do Azure](https://docs.microsoft.com/azure/cosmos-db/)  
   

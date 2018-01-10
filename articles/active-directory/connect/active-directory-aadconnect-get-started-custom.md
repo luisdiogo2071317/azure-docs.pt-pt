@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: billmath
-ms.openlocfilehash: 724ccfbe6849c53f7c7e4e20444ac87197763e65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a12bd2ec296acfb810c8805c92941e5bf70c6ccb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](active-directory-aadconnect-get-started-express.md) não satisfaz a sua implementação ou topologia.
@@ -50,12 +50,10 @@ Depois de instalar os componentes necessários, é-lhe pedido que selecione o m�
 | Opção Início de Sessão Único | Descrição |
 | --- | --- |
 | Sincronização hash de palavra-passe |Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local. As palavras-passe dos utilizadores são sincronizadas para o Azure AD como um hash de palavra-passe e a autenticação ocorre na nuvem. Para obter mais informações, veja [Password hash synchronization (Sincronização hash de palavra-passe)](active-directory-aadconnectsync-implement-password-synchronization.md). |
-|Autenticação pass-through|Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local.  A palavra-passe dos utilizadores é transmitida para o controlador do Active Directory no local para ser validada.
+|Autenticação pass-through|Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local.  A palavra-passe dos utilizadores é transmitida para o controlador de domínio do Active Directory no local para ser validada.
 | Federação com o AD FS |Os utilizadores podem iniciar sessão nos Cloud Services da Microsoft, como o Office 365, utilizando a mesma palavra-passe que utilizam na respetiva rede no local.  Os utilizadores serão redirecionados para a respetiva instância do AD FS no local para iniciarem sessão e a autenticação ocorre no local. |
-| Não configurar |Nenhuma destas funcionalidades é instalada e configurada. Escolha esta opção se já tiver instalado um servidor de federação de terceiros ou outra solução existente. |
-|Ativar o Início de sessão Único|Esta opção está disponível com sincronização de palavras-passe e autenticação pass-through e proporciona uma experiência de início de sessão único para utilizadores de ambiente de trabalho na rede da empresa.  Veja [Início de sessão único](active-directory-aadconnect-sso.md) para obter mais informações. </br>Nota para clientes do AD FS: esta opção não está disponível porque o AD FS já oferece o mesmo nível de início de sessão único.</br>(se o PTA não for lançado ao mesmo tempo)
-|Opção Início de Sessão|Esta opção está disponível para clientes da sincronização hash de palavra-passe e proporciona uma experiência de início de sessão único para utilizadores de ambiente de trabalho na rede da empresa.  </br>Veja [Início de sessão único](active-directory-aadconnect-sso.md) para obter mais informações. </br>Nota para clientes do AD FS: esta opção não está disponível porque o AD FS já oferece o mesmo nível de início de sessão único.
-
+| Não configurar |Nenhuma funcionalidade de início de sessão de utilizador é instalada e configurada. Escolha esta opção se já tiver instalado um servidor de federação de terceiros ou outra solução existente. |
+|Ativar o Início de sessão Único|Esta opção está disponível com sincronização de palavras-passe e autenticação pass-through e proporciona uma experiência de início de sessão único para utilizadores de ambiente de trabalho na rede da empresa. Veja [Início de sessão único](active-directory-aadconnect-sso.md) para obter mais informações. </br>Nota para clientes do AD FS: esta opção não está disponível porque o AD FS já oferece o mesmo nível de início de sessão único.</br>
 
 ### <a name="connect-to-azure-ad"></a>Ligar ao Azure AD
 No ecrã Ligar ao Azure AD, introduza uma conta de administrador global e a palavra-passe. Se tiver selecionado **Federação com o AD FS** na página anterior, não inicie sessão com uma conta num domínio que pretenda ativar para federação. Uma das recomendações é utilizar uma conta no domínio predefinido **onmicrosoft.com**, incluído com o diretório do Azure AD.
@@ -81,11 +79,10 @@ Depois de introduzir o nome da floresta e de clicar em **Adicionar Diretório**,
 
 | Opção | Descrição |
 | --- | --- |
-| Utilizar conta existente | Selecione esta opção se quiser indicar uma conta do AD DS existente para ser utilizada com o Azure AD Connect para ligar à floresta do AD durante a sincronização de diretórios. Pode introduzir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\syncuser ou fabrikam.com\syncuser. Esta conta pode ser uma conta de utilizador normal, porque precisa apenas das permissões de leitura predefinidas. No entanto, dependendo do seu cenário, poderá precisar de mais permissões. Para obter mais informações, veja [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) (Contas e permissões do Azure AD Connet). |
 | Criar conta nova | Selecione esta opção se quiser que o assistente do Azure AD Connect crie a conta do AD DS de que precisa para ligar à floresta do AD durante a sincronização de diretórios. Se esta opção estiver selecionada, introduza o nome de utilizador e a palavra-passe de uma conta de administrador empresarial. O assistente do Azure AD Connect vai utilizar a conta de administrador empresarial indicada para criar a conta do AD DS necessária. Pode introduzir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\administrator ou fabrikam.com\administrator. |
+| Utilizar conta existente | Selecione esta opção se quiser indicar uma conta do AD DS existente para ser utilizada com o Azure AD Connect para ligar à floresta do AD durante a sincronização de diretórios. Pode introduzir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\syncuser ou fabrikam.com\syncuser. Esta conta pode ser uma conta de utilizador normal, porque precisa apenas das permissões de leitura predefinidas. No entanto, dependendo do seu cenário, poderá precisar de mais permissões. Para obter mais informações, veja [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) (Contas e permissões do Azure AD Connet). |
 
 ![Ligar o Diretório](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
-
 
 ### <a name="azure-ad-sign-in-configuration"></a>Configuração do início de sessão do Azure AD
 Esta página permite-lhe rever os domínios UPN presentes no AD DS no local e que foram verificados no Azure AD. Esta página também lhe permite configurar o atributo a utilizar para userPrincipalName.
@@ -239,7 +236,7 @@ Configurar o AD FS com o Azure AD Connect é simples, bastam apenas alguns cliqu
 >Pode atualizar o certificado SSL do farm do AD FS com o Azure AD Connect, mesmo se não o utilizar para gerir a confiança da federação.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Pré-requisitos de configuração do AD FS
-Para configurar o farm do AD FS com o Azure AD Connect, certifique-se de que o WinRM está ativado nos servidores remotos. Além disso, verifique também os requisitos de portas listados na [Tabela 3 – Servidores do Azure AD Connect e de Federação/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
+Para configurar o farm do AD FS com o Azure AD Connect, certifique-se de que o WinRM está ativado nos servidores remotos. Certifique-se de que concluiu as outras tarefas nos [pré-requisitos de federação](active-directory-aadconnect-prerequisites.md#prerequisites-for-federation-installation-and-configuration). Além disso, verifique também os requisitos de portas listados na [Tabela 3 – Servidores do Azure AD Connect e de Federação/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Criar um novo farm do AD FS ou utilizar um existente
 Pode utilizar um farm do AD FS existente ou pode optar por criar um novo. Se optar por criar um novo, é necessário fornecer o certificado SSL. Se o certificado SSL estiver protegido por uma palavra-passe, é-lhe pedida a palavra-passe.
@@ -252,7 +249,7 @@ Se optar por utilizar um farm do AD FS existente, é direcionado diretamente par
 >O Azure AD Connect pode servir para gerir apenas um farm do AD FS. Se tiver confiança de federação existente com o Azure AD configurado no farm do AD FS selecionado, a confiança será recriada novamente a partir do zero pelo Azure AD Connect.
 
 ### <a name="specify-the-ad-fs-servers"></a>Especificar os servidores do AD FS
-Introduza os servidores em que pretende instalar o AD FS. Pode adicionar um ou mais servidores com base nas suas necessidades de planeamento da capacidade. Associe todos os servidores ao Active Directory antes de efetuar esta configuração. A Microsoft recomenda a instalação de um único servidor do AD FS para implementações de teste e piloto. Em seguida, adicione e implemente mais servidores para satisfazer as suas necessidades de dimensionamento, executando novamente o Azure AD Connect após a configuração inicial.
+Introduza os servidores em que pretende instalar o AD FS. Pode adicionar um ou mais servidores com base nas suas necessidades de planeamento da capacidade. Associe todos os servidores do AD FS (não necessários para servidores WAP) ao Active Directory antes de efetuar esta configuração. A Microsoft recomenda a instalação de um único servidor do AD FS para implementações de teste e piloto. Em seguida, adicione e implemente mais servidores para satisfazer as suas necessidades de dimensionamento, executando novamente o Azure AD Connect após a configuração inicial.
 
 > [!NOTE]
 > Certifique-se de que todos os servidores estão associados a um domínio do AD antes de efetuar esta configuração.
@@ -266,7 +263,7 @@ Introduza os servidores que pretende ter como servidores proxy de Web Apps. O se
  Pode adicionar um ou mais servidores com base nas suas necessidades de planeamento da capacidade. A Microsoft recomenda a instalação de um único servidor proxy de aplicação Web para implementações de teste e piloto. Em seguida, adicione e implemente mais servidores para satisfazer as suas necessidades de dimensionamento, executando novamente o Azure AD Connect após a configuração inicial. Recomenda-se ter um número equivalente de servidores proxy para satisfazer a autenticação da intranet.
 
 > [!NOTE]
-> <li> Se a conta utilizada não for um administrador local nos servidores AD FS, ser-lhe-ão pedidas as credenciais de administrador.</li>
+> <li> Se a conta utilizada não for um administrador local nos servidores WAP, ser-lhe-ão pedidas as credenciais de administrador.</li>
 > <li> Antes de executar este passo, certifique-se de que existe conectividade HTTP/HTTPS entre o servidor do Azure AD Connect e o servidor Proxy de Web Apps.</li>
 > <li> Certifique-se de que existe conectividade HTTP/HTTPS entre o Servidor de Web Apps e o servidor do AD FS, para permitir a passagem de pedidos de autenticação.</li>
 >

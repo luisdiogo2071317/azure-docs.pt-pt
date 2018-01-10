@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
 Esta página respostas a perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para atualizações.
@@ -105,7 +105,7 @@ Não, o Azure AD B2C não suporta o mesmo conjunto de relatórios como o Azure A
 Sim!  Leia sobre [personalização de idioma](active-directory-b2c-reference-language-customization.md), que se encontra na pré-visualização pública.  Fornecemos traduções para 36 idiomas e pode substituir qualquer cadeia de acordo com as suas necessidades.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>Posso utilizar o meus próprio URLs nas minhas páginas de inscrição e o início de sessão que são servidas pelo Azure AD B2C? Por exemplo, altere o URL de login.microsoftonline.com para login.contoso.com?
-Atualmente não. Esta funcionalidade está no nosso plano. Verificar o seu domínio no **domínios** separador no portal clássico do Azure não concretizar este objetivo.
+Atualmente não. Esta funcionalidade está no nosso plano. Verificar o seu domínio no **domínios** separador no portal do Azure não concretizar este objetivo.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como eliminar o meu inquilino do Azure AD B2C
 Siga estes passos para eliminar o inquilino do Azure AD B2C:

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: 69c7984d0620b4a0fd40252129023093c09d6e56
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: c78fb7883559e46ebaa1d8dab59a15c55fb76fdf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configurar um nome de domínio personalizado para uma aplicação web no serviço de aplicações do Azure utilizando o Gestor de tráfego
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -56,7 +56,7 @@ Para associar o domínio personalizado com uma aplicação web no App Service do
 Enquanto as especificações de cada fornecedor de domínio podem variar, mapear *de* o nome de domínio personalizado (tais como **contoso.com**) *para* o nome de domínio do Gestor de tráfego ( **contoso.trafficmanager.NET**) que está integrado com a sua aplicação web.
    
 > [!NOTE]
-> Se um registo já está em utilização e tem de vincular pre-emptively as suas aplicações à mesma, pode criar um registo CNAME adicional. Por exemplo, para vincular pre-emptively **www.contoso.com** à sua aplicação web, crie um registo CNAME de **awverify.www** para **contoso.trafficmanager.net**. Em seguida, pode adicionar "www.contoso.com" à sua aplicação Web sem alterar o registo CNAME "www". Para obter mais informações, consulte [registos DNS criar para uma aplicação web no domínio personalizado de][CREATEDNS].
+> Se um registo já está em utilização e tem de vincular preventivamente as suas aplicações à mesma, pode criar um registo CNAME adicional. Por exemplo, para vincular preventivamente **www.contoso.com** à sua aplicação web, crie um registo CNAME de **awverify.www** para **contoso.trafficmanager.net**. Em seguida, pode adicionar "www.contoso.com" à sua aplicação Web sem alterar o registo CNAME "www". Para obter mais informações, consulte [registos DNS criar para uma aplicação web no domínio personalizado de][CREATEDNS].
 > 
 > 
 
@@ -67,7 +67,7 @@ Quando terminar de adicionar ou modificar registos DNS no seu fornecedor de dom�
 ## <a name="enable-traffic-manager"></a>Ativar o Gestor de tráfego
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte o [Centro para Programadores do Node.js](/develop/nodejs/).
 
 [!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]

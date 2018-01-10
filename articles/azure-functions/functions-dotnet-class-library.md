@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: f48c9ef6b66cb3c9a687f1d063859e413866e88c
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 57edd392d25be20c237185d6780335e4ca9ba3e4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure funções c# de referência para programadores
 
@@ -259,7 +259,7 @@ Defina um imperativo enlace da seguinte forma:
 
 ### <a name="single-attribute-example"></a>Exemplo de atributo
 
-O código de exemplo seguinte cria um [vínculo de saída de blob de armazenamento](functions-bindings-storage-blob.md#input--output) com BLOBs caminho definido em tempo de execução, em seguida, escreve uma cadeia de blob.
+O código de exemplo seguinte cria um [vínculo de saída de blob de armazenamento](functions-bindings-storage-blob.md#output) com BLOBs caminho definido em tempo de execução, em seguida, escreve uma cadeia de blob.
 
 ```cs
 public static class IBinderExample
@@ -315,7 +315,7 @@ A tabela seguinte lista os atributos de enlace que estão disponíveis no projet
 
 | Acionador | Input | Saída|
 |------   | ------    | ------  |
-| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Blob](functions-bindings-storage-blob.md#input--output---attributes)| [Blob](functions-bindings-storage-blob.md#input--output---attributes)|
+| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Blob](functions-bindings-storage-blob.md#input---attributes)| [Blob](functions-bindings-storage-blob.md#output---attributes)|
 | [CosmosDBTrigger](functions-bindings-documentdb.md#trigger---attributes)| [DocumentDB](functions-bindings-documentdb.md#input---attributes)| [DocumentDB](functions-bindings-documentdb.md#output---attributes) |
 | [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
 | [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||

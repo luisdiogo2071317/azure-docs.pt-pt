@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 3bfa37ddd59091558d37a7531fe0c5820cfafe05
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: ac9a1a8c59a26393d32f9c543e630c302b7ced9d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrar o tráfego de rede com grupos de segurança de rede e de aplicação (pré-visualização)
 
@@ -31,7 +31,7 @@ As secções seguintes incluem passos que pode tomar para criar grupos de segura
 Este artigo fornece os passos para criar grupos de segurança através do modelo de implementação Resource Manager, que é o modelo de implementação, que recomendamos a utilização quando criar grupos de segurança de rede de rede. Se precisar de criar um grupo de segurança de rede (clássica), consulte [criar um grupo de segurança de rede (clássica)](virtual-networks-create-nsg-classic-ps.md). Se não estiver familiarizado com os modelos de implementação do Azure, consulte [modelos de implementação do Azure compreender](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!NOTE]
-> Este tutorial utiliza funcionalidades de grupo de segurança de rede que estão atualmente na versão de pré-visualização. Funcionalidades de pré-lançamento não têm o mesmo disponibilidade e fiabilidade como funcionalidades de versão em geral. Enquanto na pré-visualização, as funcionalidades estão disponíveis apenas nas seguintes regiões: WestCentralUS. Se pretender implementar a versão a utilizar funcionalidades apenas em geral de grupos de segurança de rede, consulte [criar um grupo de segurança de rede](virtual-networks-create-nsg-arm-pportal.md). 
+> Este tutorial utiliza funcionalidades de grupo de segurança de rede que estão atualmente na versão de pré-visualização. Funcionalidades de pré-lançamento não têm o mesmo disponibilidade e fiabilidade como funcionalidades de versão em geral. Se pretender implementar a versão a utilizar funcionalidades apenas em geral de grupos de segurança de rede, consulte [criar um grupo de segurança de rede](virtual-networks-create-nsg-arm-pportal.md). 
 
 ## <a name="azure-cli"></a>CLI do Azure
 

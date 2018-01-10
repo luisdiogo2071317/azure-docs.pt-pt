@@ -4,7 +4,7 @@ description: Saiba mais sobre a sintaxe SQL, conceitos de base de dados e as con
 keywords: "sintaxe de SQL, consulta sql, as consultas sql, idioma de consulta json, conceitos de base de dados e as consultas de sql, as funções de agregação"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: LalithaMV
 manager: jhubbard
 editor: monicar
 ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
-ms.author: arramac
-ms.openlocfilehash: 0bd24082f3b323919493fc8e9fdb642f065afb47
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: laviswa
+ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Consultas SQL para a base de dados do Azure Cosmos
 
@@ -376,136 +376,136 @@ A tabela seguinte mostra o resultado da comparações de igualdade na API do SQL
             <strong>Indefinido<strong>
          </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Valor nulo<strong>
          </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Valor booleano<strong>
          </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Número<strong>
          </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Cadeia<strong>
          </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Objeto<strong>
          </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Matriz<strong>
          </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
-Indefinido </td>
+Não definido </td>
          <td valign="top">
             <strong>OK</strong>
          </td>
@@ -541,23 +541,23 @@ A principal diferença entre utilizar BETWEEN na API do SQL Server e ANSI SQL é
 ### <a name="logical-and-or-and-not-operators"></a>Lógica (AND, OR e não) operadores
 Operadores lógicos operam nos valores booleanos. As tabelas de truth lógicas para destes operadores são mostradas nas tabelas seguintes.
 
-| OU | Verdadeiro | Falso | Indefinido |
+| OU | Verdadeiro | Falso | Não definido |
 | --- | --- | --- | --- |
 | Verdadeiro |Verdadeiro |Verdadeiro |Verdadeiro |
-| Falso |Verdadeiro |Falso |Indefinido |
-| Indefinido |Verdadeiro |Indefinido |Indefinido |
+| Falso |Verdadeiro |Falso |Não definido |
+| Não definido |Verdadeiro |Não definido |Não definido |
 
-| E | Verdadeiro | Falso | Indefinido |
+| E | Verdadeiro | Falso | Não definido |
 | --- | --- | --- | --- |
-| Verdadeiro |Verdadeiro |Falso |Indefinido |
+| Verdadeiro |Verdadeiro |Falso |Não definido |
 | Falso |Falso |Falso |Falso |
-| Indefinido |Indefinido |Falso |Indefinido |
+| Não definido |Não definido |Falso |Não definido |
 
 | NÃO |  |
 | --- | --- |
 | Verdadeiro |Falso |
 | Falso |Verdadeiro |
-| Indefinido |Indefinido |
+| Não definido |Não definido |
 
 ### <a name="in-keyword"></a>NA palavra-chave
 A palavra-chave in pode ser utilizado para verificar se um valor especificado corresponde a qualquer valor numa lista. Por exemplo, esta consulta devolve todos os documentos famílias onde o id é "WakefieldFamily" ou "AndersenFamily". 

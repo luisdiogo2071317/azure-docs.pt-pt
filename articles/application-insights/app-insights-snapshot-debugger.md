@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f1efbfc1f85f4c2fa404742e2d71344b3426c94d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicações de .NET
 
@@ -75,8 +75,8 @@ São suportados os seguintes ambientes:
 
 1. [Ativar o Application Insights na aplicação web ASP.NET Core](app-insights-asp-net-core.md), se ainda não o fez, ainda.
 
-> [!NOTE]
-> Ser se de que a aplicação referencia a versão 2.1.1 ou mais recente do pacote Microsoft.ApplicationInsights.AspNetCore.
+    > [!NOTE]
+    > Ser se de que a aplicação referencia a versão 2.1.1 ou mais recente do pacote Microsoft.ApplicationInsights.AspNetCore.
 
 2. Incluir o [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pacote NuGet na sua aplicação.
 
@@ -275,15 +275,39 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 
 Para aplicações que são _não_ alojada no App Service, os registos de /carregador estão na mesma pasta que o mini-cópias de informação: `%TEMP%\Dumps\<ikey>` (onde `<ikey>` é a sua chave de instrumentação).
 
-Para funções nos serviços em nuvem, a pasta temporária predefinida poderá ser demasiado pequena para conter os ficheiros de mini-cópia de segurança. Nesse caso, pode especificar uma pasta alternativa através da propriedade TempFolder no Applicationinsights.
+### <a name="troubleshooting-cloud-services"></a>Resolução de problemas de serviços Cloud
+Para funções nos serviços em nuvem, a pasta temporária predefinida poderá ser demasiado pequena para conter os ficheiros de mini-cópia de segurança, originando instantâneos perdidos.
+O espaço necessário depende o conjunto de trabalho total da sua aplicação e o número de instantâneos em simultâneo.
+O conjunto de trabalho de uma função de web ASP.NET de 32 bits é, geralmente, entre 200 MB e 500 MB.
+Deve permitir para, pelo menos, dois instantâneos em simultâneo.
+Por exemplo, se a sua aplicação utilizar 1 GB do conjunto de trabalho total, deve certificar-se de que há, pelo menos, 2 GB de espaço em disco para armazenar os instantâneos.
+Siga estes passos para configurar a sua função de serviço em nuvem com um recurso local dedicado para instantâneos.
 
+1. Adicione um novo recurso local ao seu serviço de nuvem editando o ficheiro de definição (.csdf) do serviço em nuvem. O exemplo seguinte define um recurso chamado `SnapshotStore` com um tamanho de 5 GB.
 ```xml
-<TelemetryProcessors>
-  <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
-    <!-- Use an alternative folder for minidumps -->
-    <TempFolder>C:\Snapshots\Go\Here</TempFolder>
+   <LocalResources>
+     <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
+   </LocalResources>
+```
+
+2. Modificar a sua função `OnStart` método para adicionar uma variável de ambiente que aponta para o `SnapshotStore` recurso local.
+```C#
+   public override bool OnStart()
+   {
+       Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+       return base.OnStart();
+   }
+```
+
+3. Atualizar ficheiro Applicationinsights. da função para substituir a localização da pasta temporário utilizada pelo`SnapshotCollector`
+```xml
+  <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Use the SnapshotStore local resource for snapshots -->
+      <TempFolder>%SNAPSHOTSTORE%</TempFolder>
+      <!-- Other SnapshotCollector configuration options -->
     </Add>
-</TelemetryProcessors>
+  </TelemetryProcessors>
 ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Utilize Application Insights procura para localizar exceções com instantâneos

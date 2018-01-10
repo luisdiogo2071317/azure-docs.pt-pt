@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 68409d7832985bea635e4b6de341ea6aec6f560d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 694d75b57d0f1b26640848344fbbe268fe285009
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
 As cópias de segurança do Azure podem ser criadas através do portal do Azure. Este método fornece uma interface de utilizador baseada no browser para criar e configurar cópias de segurança do Azure e de todos os recursos relacionados. Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que podem ser armazenados em cofres de recuperação georredundantes. Este artigo mostra em detalhe como fazer uma cópia de segurança de uma máquina virtual (VM) com o portal do Azure. 
@@ -36,13 +36,13 @@ Crie uma cópia de segurança diária simples para um Cofre dos Serviços de Rec
 
 1. No menu do lado esquerdo, selecione **Máquinas virtuais**. 
 2. Na lista, escolha uma VM da qual pretende fazer uma cópia de segurança. Se utilizou os comandos de início rápido de VM de exemplo, a VM tem o nome *myVM* no grupo de recursos *myResourceGroup*.
-3. Na secção **Definições**, escolha **Cópia de segurança**. A janela **Ativar cópia de segurança** abre.
+3. Na secção **Operações**, selecione **Cópia de segurança**. A janela **Ativar cópia de segurança** abre.
 
 
 ## <a name="enable-backup-on-a-vm"></a>Ativar a cópia de segurança numa VM
 Um cofre dos Serviços de Recuperação é um contentor lógico que armazena os dados da cópia de segurança de todos os recursos protegidos, como as VMs do Azure. Quando a tarefa de cópia de segurança de um recurso protegido é executada, cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Em seguida, pode utilizar um destes pontos de recuperação para restaurar dados para um determinado ponto no tempo.
 
-1. Selecione **Criar novo** e forneça um nome para o novo cofre, como **myRecoveryServicesVault**.
+1. Selecione **Criar novo** e forneça um nome para o novo cofre, como *myRecoveryServicesVault*.
 2. Se ainda não estiver selecionado, escolha **Utilizar existente** e, em seguida, selecione o grupo de recursos da sua VM a partir do menu pendente.
 
     ![Ativar a cópia de segurança da VM no portal do Azure](./media/quick-backup-vm-portal/enable-backup.png)
@@ -52,6 +52,8 @@ Um cofre dos Serviços de Recuperação é um contentor lógico que armazena os 
     Para definir quando uma é executada uma tarefa de cópia de segurança e durante quanto tempo os pontos de recuperação são armazenados, tem de criar e utilizar políticas. A política de proteção predefinida executa uma tarefa de cópia de segurança todos os dias e mantém os pontos de recuperação durante 30 dias. Pode utilizar estes valores da política predefinida para proteger rapidamente a sua VM. 
 
 3. Para aceitar os valores da política de cópia de segurança predefinida, selecione **Ativar Cópia de segurança**.
+
+São precisos alguns momentos para criar o cofre dos Serviços de Recuperação.
 
 
 ## <a name="start-a-backup-job"></a>Iniciar uma tarefa de cópia de segurança

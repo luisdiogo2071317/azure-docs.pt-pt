@@ -1,5 +1,5 @@
 ---
-title: Compreender a fatura do Azure | Microsoft Docs
+title: Compreender a fatura do Azure
 description: "Saiba como ler e compreender a utilização e a faturação da sua subscrição do Azure"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: edd4702ccab9162329bf83993d236eec9ec40b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54de5e123dbb51948eb62d90b444ebd78f9879cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreender os termos de licenciamento na sua fatura do Microsoft Azure
+
 A fatura fornece um resumo da sua encargos e fornece instruções para pagamento. Está disponível para transferência no formato de documento (. pdf) portátil partir o [portal do Azure](https://portal.azure.com/) ou pode ser enviado por e-mail. Para obter mais informações, consulte [como obter o Azure faturação dados de utilização de uma fatura e diariamente](billing-download-azure-invoice-daily-usage-date.md).
 
 Alguns aspetos a ter em atenção:
@@ -31,9 +32,7 @@ Alguns aspetos a ter em atenção:
 
 -   Os encargos listados nas instruções de faturação para clientes internacionais são estimativa apenas para efeitos. Bancos podem ter diferentes custos para as taxas de conversão.
 
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>Termos de detalhado e descrições da sua fatura
 As secções seguintes listam os termos importantes que vê na sua fatura e descrições para cada termo.
@@ -104,7 +103,7 @@ A tabela seguinte descreve os cabeçalhos de coluna de encargos de utilização 
 | Recurso |Identifica a unidade de medida para a medição consumida |
 | Região |Identifica a localização do Centro de dados para determinados serviços que têm um preço com base na localização do Centro de dados |
 | Consumido |A quantidade de medidor utilizado durante o período de faturação |
-| Incluído |A quantidade de medição que está incluída, sem encargos no seu período de faturação atual |
+| Incluída |A quantidade de medição que está incluída, sem encargos no seu período de faturação atual |
 | A Cobrar |Mostra a diferença entre a quantidade consumido e a quantidade incluída. Será cobrado durante este período. Para ofertas de pay as you go com nenhuma quantidade incluída com a oferta, este total é o mesmo que a quantidade consumido |
 | Tarifa |A velocidade a que se estiver a ser cobrados por unidade facturável |
 | Valor |Mostra o resultado da multiplicação a coluna de excedido quantidade pela coluna de taxa. Se a quantidade consumido não exceder a quantidade incluída, há sem qualquer encargo nesta coluna. |
