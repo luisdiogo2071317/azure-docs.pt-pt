@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Ligação SQL Database do Azure para a Azure Search utilizando indexadores
 
@@ -26,7 +26,7 @@ Antes de pode consultar um [índice da Azure Search](search-what-is-an-index.md)
 
 Este artigo abrange mechanics da utilização [indexadores](search-indexer-overview.md), mas também descreve as funcionalidades apenas disponíveis com bases de dados SQL do Azure (por exemplo, registo de alterações integrado). 
 
-Para além das bases de dados SQL do Azure, pesquisa do Azure fornece indexadores para [Azure Cosmos DB](search-howto-index-documentdb.md), [Blob storage do Azure](search-howto-indexing-azure-blob-storage.md), e [table storage do Azure](search-howto-indexing-azure-tables.md). Para pedir suporte para outras origens de dados, fornecer os seus comentários sobre o [fórum de comentários da Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
+Para além das bases de dados SQL do Azure, pesquisa do Azure fornece indexadores para [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Blob storage do Azure](search-howto-indexing-azure-blob-storage.md), e [table storage do Azure](search-howto-indexing-azure-tables.md). Para pedir suporte para outras origens de dados, fornecer os seus comentários sobre o [fórum de comentários da Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexadores e origens de dados
 
@@ -294,8 +294,8 @@ O **softDeleteMarkerValue** tem de ser uma cadeia – utilize a representação 
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, EDM | |
 | uniqueidentifer |Edm.String | |
 | Geografia |Edm.GeographyPoint |São suportadas apenas instâncias de geografia de tipo de ponto de 4326 SRID (que é a predefinição) |
-| ROWVERSION |N/D |Colunas de versão de linha não podem ser armazenadas no índice de pesquisa, mas podem ser utilizadas para controlo de alterações |
-| tempo timespan, binary, varbinary, imagem, xml, geometria, os tipos CLR |N/D |Não suportado |
+| ROWVERSION |N/A |Colunas de versão de linha não podem ser armazenadas no índice de pesquisa, mas podem ser utilizadas para controlo de alterações |
+| tempo timespan, binary, varbinary, imagem, xml, geometria, os tipos CLR |N/A |Não suportado |
 
 ## <a name="configuration-settings"></a>Definições de configuração
 Indexador SQL expõe várias definições de configuração:
@@ -303,7 +303,7 @@ Indexador SQL expõe várias definições de configuração:
 | Definição | Tipo de dados | Objetivo | Valor predefinido |
 | --- | --- | --- | --- |
 | queryTimeout |string |Define o tempo limite para a execução da consulta SQL |5 minutos ("00: 05:00") |
-| disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL utilizada pela política de nível máximo para omita a cláusula ORDER BY. Consulte [política de nível máximo](#HighWaterMarkPolicy) |False |
+| disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL utilizada pela política de nível máximo para omita a cláusula ORDER BY. Consulte [política de nível máximo](#HighWaterMarkPolicy) |falso |
 
 Estas definições são utilizadas no `parameters.configuration` objeto na definição do indexador. Por exemplo, para definir o tempo limite de consulta para 10 minutos, criar ou atualizar o indexador com a seguinte configuração:
 

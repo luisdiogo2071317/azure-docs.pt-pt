@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ed0239df7bf1e4d37987aaa929d0c67bec595b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19681564ef48649d4d44da1d0a2a65044f494ce4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementação de Git Local no Serviço de Aplicações do Azure
 Este tutorial mostra como implementar a aplicação [Web Apps do Azure](app-service-web-overview.md) um repositório de Git no seu computador local. Serviço de aplicações suporta esta abordagem com a **Local Git** a opção de implementação no [Portal do Azure].  
@@ -71,8 +71,8 @@ Execute os seguintes passos para ativar um repositório de Git para a sua aplica
 1. Inicie sessão no [Portal do Azure].
 2. No painel da sua aplicação de serviço de aplicações, clique em **definições > origem de implementação**. Clique em **Escolher origem**, em seguida, clique em **repositório de Git Local**e, em seguida, clique em **OK**.  
    
-    ![Repositório de Git local](./media/app-service-deploy-local-git/local_git_selection.png)
-3. Se esta for a primeira hora configurar um repositório no Azure, terá de criar as credenciais de início de sessão para o mesmo. Irá utilizá-los para iniciar sessão nas alterações de push e de repositório do Azure do seu repositório de Git local. No painel da sua aplicação, clique em **definições > credenciais de implementação**, em seguida, configure o seu nome de utilizador de implementação e a palavra-passe. Quando tiver terminado, clique em **guardar**.
+    ![Repositório de Git Local](./media/app-service-deploy-local-git/local_git_selection.png)
+3. Se esta for a primeira hora configurar um repositório no Azure, terá de criar as credenciais de início de sessão para o mesmo. Irá utilizá-los para iniciar sessão nas alterações de push e de repositório do Azure do seu repositório de Git local. No painel da sua aplicação, clique em **implementação > as credenciais de implementação**, em seguida, configure o seu nome de utilizador de implementação e a palavra-passe. Quando tiver terminado, clique em **guardar**.
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 

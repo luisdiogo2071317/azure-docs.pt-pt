@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e09b472a53c02b39bcf7ad06d228049b0a392452
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configurar um cluster RDMA do Linux para executar aplicações MPI
 Saiba como configurar um cluster de Linux RDMA no Azure com [tamanhos de VM de computação de elevado desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para executar aplicações de Interface de passagem de mensagens (MPI) paralelas. Este artigo fornece os passos para preparar uma imagem de Linux HPC para executar Intel MPI num cluster. Depois de preparação, implementar um cluster de VMs com esta imagem e dos tamanhos de VM do Azure com capacidade RDMA (atualmente H16r, H16mr, A8, A9 ou utilizador). Utilize o cluster para executar aplicações de MPI comunicam de forma eficiente através de uma rede de latência baixa e débito elevado com base na tecnologia de (RDMA) de acesso remoto direto à memória.
@@ -304,7 +304,7 @@ cluster12
 O seguinte comando do Intel MPI executa um benchmark pingpong para verificar a configuração de cluster e a ligação à rede RDMA.
 
 ```
-mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
+mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
 Num cluster de trabalhar com dois nós, deverá ver um resultado como o seguinte. Na rede Azure RDMA, espere latência ou abaixo 3 microssegundos para mensagem tamanhos até 512 bytes.
@@ -375,7 +375,7 @@ Num cluster de trabalhar com dois nós, deverá ver um resultado como o seguinte
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Implementar e executar o Linux MPI aplicações no cluster do Linux.
 * Consulte o [documentação da biblioteca de MPI Intel](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) para obter orientações sobre Intel MPI.
 * Tente uma [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) para criar um cluster de Intel Lustre utilizando uma imagem com base em CentOS HPC. Para obter mais informações, consulte [implementar edição de nuvem Intel para Lustre no Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).

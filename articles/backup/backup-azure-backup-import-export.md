@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 32a48a34711a7f053a74e103deb6853150de3903
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de cópias de segurança offline no Azure Backup
 Cópia de segurança do Azure tem vários resulta numa eficiência incorporada que reduzir os custos de armazenamento e de rede durante as cópias de segurança completas iniciais dos dados no Azure. As cópias de segurança completas iniciais normalmente transferem grandes quantidades de dados e necessitam de mais largura de banda quando comparado com as cópias de segurança subsequentes transferir apenas as diferenças/incrementais. Cópia de segurança do Azure comprime as cópias de segurança iniciais. Durante o processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar o comprimido inicial cópia de segurança de dados offline para o Azure.  
@@ -46,7 +46,7 @@ Após a conclusão do carregamento dos dados de cópia de segurança para o Azur
   * Foi criado um cofre de cópia de segurança do Azure.
   * As credenciais do cofre tiverem sido transferidas.
   * O agente do Backup do Azure foi instalado no cliente do Windows Server/Windows ou servidor do System Center Data Protection Manager e o computador está registado no cofre do Backup do Azure.
-* [Transferir as definições de ficheiros de publicação do Azure](https://manage.windowsazure.com/publishsettings) no computador a partir do qual planeia efetuar uma cópia dos seus dados.
+* [Transferir as definições de ficheiros de publicação do Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) no computador a partir do qual planeia efetuar uma cópia dos seus dados.
 * Prepare uma localização de transição, que pode ser uma partilha de rede ou a unidade adicional no computador. A localização de transição é armazenamento transitório e é utilizada temporariamente durante este fluxo de trabalho. Certifique-se de que a localização de transição tem espaço em disco suficiente para conter a cópia inicial. Por exemplo, se estiver a tentar fazer uma cópia de segurança de um servidor de ficheiros de 500 GB, certifique-se de que a área de transição é pelo menos de 500 GB. (Uma quantidade menor é utilizada devido a compressão.)
 * Certifique-se de que está a utilizar uma unidade suportada. Apenas 2,5 polegada SSD ou 2,5 ou 3.5 polegadas SATA II/III interno unidades de disco rígido são suportados para utilização com o serviço de importação/exportação. Pode utilizar unidades de disco rígido até 10 TB. Verifique o [documentação do serviço do Azure para importar/exportar](../storage/common/storage-import-export-service.md#hard-disk-drives) para o conjunto de discos com o serviço suporta mais recente.
 * Ative o BitLocker no computador para que o escritor de unidade SATA está ligado.
@@ -67,7 +67,7 @@ As informações nesta secção ajuda-o a concluir o fluxo de trabalho de cópia
 
     * **Localização de transição**: A localização de armazenamento temporário para o qual a cópia de segurança inicial é escrita. Isto pode ser num computador local ou uma partilha de rede. Se o computador de cópia e o computador de origem são diferentes, é recomendado que especifique o caminho de rede completa de localização de transição.
     * **Nome da tarefa de importação do Azure**: O nome exclusivo que importar do Azure Backup do Azure e do serviço controlam a transferência de dados enviados em discos para o Azure.
-    * **Definições de publicação do Azure**: ficheiro um XML que contém informações sobre o perfil de subscrição. Também contém as credenciais seguras que estão associadas a sua subscrição. Pode [transfira o ficheiro](https://manage.windowsazure.com/publishsettings). Forneça o caminho local para o ficheiro de definições de publicação.
+    * **Definições de publicação do Azure**: ficheiro um XML que contém informações sobre o perfil de subscrição. Também contém as credenciais seguras que estão associadas a sua subscrição. Pode [transfira o ficheiro](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). Forneça o caminho local para o ficheiro de definições de publicação.
     * **ID de subscrição do Azure**: ID de subscrição do Azure para a subscrição em que pretende iniciar a tarefa de importação do Azure. Se tiver várias subscrições do Azure, utilize o ID da subscrição que pretende associar a tarefa de importação.
     * **Conta de armazenamento do Azure**: A conta de armazenamento na subscrição do Azure associada com a tarefa de importação do Azure.
     * **Contentor de armazenamento do Azure**: O nome do blob de armazenamento de destino na conta do storage do Azure onde os dados desta tarefa são importados.

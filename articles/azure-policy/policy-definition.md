@@ -9,11 +9,11 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -200,7 +200,6 @@ Política suporta os seguintes tipos de efeito:
 * **Acrescentar**: Adiciona um conjunto definido de campos para o pedido
 * **AuditIfNotExists**: permite que o se não existir um recurso de auditoria
 * **DeployIfNotExists**: implementa um recurso, se já existir. Atualmente, este efeito só é suportado através de políticas incorporadas.
-* **DenyIfNotExists**: nega a criação de um exist se não existe
 
 Para **acrescentar**, tem de fornecer os seguintes detalhes:
 
@@ -216,7 +215,7 @@ Para **acrescentar**, tem de fornecer os seguintes detalhes:
 
 O valor pode ser uma cadeia ou um objeto de formato JSON.
 
-Com **AuditIfNotExists**, **DeployIfNotExists**, e **DenyIfNotExists**, pode avaliar a existência de um recurso de subordinados e aplicar uma regra e um efeito correspondente Quando esse recurso não existe. Por exemplo, pode exigir que um observador de rede é implementado para todas as redes virtuais.
+Com **AuditIfNotExists** e **DeployIfNotExists** pode avaliar a existência de um recurso de subordinados e aplicar uma regra e um efeito correspondente ao recurso de não existe. Por exemplo, pode exigir que um observador de rede é implementado para todas as redes virtuais.
 Para obter um exemplo de auditoria quando uma extensão da máquina virtual não está a ser implementada, consulte [auditoria se a extensão não existe](scripts/audit-ext-not-exist.md).
 
 
@@ -417,6 +416,6 @@ O exemplo a seguir ilustra como criar uma iniciativa para processamento de duas 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja os exemplos de modelo de política do Azure em [modelos de política do Azure](json-samples.md).

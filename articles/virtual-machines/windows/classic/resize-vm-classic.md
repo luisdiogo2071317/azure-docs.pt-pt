@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
 ms.openlocfilehash: 4277bc8394c7ba140291e9dc776162e87deab96b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>Redimensionar uma VM do Windows criados no modelo de implementação clássica
 Este artigo mostra como redimensionar uma VM do Windows, criado no modelo de implementação clássica com o Azure Powershell.
@@ -66,6 +66,6 @@ Redimensionar uma VM para um tamanho não está disponível no cluster de hardwa
 
 Um script de exemplo para eliminar e recriar um serviço em nuvem utilizando um tamanho VM nova que pode ser encontrado [aqui](https://github.com/Azure/azure-vm-scripts). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Redimensionar uma VM criada no modelo de implementação Resource Manager](../resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -1,22 +1,22 @@
 ---
-title: "Criar uma aplicação de função e implementar o código de função a partir do GitHub | Microsoft Docs"
-description: "Criar uma aplicação de função e implementar o código de função a partir do GitHub"
+title: "Criar uma função no Azure que é implementado a partir do GitHub | Microsoft Docs"
+description: "Criar uma aplicação de função e implementar o código de função de um repositório do GitHub com as funções do Azure."
 services: functions
 ms.service: functions
 keywords: 
 ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/27/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 8b148651d041bbc27e2deccec57b1759ce0095d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4224bc7973cd1e3ca36799db9f23a124fcba807
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>Criar um serviço de aplicações
+# <a name="create-a-function-in-azure-that-is-deployed-from-github"></a>Criar uma função no Azure que é implementado a partir do GitHub
 
 Este script de exemplo cria uma aplicação de função utilizando o [plano de consumo](../functions-scale.md#consumption-plan) com os respetivos recursos relacionados e implementa continuamente o seu código de função de um repositório do GitHub. Neste exemplo, é necessário:
 
@@ -27,7 +27,7 @@ Este script de exemplo cria uma aplicação de função utilizando o [plano de c
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e usar a CLI localmente, este tópico requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Se em vez disso utilizar a CLI do Azure localmente, terá de instalar e utilizar a versão 2.0 ou uma versão posterior. Para determinar a versão da CLI do Azure, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -39,16 +39,16 @@ Este exemplo cria uma aplicação de função do Azure e implementa o código de
 
 ## <a name="script-explanation"></a>Explicação de script
 
-Cada comando nas ligações de tabela para a documentação específica do comando. Este script utiliza o seguinte:
+Cada comando nas ligações de tabela para a documentação específica do comando. Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
 | [Criar grupo AZ](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos na qual todos os recursos são armazenados. |
-| [criar conta de armazenamento AZ](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano de serviço de aplicações. |
+| [criar conta de armazenamento AZ](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano de Serviço de Aplicações. |
 | [Criar AZ functionapp](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
 | [configuração de controlo de origem do AZ serviço de aplicações web](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Associa uma aplicação de função um Git ou Mercurial repositório. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 

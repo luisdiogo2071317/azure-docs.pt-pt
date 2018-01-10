@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-ms.openlocfilehash: dc252903571857b5fc89d1d9a2c63cd6b44e9021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f58464ac212b84623d2287205271301dbaa0ffb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Aplicação do App Service do Azure através do PowerShell de clonagem
 Com o lançamento do Microsoft Azure PowerShell versão 1.1.0 foi adicionada uma nova opção para New-AzureRMWebApp seria conceder ao utilizador a capacidade de clone de uma aplicação Web existente para uma aplicação recentemente criada numa região diferente ou na mesma região. Isto permitirá aos clientes implementar com um número de aplicações em diferentes regiões forma rápida e fácil.
@@ -102,6 +102,7 @@ Esta funcionalidade está atualmente em pré-visualização, estamos a trabalhar
 * Extensão do kudu não são Clonadas
 * Regras de sugestão não são Clonadas
 * Conteúdo da base de dados não são Clonadas
+* Saída endereços IP será alterado se a clonagem, para uma unidade de escala diferentes
 
 ### <a name="references"></a>Referências
 * [A clonagem de aplicação Web](app-service-web-app-cloning.md)

@@ -1,24 +1,20 @@
 ---
 title: "Sobre não geridos (os blobs de páginas) e geridas armazenamento de discos para VMs do Windows do Microsoft Azure | Microsoft Docs"
 description: "Saiba mais sobre as noções básicas de não geridos (os blobs de páginas) e geridos de armazenamento de discos para máquinas virtuais do Windows no Azure."
-services: storage
-documentationcenter: 
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
-ms.service: storage
+services: virtual-machines
+author: iainfoulds
+manager: jeconnoc
+ms.service: virtual-machines
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: 1a8dc028e2e872820a209bcdde5cca57853dd419
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: iainfou
+ms.openlocfilehash: bf5c5cc0637b9a515bf567ff8933170d7fc1a8ba
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Sobre o armazenamento de discos para VMs do Windows Azure
 Tal como qualquer outro computador, máquinas virtuais no Azure utilizar discos como um local para armazenar os dados, aplicações e um sistema operativo. Todas as máquinas virtuais do Azure de ter, pelo menos, dois discos – um disco de sistema operativo Windows e um disco temporário. O disco do sistema operativo é criado a partir de uma imagem e o disco do sistema operativo e a imagem são discos rígidos virtuais (VHDs) armazenados numa conta de armazenamento do Azure. Máquinas virtuais podem ter também um ou mais discos de dados, que também são armazenados como VHDs. 
@@ -51,7 +47,7 @@ Um disco de dados é uma imagem VHD que está ligada a uma máquina virtual para
 
 Quando criar uma máquina virtual a partir de uma imagem, o Azure cria um disco de sistema operativo. Se utilizar uma imagem que inclui os discos de dados, o Azure também cria os discos de dados quando cria a máquina virtual. Caso contrário, adicione discos de dados depois de criar a máquina virtual.
 
-Pode adicionar os discos de dados para uma máquina virtual em qualquer altura, pelo **anexar** o disco à máquina virtual. Pode utilizar uma imagem VHD que tiver carregado ou copiados para a sua conta de armazenamento, ou que o Azure cria por si. Anexar um disco de dados associa o ficheiro VHD a VM colocando uma concessão no VHD, pelo que não pode ser eliminada do armazenamento enquanto ainda está ligado.
+Pode adicionar os discos de dados para uma máquina virtual em qualquer altura, pelo **anexar** o disco à máquina virtual. Pode utilizar uma imagem VHD que tiver carregado ou copiados para a sua conta de armazenamento ou utilizar um VHD vazio que o Azure cria por si. Anexar um disco de dados associa o ficheiro VHD a VM colocando uma concessão no VHD, pelo que não pode ser eliminada do armazenamento enquanto ainda está ligado.
 
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
@@ -78,7 +74,7 @@ fsutil behavior set DisableDeleteNotify 0
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Anexar um disco](attach-disk-portal.md) para adicionar armazenamento adicional para a VM.
 * [Criar um instantâneo](snapshot-copy-managed-disk.md).
 * [Converter discos geridos](convert-unmanaged-to-managed-disks.md).

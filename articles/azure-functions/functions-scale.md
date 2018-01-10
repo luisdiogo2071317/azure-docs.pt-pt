@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala de funções do Azure e de alojamento
 
@@ -97,7 +97,7 @@ Quando utiliza o consumo de plano de alojamento, ficheiros de código de funçã
 > [!NOTE]
 > Quando estiver a utilizar um acionador de blob um plano de consumo, podem existir até um atraso de 10 minutos processar novos blobs, se uma aplicação de função tornou-se inativo. Depois da aplicação de função está em execução, blobs são processados imediatamente. Para evitar este atraso inicial, considere uma das seguintes opções:
 > - O anfitrião da aplicação de função no plano de serviço de aplicações, com o Always On ativado.
-> - Utilize outro mecanismo para acionar o blob processar, tais como uma subscrição de evento de grelha ou uma mensagem de fila que contém o nome do blob. Por exemplo, consulte o [script do c# e exemplos de JavaScript para o blob de entrada e saída enlaces](functions-bindings-storage-blob.md#input--output---example).
+> - Utilize outro mecanismo para acionar o blob processar, tais como uma subscrição de evento de grelha ou uma mensagem de fila que contém o nome do blob. Por exemplo, consulte o [enlace de entrada de exemplos para o blob](functions-bindings-storage-blob.md#input---example).
 
 ### <a name="runtime-scaling"></a>Dimensionamento de tempo de execução
 

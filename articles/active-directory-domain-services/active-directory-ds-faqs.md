@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 4e95cd128c0c8ee8492e7bd224afc317101f346c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 52eaf66f829f22313c72bd6eeea38b796ff18465
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Serviços de domínio do Azure Active Directory: Perguntas mais frequentes (FAQ)
 Esta página respostas a perguntas mais frequentes sobre o Azure Active Directory Domain Services. Manter a verificação de volta para atualizações.
@@ -47,9 +47,6 @@ O próprio serviço não suporta diretamente neste cenário. Seu domínio gerido
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Pode ativar os serviços de domínio do Azure AD através do PowerShell?
 Sim. Consulte [como ativar o domínio do Azure AD para serviços com o PowerShell](active-directory-ds-enable-using-powershell.md).
-
-#### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Serviços de domínio do Azure AD está disponível no portal do Azure?
-Sim. Serviços de domínio do Azure AD podem ser configurados utilizando a [portal do Azure](https://portal.azure.com). O [portal clássico do Azure](https://manage.windowsazure.com) já não é suportada.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Pode ativar os serviços de domínio do Azure AD com um modelo do Resource Manager?
 Sim. Consulte [como ativar o domínio do Azure AD para serviços com o PowerShell](active-directory-ds-enable-using-powershell.md).

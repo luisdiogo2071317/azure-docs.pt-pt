@@ -1,6 +1,6 @@
 ---
-title: Registo do IIS no Log Analytics | Microsoft Docs
-description: "Serviços de informação Internet (IIS) armazena atividade do utilizador nos ficheiros de registo que podem ser recolhidos através da análise de registos.  Este artigo descreve como configurar a recolha de registos IIS e os detalhes dos registos que criarem no repositório de OMS."
+title: Registo do IIS no Log Analytics do Azure | Microsoft Docs
+description: "Serviços de informação Internet (IIS) armazena atividade do utilizador nos ficheiros de registo que podem ser recolhidos através da análise de registos.  Este artigo descreve como configurar a recolha de registos IIS e os detalhes dos registos que criarem na área de trabalho de análise de registos."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 01/07/2018
 ms.author: bwren
-ms.openlocfilehash: 20155e7f0ad817993b5926a1a83b8683ab124075
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="iis-logs-in-log-analytics"></a>Registo do IIS na análise de registos
 Serviços de informação Internet (IIS) armazena atividade do utilizador nos ficheiros de registo que podem ser recolhidos através da análise de registos.  
@@ -76,7 +76,7 @@ A tabela seguinte fornece exemplos diferentes de consultas de registo que obter 
 | W3CIISLog &#124; onde csHost = = "www.contoso.com" &#124; resumir existente pelo csUriStem |Entradas pelo URL para o anfitrião www.contoso.com de registo de contagem de IIS. |
 | W3CIISLog &#124; resumir sum(csBytes) pelo computador &#124; tirar 500000 |Total de bytes recebidos por cada computador do IIS. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Configurar a análise de registos para recolher outros [origens de dados](log-analytics-data-sources.md) para análise.
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
 * Configure alertas na análise de registos para proativamente notificá-lo de condições importantes encontradas nos registos IIS.

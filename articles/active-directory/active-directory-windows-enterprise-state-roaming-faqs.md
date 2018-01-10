@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 7f9431a695f2acaa2067e623788a0c3c3b4183c9
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 054705e802867fda666c80217396db197c60f50e
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
 Este tópico responde a algumas perguntas os administradores de TI podem ter sobre as definições e sincronização de dados de aplicação.
@@ -72,7 +72,7 @@ As versões de Novembro versão 2015 ou posterior do Windows 10, Roaming de esta
 ## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>As definições de sincronização para contas de anúncios do Azure a partir de múltiplos inquilinos?
 Quando contas de várias do Azure AD de diferentes inquilinos do Azure AD estão no mesmo dispositivo, tem de atualizar o registo do dispositivo para comunicar com o Azure Rights Management (Azure RMS) para cada inquilino do Azure AD.  
 
-1. Localize o GUID para cada inquilino do Azure AD. Abra o portal do Azure e selecione um inquilino do Azure AD. É o GUID para o inquilino no URL na barra de endereço do seu browser. Por exemplo: `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. Localize o GUID para cada inquilino do Azure AD. Abra o portal do Azure e selecione um inquilino do Azure AD. O GUID para o inquilino é na página de propriedades para o inquilino selecionado (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), com a etiqueta **ID de diretório**. 
 2. Depois de ter o GUID, terá de adicionar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<GUID de ID de inquilino >**.
    Do **GUID de ID de inquilino** chave, crie um novo valor de cadeia múltipla (REG-várias-SZ) com o nome **AllowedRMSServerUrls**. Para os respetivos dados, especifique os URLs de ponto de distribuição licenciamento de outros inquilinos do Azure que acede ao dispositivo.
 3. Pode encontrar os URLs de ponto de distribuição licenciamento executando o **Get-AadrmConfiguration** cmdlet. Se os valores para o **LicensingIntranetDistributionPointUrl** e **LicensingExtranetDistributionPointUrl** são diferentes, especifique ambos os valores. Se os valores forem iguais, especifique o valor apenas uma vez.

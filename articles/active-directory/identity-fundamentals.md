@@ -1,5 +1,5 @@
 ---
-title: "Noções básicas sobre a gestão de identidades do Azure | Microsoft Docs"
+title: "Noções básicas sobre a gestão de identidades do Azure"
 description: "Identidades baseado na nuvem estão agora a melhor forma de manter o controlo sobre e visibilidade, como e quando os utilizadores aceder a aplicações e dados empresariais."
 keywords: 
 author: jeffgilb
@@ -13,13 +13,14 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: b77fc9e6c9dbb5fde2e2f0d153f348bb553b9f79
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Noções básicas sobre a gestão de identidades do Azure
+
 Como mais recursos digitais da empresa em direto fora da rede empresarial na nuvem e em dispositivos, uma excelente baseado na nuvem identidades e acessos solução de gestão está a tornar-se uma necessidade. Identidades baseado na nuvem estão agora a melhor forma de manter o controlo sobre e visibilidade, como e quando os utilizadores aceder a aplicações e dados empresariais.
 
 Microsoft tem sido proteger identidades baseado na nuvem para através de um decade e agora, com [do Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), estes sistemas de proteção mesmo estão disponíveis para si. Com o Azure AD, administradores da empresa podem facilmente Certifique-se de utilizador e administrador accountability com maior segurança e governação que anteriormente.
@@ -27,7 +28,7 @@ Microsoft tem sido proteger identidades baseado na nuvem para através de um dec
 O Azure AD Premium é um baseado na nuvem identidades e acessos solução de gestão com capacidades de proteção avançada que permite uma identidade segura para todas as aplicações, proteção de identidade (avançada pelo [gráfico de segurança do Microsoft intelligence](https://www.microsoft.com/en-us/security/intelligence)) e Privileged Identity Management. Apenas outra monitorização ou a ferramenta, de relatórios do Azure AD Premium pode proteger as identidades dos utilizadores em tempo real e permitem-lhe criar políticas de acesso baseado em risco, adaptável para proteger dados da sua organização.
 
 Ver este breve vídeo para uma descrição geral da proteção e gestão de identidades do Azure AD:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9LGIJ2-FKIM" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
 A Microsoft fornece não apenas uma identidade que o leva everywhere, mas também um conjunto de ferramentas para automatizar, ajudar a proteger e gerir IT na sua organização. Mesmo após a introdução de informática em nuvem, existe ainda está a pedido para gerir e controlar tarefas como chamadas de suporte técnico para o utilizador de reposição de palavras-passe, gestão de grupo de utilizadores e pedidos de aplicações. Complicating coisas ainda mais, os funcionários agora colocarem os seus dispositivos pessoais para o trabalho e a utilização de aplicações de SaaS prontamente disponíveis. Isto torna a manutenção controlo sobre as aplicações em centros de dados empresariais e de plataformas na nuvem pública um significativo desafio.
 
@@ -74,5 +75,5 @@ Com a gestão de identidade do Azure, pode:
 
 -   Tirar partido do [elevada disponibilidade e fiabilidade](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications) de um nível de empresarial em todo o mundo, baseado na nuvem identidades e acessos solução de gestão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre as soluções de identidade do Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)

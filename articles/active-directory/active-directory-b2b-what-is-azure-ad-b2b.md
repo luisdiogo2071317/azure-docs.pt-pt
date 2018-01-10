@@ -17,15 +17,15 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.custom: aaddev
 ms.reviewer: sasubram
-ms.openlocfilehash: eef95f80f8107c13cd057c56eb5219a353acc854
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3167b0b4b33eee11f388efd1d2088f6bc5cc639
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-is-azure-ad-b2b-collaboration"></a>O que é a colaboração B2B do Azure AD?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
 Azure AD empresa-empresa (B2B) colaboração as capacidades de ativar qualquer organização utilizar o Azure AD a trabalhar com segurança e de forma segura com os utilizadores de qualquer outra organização grande ou pequeno. As organizações podem ser com o Azure AD ou sem, ou mesmo com uma organização de TI ou sem. 
 
@@ -100,7 +100,7 @@ Utilizar o [convite de colaboração B2B APIs](https://developer.microsoft.com/g
 
 Com a colaboração B2B do Azure AD, pode obter o poder do Azure AD para proteger as relações com parceiros de forma a que os utilizadores finais encontrar fácil e intuitivo. Por isso, passados, associar as milhares de organizações que já estão a utilizar o Azure AD B2B para as respetivas colaboração externa!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * As experiências de administrador se encontram no [portal do Azure](https://portal.azure.com).
 

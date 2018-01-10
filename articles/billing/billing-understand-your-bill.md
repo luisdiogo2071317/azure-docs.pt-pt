@@ -1,5 +1,5 @@
 ---
-title: Compreender a fatura do Azure | Microsoft Docs
+title: Compreender a fatura do Azure
 description: "Saiba como leia e compreenda a sua utilização e a fatura para a sua subscrição do Azure"
 services: 
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Compreender a sua fatura do Microsoft Azure
 Para compreender a fatura do Azure, compare da sua fatura com o ficheiro de utilização diária detalhadas e os relatórios de gestão de custos no portal do Azure.
@@ -34,9 +34,8 @@ Para os termos de detalhado e descrições da sua fatura e ficheiros de utiliza�
 Para obter detalhes sobre os relatórios de gestão de custo, consulte [portal do Azure a gestão de custos](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Como torno se de que os encargos na minha fatura corretos?
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-</div>
+
+>[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
 Se não houver cobrada uma taxa na sua fatura que pretende obter mais detalhes nos, existem algumas das opções.
 
@@ -54,7 +53,7 @@ Os custos de utilização são apresentados ao nível do medidor. Os seguintes t
  |Recurso |Nome do Medidor |
  |Região |Região do Medidor |
  |Consumido |Quantidade Consumida |
- |Incluído |Quantidade Incluída |
+ |Incluída |Quantidade Incluída |
  |A Cobrar |Quantidade de Utilização Excedente |
 
 O **custos de utilização** secção da sua fatura tem o valor total para cada medidor consumida durante o período de faturação. Por exemplo, a seguinte captura de ecrã mostra um custo de utilização para o serviço de agendador do Azure.

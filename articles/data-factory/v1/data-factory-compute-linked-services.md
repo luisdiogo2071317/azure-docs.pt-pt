@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b7686dc5c52737106a8bc819c160b67baaffd147
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3f519f9d6c92dde50d02009220a6eb1eea1bfeb7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 > [!NOTE]
@@ -49,8 +49,7 @@ O Azure HDInsight suporta várias versões de cluster de Hadoop que podem ser im
 Após 15 de Dezembro de 2017:
 
 - Já não será possível criar o HDInsight baseado em Linux versão 3.3 (ou versões anteriores) clusters com o serviço ligado do HDInsight a pedido no Azure Data Factory v1. 
-
-- Se o [osType e/ou propriedade Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) não especificados explicitamente no existentes do Azure Data Factory v1 JSON de serviço ligado HDInsight a pedido as definições, o valor predefinido será alterado de **versão = 3.1, osType = Windows** para **versão = 3.6, osType = Linux**.
+- Se o [osType e/ou propriedade Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) não especificados explicitamente no existentes do Azure Data Factory v1 JSON de serviço ligado HDInsight a pedido as definições, o valor predefinido será alterado de **versão = 3.1, osType = Windows** para **versão =[mais recente versão de predefinida HDI](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions), osType = Linux**.
 
 Após a 31 de Julho de 2018:
 
@@ -100,17 +99,15 @@ O JSON seguinte define um serviço ligado do HDInsight baseado em Linux da pedid
     "properties": {
         "type": "HDInsightOnDemand",
         "typeProperties": {
-            "version": "3.5",
-            "clusterSize": 1,
-            "timeToLive": "00:05:00",
+            "version": "3.6",
             "osType": "Linux",
+            "clusterSize": 1,
+            "timeToLive": "00:05:00",            
             "linkedServiceName": "AzureStorageLinkedService"
         }
     }
 }
 ```
-
-Para utilizar um cluster do HDInsight baseados em Windows, defina **osType** para **windows** ou não utilize a propriedade como o valor predefinido é: windows.  
 
 > [!IMPORTANT]
 > O cluster do HDInsight cria um **contentor predefinido** no armazenamento de blobs especificado no JSON (**linkedServiceName**). Quando o cluster é eliminado, o HDInsight não é eliminado deste contentor. Este comportamento é propositado. Com o serviço ligado do HDInsight a pedido, é criado um cluster do HDInsight sempre que um setor tiver de ser processado, exceto se houver um cluster em direto (**timeToLive**) que será eliminado no fim do processamento. 
@@ -125,10 +122,10 @@ Para utilizar um cluster do HDInsight baseados em Windows, defina **osType** par
 | tipo                         | A propriedade de tipo deve ser definida como **HDInsightOnDemand**. | Sim      |
 | ClusterSize                  | Número de nós de trabalho/dados do cluster. O cluster do HDInsight é criado com 2 nós principais, juntamente com o número de nós de trabalho que especificar para esta propriedade. Os nós são de tamanho Standard_D3 tem 4 núcleos, pelo que um cluster de nós de 4 trabalho demora 24 núcleos (4\*4 = 16 núcleos para nós de trabalho plus 2\*4 = 8 núcleos de nós principais). Consulte [clusters do Hadoop baseados em criar Linux no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes sobre a camada de Standard_D3. | Sim      |
 | TimeToLive                   | O tempo de inatividade permitido para o cluster do HDInsight a pedido. Especifica o tempo durante o qual o cluster do HDInsight a pedido permanece alive após a conclusão de uma atividade executar se existirem outras tarefas ativas no cluster.<br/><br/>Por exemplo, se executar uma atividade demora 6 minutos e timetolive está definido para 5 minutos, o cluster permanece ativo durante 5 minutos após a execução de 6 minutos de atividade de processamento. Se executar de outra atividade é executada com a janela de 6 minutos, é processada pelo mesmo cluster.<br/><br/>Criar um cluster do HDInsight a pedido é uma operação dispendiosa (pode demorar algum tempo), por isso, utilize esta definição como necessários para melhorar o desempenho de uma fábrica de dados através da reutilização de um cluster do HDInsight a pedido.<br/><br/>Se definir o valor de timetolive para 0, o cluster é eliminado, assim que concluir a execução de atividade. Enquanto que, se definir um valor elevado, o cluster pode permanecer inativo, desnecessariamente, resultando em custos elevados. Por conseguinte, é importante que defina o valor adequado com base nas suas necessidades.<br/><br/>Se o valor da propriedade timetolive adequadamente estiver definido, pipelines vários podem partilhar a instância de cluster do HDInsight a pedido. | Sim      |
-| versão                      | Versão do cluster do HDInsight. O valor predefinido é 3.1 para o cluster do Windows e 3.2 para o cluster do Linux. | Não       |
+| versão                      | Versão do cluster do HDInsight, consulte [HDInsight versões](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions) para permitido as versões do HDInsight. Se não for especificado, utiliza o [mais recente versão de predefinida HDI](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hadoop-components-available-with-different-hdinsight-versions). | Não       |
 | linkedServiceName            | Serviço ligado do Storage do Azure a ser utilizado pelo cluster a pedido para armazenar e processar dados. O cluster do HDInsight é criado na mesma região que esta conta de armazenamento do Azure.<p>Atualmente, não é possível criar um cluster do HDInsight a pedido que utiliza um Azure Data Lake Store, como o armazenamento. Se pretende armazenar os dados de resultado do HDInsight em processamento no Azure Data Lake Store, utilize uma atividade de cópia para copiar os dados de armazenamento de Blobs do Azure para o Azure Data Lake Store. </p> | Sim      |
 | additionalLinkedServiceNames | Especifica a contas de armazenamento adicional para o HDInsight serviço ligado para que o serviço fábrica de dados pode registá-los em seu nome. Estas contas de armazenamento tem de ser na mesma região que o cluster do HDInsight, que é criado na mesma região que a conta de armazenamento especificada por linkedServiceName. | Não       |
-| osType                       | Tipo de sistema operativo. Valores permitidos são: (predefinição) do Windows e Linux | Não       |
+| osType                       | Tipo de sistema operativo. Valores permitidos são: Linux e Windows. Se não for especificado, o Linux é utilizado por predefinição.  <br/>É vivamente recommand com Linux com base em clusters do HDInsight como a data de retirada para o HDInsight no Windows é de 31 de Julho de 2018. | Não       |
 | hcatalogLinkedServiceName    | O nome do SQL do Azure ligado serviço que apontam para a base de dados do HCatalog. O cluster do HDInsight a pedido é criado utilizando a base de dados SQL do Azure como o metastore. | Não       |
 
 #### <a name="additionallinkedservicenames-json-example"></a>exemplo JSON additionalLinkedServiceNames
@@ -162,6 +159,8 @@ Também pode especificar as seguintes propriedades para a configuração do clus
   "properties": {
     "type": "HDInsightOnDemand",
     "typeProperties": {
+      "version": "3.6",
+      "osType": "Linux",
       "clusterSize": 16,
       "timeToLive": "01:30:00",
       "linkedServiceName": "adfods1",

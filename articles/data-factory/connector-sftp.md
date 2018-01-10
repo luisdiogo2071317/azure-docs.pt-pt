@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bfe4ab71bb7311d1bbca27f8de196b2297c2a994
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 65ddd1efac11bd7f4795e7319e0f66c17f8d5a4f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copiar dados a partir do servidor SFTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,7 +51,7 @@ As seguintes propriedades são suportadas para o serviço SFTP ligada:
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **Sftp**. |Sim |
 | anfitrião | Nome ou endereço IP do servidor SFTP. |Sim |
-| porta | Porta em que o servidor SFTP faz a escuta.<br/>Valores permitidos são: inteiro, valor de defualt é **22**. |Não |
+| porta | Porta em que o servidor SFTP faz a escuta.<br/>Valores permitidos são: inteiro, valor predefinido é **22**. |Não |
 | skipHostKeyValidation | Especifique se pretende ignorar a validação de chave de anfitrião.<br/>Valores permitidos são: **verdadeiro**, **falso** (predefinição).  | Não |
 | hostKeyFingerprint | Especifique a impressão de cima da situação da chave do anfitrião. | Sim, se o "skipHostKeyValidation" estiver definido como false.  |
 | authenticationType | Especifique o tipo de autenticação.<br/>Valores permitidos são: **básico**, **parâmetros SshPublicKey**. Consulte [utilizando a autenticação básica](#using-basic-authentication) e [utilizando SSH autenticação de chave pública](#using-ssh-public-key-authentication) secções mais propriedades e exemplos JSON, respetivamente. |Sim |
@@ -253,5 +253,5 @@ Para copiar dados de SFTP, defina o tipo de origem na atividade de cópia para *
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

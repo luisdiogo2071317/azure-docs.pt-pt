@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 02b1b3f2a567f6073b891a0376eddbc87cd268aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Utilizador inicie sessão com a autenticação pass-through do Active Directory do Azure
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Autenticação de pass-through do Azure Active Directory (Azure AD) permite aos utilizadores iniciar sessão no local e de aplicações baseado na nuvem utilizando as mesmas palavras-passe. Esta funcionalidade fornece aos utilizadores uma melhor experiência - uma menor palavra-passe de lembrar e reduz os custos de suporte técnico de TI, uma vez que os utilizadores são menos provável que se esqueça como iniciar sessão. Quando os utilizadores iniciam sessão com o Azure AD, esta funcionalidade valida palavras-passe dos utilizadores diretamente no seu Active Directory no local.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
 Esta funcionalidade é uma alternativa à [sincronização de Hash de palavra-passe do Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), que oferece o benefício mesmo de autenticação em nuvem para as organizações. No entanto, as políticas de segurança e conformidade em algumas organizações não permitem estas organizações para enviar palavras-passe dos utilizadores mesmo num formulário com hash, fora os respetivos limites internos. A autenticação pass-through é a solução certa para essas organizações.
 
@@ -64,7 +64,7 @@ Pode combinar autenticação pass-through com o [totalmente integrada Single Sig
 - Instalar agentes de vários fornece elevada disponibilidade dos pedidos de início de sessão.
 - - [Protege](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) as contas no local contra força forçar ataques de palavra-passe na nuvem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [**Início Rápido** ](active-directory-aadconnect-pass-through-authentication-quick-start.md) - obter cópias de segurança e executar a autenticação pass-through do Azure AD.
 - [**Bloqueio do smart** ](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) -capacidade de configurar o bloqueio inteligente no seu inquilino para proteger contas de utilizador.

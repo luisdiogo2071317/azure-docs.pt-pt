@@ -1,5 +1,5 @@
 ---
-title: "Compreender a utilização detalhada do Azure | Microsoft Docs"
+title: "Compreender a utilização detalhada do Azure"
 description: "Saiba como leia e compreenda as secções da sua utilização detalhada CSV para a sua subscrição do Azure"
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 999f24b5a5c1bd5d259b785f9107697d2928b4eb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Compreender os termos de licenciamento em custos de utilização detalhada do Azure da Microsoft 
+
 O ficheiro CSV de encargos de utilização detalhada contém diária e medição custos de utilização de nível para o período de faturação atual. 
 
 Para obter o ficheiro de utilização detalhada, consulte [como obter o Azure faturação dados de utilização de uma fatura e diariamente](billing-download-azure-invoice-daily-usage-date.md).
@@ -28,15 +29,14 @@ Está disponível no formato de ficheiro de valores separados por vírgulas (. c
 
 Custos de utilização são o total **mensal** encargos em subscrições. Os encargos de utilização não tem em conta quaisquer créditos nem descontos.
 
-
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Termos de detalhado e descrições do seu ficheiro de utilização detalhada
+
 As secções seguintes descrevem os termos importantes mostrados na versão 2 do ficheiro de utilização detalhada.
 
-### <a name="statement"></a>Instrução
+### <a name="statement"></a>Declaração
+
 A secção superior do ficheiro CSV de utilização detalhada mostra os serviços que utilizou durante o período do mês de faturação. A tabela seguinte lista os termos e as descrições apresentadas nesta secção.
 
 | Termo | Descrição |

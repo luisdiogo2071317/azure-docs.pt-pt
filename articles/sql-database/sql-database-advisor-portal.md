@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar as recomendações de desempenho
 
@@ -31,7 +31,7 @@ Para ver e aplicar as recomendações de desempenho, terá do correto [controlo 
 
 Utilize os seguintes passos para obter recomendações de desempenho no portal do Azure:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Aceda a **mais serviços** > **bases de dados SQL**e selecione a base de dados.
 3. Navegue para **recomendação de desempenho** para ver as recomendações disponíveis para a base de dados selecionada.
 
@@ -45,7 +45,7 @@ Recomendações são ordenadas pelo respetivo impacto potencial no desempenho na
 |:--- |:--- |
 | Elevado |Recomendações de elevado impacto devem fornecer o impacto mais significativo no desempenho. |
 | Médio |Impacto médio recomendações devem melhorar o desempenho, mas não substancialmente. |
-| Baixo |Recomendações de impacto baixa devem fornecer um melhor desempenho sem, mas poderão não ser significativos melhoramentos. |
+| Baixa |Recomendações de impacto baixa devem fornecer um melhor desempenho sem, mas poderão não ser significativos melhoramentos. |
 
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Também pode ver o estado do histórico de operações. Selecione uma recomenda�
 
 Eis um exemplo de recomendação "Criar índice" no portal do Azure.
 
-![Criar o índice](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
+![Criar índice](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## <a name="applying-recommendations"></a>Aplicar as recomendações
 Base de dados SQL do Azure dá-lhe controlo total sobre a forma como as recomendações são ativadas utilizando qualquer uma das três opções seguintes: 
@@ -91,6 +91,10 @@ Se assim o desejar, pode adicionar itens rejeitados de volta para o **recomenda�
 2. Selecione um item rejeitado da lista para ver os respectivos detalhes.
 3. Opcionalmente, clique em **anular rejeitar** para adicionar o índice de volta para a lista de principal de **recomendações**.
 
+> [!NOTE]
+> Tenha em atenção que, se a base de dados do SQL Server [otimização automática](sql-database-automatic-tuning.md) estiver ativada, e se tem manualmente eliminada uma recomendação da lista, essa recomendação nunca será aplicada automaticamente. Eliminar uma recomendação é uma forma útil para os utilizadores tenham a otimização automática ativada em casos quando que não deve ser aplicada uma recomendação específica.
+> Pode reverter este comportamento adicionando recomendações rejeitadas volta para a lista de recomendações, selecionando a opção de anular a eliminar.
+> 
 
 ### <a name="enable-automatic-tuning"></a>Ativar o ajuste automático
 Pode definir a base de dados do SQL do Azure para implementar automaticamente recomendações. Como recomendações fiquem disponíveis, são automaticamente aplicadas. Tal como acontece com todas as recomendações gerida pelo serviço, se o impacto de desempenho for negativo, a recomendação é revertida.
@@ -119,12 +123,12 @@ Aplicar a recomendação não poderá acontecer instantaneamente. O portal forne
 | Estado | Descrição |
 |:--- |:--- |
 | Pendente |Aplica a recomendação comando foi recebido e está agendado para execução. |
-| Executar |A recomendação está a ser aplicada. |
+| A executar |A recomendação está a ser aplicada. |
 | A verificar |Recomendação foi aplicada com êxito e o serviço está a medir as vantagens. |
 | Êxito |Recomendação foi aplicada com êxito e tem sido medidos benefícios. |
-| Erro |Ocorreu um erro durante o processo de aplicar a recomendação. Isto pode ser um problema passageiro ou possivelmente a um esquema altere para a tabela e o script já não é válido. |
-| A reversão |A recomendação foi aplicada, mas foi considerado vvalidação não performant e está a ser revertida automaticamente. |
-| Reverter |A recomendação foi revertida. |
+| Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Isto pode ser um problema passageiro ou possivelmente a um esquema altere para a tabela e o script já não é válido. |
+| A reverter |A recomendação foi aplicada, mas foi considerado vvalidação não performant e está a ser revertida automaticamente. |
+| Revertido |A recomendação foi revertida. |
 
 Clique uma recomendação de dentro do processo da lista para ver mais detalhes:
 
@@ -146,7 +150,7 @@ Depois das recomendações são implementadas com êxito (atualmente, operaçõe
 ## <a name="summary"></a>Resumo
 Base de dados SQL do Azure fornece recomendações para melhorar o desempenho de base de dados do SQL Server. Ao fornecer scripts T-SQL, obter assistência na otimizar a base de dados e, em última análise melhorando o desempenho das consultas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Monitorizar as recomendações e continuar a aplicar-lhes para otimizar o desempenho. Cargas de trabalho de base de dados são dinâmicas e alterar continuamente. Base de dados SQL do Azure continua a monitorizar e fornecer recomendações podem potencialmente melhorar o desempenho da base de dados. 
 
 * Consulte [otimização automática](sql-database-automatic-tuning.md) para saber mais sobre a otimização automática na SQL Database do Azure.

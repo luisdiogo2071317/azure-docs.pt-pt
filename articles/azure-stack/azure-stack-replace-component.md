@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Substituir um componente de hardware num nó de unidade de escala de pilha do Azure
 
@@ -55,6 +55,10 @@ O estado de funcionamento de pilha do Azure e o sistema de monitorização contr
 Os passos seguintes fornecem uma descrição geral de alto nível do processo de substituição de componente. Não siga estes passos sem referir-se a sua documentação de FRU fornecida pelo OEM.
 
 1. Utilize o [drenar](azure-stack-node-actions.md#scale-unit-node-actions) ação para colocar o nó de unidade de escala em modo de manutenção. Esta ação não pode ser necessária com base na condição do hardware física.
+
+   > [!NOTE]
+   > Em qualquer dos casos, apenas um nó pode ser drained e desligado em simultâneo sem ultrapassar o S2D (espaços de armazenamento direto).
+
 2. Depois do nó de unidade de escala está no modo de manutenção, utilize o [desligar](azure-stack-node-actions.md#scale-unit-node-actions) ação. Esta ação não pode ser necessária com base na condição do hardware física.
  
    > [!NOTE]

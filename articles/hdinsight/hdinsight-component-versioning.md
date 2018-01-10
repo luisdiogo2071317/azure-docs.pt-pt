@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/09/2018
 ms.author: bprakash
-ms.openlocfilehash: 45cccb09753c85ae4a6d077d49cbd58630a9788a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 009b909f9d92c6a21babffae3984be36a7682476
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Hadoop e versões disponíveis com o HDInsight?
 
@@ -74,26 +74,38 @@ Para os clusters do Windows, outra forma de verificar a versão do componente é
 Consulte [notas de versão do HDInsight](hdinsight-release-notes.md) para notas de versão adicionais nas versões mais recentes do HDInsight.
 
 ## <a name="supported-hdinsight-versions"></a>Versões suportadas do HDInsight
-A tabela seguinte lista as versões do HDInsight que estão atualmente disponíveis no portal do Azure. As versões HDP que correspondem a cada versão do HDInsight são listadas juntamente com as datas de versão do produto. As datas de expiração e extinção de suporte também são fornecidas quando se estiver a conhecido.
+As tabelas seguintes listam as versões do HDInsight. As versões HDP que correspondem a cada versão do HDInsight são listadas juntamente com as datas de versão do produto. As datas de expiração e extinção de suporte também são fornecidas quando se estiver a conhecido.
+
+### <a name="available-versions"></a>Versões disponíveis
+
+A tabela seguinte lista as versões do HDInsight que estão disponíveis no Portal do Azure, bem como outros métodos de deployement, como o PowerShell e o .NET SDK.
+
+| Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de Abril de 2017 | | |Sim |Sim |
+| HDInsight 3.5 |HDP 2,5 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |5 de Setembro de 2017 |31 de Maio de 2018 |Sim |Sim |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de Julho de 2018 |Sim |Não |
 
 > [!NOTE]
 > Depois do suporte para uma versão tiver expirado, poderá não ser disponível através do portal do Microsoft Azure. No entanto, as versões de cluster continuem a estar a utilizar disponível o `Version` parâmetro no Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) comando e o SDK .NET até que a data de retirada da versão.
-> 
-> Elevada clusters com dois nós principais são implementadas por predefinição para o HDInsight versão 2.1 e posterior. Não estão disponíveis para os clusters do HDInsight versão 1.6.
+>
 
-| Versão do HDInsight | Versão HDP | SO DE VM | Elevada disponibilidade | Data da versão | Disponibilidade no portal do Azure | Data de expiração de suporte | Data de retirada |
+### <a name="retired-versions"></a>Versões retiradas
+
+A tabela seguinte lista as versões do HDInsight que são **não** disponíveis no Portal do Azure.
+
+| Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |Sim |4 de Abril de 2017 |Sim | | |
-| HDInsight 3.5 |HDP 2,5 |Ubuntu 16 |Sim |30 de Setembro de 2016 |Sim |5 de Setembro de 2017 |31 de Maio de 2018 |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |Sim |29 de Março de 2016 |Sim |29 de Dezembro de 2016 |9 de Janeiro de 2018 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |Sim |2 de Dezembro de 2015 |Sim |27 de Junho de 2016 |31 de Julho de 2018 |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |Sim |2 de Dezembro de 2015 |Sim |27 de Junho de 2016 |31 de Julho de 2017 |
-| 3.2 do HDInsight |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |Sim |18 de Fevereiro de 2015 |Não |1 de Março de 2016 |1 de Abril de 2017 |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |Sim |24 de Junho de 2014 |Não |18 de Maio de 2015 |30 de Junho de 2016 |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |Sim |11 de Fevereiro de 2014 |Não |17 de Setembro de 2014 |30 de Junho de 2015 |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |Sim |28 de Outubro de 2013 |Não |12 de Maio de 2014 |31 de Maio de 2015 |
-| HDInsight 1.6 |HDP 1.1 | |Não |28 de Outubro de 2013 |Não |26 de Abril de 2014 |31 de Maio de 2015 |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de Março de 2016 |29 de Dezembro de 2016 |9 de Janeiro de 2018 |Sim |Não |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de Dezembro de 2015 |27 de Junho de 2016 |31 de Julho de 2017 |Sim |Não |
+| 3.2 do HDInsight |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 de Fevereiro de 2015 |1 de Março de 2016 |1 de Abril de 2017 |Sim |Não |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 de Junho de 2014 |18 de Maio de 2015 |30 de Junho de 2016 |Sim |Não |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 de Fevereiro de 2014 |17 de Setembro de 2014 |30 de Junho de 2015 |Sim |Não |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 de Outubro de 2013 |12 de Maio de 2014 |31 de Maio de 2015 |Sim |Não |
+| HDInsight 1.6 |HDP 1.1 | |28 de Outubro de 2013 |26 de Abril de 2014 |31 de Maio de 2015 |Não |Não |
 
+> [!NOTE]
+> Elevada clusters com dois nós principais são implementadas por predefinição para o HDInsight versão 2.1 e posterior. Não estão disponíveis para os clusters do HDInsight versão 1.6.
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Pacote de segurança da empresa para o HDInsight
 
@@ -162,7 +174,7 @@ No portal do Azure, aceda à página de descrição geral do Cluster do HDInsigh
 O cluster do HDInsight Windows é executado como-é, mas não é possível criar um novo cluster de HDInsight Windows ou redimensionar um cluster de HDInsight Windows existente. 
 
 ### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>A minha cluster tem uma dependência de .NET. Como resolver o esta dependência no Linux
-Pode resolver a dependência de cluster do Linux, utilizando o [projeto Mono](http://www.mono-project.com/). Esta implementação de código aberto do .NET está disponível para clusters do HDInsight com Linux. Saiba mais no [documento de migração de HDInsight](hdinsight-migrate-from-windows-to-linux.md). 
+Pode resolver a dependência de cluster do Linux, utilizando o [projeto Mono](http://www.mono-project.com/). Esta implementação de open source do .NET está disponível para clusters do HDInsight com Linux. Saiba mais no [documento de migração de HDInsight](hdinsight-migrate-from-windows-to-linux.md). 
 
 ### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>Sou um novo cliente para o HDInsight no Windows. Como posso criar um cluster do HDInsight Windows?
 A partir de 3 de Julho de 2017, apenas clientes existentes do Windows do HDInsight podem criar novas janelas de HDInsight clusters. Novos clientes não é possível criar um cluster do HDInsight Windows no portal do Azure utilizando o PowerShell ou o SDK. Recomendamos que novos clientes, crie um cluster do HDInsight do Linux. Os clientes existentes podem criar as novas janelas de HDInsight clusters até o HDInsight no Windows data de retirada. 
@@ -171,9 +183,9 @@ A partir de 3 de Julho de 2017, apenas clientes existentes do Windows do HDInsig
 Não, o preço é o mesmo para o HDInsight no SO. 
 
 ### <a name="what-are-the-customer-advantages-associated-with-the-move-to-only-using-hdinsight-on-linux"></a>Quais são as vantagens de cliente associadas a mudança para utilizar apenas o HDInsight no Linux?
-* Mais rápido tempo mercado para tecnologias de macrodados open source para através do serviço do HDInsight
+* Mais rápido tempo mercado para tecnologias de macrodados open source através do serviço do HDInsight
 * Um grande Comunidade e ecossistema de suporte
-* Capacidade para desenvolvimento de Active Directory pela Comunidade de código aberto para o Hadoop e outras tecnologias de macrodados
+* Capacidade para desenvolvimento de Active Directory pela Comunidade open source para o Hadoop e outras tecnologias de macrodados
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>HDInsight no Linux fornece funcionalidades adicionais além da que está disponível no HDInsight no Windows?
 A partir do HDInsight versão 3.4, Microsoft lançou HDInsight apenas no SO Linux. Como resultado, alguns dos componentes de dentro do HDInsight estão disponíveis para Linux apenas. Estes incluem Apache Ranger, Kafka, consulta interativas, aplicações do HDInsight Spark e o Azure Data Lake Store, como o sistema de ficheiros primário. 

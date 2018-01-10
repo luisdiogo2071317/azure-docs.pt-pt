@@ -1,5 +1,5 @@
 ---
-title: "Práticas recomendadas de segurança de máquina virtual do Azure | Microsoft Docs"
+title: "Práticas recomendadas de segurança de máquina virtual do Azure"
 description: "Este artigo fornece uma variedade de melhores práticas de segurança a ser utilizada nas máquinas virtuais localizadas no Azure."
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Melhores práticas de segurança de VM do Azure
 
@@ -114,7 +114,7 @@ Centro de segurança pode monitorizar ativamente para as ameaças e potenciais a
 
 Para compreender como o Centro de segurança pode ajudar a identificar potenciais ameaças nas suas VMs localizados no Azure, veja o vídeo seguinte:
 
-<iframe src="https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response/player]
 
 As organizações que não impõem uma postura de segurança forte para as respetivas VMs permanecem não tem conhecimento de tentativas de potenciais por utilizadores não autorizados de contornar controlos de segurança estabelecida.
 
