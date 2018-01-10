@@ -64,6 +64,7 @@
 #### [Encadear entidades com o reencaminhamento automático](service-bus-auto-forwarding.md)
 #### [Processamento de transações](service-bus-transactions.md)
 #### [Implementação do espaço de nomes emparelhado](service-bus-paired-namespaces.md)
+### [Rastreio e diagnóstico de ponto a ponto](service-bus-end-to-end-tracing.md)
 ## Gerir
 ### [Monitorizar o Service Bus com a Monitorização do Azure (Monitor Service Bus with Azure Monitoring)](service-bus-metrics-azure-monitor.md)
 ### [Bibliotecas de gestão do Service Bus](service-bus-management-libraries.md)

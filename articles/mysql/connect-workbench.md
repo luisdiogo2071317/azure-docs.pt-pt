@@ -10,11 +10,11 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 024db86b8760c8edb8347679eec6c68ceab3cd35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4214b80dc4c5db644d5a05f942907c86f292fe18
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar o MySQL Workbench para se ligar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação do MySQL Workbench. 
@@ -69,7 +69,7 @@ Para ligar ao Servidor MySQL do Azure com a ferramenta da GUI MySQL Workbench:
         É aberto um novo separador do SQL com um editor em branco, onde pode escrever as suas consultas.
     
         > [!NOTE]
-        > Por predefinição, a segurança da ligação SSL é necessária e imposta no seu servidor da Base de Dados do Azure para MySQL. Normalmente, não é precisa nenhuma configuração adicional com certificados SSL para o MySQL Workbench ligar ao seu servidor. Para obter mais informações sobre o SSL, veja [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL (Configurar a conectividade SSL na sua aplicação para ligar em segurança à Base de Dados do Azure para MySQL)](./howto-configure-ssl.md).  Se precisar de desativar o SSL, visite o portal do Azure e clique na página de segurança da Ligação para desativar o botão para ativar/desativar Impor ligação SLL.
+        > Por predefinição, a segurança da ligação SSL é necessária e imposta no seu servidor da Base de Dados do Azure para MySQL. Apesar de, normalmente, não ser precisa nenhuma configuração adicional com certificados SSL para o MySQL Workbench ligar ao seu servidor, recomendamos vincular a certificação AC SSL com o MySQL Workbench. Para obter mais informações sobre como transferir e vincular a certificação, consulte [Configurar a conectividade SSL na sua aplicação para ligar em segurança à Base de Dados do Azure para MySQL](./howto-configure-ssl.md).  Se precisar de desativar o SSL, visite o portal do Azure e clique na página de segurança da Ligação para desativar o botão para ativar/desativar Impor ligação SLL.
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Criar uma tabela, inserir dados, ler dados, atualizar dados, eliminar dados
 1. Copie e cole o código de SQL de exemplo num separador de SQL em branco para ilustrar alguns dados de exemplo.

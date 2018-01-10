@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 12/22/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6c5eed2cf8f61785f1a60cd2175334771a49ed41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87e0d96c3bd0e9a488734487b5f39503c28f9b00
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implementação rápida da reposição personalizada de palavras-passe do Azure AD
 
@@ -36,35 +36,38 @@ Este guia pressupõe que já tem uma versão de avaliação ou um inquilino lice
 1. No seu inquilino já existente do Azure AD, selecione **“Reposição de palavras-passe”**.
 
 2. Na página **Propriedades**, na opção **Reposição Personalizada de Palavras-passe Ativada**, escolha uma das seguintes opções:
-    * **Ninguém**: ninguém pode utilizar a funcionalidade SSPR.
-    * **Selecionados**: só os membros de um grupo específico do Azure AD que escolher podem utilizar a funcionalidade SSPR. Recomendamos que defina um grupo de utilizadores e que utilize esta definição quando implementar a funcionalidade, para prova de conceito.
-    * **Todos**: todos os utilizadores que tenham contas no seu inquilino do Azure AD podem utilizar a funcionalidade SSPR. Recomendamos que utilize esta definição quando estiver pronto para implementar esta funcionalidade em todo o seu inquilino depois de concluir uma prova de conceito.
+   * **Ninguém**: ninguém pode utilizar a funcionalidade SSPR.
+   * **Selecionados**: só os membros de um grupo específico do Azure AD que escolher podem utilizar a funcionalidade SSPR. Recomendamos que defina um grupo de utilizadores e que utilize esta definição quando implementar a funcionalidade, para prova de conceito.
+   * **Todos**: todos os utilizadores que tenham contas no seu inquilino do Azure AD podem utilizar a funcionalidade SSPR. Recomendamos que utilize esta definição quando estiver pronto para implementar esta funcionalidade em todo o seu inquilino depois de concluir uma prova de conceito.
+
+   > [!IMPORTANT]
+   > As contas de Administrador do Azure terão sempre a capacidade de repor as respetivas palavras-passe, independentemente da definição desta opção. 
 
 3. Na página **Métodos de autenticação**, escolha o seguinte:
-    * **Número de métodos necessários para repor**: suportamos um mínimo de um ou um máximo de dois.
-    * **Métodos disponíveis para os utilizadores**: precisamos de, pelo menos, um; contudo, não custa nada ter uma opção extra disponível.
-        * **Enviar por e-mail**: envia um e-mail com um código para o endereço de e-mail de autenticação configurado do utilizador.
-        * **Número de telemóvel**: disponibiliza ao utilizador a opção de receber uma chamada ou uma mensagem de texto com um código no telemóvel configurado.
-        * **Telefone do escritório**: liga para o utilizador e comunica um código no telefone do escritório configurado.
-        * **Perguntas de segurança**: requer que escolha:
-            * **Número de perguntas necessárias para registar**: o mínimo para o registo bem-sucedido. O utilizador pode optar por responder a mais perguntas, para criar um conjunto de perguntas de entre as quais escolher.  Esta opção pode ser definida entre três e cinco perguntas e tem de ser igual ou maior do que o número de perguntas necessárias para repor a palavra-passe. O utilizador pode adicionar perguntas personalizadas se o selecionar o botão **Personalizar** quando seleciona as perguntas de segurança.
-            * **Número de perguntas necessárias para a reposição**: podem ser definidas entre três e cinco perguntas que têm de ser respondidas corretamente para que seja possível repor ou desbloquear a palavra-passe do utilizador.
+   * **Número de métodos necessários para repor**: suportamos um mínimo de um ou um máximo de dois.
+   * **Métodos disponíveis para os utilizadores**: precisamos de, pelo menos, um; contudo, não custa nada ter uma opção extra disponível.
+      * **Enviar por e-mail**: envia um e-mail com um código para o endereço de e-mail de autenticação configurado do utilizador.
+      * **Número de telemóvel**: disponibiliza ao utilizador a opção de receber uma chamada ou uma mensagem de texto com um código no telemóvel configurado.
+      * **Telefone do escritório**: liga para o utilizador e comunica um código no telefone do escritório configurado.
+      * **Perguntas de segurança**: requer que escolha:
+         * **Número de perguntas necessárias para registar**: o mínimo para o registo bem-sucedido. O utilizador pode optar por responder a mais perguntas, para criar um conjunto de perguntas de entre as quais escolher.  Esta opção pode ser definida entre três e cinco perguntas e tem de ser igual ou maior do que o número de perguntas necessárias para repor a palavra-passe. O utilizador pode adicionar perguntas personalizadas se o selecionar o botão **Personalizar** quando seleciona as perguntas de segurança.
+         * **Número de perguntas necessárias para a reposição**: podem ser definidas entre três e cinco perguntas que têm de ser respondidas corretamente para que seja possível repor ou desbloquear a palavra-passe do utilizador.
             
     ![Autenticação][Authentication]
 
 4. Recomendado: em **Personalização**, pode alterar a ligação **Contactar o administrador** para apontar para uma página ou endereço de e-mail que definir. Recomendamos que defina esta ligação para algo como um endereço de e-mail ou site que os seus utilizadores já utilizem para as perguntas de suporte.
 
 5. Opcional: a página **Registo** dá aos administradores a opção de:
-    * Exigir que os utilizadores se registem quando iniciam sessão.
-    * Definir o número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação.
+   * Exigir que os utilizadores se registem quando iniciam sessão.
+   * Definir o número de dias antes de ser pedido aos utilizadores que voltem a confirmar as informações de autenticação.
 
 6. Opcional: a página **Notificações** dá aos administradores a opção de:
-    * Notificar os utilizadores sobre reposições de palavras-passe.
-    * Notificar todos os administradores quando outros administradores repõem as palavras-passe deles.
+   * Notificar os utilizadores sobre reposições de palavras-passe.
+   * Notificar todos os administradores quando outros administradores repõem as palavras-passe deles.
 
 Neste momento, já tem configurado o SSPR no seu inquilino do Azure AD. Os utilizadores podem agora utilizar as instruções nos artigos [Registar-se na reposição personalizada de palavras-passe](active-directory-passwords-reset-register.md) e [Repor ou alterar a palavra-passe](active-directory-passwords-update-your-own-password.md) para atualizarem a palavra-passe sem a intervenção do administrador. Se só precisar desta funcionalidade para a cloud, pode parar aqui. Ou pode avançar para a secção seguinte para configurar a sincronização de palavras-passe com domínios do Active Directory no local.
 
-> [!IMPORTANT]
+> [!TIP]
 > Teste o SSPR com um utilizador e não com um administrador, pois a Microsoft aplica requisitos de autenticação fortes às contas de administrador do Azure. Para obter mais informações sobre a política de palavras-passe de administrador, veja o nosso artigo sobre a [política de palavras-passe](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="configure-synchronization-to-an-existing-identity-source"></a>Configurar a sincronização com uma origem de identidades existente

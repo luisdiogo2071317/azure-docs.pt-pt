@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Criar uma aplicação .NET do Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores dimensionáveis e fiáveis. 
@@ -92,7 +92,7 @@ Ao depurar a aplicação no Visual Studio, vai utilizar um cluster de desenvolvi
 Para ver o que acontece no código, conclua os passos seguintes:
 1. Abra o ficheiro **/VotingWeb/Controllers/VotesController.cs** e defina um ponto de interrupção no método **Put** da API Web (linha 47) - pode procurar o ficheiro no Explorador de Soluções no Visual Studio.
 
-2. Abra o ficheiro **/VotingData/ControllersVoteDataController.cs** e defina um ponto de interrupção no método **Put** desta API Web (linha 50).
+2. Abra o ficheiro **/VotingData/Controllers/VoteDataController.cs** e defina um ponto de interrupção no método **Put** desta API Web (linha 50).
 
 3. Regresse ao browser e clique numa opção de votação ou adicione uma opção nova. Atingiu o primeiro ponto de interrupção no controlador de API do front-end da Web.
     - É aqui que o JavaScript no browser envia um pedido para o controlador de API Web no serviço do front-end.
@@ -171,7 +171,7 @@ O Service Fabric implementa as atualizações novas na sua aplicação de forma 
 Para atualizar a aplicação, faça o seguinte:
 
 1. Abra o ficheiro **/VotingWeb/Views/Home/Index.cshtml** no Visual Studio.
-2. Altere o <h2> cabeçalho da página ao adicionar ou atualizar o texto. Por exemplo, altere o cabeçalho para "Exemplo de Aplicação de Votação v” do Service Fabric".
+2. Altere o cabeçalho da página ao adicionar ou atualizar o texto. Por exemplo, altere o cabeçalho para "Exemplo de Aplicação de Votação v” do Service Fabric".
 3. Guarde o ficheiro.
 4. Clique com o botão direito do rato em **Voting**, no Explorador de Soluções, e escolha **Publish** (Publicar). É apresentada a caixa de diálogo Publicar.
 5. Clique botão **Manifest Version** (Versão do Manifesto) para alterar a versão do serviço e da aplicação.

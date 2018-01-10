@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 12/28/2017
 ms.author: yurid
-ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure
 Este artigo ajuda-o a utilizar as capacidades de monitorização no Centro de Segurança do Azure para monitorizar a conformidade com políticas.
@@ -45,13 +45,14 @@ Quando clica no mosaico **Computação**, vê três separadores:
 
 ![Atualização do sistema em falta na máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-Existem várias secções em cada separador e pode selecionar, em cada uma delas, uma opção individual para ver mais detalhes sobre os passos recomendados para resolver esse problema em concreto. 
+Existem várias secções em cada separador e pode selecionar, em cada uma delas, uma opção individual para ver mais detalhes sobre os passos recomendados para resolver esse problema em concreto.
 
 #### <a name="monitoring-recommendations"></a>Recomendações de monitorização
-Esta secção mostra o número total de máquinas virtuais e computadores que foram inicializados para aprovisionamento automático e os respetivos estados atuais. Quando clica nesta entrada, é aberto o painel **O Agente de VM está em falta ou não está a responder**. 
+Esta secção mostra o número total de máquinas virtuais e computadores que foram inicializados para aprovisionamento automático e os respetivos estados atuais. Quando clicar nesta entrada, é aberto **Monitorizar problemas de estado de funcionamento do agente**.
 
-![Atualização do sistema em falta na máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+![Monitorizar problemas de estado de funcionamento do agente](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
+São listados os computadores e VMs que o Centro de Segurança não consegue monitorizar. Selecione um computador ou VM para informações detalhadas. O **ESTADO DA MONITORIZAÇÃO** define o problema.
 
 #### <a name="recommendations"></a>Recomendações
 Esta secção tem um conjunto de [recomendações para cada máquina virtual e computador ](security-center-virtual-machine-recommendations.md) que o Centro de Segurança do Azure monitoriza. A primeira coluna indica a recomendação. A segunda coluna mostra o número total de máquinas virtuais e computadores que são afetados por essa recomendação. A terceira coluna mostra a gravidade do problema, conforme ilustrado na seguinte captura de ecrã:
@@ -79,7 +80,7 @@ As **Atualizações do sistema em falta** têm um resumo das atualizações crí
   * **Média**: são precisos passos não críticos ou adicionais para concluir um processo ou eliminar uma vulnerabilidade.
   * **Baixa**: uma vulnerabilidade deve ser tratada, mas não necessita de atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender visualizá-las).
 
-Para ver os detalhes das recomendações, clique no nome da atualização em falta na lista. 
+Para ver os detalhes das recomendações, clique no nome da atualização em falta na lista.
 
 ![Atualizações do sistema em falta para uma máquina virtual específica](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
@@ -121,7 +122,7 @@ Num cenário em que tiver uma recomendação (que não é o caso do exemplo ante
 
 ![Detalhes do serviço em nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Para ver uma explicação mais prescritiva sobre esta recomendação, clique em **Atualizar versão do SO** na coluna **DESCRIÇÃO**. 
+Para ver uma explicação mais prescritiva sobre esta recomendação, clique em **Atualizar versão do SO** na coluna **DESCRIÇÃO**.
 
 ![Recomendações dos serviços em nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
@@ -213,7 +214,7 @@ Aqui, tem uma lista de todas as recomendações para esta aplicação. Quando cl
 
 ![Caixa de diálogo Adicionar Firewall de Aplicações Web](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 Neste artigo, aprendeu a utilizar as capacidades de monitorização no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
 * [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md): saiba como configurar definições de segurança no Centro de Segurança do Azure.

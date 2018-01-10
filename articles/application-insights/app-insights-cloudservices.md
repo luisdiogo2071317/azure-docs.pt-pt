@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 44044939f044b573d19270830ab140e8332b6825
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c17815db136b404cd0c723cf44cafe46fa681cf6
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para os Serviços Cloud do Azure
 As [aplicações de Serviço cloud do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorizadas pelo [Application Insights][start] quanto à disponibilidade, ao desempenho, às falhas e à utilização, ao combinar dados de SDKs do Application Insights com dados do [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dos seus Serviços Cloud. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.

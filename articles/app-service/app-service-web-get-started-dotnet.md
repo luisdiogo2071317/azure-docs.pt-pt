@@ -15,13 +15,17 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 47f8fd97ad3be833e4f86f4bda57b140ce73c5de
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 5860c88b3b6c9f6f715c8e2d8ce667189f9b4438
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Criar uma aplicação Web ASP.NET Core no Azure
+
+> [!NOTE]
+> Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um Serviço de Aplicações no _Linux_, consulte [Criar uma aplicação Web .NET Core no Serviço de Aplicações no Linux](./containers/quickstart-dotnetcore.md).
+>
 
 [As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de início rápido mostra como implementar uma aplicação Web ASP.NET Core em aplicações Web do Azure. Quando terminar, terá um grupo de recursos que consiste num plano de serviços de aplicações e uma aplicação Web do Azure com uma aplicação Web implementada.
 

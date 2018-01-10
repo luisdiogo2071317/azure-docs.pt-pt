@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: ee12caaad4095cff6dae3282f747ae804f93db81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12c7eb78b5049b385ee34c7ac8e3574b064d7ecf
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-xamarinforms-app"></a>Criar uma aplicação Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -59,7 +59,7 @@ Num computador Mac ou Windows, faça o seguinte:
 
 1. Aceda ao [Portal do Azure].
 
-2. No painel **Definições** da aplicação móvel, em **Móvel**, selecione **Introdução** > **Xamarin.Forms**. No **passo 3**, selecione **Criar uma nova aplicação** e, em seguida, selecione **Transferir**.
+2. No painel de definições da Aplicação Móvel, clique em **Início rápido** (em Implementação) > **Xamarin.Forms**. No passo 3, clique em **Criar uma nova aplicação**, se a opção ainda não estiver selecionada.  Em seguida, clique no botão **Transferir**.
 
    Esta ação transfere um projeto que contém uma aplicação cliente que está ligada à sua aplicação móvel. Guarde o ficheiro de projeto comprimido no computador local e tome nota do local onde o guardou.
 

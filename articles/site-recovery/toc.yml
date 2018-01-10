@@ -1,9 +1,5 @@
 - name: Documentação do Site Recovery
   href: index.yml
-- name: Migração de máquinas locais e VMs do Azure
-  href: migrate/tutorial-migrate-on-premises-to-azure.md
-- name: Recuperação após desastre do Azure
-  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Descrição geral
   items:
     - name: O que é a Recuperação de Sites?
@@ -35,14 +31,30 @@
           href: tutorial-dr-drill-azure.md
         - name: Ativar a ativação pós-falha e a reativação pós-falha
           href: tutorial-vmware-to-azure-failover-failback.md
-    - name: Migrar para o Azure
+    - name: VMs Hyper-V
       items:
         - name: Preparar o Azure
+          href: tutorial-prepare-azure.md
+        - name: Preparar Hyper-V no local
+          href: tutorial-prepare-on-premises-hyper-v.md
+        - name: Configurar a recuperação após desastre em VMs do Hyper-V
+          href: tutorial-hyper-v-to-azure.md
+        - name: Configurar a recuperação após desastre de VMs de Hyper-V em clouds de VMM
+          href: tutorial-hyper-v-vmm-to-azure.md
+        - name: Executar um teste de recuperação após desastre
+          href: tutorial-dr-drill-azure.md
+        - name: Ativar a ativação pós-falha e a reativação pós-falha
+          href: tutorial-hyper-v-to-azure-failover-failback.md
+    - name: Migrar para o Azure
+      items:
+        - name: Preparar o Azure para replicação no local
           href: tutorial-prepare-azure.md
         - name: Migrar máquinas no local para o Azure
           href: tutorial-migrate-on-premises-to-azure.md
         - name: Migrar instâncias do AWS para o Azure
           href: tutorial-migrate-aws-to-azure.md
+        - name: Migrar VMs do Azure para outra região
+          href: tutorial-migrate-azure-to-azure.md
 - name: Conceitos
   items:
     - name: Arquitetura de Azure para o Azure
@@ -89,45 +101,36 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Recuperação após desastre
       items:
-        - name: Preparar o Hyper-V para replicação no Azure
-          href: tutorial-prepare-on-premises-hyper-v.md
-        - name: VMs de Hyper-V para o Azure
-          href: tutorial-hyper-v-to-azure.md
-        - name: VMs de Hyper-V em clouds do VMM para o Azure
-          href: tutorial-hyper-v-vmm-to-azure.md
-        - name: Servidores físicos para o Azure
+        - name: Recuperação após desastre de VMs do Azure após a migração para o Azure
+          href: site-recovery-azure-to-azure-after-migration.md
+        - name: Recuperação após desastre de servidores físicos para o Azure
           href: tutorial-physical-to-azure.md
-        - name: VMs de Hyper-V para um site secundário
+        - name: Replicar VMs Hyper-V para um site secundário
           href: tutorial-vmm-to-vmm.md
-        - name: VMs VMware e servidores físicos para um site secundário
+        - name: Replicar VMs do VMware e servidores físicos para um site secundário
           href: tutorial-vmware-to-vmware.md
         - name: Executar um teste de recuperação após desastre para o Azure
-          href: tutorial-dr-drill-azure.md
+          href: site-recovery-test-failover-to-azure.md
         - name: Executar um teste de recuperação após desastre para um site secundário
-          href: tutorial-dr-drill-secondary.md
+          href: site-recovery-test-failover-vmm-to-vmm.md
         - name: VMs VMware com suporte multi-inquilino para o Azure
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
-    - name: Ativação pós-falha e reativação pós-falha
+    - name: Ativação e reativação pós-falha
       items:
         - name: Configurar planos de recuperação
           href: site-recovery-create-recovery-plans.md
+        - name: Adicionar runbooks do Azure aos planos de recuperação
+          href: site-recovery-runbook-automation.md
+        - name: Efetuar a ativação pós-falha
           items:
-            - name: Adicionar runbooks do Azure aos planos de recuperação
-              href: site-recovery-runbook-automation.md
-        - name: Executar uma ativação pós-falha de teste
-          items:
-            - name: Executar uma ativação pós-falha de teste para o Azure
-              href: site-recovery-test-failover-to-azure.md
-            - name: Executar uma ativação pós-falha de teste entre clouds de VMM
-              href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: Realizar a ativação pós-falha em máquinas protegidas
-          href: site-recovery-failover.md
-        - name: Executar uma ativação pós-falha e uma reativação pós-falha para servidores físicos
-          href: tutorial-vmware-to-azure-failover-failback.md
-        - name: Executar uma ativação pós-falha e uma reativação pós-falha para VMs de Hyper-V
-          href: tutorial-hyper-v-to-azure-failover-failback.md
-        - name: Executar uma ativação pós-falha e uma reativação pós-falha entre sites no local
-          href: tutorial-vmm-to-vmm-failover-failback.md
+            - name: Sobre a ativação pós-falha
+              href: site-recovery-failover.md
+            - name: Executar uma ativação pós-falha de teste para um site secundário
+              href: tutorial-dr-drill-secondary.md
+            - name: Executar uma ativação pós-falha e uma reativação pós-falha para servidores físicos
+              href: physical-to-azure-failover-failback.md
+            - name: Executar uma ativação pós-falha e uma reativação pós-falha entre sites no local
+              href: tutorial-vmm-to-vmm-failover-failback.md
         - name: Voltar a proteger máquinas após a ativação pós-falha
           items:
             - name: Voltar a proteger de uma região secundária do Azure para uma principal
@@ -186,25 +189,28 @@
               href: site-recovery-prepare-target-vmware-to-azure.md
             - name: Ambiente de destino para replicação física para o Azure
               href: site-recovery-prepare-target-physical-to-azure.md
-        - name: Configurar as definições de replicação do VMware para Azure
-          href: site-recovery-setup-replication-settings-vmware.md
-        - name: Excluir discos da replicação do VMware para o Azure
-          href: site-recovery-exclude-disk.md
-        - name: Excluir discos da replicação do Hyper-V para o Azure
-          href: site-recovery-hyper-v-exclude-disk.md
-        - name: Implementar o serviço de Mobilidade para a replicação de VMware
-          href: site-recovery-vmware-to-azure-install-mob-svc.md
+        - name: Configurar as definições de replicação
           items:
-            - name: Implementar o serviço de Mobilidade com o System Center Configuration Manager
-              href: site-recovery-install-mobility-service-using-sccm.md
-            - name: Implementar o serviço de Mobilidade com o Automation DSC do Azure
-              href: site-recovery-automate-mobility-service-install.md
+            - name: Configurar as definições de replicação do VMware para Azure
+              href: site-recovery-setup-replication-settings-vmware.md
+            - name: Excluir discos da replicação do VMware para o Azure
+              href: site-recovery-exclude-disk.md
+            - name: Excluir discos da replicação do Hyper-V para o Azure
+              href: site-recovery-hyper-v-exclude-disk.md
         - name: Ativar a replicação
           items:
             - name: Ativar a replicação do Azure para o Azure
               href: site-recovery-replicate-azure-to-azure.md
             - name: Ativar a replicação do VMware para o Azure
               href: site-recovery-replicate-vmware-to-azure.md
+        - name: Implementar o serviço de Mobilidade para o VMware
+          items:
+            - name: Sobre o serviço de Mobilidade
+              href: site-recovery-vmware-to-azure-install-mob-svc.md
+            - name: Implementar o serviço de Mobilidade com o System Center Configuration Manager
+              href: site-recovery-install-mobility-service-using-sccm.md
+            - name: Implementar o serviço de Mobilidade com o Automation DSC do Azure
+              href: site-recovery-automate-mobility-service-install.md
     - name: Automatizar
       items:
         - name: Replicar máquinas virtuais VMware no Azure com o PowerShell
@@ -215,12 +221,6 @@
           href: site-recovery-vmm-to-azure-powershell-resource-manager.md
         - name: Configurar a replicação de Hyper-V para um site de VMM secundário com o PowerShell
           href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
-    - name: Migrar
-      items:
-        - name: Migrar VMs do Azure para outra região do Azure
-          href: site-recovery-migrate-azure-to-azure.md
-        - name: Replicar máquinas para outra região do Azure após a migração
-          href: site-recovery-azure-to-azure-after-migration.md
     - name: Cargas de trabalho
       items:
         - name: Active Directory e DNS

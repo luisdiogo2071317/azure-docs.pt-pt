@@ -254,6 +254,8 @@
               href: mongodb-mongochef.md
             - name: Utilizar o Robomongo
               href: mongodb-robomongo.md
+            - name: Utilizar Mongoose
+              href: mongodb-mongoose.md
             - name: Suporte para funcionalidades do MongoDB
               href: mongodb-feature-support.md
             - name: Série de tutoriais do Angular

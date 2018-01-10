@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 21585717609a692d55ba60f74e39f3bccc0bc727
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 27f1ec18026b38d5cdb2aecfde2d01f32a86349e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -28,7 +28,7 @@ Quando implementa um conjunto de dimensionamento de máquinas virtuais do Azure 
 Pode configurar todas as funcionalidades abordadas neste artigo através de modelos do Azure Resource Manager. Também estão incluídos exemplos da CLI do Azure e do PowerShell para determinadas funcionalidades. Utilize a CLI 2.10 e o PowerShell 4.2.0 ou posterior.
 
 ## <a name="accelerated-networking"></a>Redes Aceleradas
-As [Redes Aceleradas](../virtual-network/virtual-network-create-vm-accelerated-networking.md) do Azure melhoram o desempenho da rede ao permitirem a virtualização de E/S de raiz única (SR-IOV) para uma máquina virtual. Para utilizar as redes aceleradas com conjuntos de dimensionamento, defina enableAcceleratedNetworking como **Verdadeiro** nas definições networkInterfaceConfigurations do seu conjunto. Por exemplo:
+As Redes Aceleradas do Azure melhoram o desempenho da rede ao permitirem a virtualização de E/S de raiz única (SR-IOV) para uma máquina virtual. Para saber mais sobre a utilização das Redes aceleradas, consulte Redes aceleradas para máquinas virtuais [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) ou [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Para utilizar as redes aceleradas com conjuntos de dimensionamento, defina enableAcceleratedNetworking como **Verdadeiro** nas definições networkInterfaceConfigurations do seu conjunto. Por exemplo:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [

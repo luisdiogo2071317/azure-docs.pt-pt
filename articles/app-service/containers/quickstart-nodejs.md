@@ -15,13 +15,17 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 3f75a49c697898ee52bcec68e520f103061752a8
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web Node.js no Serviço de Aplicações do Azure no Linux
+
+> [!NOTE]
+> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implementar um Serviço de Aplicações no _Windows_, consulte [Criar uma aplicação Web Node.js no Azure](../app-service-web-get-started-nodejs.md).
+>
 
 O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de introdução mostra como implementar uma aplicação Node.js no Serviço de Aplicações no Linux com uma imagem incorporada. Crie a aplicação Web com a imagem incorporada com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e utilize o Git para implementar o código Node.js na aplicação Web.
 

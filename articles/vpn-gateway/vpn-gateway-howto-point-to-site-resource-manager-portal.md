@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: cherylmc
-ms.openlocfilehash: 35c9da37a3e21a0b98928f6c1a7c6df1630e69c1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fc3ba82003d7714ee26ffcfb32f096f0374d2800
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurar uma ligação Ponto a Site a uma VNet com a autenticação de certificados nativa do Azure: Portal do Azure
 
@@ -81,7 +81,6 @@ Pode utilizar os valores seguintes para criar um ambiente de teste ou consultá-
 ## <a name="createvnet"></a>1. Criar uma rede virtual
 
 Antes de começar, verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
-
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-p2s-vnet-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>2. Adicionar uma sub-rede do gateway

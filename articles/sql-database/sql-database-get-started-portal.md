@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: 8ea4f39ced17a7a6de63c544157c5f1793042c0e
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7b84e6f001f9d485c1d92b5d017daa96321eaab6
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar uma base de dados SQL do Azure no portal do Azure
 
@@ -51,7 +51,7 @@ Siga estes passos para criar uma base de dados SQL com os dados de exemplo da Ad
    | **Nome da base de dados** | mySampleDatabase | Para nomes de bases de dados válidos, veja [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de Bases de Dados). | 
    | **Subscrição** | A sua subscrição  | Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
    | **Grupo de recursos**  | myResourceGroup | Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
-   | **Origem** | Exemplo (AdventureWorksLT) | Carrega o esquema e os dados AdventureWorksLT na nova base de dados |
+   | **Selecionar origem** | Exemplo (AdventureWorksLT) | Carrega o esquema e os dados AdventureWorksLT na nova base de dados |
 
    > [!IMPORTANT]
    > Tem de selecionar a base de dados de exemplo neste formulário porque é utilizada no resto deste guia de introdução.
@@ -142,7 +142,7 @@ Agora que criou uma base de dados de exemplo no Azure, vamos utilizar a ferramen
 
    ![menu ferramentas](./media/sql-database-get-started-portal/tools-menu.png) 
 
-2. Clique a caixa de verificação **Termos de pré-visualização** e, em seguida, clique em **OK**. É aberta a página Editor de consultas.
+2. Clique na caixa de verificação **Termos de pré-visualização** e, em seguida, clique em **OK**. É aberta a página Editor de consultas.
 
 3. Clique em **Iniciar sessão**, reveja as informações de início de sessão e, em seguida, clique em **OK** para iniciar sessão com a autenticação do SQL server com o início de sessão de administrador de servidor e a palavra-passe que criou anteriormente.
 
@@ -183,5 +183,5 @@ Agora que tem uma base de dados, pode ligar e consultar com as suas ferramentas 
 - [PHP](sql-database-connect-query-php.md)
 - [Node.js](sql-database-connect-query-nodejs.md)
 - [Java](sql-database-connect-query-java.md)
-- [python](sql-database-connect-query-python.md)
+- [Python](sql-database-connect-query-python.md)
 - [Ruby](sql-database-connect-query-ruby.md)

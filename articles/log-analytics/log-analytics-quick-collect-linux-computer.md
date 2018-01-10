@@ -12,17 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 12/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 66748adc49ef921ab8adb5306b2a483234b076ae
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: fae88e44ee763a0c59b4ad2c731d77db379aa1ee
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>Recolher dados de computadores com Linux alojados no seu ambiente
 O [Azure Log Analytics](log-analytics-overview.md) pode recolher dados diretamente de computadores com Linux físicos ou virtuais e de outros recursos no seu ambiente para um único repositório para análise e correlação detalhadas.  Este início rápido mostra como configurar e recolher dados do seu computador com Linux em alguns passos simples.  Para as VMs do Linux do Azure, veja o tópico seguinte [Recolher dados sobre Máquinas Virtuais do Azure](log-analytics-quick-collect-azurevm.md).  
+
+Para compreender os requisitos da rede e do sistema para implementar o agente do Linux, consulte [Recolher dados do seu ambiente com o Log Analytics do Azure](log-analytics-concept-hybrid.md#prerequisites).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -33,7 +35,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 1. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Clique em **Criar** e, em seguida, selecione as opções para os seguintes itens:
 
-  * Forneça um nome para a nova **Área de Trabalho do OMS**, como *DefaultLAWorkspace*. 
+  * Indique um nome para a nova **Área de Trabalho do OMS**, como *DefaultLAWorkspace*. 
   * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
   * Para **Grupo de Recursos**, selecione um grupo de recursos existente que contenha uma ou mais máquinas virtuais do Azure.  
   * Selecione a **Localização** para onde as VMs devem ser implementadas.  Para obter mais informações, veja em que [regiões está disponível o Log Analytics](https://azure.microsoft.com/regions/services/).

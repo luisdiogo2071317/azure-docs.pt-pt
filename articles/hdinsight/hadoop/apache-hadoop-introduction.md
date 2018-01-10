@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: ba2a14e3f327fd8ab4f1ebfe329a64b4aa1a25a1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 49ec2f305c1aef50fcff977d60ff3ce0079ff5af
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-and-spark-technology-stack"></a>Introdução ao Azure HDInsight, a pilha tecnológica do Hadoop e do Spark
 Este artigo apresenta uma introução ao Azure HDInsight, um serviço de análise completamente gerido, de espectro completo e open-source para empresas. Pode utilizar as estruturas de open source, como o Hadoop, o Spark, o Hive, o LLAP, o Kafka, o Storm, o R e muitos mais. 
@@ -137,6 +137,7 @@ As ferramentas de business intelligence (BI) familiares obtêm, analisam e repor
 
 * [Apache Spark BI a utilizar ferramentas de visualização de dados com o Azure HDInsight](../spark/apache-spark-use-bi-tools.md)
 * [Visualizar dados do Hive com o Microsoft Power BI no Azure HDInsight](apache-hadoop-connect-hive-power-bi.md) 
+* [Visualizar dados de Consulta Interativa do Hive com o Power BI no Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [Ligar o Excel ao Hadoop com o Power Query](apache-hadoop-connect-excel-power-query.md): saiba como utilizar o Microsoft Power Query para Excel para ligar o Excel à conta do Armazenamento do Azure que armazena os dados do seu cluster do HDInsight. Estação de trabalho do Windows necessária. 
 * [Ligar o Excel ao Hadoop com o Controlador ODBC do Microsoft Hive](apache-hadoop-connect-excel-hive-odbc-driver.md): Saiba como importar dados do HDInsight com o Controlador ODBC do Microsoft Hive. Estação de trabalho do Windows necessária. 
 * [Plataforma do Microsoft Cloud](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Saiba mais sobre o Power BI para Office 365, transfira a versão de avaliação do SQL Server e configure o SharePoint Server 2013 e o SQL Server BI.

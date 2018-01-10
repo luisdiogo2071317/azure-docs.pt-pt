@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: billmath
-ms.openlocfilehash: 6e3405f0883104a005946917d811036206603848
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 83654a406019c4ac3837a3e961a6de640c98f31c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integre os diretórios no local ao Azure Active Directory
 O Azure AD Connect irá integrar os diretórios no local ao Azure Active Directory. Isto permite-lhe fornecer uma identidade comum para o utilizadores das aplicações do Office 365, do Azure e do SaaS integradas com o Azure AD. Este tópico descreve o planeamento, a implementação e os passos de operação. É uma coleção de ligações para os tópicos relacionados com esta área.
