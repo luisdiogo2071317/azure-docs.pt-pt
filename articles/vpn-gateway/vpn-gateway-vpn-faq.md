@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2017
-ms.author: cherylmc,yushwang
-ms.openlocfilehash: 8af984a7321d99faecb9d79903a442c938460919
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.date: 12/20/2017
+ms.author: cherylmc,yushwang,anzaman
+ms.openlocfilehash: 2b648caa51eb457a62e846b74f1b95ca84974635
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
 
@@ -41,7 +41,7 @@ Pode ligar a vários sites com o Windows PowerShell e as APIs REST do Azure. Vej
 São suportadas as seguintes ligações em vários locais:
 
 * Site a Site – ligação VPN através de IPsec (IKE v1 e IKE v2). Este tipo de ligação requer um dispositivo VPN ou RRAS. Para obter mais informações, consulte [Site-to-Site (Site a Site)](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
-* Ponto a Site – ligação VPN através de SSTP (Secure Socket Tunneling Protocol). Esta ligação não requer um dispositivo VPN. Para obter mais informações, consulte [Point-to-Site (Ponto a Site)](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* Ponto a Site – ligação VPN através de SSTP (Secure Socket Tunneling Protocol) ou IKE v2. Esta ligação não requer um dispositivo VPN. Para obter mais informações, consulte [Point-to-Site (Ponto a Site)](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * VNet a VNet – este tipo de ligação é igual a uma configuração Site a Site. A ligação VNet a VNet é uma ligação VPN através de IPsec (IKE v1 e IKE v2). Não requer um dispositivo VPN. Para obter mais informações, consulte [VNet-to-VNet (VNet a VNet)](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Multilocal – é uma variação de uma configuração Site a Site que lhe permite ligar vários sites no local a uma rede virtual. Para obter mais informações, consulte [Multi-Site (Vários Sites)](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
 * ExpressRoute – o ExpressRoute é uma ligação direta ao Azure a partir da sua WAN e não através ligação VPN da Internet pública. Para obter mais informações, consulte [ExpressRoute Technical Overview (Descrição Geral Técnica do ExpressRoute)](../expressroute/expressroute-introduction.md) e as [ExpressRoute FAQ (FAQ do ExpressRoute)](../expressroute/expressroute-faqs.md).

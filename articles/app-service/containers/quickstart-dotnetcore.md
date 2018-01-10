@@ -16,13 +16,17 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c01b55e9548f9b2e2c7aca161afda42c2c248379
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 529ddd23d144ef8edf7f3ec7c91da60a7ca8ac01
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Criar uma aplicação Web .NET Core no Serviço de Aplicações no Linux
+
+> [!NOTE]
+> Este artigo implementa uma aplicação para o Serviço de Aplicações no Linux. Para implementar um Serviço de Aplicações no _Windows_, consulte [Criar uma aplicação Web ASP.NET Core no Azure](../app-service-web-get-started-dotnet.md).
+>
 
 O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de introdução mostra como criar uma aplicação [.NET Core](https://docs.microsoft.com/aspnet/core/) no Serviço de Aplicações no Linux. Crie a aplicação Web com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e utilize o Git para implementar o código .NET Core para a aplicação Web.
 
@@ -35,7 +39,7 @@ Pode seguir os passos abaixo num computador Mac, Windows ou Linux.
 Para concluir este guia de início rápido:
 
 * <a href="https://git-scm.com/" target="_blank">Instale o Git</a>.
-* <a href="https://www.microsoft.com/net/download/core" target="_blank">Instale o SDK .NET Core</a>
+* <a href="https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.6-sdk-download.md" target="_blank">Instalar o .NET Core SDK 1.1</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

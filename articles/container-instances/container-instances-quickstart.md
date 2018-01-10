@@ -6,25 +6,25 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 22f7ec70b5fc9d04de18a8b6029f0e24d3f6a83f
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bf511f60a431a110f43d26444dedb7728b040af5
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Criar o seu primeiro contentor no Azure Container Instances
-O Azure Container Instances facilita a criação e a gestão de contentores do Docker no Azure, sem ter de aprovisionar as máquinas virtuais ou adotar um serviço de nível mais elevado. Neste início rápido, vai criar um contentor no Azure e expô-lo na Internet com um endereço IP público. Esta operação é concluída com um único comando. Dentro de alguns segundos, verá isto no seu browser:
+O Azure Container Instances facilita a criação e a gestão de contentores do Docker no Azure, sem ter de aprovisionar as máquinas virtuais ou adotar um serviço de nível mais elevado. Neste guia de introdução, cria um contentor no Azure e expõe-no na Internet com um endereço IP público. Esta operação é concluída com um único comando. Dentro de alguns segundos, verá isto no seu browser:
 
 ![Aplicação implementada com o Azure Container Instances vista no browser][aci-app-browser]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita][azure-account] antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir este início rápido. Se optar por instalar e usar a CLI localmente, este início rápido requer a execução da versão 2.0.21 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir este início rápido. Se optar por instalar e usar a CLI localmente, este guia de introdução requer a execução da versão 2.0.21 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -40,16 +40,16 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Para criar um contentor, pode fornecer um nome, uma imagem do Docker e um grupo de recursos do Azure ao comando [az container create][az-container-create]. Opcionalmente, pode expor o contentor na Internet com um endereço IP público. Neste início rápido, vai implementar um contentor que aloja uma pequena aplicação Web escrita em [Node.js](http://nodejs.org).
+Para criar um contentor, pode fornecer um nome, uma imagem do Docker e um grupo de recursos do Azure ao comando [az container create][az-container-create]. Opcionalmente, pode expor o contentor na Internet com um endereço IP público. Neste início rápido, vai implementar um contentor que aloja uma pequena aplicação Web escrita em [Node.js][node-js].
 
 ```azurecli-interactive
-az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --ip-address public --ports 80
 ```
 
 Dentro de alguns segundos, deve obter uma resposta ao seu pedido. Inicialmente, o contentor está no estado **A criar**, mas deverá ser iniciado ao fim de poucos segundos. Pode verificar o estado com o comando [az container show][az-container-show]:
 
 ```azurecli-interactive
-az container show --name mycontainer --resource-group myResourceGroup
+az container show --resource-group myResourceGroup --name mycontainer
 ```
 
 Na parte inferior da saída, verá o estado de aprovisionamento do contentor e o respetivo endereço IP:
@@ -79,7 +79,7 @@ Quando o contentor passar para o estado **Bem-sucedido**, pode aceder ao mesmo n
 Pode extrair os registos do contentor que criou com o comando [az container logs][az-container-logs]:
 
 ```azurecli-interactive
-az container logs --name mycontainer --resource-group myResourceGroup
+az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
 Saída:
@@ -95,13 +95,13 @@ listening on port 80
 Quando já não precisar do contentor, pode removê-lo com o comando [az container delete][az-container-delete]:
 
 ```azurecli-interactive
-az container delete --name mycontainer --resource-group myResourceGroup
+az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
 Para verificar se o contentor foi eliminado, execute o comando [az container list](/cli/azure/container#az_container_list):
 
 ```azurecli-interactive
-az container list --resource-group myResourceGroup -o table
+az container list --resource-group myResourceGroup --output table
 ```
 
 O contentor **mycontainer** não deve aparecer na saída do comando. Não se tiver outros contentores no grupo de recursos, não é apresentada nenhuma saída.
@@ -115,17 +115,21 @@ Todos os códigos do contentor utilizados neste início rápido estão disponív
 
 Para experimentar opções para executar contentores num sistema de orquestração no Azure, veja os inícios rápidos [Service Fabric][service-fabric] ou [Azure Container Service (AKS)][container-service].
 
-<!-- LINKS -->
+<!-- IMAGES -->
+[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+
+<!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
+[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[node-js]: http://nodejs.org
+
+<!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group?view=azure-cli-latest#az_group_create
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-delete]: /cli/azure/container?view=azure-cli-latest#az_container_delete
 [az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md
+[azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-
-
-<!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

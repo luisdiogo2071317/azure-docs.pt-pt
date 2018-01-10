@@ -14,11 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 0349afa355038644e695858cc42d12a68ca2bdd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Introdução às Ligações Híbridas de Reencaminhamento
 
@@ -28,7 +28,7 @@ Este tutorial disponibiliza uma introdução às [Ligações Híbridas de Reenca
 
 ## <a name="what-will-be-accomplished"></a>O que será efetuado
 
-Uma vez que as Ligações Híbridas necessitam de um cliente e um componente de servidor, iremos criar duas aplicações de consola neste tutorial. Eis os passos:
+Uma vez que as Ligações Híbridas necessitam de um cliente e um componente de servidor, crie duas aplicações de consola neste tutorial. Eis os passos:
 
 1. Criar um espaço de nomes de Reencaminhamento com o Portal do Azure.
 2. Crie uma ligação híbrida com o Portal do Azure.
@@ -56,13 +56,13 @@ Se já tiver uma ligação híbrida criada, avance para a secção [Criar uma ap
 
 ## <a name="3-create-a-server-application-listener"></a>3. Criar uma aplicação de servidor (serviço de escuta)
 
-Para escutar e receber mensagens do Reencaminhamento, vamos escrever uma aplicação de consola Node.js.
+Para escutar e receber mensagens do Reencaminhamento, escreva uma aplicação de consola Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. Criar uma aplicação cliente (remetente)
 
-Para enviar mensagens para o Reencaminhamento, vamos escrever uma aplicação de consola Node.js.
+Para enviar mensagens para o Reencaminhamento, escreva uma aplicação de consola Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
@@ -76,7 +76,7 @@ Para enviar mensagens para o Reencaminhamento, vamos escrever uma aplicação de
 
 Parabéns, criou uma aplicação de Ligações Híbridas ponto a ponto com o Node.js!
 
-## <a name="next-steps"></a>Passos seguintes:
+## <a name="next-steps"></a>Passos seguintes
 
 * [FAQ de Reencaminhamento](relay-faq.md)
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)

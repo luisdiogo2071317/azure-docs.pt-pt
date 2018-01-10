@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b54dfc454cfcdefb56bfda9b242412e0f213b50b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controlos de Aplicações Adaptativos no Centro de Segurança do Azure (Pré-visualização)
 Saiba como configurar o controlo de aplicações no Centro de Segurança do Azure com estas instruções.
@@ -36,12 +36,11 @@ Os controlos de aplicações adaptativos ajudam a controlar que aplicações pod
 ## <a name="how-to-enable-adaptive-application-controls"></a>Como ativar os controlos de aplicações adaptáveis?
 Os controlos de aplicações adaptáveis ajudam-no a definir um conjunto de aplicações cuja execução é permitida em grupos de recursos configurados. Esta funcionalidade só está disponível para máquinas Windows (todas as versões, clássica ou Azure Resource Manager). Os passos seguintes podem ser utilizados para configurar a inclusão de aplicações nas listas de permissões do Centro de Segurança:
 
-1.  Abra o dashboard do **Centro de Segurança** e clique em **Descrição Geral**.
-2.  Em **Defesa na cloud avançada**, o mosaico **Controlos de aplicações adaptáveis** mostra o número de VMs que têm, atualmente, o controlo implementado em comparação com todas as VMs. Também mostra o número de problemas que foram encontrados na última semana: 
+1.  Abra o dashboard do **Centro de Segurança** e clique em **Controlos de aplicação adaptável**, sob a secção **Defesa de cloud avançada** no painel de navegação à esquerda.
 
-    ![Controlos de aplicações adaptáveis](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+    ![Defesa](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. Clique no mosaico **Controlos de aplicações adaptáveis** para obter mais opções.
+2. É apresentada a página **Controlos de aplicação adaptável**.
 
     ![controlos](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 

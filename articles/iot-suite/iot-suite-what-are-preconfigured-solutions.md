@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>O que é o Azure IoT Suite?
 
@@ -30,6 +30,10 @@ O Azure IoT Suite é um conjunto de *soluções pré-configuradas* que:
 * Podem ser personalizadas para satisfazer os seus requisitos específicos
 
 Todas as soluções pré-configuradas do *IoT Suite* foram concebidas de acordo com os mesmos princípios e objetivos.
+
+O seguinte vídeo apresenta uma descrição geral da solução pré-configurada de monitorização remota:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
 ## <a name="preconfigured-solutions-overview"></a>Descrição geral das soluções pré-configuradas
 
@@ -82,7 +86,7 @@ Quando implementa uma solução pré-configurada, o processo de aprovisionamento
 | Serviços de Contentores   | Sim                |                        | Sim               |
 | Stream Analytics     |                    | Sim                    |                   |
 | Aplicações Web             | Sim                | Sim                    | Sim               |
-| Cosmos DB            | Sim                | Sim                    | Sim               |
+| BD do Cosmos            | Sim                | Sim                    | Sim               |
 | Tabelas do Azure         |                    | Sim                    | Sim               |
 
 > [!NOTE]
