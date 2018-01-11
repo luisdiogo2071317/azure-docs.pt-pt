@@ -14,24 +14,24 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/1/2017
+ms.date: 12/11/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7f71ecb2b58728f466371c7aa6d2aac965177863
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 401230c6d7ef522a6a607fd03f798483f942a226
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Criar a sua primeira função com o Visual Studio
 
 As Funções do Azure permitem-lhe executar o seu código num ambiente [sem servidor](https://azure.microsoft.com/overview/serverless-computing/), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web.
 
-> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
-
 Neste tópico, aprenderá a utilizar as ferramentas do Visual Studio 2017 para as Funções do Azure para criar e testar localmente uma função de "hello world". Em seguida, publicará o código de função no Azure. Estas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2017 versão 15.3 ou uma versão posterior.
 
 ![Código de funções do Azure num projeto do Visual Studio](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
+
+Se preferir, em vez disso, pode [ver o vídeo](#watch-the-video).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -98,7 +98,11 @@ Deverá ter uma aplicação de funções na sua subscrição do Azure antes de p
 2. Cole este novo URL do pedido HTTP na barra de endereço do browser. A imagem seguinte mostra a resposta no browser em relação ao pedido GET devolvido pela função: 
 
     ![Resposta da função no browser](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
- 
+
+## <a name="watch-the-video"></a>Ver o vídeo
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Utilizou o Visual Studio para criar uma aplicação de função C# com uma função simples acionada por HTTP. 

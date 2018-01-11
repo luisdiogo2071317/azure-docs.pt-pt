@@ -10,12 +10,12 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/28/2017
-ms.openlocfilehash: 7fc4f8521afa41f21cda6576459a0794bef9ad3b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.date: 12/13/2017
+ms.openlocfilehash: 9dea80b0a6848bd69541aa9f7e0a0fe111fa0a28
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Criar uma instância do Azure Database Migration Service com o portal do Azure
 Neste Início Rápido, utiliza o portal do Azure para criar uma instância do Azure Database Migration Service.  Depois de criar o serviço, pode utilizá-lo para migrar dados do SQL Server no local para uma base de dados SQL do Azure.
@@ -23,7 +23,9 @@ Neste Início Rápido, utiliza o portal do Azure para criar uma instância do Az
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-Abra o browser e navegue para o [portal do Microsoft Azure](https://portal.azure.com/). Introduza as suas credenciais para iniciar sessão no portal. A vista predefinida é o dashboard de serviço.
+Abra o browser, navegue para o [portal do Microsoft Azure](https://portal.azure.com/) e, em seguida, introduza as suas credenciais para iniciar sessão no portal.
+
+A vista predefinida é o dashboard de serviço.
 
 ## <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
 Registe o fornecedor de recursos Microsoft.DataMigration antes de criar a primeira instância do Database Migration Service.

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3fd5a5b9d2e2eec485fd9ecc5380ad6adb9851d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77c8c8dbe6228d80062f34f4bb7fc93a1871e8c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Criar uma função acionada pelo Armazenamento de filas do Azure
 
@@ -50,15 +50,18 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 1. Expanda a aplicação de funções e clique no botão **+**, junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **Função personalizada**. É apresentado o conjunto completo de modelos de função.
 
-    ![Página de início rápido das funções no portal do Azure](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
+    ![Início rápido das funções no portal do Azure](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-2. Selecione o modelo **QueueTrigger** para o idioma desejado e use as definições especificadas na tabela.
+2. No campo de pesquisa, escreva `queue` e, em seguida, escolha o idioma pretendido para o modelo de acionador do armazenamento de Filas.
 
-    ![Crie a função acionada pela fila de armazenamento.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Escolha o modelo de acionador do armazenamento de filas.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+
+3. Utilize as definições especificadas na tabela abaixo da imagem.
+    ![Configure a função acionada pela fila de armazenamento.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
     
     | Definição | Valor sugerido | Descrição |
     |---|---|---|
-    | **Dar um nome à função** | Exclusivo na aplicação Function App | O nome desta função acionada por fila. |
+    | **Nome** | Exclusivo na aplicação Function App | O nome desta função acionada por fila. |
     | **Nome da fila**   | myqueue-items    | O nome da fila à qual ligar na sua conta de Armazenamento. |
     | **Ligação da conta de armazenamento** | AzureWebJobStorage | Pode utilizar a ligação da conta de armazenamento que já está a ser utilizada pela sua aplicação Function App ou criar uma nova.  |    
 
