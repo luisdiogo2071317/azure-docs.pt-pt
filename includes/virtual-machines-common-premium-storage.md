@@ -60,7 +60,7 @@ Seguem-se algumas das funcionalidades do Premium Storage:
     Azure utiliza a conta de armazenamento como um contentor para os discos não geridos. Quando criar uma Azure-série DS, série DSv2-série GS série, ou Fs-série VM com discos não geridos e selecione uma conta de armazenamento premium, o sistema operativo e os discos de dados são armazenados na conta do storage.
 
 ## <a name="supported-vms"></a>VMs suportadas
-Armazenamento Premium suporta-série DS, série DSv2-série GS série, série Ls e série Fs VMs. Pode utilizar discos de armazenamento standard e premium com estes tipos VM. Não é possível utilizar discos de armazenamento premium com a série VM que não é Premium compatível com o armazenamento.
+Armazenamento Premium suporta-série DS, série DSv2-série GS série, série Ls, série Fs e B-série VMs. Pode utilizar discos de armazenamento standard e premium com estes tipos VM. Não é possível utilizar discos de armazenamento premium com a série VM que não é Premium compatível com o armazenamento.
 
 Para obter informações sobre tipos VM e tamanhos do Azure para Windows, consulte [tamanhos de Windows VM](../articles/virtual-machines/windows/sizes.md). Para obter informações sobre os tamanhos no Azure e tipos VM Linux, consulte [tamanhos de VM com Linux](../articles/virtual-machines/linux/sizes.md).
 
@@ -293,7 +293,7 @@ Regional recuperação de desastres, tem de copiar os discos VM numa região dif
 
 Para criar uma tarefa de cópia de segurança com cópias de segurança baseados no tempo, fácil restauro de VM e políticas de retenção de cópias de segurança, utilizam cópias de segurança do Azure. Pode utilizar a cópia de segurança ambos os com discos não geridos e geridos. Para obter mais informações, consulte [cópia de segurança do Azure para as VMs com discos não geridos](../articles/backup/backup-azure-vms-first-look-arm.md) e [cópia de segurança do Azure para as VMs com discos geridos](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre o Premium Storage, consulte os artigos seguintes.
 
 ### <a name="design-and-implement-with-premium-storage"></a>Conceber e implementar com o Premium Storage
