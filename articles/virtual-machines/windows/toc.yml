@@ -125,7 +125,11 @@
         - name: 'Utilizar C#'
           href: csharp.md
         - name: Utilizar disco especializado
-          href: create-vm-specialized.md
+          items:
+            - name: Portal
+              href: create-vm-specialized-portal.md
+            - name: PowerShell
+              href: create-vm-specialized.md
         - name: 'Utilizar um modelo com C#'
           href: csharp-template.md
         - name: Criar VM com Chef
