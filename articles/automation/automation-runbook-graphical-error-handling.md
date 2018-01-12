@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: 9bbaf7bac013dffb941f15bdccd2ab2996f1576e
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Erro ao Processar em Runbooks Gráficos da Automatização do Azure
 
@@ -68,7 +68,7 @@ As atividades **Get-AutomationVariable** e **Start-AzureRmVm** estão configurad
 As ligações de erro são enviadas destas atividades para uma única atividade de **gestão de erros** (uma atividade de código). Esta atividade é configurada com uma expressão simples do PowerShell que utiliza a palavra-chave *Throw* para parar o processamento, juntamente com *$Error.Exception.Message* para obter a mensagem que descreve a exceção atual.<br><br> ![Exemplo de código de processamento de erros de um runbook de automatização](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre ligações e tipos de ligações em runbooks gráficos, veja [Criação de runbooks gráficos na Automatização do Azure](automation-graphical-authoring-intro.md#links-and-workflow).
 

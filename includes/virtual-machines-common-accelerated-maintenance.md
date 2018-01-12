@@ -24,7 +24,7 @@ A maioria dos reinícios estão a demorar, aproximadamente, **30 minutos**.
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>É o convidado SO tem de ser atualizados? 
 
-Esta atualização de infraestrutura do Azure aborda a vulnerabilidade disclosed ao nível do hipervisor e não necessita de uma atualização para as imagens do Windows ou a VM com Linux. No entanto, como sempre, deve continuar a aplicar procedimentos recomendados de segurança para as imagens VM. Consulte o fornecedor dos sistemas de operativos atualizações e obter instruções, conforme necessário. Para clientes de VM do Windows Server, a documentação de orientação agora foi publicada e está disponível [aqui](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
+Esta atualização de infraestrutura do Azure aborda a vulnerabilidade disclosed ao nível do hipervisor e não necessita de uma atualização para as imagens do Windows ou a VM com Linux. No entanto, como sempre, deve continuar a aplicar procedimentos recomendados de segurança para as imagens VM. Consulte o fornecedor dos sistemas de operativos atualizações e obter instruções, conforme necessário. Para clientes de VM do Windows Server, a documentação de orientação agora foi publicada e está disponível [aqui](../articles/virtual-machines/windows/mitigate-se.md).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Haverá um impacto no desempenho devido a resolver esta atualização?
 

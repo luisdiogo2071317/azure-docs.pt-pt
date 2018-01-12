@@ -3,8 +3,8 @@ title: "Autenticação Multifator - SQL do Azure | Microsoft Docs"
 description: "SQL Database do Azure e o Azure SQL Data Warehouse suportam ligações do SQL Server Management Studio (SSMS) utilizando a autenticação de Universal do Active Directory."
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 editor: 
 tags: 
 ms.assetid: fbd6e644-0520-439c-8304-2e4fb6d6eb91
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/29/2017
-ms.author: rickbyh
-ms.openlocfilehash: cdf78a3c64933f5f01642d5ef8fe1fca64cb1fbb
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.author: mireks
+ms.openlocfilehash: 3fd6532fb3dc6af9b3ccdac37201552ad0475e7b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Autenticação universal com a base de dados SQL e SQL Data Warehouse (SSMS suporte para a MFA)
 SQL Database do Azure e o Azure SQL Data Warehouse suportam ligações da utilização do SQL Server Management Studio (SSMS) *autenticação de Universal do Active Directory*. 
@@ -52,7 +52,7 @@ Suportado para cenários B2B do Azure AD, como os utilizadores convidados os uti
 - A versão do Active Directory Authentication Library (ADAL) para autenticação Universal foi atualizada para a última versão lançada disponível ADAL.dll 3.13.9. Consulte [biblioteca de autenticação do Active Directory 3.14.1](http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter passos de configuração, consulte [configurar a base de dados de SQL do Azure multi-factor authentication para SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 - Outras pessoas conceder acesso à base de dados: [autorização e autenticação de base de dados do SQL Server: conceder acesso](sql-database-manage-logins.md)  

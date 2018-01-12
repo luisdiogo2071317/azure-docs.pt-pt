@@ -1,6 +1,6 @@
 ---
 title: "Ativar a cópia de segurança para a pilha do Azure com o PowerShell | Microsoft Docs"
-description: "Ative o infraestrutura novamente serviço com o Windows PowerShell para que a pilha do Azure pode ser restaurada se ocorrer uma falha."
+description: "Ative o serviço de cópia de segurança de infraestrutura com o Windows PowerShell para que a pilha do Azure pode ser restaurada se ocorrer uma falha."
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: b4f48b7fd07c5fb590b6989e04e9084c86142d2a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 5326aa5af174c9027729b98eac62a314e3ecc122
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Ativar a cópia de segurança para a pilha do Azure com o PowerShell
 
 *Aplica-se a: Azure pilha integrado sistemas e Kit de desenvolvimento de pilha do Azure*
 
-Ative o infraestrutura novamente serviço com o Windows PowerShell para que a pilha do Azure pode ser restaurada se ocorrer uma falha. Pode aceder os cmdlets do PowerShell para ativar a cópia de segurança, iniciar a cópia de segurança e obter informações de cópia de segurança através do ponto final de gestão de operador.
+Ative o serviço de cópia de segurança de infraestrutura com o Windows PowerShell para que a pilha do Azure pode ser restaurada se ocorrer uma falha. Pode aceder os cmdlets do PowerShell para ativar a cópia de segurança, iniciar a cópia de segurança e obter informações de cópia de segurança através do ponto final de gestão de operador.
 
 ## <a name="download-azure-stack-tools"></a>Descarregar as ferramentas de pilha do Azure
 
@@ -90,6 +90,9 @@ Na mesma sessão do PowerShell, execute os seguintes comandos:
    $encryptionkey = New-EncryptionKeyBase64
    ```
 
+> [!Warning]  
+> Tem de utilizar as ferramentas de AzureStack para gerar a chave.
+
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Forneça a chave de partilha, credenciais e encriptação de cópias de segurança para ativar a cópia de segurança
 
 Na mesma sessão do PowerShell, edite o seguinte script do PowerShell, adicionando as variáveis para o seu ambiente. Execute o script atualizado para fornecer a chave de partilha, credenciais e encriptação de cópias de segurança para o serviço de cópia de segurança da infraestrutura.
@@ -98,18 +101,18 @@ Na mesma sessão do PowerShell, edite o seguinte script do PowerShell, adicionan
 |---              |---                                        |
 | $username       | Tipo de **Username** com o domínio e o nome de utilizador para a localização do disco partilhado. Por exemplo, `Contoso\administrator`. |
 | $password       | Tipo de **palavra-passe** para o utilizador. |
-| $sharepath      | Escreva o caminho para o **localização de armazenamento de cópia de segurança**. Tem de utilizar uma cadeia de convenção de Nomenclatura Universal (UNC) para o caminho de uma partilha de ficheiros alojada num dispositivo separado. Uma cadeia em UNC Especifica a localização dos recursos, tais como ficheiros partilhados ou dispositivos. Para garantir a disponibilidade dos dados de cópia de segurança, o dispositivo deve estar num local separado. |
+| $sharepath      | Escreva o caminho para o **localização de armazenamento de cópia de segurança**. Tem de utilizar uma cadeia de convenção de Nomenclatura Universal (UNC) para o caminho para uma partilha de ficheiros alojado num dispositivo separado. Uma cadeia em UNC Especifica a localização dos recursos, tais como ficheiros partilhados ou dispositivos. Para garantir a disponibilidade dos dados de cópia de segurança, o dispositivo deve estar num local separado. |
 
    ```powershell
-   $username = "domain\backupoadmin"
+    $username = "domain\backupoadmin"
     $password = "password"
     $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
     $location = Get-AzsLocation
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
-
-Set-AzSBackupShare -Location $location -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey 
-
+    
+    Set-AzSBackupShare -Location $location.Name -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey
    ```
+   
 ##  <a name="confirm-backup-settings"></a>Confirme as definições de cópia de segurança
 
 Na mesma sessão do PowerShell, execute os seguintes comandos:

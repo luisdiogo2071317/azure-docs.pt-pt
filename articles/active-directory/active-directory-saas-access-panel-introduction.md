@@ -15,11 +15,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -85,9 +85,11 @@ A extensão é necessária para os utilizadores iniciar sessão em baseada em pa
 - Os utilizadores podem iniciar sessão em aplicações diretamente, visitando a aplicação **URL de início de sessão**. Quando o utilizador navega para o URL de início de sessão da aplicação a extensão será detetá-lo e fornecer a opção para o utilizador iniciar sessão em-lo a partir da extensão.
 - Os utilizadores também podem iniciar qualquer uma das respetivas aplicações a partir do painel de acesso utilizando o **pesquisa rápida** funcionalidade da extensão. 
 - A extensão também irão mostrar os utilizadores as últimas três aplicações estes iniciadas em **utilizados recentemente** secção.
-> [!NOTE]
-> Funcionalidades adicionais só estão disponíveis para o limite, o Chrome, o Firefox.
 
+> [!NOTE]
+> Funcionalidades adicionais estão disponíveis apenas para o limite, o Chrome e o Firefox.
+>
+>
 
 Se estiver a utilizar outro URL aplicações My que https://myapps.microsoft.com, em seguida, tem de configurar o URL predefinido embora os seguintes passos:
 1. Enquanto não tiver sessão iniciada para a extensão, **certo** o ícone de extensão.

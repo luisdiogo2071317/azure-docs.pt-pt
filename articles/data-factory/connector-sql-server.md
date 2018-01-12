@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 41842806aecfc0ed6ac663262305785a23c5ba5d
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7316ad5637fbfc11f3da48394874f814dc47be31
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados para e do SQL Server utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,8 @@ Especificamente, este conector do SQL Server suporta:
 Para utilizar dados de cópia da base de dados do SQL Server que não está acessível publicamente, terá de configurar um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](create-self-hosted-integration-runtime.md) artigo para obter detalhes. O tempo de execução de integração fornece um controlador de base de dados incorporado do SQL Server, por conseguinte, não precisa de instalar manualmente a quaisquer controladores ao copiar dados de/para a base de dados do SQL Server.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector de base de dados do SQL Server.
 
@@ -482,10 +483,10 @@ Quando copiar dados de/para SQL Server, os seguintes mapeamentos são utilizados
 |:--- |:--- |
 | bigint |Int64 |
 | Binário |Byte] |
-| bits |Valor booleano |
+| bits |Booleano |
 | char |Cadeia, Char [] |
-| Data |DateTime |
-| DateTime |DateTime |
+| data |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -498,7 +499,7 @@ Quando copiar dados de/para SQL Server, os seguintes mapeamentos são utilizados
 | ntext |Cadeia, Char [] |
 | um valor numérico |Decimal |
 | nvarchar |Cadeia, Char [] |
-| real |Único |
+| real |Solteiro |
 | ROWVERSION |Byte] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
@@ -533,5 +534,5 @@ Quando copiar dados de/para SQL Server, os seguintes mapeamentos são utilizados
 6. **Verificar ligação**: para ligar ao SQL Server com o nome completamente qualificado, utilize o SQL Server Management Studio de um computador diferente. Por exemplo: `"<machine>.<domain>.corp.<company>.com,1433"`.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

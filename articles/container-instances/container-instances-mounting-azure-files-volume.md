@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 06a6e91725e751fbea97d9a3b60f48fa50121fc4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: be502e6aef39ee4ed8cfc1f8926cb556dc1defb1
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Montar uma partilha de ficheiros do Azure com instâncias de contentor do Azure
 
@@ -92,6 +92,46 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 ```
 
 Pode utilizar o [portal do Azure] [ portal] ou uma ferramenta como o [Explorador de armazenamento do Microsoft Azure] [ storage-explorer] para obter e Inspecione o ficheiro de escrita a partilha de ficheiros.
+
+## <a name="mount-multiple-volumes"></a>Montar os volumes de vários
+
+Para montar vários volumes numa instância de contentor, tem de implementar utilizando um [modelo Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups).
+
+Em primeiro lugar, forneça os detalhes de partilha e definir os volumes preenchendo o `volumes` matriz no `properties` secção do modelo. Por exemplo, se criou duas partilhas de ficheiros do Azure com o nome *share1* e *share2* na conta do storage *myStorageAccount*, a `volumes` aparecia matriz semelhante ao seguinte:
+
+```json
+"volumes": [{
+  "name": "myvolume1",
+  "azureFile": {
+    "shareName": "share1",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+},
+{
+  "name": "myvolume2",
+  "azureFile": {
+    "shareName": "share2",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+}]
+```
+
+Em seguida, para cada contentor no grupo de contentor no qual gostaria de montar os volumes, preencher o `volumeMounts` matriz no `properties` secção da definição de contentor. Por exemplo, isto monta dois volumes, *myvolume1* e *myvolume2*, definido anteriormente:
+
+```json
+"volumeMounts": [{
+  "name": "myvolume1",
+  "mountPath": "/mnt/share1/"
+},
+{
+  "name": "myvolume2",
+  "mountPath": "/mnt/share2/"
+}]
+```
+
+Para ver um exemplo de implementação de instância de contentor com um modelo Azure Resource Manager, consulte [implementar o contentor de vários grupos em instâncias de contentor do Azure](container-instances-multi-container-group.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

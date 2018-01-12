@@ -4,7 +4,7 @@ description: Descreve como descompactar, montar em bastidor e instalar o seu dis
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/24/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Descompactar, montar em bastidor e instalar os cabos do dispositivo StorSimple 8600
 ## <a name="overview"></a>Descrição geral
@@ -38,7 +38,7 @@ Antes de Descompacte o seu dispositivo, reveja as seguintes informações.
 Em seguida, conclua os seguintes passos para descompactar o seu dispositivo.
 
 #### <a name="to-unpack-your-device"></a>Para descompactar o seu dispositivo
-1. Inspecione a caixa e foam o empacotamento crushes, cuts, máximo danos ou quaisquer outros danos óbvios. Se a caixa ou empacotamento gravemente está danificado, abre a caixa. . [Contacte a Microsoft Support](storsimple-contact-microsoft-support.md) para o ajudar a avaliar se o dispositivo está no bom trabalho ordem.
+1. Inspecione a caixa e foam o empacotamento crushes, cuts, máximo danos ou quaisquer outros danos óbvios. Se a caixa ou empacotamento gravemente está danificado, abre a caixa. . [Contacte a Microsoft Support](storsimple-8000-contact-microsoft-support.md) para o ajudar a avaliar se o dispositivo está no bom trabalho ordem.
 2. Abrir a caixa de externa e, em seguida, remova as duas caixas correspondente a principal e inclusões EBOD. Agora pode descompactar o servidor primário e inclusões EBOD. A figura seguinte mostra a vista descompactada de uma das caixas.
    
     ![Descompacte o seu dispositivo de armazenamento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
@@ -66,7 +66,7 @@ Em seguida, conclua os seguintes passos para descompactar o seu dispositivo.
    * 2 em Bastidor kits de montagem (o 4 rails de lado com montar hardware, 2 para o bastidor primário e de inclusão EBOD), 1 em cada caixa
    * Obter a documentação de introdução
      
-     Se não recebeu qualquer um dos itens listados acima, [contacte a Microsoft Support](storsimple-contact-microsoft-support.md).  
+     Se não recebeu qualquer um dos itens listados acima, [contacte a Microsoft Support](storsimple-8000-contact-microsoft-support.md).  
 
 O passo seguinte é montar em Bastidor seu dispositivo.
 
@@ -218,7 +218,7 @@ Para suportar este controlador redundante ativação pós-falha, terá de instal
 | B |Controlador 0 |
 | C |PCM 0 |
 | D |Controlador 1 |
-| I |PCM 1 |
+| E |PCM 1 |
 | F |Controlador EBOD 0 |
 | G |Controlador EBOD 1 |
 | H, POSSO |Anfitriões (por exemplo, servidores de ficheiros) |
@@ -234,7 +234,7 @@ Quando os cabos do dispositivo, a configuração mínima requer:
 Tenha em consideração para elevada disponibilidade e desempenho:
 
 * Sempre que possível, configure um par de interface de rede para acesso à nuvem (de 1 GbE) e outro par de iSCSI (10 GbE recomendado) em cada controlador.
-* Sempre que possível, ligar a interfaces de rede de cada controlador a comutadores diferentes dois para garantir a disponibilidade contra uma falha de comutador. A figura abaixo mostra a dois 10 rede GbE das interfaces, dados 2 e dados 3, de cada controlador ligada a comutadores diferentes dois. Para obter mais informações, consulte o **interfaces de rede** sob o [requisitos de elevada disponibilidade para o dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+* Sempre que possível, ligar a interfaces de rede de cada controlador a comutadores diferentes dois para garantir a disponibilidade contra uma falha de comutador. A figura abaixo mostra a dois 10 rede GbE das interfaces, dados 2 e dados 3, de cada controlador ligada a comutadores diferentes dois. Para obter mais informações, consulte o **interfaces de rede** sob o [requisitos de elevada disponibilidade para o dispositivo StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > Se utilizar SFP + transcetores com as interfaces de rede 10 GbE, utilize o QSFP fornecido-SFP + adaptadores. Para obter mais informações, aceda a [hardware suportado para as interfaces de rede GbE 10 no seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -265,6 +265,6 @@ Execute os seguintes passos para instalar a porta série.
 
 Concluiu o dispositivo de alimentação, acesso à rede e ligação série de cablagem. O passo seguinte consiste em configurar o software no seu dispositivo.
 
-## <a name="next-steps"></a>Passos seguintes
-Agora, está pronto para [implementar e configurar o dispositivo StorSimple no local](storsimple-deployment-walkthrough-u2.md).
+## <a name="next-steps"></a>Passos Seguintes
+Agora, está pronto para [implementar e configurar o dispositivo StorSimple no local](storsimple-8000-deployment-walkthrough-u2.md).
 

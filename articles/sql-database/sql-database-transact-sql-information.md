@@ -3,7 +3,7 @@ title: "Resolver a base de dados SQL T-SQL Azure de migração de diferenças | 
 description: "Instruções de Transact-SQL que são menos do que totalmente suportadas na Base de Dados SQL do Azure"
 services: sql-database
 documentationcenter: 
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 10/23/2017
-ms.author: rickbyh
-ms.openlocfilehash: 5d9cfce0453bb32bf3512b5b8e3ed25c9c2fdbdf
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: carlrab
+ms.openlocfilehash: f311c0d139d5ec35cbd85a34bd5a5e991bccba3a
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolver diferenças Transact-SQL durante a migração para a base de dados SQL   
 Quando [migrar a base de dados](sql-database-cloud-migrate.md) do SQL Server para o Azure SQL Server, poderá descobrir que a base de dados requer alguns novamente engenharia antes do SQL Server podem ser migrado. Este artigo fornece orientação para o ajudar a efetuar esta engenharia novamente e compreender os motivos pelos quais subjacentes por que motivo é necessário o engenharia novamente. Para detetar incompatibilidades, utilize o [através do Assistente de dados de migração (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
@@ -84,7 +84,7 @@ A referência de Transact-SQL inclui artigos relacionados com versões do SQL Se
 
 Em alguns casos, o assunto geral de um artigo pode ser utilizado num produto, mas existem pequenas diferenças entre os produtos. As diferenças são indicadas em midpoints no artigo conforme apropriado. Em alguns casos, o assunto geral de um artigo pode ser utilizado num produto, mas existem pequenas diferenças entre os produtos. As diferenças são indicadas em midpoints no artigo conforme apropriado. Por exemplo o artigo de CREATE TRIGGER está disponível na base de dados do SQL Server. Mas o **ALL SERVER** opção para acionadores ao nível do servidor, indica que os acionadores ao nível do servidor não podem ser utilizados na base de dados do SQL Server. Em alternativa, utilize acionadores ao nível da base de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter uma lista das funcionalidades que são suportados e não suportados pela base de dados do SQL Server, consulte [comparação de funcionalidades da SQL Database do Azure](sql-database-features.md). A lista nesta página complementa esse artigo diretrizes e as funcionalidades e concentra-se nas instruções Transact-SQL.
 

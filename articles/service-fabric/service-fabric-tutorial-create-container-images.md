@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: ecb70b88f6548e4730bcc1578de2f748cda33b0a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Criar imagens de contentor para o Service Fabric
 
@@ -58,44 +58,40 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-O diretório 'contentor-tutorial' contém uma pasta denominada 'azure voto'. Esta pasta 'azure voto' contém o código fonte front-end e um Dockerfile para criar o front-end. O diretório 'contentor-tutorial' também contém o diretório 'redis' que tem o Dockerfile para compilar a imagem de redis. Estes diretórios contém os recursos necessários para este tutorial conjunto. 
+A solução inclui duas pastas e um ' docker-compse.yml' ficheiros. A pasta 'azure voto' contém o serviço de front-end do Python, juntamente com o Dockerfile utilizado para criar a imagem. O diretório 'Voto' contém o pacote de aplicação de Service Fabric é implementado para o cluster. Estes diretórios contém os recursos necessários para este tutorial.  
 
 ## <a name="create-container-images"></a>Criar imagens de contentor
 
-Dentro do diretório de 'voto de azure', execute o seguinte comando para criar a imagem para o componente de web de front-end. Este comando utiliza o Dockerfile neste diretório para compilar a imagem. 
+Dentro do **azure voto** diretório, execute o seguinte comando para criar a imagem para o componente de web de front-end. Este comando utiliza o Dockerfile neste diretório para compilar a imagem. 
 
 ```bash
 docker build -t azure-vote-front .
 ```
 
-Dentro do diretório 'redis', execute o seguinte comando para criar a imagem para o back-end de redis Este comando utiliza o Dockerfile no diretório para compilar a imagem. 
-
-```bash
-docker build -t azure-vote-back .
-```
-
-Quando tiver terminado, utilize o [imagens docker](https://docs.docker.com/engine/reference/commandline/images/) comando para ver as imagens criadas.
+Este comando pode demorar algum tempo, uma vez que todas as dependências necessárias têm de ser solicitados a partir do Hub de Docker. Quando tiver terminado, utilize o [imagens docker](https://docs.docker.com/engine/reference/commandline/images/) comando para ver as imagens criadas.
 
 ```bash
 docker images
 ```
 
-Tenha em atenção que foram transferidas ou criadas quatro imagens. O *voto-azure-frente* imagem contém a aplicação. Foi derivado um *python* imagem a partir do Hub de Docker. A imagem de Redis foi transferida a partir do Hub de Docker.
+Tenha em atenção que foram transferidas ou criadas duas imagens. O *voto-azure-frente* imagem contém a aplicação. Foi derivado um *python* imagem a partir do Hub de Docker.
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 
 ```
 
 ## <a name="deploy-azure-container-registry"></a>Implementar o registo de contentor do Azure
 
-Execute primeiro o [início de sessão az](/cli/azure/login) comando para iniciar sessão sua conta do Azure. 
+Execute primeiro o **início de sessão az** comando para iniciar sessão sua conta do Azure. 
 
-Em seguida, utilize o [conta az](/cli/azure/account#set) comando para escolha a sua subscrição para criar o registo de contentor do Azure. 
+```bash
+az login
+```
+
+Em seguida, utilize o **conta az** comando para escolha a sua subscrição para criar o registo de contentor do Azure. Tem de introduzir o ID de subscrição da sua subscrição do Azure em vez de < subscription_id >. 
 
 ```bash
 az account set --subscription <subscription_id>
@@ -103,23 +99,23 @@ az account set --subscription <subscription_id>
 
 Quando implementar um registo de contentor do Azure, primeiro precisa de um grupo de recursos. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Neste exemplo, um grupo de recursos denominado *myResourceGroup* é criado no *westus* região. Escolha o grupo de recursos numa região perto de si. 
+Crie um grupo de recursos com o comando **az group create**. Neste exemplo, um grupo de recursos denominado *myResourceGroup* é criado no *westus* região.
 
 ```bash
-az group create --name myResourceGroup --location westus
+az group create --name <myResourceGroup> --location westus
 ```
 
-Criar um registo de contentor do Azure com o [az acr criar](/cli/azure/acr#create) comando. O nome de um registo de contentor **têm de ser exclusivos**.
+Criar um registo de contentor do Azure com o **az acr criar** comando. Substitua \<acrName > com o nome do registo de contentor que pretende criar na sua subscrição. Este nome tem de ser exclusivo e alfanuméricos. 
 
 ```bash
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Em todo o resto deste tutorial, utilizamos "acrname" como um marcador de posição para o nome do registo de contentor que escolheu.
+Em todo o resto deste tutorial, utilizamos "acrName" como um marcador de posição para o nome do registo de contentor que escolheu. . Anote este valor. 
 
 ## <a name="log-in-to-your-container-registry"></a>Inicie sessão no seu registo de contentor
 
-Iniciar sessão na sua instância ACR antes de enviar imagens à mesma. Utilize o [início de sessão do az acr](/cli/azure/acr?view=azure-cli-latest#az_acr_login) comando para concluir a operação. Forneça o nome exclusivo especificado no registo do contentor quando foi criado.
+Iniciar sessão na sua instância ACR antes de enviar imagens à mesma. Utilize o **início de sessão do az acr** comando para concluir a operação. Forneça o nome exclusivo especificado no registo do contentor quando foi criado.
 
 ```bash
 az acr login --name <acrName>
@@ -141,9 +137,7 @@ Saída:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 ```
 
@@ -153,16 +147,18 @@ Para obter o nome de loginServer, execute o seguinte comando:
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Agora, marcar a *voto-azure-frente* imagem com o loginServer do registo de contentor. Além disso, adicionar `:v1` ao fim do nome de imagem. Esta etiqueta indica a versão da imagem.
+Isto produz uma tabela com os seguintes resultados. Este resultado será utilizado para a etiqueta a **voto-azure-frente** imagem antes de enviá-lo para o registo de contentor no próximo passo.
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
+Result
+------------------
+<acrName>.azurecr.io
 ```
 
-Em seguida, marcar a *voto-azure-back* imagem com o loginServer do registo de contentor. Além disso, adicionar `:v1` ao fim do nome de imagem. Esta etiqueta indica a versão da imagem.
+Agora, marcar a *voto-azure-frente* imagem com o loginServer do seu registo de contentor. Além disso, adicionar `:v1` ao fim do nome de imagem. Esta etiqueta indica a versão da imagem.
 
 ```bash
-docker tag azure-vote-back <acrLoginServer>/azure-vote-back:v1
+docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Depois de etiquetados, executar 'imagens docker' para verificar a operação.
@@ -172,11 +168,8 @@ Saída:
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-back                        latest              bf9a858a9269        22 minutes ago      107MB
-<acrName>.azurecr.io/azure-vote-back    v1                  bf9a858a9269        22 minutes ago      107MB
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
-<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf        23 minutes ago      708MB
-redis                                  latest              9813a7e8fcc0        2 days ago          107MB
+<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
 tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
 
 ```
@@ -188,15 +181,7 @@ Push de *voto-azure-frente* imagem ao registo.
 Utilizando o exemplo seguinte, substitua o nome de loginServer ACR loginServer do seu ambiente.
 
 ```bash
-docker push <acrLoginServer>/azure-vote-front:v1
-```
-
-Push de *voto-azure-back* imagem ao registo. 
-
-Utilizando o exemplo seguinte, substitua o nome de loginServer ACR loginServer do seu ambiente.
-
-```bash
-docker push <acrLoginServer>/azure-vote-back:v1
+docker push <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 Os comandos de push de docker demorar alguns minutos a concluir.
@@ -214,13 +199,12 @@ Saída:
 ```bash
 Result
 ----------------
-azure-vote-back
 azure-vote-front
 ```
 
 Após conclusão tutorial, a imagem de contentor tenha sido armazenada numa instância de registo de contentor do Azure privada. Esta imagem é implementada de ACR para um cluster do Service Fabric nos tutoriais subsequentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, uma aplicação foi solicitada a partir do Github e imagens de contentor foram criadas e enviadas por push para um registo. Foram efetuados os seguintes passos:
 

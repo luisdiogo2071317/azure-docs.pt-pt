@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: f7b2a0de82cfd8fd489387876034487beb49cfd4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implementar recursos do Azure em mais do que uma subscrição ou grupo de recursos
 
@@ -121,7 +121,7 @@ O exemplo seguinte implementa duas contas de armazenamento - um grupo de recurso
 
 Se definir `resourceGroup` ao nome de um grupo de recursos que não existe, a implementação falhará.
 
-Para implementar o modelo de exemplo, utilize uma versão do Azure PowerShell ou a CLI do Azure de Maio de 2017 ou posterior.
+Para implementar o modelo de exemplo, utilize o Azure PowerShell 4.0.0 ou posterior, ou do Azure CLI 2.0.0 ou posterior.
 
 ## <a name="use-the-resourcegroup-function"></a>Utilize a função de resourceGroup()
 

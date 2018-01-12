@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Cofre de chaves do Azure .NET 2.0 - Guia de migração e notas de versão
 As seguintes notas e orientações são para os programadores que trabalham com o Azure chave de cofre .NET / C # biblioteca. A transição da 1.0 versão para a versão 2.0, um número de atualizações foram efetuado que irá necessitar de trabalho de migração no seu código por ordem para beneficiar as melhorias funcionais e de como a funcionalidade adições **certificados do Cofre de chaves** suportar.
@@ -36,8 +36,9 @@ Fornece suporte de certificados do Cofre de chaves para a gestão das suas x509 
 
 ## <a name="net-support"></a>Suporte de .NET
 
-* **O .NET 4.0** não é suportada pela versão 2.0 do .NET Cofre de chaves do Azure / c# biblioteca
-* **.NET core** é suportada pela versão 2.0 do .NET Cofre de chaves do Azure / c# biblioteca
+* **O .NET 4.0** não é suportada pela versão 2.0 do biblioteca de .NET de Cofre de chaves do Azure
+* **.NET framework 4.5.2** é suportada pela versão 2.0 do biblioteca de .NET de Cofre de chaves do Azure
+* **1.4 padrão .NET** é suportada pela versão 2.0 do biblioteca de .NET de Cofre de chaves do Azure
 
 ## <a name="namespaces"></a>Espaços de nomes
 

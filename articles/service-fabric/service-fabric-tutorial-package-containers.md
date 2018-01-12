@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>O pacote e implementar contentores como uma aplicação de Service Fabric
 
@@ -65,10 +65,11 @@ O Service fabric fornece ferramentas de andaime para ajudar a criar aplicações
     ```bash
     yo azuresfcontainer
     ```
-2. Nome da aplicação "TestContainer" e atribua o nome do serviço de aplicações "azurevotefront".
-3. Forneça o caminho da imagem do contentor no ACR para o repositório de front-end - por exemplo 'test.azurecr.io/azure-vote-front:v1'. 
-4. Prima Enter para deixar os comandos secção vazio.
-5. Especifique uma contagem de instâncias de 1.
+2. Escreva "TestContainer" o nome da aplicação
+3. Escreva "azurevotefront" nome do serviço de aplicações.
+4. Forneça o caminho da imagem do contentor no ACR para o repositório de front-end - por exemplo '\<acrName >.azurecr.io / azure-voto-frente: v1'. O \<acrName > campo tem de ser igual ao valor que utilizou no tutorial anterior.
+5. Prima Enter para deixar os comandos secção vazio.
+6. Especifique uma contagem de instâncias de 1.
 
 O seguinte mostra a entrada e saída da execução de yo de comando:
 
@@ -86,12 +87,12 @@ O seguinte mostra a entrada e saída da execução de yo de comando:
    create TestContainer/uninstall.sh
 ```
 
-Para adicionar outro serviço de contentor a uma aplicação já criada com o yeoman, execute os seguintes passos:
+Para adicionar outro serviço de contentor para uma aplicação já criada utilizando Yeoman, execute os seguintes passos:
 
-1. Diretório de alteração para o **TestContainer** diretório
+1. Alterar o nível de um diretório para o **TestContainer** diretório, por exemplo, *. / TestContainer*
 2. Execute `yo azuresfcontainer:AddService` 
 3. Nome do serviço 'azurevoteback'
-4. Forneça o caminho da imagem do contentor no ACR para o repositório de back-end - por exemplo 'test.azurecr.io/azure-vote-back:v1'
+4. Forneça o caminho de imagem do contentor para Redis - ' Extreme: dos redis
 5. Prima Enter para deixar os comandos secção vazio
 6. Especifique uma contagem de instâncias de "1".
 
@@ -99,7 +100,7 @@ As entradas para adicionar o serviço utilizado são todas apresentadas:
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: <acrName>.azurecr.io/azure-vote-back:v1
+? Input the Image Name: alpine:redis
 ? Commands: 
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -107,13 +108,16 @@ As entradas para adicionar o serviço utilizado são todas apresentadas:
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-Para o resto deste tutorial, estamos a trabalhar **TestContainer** diretório.
+Para o resto deste tutorial, estamos a trabalhar **TestContainer** diretório. Por exemplo, *./TestContainer/TestContainer*. O conteúdo deste diretório deve ser o seguinte.
+```bash
+$ ls
+ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
+```
 
 ## <a name="configure-the-application-manifest-with-credentials-for-azure-container-registry"></a>Configurar o manifesto da aplicação com as credenciais para o registo de contentor do Azure
 Para o Service Fabric solicitar as imagens de contentor do registo de contentor do Azure, é necessário fornecer as credenciais no **ApplicationManifest.xml**. 
 
-
-Inicie sessão sua instância ACR. Utilize o [início de sessão do az acr](/cli/azure/acr#az_acr_login) comando para concluir a operação. Forneça o nome exclusivo especificado no registo do contentor quando foi criado.
+Inicie sessão sua instância ACR. Utilize o **início de sessão do az acr** comando para concluir a operação. Forneça o nome exclusivo especificado no registo do contentor quando foi criado.
 
 ```bash
 az acr login --name <acrName>
@@ -127,7 +131,7 @@ Em seguida, execute o seguinte comando para obter a palavra-passe do seu registo
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
-No **ApplicationManifest.xml**, adicione o fragmento de código sob o **ServiceManifestImport** elemento para cada um dos serviços. Inserir o **acrName** para o **AccountName** campo e a palavra-passe devolvido pelo comando anterior é utilizado para o **palavra-passe** campo. Um completo **ApplicationManifest.xml** é fornecida no final deste documento. 
+No **ApplicationManifest.xml**, adicione o fragmento de código sob o **ServiceManifestImport** elemento para o serviço de front-end. Inserir o **acrName** para o **AccountName** campo e a palavra-passe devolvido pelo comando anterior é utilizado para o **palavra-passe** campo. Um completo **ApplicationManifest.xml** é fornecida no final deste documento. 
 
 ```xml
 <Policies>
@@ -140,7 +144,7 @@ No **ApplicationManifest.xml**, adicione o fragmento de código sob o **ServiceM
 
 ### <a name="configure-communication-port"></a>Configurar a porta de comunicação
 
-Configure um ponto final de HTTP de modo a que os clientes possam comunicar com o seu serviço.  Abra o *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* de ficheiros e declarar um recurso de ponto final no **ServiceManifest** elemento.  Adicione o protocolo, a porta e o nome. Para este tutorial, o serviço de escuta na porta 80. 
+Configure um ponto final de HTTP de modo a que os clientes possam comunicar com o seu serviço. Abra o *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* de ficheiros e declarar um recurso de ponto final no **ServiceManifest** elemento.  Adicione o protocolo, a porta e o nome. Para este tutorial, o serviço de escuta na porta 80. O fragmento seguinte é colocado sob o *ServiceManifest* etiquetas no recurso.
   
 ```xml
 <Resources>
@@ -154,21 +158,21 @@ Configure um ponto final de HTTP de modo a que os clientes possam comunicar com 
 
 ```
   
-Da mesma forma, modifique o manifesto do serviço para o serviço de back-end. Para este tutorial, a predefinição redis 6379 é mantida.
+Da mesma forma, modifique o manifesto do serviço para o serviço de back-end. Abra o *./TestContainer/azurevotebackPkg/ServiceManifest.xml* e declarar um recurso de ponto final no **ServiceManifest** elemento. Para este tutorial, a predefinição redis 6379 é mantida. O fragmento seguinte é colocado sob o *ServiceManifest* etiquetas no recurso.
+
 ```xml
 <Resources>
   <Endpoints>
     <!-- This endpoint is used by the communication listener to obtain the port on which to 
             listen. Please note that if your service is partitioned, this port is shared with 
             replicas of different partitions that are placed in your code. -->
-    <Endpoint Name="azurevotebackTypeEndpoint" UriScheme="http" Port="6379" Protocol="http"/>
+    <Endpoint Name="azurevotebackTypeEndpoint" Port="6379" Protocol="tcp"/>
   </Endpoints>
 </Resources>
 ```
 Fornecer o **UriScheme**regista automaticamente o ponto final de contentor com o serviço de nomenclatura de recursos de infraestrutura do serviço de mensagens em fila para deteção. Por exemplo, um ficheiro de exemplo ServiceManifest.xml completo para o serviço de back-end é fornecido no final deste artigo. 
 
 ### <a name="map-container-ports-to-a-service"></a>Portas de contentor do mapa para um serviço
-    
 Para expor os contentores no cluster, é também necessário criar um enlace da porta no 'ApplicationManifest.xml'. O **PortBinding** política referências a **pontos finais** que definimos no **ServiceManifest.xml** ficheiros. Os pedidos recebidos para estes pontos finais obterem mapeados para as portas de contentor que estão abertas e tem um vínculo aqui. No **ApplicationManifest.xml** ficheiro, adicione o seguinte código para vincular a porta 80 e 6379 para os pontos finais. Um completo **ApplicationManifest.xml** está disponível no final deste documento. 
   
 ```xml
@@ -195,13 +199,13 @@ Para o Service Fabric atribuir este nome DNS para o serviço de back-end, o nome
 </Service>
 ```
 
-O serviço de front-end lê uma variável de ambiente de saber o nome DNS da instância do Redis. A variável de ambiente está definida o Dockerfile conforme mostrado:
+O serviço de front-end lê uma variável de ambiente de saber o nome DNS da instância do Redis. Esta variável de ambiente já está definida no Dockerfile que foi utilizado para gerar a imagem de Docker e nenhuma ação tem de ser executadas aqui.
   
 ```Dockerfile
 ENV REDIS redisbackend.testapp
 ```
   
-O script de python que compõe a utiliza final front-nome este DNS para resolver e ligue para o arquivo de redis do back-end, conforme mostrado:
+O fragmento de código seguinte ilustra como o código de Python front-end escolherá a variável de ambiente descrita a Dockerfile. Nenhuma ação tem de ser executadas aqui. 
 
 ```python
 # Get DNS Name
@@ -218,15 +222,15 @@ Para implementar a aplicação num cluster no Azure, utilize o seu próprio clus
 
 Party clusters são clusters do Service Fabric gratuitos e de tempo limitado, alojados no Azure. Esta é mantida pela equipa do Service Fabric em que qualquer pessoa pode implementar aplicações e saber mais sobre a plataforma. Para obter acesso a um Party Cluster, [siga as instruções](http://aka.ms/tryservicefabric). 
 
-Para obter informações sobre como criar o seu próprio cluster, consulte [criar um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Para obter informações sobre como criar o seu próprio cluster, veja [Crie um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Criar e implementar a aplicação em cluster
 Pode implementar a aplicação do cluster do Azure utilizando a CLI de recursos de infraestrutura de serviço. Se o serviço de recursos de infraestrutura CLI não está instalado no seu computador, siga as instruções [aqui](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) instalá-la. 
 
-Ligue ao cluster do Service Fabric no Azure.
+Ligue ao cluster do Service Fabric no Azure. Substitua o ponto final de marcador de posição com os seus próprios. O ponto final tem de ser um URL completo semelhante às abaixo.
 
 ```bash
-sfctl cluster select --endpoint http://lin4hjim3l4.westus.cloudapp.azure.com:19080
+sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
 ```
 
 Utilizar o script de instalação fornecido no **TestContainer** diretório para copiar o pacote de aplicação para o arquivo de imagens do cluster, registar o tipo de aplicação e criar uma instância da aplicação.
@@ -269,7 +273,6 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
     <ServiceManifestRef ServiceManifestName="azurevotebackPkg" ServiceManifestVersion="1.0.0"/>
       <Policies> 
         <ContainerHostPolicies CodePackageRef="Code">
-          <RepositoryCredentials AccountName="myaccountname" Password="<password>" PasswordEncrypted="false"/>
           <PortBinding ContainerPort="6379" EndpointRef="azurevotebackTypeEndpoint"/>
         </ContainerHostPolicies>
       </Policies>
@@ -303,7 +306,7 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>my.azurecr.io/azure-vote-front:v1</ImageName>
+            <ImageName>acrName.azurecr.io/azure-vote-front:v1</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
@@ -316,7 +319,7 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="8080" Protocol="http"/>
+      <Endpoint Name="azurevotefrontTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
     </Endpoints>
   </Resources>
 
@@ -337,7 +340,7 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>my.azurecr.io/azure-vote-back:v1</ImageName>
+            <ImageName>alpine:redis</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>
@@ -349,12 +352,12 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="azurevotebackTypeEndpoint" UriScheme="http" Port="6379" Protocol="http"/>
+      <Endpoint Name="azurevotebackTypeEndpoint" Port="6379" Protocol="tcp"/>
     </Endpoints>
   </Resources>
  </ServiceManifest>
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, vários contentores foram empacotados para uma aplicação de Service Fabric utilizando Yeoman. Esta aplicação, em seguida, foi implementada e executada num cluster Service Fabric. Foram efetuados os seguintes passos:
 

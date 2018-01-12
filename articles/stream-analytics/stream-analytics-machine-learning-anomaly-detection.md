@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff8571c6447f32ef9a435f5200803e76f6013ffa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="using-the-anomalydetection-operator"></a>Utilizar o operador ANOMALYDETECTION
 
@@ -89,7 +89,7 @@ Foi detetada uma uma anomalias de um determinado tipo quando um destes pontuaç�
 
 **ANOMALYDETECTION** utiliza a deslizante semântica de janela, o que significa que a computação executa por eventos que aciona a função e uma pontuação é produzida para esse evento. A computação é baseada no Exchangeability Martingales, que operam verificando se a distribuição dos valores de eventos foi alterado. Se assim for, foi detetada uma potencial anomalias. A classificação devolvida é uma indicação de que o nível de confiança de que anomalias. Como otimização interna, **ANOMALYDETECTION** calcula a classificação de anomalias de um evento com base no *d* para *2d* visão de eventos, onde *d*é o tamanho da janela de deteção especificados.
 
-**ANOMALYDETECTION** espera série de tempo de entrada ser uniforme. Um fluxo de eventos pode ser efetuado uniform por agregar através de uma em cascata ou hopping janela. Em cenários em que o intervalo entre eventos sempre é menor do que a janela de agregação, uma janela em cascata é suficiente para efetuar a série de tempo uniforme. Quando o intervalo pode ser maior, as lacunas podem ser preenchidas repetindo o último valor utilizando uma janela de salto. Ambos estes cenários podem ser processados no exemplo que se segue. Atualmente, o `FillInMissingValuesStep` passo não pode ser ignorado. Não ter este passo resultará num erro de compilação.
+**ANOMALYDETECTION** espera série de tempo de entrada ser uniforme. Um fluxo de eventos pode ser efetuado uniform por agregar através de uma em cascata ou hopping janela. Em cenários em que o intervalo entre eventos sempre é menor do que a janela de agregação, uma janela em cascata é suficiente para efetuar a série de tempo uniforme. Quando o intervalo pode ser maior, as lacunas podem ser preenchidas repetindo o último valor utilizando uma janela de salto. Ambos estes cenários podem ser processados no exemplo que se segue.
 
 ## <a name="performance-guidance"></a>Guia de desempenho
 
@@ -105,8 +105,6 @@ Foi detetada uma uma anomalias de um determinado tipo quando um destes pontuaç�
 
 A seguinte consulta pode ser utilizada para enviar um alerta se for detetada uma anomalias.
 Quando o fluxo de entrada não é uniform, o passo de agregação pode ajudar a transformá-los para uma série de hora uniforme. O exemplo utiliza **médio** , mas o tipo específico de agregação depende do cenário de utilizador. Além disso, quando uma série de tempo tem em falta irregulares maiores do que a janela de agregação, haverá não há eventos na série de tempo a deteção de anomalias de Acionador (de acordo com a deslizante semântica de janela). Como resultado, pressuposto de uniformidade da será quebrado quando chegam próximo evento. Estas situações, precisamos de uma forma de preencher os lacunas na série de tempo. Uma abordagem possível consiste em efetuar o último evento para cada janela de salto, conforme mostrado abaixo.
-
-Conforme indicado antes, não ignore o `FillInMissingValuesStep` passo por agora. Omitindo esse passo resultará num erro de compilação.
 
     WITH AggregationStep AS 
     (
@@ -177,7 +175,7 @@ Conforme indicado antes, não ignore o `FillInMissingValuesStep` passo por agora
 ## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

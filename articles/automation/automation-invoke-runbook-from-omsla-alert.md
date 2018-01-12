@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 76d5ab23ef1962733ccb3b36640facdba9ab8acb
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.openlocfilehash: a10be867965eef9746a0f4cc9b14c4fc429f6e35
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Invocar um runbook da Automatização do Azure a partir de um alerta do Log Analytics
 
@@ -101,7 +101,7 @@ Em alternativa, se não tiver a conta de Automatização ligada à sua área de 
 >[!NOTE]
 > Se a sua área de trabalho tiver sido atualizada para a [nova linguagem de consulta do Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), o payload do webook foi alterado. Os detalhes do formato estão na [API REST do Log Analytics do Azure](https://aka.ms/loganalyticsapiresponse).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre os alertas no Log Analytics e como criá-los, veja [Alerts in Log Analytics (Alertas no Log Analytics)](../log-analytics/log-analytics-alerts.md).
 

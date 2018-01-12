@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utilizar a ferramenta de diagnóstico do StorSimple para resolver problemas com dispositivos série 8000
 
@@ -32,15 +32,15 @@ A ferramenta de diagnóstico destina-se principalmente a dispositivos de local d
 
 Esta ferramenta pode ser executada através da interface do Windows PowerShell do dispositivo StorSimple. Existem duas formas de aceder à interface local do dispositivo:
 
-* [Utilizar o PuTTY para ligar à consola de série do dispositivo](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [Aceder remotamente a ferramenta através do Windows PowerShell para StorSimple](storsimple-remote-connect.md).
+* [Utilizar o PuTTY para ligar à consola de série do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Aceder remotamente a ferramenta através do Windows PowerShell para StorSimple](storsimple-8000-remote-connect.md).
 
 Neste artigo, partimos do pressuposto que tiver estabelecido ligação à consola de série do dispositivo através do PuTTY.
 
 #### <a name="to-run-the-diagnostics-tool"></a>Para executar a ferramenta de diagnóstico
 
 Assim que tiver estabelecido ligação à interface do dispositivo do Windows PowerShell, execute os seguintes passos para executar o cmdlet.
-1. Inicie sessão da consola de série do dispositivo ao seguir os passos no [utilizar o PuTTY para ligar à consola de série do dispositivo](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. Inicie sessão da consola de série do dispositivo ao seguir os passos no [utilizar o PuTTY para ligar à consola de série do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
 2. Escreva o seguinte comando:
 
@@ -85,11 +85,11 @@ Este teste determina o estado dos componentes de hardware, USM firmware e o firm
 * Os componentes de hardware reportados são os componentes que falhou o teste ou não estão presentes no sistema.
 * As versões de firmware USM firmware e do disco são reportadas para o controlador 0, 1 de controlador e partilharam componentes no sistema. Para obter uma lista completa dos componentes de hardware, aceda a:
 
-    * [Componentes no bastidor primário](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [Componentes no bastidor EBOD](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [Componentes no bastidor primário](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [Componentes no bastidor EBOD](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> Se o teste de hardware comunica componentes falhados, [iniciar um pedido de serviço com o Microsoft Support](storsimple-contact-microsoft-support.md).
+> Se o teste de hardware comunica componentes falhados, [iniciar um pedido de serviço com o Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 #### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>Saída de exemplo de teste de hardware executada num dispositivo 8100
 
@@ -210,7 +210,7 @@ Este teste relatórios as informações do sistema, as atualizações disponíve
 * As informações do sistema incluem o modelo, o número de série do dispositivo, o fuso horário, o estado de controlador e a versão do software de detalhado em execução no sistema. Para compreender os vários parâmetros de sistema comunicados como resultado, aceda a [interpretar as informações do sistema](#appendix-interpreting-system-information).
 
 * A disponibilidade de atualização se os modos normais e de manutenção estão disponíveis os relatórios e os respetivos nomes de pacote associados. Se `RegularUpdates` e `MaintenanceModeUpdates` são `false`, isto indica que as atualizações não estão disponíveis. O dispositivo está atualizado.
-* As informações de cluster contém as informações em vários componentes lógicos de todos os grupos de clusters HCS e os seus respetivos Estados. Se vir um grupo de offline cluster nesta secção do relatório, [contacte a Microsoft Support](storsimple-contact-microsoft-support.md).
+* As informações de cluster contém as informações em vários componentes lógicos de todos os grupos de clusters HCS e os seus respetivos Estados. Se vir um grupo de offline cluster nesta secção do relatório, [contacte a Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 * As informações de serviço incluem os nomes e Estados de todos os serviços HCS e CiS em execução no seu dispositivo. Estas informações são úteis para o Support da Microsoft na resolução do problema do dispositivo.
 
 #### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Saída de exemplo de teste de sistema executada num dispositivo 8100
@@ -419,7 +419,7 @@ Eis uma tabela que descreve o que os parâmetros do Windows PowerShell vários n
 | Nome                    | O nome amigável do dispositivo como configurado através do portal do Azure durante a implementação do dispositivo. O nome amigável predefinido é o número de série do dispositivo. |
 | Modelo                   | O modelo do seu dispositivo de série 8000 do StorSimple. O modelo pode ser 8100 ou 8600.|
 | SerialNumber            | O número de série do dispositivo é atribuído na fábrica de e 15 carateres de comprimento. Por exemplo, 8600 SHX0991003G44HT indica:<br> 8600 – é o modelo do dispositivo.<br>SHX – é o site de fabrico.<br> 0991003 - é um produto específico. <br> G44HT-os últimos 5 dígitos são aumentados para criar os números de série exclusivos. Não pode ser um conjunto sequencial.|
-| Fuso horário                | O dispositivo fuso horário conforme configurado no portal do Azure durante a implementação do dispositivo.|
+| TimeZone                | O dispositivo fuso horário conforme configurado no portal do Azure durante a implementação do dispositivo.|
 | CurrentController       | O controlador que estejam ligados à através da interface do Windows PowerShell do dispositivo StorSimple.|
 | ActiveController        | O controlador de que está ativo no seu dispositivo e está a controlar todas as operações de disco e rede. Isto pode ser controlador 0 ou 1 de controlador.  |
 | Controller0Status       | O estado do controlador 0 no seu dispositivo. O estado do controlador pode ser normal, no modo de recuperação ou inacessível.|
@@ -437,7 +437,7 @@ Eis uma tabela que descreve o que os parâmetros do Windows PowerShell vários n
 | RemoteManagementMode    | Indica se o dispositivo pode ser gerido remotamente através do seu interface do Windows PowerShell. |
 | FipsMode                | Indica se o modo de Estados Unidos Federal Information processamento Standard (FIPS) está ativado no seu dispositivo. A norma FIPS 140 define os algoritmos criptográficos aprovados para utilização pelos sistemas de computador government Federal dos EUA para a proteção de dados confidenciais. Para dispositivos com a atualização 4 ou posterior, o modo FIPS está ativado por predefinição. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba o [sintaxe do cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 

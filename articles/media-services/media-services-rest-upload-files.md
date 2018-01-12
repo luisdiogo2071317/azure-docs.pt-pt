@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: juliako
-ms.openlocfilehash: c02584e53790ccafe6ed9a5aeffab3f9e40e8b29
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 4ba6fdcec8d71326b02d71dbad429be8c2052171
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar ficheiros para uma conta de Media Services utilizando REST
 > [!div class="op_single_selector"]
@@ -173,9 +173,9 @@ São aplicáveis algumas considerações:
 
 Agora que tem o URL de carregamento, terá de escrever alguns códigos utilizando as APIs de Blob do Azure diretamente ao carregar o ficheiro para o contentor SAS. Para obter mais informações, veja os artigos seguintes:
 
-- https://Docs.microsoft.com/REST/API/storageservices/PUT-blob 
-- https://Docs.microsoft.com/Azure/Storage/Common/Storage-use-azcopy#Upload-BLOBs-to-blob-Storage
-- https://Docs.microsoft.com/Azure/Storage/BLOBs/Storage-DotNet-How-to-use-BLOBs#Upload-a-blob-into-a-Container
+- [Utilizar o armazenamento do Azure REST API](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [COLOCAR Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+- [Carregue os blobs no armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Carregar um ficheiro com o Postman
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 2bbd0a8be891bd472cdc631a1f8dc79471d66a77
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Estas perguntas mais frequentes respondem a dúvidas sobre o Centro de segurança do Azure, um serviço que o ajuda a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos do Microsoft Azure.
@@ -61,6 +61,10 @@ Pode ativar a recolha de dados para a sua subscrição do Azure na política de 
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>O que acontece quando a recolha de dados está ativada?
 Quando a recolha de dados estiver ativada, o Microsoft Monitoring Agent é automaticamente aprovisionado em todos os existente e máquinas virtuais que são implementadas novas suportadas na subscrição.
+
+O agente permite que o evento de criação de processo 4688 e *CommandLine* campo no interior do evento 4688. Novos processos criados na VM são registados pelo registo de eventos e monitorizados pelos serviços de deteção do Centro de segurança. Para obter informações sobre os detalhes registado para cada novo processo consulte [descrição os campos no 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Além disso, o agente recolhe os 4688 eventos criados na VM e armazena-os na pesquisa.
+
+Quando o Centro de segurança detetar atividade suspeita na VM, o cliente é notificado por correio eletrónico se [informações de contacto de segurança](security-center-provide-security-contact-details.md) foi fornecido. Um alerta é também visível no dashboard de alertas de segurança do Centro de segurança.
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>O agente de monitorização afeta o desempenho dos meus servidores?
 O agente consome uma quantidade nominal de recursos do sistema e deve ter e pouco impacto sobre o desempenho. Para obter mais informações sobre o impacto no desempenho e o agente e a extensão, consulte o [guia de operações e planeamento](security-center-planning-and-operations-guide.md#data-collection-and-storage).

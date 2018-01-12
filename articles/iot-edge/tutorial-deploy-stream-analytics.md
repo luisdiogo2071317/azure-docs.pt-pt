@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5c9231f400b00f455f30692c58f007bd63d3cc76
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implementar o Azure Stream Analytics como um módulo de limite de IoT – pré-visualização
 
@@ -51,7 +51,7 @@ Neste tutorial, ficará a saber como:
 
 Nesta secção, vai criar uma tarefa do Azure Stream Analytics para colocar os dados a partir do seu IoT hub, consultar os dados de telemetria enviada do seu dispositivo e, em seguida, reencaminhar os resultados para um contentor de armazenamento de Blobs do Azure. Para obter mais informações, consulte a secção "Descrição geral" da [documentação do Stream Analytics][azure-stream]. 
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+### <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 É necessária uma conta de armazenamento do Azure para fornecer um ponto final para ser utilizado como uma saída na sua tarefa do Azure Stream Analytics. O exemplo nesta secção utiliza o tipo de armazenamento de Blobs. Para obter mais informações, consulte a secção "Blobs" o [documentação do Storage do Azure][azure-storage].
 
@@ -59,7 +59,7 @@ Nesta secção, vai criar uma tarefa do Azure Stream Analytics para colocar os d
 
 2. No **criar conta de armazenamento** painel, introduza um nome para a sua conta de armazenamento, selecione a mesma localização onde está armazenado o seu IoT hub e, em seguida, selecione **criar**. Tenha em atenção o nome para utilização posterior.
 
-    ![Criar uma conta de armazenamento][1]
+    ![Criar uma conta do Storage][1]
 
 3. Vá para a conta de armazenamento que acabou de criar e, em seguida, selecione **procurar blobs**. 
 
@@ -153,7 +153,7 @@ Agora está pronto para implementar a tarefa de Stream Analytics do Azure no seu
 
     ![módulo de conjunto][6]
 
-6. Copie o nome que foi gerado automaticamente para o módulo do Azure Stream Analytics. 
+6. Copie o nome do seu módulo Azure Stream Analytics. 
 
     ![módulo de temperatura][11]
 
@@ -204,7 +204,7 @@ Deverá conseguir ver a temperatura da máquina, aumentar gradualmente até atin
    ![registo de docker][9]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, configurou um contentor de armazenamento do Azure e uma tarefa de análise de transmissão em fluxo para analisar os dados a partir do seu dispositivo de limite de IoT. Em seguida, carregar um módulo do Azure Stream Analytics personalizado para mover dados do seu dispositivo, através da sequência de para um blob para transferência. Para ver como o limite de IoT do Azure pode criar soluções mais para a sua empresa, avançar para os outros tutoriais.
 

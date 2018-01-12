@@ -3,7 +3,7 @@ title: "Atualização de pilha do Azure 1712 | Microsoft Docs"
 description: "Saiba mais sobre as novidades na atualização 1712 para pilha do Azure integrado sistemas, problemas conhecidos e onde pode transferir a atualização."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
-ms.author: andredm
-ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.date: 01/11/2018
+ms.author: brenduns
+ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-stack-1712-update"></a>Atualização de pilha 1712 do Azure
 
@@ -58,7 +58,7 @@ Esta atualização inclui as seguintes melhorias e correções para pilha do Azu
 - Cmdlet de teste AzureStack para validar a nuvem de pilha do Azure disponíveis através do ponto final com privilégios
 - Capacidade de registar uma implementação desligada da pilha do Azure
 - Alertas de expiração de certificado e utilizador da conta de monitorização
-- Foram adicionada cmdlet de atualização BMCCredential no PEP para rotação de palavra-passe BMC
+- Foram adicionada cmdlet de conjunto BmcPassword no PEP para rotação de palavra-passe BMC
 - Atualizações do registo de rede para suportar a pedido registo
 - Suporta a operação de recriação de imagem para conjuntos de escalas de Máquina Virtual (VMSS)
 - Ativar o modo de local público na ERCS VM para CloudAdmin início de sessão

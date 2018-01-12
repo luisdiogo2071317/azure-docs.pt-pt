@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: ryanwi
-ms.openlocfilehash: 486a27d7ca576c8fe1552c02eb24ece6b8bb2ba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93c86f4805257aee8e04ef80e33b3cec0fd3c67d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="package-an-application"></a>Pacote de uma aplicação
 Este artigo descreve como uma aplicação de Service Fabric do pacote e torná-lo preparado para a implementação.
@@ -115,11 +115,11 @@ Se a sua aplicação tiver [parâmetros da aplicação](service-fabric-manage-mu
 
 Se souber o cluster onde a aplicação será implementada, recomenda-se que passa a `ImageStoreConnectionString` parâmetro. Neste caso, o pacote também é validado com versões anteriores da aplicação que já estão em execução no cluster. Por exemplo, a validação pode detetar se um pacote com a mesma versão, mas um conteúdo diferente já foi implementado.  
 
-Depois da aplicação é empacotada corretamente e ser aprovado na validação, avaliar com base no tamanho e o número de ficheiros se necessitar de compressão.
+Depois da aplicação é empacotada corretamente e ser aprovado na validação, considere a compressão do pacote para operações de implementação mais rápidas.
 
 ## <a name="compress-a-package"></a>Comprimir um pacote
 Quando um pacote é grande ou tem vários ficheiros, pode comprimi-los para a implementação mais rápida. Compressão reduz o número de ficheiros e o tamanho do pacote.
-Para um pacote de aplicação comprimido [carregar o pacote de aplicação](service-fabric-deploy-remove-applications.md#upload-the-application-package) poderá demorar mais tempo em comparação com a carregar o pacote descomprimido (especialmente se o tempo de compressão é factored), mas [registar](service-fabric-deploy-remove-applications.md#register-the-application-package)e [anular o registo do tipo de aplicação](service-fabric-deploy-remove-applications.md#unregister-an-application-type) são mais rápidas para um pacote de aplicação comprimido.
+Para um pacote de aplicação comprimido [carregar o pacote de aplicação](service-fabric-deploy-remove-applications.md#upload-the-application-package) poderá demorar mais tempo em comparação com a carregar o pacote descomprimido, especialmente se a compressão é efetuada como parte da cópia. Com compressão, [registar](service-fabric-deploy-remove-applications.md#register-the-application-package) e [anular o registo do tipo de aplicação](service-fabric-deploy-remove-applications.md#unregister-an-application-type) são mais rápidas.
 
 O mecanismo de implementação é a mesmo para pacotes comprimidos e descomprimidos. Se o pacote está comprimido, é armazenada como tal no arquivo de imagem do cluster e descomprimido no nó antes da aplicação é executada.
 A compressão substitui o pacote de Service Fabric válido com a versão comprimida. A pasta têm de permitir permissões de escrita. A compressão em execução um pacote comprimido já gera sem alterações.
@@ -127,8 +127,7 @@ A compressão substitui o pacote de Service Fabric válido com a versão comprim
 Pode comprimir um pacote, executando o comando do Powershell [cópia ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) com `CompressPackage` mudar. Pode descomprimir o pacote com o mesmo comando, utilizando `UncompressPackage` mudar.
 
 O seguinte comando comprime o pacote sem copiar para o arquivo de imagens. Pode copiar um pacote comprimido para um ou mais clusters de Service Fabric, conforme necessário, utilizando [cópia ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sem o `SkipCopy` sinalizador.
-O pacote inclui agora zipped ficheiros para o `code`, `config`, e `data` pacotes. O manifesto da aplicação e os manifestos de serviço não são zipados, porque são necessários para muitas operações internas (como a partilha, application nome e versão extração do tipo para determinados validações do pacote).
-Zipping manifestos iria tornar estas operações ineficaz.
+O pacote inclui agora zipped ficheiros para o `code`, `config`, e `data` pacotes. O manifesto da aplicação e os manifestos de serviço não são zipados, porque são necessários para muitas operações internas. Por exemplo, a partilha de pacote, extração de nome e versão do tipo de aplicação para determinados todas as validações devem ter acesso os manifestos. Zipping manifestos iria tornar estas operações ineficaz.
 
 ```
 PS D:\temp> tree /f .\MyApplicationType
@@ -169,10 +168,9 @@ Se o pacote é grande, fornece um tempo limite suficientemente elevado para dar 
 PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\MyApplicationType -ApplicationPackagePathInImageStore MyApplicationType -ImageStoreConnectionString fabric:ImageStore -CompressPackage -TimeoutSec 5400
 ```
 
-Internamente, o Service Fabric calcula as somas de verificação para os pacotes de aplicações para a validação. Quando utiliza a compressão, as somas de verificação são calculadas nas versões zipped de cada pacote.
-Se tiver copiado uma descomprimidos versão do seu pacote de aplicação e que pretende utilizar compressão para o mesmo pacote, tem de alterar as versões do `code`, `config`, e `data` pacotes para evitar discrepância de soma de verificação. Se os pacotes são iguais, em vez de alterar a versão, pode utilizar [diff aprovisionamento](service-fabric-application-upgrade-advanced.md). Com esta opção, não inclua o pacote inalterado em vez disso, referencie-o partir do manifesto do serviço.
+Internamente, o Service Fabric calcula as somas de verificação para os pacotes de aplicações para a validação. Quando utiliza a compressão, as somas de verificação são calculadas nas versões zipped de cada pacote. Gerar um novo zip no mesmo pacote de aplicação cria as somas de verificação diferentes. Para evitar erros de validação, utilize [diff aprovisionamento](service-fabric-application-upgrade-advanced.md). Com esta opção, não incluem os pacotes não alterados na nova versão. Em vez disso, referencia diretamente a partir do manifesto de serviço novo.
 
-Da mesma forma, se carregado uma versão comprimida do pacote e pretender utilizar um pacote descomprimido, tem de atualizar as versões para evitar o erro de correspondência de soma de verificação.
+Se o aprovisionamento de diferenciação não é uma opção e tem de incluir os pacotes, gerar novas versões para o `code`, `config`, e `data` pacotes para evitar discrepância de soma de verificação. É necessário gerar novas versões de pacotes inalterados quando é utilizado um pacote comprimido, independentemente se a versão anterior utiliza a compressão ou não.
 
 O pacote é agora embalado corretamente, validado e comprimido (se necessário), para que fique pronta para [implementação](service-fabric-deploy-remove-applications.md) para um ou mais clusters de Service Fabric.
 
@@ -187,7 +185,27 @@ Pode instruir o Visual Studio para comprimir os pacotes de implementação, adic
     </PublishProfile>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="create-an-sfpkg"></a>Criar um sfpkg
+A partir da versão 6.1, Service Fabric permite o aprovisionamento de um arquivo de externo.
+Com esta opção, o pacote de aplicação não tem de ser copiados para o arquivo de imagens. Em vez disso, pode criar um `sfpkg` e carregá-la para um armazenamento externo, em seguida, forneça o URI de transferência para o Service Fabric quando o aprovisionamento. O mesmo pacote pode ser aprovisionado para vários clusters. Aprovisionamento a partir da loja externa guarda o tempo necessário para copiar o pacote para cada cluster.
+
+O `sfpkg` ficheiro é um zip que contém o pacote de aplicação inicial e tem a extensão ". sfpkg".
+Dentro do zip, o pacote de aplicações pode ser comprimido ou descomprimido. A compressão do pacote de aplicação no interior do zip é realizada ao código, configuração e níveis de pacote de dados, como [mencionado anteriormente](service-fabric-package-apps.md#compress-a-package).
+
+Para criar um `sfpkg`, começar com uma pasta que contém o pacote de aplicação original, comprimido ou não. Em seguida, utilize qualquer utilitário para zip a pasta com a extensão ". sfpkg". Por exemplo, utilizar [ZipFile.CreateFromDirectory](https://msdn.microsoft.com/library/hh485721(v=vs.110).aspx).
+
+```csharp
+ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
+```
+
+O `sfpkg` tem de ser carregado para o arquivo de externo fora de banda, fora do Service Fabric. O arquivo de externo pode ser qualquer armazenamento que expõe um ponto final de http ou https REST. Durante o aprovisionamento, o Service Fabric executa uma operação GET para transferir o `sfpkg` pacote de aplicação para o arquivo tem de permitir acesso de leitura para o pacote.
+
+Para aprovisionar o pacote, utilize aprovisionar externo, o que requer o URI de transferência e as informações de tipo de aplicação.
+
+>[!NOTE]
+> Aprovisionamento com base na imagem guardar o caminho relativo não suporta atualmente `sfpkg` ficheiros. Por conseguinte, o `sfpkg` não deve ser copiado para o arquivo de imagens.
+
+## <a name="next-steps"></a>Passos Seguintes
 [Implementar e remover aplicações] [ 10] descreve como utilizar o PowerShell para gerir instâncias da aplicação
 
 [Gerir parâmetros de aplicação para vários ambientes] [ 11] descreve como configurar os parâmetros e variáveis de ambiente para instâncias de aplicações diferentes.

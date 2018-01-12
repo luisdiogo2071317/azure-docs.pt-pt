@@ -15,19 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 995437f5a4a6fe1bc99bfe7fee555d0ac53101a8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar uma VM a partir de um VHD numa conta de armazenamento especializado
 
 Crie uma nova VM ao anexar um disco não gerido especializado como disco do SO através do Powershell. Um disco especializado é uma cópia do VHD de uma VM existente que mantém as contas de utilizador, aplicações e outros dados de estado de original VM. 
 
 Tem duas opções:
-* [Carregar um VHD](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [Copie o VHD de uma VM do Azure existente](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [Carregar um VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
+* [Copie o VHD de uma VM do Azure existente](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
 ## <a name="before-you-begin"></a>Antes de começar
 Se utilizar o PowerShell, certifique-se de que tem a versão mais recente do módulo do AzureRM.Compute PowerShell. Execute o seguinte comando para instalá-lo.
@@ -318,6 +319,6 @@ $vmList = Get-AzureRmVM -ResourceGroupName $rgName
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para iniciar sessão sua nova máquina virtual, navegue para a VM com o [portal](https://portal.azure.com), clique em **Connect**e abra o ficheiro RDP de ambiente de trabalho remoto. Utilize as credenciais da conta da máquina virtual original para iniciar sessão sua nova máquina virtual. Para obter mais informações, consulte [como ligar e iniciar sessão a uma máquina virtual do Azure com o Windows](connect-logon.md).
 

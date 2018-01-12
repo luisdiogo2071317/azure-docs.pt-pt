@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: f3fbccdbd00fb64348e2132ca6adc3a06ad18535
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gerir as identidades de dispositivo do IoT Hub em massa
 
@@ -27,6 +27,8 @@ Cada IoT hub tem um registo de identidade, que pode utilizar para criar recursos
 As operações de importação e exportação ocorrer no contexto de *tarefas* que lhe permite executar as operações do serviço em massa em relação a um IoT hub.
 
 O **RegistryManager** classe inclui o **ExportDevicesAsync** e **ImportDevicesAsync** métodos que utilizam o **tarefa** framework. Estes métodos permitem-lhe exportar, importar e sincronizar a totalidade de um registo de identidade do IoT hub.
+
+Este tópico explica como utilizar o **RegistryManager** classe e **tarefa** sistema para executar em massa importa e exportações de dispositivos e de registo de identidade de um hub IoT. Também pode utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub para permitir zero-touch, just-in-time aprovisionamento para um ou mais os IoT hubs sem necessidade de intervenção humana. Para obter mais informações, consulte o [documentação do serviço de aprovisionamento][lnk-dps].
 
 ## <a name="what-are-jobs"></a>Quais são as tarefas?
 
@@ -395,7 +397,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu a efetuar operações de em massa contra o registo de identidade de um hub IoT. Siga estas ligações para saber mais sobre a gestão do Azure IoT Hub:
 
@@ -405,10 +407,16 @@ Neste artigo, aprendeu a efetuar operações de em massa contra o registo de ide
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 * [Guia para programadores do IoT Hub][lnk-devguide]
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
+
+Para explorar, utilizando o serviço de aprovisionamento de dispositivos do IoT Hub para ativar o aprovisionamento de zero touch, just-in-time, consulte: 
+
+* [Serviço de aprovisionamento de dispositivos de IoT Hub do Azure][lnk-dps]
+
 
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

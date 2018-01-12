@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: a88b360821a06bdf106a9a83accce4023b8864ad
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhe com o SDK do servidor de back-end .NET para Aplicações Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -244,6 +244,10 @@ Pode adicionar autenticação para o projeto de servidor ao alargar o **MobileAp
 Para saber mais sobre como autenticar clientes ao back-end das Mobile Apps, consulte [adicionar autenticação à sua aplicação](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>Como: utilizar a autenticação personalizada para a sua aplicação
+> [!IMPORTANT]
+> Para ativar a autenticação personalizada, primeiro tem de ativar autenticação do serviço de aplicações sem selecionar um fornecedor para o serviço de aplicações no portal do Azure. Esta operação permitirá a variável de ambiente WEBSITE_AUTH_SIGNING_KEY quando alojado.
+> 
+> 
 Se não pretender utilizar um dos fornecedores de autenticação/autorização do App Service, pode implementar o seu próprio sistema de início de sessão. Instalar o [Microsoft.Azure.Mobile.Server.Login] pacote para melhorar a geração de token de autenticação.  Forneça o seu próprio código para validar as credenciais do utilizador. Por exemplo, pode verificar contra salted com hash palavras-passe e numa base de dados. No exemplo abaixo, o `isValidAssertion()` método (definido noutro local) é responsável por estas verificações.
 
 A autenticação personalizada está exposta ao criar um ApiController e expor `register` e `login` ações. O cliente deve utilizar uma IU personalizada para recolher as informações do utilizador.  As informações em seguida, são submetidas para a API com uma chamada de POST de HTTP padrão. Depois do servidor valida a asserção, um token emitido utilizando o `AppServiceLoginHandler.CreateToken()` método.  O ApiController **não devem** utilizar o `[MobileAppController]` atributo.

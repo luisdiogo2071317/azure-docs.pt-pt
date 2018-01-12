@@ -16,11 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: On Demand
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 65f6600f6810024e00eaa50906d7924bd36768d3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fd60a8987e6c57cf72eb7766f6a1b784e46a894d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Exemplos do PowerShell do Azure para a SQL Database do Azure
 
@@ -47,5 +47,5 @@ A tabela seguinte inclui ligações para os scripts de Azure PowerShell de exemp
 | **Sincronizar os dados entre bases de dados**||
 | [Sincronizar os dados entre bases de dados SQL](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell configura a sincronização de dados a sincronização entre várias bases de dados SQL do Azure. |
 | [Sincronizar os dados entre a base de dados SQL e SQL Server no local](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell configura a sincronização de dados a sincronização entre uma base de dados SQL do Azure e uma base de dados do SQL Server no local. |
-|||
+| [Atualizar o esquema de sincronização de sincronização de dados do SQL Server](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell, adiciona ou remove itens do esquema de sincronização de sincronização de dados. |
 |||

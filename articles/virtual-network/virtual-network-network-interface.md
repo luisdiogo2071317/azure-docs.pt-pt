@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 7dafb491cec908ffbb3683991919654f3d3eb452
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f1cf113f75bc5a96af8c33d4b83d1bd0f5c6efd
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -51,7 +51,7 @@ Ao criar uma máquina virtual utilizando o portal do Azure, o portal cria uma in
     |Nome|Sim|O nome tem de ser exclusivo no grupo de recursos que selecionar. Ao longo do tempo, provavelmente terá de várias interfaces de rede na sua subscrição do Azure. Leia o [convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) artigo sugestões ao criar uma convenção de nomenclatura para tornar a gestão de vários mais fácil de interfaces de rede. O nome não pode ser alterado depois da interface de rede é criada.|
     |Rede virtual|Sim|Selecione a rede virtual para a interface de rede. Apenas pode atribuir uma interface de rede a uma rede virtual que existe na mesma subscrição e localização como a interface de rede. Quando é criada uma interface de rede, não é possível alterar a rede virtual que está atribuída a. A máquina virtual, que adicione a interface de rede também tem de existir na mesma localização e subscrição enquanto a interface de rede.|
     |Subrede|Sim|Selecione uma sub-rede dentro da rede virtual que selecionou. Pode alterar a sub-rede que a interface de rede está atribuída a depois de criado.|
-    |Atribuição de endereços IP privados|Sim| Esta definição estiver a escolher o método de atribuição para o endereço IPv4. Escolha entre os seguintes métodos de atribuição: **dinâmico:** quando selecionar esta opção, o Azure atribui automaticamente um endereço disponível do espaço de endereços da sub-rede que selecionou. Azure pode atribuir um endereço diferente para uma interface de rede quando a máquina virtual está a ser é iniciada depois de ter sido no estado parado (desalocado). O endereço permanece o mesmo se a máquina virtual for reiniciada sem ter sido no estado parado (desalocado). **Estática:** quando selecionar esta opção, tem de atribuir manualmente um endereço IP disponível a partir do espaço de endereços da sub-rede que selecionou. Endereços estáticos não alterar até que altere-as ou a interface de rede é eliminada. Pode alterar o método de atribuição depois de criar a interface de rede. O servidor DHCP do Azure atribui este endereço para a interface de rede no sistema operativo da máquina virtual.|
+    |Atribuição de endereços IP privados|Sim| Esta definição estiver a escolher o método de atribuição para o endereço IPv4. Escolha entre os seguintes métodos de atribuição: **dinâmico:** quando selecionar esta opção, o Azure atribui automaticamente o endereço disponível seguinte do espaço de endereços da sub-rede que selecionou. **Estática:** quando selecionar esta opção, tem de atribuir manualmente um endereço IP disponível a partir do espaço de endereços da sub-rede que selecionou. Endereços estáticos e dinâmicos não alterar até que altere-as ou a interface de rede é eliminada. Pode alterar o método de atribuição depois de criar a interface de rede. O servidor DHCP do Azure atribui este endereço para a interface de rede no sistema operativo da máquina virtual.|
     |Grupo de segurança de rede|Não| Deixe definido como **nenhum**, selecione um existente [grupo de segurança de rede](virtual-networks-nsg.md), ou [criar um grupo de segurança de rede](virtual-networks-create-nsg-arm-pportal.md). Grupos de segurança de rede permitem-lhe para filtrar o tráfego de rede que entra e sai de uma interface de rede. Pode aplicar zero ou um grupo de segurança de rede a uma interface de rede. Também pode ser aplicado a zero ou um grupo de segurança de rede para a sub-rede que está atribuída a interface de rede. Quando um grupo de segurança de rede é aplicado a uma interface de rede e a sub-rede que está atribuída a interface de rede, resultados inesperados, por vezes, ocorrerem. Para resolver problemas relacionados com grupos de segurança de rede aplicados a interfaces de rede e sub-redes, leia o [resolver problemas relacionados com grupos de segurança de rede](virtual-network-nsg-troubleshoot-portal.md#nsg) artigo.|
     |Subscrição|Sim|Selecione uma das suas Azure [subscrições](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). A máquina virtual, anexar uma interface de rede para e a rede virtual que liga-o para tem de existir na mesma subscrição.|
     |Endereço IP privado (IPv6)|Não| Se selecionar esta caixa de verificação, é atribuído um endereço IPv6 para a interface de rede, para além do endereço de IPv4 atribuído à interface de rede. Consulte o [IPv6](#IPv6) secção deste artigo para obter informações importantes sobre a utilização do IPv6 com interfaces de rede. Não é possível selecionar um método de atribuição para o endereço IPv6. Se optar por atribuir um endereço IPv6, que lhe é atribuída com o método dinâmico.
@@ -179,7 +179,7 @@ Quando elimina uma interface de rede, são lançados a qualquer endereços MAC o
 |CLI|[AZ rede nic elimine](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
 |PowerShell|[Remover AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para criar uma máquina virtual com a rede de várias interfaces ou IP endereços, leia os artigos seguintes:
 
 **Comandos**

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: a5ac8c46f17d2d1c2f20ed2cc2348f50b7739ddf
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos de serviços Cloud
 Este tópico descreve os tamanhos disponíveis e as opções para instâncias de função do serviço em nuvem (funções da web e funções de trabalho). Também fornece considerações de implementação a ter em consideração quando planear utilizar estes recursos. Cada tamanho tem um ID que colocar no seu [ficheiro de definição de serviço](cloud-services-model-and-package.md#csdef). Os preços para cada tamanho estão disponíveis no [preços de serviços em nuvem](https://azure.microsoft.com/pricing/details/cloud-services/) página.
@@ -32,7 +32,7 @@ Este tópico descreve os tamanhos disponíveis e as opções para instâncias de
 Existem vários tamanhos standard à escolha no Azure. As considerações para alguns destes tamanhos incluem:
 
 * As VMs da série D foram concebidos para executar aplicações que exigem um maior desempenho de poder de computação e disco temporário. As VMs da série D fornecem processadores mais rápidos, um rácio de memória para núcleo superior e uma unidade de estado sólida (SSD) para o disco temporário. Para obter detalhes, consulte o anúncio no blogue do Azure, [Novos Tamanhos de Máquinas Virtuais da Série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
-* A série DV2, o seguimento da série D original, apresenta uma CPU mais poderosa. A CPU da série Dv2 é cerca de 35% mais rápida do que a CPU da série D. Baseia-se no processador de última geração de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell), podendo chegar aos 3,1 GHz com o Intel Turbo Boost Technology 2.0. A série Dv2 tem as mesmas configurações de memória e disco da série D.
+* Dv3 série, série Dv2, seguimento para a série de D original, funcionalidades uma CPU mais poderosa. A CPU da série Dv2 é cerca de 35% mais rápida do que a CPU da série D. Baseia-se no processador de última geração de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell), podendo chegar aos 3,1 GHz com o Intel Turbo Boost Technology 2.0. A série Dv2 tem as mesmas configurações de memória e disco da série D.
 * As VMs da série G oferecem a maior capacidade de memória e são executadas em anfitriões com processadores da família Intel Xeon E5 V3.
 * As VMs de uma série podem ser implementadas em vários tipos de hardware e processadores. O tamanho é limitado, com base no hardware, para oferecer o desempenho do processador consistente para a instância em execução, independentemente do hardware que é implementado no. Para determinar o hardware físico no qual este tamanho está implementado, consulte o hardware virtual a partir da Máquina Virtual.
 * O tamanho A0 está sobre-subscrito no hardware físico. Apenas para este tamanho específico, outras implementações de cliente podem afetar o desempenho da carga de trabalho em execução. O desempenho relativo é indicado abaixo como a linha de base esperada, sujeito a uma variabilidade aproximada de 15%.
@@ -42,7 +42,7 @@ O tamanho da máquina virtual afeta o preço. O tamanho também afeta a capacida
 As considerações seguintes podem ajudar a decidir um tamanho:
 
 * Os tamanhos das séries A8-A11 e H também são conhecidos como *instâncias de computação intensiva*. O hardware que executa estes tamanhos foi concebido e otimizado para aplicações de computação e rede intensivas, incluindo aplicações, modelação e simulações de clusters de computação de alto desempenho (HPC). As séries A8-A11 utilizam o Intel Xeon E5-2670 @ 2,6 GHZ e a série H utiliza o Intel Xeon E5-2667 v3 @ 3,2 GHz. Para obter informações detalhadas e considerações sobre como utilizar estas tamanhos, consulte [tamanhos de VM de computação de elevado desempenho](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Série Dv2, série D G-série, são ideais para aplicações que exigem CPUs mais rápidas, local um melhor desempenho do disco ou ter exigências de memória superiores. Proporcionam uma combinação poderosa para inúmeras aplicações empresariais.
+* Série Dv3, série Dv2, série D, G-série, são ideais para aplicações que exigem CPUs mais rápidas, melhor desempenho de disco local ou tem exigências de memória superiores. Proporcionam uma combinação poderosa para inúmeras aplicações empresariais.
 * Alguns dos anfitriões físicos nos centros de dados do Azure podem não suportar tamanhos de máquina virtual grandes, tais como A5 – A11. Como resultado, poderá ver a mensagem de erro **não conseguiu configurar a máquina virtual {nome}** ou **Falha ao criar a máquina virtual {nome}** quando o redimensionamento de uma máquina virtual existente para um novo tamanho; criar uma nova máquina virtual numa rede virtual criada antes de 16 de Abril de 2013; ou adicionar uma nova máquina virtual para um serviço em nuvem existente. Consulte [erro: "Falha ao configurar a máquina virtual"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) no fórum de suporte para soluções para cada cenário de implementação.
 * A sua subscrição também pode limitar o número de núcleos que pode implementar em determinadas famílias de tamanhos. Para aumentar uma quota, contacte o Suporte do Azure.
 
@@ -61,12 +61,13 @@ Foi criado o conceito do Azure computação unidade (ACU) para fornecer uma form
 | [ExtraSmall](#a-series) |50 |
 | [Breve ExtraLarge](#a-series) |100 |
 | [A5 7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [G1-5](#g-series) |180 - 240* |
+| [Um v2](#av2-series) |100 |
+| [D](#d-series) |160 |
+| [D v2](#dv2-series) |160 - 190* |
+| [D v3](#dv3-series) |160 - 190* |
+| [I v3](#ev3-series) |160 - 190* |
+| [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 As ACUs marcadas com um * utilizam a tecnologia Intel® Turbo para aumentar a frequência de CPU e proporcionar um aumento do desempenho. A quantidade do aumento pode variar consoante o tamanho da VM, a carga de trabalho e outras cargas de trabalho em execução no mesmo anfitrião.
@@ -142,6 +143,29 @@ Para informações e considerações sobre como utilizar estas tamanhos, consult
 | Standard_D14_v2 | 16        | 112          | 800                  | 8 / extremamente alto |
 | Standard_D15_v2 | 20        | 140          | 1,000                | 8 / extremamente alto |
 
+## <a name="dv3-series"></a>Série Dv3
+
+| Tamanho            | Núcleos de CPU | Memória: GiB   | SSD Local: GiB       | NICs/Largura de banda da rede máximos |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_D2_v3  | 2         | 8             | 16                   | 2/moderado |
+| Standard_D4_v3  | 4         | 16            | 32                   | 2 / alto |
+| Standard_D8_v3  | 8         | 32            | 64                   | 4 / alto |
+| Standard_D16_v3 | 16        | 64            | 128                  | 8 / extremamente alto |
+| Standard_D32_v3 | 32        | 128           | 256                  | 8 / extremamente alto |
+| Standard_D64_v3 | 64        | 256           | 512                  | 8 / extremamente alto |
+
+## <a name="ev3-series"></a>Série Ev3
+
+| Tamanho            | Núcleos de CPU | Memória: GiB   | SSD Local: GiB       | NICs/Largura de banda da rede máximos |
+|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
+| Standard_E2_v3  | 2         | 16            | 32                   | 2/moderado |
+| Standard_E4_v3  | 4         | 32            | 64                   | 2 / alto |
+| Standard_E8_v3  | 8         | 64            | 128                  | 4 / alto |
+| Standard_E16_v3 | 16        | 128           | 256                  | 8 / extremamente alto |
+| Standard_E32_v3 | 32        | 256           | 512                  | 8 / extremamente alto |
+| Standard_E64_v3 | 64        | 432           | 864                  | 8 / extremamente alto |
+
+
 ## <a name="g-series"></a>Série G
 | Tamanho            | Núcleos de CPU | Memória: GiB  | SSD Local: GiB       | NICs/Largura de banda da rede máximos |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -188,10 +212,10 @@ Como da natureza das suas alterações de carga de trabalho ou novos tamanhos VM
 >
 
 ## <a name="get-a-list-of-sizes"></a>Obter uma lista de tamanhos
-Pode utilizar o PowerShell ou a API REST para obter uma lista de tamanhos. A API de REST está documentada [aqui](https://msdn.microsoft.com/library/azure/dn469422.aspx). O código seguinte é um comando do PowerShell que irá listar todos os tamanhos para uma localização especificada. 
+Pode utilizar o PowerShell ou a API REST para obter uma lista de tamanhos. A API de REST está documentada [aqui](https://msdn.microsoft.com/library/azure/dn469422.aspx). O código seguinte é um comando do PowerShell que irá listar todos os disponíveis de tamanhos para serviços em nuvem. 
 
 ```powershell
-Get-AzureRmVMSize -Location 'West Europe'
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

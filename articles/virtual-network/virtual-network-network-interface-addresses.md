@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: d06dd0a8ec63202825be347c4b69e21a6dd4b7db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 637b380dacc91e4ad55044c1d92936be2435138d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover os endereços IP para uma interface de rede do Azure
 
@@ -138,9 +138,9 @@ Por predefinição, os servidores Azure DHCP atribuir o endereço IPv4 privado p
 > [!WARNING]
 > Se o endereço IPv4 definido como o endereço IP primário de uma interface de rede no sistema de operativo de uma máquina virtual nunca diferente o endereço IPv4 privado atribuído à configuração de IP primária da interface de rede principal ligado a uma máquina virtual no Azure, poderá perder a conectividade à máquina virtual.
 
-Existem cenários onde é necessário definir o endereço IP de uma interface de rede dentro do sistema operativo da máquina virtual manualmente. Por exemplo, tem de definir manualmente os endereços IP primários e secundários de um sistema operativo Windows quando adicionar vários endereços IP a uma máquina virtual do Azure. Para uma máquina virtual do Linux, apenas poderá ter de definir manualmente os endereços IP secundários. Consulte [endereços IP de adicionar a um sistema de operativo VM](virtual-network-multiple-ip-addresses-portal.md#os-config) para obter mais detalhes. Quando definir o endereço IP no sistema operativo manualmente, é recomendado que atribua sempre os endereços para a configuração de IP para uma interface de rede utilizando o método de atribuição de estático (em vez de dinâmica). Atribuir o endereço utilizando o método estático assegura que o endereço não é alterado no Azure. Se alguma vez precisar de alterar o endereço atribuído a uma configuração de IP, é recomendado que tem:
+Existem cenários onde é necessário definir o endereço IP de uma interface de rede dentro do sistema operativo da máquina virtual manualmente. Por exemplo, tem de definir manualmente os endereços IP primários e secundários de um sistema operativo Windows quando adicionar vários endereços IP a uma máquina virtual do Azure. Para uma máquina virtual do Linux, apenas poderá ter de definir manualmente os endereços IP secundários. Consulte [endereços IP de adicionar a um sistema de operativo VM](virtual-network-multiple-ip-addresses-portal.md#os-config) para obter mais detalhes. Se alguma vez precisar de alterar o endereço atribuído a uma configuração de IP, é recomendado que tem:
 
-1. Certifique-se de que a máquina virtual está a receber um endereço de servidores DHCP do Azure, altere a atribuição do endereço IP para DHCP no sistema operativo e reinicie a máquina virtual.
+1. Certifique-se de que a máquina virtual está a receber um endereço de servidores DHCP do Azure. Assim que tiver, altere a atribuição do endereço IP para DHCP no sistema operativo e reinicie a máquina virtual.
 2. Parar (desalocar) a máquina virtual.
 3. Altere o endereço IP para a configuração de IP no Azure.
 4. Inicia a máquina virtual.

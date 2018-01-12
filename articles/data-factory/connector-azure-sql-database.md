@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jingwang
-ms.openlocfilehash: a5d2994eb1203274454fc31c3ee9bf7a21562f75
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 856ea3e01dad0936d8191a4e57b4137e06eac705
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar os dados de ou para SQL Database do Azure utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,8 @@ Especificamente, este conector de SQL Database do Azure suporta:
 - Como sink, acrescentar dados para a tabela de destino ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector do SQL Database do Azure.
 
@@ -452,10 +453,10 @@ Quando copiar dados de/para SQL Database do Azure, os seguintes mapeamentos são
 |:--- |:--- |
 | bigint |Int64 |
 | Binário |Byte] |
-| bits |Valor booleano |
+| bits |Booleano |
 | char |Cadeia, Char [] |
-| Data |DateTime |
-| DateTime |DateTime |
+| data |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -468,7 +469,7 @@ Quando copiar dados de/para SQL Database do Azure, os seguintes mapeamentos são
 | ntext |Cadeia, Char [] |
 | um valor numérico |Decimal |
 | nvarchar |Cadeia, Char [] |
-| real |Único |
+| real |Solteiro |
 | ROWVERSION |Byte] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
@@ -483,5 +484,5 @@ Quando copiar dados de/para SQL Database do Azure, os seguintes mapeamentos são
 | varchar |Cadeia, Char [] |
 | xml |XML |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -1,26 +1,23 @@
 ---
 title: "Configurar a autenticação do Azure Active Directory - SQL | Microsoft Docs"
-description: "Saiba como ligar à base de dados SQL e SQL Data Warehouse, utilizando a autenticação do Active Directory do Azure."
+description: "Saiba como ligar à base de dados SQL e SQL Data Warehouse, utilizando a autenticação do Active Directory do Azure - depois de configurar o Azure AD."
 services: sql-database
-documentationcenter: 
-author: BYHAM
-manager: jhubbard
-editor: 
-tags: 
+author: GithubMirek
+manager: johammer
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: Active
-ms.date: 07/10/2017
-ms.author: rickbyh
-ms.openlocfilehash: f0c9578217beff22b4a322b363c7499943311d88
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 01/09/2018
+ms.author: mireks
+ms.openlocfilehash: 93fb39770a0b0c63011c05505be411c7470fea0a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Configurar e gerir a autenticação do Azure Active Directory com a base de dados SQL ou SQL Data Warehouse
 
@@ -32,33 +29,14 @@ Este artigo mostra como criar e preencher do Azure AD e, em seguida, utilizar o 
 ## <a name="create-and-populate-an-azure-ad"></a>Criar e preencher um Azure AD
 Criar um Azure AD e preenchê-lo com os utilizadores e grupos. Azure AD pode ser o Azure AD inicial domínio gerido. Azure AD também pode ser um local no Active Directory Domain Services que está federada com o Azure AD.
 
-Para obter mais informações, veja [Integrating your on-premises identities with Azure Active Directory (Integrar as identidades no local ao Azure Active Directory)](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD (Adicionar o seu próprio nome de domínio ao Azure AD)](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory (O Microsoft Azure suporta agora a federação com o Windows Server Active Directory)](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory (Administrar o seu diretório do Azure AD)](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Manage Azure AD using Windows PowerShell (Gerir o Azure AD com o Windows PowerShell)](/powershell/azure/overview?view=azureadps-2.0) e [Hybrid Identity Required Ports and Protocols (Portas e Protocolos Necessários para a Identidade Híbrida)](../active-directory/active-directory-aadconnect-ports.md).
+Para obter mais informações, veja [Integrating your on-premises identities with Azure Active Directory (Integrar as identidades no local ao Azure Active Directory)](../active-directory/active-directory-aadconnect.md), [Add your own domain name to Azure AD (Adicionar o seu próprio nome de domínio ao Azure AD)](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory (O Microsoft Azure suporta agora a federação com o Windows Server Active Directory)](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory (Administrar o seu diretório do Azure AD)](../active-directory/active-directory-administer.md), [Manage Azure AD using Windows PowerShell (Gerir o Azure AD com o Windows PowerShell)](/powershell/azure/overview?view=azureadps-2.0) e [Hybrid Identity Required Ports and Protocols (Portas e Protocolos Necessários para a Identidade Híbrida)](..//active-directory/connect/active-directory-aadconnect-ports.md).
 
-## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>Opcional: Associar ou altere o active directory que está atualmente associado a sua subscrição do Azure
-Para associar a base de dados com o diretório do Azure AD para a sua organização, se o diretório de um diretório fidedigno para a subscrição do Azure que aloja a base de dados. Para obter mais informações, consulte [Como associar as subscrições do Azure ao Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Associar ou adicionar uma subscrição do Azure ao Azure Active Directory
 
-**Informações adicionais:** subscrição do Azure cada tem uma relação de confiança com uma instância do Azure AD. Tal significa que confia nesse diretório para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório, mas uma subscrição apenas pode confiar num diretório. Pode ver o diretório de confiança subscrição sob o **definições** separador em [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Esta relação de confiança entre uma subscrição e um diretório é diferente da relação de uma subscrição com todos os outros recursos no Azure (sites, bases de dados, e assim sucessivamente), que são mais como recursos subordinados de uma subscrição. Em caso de expiração de uma subscrição, será interrompido o acesso a esses outros recursos associados à subscrição também. No entanto, o diretório permanece no Azure e pode associar outra subscrição a esse diretório e continuar a gerir os utilizadores do diretório. Para obter mais informações sobre os recursos, consulte [compreender o acesso a recursos no Azure](https://msdn.microsoft.com/library/azure/dn584083.aspx).
+1. Associe a sua subscrição do Azure ao Azure Active Directory ao efetuar o diretório de um diretório fidedigno para a subscrição do Azure que aloja a base de dados. Para obter mais informações, consulte [subscrições do Azure como estão associadas com o Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+2. Utilize o alternador de diretório no portal do Azure para mudar para a subscrição associada do domínio.
 
-Os procedimentos seguintes mostram como alterar o diretório associado para uma determinada subscrição.
-1. Ligar ao seu [Portal clássico do Azure](https://manage.windowsazure.com/) através da utilização de um administrador de subscrição do Azure.
-2. Na faixa da esquerda, selecione **definições**.
-3. As subscrições são apresentadas no ecrã de definições. Se não for apresentada a subscrição pretendida, clique em **subscrições** na parte superior, pendente de **filtro por DIRETÓRIO** e selecione o diretório que contém as suas subscrições e, em seguida, clique em **aplicar**.
-   
-    ![Selecione a subscrição][4]
-4. No **definições** área, clique a sua subscrição e, em seguida, clique em **editar DIRETÓRIO** na parte inferior da página.
-   
-    ![portal de definições do AD][5]
-5. No **editar DIRETÓRIO** caixa, selecione o Azure Active Directory que estão associados com o SQL Server ou SQL Data Warehouse e, em seguida, clique na seta para a seguinte.
-   
-    ![Selecione de diretório de edição][6]
-6. No **confirmar** diretório caixa de diálogo mapeamento, confirme que "**todos os coadministradores serão removidos.**"
-   
-    ![Editar diretório confirmar][7]
-7. Clique em verificação recarregar o portal.
-
-   > [!NOTE]
-   > Quando alterar o diretório, o acesso a todos os coadministradores, utilizadores do Azure AD e grupos e os utilizadores dos recursos de diretório de segurança são removidos e já não têm acesso a esta subscrição ou os respetivos recursos. Apenas, como um administrador de serviço, pode configurar o acesso de principais com base no novo diretório. Esta alteração poderá demorar uma quantidade substancial de tempo para propagar a todos os recursos. Alterar o diretório, também altera o administrador do Azure AD para a base de dados SQL e do armazém de dados do SQL Server e não permitir acesso de base de dados para os utilizadores do Azure AD existentes. O administrador do Azure AD tem de ser reposição (conforme descrito abaixo) e Azure novo utilizadores do AD tem de ser criados.
-   >  
+   **Informações adicionais:** subscrição do Azure cada tem uma relação de confiança com uma instância do Azure AD. Tal significa que confia nesse diretório para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório, mas uma subscrição apenas pode confiar num diretório. Esta relação de confiança entre uma subscrição e um diretório é diferente da relação de uma subscrição com todos os outros recursos no Azure (sites, bases de dados, e assim sucessivamente), que são mais como recursos subordinados de uma subscrição. Em caso de expiração de uma subscrição, será interrompido o acesso a esses outros recursos associados à subscrição também. No entanto, o diretório permanece no Azure e pode associar outra subscrição a esse diretório e continuar a gerir os utilizadores do diretório. Para obter mais informações sobre os recursos, consulte [compreender o acesso a recursos no Azure](../active-directory/active-directory-b2b-admin-add-users.md). Para obter mais informações sobre esta fidedigna relação consulte [como associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Criar um administrador do Azure AD para o Azure SQL server
 Cada servidor de SQL do Azure (que aloja uma base de dados SQL ou SQL Data Warehouse) começa com uma conta de administrador de servidor único que é o administrador do servidor SQL do Azure completo. Um administrador do SQL Server segundo tem de ser criado, que é uma conta do Azure AD. Este principal é criado como um utilizador de base de dados contida na base de dados mestra. Como administradores, as contas de administrador de servidor são membros de **db_owner** função em todos os utilizadores da base de dados e introduza cada base de dados de utilizador como o **dbo** utilizador. Para obter mais informações sobre as contas de administrador de servidor, consulte [gerir bases de dados e inícios de sessão na base de dados do Azure SQL](sql-database-manage-logins.md).
@@ -251,7 +229,7 @@ Utilize este método se tiver sessão iniciada Windows utilizando as credenciais
 
     ![Selecione o nome de base de dados][13]
 
-## <a name="active-directory-password-authentication"></a>Autenticação de palavra-passe do Active Directory
+## <a name="active-directory-password-authentication"></a>Autenticação por palavra-passe do Active Directory
 
 Utilize este método quando a ligação com um nome do principal do Azure AD utilizando o Azure AD gerido domínio. Também pode utilizá-lo para uma conta federada sem acesso ao domínio, por exemplo, quando trabalhar remotamente.
 
@@ -283,7 +261,7 @@ conn.Open();
 
 A palavra-chave da cadeia de ligação ``Integrated Security=True`` não é suportada para ligar à SQL Database do Azure. Quando efetuar uma ligação de ODBC, terá de remover os espaços e defina autenticação 'ActiveDirectoryIntegrated'.
 
-### <a name="active-directory-password-authentication"></a>Autenticação de palavra-passe do Active Directory
+### <a name="active-directory-password-authentication"></a>Autenticação por palavra-passe do Active Directory
 
 Para ligar a uma base de dados através da autenticação integrada e uma identidade do Azure AD, a palavra-chave de autenticação deve ser definida como palavra-passe de diretório Active Directory. A cadeia de ligação tem de conter ID/UID de utilizador e palavras-chave de palavra-passe/PWD e valores. O seguinte exemplo de código do c# utiliza ADO .NET.
 
@@ -324,7 +302,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter uma descrição geral do acesso e controlo na Base de Dados SQL, veja [Acesso e controlo da Base de Dados SQL](sql-database-control-access.md).
 - Para obter uma descrição geral de inícios de sessão, utilizadores e funções de base de dados da Base de Dados SQL, veja [Inícios de sessão, utilizadores e funções de base de dados](sql-database-manage-logins.md).
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).

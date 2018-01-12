@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: 80c377938005ba699c8632003b215bf2c52b6c33
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 20cac53847f9f93805f8064bd8ad5c682b5a8452
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-beta"></a>Copiar dados a partir do Marketo utilizando o Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ O Azure Data Factory fornece um controlador incorporado para ativar a conetivida
 
 ## <a name="getting-started"></a>Introdução
 
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector do Marketo.
 
@@ -48,7 +48,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Marketo:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **Marketo** | Sim |
-| ponto final | O ponto final do servidor do Marketo. (ou seja, 123-ABC-321.mktorest.com)  | Sim |
+| endpoint | O ponto final do servidor do Marketo. (ou seja, 123-ABC-321.mktorest.com)  | Sim |
 | ID de cliente | O Id do seu serviço do Marketo de cliente.  | Sim |
 | clientSecret | O segredo do cliente do seu serviço do Marketo. Pode escolher para marcar este campo como um SecureString armazena de forma segura na ADF ou armazenar a palavra-passe no Cofre de chaves do Azure e permitir que ADF copiar concentre solicitação a partir daí, quando efetuar a cópia de dados – Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |

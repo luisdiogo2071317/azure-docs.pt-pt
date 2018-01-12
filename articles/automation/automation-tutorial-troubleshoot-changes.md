@@ -6,14 +6,14 @@ keywords: "alterações, controlo, automatização"
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ae9ac6baaaeca418fcd3478145c50d1fa7917d7e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: HT
+ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Resolver problemas relacionados com alterações no seu ambiente
 
@@ -158,7 +158,7 @@ Depois de ativar a solução Controlo de alterações e Inventário, pode ver os
 
 Na sua VM, selecione **Controlo de alterações** em **OPERAÇÕES**.
 
-![Criar um alerta no portal clássico do OMS](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![Captura de ecrã que mostra a lista de alterações para a VM](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 O gráfico mostra as alterações ocorridas ao longo do tempo.
 Após ter adicionado uma ligação do Registo de Atividades, o gráfico de linhas existente na parte superior apresenta os eventos do Registo de Atividades do Azure.
@@ -173,7 +173,7 @@ Selecione uma alteração do tipo **WindowsServices** para abrir a janela **Deta
 
 ![Ver detalhes da alteração no portal](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Neste tutorial, ficou a saber como:
 

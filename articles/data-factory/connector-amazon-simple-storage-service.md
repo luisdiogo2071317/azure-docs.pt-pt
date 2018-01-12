@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 2bfc59931bbbb08ad1cd0328cf624b7350f92ec0
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 6f4d958779b709c6fa1c8e632224b073db382ba5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiar dados do Amazon serviço de armazenamento simples utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Pode copiar dados a partir de qualquer arquivo de dados de origem suportada para
 
 Especificamente, este conector Amazon S3 suporta a cópia de ficheiros como-está ou analisar ficheiros com o [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md).
 
-## <a name="required-permissions"></a>Permissões necessárias
+## <a name="required-permissions"></a>Permissões obrigatórias
 
 Para copiar dados do Amazon S3, certifique-se de que lhe foram concedidas as seguintes permissões:
 
@@ -42,7 +42,8 @@ Para copiar dados do Amazon S3, certifique-se de que lhe foram concedidas as seg
 Para obter detalhes sobre a lista completa de permissões do Amazon S3, consulte [especificar permissões numa política](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir o Amazon S3 entidades do Data Factory específicas.
 
@@ -95,7 +96,7 @@ Para copiar dados do Amazon S3, defina a propriedade de tipo do conjunto de dado
 | bucketName | O nome do registo de S3. |Sim |
 | key | A chave do objeto de S3. Aplica-se apenas ao prefixo não está especificado. |Não |
 | prefixo | Prefixo para a chave do objeto de S3. Objetos cujas chaves começar a utilizar este prefixo estão selecionados. Aplica-se apenas quando chave não está especificada. |Não |
-| Versão | A versão do objeto S3, se o controlo de versões de S3 estiver ativado. |Não |
+| versão | A versão do objeto S3, se o controlo de versões de S3 estiver ativado. |Não |
 | formato | Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída.<br/><br/>Se pretender analisar ou gerar ficheiros com um formato específico, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Orc formato](supported-file-formats-and-compression-codecs.md#orc-format), e [Parquet formato](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Nenhum (apenas para cenário de cópia binário) |
 | Compressão | Especifique o tipo e o nível de compressão de dados. Para obter mais informações, consulte [suportado os formatos de ficheiro e compressão codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são: **Optimal** e **Fastest**. |Não |
 
@@ -203,5 +204,5 @@ Para copiar dados do Amazon S3, defina o tipo de origem na atividade de cópia p
     }
 ]
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

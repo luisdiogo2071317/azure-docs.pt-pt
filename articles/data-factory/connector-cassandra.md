@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: eba08c38a5502368beda7ca7f84559ecca011133
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados de Cassandra utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,8 @@ Especificamente, este conector Cassandra suporta:
 Para copiar dados de uma base de dados de Cassandra que não está acessível publicamente, terá de configurar um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](create-self-hosted-integration-runtime.md) artigo para obter detalhes. O tempo de execução de integração fornece um controlador de Cassandra incorporado, por conseguinte, não precisa de instalar manualmente a quaisquer controladores ao copiar dados de/para Cassandra.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir o conector Cassandra entidades do Data Factory específicas.
 
@@ -173,10 +174,10 @@ Quando copiar dados de Cassandra, os seguintes mapeamentos são utilizados Cassa
 | ASCII |Cadeia |
 | BIGINT |Int64 |
 | BLOB |Byte] |
-| VALOR BOOLEANO |Valor booleano |
+| VALOR BOOLEANO |Booleano |
 | DECIMAL |Decimal |
 | VALOR DE DUPLO |duplo |
-| NÚMERO DE VÍRGULA FLUTUANTE |Único |
+| NÚMERO DE VÍRGULA FLUTUANTE |Solteiro |
 | INET |Cadeia |
 | INT |Int32 |
 | TEXTO |Cadeia |
@@ -253,7 +254,7 @@ As tabelas seguintes mostram as tabelas de virtuais renormalize os dados a parti
 | 1 |B |
 | 1 |C |
 | 3 |A |
-| 3 |I |
+| 3 |E |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

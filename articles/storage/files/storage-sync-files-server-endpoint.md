@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Adicionar/remover um ponto final de servidor de sincronização de ficheiros do Azure (pré-visualização)
 O Azure File Sync (pré-visualização) permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. Isto é feito ao transformar os Servidores do Windows numa cache rápida da partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
@@ -32,7 +32,7 @@ Para criar um ponto final do servidor, deve primeiro garantir que são cumpridos
 - O servidor tem instalado o agente de sincronização de ficheiros do Azure e foi registado. Podem encontrar instruções para instalar o agente de sincronização de ficheiros do Azure a [registar/anular o registo de um servidor com sincronização de ficheiros do Azure (pré-visualização)](storage-sync-files-server-registration.md) artigo. 
 - Certifique-se de que o serviço de sincronização de armazenamento foi implementado. Consulte [como implementar a sincronização de ficheiros do Azure (pré-visualização)](storage-sync-files-deployment-guide.md) para obter detalhes sobre como implementar um serviço de sincronização de armazenamento. 
 - Certifique-se de que o grupo de sincronização foi implementado. Saiba como [criar um grupo de sincronização](storage-sync-files-deployment-guide.md#create-a-sync-group).
-- Certifique-se de que o servidor está ligado à internet e de que o Azure está acessível.
+- Certifique-se de que o servidor está ligado à internet e de que o Azure está acessível. Vamos utilizar a porta 443 para todas as comunicações entre o servidor e o nosso serviço.
 
 ## <a name="add-a-server-endpoint"></a>Adicionar um ponto final do servidor
 Para adicionar um ponto final do servidor, navegue para o grupo de sincronização pretendido e selecione "Adicionar ponto final do servidor".
@@ -69,6 +69,6 @@ Para remover o ponto final do servidor:
 
     ![Remover um ponto final do servidor de um grupo de sincronização](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Registar/anular o registo de um servidor com sincronização de ficheiros do Azure (pré-visualização)](storage-sync-files-server-registration.md)
 - [Planear uma implementação de sincronização de ficheiros do Azure](storage-sync-files-planning.md)

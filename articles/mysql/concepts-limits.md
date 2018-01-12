@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 12/09/2017
-ms.openlocfilehash: e16982e4e57ba9f2f11e9ee59f88f24b3fe3fe3f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 01/11/2018
+ms.openlocfilehash: f0f9a10f987f19d8ae77a07038cffe23446856fd
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações na base de dados do Azure para MySQL
 A base de dados do Azure para o serviço de MySQL está em pré-visualização pública. As secções seguintes descrevem a capacidade, suporte de motor de armazenamento, suporte de privilégios, suporte de instrução de manipulação de dados e limites funcionais no serviço de base de dados. Consulte também [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicável para o motor de base de dados MySQL.
@@ -87,7 +87,7 @@ Quando são atingidas demasiadas ligações, poderá receber o erro seguinte:
 ### <a name="subscription-management"></a>Gestão de subscrições
 - Mover dinamicamente servidores previamente criadas na subscrição e grupo de recursos não é atualmente suportada.
 
-## <a name="current-known-issues"></a>Atuais problemas conhecidos:
+## <a name="current-known-issues"></a>Atuais problemas conhecidos
 - Instância do servidor MySQL apresenta a versão incorreta do servidor após a ligação for estabelecida. Para obter versões de instância de servidor correto, utilize version() selecione; comando na linha de MySQL.
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-the-azure-storage-rest-api"></a>Utilizar o armazenamento do Azure REST API
+# <a name="using-the-azure-storage-rest-api"></a>Utilizar a API REST do Armazenamento do Azure
 
 Este artigo mostra-lhe como utilizar as APIs REST do Blob Storage serviço e como se autenticar a chamada para o serviço. Que é escrito do ponto de vista de alguém que conhece nada REST e nenhum ideia como efetuar uma chamada REST, mas é um programador. Vamos observar a documentação de referência para uma chamada REST e como convertê-lo numa chamada REST real – os campos aceda onde? Depois de aprender a configurar uma chamada REST, pode tirar partido estes conhecimentos para utilizar qualquer uma das outras APIs armazenamento serviço REST.
 
@@ -32,7 +32,7 @@ A aplicação apresenta uma lista de contentores no armazenamento de BLOBs para 
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Uma conta do storage para fins gerais. Se não tiver quaisquer contas de armazenamento, pode criar um utilizando o [portal do Azure](https://portal.azure.com), [PowerShell](storage-quickstart-create-storage-account-powershell.md), ou [CLI do Azure](storage-quickstart-create-storage-account-cli.md).
+* Uma conta do storage para fins gerais. Se ainda não tiver uma conta de armazenamento, consulte o artigo [criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
 * O exemplo neste artigo mostra como listar os contentores na conta de armazenamento. Para ver um resultado, adicione alguns contentores de armazenamento na conta de armazenamento de BLOBs, antes de começar.
 
@@ -40,13 +40,13 @@ A aplicação apresenta uma lista de contentores no armazenamento de BLOBs para 
 
 A aplicação de exemplo é uma aplicação de consola escrita em c#.
 
-Utilize [git](https://git-scm.com/) para transferir uma cópia da aplicação para o ambiente de desenvolvimento. 
+Utilize o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Este comando clones o repositório para a pasta de local git. Para abrir a solução do Visual Studio, procure a pasta storage-dotnet-rest-api-with-auth, abra-o e faça duplo clique no StorageRestApiAuth.sln. 
+Este comando clona o repositório para a sua pasta local do git. Para abrir a solução do Visual Studio, procure a pasta storage-dotnet-rest-api-with-auth, abra-o e faça duplo clique no StorageRestApiAuth.sln. 
 
 ## <a name="why-do-i-need-to-know-rest"></a>Por que motivo é necessário saber REST?
 
@@ -566,7 +566,7 @@ Content-Length: 1135
 
 Neste artigo, aprendeu a efetuar um pedido para o API REST para obter uma lista de contentores ou uma lista de blobs num contentor de armazenamento de Blobs. Também aprendeu como criar a assinatura de autorização para a chamada de REST API, como utilizá-la no pedido REST e como examinar a resposta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [API de REST do serviço blob](/rest/api/storageservices/blob-service-rest-api)
 * [API de REST do serviço de ficheiro](/rest/api/storageservices/file-service-rest-api)

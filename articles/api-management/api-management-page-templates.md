@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: apimpm
-ms.openlocfilehash: aca44e14ab85fcfeb9d1eb3c3eadfff7831c372f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 882bb27c7692f4eaf628d26f6081b1e1015be81b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelos de página na API Management do Azure
 Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de páginas de portal de programador utilizando um conjunto de modelos que configurar o respetivo conteúdo. Utilizando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto de fornecido localizado [recursos de cadeia](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma enorme flexibilidade para configurar o conteúdo das páginas como julgar utilizando estes modelos.  
@@ -108,16 +108,16 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 ### <a name="sample-template-data"></a>Dados de exemplo do modelo  
   
 ```json  
-{  
-    "Email": null,  
-    "Password": null,  
-    "ReturnUrl": null,  
-    "RememberMe": false,  
-    "RegistrationEnabled": true,  
-    "DelegationEnabled": false,  
-    "DelegationUrl": null,  
-    "SsoSignUpUrl": null,  
-    "AuxServiceUrl": "https://manage.windowsazure.com/#Workspaces/ApiManagementExtension/service/contoso5/dashboard",  
+{
+    "Email": null,
+    "Password": null,
+    "ReturnUrl": null,
+    "RememberMe": false,
+    "RegistrationEnabled": true,
+    "DelegationEnabled": false,
+    "DelegationUrl": null,
+    "SsoSignUpUrl": null,
+    "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
     "Providers": [  
         {  
             "Properties": {  
@@ -127,10 +127,10 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
             "AuthenticationType": "Aad",  
             "Caption": "Azure Active Directory"  
         }  
-    ],  
-    "UserRegistrationTerms": null,  
-    "UserRegistrationTermsEnabled": false  
-}  
+        ],
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": false
+}
 ```  
   
 ##  <a name="SignUp"></a>Inscrever-se  
@@ -225,11 +225,11 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|referenceCode|Cadeia|Código gerado se esta página tiver sido apresentada como resultado de um erro interno.|  
-|código de erro|Cadeia|Código gerado se esta página tiver sido apresentada como resultado de um erro interno.|  
-|emailBody|Cadeia|Corpo gerado se esta página tiver sido apresentada como resultado de um erro interno do correio eletrónico.|  
-|requestedUrl|Cadeia|O URL pedido quando a página não foi encontrada.|  
-|referrerUrl|Cadeia|O URL de referência para o URL pedido.|  
+|referenceCode|string|Código gerado se esta página tiver sido apresentada como resultado de um erro interno.|  
+|código de erro|string|Código gerado se esta página tiver sido apresentada como resultado de um erro interno.|  
+|emailBody|string|Corpo gerado se esta página tiver sido apresentada como resultado de um erro interno do correio eletrónico.|  
+|requestedUrl|string|O URL pedido quando a página não foi encontrada.|  
+|referrerUrl|string|O URL de referência para o URL pedido.|  
   
 ### <a name="sample-template-data"></a>Dados de exemplo do modelo  
   
@@ -243,5 +243,5 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 }  
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de API Management utilizando modelos](api-management-developer-portal-templates.md).

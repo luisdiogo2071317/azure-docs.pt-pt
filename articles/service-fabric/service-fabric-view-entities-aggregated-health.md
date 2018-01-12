@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 8815d4409b9b18d34fae737c1c0dc22d2ed633a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acd3168adc6624e172099c8d62124f7b5ae4839a
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="view-service-fabric-health-reports"></a>Ver relatórios de estado de funcionamento do Service Fabric
 Azure Service Fabric apresenta um [modelo de estado de funcionamento](service-fabric-health-introduction.md) com entidades de estado de funcionamento que componentes de sistema e watchdogs pode relatório local as condições que está a monitorizar. O [arquivo de estado de funcionamento](service-fabric-health-introduction.md#health-store) agrega todos os dados de estado de funcionamento para determinar se entidades estão em bom estadas.
@@ -1237,7 +1237,7 @@ HealthEvents          :
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Use system health reports to troubleshoot (Utilizar relatórios de estado de funcionamento do sistema para resolver problemas)](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Adicionar relatórios de estado de funcionamento personalizados do Service Fabric](service-fabric-report-health.md)

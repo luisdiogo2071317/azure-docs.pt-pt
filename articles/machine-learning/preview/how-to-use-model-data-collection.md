@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Recolher dados do modelo através da utilização de recolha de dados
 
-Pode utilizar a funcionalidade de recolha de dados do modelo no Azure Machine Learning Workbench para arquivar entradas de modelo e predições de um serviço web.
+Pode utilizar a funcionalidade de recolha de dados do modelo no Azure Machine Learning para arquivar entradas de modelo e predições de um serviço web.
 
 ## <a name="install-the-data-collection-package"></a>Instalar o pacote de recolha de dados
 Pode instalar a biblioteca de recolha de dados nativamente no Linux e Windows.
@@ -37,6 +37,12 @@ No Linux, instale primeiro a biblioteca libxml + +. Execute o seguinte comando, 
 Em seguida, execute o seguinte comando:
 
     pip install azureml.datacollector
+
+## <a name="set-environment-variables"></a>Variáveis de ambiente de conjunto
+
+Recolha de dados do modelo depende de duas variáveis de ambiente. AML_MODEL_DC_STORAGE_ENABLED tem de ser definido como **verdadeiro** (todo em minúsculas) e AML_MODEL_DC_STORAGE tem de ser definida para a cadeia de ligação para a conta de armazenamento do Azure onde pretende armazenar os dados.
+
+Estas variáveis de ambiente são já definidos para si quando o serviço web está em execução num cluster no Azure. Ao executar localmente tem de colocá-los por si. Se estiver a utilizar o Docker, utilize o parâmetro -i do docker executar o comando para passar as variáveis de ambiente.
 
 ## <a name="collect-data"></a>Recolher dados
 
@@ -81,7 +87,7 @@ Para utilizar a recolha de dados do modelo, efetue as seguintes alterações ao 
 ## <a name="view-the-collected-data"></a>Ver os dados recolhidos
 Para ver os dados recolhidos no armazenamento de BLOBs:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **mais serviços**.
 3. Na caixa de pesquisa, escreva **contas do Storage** e selecione a tecla Enter.
 4. Do **contas do Storage** painel pesquisa, selecione o **conta de armazenamento** recursos. Para determinar a sua conta do storage, utilize os seguintes passos:

@@ -1,6 +1,6 @@
 ---
-title: "As respostas a alertas de análise de registos do OMS | Microsoft Docs"
-description: "Alertas na análise de registos identificar informações importantes no seu repositório do OMS e podem proativamente notificá-lo de problemas ou da invocação ações para tentar corrigir as entradas.  Este artigo descreve como criar uma regra de alerta e detalhes de ações diferentes que podem realizar."
+title: As respostas a alertas no Log Analytics do Azure | Microsoft Docs
+description: "Alertas na análise de registos identificar informações importantes na sua área de trabalho do Azure e podem proativamente notificá-lo de problemas ou da invocação ações para tentar corrigir as entradas.  Este artigo descreve como criar uma regra de alerta e detalhes de ações diferentes que podem realizar."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2017
+ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Adicione ações para regras de alertas na análise de registos
 Quando um [alerta é criado na análise de registos](log-analytics-alerts.md), tem a opção de [configurar a regra de alerta](log-analytics-alerts.md) para efetuar uma ou mais ações.  Este artigo descreve as diferentes ações que estão disponíveis e os detalhes sobre como configurar cada tipo.
 
 | Ação | Descrição |
 |:--|:--|
-| [Correio eletrónico](#email-actions) | Envie um e-mail com os detalhes do alerta para um ou mais destinatários. |
+| [E-mail](#email-actions) | Envie um e-mail com os detalhes do alerta para um ou mais destinatários. |
 | [Webhook](#webhook-actions) | Invocar um processo externo através de um pedido de HTTP POST único. |
 | [Runbook](#runbook-actions) | Inicie um runbook na automatização do Azure. |
 
@@ -57,7 +57,7 @@ As ações de Webhook requerem as propriedades na tabela seguinte.
 Webhooks incluir um URL e um payload formatado em JSON que é os dados enviados para o serviço externo.  Por predefinição, o payload incluirá os valores na tabela seguinte.  Pode optar por substituir este payload por um personalizado da sua própria.  Nesse caso pode utilizar as variáveis na tabela para cada um dos parâmetros para incluir o respetivo valor no payload personalizado.
 
 >[!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), em seguida, o payload de webook foi alterada.  Detalhes do formato estão em [API de REST de análise de registos do Azure](https://aka.ms/loganalyticsapiresponse).  Pode ver um exemplo em [amostras](#sample-payload) abaixo.
+> Se a sua área de trabalho tiver sido atualizada para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), então o payload do webook foi alterado.  Os detalhes do formato estão na [API REST do Log Analytics do Azure](https://aka.ms/loganalyticsapiresponse).  Pode ver um exemplo em [amostras](#sample-payload) abaixo.
 
 | Parâmetro | Variável | Descrição |
 |:--- |:--- |:--- |
@@ -71,7 +71,7 @@ Webhooks incluir um URL e um payload formatado em JSON que é os dados enviados 
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Hora de início para a consulta em formato UTC. |
 | SearchQuery |#searchquery |Consulta de pesquisa de registo utilizada pela regra de alerta. |
 | SearchResults |Consulte abaixo |Registos devolvidos pela consulta no formato JSON.  Limitado para os primeiro 5 000 registos. |
-| WorkspaceID |#workspaceid |ID da sua área de trabalho do OMS. |
+| WorkspaceID |#workspaceid |ID da sua área de trabalho de análise de registos. |
 
 Por exemplo, poderá especificar o payload personalizado seguinte, que inclui um único parâmetro chamado *texto*.  O serviço que chama o webhook seria possível esperar este parâmetro.
 
@@ -97,11 +97,11 @@ Por exemplo, para criar um payload personalizado que inclua apenas o nome do ale
     }
 
 
-Pode percorrer um exemplo completo de criação de uma regra de alerta com um webhook para iniciar um serviço externo em [criar uma ação do webhook alerta na análise de registos do OMS enviar mensagem para Slack](log-analytics-alerts-webhooks.md).
+Pode percorrer um exemplo completo de criação de uma regra de alerta com um webhook para iniciar um serviço externo em [criar uma ação do webhook alerta na análise de registos para enviar mensagem para Slack](log-analytics-alerts-webhooks.md).
 
 
 ## <a name="runbook-actions"></a>Ações de Runbook
-Ações de Runbook inicia um runbook na automatização do Azure.  Para utilizar este tipo de ação, tem de ter o [solução de automatização](log-analytics-add-solutions.md) instalada e configurada na sua área de trabalho do OMS.  Pode selecionar a partir de runbooks na conta de automatização que configurou na solução de automatização.
+Ações de Runbook inicia um runbook na automatização do Azure.  Para utilizar este tipo de ação, tem de ter o [solução de automatização](log-analytics-add-solutions.md) instalada e configurada na sua área de trabalho de análise de registos.  Pode selecionar a partir de runbooks na conta de automatização que configurou na solução de automatização.
 
 Ações de Runbook necessitam de propriedades na tabela seguinte.
 
@@ -115,7 +115,7 @@ Ações de Runbook iniciar o runbook com um [webhook](../automation/automation-w
 Diretamente não é possível povoar quaisquer parâmetros do runbook, mas o [$WebhookData parâmetro](../automation/automation-webhooks.md) incluirá os detalhes do alerta, incluindo os resultados da pesquisa de registo que o criou.  O runbook tem de definir **$WebhookData** como um parâmetro para o mesmo aceder às propriedades do alerta.  Os dados de alertas estão disponíveis no formato json numa única propriedade chamada **SearchResult** (para obter ações de runbook e ações de webhook no standard payload) ou **SearchResults** (as ações de webhook com personalizada Payload incluindo **IncludeSearchResults ": true**) no **RequestBody** propriedade **$WebhookData**.  Isto irá ter com as propriedades na tabela seguinte.
 
 >[!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), em seguida, o payload de runbook foi alterada.  Detalhes do formato estão em [API de REST de análise de registos do Azure](https://aka.ms/loganalyticsapiresponse).  Pode ver um exemplo em [amostras](#sample-payload) abaixo.  
+> Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), em seguida, o payload de runbook foi alterada.  Os detalhes do formato estão na [API REST do Log Analytics do Azure](https://aka.ms/loganalyticsapiresponse).  Pode ver um exemplo em [amostras](#sample-payload) abaixo.  
 
 | Nó | Descrição |
 |:--- |:--- |
@@ -620,6 +620,6 @@ Segue-se um payload de exemplo para uma ação de runbook numa área de trabalho
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Conclua uma explicação passo a passo para [configurar um webook](log-analytics-alerts-webhooks.md) com uma regra de alerta.  
 - Aprender a escrever [runbooks na automatização do Azure](https://azure.microsoft.com/documentation/services/automation) para remediar problemas identificados através de alertas.

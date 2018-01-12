@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/11/2018
 ms.author: jgao
-ms.openlocfilehash: d529e66c80c6a3e305ffdf9a2df181a976e07127
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7c09b2aefac1248a0bad06b913a8da56e73c0e4d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Utilizar nós edge vazio nos clusters do Hadoop no HDInsight
 
@@ -64,7 +64,7 @@ O tamanho de máquina virtual do nó de extremidade têm de cumprir os requisito
 Depois de ter criado um nó de extremidade, pode ligar ao nó de extremidade utilizando SSH e executar as ferramentas de cliente acedam ao cluster de Hadoop no HDInsight.
 
 > [!WARNING] 
-> Utilização de um nó de extremidade vazio com o HDInsight está atualmente em pré-visualização. Componentes personalizados que estão instalados no nó de extremidade recebem comercialmente razoável suporte da Microsoft. Isto pode resultar na resolução de problemas que encontrar. Ou pode ser referido recursos de Comunidade para obter assistência. Seguem-se alguns dos mais sites de Active Directory para obter ajuda da Comunidade:
+> Componentes personalizados que estão instalados no nó de extremidade recebem comercialmente razoável suporte da Microsoft. Isto pode resultar na resolução de problemas que encontrar. Ou pode ser referido recursos de Comunidade para obter assistência. Seguem-se alguns dos mais sites de Active Directory para obter ajuda da Comunidade:
 >
 > * [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://StackOverflow.com](http://stackoverflow.com).

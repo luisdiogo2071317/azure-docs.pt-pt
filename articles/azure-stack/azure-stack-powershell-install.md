@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b44129400e878e9032623e4d0962153d50303660
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25b89571277e393fbad7cdd6e193d9b3f02f3ee5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instale o PowerShell para a pilha do Azure  
 
@@ -31,7 +31,7 @@ Este artigo descreve em pormenor as instruções para instalar o PowerShell para
 > [!NOTE]
 > Os seguintes passos necessitam do PowerShell 5.0. Para verificar a sua versão, execute $PSVersionTable.PSVersion e comparar a versão "Principal".
 
-Comandos do PowerShell para a pilha do Azure são instalados através da galeria do PowerShell. Para o repositório de PSGallery regiser, abra uma sessão do PowerShell elevada do kit de desenvolvimento ou de um cliente externo baseado no Windows se estiverem ligados através de VPN e execute o seguinte comando:
+Comandos do PowerShell para a pilha do Azure são instalados através da galeria do PowerShell. Para registar o repositório de PSGallery, abra uma sessão do PowerShell elevada do kit de desenvolvimento ou de um cliente externo baseado em Windows se estiverem ligados através de VPN e execute o seguinte comando:
 
 ```powershell
 Set-PSRepository `
@@ -49,7 +49,7 @@ Antes de instalar a versão necessária, certifique-se de que desinstalar quaisq
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* Inicie sessão para o kit de desenvolvimento ou para o cliente externo baseados em Windows se estiver a planear estabelecer uma ligação VPN. Eliminar todas as pastas que começam por "Azure" do `C:\Program Files (x86)\WindowsPowerShell\Modules` e `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` pastas. Eliminar estas pastas remove quaisquer módulos do PowerShell existentes dos âmbitos de utilizador "global" e "AzureStackAdmin". 
+* Inicie sessão para o kit de desenvolvimento ou para o cliente externo baseados em Windows se estiver a planear estabelecer uma ligação VPN. Eliminar todas as pastas que começam por "Azure" do `C:\Program Files\WindowsPowerShell\Modules` e `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` pastas. Eliminar estas pastas remove quaisquer módulos do PowerShell existentes dos âmbitos de utilizador "global" e "AzureStackAdmin". 
 
 As secções seguintes descrevem os passos necessários para instalar o PowerShell para a pilha do Azure. PowerShell pode ser instalado na pilha do Azure que manipula no ligado, ligado parcialmente ou um cenário de desligado. 
 
@@ -126,7 +126,6 @@ Num cenário de desligado, tem de transferir primeiro os módulos do PowerShell 
      -SourceLocation $SourceLocation `
      -InstallationPolicy Trusted
 
-   ```powershell
    Install-Module AzureRM `
      -Repository $RepoName
 
@@ -134,7 +133,7 @@ Num cenário de desligado, tem de transferir primeiro os módulos do PowerShell 
      -Repository $RepoName 
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Descarregar as ferramentas de pilha do Azure a partir do GitHub](azure-stack-powershell-download.md)
 * [Configurar o Azure pilha ambiente do utilizador do PowerShell](user/azure-stack-powershell-configure-user.md)  

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividade do Azure
 Como parte da definição de um grupo de ação, pode configurar pontos finais de webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar estas notificações para outros sistemas de ações de pós-processamento ou personalizados. Este artigo mostra que aspeto o payload para o POST de HTTP para um webhook.
@@ -58,7 +58,7 @@ O payload JSON contido na operação POST difere com base no campo de data.conte
     }
 }
 ```
-###<a name="administrative"></a>Administrativo
+###<a name="administrative"></a>Administrativa
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -145,23 +145,23 @@ Para detalhes de esquema específico em todos os outros alertas de registo de at
 | resourceId |ID de recurso do recurso afetado. |
 | resourceGroupName |Nome do grupo de recursos para o recurso afetado. |
 | propriedades |Conjunto de `<Key, Value>` pares (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
-| evento |Elemento que contém metadados sobre o evento. |
+| event |Elemento que contém metadados sobre o evento. |
 | Autorização |As propriedades de controlo de acesso baseado em funções do evento. Estas propriedades incluem, normalmente, a ação, a função e o âmbito. |
 | categoria |Categoria do evento. Os valores suportados incluem administração, o alerta, segurança, ServiceHealth e recomendação. |
-| autor da chamada |Endereço de e-mail do utilizador que executou a operação, afirmação UPN ou afirmação SPN com base na disponibilidade. Pode ser nulo para determinadas chamadas de sistema. |
+| chamador |Endereço de e-mail do utilizador que executou a operação, afirmação UPN ou afirmação SPN com base na disponibilidade. Pode ser nulo para determinadas chamadas de sistema. |
 | correlationId |Normalmente, um GUID no formato de cadeia. Eventos com correlationId pertencerem à mesma ação superior e, normalmente, partilham um correlationId. |
 | eventDescription |Descrição de texto estático do evento. |
 | eventDataId |Identificador exclusivo para o evento. |
 | EventSource |Nome do serviço do Azure ou infraestrutura que gerou o evento. |
 | httpRequest |O pedido inclui normalmente o clientRequestId, clientIpAddress e método HTTP (por exemplo, colocar). |
-| nível |Um dos seguintes valores: crítico, erro, aviso, informativo e verboso. |
+| nível |Um dos seguintes valores: crítico, erro, aviso e informativo. |
 | operationId |Normalmente, um GUID partilhado entre os eventos que correspondem a única operação. |
 | operationName |Nome da operação. |
 | propriedades |Propriedades do evento. |
 | status |Cadeia. Estado da operação. Os valores comuns incluem iniciado, em curso, com êxito, falha, Active Directory e resolvido. |
 | Subestado |Normalmente inclui o código de estado HTTP da chamada REST correspondente. Também poderão incluir outras cadeias que descrevem um subestado. Valores de subestado comuns incluem OK (código de estado de HTTP: 200), criado (código de estado de HTTP: 201), aceite (código de estado de HTTP: 202), não conteúdo (código de estado de HTTP: 204), pedido incorreto (código de estado de HTTP: 400), não foi encontrado (código de estado HTTP: 404), conflito (código de estado de HTTP: 409), erro interno do servidor (código de estado de HTTP: 500), serviço indisponível (código de estado HTTP: 503) e tempo limite do Gateway (código de estado HTTP : 504). |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Saiba mais sobre o registo de atividade](monitoring-overview-activity-logs.md).
 * [Executar scripts de automatização (Runbooks) nos alertas do Azure](http://go.microsoft.com/fwlink/?LinkId=627081).
 * [Utilizar uma aplicação lógica para enviar um SMS através do Twilio a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Neste exemplo é para alertas métricas, mas pode ser modificado para trabalhar com um alerta de registo de atividade.

@@ -1,5 +1,5 @@
 ---
-title: 'Personalizar: O Azure AD SSPR | Microsoft Docs'
+title: "Personalização - Azure Active Directory de reposição de palavra-passe self-service"
 description: "Reposição de palavra-passe self-service do Azure AD, as opções de personalização"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 36fc674ffcb8167a918f928d8821707d81198423
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6d8a2f2106e57bdf84bc3bead70d379691b79742
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade do Azure AD para a reposição de palavra-passe self-service
 
@@ -107,7 +107,7 @@ Pode alterar o atributo de nome de diretório em **do Azure Active Directory** >
 * O nome amigável do e-mail, por exemplo "Microsoft em nome de demonstração CONTOSO"
 * A linha de assunto do e-mail, por exemplo "CONTOSO demonstração conta e-mail código de verificação"
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Como posso concluir uma implementação com êxito da SSPR?](active-directory-passwords-best-practices.md)
 * [Repor ou alterar a palavra-passe](active-directory-passwords-update-your-own-password.md)

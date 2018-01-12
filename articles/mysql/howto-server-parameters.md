@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: 22e19ca3377b623ae15a28a109cb5de419247ba4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: f3b32c1f6b33bc60b50f1496414a300db468dc92
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Como configurar parâmetros de servidor na base de dados do Azure para MySQL utilizando o portal do Azure
 
@@ -32,8 +32,7 @@ Base de dados do Azure para MySQL suporta a configuração do alguns parâmetros
 A lista de parâmetros de servidor suportado está constantemente a crescer. Utilize o separador de parâmetros de servidor no portal do Azure para obter a definição e configure os parâmetros de servidor com base nos seus requisitos de aplicação. 
 
 ## <a name="nonconfigurable-server-parameters"></a>Parâmetros de servidor Nonconfigurable
-
-Os parâmetros seguintes não são configuráveis e associada ao seu [escalão de preço](concepts-service-tiers.md). 
+O conjunto de memória intermédia InnoDB e máx. ligações não são configuráveis e associada ao seu [escalão de preço](concepts-service-tiers.md). 
 
 | **Escalão de preço** | **Conjunto de memória intermédia de InnoDB (MB)** | **Máx. ligações** |
 | :------------------------ | :-------- | :----------- |
@@ -44,9 +43,13 @@ Os parâmetros seguintes não são configuráveis e associada ao seu [escalão d
 | 400 padrão | 10240 | 800 | 
 | 800 padrão | 20480 | 1600 |
 
- Innodb_file_per_table na camada básica: DESATIVADO
+Estes parâmetros de servidor adicionais são nonconfigurable no sistema <br>
+ Innodb_file_per_table na camada básica: DESATIVADO<br>
+ innodb_flush_log_at_trx_commit = 1<br>
+ sync_binlog = 1<br>
+ innodb_log_file_size = 512MB<br>
  
-Todos os outros parâmetros de servidor que não estão listados na tabela anterior são definidos para os respetivos valores predefinidos para as versões [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Outros parâmetros de servidor que não estão listados aqui estão definidos para os valores de out-of-box predefinido MySQL para versões [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Bibliotecas de ligação para base de dados do Azure para MySQL](concepts-connection-libraries.md).

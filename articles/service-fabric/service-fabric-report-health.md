@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: ed10eef347d4d93012078456b3a145589e66d30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d80271e744d6f00afd1ff1c3df29180565b59e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios personalizados de estado de funcionamento do Service Fabric
 Azure Service Fabric apresenta um [modelo de estado de funcionamento](service-fabric-health-introduction.md) concebido para sinalizador cluster mau estado de funcionamento e condições de aplicação no entidades específicas. O modelo de estado de funcionamento utiliza **Informadores de estado de funcionamento** (componentes de sistema e watchdogs). O objetivo é rápido e fácil de diagnóstico e de reparação. Os escritores de serviço tem de pensar compromisso sobre estado de funcionamento. Qualquer condição que pode afetar o estado de funcionamento deve ser comunicada, especialmente se pode ajudar a problemas de sinalizador próximo raiz. As informações de estado de funcionamento podem poupar tempo e esforço na depuração e investigação. Não é especialmente limpar a utilidade assim que o serviço está a funcionar à escala na nuvem (privada ou do Azure).
@@ -300,7 +300,7 @@ HealthEvents          :
 ### <a name="rest"></a>REST
 Envie relatórios de estado de funcionamento através de REST com pedidos POST, vá para a entidade pretendida e que tenham no corpo da descrição do relatório de estado de funcionamento. Por exemplo, consulte como enviar REST [relatórios de estado de funcionamento do cluster](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) ou [relatórios de estado de funcionamento do serviço](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service). Todas as entidades são suportadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Com base nos dados de estado de funcionamento, escritores de serviço e os administradores de cluster/aplicação podem considerar formas para consumir as informações. Por exemplo, se podem configurar alertas com base no estado de funcionamento para detetar problemas graves antes de poderem provoke falhas. Os administradores podem também configurar sistemas de reparação para corrigir problemas automaticamente.
 
 [Introdução ao estado de funcionamento do Service Fabric monitorização](service-fabric-health-introduction.md)
