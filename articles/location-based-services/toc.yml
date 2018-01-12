@@ -33,9 +33,9 @@
       href: how-to-search-for-address.md
 - name: Referência
   items:
-    - name: API Funcional - REST
+    - name: API Funcional
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
-    - name: API de Gestão - REST
+    - name: API de Gestão
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
     - name: API de Controlo de Mapas - Javascript
       href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
