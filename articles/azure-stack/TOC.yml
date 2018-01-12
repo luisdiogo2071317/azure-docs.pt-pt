@@ -154,6 +154,8 @@
               href: Azure-stack-create-service-principals.md
             - name: Ativar multi-inquilinos
               href: azure-stack-enable-multitenancy.md
+        - name: Roda os segredos
+          href: azure-stack-rotate-secrets.md
     - name: Oferta de serviços
       items:
         - name: Descrição geral da oferta de serviços
@@ -248,6 +250,8 @@
           href: azure-stack-troubleshooting.md
         - name: Diagnóstico no Azure Stack
           href: azure-stack-diagnostics.md
+        - name: Validação de pilha do Azure
+          href: azure-stack-diagnostic-test.md
         - name: Voltar a implementar o Development Kit do Azure Stack
           href: azure-stack-redeploy.md
 - name: Referência
