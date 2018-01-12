@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
-ms.openlocfilehash: e6fc49855b449a7723a7f8a0c1c41516b3a44ee5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: d8c700d7b23f0e86b4a190e3c1f1143d962a8d63
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Carregar um VHD generalizado Azure para criar uma nova VM
 
@@ -288,7 +289,7 @@ Quando terminar, deverá ver a VM criada recentemente o [portal do Azure](https:
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para gerir a sua nova máquina virtual com o Azure PowerShell, consulte [gerir máquinas virtuais utilizando o Azure Resource Manager e o PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

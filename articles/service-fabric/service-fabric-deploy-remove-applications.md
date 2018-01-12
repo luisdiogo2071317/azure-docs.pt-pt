@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: f19141919b3c61123e0e94c4513f872e095620c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 49f26a6195713a5bcdd8ab5711f3bf715f3e033f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementar e remover aplicações utilizando o PowerShell
 > [!div class="op_single_selector"]
@@ -31,17 +31,29 @@ ms.lasthandoff: 12/21/2017
 
 Uma vez um [tipo de aplicação foram empacotado][10], está pronto para a implementação para um cluster do Service Fabric do Azure. Implementação envolve os seguintes três passos:
 
-1. Carregar o pacote de aplicação para o arquivo de imagens
-2. Registar o tipo de aplicação
-3. Criar a instância da aplicação
+1. Carregar o pacote de aplicação para o arquivo de imagens.
+2. Registe o tipo de aplicação com imagem guardar o caminho relativo.
+3. Crie a instância da aplicação.
 
-Depois de uma aplicação é implementada e está em execução uma instância no cluster, pode eliminar a instância da aplicação e o respetivo tipo de aplicação. Para remover completamente uma aplicação do cluster envolve os seguintes passos:
+Assim que a aplicação implementada já não é necessária, pode eliminar a instância da aplicação e o respetivo tipo de aplicação. Para remover completamente uma aplicação do cluster envolve os seguintes passos:
 
-1. Remover (ou eliminar) a execução instância da aplicação
-2. O registo do tipo de aplicação já não é necessário
-3. Remova o pacote de aplicações do arquivo de imagens
+1. Remover (ou eliminar) a execução instância da aplicação.
+2. O registo do tipo de aplicação já não necessita.
+3. Remova o pacote de aplicações do arquivo de imagens.
 
 Se utilizar o Visual Studio para implementar e depurar aplicações no seu cluster de desenvolvimento local, todos os passos anteriores são processados automaticamente através de um script do PowerShell.  Este script está localizado no *Scripts* pasta do projeto de aplicação. Este artigo fornece em segundo plano que esse script está a fazer para que possam executar as mesmas operações fora do Visual Studio. 
+
+Outra forma de implementar uma aplicação é utilizar aprovisionar externo. O pacote de aplicação pode ser [instaladores como `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) e carregada para uma loja externa. Neste caso, carregamento para o arquivo de imagens não é necessária. Implementação tem os seguintes passos:
+
+1. Carregar o `sfpkg` para uma loja externa. O arquivo de externo pode ser qualquer armazenamento que expõe um ponto final de http ou https REST.
+2. Registe o tipo de aplicação utilizando o URI de transferência externo e as informações de tipo de aplicação.
+2. Crie a instância da aplicação.
+
+Para limpar, remova as instâncias da aplicação e anular o registo do tipo de aplicação. Porque o pacote não foi copiado para o arquivo de imagens, não há nenhuma localização temporária para limpeza. Aprovisionamento do arquivo externo está disponível a partir do Service Fabric versão 6.1.
+
+>[!NOTE]
+> Visual Studio não suporta atualmente aprovisionar externo.
+
  
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 Antes de executar os comandos do PowerShell neste artigo, inicie sempre utilizando [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) para ligar ao cluster do Service Fabric. Para ligar ao cluster de desenvolvimento local, execute o seguinte:
@@ -123,7 +135,7 @@ Por exemplo, eis estatísticas de compressão de alguns pacotes que mostram o in
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-Depois de um pacote está comprimido, este pode ser também carregada para um ou vários clusters de Service Fabric conforme necessário. O mecanismo de implementação é a mesmo para pacotes comprimidos e descomprimidos. Se o pacote está comprimido, é armazenada como tal no arquivo de imagem do cluster e descomprimido no nó antes da aplicação é executada.
+Depois de um pacote está comprimido, este pode ser também carregada para um ou vários clusters de Service Fabric conforme necessário. O mecanismo de implementação é a mesmo para pacotes comprimidos e descomprimidos. Pacotes comprimidos são armazenadas como tal no arquivo de imagem do cluster. Os pacotes são descomprimidos no nó, antes da aplicação é executada.
 
 
 O exemplo seguinte carrega o pacote para o arquivo de imagens, para uma pasta denominada "MyApplicationV1":
@@ -162,17 +174,27 @@ O tipo de aplicação e a versão declarados no manifesto da aplicação ficam d
 
 Execute o [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) cmdlet para registar o tipo de aplicação no cluster e disponibilizá-lo para a implementação:
 
+### <a name="register-the-application-package-copied-to-image-store"></a>Registar o pacote de aplicação copiado para o arquivo de imagens
+Quando um pacote anteriormente foi copiado para o arquivo de imagens, a operação de registo Especifica o caminho relativo em arquivo de imagens.
+
 ```powershell
-PS C:\> Register-ServiceFabricApplicationType MyApplicationV1
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackagePathInImageStore MyApplicationV1
 Register application type succeeded
 ```
 
 "MyApplicationV1" é a pasta onde o pacote de aplicações está localizado o arquivo de imagens. O tipo de aplicação com o nome "MyApplicationType" e a versão "1.0.0" (ambos encontram-se no manifesto da aplicação) está agora registado no cluster.
 
+### <a name="register-the-application-package-copied-to-an-external-store"></a>Registar o pacote de aplicação copiado para um arquivo de externo
+A partir do Service Fabric versão 6.1, Aprovisione suporta transferir o pacote a partir de um arquivo de externo. A transferência URI representa o caminho para o [ `sfpkg` pacote de aplicação](service-fabric-package-apps.md#create-an-sfpkg) a partir de onde o pacote de aplicações pode ser transferido através de protocolos HTTP ou HTTPS. O pacote deve ter foi carregado anteriormente para esta localização externa. O URI tem de permitir acesso de leitura para que o Service Fabric pode transferir o ficheiro. O `sfpkg` ficheiro tem de ter a extensão ". sfpkg". A operação de aprovisionamento deve incluir as informações de tipo de aplicação, como encontrada no manifesto da aplicação.
+
+```
+PS C:\> Register-ServiceFabricApplicationType -ApplicationPackageDownloadUri "https://sftestresources.blob.core.windows.net:443/sfpkgholder/MyAppPackage.sfpkg" -ApplicationTypeName MyApp -ApplicationTypeVersion V1 -Async
+```
+
 O [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) comando devolve apenas depois do sistema registou com êxito o pacote de aplicações. Quanto registo demora depende do tamanho e conteúdos do pacote de aplicação. Se for necessário, o **- TimeoutSec** parâmetro pode ser utilizado para fornecer um tempo limite maior (o tempo limite predefinido é de 60 segundos).
 
-Se tiver uma aplicação grande pacote ou se ocorrerem tempos limite, utilize o **- Async** parâmetro. O comando devolve quando o cluster aceita o comando de registo e o processamento continua conforme necessário.
-O [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) comando apresenta uma lista de todas as versões de tipo de aplicação registada com êxito e o respetivo estado de registo. Pode utilizar este comando para determinar quando o registo foi efetuado.
+Se tiver uma aplicação grande pacote ou se ocorrerem tempos limite, utilize o **- Async** parâmetro. O comando devolve quando o cluster aceita o comando de registo. A operação register continua conforme necessário.
+O [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) comando lista as versões de tipo de aplicação e o respetivo estado de registo. Pode utilizar este comando para determinar quando o registo foi efetuado.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationType
@@ -184,7 +206,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Remover um pacote de aplicação de arquivo de imagens
-Recomenda-se que remova o pacote de aplicações após a aplicação for registada com êxito.  A eliminação de pacotes de aplicação da loja de imagem liberta recursos do sistema.  Manter os pacotes de aplicações não utilizadas consome armazenamento em disco e leva a problemas de desempenho da aplicação.
+Se um pacote foi copiado para o arquivo de imagens, deve removê-lo da localização temporária depois da aplicação for registada com êxito. A eliminação de pacotes de aplicação da loja de imagem liberta recursos do sistema. Manter os pacotes de aplicações não utilizadas consome armazenamento em disco e leva a problemas de desempenho da aplicação.
 
 ```powershell
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1
@@ -244,7 +266,7 @@ PS C:\> Get-ServiceFabricApplication
 ```
 
 ## <a name="unregister-an-application-type"></a>Anular o registo de um tipo de aplicação
-Quando já não é necessária uma versão específica de um tipo de aplicação, deve anular o registo do tipo de aplicação utilizando o [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet. A anular registo aplicações não utilizadas tipos versões espaço de armazenamento utilizado pelo arquivo de imagens removendo os binários da aplicação. A anulação do registo um tipo de aplicação não remove o pacote de aplicações. Um tipo de aplicação pode ser anulado desde que não existem aplicações são instanciadas nele e não pendentes aplicação atualizações estão a referenciá-lo.
+Quando já não é necessária uma versão específica de um tipo de aplicação, deve anular o registo do tipo de aplicação utilizando o [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) cmdlet. A anulação do registo tipos de aplicações não utilizadas liberta espaço de armazenamento utilizado pelo arquivo de imagens removendo ficheiros de tipo da aplicação. A anulação do registo um tipo de aplicação não remove o pacote de aplicação copiado para a imagem arquivo temporário localização, se copiar para o arquivo de imagens foi utilizado. Um tipo de aplicação pode ser anulado desde que não existem aplicações são instanciadas nele e não pendentes aplicação atualizações estão a referenciá-lo.
 
 Executar [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) para ver os tipos de aplicação atualmente registados no cluster:
 
@@ -334,6 +356,8 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
+[Criar pacote de uma aplicação](service-fabric-package-apps.md)
+
 [Atualização da aplicação de Service Fabric](service-fabric-application-upgrade.md)
 
 [Introdução de estado de funcionamento do Service Fabric](service-fabric-health-introduction.md)

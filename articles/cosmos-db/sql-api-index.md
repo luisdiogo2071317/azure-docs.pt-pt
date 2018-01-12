@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8de2a541f307adfed1125dbfc25825b3e28d9c48
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Do Azure Cosmos DB: Documentação da API de SQL
 
@@ -55,7 +55,7 @@ Estes tutoriais são um nível mais profundo do que os inícios rápidos. Nos tu
 - [.NET](sql-api-dotnet-application.md)
 - [Node.js](sql-api-nodejs-application.md) 
 - [Java](sql-api-java-application.md)
-- [python](sql-api-python-application.md)
+- [Python](sql-api-python-application.md)
 
 ### <a name="create-a-console-app"></a>Criar uma aplicação de consola
 
@@ -100,14 +100,14 @@ BD do Cosmos do Azure fornece um número de SDKs para ativar o desenvolvimento d
 - [Feed de alteração do .NET](sql-api-sdk-dotnet-changefeed.md)
 - [.NET Core](sql-api-sdk-dotnet-core.md)
 - [Node.js](sql-api-sdk-node.md)
-- [python](sql-api-sdk-python.md)
+- [Python](sql-api-sdk-python.md)
 
 ## <a name="reference"></a>Referência
 
 - [REST](/rest/api/documentdb/)
 - [Fornecedor de Recursos REST](/rest/api/documentdbresourceprovider/)
 - [Referência de consulta SQL](sql-api-sql-query-reference.md)
-- [Referência de funções do Azure](../azure-functions/functions-bindings-documentdb.md)
+- [Referência de funções do Azure](../azure-functions/functions-bindings-cosmosdb.md)
 
 ## <a name="samples"></a>Amostras
 
@@ -115,4 +115,4 @@ Estas páginas de exemplo fornecem ligações para o código de exemplo e API fa
 
 - [.NET](sql-api-dotnet-samples.md)
 - [Node.js](sql-api-nodejs-samples.md)
-- [python](sql-api-python-samples.md) 
+- [Python](sql-api-python-samples.md) 

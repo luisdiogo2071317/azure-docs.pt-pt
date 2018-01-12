@@ -4,7 +4,7 @@ description: "Máscara de dados dinâmicos da base de dados SQL limita a exposi�
 services: sql-database
 documentationcenter: 
 author: ronitr
-manager: jhubbard
+manager: shaik
 editor: 
 ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
 ms.service: sql-database
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 03/09/2017
-ms.author: ronitr; ronmat
-ms.openlocfilehash: b75f170870a5f595fcda41196f4de81f237f88b8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: ronitr
+ms.openlocfilehash: 883a00176207701a0bbda8d196114d9964ce8f17
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Máscara de dados dinâmicos da base de dados SQL
 
@@ -44,7 +44,7 @@ Máscara de dados dinâmicos pode ser configurada pelo administrador de base de 
 | --- | --- |
 | **Predefinição** |**Máscara completa, de acordo com os tipos de dados dos campos designados**<br/><br/>• Utilize XXXX ou Xs menos se o tamanho do campo for inferior a 4 carateres para tipos de dados de cadeia (nchar, ntext, nvarchar).<br/>• Utilizar um valor de zero para tipos de dados numérico (bigint, bits, decimal, int, dinheiro, numérico, smallint, em smallmoney, tinyint, vírgula flutuante, real).<br/>• Utilizar 01-01-1900 para tipos de dados de data/hora (data, datetime2, datetime, datetimeoffset, smalldatetime, hora).<br/>• Para variante do SQL Server, o valor predefinido do tipo atual é utilizado.<br/>• Para o documento XML <masked/> é utilizado.<br/>• Utilizar um valor vazio para tipos de dados especiais (timestamp de tabela, hierarchyid, GUID, binary, imagem, os tipos geográficos varbinary). |
 | **Cartão de crédito** |**Máscara de método, o que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia constante como um prefixo sob a forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **Correio eletrónico** |**Máscara de método, o que expõe a primeira letra e substitui o domínio por XXX.com** utilizando um prefixo de constante de cadeia no formato de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
+| **E-mail** |**Máscara de método, o que expõe a primeira letra e substitui o domínio por XXX.com** utilizando um prefixo de constante de cadeia no formato de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
 | **Número aleatório** |**Máscara de método, o que gera um número aleatório** , de acordo com os limites selecionados e os tipos de dados real. Se os limites designados são iguais, a função de máscara é um número constante.<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
 | **Texto personalizado** |**Método, o que expõe o primeiro e último carateres de máscara** e adiciona uma cadeia de preenchimento personalizado no meio. Se for mais curta do que o prefixo exposto e o sufixo da cadeia original, é utilizada apenas a cadeia de preenchimento. <br/>sufixo de prefixo [preenchimento]<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 

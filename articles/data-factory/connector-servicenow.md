@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 28ac55dd21e9496a9e7c480d984a518dd03e4c94
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 6918081600074b05cf357c848778ab4e66e07fff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Copiar dados de ServiceNow utilizando o Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ O Azure Data Factory fornece um controlador incorporado para ativar a conetivida
 
 ## <a name="getting-started"></a>Introdução
 
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector do ServiceNow.
 
@@ -48,7 +48,7 @@ As seguintes propriedades são suportadas para o serviço ligado do ServiceNow:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **ServiceNow** | Sim |
-| ponto final | O ponto final do servidor do ServiceNow. (ou seja, http://ServiceNowData.com)  | Sim |
+| endpoint | O ponto final do servidor do ServiceNow. (ou seja, http://ServiceNowData.com)  | Sim |
 | authenticationType | O tipo de autenticação a utilizar. <br/>Valores permitidos são: **básico**, **OAuth2** | Sim |
 | o nome de utilizador | O nome de utilizador utilizado para ligar ao servidor do ServiceNow para autenticação básica e OAuth2.  | Não |
 | palavra-passe | A palavra-passe correspondente ao nome de utilizador para a autenticação básica e OAuth2. Pode escolher marcar este campo como um SecureString armazena de forma segura na ADF ou armazenar a palavra-passe no Cofre de chaves do Azure e permitir que a atividade de cópia solicitar a partir daí quando efetuar a cópia de dados - Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Não |
@@ -144,5 +144,5 @@ Para copiar dados de ServiceNow, defina o tipo de origem na atividade de cópia 
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

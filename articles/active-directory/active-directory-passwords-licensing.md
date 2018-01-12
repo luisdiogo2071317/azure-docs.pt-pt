@@ -1,5 +1,5 @@
 ---
-title: 'Licenciamento: O Azure AD SSPR | Microsoft Docs'
+title: "Reposição de palavra-passe self-service de licença - Azure Active Directory"
 description: Azure AD self-service palavra-passe repor os requisitos de licenciamento
 services: active-directory
 keywords: 
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 45cecbf1334d4d708f1578d1512627bc0ead3a04
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2ff9f80cfe9991000fdee45421fc74e662a4dfd1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Repor o licenciamento requisitos de palavra-passe self-service do Azure AD
 
 Ordem de palavra-passe do Azure Active Directory (Azure AD) Repor para a função, *tem de ter pelo menos uma licença atribuída na sua organização*. Iremos não impõem licenciamento a experiência de reposição de palavra-passe por utilizador. Para manter a conformidade com o contrato de licenciamento da Microsoft, terá de atribuir licenças para os utilizadores que utilizam as funcionalidades premium.
 
 * **Os utilizadores apenas na nuvem**: do Office 365 qualquer paga SKU ou do Azure AD Basic
-* **Nuvem** ou **os utilizadores no local**: Azure AD Premium P1 P2, Enterprise Mobility + segurança (EMS) ou o Secure produtivos Enterprise (es)
+* **Nuvem** ou **os utilizadores no local**: Azure AD Premium P1 ou P2, Enterprise Mobility + de segurança (EMS) ou Microsoft 365
 
 ## <a name="licenses-required-for-password-writeback"></a>Licenças necessárias para a repetição de escrita de palavras-passe
 
@@ -42,6 +42,7 @@ Para utilizar a repetição de escrita de palavras-passe, tem de ter uma das seg
 
 > [!WARNING]
 > Autónomo Office 365 licenciamento planos *não suportam a repetição de escrita de palavras-passe* e requerem que tenha um dos planos anteriores para esta funcionalidade funcione.
+>
 
 Podem encontrar informações de licenciamento adicionais, incluindo os custos, nas seguintes páginas:
 
@@ -56,7 +57,7 @@ Azure AD agora suporta o licenciamento baseadas em grupos. Os administradores po
 
 Alguns serviços da Microsoft não estão disponíveis em todas as localizações. Antes de uma licença pode ser atribuída a um utilizador, o administrador tem de especificar o **localização de utilização** propriedade no utilizador. Atribuição de licenças pode ser efetuada sob a **utilizador** > **perfil** > **definições** secção no portal do Azure. *Quando utilizar a atribuição do grupo de licenças, os utilizadores sem uma localização de utilização especificada herdam a localização do diretório.*
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Como posso concluir uma implementação com êxito da SSPR?](active-directory-passwords-best-practices.md)
 * [Repor ou alterar a palavra-passe](active-directory-passwords-update-your-own-password.md)
@@ -69,4 +70,3 @@ Alguns serviços da Microsoft não estão disponíveis em todas as localizaçõe
 * [Quais são todas as opções na SSPR e o que significam?](active-directory-passwords-how-it-works.md)
 * [Creio que algo está a funcionar incorretamente. Como posso resolver problemas da SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que ainda não foi abordada](active-directory-passwords-faq.md)
-

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 501deec6d766cca500a2a6060e147bf69ba6507b
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Copiar dados de origem e de HDFS utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,8 @@ Especificamente, este conector HDFS suporta:
 Para copiar dados de/para um HDFS que não está acessível publicamente, terá de configurar um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](concepts-integration-runtime.md) artigo para obter detalhes.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir o HDFS entidades do Data Factory específicas.
 
@@ -383,5 +384,5 @@ Existem duas opções para configurar o ambiente no local, de modo a utilizar a 
 * Configurar o conector do HDFS utilizando **autenticação do Windows** juntamente com a sua conta de domínio ou Principal de Kerberos para ligar à origem de dados de HDFS. Verifique [propriedades de serviço ligado do HDFS](#linked-service-properties) secção nos detalhes de configuração.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

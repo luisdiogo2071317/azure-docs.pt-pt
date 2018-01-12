@@ -12,14 +12,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: 2064c081da6d72ab15fb6cf72ba9d18a74a67fdd
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 68805a6b28fc9454262cb0503daa23af93c76a7e
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Autenticar Runbooks com Amazon Web Services
 Automatizar tarefas comuns com recursos nos Amazon Web Services (AWS) pode ser efetuado com runbooks de Automatização no Azure.  Pode automatizar muitas tarefas no AWS através de runbooks de Automatização, tal como o pode fazer com recursos no Azure.  Apenas são necessárias duas coisas:
@@ -37,6 +37,6 @@ Depois de ter criado e copiado as chaves de segurança AWS, tem de criar um recu
 1. Na caixa **Nome**, introduza **AWScred** ou um valor adequado a seguir às normas de nomenclatura.  
 2. Na caixa **Nome de utilizador**, escreva o **ID de Acesso** e a **Chave de Acesso Secreta** na caixa **Palavra-passe** e **Confirmar palavra-passe**.   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Leia o artigo de solução [Automating deployment of a VM in Amazon Web Services (Automatizar a implementação de uma VM nos Amazon Web Services)](automation-scenario-aws-deployment.md) para saber como criar runbooks para automatizar as tarefas no AWS.
 

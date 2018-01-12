@@ -1,5 +1,5 @@
 ---
-title: "Política: Do Azure AD SSPR | Microsoft Docs"
+title: "Políticas - Azure Active Directory de reposição de palavra-passe self-service"
 description: "As opções de política de reposição de Azure AD self-service palavra-passe"
 services: active-directory
 keywords: "Gestão de palavras-passe do Active Directory, gestão de palavras-passe, do Azure AD Self-repor a palavra-passe do serviço"
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -38,18 +38,18 @@ Com a política de porta de dois, os administradores não têm a capacidade de u
   * Administrador de suporte técnico
   * Administrador de suporte de serviço
   * Administrador de faturação
-  * Suporte de Tier1 parceiro
-  * Suporte de Tier2 parceiro
-  * Administrador de serviço do Exchange
-  * Administrador de serviço do Lync
+  * Parceiro de Suporte de Escalão 1
+  * Parceiro de Suporte de Escalão 2
+  * Administrador do serviço Exchange
+  * Administrador do serviço Lync
   * Administrador de conta de utilizador
-  * Escritores de diretório
+  * Escritores de diretórios
   * Administrador global ou de administrador da empresa
   * Administrador de serviço do SharePoint
-  * Administrador de compatibilidade
-  * Administrador da aplicação
+  * Administrador de Conformidade
+  * Administrador de aplicações
   * Administrador de segurança
-  * Administrador com função privilegiada
+  * Administrador com Função Privilegiada
   * Administrador de serviços do Microsoft Intune
   * Administrador de serviço de proxy de aplicações
   * Administrador de serviço do CRM
@@ -146,7 +146,7 @@ Para começar, terá de [transferir e instalar o módulo Azure AD PowerShell](ht
    > [!WARNING]
    > As palavras-passe definida como `-PasswordNeverExpires $true` ainda idade com base no `pwdLastSet` atributo. Se definir as palavras-passe de utilizador para nunca expirar e avance 90 dias, as palavras-passe expirarem. Com base no `pwdLastSet` atributo, se alterar a expiração para `-PasswordNeverExpires $false`, todas as palavras-passe que tenham um `pwdLastSet` mais antiga do que 90 dias exigir que o utilizador para alterá-los da próxima vez que iniciar sessão. Esta alteração pode afetar a um grande número de utilizadores. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os artigos seguintes fornecem informações adicionais sobre a reposição através do Azure AD palavra-passe:
 

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 6cbdda98c079d25c9cce1342c79dea6e66aec3ad
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 7e6e37c0f5c8447b0e6d147a297b460d323b8894
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticação com o Data Lake Store utilizando o Azure Active Directory
 
@@ -48,7 +48,7 @@ A tabela seguinte ilustra como pelo utilizador final e mecanismos de autenticaç
 
 Consulte [cenários de autenticação do Azure Active Directory](../active-directory/develop/active-directory-authentication-scenarios.md) para obter mais informações sobre como utilizar o Azure Active Directory para autenticação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Autenticação de utilizador final](data-lake-store-end-user-authenticate-using-active-directory.md)
 * [Autenticação serviço a serviço](data-lake-store-service-to-service-authenticate-using-active-directory.md)

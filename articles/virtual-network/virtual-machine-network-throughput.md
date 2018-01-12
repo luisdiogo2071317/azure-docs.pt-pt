@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 7de85aa76dd449b97a5572f665d98378872eee88
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f22b6f361f0c5bea547721309bb0f75b62f18d92
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="virtual-machine-network-throughput"></a>Débito de rede de máquina virtual
+# <a name="virtual-machine-network-bandwidth"></a>Largura de banda de rede de máquina virtual
 
-O Azure oferece uma variedade de tamanhos de máquina virtual e tipos, cada um com uma combinação de diferentes das capacidades de desempenho. Uma capacidade é rede débito (ou largura de banda), medida em megabits por segundo (Mbps). Uma vez que as máquinas virtuais são alojadas no hardware partilhado, a capacidade de rede tem de ser partilhada bastante entre as máquinas virtuais que partilham o mesmo hardware. Máquinas virtuais maiores são alocadas relativamente mais largura de banda inferior das máquinas virtuais.
+O Azure oferece uma variedade de tamanhos de VM e tipos, cada um com uma combinação de diferentes das capacidades de desempenho. Uma capacidade é rede débito (ou largura de banda), medida em megabits por segundo (Mbps). Uma vez que as máquinas virtuais são alojadas no hardware partilhado, a capacidade de rede tem de ser partilhada bastante entre as máquinas virtuais que partilham o mesmo hardware. Máquinas virtuais maiores são alocadas relativamente mais largura de banda inferior das máquinas virtuais.
  
 A largura de banda de rede atribuída a cada máquina virtual é limitada no tráfego (saída) de saída da máquina virtual. Todo o tráfego de rede se deixar a máquina virtual é contabilizado para o limite alocado, independentemente do destino. Por exemplo, se uma máquina virtual tem um limite de Mbps 1.000, esse limite aplica-se quer o tráfego de saída é destinado a outra máquina virtual na mesma rede virtual ou fora do Azure.
  

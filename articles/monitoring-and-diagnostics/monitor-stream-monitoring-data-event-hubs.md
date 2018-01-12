@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 1/11/2018
 ms.author: johnkem
-ms.openlocfilehash: 59f0cba66a5d8d2a528700861efff86967c1c748
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: b2813035b4665a36b475e791965d395b84ddb3f1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure de fluxo monitorização dados para um hub de eventos para consumo por uma ferramenta externa
 
@@ -92,7 +92,7 @@ Dados de monitorização de aplicações requer que o código é equipado com um
 
 Encaminhamento os dados de monitorização para um hub de eventos com a monitorização do Azure permite-lhe integrar facilmente com parceiros SIEM e ferramentas de monitorização. A maioria das ferramentas requerem a cadeia de ligação do hub de eventos e determinadas permissões à sua subscrição do Azure para ler dados do hub de eventos. Eis uma lista não exaustiva das ferramentas com a integração do Monitor do Azure:
 
-* **IBM QRadar** -QRadar o conector para os event hubs está atualmente na versão beta. Logo que estarão disponível para instalar manualmente do IBM corrigir Central ou automaticamente através do processo de atualização automática do QRadar.
+* **IBM QRadar** -o DSM de Azure da Microsoft e o protocolo de Hub de eventos do Microsoft Azure estão disponíveis para transferência a partir do [do site de suporte do IBM](http://www.ibm.com/support). Pode [saber mais sobre a integração com o Azure aqui](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** - [o suplemento de Monitor do Azure para Splunk](https://splunkbase.splunk.com/app/3534/) está disponível no Splunkbase e um projeto de código aberto. [Documentação está aqui](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
 * **SumoLogic** -as instruções para configurar SumoLogic consumir dados a partir de um hub de eventos são [disponível aqui](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 

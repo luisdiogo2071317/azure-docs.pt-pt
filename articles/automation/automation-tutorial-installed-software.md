@@ -6,15 +6,15 @@ keywords: "inventário, automatização,alteração, controlo"
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 49eedd975e456d97f9eee44f9b00993b115ad4fa
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: HT
+ms.openlocfilehash: bdd638d0612a8ddee1a0ddb4fd4579f8da14b887
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Descobrir que software está instalado nos seus computadores do Azure e não Azure
 
@@ -125,7 +125,7 @@ ConfigurationData
 | render table
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu como ver o inventário de software, como:
 
@@ -137,4 +137,4 @@ Neste tutorial, aprendeu como ver o inventário de software, como:
 Avance para a descrição geral da solução Controlo de alterações e Inventário para saber mais acerca dela.
 
 > [!div class="nextstepaction"]
-> [Solução Gestão de alterações e Inventário](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Solução Gestão de mudança e Inventário](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)

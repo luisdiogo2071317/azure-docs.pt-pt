@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD: Registo SSPR | Microsoft Docs'
+title: "Registar para a reposição de palavra-passe self-service - Azure Active Directory"
 description: "Registar dados de autenticação de palavra-passe self-service do Azure AD repor"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: bae62762decf530521ba10ce684d5db9afa0b86c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 976eb5e710b0ffca48dae268b394b3d31fe2e938
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="register-for-self-service-password-reset"></a>Registar-se na reposição personalizada de palavra-passe
 
@@ -58,7 +58,7 @@ Os administradores podem implicar a confirmar os métodos de autenticação apó
 | Posso obter um erro "a conta não está ativada para a reposição de palavra-passe" depois de introduzir o meu ID de utilizador | A conta não está ativada para a reposição de palavra-passe. <br> <br> Lamentamos, mas a sua equipa de TI não tenha configurado a sua conta para utilização com este serviço. <br> <br> Se quiser, podemos contactá um administrador na sua organização para repor a palavra-passe por si. | Está a ver esta mensagem porque a sua equipa de TI não activou a reposição da sua organização de palavra-passe a **não é possível aceder à sua conta** ligar ou ainda não está licenciado para utilizar a funcionalidade. <br> <br> Para repor a palavra-passe, selecione o **contacte um administrador** ligação. Mensagens de correio eletrónico serão enviadas para a sua empresa equipa de TI. Mensagem de correio eletrónico permite-lhes saber que pretende repor a palavra-passe, pelo que podem ativar esta funcionalidade para si. |
 | Posso obter um erro de "pode não verificar a sua conta" depois de introduzir o meu ID de utilizador | Não foi possível verificar a sua conta. <br> <br> Se quiser, podemos contactá um administrador na sua organização para repor a palavra-passe por si. | Está a ver esta mensagem porque está a ser ativada para a reposição de palavra-passe, mas ainda não está registado para utilizar o serviço. Para registar para a reposição de palavra-passe, vá para o [página de registo de reposição de palavra-passe](http://aka.ms/ssprsetup) depois de ter recuperou o acesso à sua conta. <br> <br> Para repor a palavra-passe, selecione o **contacte um administrador** ligação para enviar uma mensagem de e-mail da sua empresa equipa de TI. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Alterar a palavra-passe através da utilização de reposição de palavra-passe self-service](active-directory-passwords-update-your-own-password.md)
 * [Página de registo de reposição de palavra-passe](http://aka.ms/ssprsetup)

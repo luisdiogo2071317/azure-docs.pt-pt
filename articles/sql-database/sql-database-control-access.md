@@ -3,7 +3,7 @@ title: "Conceder acesso à Base de Dados SQL do Azure | Microsoft Docs"
 description: "Saiba como conceder acesso à Base de Dados SQL do Microsoft Azure."
 services: sql-database
 documentationcenter: 
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 02/06/2017
-ms.author: rickbyh
-ms.openlocfilehash: 79281de7a644af79092efd7ba52c03f687d9d029
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: carlrab
+ms.openlocfilehash: 28c1ec79752f822939fefe6ce3686ace8ad1b6b0
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-sql-database-access-control"></a>Controlo de acesso à Base de Dados SQL do Azure
 Para fornecer segurança, a Base de Dados SQL controla o acesso com regras de firewall que limitam a conectividade por endereço IP, mecanismos de autenticação que exigem que os utilizadores provem a sua identidade e mecanismos de autorização que limitam os utilizadores a ações e dados específicos. 
@@ -60,7 +60,7 @@ Deverá familiarizar-se com as seguintes funcionalidades que podem ser utilizada
 * A [Máscara de Dados](sql-database-dynamic-data-masking-get-started.md) pode ser utilizada para limitar a exposição de dados confidenciais.
 * Os [Procedimentos armazenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) podem ser utilizados para limitar as ações que podem ser realizadas na base de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter uma descrição geral das funcionalidades de segurança da Base de Dados SQL, veja [Descrição geral da segurança de SQL](sql-database-security-overview.md).
 - Para saber mais sobre as regras de firewall, consulte o artigo [regras de Firewall](sql-database-firewall-configure.md).

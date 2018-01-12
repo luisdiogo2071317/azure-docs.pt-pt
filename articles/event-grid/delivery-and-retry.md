@@ -6,13 +6,13 @@ author: djrosanova
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/10/2018
 ms.author: darosa
-ms.openlocfilehash: 4eacb37d6e19b4b69d604aa84fd404479dead1ea
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega de mensagens de grelha de eventos e tente novamente 
 
@@ -64,31 +64,8 @@ Grelha de eventos adiciona uma pequena aleatoriedade para todos os intervalos de
 
 Durante a pré-visualização do Azure eventos grelha expira todos os eventos que não são fornecidos no prazo de duas horas.
 
-## <a name="monitoring"></a>Monitorização
-
-Pode utilizar o portal para ver o estado de entregas de eventos.
-
-Para ver as métricas para uma subscrição de evento, procure **subscrições de evento** nos serviços disponíveis e selecione-o.
-
-![Pesquisa para subscrições de eventos](./media/delivery-and-retry/select-event-subscriptions.png)
-
-Filtrar por tipo de evento, a subscrição e localização. Selecione **métricas** para a subscrição ver.
-
-![Subscrições de eventos de filtro](./media/delivery-and-retry/filter-events.png)
-
-Ver as métricas para o tópico de eventos e uma subscrição.
-
-![Veja as métricas de eventos](./media/delivery-and-retry/subscription-metrics.png)
-
-Se tiver publicado um tópico personalizado, pode ver as métricas para o mesmo. Selecione o grupo de recursos que contém o tópico e selecione o tópico.
-
-![Selecione o tópico personalizado](./media/delivery-and-retry/select-custom-topic.png)
-
-Ver as métricas para o tópico de evento personalizado.
-
-![Veja as métricas de eventos](./media/delivery-and-retry/custom-topic-metrics.png)
-
 ## <a name="next-steps"></a>Passos Seguintes
 
+* Para ver o estado de entregas de eventos, consulte [entrega de mensagens de grelha de eventos do Monitor](monitor-event-delivery.md).
 * Para uma introdução à grelha de eventos, consulte [sobre eventos grelha](overview.md).
 * Para rapidamente começar a utilizar a grelha de eventos, consulte o artigo [criar e rota eventos personalizados com o Azure eventos grelha](custom-event-quickstart.md).

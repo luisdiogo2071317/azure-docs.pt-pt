@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ac73006f3589bf6d8adb0d7935b694b444d1415c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2611b50114a9fae003fe6e77300780a9af0698cc
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="copy-data-between-data-lake-store-and-azure-sql-database-using-sqoop"></a>Copiar dados entre o Data Lake Store e a SQL database do Azure utilizando o Sqoop
 Saiba como utilizar o Apache Sqoop para importar e exportar dados entre SQL Database do Azure e o Data Lake Store.
@@ -138,7 +138,7 @@ Um cluster do HDInsight já tem os pacotes de Sqoop disponíveis. Se tiver confi
 
 Para sua tarefa Sqoop para copiar dados para o Data Lake Store de otimização do desempenho, consulte [documento de desempenho Sqoop](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Copiar dados de Blobs de armazenamento do Azure para o Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 * [Secure data in Data Lake Store (Proteger dados no Data Lake Store)](data-lake-store-secure-data.md)
 * [Utilizar o Azure Data Lake Analytics com o Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

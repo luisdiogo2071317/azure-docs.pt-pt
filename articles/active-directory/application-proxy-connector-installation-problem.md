@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a02f6cf0923bbe7083ba29fac5f59bcce9f5ab44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Instalar o conector de agente de Proxy de aplicações do problema
 
@@ -37,9 +37,9 @@ Quando a instalação de um conector falhar, a causa raiz é normalmente uma das
 
 **Objetivo:** Certifique-se de que a máquina do conector pode ligar para o ponto final do registo de Proxy de aplicações do AAD, bem como a página de início de sessão da Microsoft.
 
-1.  Abra um browser e aceda à página web seguinte: <https://aadap-portcheck.connectorporttest.msappproxy.net> e certifique-se de que a conectividade a datacenters EUA Central e de EUA Leste com as portas 9090 e 9091 está a funcionar.
+1.  Abra um browser e aceda à página web seguinte: <https://aadap-portcheck.connectorporttest.msappproxy.net> e certifique-se de que a conectividade a datacenters EUA Central e de EUA Leste com as portas 80 e 443 está a funcionar.
 
-2.  Se qualquer um dessas portas não for bem sucedida (não tem uma marca de verificação verde), certifique-se de que tem o proxy de Firewall ou back-end \*. msappproxy.net com portas 9090 e 9091 definido corretamente.
+2.  Se qualquer um dessas portas não for bem sucedida (não tem uma marca de verificação verde), certifique-se de que tem o proxy de Firewall ou back-end \*. msappproxy.net com as portas 80 e 443 definido corretamente.
 
 3.  Abra um browser (separador separado) e aceda à página web seguinte: <https://login.microsoftonline.com>, certifique-se de que pode iniciar sessão nessa página.
 
@@ -68,5 +68,5 @@ Ligar ao <https://login.microsoftonline.com> e utilizar as mesmas credenciais. C
 
 Selecione a sua conta de utilizador, em seguida, "função de diretório" no menu resultante. Verifique se a função selecionada "Administrador Global". Se não for possível aceder a qualquer uma das páginas ao longo estes passos, não é um administrador global.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-understand-connectors.md)

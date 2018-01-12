@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/11/2018
 ms.author: terrylan
-ms.openlocfilehash: 226fc82abf7aa24a0aa1bd3c21279158e1ce8e95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 138611c8e476ba267c9111a33bd83e1db0672a7d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 Centro de segurança recolhe dados de máquinas de virtuais (VMs) do Azure e computadores não do Azure para monitorizar vulnerabilidades de segurança e ameaças. Os dados são recolhidos através do Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Os exemplos destes dados incluem: tipo e versão do sistema operativo, registos de sistema operativo (registos de eventos do Windows), processos em execução, nome da máquina, endereços IP, utilizador com sessão iniciada e ID do inquilino. O Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
@@ -90,14 +90,24 @@ Centro de segurança pode reduzir o volume de eventos, mantendo em simultâneo s
 
 Para determinar os eventos que irão pertencer ao **comuns** e **mínima** conjuntos de evento, iremos trabalhou com os clientes e normas da indústria para saber mais sobre a frequência e não filtrada da respetiva utilização e cada evento. Utilizámos as seguintes diretrizes neste processo:
 
-- **Mínimo** -Certifique-se de que este conjunto abrange apenas os eventos que possam indicar uma violação com êxito e eventos importantes que têm um volume muito baixo. Por exemplo, este conjunto contém utilizador com êxito e início de sessão (evento 4624 de IDs, 4625), mas não contém o fim de sessão que é importante para auditoria mas não significativo para deteção e tem relativamente elevado volume. A maioria do volume de dados deste conjunto é os eventos de início de sessão e os eventos de criação do processo (evento ID 4688).
+- **Mínimo** -Certifique-se de que este conjunto abrange apenas os eventos que possam indicar uma violação com êxito e eventos importantes que têm um volume muito baixo. Por exemplo, este conjunto contém utilizador com êxito e início de sessão (evento 4624 de IDs, 4625), mas não contém o fim de sessão que é importante para auditoria mas não significativo para deteção e tem relativamente elevado volume. A maioria do volume de dados deste conjunto é os eventos de início de sessão e os eventos de criação do processo (evento ID 4688, consulte o Centro de segurança [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled) para obter mais informações sobre eventos de criação de processo 4688).
 - **Comuns** -forneça um registo de auditoria de utilizador completo deste conjunto. Por exemplo, este conjunto contém inícios de sessão do utilizador e de fim de sessão do utilizador (evento ID 4634). Incluímos auditoria ações como alterações ao grupo de segurança, operações de Kerberos do controlador de domínio de chave e outros eventos que são recomendados por organizações da indústria.
 
 Eventos com um volume muito baixa foram incluídos no comuns definido como a motivação principal para escolher o ao longo de todos os eventos é para reduzir o volume e não para filtrar os eventos específicos.
 
 Eis uma divisão de segurança e do App Locker de IDs de evento para cada conjunto concluída:
 
-   ![IDs de evento][4]
+| Camada de dados | Indicadores de evento recolhidos |
+| --- | --- |
+| mínimo | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
+| | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
+| Comuns (predefinição) | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
+| |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
+| | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
+| | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
+| | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
+| | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
+| | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 Para escolher a política de filtragem:
 1. No **definições de política de segurança &** painel, selecione a política de filtragem em **eventos de segurança**.
@@ -121,7 +131,7 @@ Pode desativar aprovisionamento automático de recursos em qualquer altura desat
 3. No **política de segurança – recolha de dados** painel, em **integração** selecione **desativar** para desativar aprovisionamento automático.
 4. Selecione **Guardar**.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Este artigo como mostrado a recolha de dados e o aprovisionamento automático no Centro de segurança funciona. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
@@ -137,6 +147,5 @@ Este artigo como mostrado a recolha de dados e o aprovisionamento automático no
 [1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
-[4]: ./media/security-center-enable-data-collection/event-id.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
 [6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png

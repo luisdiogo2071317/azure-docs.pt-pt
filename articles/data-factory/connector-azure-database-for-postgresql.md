@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: e050fd4b1924223fffbe8173b7d3ad5ead269f81
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: adc8ebe282fa4e4b242924bf1fea9b62d704835e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Copiar os dados da base de dados do Azure para PostgreSQL utilizando o Azure Data Factory 
 
@@ -34,7 +34,7 @@ O Azure Data Factory fornece um controlador incorporado para ativar a conetivida
 
 ## <a name="getting-started"></a>Introdução
 
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas à base de dados do Azure para o conector PostgreSQL.
 

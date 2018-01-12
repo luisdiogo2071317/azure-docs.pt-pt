@@ -12,14 +12,14 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 543e8a591acc76918aa7159e6a31b67d85849148
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: a16c5011986c16aae26efaaa6191568b04f46567
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-location-based-services---geocoding-coverage"></a>Localização do Azure com base em serviços - cobertura de codificação geográfica
-Azure localização com base em serviços (LBS) fornece informações detalhadas geocodificação para procurar os endereços, locais e outras entidades geográficas em todo o mundo. Isto é importante para os clientes que pretendem saber onde pode e não pode esperar localizar os vários níveis de fidelidade ao pesquisar para endereços no serviço de pesquisa. Quando pesquisar regiões com cobertura de baixa fidelidade, não pode esperar inferiores resultados de pesquisa de confiança. A tabela seguinte fornece informações de cobertura para Geocodificação de pesquisa do Azure LBS.
+Azure localização com base em serviços (LBS) fornece informações detalhadas geocodificação para procurar os endereços, locais e outras entidades geográficas em todo o mundo. Isto é importante para os clientes que pretendem saber onde pode e não pode esperar localizar os vários níveis de fidelidade ao pesquisar para endereços no serviço de pesquisa. Quando pesquisar regiões com cobertura de baixa fidelidade, pode contar com os resultados da pesquisa de confiança inferiores. A tabela seguinte fornece informações de cobertura para Geocodificação de pesquisa do Azure LBS.
 
 
 |Região  |Pontos de endereço  |Próxima números |Nível completo|
@@ -45,7 +45,7 @@ Azure localização com base em serviços (LBS) fornece informações detalhadas
 |Granada     |         |         |✓         |
 |Guadalupe     |         |✓         |✓         |
 |Guatemala     |         |         |✓         |
-|Guam     |✓         |✓         | ✓        |
+|Guame     |✓         |✓         | ✓        |
 |Haiti     |         |         |✓         |
 |Honduras     |         |         |✓         |
 |Jamaica     |         |         | ✓        |
@@ -58,7 +58,7 @@ Azure localização com base em serviços (LBS) fornece informações detalhadas
 |São Bartolomeu     |         |         | ✓        |
 |São Cristóvão e Neves     |         |         |✓         |
 |São Martinho     |         |         | ✓        |
-|São Martinho (Sint Maarten)     |         |         |✓        |
+|São Martinho (Saint-Martin)     |         |         |✓        |
 |Trinidad e Tobago     |         |         |✓         |
 |Estados Unidos da América     |✓         |✓         | ✓        |
 |Uruguai     |         |✓         |✓         |
@@ -149,7 +149,7 @@ Azure localização com base em serviços (LBS) fornece informações detalhadas
 |Cabo Verde     |         |         |✓         |
 |República Centro-Africana     |         |         |✓         |
 |Chade     |         |         |✓         |
-|Congo     |         |         |✓         |
+|República do Congo     |         |         |✓         |
 |Costa do Marfim (Côte d’Ivoire)     |         |         |✓         |
 |República Democrática do Congo     |         |         |✓         |
 |Jibuti     |         |         |✓         |
@@ -160,7 +160,7 @@ Azure localização com base em serviços (LBS) fornece informações detalhadas
 |Gabão    |         |         |✓         |
 |Gana     |         |         |✓         |
 |Guiné     |         |         |✓         |
-|Guiné Bissau     |         |         |✓         |
+|Guiné-Bissau     |         |         |✓         |
 |Iraque     |         |         |✓         |
 |Jordânia     |✓         |         |✓         |
 |Quénia     |         |         |✓         |
@@ -174,7 +174,7 @@ Azure localização com base em serviços (LBS) fornece informações detalhadas
 |Mali     |         |         |✓         |
 |Mauritânia     |         |         |✓         |
 |Maurícia     |         |         |✓        |
-|Mayotte     |         |         |✓         |
+|Maiote     |         |         |✓         |
 |Marrocos     |         |✓         |✓         |
 |Moçambique     |         |         |✓         |
 |Namíbia     |         |✓         |✓         |
@@ -256,7 +256,7 @@ LBS do Azure fornece ao nível da cidade precisão quando efetuar pesquisas nas 
 |     |Papua-Nova Guiné         |
 |     |Ilhas Paracel         |
 |     |Pitcairn         |
-|     |Samoa         |
+|     |Estado Independente de Samoa         |
 |     |Ilhas Senkaku         |
 |     |Ilhas Salomão         |
 |     |Coreia do Sul         |
@@ -292,7 +292,7 @@ LBS do Azure fornece ao nível da cidade precisão quando efetuar pesquisas nas 
 |     |Israel         |
 |     |Maldivas      |
 |     |Ilhas Marshall         |
-|     |Myanmar         |
+|     |Mianmar         |
 |     |Autoridade Palestiniana         |
 |     |Santa Helena         |
 |     |Somália         |

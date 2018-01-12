@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>Introdução à Automatização do Azure
 
@@ -87,10 +87,6 @@ Todas as tarefas de automatização que executa relativamente aos recursos que u
 * **Runbooks** -são um conjunto de tarefas que efetuam algum processo automatizado na automatização do Azure, com base no Windows PowerShell.    
 
 Os recursos de Automatização de cada conta de Automatização estão associados a uma única região do Azure, mas as contas de Automatização podem gerir todos os recursos na sua subscrição. Crie contas de Automatização em diferentes regiões se tiver políticas que exigem que os dados e os recursos estejam isolados numa região específica.
-
-> [!NOTE]
-> As contas de Automatização e os recursos que contêm que são criados no portal do Azure não podem ser acedidos no portal clássico do Azure. Se pretende gerir estas contas ou os respetivos recursos com o Windows PowerShell, tem de utilizar os módulos do Azure Resource Manager.
-> 
 
 Quando cria uma conta de Automatização no portal do Azure, são criadas automaticamente duas entidades de autenticação:
 
@@ -165,7 +161,7 @@ O método recomendado para carregar a Automatização é selecionar a oferta de 
 
 4. Depois de ler a descrição da oferta, clique em **Criar**.  
 
-5. No painel de definições **Automatização & Controlo**, selecione **Área de trabalho do OMS**.  No painel **Áreas de Trabalho do OMS**, selecione uma área de trabalho do OMS ligada à mesma subscrição do Azure da qual a conta de Automatização faz parte ou crie uma área de trabalho do OMS.  Se não tiver uma área de trabalho do OMS, selecione **Criar Nova Área de Trabalho** e, no painel **Área de Trabalho do OMS** , faça o seguinte: 
+5. No painel de definições **Automatização & Controlo**, selecione **Área de trabalho do OMS**.  No painel **Áreas de Trabalho do OMS**, selecione uma área de trabalho do OMS ligada à mesma subscrição do Azure da qual a conta de Automatização faz parte ou crie uma área de trabalho do OMS.  Se não tiver uma área de trabalho do OMS, selecione **Criar Nova Área de Trabalho** e, no painel **Área de Trabalho do OMS**, faça o seguinte: 
    - Especifique um nome para a **Área de Trabalho do OMS**.
    - Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
    - Em **Grupo de Recursos**, pode criar um grupo de recursos ou selecionar um já existente.  
@@ -187,7 +183,7 @@ O método recomendado para carregar a Automatização é selecionar a oferta de 
 
 Após a integração da oferta, pode começar a criar runbooks, trabalhar com soluções de gestão ativadas por si, implementar uma [Função de Trabalho de Runbook Híbrida](automation-hybrid-runbook-worker.md) ou começar a trabalhar com o [Log Analytics](https://docs.microsoft.com/azure/log-analytics) para recolher dados gerados pelos recursos em ambientes de cloud ou no local.   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Pode confirmar que a sua nova conta de Automatização pode autenticar em relação a recursos do Azure, através da consulta de [test Azure Automation Run As account authentication (testar a autenticação da conta Run As de Automatização do Azure)](automation-verify-runas-authentication.md).
 * Para começar a criação de runbooks, reveja primeiro os [tipos de automatização de runbooks](automation-runbook-types.md) suportados e as considerações relacionadas antes de começar a criar.
 

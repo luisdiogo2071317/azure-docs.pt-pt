@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>As filas de armazenamento e de filas do Service Bus - comparados e contrasted
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidas pelo Microsoft Azure hoje: as filas de armazenamento e de filas do Service Bus. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
@@ -107,7 +107,7 @@ Esta secção compara as capacidades avançadas disponibilizadas pelas filas de 
 | Atualização no local |**Sim** |**Sim** |
 | Registo de transações do lado do servidor |**Sim** |**Não** |
 | Métricas do Storage |**Sim**<br/><br/>**Minutos de métricas**: fornece métricas em tempo real para a API de disponibilidade, TPS, chamar contagens, contagens de erro e muito mais, todos em tempo real (agregados por minuto e comunicou dentro de alguns minutos a partir do que aconteceu apenas na produção. Para obter mais informações, consulte [sobre análise as métricas do Storage](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Sim**<br/><br/>(em massa consultas ao chamar [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| Gestão de estado |**Não** |**Sim**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus.active), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.disabled), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.senddisabled), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.receivedisabled) |
+| Gestão de estado |**Não** |**Sim**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | Auto-reencaminhamento de mensagens |**Não** |**Sim** |
 | Remover a função de fila |**Sim** |**Não** |
 | Grupos de mensagem |**Não** |**Sim**<br/><br/>(através da utilização de sessões de mensagens) |
@@ -132,7 +132,7 @@ Esta secção compara as filas de armazenamento e de filas do Service Bus da per
 | Critérios de comparação | Filas de armazenamento | Filas de Service Bus |
 | --- | --- | --- |
 | Tamanho máximo da fila |**500 TB**<br/><br/>(limitado a um [única capacidade das contas de armazenamento](../storage/common/storage-introduction.md#queue-storage)) |**1 GB para 80 GB**<br/><br/>(definido após a criação de uma fila e [ativar a criação de partições](service-bus-partitioning.md) – consulte a secção "Informações adicionais") |
-| Tamanho da mensagem máximo |**64 KB**<br/><br/>(48 KB quando utilizar **Base64** codificação)<br/><br/>Azure suporta mensagens grandes através da combinação de filas e blobs – ponto em que pode colocar em fila até 200 GB para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo o cabeçalho e corpo, tamanho do cabeçalho máximo: 64 KB).<br/><br/>Depende do [camada de serviço](service-bus-premium-messaging.md). |
+| Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB quando utilizar **Base64** codificação)<br/><br/>Azure suporta mensagens grandes através da combinação de filas e blobs – ponto em que pode colocar em fila até 200 GB para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo o cabeçalho e corpo, tamanho do cabeçalho máximo: 64 KB).<br/><br/>Depende do [camada de serviço](service-bus-premium-messaging.md). |
 | TTL da mensagem máximo |**7 dias** |**TimeSpan.Max** |
 | Número máximo de filas |**Ilimitado** |**10,000**<br/><br/>(por espaço de nomes do serviço) |
 | Número máximo de clientes em simultâneo |**Ilimitado** |**Ilimitado**<br/><br/>(limite de ligações simultâneas 100 apenas se aplica a comunicação baseada no protocolo TCP) |
@@ -187,7 +187,7 @@ Por obter uma conhecimento mais aprofundado sobre as duas tecnologias, conseguir
 
 Porque as filas do Service Bus fornecem diversas funcionalidades avançadas, tais como sessões, as transações, deteção, automática de duplicar capacidades de mensagens não entregues e durável publicação/subscrição, podem ser uma opção preferencial se está a criar uma versão híbrida aplicação ou se a sua aplicação, caso contrário requer estas funcionalidades.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Os artigos seguintes fornecem mais informações sobre como utilizar as filas de armazenamento ou filas do Service Bus e documentação de orientação.
 
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)

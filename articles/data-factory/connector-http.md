@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 54afc7d993058ac2b3d2990ba131d334e9332555
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiar dados de ponto final de HTTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,8 @@ Especificamente, este conector HTTP suporta:
 A diferença entre este conector e a [conector Web da tabela](connector-web-table.md) que a última opção é utilizada para extrair conteúdo de tabela de página web HTML.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md)) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector HTTP.
 
@@ -253,5 +254,5 @@ Para copiar dados de HTTP, defina o tipo de origem na atividade de cópia para *
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

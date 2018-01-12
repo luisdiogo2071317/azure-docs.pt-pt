@@ -4,7 +4,7 @@ description: "Descreve as novas funcionalidades, problemas e soluções para Sto
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 282383f0887e546c7d569494eeab42805f789fb2
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c22e3859fad55a8632d62aaf5f656081d6d662bd
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Atualizar as notas de versão 3 para o seu dispositivo de série 8000 do StorSimple
 > [!NOTE]
-> O portal clássico para StorSimple foi preterido. Os gestores de dispositivo do StorSimple será automaticamente mudada para o novo portal do Azure de acordo com a agenda de preterição. Irá receber uma mensagem de e-mail e uma notificação de movimentação do portal. Este documento também será descontinuado em breve. Para quaisquer perguntas sobre a mudança, consulte [FAQ: mover para o portal do Azure](storsimple-8000-move-azure-portal-faq.md).
+> O portal clássico do StorSimple foi preterido. Os Gestores de Dispositivos do StorSimple vão ser migrados automaticamente para o portal do Azure novo, de acordo com a agenda de preterição. Receberá uma mensagem de e-mail e uma notificação no portal relativamente a esta migração. Este documento também será descontinuado em breve. Relativamente a perguntas sobre a migração, veja [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md) (FAQ: migrar para o portal do Azure).
 
 
 ## <a name="overview"></a>Descrição geral
@@ -42,7 +42,7 @@ Reveja as informações contidas nas notas de versão antes de implementar a atu
 ## <a name="whats-new-in-update-3"></a>Novidades na atualização 3
 Foram efetuadas as seguintes melhorias de chaves e correções de erros no Update 3.
 
-* **Automatizada as alterações de libertação do espaço** – iniciar atualização 3, os algoritmos de recuperação de espaço executados no controlador de reserva do sistema, resultando em execução mais rápida. Para obter mais informações sobre as portas que são necessárias para trabalhar com a recuperação de espaço, consulte o [StorSimple requisitos de rede](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
+* **Automatizada as alterações de libertação do espaço** – iniciar atualização 3, os algoritmos de recuperação de espaço executados no controlador de reserva do sistema, resultando em execução mais rápida. Para obter mais informações sobre as portas que são necessárias para trabalhar com a recuperação de espaço, consulte o [StorSimple requisitos de rede](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
 * **Melhoramentos de desempenho** – Update 3 melhorou desempenho de leitura e escrita para a nuvem.
 * **Melhorias de migração** – nesta versão, vários erros correções e melhorias foram efetuadas para a funcionalidade de migração de dispositivos das séries 5000/7000 para dispositivos de 8000 série. Para obter mais informações sobre como utilizar a funcionalidade de migração, aceda a [migração a partir de dispositivos de série de 5000/7000 dispositivo da 8000 série](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b). 
 * **Monitorização correções relacionadas** - nesta versão, erros relacionados com a monitorização de gráficos, dashboard de serviço, e o dashboard do dispositivo foram corrigidos.
@@ -69,7 +69,7 @@ A tabela seguinte fornece um resumo dos problemas conhecidos desta versão.
 | 3 |Contas de armazenamento |Com o serviço de armazenamento para eliminar a conta de armazenamento é um cenário não suportado. Esta funcionalidade irá originar uma situação em que não não possível obter dados do utilizador. | |Sim |Sim |
 | 4 |Ativação pós-falha do dispositivo |Não é suportada a várias ativações pós-falha de um contentor de volume do mesmo dispositivo de origem para os dispositivos de destino diferente. Ativação pós-falha de um único dispositivo Inativos para vários dispositivos faz com que os contentores de volume no primeiro dispositivo de ativação pós-falha perder a propriedade de dados. Após a ativação pós-falha, estes contentores de volume serão apresentados ou comportar-se de forma diferente quando vê-las no portal clássico do Azure. | |Sim |Não |
 | 5 |Instalação |Durante a placa de StorSimple para a instalação do SharePoint, tem de fornecer um IP do dispositivo para que a instalação seja concluída com êxito. | |Sim |Não |
-| 6 |Web proxy |Se a configuração de proxy web tem HTTPS como o protocolo especificado, em seguida, a comunicação de serviço de dispositivo será afetada e o dispositivo será fique offline. Pacotes de suporte também serão gerados no processo de consumir recursos significativos no seu dispositivo. |Certifique-se de que o URL de proxy web tem HTTP como o protocolo especificado. Para obter mais informações, veja [Configure web proxy for your device (Configurar o proxy Web para o seu dispositivo)](storsimple-configure-web-proxy.md). |Sim |Não |
+| 6 |Web proxy |Se a configuração de proxy web tem HTTPS como o protocolo especificado, em seguida, a comunicação de serviço de dispositivo será afetada e o dispositivo será fique offline. Pacotes de suporte também serão gerados no processo de consumir recursos significativos no seu dispositivo. |Certifique-se de que o URL de proxy web tem HTTP como o protocolo especificado. Para obter mais informações, veja [Configure web proxy for your device (Configurar o proxy Web para o seu dispositivo)](storsimple-8000-configure-web-proxy.md). |Sim |Não |
 | 7 |Web proxy |Se configurar e ativar o proxy da web num dispositivo registado, terá de reiniciar o controlador de Active Directory no seu dispositivo. | |Sim |Não |
 | 8 |Latência de nuvem de alta e carga de trabalho de e/s elevada |Quando o dispositivo StorSimple encontra uma combinação de latências muito elevado de nuvem (ordem de segundos) e a elevada carga de trabalho de e/s, os volumes do dispositivo aceda num Estado degradado e a e/s pode falhar com um erro de "device não preparado". |Será necessário reiniciar os controladores de dispositivo ou execute uma ativação pós-falha de dispositivo para recuperar desta situação manualmente. |Sim |Não |
 | 9 |Azure PowerShell |Quando utiliza o cmdlet do StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - primeiro 1 - espera** para selecionar o objeto primeiro para que possa criar uma nova **VolumeContainer** objeto, o cmdlet devolve todos os objetos. |Moldar o cmdlet parênteses da seguinte forma: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - primeiro 1 - espera** |Sim |Sim |

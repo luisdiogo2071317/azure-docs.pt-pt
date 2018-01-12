@@ -10,17 +10,17 @@ keywords: "segurança de automatização, automatização segura; autenticação
 ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: magoedte
 ROBOTS: NOINDEX
-ms.openlocfilehash: 79e049d7bfe66c31c0e5854614bfbeb492d16ef3
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 99882c1ff7517beec2ca827c63620f773d7d07c3
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Introdução à Autenticação na Automatização do Azure  
 A Automatização do Azure permite-lhe automatizar tarefas relativamente aos recursos no Azure, no local e outros fornecedores de serviços em nuvem, tais como os Amazon Web Services (AWS).  Para um runbook efetuar as ações necessárias, tem de ter permissões para aceder de forma segura aos recursos com os direitos mínimos necessários dentro da subscrição.
@@ -31,10 +31,6 @@ Este artigo irá cobrir os vários cenários de autenticação suportados pela A
 Quando inicia a Automatização do Azure pela primeira vez, tem de criar pelo menos uma conta de Automatização. As contas de automatização permitem-lhe a isolar os recursos de Automatização (runbooks, recursos, configurações) a partir dos recursos contidos noutras contas de Automatização. Pode utilizar contas de Automatização para separar recursos em ambientes lógicos separados. Por exemplo, poderá utilizar uma conta para o desenvolvimento, outra para a produção e outra para o seu ambiente no local.  Uma conta de automatização do Azure é diferente da sua conta Microsoft ou contas criadas na sua subscrição do Azure.
 
 Os recursos de Automatização de cada conta de Automatização estão associados a uma única região do Azure, mas as contas de Automatização podem gerir todos os recursos na sua subscrição. A razão principal para criar contas de Automatização em diferentes regiões seria se tiver políticas que exigem que os dados e os recursos estejam isolados numa região específica.
-
-> [!NOTE]
-> As contas de Automatização e os recursos que contêm que são criados no portal do Azure não podem ser acedidos no portal clássico do Azure. Se pretende gerir estas contas ou os respetivos recursos com o Windows PowerShell, tem de utilizar os módulos do Azure Resource Manager.
->
 
 Todas as tarefas que executa relativamente aos recursos que utilizam o Azure Resource Manager e os cmdlets do Azure na Automatização do Azure têm de ser autenticados no Azure utilizando a autenticação com base em credenciais de identidade organizacional do Azure Active Directory.  A autenticação baseada em certificados foi o método de autenticação original com o Azure clássico, mas foi difícil de configurar.  A autenticação no Azure com o utilizador do Azure AD foi introduzida em 2014 não só para simplificar o processo de configuração de uma conta de Autenticação, mas também para suportar a capacidade de autenticar de forma não interativa no Azure com uma única conta de utilizador que funcionou com o Azure Resource Manager e os recursos clássicos.   
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 91738c1222548f9036daf19626b3ac20ddb4a76f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurar Firewalls de armazenamento do Azure e as redes virtuais (pré-visualização)
 Armazenamento do Azure fornece um modelo de segurança por camadas que permite proteger as contas de armazenamento para um conjunto específico de redes permitidos.  Quando as regras de rede estiverem configuradas, apenas as aplicações permitidas redes podem aceder a uma conta de armazenamento.  Ao chamar a partir de uma rede permitida, as aplicações continuam a exigir autorização adequada (uma chave de acesso válido ou SAS token) para aceder à conta de armazenamento.
@@ -39,6 +39,10 @@ Regras de rede podem ser aplicadas a contas do Storage existentes ou podem ser a
 Assim que são aplicadas as regras de rede, estes são impostas para todos os pedidos.  Os tokens SAS que concedam acesso a um serviço de endereço IP específico servem para **limite** o acesso do marcador de posição token, fazer, mas não conceder novo acesso para além de regras de rede configurados. 
 
 O tráfego de disco da máquina virtual (incluindo montar e desmontar operações e e/s de disco) é **não** afetadas pelas regras de rede.  Acesso REST para blobs de páginas está protegido por regras de rede.
+
+> [!NOTE]
+> Cópia de segurança e restauro de máquinas virtuais utilizando discos não geridos em contas de armazenamento com regras de rede aplicadas não é atualmente suportada.  Para obter mais informações, consulte [limitações quando a cópia de segurança e restauro de uma VM](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
+>
 
 As contas de armazenamento clássicas **não** suportam as Firewalls e redes virtuais.
 

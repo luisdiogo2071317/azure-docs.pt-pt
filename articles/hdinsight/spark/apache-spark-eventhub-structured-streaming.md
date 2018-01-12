@@ -4,7 +4,7 @@ description: "Crie um exemplo sobre como enviar um fluxo de dados para o Hub de 
 keywords: "Apache spark de transmissão em fluxo, transmissão em fluxo do spark, amostra do spark, o apache spark transmissão em fluxo de exemplo, o exemplo do event hub do azure, o exemplo do spark"
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: a542295e91a641289fa4261920a08eddbad6a217
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: jgao
+ms.openlocfilehash: f302b84685b1992faef4813c0262223bcb5909aa
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>Apache Spark estruturados de transmissão em fluxo no HDInsight para processar eventos a partir do Event Hubs
 
@@ -189,7 +189,7 @@ Por este ponto de cluster do HDInsight deve estar pronto. Caso contrário, terá
 
 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 * [Descrição geral da transmissão em fluxo do Spark](apache-spark-streaming-overview.md)
 

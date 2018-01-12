@@ -1,5 +1,5 @@
 ---
-title: Pesquisas de registo de grupos de computadores no Log Analytics | Microsoft Docs
+title: Pesquisas de registo de grupos de computadores no Log Analytics do Azure | Microsoft Docs
 description: "Grupos de computadores na análise de registos permitem-lhe para pesquisas de registo do âmbito para um conjunto específico de computadores.  Este artigo descreve os diferentes métodos que pode utilizar para criar grupos de computadores e como utilizá-los numa pesquisa de registo."
 services: log-analytics
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Pesquisas de registo de grupos de computadores na análise de registos
 
@@ -46,7 +46,7 @@ A tabela seguinte descreve as propriedades que definem um grupo de computadores.
 
 | Propriedade | Descrição |
 |:---|:---|
-| Nome a apresentar   | Nome da pesquisa para apresentar no portal. |
+| Nome a Apresentar   | Nome da pesquisa para apresentar no portal. |
 | Categoria       | Categoria para organizar as procuras no portal. |
 | Consulta          | A consulta para o grupo de computadores. |
 | Alias de função | Um alias exclusivo utilizado para identificar o grupo de computadores numa consulta. |
@@ -83,7 +83,7 @@ Configurar a análise de registos para importar os grupos de segurança do Activ
 Quando os grupos foram importados, o menu de lista o número de computadores com associações a grupos detetados e o número de grupos importados.  Pode clicar em qualquer uma destas ligações para devolver o **grupo de computador** registos com estas informações.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-Quando configura a análise de registos para importar associações a grupos WSUS, analisa as associações a filtragem de todos os computadores com o agente do OMS.  Se estiver a utilizar o lado do cliente a filtragem, qualquer computador que está ligado à OMS e faz parte de qualquer WSUS filtragem de grupos tem respetiva associação a grupos importada para análise de registos. Se estiver a utilizar o lado do servidor como objetivo, o OMS agente deve ser instalado no servidor WSUS para que as informações de associação de grupo para serem importados para o OMS.  Esta associação é constantemente atualizada a cada 4 horas. 
+Quando configura a análise de registos para importar associações a grupos WSUS, analisa as associações a filtragem de todos os computadores com o agente do OMS.  Se estiver a utilizar o lado do cliente a filtragem, qualquer computador que está ligada à análise de registos e faz parte de qualquer WSUS filtragem de grupos tem respetiva associação a grupos importada para análise de registos. Se estiver a utilizar o lado do servidor como objetivo, o OMS agente deve ser instalado no servidor WSUS para que as informações de associação de grupo para serem importados para análise de registos.  Esta associação é constantemente atualizada a cada 4 horas. 
 
 Configurar a análise de registos para importar os grupos do WSUS da análise de registos **definições avançadas** no portal do Azure.  Selecione **grupos de computadores**, **WSUS**e, em seguida, **associações a grupos WSUS de importação**.  Não há nenhuma configuração adicional.
 
@@ -145,7 +145,7 @@ A seguinte consulta devolvam UpdateSummary registos para apenas os computadores 
 
 
 ## <a name="computer-group-records"></a>Registos do grupo de computadores
-É criado um registo no repositório de OMS para cada associação a grupos criado a partir do Active Directory ou o WSUS.  Estes registos de tem um tipo de **grupo de computador** e ter as propriedades na tabela seguinte.  Os registos não são criados para grupos de computadores com base na procura de registo.
+Na área de trabalho de análise de registos para cada associação a grupos criada a partir do Active Directory ou o WSUS, é criado um registo.  Estes registos de tem um tipo de **grupo de computador** e ter as propriedades na tabela seguinte.  Os registos não são criados para grupos de computadores com base na procura de registo.
 
 | Propriedade | Descrição |
 |:--- |:--- |
@@ -159,6 +159,6 @@ A seguinte consulta devolvam UpdateSummary registos para apenas os computadores 
 | ManagementGroupName |O nome do grupo de gestão para agentes do SCOM.  Para outros agentes, o que é AOI -\<ID da área de trabalho\> |
 | TimeGenerated |Data e hora para o grupo de computadores foi criado ou atualizado. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
 

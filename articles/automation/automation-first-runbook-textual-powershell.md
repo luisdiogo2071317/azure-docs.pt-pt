@@ -12,14 +12,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: 885fe6caaa00bc0caea875d72fe2626f9e6b1863
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.openlocfilehash: 0349b8aae880c39677e05d8ba8ddd6eadd13eea1
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="my-first-powershell-runbook"></a>O meu primeiro runbook do PowerShell
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 > * [Gráficos](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-> * [python](automation-first-runbook-textual-python2.md)
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 
 Este tutorial explica como criar um [ runbook do PowerShell](automation-runbook-types.md#powershell-runbooks) na Automatização do Azure. Começamos com um runbook simples que testamos e publicamos enquanto explicamos como controlar o estado da tarefa de runbook. Em seguida, modificamos o runbook para gerir recursos do Azure, neste caso, iniciar uma máquina virtual do Azure. Por último, tornamos o runbook mais robusto ao adicionar parâmetros do runbook.
@@ -145,7 +145,7 @@ Os runbooks do PowerShell têm o mesmo ciclo de vida, capacidades e gestão que 
 3. Os runbooks do Fluxo de Trabalho do PowerShell suportam a execução paralela e em série, enquanto os runbooks do PowerShell só podem executar comandos serialmente.
 4. Num runbook de Fluxo de Trabalho do PowerShell, uma atividade, um comando ou um bloco de scripts podem ter o seu próprio espaço de execução, ao passo que num runbook do PowerShell, tudo num script é executado num único espaço de execução. Também existem algumas [diferenças sintáticas](https://technet.microsoft.com/magazine/dn151046.aspx) entre um runbook de PowerShell nativo e um runbook de Fluxo de Trabalho do PowerShell.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
 * Para saber mais sobre os tipos de runbook, as vantagens e limitações, consulte o artigo [Tipos de runbook da Automatização do Azure](automation-runbook-types.md)

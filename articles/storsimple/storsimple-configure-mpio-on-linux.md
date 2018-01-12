@@ -4,7 +4,7 @@ description: "Configurar o MPIO no StorSimple ligado ao anfitrião Linux em exec
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO num anfitrião StorSimple com CentOS
 Este artigo explica os passos necessários para configurar Multipathing e/s (MPIO) no seu servidor de anfitrião do Centos 6.6. O servidor anfitrião está ligado ao dispositivo Microsoft Azure StorSimple para elevada disponibilidade através de iniciadores iSCSI. Descreve em detalhe a deteção automática de dispositivos multipath e o programa de configuração específico apenas para os volumes do StorSimple.
@@ -26,9 +26,8 @@ Este artigo explica os passos necessários para configurar Multipathing e/s (MPI
 Este procedimento é aplicável a todos os modelos de dispositivos de série 8000 do StorSimple.
 
 > [!NOTE]
-> Este procedimento não pode ser utilizado para um dispositivo virtual StorSimple. Para obter mais informações, consulte como configurar os servidores de anfitrião para o dispositivo virtual.
-> 
-> 
+> Este procedimento não pode ser utilizado para uma aplicação de nuvem do StorSimple. Para obter mais informações, consulte como configurar os servidores de anfitrião para a aplicação de nuvem.
+
 
 ## <a name="about-multipathing"></a>Sobre multipathing
 A funcionalidade de multipathing permite-lhe configurar vários caminhos de e/s entre um servidor de anfitrião e um dispositivo de armazenamento. Estes caminhos de e/s são físicas ligações de SAN que podem incluir cabos separados, comutadores, interfaces de rede e controladores. Multipathing agrega os caminhos de e/s, para configurar um novo dispositivo que está associado a todos os caminhos agregada.
@@ -298,7 +297,7 @@ Este algoritmo de balanceamento de carga utiliza todos os multipaths disponívei
 
     Se vir a interface de anfitrião apenas um e dois caminhos aqui, em seguida, tem de ativar ambas as interfaces no anfitrião para iSCSI. Pode seguir o [instruções na documentação de Linux detalhadas](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. Um volume está exposto ao servidor do CentOS do dispositivo StorSimple. Para obter mais informações, consulte [passo 6: criar um volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) através do portal clássico do Azure no dispositivo StorSimple.
+2. Um volume está exposto ao servidor do CentOS do dispositivo StorSimple. Para obter mais informações, consulte [passo 6: criar um volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) através do portal do Azure no dispositivo StorSimple.
 
 3. Certifique-se os caminhos disponíveis. Escreva:
 
@@ -341,7 +340,7 @@ A. Se tiver efetuado alterações para o `multipath.conf` ficheiros, terá de re
 
 Q. Posso ter ativada a duas interfaces de rede no dispositivo StorSimple e duas interfaces de rede no anfitrião. Quando posso listar os caminhos disponíveis, posso ver apenas dois caminhos. Deve ver quatro caminhos disponíveis.
 
-A. Certifique-se de que os dois caminhos estão na mesma sub-rede e encaminhável. Se as interfaces de rede estão em diferentes vLANs e não encaminhável, verá apenas dois caminhos. Uma forma de verificar esta situação é certificar-se de que pode chegar ambas as interfaces de anfitrião a partir de uma interface de rede no dispositivo StorSimple. Terá [contacte a Microsoft Support](storsimple-contact-microsoft-support.md) como esta verificação só pode ser feita através de uma sessão de suporte.
+A. Certifique-se de que os dois caminhos estão na mesma sub-rede e encaminhável. Se as interfaces de rede estão em diferentes vLANs e não encaminhável, verá apenas dois caminhos. Uma forma de verificar esta situação é certificar-se de que pode chegar ambas as interfaces de anfitrião a partir de uma interface de rede no dispositivo StorSimple. Terá [contacte a Microsoft Support](storsimple-8000-contact-microsoft-support.md) como esta verificação só pode ser feita através de uma sessão de suporte.
 
 Q. Quando posso listar os caminhos disponíveis, não vejo qualquer saída.
 
@@ -441,7 +440,7 @@ Para obter mais informações, aceda a [utilizar a resolução de problemas de c
 | &nbsp; |`mpathconf --enable` |Criar um ficheiro de exemplo mulitpath.conf no`/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Como estiver a configurar o MPIO num anfitrião Linux, também poderá ter de consultar os seguintes documentos CentoS 6.6:
 
 * [Configurar o MPIO em CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)

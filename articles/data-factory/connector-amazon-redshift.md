@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 13b317b05e56554e4f6b74a3ecfd3bc268333db0
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados de Redshift Amazon utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,8 @@ Especificamente, este conector Amazon Redshift suporta obter dados a partir Reds
 * Se estiver a copiar dados para um arquivo de dados do Azure, consulte o artigo [intervalos de IP de centro de dados do Azure](https://www.microsoft.com/download/details.aspx?id=41653) centros de para o endereço IP de computação e os intervalos SQL utilizados pelos dados do Azure.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector Amazon Redshift.
 
@@ -224,5 +225,5 @@ Quando copiar dados do Amazon Redshift, os seguintes mapeamentos são utilizados
 | TIMESTAMP |DateTime |
 | VARCHAR |Cadeia |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

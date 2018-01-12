@@ -6,13 +6,13 @@ keywords: "inventário, automatização,alteração, controlo"
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
-ms.topic: hero-article
+ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 275e4e9103808710e2a71168a05b3440bb288c6a
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerir uma máquina virtual do Azure com a recolha de inventário
 
@@ -23,7 +23,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 Se não tiver uma máquina virtual do Azure, [crie uma máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Ativar a recolha de inventário a partir da página de recursos da máquina virtual
 
@@ -63,7 +63,7 @@ Para remover a máquina virtual da gestão de inventário:
 5. Na janela de confirmação, selecione **Sim**.  
     Esta ação desliga a máquina virtual da gestão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre a gestão de alterações nas definições de ficheiros e do registo nas suas máquinas virtuais, veja [Controlar as alterações de software com a solução Controlo de Alterações](../log-analytics/log-analytics-change-tracking.md).
 * Para saber mais sobre a gestão do Windows e atualizações de pacote em máquinas virtuais, veja [Solução de Gestão de Atualizações no OMS](../operations-management-suite/oms-solution-update-management.md).

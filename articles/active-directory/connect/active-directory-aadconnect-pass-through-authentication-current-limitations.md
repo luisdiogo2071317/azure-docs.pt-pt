@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: 02faf589db532222208ca53dd97b8d7a8ed92965
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Do Azure autenticação do Active Directory pass-through: Limitações atuais
 
@@ -46,6 +46,7 @@ Os cenários seguintes são _não_ suportados:
 - Deteção de utilizadores com [fuga credenciais](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Serviços de domínio do Azure AD tem de sincronização de Hash de palavra-passe para ser ativada no inquilino. Por conseguinte, os inquilinos que utilizam a autenticação pass-through _apenas_ não funcionam para cenários que precisam de serviços de domínio do Azure AD.
 - A autenticação pass-through não está integrada [do Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
+- O programa de inscrição de dispositivos Apple (DEP da Apple) não suporta a autenticação moderna.  Dispositivos de DEP da Apple irão falhar para inscrição no Intune para domínios que utilizam autenticação pass-through.
 
 >[!IMPORTANT]
 >Como uma solução para cenários não suportados _apenas_, ativar a sincronização de Hash de palavra-passe no [funcionalidades opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) página do Assistente do Azure AD Connect.

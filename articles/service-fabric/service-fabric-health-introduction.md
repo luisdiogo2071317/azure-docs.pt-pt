@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 330ef58d89ebabaa2af7fa8e98e693ddd64dcc4e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 271d02bf5793ccb4ca8cbc4eeb8a6c5cfdd74f03
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 Azure Service Fabric introduz um modelo de estado de funcionamento que fornece a avaliação de estado de funcionamento extensíveis, avançado e flexível e de relatórios. O modelo permite quase em tempo real de monitorização do Estado do cluster e os serviços em execução no mesmo. Além disso, pode facilmente obter informações de estado de funcionamento e corrigir problemas de potencial antes de serem cascade e causam falhas em grande escala. No modelo de típico, os serviços de enviar relatórios com base na respetiva vistas locais e que informações são agregadas para fornecer um geral do cluster ao nível do Vista.
@@ -306,7 +306,7 @@ Outros sistemas tem um serviço único e centralizado ao nível do cluster que a
 
 O modelo de estado de funcionamento é utilizado descontos elevados para monitorização e diagnóstico, para avaliar o estado de funcionamento do cluster e da aplicação e para atualizações monitorizadas. Outros serviços utilizam dados de estado de funcionamento para efetuar reparações automáticas, criar o histórico de estado de funcionamento do cluster e emitir alertas em determinadas condições.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Ver relatórios de estado de funcionamento do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Utilizar relatórios de estado de funcionamento do sistema para resolução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)

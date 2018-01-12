@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2017
+ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Criar um ficheiro de solução de gestão no Operations Management Suite (OMS) (pré-visualização)
 > [!NOTE]
@@ -39,7 +39,7 @@ Pode utilizar qualquer editor de texto para trabalhar com ficheiros de solução
 
 
 ## <a name="structure"></a>estrutura
-A estrutura básica de um ficheiro de solução de gestão é o mesmo que um [modelo do Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format) que é o seguinte.  Cada uma das secções abaixo descreve os elementos de nível superior e e os respetivos conteúdos numa solução.  
+A estrutura básica de um ficheiro de solução de gestão é o mesmo que um [modelo do Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format), que é o seguinte.  Cada uma das secções abaixo descreve os elementos de nível superior e os respetivos conteúdos numa solução.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -86,12 +86,12 @@ A tabela seguinte lista os parâmetros padrão para todas as soluções de gest�
 
 | Parâmetro | Tipo | Descrição |
 |:--- |:--- |:--- |
-| accountName |Cadeia |Nome da conta de automatização do Azure. |
-| pricingTier |Cadeia |Escalão de preço da área de trabalho de análise de registos e da conta de automatização do Azure. |
-| regionId |Cadeia |Região da conta de automatização do Azure. |
-| SolutionName |Cadeia |Nome da solução.  Se estiver a implementar a solução através de modelos de início rápido, em seguida, deve definir solutionName como um parâmetro para que pode definir uma cadeia em vez disso, exigindo que o utilizador especifique um. |
-| workspaceName |Cadeia |Nome de área de trabalho de análise do registo. |
-| workspaceRegionId |Cadeia |Região da área de trabalho de análise de registos. |
+| accountName |string |Nome da conta de automatização do Azure. |
+| pricingTier |string |Escalão de preço da área de trabalho de análise de registos e da conta de automatização do Azure. |
+| regionId |string |Região da conta de automatização do Azure. |
+| SolutionName |string |Nome da solução.  Se estiver a implementar a solução através de modelos de início rápido, em seguida, deve definir solutionName como um parâmetro para que pode definir uma cadeia em vez disso, exigindo que o utilizador especifique um. |
+| workspaceName |string |Nome de área de trabalho de análise do registo. |
+| workspaceRegionId |string |Região da área de trabalho de análise de registos. |
 
 
 Segue-se a estrutura dos parâmetros padrão que pode copiar e colar no seu ficheiro de solução.  
@@ -166,7 +166,7 @@ Neste caso, consulte os valores das variáveis através da solução com a sinta
 
 
 ### <a name="dependencies"></a>Dependências
-O **dependsOn** elementos Especifica um [dependência](../azure-resource-manager/resource-group-define-dependencies.md) no outro recurso.  Quando a solução é instalada, não foi criado um recurso até que todas as dependências dele foram criadas.  Por exemplo, poderá a sua solução [iniciar um runbook](operations-management-suite-solutions-resources-automation.md#runbooks) quando é instalado utilizando uma [recursos da tarefa](operations-management-suite-solutions-resources-automation.md#automation-jobs).  O recurso de tarefa seria dependente do recurso de runbook para se certificar de que o runbook for criado antes da tarefa é criada.
+O **dependsOn** elemento Especifica um [dependência](../azure-resource-manager/resource-group-define-dependencies.md) no outro recurso.  Quando a solução é instalada, não foi criado um recurso até que todas as dependências dele foram criadas.  Por exemplo, poderá a sua solução [iniciar um runbook](operations-management-suite-solutions-resources-automation.md#runbooks) quando é instalado utilizando uma [recursos da tarefa](operations-management-suite-solutions-resources-automation.md#automation-jobs).  O recurso de tarefa seria dependente do recurso de runbook para se certificar de que o runbook for criado antes da tarefa é criada.
 
 ### <a name="oms-workspace-and-automation-account"></a>Área de trabalho OMS e conta de automatização
 Soluções de gestão requerem um [área de trabalho OMS](../log-analytics/log-analytics-manage-access.md) para conter vistas e um [conta de automatização](../automation/automation-security-overview.md#automation-account-overview) para conter os runbooks e recursos relacionados.  Estes devem estar disponíveis antes dos recursos na solução são criados e não devem ser definidos na solução de si próprio.  O utilizador será [especificar uma conta e a área de trabalho](operations-management-suite-solutions.md#oms-workspace-and-automation-account) quando implementar a sua solução, mas como o autor deve considerar os seguintes pontos.
@@ -176,7 +176,7 @@ Cada solução requer uma entrada de recurso no **recursos** elemento que define
 
 
     {
-      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspacename'), ']')]",
+      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspaceName'), ']')]",
       "location": "[parameters('workspaceRegionId')]",
       "tags": { },
       "type": "Microsoft.OperationsManagement/solutions",
@@ -185,7 +185,7 @@ Cada solução requer uma entrada de recurso no **recursos** elemento que define
         <list-of-resources>
       ],
       "properties": {
-        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
+        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
         "referencedResources": [
             <list-of-referenced-resources>
         ],
@@ -225,20 +225,20 @@ O **plano** entidade do recurso solução tem as propriedades na tabela seguinte
 | Propriedade | Descrição |
 |:--- |:--- |
 | nome |Nome da solução. |
-| Versão |Versão da solução, conforme determinado pelo autor. |
-| Produto |Cadeia exclusiva para identificar a solução. |
+| versão |Versão da solução, conforme determinado pelo autor. |
+| produto |Cadeia exclusiva para identificar a solução. |
 | Fabricante |Publicador da solução. |
 
 
 
-## <a name="sample"></a>Exemplo
+## <a name="sample"></a>Sample
 Pode ver exemplos de ficheiros de solução com um recurso de solução nas seguintes localizações.
 
 - [Recursos de automatização](operations-management-suite-solutions-resources-automation.md#sample)
 - [Recursos de pesquisa e o alerta](operations-management-suite-solutions-resources-searches-alerts.md#sample)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Adicionar alertas e pesquisas guardadas](operations-management-suite-solutions-resources-searches-alerts.md) à sua solução de gestão.
 * [Adicionar vistas](operations-management-suite-solutions-resources-views.md) à sua solução de gestão.
 * [Adicionar runbooks e outros recursos de automatização](operations-management-suite-solutions-resources-automation.md) à sua solução de gestão.

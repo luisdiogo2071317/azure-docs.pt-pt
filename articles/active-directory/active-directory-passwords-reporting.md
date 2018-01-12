@@ -1,5 +1,5 @@
 ---
-title: "Relatórios: O Azure AD SSPR | Microsoft Docs"
+title: "Relatórios - Azure Active Directory de reposição de palavra-passe self-service"
 description: "Eventos de reposição de relatórios na palavra-passe self-service do Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: a6edc777b7b6ec3cfeacc8c548bb3c6ad306303c
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c1f8beaf73bfa424c9a5c86df430822b5626282b
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para gestão de palavras-passe do Azure AD
 
@@ -194,7 +194,7 @@ A lista seguinte explica esta atividade detalhadamente:
      >Falha não significa um utilizador não é possível repor a sua própria palavra-passe. Significa não tenha a concluir o processo de registo. Se não houver não verificados dados na respetiva conta que está correta, tais como um número de telefone que não é validado, apesar de não verificou este número de telefone, ainda pode utilizá-lo para repor a palavra-passe. Para obter mais informações, consulte [o que acontece quando um utilizador se regista?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).
      >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Como posso concluir uma implementação com êxito da SSPR?](active-directory-passwords-best-practices.md)
 * [Reponha ou altere a palavra-passe](active-directory-passwords-update-your-own-password.md).

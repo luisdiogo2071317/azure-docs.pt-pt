@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 198aa74622c0f938aabe6540e2321e16aa9beb21
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver as notificações de estado de funcionamento do serviço utilizando o portal do Azure
 
@@ -41,7 +41,7 @@ canais | Um dos seguintes valores: **Admin** ou **operação**.
 correlationId | Normalmente, um GUID no formato de cadeia. Os eventos que pertencem, normalmente, para a mesma ação de partilham o mesmo correlationId.
 eventDataId | O identificador exclusivo de um evento.
 EventName | O título de um evento.
-nível | O nível de um evento. Um dos seguintes valores: **crítico**, **erro**, **aviso**, **informativo**, ou **verboso** .
+nível | O nível de um evento. Um dos seguintes valores: **crítico**, **erro**, **aviso** ou **informativo**.
 resourceProviderName | O nome do fornecedor de recursos para o recurso afetado.
 resourceType| O tipo de recurso do recurso afetado.
 Subestado | Normalmente, o código de estado HTTP do resto correspondente chamar, mas também pode incluir outras cadeias que descrevem um subestado. Por exemplo: OK (código de estado de HTTP: 200), criado (código de estado HTTP: 201), aceite (código de estado de HTTP: 202), não conteúdo (código de estado de HTTP: 204), pedido incorreto (código de estado HTTP: 400), não encontrado (código de estado de HTTP: 404), conflito (código de estado HTTP: 409), interno do servidor Erro (código de estado HTTP: 500), serviço indisponível (código de estado HTTP: 503) e o tempo limite do Gateway (código de estado HTTP: 504).

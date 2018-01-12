@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 31fce15ab0c3496e4d74e105134c29373a777c18
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados de SAP HANA utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,8 @@ Para utilizar este conector de SAP HANA, tem de:
 - Instale o controlador ODBC do SAP HANA na máquina de tempo de execução de integração. Pode transferir o controlador ODBC do SAP HANA do [Centro de transferências de Software do SAP](https://support.sap.com/swdc). Pesquisa com a palavra-chave **SAP HANA cliente para o Windows**.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector de SAP HANA.
 
@@ -171,13 +172,13 @@ Quando copiar dados de SAP HANA, os seguintes mapeamentos são utilizados SAP HA
 | CLOB | Byte] |
 | DATA | DateTime |
 | DECIMAL | Decimal |
-| VALOR DE DUPLO | Único |
+| VALOR DE DUPLO | Solteiro |
 | INT | Int32 |
 | NVARCHAR | Cadeia |
-| REAL | Único |
+| REAL | Solteiro |
 | SECONDDATE | DateTime |
 | SMALLINT | Int16 |
-| TEMPO | TimeSpan |
+| HORA | TimeSpan |
 | TIMESTAMP | DateTime |
 | TINYINT | Bytes |
 | VARCHAR | Cadeia |
@@ -192,5 +193,5 @@ Existem algumas limitações conhecidas ao copiar dados de SAP HANA:
 - Datas válidas são entre 1899/12/30 e 12/9999/31
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

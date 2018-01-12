@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 89ddbaff88584d83a109b68707f9a9b3accb8e70
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>Repor a palavra-passe de conta escolar ou profissional
 
@@ -122,12 +122,12 @@ Agora deverá conseguir aceder à sua conta. Se não, contacte da sua organizaç
 
 | Caso de erro| O erro vir?| Solução |
 | --- | --- | --- |
-| Vejo um erro ao tentar alterar a minha palavra-passe. | Infelizmente, a palavra-passe contém uma palavra, expressão ou padrão que torna guessable facilmente a sua palavra-passe. Tente novamente com uma palavra-passe diferente. | Escolha uma palavra-passe que seja mais difficlt adivinhar. |
+| Vejo um erro ao tentar alterar a minha palavra-passe. | Infelizmente, a palavra-passe contém uma palavra, expressão ou padrão que torna guessable facilmente a sua palavra-passe. Tente novamente com uma palavra-passe diferente. | Escolha uma palavra-passe que seja mais difícil de adivinhar. |
 | Posso obter uma página ". Contacte o administrador" depois de introduzir o meu ID de utilizador | Contacte o administrador. <br> <br> Detetámos que a palavra-passe da conta de utilizador não é gerida pela Microsoft. Como resultado, não conseguimos automaticamente repor a palavra-passe. <br> <br> Terá de contactar a sua equipa de TI para obter assistência. | Está a ver esta mensagem porque a sua equipa de TI gere a palavra-passe no seu ambiente no local. Não é possível repor a palavra-passe de ligação "Não é possível aceder à sua conta". <br> <br> Para repor a palavra-passe, contacte a equipa de TI diretamente para obter ajuda e informar de que pretende repor a palavra-passe, pelo que podem ativar esta funcionalidade para si.|
 | Posso obter um erro "a conta não está ativada para a reposição de palavra-passe" depois de introduzir o meu ID de utilizador | A conta não está ativada para a reposição de palavra-passe. <br> <br> Lamentamos, mas a sua equipa de TI não tenha configurado a sua conta para utilizar este serviço. <br> <br> Se quiser, podemos contactá um administrador na sua organização para repor a palavra-passe por si. | Está a ver esta mensagem porque a sua equipa de TI não activou a reposição da sua organização a partir da ligação "Não é possível aceder à sua conta" palavra-passe, ou ainda não está licenciado para utilizar a funcionalidade. <br> <br> Para repor a palavra-passe, selecione "Contacte uma ligação de administrador" para enviar uma mensagem de e-mail da sua empresa e informar de que pretende repor a palavra-passe, pelo que podem ativar esta funcionalidade para si da equipa de TI. |
 | Posso obter um erro de "Pode não verificar a sua conta" depois de introduzir o meu ID de utilizador | Não foi possível verificar a sua conta. <br> <br> Se quiser, podemos contactá um administrador na sua organização para repor a palavra-passe por si. | Está a ver esta mensagem porque está a ser ativada para a reposição de palavra-passe, mas não tiver registado para utilizar o serviço. Para registar para a reposição de palavra-passe, aceda ao http://aka.ms/ssprsetup após ter recuperou o acesso à sua conta. <br> <br> Para repor a palavra-passe, selecione a hiperligação "Contacte um administrador" para enviar uma mensagem de e-mail da sua empresa equipa de TI. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Como se registar para utilizar a reposição personalizada de palavra-passe](active-directory-passwords-reset-register.md)
 * [Página de registo de reposição de palavra-passe](http://aka.ms/ssprsetup)
@@ -141,4 +141,3 @@ Agora deverá conseguir aceder à sua conta. Se não, contacte da sua organizaç
 [LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Ligação do Windows 10, enquadram-se criadores Update início de sessão ecrã reposição de palavra-passe"
 [ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Verifique os dados de autenticação"
 [ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Alterar a palavra-passe"
-

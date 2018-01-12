@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 72be69b8d48abdcb15f4a89949edc3083ce85eee
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: HT
+ms.openlocfilehash: 187673fad2b5984441b93aa5313df31f1e8a3d2d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Testar a autenticação da conta Run As de Automatização do Azure
 Depois de criar uma conta de Automatização com êxito, pode executar um teste simples para confirmar que consegue autenticar com êxito no Azure Resource Manager ou na implementação clássica do Azure com a sua conta Run As de Automatização recentemente criada ou atualizada.    
@@ -108,6 +108,6 @@ Para ver os resultados detalhados do runbook, clique no mosaico **Saída**.  Na 
 
 Não se esqueça de remover o cmdlet **Get-AzureVM** quando reutilizar o código para os runbooks.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para começar com runbooks do PowerShell, consulte [My first PowerShell runbook (O meu primeiro runbook do PowerShell)](automation-first-runbook-textual-powershell.md).
-* Para obter mais informações sobre a Criação de Gráficos, consulte [Graphical authoring in Azure Automation (Criação de gráficos na Automatização do Azure)](automation-graphical-authoring-intro.md).
+* Para obter mais informações sobre a Criação de Gráficos, veja [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md) (Criação de gráficos na Automatização do Azure).

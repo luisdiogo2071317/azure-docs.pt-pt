@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Resolução de problemas de erros do gateway incorreto no Gateway de aplicação
 
@@ -80,8 +80,8 @@ Se estiver presente, certifique-se de que o servidor DNS é capaz de resolver co
 
 | Propriedade de pesquisa | Valor | Descrição |
 | --- | --- | --- |
-| URL de sonda |http://127.0.0.1/ |Caminho de URL |
-| intervalo |30 |Intervalo de pesquisa em segundos |
+| URL de Pesquisa |http://127.0.0.1/ |Caminho do URL |
+| Intervalo |30 |Intervalo de pesquisa em segundos |
 | Tempo limite |30 |Sonda de tempo limite em segundos |
 | Limiar de mau estado de funcionamento |3 |Sonda de contagem de repetições. O servidor de back-end está marcado como após o número de falhas de sonda consecutivas atinge o limiar de mau estado de funcionamento. |
 
@@ -106,7 +106,7 @@ Sondas de estado de funcionamento personalizado permitem flexibilidade adicional
 | Protocolo |Protocolo utilizado para enviar a pesquisa. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
 | Anfitrião |Nome de anfitrião para enviar a pesquisa. Aplicável apenas quando vários sites está configurada no Gateway de aplicação. Isto é diferente do nome de anfitrião VM. |
 | Caminho |Caminho relativo da sonda. O caminho válido começa a partir do '/'. A pesquisa é enviada para \<protocolo\>://\<anfitrião\>:\<porta\>\<caminho\> |
-| intervalo |Intervalo de pesquisa em segundos. Este é o intervalo de tempo entre dois sondas consecutivos. |
+| Intervalo |Intervalo de pesquisa em segundos. Este é o intervalo de tempo entre dois sondas consecutivos. |
 | Tempo limite |Sonda de tempo limite em segundos. Se uma resposta válida não foram recebida durante este período de tempo limite, a pesquisa está marcada como falhado. |
 | Limiar de mau estado de funcionamento |Sonda de contagem de repetições. O servidor de back-end está marcado como após o número de falhas de sonda consecutivas atinge o limiar de mau estado de funcionamento. |
 
@@ -118,8 +118,7 @@ Confirme que a sonda de estado de funcionamento personalizado está corretamente
 * Se o Gateway de aplicação está configurada para um único site, por predefinição, o anfitrião nome deve ser especificado como '127.0.0.1', a menos que caso contrário configurado na sonda personalizada.
 * Certifique-se de que uma chamada para http://\<anfitrião\>:\<porta\>\<caminho\> devolve um código de resultado HTTP de 200.
 * Certifique-se de que o intervalo, o tempo limite e UnhealtyThreshold estão nos intervalos de aceitáveis.
-* Se utilizar uma pesquisa HTTPS, certifique-se de que o servidor de back-end não necessita de SNI ao configurar um certificado fallback no próprio servidor de back-end. 
-* Certifique-se de que o intervalo, o tempo limite e que UnhealtyThreshold estão nos intervalos de aceitáveis.
+* Se utilizar uma pesquisa HTTPS, certifique-se de que o servidor de back-end não necessita de SNI ao configurar um certificado fallback no próprio servidor de back-end.
 
 ## <a name="request-time-out"></a>Tempo limite de pedido
 
@@ -187,7 +186,7 @@ Se todas as instâncias de BackendAddressPool mau estado de funcionamento, o Gat
 
 Certifique-se de que as instâncias estão em bom estadas e a aplicação está configurada corretamente. Verifique se as instâncias de back-end são capazes de responder a um ping de outra VM na mesma VNet. Se configurado com um ponto final público, certifique-se de que um pedido de browser para a aplicação web é um.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se os passos anteriores não resolverem o problema, abra uma [suporta permissão](https://azure.microsoft.com/support/options/).
 

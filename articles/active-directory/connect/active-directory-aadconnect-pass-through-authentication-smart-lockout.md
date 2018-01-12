@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: abd9b8559cb70be6d03b85cfe19a6b37b7069985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>A autenticação pass-through do Azure Active Directory: Bloqueio inteligente
 
@@ -36,7 +36,7 @@ Bloqueio inteligente também distingue entre inícios de sessão dos utilizadore
 Autenticação pass-through reencaminha os pedidos de validação da palavra-passe no Active Directory no local, pelo que necessita de impedir atacantes de bloqueio de contas do Active Directory dos utilizadores. Do Active Directory tem as suas próprias políticas de bloqueio de conta, especificamente, [limiar de bloqueio de conta](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) e [reposição do contador de bloqueio da conta após](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx) políticas. Configure os Azure AD bloqueio limiar e de bloqueio de valores de duração adequadamente para filtrar ataques na nuvem, antes de atingirem do Active Directory no local.
 
 >[!NOTE]
->A funcionalidade de bloqueio inteligente está livre e é _no_ por predefinição para todos os clientes. Mas se pretender modificar do Azure AD bloqueio limiar e de bloqueio de valores de duração com Graph API, o seu inquilino tem de ter pelo menos uma licença do Azure AD Premium P2. Não precisa de uma licença do Azure AD Premium P2 _por utilizador_ para obter a funcionalidade de bloqueio inteligente com a autenticação pass-through.
+>>A funcionalidade de bloqueio inteligente está livre e é _no_ por predefinição para todos os clientes. No entanto, a modificar o limiar de bloqueio e valores de duração do bloqueio utilizando Graph API do Azure AD tem o seu inquilino para ser ativada para o Azure AD Premium P2. 
 
 Para garantir que contas de Active Directory no local dos seus utilizadores são bem protegidas, terá de se certificar de que:
 
@@ -148,5 +148,5 @@ Siga estes passos para atualizar os valores do seu inquilino bloqueio inteligent
 
 Certifique-se de que foi atualizado com os valores do seu inquilino bloqueio inteligente corretamente, utilizando os passos no [valores de bloqueio inteligente vista](#view-smart-lockout-values).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Utilize o Fórum do Azure Active Directory para novos pedidos de funcionalidade de ficheiros.

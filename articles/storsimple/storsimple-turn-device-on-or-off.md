@@ -4,7 +4,7 @@ description: "Explica como ativar um novo dispositivo StorSimple, ative um dispo
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ativar ou desativar o dispositivo de série 8000 do StorSimple
 
@@ -147,16 +147,16 @@ Um dispositivo StorSimple em execução poderá ter de ser encerradas se está a
 * [Dispositivo com a inclusão EBOD](#8600a)
 
 ### <a name="device-with-primary-enclosure-a-name8100a"></a>Dispositivo com a inclusão principal<a name="8100a">
-Para encerrar o dispositivo de forma controlada e ordenada, pode fazê-lo através do portal clássico do Azure ou através do Windows PowerShell para StorSimple. 
+Para encerrar o dispositivo de forma controlada e ordenada, pode fazê-lo através do portal do Azure ou através do Windows PowerShell para StorSimple. 
 
 > [!IMPORTANT]
 > Não encerre um dispositivo em execução, utilizando o botão de energia do dispositivo de cópia de segurança.
 > 
-> Antes de encerrar o dispositivo, certifique-se de que todos os componentes do dispositivo estão em bom Estados. No portal clássico do Azure, navegue para **dispositivos** > **manutenção** > **estado do Hardware**e verifique o estado de todos os componentes é verde. Isto acontece apenas para um sistema de bom estado de funcionamento. Se o sistema está a ser desligado para substituir um componente malfunctioning, verá um falha (vermelho) ou degradado Estado (amarelo) para o componente no respetivo o **estado do Hardware**.
+> Antes de encerrar o dispositivo, certifique-se de que todos os componentes do dispositivo estão em bom Estados. No portal do Azure, navegue para **dispositivos** > **Monitor** > **estado de funcionamento do Hardware**e certifique-se de que o estado de todos os componentes é verde. Isto acontece apenas para um sistema de bom estado de funcionamento. Se o sistema está a ser desligado para substituir um componente malfunctioning, verá um falha (vermelho) ou degradado Estado (amarelo) para o componente no respetivo o **estado do Hardware**.
 > 
 > 
 
-Depois de acesso do Windows PowerShell para StorSimple ou portal clássico do Azure, siga os passos em [encerrar um dispositivo StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
+Depois de acesso do Windows PowerShell para StorSimple ou o portal do Azure, siga os passos em [encerrar um dispositivo StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>Dispositivo com a inclusão EBOD<a name="8600a">
 > [!IMPORTANT]
@@ -171,6 +171,6 @@ Depois de acesso do Windows PowerShell para StorSimple ou portal clássico do Az
 > [!NOTE]
 > Não devem ser removidos os cabos SAS que são utilizados para ligar a inclusão EBOD ao bastidor primário até depois do sistema é encerrado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Contacte o Support Microsoft](storsimple-8000-contact-microsoft-support.md) se ocorrerem problemas ao ativar ou encerrar um dispositivo StorSimple.
 

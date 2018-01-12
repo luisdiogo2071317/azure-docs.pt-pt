@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c7cfd156faf6e4cd56f2b9094c3d63515f86cfde
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ae89241c67655fbcaa747c4cac224b898947f39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Edifício multi-factor Authentication em aplicações personalizadas (SDK)
 
@@ -38,7 +38,7 @@ Porque as APIs não tiverem acesso a utilizadores registados no Azure Active Dir
 
 
 ## <a name="download-the-sdk"></a>Transferir o SDK
-Transferir o SDK do multi-factor do Azure requer um [fornecedor do Azure multi-factor Auth](multi-factor-authentication-get-started-auth-provider.md).  Isto requer uma subscrição do Azure completo, mesmo que pertencem a licenças de MFA do Azure, Azure AD Premium ou Enterprise Mobility Suite. Os métodos públicos de transferir o SDK foram decomissioned, uma vez que o SDK foi preterido. Deve abrir um incidente de suporte com a Microsoft se necessitar de transferir o SDK.
+Transferir o SDK do multi-factor do Azure requer um [fornecedor do Azure multi-factor Auth](multi-factor-authentication-get-started-auth-provider.md).  Isto requer uma subscrição do Azure completo, mesmo que pertencem a licenças de MFA do Azure, Azure AD Premium ou Enterprise Mobility Suite. Os métodos públicos de transferir o SDK tem foi encerrados, uma vez que o SDK foi preterido. Deve abrir um incidente de suporte com a Microsoft se necessitar de transferir o SDK. O SDK é fornecido apenas para clientes que já estão a utilizar o SDK. Novos clientes, não poderá ser integrado.
 
 ## <a name="whats-in-the-sdk"></a>O que está no SDK
 O SDK inclui os seguintes itens:

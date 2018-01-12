@@ -4,7 +4,7 @@ description: Saiba como utilizar o Windows PowerShell para StorSimple para gerir
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 89e1054117f19e787da5330932021351fb016209
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 
@@ -126,8 +126,8 @@ O idioma de apresentação é independente do idioma que defina utilizando o **a
 
 Pode utilizar HTTP ou HTTPS para ligar através de comunicação remota do Windows PowerShell. Utilize as instruções nos seguintes tutoriais:
 
-* [Ligar remotamente utilizando HTTP](storsimple-remote-connect.md#connect-through-http)
-* [Ligar remotamente através de HTTPS](storsimple-remote-connect.md#connect-through-https)
+* [Ligar remotamente utilizando HTTP](storsimple-8000-remote-connect.md#connect-through-http)
+* [Ligar remotamente através de HTTPS](storsimple-8000-remote-connect.md#connect-through-https)
 
 ## <a name="connection-security-considerations"></a>Considerações de segurança de ligação
 
@@ -182,7 +182,7 @@ Pode facilmente atualizar a ajuda na interface do Windows PowerShell. Execute os
 > Para obter uma lista de todos os cmdlets disponíveis num espaço de execução, inicie sessão para a opção de menu correspondente e execute o `Get-Command` cmdlet.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Se ocorrer algum problema com o dispositivo StorSimple ao efetuar um dos fluxos de trabalho acima, consulte [ferramentas para resolução de problemas de implementações do StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+Se ocorrer algum problema com o dispositivo StorSimple ao efetuar um dos fluxos de trabalho acima, consulte [ferramentas para resolução de problemas de implementações do StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

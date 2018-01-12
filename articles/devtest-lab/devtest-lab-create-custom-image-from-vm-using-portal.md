@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/09/2018
 ms.author: v-craic
-ms.openlocfilehash: ce854024df5c6974873cf3574bf2de282946f6d0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: dc315bcc625ea98244bb5804ce6ff1c13d0ec7b1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Criar uma imagem personalizada a partir de uma VM
 
@@ -30,25 +30,30 @@ Pode criar uma imagem personalizada a partir de uma VM aprovisionada e, posterio
 
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Mais serviços**, e, em seguida, selecione **DevTest Labs** na lista.
+1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 
 1. Na lista de laboratórios, selecione o laboratório pretendido.  
 
-1. No painel do laboratório, selecione **meu máquinas de virtuais**.
+1. No painel principal o laboratório, selecione **meu máquinas de virtuais**.
  
 1. No **meu máquinas de virtuais** painel, selecione a VM a partir do qual pretende criar a imagem personalizada.
 
-1. No painel da VM, selecione **criar imagem personalizada (VHD)**.
+1. No painel de gestão da VM, selecione **criar imagem personalizada (VHD)**.
 
     ![Criar item de menu de imagem personalizada](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. No **criar imagem** painel, introduza um nome e descrição para a sua imagem personalizada. Estas informações são apresentadas na lista de bases de quando criar uma VM.
+1. No **imagem personalizada** painel, introduza um nome e descrição para a sua imagem personalizada. Estas informações são apresentadas na lista de bases de quando criar uma VM.
 
     ![Criar painel imagem personalizada](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
 1. Selecione se o sysprep foi executado a VM. Se o sysprep não foi executada a VM, especifique se pretende que o sysprep executar quando é criada uma VM a partir desta imagem personalizada.
 
 1. Selecione **OK** quando terminar para criar a imagem personalizada.
+
+Após alguns minutos, a imagem personalizada é criada e estiver armazenada no interior da conta de armazenamento de laboratório. Quando um utilizador do laboratório pretende criar uma nova VM, a imagem está disponível na lista de imagens de base.
+
+![Imagem personalizada disponível na lista de imagens de base](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -57,6 +62,6 @@ Pode criar uma imagem personalizada a partir de uma VM aprovisionada e, posterio
 - [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Copiar as imagens personalizadas entre Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Adicionar uma VM para o laboratório](devtest-lab-add-vm.md)

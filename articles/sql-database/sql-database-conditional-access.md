@@ -2,19 +2,19 @@
 title: "Acesso condicional - base de dados SQL do Azure e do armazém de dados | Documentação da Microsoft"
 description: "Saiba como configurar o acesso condicional para o SQL Database do Azure e do armazém de dados."
 services: sql-database
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 ms.custom: security
 ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
-ms.author: rickbyh
+ms.author: mireks
 ms.workload: Inactive
-ms.openlocfilehash: 16bd403fecbd24d7cea774bba8535f102501861f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: b1c569e414de292b59e0915483d45bf011edb1a6
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Acesso condicional (MFA) com base de dados SQL do Azure e do armazém de dados  
 
@@ -46,6 +46,6 @@ Base de dados SQL e do armazém de dados do SQL Server suportam o acesso condici
 A aplicação selecionada (SQL Database do Azure), permitindo ligar ao Azure SQL DB/armazém de dados utilizando o Azure AD Premium, agora impõe a política de acesso condicional selecionada, **necessária autenticação multifator.**  
 Para perguntas sobre a SQL Database do Azure e do armazém de dados sobre a autenticação multifator, contacte MFAforSQLDB@microsoft.com.  
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Passos Seguintes  
 
 Para um tutorial, consulte [proteger a base de dados do SQL do Azure](sql-database-security-tutorial.md).

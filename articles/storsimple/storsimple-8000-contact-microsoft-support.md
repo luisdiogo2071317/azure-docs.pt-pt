@@ -4,7 +4,7 @@ description: "Saiba como registar o pedido de suporte e iniciar uma sessão de s
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0df86e40d0dc1092ad7ff04f01bbc3e5e3d1c4e
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="contact-microsoft-support"></a>Contacte o suporte da Microsoft
 
@@ -30,7 +30,7 @@ O Gestor de dispositivos do StorSimple fornece a capacidade de **iniciar um novo
 
 Reveja o [SLAs de suporte de série do StorSimple 8000 e informações](https://msdn.microsoft.com/library/mt433077.aspx) antes de criar um pedido de suporte.
 
-## <a name="create-a-support-request"></a>Criar um pedido de suporte
+## <a name="create-a-support-request"></a>Criar um pedido de apoio
 
 Consoante o [plano de suporte](https://azure.microsoft.com/support/plans/), pode criar pedidos de suporte para um problema no dispositivo StorSimple diretamente a partir do painel de resumo do serviço Gestor de dispositivos do StorSimple. Execute os seguintes passos para criar um pedido de suporte:
 
@@ -97,7 +97,7 @@ Execute os seguintes passos para iniciar uma sessão de suporte:
 
 #### <a name="to-start-a-support-session"></a>Para iniciar uma sessão de suporte
 
-1. Aceder ao dispositivo diretamente através da consola de série ou através de uma sessão telnet a partir de um computador remoto. Para tal, siga os passos no [utilizar o PuTTY para ligar à consola de série do dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+1. Aceder ao dispositivo diretamente através da consola de série ou através de uma sessão telnet a partir de um computador remoto. Para tal, siga os passos no [utilizar o PuTTY para ligar à consola de série do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. Na sessão que se abre, prima a **Enter** chave para obter uma linha de comandos.
 3. No menu da consola de série, selecione a opção 1, **iniciar sessão com acesso total**.
 4. Na linha de comandos, escreva a palavra-passe seguinte:
@@ -113,6 +113,6 @@ Execute os seguintes passos para iniciar uma sessão de suporte:
 > Pode desativar o acesso de suporte executando `Disable-HcsSupportAccess`. O dispositivo StorSimple também irá tentar desativar o acesso de suporte de 8 horas após a sessão foi iniciada. É uma melhor prática para alterar as credenciais de dispositivo do StorSimple depois de iniciar uma sessão de suporte.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como [diagnosticar e resolver problemas relacionados com o seu dispositivo de série 8000 do StorSimple](storsimple-troubleshoot-deployment.md)
+Saiba como [diagnosticar e resolver problemas relacionados com o seu dispositivo de série 8000 do StorSimple](storsimple-8000-troubleshoot-deployment.md)

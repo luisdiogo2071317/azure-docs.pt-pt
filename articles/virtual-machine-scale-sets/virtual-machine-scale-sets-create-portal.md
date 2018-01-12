@@ -1,5 +1,5 @@
 ---
-title: "Criar um dimensionamento da máquina virtual Linux definido no portal do Azure | Microsoft Docs"
+title: "Criar um conjunto de dimensionamento de Máquina Virtual no portal do Azure | Microsoft Docs"
 description: "Saiba como criar rapidamente um dimensionamento da máquina virtual no portal do Azure"
 keywords: "Conjuntos de dimensionamento de máquina virtual"
 services: virtual-machine-scale-sets
@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa6bf6b34d8b93ffa9aceaf7c6112c63d4cb9f1c
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: a501a852a317ec7d087904c3a675ebefce1bece0
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Criar um conjunto de dimensionamento de Máquina Virtual no portal do Azure
-Um conjunto de dimensionamento de máquina virtual permite-lhe implementar e gerir um conjunto de máquinas virtuais idênticas de dimensionamento automático. Pode aumentar o número de VMs no conjunto de dimensionamento manualmente ou definir as regras para dimensionar automaticamente com base na utilização de recursos, tais como CPU, a pedido de memória ou tráfego de rede. Neste artigo Introdução ao obter, criar um conjunto no portal do Azure de dimensionamento de máquina virtual. Também pode criar uma escala definida com o [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
+Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos, como CPU, exigência de memória ou tráfego de rede. Neste artigo Introdução ao obter, criar um conjunto no portal do Azure de dimensionamento de máquina virtual. Também pode criar uma escala definida com o [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -76,8 +76,8 @@ Quando já não for necessário, elimine o grupo de recursos, o conjunto de dime
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo Introdução ao obter, criar uma escala básica definida no portal do Azure. Para maior escalabilidade e automatização, expanda o conjunto com os seguintes artigos de procedimentos de dimensionamento:
+Neste artigo Introdução ao obter, criar uma escala básica definida no portal do Azure. Para maior escalabilidade e automatização, expanda o conjunto de dimensionamento com os seguintes artigos de procedimentos:
 
-- [Implementar a sua aplicação em conjuntos de dimensionamento de máquina virtual](virtual-machine-scale-sets-deploy-app.md)
-- Dimensionar automaticamente com [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), a [CLI do Azure](virtual-machine-scale-sets-autoscale-cli.md), ou o [portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
-- [Utilizar as atualizações automáticas de SO para as instâncias de VM de conjunto de dimensionamento](virtual-machine-scale-sets-automatic-upgrade.md)
+- [Implementar uma aplicação em conjuntos de dimensionamento de máquinas virtuais](virtual-machine-scale-sets-deploy-app.md)
+- Dimensionar automaticamente com o [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md), a [CLI do Azure](virtual-machine-scale-sets-autoscale-cli.md) ou o [portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Utilizar as atualizações automáticas de SO para as instâncias de VM do seu conjunto de dimensionamento](virtual-machine-scale-sets-automatic-upgrade.md)

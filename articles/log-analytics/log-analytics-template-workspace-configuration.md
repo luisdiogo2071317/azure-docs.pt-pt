@@ -14,11 +14,11 @@ ms.devlang: json
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: richrund
-ms.openlocfilehash: 7fffaf3861feebc0cf3537ca096b1eebb252b7d6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerir a análise de registo com modelos Azure Resource Manager
 Pode utilizar [modelos Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar áreas de trabalho de análise de registos. Exemplos de tarefas que pode efetuar com modelos incluem:
@@ -63,7 +63,7 @@ O exemplo de modelo seguinte ilustra como:
 10. Recolher um registo personalizado 
 11. Recolher registos de IIS e os registos de eventos do Windows escritos pelo diagnóstico do Azure para uma conta de armazenamento
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -469,10 +469,12 @@ Para implementar o modelo de exemplo:
 3. Utilizar o PowerShell ou da linha de comandos para implementar o modelo
 
 #### <a name="powershell"></a>PowerShell
-`New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
+```powershell
+New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+```
 
 #### <a name="command-line"></a>Linha de comandos
-```
+```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
@@ -489,6 +491,6 @@ Galeria de modelo de início rápido do Azure inclui vários modelos para análi
 * [Implementar um cluster do Service Fabric e monitorizá-lo com uma área de trabalho de análise de registos existente](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
 * [Implementar um cluster do Service Fabric e crie uma área de trabalho de análise de registos para o monitorizar](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Implementar agentes em VMs do Azure através de modelos do Resource Manager](log-analytics-azure-vm-extension.md)
 

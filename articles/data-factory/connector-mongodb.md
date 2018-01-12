@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 7c1505f93b28008d51ad4a8cd3516ee5c4271071
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados de MongoDB utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,8 @@ Especificamente, este conector MongoDB suporta:
 Para copiar dados de uma base de dados MongoDB, que não está acessível publicamente, terá de configurar um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](create-self-hosted-integration-runtime.md) artigo para obter detalhes. O tempo de execução de integração fornece um controlador de MongoDB incorporado, por conseguinte, não precisa de instalar manualmente a quaisquer controladores ao copiar dados de/para MongoDB.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector do MongoDB.
 
@@ -177,7 +178,7 @@ Quando copiar dados de MongoDB, os seguintes mapeamentos são utilizados MongoDB
 | Tipo de dados de MongoDB | Tipo de dados intermédio de fábrica de dados |
 |:--- |:--- |
 | Binário |Byte] |
-| Valor booleano |Valor booleano |
+| Booleano |Booleano |
 | Data |DateTime |
 | NumberDouble |duplo |
 | NumberInt |Int32 |
@@ -205,17 +206,17 @@ Consulte os dados na tabela real, ativar o controlador para aceder aos dados den
 
 Por exemplo, aqui ExampleTable é uma tabela de MongoDB que tenha uma coluna com uma matriz de objetos em cada célula – faturas e uma coluna com uma matriz de tipos escalares – classificações.
 
-| ID | Nome do cliente | Faturas | Nível de serviço | Classificações |
+| ID | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: "123" item: "toaster", o preço: Desconto "456": "0,2"}, {invoice_id: "124" item: "oven", o preço: Desconto "1235": "0,2"}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id: item "135": "fridge", o preço: Desconto "12543": "0,0"}] |Gold |[1,2] |
+| 1111 |ABC |[{invoice_id: "123" item: "toaster", o preço: Desconto "456": "0,2"}, {invoice_id: "124" item: "oven", o preço: Desconto "1235": "0,2"}] |Prata |[5,6] |
+| 2222 |XYZ |[{invoice_id: item "135": "fridge", o preço: Desconto "12543": "0,0"}] |Dourado |[1,2] |
 
 O controlador irá gerar várias tabelas virtuais para representar esta tabela única. A primeira tabela virtual é a tabela base "ExampleTable" mostrado no exemplo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foi omitidos e são expandidos nas tabelas virtuais.
 
-| ID | Nome do cliente | Nível de serviço |
+| ID | Nome do cliente | Nível de Serviço |
 | --- | --- | --- |
-| 1111 |ABC |Silver |
-| 2222 |XYZ |Gold |
+| 1111 |ABC |Prata |
+| 2222 |XYZ |Dourado |
 
 As tabelas seguintes mostram as tabelas virtuais que representam matrizes originais no exemplo. Estas tabelas contenham o seguinte:
 
@@ -241,5 +242,5 @@ As tabelas seguintes mostram as tabelas virtuais que representam matrizes origin
 | 2222 |1 |2 |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

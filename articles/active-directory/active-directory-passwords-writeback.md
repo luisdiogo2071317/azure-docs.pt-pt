@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6dfc3246b210b382665eeef2d638945c91d5b62f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b4a14d3c79f93988eeac1525da09cf70dc2de634
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-writeback-overview"></a>Descrição geral de repetição de escrita de palavras-passe
 
@@ -217,7 +217,7 @@ Repetição de escrita de palavras-passe é um serviço de pouca largura de band
 
 O tamanho de cada uma das mensagens descrita anteriormente é normalmente em 1 KB. Mesmo sob cargas pesadas extremos, o próprio serviço de repetição de escrita de palavras-passe está a consumir alguns kilobits por segundo de largura de banda. Uma vez cada mensagem é enviada em tempo real, apenas quando uma operação de atualização de palavra-passe e, porque o tamanho da mensagem é por isso, pequeno, a utilização de largura de banda da capacidade de repetição de escrita é demasiado pequena para ter um impacto significativo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Como posso concluir uma implementação com êxito da SSPR?](active-directory-passwords-best-practices.md)
 * [Reponha ou altere a palavra-passe](active-directory-passwords-update-your-own-password.md).

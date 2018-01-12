@@ -1,6 +1,6 @@
 ---
-title: "Corresponder as condições para o motor de regras de rede de entrega de conteúdos | Microsoft Docs"
-description: "Documentação de referência para a rede de entrega de conteúdos do Azure regras de funcionalidades e as condições de correspondência do motor."
+title: "Corresponder as condições para o motor de regras do Azure CDN | Microsoft Docs"
+description: "Condições de correspondência do motor de regras de documentação de referência para a rede de entrega de conteúdos do Azure."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 944675f4b055c3d0c2559db53e4807a5c00bda64
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 9986e654b076df099e3912f9da628728723b5c3d
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="match-conditions-for-the-content-delivery-network-rules-engine"></a>Condições de correspondência para o motor de regras de rede de entrega de conteúdos
-Este artigo apresenta uma lista de descrições detalhadas das condições correspondência disponíveis para a rede de entrega de conteúdo do Azure [motor de regras](cdn-rules-engine.md).
+# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Condições de correspondência para o motor de regras da CDN do Azure
+Este artigo apresenta uma lista de descrições detalhadas das condições disponíveis de correspondência de rede do Azure da entrega de conteúdos (CDN) [motor de regras](cdn-rules-engine.md).
 
 A segunda parte de uma regra é a condição de correspondência. Uma condição de correspondência identifica tipos específicos de pedidos para o qual será efetuado um conjunto de funcionalidades.
 
@@ -106,7 +106,7 @@ Consulta de URL com carateres universais | Compara o valor especificado em rela�
 
 A condição de correspondência de sempre aplica-se um conjunto predefinido de funcionalidades para todos os pedidos.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -125,7 +125,7 @@ Informações da chave:
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -141,12 +141,12 @@ Informações da chave:
  - O ponto de acesso ao conteúdo identifica o serviço que deverá servir os conteúdos solicitados.
  - Não utilize uma instrução se e combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de origem de CDN com uma condição de correspondência de origem do cliente criaria um padrão de correspondência de que nunca foi possível corresponder. Por este motivo, as duas condições de correspondência de origem da CDN não podem ser combinadas através de uma instrução e se.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
 ---
-### <a name="client-ip-address"></a>Endereço IP do Cliente
+### <a name="client-ip-address"></a>Endereço IP do cliente
 É fornecida uma opção para indicar se a condição de endereço IP do cliente irá ser cumprida quando um cliente endereço IP "Correspondências" ou "Does não corresponde a" endereços IP especificado.
 
 Informações da chave:
@@ -164,7 +164,7 @@ Informações da chave:
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -193,7 +193,7 @@ Informações da chave:
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -222,7 +222,7 @@ Informações da chave:
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -243,7 +243,7 @@ Informações da chave:
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -257,7 +257,7 @@ Informações da chave:
   - Uma configuração de CNAME edge
 - Não utilize uma instrução se e combinar determinadas condições de correspondência. Por exemplo, combinar uma condição de correspondência de origem do cliente com uma condição de correspondência de origem da CDN criaria um padrão de correspondência de que nunca foi possível corresponder. Por este motivo, as duas condições de correspondência de origem do cliente não podem ser combinadas através de uma instrução e se.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -292,7 +292,7 @@ Data da versão | % {wurfl_cap_release_date} | Uma cadeia que indica o ano e mê
 Altura de resolução | % {wurfl_cap_resolution_height} | Um número inteiro que indica a altura do dispositivo em pixels. | 768
 Largura de resolução | % {wurfl_cap_resolution_width} | Um número inteiro que indica a largura do dispositivo em pixéis. | 1024
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -309,7 +309,7 @@ Informações da chave:
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -329,7 +329,7 @@ Informações da chave:
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -350,7 +350,7 @@ Informações da chave:
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -377,7 +377,7 @@ Informações da chave:
   - Ignorar a Cache não de origem
   - Interna obsoleta máx. 
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -405,7 +405,7 @@ Informações da chave:
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -430,7 +430,7 @@ Informações da chave:
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 
@@ -446,7 +446,7 @@ Informações da chave:
   - Ignorar a Cache não de origem
   - Interna obsoleta máx.
 
-[Voltar ao início](#azure-cdn-rules-engine-match-conditions)
+[Voltar ao início](#match-conditions-for-the-azure-cdn-rules-engine)
 
 </br>
 

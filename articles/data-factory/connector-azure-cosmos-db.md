@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a8d0cf5e50fdc31aef110c359713be32fc09c8a7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiar dados para ou da base de dados do Cosmos do Azure utilizando o Azure Data Factory
 
@@ -42,7 +42,8 @@ Especificamente, este conector de base de dados do Azure Cosmos suporta:
 Para copiar documentos como-é para/de ficheiros JSON ou de outra coleção Cosmos DB, consulte [documentos JSON de importação/exportação](#importexport-json-documents).
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas à base de dados do Azure Cosmos.
 
@@ -213,5 +214,5 @@ Para atingir esse cópia desconhecidas do esquema:
 - Na base de dados do Cosmos dos DataSets, não especifique a secção "estrutura"; e na base de dados do Cosmos origem/sink de atividade de cópia, especificar a propriedade "nestingSeparator".
 - Quando importar do / exportar para ficheiros JSON, no dataset de arquivo correspondente do ficheiro, especifique o tipo de formato como "JsonFormat" e ficheiro de configuração "filePattern" corretamente (consulte [formato JSON](supported-file-formats-and-compression-codecs.md#json-format) secção para obter detalhes), em seguida, não especifique a estrutura" "secção e ignorar as definições do formato de rest.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

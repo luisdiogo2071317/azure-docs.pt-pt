@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreender o registo de identidade no seu IoT hub
 
@@ -84,7 +84,7 @@ Para obter informações detalhadas sobre a importação e exportação APIs, co
 
 Os dados de dispositivo que armazena uma determinada solução de IoT dependem dos requisitos específicos dessa solução. No entanto, como no mínimo, uma solução tem de armazenar as identidades de dispositivo e chaves de autenticação. IoT Hub do Azure inclui um registo de identidade que pode armazenar os valores para cada dispositivo, como os IDs, chaves de autenticação e códigos de estado. Uma solução pode utilizar outros serviços do Azure como o table storage, armazenamento de BLOBs ou Cosmos DB para armazenar quaisquer dados adicionais do dispositivo.
 
-*Aprovisionamento de dispositivos* é o processo de adicionar os dados de dispositivos inicial para os arquivos na sua solução. Para ativar um novo dispositivo ligar ao seu hub, tem de adicionar um ID de dispositivo e as chaves para o registo de identidade do IoT Hub. Como parte do processo de aprovisionamento, poderá ter de inicializar dados específicos do dispositivo nos outros arquivos de solução.
+*Aprovisionamento de dispositivos* é o processo de adicionar os dados de dispositivos inicial para os arquivos na sua solução. Para ativar um novo dispositivo ligar ao seu hub, tem de adicionar um ID de dispositivo e as chaves para o registo de identidade do IoT Hub. Como parte do processo de aprovisionamento, poderá ter de inicializar dados específicos do dispositivo nos outros arquivos de solução. Também pode utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub para permitir zero-touch, just-in-time aprovisionamento para um ou mais os IoT hubs sem necessidade de intervenção humana. Para obter mais informações, consulte o [documentação do serviço de aprovisionamento][lnk-dps].
 
 ## <a name="device-heartbeat"></a>Heartbeat do dispositivo
 
@@ -149,10 +149,10 @@ Identidades de dispositivo são representadas como documentos JSON com as seguin
 | deviceId |atualizações necessárias, só de leitura no |Uma cadeia de maiúsculas e minúsculas (até 128 carateres de comprimento) de carateres alfanuméricos ASCII 7 bits plus determinados caracteres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | generationId |obrigatório só de leitura |Uma IoT hub-gerados, maiúsculas e minúsculas cadeia até 128 carateres de comprimento. Este valor é utilizado para distinguir dispositivos com o mesmo **deviceId**, quando tiver sido eliminadas e recriadas. |
 | ETag |obrigatório só de leitura |Uma cadeia representando o num ETag fraco para a identidade de dispositivo, como por [RFC7232][lnk-rfc7232]. |
-| autenticação |Opcional |Um objeto composto que contém os materiais de segurança e informações de autenticação. |
-| auth.symkey |Opcional |Um objeto composto que contém um site primário e uma chave secundária, armazenados em formato base64. |
+| autenticação |opcional |Um objeto composto que contém os materiais de segurança e informações de autenticação. |
+| auth.symkey |opcional |Um objeto composto que contém um site primário e uma chave secundária, armazenados em formato base64. |
 | status |Necessário |Um indicador de acesso. Pode ser **ativado** ou **desativado**. Se **ativado**, o dispositivo tem permissão para estabelecer a ligação. Se **desativado**, este dispositivo não é possível aceder a qualquer ponto final orientado para o dispositivo. |
-| statusReason |Opcional |Uma cadeia de carateres longa 128 que armazena o motivo para o estado de identidade do dispositivo. Todos os carateres UTF-8 são permitidos. |
+| statusReason |opcional |Uma cadeia de carateres longa 128 que armazena o motivo para o estado de identidade do dispositivo. Todos os carateres UTF-8 são permitidos. |
 | statusUpdateTime |Só de leitura |Um indicador temporal, que mostra a data e hora da última atualização do Estado. |
 | connectionState |Só de leitura |Um campo com a indicação de estado da ligação: o **ligado** ou **desligado**. Este campo representa a vista do Iothub do Estado de ligação do dispositivo. **Importante**: Este campo deve ser utilizado apenas para fins de desenvolvimento/depuração. O estado da ligação é atualizado apenas para dispositivos com o MQTT ou AMQP. Além disso, se baseia no nível de protocolo pings (MQTT pings ou AMQP pings) e pode ter um atraso máximo de apenas 5 minutos. Por esta razão, podem existir falsos positivos, tais como dispositivos comunicados como ligado, mas que estão desligados. |
 | connectionStateUpdatedTime |Só de leitura |Um indicador temporal, que mostra a data e hora da última o estado da ligação foi atualizado. |
@@ -171,7 +171,7 @@ Outros tópicos de referência no guia de programadores do IoT Hub incluem:
 * [A linguagem de consulta do IoT Hub] [ lnk-query] descreve o idioma de consulta pode utilizar para obter informações a partir do IoT Hub sobre os dispositivos duplos e tarefas.
 * [Suporte do IoT Hub MQTT] [ lnk-devguide-mqtt] fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu como utilizar o registo de identidade do IoT Hub, poderá estar interessado nos seguintes tópicos do guia de programadores do IoT Hub:
 
@@ -183,6 +183,11 @@ Agora que aprendeu como utilizar o registo de identidade do IoT Hub, poderá est
 Se pretender experimentar alguns dos conceitos descritos neste artigo, poderá estar interessado no tutorial seguinte do IoT Hub:
 
 * [Introdução ao IoT Hub do Azure][lnk-getstarted-tutorial]
+
+Para explorar, utilizando o serviço de aprovisionamento de dispositivos do IoT Hub para ativar o aprovisionamento de zero touch, just-in-time, consulte: 
+
+* [Serviço de aprovisionamento de dispositivos de IoT Hub do Azure][lnk-dps]
+
 
 <!-- Links and images -->
 
@@ -205,3 +210,4 @@ Se pretender experimentar alguns dos conceitos descritos neste artigo, poderá e
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

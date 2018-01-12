@@ -1,5 +1,5 @@
 ---
-title: Como funciona o Azure AD SSPR | Microsoft Docs
+title: "Como funciona - Azure Active Directory de reposição de palavra-passe self-service"
 description: Repor o Azure AD self-service palavra-passe detalhada
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ad1735d618856fb13ec2846f1da4fdaec1c4e614
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 56a57960fc4804c7a1711d8c47b37ec28798357d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Self-service reposição palavra-passe na descrição profunda do Azure AD
 
@@ -246,7 +246,7 @@ Para testar este cenário, aceda à http://passwordreset.microsoftonline.com com
 > [!NOTE]
 > As contas do Microsoft que tenham sido concedidas acesso de convidado para o inquilino do Azure AD, tais como Hotmail.com, Outlook.com ou outros endereços de e-mail pessoal, não são capazes de utilizar o Azure AD SSPR. Tem de repor a palavra-passe, utilizando as informações localizadas no [quando não é possível iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os artigos seguintes disponibilizam informações adicionais relativamente à reposição de palavras-passe através do Azure AD:
 

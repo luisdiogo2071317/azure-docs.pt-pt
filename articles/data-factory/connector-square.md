@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 08b931c7c172578191cbc2628d8fabca0984a6e0
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 71c73f034a3c32c9bdf1532106a3aba9521afb17
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-beta"></a>Copiar dados de parênteses utilizando o Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ O Azure Data Factory fornece um controlador incorporado para ativar a conetivida
 
 ## <a name="getting-started"></a>Introdução
 
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector quadrado.
 
@@ -142,5 +142,5 @@ Para copiar dados de parênteses, defina o tipo de origem na atividade de cópia
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

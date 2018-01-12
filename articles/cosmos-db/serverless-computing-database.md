@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 39481322d88a7674fce712dc24ef1f32f627f3cc
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Base de dados sem servidor informática utilizando as funções do Azure
 
@@ -153,7 +153,7 @@ Agora vamos ligar BD do Cosmos do Azure e as funções do Azure por real:
 * [Criar um acionador de BD do Cosmos do Azure no portal do Azure](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Criar um acionador de HTTP de funções do Azure com um enlace de entrada de base de dados do Azure Cosmos](https://aka.ms/cosmosdbinputbind)
 * [Armazenar dados não estruturados com as funções do Azure e a base de dados do Cosmos](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-* [BD do Cosmos enlaces do Azure e é acionado](../azure-functions/functions-bindings-documentdb.md)
+* [BD do Cosmos enlaces do Azure e é acionado](../azure-functions/functions-bindings-cosmosdb.md)
 
 
  

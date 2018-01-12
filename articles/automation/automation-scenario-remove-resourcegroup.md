@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: b7b27ca64d9aacabf96fdff8e7dca16f13000d19
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: e1734bdd22ecfc4e54074f02582f5a8eca7d4f59
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Cenário da Automatização do Azure – remoção automática de grupos de recursos
 Muitos clientes criam mais do que um grupo de recursos. Alguns podem ser utilizados para gerir aplicações de produção, ao passo que outros podem ser utilizados como ambientes de desenvolvimento e de teste. Automatizar a implementação destes recursos é uma coisa, mas conseguir desativar um grupo de recursos com o clique de um botão é outra. Pode simplificar esta tarefa de gestão comum através da Automatização do Azure. Isto é útil se estiver a trabalhar com uma subscrição do Azure que tenha um limite de gastos através de uma oferta de membro, como o MSDN ou o programa Microsoft Partner Network Cloud Essentials.
@@ -64,6 +64,6 @@ Para ver os detalhes da tarefa do runbook **Remove-ResourceGroup** no portal do 
 
 O **Resumo da Tarefa** inclui mensagens dos fluxos de saída, aviso e erro. Selecione **Saída** para ver resultados detalhados da execução do runbook.<br> ![Resultados da saída do runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para começar a criar o seu próprio runbook, veja [Criar ou importar um runbook na Automatização do Azure](automation-creating-importing-runbook.md).
 * Para começar a utilizar runbooks do Fluxo de Trabalho do PowerShell, veja [O meu primeiro runbook do Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md).

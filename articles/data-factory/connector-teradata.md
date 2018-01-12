@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copiar dados de Teradata utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ Para utilizar este conector Teradata, tem de:
 - Instalar o [fornecedor de dados .NET para Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) versão 14 ou acima na máquina de tempo de execução de integração.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com atividade de cópia com o .NET SDK, o Python SDK, o Azure PowerShell, o REST API ou o modelo Azure Resource Manager. Consulte [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector Teradata.
 
@@ -198,7 +199,7 @@ Quando copiar dados de Teradata, os seguintes mapeamentos são utilizados Terada
 | SmallInt |Int16 |
 | Hora |TimeSpan |
 | Período de tempo com fuso horário |Cadeia |
-| Timestamp |DateTime |
+| Carimbo de data/hora |DateTime |
 | Timestamp com o fuso horário |DateTimeOffset |
 | VarByte |Byte] |
 | VarChar |Cadeia |
@@ -206,5 +207,5 @@ Quando copiar dados de Teradata, os seguintes mapeamentos são utilizados Terada
 | XML |Cadeia |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

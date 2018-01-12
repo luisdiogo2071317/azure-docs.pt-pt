@@ -12,14 +12,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 214163dd0f63bb8e08afdf94dcbfcc93d0279ad1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.openlocfilehash: 8c65f91adda6f3329400e0b54594cf839d6eb646
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>O meu primeiro runbook do Fluxo de Trabalho do PowerShell
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 > * [Gráficos](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-> * [python](automation-first-runbook-textual-python2.md)
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 > 
 
@@ -154,7 +154,7 @@ Atualmente, o nosso runbook inicia a virtual máquina que codificamos no runbook
 6. Clique em **Iniciar** para iniciar o runbook. Escreva **VMName** e **ResourceGroupName** na máquina virtual que vai iniciar.<br><br> ![Iniciar o Runbook](media/automation-first-runbook-textual/automation-pass-params.png)<br>  
 7. Depois de o runbook terminar, verifique se a máquina virtual foi iniciada.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar com runbooks do PowerShell, consulte [O meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
 * Para saber mais sobre os tipos de runbook, as vantagens e limitações, consulte o artigo [Tipos de runbook da Automatização do Azure](automation-runbook-types.md)

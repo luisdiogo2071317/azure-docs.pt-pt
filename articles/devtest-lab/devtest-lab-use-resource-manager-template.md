@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: v-craic
-ms.openlocfilehash: d3800fe360a2451bdc39644e713b82ab0608ef12
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 97822d5fb11c5c106c67aaaab0b8972e1ec8deee
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="use-a-virtual-machines-azure-resource-manager-template"></a>Utilizar o modelo Azure Resource Manager de uma máquina virtual
+# <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Criar máquinas virtuais utilizando um modelo Azure Resource Manager 
 
 Quando estiver a criar uma máquina virtual (VM) no DevTest Labs através de [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), pode ver o modelo Azure Resource Manager antes de guardar a VM. O modelo, em seguida, pode ser utilizado como base para criar mais laboratório VMs com as mesmas definições.
 
-Este artigo descreve como visualizar o modelo do Resource Manager, ao criar uma VM e como implementá-la mais tarde para automatizar a criação da VM mesma.
+Este artigo descreve multi-VM vs modelos do Resource Manager único-VM e mostra-lhe como visualizar e guardar um modelo quando criar uma VM.
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>MULTI-VM vs modelos do Resource Manager única VM
-Existem duas formas de criar VMs no DevTest Labs com um modelo do Resource Manager: aprovisionar o recurso de Microsoft.DevTestLab/labs/virtualmachines ou o aprovisionar o recurso de Microsoft.Commpute/virtualmachines. Cada um é utilizado em cenários diferentes e necessitam de permissões diferentes.
+Existem duas formas de criar VMs no DevTest Labs com um modelo do Resource Manager: aprovisionar o recurso de Microsoft.DevTestLab/labs/virtualmachines ou o aprovisionar o recurso de Microsoft.Commpute/virtualmachines. Cada um é utilizada em cenários diferentes e necessita de permissões diferentes.
 
 - Modelos do Resource Manager que utilizar um tipo de recurso Microsoft.DevTestLab/labs/virtualmachines (conforme declarado na propriedade "recursos" no modelo) podem aprovisionar VMs de laboratório individuais. Cada VM, em seguida, apresentado como um único item na lista de máquinas virtuais DevTest Labs:
 
@@ -53,18 +53,15 @@ O resto deste artigo aborda os modelos do Resource Manager que utilizam Mirosoft
    ![Botão de modelo ARM do Vista](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
 1. Copie e guarde o modelo do Resource Manager para utilizar mais tarde para criar outra máquina virtual.
 
-   ![Modelo do Resource manager para guardar para utilização posterior](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
+   ![Modelo do Resource Manager para guardar para utilização posterior](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
 
 Depois de guardar o modelo do Resource Manager, tem de atualizar a secção de parâmetros do modelo para poder utilizá-lo. Pode criar um parameter.json que customizes apenas os parâmetros, fora o modelo do Resource Manager. 
 
-![Personalizar paramaters utilizando um ficheiro JSON](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
+![Personalizar parâmetros utilizando um ficheiro JSON](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
-## <a name="deploy-a-resource-manager-template-to-create-a-vm"></a>Implementar um modelo do Resource Manager para criar uma VM
-Depois de guardar um modelo do Resource Manager e personalizada-lo para as suas necessidades, pode utilizá-lo a automatizar a criação de VM. [Implementar recursos com modelos do Resource Manager e o Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) descreve como utilizar o Azure PowerShell com modelos do Resource Manager para implementar os recursos no Azure. [Implementar recursos com modelos do Resource Manager e a CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) descreve como utilizar a CLI do Azure com modelos do Resource Manager para implementar os recursos no Azure.
-
-> [!NOTE]
-> Apenas um utilizador com permissões de proprietário do laboratório pode criar VMs a partir de um modelo do Resource Manager, utilizando o Azure PowerShell. Se pretender automatizar a criação de VM com um modelo do Resource Manager e apenas tiver permissões de utilizador, pode utilizar o [ **az laboratório vm criar** no CLI](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+O modelo do Resource Manager está agora pronto a utilizar para [criar uma VM](devtest-lab-create-environment-from-arm.md).
 
 ### <a name="next-steps"></a>Passos Seguintes
 * Saiba como [criar ambientes de várias VMS com modelos do Resource Manager](devtest-lab-create-environment-from-arm.md).
+* [Implementar um modelo do Resource Manager para criar uma VM](devtest-lab-create-environment-from-arm.md#deploy-a-resource-manager-template-to-create-a-vm)
 * Explorar mais modelos de Gestor de recursos de início rápido para a automatização de DevTest Labs do [público repositório do GitHub do DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
