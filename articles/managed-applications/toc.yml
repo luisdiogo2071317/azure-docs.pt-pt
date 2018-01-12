@@ -12,6 +12,8 @@
   items:
     - name: Criar ficheiros de aplicação gerida
       href: publish-service-catalog-app.md
+    - name: Criar uma aplicação do marketplace
+      href: publish-marketplace-app.md
 - name: Amostras
   items:
     - name: CLI do Azure
