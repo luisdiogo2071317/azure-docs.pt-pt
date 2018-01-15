@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 7a7a5d04c55adc33db5ccce761efd622935acefb
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Tem de ajudar com o portal de aplicações My?
 
@@ -76,7 +76,7 @@ Após a instalação tente os seguintes passos, se tiver problemas com:
 - Reinicie o seu browser e inicie sessão no portal do meu aplicações.
 
 - Limpar os cookies do browser e inicie sessão no portal do meu aplicações.
-- Siga o [resolver problemas relacionados com a extensão do painel de acesso para o Internet Explorer](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ie-troubleshooting) Guia do acesso para uma ferramenta de diagnóstico e instruções passo a passo sobre como configurar a extensão de i/e.
+- Siga o [resolver problemas relacionados com a extensão do painel de acesso para o Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) Guia do acesso para uma ferramenta de diagnóstico e instruções passo a passo sobre como configurar a extensão de i/e.
 
 ## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Como utilizar o Secure de aplicações My início de sessão extensão?
 Alterar o URL predefinido do meu aplicações para a extensão

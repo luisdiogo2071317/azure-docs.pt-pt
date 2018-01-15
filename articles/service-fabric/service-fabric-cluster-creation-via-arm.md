@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 251f7fc99f1c8d79f31118df11b7522930903c25
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e5dd1ebd290c950c7f2bda3dae088f3ee7f836fd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Criar um cluster do Service Fabric com o Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -689,13 +689,13 @@ Sim. Mas não se esqueça de adicionar o URL do Service Fabric Explorer à sua a
 ### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>Por que motivo é ainda necessário um certificado de servidor ao Azure AD está ativado?
 FabricClient e FabricGateway executará uma autenticação mútua. Durante a autenticação do Azure AD, a integração do Azure AD fornece uma identidade do cliente para o servidor e o certificado de servidor é utilizado para verificar a identidade do servidor. Para obter mais informações sobre certificados de Service Fabric, consulte [certificados x. 509 e o Service Fabric][x509-certificates-and-service-fabric].
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste momento, tiver um cluster seguro com fornecer autenticação de gestão do Azure Active Directory. Em seguida, [ligar ao cluster](service-fabric-connect-to-secure-cluster.md) e saber como [gerir segredos de aplicação](service-fabric-application-secret-management.md).
 
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
-[azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-portal]: https://portal.azure.com/

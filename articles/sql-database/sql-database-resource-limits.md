@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 12/14/2017
+ms.date: 01/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 6bc8979eebb2b727d0cae02fe7ca4e95cb32dc36
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 13641b190c3c157f5b302314f88a42a160a1f2e0
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de recursos de base de dados SQL do Azure
 
@@ -146,4 +146,4 @@ Quando encontrar elevada utilização de sessão ou de trabalho, opções de mit
 - Para obter informações sobre conjuntos elásticos, consulte [conjuntos elásticos](sql-database-elastic-pool.md).
 - Para obter informações sobre os limites do Azure gerais, consulte [subscrição do Azure e limites de serviço, quotas e restrições](../azure-subscription-service-limits.md).
 - Para obter informações sobre as DTUs e eDTUs, consulte [DTUs e eDTUs](sql-database-what-is-a-dtu.md).
-- Para obter informações sobre limites de tamanho de tempdb, consulte https://docs.microsoft.com/en-us/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.
+- Para obter informações sobre limites de tamanho de tempdb, consulte https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

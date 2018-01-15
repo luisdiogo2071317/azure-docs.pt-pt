@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/13/2018
 ---
 > [!WARNING]
-> Integração do Active Directory do Azure está disponível no [programador e Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) camadas apenas.
+> Integração do Active Directory do Azure está disponível no [programador, Standard e Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) camadas apenas.
 
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Como autorizar contas de programador com o Azure Active Directory na API Management do Azure
 ## <a name="overview"></a>Descrição geral

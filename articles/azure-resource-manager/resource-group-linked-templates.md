@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados ao implementar os recursos do Azure
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligado e aninhada modelos quando implementar recursos do Azure
 
-Para implementar a sua solução, pode utilizar um único modelo ou um modelo de principal com vários modelos ligados. Para pequenas e médias soluções, é mais fácil de compreender e manter um único modelo. Conseguir ver todos os recursos e os valores num único ficheiro. Para cenários avançados, modelos ligados permitem-lhe dividir a solução para componentes de destino e reutilizar modelos.
+Para implementar a sua solução, pode utilizar um único modelo ou um modelo de principal com vários modelos relacionados. O modelo relacionado pode ser o ficheiro separado que está ligado a partir do modelo de principal ou um modelo que está aninhado no modelo principal.
+
+Para pequenas e médias soluções, é mais fácil de compreender e manter um único modelo. Conseguir ver todos os recursos e os valores num único ficheiro. Para cenários avançados, modelos ligados permitem-lhe dividir a solução para componentes de destino e reutilizar modelos.
 
 Ao utilizar o modelo ligado, criar um modelo de principal que recebe os valores de parâmetros durante a implementação. O modelo de principal contém todos os modelos ligados e transmite os valores para esses modelos conforme necessário.
 
 ![modelos ligados](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>Ligar a um modelo
+## <a name="link-or-nest-a-template"></a>Associar ou aninhar um modelo
 
 Para ligar a outro modelo, adicione um **implementações** recursos ao seu modelo principal.
 
@@ -40,17 +42,17 @@ Para ligar a outro modelo, adicione um **implementações** recursos ao seu mode
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-As propriedades de que fornecer para o recurso de implementação variam com base em se estiver a ligar a um modelo externo ou incorporar um modelo de inline no modelo principal.
+As propriedades de que fornecer para o recurso de implementação variam com base em se estão ligar a um modelo externo ou um modelo de inline no modelo principal de aninhamento.
 
-### <a name="inline-template"></a>Modelo de inline
+### <a name="nested-template"></a>Modelo aninhado
 
-Para incorporar o modelo ligado, utilize o **modelo** propriedade e incluir o modelo.
+Para aninhar o modelo no modelo principal, utilize o **modelo** propriedade e especifique a sintaxe do modelo.
 
 ```json
 "resources": [
@@ -63,8 +65,6 @@ Para incorporar o modelo ligado, utilize o **modelo** propriedade e incluir o mo
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -76,12 +76,13 @@ Para incorporar o modelo ligado, utilize o **modelo** propriedade e incluir o mo
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+Os modelos aninhados, não é possível utilizar parâmetros ou variáveis que estão definidas no modelo aninhado. Pode utilizar parâmetros e variáveis do modelo principal. No exemplo anterior, `[variables('storageName')]` obtém um valor a partir do modelo de principal, não o modelo aninhado. Esta restrição não se aplica aos modelos externos.
 
 ### <a name="external-template-and-external-parameters"></a>Modelo externo e parâmetros externos
 
@@ -309,9 +310,9 @@ Para utilizar o endereço IP público do modelo anterior, quando implementar um 
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>Modelos ligados no histórico de implementação
+## <a name="linked-and-nested-templates-in-deployment-history"></a>Modelos ligados e aninhados no histórico de implementação
 
-O Resource Manager processa cada modelo ligado como uma implementação separada no histórico de implementação. Por conseguinte, um modelo de principal com três modelos ligados é apresentado no histórico de implementação, como:
+O Resource Manager processa cada modelo como uma implementação separada no histórico de implementação. Por conseguinte, é apresentado um modelo de principal com três modelos de ligado ou aninhados no histórico de implementação, como:
 
 ![Histórico de implementações](./media/resource-group-linked-templates/deployment-history.png)
 
@@ -486,7 +487,7 @@ Os exemplos seguintes mostram utilizações comuns dos modelos ligados.
 |[O Balanceador de carga com o endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado conjuntos e que o valor do Balanceador de carga. |
 |[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos no modelo ligado.  |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre a definir a ordem de implementação para os seus recursos, consulte [definir dependências nos modelos Azure Resource Manager](resource-group-define-dependencies.md).
 * Para saber como definir um recurso mas criar várias instâncias do mesmo, consulte o artigo [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).

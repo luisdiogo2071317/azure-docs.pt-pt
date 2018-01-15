@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 3540e58a58f20842979212ba41f11ce2908941f5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ffb691b5c04457e5781934b18304fac7b3c43cbb
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>Operações do sistema de ficheiros no Azure Data Lake Store com a API REST
 > [!div class="op_single_selector"]
 > * [SDK do .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-data-operations-rest-api.md)
-> * [python](data-lake-store-data-operations-python.md)
+> * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
@@ -130,7 +130,7 @@ O fragmento que se segue cria, primeiro, o cliente de conta do Data Lake Store. 
 ## <a name="next-steps"></a>Passos seguintes
 * [Operações de gestão de contas no Data Lake Store com o Python](data-lake-store-get-started-python.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Referência de Python (Gestão de contas) do Azure Data Lake Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 * [Referência de Python (Sistema de ficheiros) do Azure Data Lake Store](http://azure-datalake-store.readthedocs.io/en/latest)
 * [Open Source Big Data applications compatible with Azure Data Lake Store (Aplicações de Macrodados Open Source compatíveis com o Azure Data Lake Store)](data-lake-store-compatible-oss-other-applications.md)

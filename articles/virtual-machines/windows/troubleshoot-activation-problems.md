@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 4f3a388e95d3689cafcd2462e821cb361c46989a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Resolução de problemas de ativação de máquina virtual do Azure Windows
 
@@ -40,7 +40,7 @@ Geralmente, problemas de ativação de VM do Azure ocorrerem se a VM do Windows 
 >[!NOTE]
 >Se estiver a utilizar uma VPN de site a site e a imposição do túnel, consulte [rotas personalizadas do Azure de utilização para ativar a ativação KMS com imposição do túnel](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
 >
->Se estiver a utilizar o ExpressRoute e tiver uma rota predefinida publicadas, consulte [VM do Azure podem falhar ao ativar através do ExpressRoute](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
+>Se estiver a utilizar o ExpressRoute e tiver uma rota predefinida publicadas, consulte [VM do Azure podem falhar ao ativar através do ExpressRoute](https://blogs.technet.microsoft.com/jpaztech/2016/05/16/azure-vm-may-fail-to-activate-over-expressroute/).
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>Passo 1 configurar a chave de configuração de cliente KMS adequada (para Windows Server 2016 e o Windows Server 2012 R2)
 

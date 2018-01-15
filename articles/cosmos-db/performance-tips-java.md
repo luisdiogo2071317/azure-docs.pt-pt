@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: ca16a7fe424e9c50ce87b150442dd18ff0d6ce91
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 4d7657d305332cc0014187d52396ae3af4818d5e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -80,7 +80,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
    <a id="max-connection"></a>
 3. **Aumentar MaxPoolSize por anfitrião, ao utilizar o modo de Gateway**
 
-    BD do Azure do Cosmos pedidos são efetuados através de HTTPS/REST quando utilizar o modo de Gateway e estão sujeitos ao limite de ligação predefinido por nome de anfitrião ou endereço IP. Terá de definir o MaxPoolSize para um valor mais alto (200-1000) para que a biblioteca de clientes pode utilizar várias ligações simultâneas a BD do Cosmos do Azure. O SDK de Java, o valor predefinido para [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) é 100. Utilize [setMaxPoolSize]( https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) para alterar o valor.
+    BD do Azure do Cosmos pedidos são efetuados através de HTTPS/REST quando utilizar o modo de Gateway e estão sujeitos ao limite de ligação predefinido por nome de anfitrião ou endereço IP. Terá de definir o MaxPoolSize para um valor mais alto (200-1000) para que a biblioteca de clientes pode utilizar várias ligações simultâneas a BD do Cosmos do Azure. O SDK de Java, o valor predefinido para [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) é 100. Utilize [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) para alterar o valor.
 
 4. **Otimizar as consultas paralelas para coleções particionadas**
 
@@ -96,7 +96,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
 5. **Implementar o término intervalos getRetryAfterInMilliseconds**
 
-    Durante os testes de desempenho, deve aumentar a carga até uma pequena taxa de pedidos de obter limitadas. Se limitadas, a aplicação cliente deve término no limitação para o intervalo entre tentativas de servidor especificado. Respecting o término garante que passam a quantidade mínima de espera de tempo entre tentativas. Suporte de política de repetição está incluído na versão 1.8.0 e acima do [Java SDK](documentdb-sdk-java.md). Para obter mais informações, consulte [Exceeding reservado limites de débito](request-units.md#RequestRateTooLarge) e [getRetryAfterInMilliseconds](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+    Durante os testes de desempenho, deve aumentar a carga até uma pequena taxa de pedidos de obter limitadas. Se limitadas, a aplicação cliente deve término no limitação para o intervalo entre tentativas de servidor especificado. Respecting o término garante que passam a quantidade mínima de espera de tempo entre tentativas. Suporte de política de repetição está incluído na versão 1.8.0 e acima do [Java SDK](documentdb-sdk-java.md). Para obter mais informações, consulte [Exceeding reservado limites de débito](request-units.md#RequestRateTooLarge) e [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
 6. **Aumentar horizontalmente a cliente carga de trabalho**
 
     Se estiver a testar em níveis de débito elevado (> 50.000 RU/s), a aplicação cliente pode tornar-se a engarrafamento devido a máquina capping limite na utilização de CPU ou à rede. Se atingir este ponto, pode continuar a emitir a conta de base de dados do Azure Cosmos ainda mais ao aumentar horizontalmente as aplicações de cliente por vários servidores.
@@ -112,7 +112,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
     Para reduzir o número de rede arredondar viagens necessárias para obter resultados todos aplicáveis, pode aumentar o tamanho de página utilizando a [x-ms-máx.--número de itens](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) cabeçalho do pedido a até 1000. Nos casos em que seja necessário apresentar apenas alguns resultados, por exemplo, se a API de aplicação ou interface de utilizador devolve apenas os 10 resultados de uma hora, também pode diminuir o tamanho da página para 10 para reduzir o débito consumido para leituras e consultas.
 
-    Também pode definir o tamanho de página utilizando ao [setPageSize método](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
+    Também pode definir o tamanho de página utilizando ao [setPageSize método](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
 ## <a name="indexing-policy"></a>Política de Indexação
  
@@ -143,7 +143,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
     A complexidade de uma consulta afeta o número de unidades de pedido são consumidas para uma operação. O número de predicados, natureza os predicados, número de UDFs e o tamanho do conjunto de dados de origem todos os influenciar o custo das operações de consulta.
 
-    Para medir a sobrecarga de qualquer operação (criar, atualizar ou eliminar), Inspecione o [x-ms-pedido-encargos](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) cabeçalho (ou a propriedade RequestCharge equivalente no [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) ou [FeedResponse<T> ](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._feed_response) para medir o número de unidades de pedido consumidos por estas operações.
+    Para medir a sobrecarga de qualquer operação (criar, atualizar ou eliminar), Inspecione o [x-ms-pedido-encargos](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) cabeçalho (ou a propriedade RequestCharge equivalente no [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) ou [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response) para medir o número de unidades de pedido consumidos por estas operações.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -163,7 +163,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
     Os SDKs implicitamente todos os catch esta resposta, respeitem o servidor especificado depois de repetir cabeçalho e repita o pedido. A menos que a sua conta está a ser acedida em simultâneo por vários clientes, a tentativa seguinte ocorrerá será bem sucedida.
 
-    Se tiver mais do que um cliente cumulativamente e operativo consistentemente acima a taxa de pedidos, a contagem de repetições de predefinição atualmente definida para 9 internamente pelo cliente não poderá suffice; Neste caso, o cliente emite um [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception) com o estado de código 429 à aplicação. A contagem de repetições predefinido pode ser alterada utilizando [setRetryOptions](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.documentdb._connection_policy.setretryoptions) no [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) instância. Por predefinição, o DocumentClientException com o código de estado 429 é devolvido após um tempo cumulativo de espera de 30 segundos, se o pedido continua a funcionar acima a taxa de pedidos. Isto ocorre mesmo quando o número de tentativas atual é menor que o número máximo de tentativas, seja a predefinição de 9 ou um valor definido pelo utilizador.
+    Se tiver mais do que um cliente cumulativamente e operativo consistentemente acima a taxa de pedidos, a contagem de repetições de predefinição atualmente definida para 9 internamente pelo cliente não poderá suffice; Neste caso, o cliente emite um [DocumentClientException](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception) com o estado de código 429 à aplicação. A contagem de repetições predefinido pode ser alterada utilizando [setRetryOptions](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setretryoptions) no [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) instância. Por predefinição, o DocumentClientException com o código de estado 429 é devolvido após um tempo cumulativo de espera de 30 segundos, se o pedido continua a funcionar acima a taxa de pedidos. Isto ocorre mesmo quando o número de tentativas atual é menor que o número máximo de tentativas, seja a predefinição de 9 ou um valor definido pelo utilizador.
 
     Enquanto o comportamento de repetição automatizada ajuda a melhorar a resiliência e a facilidade de utilização para a maioria das aplicações, poderá ser at odds ao efetuar testes de desempenho, especialmente quando medir a latência.  A latência observados de cliente será aumentam se a experimentação pedidos com êxito a limitação de servidor e faz com que o cliente SDK para repetir automaticamente. Para evitar picos de latência durante experimentações de desempenho, medir a taxa devolvida por cada operação e certifique-se de que pedidos estão a funcionar abaixo a taxa de pedidos reservado. Para obter mais informações, consulte [unidades de pedido](request-units.md).
 3. **Conceção para documentos mais pequenos para maior débito**

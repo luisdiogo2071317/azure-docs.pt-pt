@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0a9ed1cad8b8d4c566a0da16ac78d096efe187a5
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configurar o ambiente de sandbox HDInsight associados a um domínio
 
@@ -27,11 +27,18 @@ Saiba como configurar um cluster do Azure HDInsight com autónomo do Active Dire
 
 Sem domínio associado a um cluster do HDInsight, cada cluster só pode ter uma conta de utilizadores de HTTP do Hadoop e uma conta de utilizador SSH.  A autenticação de vários utilizador pode ser conseguida utilizando:
 
--   Autónoma do Active Directory em execução no IaaS do Azure
--   Azure Active Directory
+-   Autónoma do Active Directory em execução no IaaS do Azure.
+-   Azure Active Directory.
 -   Active Directory em execução no ambiente no local ao cliente.
 
-Utilizar uma autónoma do Active Directory em execução no IaaS do Azure é descrito neste artigo. É a arquitetura mais simples de que um cliente pode seguir para obter suporte de vários utilizador no HDInsight. 
+Utilizar uma autónoma do Active Directory em execução no IaaS do Azure é descrito neste artigo. É a arquitetura mais simples de que um cliente pode seguir para obter suporte de vários utilizador no HDInsight. Este artigo abrange duas abordagens para esta configuração:
+
+- Opção 1: Utilize um modelo de gestão de recursos do Azure para criar o diretório de ativa autónomo e o cluster do HDInsight.
+- Opção 2: Todo o processo é dividido nos seguintes passos:
+    - Crie um Active Directory através de um modelo.
+    - LDAPS o programa de configuração.
+    - Criar grupos e utilizadores do AD
+    - Criar cluster do HDInsight
 
 > [!IMPORTANT]
 > Oozie não está ativado no HDInsight associados a um domínio.
@@ -39,7 +46,50 @@ Utilizar uma autónoma do Active Directory em execução no IaaS do Azure é des
 ## <a name="prerequisite"></a>Pré-requisito
 * Subscrição do Azure
 
-## <a name="create-an-active-directory"></a>Criar um Active Directory
+## <a name="option-1-one-step-approach"></a>Opção 1: abordagem de um passo
+Nesta secção, abra um modelo de gestão de recursos do Azure do portal do Azure. O modelo é utilizado para criar uma autónoma do Active Directory e um cluster do HDInsight. Atualmente, pode criar cluster de Hadoop associados a um domínio, o cluster do Spark e o cluster de consulta interativo.
+
+1. Clique na imagem seguinte para abrir o modelo no portal do Azure. O modelo está localizado no [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/).
+   
+    Para criar um cluster do Spark:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fspark%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    Para criar um cluster de consulta interativo:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Finteractivequery%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+    Para criar um cluster do Hadoop:
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/http%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fdomain-joined%2Fhadoop%2Ftemplate.json" target="_blank"><img src="../hbase/media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+2. Introduza os valores, selecione **concordo com os termos e condições indicadas acima**, selecione **afixar ao dashboard**e, em seguida, clique em **Compra**. Coloque o cursor de rato sobre o início de sessão explicação junto aos campos para ver as descrições. A maioria dos valores foram preenchida. Pode utilizar os valores predefinidos ou os seus próprios valores.
+
+    - **Grupo de recursos**: introduza um nome de grupo de recursos do Azure.
+    - **Localização**: Escolha uma localização que esteja perto de si.
+    - **Novo nome da conta de armazenamento**: introduza um nome de conta do Storage do Azure. Esta nova conta de armazenamento é utilizada pelo PDC, o BDC e o cluster do HDInsight, como a conta do storage predefinida.
+    - **Nome de utilizador de Admin**: introduza o nome de utilizador de administrador de domínio.
+    - **Palavra-passe de administrador**: introduza a palavra-passe de administrador do domínio.
+    - **Nome de domínio**: O nome predefinido é *contoso.com*.  Se alterar o nome de domínio, tem também de atualizar o **proteger o certificado de LDAP** campo e o **DN de unidade organizacional** campo.
+    - **Nome do cluster**: introduza o nome de cluster do HDInsight.
+    - **Tipo de cluster**: não altere este valor. Se pretender alterar o tipo de cluster, utilize o modelo específico no último passo.
+
+    Alguns dos valores estão hard-coded no modelo, por exemplo, a contagem de instâncias de nó de trabalho é dois.  Para alterar os valores codificados, clique em **Editar modelo**.
+
+    ![Modelo de edição do HDInsight cluster associados a um domínio](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)
+
+Depois do modelo for concluído com êxito, 23 recursos são criados no grupo de recursos.
+
+## <a name="option-2-multi-step-approach"></a>Opção 2: abordagem de vários passo
+
+Existem quatro passos nesta secção:
+
+1. Crie um Active Directory através de um modelo.
+2. LDAPS o programa de configuração.
+3. Criar grupos e utilizadores do AD
+4. Criar cluster do HDInsight
+
+### <a name="create-an-active-directory"></a>Criar um Active Directory
 
 Modelo Azure Resource Manager torna mais fácil criar recursos do Azure. Esta secção, irá utilizar um [modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) para criar uma nova floresta e domínio com duas máquinas virtuais. As duas máquinas de virtuais servir como um controlador de domínio principal e um controlador de domínio de cópia de segurança.
 
@@ -69,7 +119,7 @@ Modelo Azure Resource Manager torna mais fácil criar recursos do Azure. Esta se
 
 Demora cerca de 20 minutos para criar os recursos.
 
-## <a name="setup-ldaps"></a>LDAPS o programa de configuração
+### <a name="setup-ldaps"></a>LDAPS o programa de configuração
 
 O acesso protocolo LDAP (Lightweight Directory) é utilizado para leem e escrevem para o AD.
 
@@ -102,11 +152,11 @@ O acesso protocolo LDAP (Lightweight Directory) é utilizado para leem e escreve
 
     ![Associado a um domínio de HDInsight configurar o certificado do AD](./media/apache-domain-joined-configure/hdinsight-domain-joined-configure-ad-certificate.png)
 
-2. Clique em * * serviços de função no lado esquerdo, selecione **autoridade de certificação**e, em seguida, clique em **seguinte**.
+2. Clique em **serviços de função** à esquerda, selecione **autoridade de certificação**e, em seguida, clique em **seguinte**.
 3. Siga o assistente, utilize as predefinições para o resto do procedimento (clique **configurar** no último passo).
 4. Clique em **Fechar** para fechar o assistente.
 
-## <a name="optional-create-ad-users-and-groups"></a>(Opcional) Criar grupos e utilizadores do AD
+### <a name="optional-create-ad-users-and-groups"></a>(Opcional) Criar grupos e utilizadores do AD
 
 **Para criar utilizadores e grupos no AD**
 1. Ligar para o PDC utilizando o ambiente de trabalho remoto
@@ -122,7 +172,7 @@ O acesso protocolo LDAP (Lightweight Directory) é utilizado para leem e escreve
 > [!IMPORTANT]
 > Tem de reiniciar a máquina virtual do PDC antes de criar um cluster do HDInsight associados a um domínio.
 
-## <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Criar um cluster do HDInsight na VNet
+### <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Criar um cluster do HDInsight na VNet
 
 Nesta secção, utilize o portal do Azure para adicionar um cluster do HDInsight para a rede virtual que criou utilizando o modelo do Resource Manager anteriormente no tutorial. Este artigo abrange apenas as informações específicas para a configuração de cluster associados a um domínio.  Para informações gerais, consulte [baseado em Linux criar clusters HDInsight no portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).  
 

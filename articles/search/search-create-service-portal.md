@@ -13,15 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço da Azure Search no portal
 
-Saiba como criar ou o aprovisionar um serviço da Azure Search no portal. Para obter instruções de PowerShell, consulte [gerir da Azure Search com o PowerShell](search-manage-powershell.md).
+Saiba como criar ou o aprovisionar um serviço da Azure Search no portal. 
+
+Prefere PowerShell? Utilizar o Azure Resource Manager [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/). Para ajudar a começar a utilizar, consulte [gerir da Azure Search com o PowerShell](search-manage-powershell.md) para em segundo plano.
 
 ## <a name="subscribe-free-or-paid"></a>Subscrever (gratuita ou paga)
 
@@ -30,7 +32,7 @@ Saiba como criar ou o aprovisionar um serviço da Azure Search no portal. Para o
 Em alternativa, [ativar os benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Uma subscrição do MSDN dá-lhe créditos todos os meses que pode utilizar para serviços pagos do Azure. 
 
 ## <a name="find-azure-search"></a>Localizar a pesquisa do Azure
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique no sinal ("+") no canto superior esquerdo.
 3. Selecione **Web + móvel** > **a Azure Search**.
 
@@ -47,7 +49,7 @@ Requisitos de nome de serviço:
    * Evitar traços ("-") nos primeiro 2 carateres ou como o último caráter único
    * Sem traços consecutivos ("-") em qualquer lugar
 
-## <a name="select-a-subscription"></a>Selecionar uma subscrição
+## <a name="select-a-subscription"></a>Selecione uma subscrição
 Se tiver mais do que uma subscrição, escolha uma também com os serviços de armazenamento de dados ou ficheiro. A pesquisa do Azure pode deteção automática armazenamento de tabelas do Azure e BLOBs, base de dados do SQL Server e base de dados do Azure Cosmos para indexação através de [ *indexadores*](search-indexer-overview.md), mas apenas para serviços na mesma subscrição.
 
 ## <a name="select-a-resource-group"></a>Selecionar um grupo de recursos
@@ -107,7 +109,7 @@ Embora a maioria dos clientes utilizam apenas um serviço, redundância de servi
 
 Um segundo serviço não é necessário para elevada disponibilidade. Elevada disponibilidade para consultas é conseguida ao utilizar 2 ou mais réplicas no mesmo serviço. Atualizações de réplicas são sequenciais, o que significa que, pelo menos, um se encontra operacional quando uma atualização de serviço é implementada. Para obter mais informações sobre a disponibilidade, consulte [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Após o aprovisionamento de um serviço da Azure Search, estará pronto para [definir um índice](search-what-is-an-index.md) para que possa carregar e os dados de pesquisa. 
 
 > [!div class="nextstepaction"]

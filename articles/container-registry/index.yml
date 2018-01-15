@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
-  ms.openlocfilehash: cdd33e3aed48cc94f91962b78f17628a6e29657d
-  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.openlocfilehash: d6f7bc786b4239f93983a039f2ae8b82ee90ed5b
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 12/07/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "O Azure Container Registry permite-lhe armazenar e gerir imagens de todos os tipos de implementações de contentores. Saiba como utilizar o Azure Container Registry com estes inícios rápidos, tutoriais e exemplos."
 sections:
@@ -29,15 +29,15 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       text: CLI do Azure
       href: /azure/container-registry/container-registry-get-started-azure-cli
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
       text: Portal do Azure
       href: /azure/container-registry/container-registry-get-started-portal
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/container-registry/container-registry-get-started-powershell
 - title: Tutoriais Passo-a-Passo
@@ -61,6 +61,6 @@ sections:
     - title: Linha de Comandos
       html: <p><a href="/cli/azure/acr">CLI do Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
     - title: Linguagens
-      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
     - title: REST
       html: "<p><a href=\"/rest/api/containerregistry\">Referência da API REST</a></p><p><a href=\"/azure/templates/microsoft.containerregistry/registries\">Modelo do Resource Manager</a></p><p><a href=\"/azure/container-registry/container-registry-webhook-reference\">Esquema de webhook</a></p>"

@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jgao
-ms.openlocfilehash: f302b84685b1992faef4813c0262223bcb5909aa
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: e0486d2c5f78da1d1e4a12703f120eccef43c305
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/12/2018
@@ -84,7 +84,7 @@ Por este ponto de cluster do HDInsight deve estar pronto. Caso contrário, terá
 
 5. A aplicação que criar requer o pacote de Hubs de eventos de transmissão em fluxo do Spark. Para executar a Shell do Spark, de modo a que obtém automaticamente esta dependência de [Maven Central](https://search.maven.org), certifique-se ser alimentação os pacotes de comutador com as coordenadas do Maven da seguinte forma:
 
-        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.0"
+        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.5"
 
 6. Depois de concluída a Shell do Spark carregar, deverá ver:
 
@@ -92,10 +92,10 @@ Por este ponto de cluster do HDInsight deve estar pronto. Caso contrário, terá
             ____              __
             / __/__  ___ _____/ /__
             _\ \/ _ \/ _ `/ __/  '_/
-        /___/ .__/\_,_/_/ /_/\_\   version 2.1.0.2.6.0.10-29
+        /___/ .__/\_,_/_/ /_/\_\   version 2.1.1.2.6.2.3-1
             /_/
                 
-        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_131)
+        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
         Type in expressions to have them evaluated.
         Type :help for more information.
 
@@ -113,8 +113,12 @@ Por este ponto de cluster do HDInsight deve estar pronto. Caso contrário, terá
             "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
             "eventhubs.sql.containsProperties" -> "true"
             )
+            
+8. Se observar o ponto final de EventHub compatível com o seguinte formato, a parte que lê `iothub-xxxxxxxxxx` é o nome de espaço de nomes de EventHub compatível e pode ser utilizado para `eventhubs.namespace`. O campo `SharedAccessKeyName` pode ser utilizado para `eventhubs.policyname`, e `SharedAccessKey` para `eventhubs.policykey`: 
 
-8. Cole o fragmento modificado o scala espera > linha de comandos e prima retorno. Deverá ver uma saída semelhante a:
+        Endpoint=sb://iothub-xxxxxxxxxx.servicebus.windows.net/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx 
+
+9. Cole o fragmento modificado o scala espera > linha de comandos e prima retorno. Deverá ver uma saída semelhante a:
 
         scala> val eventhubParameters = Map[String, String] (
             |       "eventhubs.policyname" -> "RootManageSharedAccessKey",
@@ -128,31 +132,31 @@ Por este ponto de cluster do HDInsight deve estar pronto. Caso contrário, terá
             |     )
         eventhubParameters: scala.collection.immutable.Map[String,String] = Map(eventhubs.sql.containsProperties -> true, eventhubs.name -> hub1, eventhubs.consumergroup -> $Default, eventhubs.partition.count -> 2, eventhubs.progressTrackingDir -> /eventhubs/progress, eventhubs.policykey -> 2P1Q17Wd1rdLP1OZQYn6dD2S13Bb3nF3h2XZD9hvyyU, eventhubs.namespace -> hdiz-docs-eventhubs, eventhubs.policyname -> RootManageSharedAccessKey)
 
-9. Em seguida, começar a criar um Spark estruturados de transmissão em fluxo consulta possível especificar a origem. Colar o seguinte na Shell de Spark e prima retorno.
+10. Em seguida, começar a criar um Spark estruturados de transmissão em fluxo consulta possível especificar a origem. Colar o seguinte na Shell de Spark e prima retorno.
 
         val inputStream = spark.readStream.
         format("eventhubs").
         options(eventhubParameters).
         load()
 
-10. Deverá ver uma saída semelhante a:
+11. Deverá ver uma saída semelhante a:
 
         inputStream: org.apache.spark.sql.DataFrame = [body: binary, offset: bigint ... 5 more fields]
 
-11. Em seguida, crie a consulta para que escreve o resultado para a consola. Fazê-lo, colar o seguinte na Shell de Spark e premindo retorno.
+12. Em seguida, crie a consulta para que escreve o resultado para a consola. Fazê-lo, colar o seguinte na Shell de Spark e premindo retorno.
 
         val streamingQuery1 = inputStream.writeStream.
         outputMode("append").
         format("console").start().awaitTermination()
 
-12. Deverá ver alguns lotes começar com o resultado semelhante ao seguinte
+13. Deverá ver alguns lotes começar com o resultado semelhante ao seguinte
 
         -------------------------------------------
         Batch: 0
         -------------------------------------------
         [Stage 0:>                                                          (0 + 2) / 2]
 
-13. Isto é seguido os resultados de saída do processamento da cada microbatch de eventos. 
+14. Isto é seguido os resultados de saída do processamento da cada microbatch de eventos. 
 
         -------------------------------------------
         Batch: 0
@@ -184,8 +188,8 @@ Por este ponto de cluster do HDInsight deve estar pronto. Caso contrário, terá
         +--------------------+------+---------+------------+---------+------------+----------+
         only showing top 20 rows
 
-14. Chegarem novos eventos do produtor de evento, são processados por esta consulta estruturada de transmissão em fluxo.
-15. Lembre-se de que elimina o cluster de HDInsight quando terminar de executar este exemplo.
+15. Chegarem novos eventos do produtor de evento, são processados por esta consulta estruturada de transmissão em fluxo.
+16. Lembre-se de que elimina o cluster de HDInsight quando terminar de executar este exemplo.
 
 
 

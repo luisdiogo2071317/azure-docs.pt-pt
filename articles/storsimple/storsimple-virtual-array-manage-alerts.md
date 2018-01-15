@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7d4d680e3460fbeff73c2f334c6461da7967374d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utilize o Gestor de dispositivo StorSimple para gerir alertas para a matriz de Virtual StorSimple
 
@@ -125,7 +125,6 @@ As tabelas seguintes listam alguns dos alertas StorSimple que poderá encontrar,
 * [Alertas de falha da tarefa](#job-failure-alerts)
 * [Alertas de desempenho](#performance-alerts)
 * [Alertas de segurança](#security-alerts)
-* [Atualizar alertas](#update-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Alertas de conectividade de nuvem
 
@@ -165,14 +164,7 @@ As tabelas seguintes listam alguns dos alertas StorSimple que poderá encontrar,
 |:--- |:--- |:--- |
 | Palavra-passe para <*nome de dispositivo*> irá expirar dentro de <*número*> dias. |Aviso de palavra-passe. |A palavra-passe expira em < número < dias. Considere alterar a palavra-passe. Para obter mais informações, aceda a [alterar a palavra-passe de administrador do dispositivo de matriz Virtual StorSimple](storsimple-virtual-array-change-device-admin-password.md). |
 
-### <a name="update-alerts"></a>Atualizar alertas
-
-| Texto de alerta | Evento | Obter mais informações / as ações recomendadas |
-|:--- |:--- |:--- |
-| Novas atualizações estão disponíveis para o seu dispositivo. |Estão disponíveis atualizações para a matriz de Virtual StorSimple. |Pode instalar novas atualizações a partir de **manutenção** página. |
-| Não foi possível verificar novas atualizações em <*nome de dispositivo*>. |Falha de atualização. |Ocorreu um erro ao instalar novas atualizações. Pode instalar manualmente as atualizações. Se o problema persistir, contacte [Microsoft Support](storsimple-contact-microsoft-support.md). |
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba mais sobre a matriz de Virtual StorSimple](storsimple-ova-overview.md).
 

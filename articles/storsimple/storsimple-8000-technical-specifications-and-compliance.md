@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: d7cd31dcb2278284ada6e7ac1d8beab9e1b5b1df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>As especificações técnicas e compatibilidade do dispositivo StorSimple
 
@@ -80,7 +80,7 @@ Os dispositivos StorSimple tem uma combinação de unidades de disco rígido e u
 | Capacidade total utilizável * |~ 15 TB |~ 38 TB |
 | Capacidade máxima de solução (incluindo a nuvem) |200 TB |500 TB |
 
-<sup>* </sup>- *A capacidade de utilizável total inclui a capacidade disponível para memórias intermédias, metadados e dados.*
+<sup>* </sup>- *A capacidade de utilizável total inclui a capacidade disponível para memórias intermédias, metadados e dados. Pode aprovisionar volumes localmente afixados até 8.5 TB no dispositivo 8100 ou até 22.5 TB no dispositivo 8600 maior. Para obter mais informações, aceda a [StorSimple localmente afixado volumes](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>As dimensões de inclusão e especificações de ponderação
 
@@ -193,7 +193,7 @@ O plug e a assemblagem de cabo energia completa têm de cumprir as normas adequa
 
 Para as interfaces de rede GbE 10, dados 2 e dados 3, consulte o [lista de módulos e de cabos de rede suportados](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora está pronto para implementar um dispositivo StorSimple no seu centro de dados. Para obter mais informações, consulte [implementar o seu dispositivo no local](storsimple-8000-deployment-walkthrough-u2.md).
 

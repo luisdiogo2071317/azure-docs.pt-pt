@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 14/12/2017
+ms.date: 1/02/2018
 ms.author: bsiva
-ms.openlocfilehash: 3cf2478eb810961604e1218731f5303abd0f611a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ee4847a61392a8eacde82ea62c3812d601b489f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="replicate-and-failover-vmware-virtual-machines-to-azure-using-azure-site-recovery-powershell"></a>Replicação e ativação pós-falha em máquinas virtuais VMware no Azure através do PowerShell do Azure Site Recovery
 
@@ -109,7 +109,7 @@ Utilize a chave de registo do cofre transferidas e siga os passos nos artigos in
 ## <a name="set-the-vault-context"></a>Definir o contexto do Cofre
 
 > [!TIP]
-> O módulo PowerShell do Azure Site Recovery (módulo AzureRm.RecoveryServices.SiteRecovery) é fornecido com aliases fáceis de utilizar para a maioria dos cmdlets. Os cmdlets no módulo de ter a forma  *\<operação >-**AzureRmRecoveryServicesAsr**\<objeto >* e tem o equivalente aliases de ter a forma  *\<operação >-**ASR**\<objeto >*. Este artigo utiliza os aliases de cmdlet para facilitar a leitura.
+> O módulo PowerShell do Azure Site Recovery (módulo AzureRm.RecoveryServices.SiteRecovery) é fornecido com aliases fáceis de utilizar para a maioria dos cmdlets. Os cmdlets no módulo de ter a forma  *\<operação >-**AzureRmRecoveryServicesAsr**\<objeto >* e tem o equivalentes aliases que ter a forma  *\<Operação >-**ASR**\<objeto >*. Este artigo utiliza os aliases de cmdlet para facilitar a leitura.
 
 Defina o contexto de cofre utilizando o cmdlet Set-ASRVaultContext. Uma vez definida, são executadas operações subsequentes do Azure Site Recovery na sessão do PowerShell no contexto do cofre selecionado. No exemplo abaixo, os detalhes do cofre do $vault variável é utilizada para especificar o contexto do cofre para a sessão do PowerShell.
  ```azurepowershell
@@ -329,7 +329,7 @@ Demora cerca de 15 a 20 minutos para máquinas virtuais para ser detetado a part
 Terá dos detalhes seguintes para proteger uma máquina virtual detetada:
 * O item protegível a replicar.
 * A conta de armazenamento para replicar a máquina virtual. Além disso, é necessário um armazenamento de registo para proteger máquinas virtuais para uma conta de armazenamento premium.
-* O servidor de processos a serem utilizadas para replicação. A lista de servidores de processos disponíveis foi obtida e guardou no ***$ProcessServers [0]****(ScaleOut ProcessServer)* e ***$ProcessServers [1]*** *(ConfigurationServer)* variáveis.  
+* O servidor de processos a serem utilizadas para replicação. A lista de servidores de processos disponíveis foi obtida e guardou no ***$ProcessServers [0]****(ScaleOut ProcessServer)* e ***$ProcessServers [1]*** *(ConfigurationServer)* variáveis.
 * A conta a utilizar para o software do serviço de mobilidade para as máquinas de instalação push. A lista de contas disponíveis foi obtida e armazenada no ***$AccountHandles*** variável.
 * O mapeamento de contentor de proteção para a política de replicação a ser utilizada para replicação.
 * O grupo de recursos no qual as máquinas virtuais têm de ser criadas na ativação pós-falha.

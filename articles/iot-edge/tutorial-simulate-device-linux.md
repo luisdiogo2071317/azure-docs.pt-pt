@@ -7,16 +7,16 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Implementar o Azure IoT Edge num dispositivo simulado com Linux – pré-visualização
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Implementar o Azure IoT Edge num dispositivo simulado com Linux ou MacOS – pré-visualização
 
 Limite de IoT do Azure permite-lhe efetuar o processamento de dados e de análise nos seus dispositivos, em vez de ter de push de todos os dados para a nuvem. Os tutoriais de limite de IoT demonstram como implementar os diferentes tipos de módulos, criados a partir de serviços do Azure ou código personalizado, mas primeiro tem de um dispositivo para testar. 
 
@@ -33,10 +33,14 @@ O dispositivo simulado que criar neste tutorial é um monitor que gera temperatu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial parte do princípio de que está a utilizar um computador ou máquina virtual com Linux para simular um dispositivo de Internet das coisas. Os seguintes serviços são necessários para implementar com êxito um dispositivo de limite de IoT:
+Este tutorial utiliza o seu computador ou máquina virtual, como um dispositivo de Internet das coisas. Para ativar o seu computador para um dispositivo de limite de IoT, são necessários os seguintes serviços:
 
-- [Instalar Docker para Linux] [ lnk-docker-ubuntu] e certifique-se de que está a ser executado. 
-- A maioria das distribuições de Linux, incluindo Ubuntu, já tem o Python 2.7 instalado. Utilize o seguinte comando para se certificar de que o pip está instalado: `sudo apt-get install python-pip`.
+* Pip de Python, para instalar o runtime de limite de IoT.
+   * Linux: `sudo apt-get install python-pip`.
+   * MacOS: `sudo easy_install pip`.
+* Docker, para executar o limite de IoT módulos
+   * [Instalar Docker para Linux] [ lnk-docker-ubuntu] e certifique-se de que está em execução. 
+   * [Instalar Docker para Mac] [ lnk-docker-mac] e certifique-se de que está em execução. 
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -110,7 +114,7 @@ sudo docker logs -f tempSensor
 
 Também pode ver a telemetria que o dispositivo está a enviar ao utilizar o [ferramenta do Explorador do IoT Hub][lnk-iothub-explorer]. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou um novo dispositivo de limite de IoT e utilizar a interface de nuvem do Azure IoT Edge para implementar o código no dispositivo. Agora, tem um dispositivo simulado, gerando dados não processados sobre o seu ambiente. 
 
@@ -130,4 +134,5 @@ Este tutorial é o pré-requisito para todos os outros tutoriais de limite de Io
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

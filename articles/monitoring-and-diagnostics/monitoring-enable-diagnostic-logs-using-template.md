@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: johnkem
-ms.openlocfilehash: ee9f4d8846f7549d0a4cd0be1d6f726293716a69
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 6355433dab7bac910dd89a50b74df13d6cf1b8fc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Ativar automaticamente definições de diagnóstico durante a criação de recursos através de um modelo do Resource Manager
 Neste artigo mostramos como pode utilizar um [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar definições de diagnóstico num recurso quando é criado. Isto permite-lhe iniciar automaticamente a transmissão em fluxo os registos de diagnóstico e métricas para os Event Hubs, arquivá-los numa conta de armazenamento ou enviando-as à análise de registos quando um recurso é criado.
@@ -116,7 +116,7 @@ Não-recursos de computação, terá de efetuar dois procedimentos:
     ]
     ```
 
-O blob de propriedades para a definição de diagnóstico segue [o formato descrito neste artigo](https://docs.microsoft.com/en-us/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Adicionar o `metrics` propriedade permitirá também enviar métricas de recurso para estes mesmas saídas, fornecidas que [o recurso suporta métricas de Monitor de Azure](monitoring-supported-metrics.md).
+O blob de propriedades para a definição de diagnóstico segue [o formato descrito neste artigo](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). Adicionar o `metrics` propriedade permitirá também enviar métricas de recurso para estes mesmas saídas, fornecidas que [o recurso suporta métricas de Monitor de Azure](monitoring-supported-metrics.md).
 
 Eis um exemplo completo que cria uma aplicação lógica e ativa a transmissão em fluxo para armazenamento numa conta do storage e Hubs de eventos.
 

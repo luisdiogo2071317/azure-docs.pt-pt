@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 452d0a9d0231e54df2a7f1df76c3c2c0fcd94d87
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: e98caaa387418d746905990436b69925a591b260
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="memory-leak-detection-preview"></a>Deteção de fuga de memória (pré-visualização)
 
 Application Insights automaticamente analisa o consumo de memória de cada processo na sua aplicação e pode avisá-lo sobre potenciais fugas de memória ou o consumo de memória de aumento.
 
-Esta funcionalidade não necessita de nenhuma configuração especial, diferente de [configurar os contadores de desempenho](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) para a sua aplicação. Está ativa quando a sua aplicação gerar suficiente telemetria de contadores de desempenho de memória (por exemplo, Bytes privados).
+Esta funcionalidade não necessita de nenhuma configuração especial, diferente de [configurar os contadores de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) para a sua aplicação. Está ativa quando a sua aplicação gerar suficiente telemetria de contadores de desempenho de memória (por exemplo, Bytes privados).
 
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando receber este tipo de notificação de deteção inteligente?

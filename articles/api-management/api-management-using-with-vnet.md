@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: b37c9d9de171e69e38a4bae58f9fbac99eae2091
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede routeable não internet que controla o acesso a. Estas redes, em seguida, podem ser ligadas a suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começar a utilizar as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -108,11 +108,9 @@ Quando uma instância de serviço de API Management está alojada numa VNET, as 
 | Origem / destino portas | Direção | Protocolo de transporte | Origem / destino | Objetivo (*) | Tipo de rede virtual |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação de cliente para gestão de API|Externo |
-| * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e o Powershell |Interna |
+| * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e o Powershell |Interno |
 | * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência de armazenamento do Azure, o Service Bus do Azure e o Azure Active Directory (quando aplicável).|Externo & interno | 
 | * / 1433 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|**Acesso a pontos finais do SQL do Azure** |Externo & interno |
-| * / 11000 - 11999 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|**Acesso ao Azure SQL V12 mais recente** |Externo & interno |
-| * / 14000 - 14999 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|**Acesso ao Azure SQL V12 mais recente** |Externo & interno |
 | * / 5671, 5672 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência de registo para a política de Hub de eventos e o agente de monitorização |Externo & interno |
 | * / 445 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência de partilha de ficheiros do Azure de GIT |Externo & interno |
 | * / 25028 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Ligar para o reencaminhamento de SMTP para enviar E-mails |Externo & interno |

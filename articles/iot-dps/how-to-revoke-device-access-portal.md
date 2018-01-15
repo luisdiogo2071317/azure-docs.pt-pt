@@ -12,17 +12,17 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7985fba68ef2c6f651c64756f8c534928b573de5
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 6f1dad648b228163219c8f722eed3897f4ba4d22
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Como revogar o acesso de dispositivo para o serviço de aprovisionamento no Portal do Azure
 
 Gestão adequado de credenciais de dispositivo é fundamental para sistemas de perfil de alta como soluções de IoT. Uma melhor prática para esses sistemas é ter um plano limpar como revogar o acesso para dispositivos em casos em que as respetivas credenciais, se um token SAS ou um certificado x. 509, podem ficar comprometidas. Este artigo descreve como revogar o acesso de dispositivo, o passo de aprovisionamento.
 
-Para saber mais sobre revogar o acesso de dispositivo a um IoT hub depois do dispositivo tiver sido aprovisionado. consulte [desativar dispositivos](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+Para saber mais sobre revogar o acesso de dispositivo a um IoT hub depois do dispositivo tiver sido aprovisionado. consulte [desativar dispositivos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
 
 > [!NOTE] 
 > Tenha em atenção a política de repetição de dispositivos que se revogar o acesso. Por exemplo, um dispositivo com uma política de repetição infinita pode continuamente tentar registar com o serviço de aprovisionamento, consumir recursos de serviço e, possivelmente, afetar o desempenho.

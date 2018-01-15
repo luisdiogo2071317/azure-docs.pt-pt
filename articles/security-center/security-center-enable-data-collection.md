@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2018
+ms.date: 01/12/2018
 ms.author: terrylan
-ms.openlocfilehash: 138611c8e476ba267c9111a33bd83e1db0672a7d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d5f2c9960b720fc44f37956f9150e89d6425d154
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 Centro de segurança recolhe dados de máquinas de virtuais (VMs) do Azure e computadores não do Azure para monitorizar vulnerabilidades de segurança e ameaças. Os dados são recolhidos através do Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Os exemplos destes dados incluem: tipo e versão do sistema operativo, registos de sistema operativo (registos de eventos do Windows), processos em execução, nome da máquina, endereços IP, utilizador com sessão iniciada e ID do inquilino. O Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
@@ -79,7 +79,7 @@ Para selecionar uma área de trabalho de análise de registos existente:
 Centro de segurança pode reduzir o volume de eventos, mantendo em simultâneo suficiente eventos para investigação, auditoria e deteção de ameaças. Pode escolher o direito de filtragem de política para as suas subscrições e áreas de trabalho de quatro conjuntos de eventos recolhidos pelo agente.
 
 - **Todos os eventos** – para os clientes que deve certificar-se de que todos os eventos são recolhidos. Esta é a predefinição.
-- **Comuns** – este é um conjunto de eventos que satisfaça a maioria dos clientes e permite-lhes uma avaliação completa de auditoria.
+- **Comuns** – este é um conjunto de eventos que satisfaça a maioria dos clientes e permite-lhes um registo de auditoria completa.
 - **Mínimo** – um conjunto mais pequeno de eventos para os clientes que pretendem minimizar o volume de eventos.
 - **Nenhum** – desativar a recolha de eventos de segurança de segurança e do App Locker registos. Para os clientes que escolha esta opção, os seus dashboards de segurança tem apenas registos de Firewall do Windows e avaliações proativa como antimalware, a linha de base e a atualização.
 
@@ -90,7 +90,7 @@ Centro de segurança pode reduzir o volume de eventos, mantendo em simultâneo s
 
 Para determinar os eventos que irão pertencer ao **comuns** e **mínima** conjuntos de evento, iremos trabalhou com os clientes e normas da indústria para saber mais sobre a frequência e não filtrada da respetiva utilização e cada evento. Utilizámos as seguintes diretrizes neste processo:
 
-- **Mínimo** -Certifique-se de que este conjunto abrange apenas os eventos que possam indicar uma violação com êxito e eventos importantes que têm um volume muito baixo. Por exemplo, este conjunto contém utilizador com êxito e início de sessão (evento 4624 de IDs, 4625), mas não contém o fim de sessão que é importante para auditoria mas não significativo para deteção e tem relativamente elevado volume. A maioria do volume de dados deste conjunto é os eventos de início de sessão e os eventos de criação do processo (evento ID 4688, consulte o Centro de segurança [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled) para obter mais informações sobre eventos de criação de processo 4688).
+- **Mínimo** -Certifique-se de que este conjunto abrange apenas os eventos que possam indicar uma violação com êxito e eventos importantes que têm um volume muito baixo. Por exemplo, este conjunto contém utilizador com êxito e início de sessão (evento 4624 de IDs, 4625), mas não contém o fim de sessão que é importante para auditoria mas não significativo para deteção e tem relativamente elevado volume. A maioria do volume de dados deste conjunto é os eventos de início de sessão e os eventos de criação do processo (evento ID 4688).
 - **Comuns** -forneça um registo de auditoria de utilizador completo deste conjunto. Por exemplo, este conjunto contém inícios de sessão do utilizador e de fim de sessão do utilizador (evento ID 4634). Incluímos auditoria ações como alterações ao grupo de segurança, operações de Kerberos do controlador de domínio de chave e outros eventos que são recomendados por organizações da indústria.
 
 Eventos com um volume muito baixa foram incluídos no comuns definido como a motivação principal para escolher o ao longo de todos os eventos é para reduzir o volume e não para filtrar os eventos específicos.
@@ -108,6 +108,11 @@ Eis uma divisão de segurança e do App Locker de IDs de evento para cada conjun
 | | 4774,4778,4779,4781,4793,4797,4798,4799,4800,4801,4802,4803,4825,4826,4870,4886,4887,4888,4893,4898,4902, |
 | | 4904,4905,4907,4931,4932,4933,4946,4948,4956,4985,5024,5033,5059,5136,5137,5140,5145,5632,6144,6145,6272, |
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
+
+> [!NOTE]
+> Se estiver a utilizar o objeto de política de grupo (GPO), recomenda-se que ative as políticas de auditoria 4688 de eventos do processo de criação e a *CommandLine* campo no interior do evento 4688. Para mais informações sobre o processo de criação de evento 4688, consulte o Centro de segurança [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled). Para obter mais informações sobre estas políticas de auditoria, consulte [recomendações de política de auditoria](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+>
+>
 
 Para escolher a política de filtragem:
 1. No **definições de política de segurança &** painel, selecione a política de filtragem em **eventos de segurança**.

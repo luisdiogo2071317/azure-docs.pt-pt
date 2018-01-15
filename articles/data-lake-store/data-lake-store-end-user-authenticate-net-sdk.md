@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ad9a66e02318ad4a84d65062114c916721047888
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>Autenticação de utilizador final com o Data Lake Store com .NET SDK
 > [!div class="op_single_selector"]
@@ -62,27 +62,32 @@ Neste artigo, pode saber mais sobre como utilizar o SDK .NET para fazer a autent
         ![Adicionar uma origem NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Criar uma nova conta do Azure Data Lake")
    4. Feche o **Gestor de Pacotes NuGet**.
 
-6. Abra **Program.cs**, elimine o código existente e, em seguida, inclua as seguintes instruções para adicionar referências aos espaços de nomes.
+6. Abra **Program.cs**
+7. Replease a utilizando as instruções com as seguintes linhas:
 
-        using System;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-        using System.Collections.Generic;
-                
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Threading;
+    using System.Collections.Generic;
+            
+    using Microsoft.Rest;
+    using Microsoft.Rest.Azure.Authentication;
+    using Microsoft.Azure.Management.DataLake.Store;
+    using Microsoft.Azure.Management.DataLake.Store.Models;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```     
 
 ## <a name="end-user-authentication"></a>Autenticação de utilizador final
 Adicione este fragmento na sua aplicação de cliente do .NET. Substitua os valores de marcador de posição pelos valores obtidos a partir de uma aplicação nativa do Azure AD (listada como pré-requisito). Este fragmento permite-lhe autenticar a sua aplicação **interativamente** com o Data Lake Store, que significa que lhe for pedido para introduzir as suas credenciais do Azure.
 
 Facilidade de utilização, o fragmento seguinte utiliza os valores predefinidos para o ID de cliente e URI que são válidas para qualquer subscrição do Azure de redirecionamento. O fragmento seguinte, apenas terá de fornecer o valor para o ID do inquilino. Pode obter o ID de inquilino utilizando as instruções fornecidas na [obter o ID de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
     
+- Substitua a função Main () com o seguinte código:
+
+    ```csharp
     private static void Main(string[] args)
     {
         //User login via interactive popup
@@ -96,6 +101,7 @@ Facilidade de utilização, o fragmento seguinte utiliza os valores predefinidos
         var armCreds = GetCreds_User_Popup(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, tokenCache);
         var adlCreds = GetCreds_User_Popup(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, tokenCache);
     }
+    ```
 
 Alguns aspetos a conhecer o fragmento anterior:
 

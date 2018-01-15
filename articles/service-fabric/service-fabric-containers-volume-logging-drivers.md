@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 772e51519d1ad45ababa0f4c1f4b402d280f9c14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Utilizar o volume de Docker plug-ins e controladores de registo no contentor de
 Recursos de infraestrutura de serviço do Azure suporta a especificação de [Docker volume plug-ins](https://docs.docker.com/engine/extend/plugins_volume/) e [controladores de registo de Docker](https://docs.docker.com/engine/admin/logging/overview/) para o seu serviço de contentor. Pode manter os dados no [ficheiros do Azure](https://azure.microsoft.com/services/storage/files/) quando o contentor é movido ou reiniciado num anfitrião diferente.
@@ -39,6 +39,11 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
     DEBUG=1
 ```
+
+> [!NOTE]
+> O Centro de dados do Windows Server 2016 não suporta SMB monta no anfitrião ([só é suportada no Windows Server versão 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Isto impede a utilização de determinados controladores de volume, como controladores de volume de ficheiros do Azure. Em vez disso, um pode montar as partilhas diretamente dentro do contentor utilizando **net utilize**. 
+>   
+
 
 ## <a name="specify-the-plug-in-or-driver-in-the-manifest"></a>Especifique o plug-in ou controlador no manifesto
 Os plug-ins são especificados no manifesto da aplicação da seguinte forma:
@@ -87,5 +92,5 @@ Quando especificar um plug-in de volume, o Service Fabric cria automaticamente o
 ```
 Se não for especificado um controlador de registo do Docker, tem de implementar agentes (ou contentores) para processar os registos no cluster. O **DriverOption** etiqueta pode ser utilizada para especificar as opções do controlador de registo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para implementar um cluster do Service Fabric contentores, consulte [implementar um contentor no Service Fabric](service-fabric-deploy-container.md).

@@ -1,5 +1,7 @@
 
-**Documente última atualização**: 6 de Janeiro, 6:30 PM PST.
+
+
+**Documente última atualização**: 12 de Janeiro, 3:00 PM PST.
 
 A divulgação recente de um [nova classe de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) conhecido como ataques de canal de lado de execução speculative resultou no questões a partir de clientes de pesquisa mais efeitos de clareza.  
 
@@ -43,9 +45,7 @@ Se estiver a utilizar o Linux e alojar código não fidedigno, também deve atua
 
 
 
-
-
-
+Vamos continuar a atualizar estas melhores práticas que recebemos microcode atualizações dos fornecedores de hardware. Verifique novamente para orientação atualizada.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: saurinsh
-ms.openlocfilehash: cf8532334f03f72691fa09e8dbdd02b78072cf38
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services
 
@@ -39,7 +39,7 @@ Terá de criar um Azure do AD DS antes de poder criar um cluster do HDInsight. P
 > [!NOTE]
 > Apenas os administradores do inquilino tem os privilégios para criar serviços de domínio. 
 
-Depois do serviço de domínio tiver sido aprovisionado, terá de criar uma conta de serviço no **os administradores de DC do Azure AD** grupo para criar o cluster do HDInsight. A conta de Service tem de ser um administrador global sobre o Azure AD.
+Depois do serviço de domínio tiver sido aprovisionado, terá de criar uma conta de serviço no **os administradores de DC do Azure AD** grupo para criar o cluster do HDInsight. A conta de serviço tem de ser um administrador global sobre o Azure AD.
 
 ## <a name="create-a-domain-joined-hdinsight-cluster"></a>Criar um cluster do HDInsight associados a um domínio
 
@@ -61,7 +61,7 @@ A seguinte captura de ecrã mostra as configurações no portal do Azure:
 ![Configuração de serviços de domínio do Active Directory associados a um domínio do Azure HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para configurar políticas do Hive e executar consultas do Hive, veja [Configurar políticas do Hive para clusters do HDInsight associados a um domínio](apache-domain-joined-run-hive.md).
 * Para utilizar o SSH para ligar a clusters do HDInsight associados a um domínio, consulte [utilizar o SSH com Hadoop baseado em Linux no HDInsight a partir do Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

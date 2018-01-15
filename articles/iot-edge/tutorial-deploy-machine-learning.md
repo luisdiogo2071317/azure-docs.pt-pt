@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/13/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 2afdb257421b1333f451eb9d0dd4c2af5a12e946
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementar o Azure Machine Learning como um módulo de limite de IoT – pré-visualização
 
@@ -35,7 +35,7 @@ O módulo do Azure Machine Learning que criar neste tutorial lê os dados de tem
 * O dispositivo de limite de IoT do Azure que criou no início rápido ou primeiro tutorial.
 * A cadeia de ligação do IoT Hub para o IoT hub que liga o dispositivo de limite de IoT.
 * Uma conta do Azure Machine Learning. Para criar uma conta, siga as instruções em [criar o Azure Machine Learning contas e instalar o Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts). Não é necessário instalar a aplicação do workbench para este tutorial. 
-* Módulo Gestão do Azure ML no seu computador. Para configurar o ambiente e criar uma conta, siga as instruções em [a configuração de gestão de modelo](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration).
+* Módulo Gestão do Azure ML no seu computador. Para configurar o ambiente e criar uma conta, siga as instruções em [a configuração de gestão de modelo](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
 
 ## <a name="create-the-azure-ml-container"></a>Criar o contentor do Azure ML
 Nesta secção, transferir os ficheiros de modelo treinado e convertê-los para um contentor do Azure ML.  
@@ -121,7 +121,7 @@ Pode ver as mensagens do dispositivo para a nuvem que o dispositivo de limite de
 
    ![Resposta de ML do Azure no corpo da mensagem](./media/tutorial-deploy-machine-learning/ml-output.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, implementou um módulo de limite de IoT com tecnologia do Azure Machine Learning. Pode continuar a sessão em qualquer um dos outros tutoriais para saber mais sobre outras formas de limite de IoT do Azure pode ajudar a que ativar dados em informações empresariais no limite.
 

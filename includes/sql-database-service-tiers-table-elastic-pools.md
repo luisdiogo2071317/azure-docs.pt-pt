@@ -10,7 +10,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Armazenamento incluído por conjunto (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Opções de armazenamento máximo por conjunto (GB) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Armazenamento máximo de memória OLTP por conjunto (GB) | N/D | N/D | N/D | N/D | N/D | N/D | N/D | N/D |
+| Armazenamento máximo de memória OLTP por conjunto (GB) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Máximo de inícios de sessão simultâneos por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
@@ -26,7 +26,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: | ---: | 
 | Armazenamento incluído por conjunto (GB) | 50 | 100 | 200 | 300 | 400 | 800 | 
 | Opções de armazenamento máximo por conjunto (GB) * | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1024 | 300, 500, 750, 1024, 1280 | 400, 500, 750, 1024, 1280, 1536 | 800, 1024, 1280, 1536, 1792, 2048 | 
-| Armazenamento máximo de memória OLTP por conjunto (GB) | N/D | N/D | N/D | N/D | N/D | N/D | 
+| Armazenamento máximo de memória OLTP por conjunto (GB) | N/A | N/A | N/A | N/A | N/A | N/A | 
 | Número de DBs máximo por conjunto | 100 | 200 | 500 | 500 | 500 | 500 | 
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Máximo de inícios de sessão simultâneos por conjunto | 100 | 200 | 400 | 600 | 800 | 1600 |
@@ -42,7 +42,7 @@ sql-database-elastic-pool.md
 |:---|---:|---:|---:| ---: | ---: |
 | Armazenamento incluído por conjunto (GB) | 1200 | 1600 | 2000 | 2500 | 3000 | 
 | Opções de armazenamento máximo por conjunto (GB) * | 1200, 1280, 1536, 1792, 2048, 2304, 2560 | 1600, 1792, 2048, 2304, 2560, 2816, 3072 | 2000, 2048, 2304, 2560, 2816, 3072, 3328, 3584 | 2500, 2560, 2816, 3072, 3328, 3584, 3840, 4096 | 3000, 3072, 3328, 3584, 3840, 4096 |
-| Armazenamento máximo de memória OLTP por conjunto (GB) | N/D | N/D | N/D | N/D | N/D | 
+| Armazenamento máximo de memória OLTP por conjunto (GB) | N/A | N/A | N/A | N/A | N/A | 
 | Número de DBs máximo por conjunto | 500 | 500 | 500 | 500 | 500 | 
 | Máximo de trabalhadores simultâneos (pedidos) por conjunto | 2400 | 3200 | 4000 | 5000 | 6000 |
 | Máximo de inícios de sessão simultâneos por conjunto | 2400 | 3200 | 4000 | 5000 | 6000 |
@@ -103,7 +103,7 @@ sql-database-elastic-pool.md
 > [!IMPORTANT]
 > \*Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e são aplicados custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/). Tamanhos de armazenamento maiores do que a quantidade de armazenamento incluído estão em pré-visualização e aplicam custos adicionais. Para obter mais informações, consulte o [base de dados SQL página de preços](https://azure.microsoft.com/pricing/details/sql-database/).
 >
-> \* No escalão Premium, mais de 1 TB de armazenamento estão atualmente disponível nas seguintes regiões: E.U.A. Leste 2, E.U.A. Oeste, Gov (US) - Virginia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. 
+> \*No escalão Premium, mais de 1 TB de armazenamento está atualmente disponível nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, Canadá Central, Canadá leste, França Central, Central na Alemanha, este do Japão, Coreia Central, Sul centro dos EUA, East2 Sul Oriental,-nos , EUA oeste, E.U.A. us Virginia e na Europa Ocidental. 
 >
 >\*\*Número mínimo/máximo de eDTUs por base de dados a partir de 200 eDTUs e superior **padrão** agrupamentos estão em pré-visualização.
 >

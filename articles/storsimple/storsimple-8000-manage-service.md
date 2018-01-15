@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implementar o serviço do Gestor de dispositivos do StorSimple para os dispositivos de série 8000 do StorSimple
 
@@ -27,6 +27,9 @@ ms.lasthandoff: 11/17/2017
 O serviço do Gestor de dispositivos do StorSimple é executado no Microsoft Azure e se liga a diversos dispositivos StorSimple. Depois de criar o serviço, pode utilizá-lo para gerir todos os dispositivos que estão ligados ao serviço StorSimple Manager de dispositivos de uma localização única, central, deste modo, minimizando o fardo administrativo.
 
 Este tutorial descreve os passos necessários para a criação, eliminação, a migração do serviço e a gestão da chave de registo do serviço. As informações contidas neste artigo são aplicáveis apenas a dispositivos de série 8000 do StorSimple. Para obter mais informações sobre matrizes Virtual StorSimple, aceda a [implementar um serviço StorSimple Manager de dispositivo para a matriz de Virtual StorSimple](storsimple-virtual-array-manage-service.md).
+
+> [!NOTE]
+> Todos os gestores de dispositivo StorSimple clássicos automaticamente foram movidos para o novo portal do Azure. Se tiver alguma questão, consulte [FAQ: mover para o portal do Azure](storsimple-8000-move-azure-portal-faq.md). Os cmdlets do PowerShell de gestão de serviço do Azure (ASM) não são suportados após a mudança para o novo portal do Azure. Atualizar os scripts para gerir os seus dispositivos e, em seguida, avance para o [baseada na utilização do Azure Resource Manager SDK scripts para gerir dispositivos StorSimple](storsimple-8000-automation-azurerm-scripts.md) para obter mais informações. O novo portal do Azure suporta dispositivos com a atualização 5.0 ou posterior. Se o dispositivo não estiver atualizado, instale imediatamente a atualização 5. Para obter mais informações, aceda a [instalar Update 5](storsimple-8000-install-update-5.md). Se estiver a utilizar uma aplicação de nuvem do StorSimple (8010/8020), não é possível atualizar uma aplicação de nuvem. Utilize a versão mais recente do software para criar um novo dispositivo de nuvem com atualização 5.0 e, em seguida, efetuar a ativação pós-falha para o novo dispositivo de nuvem criado. Todos os dispositivos a executar a atualização anterior ou 4.0 verificará [reduzido a funcionalidade de gestão](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Criar um serviço
 Para criar um serviço do Gestor de dispositivos do StorSimple, terá de ter:
@@ -57,86 +60,6 @@ Para cada serviço do Gestor de dispositivos do StorSimple, existem os seguintes
 * **Estado** – o estado do serviço, que pode ser **Active Directory**, **criar**, ou **Online**.
 * **Localização** – a localização geográfica na qual o dispositivo StorSimple será implementado.
 * **Subscrição** – a subscrição de faturação que está associada ao seu serviço.
-
-## <a name="move-a-service-to-azure-portal"></a>Mover um serviço para o portal do Azure
-Pode ser gerido, agora, série 8000 do StorSimple no portal do Azure. Se tiver um serviço existente para gerir os dispositivos StorSimple, recomendamos que mova o serviço para o portal do Azure. Portal clássico do Azure para o serviço StorSimple Manager não é suportado após 30 de Setembro de 2017. Se pretender mover para o novo portal do Azure, consulte [considerações para transição](#considerations-for-transition). 
-
-> [!NOTE]
-> Começando 5 de Outubro de 2017, os seus gestores de dispositivo StorSimple clássicos serão automaticamente mudada para o novo portal do Azure. Esta é uma implementação faseada e iremos atualizar, sobre a mudança através de e-mail e notificações do portais. Se tiver alguma questão, consulte [FAQ: mover para o portal do Azure](storsimple-8000-move-azure-portal-faq.md).
-
-### <a name="considerations-for-transition"></a>Considerações para transição
-
-Reveja o impacto da migração para o novo portal do Azure antes de mover o serviço.
-
-> [!NOTE]
-> Os cmdlets do PowerShell de gestão de serviço do Azure (ASM) existentes não são suportados depois de mover para o novo portal do Azure. Atualize os scripts para gerir os seus dispositivos através do SDK do Gestor de recursos do Azure. Para obter mais informações, visite o [baseada na utilização do Azure Resource Manager SDK scripts para gerir dispositivos StorSimple](storsimple-8000-automation-azurerm-scripts.md).
-> O novo portal do Azure suporta dispositivos com a atualização 3.0 ou posterior. Se o dispositivo não estiver atualizado, recomendamos vivamente que aplique a atualização 5 logo que possível.
-
-#### <a name="before-you-transition"></a>Antes de transição
-
-* O dispositivo está em execução atualização 3.0 ou posterior. Se o dispositivo estiver em execução uma versão mais antiga, recomendamos vivamente que instale a atualização 5 através do método do correção. Para obter mais informações, aceda a [instalar Update 5](storsimple-8000-install-update-5.md). Se utilizar uma aplicação de nuvem do StorSimple (8010/8020), não é possível atualizar uma aplicação de nuvem. Utilize a versão mais recente do software para criar um novo dispositivo de nuvem com atualização 5.0 e, em seguida, efetuar a ativação pós-falha para o novo dispositivo de nuvem criado.
-
-* Assim que são transferidas para o novo portal do Azure, não é possível utilizar o portal clássico do Azure para gerir o dispositivo StorSimple.
-
-* A transição não acontece e não existe nenhum período de inatividade para o dispositivo.
-
-* Todos os gestores do dispositivo StorSimple sob a subscrição especificada são transferidos.
-
-#### <a name="during-the-transition"></a>Durante a transição
-
-* Não é possível gerir o seu dispositivo do portal.
-* Operações como cópias de segurança em camadas e agendadas continuam a ocorrer.
-* Não elimine os gestores de dispositivos do StorSimple antigo enquanto a transição está em curso.
-
-#### <a name="after-the-transition"></a>Após a transição
-
-* Já não pode gerir os seus dispositivos no portal clássico.
-
-* Os cmdlets do PowerShell de gestão de serviço do Azure (ASM) existentes não são suportados. Atualize os scripts para gerir os seus dispositivos através do Gestor de recursos do Azure. Para scripts de exemplo utilizando o Gestor de recursos do SDK, consulte o [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools).
-
-* A configuração do serviço e dispositivo são retidos. Todos os volumes e as cópias de segurança também são transferidas para o portal do Azure.
-
-### <a name="begin-transition"></a>Começar a transição
-
-Execute os seguintes passos para transitar o seu serviço para o portal do Azure.
-
-1. Aceda ao seu serviço StorSimple Manager existente no portal do Azure.
-    ![Mais serviços](./media/storsimple-8000-manage-service/service-browse01.png) ![Gestor de dispositivos selecione](./media/storsimple-8000-manage-service/service-browse02.png)
-
-2. Verá uma notificação a informar que o serviço StorSimple Manager de dispositivo está agora disponível no portal do Azure. No portal do Azure, o serviço é referido como o serviço do Gestor de dispositivos do StorSimple.
-    ![Notificação de migração](./media/storsimple-8000-manage-service/service-transition1.jpg)
-    
-    1. Certifique-se de que consultou o impacto da migração completo.
-    2. Reveja a lista de gestores de dispositivo do StorSimple que serão movidos do portal clássico.
-
-3. Clique em **migrar**. A transição começa e demora alguns minutos a concluir.
-
-Depois de concluída a transição, pode gerir os seus dispositivos através do serviço StorSimple Manager de dispositivos no portal do Azure. Se não vir uma opção para migrar para o portal do Azure, mas pretender mover, pode [submeter um pedido](https://aka.ms/ss8000-cx-signup).
-
-## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Suportado operações em dispositivos com versões anteriores ao 3.0 de atualização
-No portal do Azure, são suportados apenas StorSimple dispositivos a executar a atualização 3.0 e superior. Os dispositivos que executam versões mais antigas têm suporte limitado. Depois de ter migrado para o portal do Azure, utilize a tabela seguinte para compreender as operações são suportadas em dispositivos com versões anteriores ao 3.0 de atualização.
-
-| Operação                                                                                                                       | Suportado      |
-|---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| Registar um dispositivo                                                                                                               | Sim            |
-| Configurar definições de dispositivos como geral, rede e segurança                                                                | Sim            |
-| Procurar, transferir e instalar atualizações                                                                                             | Sim            |
-| Desativar o dispositivo                                                                                                               | Sim            |
-| Eliminar dispositivo                                                                                                                   | Sim            |
-| Criar, modificar e eliminar um contentor de volume                                                                                   | Não             |
-| Criar, modificar e eliminar um volume                                                                                             | Não             |
-| Criar, modificar e eliminar uma política de cópia de segurança                                                                                      | Não             |
-| Efetuar uma cópia de segurança manual                                                                                                            | Não             |
-| Efetuar uma cópia de segurança agendada                                                                                                         | Não aplicável |
-| Restaurar a partir de um backupset                                                                                                        | Não             |
-| Clonar num dispositivo com a atualização 3.0 e posteriores <br> O dispositivo de origem está a executar versão antes da atualização 3.0.                                | Sim            |
-| Clonar num dispositivo com versões anteriores ao 3.0 de atualização                                                                          | Não             |
-| Ativação pós-falha como dispositivo de origem <br> (a partir de um dispositivo com a versão anterior à atualização 3.0 num dispositivo com a atualização 3.0 e posterior)                                                               | Sim            |
-| Ativação pós-falha como dispositivo de destino <br> (para um dispositivo a executar a versão do software antes da atualização 3.0)                                                                                   | Não             |
-| Limpar um alerta                                                                                                                  | Sim            |
-| Ver as políticas de cópia de segurança, o catálogo de cópias de segurança, volumes, contentores de volume, gráficos de monitorização, tarefas e alertas criados no portal clássico | Sim            |
-| Ativar e desativar os controladores de dispositivo                                                                                              | Sim            |
-
 
 ## <a name="delete-a-service"></a>Eliminar um serviço
 
@@ -263,7 +186,32 @@ Execute os seguintes passos para atualizar a encriptação de dados do serviço 
 
 Este script irá garantir que essa chave de encriptação de dados do serviço está definido em todos os dispositivos 8010/8020 nuvem sob o Gestor de dispositivos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>Suportado operações em dispositivos com versões anteriores à atualização 5.0
+No portal do Azure, são suportados apenas StorSimple dispositivos a executar a atualização 5.0 e posterior. Os dispositivos que executam versões mais antigas têm suporte limitado. Depois de ter migrado para o portal do Azure, utilize a tabela seguinte para compreender as operações são suportadas em dispositivos com versões anteriores à atualização 5.0.
+
+| Operação                                                                                                                       | Suportadas      |
+|---------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Registar um dispositivo                                                                                                               | Sim            |
+| Configurar definições de dispositivos como geral, rede e segurança                                                                | Sim            |
+| Procurar, transferir e instalar atualizações                                                                                             | Sim            |
+| Desativar o dispositivo                                                                                                               | Sim            |
+| Eliminar dispositivo                                                                                                                   | Sim            |
+| Criar, modificar e eliminar um contentor de volume                                                                                   | Não             |
+| Criar, modificar e eliminar um volume                                                                                             | Não             |
+| Criar, modificar e eliminar uma política de cópia de segurança                                                                                      | Não             |
+| Efetuar uma cópia de segurança manual                                                                                                            | Não             |
+| Efetuar uma cópia de segurança agendada                                                                                                         | Não aplicável |
+| Restaurar a partir de um backupset                                                                                                        | Não             |
+| Clonar num dispositivo com a atualização 3.0 e posteriores <br> O dispositivo de origem está a executar versão antes da atualização 3.0.                                | Sim            |
+| Clonar num dispositivo com versões anteriores ao 3.0 de atualização                                                                          | Não             |
+| Ativação pós-falha como dispositivo de origem <br> (a partir de um dispositivo com a versão anterior à atualização 3.0 num dispositivo com a atualização 3.0 e posterior)                                                               | Sim            |
+| Ativação pós-falha como dispositivo de destino <br> (para um dispositivo a executar a versão do software antes da atualização 3.0)                                                                                   | Não             |
+| Limpar um alerta                                                                                                                  | Sim            |
+| Ver as políticas de cópia de segurança, o catálogo de cópias de segurança, volumes, contentores de volume, gráficos de monitorização, tarefas e alertas criados no portal clássico | Sim            |
+| Ativar e desativar os controladores de dispositivo                                                                                              | Sim            |
+
+
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre o [processo de implementação do StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 * Saiba mais sobre [gerir a conta de armazenamento StorSimple](storsimple-8000-manage-storage-accounts.md).
 * Saiba mais sobre como [utilizar o serviço do Gestor de dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

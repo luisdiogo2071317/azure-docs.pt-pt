@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsão da carga de trabalho dos servidores em terabytes de dados
 
@@ -51,7 +51,7 @@ As pré-requisitos para executar este exemplo são os seguintes:
 * Windows 10 (as instruções neste exemplo são, geralmente, os mesmos para sistemas de macOS).
 * Um dados ciência de Máquina Virtual (DSVM) para Linux (Ubuntu), de preferência na região EUA Leste onde localiza os dados. Pode aprovisionar um DSVM Ubuntu seguindo [estas instruções](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Também pode ver [este guia de introdução](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Recomendamos que utilize uma máquina virtual pelo menos 8 núcleos e 32 GB de memória. 
 
-Siga o [instrução](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) para ativar o acesso de palavra-passe sem sudoer na VM para AML Workbench.  Pode optar por utilizar [autenticação baseada em chave SSH para criar e utilizar a VM no AML Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Neste exemplo, utilizamos palavra-passe para aceder a VM.  Guarde a tabela seguinte com as informações DSVM para os passos seguintes:
+Siga o [instrução](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) para ativar o acesso de palavra-passe sem sudoer na VM para AML Workbench.  Pode optar por utilizar [autenticação baseada em chave SSH para criar e utilizar a VM no AML Workbench](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Neste exemplo, utilizamos palavra-passe para aceder a VM.  Guarde a tabela seguinte com as informações DSVM para os passos seguintes:
 
  Nome do campo| Valor |  
  |------------|------|
