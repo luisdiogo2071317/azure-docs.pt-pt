@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 6019437763f82fa14b8677b6c7ec7f0c6938fda7
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: a55209256c29fa62cc2da72f9653fbc7fc0e7c54
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Learning avançada para cenários no mundo real de manutenção preditiva
 
@@ -28,7 +28,7 @@ Em cenários de manutenção preditiva, os dados são recolhidos ao longo do tem
 
 Neste tutorial, iremos criar uma rede LSTM para o conjunto de dados e o cenário que são descritas em [manutenção preditiva](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). Podemos utilizar a rede para prever a vida útil restantes dos motores das aeronaves. O modelo utiliza valores de sensores simulados aeronave para prever quando um motor de aeronave falhará no futuro. Utilizar este predição, manutenção pode ser planeada seguinte com antecedência, para impedir a falha.
 
-Este tutorial utiliza o [Keras](https://keras.io/) profunda learning biblioteca e o Toolkit de cognitivos [CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/Using-CNTK-with-Keras) como um back-end.
+Este tutorial utiliza o [Keras](https://keras.io/) profunda learning biblioteca e o Toolkit de cognitivos [CNTK](https://docs.microsoft.com/cognitive-toolkit/Using-CNTK-with-Keras) como um back-end.
 
 O repositório do GitHub público com os exemplos deste tutorial é [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance).
 
@@ -44,7 +44,7 @@ Sugerimos que examinar o formato dos dados e todos os três passos do modelo de 
 
 - Um [conta do Azure](https://azure.microsoft.com/free/) (gratuitas estão disponíveis).
 - Azure Workbench do Machine Learning, com uma área de trabalho criada.
-- Para operationalization do modelo: Operationalization de aprendizagem máquina do Azure, com um ambiente de implementação de local configurar e um [conta de gestão de modelo do Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview).
+- Para operationalization do modelo: Operationalization de aprendizagem máquina do Azure, com um ambiente de implementação de local configurar e um [conta de gestão de modelo do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
 
 ## <a name="create-a-new-workbench-project"></a>Criar um novo projeto do Workbench
 
@@ -128,7 +128,7 @@ Pode editar as partes relevantes deste cenário e tente cenários de outro probl
 
 ## <a name="references"></a>Referências
 
-- [Modelo de solução da manutenção preditiva](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
+- [Modelo de solução da manutenção preditiva](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
 - [Guia de modelação de manutenção preditiva](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1)
 - [Bloco de notas do Python guia de modelação de manutenção preditiva](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 - [Manutenção preditiva utilizando PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)

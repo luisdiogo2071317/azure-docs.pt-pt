@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de suporte de recuperação de sites do Azure para replicar no local para Azure
 
@@ -68,34 +68,34 @@ A tabela seguinte resume o suporte do sistema de operativo replicadas em vários
 
  **Servidor VMware/físico** | **Hyper-V (com/sem VMM)** |
 --- | --- |
-64 bits do Windows Server 2016 (Server Core, o servidor com experiência de ambiente de trabalho)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com, pelo menos, SP1<br/><br/> Red Hat Enterprise Linux: 5.2 para 5.11, 6.1 para 6.9, 7.0 para 7.3 <br/><br/>CentOS: 5.2 para 5.11, 6.1 para 6.9, 7.0 para 7.3 <br/><br/>Servidor Ubuntu 14.04 LTS[ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Servidor Ubuntu 16.04 LTS[ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3) <br/><br/>SP3 do SUSE Linux Enterprise Server 11 <br/><br/>SP4 do SUSE Linux Enterprise Server 11 <br/>(Não é suportada a atualização de replicar máquinas do SLES 11 SP3 para SLES 11 SP4. Se uma máquina replicada tiver sido atualizada do SLES 11SP3 para SLES 11 SP4, terá de desativar a replicação e proteger a máquina post novamente a atualização.) | Qualquer SO convidado [suportado pelo Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64 bits do Windows Server 2016 (Server Core, o servidor com experiência de ambiente de trabalho)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com, pelo menos, SP1<br/><br/> Red Hat Enterprise Linux: 5.2 para 5.11, 6.1 para 6.9, 7.0 e 7,4<br/><br/>CentOS: 5.2 para 5.11, 6.1 para 6.9, 7.0 e 7,4 <br/><br/>Servidor Ubuntu 14.04 LTS[ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Servidor Ubuntu 16.04 LTS[ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3) <br/><br/>SP3 do SUSE Linux Enterprise Server 11 <br/><br/>SP4 do SUSE Linux Enterprise Server 11 <br/>(Não é suportada a atualização de replicar máquinas do SLES 11 SP3 para SLES 11 SP4. Se uma máquina replicada tiver sido atualizada do SLES 11SP3 para SLES 11 SP4, terá de desativar a replicação e proteger a máquina post novamente a atualização.) | Qualquer SO convidado [suportado pelo Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
 > \*Windows Server 2016 Nano Server não é suportado.
-
->[!IMPORTANT]
->(Aplica-se a VMware/servidores físicos a replicar para o Azure)
 >
-> Red Hat Enterprise Linux Server 7 + e servidores do CentOS 7 +, kernel 3.10.0-514 de versão é suportada a partir da versão 9.8 o Azure Site Recovery do serviço de mobilidade.<br/><br/>
-> Os clientes em kernel 3.10.0-514 com uma versão do serviço de mobilidade inferior à versão 9.8 são necessários para desativar a replicação, atualize a versão do serviço de mobilidade para versão 9.8 e, em seguida, ativar a replicação novamente.
+> Sobre as distribuições do Linux, são suportados apenas os cotações kernels que fazem parte da versão secundária versão/atualização da distribuição.
+>
+> Atualizações entre versões principais de uma distribuição Linux num Azure Site Recovery proteger a máquina virtual VMware ou servidor físico não é suportado. Ao atualizar o sistema operativo em versões principais (por exemplo 6.* CentOS para CentOS 7.*), desative a replicação da máquina, atualize o sistema operativo na máquina e, em seguida, ativar a replicação novamente.
+> 
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Versões suportadas do kernel Ubuntu para VMware/servidores físicos
 
 **Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic para 3.13.0-117-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-Generic para 3.13.0-121-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic para 3.13.0-128-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-Generic para 3.13.0-132-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-Generic para 3.13.0-137-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-Generic para 4.4.0-81-generic,<br/>4.8.0-34-Generic para 4.8.0-56-generic,<br/>4.10.0-14-Generic para 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-Generic para 4.4.0-91-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-Generic para 4.4.0-96-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-Generic para 4.4.0-104-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-42-generic |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>Sistemas de ficheiro suportados e configurações de armazenamento de convidado no Linux (VMware/servidores físicos)
 
-Armazenamento e sistemas de ficheiros o seguinte software de configuração é suportada em servidores Linux em execução nos servidores de VMware ou física:
+São suportados os seguintes sistemas de ficheiros e software de configuração de armazenamento em servidores Linux em execução nos servidores de VMware ou física:
 * Sistemas de ficheiros: ext3 ext4, ReiserFS (Suse Linux Enterprise Server apenas), XFS
 * Gestor de volumes: LVM2
 * O software MultiPath i: mapeador de dispositivo
@@ -105,8 +105,7 @@ Dispositivos de e/s de fila vários blocos não são suportados.<br/>
 Servidores físicos com o controlador de armazenamento HP CCISS não são suportados.<br/>
 
 >[!Note]
-> Nos servidores Linux os seguintes diretórios (se configurar como separados partições /-sistemas de ficheiros) têm de estar todos no mesmo disco (o disco do SO) no servidor de origem: / (raiz), /boot /usr, /usr/local, /var, /etc/hosts<br/><br/>
-> Funcionalidades de XFSv5 nos sistemas de ficheiros, tais como a soma de verificação de metadados XFS instalados são suportadas a partir da versão 9.10 do serviço de mobilidade. Se estiver a utilizar funcionalidades de XFSv5, certifique-se de que está a executar a versão de serviço de mobilidade 9.10 ou posterior. Pode utilizar o utilitário de xfs_info para verificar o superblock XFS para a partição. Se ftype estiver definido como 1, em seguida, XFSv5 funcionalidades estão a ser utilizadas.
+> Nos servidores Linux os seguintes diretórios (se configurar como separados partições /-sistemas de ficheiros) têm de estar todos no mesmo disco (o disco do SO) no servidor de origem: / (raiz), /boot /usr, /usr/local, /var, /etc/hosts; e /boot deve estar na partição de disco e não pode ser um volume LVM<br/><br/>
 >
 
 
@@ -130,7 +129,7 @@ Agrupamento NIC | Não | Não
 IPv4 | Sim | Sim
 IPv6 | Não | Não
 IP estático (Windows) | Sim | Sim
-IP estático (Linux) | Sim <br/><br/>Máquinas virtuais está configurado para utilizar DHCP na reativação pós-falha  | Não
+IP estático (Linux) | Sim <br/><br/>Máquinas virtuais estão configuradas para utilizar DHCP na reativação pós-falha  | Não
 Vários NICs | Sim | Sim
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configuração de rede de VM do Azure de efetuada a ativação pós-falha

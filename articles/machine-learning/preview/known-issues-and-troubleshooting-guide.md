@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: ed2c6f3c611f09c6fbec4080eb70e7e43b783f59
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 01/12/2018
+ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - problemas conhecidos e guia de resolução de problemas 
 Este artigo ajuda-o a encontrar e corrija erros ou falhas encontradas como parte da utilização da aplicação do Azure Machine Learning Workbench. 
@@ -118,7 +118,7 @@ Após iniciar sessão, a aplicação do Workbench pode obter bloqueada num ecrã
 3. Reinicie a aplicação.
 
 ## <a name="cant-delete-experimentation-account"></a>Não é possível eliminar a conta de experimentação
-Pode utilizar a CLI para eliminar uma conta de experimentação, mas tem de eliminar as áreas de trabalho subordinados e os projetos de subordinados dentro desses áreas de trabalho subordinados primeiro. Caso contrário, verá um erro.
+Pode utilizar a CLI para eliminar uma conta de experimentação, mas tem de eliminar as áreas de trabalho subordinados e os projetos de subordinados dentro desses áreas de trabalho subordinados primeiro. Caso contrário, verá o erro "não é possível eliminar recursos antes de recursos aninhados serem eliminados."
 
 ```azure-cli
 # delete a project
@@ -145,6 +145,8 @@ Se pode iniciar uma experimentação executar utilizando `az ml experiment submi
 - No macOS, utilize Ctrl-C.
 
 Tenha em atenção que isto interrupções apenas o fluxo de saída na janela do CLI. Se não, na verdade, parar uma tarefa que está a ser executada. Se pretender cancelar uma tarefa em curso, utilize `az ml experiment cancel -r <run_id> -t <target name>` comando.
+
+Em computadores com Windows com teclados não dispõe de quebra de chave, alternativas possíveis incluem Fn-B, Ctrl-Fn-B ou Fn + Esc. Consulte a documentação do fornecedor de hardware para uma combinação de chave específica.
 
 ## <a name="docker-error-read-connection-refused"></a>Erro de docker "ler: ligação foi recusada"
 Quando executar em relação a um contentor de Docker local, por vezes poderá ver o seguinte erro: 
@@ -198,7 +200,7 @@ $ docker system prune -a
 
 Também pode adicionar um disco de dados e configurar o motor de Docker para utilizar o disco de dados para armazenar imagens. Eis [como adicionar um disco de dados](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Pode, em seguida, [alteração onde Docker armazena imagens](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Ou, pode expandir o disco do SO e não tem de touch de configuração do motor de Docker. Eis [como pode expandir o disco de SO](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks).
+Ou, pode expandir o disco do SO e não tem de touch de configuração do motor de Docker. Eis [como pode expandir o disco de SO](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
 #Deallocate VM (stopping will not work)

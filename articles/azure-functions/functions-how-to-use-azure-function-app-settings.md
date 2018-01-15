@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2017
 ms.author: glenga
-ms.openlocfilehash: a6cfcd939cb0f21d01fe849ef04619ec9c1c972a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: f174766d4ab909fea0feea517a17b9d648722c2a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerir uma aplicação de função no portal do Azure 
 
@@ -70,7 +70,7 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 
 | | |
 |-|-|
-| ![Definições de aplicação de aplicação de função.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | O serviço de aplicações **definições da aplicação** painel é onde pode configurar e gerir versões framework, depuração remota, as definições de aplicação e as cadeias de ligação. Quando integrar a sua aplicação de função com outros serviços de terceiros e do Azure, pode modificar essas definições aqui. |
+| ![Definições de aplicação de aplicação de função.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | O serviço de aplicações **definições da aplicação** painel é onde pode configurar e gerir versões framework, depuração remota, as definições de aplicação e as cadeias de ligação. Quando integrar a sua aplicação de função com outros serviços de terceiros e do Azure, pode modificar essas definições aqui. Para eliminar uma definição, desloque-se para a direita e selecione o **X** ícone na extremidade direita da linha (não mostrada na imagem seguinte).
 
 ![Configurar as definições da aplicação](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -125,7 +125,7 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 + [Configurar as definições do App Service do Azure](../app-service/web-sites-configure.md)
 + [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)

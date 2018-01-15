@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 6c43f2b341280731707e486ba6f22f11560102c6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5fafde870a01a6ceb5e86f7b00b0ca11b748c68a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>Operações de gestão de contas no Azure Data Lake Store com a API REST
 > [!div class="op_single_selector"]
 > * [SDK do .NET](data-lake-store-get-started-net-sdk.md)
 > * [API REST](data-lake-store-get-started-rest-api.md)
-> * [python](data-lake-store-get-started-python.md)
+> * [Python](data-lake-store-get-started-python.md)
 >
 >
 
@@ -75,7 +75,7 @@ Deve ver um resultado como o seguinte fragmento:
 ## <a name="next-steps"></a>Passos seguintes
 * [Operações do sistema de ficheiros no Data Lake Store com a API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Referência à API REST do Azure Data Lake Store](https://docs.microsoft.com/rest/api/datalakestore/)
 * [Open Source Big Data applications compatible with Azure Data Lake Store (Aplicações de Macrodados Open Source compatíveis com o Azure Data Lake Store)](data-lake-store-compatible-oss-other-applications.md)
 

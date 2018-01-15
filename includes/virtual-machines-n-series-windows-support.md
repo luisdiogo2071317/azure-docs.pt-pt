@@ -16,8 +16,8 @@
 
 | SO | Controlador |
 | -------- |------------- |
-| Windows Server 2016 | [385.41](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
-| Windows Server 2012 R2 | [385.41](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
+| Windows Server 2016 | [Grelha 5.2 (386.09)](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
+| Windows Server 2012 R2 | [Grelha 5.2 (386.09)](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
 
 > [!NOTE]
 > Microsoft redistribui com os programas de instalação de controlador de grelha NVIDIA para NV VMs. Instale apenas estes controladores de grelha em VMs do Azure NV. Estes incluem de licenciamento para Software para a GPU Virtual grelha no Azure.

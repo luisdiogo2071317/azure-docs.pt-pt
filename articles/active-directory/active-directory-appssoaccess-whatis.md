@@ -3,7 +3,7 @@ title: "O que é o acesso a aplicações e início de sessão no Azure Active Di
 description: "Utilize o Azure Active Directory para ativar o início de sessão para todas as aplicações web e de SaaS que precisa para empresas."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 604c4e850ac88fde4124c0acdd5550654c442108
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 42a24654eb059894a855474c922a4dd2da185149
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicações e início de sessão no Azure Active Directory?
 O início de sessão único significa que está a ser capazes de aceder a todas as aplicações e recursos que precisa para fins comerciais, ao iniciar sessão apenas depois de utilizar uma conta de utilizador único. Depois de iniciar sessão, pode aceder a todas as aplicações que precisar, sem ser necessário para autenticação (por exemplo, escreva uma palavra-passe) uma segunda vez.
@@ -29,7 +29,7 @@ Muitas organizações confiarem em software como um aplicações de serviço (Sa
 
 Azure Active Directory expande do Active Directory no local para a nuvem, permitindo que os utilizadores utilizar a respetiva conta organizacional primária não só a iniciar sessão para os respetivos dispositivos associados a um domínio e recursos da empresa, mas também todos os web e aplicações SaaS necessário para o trabalho.
 
-Por isso, não apenas os utilizadores não é necessário gerir vários conjuntos de nomes de utilizador e palavras-passe, as aplicações de acesso, pode ser automaticamente aprovisionado ou anular aprovisionado com base nos respetivos membros do grupo de organização e o respetivo estado como um empregados. Azure Active Directory apresenta acesso de segurança e controlos de governação que lhe permite gerir centralmente o acesso dos utilizadores em aplicações SaaS.
+Por isso, não apenas os utilizadores não é necessário gerir vários conjuntos de nomes de utilizador e palavras-passe, as aplicações de acesso, pode ser automaticamente aprovisionado ou anular aprovisionado com base nos respetivos membros do grupo de organização e também o respetivo estado como um empregado. Azure Active Directory apresenta acesso de segurança e controlos de governação que lhe permite gerir centralmente o acesso dos utilizadores em aplicações SaaS.
 
 Azure AD permite a integração fácil para muitas das aplicações de SaaS populares hoje; fornece gestão de identidades e acessos e permite aos utilizadores de sessão único-para as aplicações diretamente, ou detetar e iniciá-los a partir de um portal como o Office 365 ou o painel de acesso do Azure AD.
 
@@ -37,7 +37,7 @@ A arquitetura da integração inclui os seguintes blocos modulares quatro princi
 
 * O início de sessão único permite aos utilizadores aceder às suas aplicações de SaaS com base na respetiva conta organizacional no Azure AD. O início de sessão único é o que permite aos utilizadores autenticar a uma aplicação utilizando a respetiva conta organizacional único.
 * Aprovisionamento de utilizadores permite o aprovisionamento de utilizador e aprovisionamento automatizados para destino que saas com base nas alterações efetuadas no Windows Server Active Directory e/ou do Azure AD. Uma conta de aprovisionamento é o que permite que um utilizador autorizado a utilizar uma aplicação, depois de se tem a autenticação através de um início de sessão único.
-* Gestão de acesso de aplicação centralizado no Portal de gestão do Azure permite acesso de aplicação de ponto único de SaaS e gestão, com a capacidade para delegar a efetuar de decisão de acesso de aplicação e aprovações a qualquer pessoa na organização
+* Gestão de acesso de aplicação centralizado na gestão, com a capacidade para delegar a efetuar de decisão de acesso de aplicação e aprovações a qualquer pessoa na organização e acesso de aplicação do Azure ativa portal ponto único de SaaS
 * Unified elaboração de relatórios e monitorização da atividade do utilizador no Azure AD
 
 ## <a name="how-does-single-sign-on-with-azure-active-directory-work"></a>Como funciona um início de sessão único com o Azure Active Directory?
@@ -45,34 +45,34 @@ Quando um utilizador "iniciar sessão" a uma aplicação, avançam através de u
 
 Azure AD suporta três formas diferentes de iniciar sessão para aplicações:
 
-* **Federado Single Sign-On** permite que as aplicações redirecionar para o Azure AD para autenticação de utilizador em vez de pedir a sua própria palavra-passe. Isto é suportado para aplicações que suporte protocolos, tais como SAML 2.0, WS-Federation, ou o OpenID Connect e é o modo richest de início de sessão único.
-* **Baseado em palavra-passe Single Sign-On** permite proteger o armazenamento de palavra-passe de aplicação e utilizar uma extensão de browser da web ou aplicação móvel de repetição. Isto melhora o início de sessão no processo existente fornecido pela aplicação, mas permite que um administrador gerir as palavras-passe e requer que o utilizador saber a palavra-passe.
-* **Existente Single Sign-On** permite ao Azure AD tirar partido de qualquer existente-início de sessão único que foi configurado para a aplicação, mas permite que estas aplicações estar ligado ao portais de painel de acesso do Office 365 ou do Azure AD e também permite adicionais relatórios no Azure AD quando as aplicações são iniciadas não existe.
+* **Federado o início de sessão único** permite que as aplicações redirecionar para o Azure AD para autenticação de utilizador em vez de pedir a sua própria palavra-passe. Isto é suportado para aplicações que suporte protocolos, tais como SAML 2.0, WS-Federation, ou o OpenID Connect e é o modo richest de início de sessão único.
+* **Baseado em palavra-passe de início de sessão** permite proteger o armazenamento de palavra-passe de aplicação e utilizar uma extensão de browser da web ou aplicação móvel de repetição. Isto melhora o início de sessão no processo existente fornecido pela aplicação, mas permite que um administrador gerir as palavras-passe e requer que o utilizador saber a palavra-passe.
+* **Existente-início de sessão único** permite ao Azure AD tirar partido de qualquer existente-início de sessão único que foi configurado para a aplicação, mas permite que estas aplicações estar ligado ao portais de painel de acesso do Office 365 ou do Azure AD e também permite adicionais relatórios no Azure AD quando as aplicações são iniciadas não existe.
 
 Depois de um utilizador foi autenticado com uma aplicação, também têm de ter um registo de conta aprovisionado a aplicação que indica a aplicação onde existe nível de acesso e permissões são dentro da aplicação. O aprovisionamento deste registo de conta ou pode ocorrer automaticamente, ou pode ocorrer manualmente por um administrador antes do utilizador é fornecido acesso de início de sessão único.
 
  Obter mais detalhes sobre estes modos de início de sessão único e o aprovisionamento abaixo.
 
-### <a name="federated-single-sign-on"></a>Federado Single Sign-On
-Federado Single Sign-On permite que os utilizadores na sua organização a ser iniciada automaticamente uma aplicação SaaS de terceiros pelo Azure AD utilizando as informações de conta de utilizador do Azure AD.
+### <a name="federated-single-sign-on"></a>Federado-início de sessão único
+Federado-início de sessão único permite que os utilizadores na sua organização a ser iniciada automaticamente uma aplicação SaaS de terceiros pelo Azure AD utilizando as informações de conta de utilizador do Azure AD.
 
-Neste cenário, quando que já foram registados com o Azure AD e, se pretender aceder a recursos que são controlados por uma aplicação SaaS de terceiros, Federação elimina a necessidade de um utilizador ser novamente autenticados.
+Neste cenário, quando que já foram registados com o Azure AD e, se pretender aceder a recursos que são controlados por uma aplicação SaaS de terceiros, Federação elimina a necessidade de um utilizador possível reautenticar.
 
 Azure AD pode suportar federado-início de sessão único com aplicações que suportam o 2.0 SAML, WS-Federation, ou o OpenID connect protocolos.
 
 Consulte também: [gestão de certificados para federado o início de sessão único](active-directory-sso-certs.md)
 
-### <a name="password-based-single-sign-on"></a>Baseado em palavra-passe de início de sessão
+### <a name="password-based-single-sign-on"></a>Início de sessão único baseado em palavra-passe
 Configuração baseada em palavra-passe de início de sessão permite que os utilizadores na sua organização a ser iniciada automaticamente uma aplicação SaaS de terceiros pelo Azure AD utilizando as informações de conta de utilizador da aplicação de SaaS de terceiros. Quando ativa esta funcionalidade, o Azure AD recolhe e armazena de forma segura as informações de conta de utilizador e a palavra-passe relacionada.
 
-Do Azure AD pode suportar baseada em palavra-passe de início de sessão único para qualquer aplicação baseada na nuvem que tem uma baseado em HTML-página sessão. Ao utilizar um plug-in de browser personalizados, AAD automatiza o processo através de forma segura a obter as credenciais de aplicação, tais como o nome de utilizador e a palavra-passe do diretório de início de sessão do utilizador e introduz estas credenciais na página em nome do utilizador de início de sessão da aplicação . Existem dois casos de utilização:
+Azure AD pode suportar baseada em palavra-passe de início de sessão para qualquer aplicação baseada na nuvem que tem uma baseado em HTML-página sessão. Ao utilizar um plug-in de browser personalizados, AAD automatiza iniciar sessão no processo o utilizador de através de forma segura a obter as credenciais de aplicação, tais como o nome de utilizador e a palavra-passe do diretório e introduz estas credenciais de início de sessão na página da aplicação em nome do utilizador. Existem dois casos de utilização:
 
-1. **Administrador gere credenciais** – os administradores podem criar e gerir credenciais de aplicação e atribuir essas credenciais aos utilizadores ou grupos que necessitam de aceder à aplicação. Nestes casos, o utilizador final não precisa de saber as credenciais, mas ainda obtiver acesso de início de sessão único para a aplicação simplesmente clicando na mesma no respetivo painel de acesso ou através de uma ligação fornecida. Isto permite que ambos, gestão de ciclo de vida das credenciais pelo administrador, bem como conveniência para os utilizadores finais na qual não é necessário para memorizar ou faça a gestão de palavras-passe de aplicação específicos. As credenciais são ocultadas do utilizador final durante o início de sessão automatizado no processo; No entanto são tecnicamente Detetáveis pelo utilizador utilizando ferramentas de depuração do web e os utilizadores e os administradores devem seguir as mesmas políticas de segurança como se as credenciais foram apresentadas diretamente pelo utilizador. As credenciais de administrador fornecidos pelo são muito úteis quando fornecer acesso de conta que é partilhado entre vários utilizadores, tais como de redes sociais ou documento partilha de aplicações.
+1. **Administrador gere credenciais** – os administradores podem criar e gerir credenciais de aplicação e atribuir essas credenciais aos utilizadores ou grupos que necessitam de aceder à aplicação. Nestes casos, o utilizador final não precisa de saber as credenciais, mas ainda obtiver acesso de início de sessão único para a aplicação simplesmente clicando na mesma no respetivo painel de acesso ou através de uma ligação fornecida. Isto permite que ambos, gestão de ciclo de vida das credenciais pelo administrador, bem como conveniência para os utilizadores finais na qual não é necessário para memorizar ou faça a gestão de palavras-passe de aplicação específicos. As credenciais são ocultadas do utilizador final durante o início de sessão no processo automatizado; No entanto são tecnicamente Detetáveis pelo utilizador utilizando ferramentas de depuração do web e os utilizadores e os administradores devem seguir as mesmas políticas de segurança como se as credenciais foram apresentadas diretamente pelo utilizador. As credenciais de administrador fornecidos pelo são úteis quando fornecer acesso de conta que é partilhado entre vários utilizadores, tais como de redes sociais ou documento partilha de aplicações.
 2. **Utilizador gere credenciais** – os administradores podem atribuir aplicações para os utilizadores finais e grupos e permitir que os utilizadores finais introduzir as suas próprias credenciais diretamente após o acesso à aplicação pela primeira vez no respetivo painel de acesso. Esta ação cria uma conveniência para os utilizadores finais na qual não é necessário introduzir continuamente as palavras-passe de específico da aplicação sempre que acederem a aplicação. Neste caso, utilize também pode ser utilizado como um stone stepping para modelos administrativos \ Gestão de credenciais, na qual o administrador pode definir novas credenciais para a aplicação numa data futura sem alterar a experiência de acesso de aplicações do utilizador final.
 
-Em ambos os casos, as credenciais são armazenadas num estado encriptado no diretório, só são transmitidas através de HTTPS durante o processo de início de sessão automatizado. Utilizando o início de sessão único baseado em palavra-passe no, do Azure AD oferece uma solução de gestão de acesso de identidade conveniente para aplicações que não são capazes de suportar protocolos de Federação.
+Em ambos os casos, as credenciais são armazenadas num estado encriptado no diretório, só são transmitidas através de HTTPS durante o processo de início de sessão automatizado. Utilizar baseada em palavra-passe-início de sessão único, do Azure AD oferece uma solução de gestão de acesso de identidade conveniente para aplicações que não são capazes de suportar protocolos de Federação.
 
-SSO baseada em palavra-passe baseia-se numa extensão de browser para obter as informações específicas da aplicação e o utilizador do Azure AD e aplicá-la para o serviço em segurança. Esta funcionalidade suporta a maioria das aplicações de SaaS de terceiros que são suportadas pelo Azure AD.
+SSO baseada em palavra-passe baseia-se numa extensão de browser para obter as aplicações e informações específicas de utilizador do Azure AD e aplicá-la para o serviço em segurança. Esta funcionalidade suporta a maioria das aplicações de SaaS de terceiros que são suportadas pelo Azure AD.
 
 Para SSO baseada em palavra-passe, os browsers do utilizador final podem ser:
 * Internet Explorer 8, 9, 10, 11 - no Windows 7 ou posterior
@@ -80,8 +80,8 @@ Para SSO baseada em palavra-passe, os browsers do utilizador final podem ser:
 * Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
 * Firefox 26.0 ou posterior – no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
-### <a name="existing-single-sign-on"></a>Existente Single Sign-On
-Quando configurar o início de sessão para uma aplicação, o portal de gestão do Azure fornece uma terceira opção de "existente Single Sign-On". Esta opção permite simplesmente o administrador pode criar uma ligação para uma aplicação e coloque-a no painel de acesso para utilizadores selecionados.
+### <a name="existing-single-sign-on"></a>Existente-início de sessão único
+Quando configurar o início de sessão para uma aplicação, o portal do Azure fornece uma terceira opção de "existente Single Sign-On". Esta opção permite simplesmente o administrador pode criar uma ligação para uma aplicação e coloque-a no painel de acesso para utilizadores selecionados.
 
 Por exemplo, se existir uma aplicação que está configurada para autenticar utilizadores que utilizam 2.0 de serviços de Federação do Active Directory, um administrador pode utilizar a opção "existente Single Sign-On" para criar uma ligação ao mesmo no painel de acesso. Quando os utilizadores acedem a ligação, são autenticadas utilizando 2.0 de serviços de Federação do Active Directory ou qualquer único início de sessão solução existente é fornecida pela aplicação.
 
@@ -98,7 +98,7 @@ Pronto para começar? Para implementar o início de sessão entre o Azure AD e a
 ### <a name="using-the-azure-ad-application-gallery"></a>Utilizar a Galeria de aplicações do Azure AD
 O [Galeria de aplicações do Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/) fornece uma lista de aplicações que se sabe suportarem um formulário de início de sessão no Azure Active Directory.
 
-![][1]
+![Galeria de aplicações online do Azure](media/active-directory-appssoaccess-whatis/onlineappgallery.png)
 
 Eis algumas sugestões para encontrar as aplicações pelas quais capacidades suportam:
 
@@ -119,8 +119,8 @@ Se a aplicação não se encontra na Galeria de aplicações do Azure AD, em seg
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 * **Pedir uma integração de aplicações** -pedir suporte para a aplicação tem de utilizar o [fórum de comentários do Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-### <a name="using-the-azure-management-portal"></a>Utilizar o portal de gestão do Azure
-Pode utilizar a extensão do Active Directory no Portal de gestão do Azure para configurar a aplicação-início de sessão único. Como primeiro passo, tem de selecionar um diretório na secção do Active Directory no portal:
+### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
+Pode utilizar a extensão do Active Directory no portal do Azure para configurar a aplicação-início de sessão único. Como primeiro passo, tem de selecionar um diretório na secção do Active Directory no portal:
 
 ![][2]
 
@@ -136,7 +136,7 @@ As tarefas administrativas típicas para uma aplicação SaaS de terceiros são:
 * Opcionalmente, ativar aprovisionamento para o utilizador anular o aprovisionamento (gestão de ciclo de vida de identidade) e o aprovisionamento de utilizadores
 * Para aplicações em que o aprovisionamento de utilizadores está ativado, selecionando os utilizadores que têm acesso a essa aplicação
 
-Para aplicações de galeria que suportem federado-início de sessão único, configuração, normalmente, requer a fornecer definições de configuração adicionais, tais como certificados e metadados para criar uma confiança federada entre a aplicação de terceiros e o Azure AD. O Assistente de configuração orienta-os detalhes e fornece-lhe o facilitar o acesso aos dados específicos da aplicação SaaS e instruções.
+Para aplicações de galeria que suportem federado-início de sessão único, configuração, normalmente, requer a fornecer definições de configuração adicionais, tais como certificados e metadados para criar uma confiança federada entre a aplicação de terceiros e o Azure AD. O Assistente de configuração orienta-os detalhes e fornece-lhe o facilitar o acesso aos dados de aplicação específicos de SaaS e instruções.
 
 Para aplicações de galeria que suportam o aprovisionamento de utilizadores automática, isto requer a dar permissões do Azure AD para gerir as contas na aplicação SaaS. No mínimo, tem de fornecer credenciais do Azure AD devem utilizar ao autenticar através da aplicação de destino. Indica se as definições de configuração adicionais tem de ser fornecido depende dos requisitos da aplicação.
 
@@ -153,9 +153,9 @@ O método que escolher para implementação na sua organização é o seu crité
 ### <a name="azure-ad-access-panel"></a>Painel de acesso do Azure AD
 Painel de acesso em https://myapps.microsoft.com é um portal baseado na web que permite que um utilizador final com uma conta organizacional no Azure Active Directory para ver e iniciar baseado na nuvem aplicações a que que tenham sido concedidos acesso pelo administrador do Azure AD . Se for um utilizador final com [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), também pode utilizar as capacidades de gestão de grupos self-service através do painel de acesso.
 
-![][3]
+![Painel de acesso do Azure AD](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
 
-O painel de acesso está separado do Portal de gestão do Azure e não exige que os utilizadores tenham uma subscrição do Azure ou uma subscrição do Office 365.
+O painel de acesso separado do portal do Azure e não exige que os utilizadores tenham uma subscrição do Azure ou uma subscrição do Office 365.
 
 Para obter mais informações sobre o painel de acesso do Azure AD, consulte o [introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md).
 
@@ -174,7 +174,7 @@ Mais aplicações federadas que suportam SAML 2.0, WS-Federation ou OpenID conne
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>Ligações de início de sessão diretas para aplicações federadas, com base em palavra-passe ou existentes
 Azure AD também suporta único início de sessão hiperligações diretas para aplicações individuais que suportam baseada em palavra-passe-início de sessão único, existente-início de sessão único e qualquer outra forma de federado-início de sessão único.
 
-Estas ligações são URLs especificamente crafted que enviam um utilizador através do início de sessão do Azure AD no processo para uma aplicação específica, sem necessidade do utilizador iniciá-los a partir do painel de acesso do Azure AD ou do Office 365. Estes URLs de início de sessão único pode ser encontrados no separador Dashboard de qualquer aplicação previamente integrada na secção do Active Directory do portal de gestão do Azure, conforme mostrado na captura de ecrã abaixo.
+Estas ligações são URLs crafted especificamente enviar um utilizador através do início de sessão do Azure AD no processo para uma aplicação específica, sem necessidade do utilizador iniciá-los a partir do painel de acesso do Azure AD ou do Office 365. Estes URLs de início de sessão único pode ser encontrados no separador Dashboard de qualquer aplicação previamente integrada na secção do Active Directory do portal de gestão do Azure, conforme mostrado na captura de ecrã abaixo.
 
 ![][6]
 
@@ -190,7 +190,7 @@ Quando um utilizador autorizado clica destas ligações específicas da aplicaç
 
 Estas ligações utilizam os mesmos mecanismos de controlo de acesso, como o painel de acesso e o Office 365, e apenas esses utilizadores ou grupos que tenham sido atribuídos a aplicação no portal de gestão do Azure conseguirá autenticar com êxito. No entanto, a qualquer utilizador que não está autorizada verá uma mensagem explicar o que não tenha sido concedidos acesso e recebem uma hiperligação para o painel de acesso para ver as aplicações disponíveis para os quais têm acesso de carga.
 
-## <a name="related-articles"></a>Artigos Relacionados
+## <a name="related-articles"></a>Artigos relacionados
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Localizar não sancionadas aplicações em nuvem com o Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)

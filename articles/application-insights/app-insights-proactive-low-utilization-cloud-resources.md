@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4c852d07d771a1eef0e6c2e4ef27cd36f31d8ddd
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 8382f6047ae222a01cc0e8d6ca9dcf5593d0dff6
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="low-utilization-of-cloud-resources-preview"></a>Baixa utilização dos recursos de nuvem (pré-visualização)
 
 Application Insights automaticamente analisa o consumo de CPU de cada instância de função na sua aplicação e Deteta instâncias com uma utilização da CPU baixa. Esta deteção permite-lhe diminuir os recursos do Azure e reduzir os custos, ao reduzir o número de instâncias de função que utiliza a cada função, ou ao reduzir o número de funções.
 
-Esta funcionalidade não necessita de nenhuma configuração especial, diferente de [configurar os contadores de desempenho](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) para a sua aplicação. Está ativa quando a sua aplicação gerar telemetria de contador de desempenho suficiente da CPU (% de tempo do processador).
+Esta funcionalidade não necessita de nenhuma configuração especial, diferente de [configurar os contadores de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) para a sua aplicação. Está ativa quando a sua aplicação gerar telemetria de contador de desempenho suficiente da CPU (% de tempo do processador).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando receber este tipo de notificação de deteção inteligente?
 Uma notificação típica ocorre quando muitas das suas instâncias de função da Web/trabalho apresentem um baixa utilização da CPU.

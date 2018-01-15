@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 70aa82f5d8a909121c42742bb5261d6c9b8570de
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para tarefas do Azure Stream Analytics
  
@@ -29,7 +29,7 @@ Nível de compatibilidade certifica-se de que as tarefas existentes ser executad
  
 ## <a name="set-a-compatibility-level"></a>Definir um nível de compatibilidade 
 
-Nível de compatibilidade controla o comportamento de tempo de execução de uma tarefa do stream analytics. Pode definir o nível de compatibilidade para uma tarefa de Stream Analytics, utilizando o portal ou utilizando o [criar chamada da REST API de tarefa](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-job). O Azure Stream Analytics suporta atualmente dois compatibilidade níveis-"1.0" e "1.1". Por predefinição, o nível de compatibilidade é definido como "1.0" que foi introduzida durante a disponibilidade geral do Azure Stream Analytics. Para atualizar o valor predefinido, navegue até à sua tarefa do Stream Analytics existente > selecione o **nível de compatibilidade** opção **configurar** secção e altere o valor. 
+Nível de compatibilidade controla o comportamento de tempo de execução de uma tarefa do stream analytics. Pode definir o nível de compatibilidade para uma tarefa de Stream Analytics, utilizando o portal ou utilizando o [criar chamada da REST API de tarefa](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). O Azure Stream Analytics suporta atualmente dois compatibilidade níveis-"1.0" e "1.1". Por predefinição, o nível de compatibilidade é definido como "1.0" que foi introduzida durante a disponibilidade geral do Azure Stream Analytics. Para atualizar o valor predefinido, navegue até à sua tarefa do Stream Analytics existente > selecione o **nível de compatibilidade** opção **configurar** secção e altere o valor. 
 
 Certifique-se de que parar a tarefa antes de atualizar o nível de compatibilidade. Não é possível atualizar o nível de compatibilidade, se a tarefa está num Estado em execução. 
 

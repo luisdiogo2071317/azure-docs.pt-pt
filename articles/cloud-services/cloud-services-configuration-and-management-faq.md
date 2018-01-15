@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 7a1dc5d755303d12aa070308a19ab81ef2b911fb
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão do Cloud Services do Azure: Perguntas mais frequentes sobre (FAQ)
 
@@ -105,8 +105,8 @@ O **Get-AzurePublishSettingsFile** irá criar um novo certificado de gestão no 
 Pode automatizar esta tarefa utilizando um script de arranque (cmd/batch/PowerShell) e registar esse script de arranque no ficheiro de definição de serviço. Adicione o script de arranque e de certificado (. p7b ficheiro) na pasta do projeto do mesmo diretório de script de arranque.
 
 Para obter mais informações, veja os artigos seguintes:
-- [Como configurar e executar tarefas de arranque para um serviço em nuvem](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
-- [Tarefas comuns de arranque do serviço em nuvem](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)
+- [Como configurar e executar tarefas de arranque para um serviço em nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
+- [Tarefas comuns de arranque do serviço em nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
 
 ## <a name="monitoring-and-logging"></a>Monitorização e o registo
 

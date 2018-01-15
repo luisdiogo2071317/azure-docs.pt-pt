@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importar dados para a Pesquisa do Azure através do portal
 O Portal do Azure fornece um assistente de **Importação de dados** no dashboard do Azure Search para carregar dados para um índice. 
@@ -60,7 +60,7 @@ Um conjunto de dados bidimensional é uma entrada necessária. Só é possível 
 | **SQL Server numa VM do Azure** |Especifique um nome de serviço totalmente qualificado, um ID de utilizador e palavra-passe e uma base de dados como uma cadeia de ligação. Para utilizar esta origem de dados, deve ter instalado anteriormente um certificado no arquivo local que encripta a ligação. Para obter instruções, consulte [Ligação da VM do SQL para o Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>A tabela ou vista que fornece o conjunto de linhas deve ser especificada na página. Esta opção é apresentada após a ligação ser bem sucedida, apresentando uma lista pendente para que possa fazer uma seleção. |
 | **Azure Cosmos DB** |Os requisitos incluem a conta, a base de dados e a coleção. Todos os documentos na coleção serão incluídos no índice remissivo. Pode definir uma consulta para nivelamento ou filtrar o conjunto de linhas ou para detetar documentos alterados para as operações de atualização de dados subsequentes. |
 | **Armazenamento de Blobs do Azure** |Os requisitos incluem a conta de armazenamento e um contentor. Opcionalmente, se os nomes de blob seguem uma convenção de nomenclatura virtual para fins de agrupamento, pode especificar a porção do diretório virtual do nome como uma pasta no contentor. Consulte [Armazenamento de Blobs de Indexação](search-howto-indexing-azure-blob-storage.md) para obter mais informações. |
-| **Armazenamento de Tabelas do Azure** |Os requisitos incluem a conta de armazenamento e um nome de tabela. Opcionalmente, pode especificar uma consulta para obter um subconjunto de tabelas. Consulte [Armazenamento de Tabelas de Indexação](search-howto-indexing-azure-tables.md) para obter mais informações. |
+| **Table Storage do Azure** |Os requisitos incluem a conta de armazenamento e um nome de tabela. Opcionalmente, pode especificar uma consulta para obter um subconjunto de tabelas. Consulte [Armazenamento de Tabelas de Indexação](search-howto-indexing-azure-tables.md) para obter mais informações. |
 
 ## <a name="customize-target-index"></a>Personalizar o índice de destino
 Um índice preliminar, normalmente, é inferido do conjunto de dados. Adicionar, editar ou eliminar campos para concluir o esquema. Além disso, definir atributos ao nível de campo para determinar os respetivos comportamentos de pesquisa subsequentes.
@@ -113,7 +113,7 @@ As edições que não requerem uma reconstrução incluem a adição de um novo 
 Reveja estas ligações para saber mais sobre indexadores:
 
 * [Indexação da Base de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexação do Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Indexação do Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Indexação do Armazenamento de Blobs](search-howto-indexing-azure-blob-storage.md)
 * [Indexação do Armazenamento de Tabelas](search-howto-indexing-azure-tables.md)
 

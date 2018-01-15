@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6e8b9e61f0417e365fb68a7de7135965ca43ab86
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7d93fe6289ade7fbdf3050d49184feb8b370bb5
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como ativar a SSO em várias aplicações no iOS utilizam a ADAL
 Fornecer único Sign-On (SSO) para que os utilizadores só têm de introduzir as respetivas credenciais de uma vez e ter essas credenciais automaticamente funciona entre aplicações agora é esperado pelos clientes. Dificuldade em introduzindo o nome de utilizador e palavra-passe um ecrã pequeno, muitas vezes, vezes combinados com um fator adicional (2FA) como uma chamada telefónica ou um código diante, resulta em insatisfação rápida se um utilizador tem de fazer mais do que uma vez para o produto.
@@ -294,10 +294,7 @@ ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 #### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>Passo 4: iOS9: adicionar um parâmetro de configuração para a sua aplicação
 Utiliza a ADAL – canOpenURL: para verificar se o mediador está instalado no dispositivo. No iOS 9 Apple bloqueados quais podem consultar os esquemas de uma aplicação. Terá de adicionar "msauth" para a secção de LSApplicationQueriesSchemes do seu `info.plist file`.
 
-<key>LSApplicationQueriesSchemes</key>
-
-<array><string>msauth</string>
-</array>
+<key>LSApplicationQueriesSchemes</key> <array> <string>msauth</string></array>
 
 ### <a name="youve-configured-sso"></a>Configurou o SSO!
 Agora o SDK do Microsoft Identity será automaticamente o partilhar credenciais entre as suas aplicações e invocar o mediador se estiver presente nos respetivos dispositivos.

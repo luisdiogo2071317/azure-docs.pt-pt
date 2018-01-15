@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: e8c7b788061b3eb18b3e6c282339a03d93ab8b1c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fdae36c3cbdda16f9392a113502c7c6c62b25534
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Operações do sistema de ficheiros no Data Lake Store com o SDK Java
 > [!div class="op_single_selector"]
 > * [SDK do .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK Java](data-lake-store-get-started-java-sdk.md)
 > * [API REST](data-lake-store-data-operations-rest-api.md)
-> * [python](data-lake-store-data-operations-python.md)
+> * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 

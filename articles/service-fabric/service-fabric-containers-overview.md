@@ -14,16 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 412107db2dc446eb5a6a433bfb7fc3bc5e760c27
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="service-fabric-and-containers"></a>Serviço de recursos de infraestrutura e de contentores
 > [!NOTE]
-> Implementar contentores para um cluster do Service Fabric no Windows 10 ainda não é suportado. 
+> Implementar contentores para um cluster do Service Fabric no Windows 10 ou com o Docker CE não é suportada. 
 >   
+
+> [!NOTE]
+> Versão 6.1 do Service Fabric tem suporte de pré-visualização para o Windows Server versão 1709. Funcionamento em rede aberto e o serviço de DNS do serviço de recursos de infraestrutura não funcionam com o Windows Server versão 1709. 
+> 
 
 ## <a name="introduction"></a>Introdução
 Azure Service Fabric é uma [orchestrator](service-fabric-cluster-resource-manager-introduction.md) dos serviços de um cluster de máquinas, com anos de utilização e a otimização de grande escala para serviços Microsoft. Os serviços podem ser desenvolvidos de várias maneiras de utilizar o [modelos de programação do Service Fabric](service-fabric-choose-framework.md) para implementar [convidado executáveis](service-fabric-deploy-existing-app.md). Por predefinição, o Service Fabric implementa e ativa estes serviços como processos. Processos de fornecem o ativação mais rápida e mais alta densidade utilização de recursos num cluster. Serviço de recursos de infraestrutura também pode implementar serviços nas imagens de contentor. Importante ainda, pode combinar os serviços de processos e serviços nos contentores na mesma aplicação.   
@@ -83,7 +87,7 @@ Service Fabric tem várias capacidades de contentor que o ajudam a criarem aplic
 * Capacidade para definir as credenciais de segurança no contentor.
 * Escolher entre diferentes modos de funcionamento em rede para contentores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu sobre contentores, que Service Fabric é orchestrator um contentor e de que o Service Fabric tem funcionalidades que suportam contentores. Como passo seguinte, iremos abordará exemplos de cada uma das funcionalidades para lhe mostrar como utilizá-los.
 
 [Criar a sua primeira aplicação de contentor do Service Fabric no Windows](service-fabric-get-started-containers.md)

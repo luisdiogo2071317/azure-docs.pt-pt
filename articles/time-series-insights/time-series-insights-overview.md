@@ -11,17 +11,24 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: cb4b3c701f3d3ec52addd1b98c01b97c2220ae34
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 2a0d3e829ed28912b56a022aa6aa82ade1718e35
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>O que é informações de séries de tempo do Azure?
 
 Informações de séries de tempo foi construída para armazenar, visualizar e consultar grandes quantidades de dados de séries de tempo, tal como a gerado por dispositivos de IoT.  Se pretender armazenar, gerir, consultar ou visualizar dados de séries de tempo na nuvem, informações de séries de tempo é provável que direito para si.  
 
-Se está a criar uma aplicação, consumo interno do ou para clientes externos utilizar, informações de séries de tempo pode ser utilizadas como um back-end para indexação, armazenar e agregar dados de séries de tempo.  Pode criar uma experiência de utilizador e de visualização personalizada na parte superior.  Informações de séries de tempo expõe as APIs REST do consulta para ativar este cenário.  
+Informações de séries de tempo tem quatro tarefas principais:
+
+- Em primeiro lugar, estão totalmente integrado com gateways de nuvem, como o IoT Hub do Azure e Event Hubs do Azure. Facilmente liga-se para estas origens de eventos e analisa o JSON de mensagens e estruturas que contêm dados em Limpar linhas e colunas. Associa os metadados com a telemetria e indexa os dados num arquivo columnar.
+- Segundo, informações de séries de tempo gere o armazenamento dos seus dados. Para garantir que os dados estão sempre facilmente acessíveis, armazena os dados na memória e do SSD até 400 dias. Pode consultar interativamente billions de eventos em segundos – a pedido.
+- Terceira, informações de séries de tempo fornece visualização out of box através do Explorador TSI.  
+- Fourth, informações de séries de tempo fornece um serviço de consulta tanto no Explorador de TSI utilizando APIs que são fáceis de integrar para incorporar os dados de séries de tempo em aplicações personalizadas.  
+
+Se estiver a criar uma aplicação, consumo interno do ou para clientes externos utilizar, informações de séries de tempo pode ser utilizadas como um back-end para indexação, armazenar e agregar dados de séries de tempo. Pode criar uma experiência de utilizador e de visualização personalizada na parte superior.  Informações de séries de tempo expõe as APIs de consulta para ativar este cenário.  
 
 Se não souber se os dados estão a série de tempo, eis o que deve conhecer.  Dados de séries de tempo representa como um recurso ou processo alterações ao longo do tempo.  É exclusivo no que tem um carimbo e a hora é mais significativa, como um eixo.  Dados de séries de tempo, normalmente, chega por ordem de tempo e, normalmente, são tratados como uma inserção em vez de uma atualização para a base de dados.  Uma vez Insights de séries de tempo de captura e armazena cada novo evento como uma linha, alteração é medida ao longo do tempo, permitindo-lhe parecer com versões anteriores e prever a alteração futura.  Em grandes volumes, armazenar, indexação, consultar, analisar e visualizar dados de séries de tempo podem ser um desafio.  
 

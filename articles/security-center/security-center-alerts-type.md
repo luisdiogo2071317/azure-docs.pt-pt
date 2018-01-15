@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: yurid
-ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b304ce8c60aefc417993574a0baa43cfc2298d66
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Compreender os alertas de segurança no Centro de Segurança do Azure
 Este artigo ajuda-o a compreender os vários tipos de alertas de segurança e informações relacionadas que estão disponíveis no Centro de Segurança do Azure. Para obter mais informações sobre como gerir alertas e incidentes, veja [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md).
@@ -144,7 +144,6 @@ O Centro de Segurança utiliza análises avançadas para identificar recursos co
 * **Credenciais do documento suspeitas**: este alerta indica um palavra-passe hash calculada suspeita comum utilizada por software maligno que está a ser utilizada para executar um ficheiro.
 * **Construção de script PS dinâmico**: este alerta indica um script do PowerShell que está a ser construído dinamicamente. Os atacantes utilizam esta técnica para construir progressivamente um script para evadir os sistemas de IDS.
 * **Indicadores Metaploit**: este alerta indica atividade associada com o framework de Metasploit, que fornece uma variedade de ferramentas e capacidades de atacante.
-* **Adulteração de SENTIDO**: este alerta indica uma tentativa de desativar o SENTIDO, o serviço de monitorização de segurança do Windows Defender ATP.
 * **Atividade suspeita na conta**: este alerta indica uma tentativa de ligar a uma máquina através de uma conta que ficou comprometida recentemente.
 * **Possível acesso a tarefas de agendamento suspeito**: este alerta indica que foi executada uma tarefa de cron, que pode ser utilizada pelos atacantes para executar programas maliciosos de forma agendada.
 * **Possível acesso a ficheiro de histórico de comando suspeito**: este alerta indica acesso anormal ao ficheiro de histórico de comandos.

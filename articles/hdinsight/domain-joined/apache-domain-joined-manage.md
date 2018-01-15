@@ -14,21 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/25/2016
+ms.date: 01/11/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0fc32960fc2f1ae69315dbfd6bfb8c34c4adc0fa
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Gerir clusters do HDInsight associados a um domínio
 Saiba mais utilizadores e funções no HDInsight associados a um domínio e como gerir clusters do HDInsight associados a um domínio.
 
+## <a name="access-the-clusters-with-enterprise-security-package"></a>Aceder os clusters com o pacote de segurança da empresa.
+
+Pacote de segurança da empresa (anteriormente conhecido como o HDInsight Premium) fornece acesso de vários utilizador para o cluster, onde a autenticação é efetuada pelo Active Directory e a autorização por Apache Ranger e ACLs de armazenamento (ADLS ACLs). Autorização proporciona limites segurados entre vários utilizadores e permite que apenas com privilégios que os utilizadores tenham acesso aos dados com as políticas de autorização.
+
+Isolamento de utilizador e de segurança são importantes para um cluster do HDInsight com o pacote de segurança da empresa. Para cumprir estes requisitos, o acesso SSH para o cluster com o pacote de segurança da empresa é bloqueado. A tabela seguinte mostra os métodos de acesso recomendada para cada tipo de cluster:
+
+|Carga de trabalho|Cenário|Método de acesso|
+|--------|--------|-------------|
+|Hadoop|Ramo de registo – tarefas/consultas interativas |<ul><li>[Beeline](#beeline)</li><li>[Vista do Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas do Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Interativas tarefas/consultas, PySpark interativa|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin com o Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Vista do Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas do Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Cenários do batch – envio de Spark, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Consulta interativa (LLAP)|Interativo|<ul><li>[Beeline](#beeline)</li><li>[Vista do Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas do Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Qualquer|Instalar aplicação personalizada|<ul><li>[Ações de script](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+
+
+Com as APIs padrão ajuda-o partir da perspetiva de segurança. Além disso, obtenha as seguintes vantagens:
+
+1.  **Gestão** – pode gerir o seu código e automatizar tarefas utilizando APIs padrão – Livy, HS2 etc.
+2.  **Auditoria** – com SSH, não é possível efetuar a auditoria, os utilizadores que SSH tinha no cluster. Isto não ser o caso quando as tarefas são construídas através de pontos finais padrão como iria ser executados no contexto de utilizador. 
+
+
+
+### <a name="beeline"></a>Utilizar Beeline 
+Instalar Beeline no seu computador e ligar através da internet pública, utilize os seguintes parâmetros: 
+
+```
+- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Cluster login name: -n admin
+- Cluster login password -p 'password'
+```
+
+Se tiver Beeline instalado localmente e ligar através de uma rede Virtual do Azure, utilize os seguintes parâmetros: 
+
+```
+- Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+Para localizar o nome de domínio completamente qualificado de um headnode, utilize as informações no HDInsight gerir utilizando o documento de API de REST do Ambari.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## <a name="users-of-domain-joined-hdinsight-clusters"></a>Utilizadores de clusters do HDInsight associados a um domínio
 Um cluster do HDInsight que não está associado ao domínio, tem duas contas de utilizador que são criadas durante a criação do cluster:
 
-* **Administrador do Ambari**: esta conta também é conhecido como *Hadoop utilizador* ou *utilizador HTTP*. Esta conta pode ser utilizada para iniciar sessão Ambari em https://&lt;clustername >. azurehdinsight.net. Também pode ser utilizado para executar consultas em vistas do Ambari, executar tarefas através de ferramentas externas (ou seja, PowerShell Templeton, Visual Studio) e autenticar com o controlador ODBC do Hive e ferramentas de BI (ou seja, Excel, PowerBI ou Tableau).
+* **Administrador do Ambari**: esta conta também é conhecido como *Hadoop utilizador* ou *utilizador HTTP*. Esta conta pode ser utilizada para iniciar sessão Ambari em https://&lt;clustername >. azurehdinsight.net. Também pode ser utilizado para executar consultas em vistas do Ambari, executar tarefas através de ferramentas externas (por exemplo, do PowerShell, Templeton, Visual Studio) e autenticar com o controlador ODBC do Hive e ferramentas de BI (por exemplo, Excel, PowerBI ou Tableau).
 * **Utilizador do SSH**: esta conta pode ser utilizado com SSH e executar comandos de sudo. Tem privilégios de raiz para as VMs do Linux.
 
 Um cluster do HDInsight associados a um domínio tem três novos utilizadores além de administração do Ambari e utilizador do SSH.
@@ -43,7 +95,7 @@ Um cluster do HDInsight associados a um domínio tem três novos utilizadores al
     Tenha em atenção de que os outros utilizadores do AD têm também esses privilégios.
 
     Existem alguns pontos finais do cluster (por exemplo, Templeton) que não são geridos pelo Ranger e, por conseguinte, não são seguros. Estes pontos finais são bloqueados para todos os utilizadores, exceto o utilizador de domínio de administrador do cluster.
-* **Regular**: durante a criação do cluster, pode fornecer vários grupos do Active Directory. Os utilizadores nestes grupos vão ser sincronizados Ranger e Ambari. Estes utilizadores são utilizadores do domínio e terão acesso a apenas geridos Ranger pontos finais (por exemplo, Hiveserver2). Todas as políticas RBAC e auditoria irá ser aplicável a estes utilizadores.
+* **Regular**: durante a criação do cluster, pode fornecer vários grupos do Active Directory. Os utilizadores nestes grupos são sincronizados para Ranger e Ambari. Estes utilizadores são utilizadores de domínio e tem acesso a apenas geridos Ranger pontos finais (por exemplo, Hiveserver2). Todas as políticas RBAC e auditoria irá ser aplicável a estes utilizadores.
 
 ## <a name="roles-of-domain-joined-hdinsight-clusters"></a>Funções de clusters do HDInsight associados a um domínio
 HDInsight associados a um domínio têm as seguintes funções:
@@ -63,8 +115,9 @@ HDInsight associados a um domínio têm as seguintes funções:
     ![Permissões de funções de HDInsight associados a um domínio](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## <a name="open-the-ambari-management-ui"></a>Abra a IU de gestão do Ambari
+
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Abra o cluster do HDInsight num painel. Consulte [clusters lista e mostrar](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+2. Abra o cluster do HDInsight. Consulte [clusters lista e mostrar](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
 3. Clique em **Dashboard** no menu superior para abrir o Ambari.
 4. Inicie sessão com o nome de utilizador de domínio de administrador de cluster e a palavra-passe do Ambari.
 5. Clique em de **Admin** menu pendente do canto superior botão canto direito do rato e, em seguida, clique em **gerir Ambari**.
@@ -106,7 +159,7 @@ HDInsight associados a um domínio têm as seguintes funções:
 2. No menu à esquerda, clique em **funções**.
 3. Clique em **adicionar utilizador** ou **adicionar grupo** atribuir utilizadores e grupos para diferentes funções.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para configurar um cluster do HDInsight associado a um domínio, veja [Configurar clusters do HDInsight associados a um domínio](apache-domain-joined-configure.md).
 * Para configurar políticas do Hive e executar consultas do Hive, veja [Configurar políticas do Hive para clusters do HDInsight associados a um domínio](apache-domain-joined-run-hive.md).
 * Para executar consultas do Hive com o SSH nos clusters do HDInsight associados a um domínio, consulte [utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

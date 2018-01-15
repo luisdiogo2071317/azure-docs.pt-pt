@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: v-craic
-ms.openlocfilehash: db2ee6a25626f0a47bf86c5ee286fddc2441d3f8
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 6c6bd4fbd89ec87cbbdbfb9ed42f86a484acf7ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Integrar o Azure DevTest Labs a integração contínua VSTS e o pipeline de entrega
 Pode utilizar o *Azure DevTest Labs tarefas* extensão que se encontra instalado facilmente no Visual Studio Team Services (VSTS) para integrar o pipeline de compilação e versão de CI/CD Azure DevTest Labs. A instalação da extensão três tarefas: 
@@ -111,7 +111,7 @@ A próxima fase da implementação está a criar a VM para utilizar como a "imag
    > [!NOTE]
    > Para criar a VM a utilizar para implementações subsequentes, consulte [tarefas Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Para **subscrição do Azure RM**, selecione uma ligação no **ligações de serviço do Azure disponíveis** lista ou criar uma ligação de permissões mais restrita a sua subscrição do Azure. Para obter mais informações, consulte [ponto final de serviço do Azure Resource Manager](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Para **subscrição do Azure RM**, selecione uma ligação no **ligações de serviço do Azure disponíveis** lista ou criar uma ligação de permissões mais restrita a sua subscrição do Azure. Para obter mais informações, consulte [ponto final de serviço do Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. Para **nome do laboratório**, selecione o nome da instância que criou anteriormente.
 
@@ -141,7 +141,7 @@ A próxima fase da implementação está a criar a VM para utilizar como a "imag
 
    a. Para **tipo de ligação do Azure**, selecione **do Azure Resource Manager**.
 
-   b. Para **subscrição do Azure RM**, selecione uma ligação na lista em **ligações de serviço do Azure disponíveis**, ou criar uma ligação de permissões mais restrita a sua subscrição do Azure. Para obter mais informações, consulte [ponto final de serviço do Azure Resource Manager](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   b. Para **subscrição do Azure RM**, selecione uma ligação na lista em **ligações de serviço do Azure disponíveis**, ou criar uma ligação de permissões mais restrita a sua subscrição do Azure. Para obter mais informações, consulte [ponto final de serviço do Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    c. Para **tipo de Script**, selecione **ficheiro de Script**.
  
@@ -168,7 +168,7 @@ A fase seguinte é criar uma imagem da VM recentemente implementada na sua inst�
    > [!NOTE]
    > Para criar a imagem, consulte [tarefas Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Para **subscrição do Azure RM**, além de **ligações de serviço do Azure disponíveis** lista, selecione uma ligação a partir da lista ou criar uma ligação de permissões mais restrita a sua subscrição do Azure. Para obter mais informações, consulte [ponto final de serviço do Azure Resource Manager](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Para **subscrição do Azure RM**, além de **ligações de serviço do Azure disponíveis** lista, selecione uma ligação a partir da lista ou criar uma ligação de permissões mais restrita a sua subscrição do Azure. Para obter mais informações, consulte [ponto final de serviço do Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
 
    b. Para **nome do laboratório**, selecione o nome da instância que criou anteriormente.
 
@@ -189,7 +189,7 @@ A etapa final consiste em eliminar a VM que tenha implementado na sua instância
       > [!NOTE]
       > Para eliminar a VM, consulte [Azure DevTest Labs tarefas](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Para **subscrição do Azure RM**, selecione uma ligação no **ligações de serviço do Azure disponíveis** lista ou criar uma ligação de permissões mais restrita a sua subscrição do Azure. Para obter mais informações, consulte [ponto final de serviço do Azure Resource Manager](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Para **subscrição do Azure RM**, selecione uma ligação no **ligações de serviço do Azure disponíveis** lista ou criar uma ligação de permissões mais restrita a sua subscrição do Azure. Para obter mais informações, consulte [ponto final de serviço do Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
  
    b. Para **ID de VM de laboratório**, se tiver alterado o nome predefinido da variável de ambiente que foi preenchido automaticamente com o ID de laboratório de VM por uma tarefa anterior, editá-lo aqui. O valor predefinido é **$(labVMId)**.
 

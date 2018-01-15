@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 039012b8ba0b83f6338128a2200d1232ae6467f3
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 1545fb9a89794a74efbb855c4480040973c3308e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Gerir as contas administrativas de acesso de emergência no Azure AD 
 
@@ -48,11 +48,11 @@ As contas não devem estar associadas a qualquer utilizador individuais na organ
 
 Para reduzir o risco de um ataque resultante de uma palavra-passe comprometida, o Azure AD recomenda que necessitam de multi-factor Authentication para todos os utilizadores individuais. Deve incluir este grupo de administradores e todas as outras (por exemplo, financeiros officers) cuja conta comprometida teria um impacto significativo. 
 
-No entanto, se a sua organização não tiver dispositivos partilhados, multi-factor Authentication pode não ser possível para estas contas de acesso de emergência. Se estiver a configurar uma política de acesso condicional para exigir [registo de multi-factor Authentication para cada administrador](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) para o Azure AD e outro ligado software como um serviço (SaaS) de aplicações, poderá ter de configurar a política exclusões para excluir contas de acesso de emergência este requisito.
+No entanto, se a sua organização não tiver dispositivos partilhados, multi-factor Authentication pode não ser possível para estas contas de acesso de emergência. Se estiver a configurar uma política de acesso condicional para exigir [registo de multi-factor Authentication para cada administrador](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) para o Azure AD e outro ligado software como um serviço (SaaS) de aplicações, poderá ter de configurar a política exclusões para excluir contas de acesso de emergência este requisito.
 
 ### <a name="initial-configuration-with-approvals"></a>Configuração inicial com aprovações
 
-Outra opção consiste em configurar os seus utilizadores como elegíveis e aprovadores para ativar o *administrador global* função. Esta opção seria necessários à sua organização tem subscrições do Azure AD Premium P2. É também iria exigir uma opção de multi-factor Authentication que é adequada para utilização partilhada entre vários trabalhadores e o ambiente de rede. Estes requisitos são porque a ativação do *administrador global* função requer que os utilizadores efetuou anteriormente multi-factor Authentication. Para obter mais informações, consulte [como requerer a autenticação Multifator no Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
+Outra opção consiste em configurar os seus utilizadores como elegíveis e aprovadores para ativar o *administrador global* função. Esta opção seria necessários à sua organização tem subscrições do Azure AD Premium P2. É também iria exigir uma opção de multi-factor Authentication que é adequada para utilização partilhada entre vários trabalhadores e o ambiente de rede. Estes requisitos são porque a ativação do *administrador global* função requer que os utilizadores efetuou anteriormente multi-factor Authentication. Para obter mais informações, consulte [como requerer a autenticação Multifator no Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
 
 Não é recomendada a utilizar o multi-factor Authentication que está associada a dispositivos pessoais para contas de acesso de emergência. Em emergência real, a pessoa que precisa de aceder a um dispositivo registado o multi-factor Authentication não poderá ser um que tenha o dispositivo pessoal. 
 
@@ -60,7 +60,7 @@ Considere também o cenário das ameaças. Por exemplo, uma circunstância impre
 
 ## <a name="ongoing-monitoring"></a>A monitorização em curso
 
-Monitor de [do Azure AD início de sessão e auditoria nos registos](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-activity-sign-ins) para quaisquer inícios de sessão e auditar a atividade das contas de acesso de emergência. Normalmente, essas contas não devem estar a iniciar sessão e não devem ser efetuar alterações, pelo que a utilização dos mesmos é provável que sejam anómala e exigir investigação de segurança.
+Monitor de [do Azure AD início de sessão e auditoria nos registos](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins) para quaisquer inícios de sessão e auditar a atividade das contas de acesso de emergência. Normalmente, essas contas não devem estar a iniciar sessão e não devem ser efetuar alterações, pelo que a utilização dos mesmos é provável que sejam anómala e exigir investigação de segurança.
 
 ## <a name="account-check-validation-must-occur-at-regular-intervals"></a>Validação de verificação de conta tem de ocorrer em intervalos regulares
 

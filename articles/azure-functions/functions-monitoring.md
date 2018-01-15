@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as funções do Azure
 
@@ -37,7 +37,7 @@ Para uma aplicação de função enviar dados para o Application Insights, tem d
 
 * [Criar uma instância ligada do Application Insights ao criar a aplicação de função](#new-function-app).
 * [Ligar uma instância do Application Insights para uma aplicação de função existente](#existing-function-app).
- 
+
 ### <a name="new-function-app"></a>Nova aplicação de funções
 
 Ativar o Application Insights na aplicação de função **criar** página:
@@ -65,6 +65,14 @@ Obter a chave de instrumentação e guardá-lo na aplicação de função:
    ![Adicionar a chave de instrumentação definições de aplicação](media/functions-monitoring/add-ai-key.png)
 
 1. Clique em **Guardar**.
+
+## <a name="disable-built-in-logging"></a>Desativar o registo incorporado
+
+Se ativar o Application Insights, recomendamos que desative o [registo incorporado que utiliza o armazenamento do Azure](#logging-to-storage). O registo incorporado é útil para testar com cargas de trabalho leves mas não se destina a utilização de produção de carga elevada. Para a monitorização de produção, recomenda-se Application Insights. Se o registo incorporado é utilizado em produção, o registo de registo pode estar incompleto devido à limitação no armazenamento do Azure.
+
+Para desativar o registo incorporado, elimine o `AzureWebJobsDashboard` definição de aplicação. Para obter informações sobre como eliminar definições da aplicação no portal do Azure, consulte o **definições da aplicação** secção [como gerir uma aplicação de função](functions-how-to-use-azure-function-app-settings.md#settings).
+
+Quando ativa o Application Insights e desativar o registo incorporado, o **Monitor** separador para uma função no portal do Azure leva-o para o Application Insights.
 
 ## <a name="view-telemetry-data"></a>Ver dados de telemetria
 
@@ -153,7 +161,7 @@ O registo de funções do Azure também inclui um *nível de registo* com cada r
 |Aviso     | 3 |
 |Erro       | 4 |
 |Crítico    | 5 |
-|Nenhuma        | 6 |
+|Nenhum        | 6 |
 
 Nível de registo `None` é explicada na secção seguinte. 
 
@@ -464,58 +472,41 @@ A comunicar um problema com a integração do Application Insights nas funções
 
 ## <a name="monitoring-without-application-insights"></a>Monitorização sem Application Insights
 
-Recomendamos que Application Insights para funções de monitorização, porque este oferece mais dados e uma melhor formas para analisar os dados. Mas também pode encontrar telemetria e dados de registo nas páginas do portais do Azure para uma aplicação de função. 
+Recomendamos que Application Insights para funções de monitorização, porque este oferece mais dados e uma melhor formas para analisar os dados. Mas também pode encontrar registos e os dados telemétricos nas páginas de portais do Azure para uma aplicação de função.
 
-Selecione o **Monitor** separador para uma função e obter uma lista de execuções de função. Selecione uma execução de função para consultar a duração, dados de entrada, erros e ficheiros de registo associados.
+### <a name="logging-to-storage"></a>Registo para o armazenamento
 
-> [!IMPORTANT]
-> Ao utilizar o [consumo plano de alojamento](functions-overview.md#pricing) para as funções do Azure, o **monitorização** mosaico na aplicação de função não mostra todos os dados. Isto acontece porque a plataforma dinamicamente dimensiona e gere instâncias de computação por si. Estas métricas não são significativas um plano de consumo.
+O registo incorporado utiliza a conta de armazenamento especificada pela cadeia de ligação no `AzureWebJobsDashboard` definição de aplicação. Se estiver configurada essa definição de aplicação, pode ver os dados de registo no portal do Azure. Na página da aplicação de função, selecione uma função e, em seguida, selecione o **Monitor** separador e obter uma lista de execuções de função. Selecione uma execução de função para consultar a duração, dados de entrada, erros e ficheiros de registo associados.
+
+Se utilizar o Application Insights e tiver [incorporado registo desativado](#disable-built-in-logging), a **Monitor** separador leva-o para o Application Insights.
 
 ### <a name="real-time-monitoring"></a>A monitorização em tempo real
 
-A monitorização em tempo real está disponível clicando **fluxo de eventos em direto** da função de **Monitor** separador. O fluxo de eventos em direto é apresentado no gráfico de num novo separador do browser.
+Pode transmitir ficheiros de registo para uma sessão de linha de comandos de uma estação de trabalho local utilizando o [de Interface de linha de comandos (CLI do Azure) 2.0](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview).  
 
-> [!NOTE]
-> Não há um problema conhecido que pode fazer com que os dados conseguir ser preenchido. Poderá ter de fechar o separador do browser que contém o fluxo de eventos em direto e, em seguida, clique em **fluxo de eventos em direto** novamente para permitir que seja corretamente preencher os dados de fluxo de eventos. 
-
-Estas estatísticas são em tempo real, mas o graphing real dos dados de execução pode ter cerca de 10 segundos de latência.
-
-### <a name="monitor-log-files-from-a-command-line"></a>Ficheiros de registo do Monitor de uma linha de comandos
-
-Pode transmitir ficheiros de registo para uma sessão de linha de comandos numa estação de trabalho local utilizando a Interface de linha de comandos (CLI do Azure) 1.0 ou PowerShell.
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Monitorizar os ficheiros de registo de aplicação de função com a CLI do Azure 1.0
-
-Para começar, [instalar a CLI do Azure 1.0](../cli-install-nodejs.md) e [iniciar sessão no Azure](/cli/azure/authenticate-azure-cli).
-
-Utilize os seguintes comandos para ativar o modo clássico de gestão de serviço, escolha a sua subscrição e transmitir ficheiros de registo:
+Para o Azure CLI 2.0, utilize os seguintes comandos para iniciar sessão, escolha a sua subscrição e os ficheiros de fluxo de registo:
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>Monitorizar os ficheiros de registo de aplicação de função com o PowerShell
-
-Para começar, [instalar e configurar o Azure PowerShell](/powershell/azure/overview).
-
-Utilize os seguintes comandos para adicionar a sua conta do Azure, escolha a sua subscrição e transmitir ficheiros de registo:
+Para o Azure PowerShell, utilize os seguintes comandos para adicionar a sua conta do Azure, escolha a sua subscrição e os ficheiros de fluxo de registo:
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Para obter mais informações, consulte [como: transmitir os registos para aplicações web](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
+Para obter mais informações, consulte [como transmitir os registos](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Saiba mais sobre o Application Insights](https://docs.microsoft.com/azure/application-insights/)
+Para obter mais informações, consulte os seguintes recursos:
 
-> [!div class="nextstepaction"]
-> [Saiba mais sobre a arquitetura de registo que utiliza as funções](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [O registo do ASP.NET Core](/aspnet/core/fundamentals/logging/)

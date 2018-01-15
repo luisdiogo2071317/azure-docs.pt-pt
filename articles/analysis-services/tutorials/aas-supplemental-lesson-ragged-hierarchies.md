@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lição suplementar - Hierarquias desbalanceadas
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 Nesta lição suplementar, irá resolver um problema comum quando dinamizar as hierarquias que contêm valores em branco (membros) em diferentes níveis. Por exemplo, uma organização onde um gestor de alto nível tem os gerentes de departamento e não gerentes como subordinados diretos. Ou hierarquias geográficas compostas por país-região-cidade, onde algumas cidades não têm um estado ou província principal, como Washington D.C., a cidade do Vaticano. Quando uma hierarquia tem membros em branco, geralmente desce a níveis diferentes ou desbalanceados.
 
@@ -125,7 +123,7 @@ Se criou o projeto de vendas na Internet AW como parte do tutorial, o modelo ain
 
     Agora parece muito melhor!
 
-## <a name="see-also"></a>Veja Também   
+## <a name="see-also"></a>Consultar Também   
 [Lição 9: Criar hierarquias](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Lição suplementar - Segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Lição suplementar - Linhas detalhadas](../tutorials/aas-supplemental-lesson-detail-rows.md)  

@@ -4,7 +4,7 @@ description: "Etiquetas do sensor da IoT e transmissão de dados com análises d
 keywords: "solução iot, começar com iot"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: sngun
+ms.openlocfilehash: a4b2fda6c5cc5ea341618ec5fa8638a5c887bf84
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introdução ao Azure Stream Analytics para o processamento de dados a partir de dispositivos da IoT
 Neste tutorial, vai aprender a criar uma lógica de processamento da transmissão para recolher dados em dispositivos IoT (Internet das Coisas). Vamos analisar um caso real de utilização da Internet das Coisas (IoT) para mostrar como deve construir a solução rapidamente e de forma económica.
@@ -31,11 +31,7 @@ Neste tutorial, vai aprender a criar uma lógica de processamento da transmissã
 ## <a name="scenario"></a>Cenário
 A Contoso, uma empresa de automatização industrial, automatizou por completo o processo de fabrico. Nesta fábrica, as máquinas têm sensores que emitem transmissões de dados em tempo real. Neste cenário, um gestor do piso de produção pretende ter conhecimentos aprofundados e em tempo real sobre os sensores de dados e tomar medidas relativamente aos mesmos. Vamos utilizar a Linguagem SAQL (Stream Analytics Query Language) para os dados do sensor para descobrir padrões interessantes na transmissão de entrada de dados.
 
-Aqui, os dados estão a ser gerados a partir de um dispositivo Sensor Tag da Texas Instruments.
-
-![Sensor Tag da Texas Instruments](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
-
-O payload dos dados está no formato JSON e tem o seguinte aspeto:
+Aqui, os dados estão a ser gerados a partir de um dispositivo Sensor Tag da Texas Instruments. O payload dos dados está no formato JSON e tem o seguinte aspeto:
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -68,7 +64,7 @@ Para facilitar a utilização, este guia de introdução fornece um ficheiro de 
    
     ![criação da tarefa em curso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-### <a name="create-an-azure-stream-analytics-query"></a>Criar uma consulta do Azure Stream Analytics
+## <a name="create-an-azure-stream-analytics-query"></a>Criar uma consulta do Azure Stream Analytics
 Depois de a tarefa ser criada, deve abri-la e criar uma consulta. Pode aceder facilmente à sua tarefa ao clicar no mosaico relacionado com a mesma.
 
 ![Mosaico da Tarefa](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)

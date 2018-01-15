@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/09/2018
 ms.author: damaerte
-ms.openlocfilehash: 16c17bd5635a6f61077e52196fdb8efe901f8050
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 45a5c474191192975bfd8d6fc1bf3c0e497d369c
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funcionalidades e ferramentas para o PowerShell na Shell de nuvem do Azure (pré-visualização)
 
@@ -91,7 +91,7 @@ Estes comandos assentes comunicação remota do PowerShell e necessitam de conec
 
 |**Categoria**    |**Nome**                                 |
 |----------------|-----------------------------------------|
-|Ferramentas do Azure     |[O Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [CLI do Azure (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
+|Ferramentas do Azure     |[O Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [CLI do Azure (2.0.23)](https://docs.microsoft.com/cli/azure/overview)|
 |Editores de texto    |VIM<br> Nano                             |
 |Gestor de pacotes |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
 |Controlo de código fonte  |Git                                      |
@@ -107,7 +107,7 @@ Estes comandos assentes comunicação remota do PowerShell e necessitam de conec
 |PowerShell  |5.1 e [6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Início rápido com o PowerShell na Shell de nuvem (pré-visualização)](quickstart-powershell.md)
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: d8e34924cb29e2e6469d009e40b04d5cee8930a6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Cenário do mundo real de manutenção preditiva.
 
@@ -32,7 +32,7 @@ Segue-se a ligação para o repositório do GitHub pública: [https://github.com
 
 Um problema principais deparam por empresas na asset pesado indústrias é os custos significativos que estão associados a atrasos mechanical problemas. A maioria das empresas estão interessadas nas prever quando estes problemas surgem para proativamente impedi-los antes de ocorrem. O objetivo consiste em reduzir os custos ao reduzir o período de indisponibilidade e, possivelmente, aumentar a segurança. 
 
-Este cenário demora ideias do [manual de comunicação social de manutenção preditiva](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) para demonstrar a criação de um modelo preditivo para um conjunto de dados simulado. Os dados de exemplo são derivados de elementos comuns observados em muitos casos de utilização de manutenção preditiva.
+Este cenário demora ideias do [manual de comunicação social de manutenção preditiva](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) para demonstrar a criação de um modelo preditivo para um conjunto de dados simulado. Os dados de exemplo são derivados de elementos comuns observados em muitos casos de utilização de manutenção preditiva.
 
 É o problema de negócio para estes dados simulados prever problemas causado por falhas do componente. A pergunta de negócio, por conseguinte, é "*o que é a probabilidade de uma máquina fica inativo devido uma falha de um componente*?" Este problema é formatado como um problema de classificação de várias classes (vários componentes por máquina) e um algoritmo do machine learning é utilizado para criar o modelo preditivo. O modelo está preparado no histórico dados recolhidos a partir de computadores. Neste cenário, o utilizador passa através de vários passos para implementar a modelo de ambiente do Workbench do Azure Machine Learning.
 
@@ -133,6 +133,6 @@ Neste caso, utilize foi anteriormente desenvolveu em várias plataformas:
 * [Bloco de notas do Python guia de modelação de manutenção preditiva](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Manutenção preditiva utilizando PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Existem muitos cenários de exemplo disponíveis do Workbench do Azure Machine Learning que demonstram as funcionalidades adicionais do produto. 

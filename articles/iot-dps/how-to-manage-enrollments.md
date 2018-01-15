@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b1d4e1e54d945c6edb0054da7b465b31de8c82a1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 06cc215e5c4087c7a38937de10eaa066037ac444
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerir inscrições de dispositivos com o Portal do Azure
 
@@ -27,7 +27,7 @@ A *inscrição de dispositivos* cria um registo de um único dispositivo ou um g
 
 Existem duas formas de poder inscrever os seus dispositivos com o serviço de aprovisionamento:
 
-* Um **grupo inscrição** é uma entrada para um grupo de dispositivos que partilham um mecanismo de atestado comuns dos certificados x. 509, assinados pelo mesmo certificado de assinatura, que pode ser o [certificado de raiz](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) ou o [intermediária](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), utilizada para produzir o certificado de dispositivo no dispositivo físico. Recomendamos que utilize um grupo de inscrição para um grande número de dispositivos que partilham uma configuração desejada inicial ou para dispositivos que todos os mesmo inquilino. Tenha em atenção que só podem inscrever dispositivos que utilizam o mecanismo de atestado de x. 509 como *grupos inscrição*. 
+* Um **grupo inscrição** é uma entrada para um grupo de dispositivos que partilham um mecanismo de atestado comuns dos certificados x. 509, assinados pelo mesmo certificado de assinatura, que pode ser o [certificado de raiz](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) ou o [intermediária](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), utilizada para produzir o certificado de dispositivo no dispositivo físico. Recomendamos que utilize um grupo de inscrição para um grande número de dispositivos que partilham uma configuração desejada inicial ou para dispositivos que todos os mesmo inquilino. Tenha em atenção que só podem inscrever dispositivos que utilizam o mecanismo de atestado de x. 509 como *grupos inscrição*. 
 
     Pode criar um grupo de inscrição no portal para um grupo de dispositivos utilizando os seguintes passos:
 

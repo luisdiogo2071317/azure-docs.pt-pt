@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: d9a83c1f1adb0a3dedaf7f8f0665de8bb809c4e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e66d033d95efccf53ea2de889b5811fe2eafb76a
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -119,7 +119,7 @@ Pode associar as atividades de investigação para o [notificações](active-dir
 As secções seguintes lhe fornecem mais detalhes e os passos que estão relacionados com uma investigação.  
 
 
-## <a name="risky-sign-ins"></a>Risco inícios de sessão
+## <a name="risky-sign-ins"></a>Inícios de sessão de risco
 
 Azure Active Directory Deteta [tipos de eventos de risco](active-directory-reporting-risk-events.md#risk-event-types) no offline e em tempo real. Cada evento de risco que foi detetado para um início de sessão de um utilizador contribui para um conceito lógico chamado arriscado início de sessão. Um risco início de sessão é um indicador para uma tentativa de início de sessão não pode ter sido efetuada pelo proprietário de uma conta de utilizador legítimo.
 
@@ -132,7 +132,7 @@ Um nível de risco de início de sessão é uma indicação (alta, média ou bai
 
 Uma mitigação é uma ação para limitar a capacidade de um atacante exploram uma identidade comprometida ou dispositivo sem restaurar o dispositivo ou a identidade para um Estado de segurança. Uma mitigação não resolver eventos de início de sessão risco anteriores associados o identidade ou o dispositivo.
 
-Para mitigar o risco de inícios de sessão automaticamente, pode configurar policicies de segurança de início de sessão de risco. Utilizar estas políticas, considere o nível de risco do utilizador ou o início de sessão para bloquear o risco de inícios de sessão ou exigir que o utilizador para efetuar a autenticação multifator. Estas ações podem impedir que um atacante explorá uma identidade roubada para causar danos e poderão dar-lhe algum tempo para proteger a identidade.
+Para mitigar o risco de inícios de sessão automaticamente, pode configurar políticas de segurança de início de sessão de risco. Utilizar estas políticas, considere o nível de risco do utilizador ou o início de sessão para bloquear o risco de inícios de sessão ou exigir que o utilizador para efetuar a autenticação multifator. Estas ações podem impedir que um atacante explorá uma identidade roubada para causar danos e poderão dar-lhe algum tempo para proteger a identidade.
 
 ### <a name="sign-in-risk-security-policy"></a>Política de segurança de início de sessão risco
 Uma política de início de sessão risco é uma política de acesso condicional que avalia o risco um específico início de sessão e aplica-se mitigações com base nas condições predefinidas e as regras.
@@ -396,7 +396,7 @@ Para obter uma descrição geral da experiência de utilizador relacionadas, con
 
     ![Política da MFA](./media/active-directory-identityprotection/1019.png "política da MFA")
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Canal 9: Do Azure AD e mostrar de identidade: identidade pré-visualização de proteção](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 * [Ativar a proteção de identidade do Azure Active Directory](active-directory-identityprotection-enable.md)

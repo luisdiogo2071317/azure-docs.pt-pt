@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: c5b7d5a5f20a4a70cbbbe43e33fdf65f12cb8e7d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Como pesquisar bases de dados SQL do Azure com indexadores do Azure Search
 
@@ -119,7 +119,7 @@ Pode utilizar o portal do Azure e o ficheiro *hotels.sql* do exemplo para criar 
 
 O exercício seguinte pressupõe que não existe nenhum servidor o base de dados e diz-lhe para criá-los ambos no passo 2. Opcionalmente, se tiver um recurso já existente, pode adicionar a tabela “hotels”, começando no passo 4.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/). 
 
 2. Clique em **Nova** > **Base de Dados SQL** para criar uma base de dados, um servidor e um grupo de recursos. Pode utilizar as predefinições e o nível mais baixo do escalão de preço. Uma vantagem da criação de um servidor é que pode especificar um nome de utilizador e uma palavra-passe de administrador, que são necessários para criar e carregar tabelas num passo posterior.
 
@@ -286,8 +286,8 @@ Se não quiser continuar a utilizar estes serviços, siga os passos abaixo para 
 Para obter mais informações e tarefas específicas para outras origens de dados suportadas, veja os artigos seguintes:
 
 * [Base de Dados SQL ou SQL Server do Azure numa máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [BD do Cosmos para o Azure](search-howto-index-documentdb.md)
-* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
+* [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
+* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indexar blobs CSV com o indexador Blob do Azure Search](search-howto-index-csv-blobs.md)
 * [Indexar blobs JSON com o indexador Blob do Azure Search](search-howto-index-json-blobs.md)

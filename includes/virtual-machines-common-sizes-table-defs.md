@@ -1,3 +1,4 @@
+<!-- Not used for Ls-series -->
 
 ## <a name="size-table-definitions"></a>Definições da tabela de dimensionamento
 

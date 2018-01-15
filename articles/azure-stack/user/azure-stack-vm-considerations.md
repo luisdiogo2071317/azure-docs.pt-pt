@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: mabrigg
-ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8367f7897581ff9599b763c7a39232bbe6860b8f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerações para máquinas virtuais na pilha do Azure
 
@@ -40,9 +40,9 @@ Máquinas virtuais são uma a pedido, dimensionáveis recursos informáticos dis
 |Conjuntos de disponibilidade de máquina virtual|Vários domínios de falhas (2 ou 3 por região)<br>Vários domínios de atualização<br>Gerido suporte de disco|Domínio de falhas único<br>Domínio de atualização única<br>Sem suporte de disco gerido|
 |Conjuntos de dimensionamento de máquinas virtuais|Escala automática suportada|Não suportado dimensionamento automático.<br>Adicione mais instâncias a uma escala definida utilizando o portal, modelos do Resource Manager ou PowerShell.
 
-## <a name="virtual-machine-sizes"></a>Tamanhos de máquinas virtuais 
+## <a name="virtual-machine-sizes"></a>Tamanhos de máquinas virtuais
 
-O Kit de desenvolvimento de pilha do Azure suporta os tamanhos seguintes: 
+Pilha do Azure suporta os tamanhos seguintes:
 
 | Tipo | Tamanho | Intervalo de tamanhos suportados |
 | --- | --- | --- |
@@ -55,9 +55,9 @@ O Kit de desenvolvimento de pilha do Azure suporta os tamanhos seguintes:
 |Com otimização de memória|Série DS|DS11 - DS14|
 |Com otimização de memória |Série DSv2|DS11_v2 - DS14_v2|
 
-Tamanhos de máquina virtual e as quantidades de recursos associados são consistentes entre pilha do Azure e o Azure. Por exemplo, isto inclui a quantidade de memória, número de núcleos de e/tamanho do número de discos de dados que podem ser criadas. No entanto, o desempenho do mesmo tamanho VM na pilha do Azure depende as características subjacentes de um determinado ambiente de pilha do Azure.
+Tamanhos de máquina virtual e as quantidades de recursos associados são consistentes entre pilha do Azure e o Azure. Por exemplo, este consistência inclui a quantidade de memória, número de núcleos de e/tamanho do número de discos de dados que podem ser criadas. No entanto, o desempenho do mesmo tamanho VM na pilha do Azure depende as características subjacentes de um determinado ambiente de pilha do Azure.
 
-## <a name="virtual-machine-extensions"></a>Extensões da máquina virtual 
+## <a name="virtual-machine-extensions"></a>Extensões da máquina virtual
 
  O Kit de desenvolvimento de pilha do Azure suporta as seguintes versões de extensão de máquina virtual:
 
@@ -65,15 +65,15 @@ Tamanhos de máquina virtual e as quantidades de recursos associados são consis
 
 Utilize o seguinte script do PowerShell para obter a lista de extensões de máquina virtual que estão disponíveis no seu ambiente de pilha do Azure:
 
-```powershell 
+```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
   Get-AzureRmVMExtensionImage | `
   Select Type, Version | `
-  Format-Table -Property * -AutoSize 
+  Format-Table -Property * -AutoSize
 ```
 
-## <a name="api-versions"></a>Versões da API 
+## <a name="api-versions"></a>Versões da API
 
 Funcionalidades de máquina virtual no Kit de desenvolvimento de pilha do Azure suportam as seguintes versões de API:
 
@@ -81,7 +81,7 @@ Funcionalidades de máquina virtual no Kit de desenvolvimento de pilha do Azure 
 
 Pode utilizar o seguinte script do PowerShell para obter as versões de API para as funcionalidades de máquina virtual que estão disponíveis no seu ambiente de pilha do Azure:
 
-```powershell 
+```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `
@@ -90,6 +90,6 @@ Get-AzureRmResourceProvider | `
 ```
 A lista de tipos de recurso suportados e versões de API pode variar devido às se o operador da nuvem atualiza o seu ambiente de pilha do Azure para uma versão mais recente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Criar uma máquina virtual do Windows com o PowerShell na pilha do Azure](azure-stack-quick-create-vm-windows-powershell.md)

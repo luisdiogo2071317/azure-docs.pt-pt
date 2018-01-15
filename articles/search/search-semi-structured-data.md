@@ -8,40 +8,39 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: ea57fa35f09299f95cdfd3c11b44657d35972295
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="search-semi-structured-data-in-cloud-storage"></a>Procurar dados semiestruturados no armazenamento na nuvem
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Parte 2: Dados semiestruturados de pesquisa no armazenamento na nuvem
 
-Esta série de duas partes tutorial, irá aprender a procurar dados não estruturados e semiestruturados, utilizando a pesquisa do Azure. Este tutorial mostra como procurar dados semiestruturados, tais como JSON, armazenado em blobs do Azure. Dados semiestruturados contém etiquetas ou visuais que separam conteúdo dentro os dados. Difere da dados estruturados na medida em que não está estruturada formally, de acordo com um modelo de dados, tal como um esquema de base de dados relacional.
+Uma série de duas partes tutorial, irá aprender a procurar dados não estruturados e semiestruturados, utilizando a pesquisa do Azure. [Parte 1](../storage/blobs/storage-unstructured-search.md) walked, através da pesquisa através de dados não estruturados, mas também incluídos importantes pré-requisitos para este tutorial, como criar a conta de armazenamento. 
 
-Nesta parte abrange como:
+Na parte 2, concentre-se de que altera para dados semiestruturados, tais como JSON, armazenado em blobs do Azure. Dados semiestruturados contém etiquetas ou visuais que separam conteúdo dentro os dados. Divide-a diferença entre dados não estruturados, que tem de ser indexados wholistically e dados estruturados formally que respeite a um modelo de dados, tais como um esquema de base de dados relacional, que pode ser pesquisado numa base por campo.
+
+Parte 2, saiba como:
 
 > [!div class="checklist"]
-> * Criar e preencher um índice no interior de um serviço de pesquisa do Azure
-> * Utilizar o serviço de pesquisa do Azure para pesquisar o índice
+> * Configurar uma origem de dados de pesquisa do Azure para um contentor de Blobs do Azure
+> * Criar e preencher um índice da Azure Search e o indexador para pesquisar o contentor e extrair conteúdo pesquisável
+> * O que acabou de criar o índice de pesquisa
 
 > [!NOTE]
-> "Suporte de matriz JSON é uma funcionalidade de pré-visualização do Azure Search. Não está atualmente disponível no portal. Por este motivo, estamos a utilizar a API REST, que fornece esta funcionalidade e a ferramenta de cliente para chamar a API REST de pré-visualização."
+> Este tutorial baseia-se no suporte de matriz JSON, que atualmente tem uma funcionalidade de pré-visualização na Azure Search. Não está disponível no portal. Por este motivo, estamos a utilizar a API REST, que fornece esta funcionalidade e a ferramenta de cliente para chamar a API REST de pré-visualização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial:
-* Concluir o [tutorial anterior](../storage/blobs/storage-unstructured-search.md)
-    * Este tutorial utiliza o serviço de pesquisa e conta de armazenamento criado no tutorial anterior
-* Instalar um cliente REST e que compreende como construir um pedido de HTTP
+* Concluir o [tutorial anterior](../storage/blobs/storage-unstructured-search.md) fornecer o serviço de pesquisa e conta de armazenamento criada no tutorial anterior.
 
+* Instalação de um cliente REST e a compreensão de como construir um pedido de HTTP. Para efeitos deste tutorial, estamos a utilizar [Postman](https://www.getpostman.com/). Pode utilizar um cliente REST diferente se já estiver familiarizado com um tipo específico.
 
-## <a name="set-up-the-rest-client"></a>Configurar o cliente REST
+## <a name="set-up-postman"></a>Configurar o Postman
 
-Para concluir este tutorial precisa de um cliente REST. Para efeitos deste tutorial, estamos a utilizar [Postman](https://www.getpostman.com/). Pode utilizar um cliente REST diferente se já estiver familiarizado com um tipo específico.
+Inicie o Postman e configurar um pedido de HTTP. Se não estiver familiarizado com esta ferramenta, consulte [explorar Azure Search APIs REST utilizando o Fiddler ou Postman](search-fiddler.md) para obter mais informações.
 
-Depois de instalar o Postman, inicie-a.
-
-Se esta for a primeira vez, efetuar chamadas REST para o Azure, eis uma breve introdução dos componentes importantes para este tutorial: O método de pedido para cada chamada neste tutorial é "POST". As chaves de cabeçalho estão "Content-type" e "chave de api." Os valores das chaves de cabeçalho são "application/json" e a chave"admin" (a chave de administrador é um marcador de posição para a sua chave primária de pesquisa), respetivamente. O corpo é onde colocar o conteúdo da chamada real. Consoante o cliente que estiver a utilizar, poderão existir algumas variações no como pode construir a consulta, mas os são as noções básicas.
+O método de pedido para cada chamada neste tutorial é "POST". As chaves de cabeçalho estão "Content-type" e "chave de api." Os valores das chaves de cabeçalho são "application/json" e a chave"admin" (a chave de administrador é um marcador de posição para a sua chave primária de pesquisa), respetivamente. O corpo é onde colocar o conteúdo da chamada real. Consoante o cliente que estiver a utilizar, poderão existir algumas variações no como pode construir a consulta, mas os são as noções básicas.
 
   ![Pesquisa semiestruturada](media/search-semi-structured-data/postmanoverview.png)
 
@@ -277,7 +276,7 @@ Se gostaria de experimentação e tente algumas consultas mais por si, pode faz�
 
 O `$filter` parâmetro só funciona com os metadados que foram marcadas como filtrável na criação do seu índice.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu sobre pesquisa semiestruturados dados utilizando a pesquisa do Azure, tais como:
 

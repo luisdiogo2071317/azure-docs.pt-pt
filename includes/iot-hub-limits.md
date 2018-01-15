@@ -27,7 +27,7 @@ A tabela seguinte lista os limites que se aplicam aos recursos do Hub IoT:
 | Contagem máxima de entrega para mensagens de comentários <br/> em resposta a uma mensagem da cloud para o dispositivo |100 |
 | TTL máximo para mensagens de comentários em <br/> resposta a uma mensagem da cloud para o dispositivo |2 dias |
 | Tamanho máximo do dispositivo duplo <br/> (etiquetas, propriedades comunicadas e propriedades pretendidas) | 8 KB |
-| Tamanho máximo do valor da cadeia do dispositivo duplo | 512 bytes |
+| Tamanho máximo do valor da cadeia do dispositivo duplo | 4 KB |
 | Profundidade máxima do objeto no dispositivo duplo | 5 |
 | Tamanho máximo do payload de método direto | 8 KB |
 | Retenção máxima de histórico de tarefas | 30 dias |
