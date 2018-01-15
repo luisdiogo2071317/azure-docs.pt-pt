@@ -16,7 +16,7 @@
 #### [Variáveis](resource-manager-templates-variables.md)
 #### [Recursos](resource-manager-templates-resources.md)
 #### [Saídas](resource-manager-templates-outputs.md)
-### [Ligar a outros modelos](resource-group-linked-templates.md)
+### [Modelos ligados e aninhados](resource-group-linked-templates.md)
 ### [Definir a dependência entre recursos](resource-group-define-dependencies.md)
 ### [Criar múltiplas instâncias](resource-group-create-multiple.md)
 ### [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource)

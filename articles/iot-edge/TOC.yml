@@ -6,13 +6,13 @@
       href: how-iot-edge-works.md
 - name: Inícios rápidos
   items:
-    - name: Implementar no Edge - Linux
+    - name: Implementar no Edge - Linux/Mac
       href: quickstart-linux.md
     - name: Implementar no Edge - Windows
       href: quickstart.md
 - name: Tutoriais
   items:
-    - name: Simular um dispositivo do Edge - Linux
+    - name: Simular um dispositivo do Edge - Linux/Mac
       href: tutorial-simulate-device-linux.md
     - name: Simular um dispositivo do Edge - Windows
       href: tutorial-simulate-device-windows.md
