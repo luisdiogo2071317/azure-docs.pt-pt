@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/03/2017
+ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ca0817b37b6baaa4ef63dfb76790fb3b3735b55f
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 > [!div class="op_single_selector"]
@@ -36,6 +36,14 @@ Um computador de programação com:
 Um cluster do Windows com três ou mais nós em execução no Windows Server 2016 com Contentores - [Criar um cluster](service-fabric-cluster-creation-via-portal.md) ou [experimentar o Service Fabric gratuitamente](https://aka.ms/tryservicefabric).
 
 Um registo no Azure Container Registry - [Criar um registo de contentor](../container-registry/container-registry-get-started-portal.md) na sua subscrição do Azure.
+
+> [!NOTE]
+> A implementação de contentores em clusters do Service Fabric no Windows 10 ou em cluster com o Docker CE não é suportada. Estas instruções utilizam o motor do Docker no Windows 10 para testar localmente e, finalmente, implementam os serviços de contentores num cluster do Windows Server no Azure a executar o Docker EE. 
+>   
+
+> [!NOTE]
+> A versão 6.1 do Service Fabric tem suporte de pré-visualização para a versão 1709 do Windows Server. O funcionamento em rede aberta e o Serviço DNS do Service Fabric não funcionam com a versão 1709 do Windows Server. 
+> 
 
 ## <a name="define-the-docker-container"></a>Definir o contentor do Docker
 Crie uma imagem com base na [imagem de Python](https://hub.docker.com/_/python/) que se encontra no Docker Hub.
@@ -294,7 +302,8 @@ O Windows suporta dois modos de isolamento para contentores: processo e Hyper-V.
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > O modo de isolamento de Hyper-v está disponível nos SKUs do Azure Ev3 e Dv3, que têm suporte para virtualização aninhada. Certifique-se de que a função Hyper-V está instalada nos anfitriões. Pode certificar-se ao ligar aos anfitriões.
+   > O modo de isolamento de Hyper-v está disponível nos SKUs do Azure Ev3 e Dv3, que têm suporte para virtualização aninhada. 
+   >
    >
 
 ## <a name="configure-resource-governance"></a>Configurar a governação de recursos
@@ -309,6 +318,31 @@ A [governação de recursos](service-fabric-resource-governance.md) restringe os
   </Policies>
 </ServiceManifestImport>
 ```
+## <a name="configure-docker-healthcheck"></a>Configurar docker HEALTHCHECK 
+
+A partir da versão v6.1, o Service Fabric integra automaticamente eventos [docker HEALTHCHECK ](https://docs.docker.com/engine/reference/builder/#healthcheck) no respetivo relatório de estado de funcionamento do sistema. Isto significa que, se o seu contentor tiver **HEALTHCHECK** ativado, o Service Fabric comunicará o estado de funcionamento sempre que o estado de funcionamento do contentor for alterado, conforme comunicado pelo Docker. Quando o *health_status* for *bom estado de funcionamento* é apresentado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) um relatório com o estado de funcionamento **OK** e é apresentado **AVISO** se o *health_status* for *mau estado de funcionamento*. A instrução **HEALTHCHECK** que aponta para a verificação atual que é efetuada para monitorizar o estado de funcionamento do contentor tem estar presente no **dockerfile** utilizado ao gerar a imagem de contentor. 
+
+![HealthCheckHealthy][3]
+
+![HealthCheckUnealthyApp][4]
+
+![HealthCheckUnhealthyDsp][5]
+
+Pode configurar o comportamento de **HEALTHCHECK** para cada contentor, especificando as opções **HealthConfig** como parte de **ContainerHostPolicies** em ApplicationManifest.
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+      </ContainerHostPolicies>
+    </Policies>
+</ServiceManifestImport>
+```
+Por predefinição, *IncludeDockerHealthStatusInSystemHealthReport* está definido como **verdadeiro** e *RestartContainerOnUnhealthyDockerHealthStatus* está definido como  **falso**. Se *RestartContainerOnUnhealthyDockerHealthStatus* estiver definido como **verdadeiro**, um contentor que esteja a comunicar repetidamente um mau estado de funcionamento é reiniciado (possivelmente nos outros nós).
+
+Se pretender desativar a integração de **HEALTHCHECK** em todo o cluster do Service Fabric, terá de definir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) como **falso**.
 
 ## <a name="deploy-the-container-application"></a>Implementar a aplicação de contentor
 Guarde todas as alterações e crie a aplicação. Para publicar a sua aplicação, clique com o botão direito do rato em **MyFirstContainer**, no Explorador de Soluções, e selecione **Publicar**.
@@ -324,7 +358,7 @@ A aplicação está pronta quando estiver no estado ```Ready```: ![Pronto][2]
 Abra um browser e navegue para http://containercluster.westus2.cloudapp.azure.com:8081. Deverá ver o cabeçalho "Hello World!" apresentado no browser.
 
 ## <a name="clean-up"></a>Limpeza
-Continua a incorrer em custos enquanto o cluster está em execução, pelo que deve considerar [eliminar o seu cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  Os [clusters de grupo](https://try.servicefabric.azure.com/) são eliminados automaticamente após algumas horas.
+Continua a incorrer em custos enquanto o cluster está em execução, pelo que deve considerar [eliminar o seu cluster](service-fabric-cluster-delete.md).  Os [clusters de grupo](https://try.servicefabric.azure.com/) são eliminados automaticamente após algumas horas.
 
 Depois de enviar a imagem para o registo de contentor, pode eliminar a imagem local do seu computador de programação:
 
@@ -332,6 +366,34 @@ Depois de enviar a imagem para o registo de contentor, pode eliminar a imagem lo
 docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
+
+## <a name="specify-os-build-version-specific-container-images"></a>Indicar imagens de contentor específicas de uma versão de compilação de SO 
+
+Os contentores do Windows Server (modo de isolamento de processos) podem não ser compatíveis com as versões mais recentes do SO. Por exemplo, os contentores do Windows Server criados com o Windows Server 2016 não funcionam na versão 1709 do Windows Server. Desta forma, se os nós do cluster forem atualizados para a última versão, os serviços de contentores criados com as versões mais antigas do SO poderão falhar. Para contornar esta situação com a versão 6.1 e mais recentes do runtime, o Service Fabric permite especificar várias imagens de SO por contentor e identificá-las com as versões de compilação do SO (obtidas mediante a execução de `winver` numa linha de comandos do Windows).  Antes de atualizar o SO nos nós, recomenda-se começar por atualizar os manifestos da aplicação e especificar substituições de imagem por versão de SO. O fragmento seguinte mostra como especificar várias imagens de contentor no manifesto da aplicação, **ApplicationManifest.xml**:
+
+
+```xml
+<ContainerHostPolicies> 
+         <ImageOverrides> 
+               <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
+               <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
+         </ImageOverrides> 
+     </ContainerHostPolicies> 
+```
+A versão de compilação do Windows Server 2016 é 14393 e a da versão 1709 do Windows Server é 16299. O manifesto de serviço continua a especificar apenas uma imagem por serviço de contentores, conforme a imagem abaixo:
+
+```xml
+<ContainerHost>
+    <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName> 
+</ContainerHost>
+```
+
+   > [!NOTE]
+   > As funcionalidades de identificação da versão de compilação do SO só estão disponíveis para o Service Fabric no Windows
+   >
+
+Se o SO subjacente na VM for a compilação 16299 (versão 1709), o Service Fabric escolhe a imagem de contentor correspondente a essa versão do Windows Server.  Se também for fornecida uma imagem de contentor não identificada juntamente com as imagens de contentor identificadas no manifesto da aplicação, o Service Fabric trata-a como uma imagem que funciona em todas as versões. Recomenda-se identificar explicitamente as imagens de contentor.
+
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Exemplo completo da aplicação do Service Fabric e dos manifestos do serviço
 Seguem-se os manifestos completos do serviço e da aplicação utilizados neste artigo.
@@ -451,7 +513,7 @@ O intervalo de tempo predefinido está definido para 10 segundos. Uma vez que es
 Pode configurar o cluster do Service Fabric para remover as imagens do contentor não utilizadas do nó. Esta configuração permite que o espaço em disco seja recapturado se existirem demasiadas imagens do contentor no nó.  Para ativar esta funcionalidade, atualize a secção `Hosting` do manifesto do cluster, conforme apresentado no seguinte fragmento: 
 
 
-```xml
+```json
 {
         "name": "Hosting",
         "parameters": [
@@ -467,6 +529,33 @@ Pode configurar o cluster do Service Fabric para remover as imagens do contentor
 Para imagens que não devem ser eliminadas, pode especificá-las no parâmetro `ContainerImagesToSkip`. 
 
 
+## <a name="configure-container-image-download-time"></a>Configurar o tempo de transferência de imagem de contentor
+
+Por predefinição, o tempo de execução do Service Fabric aloca um tempo de 20 minutos para transferir e extrair imagens de contentor, que funciona para a maioria das imagens de contentor. Para imagens de grandes dimensões ou quando a ligação de rede for lenta, poderá ser necessário aumentar o tempo de espera antes de abortar a transferência e extração de imagens. Isto pode ser definido utilizando o atributo **ContainerImageDownloadTimeout** na secção **Alojamento** do manifesto do cluster, conforme mostrado no seguinte fragmento:
+
+```json
+{
+"name": "Hosting",
+        "parameters": [
+          {
+              "name": " ContainerImageDownloadTimeout ",
+              "value": "1200"
+          }
+]
+}
+```
+
+
+## <a name="set-container-retention-policy"></a>Definir a política de retenção de contentores
+
+Para ajudar a diagnosticar falhas no arranque de contentores, o Service Fabric (versão 6.1 ou superior) suporta a retenção de contentores que terminaram ou cujo arranque falhou. Esta política pode ser definida no ficheiro **ApplicationManifest.xml**, conforme mostrado no fragmento seguinte:
+
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+```
+
+A definição **ContainersRetentionCount** especifica o número de contentores que vão ser retidos quando falham. Se for especificado um valor negativo, todos os contentores em falha serão mantidos. Se o atributo **ContainersRetentionCount** não for especificado, não serão retidos contentores. O atributo **ContainersRetentionCount** também suporta Parâmetros de Aplicação, para que os utilizadores possam especificar valores diferentes para clusters de teste e produção. Recomendamos a utilização de restrições de posicionamento para segmentar o serviço de contentores para um nó particular ao utilizar as respetivas funcionalidades para impedir a passagem do serviço de contentores para outros nós. Quaisquer contentores retidos que utilizem esta funcionalidade têm de ser removidos manualmente.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-containers-overview.md).
@@ -476,3 +565,6 @@ Para imagens que não devem ser eliminadas, pode especificá-las no parâmetro `
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[4]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[5]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png

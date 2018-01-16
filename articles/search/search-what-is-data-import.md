@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: ashmaka
-ms.openlocfilehash: ebf7319f0017b4adef25fe5840864e002c88fea7
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8394475572502df9d57256dc5123fcdfa72765a6
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="data-import-in-azure-search"></a>Importação de dados no Azure Search
+# <a name="indexing-in-azure-search"></a>A indexação no Azure Search
 > [!div class="op_single_selector"]
 > * [Descrição geral](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -72,7 +72,7 @@ Uma forma rápida de fazer uma verificação preliminar no carregamento do docum
 > [!TIP]
 > Vários [exemplos de código do Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de dados incorporados ou disponíveis a pronto, o que lhe dá uma forma fácil de começar. O portal também disponibiliza um indexador e uma origem de dados de exemplo, que consiste num pequeno conjunto de dados de imobiliário (com o nome “realestate-us-sample"). Quando executar o indexador pré-configurado na origem de dados de exemplo, é criado um índice e carregado com documentos que podem, depois, ser consultados no Explorador de Pesquisas ou através de códigos que escrever.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Instruções do portal: criar, carregar e consultar índices](search-get-started-portal.md)

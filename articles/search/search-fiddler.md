@@ -4,7 +4,7 @@ description: "Como utilizar o Fiddler ou o Postman para emitir pedidos HTTP e ch
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,17 +12,17 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2017
+ms.date: 01/04/2018
 ms.author: heidist
-ms.openlocfilehash: d8da3f02fab90e0c690e320736409a4d113d634c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a9a6bc035ba9f02057e3086a9682b54282da19f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Explorar as APIs REST do Azure Search com o Fiddler ou o Postman
 
-Uma das formas mais fáceis de explorar a [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice) é utilizar o Fiddler ou o Postman para formular pedidos HTTP e inspecionar as respostas. Neste artigo, experimente as cargas de trabalho de pedido e resposta sem escrever código.
+Uma das formas mais fáceis de explorar a [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice) é utilizar o Fiddler ou o Postman para formular pedidos HTTP e inspecionar as respostas. Com as ferramentas certas e estas instruções, pode enviar pedidos e ver respostas antes de escrever código.
 
 > [!div class="checklist"]
 > * Transferir uma ferramenta de teste de api Web
