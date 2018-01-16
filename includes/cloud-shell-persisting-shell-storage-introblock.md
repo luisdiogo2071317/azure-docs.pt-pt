@@ -10,7 +10,7 @@ No início inicial, Shell da nuvem pede-lhe para associar uma partilha de fichei
 ### <a name="create-new-storage"></a>Criar o novo armazenamento
 
 Quando utilizar definições básicas e selecione apenas uma subscrição, Shell da nuvem cria três recursos em seu nome na região suportada que seja nearest to:
-* Grupo de recursos:`cloud-shell-storage-<region>`
+* Grupo de recursos: `cloud-shell-storage-<region>`
 * Conta de armazenamento:`cs<uniqueGuid>`
 * Partilha de ficheiros:`cs-<user>-<domain>-com-<uniqueGuid>`
 

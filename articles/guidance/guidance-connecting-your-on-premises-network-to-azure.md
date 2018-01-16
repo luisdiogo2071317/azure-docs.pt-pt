@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/25/2016
 ms.author: cherylmc
 ms.openlocfilehash: 37d83d3b6dea1763d85f2411816ba2fee4279100
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="connecting-your-on-premises-network-to-azure"></a>Ligar a sua rede no local para o Azure
 A Microsoft fornece vários tipos de serviços em nuvem. Enquanto pode ligar a todos os serviços através da Internet pública, também pode ligar para alguns dos serviços através de um túnel de rede privada virtual (VPN) através da Internet ou através de uma ligação direta, privada para a Microsoft. Este artigo ajuda-o a determinar que opção de conectividade melhor satisfaz as necessidades com base nos tipos de cloud services da Microsoft que consumir. A maioria das organizações utilizar vários tipos de ligação descritos abaixo.
@@ -103,7 +103,7 @@ Saiba mais sobre [ExpressRoute](../expressroute/expressroute-introduction.md), a
 * Tem várias opções acima várias os limites máximos que podem suportar para ligações VNet, ligações de gateway e outros critérios. É recomendado que reveja o Azure [limites de rede](../azure-subscription-service-limits.md#networking-limits) compreender se qualquer um deles impacto nos tipos de conectividade optar por utilizar.
 * Se planeia ligar um gateway a partir de uma ligação de VPN de site a site para a mesma VNet como um gateway do ExpressRoute, pode deve familiarizar-se com limitações importantes primeiro. Consulte o [Site a Site e ExpressRoute de configurar ligações coexistentes](../expressroute/expressroute-howto-coexist-resource-manager.md#limits-and-limitations) artigo para obter mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Os recursos abaixo explicam como implementar os tipos de ligação abordados neste artigo.
 
 * [Implementar uma ligação ponto a site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)

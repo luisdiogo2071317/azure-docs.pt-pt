@@ -161,7 +161,7 @@ Está disponível uma implementação para esta arquitetura de referência no [G
 3. Aguarde pela conclusão da implementação.
 4. Os ficheiros de parâmetros incluem um nome de utilizador e palavra-passe de administrador codificados e recomenda-se vivamente que os altere a ambos de imediato. Clique na VM com o nome `ra-single-vm0 ` no portal do Azure. Em seguida, clique em **Repor palavra-passe**, na secção **Suporte + resolução de problemas**. Selecione **Repor palavra-passe**, na caixa pendente **Modo**, e selecione um **nome de utilizador** e uma **palavra-passe** novos. Clique no botão **Atualizar** para manter o nome de utilizador e a palavra-passe novos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para maior disponibilidade, implemente duas ou mais VMs por trás de um balanceador de carga. Para obter mais informações, veja [Running multiple VMs on Azure (Executar várias VMs no Azure)][multi-vm].
 
 <!-- links -->

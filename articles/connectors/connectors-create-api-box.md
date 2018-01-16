@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="get-started-with-the-box-connector"></a>Começar a utilizar o conector de caixa
 Ligar a caixa e criar ficheiros, eliminar os ficheiros e muito mais. Com caixa, pode:

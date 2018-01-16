@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
 ms.openlocfilehash: 1f86194857a54ed3a903c2696efc9b23d482c274
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Título (máximo 120 carateres, a palavra-chave primária de destino)
 *Utilize palavras-chave secundárias de 2 a 3 na descrição.*
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 |:--- |:--- |:--- |
 | <p><h3>Solução 1</h3><em>(o mais simples e mais eficazes)</em></p><ol><li>[Passo 1]</li><li>[Passo 2]</li></ol><p><h3>Solução 2</h3><em>(a menos eficiente ou simples)</em></p><ol><li>[Passo 1]</li><li>[Passo 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /> |<p><h3>Solução 1</h3><em>(o mais simples e mais eficazes)</em></p><ol><li>[Passo 1]</li><li>Se utilizar o modelo de implementação clássica, [fazê-lo].<br />Se utilizar o modelo de implementação do Resource Manager, [fazê-lo].</li><li>[Passo 3]</li></ol><p><h3>Solução 2</h3><em>(a menos eficiente ou simples)</em></p><ol><li>[Passo 1]</li><li>Se utilizar o modelo de implementação clássica, [fazê-lo].<br />Se utilizar o modelo de implementação do Resource Manager, [fazê-lo].</li><li>[Passo 3]</li></ol> |<img src="media/markdown-template-for-support-articles-symptom-cause-resolution/rm-classic.png" alt="ARM-Classic"><p><h3>Solução 1</h3><em>(o mais simples e mais eficazes)</em></p><ol><li>[Passo 1]</li><li>[Passo 2]</li></ol><p><h3>Solução 2</h3><em>(a menos eficiente ou simples)</em></p><ol><li>[Passo 1]</li><li>[Passo 2]</li></ol><br /><br /><br /><br /> |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 *Inclua esta secção se não existirem 1 -3 concreto, passos altamente relevantes, que o utilizador deve demorar. Elimine se existem não existem passos seguintes. Não se trata de um local para uma lista de ligações. Se incluir ligações para passos, certifique-se incluir o texto para explicar o motivo pelo qual os passos seguintes são relevantes / importantes.*
 
 *Se se tratar de um artigo no tópico faturação, incluem a seguinte nota (nota abaixo é ligeiramente diferente no início deste artigo):*
