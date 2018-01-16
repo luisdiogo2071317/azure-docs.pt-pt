@@ -1,7 +1,7 @@
 # <a name="azure-service-bus"></a>Service Bus do Azure
 Se uma aplicação ou serviço é executado na nuvem ou de modo local, muitas vezes, tem de interagir com outros serviços ou aplicações. Para fornecer uma forma amplamente útil de efetuar este procedimento, o Azure oferece Service Bus. Este artigo dá uma vista de olhos a esta tecnologia, descreve o que é e por que razão poderá pretender utilizá-la.
 
-## <a name="service-bus-fundamentals"></a>Noções básicas sobre o Service Bus
+## <a name="service-bus-fundamentals"></a>Noções básicas do Service Bus
 Situações diferentes exigem estilos diferentes de comunicação. Por vezes, permitir às aplicações enviar e receber mensagens através de uma fila simples é a melhor solução. Noutras situações, uma fila comum não é suficiente e é melhor uma fila com um mecanismo de publicação e subscrição. E, em alguns casos, tudo o que realmente necessário é uma ligação entre aplicações &#151; não são precisas filas. O Service Bus fornece as três opções, permitindo que as aplicações podem interagir de várias maneiras diferentes.
 
 O Service Bus é um serviço de nuvem multi-inquilino, o que significa que vários utilizadores partilham o serviço. Cada utilizador, como um programador de aplicações, cria um *espaço de nomes*, em seguida, define os mecanismos de comunicação que precisa dentro desse espaço de nomes. [Figura 1](#Fig1) mostra que aspeto.

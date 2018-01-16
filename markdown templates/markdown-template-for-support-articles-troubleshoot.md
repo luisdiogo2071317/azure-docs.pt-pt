@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
 ms.openlocfilehash: e791ff0377137557b6e9f38a8e1b6b35be948ab6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Título (máximo 120 carateres, a palavra-chave primária de destino)
 *Utilize palavras-chave secundárias de 2 a 3 na descrição.*
@@ -67,7 +67,7 @@ Estes erros {} | {Problemas} ocorrerem porque {um motivo muito geral}.
 
 *Em geral, desde que o erro indica "não é suportado o tamanho da VM pedido", pode sempre voltar a tentar num momento posterior, como suficiente recursos podem ter sido libertado cópias de segurança do cluster para acomodar o seu pedido. Se o problema é que o tamanho da VM pedido não é suportado, experimente um tamanho VM diferente; caso contrário, a única opção é remover a restrição de afixação.*
 
-## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
+## <a name="troubleshooting-steps"></a>Passos da resolução de problemas
 *Lista de soluções, por ordem de utilização e na simplicidade, que significa que o mais simples, a solução mais eficaz e útil deve passar primeiro.*
 
 *Selecione uma das versões que se aplicam à sua situação.*
@@ -76,7 +76,7 @@ Estes erros {} | {Problemas} ocorrerem porque {um motivo muito geral}.
 |:--- |:--- |:--- |
 | <p><h3>[Problema 1] \ |[Erro 1]</h3><h4>Causa</h4>[Detalhes da causa]</p><p><h4>Solução 1</h4><em>(o mais simples e mais eficazes)</em></p><ol><li>[Passo 1]</li><li>[Passo 2]</li></ol><p><h4>Solução 2</h4><em>(a menos eficiente ou simples)</em></p><ol><li>[Passo 1]</li><li>[Passo 2]</li></ol><p><h3>[Problema 2] \ |[Erro 2]</h3><h4>Causa</h4>[Detalhes da causa]</p><p><h4>Solução 1</h4><em>(o mais simples e mais eficazes)</em></p><ol><li>[Passo 1]</li><li>[Passo 2]</li></ol><p><h4>Solução 2</h4><em>(o mais simples e mais eficazes)</em></p><ol><li>[Passo 1]</li><li>[Passo 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 *Inclua esta secção se não existirem 1 -3 concreto, passos altamente relevantes, que o utilizador deve demorar. Elimine se existem não existem passos seguintes. Não se trata de um local para uma lista de ligações. Se incluir ligações para passos, certifique-se incluir o texto para explicar o motivo pelo qual os passos seguintes são relevantes / importantes.*
 
 *Se se tratar de um artigo no tópico faturação, incluem a seguinte nota (nota abaixo é ligeiramente diferente no início deste artigo):*
