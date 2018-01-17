@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: billmath
-ms.openlocfilehash: 0dbd3bbb9a45b206d9c89a1083b62852c1b2285a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50534fd1fd94eeb4eec7748857a0b7baf93cb9d2
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="implement-password-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização de palavra-passe com a sincronização do Azure AD Connect
 Este artigo fornece informações que tem de sincronizar as palavras-passe de utilizador de uma instância do Active Directory no local sessão a uma instância do Azure Active Directory (Azure AD) baseado na nuvem.
@@ -179,6 +179,6 @@ Para obter informações sobre segurança e FIPS, consulte [conformidade AAD Syn
 ## <a name="troubleshoot-password-synchronization"></a>Resolver problemas de sincronização de palavra-passe
 Se tiver problemas com a sincronização de palavra-passe, consulte [resolver problemas de sincronização de palavra-passe](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Sincronização do Azure AD Connect: personalizar as opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md)

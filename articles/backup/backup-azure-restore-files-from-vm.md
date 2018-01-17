@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: d1ebda145b7e355bd9763025dece742d2a23239b
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros de cópia de segurança da máquina virtual do Azure
 
@@ -65,12 +65,15 @@ Para restaurar ficheiros ou pastas a partir do ponto de restauro, vá para a má
     Se executar o script num computador com acesso restrito, certifique-se de que não há acesso ao:
 
     - download.microsoft.com
-    - Pontos finais do Azure utilizados para cópias de segurança de VM do Azure
+    - [Pontos finais do Azure utilizados para cópias de segurança de VM do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
     - porta de saída 3260
 
-   Para Linux, o script requer componentes 'open-iscsi' e 'lshw' para ligar ao ponto de recuperação. Se os componentes não existirem no computador onde o script é executado, o script pede-lhe permissão instalar os componentes. Fornecer consentimento para instalar os componentes necessários.  
-         
-   Pode executar o script em qualquer computador que tem o sistema de operativo mesmo (ou compatível) como a VM de cópia de segurança. Consulte o [tabela de SO compatível](backup-azure-restore-files-from-vm.md#system-requirements) para sistemas de operativos compatíveis. Se a máquina virtual do Azure protegida utiliza os espaços de armazenamento do Windows (para VMs do Windows Azure) ou matrizes LVM/RAID (para VMs com Linux), não é possível executar o executável ou script na mesma máquina virtual. Em vez disso, execute o ficheiro executável ou script em qualquer outra máquina com um sistema operativo compatível.
+    Para Linux, o script requer componentes 'open-iscsi' e 'lshw' para ligar ao ponto de recuperação. Se os componentes não existirem no computador onde o script é executado, o script pede-lhe permissão instalar os componentes. Fornecer consentimento para instalar os componentes necessários.
+    
+    O acesso ao download.microsoft.com é necessário para transferir os componentes utilizados para criar um canal seguro entre a máquina onde o script é executado e os dados no ponto de recuperação.         
+
+    Pode executar o script em qualquer computador que tem o sistema de operativo mesmo (ou compatível) como a VM de cópia de segurança. Consulte o [tabela de SO compatível](backup-azure-restore-files-from-vm.md#system-requirements) para sistemas de operativos compatíveis. Se a máquina virtual do Azure protegida utiliza os espaços de armazenamento do Windows (para VMs do Windows Azure) ou matrizes LVM/RAID (para VMs com Linux), não é possível executar o executável ou script na mesma máquina virtual. Em vez disso, execute o ficheiro executável ou script em qualquer outra máquina com um sistema operativo compatível.
+ 
 
 ### <a name="identifying-volumes"></a>Identificar os Volumes
 
@@ -80,7 +83,7 @@ Quando executar o executável, o sistema operativo monta os novos volumes e atri
        
    ![Menu de recuperação de ficheiro](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
            
-#### <a name="for-linux"></a>Para Linux
+#### <a name="for-linux"></a>For Linux
 
 No Linux, dos pontos de recuperação estão montados para a pasta onde o script é executado. Os discos ligados, volumes e os caminhos de montagem correspondentes são apresentados em conformidade. Estes caminhos de montagem são visíveis para os utilizadores ter acesso de nível de raiz. Procure os volumes mencionados no resultado do script.
 
@@ -173,7 +176,7 @@ A tabela seguinte mostra a compatibilidade entre sistemas operativos de servidor
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
-### <a name="for-linux"></a>Para Linux
+### <a name="for-linux"></a>For Linux
 
 No Linux, SO de computador utilizado para restaurar os ficheiros têm de suportar o sistema de ficheiros de máquina virtual protegida. Quando selecionar um computador para executar o script, certifique-se de que o computador tem um SO compatível e utiliza uma das versões identificadas na tabela seguinte:
 

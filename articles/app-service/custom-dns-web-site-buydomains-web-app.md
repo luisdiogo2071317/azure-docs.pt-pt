@@ -18,7 +18,7 @@ ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Compre um nome de domínio personalizado para Web Apps do Azure
 
@@ -171,9 +171,9 @@ Selecione **adicionar hostname**.
 ### <a name="configure-hostname"></a>Configurar o nome de anfitrião
 No **adicionar hostname** caixa de diálogo, escreva o nome de domínio completamente qualificado do seu domínio da aplicação de serviço ou de qualquer subdomínio. Por exemplo:
 
-- kontoso.NET
-- www.kontoso.NET
-- ABC.kontoso.NET
+- kontoso.net
+- www.kontoso.net
+- abc.kontoso.net
 
 Quando terminar, selecione **validar**. O tipo de registo de nome de anfitrião é selecionado automaticamente para si.
 

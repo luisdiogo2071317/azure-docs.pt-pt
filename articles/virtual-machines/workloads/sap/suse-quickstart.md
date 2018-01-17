@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: f7dd532e96540fa297cac8fa3736f9f4a6ccd82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 072a70c1da74b3b50ad8c0a93ee3c079a724d81f
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Executar o SAP NetWeaver em VMs SUSE Linux do Microsoft Azure
 Este artigo descreve vários aspetos a considerar quando estiver a executar o SAP NetWeaver em máquinas virtuais do Microsoft Azure SUSE Linux (VMs). A partir de 19 de Maio de 2016 SAP NetWeaver é oficialmente suportado no SUSE Linux VMs no Azure. Todos os detalhes sobre as versões de Linux, as versões do SAP kernel e outros pré-requisitos podem ser encontrados na 1928533 de nota SAP "aplicações SAP no Azure: suportada produtos e os tipos VM do Azure".
@@ -105,7 +105,7 @@ Se pretender carregar uma VM sem o passo de desaprovisionamento no fim (por exem
 
 Para além das que está descrito no artigo, recomendamos que remova este ficheiro:
 
-   /lib/udev/Rules.d/75-persistent-NET-Generator.Rules
+   /lib/udev/rules.d/75-persistent-net-generator.rules
 
 Também pode instalar o agente Linux do Azure (waagent) para o ajudar a evitar potenciais problemas, desde que não existem vários NICs.
 
@@ -162,5 +162,5 @@ Se pretender utilizar o ambiente de trabalho Gnome para instalar um sistema comp
    ```
 
 ## <a name="sap-support-for-oracle-on-linux-in-the-cloud"></a>Suporte SAP, Oracle no Linux na nuvem
-Há uma restrição de suporte do Oracle no Linux em ambientes virtualizados. Embora esta restrição de suporte não é um tópico específicos do Azure, é importante compreender. SAP não suporta Oracle SUSE ou Red Hat numa nuvem pública, como o Azure. Para discutir neste tópico, contacte diretamente Oracle.
+Há uma restrição de suporte do Oracle no Linux em ambientes virtualizados. Embora esta restrição de suporte não é um tópico específicos do Azure, é importante compreender. SAP não suporta Oracle SUSE ou Red Hat numa nuvem pública, como o Azure. Executar entretanto, Oracle DB no Azure é totalmente suportada pela SAP no Oracle Linux (consulte a nota 1928533). Se forem necessárias outras combinações, contacte diretamente Oracle.
 

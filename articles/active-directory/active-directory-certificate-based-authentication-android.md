@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/13/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: d3e2ed44777a5963c8bd88f6479c4c58bebdb940
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 93fe73257378022a4e65f7e241d9a60056f403fb
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Authentication do Azure Active Directory baseada em certificado no Android
 
@@ -47,7 +47,7 @@ Esta funcionalidade está disponível na pré-visualização no Office 365 US Go
 | OneDrive |![Marcar][1] |
 | Outlook |![Marcar][1] |
 | Power BI |![Marcar][1] |
-| Skype para empresas |![Marcar][1] |
+| Skype para Empresas |![Marcar][1] |
 | Word / Excel / PowerPoint |![Marcar][1] |
 | Yammer |![Marcar][1] |
 
@@ -81,7 +81,7 @@ Pode utilizar o [MSOLDomainFederationSettings](/powershell/module/msonline/set-m
 São suportadas determinadas aplicações do Exchange ActiveSync no Android 5.0 (Lollipop) ou posterior. Para determinar se a aplicação de correio eletrónico suporta esta funcionalidade, contacte o programador da aplicação.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se pretender configurar a autenticação baseada em certificado no seu ambiente, consulte [introdução à autenticação baseada em certificado no Android](active-directory-certificate-based-authentication-get-started.md) para obter instruções.
 

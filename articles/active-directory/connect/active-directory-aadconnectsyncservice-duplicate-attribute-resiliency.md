@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 1ceb2cbe728d2b3bf21f441a595b7ed8e91e3795
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7953e218614ba259db3cd45220de6b6c880608ad
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência de atributos duplicados
 Resiliência de atributo duplicados é uma funcionalidade do Azure Active Directory irá eliminar friction causado por **UserPrincipalName** e **/proxyaddress** está em conflito ao executar uma das ferramentas de sincronização da Microsoft.
@@ -88,7 +88,7 @@ Assim que estiver ligado, para ver uma lista geral do aprovisionamento de atribu
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict`
 
 Isto produz um resultado como o seguinte:  
- ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get MsolDirSyncProvisioningError")  
+ ![Get-MsolDirSyncProvisioningError](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/1.png "Get-MsolDirSyncProvisioningError")  
 
 #### <a name="by-property-type"></a>Por tipo de propriedade
 Para ver os erros por tipo de propriedade, adicionar o **- PropertyName** sinalizador com o **UserPrincipalName** ou **ProxyAddresses** argumento:
@@ -168,7 +168,7 @@ A ligação para *passos sobre como resolver este problema* está incorreto:
 
 Este deve apontar para [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md)
 * [Identificar erros de sincronização de diretórios no Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

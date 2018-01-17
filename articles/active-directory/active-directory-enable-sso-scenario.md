@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: dc69da316870f897fb126d8033e09a066bf89153
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestão de aplicações com o Azure Active Directory
 Para além do fluxo de trabalho real ou conteúdo, as empresas têm dois requisitos básicos para todas as aplicações:
@@ -110,6 +110,6 @@ Com o Azure AD pode proteger as suas aplicações com políticas de acesso granu
 ## <a name="getting-started"></a>Introdução
 Para começar a integrar aplicações com o Azure AD, observe o [guia de introdução de integrar o Azure Active Directory com aplicações obter](active-directory-integrating-applications-getting-started.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e274a9364dcb7bf4d220159e1f906bbd015369aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b76d6a31dfe600a4639b830bfbbb5cacfc158dd6
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection manual de comunicação social
 Este manual de comunicação social ajuda-o a:
@@ -109,7 +109,7 @@ Vulnerabilidades são fragilidades num ambiente do Azure AD que podem ser forem 
 11. Clique em **Guardar**.
 12. Pode agora testar o acesso condicional baseado em risco inscrevendo-se na utilização de um utilizador com um nível de risco elevada. Se o risco de utilizador é médio, dependendo da configuração da sua política, o início de sessão está a ser bloqueado ou é forçadas para alterar a palavra-passe. 
     <br><br>
-    ![Manual de comunicação social](./media/active-directory-identityprotection-playbook/201.png "manual de comunicação social")
+    ![Playbook](./media/active-directory-identityprotection-playbook/201.png "Playbook")
     <br>
 
 ## <a name="sign-in-risk"></a>Risco de início de sessão
@@ -131,9 +131,9 @@ Vulnerabilidades são fragilidades num ambiente do Azure AD que podem ser forem 
 10. Pode agora testar o acesso condicional baseado em risco simulando de localizações desconhecidas ou eventos de risco IP anónimo, porque são ambos **média** eventos de risco.
 
 
-![Manual de comunicação social](./media/active-directory-identityprotection-playbook/200.png "manual de comunicação social")
+![Playbook](./media/active-directory-identityprotection-playbook/200.png "Playbook")
 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Proteção de identidade do Azure Active Directory](active-directory-identityprotection.md)
 

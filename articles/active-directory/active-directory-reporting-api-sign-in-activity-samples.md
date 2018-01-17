@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 87df1183f46f3144282b6a7987902917bb77c2e8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 158f121880dbc1fc1495c8599367502ffd93ce20
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Amostras de API do relatório de atividade de início de sessão do Azure Active Directory
 Este tópico faz parte de uma coleção de tópicos sobre o Azure Active Directory API do relatório.  
@@ -83,7 +83,7 @@ Depois de concluir a edição do script, executá-lo e certifique-se de que os d
 
 O script devolve o resultado do relatório início de sessão no formato JSON. Também cria um `SigninActivities.json` ficheiro com o mesmo resultado. Pode experimentar ao modificar o script devolver dados a partir de outros relatórios ou comente os formatos de saída que não é necessário.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Gostaria de personalizar os exemplos neste tópico? Veja o [do Azure Active Directory início de sessão atividade referência da API](active-directory-reporting-api-sign-in-activity-reference.md). 
 * Se pretender ver uma descrição geral completa de utilizar o Azure Active Directory API do relatório, consulte [introdução ao Azure Active Directory API do relatório](active-directory-reporting-api-getting-started.md).
 * Se quiser saber mais sobre os relatórios do Azure Active Directory, consulte o [do Azure Active Directory guia de relatórios](active-directory-reporting-guide.md).  

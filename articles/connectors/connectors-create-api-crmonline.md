@@ -19,7 +19,7 @@ ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Ligar ao Dynamics 365 a partir de fluxos de trabalho de aplicação de lógica
 
@@ -116,7 +116,7 @@ Quando adiciona um valor para um campo, têm de corresponder o tipo de campo se 
 Tipo de campo  |Como utilizar  |Onde encontrar  |Nome  |Tipo de dados  
 ---------|---------|---------|---------|---------
 Campos de texto|Campos de texto necessitam de uma única linha de texto ou de conteúdo dinâmico, que é um campo de tipo de texto. Os exemplos incluem os campos de categoria e subcategoria.|Definições > personalizações > Personalizar o sistema > entidades > tarefas > campos |categoria |Linha única de texto        
-Campos de número inteiro | Alguns campos requerem um número inteiro ou conteúdo dinâmico, que é um campo de tipo número inteiro. Os exemplos incluem a percentagem de conclusão e duração. |Definições > personalizações > Personalizar o sistema > entidades > tarefas > campos |PercentComplete |Número inteiro         
+Campos de número inteiro | Alguns campos requerem um número inteiro ou conteúdo dinâmico, que é um campo de tipo número inteiro. Os exemplos incluem a percentagem de conclusão e duração. |Definições > personalizações > Personalizar o sistema > entidades > tarefas > campos |percentcomplete |Número inteiro         
 Campos de data | Alguns campos necessitam de uma data introduzida no formato dd/mm/aaaa ou conteúdo dinâmico, que é um campo de tipo de data. Os exemplos incluem criado, data de início, iniciar real, pela última vez em tempo de espera, fim real e data devida. | Definições > personalizações > Personalizar o sistema > entidades > tarefas > campos |createdon |Data e hora
 Tipo de campos que necessitam de um ID de registo e o pesquisa |Alguns campos que façam referência a outro registo entidade requerem o ID do registo e o tipo de pesquisa. |Definições > personalizações > Personalizar o sistema > entidades > conta > campos  | accountid  | Chave Primária
 

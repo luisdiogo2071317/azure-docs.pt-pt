@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: e4977edd19d77b78f08163a6c0ff750fdbefcb3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8ee3b523baf562b06bd5f7d652a431e1d4553d5c
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas de definições de Roaming de estado empresarial no Azure Active Directory
 
@@ -109,7 +109,7 @@ Para evitar a fuga de dados, os dados que estão protegidos com [Windows Informa
 
 
 **Ação recomendada**  
-nenhum. As futuras atualizações para o Windows poderão ajudar a resolver este problema.
+Nenhum. As futuras atualizações para o Windows poderão ajudar a resolver este problema.
 
 ---
 
@@ -118,7 +118,7 @@ nenhum. As futuras atualizações para o Windows poderão ajudar a resolver este
 Dispositivos que estão associados a um domínio não irão ocorrer sincronização para a definição de data, hora e região: tempo automático. Utilizar hora automática pode substituir as outras definições de data, hora e região e fazer com que essas definições não a sincronização. 
 
 **Ação recomendada**  
-nenhum. 
+Nenhum. 
 
 ---
 
@@ -135,7 +135,7 @@ Certifique-se de que o cliente do Windows 10 v1511 tem a atualização cumulativ
 Se tentar iniciar sessão no seu dispositivo Windows com um smart card ou virtual smart card, a sincronização de definições irá parar de funcionar.     
 
 **Ação recomendada**  
-nenhum. As futuras atualizações para o Windows poderão ajudar a resolver este problema.
+Nenhum. As futuras atualizações para o Windows poderão ajudar a resolver este problema.
 
 ---
 
@@ -175,7 +175,7 @@ Continuar com os passos apresentados [KB3196528](https://support.microsoft.com/k
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Utilize o [fórum de voz do utilizador](https://feedback.azure.com/forums/169401-azure-active-directory/category/158658-enterprise-state-roaming) para fornecer comentários e sugestões sobre como melhorar o Roaming de estado empresarial.
 

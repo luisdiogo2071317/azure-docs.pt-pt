@@ -2,23 +2,17 @@
 title: 'Tutorial: Encriptar e desencriptar blobs no armazenamento do Azure com o Cofre de chaves do Azure | Microsoft Docs'
 description: "Como encriptar e desencriptar um blob a utilizar a encriptação do lado do cliente para armazenamento do Microsoft Azure com o Cofre de chaves do Azure."
 services: storage
-documentationcenter: 
-author: adhurwit
-manager: jasonsav
-editor: tysonn
-ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
+author: tamram
+manager: jeconnoc
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: fc4286b39ade5558a9dabd5832be05a7a0d6f0c7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 405ccb44c9daf8d555946e6c68ef318ed2b82505
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: Encriptar e desencriptar blobs no armazenamento do Microsoft Azure com o Cofre de chaves do Azure
 ## <a name="introduction"></a>Introdução
@@ -168,10 +162,6 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
-Segue-se uma captura de ecrã do [Portal clássico do Azure](https://manage.windowsazure.com) para um blob que foram encriptado através de encriptação do lado do cliente com uma chave armazenada num cofre de chaves. O **KeyId** propriedade é o URI para a chave no Cofre de chaves que age como o KEK. O **EncryptedKey** propriedade contém a versão encriptada do CEK.
-
-![Captura de ecrã que mostra os metadados do Blob que inclui os metadados de encriptação](./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png)
-
 > [!NOTE]
 > Se observar o construtor de BlobEncryptionPolicy, verá que possa aceitar uma chave de e/ou de uma resolução. Tenha em atenção que agora não é possível utilizar uma resolução para a encriptação porque faz atualmente não suportam uma chave de predefinição.
 > 
@@ -231,7 +221,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 ```
 E já está. Divirta-se!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre como utilizar o armazenamento do Microsoft Azure com c#, consulte [biblioteca do cliente de armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Para obter mais informações sobre a API de REST do Blob, consulte [API de REST do serviço Blob](https://msdn.microsoft.com/library/azure/dd135733.aspx).

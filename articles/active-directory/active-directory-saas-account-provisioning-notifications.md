@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: d056ed0b7030079f3ea47a56c65e08a9ecfe4583
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16ec2b320f733d8828b0046c20f7f7b0e341daf9
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="account-provisioning-notifications"></a>Notificações do Aprovisionamento de Contas
 Com o aprovisionamento de utilizadores, pode automatizar o processo de gestão de utilizadores em aplicações de SaaS de terceiros. <br>
@@ -38,7 +38,7 @@ Pode introduzir uma lista de distribuição como recipient; No entanto, é impor
 
 Se tiver ativadas de notificações de aprovisionamento da conta, irá receber mensagens de correio eletrónico sobre problemas críticos que estão relacionados com o aprovisionamento de utilizadores. No entanto, para evitar uma sobrecarga de e-mail, apenas receberá um e-mail de notificação por dia para cada aplicação SaaS que o e-mail de notificação está ativado para.
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="related-articles"></a>Artigos Relacionados
 * [Índice de Artigos da Gestão da Aplicação no Azure Active Directory](active-directory-apps-index.md)
 * [Automatizar utilizador aprovisionamento/desaprovisionamento para aplicações SaaS](active-directory-saas-app-provisioning.md)
 * [Personalizar os mapeamentos de atributos para o aprovisionamento de utilizador](active-directory-saas-customizing-attribute-mappings.md)

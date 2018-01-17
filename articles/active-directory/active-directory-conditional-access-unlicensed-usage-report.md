@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 298102fedc766d362d1b3c525293212825eef5c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8bcd814ee7b7bfc158e62ad26e6cc23781f5352d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="unlicensed-usage-report"></a>Relatório de utilização não autorizada
 O ajuda do relatório de utilização não autorizada que identificar os utilizadores sem licença que estão a utilizar paga funcionalidades do Azure AD. Isto permite-lhe melhorar a utilização de licenças que adquiriu e para identificar saber quando poderá ter licenças adicionais. 
@@ -41,7 +41,7 @@ Utilizadores sem licença vai ser sinalizados quando acedem a um serviço com a 
 
 Isto aplica-se a MFA / políticas de localização, bem como dispositivos políticas que utilizar o Intune.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Utilizar o acesso condicional com o Office 365 e outros Azure Active Directory ligado aplicações](active-directory-conditional-access-azure-portal.md)
 * [Introdução ao acesso condicional para o Azure AD](active-directory-conditional-access-azure-portal-get-started.md) 
 
