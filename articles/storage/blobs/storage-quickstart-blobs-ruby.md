@@ -10,11 +10,11 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 12/7/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 30cda1997ca93f237dafd34cfffc2a86b86d6c7c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3b0bc01047b9aa7459cf6cc33f004cf7506e5826
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>Transferir objetos de/para o armazenamento de Blobs do Azure com Ruby
 Neste início rápido, vai aprender a utilizar Ruby para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. 
@@ -23,7 +23,7 @@ Neste início rápido, vai aprender a utilizar Ruby para carregar, transferir e 
 
 Para concluir este guia de início rápido: 
 * Instalar o [Ruby](https://www.ruby-lang.org/en/downloads/)
-* Instale a [biblioteca de Armazenamento do Azure para Ruby](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) através do pacote rubygem. 
+* Instale a [biblioteca de Armazenamento do Azure para Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) através do pacote rubygem. 
 
 ```
 gem install azure-storage
