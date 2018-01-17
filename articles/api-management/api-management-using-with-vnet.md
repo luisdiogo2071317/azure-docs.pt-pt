@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 81634b366f5b66444d1e5474b4ab517208b50375
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 167a4eda4cec509a262b7e032f7629c7435beafd
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede routeable não internet que controla o acesso a. Estas redes, em seguida, podem ser ligadas a suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começar a utilizar as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -108,8 +108,8 @@ Quando uma instância de serviço de API Management está alojada numa VNET, as 
 | Origem / destino portas | Direção | Protocolo de transporte | Origem / destino | Objetivo (*) | Tipo de rede virtual |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação de cliente para gestão de API|Externo |
-| * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e o Powershell |Interno |
-| * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência de armazenamento do Azure, o Service Bus do Azure e o Azure Active Directory (quando aplicável).|Externo & interno | 
+| * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto final de gestão para o portal do Azure e o Powershell |Interna |
+| * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|**Dependência de armazenamento do Azure**, Service Bus do Azure e o Azure Active Directory (quando aplicável).|Externo & interno | 
 | * / 1433 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|**Acesso a pontos finais do SQL do Azure** |Externo & interno |
 | * / 5671, 5672 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência de registo para a política de Hub de eventos e o agente de monitorização |Externo & interno |
 | * / 445 |Saída |TCP |VIRTUAL_NETWORK / INTERNET|Dependência de partilha de ficheiros do Azure de GIT |Externo & interno |
@@ -132,7 +132,7 @@ Quando uma instância de serviço de API Management está alojada numa VNET, as 
  * UDR aplicado à sub-rede que contém a API Management do Azure define 0.0.0.0/0 com um tipo de próximo salto de Internet.
  O efeito combinado destes passos é que o nível de sub-rede UDR tem precedência sobre o ExpressRoute forçado túnel, que garante saído acesso à Internet a partir da API Management do Azure.
 
-**Encaminhamento através de dispositivos de rede virtual**: configurações que utilizam um UDR com uma rota predefinida (0.0.0.0/0) para encaminhar o tráfego de internet destinados a partir da sub-rede de API Management através de uma aplicação de vitrual de rede em execução no Azure impedirá completa comunicação entre a API Management e os serviços necessários. Esta configuração não é suportada. 
+**Encaminhamento através de dispositivos de rede virtual**: configurações que utilizam um UDR com uma rota predefinida (0.0.0.0/0) para encaminhar o tráfego de internet destinados a partir da sub-rede de API Management através de uma aplicação virtual de rede em execução no Azure impedirá completa comunicação entre a API Management e os serviços necessários. Esta configuração não é suportada. 
 
 >[!WARNING]  
 >Gestão de API do Azure não é suportado com configurações de ExpressRoute que **incorretamente cross-anunciar rotas a partir do caminho de peering público para o caminho de peering privado**. Configurações de ExpressRoute que tenham o peering público configurado, receberá anúncios de rota da Microsoft para um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se estes intervalos de endereços são incorretamente cross-anunciados no caminho de peering privado, o resultado final é que todos os pacotes de rede de saída da sub-rede a instância de API Management do Azure estão em incorretamente imposição de túnel para rede no local de um cliente infraestrutura. Este fluxo de rede de quebras de API Management do Azure. A solução para este problema está a parar as rotas entre publicidade do caminho de peering público para o caminho de peering privado.

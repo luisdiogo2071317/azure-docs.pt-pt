@@ -18,7 +18,7 @@ ms.openlocfilehash: 1f86194857a54ed3a903c2696efc9b23d482c274
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Título (máximo 120 carateres, a palavra-chave primária de destino)
 *Utilize palavras-chave secundárias de 2 a 3 na descrição.*

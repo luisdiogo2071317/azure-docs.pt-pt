@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico de pilha do Azure
 
@@ -135,7 +135,7 @@ if($s)
    | FOI                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>Recolher registos utilizando uma interface gráfica do utilizador
+### <a name="bkmk_gui"></a>Recolher registos utilizando uma interface gráfica do utilizador
 Em vez de fornecer os parâmetros necessários para o cmdlet Get-AzureStackLog obter registos de pilha do Azure, também pode tirar partido das ferramentas de pilha do Azure disponíveis open source para localizado no principal do Azure pilha ferramentas ferramentas repositório do GitHub em http://aka.ms/AzureStackTools.
 
 O **ERCS_AzureStackLogs.ps1** é armazenado no repositório GitHub ferramentas de script do PowerShell e é atualizado regularmente. Para se certificar de que tem a versão mais recente disponível, deve transferi-lo diretamente a partir do http://aka.ms/ERCS. O script iniciada a partir de uma sessão do PowerShell administrativa, liga ao ponto final com privilégios e executa o Get-AzureStackLog com parâmetros fornecidos. Se não existem parâmetros são fornecidos, o script será assumida a pedir para os parâmetros através de uma interface gráfica do utilizador.
@@ -157,5 +157,6 @@ Para saber mais sobre o script do ERCS_AzureStackLogs.ps1 PowerShell, pode ver [
 > [!NOTE]
 > Os limites de tamanho e a idade são impostos os registos recolhidos conforme é essencial para garantir uma utilização eficiente do seu espaço de armazenamento para garantir não recebem flooded com os registos em. No entanto, quando diagnosticar um problema, por vezes, precisa de registos que poderão já não existir devido a estes limites. Assim, é **altamente recomendado** descarga dos registos para um espaço de armazenamento externo (uma conta de armazenamento no Azure, um dispositivo de armazenamento adicional no local etc.) a cada 8 a 12 horas e mantê-las existe de 1 a 3 meses, consoante o requisitos. Além disso, certifique-se que esta localização de armazenamento é encriptada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Resolução de problemas de pilha do Microsoft Azure](azure-stack-troubleshooting.md)
+

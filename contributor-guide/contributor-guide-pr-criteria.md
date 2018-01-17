@@ -2,4 +2,4 @@
 
 Esta orientação foi movido para o docs.microsoft.com interno Guia do contribuinte.
 
-[https://aka.MS/Pr-Review-criteria](https://aka.ms/pr-review-criteria)
+[https://aka.ms/pr-review-criteria](https://aka.ms/pr-review-criteria)

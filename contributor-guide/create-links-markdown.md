@@ -2,4 +2,4 @@
 
 Esta orientação foi movido para o docs.microsoft.com interno Guia do contribuinte.
 
-[https://aka.MS/markdown-links](https://aka.ms/markdown-links)
+[https://aka.ms/markdown-links](https://aka.ms/markdown-links)

@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: b5b48edda76bedc14d5528fa82f1d9b7bfffe53a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Ativar o Microsoft Windows Hello para empresas na sua organização
 Depois de [ligar dispositivos associados a um domínio do Windows 10 com o Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), efetue o seguinte procedimento para ativar o Microsoft Windows Hello para empresas na sua organização:
@@ -105,7 +105,7 @@ Se estiver a utilizar autenticação baseada em certificado para autenticação 
 
 No **inscrição SCEP** página do perfil de certificado, tem de escolher **instalar no Passport for Work, de outra forma falha** como o **Key Storage Provider**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Windows 10 para a empresa: formas de utilizar os dispositivos para o trabalho](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Aumentar as capacidades de nuvem para dispositivos com Windows 10 através da Associação do Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
 * [Autenticar sem palavras-passe](active-directory-azureadjoin-passport.md)

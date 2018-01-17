@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos do Azure Active Directory associados de híbrida
 
@@ -41,7 +41,7 @@ Para melhorar a legibilidade das descrições, este tópico utiliza o termo segu
 
 ### <a name="windows-current-devices"></a>Dispositivos atuais do Windows
 
-- Para dispositivos que executem o ambiente de trabalho de sistema operativo do Windows, recomendamos que utilize o Windows 10 aniversário da atualização (versão 1607) ou posterior. 
+- Para dispositivos que executem o ambiente de trabalho de sistema operativo do Windows, a versão suportada é a atualização de aniversário do Windows 10 (versão 1607) ou posterior. 
 - O registo de dispositivos atuais do Windows **é** suportada em ambientes não federada, tais como configurações de sincronização de hash de palavra-passe.  
 
 
@@ -69,11 +69,11 @@ Do Azure AD Connect:
 
 Certifique-se de que os seguintes URLs são acessíveis a partir de computadores no interior da rede da sua organização para o registo dos computadores com o Azure AD:
 
-- https://enterpriseregistration.Windows.NET
+- https://enterpriseregistration.windows.net
 
 - https://login.microsoftonline.com
 
-- https://Device.login.microsoftonline.com
+- https://device.login.microsoftonline.com
 
 Se o seu organizações requer acesso à Internet através de um proxy de saída, tem de implementar a deteção automática de Proxy Web (WPAD) para permitir que os computadores Windows 10 registar com o Azure AD.
 

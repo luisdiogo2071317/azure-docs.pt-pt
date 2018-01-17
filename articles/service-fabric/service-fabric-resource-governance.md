@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: ada26a303013139f182721360aaf125ac5b94310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 974fb5bfa8b10cb5497220825b2a83ca96161b0c
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="resource-governance"></a>Governação de recursos 
 
@@ -115,8 +115,7 @@ Os limites de governação de recursos estão especificados no manifesto da apli
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
-  <Parameters>
-  </Parameters>
+
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
   In this case, Service Fabric sums the limits on code packages and uses the sum as 
@@ -137,6 +136,54 @@ Neste exemplo, o pacote de serviço chamado **ServicePackageA** obtém um núcle
 Assim, neste exemplo, CodeA1 obtém dois-thirds de um núcleo e CodeA2 obtém um terço de um núcleo (e uma reserva de garantia de forma recuperável do mesmo). Se CpuShares não forem especificados para os pacotes de código, o Service Fabric divide os núcleos equitativamente entre elas.
 
 Os limites de memória são absolutos, pelo que ambos os pacotes de código são limitados a 1024 MB de memória (e uma reserva de garantia de forma recuperável do mesmo). Pacotes de código (contentores ou processos) não é possível alocar mais memória a este limite e tentar fazer Sim resulta numa exceção de memória esgotada. Para que a imposição dos limites de recursos funcione, todos os pacotes do código dentro de um pacote de serviço devem ter limites de memória especificados.
+
+### <a name="using-application-parameters"></a>Utilizando os parâmetros de aplicação
+
+Quando especificar a governação de recursos é possível utilizar [parâmetros da aplicação](service-fabric-manage-multiple-environment-app-configuration.md) para gerir configurações com várias aplicações. O exemplo seguinte mostra a utilização de parâmetros de aplicação:
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="4" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="2048" />
+    <Parameter Name="MemoryB" DefaultValue="2048" />
+  </Parameters>
+
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
+    <Policies>
+      <ServicePackageResourceGovernancePolicy CpuCores="[CpuCores]"/>
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="[CpuSharesA]" MemoryInMB="[MemoryA]" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="[CpuSharesB]" MemoryInMB="[MemoryB]" />
+    </Policies>
+  </ServiceManifestImport>
+```
+
+Neste exemplo, os valores de parâmetro predefinidos são definidos para o ambiente de produção, onde cada pacote de serviço teria de obter 4 núcleos e 2 GB de memória. É possível alterar os valores predefinidos com os ficheiros de parâmetro de aplicação. Neste exemplo, um ficheiro de parâmetros pode ser utilizado para testar a aplicação localmente, onde pretende obter menos recursos do que na produção: 
+
+```xml
+<!-- ApplicationParameters\Local.xml -->
+
+<Application Name="fabric:/TestApplication1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="2" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="1024" />
+    <Parameter Name="MemoryB" DefaultValue="1024" />
+  </Parameters>
+</Application>
+```
+
+> [!IMPORTANT] 
+> Especificação governação de recursos com parâmetros de aplicação está disponível a partir do Service Fabric versão 6.1.<br> 
+>
+> Quando os parâmetros da aplicação são utilizados para especificar a governação de recursos, recursos de infraestrutura de serviço não pode ser alterada uma versão anterior para uma versão anteriores à versão 6.1. 
+
 
 ## <a name="other-resources-for-containers"></a>Outros recursos para contentores
 Para além da CPU e memória, é possível especificar limites outros recursos para contentores. Estes limites são especificadas ao nível do pacote do código e são aplicadas quando o contentor é iniciado. Ao contrário com a CPU e memória, o Gestor de recursos do Cluster não está ciente destes recursos e não não as verificações de capacidade ou -los balanceamento de carga. 
@@ -160,6 +207,6 @@ Estes recursos podem ser combinados com a CPU e memória. Eis um exemplo de como
     </ServiceManifestImport>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre o Gestor de recursos do Cluster, leia [introduzindo o Gestor de recursos de cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
 * Para obter mais informações sobre o modelo de aplicação, pacotes de serviços e os pacotes de código – e como mapeiam réplicas-lhes - ler [modelar uma aplicação no Service Fabric](service-fabric-application-model.md).

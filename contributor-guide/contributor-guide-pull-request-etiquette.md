@@ -2,4 +2,4 @@
 
 Esta orientação foi movido para o docs.microsoft.com interno Guia do contribuinte.
 
-[https://aka.MS/pr-Best-Practices](https://aka.ms/pr-best-practices)
+[https://aka.ms/pr-best-practices](https://aka.ms/pr-best-practices)

@@ -2,4 +2,4 @@
 
 Esta orientação foi movido para o docs.microsoft.com interno Guia do contribuinte.
 
-[https://aka.MS/pr-Comments](https://aka.ms/pr-comments)
+[https://aka.ms/pr-comments](https://aka.ms/pr-comments)

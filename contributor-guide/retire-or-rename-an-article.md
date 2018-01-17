@@ -2,4 +2,4 @@
 
 Esta orientação foi movido para o docs.microsoft.com interno Guia do contribuinte.
 
-[https://aka.MS/retire-or-Rename](https://aka.ms/retire-or-rename)
+[https://aka.ms/retire-or-rename](https://aka.ms/retire-or-rename)

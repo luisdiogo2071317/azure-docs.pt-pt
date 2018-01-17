@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário de proteção de identidade do Azure Active Directory
 ### <a name="at-risk-user"></a>Em risco (utilizador)
@@ -58,7 +58,7 @@ Um evento de risco acionado quando são detetados dois inícios de sessão para 
 ### <a name="investigation"></a>Investigação
 O processo de rever as atividades, registos e outras informações relevantes relacionados com um evento de risco para decidir se os passos de remediação ou atenuação são necessários, compreender se e como a identidade foi comprometido e compreender a forma como a identidade comprometida foi utilizada.
 
-### <a name="leaked-credentials"></a>Credenciais obtidas ilicitamente
+### <a name="leaked-credentials"></a>Fuga de credenciais
 Um evento de risco acionado quando as credenciais do utilizador atual (nome de utilizador e palavra-passe) encontram-se registado publicamente na web escuro pelos investigadores do nosso.
 
 ### <a name="mitigation"></a>Mitigação
@@ -160,6 +160,6 @@ Utilizadores que têm de eventos de risco que são remediados ou Active Director
 ### <a name="vulnerability"></a>Vulnerabilidade
 Uma configuração ou a condição no Azure Active Directory que torna o diretório suscetível a exploits ou ameaças.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Proteção de identidade do Azure Active Directory](active-directory-identityprotection.md)
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b6038e1d6bedccca107688fd258088ae992af678
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c9ae098df6e2357ca4bda513c0de5f5d42c7d9af
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Authentication do Azure Active Directory baseada em certificado em dispositivos iOS
 
@@ -47,7 +47,7 @@ Esta funcionalidade está disponível na pré-visualização no Office 365 US Go
 | OneDrive |![Marcar][1] |
 | Outlook |![Marcar][1] |
 | Power BI |![Marcar][1] |
-| Skype para empresas |![Marcar][1] |
+| Skype para Empresas |![Marcar][1] |
 | Word / Excel / PowerPoint |![Marcar][1] |
 | Yammer |![Marcar][1] |
 
@@ -86,7 +86,7 @@ Pode utilizar o [MSOLDomainFederationSettings](/powershell/module/msonline/set-m
 No iOS 9 ou posterior, o cliente de correio iOS nativo é suportado. Para todas as outras aplicações do Exchange ActiveSync, para determinar se esta funcionalidade é suportada, contacte o programador da aplicação.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se pretender configurar a autenticação baseada em certificado no seu ambiente, consulte [introdução à autenticação baseada em certificado no Android](active-directory-certificate-based-authentication-get-started.md) para obter instruções.
 

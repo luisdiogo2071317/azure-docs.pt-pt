@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9294d478ef35cac20bd54c2171eecda7c932e7a6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Auditoria de Active Directory referência da API do Azure
 Este tópico faz parte de uma coleção de tópicos sobre o Azure Active Directory API do relatório.  
@@ -155,7 +155,7 @@ DateTime deve estar no formato UTC
 
 **Notas**:
 
-maiúsculas e minúsculas
+case-sensitive
 
 - - -
 ### <a name="activity"></a>atividade
@@ -167,7 +167,7 @@ maiúsculas e minúsculas
 
 **Notas**:
 
-maiúsculas e minúsculas
+case-sensitive
 
 - - -
 ### <a name="actorname"></a>nome do actor /
@@ -179,10 +179,10 @@ maiúsculas e minúsculas
 
 **Notas**:
 
-Sensível
+case-insensitive
 
 - - -
-### <a name="actorobjectid"></a>ator/objectId
+### <a name="actorobjectid"></a>actor/objectId
 **Suportado operadores**: eq
 
 **Exemplo**:
@@ -200,10 +200,10 @@ Sensível
 
 **Notas**:
 
-Sensível
+Case-insensitive
 
 - - -
-### <a name="targetupn"></a>destino/upn
+### <a name="targetupn"></a>target/upn
 **Suportado operadores**: eq, startsWith
 
 **Exemplo**:
@@ -212,11 +212,11 @@ Sensível
 
 **Notas**:
 
-* Sensível
+* Case-insensitive
 * Tem de adicionar o espaço de nomes completo ao consultar Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
 
 - - -
-### <a name="targetobjectid"></a>destino/objectId
+### <a name="targetobjectid"></a>target/objectId
 **Suportado operadores**: eq
 
 **Exemplo**:
@@ -224,7 +224,7 @@ Sensível
     $filter=targets/any(t: t/objectId eq 'e8096343-86a2-4384-b43a-ebfdb17600ba')    
 
 - - -
-### <a name="actorupn"></a>ator/upn
+### <a name="actorupn"></a>actor/upn
 **Suportado operadores**: eq, startsWith
 
 **Exemplo**:
@@ -233,11 +233,11 @@ Sensível
 
 **Notas**:
 
-* Sensível 
+* Case-insensitive 
 * Tem de adicionar o espaço de nomes completo ao consultar Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
 
 - - -
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * Pretende ver exemplos para atividades de sistema filtrado? Veja o [amostras de API de auditoria do Azure Active Directory](active-directory-reporting-api-audit-samples.md).
 * Pretende saber mais sobre o Azure AD API do relatório? Consulte [começar a utilizar a API do Azure Active Directory Reporting](active-directory-reporting-api-getting-started.md).
 

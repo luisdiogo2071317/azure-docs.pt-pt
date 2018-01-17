@@ -2,4 +2,4 @@
 
 Esta orientação foi movido para o docs.microsoft.com interno Guia do contribuinte.
 
-[https://aka.MS/Azure-File-Names](https://aka.ms/azure-file-names)
+[https://aka.ms/azure-file-names](https://aka.ms/azure-file-names)

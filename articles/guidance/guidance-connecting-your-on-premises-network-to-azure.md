@@ -19,7 +19,7 @@ ms.openlocfilehash: 37d83d3b6dea1763d85f2411816ba2fee4279100
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="connecting-your-on-premises-network-to-azure"></a>Ligar a sua rede no local para o Azure
 A Microsoft fornece vários tipos de serviços em nuvem. Enquanto pode ligar a todos os serviços através da Internet pública, também pode ligar para alguns dos serviços através de um túnel de rede privada virtual (VPN) através da Internet ou através de uma ligação direta, privada para a Microsoft. Este artigo ajuda-o a determinar que opção de conectividade melhor satisfaz as necessidades com base nos tipos de cloud services da Microsoft que consumir. A maioria das organizações utilizar vários tipos de ligação descritos abaixo.

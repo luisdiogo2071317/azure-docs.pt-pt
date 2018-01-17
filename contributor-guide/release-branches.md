@@ -2,4 +2,4 @@
 
 Esta orientação foi movido para o docs.microsoft.com interno Guia do contribuinte.
 
-[https://aka.MS/Release-Branches](https://aka.ms/release-branches)
+[https://aka.ms/release-branches](https://aka.ms/release-branches)

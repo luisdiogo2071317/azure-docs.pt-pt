@@ -2,4 +2,4 @@
 
 Esta orientação foi movido para o docs.microsoft.com interno Guia do contribuinte.
 
-[https://aka.MS/Git-Commands-Master](https://aka.ms/git-commands-master)
+[https://aka.ms/git-commands-master](https://aka.ms/git-commands-master)

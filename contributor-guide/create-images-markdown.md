@@ -2,4 +2,4 @@
 
 Esta orientação foi movido para o docs.microsoft.com interno Guia do contribuinte.
 
-[https://aka.MS/Art-Guidance](https://aka.ms/art-guidance)
+[https://aka.ms/art-guidance](https://aka.ms/art-guidance)

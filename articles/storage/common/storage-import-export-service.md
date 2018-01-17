@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Utilizar o serviço de importação/exportação do Microsoft Azure para transferir dados para o Storage do Azure
 Neste artigo, fornecemos instruções passo a passo sobre como utilizar o serviço importar/exportar do Azure para transferir de forma segura grandes quantidades de dados para o Blob storage do Azure e ficheiros do Azure por envio unidades de disco para um centro de dados do Azure. Este serviço também pode ser utilizado para transferir dados do storage do Azure para unidades de disco rígido e são enviados para os sites no local. Dados a partir de uma única unidade de disco SATA interna podem ser importados o Blob storage do Azure ou os ficheiros do Azure. 
@@ -35,13 +35,13 @@ Siga o procedimento abaixo se os dados no disco para serem importados para o Sto
 2.  Dependendo do tamanho total dos dados, obter o número necessário de polegada 2,5 SSD ou 2,5" ou 3.5" SATA II ou III unidades de disco rígido.
 3.  Anexe discos rígidos diretamente utilizando SATA ou com externos adaptors USB a uma máquina windows.
 4.  Criar um único volume NTFS em cada unidade de disco rígida e atribuir uma letra de unidade ao volume. Não existem mountpoints.
-5.  Ative a encriptação de cacifo de bits no NTFS volume. Utilize as instruções no https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx to enable encryption on the windows machine.
+5.  Para ativar a encriptação no computador windows, ative a encriptação de cacifo de bits no NTFS volume. Utilize as instruções no https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
 6.  Completamente copie dados para estes volumes NTFS único encriptados em discos utilizando copiar e colar ou arraste & drop ou Robocopy ou ferramenta deste tipo.
 7.  Transferir WAImportExport V1 do https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Deszipe a waimportexportv1 de pasta predefinida. Por exemplo, C:\WaImportExportV1  
 9.  Executar como administrador, abra uma linha de comandos ou o PowerShell e altere o diretório para a pasta deszipada. Por exemplo, cd C:\WaImportExportV1
-10. Copiar a abaixo da linha de comandos para um bloco de notas e editá-lo para criar uma linha de comandos.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session n. º 1 /sk:***= = /t:D /bk:*** /srcdir:D: \ /dstdir:ContainerName / /skipwrite
+10. Copie a seguinte linha de comandos para um bloco de notas e editá-lo para criar uma linha de comandos.
+  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
     
     /j: o nome de um ficheiro denominado ficheiro de diário de alterações com .jrn extensão. Um ficheiro do diário de alterações é gerado por unidade e, por isso, recomenda-se para utilizar o número de série de disco como o nome de ficheiro do diário de alterações.
     /SK: a chave de conta de armazenamento do azure. /t: Letra de unidade do disco para enviada. Por exemplo, D /bk: é a chave do cacifo de bits de /srcdir a unidade: seguido de letra de unidade do disco para enviada: \. Por exemplo, D:\
@@ -55,12 +55,12 @@ Siga o procedimento abaixo se os dados no disco para serem importados para o Sto
 
 1. ARMAZENAMENTO -> de registo para https://portal.azure.com/ e em mais serviços -> "para importar/exportar tarefas" clique **criar tarefa de importação/exportação**.
 
-2. Na secção de noções básicas, selecione "Importar para o Azure", introduza uma cadeia para o nome da tarefa, selecione uma subscrição, introduza ou selecione um grupo de recursos. Introduza um nome descritivo para a tarefa de importação. Tenha em atenção que o nome introduzido pode conter apenas letras minúsculas, números, hífenes e carateres de sublinhado, tem de começar com uma letra e não pode conter espaços. Irá utilizar o nome que escolher para controlar as tarefas enquanto estiverem em curso e depois de serem concluídas.
+2. Na secção de noções básicas, selecione "Importar para o Azure", introduza uma cadeia para o nome da tarefa, selecione uma subscrição, introduza ou selecione um grupo de recursos. Introduza um nome descritivo para a tarefa de importação. Tenha em atenção que o nome introduzido pode conter apenas letras minúsculas, números, hífenes e carateres de sublinhado, tem de começar com uma letra e não pode conter espaços. Utilize o nome que escolher para controlar as tarefas enquanto estiverem em curso e depois de serem concluídas.
 
-3. Na secção de detalhes da tarefa, carregar os ficheiros do diário de alterações de unidade que obteve durante o passo de preparação de unidade. Se utilizou waimportexport.exe version1, terá de carregar um ficheiro para cada unidade que está preparado. Selecione a conta de armazenamento que os dados serão importados para a secção de conta de armazenamento de "Destino de importação". A localização de Drop-Off será automaticamente preenchida com base na região da conta de armazenamento selecionada.
+3. Na secção de detalhes da tarefa, carregar os ficheiros do diário de alterações de unidade que obteve durante o passo de preparação de unidade. Se utilizou waimportexport.exe version1, terá de carregar um ficheiro para cada unidade que está preparado. Selecione a conta de armazenamento que os dados serão importados para a secção de conta de armazenamento de "Destino de importação". A localização de Drop-Off é preenchida automaticamente com base na região da conta de armazenamento selecionada.
    
    ![Criar tarefa de importação - passo 3](./media/storage-import-export-service/import-job-03.png)
-4. Return na secção de informações de envio, selecione a operadora na lista pendente e introduza um número de conta operadora válida que tenha criado com esse operadora. Microsoft irá utilizar esta conta para enviar as unidades para, assim que a tarefa de importação estiver concluída. Forneça um nome do contacto completo e válido, telefone, e-mail, morada, cidade, zip, proviince/estado e país/região.
+4. Return na secção de informações de envio, selecione a operadora na lista pendente e introduza um número de conta operadora válida que tenha criado com esse operadora. A Microsoft utiliza esta conta para enviar as unidades para, assim que a tarefa de importação estiver concluída. Forneça um nome do contacto completo e válido, telefone, e-mail, morada, cidade, zip, proviince/estado e país/região.
    
 5. Na secção de resumo, DataCenter do Azure, endereço de envio é fornecido para ser utilizado para envio discos do Azure DC. Certifique-se de que o nome da tarefa e o endereço completo são mencionadas na etiqueta do envio. 
 
@@ -84,7 +84,7 @@ Pode utilizar este serviço, tal como nos cenários:
 * Recuperação de dados: recuperar grande quantidade de dados armazenados no armazenamento e tiver entregues à sua localização no local.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Nesta secção, iremos lista os pré-requisitos necessários para utilizar este serviço. Reveja-los cuidadosamente antes de envio suas unidades.
+Nesta secção, iremos lista os pré-requisitos necessários para utilizar este serviço. Revê-los cuidadosamente antes de envio suas unidades.
 
 ### <a name="storage-account"></a>Conta de armazenamento
 Tem de ter uma subscrição do Azure existente e uma ou mais contas de armazenamento para utilizar o serviço de importação/exportação. Cada tarefa pode ser utilizada para transferir dados de ou para apenas uma conta de armazenamento. Por outras palavras, uma tarefa de importação/exportação único não pode abranger várias várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
@@ -96,13 +96,16 @@ Pode utilizar o serviço importar/exportar do Azure para copiar dados para **blo
 Para iniciar o processo de importação para ou exportar do armazenamento, primeiro tem de criar uma tarefa. Uma tarefa pode ser uma tarefa de importação ou uma tarefa de exportação:
 
 * Crie uma tarefa de importação quando pretender transferir os dados no local que tem à sua conta de armazenamento do Azure.
-* Crie uma tarefa de exportação quando pretender transferir os dados atualmente armazenados na sua conta de armazenamento para discos rígidos são enviadas para nós. Quando cria uma tarefa, notifique o serviço de importação/exportação que que irá enviar um ou mais unidades de disco rígido para um centro de dados do Azure.
+* Crie uma tarefa de exportação quando pretender transferir os dados atualmente armazenados na sua conta de armazenamento para discos rígidos são enviadas à Microsoft. Quando cria uma tarefa, notifique o serviço de importação/exportação que que irá enviar um ou mais unidades de disco rígido para um centro de dados do Azure.
 
 * Para uma tarefa de importação, será de envio unidades de disco rígido que contém os dados.
 * Para uma tarefa de exportação, será de envio unidades de disco rígido em branco.
 * Pode enviar até 10 unidades de disco rígido por tarefa.
 
 Pode criar uma importação ou exportação tarefa no portal do Azure ou o [API de REST de importação/exportação do Azure Storage](/rest/api/storageimportexport).
+
+> [!Note]
+> As APIs de RDFE não serão suportadas 28 de Fevereiro de 2018 e superior. Para continuar a utilizar o serviço, migre para o [APIs de REST de importação/exportação do ARM](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/storageimportexport/resource-manager/Microsoft.ImportExport/stable/2016-11-01/storageimportexport.json). 
 
 ### <a name="waimportexport-tool"></a>Ferramenta de WAImportExport
 O primeiro passo na criação de um **importar** tarefa está a preparar a unidades que será enviada para a importação. Para preparar as suas unidades, tem de estabelecer a ligação ao servidor local e execute a ferramenta de WAImportExport no servidor local. Esta ferramenta WAImportExport facilita a copiar os dados para a unidade, encriptar os dados na unidade com BitLocker e gerar os ficheiros do diário de alterações de unidade.
@@ -114,14 +117,14 @@ A ferramenta de WAImportExport só é compatível com o sistema de operativo do 
 Transfira a versão mais recente do [WAImportExport ferramenta](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). Para obter mais detalhes sobre como utilizar a ferramenta de WAImportExport, consulte o [utilizando a ferramenta de WAImportExport](storage-import-export-tool-how-to.md).
 
 >[!NOTE]
->**A versão anterior:** pode [transferir WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) versão da ferramenta e consulte [guia de utilização de WAImportExpot V1](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 versão da ferramenta de oferecer suporte para **preparar discos quando são escritos dados já previamente no disco**. Também terá de utilizar a ferramenta WAImportExpot V1 se a chave apenas disponível é a chave SAS.
+>**A versão anterior:** pode [transferir WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) versão da ferramenta e consulte [guia de utilização de WAImportExpot V1](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 versão da ferramenta de oferecer suporte para **preparar discos quando são escritos dados já previamente no disco**. Se a chave apenas disponível é a chave de SAS, terá de utilizar a ferramenta WAImportExpot V1.
 
 >
 
 ### <a name="hard-disk-drives"></a>Unidades de disco rígido
 Apenas 2,5 polegada SSD ou 2,5" ou 3.5" SATA II ou HDD interno III é suportados para utilização com o serviço de importação/exportação. Uma tarefa de importação/exportação única pode ter um máximo de 10 HDD/SSD e HDD cada individuais/SSD pode ser de qualquer tamanho. Grande número de unidades de serem distribuído por várias tarefas e não existe nenhum limites no número de tarefas que podem ser criadas. 
 
-Para tarefas de importação, apenas o primeiro volume de dados na unidade será processado. O volume de dados deve ser formatado com NTFS.
+Para tarefas de importação, apenas o primeiro volume de dados na unidade foi processado. O volume de dados deve ser formatado com NTFS.
 
 > [!IMPORTANT]
 > Unidades de disco rígido externas que vêm com um adaptador USB incorporado não são suportadas por este serviço. Além disso, não é possível utilizar o disco dentro as maiúsculas e minúsculas de um HDD externo; Não envie HDDs externos.
@@ -131,11 +134,11 @@ Para tarefas de importação, apenas o primeiro volume de dados na unidade será
 Segue-se uma lista de adaptors USB externos utilizados para copiar dados em HDDs internos. Anker 68UPSATAA - 02BU Anker 68UPSHHDS BU Startech SATADOCK22UE Orico 6628SUS3-C-BK (6628 série) Thermaltake BlacX frequente troca SATA externo rígido unidade ancoragem estação (2.0 de USB & eSATA)
 
 ### <a name="encryption"></a>Encriptação
-Os dados na unidade tiverem de ser encriptados utilizando a encriptação de unidade BitLocker. Esta ação protege os dados enquanto esta se encontra em trânsito.
+Os dados na unidade tiverem de ser encriptados utilizando a encriptação de unidade BitLocker. Esta encriptação protege os dados enquanto esta se encontra em trânsito.
 
 Para tarefas de importação, existem duas formas para efetuar a encriptação. É a forma primeiro para especificar a opção ao utilizar o ficheiro CSV de conjunto de dados ao executar a ferramenta de WAImportExport durante a preparação de unidade. A segunda forma consiste em ativar a encriptação BitLocker manualmente na unidade e especifique a chave de encriptação no driveset CSV ao executar a linha de comandos de ferramenta WAImportExport durante a preparação de unidade.
 
-Para as tarefas de exportação, depois dos dados são copiados para as unidades, o serviço de encriptar a unidade do utilizar o BitLocker antes de envio-lo novamente para si. A chave de encriptação será fornecida para o utilizador através do portal do Azure.  
+Para as tarefas de exportação, depois dos dados são copiados para as unidades, o serviço de encriptar a unidade do utilizar o BitLocker antes de envio-lo novamente para si. A chave de encriptação é fornecida através do portal do Azure.  
 
 ### <a name="operating-system"></a>Sistema Operativo
 Pode utilizar um dos seguintes sistemas operativos de 64 bits para preparar a unidade de disco rígido com a ferramenta de WAImportExport antes do envio a unidade para o Azure:
@@ -143,7 +146,7 @@ Pode utilizar um dos seguintes sistemas operativos de 64 bits para preparar a un
 Windows 7 Enterprise, Ultimate do Windows 7, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Todos estes sistemas operativos suportam a encriptação de unidade BitLocker.
 
 ### <a name="locations"></a>Localizações
-O serviço de importação/exportação do Azure suporta a cópia de dados de e para todas as contas de armazenamento do Azure público. Pode enviar unidades de disco rígido para uma das seguintes localizações. Se a sua conta do storage está numa localização pública do Azure que não for especificada aqui, uma localização alternativa de envio será fornecida quando estiver a criar a tarefa utilizando o portal do Azure ou a API de REST de importação/exportação.
+O serviço de importação/exportação do Azure suporta a cópia de dados de e para todas as contas de armazenamento do Azure público. Pode enviar unidades de disco rígido para uma das localizações indicadas. Se a sua conta do storage está numa localização pública do Azure que não for especificada aqui, uma localização alternativa de envio será fornecida quando estiver a criar a tarefa utilizando o portal do Azure ou a API de REST de importação/exportação.
 
 Suportado envio localizações:
 
@@ -183,27 +186,27 @@ Suportado envio localizações:
 ### <a name="shipping"></a>Envio
 **Unidades de envio para o Centro de dados:**
 
-Ao criar uma tarefa de importação ou exportação, irá ser fornecido um endereço de envio de uma das localizações suportadas para enviar as suas unidades. O endereço de envio fornecido dependerá da localização da sua conta de armazenamento, mas não pode ser o mesmo que a localização da conta de armazenamento.
+Ao criar uma tarefa de importação ou exportação, irá ser fornecido um endereço de envio de uma das localizações suportadas para enviar as suas unidades. O endereço de envio fornecido depende da localização da sua conta de armazenamento, mas não pode ser o mesmo que a localização da conta de armazenamento.
 
 FedEx, UPS ou DHL pode ser utilizado para enviar as unidades para o endereço de envio.
 
 **Unidades de envio do Centro de dados:**
 
-Ao criar uma tarefa de importação ou exportação, tem de fornecer um endereço de retorno para a Microsoft a utilizar quando as unidades de envio anterior depois de concluída a tarefa. Certifique-se que fornecer um endereço de retorno válido para evitar atrasos no processamento.
+Ao criar uma tarefa de importação ou exportação, tem de fornecer um endereço de retorno para a Microsoft a utilizar quando as unidades de envio anterior depois de concluída a tarefa. Certifique-se de que fornecer um endereço de retorno válido para evitar atrasos no processamento.
 
-A operadora deve ter controlo apropriados para manter a cadeia de custody. Tem de fornecer uma operadora FedEx, UPS ou DHL válida conta o número a ser utilizada pela Microsoft para as unidades de cópia do envio. Um número de conta FedEx, UPS ou DHL é necessário para unidades de envio anterior a partir de localizações dos EUA e na Europa. Um número de conta DHL é necessário para unidades de envio anterior a partir de localizações Ásia e da Austrália. Pode criar um [FedEx](http://www.fedex.com/us/oadr/) (para E.U.A. e Europa) ou [DHL](http://www.dhl.com/) (Ásia e da Austrália) operadora a conta se não tiver um. Se já tiver um número de conta operadora, verifique se é válido.
+A operadora deve ter controlo apropriados para manter a cadeia de custody. Tem de fornecer um FedEx válido, eventualmente, ou fazer uma cópia do número de conta DHL operadora a ser utilizada pela Microsoft para as unidades de envio. Um número de conta FedEx, UPS ou DHL é necessário para unidades de envio anterior a partir de localizações dos EUA e na Europa. Um número de conta DHL é necessário para unidades de envio anterior a partir de localizações Ásia e da Austrália. Se não tiver uma, pode criar um [FedEx](http://www.fedex.com/us/oadr/) (para E.U.A. e Europa) ou [DHL](http://www.dhl.com/) (Ásia e da Austrália) conta operadora. Se já tiver um número de conta operadora, verifique se é válido.
 
 No seus pacotes de envio, tem de seguir os termos de licenciamento em [termos de serviço do Microsoft Azure](https://azure.microsoft.com/support/legal/services-terms/).
 
 > [!IMPORTANT]
-> Tenha em atenção que o suporte de dados físicos que são envio poderá ter de cruzada internacionais limites. É responsável por assegurar que os dados e suportes de dados físicos são importados e/ou exportados de acordo com as leis aplicáveis. Antes do envio do suporte de dados físico, consulte o seu advisers para verificar que os dados e suportes de dados podem legalmente enviados para o Centro de dados identificados. Isto irá ajudar a garantir que atinge Microsoft atempadamente. Por exemplo, qualquer pacote que será entre limites internacionais tem uma fatura comercial para ser acompanhado com o pacote (exceto se cruzamento entre limites dentro da União Europeia). Pode imprimir uma cópia manchas a fatura comercial a partir do site da operadora. Exemplo de faturas comerciais são [fatura comerciais DHL](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) e [fatura comerciais FedEx](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Certifique-se de que a Microsoft não foram indicou como o exportador.
+> Tenha em atenção que o suporte de dados físicos que são envio poderá ter de cruzada internacionais limites. É responsável por assegurar que os dados e suportes de dados físicos são importados e/ou exportados de acordo com as leis aplicáveis. Antes do envio do suporte de dados físico, consulte o seu advisers para verificar que os dados e suportes de dados podem legalmente enviados para o Centro de dados identificados. Isto ajuda a garantir que atinge Microsoft atempadamente. Por exemplo, qualquer pacote que atravesse limites internacionais tem uma fatura comercial para ser acompanhado com o pacote (exceto se cruzamento entre limites dentro da União Europeia). Pode imprimir uma cópia manchas a fatura comercial a partir do site da operadora. Exemplo de faturas comerciais são [fatura comerciais DHL](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) e [fatura comerciais FedEx](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Certifique-se de que a Microsoft não foram indicou como o exportador.
 > 
 > 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Como funciona o serviço importar/exportar do Azure?
 Pode transferir dados entre o site no local e o armazenamento do Azure utilizando o serviço de importação/exportação do Azure através da criação de tarefas e envio de unidades de disco rígido para um centro de dados do Azure. Cada unidade de disco rígido que são enviados está associada uma única tarefa. Cada tarefa está associada uma única conta de armazenamento. Reveja o [secção pré-requisitos](#pre-requisites) cuidadosamente para saber mais sobre as especificações deste serviço, tais como tipos de dados suportadas, o disco envio, tipos e localizações.
 
-Nesta secção, vamos descrever a um nível elevado, os passos envolvidos na importar e exportar tarefas. Mais à frente do [secção início rápido](#quick-start), fornecemos instruções passo a passo para criar uma importação e exportação de tarefa.
+Nesta secção são descritos passos envolvidos na importação e exportação de tarefas de nível elevados. Mais à frente do [secção início rápido](#quick-start), são fornecidas instruções passo a passo para criar uma importação e exportação de tarefa.
 
 ### <a name="inside-an-import-job"></a>Dentro de uma tarefa de importação
 Um nível elevado, uma tarefa de importação envolve os seguintes passos:
@@ -242,20 +245,20 @@ Um nível elevado, uma tarefa de exportação envolve os seguintes passos:
     ![Figura 2:Export fluxo de trabalho](./media/storage-import-export-service/exportjob.png)
 
 ### <a name="viewing-your-job-and-drive-status"></a>Visualizar o estado de tarefa e unidade
-Pode controlar o estado da sua importação ou exportação tarefas do portal do Azure. Clique em de **importar/exportar** separador. Uma lista das suas tarefas irão aparecer na página.
+Pode controlar o estado da sua importação ou exportação tarefas do portal do Azure. Clique em de **importar/exportar** separador. É apresentada uma lista das suas tarefas na página.
 
 ![Vista de estado da tarefa](./media/storage-import-export-service/jobstate.png)
 
-Irá ver um dos seguintes Estados de tarefas, dependendo de onde a unidade está no processo.
+Vê um dos seguintes Estados de tarefas, dependendo de onde a unidade está no processo.
 
 | Estado da tarefa | Descrição |
 |:--- |:--- |
 | Criação | Depois de uma tarefa é criada, o estado é definido para o criar. Enquanto a tarefa está no estado de criar, assume que o serviço importar/exportar as unidades não foram fornecidas para o Centro de dados. Uma tarefa pode permanecer no estado de criar para até duas semanas, após o qual é automaticamente eliminado pelo serviço. |
 | Envio | Depois de enviar o pacote, deve atualizar as informações de controlo no portal do Azure.  Isto irá ativar a tarefa para "Envio". A tarefa irá permanecer no estado de envio para duas semanas. 
 | Recebido | Depois de todas as unidades foram recebidas no Centro de dados, o estado da tarefa será definido para o recebidos. |
-| Transferência de | Depois de pelo menos uma unidade começou a processar, o estado da tarefa será definido para o Transferring. Consulte a secção de Estados de unidade abaixo para obter informações detalhadas. |
+| A transferir | Depois de pelo menos uma unidade começou a processar, o estado da tarefa será definido para o Transferring. Consulte a secção de Estados de unidade abaixo para obter informações detalhadas. |
 | Empacotamento | Depois de todas as unidades concluiu o processamento, a tarefa será colocada no estado de empacotamento até que as unidades são fornecidas para lhe. |
-| Concluído | Depois de todas as unidades foram fornecidas para o cliente, se a tarefa tiver sido concluída sem erros, a tarefa será definida para o estado de concluído. A tarefa será eliminada automaticamente após 90 dias no estado concluído. |
+| Concluída | Depois de todas as unidades foram fornecidas para o cliente, se a tarefa tiver sido concluída sem erros, a tarefa será definida para o estado de concluído. A tarefa será eliminada automaticamente após 90 dias no estado concluído. |
 | Fechado | Depois de todas as unidades foram fornecidas para o cliente, se tiverem sido erros durante o processamento da tarefa, a tarefa será definida para o estado fechado. A tarefa será eliminada automaticamente após 90 dias no estado fechado. |
 
 A tabela abaixo descreve o ciclo de vida de uma unidade individuais, que passa através de uma tarefa de importação ou exportação. O estado atual de cada unidade numa tarefa agora está visível no portal do Azure.
@@ -266,8 +269,8 @@ A tabela seguinte descreve cada Estado de cada unidade de uma tarefa pode pass-t
 | Especificado | Para uma tarefa de importação, quando a tarefa é criada a partir do portal do Azure, o estado inicial para uma unidade é o estado especificado. Para uma tarefa de exportação, uma vez que não existem unidade é especificada quando a tarefa é criada, o estado de unidade inicial é Estado Received. |
 | Recebido | Transições de unidade para o estado de recebidos quando o operador de serviço de importação/exportação processou as unidades que foram recebidas a partir da empresa de envio para uma tarefa de importação. Para uma tarefa de exportação, o estado da unidade inicial é Estado Received. |
 | NeverReceived | A unidade irá mudar para o estado de NeverReceived quando chega o pacote para uma tarefa, mas o pacote não contém a unidade. Pode também mover uma unidade neste estado se duas semanas, uma vez que o serviço recebeu as informações de envio, mas o pacote ainda não chegaram do Centro de dados. |
-| Transferência de | Uma unidade será movido para o estado de Transferring quando o serviço começa a transferência de dados da unidade para armazenamento do Microsoft Azure. |
-| Concluído | Uma unidade será movido para o estado de concluído, quando o serviço com êxito tenha transferido todos os dados sem erros.
+| A transferir | Uma unidade será movido para o estado de Transferring quando o serviço começa a transferência de dados da unidade para armazenamento do Microsoft Azure. |
+| Concluída | Uma unidade será movido para o estado de concluído, quando o serviço com êxito tenha transferido todos os dados sem erros.
 | CompletedMoreInfo | Uma unidade será movido para o estado de CompletedMoreInfo quando o serviço detetou alguns problemas ao copiar dados a partir de ou para a unidade. As informações podem incluir erros, avisos e mensagens informativas sobre substituir blobs.
 | ShippedBack | A unidade irá mudar para o estado de ShippedBack quando foi enviada a partir de cópia de segurança de centro de dados para o endereço do remetente. |
 
@@ -280,7 +283,7 @@ A tabela seguinte descreve os Estados de falha de unidade e as ações executada
 | Unidade de estado | Evento | Resolução / passo seguinte |
 |:--- |:--- |:--- |
 | NeverReceived | Uma unidade que está marcada como NeverReceived (porque não foi recebida como parte da shipment da tarefa) chega no shipment outro. | A equipa de operações irá mover a unidade para o estado de funcionamento recebidos. |
-| N/D | Uma unidade que não faz parte de qualquer tarefa chega ao centro de dados como parte de outra tarefa. | A unidade será marcada como uma unidade adicional e será devolvida ao cliente quando a tarefa associada ao pacote original estiver concluída. |
+| N/A | Uma unidade que não faz parte de qualquer tarefa chega ao centro de dados como parte de outra tarefa. | A unidade será marcada como uma unidade adicional e será devolvida ao cliente quando a tarefa associada ao pacote original estiver concluída. |
 
 ### <a name="time-to-process-job"></a>Tempo até ao processo de trabalho
 A quantidade de tempo que demora a processar uma tarefa de importação/exportação varia dependendo de fatores diferentes, tais como o tempo de envio, tipo, tipo e tamanho dos dados que está a ser copiados e o tamanho dos discos fornecido da tarefa. O serviço de importação/exportação não tem um SLA mas depois dos discos são recebidos o serviço strives concluir a cópia dentro de 7 a 10 dias. Pode utilizar a API REST para controlar o progresso da tarefa mais detalhadamente. Há um parâmetro concluído percentagem na operação de lista de tarefas que lhe dá uma indicação de progresso de cópia. Entrar-nos se necessitar de uma estimativa para concluir uma tarefa de importação/exportação crítico de tempo.
@@ -404,7 +407,7 @@ Verificações prévias seguintes são recomendadas para preparar a unidades par
 1. Para criar uma tarefa de exportação, navegue até ao mais serviços -> armazenamento -> "para importar/exportar tarefas" no portal do Azure. Clique em **criar tarefa de importação/exportação**.
 2. No passo 1, Noções básicas sobre, selecione "Exportar do Azure", introduza uma cadeia para o nome da tarefa, selecione uma subscrição, introduza ou selecione um grupo de recursos. Introduza um nome descritivo para a tarefa de importação. Tenha em atenção que o nome introduzido pode conter apenas letras minúsculas, números, hífenes e carateres de sublinhado, tem de começar com uma letra e não pode conter espaços. Irá utilizar o nome que escolher para controlar as tarefas enquanto estiverem em curso e depois de serem concluídas. Forneça as informações de contacto para a pessoa responsável por esta tarefa de exportação. 
 
-3. Nos detalhes da tarefa do passo 2, selecione a conta de armazenamento que os dados serão exportados na secção de conta de armazenamento. A localização de Drop-Off será automaticamente ser preenchida com base na região da conta de armazenamento selecionada. Especifique que pretende exportar da sua conta de armazenamento para a unidade em branco ou unidades de dados de Blobs. Pode optar por exportar todos os dados de BLOBs na conta de armazenamento ou pode especificar que blobs ou define de blobs para exportar.
+3. Nos detalhes da tarefa do passo 2, selecione a conta de armazenamento que os dados serão exportados na secção de conta de armazenamento. A localização de Drop-Off será automaticamente preenchida com base na região da conta de armazenamento selecionada. Especifique que pretende exportar da sua conta de armazenamento para a unidade em branco ou unidades de dados de Blobs. Pode optar por exportar todos os dados de BLOBs na conta de armazenamento ou pode especificar que blobs ou define de blobs para exportar.
    
    Para especificar um blob para exportar, utilize o **igual a** Seletor e especifique o caminho relativo para o blob, começando com o nome do contentor. Utilize *$root* para especificar o contentor de raiz.
    
@@ -416,17 +419,17 @@ Verificações prévias seguintes são recomendadas para preparar a unidades par
    | --- | --- | --- |
    | Começa por |/ |Exporta todos os blobs na conta de armazenamento |
    | Começa por |/$root / |Exporta todos os blobs no contentor de raiz |
-   | Começa por |/Book |Exporta todos os blobs em qualquer contentor que começa com o prefixo **livro** |
+   | Começa por |/book |Exporta todos os blobs em qualquer contentor que começa com o prefixo **livro** |
    | Começa por |/Music/ |Exporta todos os blobs no contentor **música** |
    | Começa por |música/love |Exporta todos os blobs no contentor **música** que começam com prefixo **adoram** |
    | Igual a |$root/logo.bmp |Blob de exportações **logo.bmp** no contentor de raiz |
-   | Igual a |videos/Story.mp4 |Blob de exportações **story.mp4** no contentor **vídeos** |
+   | Igual a |videos/story.mp4 |Blob de exportações **story.mp4** no contentor **vídeos** |
    
    Tem de fornecer os caminhos de blob nos formatos válidos para evitar erros durante o processamento, conforme mostrado nesta captura de ecrã.
    
    ![Criar tarefa de exportação - passo 3](./media/storage-import-export-service/export-job-03.png)
 
-4. No passo 3 devolver informações de envio, selecione a operadora na lista pendente e introduza um número de conta operadora válida que tenha criado com esse operadora. Microsoft irá utilizar esta conta para enviar as unidades para, assim que a tarefa de importação estiver concluída. Forneça um nome do contacto completo e válido, telefone, e-mail, morada, cidade, zip, proviince/estado e país/região...
+4. No passo 3 devolver informações de envio, selecione de carrier da lista pendente e introduza um número de conta operadora válida que tenha criado com esse operadora. Microsoft irá utilizar esta conta para enviar as unidades para, assim que a tarefa de importação estiver concluída. Forneça um nome do contacto completo e válido, telefone, e-mail, morada, cidade, zip, proviince/estado e país/região.
    
  5. Na página Resumo, endereço de envio do Centro de dados do Azure é fornecido para ser utilizado para envio discos do Azure DC. Certifique-se de que o nome da tarefa e o endereço completo são mencionadas na etiqueta do envio. 
 
@@ -454,7 +457,7 @@ Veja a secção das FAQ abaixo como abrange as perguntas mais comuns que os clie
 
 **Pode copiar File storage do Azure utilizando o serviço importar/exportar do Azure?**
 
-Sim, o serviço importar/exportar do Azure suporta a importação para Storge de ficheiro do Azure. Não suporta a exportação de ficheiros do Azure neste momento.
+Sim, o serviço importar/exportar do Azure suporta a importação para o File Storage do Azure. Não suporta a exportação de ficheiros do Azure neste momento.
 
 **O serviço importar/exportar do Azure está disponível para subscrições de CSP?**
 
@@ -495,7 +498,7 @@ Não. Terá de enviar as seus próprios unidades para ambos os importar e export
 
 * * Como aceder a dados que são importados por este serviço * *
 
-Os dados na sua conta de armazenamento do Azure podem ser acedidos através do Portal do Azure ou utilizar uma ferramenta autónoma chamado Explorador de armazenamento. https://Docs.microsoft.com/Azure/vs-Azure-Tools-Storage-Manage-with-Storage-Explorer 
+Os dados na sua conta de armazenamento do Azure podem ser acedidos através do Portal do Azure ou utilizar uma ferramenta autónoma chamado Explorador de armazenamento. https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **Depois de concluída a tarefa de importação, o que irá meu aspeto de dados, como na conta de armazenamento? A minha hierarquia directory preservada?**
 
@@ -558,7 +561,7 @@ Se utilizar [WAImportExport ferramenta](http://download.microsoft.com/download/3
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Configurar a ferramenta de WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comandos AzCopy](storage-use-azcopy.md)

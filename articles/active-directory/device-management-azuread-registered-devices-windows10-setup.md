@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1ff50a63aca93c4b9ba79eb113064a41a5e05cd7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2560e51d61506389e84288bf983b0ebcb5776ff2
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Configurar o Azure Active Directory registado dispositivos Windows 10
 
@@ -102,7 +102,7 @@ Em alternativa, também pode rever as definições de dispositivo no portal do A
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter mais detalhes, consulte o [introdução à gestão de dispositivos no Azure Active Directory](device-management-introduction.md)
 
