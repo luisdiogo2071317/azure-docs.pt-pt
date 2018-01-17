@@ -13,31 +13,29 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: fbc6187e80a42330c96ebaa1195ea188430894cc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lição suplementar - Linhas Detalhadas
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 Nesta lição suplementar, irá usar o Editor do DAX para definir uma expressão personalizada de linhas detalhadas. Uma expressão de linhas detalhadas é uma propriedade numa medida, disponibilizando mais informações aos utilizadores finais sobre os resultados agregados de uma medida. 
   
 Tempo estimado para concluir esta lição: **10 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico de lição suplementar faz parte de um tutorial de modelação em tabela. Antes de executar as tarefas nesta lição suplementar, deve concluir todas as lições anteriores ou ter concluído um projeto de modelo de exemplo de vendas na Internet Adventure Works.  
+Esta lição suplementar faz parte de um tutorial de modelação em tabela. Antes de executar as tarefas nesta lição suplementar, deve concluir todas as lições anteriores ou ter concluído um projeto de modelo de exemplo de vendas na Internet Adventure Works.  
   
-## <a name="what-do-we-need-to-solve"></a>O que precisamos solucionar?
+## <a name="whats-the-issue"></a>Qual é o problema?
 Vamos examinar os detalhes da nossa medida InternetTotalSales antes de adicionar uma expressão de linhas detalhadas.
 
 1.  No SSDT, clique no menu **Modelo** > **Analyze em Excel** para abrir o Excel e criar uma tabela dinâmica em branco.
   
-2.  Em **PivotTable Fields**, adicione as medidas **InternetTotalSales** da tabela FactInternetSales para **Valores**, **CalendarYear** da tabela DimDate para **Colunas** e **EnglishCountryRegionName** para **Linhas**. A nossa tabela dinâmica oferece-nos agora os resultados agregados das medidas InternetTotalSales por regiões e ano. 
+2.  Em **PivotTable Fields**, adicione as medidas **InternetTotalSales** da tabela FactInternetSales para **Valores**, **CalendarYear** da tabela DimDate para **Colunas** e **EnglishCountryRegionName** para **Linhas**. A Tabela Dinâmica oferece-nos agora os resultados agregados das medidas InternetTotalSales por regiões e ano. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
@@ -51,7 +49,7 @@ Gostaríamos de ver aqui uma tabela com contém colunas e linhas de dados que co
 
 #### <a name="to-create-a-detail-rows-expression"></a>Para criar uma expressão de linhas detalhadas 
   
-1. No SSDT, na grelha de medidas da tabela FactInternetSales, clique na medida **InternetTotalSales**. 
+1. Na grelha de medidas da tabela FactInternetSales, clique na medida **InternetTotalSales**. 
 
 2. Em **Propriedades** > **Expressão das linhas detalhadas**, clique no botão do editor para abrir o Editor DAX.
 
@@ -81,7 +79,7 @@ Gostaríamos de ver aqui uma tabela com contém colunas e linhas de dados que co
 5. Volte a implementar o modelo.
 
   
-## <a name="see-also"></a>Veja Também  
-[Função SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
+## <a name="see-also"></a>Consulte também  
+[Função SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
 [Lição suplementar - Segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
-[Lição suplementar - Hierarquias desbalanceadas](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+[Lição suplementar - Hierarquias desalinhadas](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

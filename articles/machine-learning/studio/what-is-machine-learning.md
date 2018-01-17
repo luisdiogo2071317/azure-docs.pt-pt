@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.openlocfilehash: 38c5f722029c80d7e61039ebe05346b345573e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbd1badd8053d3c2b53386b0311e120738099f9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Introdução ao Machine Learning na cloud do Azure
 
@@ -33,7 +33,7 @@ Para obter uma descrição resumida, experimente a série de vídeos [Ciência d
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>O que é o Machine Learning na nuvem do Microsoft Azure?
 O Azure Machine Learning é um serviço de análise preditiva baseado na cloud e que torna possível a criação e implementação rápidas de modelos preditivos como soluções de análise.
 
-Pode trabalhar a partir de uma biblioteca de algoritmos prontos a serem utilizados, utilizá-los para criar modelos num PC ligado à Internet e implementar a sua solução preditiva rapidamente. Comece com exemplos e soluções prontos a utilizar na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com/).
+Pode trabalhar a partir de uma biblioteca de algoritmos prontos a serem utilizados, utilizá-los para criar modelos num PC ligado à Internet e implementar a sua solução preditiva rapidamente. Comece com exemplos e soluções prontos a utilizar na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/).
 
 ![O que é o Machine Learning? Fluxo de trabalho básico para operacionalizar a análise preditiva no Azure Machine Learning.](./media/what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
@@ -48,9 +48,9 @@ O Azure Machine Learning tem tudo o que precisa para criar soluções completas 
 ### <a name="machine-learning-studio-create-predictive-models"></a>Machine Learning Studio: Criar modelos preditivos
 No [Machine Learning Studio](what-is-ml-studio.md), pode facilmente criar modelos preditivos, ao arrastar, largar e ligar os módulos. Pode experimentar combinações diferentes e [experimentá-las gratuitamente](https://studio.azureml.net/?selectAccess=true&o=2).
 
-* No [Galeria do Cortana Intelligence](gallery-how-to-use-contribute-publish.md), pode experimentar soluções de analítica criadas por outras pessoas ou contribuir com as suas. Publicar questões ou comentários sobre experimentações para a comunidade ou partilhar ligações para experimentações através de redes sociais como o LinkedIn e o Twitter.
+* No [Galeria de IA do Azure](gallery-how-to-use-contribute-publish.md), pode experimentar soluções de análise criadas por outras pessoas ou contribuir com as suas. Publicar questões ou comentários sobre experimentações para a comunidade ou partilhar ligações para experimentações através de redes sociais como o LinkedIn e o Twitter.
 
-  ![Tente experimentações preditivas ou contribua na Galeria da Cortana Intelligence do Azure](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
+  ![Tente experimentações preditivas ou contribua na Galeria de IA do Azure](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Utilize uma biblioteca de grandes dimensões de [algoritmos e módulos do Machine Learning](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) no Machine Learning Studio para iniciar os seus modelos preditivos. Escolha a partir de experimentações de exemplo, pacotes R e Python e os melhores algoritmos de empresas da Microsoft como a Xbox e o Bing. Expanda módulos do Studio com os seus próprios scripts de [R](extend-your-experiment-with-r.md) e [Python](execute-python-scripts.md) personalizados.
 
   ![O que é a análise preditiva: exemplo de uma experimentação da análise preditiva no Azure Machine Learning Studio](./media/what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)

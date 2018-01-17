@@ -96,6 +96,7 @@
 ##### [Parâmetros da atualização da aplicação](service-fabric-application-upgrade-parameters.md)
 ##### [Serialização de dados em atualizações da aplicação](service-fabric-application-upgrade-data-serialization.md)
 ##### [Tópicos avançados das atualizações da aplicação](service-fabric-application-upgrade-advanced.md)
+#### [Gerir as aplicações para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Testar aplicações com a análise de falhas](service-fabric-testability-overview.md)
 #### [A definição ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
@@ -226,7 +227,6 @@
 ## Trabalhar num ambiente de desenvolvimento do Windows/VS
 ### [Gerir aplicações no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Configurar ligações seguras no Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Configurar a sua aplicação para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Depurar um serviço .NET no VS](service-fabric-debugging-your-application.md)
 ### [Erros comuns e exceções](service-fabric-errors-and-exceptions.md)
 ### [Monitorizar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,6 +244,9 @@
 
 ## Gerir o ciclo de vida da aplicação
 ### [Criar pacote de uma aplicação](service-fabric-package-apps.md)
+### [Utilizar parâmetros com os ficheiros de configuração](service-fabric-how-to-parameterize-configuration-files.md)
+### [Especificar os números de porta utilizando parâmetros](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Especificar variáveis de ambiente](service-fabric-how-to-specify-environment-variables.md)
 
 ### Implementar ou remover aplicações
 #### [Implementar aplicações num cluster local](service-fabric-get-started-with-a-local-cluster.md)
@@ -328,6 +331,7 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Esquema XML do modelo de serviço](service-fabric-service-model-schema.md)
+## [Variáveis de ambiente](service-fabric-environment-variables-reference.md)
 
 # Recursos
 ## [Mapa do Azure](https://azure.microsoft.com/roadmap/)

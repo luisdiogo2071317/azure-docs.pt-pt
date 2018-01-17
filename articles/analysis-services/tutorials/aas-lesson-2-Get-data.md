@@ -13,24 +13,22 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 138f9f6e85d5e206c8b09d5c93822cfef5dd1246
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-2-get-data"></a>Lição 2: Obter dados
+# <a name="get-data"></a>Obter dados
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-Nesta lição, irá utilizar Obter dados no SSDT para se ligar à base de dados de exemplo AdventureWorksDW2014, selecionar os dados, pré-visualizar e filtrar e, em seguida, importar para o espaço de trabalho do seu modelo.  
+Nesta lição, irá utilizar Obter dados no SSDT para ligar à base de dados de exemplo Adventure Works, selecionar os dados, pré-visualizar e filtrar e, em seguida, importar para o espaço de trabalho do seu modelo.  
   
 Através de Obter dados, pode importar dados de uma ampla variedade de origens: Base de Dados SQL do Azure, Oracle, Sybase, OData Feed, Teradata, ficheiros e muito mais. Os dados também podem ser consultados através de uma expressão de fórmula Power Query M.
 
 > [!NOTE]
-> As tarefas e imagens neste tutorial mostram a ligação a uma base de dados AdventureWorksDW2014 num servidor no local. Em alguns casos, uma base de dados AdventureWorksDW2014 no Azure pode ser diferente.
+> As tarefas e imagens neste tutorial mostram a ligação a uma base de dados AdventureWorksDW2014 num servidor no local. Em alguns casos, uma base de dados Adventure Works no Azure pode ser diferente.
   
 Tempo estimado para concluir esta lição: **10 minutos**  
   

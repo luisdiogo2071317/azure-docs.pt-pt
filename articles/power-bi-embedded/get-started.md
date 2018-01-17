@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/11/2018
 ms.author: asaxton
-ms.openlocfilehash: b32b06e9d6cbaacdfbdfe92e2c72cb6763c9eb52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79ec87ad7d7dc4a4dc003e4163c8e609c828f545
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Introdução ao Microsoft Power BI Embedded
 
@@ -46,6 +46,9 @@ Temos exemplos para ajudá-lo a começar. Para obter as instruções do exemplo,
 ## <a name="get-capacity-and-move-to-production"></a>Obter capacidade e mover para produção
 
 Crie a capacidade do Power BI Embedded no Microsoft Azure para mover a sua aplicação para produção. Para obter informações sobre como criar capacidade, veja [Criar capacidade do Power BI Embedded no portal do Azure](create-capacity.md).
+
+> [!IMPORTANT]
+> Dado que os tokens incorporados se destinam apenas a testes de desenvolvimento, o número de tokens incorporados que uma conta principal do Power BI pode gerar é limitado. A [capacidade tem de ser comprada](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) para cenários de incorporação de produção. Não há nenhum limite para incorporar a geração de tokens quando uma capacidade é comprada.
 
 Faça a gestão da capacidade no portal de administração do Power BI. Atribua um cedente de área de trabalho para o ajudar nas áreas de trabalho da aplicação. Para obter mais informações, veja [Gerir capacidades no Power BI Premium e no Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 

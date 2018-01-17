@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial de Machine Learning: crie a sua primeira experimentação de ciência de dados no Azure Machine Learning Studio
 
@@ -81,7 +81,7 @@ Neste tutorial do Machine Learning, vai executar cinco passos básicos para cria
 [Passo 5: Prever novos preços para automóveis]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> Pode encontrar uma cópia de trabalho da experimentação seguinte na [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Aceda a **[Your first data science experiment - Automobile price prediction (A sua primeira experimentação de ciência de dados - Previsão do preço de automóveis)](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique em **Open in Studio (Abrir no Studio)** para transferir uma cópia da experimentação para a sua área de trabalho do Machine Learning Studio.
+> Pode encontrar uma cópia de trabalho da experimentação seguinte na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com). Aceda a **[Your first data science experiment - Automobile price prediction (A sua primeira experimentação de ciência de dados - Previsão do preço de automóveis)](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique em **Open in Studio (Abrir no Studio)** para transferir uma cópia da experimentação para a sua área de trabalho do Machine Learning Studio.
 
 
 ## <a name="step-1-get-data"></a>Passo 1: Obter os dados
@@ -108,7 +108,7 @@ Para ver a aparência destes dados, clique na porta exterior da parte inferior d
 
 ![Clique na porta de saída e selecione "Visualizar"][select-visualize]
 <br/>
-***Clique na porta de saída e selecione "Visualize" (“Visualizar”)***
+***Clique na porta de saída e selecione "Visualizar"***
 
 > [!TIP]
 > Os conjuntos de dados e os módulos têm portas de entrada e de saída, representadas por pequenos círculos. As portas de entrada estão em cima e as de saída estão em baixo.
@@ -327,7 +327,7 @@ A experimentação final deve ter este aspeto:
 Agora que concluiu o primeiro tutorial de machine learning e que a sua experimentação está configurada, pode continuar a melhorar o modelo e, depois, implementá-lo como um serviço Web preditivo.
 
 - **Repetir, para tentar melhorar o modelo** - por exemplo, pode alterar as características utilizadas na predição. Em alternativa, pode modificar as propriedades do algoritmo [Linear Regression][linear-regression] ou tentar um algoritmo totalmente diferente. Pode, inclusivamente adicionar, de uma só vez, vários algoritmos de machine learning à sua experimentação e comparar dois deles com o módulo [Evaluate Model][evaluate-model].
-Para obter um exemplo de como comparar vários modelos numa experimentação individual, veja [Compare Regressors (Comparar Regressores)](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5), na [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com).
+Para obter um exemplo de como comparar vários modelos numa experimentação individual, veja [Compare Regressors (Comparar Regressores)](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5), na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
     > Para copiar uma repetição da experimentação, utilize o botão **SAVE AS (GUARDAR COMO)**, na parte inferior da página. Pode ver todas as iterações da sua experimentação, clicando em **VER HISTÓRICO DE EXECUÇÕES** na parte inferior da página. Para obter mais detalhes, veja [Manage experiment iterations in Azure Machine Learning Studio (Gerir iterações de experimentações no Azure Machine Learning Studio)][runhistory].

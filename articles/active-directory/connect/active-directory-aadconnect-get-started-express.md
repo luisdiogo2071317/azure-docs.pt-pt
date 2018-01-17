@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 638e654cb9e7a2454b37beb6067cb5a2fb9a57b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d180a83d7b0a8e02ed04d8771d2ad2c6fa386c6
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introdução ao Azure AD Connect utilizando as definições rápidas
 Utilizam-se as **Definições Rápidas** do Azure AD Connect se tiver uma topologia de floresta única e a [sincronização de palavras-passe](active-directory-aadconnectsync-implement-password-synchronization.md) para autenticação. **Definições Rápidas** é a opção predefinida e é utilizada para o cenário de implementação mais comum. Estará a apenas alguns cliques da expansão do seu diretório no local para a nuvem.
@@ -36,7 +36,8 @@ Pode ver estes passos em ação na secção [vídeos](#videos).
 4. No ecrã de definições rápidas, clique em **Utilizar definições rápidas**.  
    ![Bem-vindo ao Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. No ecrã Ligar ao Azure AD, introduza o nome de utilizador e palavra-passe de um administrador global do Azure AD. Clique em **Seguinte**.  
-   ![Ligar ao Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png) Se receber um erro e tiver problemas de conectividade, veja [Resolver problemas de conectividade](active-directory-aadconnect-troubleshoot-connectivity.md).
+   ![Ligar ao Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png)  
+   Se receber um erro e tiver problemas com a conectividade, veja [Resolver problemas de conectividade](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. No ecrã Ligar ao AD DS, introduza o nome de utilizador e palavra-passe para uma conta de administrador da empresa. Pode introduzir a parte do domínio no formato NetBios ou FQDN, ou seja, FABRIKAM\administrator ou fabrikam.com\administrator. Clique em **Seguinte**.  
    ![Ligar ao AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. A página [**Configuração do início de sessão do Azure AD**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) só é mostrada caso não tenha concluído a [verificação dos domínios](../active-directory-domains-add-azure-portal.md) nos [pré-requisitos](active-directory-aadconnect-prerequisites.md).
@@ -53,8 +54,8 @@ Pode ver estes passos em ação na secção [vídeos](#videos).
 Para obter um vídeo sobre como utilizar a instalação rápida, consulte:
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que já tem o Azure AD Connect instalado, pode [verificar a instalação e atribuir licenças](active-directory-aadconnect-whats-next.md).
@@ -66,10 +67,10 @@ Saiba mais acerca destes tópicos comuns: [agendador e como acionar a sincroniza
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).
 
 ## <a name="related-documentation"></a>Documentação relacionada
-| Tópico |
-| --- | --- |
-| Visão geral do Azure AD Connect |
-| Instalar utilizando as definições personalizadas |
-| Atualização do DirSync |
-| Contas utilizadas para a instalação |
 
+| Tópico | Ligação |
+| --- | --- |
+| Visão geral do Azure AD Connect | [Integrar os diretórios no local com o Azure Active Directory](active-directory-aadconnect.md)
+| Instalar utilizando as definições personalizadas | [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
+| Atualização do DirSync | [Atualizar da ferramenta de sincronização do Azure AD (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+| Contas utilizadas para a instalação | [Mais informações acerca das credenciais e permissões do Azure AD Connect](active-directory-aadconnect-accounts-permissions.md) |

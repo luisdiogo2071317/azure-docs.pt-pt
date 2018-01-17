@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Como associar ou adicionar uma subscrição do Azure ao Azure Active Directory
 
@@ -46,7 +46,7 @@ Todos os utilizadores têm um diretório raiz único que os autenticam, embora t
 
     ![Captura de ecrã que mostra a UI de alteração de diretório](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. Clique em **Alterar**.
-6. Êxito! Utilize o alternador de diretório para ir para o novo diretório.
+6. Êxito! Utilize o alternador de diretório para ir para o novo diretório. Poderá demorar até 10 minutos para que tudo seja apresentado corretamente.
 
     ![Captura de ecrã que mostra a notificação de êxito de alteração de diretório](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 

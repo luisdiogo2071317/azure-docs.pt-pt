@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: renash
-ms.openlocfilehash: 712f66ade5709311721e5a4a8416f305f2e16e6b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: f96aa9fe12aba28e1ac3429f012419341bdf92c1
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-azure-files"></a>Introdução aos Ficheiros do Azure
 Os Ficheiros do Azure oferecem partilhas de ficheiros completamente geridas na cloud, que são acessíveis através do [Protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão da indústria (também conhecido como Common Internet File System ou CIFS). As partilhas de Ficheiros do Azure podem ser montadas em simultâneo por implementações na cloud ou no local do Windows, Linux e macOS. Além disso, as partilhas de Ficheiros do Azure podem ser colocadas em cache em Servidores Windows com o Azure File Sync (pré-visualização) para acesso rápido perto do local onde os dados estão a ser utilizados.
@@ -32,7 +32,7 @@ Os Ficheiros do Azure oferecem partilhas de ficheiros completamente geridas na c
 As partilhas de Ficheiros do Azure podem ser utilizadas para:
 
 * **Substituir ou complementar os servidores de ficheiros no local**:  
-    Os Ficheiros do Azure podem ser utilizados para substituir completamente ou complementar os servidores de ficheiros no local ou em dispositivos NAS tradicionais. Os sistemas operativos populares, como o Windows, macOS e Linux, podem montar diretamente partilhas de Ficheiros do Azure a partir de qualquer ponto do mundo. As partilhas de Ficheiros do Azure também podem ser replicadas com o Azure File Sync em Servidores Windows, no local ou na cloud, para uma colocação em cache eficaz e distribuída dos dados no local onde estão a ser utilizados.
+    Os Ficheiros do Azure podem ser utilizados para substituir completamente ou complementar os servidores de ficheiros no local ou em dispositivos NAS tradicionais. Os sistemas operativos populares, como o Windows, macOS e Linux, podem montar diretamente partilhas de Ficheiros do Azure a partir de qualquer ponto do mundo. As partilhas de Ficheiros do Azure também podem ser replicadas com o Azure File Sync em Servidores Windows, no local ou na cloud, para desempenho e colocação em cache distribuída dos dados no local onde estão a ser utilizados.
 
 * **Fazer a migração "lift-and-shift" de aplicações**:  
     Os Ficheiros do Azure facilitam a migração lift-and-shift de aplicações para a cloud, que esperam que uma partilha de ficheiros armazene dados de utilizador e aplicações de ficheiros. Os Ficheiros do Azure permitem tanto o cenário de migração lift-and-shift "clássico", no qual a aplicação e os respetivos dados são movidos para o Azure, como o cenário de migração lift-and-shift "híbrido", no qual os dados da aplicação são movidos para os Ficheiros do Azure e a aplicação continua a ser executada no local. 
@@ -43,7 +43,7 @@ As partilhas de Ficheiros do Azure podem ser utilizadas para:
         Um padrão comum para aplicações distribuídas consiste em ter ficheiros de configuração numa localização centralizada, onde podem ser acedidos a partir de muitas instâncias da aplicação. As instâncias da aplicação podem carregar a respetiva configuração através da API REST de Ficheiros e as pessoas podem aceder às mesmas conforme necessário ao montarem a partilha de SMB localmente.
 
     * **Partilha de diagnósticos**:  
-        Uma partilha de Ficheiros do Azure é um local conveniente para aplicações na cloud para os respetivos registos de escrita, métricas e informações de falha de sistema. Os registos podem ser escritos pelas instâncias da aplicação através da API REST de Ficheiros e os programadores podem aceder aos mesmos ao montarem a partilha de ficheiros no seu computador local. Isto proporciona uma enorme flexibilidade, uma vez que os programadores podem adotar o desenvolvimento na cloud sem terem de abandonar quaisquer ferramentas existentes que conhecem e adoram.
+        Uma partilha de Ficheiros do Azure é um local conveniente para aplicações na cloud, para escrever os respetivos registos, métricas e informações de falha de sistema. Os registos podem ser escritos pelas instâncias da aplicação através da API REST de Ficheiros e os programadores podem aceder aos mesmos ao montarem a partilha de ficheiros no seu computador local. Isto proporciona uma enorme flexibilidade, uma vez que os programadores podem adotar o desenvolvimento na cloud sem terem de abandonar quaisquer ferramentas existentes que conhecem e adoram.
 
     * **Dev/Test/Depuração**:  
         Muitas vezes, quando trabalham em VMs na cloud, os programadores ou administradores precisam de um conjunto de ferramentas ou utilitários. Copiar essas ferramentas e utilitários para cada VM pode ser um exercício demorado. Ao montar uma partilha de Ficheiros do Azure localmente nas VMs, um programador e o administrador podem aceder rapidamente às suas ferramentas e utilitários, sem ser necessária qualquer cópia.

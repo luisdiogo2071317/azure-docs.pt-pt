@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5b983ca9ff28aac7f0e0501f353c48deeb6adcd5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8f0f575319eec0517366079c637ad7565530ac70
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Criar um balanceador de carga interno no portal do Azure
 
@@ -43,7 +43,7 @@ Utilize os passos seguintes para criar um balanceador de carga interno a partir 
 1. Num browser, navegue para o [Portal do Azure](http://portal.azure.com) e inicie sessão com a sua conta do Azure.
 2. No canto superior esquerdo do ecrã, clique em **Novo** > **Rede** > **Balanceador de carga**.
 3. No painel **Criar balanceador de carga**, introduza um **Nome** para o balanceador de carga.
-4. Em **Esquema**, clique em **Interno**.
+4. Em **Tipo**, clique em **Interno**.
 5. Clique em **Rede virtual**, e, em seguida, selecione a rede virtual onde pretende criar o balanceador de carga.
 
    > [!NOTE]
@@ -66,16 +66,16 @@ Configure primeiro um conjunto de endereços de back-end e uma sonda antes de co
 ### <a name="step-1-configure-a-backend-pool"></a>Passo 1: Configurar um conjunto de back-end
 
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e, em seguida, clique no balanceador de carga que criou anteriormente.
-2. No painel **Definições**, clique em **Conjuntos de back-end**.
-3. No painel **Conjuntos de endereços de back-end**, clique em **Adicionar**.
-4. No painel **Adicionar conjunto de back-end**, introduza um **Nome** para o conjunto de back-end e, em seguida, clique em **OK**.
+2. Na página **Definições**, clique em **Conjuntos de back-end**.
+3. Na página **Conjuntos de endereços de back-end**, clique em **Adicionar**.
+4. Na página **Adicionar conjunto de back-end**, introduza um **Nome** para o conjunto de back-end e, em seguida, clique em **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Passo 2: Configurar uma sonda
 
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e, em seguida, clique no balanceador de carga que criou anteriormente.
-2. No painel **Definições**, clique em **Sondas**.
-3. No painel **Sondas**, clique em **Adicionar**.
-4. No painel **Adicionar sonda**, introduza um **Nome** para a sonda.
+2. Na página **Definições**, clique em **Sondas de estado de funcionamento**.
+3. Na página **Sondas de estado de funcionamento**, clique em **Adicionar**.
+4. Na página **Adicionar sonda de estado de funcionamento**, introduza um **Nome** para a sonda.
 5. Em **Protocolo**, selecione **HTTP** (para sites) ou **TCP** (para outras aplicações baseadas em TCP).
 6. Em **Porta**, especifique a porta a utilizar quando aceder à sonda.
 7. Em **Caminho** (apenas para sondas HTTP), especifique o caminho a utilizar como uma sonda.
@@ -86,10 +86,10 @@ Configure primeiro um conjunto de endereços de back-end e uma sonda antes de co
 ### <a name="step-3-configure-load-balancing-rules"></a>Passo 3: Configurar regras de balanceamento de carga
 
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e, em seguida, clique no balanceador de carga que criou anteriormente.
-2. No painel **Definições**, clique em **Regras de balanceamento de carga**.
-3. No painel **Regras de balanceamento de carga**, clique em **Adicionar**.
-4. No painel **Adicionar regra de balanceamento de carga**, introduza um **Nome** para a regra.
-5. Em **Protocolo**, selecione **HTTP** (para sites) ou **TCP** (para outras aplicações baseadas em TCP).
+2. Na página **Definições**, clique em **Regras de balanceamento de carga**.
+3. Na página **Regras de balanceamento de carga**, clique em **Adicionar**.
+4. Na página **Adicionar regra de balanceamento de carga**, introduza um **Nome** para a regra.
+5. Em **Protocolo**, selecione **TCP** ou **UDP**.
 6. Em **Porta**, especifique os clientes que ligam à porta no balanceador de carga.
 7. Em **Porta de back-end**, especifique a porta a ser utilizada no conjunto de back-end (normalmente, a porta do balanceador de carga e a porta de back-end são as mesmas).
 8. Em **Conjunto de back-end**, selecione o conjunto de back-end que criou anteriormente.

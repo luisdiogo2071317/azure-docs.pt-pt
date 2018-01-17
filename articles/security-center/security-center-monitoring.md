@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
-ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure
 Este artigo ajuda-o a utilizar as capacidades de monitorização no Centro de Segurança do Azure para monitorizar a conformidade com políticas.
@@ -48,11 +48,11 @@ Quando clica no mosaico **Computação**, vê três separadores:
 Existem várias secções em cada separador e pode selecionar, em cada uma delas, uma opção individual para ver mais detalhes sobre os passos recomendados para resolver esse problema em concreto.
 
 #### <a name="monitoring-recommendations"></a>Recomendações de monitorização
-Esta secção mostra o número total de máquinas virtuais e computadores que foram inicializados para aprovisionamento automático e os respetivos estados atuais. Quando clicar nesta entrada, é aberto **Monitorizar problemas de estado de funcionamento do agente**.
+Esta secção mostra o número total de máquinas virtuais e computadores que foram inicializados para aprovisionamento automático e os respetivos estados atuais. Este exemplo inclui uma recomendação, **Monitorizar problemas de estado de funcionamento do agente**.  Selecione esta recomendação.
 
 ![Monitorizar problemas de estado de funcionamento do agente](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-São listados os computadores e VMs que o Centro de Segurança não consegue monitorizar. Selecione um computador ou VM para informações detalhadas. O **ESTADO DA MONITORIZAÇÃO** define o problema.
+**Monitorizar problemas de estado de funcionamento do agente** é aberto. São listados os computadores e VMs que o Centro de Segurança não consegue monitorizar. Selecione um computador ou VM para informações detalhadas. O **ESTADO DE MONITORIZAÇÃO** fornece um motivo pelo qual o Centro de Segurança não consegue monitorizar. Consulte o [guia de resolução de problemas do Centro de Segurança](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) para obter uma lista de valores, descrições e passos de resolução do **ESTADO DE MONITORIZAÇÃO**.
 
 #### <a name="recommendations"></a>Recomendações
 Esta secção tem um conjunto de [recomendações para cada máquina virtual e computador ](security-center-virtual-machine-recommendations.md) que o Centro de Segurança do Azure monitoriza. A primeira coluna indica a recomendação. A segunda coluna mostra o número total de máquinas virtuais e computadores que são afetados por essa recomendação. A terceira coluna mostra a gravidade do problema, conforme ilustrado na seguinte captura de ecrã:

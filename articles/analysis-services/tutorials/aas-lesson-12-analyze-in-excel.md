@@ -13,21 +13,19 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: be23d25fe9765025b86e86687fb38b2dab61269e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d7f79db612ee02eaf585f9b45d888b3533a91b2
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-12-analyze-in-excel"></a>Lição 12: Analyze em Excel
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="analyze-in-excel"></a>Analisar no Excel
 
 Nesta lição, irá utilizar a funcionalidade Analyze no Excel para abrir o Microsoft Excel, criar automaticamente uma ligação para o espaço de trabalho do modelo e adicionar automaticamente uma tabela dinâmica à folha de cálculo. A funcionalidade Analyze em Excel fornece uma forma rápida e fácil de testar a eficácia do design do seu modelo antes de implementar o modelo. Não irá executar quaisquer análises de dados nesta lição. A finalidade desta lição familiarizá-lo a si, o autor do modelo, com todas as ferramentas possíveis para testar o seu design de modelo.   
   
-Para concluir esta lição, o Excel deve ser instalado no mesmo computador que o SSDT.
+Para concluir esta lição, o Excel deve ser instalado no mesmo computador que o Visual Studio.
   
 Tempo estimado para concluir esta lição: **5 minutos**  
   
@@ -72,7 +70,7 @@ Funções são uma parte importante de qualquer modelo de tabela. Sem, pelo meno
   
 2.  Em **Especificar nome de utilizador ou função a ser usada para se ligar ao modelo**, selecione **Função** e, em seguida, na caixa de listagem pendente, selecione **Gestor de vendas** e clique em **OK**.  
   
-    O Excel abre com um livro novo. É criada automaticamente uma tabela dinâmica. A lista de campos da tabela dinâmica inclui todos os campos de dados disponíveis no seu modelo novo.  
+    O Excel abre-se com um livro novo. É criada automaticamente uma tabela dinâmica. A lista de campos da tabela dinâmica inclui todos os campos de dados disponíveis no seu modelo novo.  
       
 3.  Feche o Excel sem guardar o livro.  
   
