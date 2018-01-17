@@ -7,11 +7,12 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
-ms.openlocfilehash: 55bed1bc4788799465e87e65b136ff9e51318fbd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: 34ae160c5e19e161f4412838e377a844c737728d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-an-azure-automation-runbook"></a>Crie um runbook de Automatização do Azure
 
@@ -71,7 +72,7 @@ Assim que o runbook é criado, teste-o para confirmar que funciona.
 
 1. Na página **Editar Runbook do PowerShell**, clique em **Publicar** para publicar o runbook como a versão oficial do runbook na conta.
 
-   ![Descrição geral do runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-overview.png)
+   ![Tarefa de teste do runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
 ## <a name="run-the-runbook"></a>Executar o runbook
 
@@ -83,11 +84,11 @@ Assim que o runbook é publicado, é apresentada a página de descrição geral.
 
 1. Deixe o **Nome** em branco, para que o valor predefinido seja utilizado e clique em **OK**. A tarefa de runbook é submetida e a página de tarefa é apresentada.
 
-   ![Tarefa de teste do runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   ![Tarefa de teste do runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
 1. Quando o **Estado da tarefa** é **Em execução** ou **Concluído**, clique em **Saída** para abrir o painel **Saída** e ver o resultado do runbook.
 
-    ![Tarefa de teste do runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   ![Tarefa de teste do runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
