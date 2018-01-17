@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 923bf1163e4d27e8c453fc2fcd58ebb80222bd6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a96e80fa3ece14c40159c6937a0e34c1ebc634ff
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta de colaboração, de arrastar e largar que pode utilizar para criar, testar e implementar soluções de análise preditiva nos seus dados. Machine Learning Studio publica modelos como serviços web que podem facilmente ser consumidos por aplicações personalizadas ou ferramentas de BI como o Excel.
@@ -64,9 +64,9 @@ Clique em **Studio** e será direcionado para o **Azure Machine Learning Studio*
 * **DEFINIÇÕES** - Uma coleção de definições que pode utilizar para configurar a sua conta e recursos.
 
 ### <a name="gallery"></a>Galeria
-Clique em **Galeria** e será direcionado para a **[Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com/)**. A Galeria é um local onde uma comunidade de cientistas de dados e programadores partilham as soluções criadas com componentes do Cortana Intelligence Suite.
+Clique em **Galeria** e será direcionado para a **[Galeria de IA do Azure](http://gallery.cortanaintelligence.com/)**. A Galeria é um local onde uma comunidade de cientistas de dados e programadores partilham as soluções criadas com componentes do Cortana Intelligence Suite.
 
-Para mais informações sobre a Galeria, consulte o artigo [Partilhar e detetar soluções na galeria da Cortana Intelligence](gallery-how-to-use-contribute-publish.md).
+Para mais informações sobre a Galeria, veja [Partilhar e detetar soluções na galeria de IA do Azure](gallery-how-to-use-contribute-publish.md).
 
 ## <a name="components-of-an-experiment"></a>Componentes de uma experimentação
 Uma experimentação é constituída por conjuntos de dados que fornecem dados aos módulos analíticos, que ligar em conjunto para construir um modelo de análise preditiva. Especificamente, uma experimentação válida tem estas características:

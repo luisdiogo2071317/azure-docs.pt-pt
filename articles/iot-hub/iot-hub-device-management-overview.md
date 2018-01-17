@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Descrição geral da gestão de dispositivos com o Hub IoT
 ## <a name="introduction"></a>Introdução
@@ -57,7 +57,7 @@ Dentro de cada uma destas cinco fases, existem vários requisitos de operador de
     *Leitura adicional*: [Introdução aos dispositivos duplos][lnk-twins-getstarted], [Compreender os dispositivos duplos][lnk-twins-devguide], [Como utilizar as propriedades dos dispositivos duplos][lnk-twin-properties].
 * **Aprovisionar**: aprovisionar em segurança dispositivos novos no Hub IoT e permitir aos operadores descobrir imediatamente as capacidades dos dispositivos.  Utilize o registo de dispositivos do Hub para criar identidades e credenciais de dispositivos flexíveis e efetuar esta operação em massa através de uma tarefa. Crie dispositivos para comunicar as respetivas capacidades e condições através de propriedades dos dispositivos no twin do dispositivo.
   
-    *Leitura adicional*: [Gerir identidades de dispositivos][lnk-identity-registry], [Gestão em massa de identidades de dispositivos][lnk-bulk-identity], [Como utilizar as propriedades dos dispositivos duplos][lnk-twin-properties].
+    *Leitura adicional*: [Gerir identidades de dispositivos][lnk-identity-registry], [Gestão em massa de identidades de dispositivos][lnk-bulk-identity], [Como utilizar as propriedades dos dispositivos duplos][lnk-twin-properties], [Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure][lnk-dps].
 * **Configurar**: facilitar alterações de configuração e atualizações de firmware em massa nos dispositivos, preservando o estado de funcionamento e as segurança. Efetue estas operações de gestão de dispositivos em massa com as propriedades pretendidas ou com métodos diretos e tarefas de difusão.
   
     *Leitura adicional*: [Utilizar métodos diretos][lnk-c2d-methods], [Invocar um método direto num dispositivo][lnk-methods-devguide], [Como utilizar as propriedades dos dispositivos duplos][lnk-twin-properties], [Agendar e transmitir tarefas][lnk-jobs], [Agendar tarefas em vários dispositivos][lnk-jobs-devguide].
@@ -113,3 +113,4 @@ Para continuar a saber mais sobre as funcionalidades de gestão de dispositivos 
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

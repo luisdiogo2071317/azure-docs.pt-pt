@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: 99052718d268135e1b9c51d019513aa59afede84
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c94b20ec984c96cfb8e7339826ee933ea4194bfc
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Proteger recursos da nuvem com o Multi-Factor Authentication do Azure e o AD FS
 Se a sua organização estiver federada no Azure Active Directory, utilize o Multi-Factor Authentication do Azure ou os Serviços de Federação do Active Directory (AD FS) para proteger os recursos acedidos pelo Azure AD. Utilize os procedimentos seguintes para proteger os recursos do Azure Active Directory com o Multi-Factor Authentication do Azure ou os Serviços de Federação do Active Directory (AD FS).
@@ -83,16 +83,13 @@ A primeira coisa a fazer é configurar as afirmações do AD FS. Crie duas regra
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurar IPs Fidedignos do Multi-Factor Authentication do Azure com Utilizadores Federados
 Agora que as afirmações estão implementadas, podemos configurar os IPs fidedignos.
 
-1. Inicie sessão no [Portal Clássico do Azure](https://manage.windowsazure.com).
-2. No lado esquerdo, clique em **Active Directory**.
-3. Sob Diretório, selecione o diretório onde pretende configurar IPs fidedignos.
-4. No Diretório que selecionou, clique em **Configurar**.
-5. Na secção Multi-Factor Authentication, clique em **Gerir definições do serviço**.
-6. Na página Definições de Serviço, em IPs Fidedignos, selecione **Ignorar autenticação multifator para pedidos de utilizadores federados na minha intranet**.  
+1. Inicie sessão no [portal do Azure](https://portal.com).
+2. Selecione **Azure Active Directory** > **Acesso Condicional** > **Localizações com Nome**.
+3. No painel **Acesso condicional - Localizações com nome**, selecione **Configurar IPs fidedignos de MFA**
 
-   ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-   
-7. Clique em **Guardar**.
-8. Depois de terem sido aplicadas as atualizações, clique em **Fechar**.
+   ![Localizações com nome de acesso condicional ao Azure AD Configurar IPs Fidedignos de MFA](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+4. Na página Definições de Serviço, em **IPs Fidedignos**, selecione **Ignorar autenticação multifator para pedidos de utilizadores federados na minha intranet**.  
+5. Clique em **Guardar**.
 
 Já está! Neste momento, os utilizadores federados do Office 365 apenas têm de utilizar o MFA quando uma afirmação tiver origem fora da intranet da empresa.

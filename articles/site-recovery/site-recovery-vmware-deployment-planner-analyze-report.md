@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Relatório de do planeador de implementações do Azure Site Recovery
 O relatório gerado pelo Microsoft Excel contém as seguintes folhas:
@@ -214,9 +214,9 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 
 **NICs**: o número de NICs na VM.
 
-**Tipo de Arranque**: é o tipo de arranque da VM. Pode ser BIOS ou EFI. Atualmente o Azure Site Recovery suporta apenas o tipo de arranque BIOS. Todas as máquinas virtuais do tipo de arranque EFI estão listadas na folha de cálculo das VMs Incompatíveis.
+**Boot Type (Tipo de Arranque)**: o tipo de arranque da VM. Pode ser BIOS ou EFI.  Atualmente, o Azure Site Recovery suporta VMs de EFI do Windows Server (Windows Server 2012, 2012 R2 e 2016), desde que o número de partições no disco de arranque seja inferior a 4 e que o tamanho do setor de arranque seja 512 bytes. Para proteger as VMs de EFI, a versão do serviço de mobilidade do Azure Site Recovery tem de ser 9.13 ou superior. Apenas a ativação pós-falha é suportada para VMs de EFI. A reativação pós-falha não é suportada.  
 
-**Tipo de SO**: é o tipo de SO da VM. Pode ser Windows ou Linux ou outro.
+**Tipo de SO**: é o tipo de SO da VM. Pode ser Windows ou Linux, ou outros, com base no modelo do VMware vSphere que escolheu ao criar a VM.  
 
 ## <a name="incompatible-vms"></a>Incompatible VMs (VMs Não Compatíveis)
 
@@ -228,20 +228,31 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 **VM Compatibility (Compatibilidade de VM)**: indica a razão pela qual a VM especificada é incompatível para utilização com o Site Recovery. São descritas as razões para todos os discos incompatíveis da VM, que, com base nos [limites do armazenamento](https://aka.ms/azure-storage-scalbility-performance) publicados, podem ser as seguintes:
 
 * O tamanho do disco é >4095 GB. Atualmente, o Armazenamento do Azure não suporta tamanhos de discos superiores a 4095 GB.
+
 * O disco do SO é >2048 GB. Atualmente, o Armazenamento do Azure não suporta tamanhos de discos de SO superiores a 2048 GB.
-* O tipo de arranque é EFI. Atualmente o Azure Site Recovery suporta apenas a máquina virtual com o tipo de arranque BIOS.
 
 * O tamanho total da VM (replicação + ativação pós-falha de teste) excede o limite de tamanho da conta de armazenamento suportado (35 TB). Geralmente, esta incompatibilidade ocorre quando um disco individual na VM tem uma característica de desempenho que excede os limites máximos suportados pelo Azure ou o Site Recovery relativamente ao armazenamento standard. Uma instância deste género envia a VM para a zona de armazenamento premium. No entanto, o tamanho máximo suportado das contas de armazenamento premium são 35 TB e não é possível proteger VMs protegidas individuais em várias contas de armazenamento. Tenha também em atenção que, quando é executada uma ativação pós-falha de teste numa VM protegida, esta é executada na mesma conta de armazenamento na qual a replicação está em curso. Neste caso, configure duas vezes o tamanho do disco para que a replicação progrida e a ativação pós-falha de teste seja concluída em paralelo.
-* O IOPS de origem excede o limite de IOPS suportado pelo armazenamento de 5000 por disco.
+
+* O IOPS de origem excede o limite de IOPS de armazenamento suportado de 7500 por disco.
+
 * O IOPS de origem excede o limite de IOPS suportado pelo armazenamento de 80 000 por VM.
+
 * A média de alterações a dados excede o limite de alterações a dados suportado pelo Site Recovery de 10 MB/s para o tamanho de E/S médio para o disco.
-* O total de alterações a dados em todos os discos na VM excede o limite máximo de alterações a dados suportado pelo Site Recovery de 54 MB/s por VM.
+
+* A média de alterações a dados excede o limite de alterações a dados suportado pelo Site Recovery de 25 MB/s para o tamanho de E/S médio para a VM (soma de todas as alterações aos discos).
+
+* O pico de alterações a dados em todos os discos na VM excede o limite máximo de pico de alterações a dados suportado pelo Site Recovery de 54 MB/s por VM.
+
 * A média de IOPS de escrita efetiva excede o limite de IOPS suportado pelo Site Recovery de 840 por disco.
+
 * O armazenamento de instantâneos calculado excede o limite de armazenamento de instantâneos suportado de 10 TB.
 
-**R/W IOPS (with Growth Factor) (IOPS de R/W [com Fator de Crescimento])**: o pico de IOPS da carga de trabalho no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição são 30 por cento). Tenha em conta que o total de IOPS de leitura/escrita da VM nem sempre é a soma de IOPS de leitura/escrita dos discos individuais da mesma, porque o pico destas operações da VM é o pico da soma de IOPS de leitura/escrita dos discos individuais da VM durante todos os minutos do período de criação de perfis.
+* O total de alterações a dados por dia ultrapassa o limite de alterações suportadas por dia de 2 GB por um Servidor de Processos.
 
-**Data Churn in Mbps (with Growth Factor) (Alterações a Dados em Mbps [com Fator de Crescimento])**: o pico da taxa de alterações a dados no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição são 30 por cento). Tenha em conta que o total de alterações a dados da VM nem sempre é a soma das alterações a dados dos discos individuais da mesma, porque o pico de alterações a dados da VM é o pico da soma das alterações a dados dos respetivos discos individuais durante todos os minutos do período de criação de perfis.
+
+**Pico de IOPS de R/W (com Fator de Crescimento)**: o pico de IOPS da carga de trabalho no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição são 30 por cento). Tenha em conta que o total de IOPS de leitura/escrita da VM nem sempre é a soma de IOPS de leitura/escrita dos discos individuais da mesma, porque o pico destas operações da VM é o pico da soma de IOPS de leitura/escrita dos discos individuais da VM durante todos os minutos do período de criação de perfis.
+
+**Pico de Alterações a Dados em Mbps (com Fator de Crescimento)**: o pico da taxa de alterações a dados no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição são 30 por cento). Tenha em conta que o total de alterações a dados da VM nem sempre é a soma das alterações a dados dos discos individuais da mesma, porque o pico de alterações a dados da VM é o pico da soma das alterações a dados dos respetivos discos individuais durante todos os minutos do período de criação de perfis.
 
 **Number of Disks (Número de Discos)**: o número total de VMDKs na VM.
 
@@ -253,14 +264,13 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 
 **NICs**: o número de NICs na VM.
 
-**Tipo de Arranque**: é o tipo de arranque da VM. Pode ser BIOS ou EFI. Atualmente o Azure Site Recovery suporta apenas o tipo de arranque BIOS. Todas as máquinas virtuais do tipo de arranque EFI estão listadas na folha de cálculo das VMs Incompatíveis.
+**Boot Type (Tipo de Arranque)**: o tipo de arranque da VM. Pode ser BIOS ou EFI.  Atualmente, o Azure Site Recovery suporta VMs de EFI do Windows Server (Windows Server 2012, 2012 R2 e 2016), desde que o número de partições no disco de arranque seja inferior a 4 e que o tamanho do setor de arranque seja 512 bytes. Para proteger as VMs de EFI, a versão do serviço de mobilidade do Azure Site Recovery tem de ser 9.13 ou superior. Apenas a ativação pós-falha é suportada para VMs de EFI. A reativação pós-falha não é suportada.
 
-**Tipo de SO**: é o tipo de SO da VM. Pode ser Windows ou Linux ou outro.
-
+**Tipo de SO**: é o tipo de SO da VM. Pode ser Windows ou Linux, ou outros, com base no modelo do VMware vSphere que escolheu ao criar a VM. 
 
 ## <a name="azure-site-recovery-limits"></a>Limites do Azure Site Recovery
 A tabela seguinte fornece os limites do Azure Site Recovery. Estes limites baseiam-se nos nossos testes, mas não abrangem todas as combinações de E/S de aplicações possíveis. Os resultados reais podem variar consoante a combinação de E/S da sua aplicação. Para obter os melhores resultados, mesmo após o planeamento da implementação, recomendamos sempre que faça testes exaustivos às aplicações através da emissão de uma ativação pós-falha de teste, para ter a perspetiva verdadeira quanto ao desempenho da aplicação.
- 
+
 **Destino do armazenamento da replicação** | **Tamanho médio de E/S do disco de origem** |**Média de alterações a dados do disco de origem** | **Total de alterações a dados do disco de origem por dia**
 ---|---|---|---
 Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
@@ -270,7 +280,14 @@ Disco Premium P10 ou P15 | 32 KB ou superior | 8 MB/s | 672 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |10 MB/s | 842 GB por disco
 
+**Alterações a dados de origem** | **Limite Máximo**
+---|---
+Média de alterações a dados por VM| 25 MB/s 
+Alterações a dados de pico em todos os discos numa VM | 54 MB/s
+Máximo de alterações a dados por dia suportadas por um Servidor de Processos | 2 TB 
+
 Estes são números médios, que pressupõem uma sobreposição de 30 por cento de E/S. O Site Recovery é capaz de processar um débito superior com base no rácio de sobreposição, em tamanhos de escrita maiores e no comportamento real de E/S da carga de trabalho. Os números anteriores pressupõem um atraso típico de aproximadamente cinco minutos. Ou seja, depois de os dados serem carregados, são processados e é criado um ponto de recuperação ao fim de cinco minutos.
+
 
 ## <a name="cost-estimation"></a>Estimativa de custos
 Saiba mais sobre a [estimativa de custos](site-recovery-vmware-deployment-planner-cost-estimation.md). 

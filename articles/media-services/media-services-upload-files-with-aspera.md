@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com o serviço Aspera Server On Demand no Azure.
+# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com o serviço Aspera Server On Demand no Azure
 
 ## <a name="overview"></a>Descrição geral
 
@@ -33,7 +33,7 @@ Este tutorial orienta-o ao longo dos passos para carregar ficheiros para uma con
 Pode encontrar um exemplo que mostra como utilizar funções de Azure com o Aspera e os Serviços de Multimédia [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
->Existe um limite para o tamanho máximo dos ficheiros suportado para processamento nos processadores de multimédia (MPs) dos Serviços de Multimédia do Azure. Veja [este](media-services-quotas-and-limitations.md) tópico para obter detalhes sobre as limitações relativas aos tamanhos de ficheiros.
+>Existe um limite para o tamanho máximo dos ficheiros suportado para processamento nos processadores de multimédia (MPs) dos Serviços de Multimédia do Azure. Veja [este](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre as limitações relativas aos tamanhos de ficheiros.
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos 
@@ -41,7 +41,7 @@ Pode encontrar um exemplo que mostra como utilizar funções de Azure com o Aspe
 Para concluir este tutorial, precisa de:
 
 * Um Windows Live ID
-* Uma [conta do Azure](https://azure.microsoft.com). Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Uma [conta do Azure](https://azure.microsoft.com). Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 * Uma [conta dos Serviços de Multimédia do Azure](media-services-portal-create-account.md).
 
 ## <a name="purchase-aspera-on-demand-for-azure"></a>Comprar o Aspera On Demand para o Azure
@@ -56,7 +56,7 @@ Depois de iniciar sessão no Azure Marketplace, siga estes passos básicos para 
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera002.png)
 
-3. Preencha as especificações da sua subscrição do Server on Demand.
+3. Preencha as especificações da sua subscrição do Server on-Demand.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera003.png)
 

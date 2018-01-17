@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: aee19cd515e1cb75dcd791363270e1b6a6d094e4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 71090d897634989a061181f4471368cfb5f14be0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Executar Azure Site Recovery Deployment Planner de VMware para o Azure
 Este artigo é o manual do utilizador do Azure Site Recovery Deployment Planner para implementações de produção de VMware para o Azure.
@@ -63,6 +63,7 @@ Substitua &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;passwo
 
     ![Lista de nomes de VMs no Deployment Planner
 ](media/site-recovery-vmware-deployment-planner-run/profile-vm-list-v2a.png)
+
 ### <a name="start-profiling"></a>Começar a criar perfis
 Quando tiver a lista das VMs para as quais criar perfis, pode executar a ferramenta no modo de criação de perfis. Abaixo, pode ver a lista dos parâmetros obrigatórios e opcionais da ferramenta, para executá-la no modo de criação de perfis.
 
@@ -94,6 +95,17 @@ Recomendamos que crie perfis para VMs por mais que 7 dias. Se o volume de altera
 Durante a criação de perfis, pode, opcionalmente, transmitir o nome e a chave de uma conta de armazenamento para encontrar o débito que o Azure Site Recovery pode alcançar no momento da replicação do servidor de configuração ou do servidor de processos para o Azure. Se o nome e a chave da conta de armazenamento não forem transmitidos durante a criação de perfis, a ferramenta não calcula o débito alcançável.
 
 Pode executar várias instâncias da ferramenta em vários conjuntos de VMs. Confirme que não existem nomes de VMs repetidos em nenhum dos conjuntos de criação de perfis. Por exemplo, se tiver criado perfis para dez VMs (VM1 a VM10) e, ao fim de alguns dias, quiser criar perfis para outras cinco (VM11 a VM15), pode executar a ferramenta noutra consola de linha de comandos para o segundo conjunto de VMs (VM11 a VM15). Assegure-se de que o segundo conjunto não tem nenhum nome de VMs da primeira instância de criação de perfis ou de que utiliza outro diretório de saída para a segunda execução. Se forem utilizadas duas instâncias da ferramenta para criar perfis para as mesmas VMs e o mesmo diretório de saída, o relatório gerado estará incorreto.
+
+Por predefinição, a ferramenta está configurada para criar perfis e gerar relatórios até 1000 VMs. Pode mudar o limite, alterando o valor chave MaxVMsSupported no ficheiro *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Com as predefinições, para criar um perfil de, por exemplo, 1500 VMs, crie dois ficheiros VMList.txt. Um com 1000 VMs e outro com uma lista de 500 VMs. Execute as duas instâncias do Planeador de Implementações do ASR, uma com o VMList1.txt e outra com o VMList2.txt. Pode utilizar o mesmo caminho de diretório para armazenar os dados de criação de perfis das duas VMs VMList. 
+
+Constatámos que, com base na configuração de hardware, especialmente o tamanho de RAM do servidor a partir do qual a ferramenta é executada para gerar o relatório, a operação poderá falhar com memória insuficiente. Se o hardware for bom, pode alterar o MaxVMsSupported para qualquer valor superior.  
+
+Se tiver vários servidores vCenter, terá de executar uma instância do ASRDeploymentPlanner para cada servidor vCenter para criação de perfis.
 
 As configurações das VMs sã capturadas uma vez no início da operação de criação de perfis e armazenadas num ficheiro com o nome VMDetailList.xml. Estas informações são utilizadas quando o relatório é gerado. Não são capturas quaisquer alterações à configuração das VMs (por exemplo, um aumento no número de núcleos, discos ou NICs) desde o início até ao fim da criação de perfis. Caso a configuração de uma VM para a qual foram criados perfis tiver sofrido alterações durante a criação dos perfis, existe, na pré-visualização pública, uma solução para obter os últimos detalhes das VMs durante a geração do relatório:
 
@@ -158,6 +170,12 @@ Depois de concluída a criação de perfis, pode executar a ferramenta no modo d
 |-TargetRegion|(Opcional) A região do Azure para onde está direcionada a replicação. Dado que o Azure tem custos diferentes por região, para gerar um relatório com uma região de destino do Azure específica, utilize este parâmetro.<br>A predefinição é WestUS2 ou a última região de destino utilizada.<br>Consulte a lista de [regiões de destino suportadas](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Opcional) A oferta associada à subscrição em questão. A Predefinição é MS-AZR-0003P (Pay As You Go).|
 |-Currency|(Opcional) A moeda na qual os custos são mostrados no relatório gerado. A predefinição é o Dólar Norte-Americano ($) ou a última moeda utilizada.<br>Consulte a lista de [moedas suportadas](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
+
+Por predefinição, a ferramenta está configurada para criar perfis e gerar relatórios até 1000 VMs. Pode mudar o limite, alterando o valor chave MaxVMsSupported no ficheiro *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemplo 1: gerar o relatório com valores predefinidos quando os dados de criação de perfis estão na unidade local
 ```

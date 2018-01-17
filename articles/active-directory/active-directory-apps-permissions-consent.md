@@ -13,23 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Aplicações, permissões e consentimento no Azure Active Directory
-No Azure Active Directory, pode adicionar aplicações ao seu diretório.  As aplicações podem variar consoante o tipo de aplicação.  Para ver as aplicações no portal clássico, selecione um diretório e escolha aplicações.
-
-![](media/active-directory-apps-permissions-consent/apps1.png)
+No Azure Active Directory, pode adicionar aplicações ao seu diretório.  As aplicações podem variar consoante o tipo de aplicação.  Para ver as aplicações no portal, selecione um diretório e escolha aplicações.
 
 > [!IMPORTANT]
-> A Microsoft recomenda que faça a gestão do Azure AD com o [centro de administração do Azure AD](https://aad.portal.azure.com) no portal do Azure em vez de utilizar o portal clássico do Azure referenciado neste artigo.
+> A Microsoft recomenda que faça a gestão do Azure AD com o [centro de administração do Azure AD](https://aad.portal.azure.com) no portal do Azure, em vez de utilizar o portal do Azure referenciado neste artigo.
 
 ## <a name="types-of-apps"></a>Tipos de aplicações
 
@@ -73,9 +71,7 @@ Resumindo:
 
 ## <a name="controls"></a>Controlos
 
-Segue-se uma lista dos diferentes controlos de administrador disponíveis para todos estes comportamentos. É possível aceder aos controlos de administrador no portal clássico a partir da opção Configurar sob o diretório.
-
-![](media/active-directory-apps-permissions-consent/apps7.png)
+Segue-se uma lista dos diferentes controlos de administrador disponíveis para todos estes comportamentos.
 
 No portal do Azure, em **Gerir**, **Definições de utilizador**.
 
@@ -85,18 +81,14 @@ No portal do Azure, em **Gerir**, **Definições de utilizador**.
 
 - Pode controlar se os utilizadores podem dar consentimento a aplicações:
 
-No portal clássico, selecione **Os utilizadores podem conceder permissões a aplicações para acederem aos seus dados.**
-![](media/active-directory-apps-permissions-consent/apps8.png)
-
 No portal do Azure, selecione **Os utilizadores podem permitir que as aplicações acedam aos seus dados**.
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- Pode controlar se os utilizadores podem registar as suas próprias aplicações LOB de inquilino único: no portal clássico, selecione **Os utilizadores podem adicionar aplicações integradas.**
-![](media/active-directory-apps-permissions-consent/apps9.png)
+- Pode controlar se os utilizadores podem registar as suas próprias aplicações LOB de inquilino único:
 
-No portal do Azure, selecione **Os utilizadores podem permitir que as aplicações acedam aos seus dados**.
+No portal do Azure, selecione **os utilizadores podem registar aplicações**.
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
@@ -108,20 +100,6 @@ No portal do Azure, selecione **Os utilizadores podem permitir que as aplicaçõ
 >- Ao registar aplicações LOB de inquilino único, os utilizadores não podem pedir permissões delegadas para outras aplicações se essas permissões precisarem de consentimento de administrador.
 >- Os utilizadores não podem fazer alterações a aplicações das quais não são proprietários.
 
-
-
-- Pode controlar se os utilizadores podem adicionar aplicações pré-integradas que utilizem SSO de palavra-passe (também conhecidas como "cofres de palavras-passe") ![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- Pode controlar em que condições é possível aceder às aplicações (ou seja, acesso condicional). Tenha em atenção que este tipo de acesso aplica-se à aplicação cliente e à aplicação de recurso. Por isso, digamos que define uma política de acesso condicional que afirma que a aplicação "Exchange Online do Office 365" só pode ser acedida a partir de computadores conformes.  Esta política também é aplicada quando um utilizador tenta utilizar uma aplicação cliente que pede permissões para o Exchange Online.
-
-
-
-- Tem visibilidade das aplicações para as quais foi dado consentimento e das aplicações que estão a ser utilizadas.
-
-1.  Quando um utilizador dá consentimento a uma aplicação, é criado um objeto ServicePrincipal no inquilino. A criação de ServicePrincipal está incluída no relatório de auditoria.
-2.  Os relatórios de atividade de início de sessão do utilizador indicam em que aplicação o utilizador está a iniciar sessão. 
 
 ## <a name="example"></a>Exemplo
 

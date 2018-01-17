@@ -13,21 +13,19 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a2bfb714e92986465befd79aaa7b12f90b6490e7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fbe0784ae133a0b9a54c94b4ba3db317c14b3766
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-1-create-a-tabular-model-project"></a>Lição 1: Criar um projeto de modelo em tabela
+# <a name="create-a-tabular-model-project"></a>Criar um projeto de modelo em tabela
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-Nesta lição, vai utilizar o SQL Server Data Tools (SSDT) para criar um projeto de modelo em tabela novo no nível de compatibilidade 1400. Depois de o projeto estar criado, pode começar a adicionar dados e a criar o modelo. Esta lição também mostra uma breve introdução ao ambiente de criação de modelos em tabela no SSDT.  
+Nesta lição, vai utilizar o Visual Studio com o SQL Server Data Tools (SSDT) para criar um projeto de modelo em tabela novo, no nível de compatibilidade 1400. Depois de o projeto estar criado, pode começar a adicionar dados e a criar o modelo. Esta lição também mostra uma breve introdução ao ambiente de criação de modelos em tabela no Visual Studio.  
   
-Tempo estimado para concluir esta lição: **dez minutos**  
+Tempo estimado para concluir esta lição: **10 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
 Este tópico é a primeira lição num tutorial de criação de modelo em tabela. Para concluir esta lição, tem de ter implementados vários pré-requisitos. Para saber mais, veja [Azure Analysis Services - Adventure Works tutorial](../tutorials/aas-adventure-works-tutorial.md) (Azure Analysis Services - Tutorial da Adventure Works).  
@@ -36,7 +34,7 @@ Este tópico é a primeira lição num tutorial de criação de modelo em tabela
   
 #### <a name="to-create-a-new-tabular-model-project"></a>Para criar um novo projeto de modelo em tabela  
   
-1.  No SSDT, no menu **Ficheiro**, clique em **Novo** > **Projeto**.  
+1.  No Visual Studio, no menu **Ficheiro**, clique em **Novo** > **Projeto**.  
   
 2.  Na caixa de diálogo **Novo Projeto**, expanda **Instalados** > **Business Intelligence** > **Analysis Services** e escolha **Projeto em Tabela do Analysis Services**.  
   
@@ -48,7 +46,7 @@ Este tópico é a primeira lição num tutorial de criação de modelo em tabela
   
 5.  Na caixa de diálogo **Estruturador de modelo em tabela**, selecione **Área de trabalho integrada**.  
   
-    A área de trabalho aloja uma base de dados de modelo em tabela com o mesmo nome que o projeto durante a criação do modelo. A área de trabalho integrada significa que o SSDT utiliza uma instância incorporada, eliminando a necessidade de instalar uma instância do servidor do Analysis Service apenas para a criação do modelo.
+    A área de trabalho aloja uma base de dados de modelo em tabela com o mesmo nome que o projeto durante a criação do modelo. A área de trabalho integrada significa que o Visual Studio utiliza uma instância incorporada, eliminando a necessidade de instalar uma instância do servidor do Analysis Services apenas para a criação do modelo.
       
 6.  Em **Nível de compatibilidade**, selecione **SQL Server 2017 / Azure Analysis Services (1400)**.   
  
@@ -58,9 +56,9 @@ Este tópico é a primeira lição num tutorial de criação de modelo em tabela
       
   
 ## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Compreender o ambiente de criação do modelo em tabela do SSDT  
-Agora que já criou um projeto de modelo em tabela novo, vamos aproveitar para explorar o ambiente de criação no SSDT.  
+Agora que já criou um projeto de modelo em tabela novo, vamos aproveitar para explorar o ambiente de criação no Visual Studio.  
   
-Quando o projeto estiver criado, é aberto no SSDT. No lado direito, em **Explorador de Modelos em Tabela**, pode ver uma vista de árvore dos objetos no modelo. Uma vez que ainda não importou dados, as pastas estão vazias. Pode clicar com o botão direito do rato numa pasta de objetos para realizar ações, de forma semelhante à barra de menus. À medida que avança neste tutorial, vai utilizar o Explorador de Modelos em Tabela para navegar pelos diferentes objetos no projeto de modelo.
+Quando o projeto estiver criado, é aberto no Visual Studio. No lado direito, em **Explorador de Modelos em Tabela**, pode ver uma vista de árvore dos objetos no modelo. Uma vez que ainda não importou dados, as pastas estão vazias. Pode clicar com o botão direito do rato numa pasta de objetos para realizar ações, de forma semelhante à barra de menus. À medida que avança neste tutorial, vai utilizar o Explorador de Modelos em Tabela para navegar pelos diferentes objetos no projeto de modelo.
 
 ![aas-lesson1-tme](../tutorials/media/aas-lesson1-tme.png)
 

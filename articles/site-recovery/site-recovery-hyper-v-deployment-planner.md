@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0baf595266e71fad2df16996d63af3ba7d23a6ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planeador de Implementações do Azure Site Recovery de Hyper-V para o Azure
 Este artigo é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para implementações de produção de Hyper-V para o Azure.
@@ -28,7 +28,7 @@ Antes de começar a proteger máquinas virtuais (VMs) de Hyper-V com o Site Reco
 
 Também tem de criar o tipo e o número certo de contas de armazenamento do Azure de destino. Vai criar contas de armazenamento standard ou premium levando em linha de conta o crescimento dos servidores de produção de origem devido ao aumento da utilização ao longo do tempo. O tipo de armazenamento é escolhido por VM, com base nas características da carga de trabalho, por exemplo, operações de E/S de leitura/escrita por segundo (IOPS), ou alterações a dados, e limites do Azure Site Recovery. 
 
-O Planeador de Implementações do Azure Site Recovery (versão 2) é uma ferramenta de linha de comandos disponível para os cenários de recuperação após desastre Hyper-V para o Azure e VMware para o Azure. Pode utilizar esta ferramenta para criar remotamente o perfil das suas VMs de VMware presentes em vários anfitriões Hyper-V (sem qualquer tipo de impacto na produção) para compreender os requisitos de largura de banda e de armazenamento do Azure necessários para a replicação e ativação pós-falha de teste/ativação pós-falha bem-sucedidas. Pode executar a ferramenta sem instalar nenhum componente do Azure Site Recovery no local. No entanto, para obter resultados precisos de débito alcançado, recomendamos que execute o planeador num Windows Server que tenha a mesma configuração de hardware do que um dos servidores Hyper-V que irá utilizar para ativar a proteção de recuperação após desastre para o Azure. 
+O Planeador de Implementações do Azure Site Recovery é uma ferramenta de linha de comandos para os cenários de recuperação após desastre Hyper-V para o Azure e VMware para o Azure. Pode utilizar esta ferramenta para criar remotamente o perfil das suas VMs de VMware presentes em vários anfitriões Hyper-V (sem qualquer tipo de impacto na produção) para compreender os requisitos de largura de banda e de armazenamento do Azure necessários para a replicação e ativação pós-falha de teste/ativação pós-falha bem-sucedidas. Pode executar a ferramenta sem instalar nenhum componente do Azure Site Recovery no local. No entanto, para obter resultados precisos de débito alcançado, recomendamos que execute o planeador num Windows Server que tenha a mesma configuração de hardware do que um dos servidores Hyper-V que irá utilizar para ativar a proteção de recuperação após desastre para o Azure. 
 
 A ferramenta disponibiliza os seguintes detalhes:
 
@@ -121,9 +121,9 @@ A configuração recomendada da VM: 8 vCPUs, 16 GB de RAM, HDD de 300 GB.
 3.  Extraia a pasta .zip.
 Esta contém vários ficheiros e sub-pastas. O ficheiro executável é ASRDeploymentPlanner.exe, na pasta principal.
 
-Exemplo: copie o ficheiro .zip para a unidade E:\ e extraia-o. E:\ASR Deployment Planner_v2.0.zip
+Exemplo: copie o ficheiro .zip para a unidade E:\ e extraia-o. E:\ASR Deployment Planner_v2.1.zip
 
-E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Atualizar para a versão mais recente do Planeador de Implementações
 Se tiver uma versão anterior do Planeador de Implementações, execute um dos seguintes procedimentos:
@@ -136,6 +136,11 @@ Se tiver uma versão anterior do Planeador de Implementações, execute um dos s
   >Quando iniciar a criação de perfis com a nova versão, transmita o mesmo caminho do diretório de saída, para que a ferramenta anexe os dados da criação de perfis nos ficheiros existentes. Para gerar o relatório, vai ser utilizado um conjunto completo de dados de criação de perfis. Se transmitir um diretório de saída diferente, são criados ficheiros novos e os dados antigos não são utilizados para gerar o relatório.
   >
   >Cada Deployment Planner novo é uma atualização acumulativa do ficheiro .zip. Não tem de copiar os ficheiros mais recentes para a pasta anterior. Pode criar e utilizar uma pasta nova.
+
+## <a name="version-history"></a>Histórico de versões
+A versão mais recente da ferramenta Planeador de Implementações do ASR é 2.1.
+Consulte a página [Histórico de Versões do Planeador de Implementações do ASR](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para obter as correções que foram adicionadas em cada atualização.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Executar o planeador de implementação](site-recovery-hyper-v-deployment-planner-run.md).
