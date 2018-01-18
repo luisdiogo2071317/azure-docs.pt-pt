@@ -29,6 +29,10 @@
       href: tutorial-kubernetes-monitor.md
     - name: 8 - Atualizar o cluster
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: Conceitos
+  items:
+    - name: Quotas e limites regionais
+      href: container-service-quotas.md
 - name: Guias de procedimentos
   items:
     - name: Dimensionar um cluster do AKS
@@ -49,6 +53,8 @@
       href: kubernetes-service-principal.md
     - name: Configurar volumes de dados
       items:
+        - name: Discos do Azure - Volume persistente
+          href: azure-disks-dynamic-pv.md
         - name: Ficheiros do Azure - Volume persistente
           href: azure-files-dynamic-pv.md
         - name: Ficheiros do Azure - Volume
