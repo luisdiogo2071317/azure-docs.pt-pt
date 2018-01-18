@@ -235,8 +235,6 @@
               items:
                 - name: Referência rápida de gramática do SQL
                   href: sql-api-sql-query-cheat-sheet.md
-                - name: Stack Overflow
-                  href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Vídeos
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Atualizações de serviço
@@ -430,7 +428,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: FAQ
       href: faq.md
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
     - name: Consistência dos dados explicada através do basebol
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'

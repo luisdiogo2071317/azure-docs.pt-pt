@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentação do Microsoft Azure"
 description: "Saiba como criar e gerir aplicações poderosas com os serviços cloud do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 featureFlags: clicktale
-ms.openlocfilehash: 7a707abdb949927e5f3affe208001f245ace51f2
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -3912,7 +3912,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/nodejs/azure/node-sdk-azure-install">Obter as bibliotecas do Azure para Node.js</a>
+                                                    <a href="/javascript/azure/node-sdk-azure-get-started">Obter as bibliotecas do Azure para Node.js</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/nodejs/azure/">Introdução</a>

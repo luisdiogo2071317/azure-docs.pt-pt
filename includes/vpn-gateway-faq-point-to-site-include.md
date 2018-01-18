@@ -10,7 +10,7 @@ São suportados os seguintes sistemas operativos cliente:
 * Windows 8.1 (32 e 64 bits)
 * Windows Server 2012 (apenas 64 bits)
 * Windows Server 2012 R2 (apenas 64 bits)
-* Windows 10
+* Windows 10
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp"></a>Posso utilizar qualquer cliente VPN de software para a ligação Ponto a Site que suporte SSTP?
 
