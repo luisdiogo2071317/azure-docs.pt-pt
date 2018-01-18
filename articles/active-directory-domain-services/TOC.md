@@ -44,7 +44,12 @@
 ## Resolução de problemas
 ### [FAQs](active-directory-ds-faqs.md)
 ### [Guia de resolução de problemas](active-directory-ds-troubleshooting.md)
+### [Alertas de resolução de problemas](active-directory-ds-troubleshoot-alerts.md)
+#### [Corrigir uma configuração de NSG quebrada](active-directory-ds-troubleshoot-nsg.md)
+#### [Restaurar principais de serviço em falta](active-directory-ds-troubleshoot-service-principals.md)
+#### [Erros de Secure LDAP](active-directory-ds-troubleshoot-ldaps.md)
 ### [Resolva os erros de inquilino não correspondentes](active-directory-ds-mismatched-tenant-error.md)
+
 
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)

@@ -5,26 +5,26 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 01/10/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: b28e442a075e38a4fbe7b0d9d46f2c9d23e7c6fb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4287b139f26d17e58f6caffbadb2c7da2a9b7b82
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Criar uma atribuição de política para identificar recursos incompatíveis no seu ambiente do Azure
-O primeiro passo para compreender a conformidade no Azure é saber onde está posicionado com os seus próprios recursos atuais. Este guia de introdução acompanha-o ao longo do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos.
+O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos. Este guia de introdução acompanha-o ao longo do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos.
 
-No final deste processo, terá identificado com êxito as máquinas virtuais que não estão a utilizar discos geridos e são, por conseguinte, *incompatíveis*.
+No final deste processo, vai identificar com êxito as máquinas virtuais que não estão a utilizar discos geridos. Estão em *não conformidade* com a atribuição de política.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste guia de introdução iremos criar uma atribuição de política e atribuir as *Máquinas Virtuais de Auditoria sem uma definição de política de Discos Geridos*.
+Neste guia de introdução, vai criar uma atribuição de política e atribuir as *Máquinas Virtuais de Auditoria sem uma definição de política do Managed Disks*.
 
 1. Selecione **Atribuições** no painel esquerdo da página de Política do Azure.
 2. Selecione **Atribuir Política** a partir da parte superior do painel **Atribuições**.
@@ -41,21 +41,23 @@ Neste guia de introdução iremos criar uma atribuição de política e atribuir
    - Aplicar etiqueta e o respetivo valor
    - Requer a Versão do SQL Server 12.0
 
-4. Pesquisa nas definições de política para encontrar a definição *VMs de auditoria que não utilizam discos geridos*. Clique nessa política e clique em **Atribuir**.
+    Para obter uma lista completa de todas as políticas incorporadas disponíveis, veja os [Modelos de política](json-samples.md).
+
+4. Pesquisa nas definições de política para encontrar a definição *VMs de auditoria que não utilizam discos geridos*. Clique nessa política e clique em **Selecionar**.
 
    ![Encontrar a definição de política correta](media/assign-policy-definition/select-available-definition.png)
 
-5. Indique um **Nome** de apresentação para a atribuição de política. Neste caso, vamos utilizar *VMs de auditoria que não utilizam discos geridos*. Também pode adicionar uma **Descrição** opcional. A descrição apresenta detalhes sobre a forma como esta atribuição de política identifica todas as máquinas virtuais criadas neste ambiente que não utilizam discos geridos.
+5. Indique um **Nome** de apresentação para a atribuição de política. Neste caso, vamos utilizar *VMs de auditoria que não utilizam discos geridos*. Também pode adicionar uma **Descrição** opcional. A descrição apresenta detalhes sobre a forma como a atribuição de política identifica todas as máquinas virtuais que não utilizam os discos geridos.
 6. Altere o escalão de preço para **Standard** para se certificar de que a política é aplicada aos recursos existentes.
 
-   Existem dois escalões de preços no Azure Policy – *Gratuito* e *Standard*. No Escalão gratuito, apenas pode impor políticas em recursos futuros, enquanto no Standard, também pode impô-los em recursos existentes para compreender melhor o seu estado de compatibilidade. Uma vez que estamos na Pré-visualização Limitada, ainda não lançámos um modelo de preços, pelo que não irá receber uma fatura para selecionar *Standard*. Para obter mais informações sobre preços, veja: [Azure Policy pricing (Preços do Azure Policy)](https://azure.microsoft.com/pricing/details/azure-policy/).
+   Existem dois escalões de preços no Azure Policy – *Gratuito* e *Standard*. No Escalão gratuito, apenas pode impor políticas em recursos futuros, enquanto no Standard, também pode impô-los em recursos existentes para compreender melhor o seu estado de compatibilidade. Para obter mais informações sobre preços, veja [Azure Policy pricing (Preços do Azure Policy)](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Selecione o **Âmbito** em que pretende que a política seja aplicada.  Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos.
-8. Selecione a subscrição (ou grupo de recursos) que registou anteriormente. Neste exemplo, estamos a utilizar esta subscrição - **Desenvolvimento de Capacidade de Análise do Azure**, mas as opções irão variar.
+8. Selecione a subscrição (ou grupo de recursos) que registou anteriormente. Neste exemplo, utilizamos a subscrição **Desenvolvimento de Capacidade de Análise do Azure**, mas as opções podem variar. Clique em **Selecionar**.
 
    ![Encontrar a definição de política correta](media/assign-policy-definition/assign-policy.png)
 
-9. Selecione **Atribuir**.
+9. Deixe **Exclusões** em branco por agora e, em seguida, clique em **Atribuir**.
 
 Agora, está pronto para identificar recursos incompatíveis para compreender o estado de compatibilidade do seu ambiente.
 
@@ -65,9 +67,9 @@ Selecione **Conformidade** no painel esquerdo e procure a atribuição de polít
 
 ![Conformidade com a política](media/assign-policy-definition/policy-compliance.png)
 
-Se existirem quaisquer recursos existentes que não sejam compatíveis com esta nova atribuição, estes serão apresentados no separador **Recursos não compatíveis**.
+Se existirem quaisquer recursos existentes que não sejam compatíveis com esta nova atribuição, aparecem em **Recursos em não conformidade**.
 
-Se uma condição for avaliada nos recursos existentes e for verdadeira para alguns deles, esses recursos são marcados como incompatíveis com a política. Eis uma tabela de como as diferentes ações que temos disponíveis atualmente funcionam com o resultado da avaliação de condição e o estado de compatibilidade dos seus recursos.
+Quando uma condição é avaliada em relação aos seus recursos existentes e resulta como verdadeira, esses recursos são então marcados como em não conformidade com a política. A imagem de exemplo anterior mostra os recursos em não conformidade. A tabela seguinte mostra como funcionam as diferentes ações de política com a avaliação de condição para o estado de conformidade resultante. Apesar de não ver a lógica de avaliação no portal do Azure, são mostrados os resultados do estado de conformidade. O resultado do estado de conformidade pode ser em conformidade ou em não conformidade.
 
 |Recurso  |Se a Condição na Política Avaliar como  |Ação na Política   |Estado de Compatibilidade  |
 |-----------|---------|---------|---------|
@@ -82,7 +84,7 @@ Se uma condição for avaliada nos recursos existentes e for verdadeira para alg
 
 Outros guias desta coleção têm por base este guia de introdução. Se quiser continuar a trabalhar com os tutoriais subsequentes, não limpe os recursos criados neste guia de introdução. Se não pretender continuar, utilize os passos seguintes para eliminar todos os recursos criados por este guia de introdução no portal do Azure.
 1. Selecione **Atribuições** no painel esquerdo.
-2. Procure a atribuição que acabou de criar.
+2. Procure pela atribuição que criou e, em seguida, faça clique duas vezes.
 
    ![Eliminar uma atribuição](media/assign-policy-definition/delete-assignment.png)
 
@@ -90,7 +92,7 @@ Outros guias desta coleção têm por base este guia de introdução. Se quiser 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de introdução, atribuiu uma definição de política a um âmbito para se certificar de que todos os recursos desse âmbito são compatíveis e identificar aqueles que não são.
+Neste início rápido, atribuiu uma definição de política a um âmbito. A definição de política garante que todos os recursos no âmbito estão em conformidade e identifica quais não estão.
 
 Para saber mais sobre a atribuição de políticas, de forma a certificar-se de que os **futuros** recursos que são criados estão em conformidade, avance para o tutorial:
 

@@ -83,7 +83,7 @@
       items:
         - name: Preparar a VM
           items:
-            - name: Preparar máquinas virtuais implementadas com o Resource Manager
+            - name: Preparar as VMs implementadas pelo Resource Manager
               href: backup-azure-arm-vms-prepare.md
             - name: Cópias de segurança de VMs do Linux consistentes com a aplicação
               href: backup-azure-linux-app-consistent.md
@@ -93,23 +93,23 @@
               href: backup-azure-vms-introduction.md
         - name: Fazer cópias de segurança de VMs
           items:
-            - name: Fazer cópias de segurança de máquinas virtuais do Azure para um cofre dos Serviços de Recuperação
+            - name: Fazer cópia de segurança de VMs do Azure para cofre dos Serviços de Recuperação
               href: backup-azure-arm-vms.md
-            - name: Fazer cópias de segurança de máquinas virtuais encriptadas
+            - name: Fazer cópia de segurança de VMs encriptadas
               href: backup-azure-vms-encryption.md
         - name: Gerir e monitorizar VMs
           items:
             - name: Gerir cópias de segurança de VMs do Azure no Portal do Azure
               href: backup-azure-manage-vms.md
-            - name: Monitorizar alertas para cópias de segurança de VMs do Azure no portal do Azure
+            - name: Monitorizar alertas para cópias de segurança de VMs do Azure
               href: backup-azure-monitor-vms.md
         - name: Restaurar dados a partir de VMs
           items:
             - name: Recuperar ficheiros a partir de cópias de segurança de VM do Azure
               href: backup-azure-restore-files-from-vm.md
-            - name: Restaurar VMs implementadas pelo Azure Resource Manager no portal do Azure
+            - name: Restaurar VMs do Azure no portal do Azure
               href: backup-azure-arm-restore-vms.md
-            - name: Restaurar máquinas virtuais encriptadas
+            - name: Restaurar VMs encriptadas
               href: backup-azure-vms-encryption.md
             - name: Restaurar a chave e o segredo do Key Vault para VMs encriptadas
               href: backup-azure-restore-key-secret.md
@@ -125,7 +125,7 @@
       items:
         - name: Preparar as cargas de trabalho do DPM no portal do Azure
           href: backup-azure-dpm-introduction.md
-        - name: Utilizar o DPM do System Center para criar cópias de segurança do servidor do Exchange
+        - name: Utilizar o DPM para criar cópias de segurança do servidor do Exchange
           href: backup-azure-backup-exchange-server.md
         - name: Recuperar dados para um servidor DPM alternativo
           href: backup-azure-alternate-dpm-server.md
