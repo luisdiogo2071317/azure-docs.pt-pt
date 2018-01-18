@@ -3,7 +3,7 @@ title: "O Azure AD Connect: Hardware e pré-requisitos | Microsoft Docs"
 description: "Este tópico descreve os pré-requisitos e os requisitos de hardware para o Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 1dc33bbd686d97f21c7b9d61752d9f2c584a79fe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c35e796cb823b2b059b726f099d658ee5e8192b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos para o Azure AD Connect
 Este tópico descreve os pré-requisitos e os requisitos de hardware para o Azure AD Connect.
@@ -207,5 +207,5 @@ Os requisitos mínimos para computadores com o AD FS ou servidores de aplicaçõ
 * MEMÓRIA: 2 GB ou superior
 * VM do Azure: Configuração A2 ou superior
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

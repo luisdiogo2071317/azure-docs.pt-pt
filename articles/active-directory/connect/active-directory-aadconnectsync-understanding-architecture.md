@@ -3,7 +3,7 @@ title: "Sincronização do Azure AD Connect: Noções sobre a arquitetura | Micr
 description: "Este tópico descreve a arquitetura de sincronização do Azure AD Connect e explica certos termos utilizados."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: cc6c772f8f5cc86f8b975ac7835ffff85ef3435c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6150dca80a137e9787d943bfe9abb4224e6fe6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronização do Azure AD Connect: Noções sobre a arquitetura
 Este tópico abrange a arquitetura básica para sincronização do Azure AD Connect. Em muitos aspetos, é semelhante ao seus antecessores MIIS 2003, ILM 2007 e FIM 2010. Sincronização do Azure AD Connect é a evolução destas tecnologias. Se estiver familiarizado com qualquer uma destas tecnologias anterior, o conteúdo deste tópico será familiar bem. Se estiver familiarizado com a sincronização, em seguida, este tópico é que o utilizador. No entanto não é um requisito para saber os detalhes deste tópico, seja bem-sucedida efetuar personalizações para sincronização do Azure AD Connect (designado por motor de sincronização neste tópico).
@@ -253,7 +253,7 @@ Os arquivos de motor de sincronização exportar e importar informações de est
 
 Por exemplo, se o motor de sincronização exporta atributo C, que tem um valor de 5, a uma origem de dados ligada, armazena C = 5 na respetiva memória de estado de exportação. Cada exportação adicional neste objecto resulta numa tentativa para exportar C = 5 para a origem de dados ligada novamente porque o motor de sincronização parte do princípio de que este valor não foi forma permanente aplicado para o objeto (ou seja, a menos que um valor diferente importado recentemente a partir de origem de dados ligada). A memória de exportação será eliminada quando C = 5 é recebido durante uma operação de importação do objeto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

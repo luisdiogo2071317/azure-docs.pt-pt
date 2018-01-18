@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 7e498582d78d2807070c943dfd838dd9efeb4ed2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações da Shell de nuvem do Azure
 
@@ -56,7 +56,9 @@ Shell de nuvem destina-se em casos de utilização interativo. Como resultado, a
 ### <a name="user-permissions"></a>Permissões de utilizador
 
 As permissões estão definidas como regulares utilizadores sem acesso de sudo. Qualquer instalação fora da sua `$Home` não é continuado diretório.
-Embora determinados comandos dentro de `clouddrive` diretório, tal como `git clone`, não dispõe de permissões adequadas, o `$Home` diretório tem permissões.
+
+### <a name="clouddrive-smb-limited-permissions"></a>Clouddrive SMB limitada permissões
+Determinados comandos dentro do `clouddrive` diretório, tal como `git clone`, não tem permissões adequadas para leitura/escrita determinados ficheiros. Se clicar neste problema, volte a tentar da sua `$Home` diretório que não tem limitações de SMB.
 
 ### <a name="editing-bashrc"></a>Editar .bashrc
 
@@ -84,7 +86,7 @@ Utilizar cmdlets do PowerShell, os utilizadores não é podem criar os ficheiros
 
 Se o utilizador executa um comando que iria criar uma caixa de diálogo do Windows, tais como `Connect-AzureAD` ou `Login-AzureRMAccount`, um vê uma mensagem de erro, tais como: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Resolução de problemas de nuvem de Shell](troubleshooting.md) <br>
 [Início Rápido para o Bash](quickstart.md) <br>

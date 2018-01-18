@@ -3,7 +3,7 @@ title: "Resolver problemas de sincronização de palavras-passe com a sincroniza
 description: "Este artigo fornece informações sobre como resolver problemas de sincronização de palavra-passe."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 89e6fd07553570a13c134a94a25fc73f4fa8c99c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0bf07e80e575309fe7fa44661776c23da5db6dce
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas de sincronização de palavras-passe com a sincronização do Azure AD Connect
 Este tópico fornece os passos para resolver problemas com a sincronização de palavra-passe. Se as palavras-passe não estiver a sincronizar conforme esperado, pode ser para um subconjunto de utilizadores ou para todos os utilizadores.
@@ -307,7 +307,7 @@ Pode facilmente resolver problemas de sincronização de palavra-passe, verifica
 
     ![Informações de linhagem sobre um utilizador](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync.png)  
 
-    posso. Clique em **as propriedades do objeto de Metaverso** para apresentar uma lista de atributos de utilizador.  
+    i. Clique em **as propriedades do objeto de Metaverso** para apresentar uma lista de atributos de utilizador.  
 
     ![Informações de Metaverso](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvpasswordsync.png)  
 
@@ -413,7 +413,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Implementar a sincronização de palavras-passe com a sincronização do Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)
 * [Sincronização do Azure AD Connect: Personalizar as opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md)

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: bc3217e3b4ebd97d5cb80a90126f4a1ade5f6cc5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Ativar uma imagem no laboratório no Azure DevTest Labs licenciada
 
-No Azure DevTest Labs, uma imagem licenciada é aquele que inclui os termos e condições – normalmente, a partir de uma terceiros – que têm de ser aceites antes da imagem é acessível aos utilizadores no laboratório. As secções seguintes descrevem como trabalhar com imagens licenciadas para que fiquem disponíveis para utilização para a criação de máquinas virtuais.
+No Azure DevTest Labs, uma imagem licenciada é aquele que inclui os termos e condições – normalmente, a partir de terceiros – que têm de ser aceites antes da imagem é acessível aos utilizadores no laboratório. As secções seguintes descrevem como trabalhar com imagens licenciadas para que fiquem disponíveis para utilização para a criação de máquinas virtuais.
 
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Ao determinar se uma imagem licenciada está disponível para utilizadores
 O primeiro passo para permitir aos utilizadores criar VMs a partir de uma imagem licenciada é certificar-se de que os termos e condições foram aceites para a imagem licenciada. Os passos seguintes mostram como pode ver o estado da oferta de uma imagem de licenciado e, se necessário, aceite os termos e condições.
@@ -53,7 +53,9 @@ Para certificar-se de que uma imagem licenciada está disponível para utilizado
 
 Pode ativar a implementação programática para uma imagem licenciada, seguindo estes passos:
 
-1. No [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) na lista de **imagens do Marketplace**, identificar uma imagem licenciada para a qual pretende que os utilizadores ter acesso, mas cujos termos não foram aceites. Por exemplo, poderá ver uma Máquina Virtual ciência de dados que mostra o estado **termos aceites** ou **termos revisão necessário**.
+1. No [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), aceda à lista de **imagens do Marketplace**.
+
+1. Identificar uma imagem licenciada para a qual pretende que os utilizadores ter acesso, mas cujos termos não foram aceites. Por exemplo, poderá ver uma Máquina Virtual ciência de dados que mostra o estado **termos aceites** ou **termos revisão necessário**.
 
     ![Configurar a implementação programática janela](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 

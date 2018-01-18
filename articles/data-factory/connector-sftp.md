@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 0d293d3874b0cb43cee9f85c6c575e87c48ad291
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 2cfeb212213088bb8d871e4c82daee559e4b36ff
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copiar dados a partir do servidor SFTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ Para utilizar autenticação básica, defina a propriedade de "authenticationTyp
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| Nome de utilizador | Utilizador que tenha acesso ao servidor SFTP. |Sim |
+| userName | Utilizador que tenha acesso ao servidor SFTP. |Sim |
 | palavra-passe | Palavra-passe para o utilizador (nome de utilizador). Marcar este campo como um SecureString. | Sim |
 
 **Exemplo:**
@@ -100,10 +100,10 @@ Para utilizar a autenticação de chave pública SSH, definir a propriedade de "
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| Nome de utilizador | Utilizador com acesso ao servidor de SFTP |Sim |
+| userName | Utilizador com acesso ao servidor de SFTP |Sim |
 | privateKeyPath | Especifique um caminho absoluto para o ficheiro de chave privado que podem aceder a integração do tempo de execução. Aplica-se apenas quando personalizada alojada de tempo de execução de integração for especificado em "connectVia". | Especifique o `privateKeyPath` ou `privateKeyContent`.  |
 | privateKeyContent | Conteúdo da chave privado SSH de codificados Base64. A chave privada SSH deve ter o formato de OpenSSH. Marcar este campo como um SecureString. | Especifique o `privateKeyPath` ou `privateKeyContent`. |
-| frase de acesso | Especifique a passagem frase/palavra-passe para desencriptar a chave privada, se o ficheiro de chave estiver protegido por uma frase de acesso. Marcar este campo como um SecureString. | Sim, se o ficheiro de chave privada está protegido por uma frase de acesso. |
+| passPhrase | Especifique a passagem frase/palavra-passe para desencriptar a chave privada, se o ficheiro de chave estiver protegido por uma frase de acesso. Marcar este campo como um SecureString. | Sim, se o ficheiro de chave privada está protegido por uma frase de acesso. |
 
 > [!NOTE]
 > Conector SFTP suporta apenas OpenSSH chave. Certifique-se de que o ficheiro de chave está no formato correto. Pode utilizar o Putty ferramenta para converter de *.ppk OpenSSH formato.
@@ -219,7 +219,7 @@ Para copiar dados de SFTP, defina o tipo de origem na atividade de cópia para *
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **FileSystemSource** |Sim |
-| Recursiva | Indica se os dados é lida a recursivamente partir das pastas sub ou apenas a partir da pasta especificada.<br/>Valores permitidos são: **verdadeiro** (predefinição), **false** | Não |
+| Recursiva | Indica se os dados é lida a recursivamente partir das pastas sub ou apenas a partir da pasta especificada. Nota Quando recursiva está definida como VERDADEIRO e o sink é baseado em ficheiros de arquivo, vazia pasta/sub-folder não serão copiados/criado no sink.<br/>Valores permitidos são: **verdadeiro** (predefinição), **false** | Não |
 
 **Exemplo:**
 

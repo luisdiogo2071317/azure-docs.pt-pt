@@ -3,7 +3,7 @@ title: "Atualização do DirSync e Azure AD Sync | Microsoft Docs"
 description: Descreve como atualizar do DirSync e Azure AD Sync para o Azure AD Connect.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e7b0aa1fc555f0fe4773b6bd67db87a55d85bcf
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 36a009b2a185b9ccdc0690014509e5596b4f8b8c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Atualizar a sincronização do Active Directory de sincronização do Azure Active Directory do Windows e do Azure
 O Azure AD Connect é a melhor forma de ligar o seu diretório no local ao Azure AD e ao Office 365. Esta é uma excelente altura para atualizar para o Azure AD Connect do Windows Azure Active Directory Sync (DirSync) ou do Azure AD Sync, estas ferramentas estão agora preteridas e já não são suportadas a partir de 13 de Abril de 2017.
@@ -32,7 +32,7 @@ A última versão do DirSync foi lançada em Julho de 2014 e a última versão d
 Azure AD Connect é o sucessor do DirSync e Azure AD Sync. Combina todos os cenários estes dois suportados. Pode ler mais acerca do mesmo no [integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).
 
 ## <a name="deprecation-schedule"></a>Agenda de preterição
-| Data | Comentar |
+| Data | Comentário |
 | --- | --- |
 | 13 de Abril de 2016 |Sincronização de diretório Active Directory ("DirSync") do Windows Azure e o Microsoft Azure Active Directory Sync ("Azure AD Sync") são comunicadas como preterido. |
 | 13 de Abril de 2017 |Suporta termina. Os clientes já não será capazes de abrir um incidente de suporte sem atualizar primeiro para o Azure AD Connect. |

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 9009afc83b40064c6dbf10100f514c681af9b96b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54f446f8735bc46b87fe19aaf7845c5fbfce2744
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Tarefas de agendamento e de difusão (Java)
 
@@ -62,7 +62,7 @@ Para concluir este tutorial, precisa de:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Se preferir para criar a identidade do dispositivo através de programação, leia a secção correspondente do [ligar o seu dispositivo ao seu IoT hub utilizando Java](iot-hub-java-java-getstarted.md#create-a-device-identity) artigo. Também pode utilizar o [iothub explorer](https://github.com/Azure/iothub-explorer) ferramenta para adicionar um dispositivo ao seu IoT hub.
+Se preferir para criar a identidade do dispositivo através de programação, leia a secção correspondente do [ligar o seu dispositivo ao seu IoT hub utilizando Java](iot-hub-java-java-getstarted.md#create-a-device-identity) artigo. Também pode utilizar o [extensão de IoT do Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) ferramenta para adicionar um dispositivo ao seu IoT hub.
 
 ## <a name="create-the-service-app"></a>Criar a aplicação de serviço
 
@@ -477,7 +477,7 @@ Agora está pronto para executar as aplicações de consola.
 
     ![O cliente do dispositivo responde às alterações](media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Criar uma aplicação de back-end para executar tarefas de dois. A primeira tarefa definir valores de propriedade pretendida e a segunda tarefa chamou um método direto.
 

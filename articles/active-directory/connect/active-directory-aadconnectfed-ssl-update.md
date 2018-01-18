@@ -1,5 +1,5 @@
 ---
-title: "O Azure AD Connect: Atualizar o certificado SSL para um farm de serviços de Federação do Active Directory (AD FS) | Microsoft Docs"
+title: O Azure AD Connect - atualizar o certificado SSL para um farm do AD FS | Microsoft Docs
 description: Este documento detalhes os passos para atualizar o certificado SSL de um farm do AD FS utilizando o Azure AD Connect.
 services: active-directory
 keywords: "do Azure ad connect, atualização de ssl do AD FS, atualização de certificados do AD FS, certificado do adfs de alteração, novo certificado do AD FS, certificado do adfs, atualização adfs certificado ssl, adfs do certificado de ssl de atualização, configure o certificado de ssl do AD FS, adfs, ssl, certificado, o serviço de adfs certificado de comunicação, Federação de atualização, configurar a Federação, aad connect"
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 2bd3d537761ec78ebcaab722e7928a88e90498d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: b31a4d178d287eba275a0072936b4222a2c84346
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Atualizar o certificado SSL para um farm de serviços de Federação do Active Directory (AD FS)
 
@@ -80,7 +81,7 @@ Depois de concluir a configuração, o Azure AD Connect apresenta a mensagem que
 
 ![Configuração completa](./media/active-directory-aadconnectfed-ssl-update/configurecomplete.png)   
 
-## <a name="faqs"></a>Perguntas mais frequentes
+## <a name="faqs"></a>FAQs
 
 * **O que deve ser o nome do requerente do certificado para o novo certificado SSL do AD FS?**
 
@@ -102,7 +103,7 @@ Depois de concluir a configuração, o Azure AD Connect apresenta a mensagem que
 
     Remover o servidor da lista no Azure AD Connect não removê-lo na configuração do AD FS. O Azure AD Connect referencia o AD FS (Windows Server 2016 ou posterior) para qualquer informação sobre o farm. Se o servidor ainda está presente na configuração do AD FS, serão apresentado na lista.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Azure AD Connect e a federação](active-directory-aadconnectfed-whatis.md)
 - [Gestão de serviços de Federação do Active Directory e personalização com o Azure AD Connect](active-directory-aadconnect-federation-management.md)

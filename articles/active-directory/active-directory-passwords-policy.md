@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -85,7 +85,7 @@ Cada conta de utilizador que tem de iniciar sessão Azure AD tem de ter um valor
 
 | Propriedade | Requisitos de UserPrincipalName |
 | --- | --- |
-| Carateres permitidos |<ul> <li>A-Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+| Carateres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
 | Não são permitidos carateres |<ul> <li>Qualquer "@" caráter que não é separar o nome de utilizador do domínio.</li> <li>Não pode conter um caráter de período "." existentes imediatamente antes do "@" símbolo</li></ul> |
 | Restrições de comprimento |<ul> <li>O comprimento total não pode exceder 113 carateres</li><li>Podem existir até 64 carateres antes do "@" símbolo</li><li>Podem existir até 48 carateres após o "@" símbolo</li></ul> |
 
@@ -95,7 +95,7 @@ A tabela seguinte descreve as definições de política de palavra-passe dispon�
 
 | Propriedade | Requisitos |
 | --- | --- |
-| Carateres permitidos |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+| Carateres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Não são permitidos carateres |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Apenas palavras-passe fortes: não pode conter um caráter de ponto "." existentes imediatamente antes do "@" símbolo.</li></ul> |
 | Restrições de palavra-passe |<ul><li>Um mínimo de 8 carateres e um máximo de 16 carateres.</li><li>Apenas palavras-passe fortes: requer três fora de quatro das seguintes opções:<ul><li>Caracteres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
 | Duração de expiração da palavra-passe |<ul><li>Valor predefinido: **90** dias.</li><li>O valor é configurável ao utilizar o `Set-MsolPasswordPolicy` cmdlet a partir do módulo Azure Active Directory para Windows PowerShell.</li></ul> |

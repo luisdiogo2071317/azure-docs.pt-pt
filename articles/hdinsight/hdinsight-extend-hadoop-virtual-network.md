@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/08/2017
+ms.date: 01/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 67a58c2377af129d8e2bc0c67d2dffe179fe998f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 30536d240bfd967bee0b3c91b71c7e772288464f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir o Azure HDInsight utilizando uma rede Virtual do Azure
 
@@ -129,8 +129,8 @@ O Azure oferece resolução de nomes para os serviços do Azure que estão insta
 
 * Quaisquer recursos que se encontra na mesma rede Virtual do Azure, utilizando o __nomes DNS internos__ do recurso. Por exemplo, quando utilizar a resolução do nome predefinido, seguem-se nomes DNS internos exemplo atribuídos a nós de trabalho do HDInsight:
 
-    * wn0 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Ambos estes nós podem comunicar diretamente com entre si e a outros nós do HDInsight, utilizando nomes DNS internos.
 

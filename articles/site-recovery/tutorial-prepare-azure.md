@@ -5,18 +5,18 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 71d740107eb2082e3f112941e1d4abd715d25807
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar os recursos do Azure para a replicação de máquinas no local
 
-O [do Azure Site Recovery](site-recovery-overview.md) serviço contribui para a sua estratégia de recuperação (BCDR) de continuidade e desastre negócio ao manter as suas aplicações empresariais a cópia de segurança e em execução disponíveis durante a falhas planeadas e não. Recuperação de site gere e orquestra a recuperação de desastre de máquinas no local e máquinas virtuais do Azure (VMs), incluindo a replicação, ativação pós-falha e recuperação.
+O [do Azure Site Recovery](site-recovery-overview.md) serviço contribui para a sua estratégia de recuperação (BCDR) de continuidade e desastre negócio ao manter as suas aplicações empresariais a cópia de segurança e em execução durante falhas planeadas e não. Recuperação de site gere e orquestra a recuperação de desastre de máquinas no local e máquinas virtuais do Azure (VMs), incluindo a replicação, ativação pós-falha e recuperação.
 
 Este tutorial mostra como preparar os componentes do Azure quando pretende replicar VMs no local (Hyper-V ou VMware) ou servidores físicos Windows/Linux para o Azure. Neste tutorial, ficará a saber como:
 
@@ -46,15 +46,15 @@ A função incorporada 'Contribuinte de Máquina Virtual' com estas permissões.
 Imagens de máquinas replicadas são guardadas no armazenamento do Azure. As VMs do Azure são criadas do armazenamento, quando a ativação pós-falha no local para o Azure.
 
 1. No [portal do Azure](https://portal.azure.com) menu, clique em **novo** -> **armazenamento** -> **conta de armazenamento**.
-2. Introduza um nome para a conta do Storage. Para estes tutoriais utilizamos o nome **contosovmsacct1910171607**. O nome tem de ser exclusivo no Azure e de ter entre 3 e 24 carateres, com apenas letras minúsculas e números.
+2. No **criar conta de armazenamento**, introduza um nome para a conta. Para estes tutoriais utilizamos o nome **contosovmsacct1910171607**. O nome tem de ser exclusivo no Azure e de ter entre 3 e 24 carateres, com apenas letras minúsculas e números.
 3. Utilize o **Resource Manager** modelo de implementação.
-4. Selecione **fins gerais** > **padrão**.
+4. Selecione **fins gerais** > **padrão**. Não selecione o armazenamento de Blobs.
 5. Selecionar a predefinição **RA-GRS** para a redundância de armazenamento.
 6. Selecione a subscrição na qual pretende criar a nova conta do Storage.
 7. Especifique um novo grupo de recursos. Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Para estes tutoriais, utilizamos o nome **ContosoRG**.
 8. Selecione a localização geográfica para a conta do Storage. A conta de armazenamento tem de ser na mesma região que o Cofre dos serviços de recuperação. Para estes tutoriais, utilizamos o **Europa Ocidental** região.
 
-   ![storageacct criar](media/tutorial-prepare-azure/create-storageacct.png)
+   ![create-storageacct](media/tutorial-prepare-azure/create-storageacct.png)
 
 9. Clique em **Criar** para criar a conta do Storage.
 
@@ -86,7 +86,7 @@ Quando as VMs do Azure criadas a partir de armazenamento após a ativação pós
    - Selecione a localização **Europa Ocidental**. A rede tem de estar na mesma região que o cofre de Serviços de Recuperação.
 3. Clique em **Criar**.
 
-   ![criar a rede](media/tutorial-prepare-azure/create-network.png)
+   ![create-network](media/tutorial-prepare-azure/create-network.png)
 
    A rede virtual demora alguns segundos a criar. Depois de criado, vê-lo no dashboard do portal do Azure.
 

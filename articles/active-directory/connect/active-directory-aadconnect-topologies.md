@@ -3,7 +3,7 @@ title: 'O Azure AD Connect: Topologias suportadas | Microsoft Docs'
 description: "Este tópico descreve as topologias suportadas e não suportadas para o Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 152cb9daa8338da6cc85ffda6feb3bd7b4f1bc92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50cf58c7d2d9be4644ada4feae02d0d5219a3fd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias do Azure AD Connect
 Este artigo descreve as várias topologias do Azure Active Directory (Azure AD) que utilizam a sincronização do Azure AD Connect como solução de integração de chave e no local. Este artigo inclui as configurações suportadas e não suportadas.
@@ -112,7 +112,7 @@ Algumas cargas de trabalho do Office 365 têm determinadas restrições em topol
 | Carga de trabalho | Restrições |
 --------- | ---------
 | Exchange Online | Para obter mais informações sobre topologias híbridas suportado pelo Exchange Online, consulte [implementações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
-| Skype para empresas | Quando estiver a utilizar várias florestas no local, apenas a topologia de floresta de recursos de conta é suportada. Para obter mais informações, consulte [requisitos ambientais para o Skype para empresas servidor 2015](https://technet.microsoft.com/library/dn933910.aspx). |
+| Skype para Empresas | Quando estiver a utilizar várias florestas no local, apenas a topologia de floresta de recursos de conta é suportada. Para obter mais informações, consulte [requisitos ambientais para o Skype para empresas servidor 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
 
 ## <a name="staging-server"></a>Servidor de teste
@@ -178,7 +178,7 @@ Inquilinos do Azure AD são isolados por predefinição. Estas tarefas não são
 
 Pode utilizar o FIM 2010 ou o MIM 2016 no local para sincronizar utilizadores (através de GALSync) entre duas organizações do Exchange. Os utilizadores de uma organização são apresentados como externos utilizadores por contactos na outra organização. Estes diferentes no local do Active Directory instâncias, em seguida, podem ser sincronizadas com os seus próprios inquilinos do Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber como instalar o Azure AD Connect nestes cenários, consulte o artigo [instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Saiba mais sobre o [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.

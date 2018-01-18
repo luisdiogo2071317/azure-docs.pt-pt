@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 0cef360de3b7a9be01536b0ebe90769c89e7c432
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ações de script com o HDInsight
 
@@ -118,7 +118,7 @@ A melhor prática é transferir e arquivar tudo numa conta do Storage do Azure n
 > [!IMPORTANT]
 > A conta de armazenamento utilizada tem de ser a conta de armazenamento predefinido para o cluster ou um contentor público só de leitura em qualquer outra conta de armazenamento.
 
-Por exemplo, os exemplos fornecidos pela Microsoft são armazenados no [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) conta de armazenamento. Este é um contentor público só de leitura mantido pela equipa do HDInsight.
+Por exemplo, os exemplos fornecidos pela Microsoft são armazenados no [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) conta de armazenamento. Esta localização é um contentor de público só de leitura mantido pela equipa do HDInsight.
 
 ### <a name="bPS4"></a>Utilizar recursos previamente compilados
 
@@ -314,7 +314,7 @@ fi
 
 ## <a name="deployScript"></a>Lista de verificação para implementar uma ação de script
 
-Eis os passos que pegámos quando preparar para implementar estes scripts:
+Seguem-se a tomar passos quando preparar a implementação de script:
 
 * Colocar os ficheiros que contêm os scripts personalizados num local que esteja acessível a nós do cluster durante a implementação. Por exemplo, o armazenamento de predefinido para o cluster. Ficheiros também podem ser armazenados nos serviços de alojamento legíveis publicamente.
 * Certifique-se de que o script é impotent. Se o fizer, permite que o script ser executada várias vezes no mesmo nó.

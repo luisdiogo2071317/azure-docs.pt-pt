@@ -3,7 +3,7 @@ title: "Operações de Gestor do serviço de sincronização do Azure AD Connect
 description: "Compreenda o separador de operações no Gestor de serviço de sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70086291e3a33f5a1f733e81d7a1d7bf76439cf0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91210edc3306b834cbd68f0f028845a7f36dd0b5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Utilizando o separador de operações de Gestor do serviço de sincronização
 
@@ -32,10 +32,10 @@ A metade superior mostra todas as execuções por ordem cronológica. Por predef
 
 O **estado** coluna são as informações mais importantes e mostra o problema mais grave para execução. Eis um resumo rápido dos Estados mais comuns por ordem de prioridade para investigar (onde * indicar vários cadeias de erro possíveis).
 
-| Estado | Comentar |
+| Estado | Comentário |
 | --- | --- |
 | parado-* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto não está disponível e não pode ser contactado. |
-| parado-erro-limite |Existem mais de 5.000 erros. A executar automaticamente foi parada devido ao elevado número de erros. |
+| stopped-error-limit |Existem mais de 5.000 erros. A executar automaticamente foi parada devido ao elevado número de erros. |
 | concluída -\*-erros |A execução foi concluída, mas existem erros (menos de 5000) que devem ser investigados. |
 | concluída -\*-avisos |A execução foi concluída, mas alguns dados não está no estado esperado. Se tiver de erros, em seguida, esta mensagem é, normalmente, apenas um sintoma. Até ter resolvidas erros, não deve investigar avisos. |
 | exito |Não existem problemas. |

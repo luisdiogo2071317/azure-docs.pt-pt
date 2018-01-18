@@ -8,17 +8,17 @@ manager: jhubbard
 editor: tysonn
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 03cd5088b55e37b2ada78e0f531702705d45a4c0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b412be8b93e1f871c09b7a4452141ac334d53ae
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Como utilizar o Table storage do Azure do Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -191,7 +191,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 1. Obter o ETag do objeto que está a ser atualizado. Este é devolvido como parte do `response` em nenhuma operação relacionada com entidade e podem ser recuperadas por meio `response['.metadata'].etag`.
 > 2. Quando efetuar uma operação de atualização numa entidade, adicione as informações de ETag obtidas anteriormente para a entidade de novo. Por exemplo:
 >
->       entity2 .etag ['.metadata'] = currentEtag;
+>       entity2['.metadata'].etag = currentEtag;
 > 3. Efetue a operação de atualização. Se a entidade foi modificada desde a obter o valor ETag, tais como outra instância da sua aplicação, um `error` vai ser devolvido a indicar que a condição de atualização especificada no pedido não foi cumprida.
 >
 >
@@ -443,10 +443,10 @@ Assim que tiver sido definida a ACL, em seguida, pode criar um SAS com base no I
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte os seguintes recursos.
 
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 * [SDK de armazenamento do Azure para o nó](https://github.com/Azure/azure-storage-node) repositório no GitHub.
-* [Centro para Programadores do Node.js](/develop/nodejs/)
+* [Centro de Programadores do Node.js](/develop/nodejs/)
 * [Criar e implementar uma aplicação Node.js para um Web site do Azure](../app-service/app-service-web-get-started-nodejs.md)

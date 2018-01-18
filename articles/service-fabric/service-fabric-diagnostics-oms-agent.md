@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/31/2017
 ms.author: dekapur
-ms.openlocfilehash: e1a45f9924291382bb1bbdc969e97ee54a7b6132
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 095db20e7d22bd517337f24fc9a81b84988d1465
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>Adicionar o agente do OMS a um cluster
 
@@ -52,7 +52,7 @@ Através do dimensionamento da máquina virtual, a melhor forma de adicionar o a
     Para um cluster do Linux:
 
     ```sh
-    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId'}":'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
+    az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<OMSworkspaceId>'}" --protected-settings "{'workspaceKey':'<OMSworkspaceKey>'}"
     ```
 
     Eis um exemplo do agente do OMS que está a ser adicionado a um cluster do Windows.
@@ -71,7 +71,7 @@ Modelos de Gestor de recursos de exemplo que implemente uma área de trabalho de
 
 Pode transferir e modificar este modelo para implementar um cluster que melhor se adapta às suas necessidades.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * Recolher relevante [contadores de desempenho](service-fabric-diagnostics-event-generation-perf.md). Para configurar o agente do OMS para recolher contadores de desempenho específicos, cabeçalho para o Portal do OMS (ligado na parte superior do recurso de análise de registos do OMS). Em seguida, clique em **home page > Definições > dados > contadores de desempenho do Windows** ou **contadores de desempenho do Linux** e escolha os contadores que pretende recolher.
 * Configurar OMS configurar [automatizada alertas](../log-analytics/log-analytics-alerts.md) para ajudar a detetar e diagnóstico

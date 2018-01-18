@@ -3,7 +3,7 @@ title: "Sincronização do Azure AD Connect: referência de funções | Microsof
 description: "Referência de expressões de aprovisionamento declarativas na sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Sincronização do Azure AD Connect: referência de funções
 No Azure AD Connect, as funções são utilizadas para manipular um valor de atributo durante a sincronização.  
@@ -78,7 +78,7 @@ As funções com os tipos de **mvbin**, **mvstr**, e **mvref** só pode ser util
 | **Fluxo de programa** | | | | |
 | [Erro](#error) |[IIF](#iif) |[Selecionar](#select) |[Comutador](#switch) | |
 | [Onde](#where) |[Com o](#with) | | | |
-| **Texto** | | | | |
+| **Text** (Texto) | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [À esquerda](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
 | [Padleft do modelo](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Substituir](#replace) | |
@@ -1269,7 +1269,7 @@ A função de UCase converte todos os carateres existentes numa cadeia de maiús
 Devolve "Teste".
 
 - - -
-### <a name="where"></a>onde
+### <a name="where"></a>Onde
 
 **Descrição:**  
 Devolve um subconjunto dos valores de um atributo com múltiplos valores (ou saída de uma expressão) com base numa condição específica.

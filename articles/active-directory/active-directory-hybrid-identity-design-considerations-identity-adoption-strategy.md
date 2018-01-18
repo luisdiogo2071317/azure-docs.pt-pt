@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory híbrida identidade considerações de design - definir uma estratégia de adoção de identidade híbrida | Microsoft Docs"
+title: "Estrutura de identidade híbrida - estratégia de adoção do Azure | Microsoft Docs"
 description: "Com o controlo de acesso condicional, o Azure Active Directory verifica as condições específicas, que escolha ao autenticar o utilizador e antes de permitir o acesso à aplicação. Depois destas condições são cumpridas, o utilizador é autenticado e permissão de acesso à aplicação."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, vai definir a estratégia de adoção de identidade híbrida para a sua solução de identidade híbrida cumprir os requisitos de negócio que foram abordados:
@@ -64,7 +65,7 @@ A estratégia de que utiliza determinarão a experiência de início de sessão 
 | Browsers da Web |Autenticação baseada em formulários |início de sessão único no, por vezes, necessário para fornecer o ID de organização |
 | Outlook |Pedido de credenciais |Pedido de credenciais |
 | Skype para empresas (Lync) |Pedido de credenciais |início de sessão único para o Lync, solicitado que as credenciais para o Exchange |
-| SkyDrive Pro |Pedido de credenciais |início de sessão único |
+| Skydrive Pro |Pedido de credenciais |início de sessão único |
 | Office Pro Plus subscrição |Pedido de credenciais |início de sessão único |
 
 **Origens externas ou não fidedignas**:
@@ -207,9 +208,9 @@ Autenticação multifator está disponível por predefinição para os administr
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Determinar os requisitos de proteção de dados](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 [Descrição geral das considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

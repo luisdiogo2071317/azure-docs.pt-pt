@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: byvinyal
-ms.openlocfilehash: e6595c9f49e3b6303ad96c37d4ee5ebea37ce829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f10788ed01f5ad5e93ae491a03ca820554df2f9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Alojamento de alta densidade no App Service do Azure
 Ao utilizar o serviço de aplicações, a aplicação é dissociada da capacidade alocada por dois conceitos:
@@ -87,7 +87,7 @@ Set-AzureRmWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> $newapp. SiteConfig.NumberOfWorkers é $newapp de forma diferente. MaxNumberOfWorkers. Por aplicação dimensionamento utiliza $newapp. SiteConfig.NumberOfWorkers para determinar as características de dimensionamento da aplicação.
+> $newapp. SiteConfig.NumberOfWorkers é diferente do $newapp. MaxNumberOfWorkers. Por aplicação dimensionamento utiliza $newapp. SiteConfig.NumberOfWorkers para determinar as características de dimensionamento da aplicação.
 
 ### <a name="per-app-scaling-using-azure-resource-manager"></a>Por aplicação dimensionamento com o Azure Resource Manager
 
@@ -158,7 +158,7 @@ Siga estes passos para configurar alta densidade de alojamento para as suas apli
     - Pode definir uma aplicação de utilização é elevado **numberOfWorkers** para **3** com mais capacidade de processamento para essa aplicação. 
     - Baixa utilização aplicações iriam definir **numberOfWorkers** para **1**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - [Descrição geral dos planos do App Service do Azure](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
 - [Introdução ao Ambiente do Serviço de Aplicações](app-service-app-service-environment-intro.md)

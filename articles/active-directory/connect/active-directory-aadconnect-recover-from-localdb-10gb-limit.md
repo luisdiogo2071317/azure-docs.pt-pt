@@ -3,7 +3,7 @@ title: 'O Azure AD Connect: Como recuperar LocalDB problema 10 GB | Microsoft Do
 description: "Este tópico descreve como recuperar o serviço de sincronização ligar do Azure AD quando encontra LocalDB 10GB limitar o problema."
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 7b54461a58fb6b60d0686743f90b6c85d7819f1f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b72f6730d32a71146781420923226fc521b5982b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>O Azure AD Connect: Como recuperar a partir de limite de 10 GB LocalDB
 O Azure AD Connect necessita de uma base de dados do SQL Server para armazenar dados de identidade. Pode utilizar a predefinição da LocalDB do SQL Server 2012 Express instalada com o Azure AD Connect ou utilizar o seu SQL completo. O SQL Server Express impõe um limite de tamanho de 10 GB. Ao utilizar a LocalDB e este limite ser atingido, o Serviço de Sincronização do Azure AD Connect já não pode iniciar ou sincronizar corretamente. Este artigo fornece os passos de recuperação.
@@ -100,5 +100,5 @@ Em geral, o problema é facto de que o tamanho de base de dados de 10 GB já nã
 * Para obter instruções sobre como configurar o SQL remoto com o Azure AD Connect, consulte o artigo [Instalação personalizada do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
 * Para instruções sobre a migração rotativa de atualização do Azure AD Connect, consulte o artigo [Azure AD Connect: atualizar de uma versão anterior para a versão mais recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

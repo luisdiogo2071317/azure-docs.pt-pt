@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: 76cf2556f911948689c96deb1cbab350f2559817
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2563927684720a0be1144fa51aea7b9dae4abe7e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Desenvolver Python MapReduce programas transmissão em fluxo para o HDInsight
 
@@ -201,7 +201,7 @@ Utilize o seguinte script do PowerShell para carregar os ficheiros, execute a ta
 
     Este comando apresenta uma lista de palavras e quantas vezes o word ocorreu.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu como utilizar tarefas de MapRedcue transmissão em fluxo com o HDInsight, utilize as hiperligações seguintes para explorar as outras formas de trabalhar com o Azure HDInsight.
 

@@ -3,7 +3,7 @@ title: "Funcionalidades do serviço de sincronização do Azure AD Connect e con
 description: "Descreve as funcionalidades do lado do serviço para o serviço de sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 830692d6df6856e73b8c192db91edf75fdcaec35
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e939c6a53a1154b23431581e789605d83e849fe2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funcionalidades do serviço de sincronização do Azure AD Connect
 A funcionalidade de sincronização do Azure AD Connect tem dois componentes:
@@ -31,13 +31,13 @@ Este tópico explica como as seguintes funcionalidades do **serviço de sincroni
 Estas definições são configuradas pelo [módulo Azure Active Directory para Windows PowerShell](http://aka.ms/aadposh). Transfira e instale-o em separado a partir do Azure AD Connect. Os cmdlets documentados neste tópico foram introduzidos no [versão de Março de 2016 (compilação 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Se não tiver os cmdlets documentados neste tópico ou não produzem o mesmo resultado, em seguida, certifique-se de que executa a versão mais recente.
 
 Para ver a configuração no diretório do Azure AD, execute `Get-MsolDirSyncFeatures`.  
-![Get-MsolDirSyncFeatures resultado](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
+![Get-MsolDirSyncFeatures result](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
 
 Muitas destas definições só podem ser alteradas pelo Azure AD Connect.
 
 As seguintes definições podem ser configuradas por `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Comentar |
+| DirSyncFeature | Comentário |
 | --- | --- |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |Permite que os objetos associar o userPrincipalName para além do endereço SMTP principal. |
 | [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |Permite que o motor de sincronização atualizar o atributo userPrincipalName gerido/licenciado utilizadores (não federada). |
@@ -51,7 +51,7 @@ Depois de ter ativado uma funcionalidade, não é possível desativar novamente.
 
 As seguintes definições são configuradas pelo Azure AD Connect e não pode ser modificadas por `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Comentar |
+| DirSyncFeature | Comentário |
 | --- | --- |
 | DeviceWriteback |[O Azure AD Connect: Ativar a repetição de escrita do dispositivo](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Sincronização do Azure AD Connect: extensões de diretórios](active-directory-aadconnectsync-feature-directory-extensions.md) |
@@ -104,7 +104,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 Depois de ativar esta funcionalidade, os valores de userPrincipalName existentes permanecerá como-é. Na próxima alteração do userPrincipalName atributo no local, a sincronização de diferenças normal em utilizadores atualizará o UPN.  
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).
 

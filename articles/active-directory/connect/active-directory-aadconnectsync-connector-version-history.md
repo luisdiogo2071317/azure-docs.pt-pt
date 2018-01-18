@@ -3,7 +3,7 @@ title: "Histórico de lançamento do conector versão | Microsoft Docs"
 description: "Este tópico apresenta uma lista de todas as versões dos conectores para o Forefront Identity Manager (FIM) e o Microsoft Identity Manager (MIM)"
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
-ms.author: fimguy
-ms.openlocfilehash: 3fbdc60a21aa16926bc4db00f41ade8ecda415f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: billmath
+ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="connector-version-release-history"></a>Histórico de Versões do Conector
 Os conectores do Forefront Identity Manager (FIM) e o Microsoft Identity Manager (MIM) são atualizados com frequência.
@@ -84,8 +84,8 @@ Ligações relacionadas:
 * Notas de Lotus:
   * Quando a opção **permitir certifiers personalizados para unidades de organização/Organizational** está desativada, em seguida, o conector falha durante a exportação (atualização) depois do fluxo de exportação, todos os atributos são exportados para Domino mas no momento da exportação um KeyNotFoundException é devolvido para sincronização. 
     * Isto acontece porque a operação de mudança de nome ocorre uma falha ao tentar alterar DN (atributo de nome de utilizador), alterar um dos atributos abaixo:  
-      - Apelido
-      - Nome próprio
+      - LastName
+      - FirstName
       - MiddleInitial
       - AltFullName
       - AltFullNameLanguage
@@ -152,7 +152,7 @@ Lançadas: Março de 2017
  * Assistente de quebras de linha quando são detetados sem atributos UPN do esquema de diretório LDAP
  * Diferenças importações falhar com erros de deteção não presentes durante a importação completa, quando o atributo "objectclass" não está seleccionado.
  * Uma página de configuração "Configurar partições e hierarquias", não mostra os objetos que tipo de é igual para a partição para servidores Novel genérica  
-MA DE LDAP. Estes mostrou apenas os objetos da partição de RootDSE.
+LDAP MA. Estes mostrou apenas os objetos da partição de RootDSE.
 
 
 * SQL genérico:
@@ -244,7 +244,7 @@ Para atualizar a definição:
 * Depois de tem sido acedidos todos os separadores de propriedade, clique no botão OK para guardar as alterações.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory híbrida identidade considerações de design - determinar os requisitos de autenticação multifator"
+title: "Estrutura de identidade híbrida - requisitos de multi-factor authentication do Azure | Microsoft Docs"
 description: "Com o controlo de acesso condicional, o Azure Active Directory verifica as condições específicas, que escolha ao autenticar o utilizador e antes de permitir o acesso à aplicação. Depois destas condições são cumpridas, o utilizador é autenticado e permissão de acesso à aplicação."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5b3a8ce6e4203dfb3700f324e32687dd910118af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seohack1
+ms.openlocfilehash: bbdf60ed22a720f4f735108da79fe3b2ace1660a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de autenticação multifator para a sua solução de identidade híbrida
 Neste mundo de mobilidade, com utilizadores que acedem aos dados e aplicações na nuvem e de qualquer dispositivo, proteger esta informação tornou essencial da.  Todos os dias há um novo título sobre uma violação de segurança.  Contudo, não há nenhuma garantia de tais danos, o multi-factor authentication, fornece uma camada adicional de segurança para ajudar a evitar estas violações.
@@ -56,9 +57,9 @@ Depois de as respostas a perguntas anterior, será capaz de compreender se exist
 * A sua empresa precisa de ativar a MFA para todos os utilizadores elegíveis destas aplicações ou apenas os administradores?
 * Tem de tem MFA sempre ativada ou apenas quando os utilizadores tem sessão iniciados fora da rede empresarial?
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Definir uma estratégia de adoção de identidade híbrida](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 [Descrição geral das considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/08/2017
+ms.date: 01/08/2018
 ms.author: larryfr
-ms.openlocfilehash: bf1840f77ebd39761a5ba1fd8fd1f98891dd8eca
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 0822502bcd3e2b0d20f718a158d6db489a650bde
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidade e fiabilidade dos clusters Hadoop no HDInsight.
 
@@ -110,7 +110,7 @@ Pode ligar a nós que não estão acessíveis diretamente através da internet u
 
 Para verificar o estado dos serviços que são executadas em nós principais, utilize a IU da Web do Ambari ou a API de REST do Ambari.
 
-### <a name="ambari-web-ui"></a>IU da Web do Ambari
+### <a name="ambari-web-ui"></a>Ambari Web UI
 
 IU da Web do Ambari é visualizável em https://CLUSTERNAME.azurehdinsight.net. Substitua **CLUSTERNAME** pelo nome do cluster. Se lhe for solicitado, introduza as credenciais de utilizador HTTP para o cluster. O nome de utilizador HTTP predefinido é **admin** e a palavra-passe é a palavra-passe que introduziu ao criar o cluster.
 

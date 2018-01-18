@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Resolver problemas de sincronização de ficheiros do Azure (pré-visualização)
 Utilize sincronização de ficheiros do Azure (pré-visualização) para centralizar o processamento de partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo o flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Sincronização de ficheiros do Azure transforma do Windows Server para uma cache rápida da Azure da partilha de ficheiros. Pode utilizar qualquer protocolo de que está disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter caches tantos conforme necessário por todo o mundo.
@@ -28,7 +28,7 @@ Este artigo foi concebido para ajudar a resolver problemas que podem surgir com 
 1. A secção de comentários deste artigo.
 2. [Fórum de armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure ficheiros UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Suporte da Microsoft. Para criar um novo pedido de suporte, no portal do Azure, o **ajudar** separador, selecione o **ajuda + suporte** botão e, em seguida, selecione **novo pedido de suporte**.
+4. Microsoft Support. Para criar um novo pedido de suporte, no portal do Azure, o **ajudar** separador, selecione o **ajuda + suporte** botão e, em seguida, selecione **novo pedido de suporte**.
 
 ## <a name="agent-installation-and-server-registration"></a>Registo de servidor e a instalação do agente
 <a id="agent-installation-failures"></a>**Resolver problemas de falhas de instalação do agente**  
@@ -135,6 +135,8 @@ Se os ficheiros individuais falharem a sincronizar:
 
     > [!NOTE]
     > Sincronização de ficheiros do Azure periodicamente tira instantâneos VSS para sincronizar os ficheiros que tenham identificadores abertos.
+
+Estamos atualmente não suportam a movimentação de recurso para outra subscrição ou, mover um Azure AD diferentes de inquilino.  Se a subscrição é movido para um inquilino diferente, a partilha de ficheiros do Azure torna-se inacessíveis para o nosso serviço com base na alteração de propriedade. Se o inquilino foi alterado, terá de eliminar os pontos finais de servidor e o ponto final da nuvem (consulte o artigo gestão de sincronização de grupo secção para obter instruções sobre como limpar a partilha de ficheiros do Azure para ser novamente utilizado) e recrie o grupo de sincronização.
 
 ## <a name="cloud-tiering"></a>Disposição em camadas na cloud 
 Existem dois caminhos para falhas na nuvem em camadas:

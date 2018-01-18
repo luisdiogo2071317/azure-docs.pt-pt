@@ -3,7 +3,7 @@ title: "Sincronização do Azure AD Connect: efetuar uma alteração na sincroni
 description: "Explica como efetuar uma alteração à configuração na sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: billmath
-ms.openlocfilehash: 1fd07d506b2edc789d71001ac520b9ebddc3e1d9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: ed71272d2d10cd8b71fd3b2722d3ba033f1b51f9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: como efetuar uma alteração para a configuração predefinida
 O objetivo deste tópico é guiá-lo como efetuar alterações à configuração de predefinição na sincronização do Azure AD Connect. Fornece os passos para alguns cenários comuns. Com este conhecimento, deverá conseguir efetuar algumas alterações simples à sua própria configuração com base nas suas regras de negócio.
@@ -178,12 +178,12 @@ As regiões no Office 365 são:
 
 | Região | Descrição |
 | --- | --- |
-| NOM | América do Norte |
+| NAM | América do Norte |
 | EUR | Europa |
 | APC | Ásia-Pacífico |
 | JPN | Japão |
 | AUS | Austrália |
-| PODE | Canadá |
+| CAN | Canadá |
 | GBR | Grã-Bretanha |
 | LAM | América Latina |
 
@@ -273,14 +273,14 @@ A regra de sincronização de entrada permite que o valor de atributo para o flu
     | Descrição | *Forneça uma descrição personalizada* |  |
     | Sistema ligado | *Escolha no local conector AD* |  |
     | Tipo de objeto de sistema ligado | **Utilizador** |  |
-    | Tipo de objeto de Metaverso | **Pessoa** |  |
+    | Tipo de objeto de Metaverso | **Person** |  |
     | Tipo de ligação | **Associar** |  |
     | Precedência | *Escolha um número entre 1 a 99* | 1 a 99 está reservado para regras de sincronização personalizados. Não escolha um valor que é utilizado por outra regra de sincronização. |
 
 5. Manter o **Scoping filtro** vazio para incluir todos os objetos. Poderá ter de otimizar o filtro de âmbito, de acordo com a implementação do Azure AD Connect.
 6. Vá para o **separador de transformação** e implementar a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
+    | Tipo de fluxo | Atributo de Destino | Origem | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
     |Direto | PreferredDataLocation | Escolha o atributo de origem | Desmarcada | Atualizar |
 
@@ -302,7 +302,7 @@ A regra de sincronização de saída permite que o valor de atributo para o flux
     | Descrição | *Forneça uma descrição* ||
     | Sistema ligado | *Seleccione o conector AAD* ||
     | Tipo de objeto de sistema ligado | Utilizador ||
-    | Tipo de objeto de Metaverso | **Pessoa** ||
+    | Tipo de objeto de Metaverso | **Person** ||
     | Tipo de ligação | **Associar** ||
     | Precedência | *Escolha um número entre 1 a 99* | 1 a 99 está reservado para regras de sincronização personalizados. Não escolha um valor que é utilizado por outra regra de sincronização. |
 
@@ -310,14 +310,14 @@ A regra de sincronização de saída permite que o valor de atributo para o flux
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
-    | sourceObjectType | IGUAL A | Utilizador |
+    | sourceObjectType | EQUAL | Utilizador |
     | cloudMastered | NOTEQUAL | Verdadeiro |
 
     Filtro de âmbito determina qual é aplicada esta regra de sincronização de saída para os objetos do Azure AD. Neste exemplo, utilizamos o mesmo filtro de âmbito de "Out AD – a identidade do utilizador" regra de sincronização de OOB. Impede que a regra de sincronização que está a ser aplicadas a objetos de utilizador que não estão sincronizados do Active Directory no local. Poderá ter de otimizar o filtro de âmbito, de acordo com a implementação do Azure AD Connect.
 
 6. Vá para o **transformação** separador e implementar a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
+    | Tipo de fluxo | Atributo de Destino | Origem | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
     | Direto | PreferredDataLocation | PreferredDataLocation | Desmarcada | Atualizar |
 
@@ -468,7 +468,7 @@ A regra de sincronização de entrada permite que o valor de atributo para o flu
     | Descrição | *Forneça uma descrição* |  |
     | Sistema ligado | *Escolha no local conector AD* |  |
     | Tipo de objeto de sistema ligado | **Utilizador** |  |
-    | Tipo de objeto de Metaverso | **Pessoa** |  |
+    | Tipo de objeto de Metaverso | **Person** |  |
     | Tipo de ligação | **Associar** |  |
     | Precedência | *Escolha um número entre 1 a 99* | 1 a 99 está reservado para regras de sincronização personalizados. Não escolha um valor que é utilizado por outra regra de sincronização. |
 
@@ -482,13 +482,13 @@ A regra de sincronização de entrada permite que o valor de atributo para o flu
 
 6. Vá para o **separador de transformação** e implementar a regra de transformação pretendido. Por exemplo, ter designado uma não utilizados no local o atributo de AD (por exemplo, extensionAttribute1) como o atributo de origem para UserType, pode implementar um fluxo de atributos direta:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
+    | Tipo de fluxo | Atributo de Destino | Origem | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
     | Direto | UserType | extensionAttribute1 | Desmarcada | Atualizar |
 
     Outro exemplo – que pretende o valor para o atributo UserType deriva de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como convidado se local atributo AD UserPrincipalName termina com a parte do domínio "@partners.fabrikam123.org". Pode implementar uma expressão:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
+    | Tipo de fluxo | Atributo de Destino | Origem | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
     | Direto | UserType | IIf(IsPresent([userPrincipalName]),IIF(CBool(Instr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0) "Membro", "Convidado"), erro ("UserPrincipalName não está presente para determinar UserType")) | Desmarcada | Atualizar |
 
@@ -510,7 +510,7 @@ A regra de sincronização de saída permite que o valor de atributo para o flux
     | Descrição | *Forneça uma descrição* ||
     | Sistema ligado | *Seleccione o conector AAD* ||
     | Tipo de objeto de sistema ligado | Utilizador ||
-    | Tipo de objeto de Metaverso | **Pessoa** ||
+    | Tipo de objeto de Metaverso | **Person** ||
     | Tipo de ligação | **Associar** ||
     | Precedência | *Escolha um número entre 1 a 99* | 1 a 99 está reservado para regras de sincronização personalizados. YDo não escolha um valor que é utilizado por outra regra de sincronização. |
 
@@ -518,14 +518,14 @@ A regra de sincronização de saída permite que o valor de atributo para o flux
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
-    | sourceObjectType | IGUAL A | Utilizador |
+    | sourceObjectType | EQUAL | Utilizador |
     | cloudMastered | NOTEQUAL | Verdadeiro |
 
     Filtro de âmbito determina qual é aplicada esta regra de sincronização de saída para os objetos do Azure AD. Neste exemplo, utilizamos o mesmo filtro de âmbito de "Out AD – a identidade do utilizador" regra de sincronização de OOB. Impede que a regra de sincronização que está a ser aplicadas a objetos de utilizador que não estão sincronizados do Active Directory no local. Poderá ter de otimizar o filtro de âmbito, de acordo com a implementação do Azure AD Connect.
 
 6. Vá para o **transformação** separador e implementar a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
+    | Tipo de fluxo | Atributo de Destino | Origem | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
     | Direto | UserType | UserType | Desmarcada | Atualizar |
 

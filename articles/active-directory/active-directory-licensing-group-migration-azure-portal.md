@@ -1,5 +1,5 @@
 ---
-title: Como migrar os utilizadores licenciados individuais para um grupo no Azure Active Directory | Microsoft Docs
+title: "Migrar os utilizadores de licenças de utilizador ao grupo com base no licenciamento no Azure Active Directory | Microsoft Docs"
 description: "Como mudar de licenças de utilizador individuais ao grupo baseado licenciamento com o Azure Active Directory"
 services: active-directory
 keywords: Licenciamento do Azure AD
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 01/14/2018
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08bcde92ecc3c834d4c6a36e73a720c170b8fcf2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 47d7bf5a41c140c6d6769b549163a3dadfa5ef1c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Como adicionar os utilizadores licenciados para um grupo para licenciamento no Azure Active Directory
 
@@ -81,7 +81,7 @@ Eis o processo de migração foi aspeto:
   ![licenças diretas removidas](media/active-directory-licensing-group-migration-azure-portal/direct-licenses-removed.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre outros cenários para gestão de licenças através de grupos, leia o artigo
 

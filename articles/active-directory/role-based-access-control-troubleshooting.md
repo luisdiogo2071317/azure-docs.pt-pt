@@ -1,9 +1,9 @@
 ---
-title: Resolver problemas do RBAC do Azure | Microsoft Docs
+title: "Resolver problemas de controlo de acesso baseado em funções do Azure RBAC | Microsoft Docs"
 description: "Obter ajuda com problemas ou questões sobre os recursos de controlo de acesso baseado em funções."
 services: azure-portal
 documentationcenter: na
-author: andredm7
+author: curtand
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: andredm
+ms.date: 01/14/2018
+ms.author: curtand
 ms.reviewer: rqureshi
-ms.openlocfilehash: b7155ed7613d46329229d8e572c75400041022ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 8ca6c53b24c3e708d4631becabcedc523d436d6b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
-# <a name="role-based-access-control-troubleshooting"></a>Resolução de problemas de controlo de acesso baseado em funções
+# <a name="troubleshooting-azure-role-based-access-control"></a>Resolução de problemas de controlo de acesso baseado em funções do Azure 
 
 Este artigo de documento responde a questões recorrentes sobre os direitos de acesso específicas que são concedidos com as funções, para que saiba o que esperar quando utiliza as funções no portal do Azure e pode resolver problemas de acesso. Estas três funções abrangem todos os tipos de recursos:
 
@@ -41,7 +42,7 @@ Se conceder um acesso de só de leitura de utilizador para uma aplicação web �
 * Configuração de registos de diagnóstico
 * Consola (linha de comandos)
 * Implementações de Active Directory e recentes (para a implementação contínua de local git)
-* Gastos estimados
+* Estimativa de gastos
 * Testes Web
 * Rede virtual (visível apenas para um leitor se anteriormente tiver sido configurada uma rede virtual por um utilizador com acesso de escrita).
 
@@ -65,7 +66,7 @@ Estes itens requerem **escrever** acesso a totalidade **grupo de recursos** que 
 * Certificados SSL e os enlaces (certificados SSL podem ser partilhados entre sites no mesmo grupo de recursos e geolocalização)  
 * Regras de alerta  
 * Definições de dimensionamento automático  
-* Componentes do Application insights  
+* Componentes de informações de aplicação  
 * Testes Web  
 
 ## <a name="virtual-machine-workloads"></a>Cargas de trabalho de máquina virtual

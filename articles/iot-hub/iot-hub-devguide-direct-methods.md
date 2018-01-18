@@ -15,15 +15,14 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 243845139c7ae0389333d7490098ef73f95dceac
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos do IoT Hub
 IoT Hub permite invocar métodos diretos nos dispositivos da nuvem. Métodos diretos representam uma interação de pedido-resposta com um dispositivo semelhante a uma chamada HTTP em que são ou não bem-sucedidos imediatamente (após um tempo limite especificado de um utilizador). Esta abordagem é útil para cenários em que o método de ação imediata é diferente consoante se o dispositivo foi capaz de responder, como o envio de uma reativação SMS para um dispositivo se um dispositivo estiver offline (que está a ser mais dispendioso do que uma chamada de método SMS).
-
 Cada método de dispositivo está direcionada para um único dispositivo. [As tarefas] [ lnk-devguide-jobs] proporcionam uma forma de invocar métodos diretos em vários dispositivos e agendar a invocação de métodos para dispositivos desligados.
 
 Qualquer pessoa com **serviço ligar** permissões no IoT Hub podem invocar um método num dispositivo.
@@ -44,7 +43,7 @@ Direcionar métodos são síncronos e o êxito ou falhar depois do período de t
 
 Direcionar métodos são HTTPS apenas do lado da nuvem e MQTT ou AMQP do lado do dispositivo.
 
-O payload de pedidos de método e as respostas é um JSON documento até 8 KB.
+O payload de pedidos de método e as respostas é um JSON documento até 128 KB.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Invocar um método direto a partir de uma aplicação de back-end
 ### <a name="method-invocation"></a>Invocação de métodos

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Serviços de domínio do Azure AD - guia de resolução de problemas
 Este artigo fornece sugestões de resolução de problemas para problemas que poderão surgir quando configurar ou administração dos serviços de domínio do Azure Active Directory (AD).
@@ -122,6 +122,7 @@ Verifique se tiver desativado a uma aplicação com o identificador 00000002-000
 
 Para resolver este erro, ative esta aplicação e, em seguida, tente ativar os serviços de domínio para o seu inquilino do Azure AD.
 
+
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Os utilizadores não conseguem iniciar sessão no domínio gerido pelo Azure AD Domain Services
 Se um ou mais utilizadores no seu inquilino do Azure AD não conseguem iniciar sessão no domínio gerido criado recentemente, execute os seguintes passos de resolução de problemas:
 
@@ -145,12 +146,17 @@ Se um ou mais utilizadores no seu inquilino do Azure AD não conseguem iniciar s
     2. net start 'Microsoft Azure AD Sync'
 * **Contas apenas na nuvem**: se a conta de utilizador afectado é uma conta de utilizador apenas na nuvem, certifique-se de que o utilizador foi alterado a palavra-passe depois de ativado os serviços de domínio do Azure AD. Este passo faz com que sejam gerados os hashes de credencial necessários para o Azure AD Domain Services.
 
+## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Existem um ou mais alertas no seu domínio gerido
+
+Veja como resolver alertas no seu domínio gerido, visitando o [resolver alertas](active-directory-ds-troubleshoot-alerts.md) artigo.
+
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Utilizadores removidos do seu inquilino do Azure AD não são removidos do seu domínio gerido
 O Azure AD impede a eliminação acidental de objetos de utilizador. Quando elimina uma conta de utilizador do inquilino do Azure AD, o objeto de utilizador correspondente é movido para a Reciclagem. Quando esta operação de eliminação é sincronizada com o seu domínio gerido, faz com que a conta de utilizador correspondente ser marcado como desativado. Esta funcionalidade ajuda-o a recuperar ou a conta de utilizador de anular eliminação mais tarde.
 
 A conta de utilizador permanece no estado desativado no seu domínio gerido, mesmo voltar a criar uma conta de utilizador com o mesmo UPN no diretório do Azure AD. Para remover a conta de utilizador do seu domínio gerido, tem de forçar a eliminá-la a partir do seu inquilino do Azure AD.
 
 Para remover completamente a conta de utilizador do seu domínio gerido, elimine permanentemente o utilizador do seu inquilino do Azure AD. Utilize o `Remove-MsolUser` cmdlet do PowerShell com o `-RemoveFromRecycleBin` opção, conforme descrito neste [artigo do MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+
 
 ## <a name="contact-us"></a>Contacte-nos
 Contacte a equipa de produto do Azure Active Directory Domain Services para [partilhar comentários ou para suporte](active-directory-ds-contact-us.md).

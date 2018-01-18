@@ -1,5 +1,5 @@
 ---
-title: "Como técnicos de informação adicionar utilizadores de colaboração B2B do Azure Active Directory? | Microsoft Docs"
+title: "Adicionar utilizadores de colaboração do B2B como um técnico de informação - Azure Active Directory | Microsoft Docs"
 description: "Colaboração B2B permite aos infotrabalhadores adicionar utilizadores da sua organização para o Azure AD para acesso | Microsoft Docs"
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 255ee5c11aa7e76fec23837d3bdccf2175c2f9fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e02f23c055af24b42fd41394b26a4df827cb0fc8
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Como técnicos de informação adicionar utilizadores de colaboração B2B do Azure Active Directory?
 
@@ -37,7 +37,7 @@ Os infotrabalhadores da mesma forma podem adicionar utilizadores de colaboraçã
 > Não é possível adicionar utilizadores de colaboração do B2B para um grupo dinâmico ou a um grupo que está sincronizado com o Active Directory no local.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte os nossos outros artigos sobre a colaboração B2B do Azure AD:
 

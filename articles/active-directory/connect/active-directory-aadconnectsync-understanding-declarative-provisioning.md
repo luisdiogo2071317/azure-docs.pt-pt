@@ -3,7 +3,7 @@ title: "Azure AD Connect: Noções sobre aprovisionamento declarativo | Microsof
 description: "Explica o modelo de configuração aprovisionamento declarativo no Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7e299fb33bdbd514a8fbc96c6953c9a8ca70f54a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: Noções sobre o aprovisionamento declarativo
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo é denominado aprovisionamento declarativo e permite-lhe efetuar uma alteração com facilidade de configuração. Inúmeros aspetos descritos neste tópico estão avançados e não é necessário para a maioria dos cenários de cliente.
@@ -52,7 +52,7 @@ O módulo de âmbito suporta as seguintes operações.
 
 | Operação | Descrição |
 | --- | --- |
-| IGUAL, NOTEQUAL |Comparar uma cadeia que avalia se o valor for igual ao valor no atributo. Para atributos com múltiplos valores, consulte ISIN e ISNOTIN. |
+| EQUAL, NOTEQUAL |Comparar uma cadeia que avalia se o valor for igual ao valor no atributo. Para atributos com múltiplos valores, consulte ISIN e ISNOTIN. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Comparar uma cadeia que avalia se o valor for less than do valor do atributo. |
 | CONTÉM, NOTCONTAINS |Comparar uma cadeia que avalia se o valor pode ser encontrado algures no valor no atributo. |
 | STARTSWITH, NOTSTARTSWITH |Comparar uma cadeia que avalia se o valor está no início do valor do atributo. |
@@ -148,7 +148,7 @@ Se tiver vários objetos no mesmo espaço de conector associado ao mesmo objeto 
 Para este cenário, terá de alterar o âmbito das regras de sincronização para que os objetos de origem tem regras de sincronização diferentes no âmbito. Que permite-lhe definir a precedência diferentes.  
 ![Vários objetos associados ao mesmo objeto de mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre o idioma de expressão no [expressões compreender de aprovisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 * Consulte como declarativa de aprovisionamento é utilizado out-of-box no [entender a configuração predefinida](active-directory-aadconnectsync-understanding-default-configuration.md).
 * Ver como efetuar uma alteração prática utilizando o aprovisionamento declarativo no [como efetuar uma alteração para a configuração predefinida](active-directory-aadconnectsync-change-the-configuration.md).

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 08ac10a160ef6305322714eb9d134be95c3b5e17
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classificar Íris, parte 3: implementar um modelo
 Os serviços do Azure Machine Learning (pré-visualização) são uma solução de análise avançada e ciência de dados completa e integrada para os cientistas de dados profissionais. Os cientistas de dados podem utilizá-los para preparar dados, desenvolver experimentações e implementar modelos à escala da cloud.
@@ -134,37 +134,7 @@ Pode utilizar o _modo local_ para desenvolvimento e testes. O motor do Docker te
 
    A linha de comandos abre-se na localização da pasta do seu projeto atual, **c:\temp\myIris>**.
 
-2. Certifique-se de que o fornecedor de recursos do Azure **Microsoft.ContainerRegistry** está registado na sua subscrição. Tem de registar este fornecedor de recursos antes de poder criar um ambiente no passo 3. Pode utilizar o comando seguinte para confirmar se já está registado:
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   Deverá ver um resultado como este: 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   Se **Microsoft.ContainerRegistry** não estiver registado, pode registá-lo com o comando abaixo:
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   O registo pode demorar alguns minutos. Pode verificar o estado do mesmo com o comando **az provider list** anterior ou com o seguinte:
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   A terceira linha da saída apresenta **"registrationState": "Registering"**. Aguarde uns momentos e repita o comando **show**, até que a saída apresente **"registrationState": "Registered"**.
-
-   >[!NOTE] 
-   Se estiver a implementar um cluster de ACS, tem de registar o **Microsoft.ContainerService** fornecedor de recursos, bem como utilizar a mesma abordagem exata.
-
-3. Crie o ambiente. Tem de executar este passo uma vez por ambiente. Por exemplo, execute-o uma vez para o ambiente de desenvolvimento e outra para produção. Utilize o _modo local_ para o primeiro. Pode experimentar o comutador `-c` ou `--cluster` no comando seguinte para configurar um ambiente no _modo de cluster_ mais tarde.
+2. Crie o ambiente. Tem de executar este passo uma vez por ambiente. Por exemplo, execute-o uma vez para o ambiente de desenvolvimento e outra para produção. Utilize o _modo local_ para o primeiro. Pode experimentar o comutador `-c` ou `--cluster` no comando seguinte para configurar um ambiente no _modo de cluster_ mais tarde.
 
    Tenha em conta que o comando de configuração seguinte requer que tenha o acesso Contribuidor à subscrição. Se não o tiver, precisa, pelo menos, de acesso Contribuidor ao grupo de recursos no qual está a implementar. Neste último caso, tem de especificar o nome do grupo de recursos como parte do comando de configuração através do sinalizador `-g`. 
 
@@ -176,17 +146,17 @@ Pode utilizar o _modo local_ para desenvolvimento e testes. O motor do Docker te
    
    O nome do cluster é uma forma de identificar o ambiente. A localização deve ser a mesma da localização da conta de Gestão de Modelos que criou no portal do Azure.
 
-4. Crie uma conta de Gestão de Modelos. (Esta é uma configuração única.)  
+3. Crie uma conta de Gestão de Modelos. (Esta é uma configuração única.)  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Defina a conta de Gestão de Modelos.  
+4. Defina a conta de Gestão de Modelos.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Defina o ambiente.
+5. Defina o ambiente.
 
    Depois de concluída a configuração, utilize o comando seguinte para definir as variáveis de ambiente necessárias para operacionalizar o ambiente. Utilize o mesmo nome de ambiente que utilizou anteriormente no passo 4. Utilize o mesmo nome de grupo de recursos que foi produzido na janela do comando quando o processo de configuração foi concluído.
 
@@ -194,7 +164,7 @@ Pode utilizar o _modo local_ para desenvolvimento e testes. O motor do Docker te
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. Para verificar se configurou corretamente o ambiente operacionalizado para a implementação do serviço Web local, introduza o comando abaixo:
+6. Para verificar se configurou corretamente o ambiente operacionalizado para a implementação do serviço Web local, introduza o comando abaixo:
 
    ```azurecli
    az ml env show

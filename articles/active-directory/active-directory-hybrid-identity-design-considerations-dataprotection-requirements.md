@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory híbrida identidade considerações de design - determine os requisitos de proteção de dados | Microsoft Docs"
+title: "Estrutura de identidade híbrida - requisitos de proteção de dados do Azure | Microsoft Docs"
 description: "Quando planear a sua solução de identidade híbrida, identificar os requisitos de proteção de dados para a sua empresa e que opções estão disponíveis para melhor satisfazer estes requisitos."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 1a2feca8d24fabda4c191b5a181ab6606c912657
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Planear a segurança dos dados através da solução de identidade segura de otimização
 O primeiro passo para proteger os dados é identificar quem pode aceder a dados e como parte deste processo, que tem de ter uma identidade solução que pode se integra com o sistema para fornecer capacidades de autenticação e autorização. Autenticação e autorização, muitas vezes, são confundidos entre si e as respetivas funções misunderstood. Na realidade, são bastante diferentes, conforme mostrado na imagem abaixo:
@@ -79,9 +80,9 @@ Requisitos de conformidade de regulamentação, leis e regulamentos irão variar
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
  [Determinar os requisitos de gestão de conteúdo](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 [Descrição geral das considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

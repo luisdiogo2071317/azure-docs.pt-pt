@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Perguntas mais frequentes para a fábrica de ligação do IoT Suite solução pré-configurada
 
@@ -104,20 +104,20 @@ Também pode encontrar a cadeia de ligação no portal do Azure. No recurso do I
 
 A simulação Self-regista os seguintes dispositivos:
 
-* proxy.Beijing.corp.contoso
+* proxy.beijing.corp.contoso
 * proxy.capetown.corp.contoso
-* proxy.Mumbai.corp.contoso
+* proxy.mumbai.corp.contoso
 * proxy.munich0.corp.contoso
 * proxy.rio.corp.contoso
-* proxy.Seattle.corp.contoso
-* Publisher.Beijing.corp.contoso
-* Publisher.capetown.corp.contoso
-* Publisher.Mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
-* Publisher.rio.corp.contoso
-* Publisher.Seattle.corp.contoso
+* proxy.seattle.corp.contoso
+* publisher.beijing.corp.contoso
+* publisher.capetown.corp.contoso
+* publisher.mumbai.corp.contoso
+* publisher.munich0.corp.contoso
+* publisher.rio.corp.contoso
+* publisher.seattle.corp.contoso
 
-Utilizar o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou [iothub explorer](https://github.com/azure/iothub-explorer) ferramenta, pode verificar que dispositivos estão registados com o hub IoT está a utilizar a sua solução. Para utilizar estas ferramentas, terá da cadeia de ligação para o IoT hub na sua implementação.
+Utilizar o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou [a extensão de IoT para Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) ferramenta, pode verificar que dispositivos estão registados com o hub IoT está a utilizar a sua solução. Utilizar o Explorador de dispositivo, terá da cadeia de ligação para o IoT hub na sua implementação. Para utilizar a extensão do IoT do Azure CLI 2.0, terá de nome do seu IoT Hub.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Como posso obter dados de registo dos componentes simulação?
 
@@ -135,20 +135,26 @@ Com o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master
 
 Inspecione os dados enviados por um dos dispositivos publicador:
 
-* Publisher.Beijing.corp.contoso
-* Publisher.capetown.corp.contoso
-* Publisher.Mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
-* Publisher.rio.corp.contoso
-* Publisher.Seattle.corp.contoso
+* publisher.beijing.corp.contoso
+* publisher.capetown.corp.contoso
+* publisher.mumbai.corp.contoso
+* publisher.munich0.corp.contoso
+* publisher.rio.corp.contoso
+* publisher.seattle.corp.contoso
 
 Se vir sem dados enviados ao IoT Hub, não há um problema com a simulação. Como primeiro passo analysis deve analisar os ficheiros de registo dos componentes simulação. Consulte [como posso obter dados de registo dos componentes simulação?](#how-can-i-get-log-data-from-the-simulation-components) Em seguida, tente parar e iniciar a simulação e se ainda não existe nenhum dados enviados, atualize a simulação completamente. Consulte [como atualizar a simulação na VM?](#how-do-i-update-the-simulation-in-the-vm)
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Como ativar a um mapa interativo na minha solução de fábrica ligado
 
-Para ativar um mapa interativo na sua solução de fábrica ligado, tem de ter um existente API para Bing Maps plano empresarial. Se tiver uma API para Bing Maps para plano empresarial quando implementar a solução de fábrica ligados de www.azureiotsuite.com, o mapa interativo é ativado automaticamente para si.
+Para ativar um mapa interativo na sua solução de fábrica ligado, tem de ter um existente API para Bing Maps plano empresarial.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Como posso criar uma API para Bing Maps para conta Enterprise?
+Ao implementar a partir de [www.azureiotsuite.com](http://www.azureiotsuite.com), o processo de implementação verifica que a sua subscrição tem um ativado API para Bing Maps plano empresarial e implementa automaticamente um mapa interativo na fábrica ligada. Se não for este o caso, pode ainda ativar um mapa interativo na sua implementação da seguinte forma:
+
+Ao implementar utilizando o `build.ps1` script na fábrica de ligado repositório do GitHub e ter um API para Bing Maps para o plano de Enterprise, defina a variável de ambiente `$env:MapApiQueryKey` na janela de compilação para a chave de consulta do seu plano. O mapa interativo, em seguida, é ativado automaticamente.
+
+Se não tiver uma API para Bing Maps para o plano de Enterprise, implementar a solução de fábrica ligados de [www.azureiotsuite.com](http://www.azureiotsuite.com) ou utilizando o `build.ps1` script. Em seguida, adicione um API para Bing Maps para plano empresarial à sua subscrição, conforme explicado no [como criar uma API para Bing Maps para conta Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Procurar a chave de consulta desta conta, conforme explicado no [como obter a API do Bing Maps para Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e guarde esta chave. Navegue para o portal do Azure e aceder ao recurso de serviço de aplicações na sua implementação de fábrica ligado. Navegue para **definições da aplicação**, onde encontrar uma secção **as definições de aplicação**. Definir o **MapApiQueryKey** para a chave de consulta que obteve. Guardar as definições e, em seguida, navegue para **descrição geral** e reinicie o serviço de aplicações.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Como posso criar uma API para Bing Maps para conta Enterprise
 
 Pode obter um livre *interno transações de nível 1 Bing Maps para Enterprise* plano. No entanto, só é possível adicionar dois estes planos para uma subscrição do Azure. Se não tiver uma API para Bing Maps para conta Enterprise, crie uma no portal do Azure, clicando em **+ criar um recurso**. Em seguida, procure **API do Bing Maps para Enterprise** e siga as instruções para criá-la.
 
@@ -202,7 +208,7 @@ Para enviar os dados telemétricos do não OPC UA dispositivos à fábrica ligad
 
 1. Reinicie a fábrica de ligação do serviço de aplicações.
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Passos Seguintes
 
 Também pode explorar algumas das outras funcionalidades e capacidades das soluções pré-configuradas do IoT Suite:
 

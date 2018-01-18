@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 01d321dce439e153b494dfd0de52c100dab78f39
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1ab67cd8aaf59cde3157fcb877ce13f10cb432bb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="use-visual-studio-code-to-debug-c-module-with-azure-iot-edge"></a>Utilizar o Visual Studio Code para depuração c# módulo com o limite de IoT do Azure
 Este artigo fornece instruções detalhadas para utilizar [Visual Studio Code](https://code.visualstudio.com/) como a ferramenta de desenvolvimento principal para depurar os módulos de limite de IoT.
@@ -32,6 +32,9 @@ Depois de concluir o tutorial anterior, deve ter os seguintes itens estiver pron
 
 ## <a name="build-your-iot-edge-module-for-debugging-purpose"></a>Criar o módulo de limite de IoT para fins de depuração
 1. Para iniciar a depuração, tem de utilizar o **dockerfile.debug** para reconstruir a imagem de docker e implementar novamente a sua solução de ponta. No Explorador de VS Code, clique na pasta de Docker para abri-lo. Em seguida, clique no `linux-x64` pasta, faça duplo clique o **Dockerfile.debug**e clique em **imagem de Docker do módulo de limite de IoT criar**.
+
+    ![Compilar a imagem de depuração](./media/how-to-debug-csharp-module/build-debug-image.png)
+
 3. No **selecionar pasta** janela, procurar ou introduzir `./bin/Debug/netcoreapp2.0/publish`. Clique em **selecionar pasta como EXE_DIR**.
 4. Na caixa de texto de pop-up na parte superior da janela VS Code, introduza o nome da imagem. Por exemplo: `<your container registry address>/filtermodule:latest`. Se estiver a implementar no registo local, deve ser `localhost:5000/filtermodule:latest`.
 5. A imagem de emissão para o seu repositório de Docker. Utilize o **Edge: imagem de Docker do módulo de limite de Push de IoT** de comandos e introduza o URL da imagem na caixa de texto de pop-up na parte superior da janela VS Code. Utilize o mesmo URL de imagem utilizada nos passos acima.
@@ -39,9 +42,18 @@ Depois de concluir o tutorial anterior, deve ter os seguintes itens estiver pron
 
 ## <a name="start-debugging-in-vs-code"></a>Iniciar a depuração no VS Code
 1. Ir para a janela de depuração do código de VS. Prima **F5** e selecione **IoT Edge(.Net Core)**
+
+    ![Prima F5](./media/how-to-debug-csharp-module/f5-debug-option.png)
+
 2. No `launch.json`, navegue para **depurar IoT Edge personalizada módulo (.NET Core)** secção e preencha as `<container_name>`em `pipeArgs`. Deve ser `filtermodule` neste tutorial.
+
+    ![Modificar pipeArgs](./media/how-to-debug-csharp-module/f5-debug-option.png)
+
 3. Navegue para Program.cs. Adicionar um ponto de interrupção no `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
 4. Prima **F5** novamente. E selecionar o processo para anexar a. Neste tutorial, deve ser o nome do processo`FilterModule.dll`
+
+    ![Anexar processo](./media/how-to-debug-csharp-module/attach-process.png)
+
 5. Na janela de depuração do código de VS, pode ver as variáveis no painel esquerdo. 
 
 > [!NOTE]

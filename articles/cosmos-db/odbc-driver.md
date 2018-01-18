@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 01/16/2018
 ms.author: mimig
-ms.openlocfilehash: 2df792c00b7a789dbefa64bfe0245f1ad73c3faa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligue à BD do Cosmos do Azure utilizando as ferramentas de análise de BI com o controlador ODBC
 
@@ -38,9 +38,11 @@ Permite agora começar com o controlador ODBC.
 
 1. Transfira os controladores para o seu ambiente:
 
-    * [Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) para Windows de 64 bits
-    * [Microsoft Azure Cosmos DB ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) de 32 bits em Windows de 64 bits
-    * [Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) para Windows de 32 bits
+    | Instalador | Sistemas operativos suportados| 
+    |---|---| 
+    |[Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64) para Windows de 64 bits| versões de 64 bits do Windows 8.1 ou posterior, Windows 8, Windows 7, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2.| 
+    |[Microsoft Azure Cosmos DB ODBC 32 x 64-bit.msi](https://aka.ms/documentdb-odbc-32x64) de 32 bits em Windows de 64 bits| as versões de 64 bits do Windows 8.1 ou posterior, Windows 8, Windows 7, Windows XP, Windows Vista, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 e Windows Server 2003.| 
+    |[Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32) para Windows de 32 bits|versões de 32 bits do Windows 8.1 ou posterior, Windows 8, Windows 7, Windows XP e Windows Vista.|
 
     Execute o ficheiro msi localmente, que inicia o **instalação de controlador Assistente do Microsoft Azure Cosmos DB ODBC**. 
 2. Conclua o Assistente de instalação utilizando a predefinição de entrada para instalar o controlador ODBC.
@@ -58,16 +60,16 @@ Permite agora começar com o controlador ODBC.
     ![Janela de programa de configuração do Cosmos DB ODBC controlador DSN do Azure](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Nome da origem de dados**: O seus próprios nome amigável para o DSN de ODBC. Este nome é exclusivo para a sua conta de base de dados do Azure Cosmos, por isso, nome adequadamente se tiver várias contas.
     - **Descrição**: uma breve descrição da origem de dados.
-    - **Anfitrião**: URI para a sua conta de base de dados do Azure Cosmos. Pode obter esta no painel chaves de BD do Cosmos do Azure no portal do Azure, conforme mostrado na captura de ecrã seguinte. 
-    - **Aceder à chave**: A chave primária ou secundária, leitura e escrita ou só de leitura do painel chaves de BD do Cosmos do Azure no portal do Azure, como mostrado na captura de ecrã seguinte. Recomendamos que utilize a chave apenas de leitura se for utilizado o DSN para processamento de dados só de leitura e de relatórios.
-    ![Painel de chaves de BD do Cosmos do Azure](./media/odbc-driver/odbc-driver-keys.png)
+    - **Anfitrião**: URI para a sua conta de base de dados do Azure Cosmos. Pode obter esta da página de chaves de BD do Cosmos do Azure no portal do Azure, conforme mostrado na captura de ecrã seguinte. 
+    - **Aceder à chave**: A chave primária ou secundária, leitura e escrita ou só de leitura das chaves de BD do Azure Cosmos página no portal do Azure, conforme mostrado na captura de ecrã seguinte. Recomendamos que utilize a chave apenas de leitura se for utilizado o DSN para processamento de dados só de leitura e de relatórios.
+    ![Página do Cosmos DB chaves do Azure](./media/odbc-driver/odbc-driver-keys.png)
     - **Encriptar a chave de acesso de**: selecione a melhor opção com base nos utilizadores desta máquina. 
 4. Clique em de **teste** botão para se certificar de que pode ligar à sua conta de base de dados do Azure Cosmos. 
 5. Clique em **opções avançadas** e defina os seguintes valores:
     - **Consultar consistência**: selecione a [nível de consistência](consistency-levels.md) para as operações. A predefinição é de sessão.
     - **Número de tentativas**: introduza o número de vezes para tentar uma operação se o pedido inicial não for concluída devido à limitação do serviço.
     - **Ficheiro de esquema**: tiver um número de opções aqui.
-        - Por predefinição, deixar esta entrada é (em branco), o controlador analisa os dados de página primeiro para todas as coleções determinar o esquema de cada coleção. Isto é conhecido como mapeamento de coleção. Sem um ficheiro de esquema definido, o controlador tem de executar a análise para cada sessão de controladores e pode resultar num início de tempo de uma aplicação utilizando o DSN superior. Recomendamos que associa sempre um ficheiro de esquema para um DSN.
+        - Por predefinição, deixar esta entrada é (em branco), o controlador analisa os dados de página primeiro para todas as coleções determinar o esquema de cada coleção. Isto é conhecido como mapeamento de coleção. Sem um ficheiro de esquema definido, o controlador tem de executar a análise para cada sessão de controladores e pode resultar num tempo de arranque superior de uma aplicação utilizando o DSN. Recomendamos que associa sempre um ficheiro de esquema para um DSN.
         - Se já tiver um ficheiro de esquema (possivelmente uma que criou utilizando o [Editor de esquema](#schema-editor)), pode clicar em **procurar**, navegue para o ficheiro, clique em **guardar**e, em seguida, clique em **OK**.
         - Se pretender criar um novo esquema, clique em **OK**e, em seguida, clique em **Editor de esquema** na janela principal. Em seguida, avance para o [Editor de esquema](#schema-editor) informações. Após criar o novo ficheiro de esquema, não se esqueça de voltar para o **opções avançadas** janela incluir o ficheiro de esquema recentemente criado.
 
@@ -146,6 +148,6 @@ Se receber o erro seguinte, certifique-se a **anfitrião** e **chave de acesso**
 
     [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre a BD do Cosmos do Azure, consulte [o que é a base de dados do Azure Cosmos?](introduction.md).
+Para saber mais sobre a BD do Cosmos do Azure, consulte [bem-vindo ao Azure Cosmos DB](introduction.md).

@@ -3,7 +3,7 @@ title: Lotus Domino Connector | Microsoft Docs
 description: Este artigo descreve como configurar Lotus Domino Connector da Microsoft.
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c412be1c54e0378166791c61469c951bca3a583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Referência técnica do Lotus Domino Connector
 Este artigo descreve o conector do Lotus Domino. O artigo aplica-se os seguintes produtos:
@@ -80,10 +80,10 @@ Operações ou vá diretamente para o diretório de Domino ou através do proces
 
 | Objeto | Criar | Atualizar | Eliminar |
 | --- | --- | --- | --- |
-| Pessoa |N/D |Direto |Direto |
+| Pessoa |N/A |Direto |Direto |
 | Grupo |Direto |Direto |Direto |
 | MailInDB |Direto |Direto |Direto |
-| Recurso |N/D |N/D |N/D |
+| Recurso |N/A |N/A |N/A |
 
 Quando um recurso é criado, é criado um documento de notas. Da mesma forma, quando um recurso é eliminado, o documento de notas é eliminado.
 
@@ -119,7 +119,7 @@ Na página de conectividade, tem de especificar o nome do servidor Lotus Domino 
 
 A propriedade do servidor de Domino suporta dois formatos para o nome do servidor:
 
-* serverName
+* ServerName
 * ServerName/DirectoryName
 
 O **ServerName/DirectoryName** formato é o formato preferencial para este atributo, porque fornece resposta mais rápida quando o conector contacta o servidor de Domino.
@@ -135,7 +135,7 @@ Para **importação Delta** dispõe das seguintes opções:
 No **opções de esquema** tem as seguintes opções:
 
 * **Predefinição esquema**. O conector Deteta o esquema do servidor Domino. Esta seleção é a opção predefinida.
-* **Esquema de DSML**. Só é utilizada se o servidor de Domino não expõe o esquema. Em seguida, pode criar um ficheiro DSML com o esquema e importá-lo em vez disso. Para obter mais informações sobre DSML, consulte [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
+* **DSML-Schema**. Só é utilizada se o servidor de Domino não expõe o esquema. Em seguida, pode criar um ficheiro DSML com o esquema e importá-lo em vez disso. Para obter mais informações sobre DSML, consulte [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
 
 Quando clicar em seguinte, os parâmetros de configuração do ID de utilizador e palavra-passe são verificados.
 
@@ -165,7 +165,7 @@ O **efetuar a importação completa pelo** tem estas opções:
 #### <a name="creation-of-virtual-contact-objects"></a>Criação dos objetos de contactos Virtual
 O **permitir a criação de \_objeto contacte** tem estas opções:
 
-* Nenhuma
+* Nenhum
 * Valores de referência não
 * Valores de referência e não seja de referência
 
@@ -198,7 +198,7 @@ Se não tiver **assistência de diretório** instalados, que fornece o nome de l
 #### <a name="multivalued-transformation"></a>Transformação com múltiplos valores
 Demasiados atributos no Lotus Domino são com múltiplos valores. Os atributos de metaverso correspondentes são normalmente único importantes. Ao configurar a importação e a opção de operação de exportação, ative o conector para o ajudar com a tradução necessária dos atributos afetados.
 
-**Exportar**  
+**Export**  
 A opção de operação de exportação suporta dois modos:
 
 * Acrescentar item
@@ -209,7 +209,7 @@ A opção de operação de exportação suporta dois modos:
 Exemplo: O atributo de Assistente de um objeto de pessoa tenha os seguintes valores:
 
 * CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = João Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 Se um Assistente de nova denominada **David Alexander** está atribuído a este objeto de pessoa, o resultado é:
 
@@ -220,13 +220,13 @@ Se um Assistente de nova denominada **David Alexander** está atribuído a este 
 Exemplo: O atributo de Assistente de um objeto de pessoa tenha os seguintes valores:
 
 * CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = João Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 Se um Assistente de nova denominada **David Alexander** está atribuído a este objeto de pessoa, o resultado é:
 
 * CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
 * CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = João Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 **Importar**  
 A opção de operação de importação suporta dois modos:
@@ -242,7 +242,7 @@ Exemplo: O atributo de Assistente de um objeto de pessoa tenha os seguintes valo
 
 * CN = David Alexander/OU=Contoso/O=Americas,NAB=names.nsf
 * CN = Greg Winston/OU=Contoso/O=Americas,NAB=names.nsf
-* CN = João Smith/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=John Smith/OU=Contoso/O=Americas,NAB=names.nsf
 
 A atualização mais recente para este atributo é **David Alexander**. Porque a opção de operação de importação estiver definida como Multivalued valor único, conector importa apenas **David Alexander** para o espaço conetor.
 
@@ -412,9 +412,9 @@ Esta secção lista os atributos que são obrigatórios para cada objeto a expor
 
 | Tipo de Objeto | Atributos obrigatórios |
 | --- | --- |
-| Grupo |<li>ListName necessário</li> |
+| Grupo |<li>ListName</li> |
 | Principal na base de dados |<li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
-| Pessoa |<li>Apelido</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
+| Pessoa |<li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | Contacte (pessoa com nenhuma certifier) |<li>\_MMS_IDRegType</li> |
 | Recurso |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>Nome a Apresentar</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 

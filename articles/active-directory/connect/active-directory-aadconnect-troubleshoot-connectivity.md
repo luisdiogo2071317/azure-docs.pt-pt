@@ -3,7 +3,7 @@ title: 'O Azure AD Connect: Resolver problemas de conectividade | Microsoft Docs
 description: Explica como resolver problemas de conectividade com o Azure AD Connect.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Resolver problemas de conectividade com o Azure AD Connect
 Este artigo explica como funciona a conectividade entre o Azure AD Connect e o Azure AD e como resolver problemas de conectividade. Estes problemas são mais prováveis ser vistos num ambiente com um servidor proxy.
@@ -43,10 +43,10 @@ URLs, a tabela seguinte é o mínimo de bare absoluto para conseguir ligar ao Az
 | URL | Porta | Descrição |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Utilizado para transferir o CRL listas. |
-| \*. verisign.com |HTTP/80 |Utilizado para transferir o CRL listas. |
-| \*. entrust.com |HTTP/80 |Utilizado para transferir as listas de CRL para a MFA. |
+| \*.verisign.com |HTTP/80 |Utilizado para transferir o CRL listas. |
+| \*.entrust.com |HTTP/80 |Utilizado para transferir as listas de CRL para a MFA. |
 | \*.windows.net |HTTPS/443 |Utilizado para iniciar sessão Azure AD. |
-| Secure.aadcdn.microsoftonline p.com |HTTPS/443 |Utilizado para a MFA. |
+| secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Utilizado para a MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Utilizado para configurar o seu diretório do Azure AD e importar/exportar dados. |
 
 ## <a name="errors-in-the-wizard"></a>Erros no Assistente
@@ -90,7 +90,7 @@ Se receber **não é possível ligar ao servidor remoto**, em seguida, o PowerSh
 Se o proxy não está corretamente configurado, receberá um erro: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| Erro | Texto de erro | Comentar |
+| Erro | Texto de erro | Comentário |
 | --- | --- | --- |
 | 403 |Proibido |O proxy não foi aberto para o URL pedido. Revê a configuração de proxy e certifique-se a [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) tenham sido abertos. |
 | 407 |Autenticação de proxy necessária |O servidor proxy necessário um início de sessão e não foi fornecido nenhum. Se o servidor proxy requer autenticação, certifique-se para terem esta definição configurada no Config. Certifique-se também que estiver a utilizar as contas de domínio para o utilizador que executa o assistente e para a conta de serviço. |
@@ -112,37 +112,37 @@ Eis uma captura de um registo de proxy real e a página do Assistente de instala
 
 | Hora | URL |
 | --- | --- |
-| 1/11/2016 8:31 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:31 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |ligar: / /*bba800 âncora*. microsoftonline.com:443 |
-| 1/11/2016 8:32 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:33 |Connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |ligar: / /*bwsc02 reencaminhamento*. microsoftonline.com:443 |
+| 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Configurar**
 
 | Hora | URL |
 | --- | --- |
-| 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |ligar: / /*bba800 âncora*. microsoftonline.com:443 |
-| 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |ligar: / /*bba900 âncora*. microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |ligar: / /*bba800 âncora*. microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:46 |Connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |ligar: / /*bwsc02 reencaminhamento*. microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Sincronização inicial**
 
 | Hora | URL |
 | --- | --- |
-| 1/11/2016 8:48 |Connect://login.Windows.NET:443 |
-| 1/11/2016 8:49 |Connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |ligar: / /*bba900 âncora*. microsoftonline.com:443 |
-| 1/11/2016 8:49 |ligar: / /*bba800 âncora*. microsoftonline.com:443 |
+| 1/11/2016 8:48 |connect://login.windows.net:443 |
+| 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Erros de autenticação
 Esta secção abrange erros que podem ser devolvidos a partir da ADAL (a biblioteca de autenticação utilizada pelo Azure AD Connect) e o PowerShell. O erro explicado deverá ajudá-lo a compreender os passos seguintes.
@@ -197,5 +197,5 @@ Este erro ocorre quando o Assistente de início de sessão não é possível alc
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 * Se o que procura correto, siga os passos no [verificar a conectividade de proxy](#verify-proxy-connectivity) para ver se o problema está presente fora, bem como o assistente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

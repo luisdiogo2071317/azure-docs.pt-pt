@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -290,7 +290,7 @@ Pode utilizar os aliases de propriedade para aceder às propriedades específica
 | Microsoft.Compute/VirtualMachineScaleSets/sku.name | Defina o tamanho das máquinas virtuais num conjunto de dimensionamento. |
 | Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Defina a camada de máquinas virtuais num conjunto de dimensionamento. |
 
-**Network/applicationgateways**
+**Microsoft.Network/applicationGateways**
 
 | Alias | Descrição |
 | ----- | ----------- |
@@ -322,10 +322,10 @@ Pode utilizar os aliases de propriedade para aceder às propriedades específica
 
 | Alias | Descrição |
 | ----- | ----------- |
-| servidores/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Defina a DTU partilhada total para o conjunto elástico da base de dados. |
-| servidores/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Defina a edição do conjunto elástico. |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Defina a DTU partilhada total para o conjunto elástico da base de dados. |
+| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Defina a edição do conjunto elástico. |
 
-**Storage/storageaccounts**
+**Microsoft.Storage/storageAccounts**
 
 | Alias | Descrição |
 | ----- | ----------- |

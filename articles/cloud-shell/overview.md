@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/17/2018
 ms.author: juluk
-ms.openlocfilehash: 129b43db85a0962005352e0f1e6ad2ad3be2c7d5
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: b710c324f72fa56a2ebad0d1b35052639611d30d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Descrição geral da Shell de nuvem do Azure
 Shell de nuvem do Azure é uma shell interativa e acessíveis para o browser para a gestão de recursos do Azure.
-Proporciona a flexibilidade de escolher a experiência de shell que melhor se adapta da forma que trabalha.
+Fornece a flexibilidade de escolher a experiência de shell que melhor se adapta da forma que trabalha.
 Os utilizadores de Linux podem optar por uma experiência de Bash, ao passo que os utilizadores de Windows podem escolher o PowerShell.
 
 Tente do shell.azure.com utilizando este botão.
@@ -52,8 +52,8 @@ Ver a lista completa de ferramentas para o [Bash experiência](features.md#tools
 
 ### <a name="multiple-access-points"></a>Vários pontos de acesso
 Shell de nuvem é uma ferramenta flexível que pode ser utilizada a partir de:
-* [Portal.Azure.com](https://portal.azure.com)
-* [shell.Azure.com](https://shell.azure.com)
+* [portal.azure.com](https://portal.azure.com)
+* [shell.azure.com](https://shell.azure.com)
 * [Documentação de "Experimente" 2.0 da CLI do Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 * [Aplicação móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Extensão de conta do Azure de código de VS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
@@ -101,6 +101,6 @@ Saiba mais sobre as funcionalidades no [Bash na Shell de nuvem](features.md) e [
 ## <a name="pricing"></a>Preços
 O computador que aloja a Shell de nuvem é gratuito, com um pré-requisito de uma partilha de ficheiros do Azure montada. Aplicam os custos de armazenamento normal.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Bash no início rápido da Shell de nuvem](quickstart.md) <br>
 [PowerShell no início rápido da Shell de nuvem (pré-visualização)](quickstart-powershell.md)

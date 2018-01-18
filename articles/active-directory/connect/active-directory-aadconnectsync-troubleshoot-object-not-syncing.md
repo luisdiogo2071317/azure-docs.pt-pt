@@ -3,7 +3,7 @@ title: "Resolver problemas de um objeto que não está a sincronizar com o Azure
 description: "Resolver problemas relacionados com a razão pela qual um objeto não está a sincronizar com o Azure AD."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 585b49addee7fe8ded2a047939f4b5412ba4163b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Resolver problemas de um objeto que não está a sincronizar com o Azure AD
 
@@ -40,10 +40,10 @@ A metade superior mostra todas as execuções chronic ordem. Por predefinição,
 
 O **estado** coluna são as informações mais importantes e mostra o problema mais grave para execução. Eis um resumo rápido dos Estados mais comuns por ordem de prioridade para investigar (onde * indicar vários cadeias de erro possíveis).
 
-| Estado | Comentar |
+| Estado | Comentário |
 | --- | --- |
 | parado-* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto não está disponível e não pode ser contactado. |
-| parado-erro-limite |Existem mais de 5.000 erros. A executar automaticamente foi parada devido ao elevado número de erros. |
+| stopped-error-limit |Existem mais de 5.000 erros. A executar automaticamente foi parada devido ao elevado número de erros. |
 | concluída -\*-erros |A execução foi concluída, mas existem erros (menos de 5000) que devem ser investigados. |
 | concluída -\*-avisos |A execução foi concluída, mas alguns dados não está no estado esperado. Se tiver de erros, em seguida, esta mensagem é, normalmente, apenas um sintoma. Até ter resolvidas erros, não deve investigar avisos. |
 | exito |Não existem problemas. |

@@ -3,7 +3,7 @@ title: "O Azure AD Connect: Se já tiver do Azure AD | Microsoft Docs"
 description: "Este tópico descreve como utilizar ligar quando tiver um inquilino do Azure AD existente."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b3efcdd8c3f7173711c005e0fe4d7080bd902663
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>O Azure AD Connect: Se tiver um inquilino existente
 A maioria dos tópicos para saber como utilizar o Azure AD Connect parte do princípio de que começa com um novo Azure inquilino do AD e de que não existe nenhum utilizador ou outros objetos não existe. Mas se tiver iniciado com um inquilino do Azure AD, preenchido este com utilizadores e outros objetos e agora pretende utilizar Connect, em seguida, este tópico é que o utilizador.
@@ -58,5 +58,5 @@ Alguns clientes começam com uma solução apenas na nuvem com o Azure AD e não
 
 Se o motivo apenas motivo pelo qual planeia adicionar AD no local é para suportar LOBs (aplicações de linha de negócio), em seguida, talvez deve considerar a utilizar [serviços de domínio do Azure AD](../../active-directory-domain-services/index.md) em vez disso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

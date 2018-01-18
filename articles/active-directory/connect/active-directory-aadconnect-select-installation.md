@@ -3,7 +3,7 @@ title: "O Azure AD Connect: Selecione o tipo de instalação | Microsoft Docs"
 description: "Este tópico explica como selecionar o tipo de instalação a utilizar para o Azure AD Connect"
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99b97de182ddbfa8b490c15b2a6a38cc69421283
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecione o tipo de instalação a utilizar para o Azure AD Connect
 O Azure AD Connect tem dois tipos de instalação para a instalação do novo: Express e personalizados. Este tópico ajuda-o a decidir qual a opção a utilizar durante a instalação.
@@ -41,7 +41,7 @@ Obter:
 
 Opções de onde pode continuar a utilizar rápida:
 
-- Se não quiser sincronizar todas as OUs, ainda pode utilizar o Express e na última página, anule a seleção de **iniciar o processo de sincronização...** *. Em seguida, execute novamente o Assistente de instalação e alterar as UOs na [opções de configuração](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) e ativar a sincronização agendada.
+- Se não quiser sincronizar todas as OUs, ainda pode utilizar o Express e na última página, anule a seleção de * * iniciar o processo de sincronização … ***. Em seguida, execute novamente o Assistente de instalação e alterar as UOs na [opções de configuração](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) e ativar a sincronização agendada.
 - Pretende ativar uma das funcionalidades no Azure AD Premium, tais como a repetição de escrita de palavras-passe. Percorra primeiro rápida para obter a instalação inicial foi concluída. Em seguida, execute novamente o Assistente de instalação e altere o [opções de configuração](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personalizado
@@ -71,5 +71,5 @@ Se estiver a utilizar o Azure AD Sync, em seguida, pode seguir o [mesmos passos]
 ## <a name="migrate-from-fim2010-or-mim2016"></a>Migrar a partir de FIM2010 ou MIM2016
 Se estiver a utilizar o Forefront Identity Manager 2010 ou Microsoft Identity Manager 2016 com o conector do Azure AD, a única opção é uma migração. Siga os passos descritos no [swing migração](active-directory-aadconnect-upgrade-previous-version.md#swing-migration). Nos passos, substitua qualquer menção do Azure AD Sync FIM2010/MIM2016.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Dependendo da opção que selecionou para utilizar, utilize a tabela de conteúdo para a esquerda para localizar o seu artigo com os passos detalhados.

@@ -3,7 +3,7 @@ title: "Conectores na IU do Gestor de serviço de sincronização do AD do Azure
 description: "Compreenda o separador de conectores no Gestor de serviço de sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12c78b1baf1f2117b6c960784c133268fec4b2bb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3bbbe5d0d7a7ed7065133b4bc6e5fc2dba39bf7d
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>A utilização de conectores com o Azure AD Connect sincronização do Service Manager
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/11/2017
 O separador de conectores é utilizado para gerir todos os sistemas que o motor de sincronização está ligado.
 
 ## <a name="connector-actions"></a>Ações de conector
-| Ação | Comentar |
+| Ação | Comentário |
 | --- | --- |
 | Criar |Não utilize. Para ligar a florestas adicionais do AD, utilize o Assistente de instalação. |
 | Propriedades |Utilizado para o domínio e a filtragem de UO. |
@@ -39,7 +39,7 @@ O separador de conectores é utilizado para gerir todos os sistemas que o motor 
 | Conector de exportação |Não utilize. |
 | Importar o conector |Não utilize. |
 | Conector de atualização |Não utilize. |
-| Actualizar Esquema |Atualiza o esquema em cache. É preferencial para utilizar a opção no Assistente de instalação em vez disso, desde que também as atualizações de sincronizar as regras. |
+| Atualizar Esquema |Atualiza o esquema em cache. É preferencial para utilizar a opção no Assistente de instalação em vez disso, desde que também as atualizações de sincronizar as regras. |
 | [Espaço de conector de pesquisa](#search-connector-space) |Utilizado para localizar objetos e [siga um objeto e os respetivos dados através do sistema](#follow-an-object-and-its-data-through-the-system). |
 
 ### <a name="delete"></a>Eliminar

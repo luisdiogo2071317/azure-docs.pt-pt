@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 004e7b0299763be9d31b1df22df2a423dc7c52cf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas mais frequentes sobre gestão de API do Azure
 Obter as respostas a perguntas comuns, padrões e melhores práticas para a API Management do Azure.
@@ -33,7 +33,6 @@ Obter as respostas a perguntas comuns, padrões e melhores práticas para a API 
 * [Posso gerir os meus instância da API Management programaticamente?](#can-i-manage-my-api-management-instance-programmatically)
 * [Como adicionar um utilizador ao grupo de administradores?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Por que motivo é a política que pretendo adicionar disponível no editor de políticas?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
-* [Como utilizar o controlo de versões de API na API Management?](#how-do-i-use-api-versioning-in-api-management)
 * [Como configurar vários ambientes numa única API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [Pode utilizar SOAP com a API Management?](#can-i-use-soap-with-api-management)
 * [É a constante de endereço IP de gateway de gestão de API? Posso utilizá-lo em regras de firewall?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
@@ -63,7 +62,7 @@ Tem várias opções para proteger a ligação entre o gateway de gestão de API
 
 * Utilize a autenticação básica de HTTP. Para obter mais informações, consulte [importação e publicar a sua primeira API](import-and-publish.md).
 * Utilizar a autenticação mútua de SSL, conforme descrito em [como proteger serviços de back-end utilizando o cliente de autenticação de certificado na API Management do Azure](api-management-howto-mutual-certificates.md).
-* Utilize Adicionar à lista branca IP do seu serviço de back-end. Se tiver uma instância de gestão de API de camada Standard ou Premium, o endereço IP do gateway permanece constante. Pode definir a lista branca, para permitir que este endereço IP. Pode obter o endereço IP da sua instância de gestão de API no Dashboard do portal do Azure.
+* Utilize Adicionar à lista branca IP do seu serviço de back-end. Em todas as camadas de API Management, o endereço IP do gateway permanece constante, com algumas [advertências](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Pode definir a lista branca, para permitir que este endereço IP. Pode obter o endereço IP da sua instância de gestão de API no Dashboard do portal do Azure.
 * Ligar a instância de API Management para uma rede Virtual do Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Como copiar o meu instância de serviço de API Management para uma nova instância?
@@ -83,7 +82,7 @@ Sim, pode gerir API Management através de programação utilizando:
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Como adicionar um utilizador ao grupo de administradores?
 Eis como pode adicionar um utilizador ao grupo de administradores:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Vá para o grupo de recursos à instância de gestão de API que pretende atualizar.
 3. Na API Management, atribua o **contribuinte de gestão de Api** função ao utilizador.
 
@@ -97,13 +96,6 @@ Agora a contribuinte adicionado recentemente pode utilizar o Azure PowerShell [c
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Por que motivo é a política que pretendo adicionar disponível no editor de políticas?
 Se a política que pretende adicionar aparece desativada ou sombreados no editor de políticas, não se esqueça de que está no âmbito correto para a política. Cada declaração de política foi concebida para a utilização de âmbitos específicos e secções de política. Para rever as secções de política e os âmbitos de uma política, consulte a secção de utilização da política no [políticas de gestão de API](https://msdn.microsoft.com/library/azure/dn894080.aspx).
 
-### <a name="how-do-i-use-api-versioning-in-api-management"></a>Como utilizar o controlo de versões de API na API Management?
-Tem algumas opções para utilizar o controlo de versões de API na API Management:
-
-* Na API Management, pode configurar as APIs para representar versões diferentes. Por exemplo, poderá ter duas APIs diferentes, MyAPIv1 e MyAPIv2. Um programador pode escolher a versão que o programador pretende utilizar.
-* Também pode configurar a sua API com um URL de serviço não inclui um segmento de versão, por exemplo, https://my.api. Em seguida, configure um segmento de versão de cada operação [Rewrite URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) modelo. 
-* Se gostaria de manter um segmento de versão "predefinido" no URL do serviço de API, no selecionada operations, definir uma política que utiliza o [definir o serviço de back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) política para alterar o caminho de pedido de back-end.
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Como configurar vários ambientes numa única API?
 Configurar vários ambientes, por exemplo, um ambiente de teste e de ambiente de produção, uma única API, tem duas opções. Pode:
 
@@ -114,7 +106,7 @@ Configurar vários ambientes, por exemplo, um ambiente de teste e de ambiente de
 [Pass-through SOAP](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) suporte está agora disponível. Os administradores podem importar WSDL do seu serviço de SOAP e API Management do Azure irá criar um front-end SOAP. Documentação do portal de programador, a consola de teste, políticas e análise está disponível para os serviços SOAP.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>É a constante de endereço IP de gateway de gestão de API? Posso utilizá-lo em regras de firewall?
-Em camadas Standard e Premium, o endereço IP público (VIP) do inquilino de gestão de API é estático para a duração do inquilino, com algumas exceções. As alterações do endereço IP nestas circunstâncias:
+Em todas as camadas de API Management, o endereço IP público (VIP) do inquilino de gestão de API é estático para a duração do inquilino, com algumas exceções. As alterações do endereço IP nestas circunstâncias:
 
 * O serviço é eliminado e, em seguida, voltar a criar.
 * A subscrição de serviço é [suspenso](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) ou [avisado](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (por exemplo, para nonpayment) e, em seguida, reinstated.

@@ -1,5 +1,5 @@
 ---
-title: "Utilizar o sistema de gestão de identidade entre domínios aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory para aplicações | Microsoft Docs"
+title: "Automatizar o aprovisionamento de aplicações a utilizar o SCIM no Azure Active Directory | Microsoft Docs"
 description: "Azure Active Directory podem aprovisionar automaticamente os utilizadores e grupos a qualquer arquivo de aplicação ou identidade que é fronted por um serviço web com a interface definida na especificação de protocolo SCIM"
 services: active-directory
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro
-ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.custom: aaddev;it-pro;seohack1
+ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilizar o sistema para a gestão de identidade entre domínios para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory para aplicações
 
@@ -352,35 +352,35 @@ Recursos de utilizador são identificados pelo identificador de esquema, urn: ie
 Grupo de recursos é identificados pelo identificador de esquema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabela 2, abaixo, mostra o mapeamento predefinido de atributos de grupos no Azure Active Directory para os atributos de recursos de http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>1 de tabela: Mapeamento de atributos de utilizador de predefinido
-| Utilizador do Active Directory do Azure | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
+| Utilizador do Active Directory do Azure | urn:ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
 | IsSoftDeleted |ativo |
 | displayName |displayName |
-| Facsimile TelephoneNumber |.value phoneNumbers [eq "faxes" do tipo] |
+| Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
-| jobTitle |Título |
-| capacidade de correio |mensagens de correio eletrónico [eq "trabalho" do tipo] .value |
+| jobTitle |título |
+| capacidade de correio |emails[type eq "work"].value |
 | mailNickname |externalId |
 | Gestor |Gestor |
-| Mobile |.value phoneNumbers [eq de tipo "móvel"] |
+| Mobile |phoneNumbers[type eq "mobile"].value |
 | objectId |ID |
-| PostalCode |.postalCode endereços [eq "trabalho" do tipo] |
-| Endereços de proxy |mensagens de correio eletrónico [Escreva eq "outro"]. Valor |
-| OfficeName de entrega de física |endereços [Escreva eq "outro"]. Formatado |
-| StreetAddress |.streetAddress endereços [eq "trabalho" do tipo] |
+| postalCode |addresses[type eq "work"].postalCode |
+| proxy-Addresses |emails[type eq "other"].Value |
+| physical-Delivery-OfficeName |endereços [Escreva eq "outro"]. Formatado |
+| streetAddress |addresses[type eq "work"].streetAddress |
 | Apelido |name.familyName |
-| Número de telefone |.value phoneNumbers [eq "trabalho" do tipo] |
-| utilizador PrincipalName |Nome de utilizador |
+| Número de telefone |phoneNumbers[type eq "work"].value |
+| user-PrincipalName |userName |
 
 ### <a name="table-2-default-group-attribute-mapping"></a>2 da tabela: O mapeamento de atributos de grupo predefinido
 | Grupo do Azure Active Directory | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
 | displayName |externalId |
-| capacidade de correio |mensagens de correio eletrónico [eq "trabalho" do tipo] .value |
+| capacidade de correio |emails[type eq "work"].value |
 | mailNickname |displayName |
 | membros |membros |
 | objectId |ID |
-| proxyAddresses |mensagens de correio eletrónico [Escreva eq "outro"]. Valor |
+| proxyAddresses |emails[type eq "other"].Value |
 
 ## <a name="user-provisioning-and-de-provisioning"></a>Aprovisionamento de utilizador e aprovisionamento automatizados.
 A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a um serviço SCIM para gerir o ciclo de vida de um utilizador no arquivo de identidade do outro. O diagrama mostra também como um serviço SCIM implementado utilizando as bibliotecas CLI fornecida pela Microsoft para edifício que desses serviços implica esses pedidos chamadas para os métodos de um fornecedor.  
@@ -442,11 +442,11 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a
     }
   ````
   No seguinte exemplo de uma consulta para um utilizador com um valor especificado para o atributo externalId, os valores dos argumentos transmitidos para o método de consulta são: 
-  * parâmetros. AlternateFilters.Count: 1
+  * parameters.AlternateFilters.Count: 1
   * parâmetros. AlternateFilters.ElementAt(0). AttributePath: "externalId"
-  * parâmetros. AlternateFilters.ElementAt(0). ComparisonOperator: ComparisonOperator.Equals
-  * parâmetros. AlternateFilter.ElementAt(0). ComparisonValue: "jyoung"
-  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. RequestId"] 
+  * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
+  * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
 2. Se a resposta a uma consulta para o serviço web para um utilizador com um valor de atributo externalId que corresponde ao valor de atributo de mailNickname de um utilizador não devolver quaisquer utilizadores, em seguida, do Azure Active Directory solicita que o serviço de aprovisionar um utilizador correspondente para o no Azure Active Directory.  Eis um exemplo deste pedido: 
   ````
@@ -526,8 +526,8 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a
   ````
   No exemplo de um pedido para obter o estado atual de um utilizador, os valores das propriedades do objeto fornecido como o valor do argumento parâmetros são: 
   
-  * Identificador: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+  * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 4. Se um atributo de referência está a ser atualizado, em seguida, o serviço para determinar se o valor do atributo de referência no arquivo de identidade atual fronted pelo serviço já consulta o Azure Active Directory corresponde ao valor desse atributo no Active Directory do Azure Diretório. Para os utilizadores, o atributo só de que o valor atual é consultado desta forma é o atributo de gestor. Eis um exemplo de um pedido para determinar se o atributo de Gestor de um objeto de utilizador em particular tem atualmente um determinado valor: 
   ````
@@ -539,14 +539,14 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a
   Se o serviço foi criado com as bibliotecas de infraestrutura de idioma comum fornecidas pela Microsoft para implementar serviços SCIM, em seguida, o pedido é convertido uma chamada para o método de consulta do fornecedor do serviço. O valor das propriedades do objeto fornecido como o valor do argumento parâmetros são os seguintes: 
   
   * parâmetros. AlternateFilters.Count: 2
-  * parâmetros. AlternateFilters.ElementAt(x). AttributePath: "id"
-  * parâmetros. AlternateFilters.ElementAt(x). ComparisonOperator: ComparisonOperator.Equals
-  * parâmetros. AlternateFilter.ElementAt(x). ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * parâmetros. AlternateFilters.ElementAt(y). AttributePath: "Gestor"
+  * parameters.AlternateFilters.ElementAt(x).AttributePath: "id"
+  * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+  * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
   * parâmetros. AlternateFilters.ElementAt(y). ComparisonOperator: ComparisonOperator.Equals
-  * parâmetros. AlternateFilter.ElementAt(y). ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-  * parâmetros. RequestedAttributePaths.ElementAt(0): "id"
-  * parâmetros. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+  * parameters.RequestedAttributePaths.ElementAt(0): "id"
+  * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
   Aqui, o valor do índice x pode ser 0 e o valor de y o índice pode ser 1, ou o valor x, poderá ser 1 e o valor de y pode ser 0, consoante a ordem das expressões de parâmetro de consulta de filtro.   
 
@@ -654,7 +654,7 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a
     No exemplo de um pedido para atualizar um utilizador, o objeto fornecido como o valor do argumento patch tem estes valores de propriedade: 
   
   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
   * (PatchRequest como PatchRequest2). Operations.Count: 1
   * (PatchRequest como PatchRequest2). Operations.ElementAt(0). OperationName: OperationName.Add
   * (PatchRequest como PatchRequest2). Operations.ElementAt(0). Path.AttributePath: "Gestor"
@@ -680,7 +680,7 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia a
   O objecto fornecido como o valor do argumento resourceIdentifier tem estes valores de propriedade no exemplo de um pedido para anular o aprovisionamento um utilizador: 
   
   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-  * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+  * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="group-provisioning-and-de-provisioning"></a>Aprovisionamento de grupo e de aprovisionamento automatizados.
 A ilustração seguinte mostra as mensagens que Azure AcD envia a um serviço SCIM para gerir o ciclo de vida de um grupo num arquivo de identidade do outro.  Essas mensagens diferem das mensagens relativas aos utilizadores de três formas diferentes: 

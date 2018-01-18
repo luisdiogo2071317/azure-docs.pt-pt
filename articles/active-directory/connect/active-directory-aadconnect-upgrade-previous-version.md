@@ -3,7 +3,7 @@ title: "O Azure AD Connect: Atualizar de uma versão anterior | Microsoft Docs"
 description: "Explica os diferentes métodos para atualizar para a versão mais recente do Azure Active Directory Connect, incluindo uma atualização no local e uma migração swing."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: acce2e8f0c875d0211f132efab5f55d77a0def67
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4d431a9e0fab8d46b244fd40178ede594c095893
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>O Azure AD Connect: Atualização de uma versão anterior para a versão mais recente
 Este tópico descreve os diferentes métodos que pode utilizar para atualizar a instalação do Connect do Azure Active Directory (Azure AD) para a versão mais recente. Recomendamos que mantenha sozinho atual com as versões do Azure AD Connect. Também é utilizar os passos a [Swing migração](#swing-migration) secção quando fizer uma alteração de configuração significativas.
@@ -129,5 +129,5 @@ Poderão existir situações em que pretenda estas substituições para ocorrer 
 
 Para adicionar as substituições para importação completa e sincronização completa de um conector arbitrário, execute o seguinte cmdlet:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

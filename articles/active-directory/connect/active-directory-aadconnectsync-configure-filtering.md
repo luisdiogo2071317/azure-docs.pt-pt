@@ -3,7 +3,7 @@ title: "Sincronização do Azure AD Connect: configurar a filtragem | Microsoft 
 description: "Explica como configurar a filtragem de sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: cbcf448ccff22219adb8c7d3652e7698ef4d231e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5af82e889a80994dd47d4fc3b89f8eece2201355
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Ao utilizar a filtragem, pode controlar quais os objetos são apresentados no Azure Active Directory (Azure AD) do seu diretório no local. A configuração predefinida demora todos os objetos em todos os domínios em florestas configurados. Em geral, esta é a configuração recomendada. Os utilizadores com cargas de trabalho do Office 365, como o Exchange Online e Skype para empresas, beneficiam de uma lista completa de endereços Global para que podem enviar correio eletrónico e chamar todas as pessoas. A configuração predefinida, seria têm a mesma experiência que têm com uma implementação no local do Exchange ou o Lync.
@@ -305,6 +305,6 @@ Quando efetuar a sincronização de várias florestas do AD, pode configurar com
 * Tem um utilizador numa floresta que tenha um correio correspondente contacto noutra floresta. Além disso, ter configurado o Azure AD Connect, para associar o utilizador com o contacto de correio. Ambos os objetos tem de ser dentro baseado no grupo de filtragem de âmbito. Caso contrário, o utilizador não será sincronizado para o Azure AD.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.
 - Saiba mais sobre [integrar as identidades no local com o Azure AD](active-directory-aadconnect.md).
