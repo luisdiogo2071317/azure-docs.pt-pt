@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: b35e87da943de8d47f36b6443fa62e251f742149
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações sobre o funcionamento em rede para serviços de domínio do Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Como selecionar uma Azure virtual network
@@ -74,15 +74,15 @@ As seguintes portas são necessárias para os serviços de domínio do Azure AD 
 * É obrigatório para permitir o acesso a esta porta no seu NSG. Sem acesso a esta porta, o seu domínio gerido não está sincronizado com o seu diretório do Azure AD. Os utilizadores poderão não conseguir iniciar sessão como alterações para as respetivas palavras-passe não serão sincronizadas com o seu domínio gerido.
 * Pode restringir o acesso de entrada para esta porta para endereços IP que pertençam ao intervalo de endereços IP do Azure.
 
-**Porta 5986 (comunicação remota do PowerShell)** 
+**Porta 5986 (comunicação remota do PowerShell)**
 * É utilizado para efetuar tarefas de gestão a utilizar a comunicação remota do PowerShell no seu domínio gerido.
 * É obrigatório para permitir o acesso através desta porta no seu NSG. Sem acesso a esta porta, o seu domínio gerido não pode ser atualizado, configurado, cópia de segurança ou monitorizado.
-* Pode restringir o acesso de entrada para esta porta para os seguintes endereços IP de origem: 52.180.183.8 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
+* Pode restringir o acesso de entrada para esta porta para os seguintes endereços IP de origem: 52.180.183.8 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
 * Os controladores de domínio para o seu domínio gerido não normalmente escutar nesta porta. O serviço abre-se esta porta nos controladores de domínio geridos apenas quando uma operação de gestão ou de manutenção tem de ser efetuada para o domínio gerido. Assim que a operação for concluída, o serviço será encerrado a esta porta nos controladores de domínio gerido.
 
-**Porta 3389 (ambiente de trabalho remoto)** 
-* É utilizado para ligações de ambiente de trabalho remotas para os controladores de domínio para o seu domínio gerido. 
-* Abrir esta porta através do NSG é opcional. 
+**Porta 3389 (ambiente de trabalho remoto)**
+* É utilizado para ligações de ambiente de trabalho remotas para os controladores de domínio para o seu domínio gerido.
+* Abrir esta porta através do NSG é opcional.
 * Isto também porta permanece amplamente desativada no seu domínio gerido. Este mecanismo não é utilizado numa base contínua, uma vez que as tarefas de monitorização e gestão são executadas utilizando a comunicação remota do PowerShell. Esta porta é utilizada apenas no evento raro que necessita de Microsoft para ligar remotamente ao seu domínio gerido para resolução de problemas avançada. A porta está fechada, assim que a operação de resolução de problemas está concluída.
 
 **Porta 636 (LDAP seguro)**
@@ -99,7 +99,7 @@ A tabela seguinte ilustra um exemplo NSG, pode configurar uma rede virtual com u
 
 Além disso, o NSG também ilustra a bloquear o acesso LDAP seguro através da internet. Ignore esta regra se não tiver ativado acesso LDAP seguro ao seu domínio gerido através da internet. O NSG contém um conjunto de regras que permitem acesso de entrada de LDAPS através da porta TCP 636 apenas a partir de um conjunto especificado de endereços IP. A regra NSG para permitir o acesso LDAPS através da internet a partir de endereços IP especificados tem uma prioridade mais alta do que a regra de DenyAll NSG.
 
-![Exemplo NSG para proteger o acesso a LDAPS através da internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![Exemplo NSG para proteger o acesso a LDAPS através da internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 **Obter mais informações** - [criar um grupo de segurança de rede](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -126,7 +126,7 @@ Pode ligar uma rede virtual baseada no Resource Manager para a rede virtual clá
     ![Utilização de peering de conectividade de rede virtual](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [Obter mais informações - virtuais peering de rede](../virtual-network/virtual-network-peering-overview.md)
-    
+
 * **Ligações VNet a VNet através de ligações de VPN de site para site**: ligar uma rede virtual a outra rede virtual (VNet a VNet) é semelhante à ligação uma rede virtual a uma localização do site no local. Ambos os tipos de conetividade utilizam um gateway de VPN para fornecer um túnel seguro através de IPsec/IKE.
 
     ![Conectividade de rede virtual com Gateway de VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)

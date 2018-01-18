@@ -1,24 +1,24 @@
 ---
 title: "Efetuar operações de armazenamento de tabelas do Azure com o PowerShell | Microsoft Docs"
 description: "Efetuar operações de armazenamento de tabelas do Azure com o PowerShell"
-services: storage
+services: cosmos-db
 documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: 
-ms.service: storage
-ms.workload: storage
+ms.service: cosmos-db
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 0174b6fe02008a1c22a165b077c694af7e8618ab
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Efetuar operações de armazenamento de tabelas do Azure com o Azure PowerShell 
 
@@ -58,7 +58,7 @@ Login-AzureRmAccount
 
 ## <a name="retrieve-list-of-locations"></a>Obter a lista de localizações
 
-Se não souber qual localização que pretende utilizar, pode listar as localizações disponíveis. Depois de é apresentada a lista, localize aquela que pretende utilizar. Utilizam estes exemplos **eastus**. Armazenar este valor na variável **localização** para utilização futura.
+Se não souber qual a localização que quer utilizar, pode listar as localizações disponíveis. Depois de a lista ser apresentada, localize a que quer utilizar. Utilizam estes exemplos **eastus**. Armazenar este valor na variável **localização** para utilização futura.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -137,7 +137,7 @@ Se tiver criado uma nova conta de armazenamento e de grupo de recursos no iníci
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este artigo procedimentos, aprendeu sobre operações comuns do armazenamento de tabelas do Azure com o PowerShell, incluindo como: 
 
@@ -151,7 +151,7 @@ Este artigo procedimentos, aprendeu sobre operações comuns do armazenamento de
 
 Para obter mais informações, consulte os artigos seguintes
 
-* [Cmdlets do PowerShell do armazenamento](/powershell/module/azurerm.storage#storage)
+* [Cmdlets do Armazenamento do PowerShell](/powershell/module/azurerm.storage#storage)
 
 * [Trabalhar com tabelas de armazenamento do Azure a partir do PowerShell](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
 

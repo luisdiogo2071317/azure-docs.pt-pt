@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ab1094c7cf99e105bc0a08d9f84332010f5afd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 37951a04bbfd266717490dd1752d0be04d2231a5
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>Criar e instalar ficheiros de configuração de cliente VPN para autenticação P2S RADIUS (pré-visualização)
+# <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar ficheiros de configuração de cliente VPN para autenticação P2S RADIUS
 
 Ficheiros de configuração de cliente VPN estão contidos num ficheiro zip. Ficheiros de configuração fornecem as definições necessárias para um cliente Windows ou Mac IKEv2 VPN nativo ligar a uma VNet através de ponto a Site. O servidor RADIUS fornece várias opções de autenticação e como tal, a configuração do cliente VPN varia de acordo com cada opção.
 
@@ -161,11 +161,11 @@ Utilize os seguintes passos para configurar o cliente VPN nativo no Mac para aut
 1. Importar o **VpnServerRoot** e **RadiusServerRoot** raiz certificados para o Mac. Isto pode ser feito ao copiar o ficheiro de ativação pós-falha para Mac e fazer duplo clique.  
 Clique em **adicionar** para importar.
 
-  **Adicionar VpnServerRoot**
+  **Add VpnServerRoot**
 
   ![Adicionar certificado](./media/point-to-site-vpn-client-configuration-radius/addcert.png)
 
-  **Adicionar RadiusServerRoot**
+  **Add RadiusServerRoot**
 
   ![Adicionar certificado](./media/point-to-site-vpn-client-configuration-radius/radiusrootcert.png)
 2. Abra o **rede** diálogo em **preferências de rede** e clique em **'+'** para criar um novo perfil de ligação de cliente VPN para uma ligação de P2S para a VNet do Azure.
@@ -205,6 +205,6 @@ Para utilizar um tipo de autenticação diferentes (por exemplo, o OTP) e não n
   * As rotas - as rotas que tem de configurar no seu perfil para que apenas a VNet do Azure vinculada tráfego é enviada através do túnel P2S.
   * A pasta de GenenericDevice também contém um ficheiro. cer chamado 'VpnServerRoot'. Este ficheiro contém o certificado de raiz necessário para validar o Gateway de VPN do Azure durante a configuração de ligação de P2S. Instale o certificado em todos os dispositivos que irão ligar à VNet do Azure. 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Devolver o artigo para [concluir a configuração de P2S](point-to-site-how-to-radius-ps.md).

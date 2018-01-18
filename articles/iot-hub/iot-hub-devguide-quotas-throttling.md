@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: dobett
-ms.openlocfilehash: 8ffe25f1950f8535983c2c344b5c4331b7157869
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 68a6e999ac0ffe97c08b6420dd6e71d7154b5de8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - quotas do IoT Hub e a limitação
 
@@ -42,11 +42,13 @@ A tabela seguinte mostra as limitações impostas. Consulte os valores para um h
 | Envios da cloud para o dispositivo | 1.67/SEC/Unit (min/100/unidade) | 1.67/SEC/Unit (min/100/unidade) | 83.33/SEC/Unit (5000/mínimo/unidade) |
 | Receções da cloud para o dispositivo <br/> (apenas ao dispositivo utiliza HTTPS)| 16.67/SEC/Unit (1000/mínimo/unidade) | 16.67/SEC/Unit (1000/mínimo/unidade) | 833.33/SEC/Unit (50000/mínimo/unidade) |
 | Carregamento de ficheiros | ficheiro 1.67 carregamento notificações/seg/unidade (min/100/unidade) | ficheiro 1.67 carregamento notificações/seg/unidade (min/100/unidade) | ficheiro 83.33 carregamento notificações/seg/unidade (5000/mínimo/unidade) |
-| Métodos diretos | 20/seg/unidade | 60/seg/unidade | 3000/seg/unidade | 
+| Métodos diretos | 160KB/sec/unit<sup>1</sup> | 480KB/sec/unit<sup>1</sup> | 24MB/sec/unit<sup>1</sup> | 
 | Leituras de dispositivo duplo | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
 | Atualizações de dispositivo duplo | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
 | Operações de tarefas <br/> (criar, atualizar, listar, eliminar) | 1.67/SEC/Unit (min/100/unidade) | 1.67/SEC/Unit (min/100/unidade) | 83.33/SEC/Unit (5000/mínimo/unidade) |
 | Débito de operação tarefas por dispositivo | 10/seg | Mais de 10 por segundo ou seg/1/unidade | 50/seg/unidade |
+
+<sup>1</sup>limitação de tamanho do medidor é de 8 KB
 
 É importante esclarecer que o *ligações de dispositivos* limitação regulam a velocidade a que seja possível estabelecer novas ligações de dispositivo com um IoT hub. O *ligações de dispositivos* limitação não governar o número máximo de dispositivos ligados em simultâneo. A limitação depende o número de unidades que sejam aprovisionados para o IoT hub.
 
@@ -75,6 +77,7 @@ IoT Hub impõe outros limites operacionais:
 | Mensagens do dispositivo-nuvem | 256 KB de tamanho da mensagem máxima |
 | Mensagens da nuvem para dispositivo | 64 KB de tamanho da mensagem máxima |
 | Mensagens da nuvem para dispositivo | Máximo de mensagens para a entrega pendentes é 50 |
+| Método direto | Tamanho do payload de método direto máximo é 128KB |
 
 > [!NOTE]
 > Atualmente, o número máximo de dispositivos que pode ligar a um IoT hub único é 500 000. Se pretende aumentar este limite, contacte [Microsoft Support](https://azure.microsoft.com/support/options/).
@@ -89,7 +92,7 @@ IoT Hub strives fornecer a latência baixa para todas as operações. No entanto
 Várias unidades de IoT Hub afetam a limitação, tal como descrito anteriormente, mas não fornece quaisquer benefícios de latência adicionais ou garantias.
 Se vir inesperados aumentos de latência da operação, contacte [Microsoft Support](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Outros tópicos de referência neste guia para programadores do IoT Hub incluem:
 
 * [Pontos finais de IoT Hub][lnk-devguide-endpoints]

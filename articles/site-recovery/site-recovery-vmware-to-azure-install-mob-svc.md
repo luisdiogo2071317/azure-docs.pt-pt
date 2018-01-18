@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 10/30/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Instalar o serviço de mobilidade (VMware ou físico para o Azure)
 Serviço de mobilidade da recuperação de sites do Azure obtém dados, escreve num computador e, em seguida, encaminha-os para o servidor de processos. Implemente o serviço de mobilidade em todos os computadores (VM de VMware ou servidor físico) que pretende replicar para o Azure. Pode implementar o serviço de mobilidade para os servidores que pretende proteger os utilizando os seguintes métodos:
@@ -51,12 +46,12 @@ Conclua estes passos de pré-requisitos antes de instalar manualmente o serviço
 | Nome do modelo de ficheiro de instalador| Sistema operativo |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> Windows Server 2012 (64-bit) </br> Windows Server 2012 R2 (64-bit) </br> Windows Server 2016 (64-bit) |
-|Microsoft-ASR\_UA\*RHEL6 64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (apenas 64 bits) </br> CentOS 6.4 6.5, 6.6, 6.7, 6.8, 6.9 (apenas 64 bits) |
+|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (apenas 64 bits) </br> CentOS 6.4 6.5, 6.6, 6.7, 6.8, 6.9 (apenas 64 bits) |
 |Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (apenas 64 bits) </br> CentOS 7.0, 7.1, 7.2, 7.3 (apenas 64 bits) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (apenas 64 bits)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (apenas 64 bits)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (apenas 64 bits)|
-|Microsoft-ASR\_UA\*UBUNTU 14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (apenas 64 bits)|
+|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (apenas 64 bits)|
 |Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Servidor Ubuntu Linux 16.04 LTS (apenas 64 bits)|
 |Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (apenas 64 bits)|
 |Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (apenas 64 bits)|
@@ -92,7 +87,7 @@ Depois do serviço de mobilidade está instalado, no portal do Azure, selecione 
 ## <a name="update-mobility-service"></a>Serviço de mobilidade de atualização
 
 > [!WARNING]
-> Certifique-se de que o servidor de configuração, os servidores de processos de escalamento horizontal e quaisquer servidores de destino principal que fazem que parte da implementação é atualizada antes de começar a atualizar o serviço de mobilidade em servidores protegidos. Leia mais em [como atualizar o servidor de configuração](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) e [como atualizar os servidores de processos de escalamento horizontal](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+> Certifique-se de que o servidor de configuração, os servidores de processos de escalamento horizontal e quaisquer servidores de destino principal que fazem que parte da implementação é atualizada antes de começar a atualizar o serviço de mobilidade em servidores protegidos.
 
 1. No portal do Azure Procurar para <Your Vault> -> Vista de itens replicados.
 2. Se o **servidor de configuração** já foi atualizado para a versão mais recente, em seguida, deverá ver uma notificação que lê *está disponível a atualização do agente de replicação de recuperação de novo Site. Clique aqui para instalar*

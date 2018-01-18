@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 07/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6567853e9ef3cad63595dc0afe7a793bdc5d972c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43f06422e1120f1c3b2a9d9d5d4be515213c0937
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Proteger o servidor web IIS com certificados SSL na máquina virtual do Windows no Azure
-Para proteger servidores web, um certificado Secure Sockets mais tarde (SSL) pode ser utilizado para encriptar o tráfego da web. Estes certificados SSL podem ser armazenados no Cofre de chaves do Azure e permitem implementações seguras de certificados para máquinas de virtuais (VMs) do Windows no Azure. Neste tutorial, ficará a saber como:
+Para proteger servidores web, um certificado Secure Sockets Layer (SSL) pode ser utilizado para encriptar o tráfego da web. Estes certificados SSL podem ser armazenados no Cofre de chaves do Azure e permitem implementações seguras de certificados para máquinas de virtuais (VMs) do Windows no Azure. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um cofre de chaves do Azure
@@ -221,7 +221,7 @@ O Web site do IIS protegido, em seguida, é apresentado como no exemplo seguinte
 ![Site do IIS está em execução segura vista](./media/tutorial-secure-web-server/secured-iis.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, protegidos por um servidor web do IIS com um certificado SSL armazenado no Cofre de chaves do Azure. Aprendeu a:
 

@@ -1,5 +1,5 @@
 ---
-title: "B2C do Azure Active Directory: Desativar a verificação de correio eletrónico durante a inscrição do consumidor | Microsoft Docs"
+title: "Desativar a verificação de emain durante a inscrição - consumidor do Azure Active Directory B2C"
 description: "Um tópico demonstrar como desativar a verificação de correio eletrónico durante a inscrição no Azure Active Directory B2C de consumidor"
 services: active-directory-b2c
 documentationcenter: 
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/06/2017
 ms.author: parakhj
-ms.openlocfilehash: 88c0620aa626c16d5edcdc35db03fb346b3ce0f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 57da51fafbac8a1c165c37437e82c75cb238fd3d
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>O Azure Active Directory B2C: Verificação de correio eletrónico de desativar durante a inscrição de consumidor
 Quando ativada, o Azure Active Directory (Azure AD) B2C fornece um consumidor a capacidade para se inscrever para aplicações, ao fornecer um endereço de e-mail e criar uma conta local. O Azure AD B2C garante endereços de correio eletrónico, exigindo que os consumidores Certifique-se durante o processo de inscrição. Também impede que um processo automatizado malicioso gerar contas falsificadas para as aplicações.

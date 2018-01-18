@@ -12,24 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ca80408f8e8b2dae7ff35d50b3d2c41ae54d3d3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Análise de registos de pesquisa REST API de registo
+
+> [!IMPORTANT]
+> Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), em seguida, deve referir-se ao [documentação para a nova versão da pesquisa de registo API](https://dev.loganalytics.io/).  Esta API legada funcione com uma área de trabalho atualizada, mas será depracated em breve.  Deve modificar qualquer soluções existentes para utilizar a nova API.
+
 Este guia fornece um tutorial básico, incluindo exemplos, de como pode utilizar a API de REST de pesquisa de análise do registo. Análise de registos faz parte do conjunto de operações de gestão (OMS).
 
-> [!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), em seguida, deve referir-se ao [documentação para a nova versão da pesquisa de registo API](https://dev.loganalytics.io/).
-
-> [!NOTE]
-> Análise de registos foi anteriormente denominada das informações operacionais, que é o nome utilizado no fornecedor de recursos.
->
->
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Descrição geral da pesquisa de registo REST API
 A API de REST de pesquisa de análise do registo é RESTful e pode ser acedida através da API do Azure Resource Manager. Este artigo fornece exemplos de aceder à API através de [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de código aberto que simplifica a invocar a API do Azure Resource Manager. A utilização de ARMClient é uma das muitas opções para aceder à API de pesquisa de análise do registo. Outra opção consiste em utilizar o módulo Azure PowerShell para OperationalInsights, que inclui cmdlets para aceder a pesquisa. Com estas ferramentas, pode utilizar a API do Gestor de recursos do Azure para efetuar chamadas a áreas de trabalho do OMS e executar comandos de pesquisa dentro delas. A API produz os resultados da pesquisa no formato JSON, permitindo-lhe utilizar os resultados da pesquisa de várias maneiras diferentes através de programação.
@@ -138,12 +135,12 @@ A tabela seguinte descreve as propriedades que estão disponíveis.
 | **Propriedade** | **Descrição** |
 | --- | --- |
 | Parte superior |O número máximo de resultados para devolver. |
-| Realce |Contém parâmetros de pré e post, normalmente, utilizados para campos de correspondência de realce |
+| realçar |Contém parâmetros de pré e post, normalmente, utilizados para campos de correspondência de realce |
 | Pre |Prefixos a cadeia fornecida para os campos correspondentes. |
 | Post |Acrescenta a cadeia fornecida para os campos correspondentes. |
 | consulta |A consulta de pesquisa utilizada para recolher e devolver resultados. |
 | start |O início da janela de tempo que pretende que os resultados para localizar a partir do. |
-| Fim |O fim da janela de tempo que pretende que os resultados para localizar a partir do. |
+| end |O fim da janela de tempo que pretende que os resultados para localizar a partir do. |
 
 **Resposta:**
 
@@ -225,9 +222,9 @@ A tabela seguinte descreve as propriedades que estão disponíveis.
 | --- | --- |
 | Id |O identificador exclusivo. |
 | ETag |**Necessário para Patch**. Atualizada pelo servidor de cada operação de escrita. Valor tem de ser igual ao valor armazenado atual ou ' *' para atualizar. 409 devolvido para valores antigo/inválido. |
-| Properties.Query |**Necessário**. A consulta de pesquisa. |
+| properties.query |**Necessário**. A consulta de pesquisa. |
 | properties.displayName |**Necessário**. O nome a apresentar definidos pelo utilizador da consulta. |
-| Properties.Category |**Necessário**. A categoria definido pelo utilizador da consulta. |
+| properties.category |**Necessário**. A categoria definido pelo utilizador da consulta. |
 
 > [!NOTE]
 > A API de pesquisa de análise de registos atualmente devolve criados pelo utilizador guardar pesquisas quando consultados para pesquisas guardadas numa área de trabalho. A API não devolver pesquisas guardadas fornecidas por soluções.
@@ -416,5 +413,5 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para criar consultas com campos personalizados para os critérios.

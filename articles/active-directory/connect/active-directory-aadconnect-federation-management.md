@@ -1,5 +1,5 @@
 ---
-title: "Gestão de serviços de Federação do Active Directory e personalização com o Azure AD Connect | Microsoft Docs"
+title: "O Azure AD Connect - gestão do AD FS e personalização | Microsoft Docs"
 description: "Gestão do AD FS com o Azure AD Connect e personalização do AD FS início de sessão experiência de utilizador com o Azure AD Connect e PowerShell."
 keywords: "AD FS, ADFS, do AD FS gestão, AAD Connect, ligar, início de sessão, do AD FS personalização, repare a Federação de confiança, Office 365, da entidade confiadora"
 services: active-directory
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e024dd13c6bf25697dbea67ae240a100c27454b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerir e personalizar os serviços de Federação do Active Directory utilizando o Azure AD Connect
 Este artigo descreve como gerir e personalizar os serviços de Federação do Active Directory (AD FS), utilizando o Azure Active Directory (Azure AD) Connect. Também inclui outras tarefas comuns do AD FS que poderá ter de fazer para toda a configuração de um farm do AD FS.
@@ -108,7 +109,7 @@ Configurar o ID de início de sessão alternativo para o AD FS consiste em dois 
 
 5. No **servidores do AD FS** página, introduza o nome do servidor ou endereço IP a ser adicionado ao farm do AD FS.
 
-   ![Servidores do AD FS](media/active-directory-aadconnect-federation-management/AddNewADFSServer6.PNG)
+   ![Servidores AD FS](media/active-directory-aadconnect-federation-management/AddNewADFSServer6.PNG)
 
 6. Clique em **seguinte**e percorra o final **configurar** página. Depois do Azure AD Connect terminou a adicionar os servidores no farm do AD FS, terá a opção para verificar a conectividade.
 
@@ -168,7 +169,7 @@ Configurar o ID de início de sessão alternativo para o AD FS consiste em dois 
 
 4. Na página seguinte, o assistente fornece uma lista de domínios do Azure AD que podem federar o seu diretório no local com. Escolha o domínio a partir da lista.
 
-   ![Domínio do Azure AD](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
+   ![Azure AD domain](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
     Depois de escolher o domínio, o assistente fornece-lhe as informações adequadas sobre mais ações que o assistente executará e o impacto da configuração. Em alguns casos, se selecionar um domínio que ainda não está a ser verificado no Azure AD, o assistente fornece-lhe informações para ajudar a verificar o domínio. Consulte [adicionar o seu nome de domínio personalizado ao Azure Active Directory](../active-directory-domains-add-azure-portal.md) para obter mais detalhes.
 
@@ -269,5 +270,5 @@ Para que apenas o domínio de raiz no valor de afirmação de emissor, altere a 
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [opções de início de sessão do utilizador](active-directory-aadconnect-user-signin.md).

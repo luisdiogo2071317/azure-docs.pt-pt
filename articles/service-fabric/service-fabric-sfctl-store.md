@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2af6dff4ffcdf295731f2d61b5f9e35af40615e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d4ca3c35c34736c3b4824f956a6a72002c891877
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-store"></a>arquivo de sfctl
 Efetue operações de nível de ficheiro básico no arquivo de imagens de cluster.
@@ -28,7 +28,7 @@ Efetue operações de nível de ficheiro básico no arquivo de imagens de cluste
 |Comando|Descrição|
 | --- | --- |
 |    eliminar| Elimina existente imagem armazena conteúdo.|
-|    informações de raiz| Obtém as informações dos conteúdos na raiz do arquivo de imagens.|
+|    root-info| Obtém as informações dos conteúdos na raiz do arquivo de imagens.|
 |    STAT  | Obtém as informações de conteúdo de arquivo de imagem.|
 
 
@@ -48,7 +48,7 @@ Elimina existente que está a ser encontrado a imagem de determinado arquivo de 
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h             | Mostra esta mensagem de ajuda e saída.|
 | --o de saída           | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta               | Cadeia de consulta JMESPath. Para obter mais informações e exemplos, consulte http://jmespath.org/.|
@@ -70,12 +70,12 @@ Devolve as informações sobre o conteúdo da loja de imagem no contentPath espe
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug               | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h             | Mostra esta mensagem de ajuda e saída.|
 | --o de saída           | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta               | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | -verbose             | Aumente a verbosidade do registo. Utilize - a depuração para os registos de depuração completas.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [A configuração](service-fabric-cli.md) os recursos de infraestrutura do serviço CLI.
 - Saiba como utilizar a CLI de recursos de infraestrutura de serviço utilizando o [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

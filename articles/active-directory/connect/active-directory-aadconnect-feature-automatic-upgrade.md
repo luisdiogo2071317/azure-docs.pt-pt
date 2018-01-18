@@ -3,7 +3,7 @@ title: "O Azure AD Connect: A atualização automática | Microsoft Docs"
 description: "Este tópico descreve a funcionalidade de atualização automática incorporada na sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 49fc908006f19135b4c4553eef97d2f396db33ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddf23193e7b9c2fb7a69045be539841dbb6e6249
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esta funcionalidade foi introduzida com compilação 1.1.105.0 (Fevereiro de 2016 lançada).
@@ -34,7 +34,7 @@ A atualização automática está ativada por predefinição para o seguinte:
 
 O estado atual da atualização automática pode ser visualizado com o cmdlet do PowerShell `Get-ADSyncAutoUpgrade`. Tem os seguintes Estados:
 
-| Estado | Comentar |
+| Estado | Comentário |
 | --- | --- |
 | Ativado |A atualização automática está ativada. |
 | Suspenso |Definido pelo sistema apenas. O sistema já não é elegível para receber as atualizações automáticas. |
@@ -100,5 +100,5 @@ Aqui está uma lista das mensagens mais comuns que encontrar. Não listar todas 
 | UpgradeNotSupportedStagingModeEnabled |O servidor está definido para ser [modo de teste](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Ativou o [repetição de escrita do utilizador](active-directory-aadconnect-feature-preview.md#user-writeback) funcionalidade. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory híbrida identidade considerações de design - determinar a estratégia de adoção de ciclo de vida de identidade híbrida | Microsoft Docs"
+title: "Estrutura de identidade híbrida - estratégia de adoção do ciclo de vida do Azure | Microsoft Docs"
 description: "Ajuda a definir as tarefas de gestão de identidade híbrida, de acordo com as opções disponíveis para cada fase do ciclo de vida."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: ef8c4a0f672af2540f071f40eac77dc881eb31ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar a estratégia de adoção de ciclo de vida de identidade híbrida
 Nesta tarefa, vai definir a estratégia de gestão de identidade para a sua solução de identidade híbrida cumprir os requisitos de negócio que definiu no [determinar as tarefas de gestão de identidade híbrida](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -97,6 +98,6 @@ Reveja a tabela seguinte para comparar as opções de sincronização:
 > 
 > 
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 [Descrição geral das considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 3f735b8742f22110b4de264bfb5661651a899afb
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicações Web no Serviço de Aplicações do Azure
 
@@ -30,7 +30,7 @@ Este tópico explica como configurar uma aplicação web através de [Portal do 
 1. No [Portal do Azure], abra o painel da aplicação web.
 3. Clique em **Definições da aplicação**.
 
-![Definições da aplicação][configure01]
+![Definições da Aplicação][configure01]
 
 O **definições da aplicação** painel tem agrupadas em várias categorias de definições.
 
@@ -62,7 +62,7 @@ Por motivos de técnicos, ativar a sua aplicação Java desativa as opções de 
 **Depuração remota**. Permite a depuração remota. Quando ativada, pode utilizar o depurador remoto no Visual Studio para ligar diretamente à sua aplicação web. Depuração remota permanecerá ativado para 48 horas. 
 
 ### <a name="app-settings"></a>Definições de aplicação
-Esta secção contém pares nome/valor que web app carregará em Iniciar cópia de segurança. 
+Esta secção contém pares nome/valor que a aplicação web será carregado no início cópias de segurança. 
 
 * Para aplicações de .NET, estas definições são inseridas na sua configuração de .NET `AppSettings` em runtime, substituir as definições existentes. 
 * As aplicações PHP, Python, Java e nó podem aceder a estas definições como variáveis de ambiente no tempo de execução. Para cada definição de aplicação, são criadas duas variáveis de ambiente; um com o nome especificado, a entrada de definição de aplicação e outro com um prefixo APPSETTING_. Ambos contêm o mesmo valor.
@@ -74,8 +74,8 @@ Para aplicações de .NET, estas cadeias de ligação são inseridas na sua conf
 
 Para aplicações PHP, Python, Java e nó, estas definições estarão disponíveis como variáveis de ambiente em runtime, o prefixo com o tipo de ligação. Os prefixos de variável de ambiente são os seguintes: 
 
-* SQL Server:`SQLCONNSTR_`
-* MySQL:`MYSQLCONNSTR_`
+* SQL Server: `SQLCONNSTR_`
+* MySQL: `MYSQLCONNSTR_`
 * Base de dados do SQL Server:`SQLAZURECONNSTR_`
 * Personalizado:`CUSTOMCONNSTR_`
 

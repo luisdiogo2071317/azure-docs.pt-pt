@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 501deec6d766cca500a2a6060e147bf69ba6507b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 81ad6a82e41fdd0f26859aa47f91dfa21d464a01
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Copiar dados de origem e de HDFS utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,7 +59,7 @@ As seguintes propriedades são suportadas para o serviço ligado do HDFS:
 | tipo | A propriedade de tipo tem de ser definida: **Hdfs**. | Sim |
 | url |URL para o HDFS |Sim |
 | authenticationType | Valores permitidos são: **anónimo**, ou **Windows**. <br><br> Para utilizar **a autenticação Kerberos** para o conector do HDFS, consulte [nesta secção](#use-kerberos-authentication-for-hdfs-connector) para configurar o seu ambiente no local em conformidade. |Sim |
-| Nome de utilizador |Autenticação de nome de utilizador do Windows. Para a autenticação Kerberos, especifique `<username>@<domain>.com`. |Sim (para autenticação do Windows) |
+| userName |Autenticação de nome de utilizador do Windows. Para a autenticação Kerberos, especifique `<username>@<domain>.com`. |Sim (para autenticação do Windows) |
 | palavra-passe |Palavra-passe para autenticação do Windows. Marcar este campo como SecureString. |Sim (para autenticação do Windows) |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
@@ -160,7 +160,7 @@ Para copiar dados de HDFS, defina o tipo de origem na atividade de cópia para *
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **HdfsSource** |Sim |
-| Recursiva | Indica se os dados é lida a recursivamente partir das pastas sub ou apenas a partir da pasta especificada.<br/>Valores permitidos são: **verdadeiro** (predefinição), **false** | Não |
+| Recursiva | Indica se os dados é lida a recursivamente partir das pastas sub ou apenas a partir da pasta especificada. Nota Quando recursiva está definida como VERDADEIRO e o sink é baseado em ficheiros de arquivo, vazia pasta/sub-folder não serão copiados/criado no sink.<br/>Valores permitidos são: **verdadeiro** (predefinição), **false** | Não |
 | distcpSettings | Grupo de propriedade ao utilizar o HDFS DistCp. | Não |
 | resourceManagerEndpoint | O ponto final Yarn ResourceManager | Sim, se utilizar o DistCp |
 | tempScriptPath | Um caminho de pasta utilizado para armazenar o script de comando DistCp temp. O ficheiro de script é gerado pelo Data Factory e será removido após a conclusão da tarefa de cópia. | Sim, se utilizar o DistCp |

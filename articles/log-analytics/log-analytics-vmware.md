@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/16/2018
 ms.author: banders
-ms.openlocfilehash: 17072c4b6e4fdf6e4dc2b7a6a4ded7fa9f9f6fde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 287a98c59a33b603f7186dd99505ecd0ef4f0941
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização do VMware (pré-visualização) na análise de registos
 
@@ -26,12 +26,12 @@ ms.lasthandoff: 10/11/2017
 
 A solução de monitorização do VMware na análise de registos é uma solução que ajuda a criar um registo centralizado e a abordagem de monitorização para os registos de VMware grandes. Este artigo descreve como pode resolver problemas, capturar e gerir os anfitriões ESXi numa única localização utilizando a solução. Com a solução, pode ver os dados detalhados para todos os seus anfitriões ESXi numa única localização. Pode ver as contagens de principais de eventos, o estado e as tendências de anfitriões VM e ESXi fornecidos através de registos de anfitrião ESXi. Pode resolver ao visualizar e pesquisar registos de anfitrião ESXi centralizados. Além disso, pode criar alertas com base em consultas de pesquisa de registo.
 
-A solução utiliza a funcionalidade de syslog nativo do anfitrião ESXi para enviar dados para um destino de VM, que tem o agente do OMS. No entanto, a solução não escrever ficheiros no syslog dentro da VM de destino. O agente do OMS abre porta 1514 e escuta para este. Depois de receber os dados, o agente do OMS pushes de dados no OMS.
+A solução utiliza a funcionalidade de syslog nativo do anfitrião ESXi para enviar dados para um destino de VM, que tem o agente do OMS. No entanto, a solução não escrever ficheiros no syslog dentro da VM de destino. O agente do OMS abre porta 1514 e escuta para este. Depois de receber os dados, o agente do OMS pushes de dados para análise de registos.
 
-## <a name="installing-and-configuring-the-solution"></a>Instalar e configurar a solução
+## <a name="install-and-configure-the-solution"></a>Instalar e configurar a solução
 Utilize as seguintes informações para instalar e configurar a solução.
 
-* Adicionar a solução de monitorização do VMware a sua área de trabalho do OMS utilizando o processo descrito no [soluções de análise de registos adicionar da galeria do soluções](log-analytics-add-solutions.md).
+* Adicionar a solução de monitorização do VMware a sua subscrição com o processo descrito no [adicionar uma solução de gestão](log-analytics-add-solutions.md#add-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Anfitriões do VMware ESXi suportados
 vSphere ESXi 5.5 de anfitrião e 6.0
@@ -66,11 +66,11 @@ Crie um VM receba todos os dados de syslog dos anfitriões ESXi do sistema de op
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-9. No Portal do OMS, efetuar uma pesquisa de registo para `Type=VMware_CL`. Quando OMS recolhe os dados de syslog, mantém o formato do syslog. No portal, alguns campos específicos são capturados, tais como *Hostname* e *ProcessName*.  
+9. No portal do Azure, execute uma pesquisa de registo para `VMware_CL`. Quando a análise de registos recolhe os dados de syslog, mantém o formato do syslog. No portal, alguns campos específicos são capturados, tais como *Hostname* e *ProcessName*.  
 
     ![tipo](./media/log-analytics-vmware/type.png)  
 
-    Se os resultados da pesquisa ver registo são semelhantes a imagem acima, está a definir para utilizar o dashboard de solução de monitorização do OMS VMware.  
+    Se os resultados da pesquisa ver registo são semelhantes a imagem acima, está a definir para utilizar o dashboard de solução de monitorização de VMware.  
 
 ## <a name="vmware-data-collection-details"></a>Detalhes de recolha de dados do VMware
 A solução de monitorização de VMware recolhe diversos dados de métricas e registo de desempenho dos anfitriões ESXi utilizando os agentes do OMS para Linux que tiver ativado.
@@ -105,7 +105,7 @@ A tabela seguinte mostra exemplos de campos de dados recolhidos pela solução d
 | StorageLatency_s |Latência de armazenamento (ms) |
 
 ## <a name="vmware-monitoring-solution-overview"></a>Descrição geral da solução monitorização de VMware
-É apresentada no mosaico do VMware no portal do OMS. Fornece uma vista de alto nível de eventuais falhas. Quando clica no mosaico, visite numa vista de dashboard.
+O mosaico de VMware aparece na sua área de trabalho de análise de registos. Fornece uma vista de alto nível de eventuais falhas. Quando clica no mosaico, visite numa vista de dashboard.
 
 ![Mosaico](./media/log-analytics-vmware/tile.png)
 
@@ -116,7 +116,7 @@ No **VMware** vista do dashboard, painéis estão organizados por:
 * Anfitrião superior ao número de eventos
 * Contagens de principais de eventos
 * Atividades de máquinas virtuais
-* Eventos do anfitrião ESXi do disco
+* ESXi Host Disk Events
 
 ![solution1](./media/log-analytics-vmware/solutionview1-1.png)
 
@@ -124,12 +124,12 @@ No **VMware** vista do dashboard, painéis estão organizados por:
 
 Clique em qualquer painel para abrir o painel de pesquisa de análise de registos que mostra informações detalhadas específico para o painel.
 
-Aqui, pode editar a consulta de pesquisa para modificá-lo para algo mais específico. Para um tutorial sobre as noções básicas de pesquisa do OMS, veja o [tutorial de pesquisa de registo do OMS.](log-analytics-log-searches.md)
+Aqui, pode editar a consulta de pesquisa para modificá-lo para algo mais específico. Para obter detalhes sobre a criação de pesquisas de registo, consulte [localizar dados através de pesquisas de registo na análise de registos](log-analytics-log-searches.md).
 
 #### <a name="find-esxi-host-events"></a>Encontrar eventos de anfitrião ESXi
 Um único anfitrião ESXi gera vários registos, com base nos respetivos processos. A solução de monitorização de VMware centraliza-los e resume o número de eventos. Esta vista centralizada ajuda-o a compreender que anfitrião ESXi tem um elevado volume de eventos e os eventos ocorrem com maior frequência no seu ambiente.
 
-![evento](./media/log-analytics-vmware/events.png)
+![event](./media/log-analytics-vmware/events.png)
 
 Pode desagregar adicionais, clicando num anfitrião ESXi ou um tipo de evento.
 
@@ -155,12 +155,12 @@ A solução inclui outras consultas útil que podem ajudar a gerir os seus anfit
 
 
 #### <a name="save-queries"></a>Guardar consultas
-Guardar consultas de pesquisa é uma funcionalidade padrão no OMS e pode ajudar a manter todas as consultas que encontrou útil. Depois de criar uma consulta que úteis, guarde-o ao clicar no **Favoritos**. Uma consulta guardada permite-lhe facilmente reutilizá-lo mais tarde a partir de [My Dashboard](log-analytics-dashboards.md) página onde pode criar os seus próprios dashboards personalizados.
+Guardar consultas de pesquisa é uma funcionalidade padrão na análise de registos e pode ajudar a manter todas as consultas que encontrou útil. Depois de criar uma consulta que úteis, guarde-o ao clicar no **Favoritos**. Uma consulta guardada permite-lhe facilmente reutilizá-lo mais tarde a partir de [My Dashboard](log-analytics-dashboards.md) página onde pode criar os seus próprios dashboards personalizados.
 
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Criar alertas a partir de consultas
-Depois de criar as suas consultas, pode querer utilizar consultas para o alertar quando ocorrem eventos específicos. Consulte [alertas na análise de registos](log-analytics-alerts.md) para obter informações sobre como criar alertas. Para obter exemplos de alertas, consultas e outros exemplos de consultas, consulte o [VMware Monitor utilizando a análise de registos do OMS](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogue.
+Depois de criar as suas consultas, pode querer utilizar consultas para o alertar quando ocorrem eventos específicos. Consulte [alertas na análise de registos](log-analytics-alerts.md) para obter informações sobre como criar alertas. Para obter exemplos de alertas, consultas e outros exemplos de consultas, consulte o [VMware Monitor através da análise do registo](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogue.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>O que é necessário no ESXi anfitrião definição? Que impacto terão-lo no meu ambiente atual?
@@ -169,16 +169,16 @@ A solução utiliza o Syslog de anfitrião ESXi nativo mecanismo de reencaminham
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>É necessário reiniciar o meu anfitrião ESXi?
 Não. Este processo não requer um reinício. Por vezes, o vSphere não atualiza corretamente o syslog. Nesse caso, inicie sessão para o anfitrião ESXi e recarregar o syslog. Novamente, não terá de reiniciar o anfitrião, pelo que este processo não acontece no seu ambiente.
 
-### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-oms"></a>Pode aumentar ou diminuir o volume de dados de registo enviados para OMS?
+### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>Pode aumentar ou diminuir o volume de dados de registo enviados para análise de registos?
 Sim, pode. Pode utilizar as definições de nível de registo de anfitrião ESXi vSphere. Recolha de registos baseia-se no *informações* nível. Por isso, se pretender que a auditoria da VM é criada ou eliminada, terá de manter o *informações* nível no Hostd. Para obter mais informações, consulte o [Base de dados de conhecimento do VMware](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).
 
-### <a name="why-is-hostd-not-providing-data-to-oms-my-log-setting-is-set-to-info"></a>Por que motivo é Hostd não fornecer dados ao OMS? A minha definição de registo está definida como informações.
+### <a name="why-is-hostd-not-providing-data-to-log-analytics-my-log-setting-is-set-to-info"></a>Por que motivo é Hostd não fornecer dados ao Log Analytics? A minha definição de registo está definida como informações.
 Ocorreu um erro de anfitrião ESXi para o carimbo de syslog. Para obter mais informações, consulte o [Base de dados de conhecimento do VMware](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202). Depois de aplicar a solução, Hostd deverá funcionar normalmente.
 
 ### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>Pode ter vários anfitriões ESXi a reencaminhar dados do syslog para uma única VM com omsagent?
 Sim. Pode ter vários anfitriões ESXi a reencaminhar para uma única VM com omsagent.
 
-### <a name="why-dont-i-see-data-flowing-into-oms"></a>Por que motivo não vejo dados que fluem para OMS?
+### <a name="why-dont-i-see-data-flowing-into-log-analytics"></a>Por que motivo não vejo que fluem para análise de registos de dados?
 Pode ser por vários motivos:
 
 * O anfitrião ESXi é não corretamente enviar por push dados para a VM em execução omsagent. Para testar, execute os seguintes passos:
@@ -189,17 +189,18 @@ Pode ser por vários motivos:
   2. Se a conectividade de porta de syslog é efetuada com êxito, mas ainda não vê os dados, recarregar o syslog no anfitrião ESXi utilizando ssh para executar o seguinte comando:` esxcli system syslog reload`
 * A VM com o agente do OMS não está definida corretamente. Para testar isto, execute os seguintes passos:
 
-  1. OMS escuta a porta 1514 e pushes de dados no OMS. Para verificar que está aberta, execute o seguinte comando:`netstat -a | grep 1514`
+  1. Análise de registos escuta a porta 1514. Para verificar que está aberta, execute o seguinte comando:`netstat -a | grep 1514`
   2. Deverá ver porta `1514/tcp` abrir. Se não o fizer, certifique-se de que o omsagent está corretamente instalado. Se não visualizar as informações de porta, a porta de syslog não está aberta na VM.
 
-     1. Certifique-se de que o agente do OMS está em execução utilizando `ps -ef | grep oms`. Se não está em execução, inicie o processo executando o comando` sudo /opt/microsoft/omsagent/bin/service_control start`
-     2. Abra o ficheiro `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
+    a. Certifique-se de que o agente do OMS está em execução utilizando `ps -ef | grep oms`. Se não está em execução, inicie o processo executando o comando` sudo /opt/microsoft/omsagent/bin/service_control start`
 
-         Certifique-se de que o utilizador adequado e a definição de grupo é válido, semelhante a:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+    b. Abra o ficheiro `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
-         Se o ficheiro não existe ou o utilizador e a definição de grupo está errada, tomar uma ação corretiva por [preparar um servidor Linux](#prepare-a-linux-server).
+    c. Certifique-se de que o utilizador adequado e a definição de grupo é válido, semelhante a:`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
-## <a name="next-steps"></a>Passos seguintes
+    d. Se o ficheiro não existe ou o utilizador e a definição de grupo está errada, tomar uma ação corretiva por [preparar um servidor Linux](#prepare-a-linux-server).
+
+## <a name="next-steps"></a>Passos Seguintes
 * Utilize [pesquisas de registo](log-analytics-log-searches.md) na análise de registos para ver o VMware detalhada alojam os dados.
 * [Criar os seus próprios dashboards](log-analytics-dashboards.md) mostrar os dados de anfitrião do VMware.
 * [Criar alertas](log-analytics-alerts.md) quando ocorrem eventos específicos de anfitriões de VMware.

@@ -1,9 +1,9 @@
 ---
-title: "Sincronização do Azure AD Connect: erros de processamento LargeObject causados por userCertificate atributo | Microsoft Docs"
+title: O Azure AD Connect - erros de LargeObject causados por userCertificate atributo | Microsoft Docs
 description: "Este tópico fornece os passos de remediação de erros de LargeObject causados por userCertificate atributo."
 services: active-directory
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: erros de processamento LargeObject causados por userCertificate atributo
 
@@ -89,9 +90,9 @@ Deve existir uma regra de sincronização existente que está ativada e configur
     | Atributo | Valor |
     | --- | --- |
     | Direção |**Saída** |
-    | Tipo de objeto de MV |**Pessoa** |
+    | Tipo de objeto de MV |**Person** |
     | Conector |*nome do seu conector do Azure AD* |
-    | Tipo de objeto do conector |**utilizador** |
+    | Tipo de objeto do conector |**user** |
     | Atributo de MV |**userCertificate** |
 
 3. Se estiver a utilizar regras de sincronização (out-of-box) de OOB para o conector do Azure AD para exportar o atributo de userCertficiate para objetos de utilizador, deve regressar a *"Enviados ao AAD – utilizador ExchangeOnline"* regra.
@@ -103,7 +104,7 @@ Deve existir uma regra de sincronização existente que está ativada e configur
 
     | Atributo | Operador | Valor |
     | --- | --- | --- |
-    | sourceObjectType | IGUAL A | Utilizador |
+    | sourceObjectType | EQUAL | Utilizador |
     | cloudMastered | NOTEQUAL | Verdadeiro |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Passo 3. Criar a regra de sincronização de saída obrigada
@@ -116,8 +117,8 @@ A nova regra de sincronização tem de ter o mesmo **filtro âmbito** e **preced
     | Nome | *Forneça um nome* | Por exemplo, *"Enviados para o AAD – personalizado de substituição para userCertificate"* |
     | Descrição | *Forneça uma descrição* | Por exemplo, *"Se userCertificate atributo tem mais do que 15 valores, exporte nulo".* |
     | Sistema ligado | *Selecione o conector Azure AD* |
-    | Tipo de objeto de sistema ligado | **utilizador** | |
-    | Tipo de objeto de Metaverso | **pessoa** | |
+    | Tipo de objeto de sistema ligado | **user** | |
+    | Tipo de objeto de Metaverso | **person** | |
     | Tipo de ligação | **Associar** | |
     | Precedência | *Optou por um número entre 1 e 99* | A número escolhida não podem ser utilizadas por nenhuma regra de sincronização existente e tem um valor inferior (e, consequentemente, precedência superior) que a regra de sincronização existente. |
 
@@ -127,8 +128,8 @@ A nova regra de sincronização tem de ter o mesmo **filtro âmbito** e **preced
 
     | Atributo | Valor |
     | --- | --- |
-    | Tipo de fluxo |**Expressão** |
-    | Atributo de destino |**userCertificate** |
+    | Tipo de fluxo |**Expression** |
+    | Atributo de Destino |**userCertificate** |
     | Atributo de origem |*Utilize a seguinte expressão*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Clique em de **adicionar** botão para criar a regra de sincronização.
@@ -177,6 +178,6 @@ Agora que o problema foi resolvido, volte a ativar o agendador de sincronizaçã
 > [!Note]
 > Os passos anteriores só são aplicáveis a versões mais recentes (1.1.xxx.x) do Azure AD Connect com o programador incorporado. Se estiver a utilizar versões anteriores (1.0.xxx.x) do Azure AD Connect que utiliza o Programador de tarefas do Windows ou estiver a utilizar o seu próprio programador personalizado (não comum) para acionar a sincronização periódica, tem de desativá-las em conformidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).
 

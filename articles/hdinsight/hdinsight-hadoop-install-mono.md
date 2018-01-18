@@ -12,14 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/17/2018
 ms.author: larryfr
 ms.custom: hdinsightactive
-ms.openlocfilehash: e9e55f05c97fe335a315683294805b1027b53784
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 555f82ec9351c8c3610ad99a95159cc47d2ee539
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Instalar ou atualizar Mono no HDInsight
 
@@ -35,9 +35,9 @@ Este script aceita o parâmetro seguinte:
 
 O script instala os pacotes Mono seguintes:
 
-* __concluir o mono__
+* __mono-complete__
 
-* __mono de certificados de AC__
+* __ca-certificates-mono__
 
 ## <a name="the-script"></a>O script
 
@@ -60,7 +60,7 @@ Para especificar a versão Mono que está instalada, utilize o número de versã
 > [!NOTE]
 > Quando configurar HDInsight com este script, marcar o script como __persistentes__. Esta definição permite HDInsight aplicar o script para nós de trabalho adicionados através do dimensionamento operações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprendeu como atualizar ou instalar uma versão específica do Mono no HDInsight. Para obter mais informações sobre a utilização de aplicações .NET com Mono no HDInsight, consulte os seguintes documentos:
 

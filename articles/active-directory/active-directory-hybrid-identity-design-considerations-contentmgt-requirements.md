@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory híbrida identidade considerações de design - determinar os requisitos de gestão de conteúdo | Microsoft Docs"
+title: "Estrutura de identidade híbrida - requisitos de gestão de conteúdo do Azure | Microsoft Docs"
 description: "Fornece informações sobre como determinar os requisitos de gestão de conteúdos do seu negócio. Normalmente, quando um utilizador tiver a sua própria dispositivo ele pode ter também várias credenciais que irão ser alternados, de acordo com a aplicação que utiliza. É importante diferenciar o conteúdo que foi criado utilizando credenciais pessoais versus aqueles criada utilizando as credenciais da empresa. A solução de identidade deve ser capaz de interagir com cloud services para fornecer uma experiência totalmente integrada para o utilizador final ao garantir a privacidade e aumentar a proteção contra fugas de dados."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f2689306150f400f5a3cdf000a9ca590b397d812
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c5459533ecc8c505b62a9c44c395cfd08a3a629
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de gestão de conteúdos para a sua solução de identidade híbrida
 Compreender os requisitos de gestão de conteúdos para a sua empresa direto pode influenciar a sua decisão em que solução de identidade híbrida a utilizar. Com a proliferação de vários dispositivos e a capacidade dos utilizadores para colocar os seus próprios dispositivos ([BYOD](http://aka.ms/byodcg)), a empresa tem de proteger os seus próprios dados, mas também deve manter a privacidade do utilizador intacto. Normalmente, quando um utilizador tiver a sua própria dispositivo ele pode ter também várias credenciais que irão ser alternados, de acordo com a aplicação que utiliza. É importante diferenciar o conteúdo que foi criado utilizando credenciais pessoais versus aqueles criada utilizando as credenciais da empresa. A solução de identidade deve ser capaz de interagir com cloud services para fornecer uma experiência totalmente integrada para o utilizador final ao garantir a privacidade e aumentar a proteção contra fugas de dados. 
@@ -61,9 +61,9 @@ Quando planear a sua solução de identidade híbrida Certifique-se de que as pe
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Determinar os requisitos de controlo de acesso](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 [Descrição geral das considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

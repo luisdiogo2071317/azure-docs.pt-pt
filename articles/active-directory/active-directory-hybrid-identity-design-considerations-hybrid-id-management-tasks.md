@@ -1,5 +1,5 @@
 ---
-title: "Identidade de híbrida do Azure Active Directory considerações de design - Determine a tarefas de gestão de identidade híbrida | Microsoft Docs"
+title: "Estrutura de identidade híbrida - tarefas de gestão do Azure | Microsoft Docs"
 description: "Com o controlo de acesso condicional, o Azure Active Directory verifica as condições específicas, que escolha ao autenticar o utilizador e antes de permitir o acesso à aplicação. Depois destas condições são cumpridas, o utilizador é autenticado e permissão de acesso à aplicação."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 3257b5b9c714103773dfe646093cb632f500d459
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: ed683f1b96172b71cc3dfae2511607e50071739f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planear o ciclo de vida da identidade híbrida
 Identidade é uma das fundações da sua estratégia de acesso de mobilidade e a aplicação da empresa. Se está a iniciar sessão seu dispositivo móvel ou aplicação SaaS, a sua identidade é a chave para obter acesso ao tudo. Ao nível mais elevado, uma solução de gestão de identidades abrange unificá e a sincronização entre os repositórios de identidade que inclui a automatização e centralizar o processo de aprovisionamento de recursos. A solução de identidade deve ser uma identidade centralizada em nuvem e no local e também utilizar alguma forma de Federação de identidade para manter a autenticação centralizada em segurança partilhar e colaborar com utilizadores externos e as empresas. Recursos no intervalo de sistemas operativos e aplicações para pessoas ou afiliado, uma organização. Estrutura organizacional pode ser alterada para acomodar as políticas de aprovisionamento e os procedimentos.
@@ -61,9 +62,9 @@ Um dos objetivos de um Gestor de identidade, para poder colocar todos os fornece
 • Quais são o início de sessão único capacidades disponíveis?
 • Quais são as opções para a Federação de identidade entre B2B e B2C?
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Determinar a estratégia de adoção de gestão de identidade híbrida](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 [Descrição geral das considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

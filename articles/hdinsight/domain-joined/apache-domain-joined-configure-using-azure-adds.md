@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 0dfda9b87e970f7bf0ae2df699897b9c8bb73004
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 4278c631ca7f2ce0417eab22ce2e5b12581dac30
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clusters do HDInsight associados a um domínio através do Azure Active Directory Domain Services
 
@@ -37,7 +37,7 @@ Neste artigo, irá aprender a configurar um cluster do HDInsight associados a um
 Terá de criar um Azure do AD DS antes de poder criar um cluster do HDInsight. Para criar um Azure adiciona, consulte [ativar o Azure Active Directory Domain Services no portal do Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Apenas os administradores do inquilino tem os privilégios para criar serviços de domínio. Em caso de armazenamento do Azure Data Lake - AAD inquilino onde >> ativar AADDS tem de ser o inquilino predefinido da subscrição onde cria a conta de armazenamento do Azure Data Lake e o cluster.
+> Apenas os administradores do inquilino tem os privilégios para criar serviços de domínio. Se utilizar o Azure Data Lake armazenamento (ADLS) como armazenamento de predefinido para o HDInsight, em seguida, certifique-se o inquilino do Azure AD predefinido para ADLS mesmo que o domínio para o cluster do HDInsight. 
 
 Depois do serviço de domínio tiver sido aprovisionado, terá de criar uma conta de serviço no **os administradores de DC do Azure AD** grupo para criar o cluster do HDInsight. A conta de serviço tem de ser um administrador global sobre o Azure AD.
 

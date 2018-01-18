@@ -3,7 +3,7 @@ title: "Conector do SQL Server genérico | Microsoft Docs"
 description: "Este artigo descreve como configurar o conector do SQL Server genérico da Microsoft."
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
-ms.author: davidste
-ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.author: billmath
+ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referência técnica de conector do SQL Server genérica
 Este artigo descreve o conector do SQL Server genérico. O artigo aplica-se os seguintes produtos:
@@ -38,7 +38,7 @@ Numa perspetiva de alto nível, as seguintes funcionalidades são suportadas pel
 
 | Funcionalidade | Suporte |
 | --- | --- |
-| Origem de dados ligada |O conector é suportado com todos os controladores ODBC de 64 bits. Foi testado com o seguinte: <li>Microsoft SQL Server e SQL Azure</li><li>IBM DB2 10</li><li>IBM DB2 9.x</li><li>G Oracle 10 e 11</li><li>MySQL 5. x</li> |
+| Origem de dados ligada |O conector é suportado com todos os controladores ODBC de 64 bits. Foi testado com o seguinte: <li>Microsoft SQL Server e SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>G Oracle 10 e 11</li><li>MySQL 5.x</li> |
 | Cenários |<li>Gestão de ciclo de vida do objeto</li><li>Gestão de palavra-passe</li> |
 | Operações |<li>Importação completa e a importação Delta, exportação</li><li>Para exportar: Adicionar, eliminar, atualização e substituir</li><li>Definir a palavra-passe, altere a palavra-passe</li> |
 | Esquema |<li>Deteção dinâmica de objetos e atributos</li> |

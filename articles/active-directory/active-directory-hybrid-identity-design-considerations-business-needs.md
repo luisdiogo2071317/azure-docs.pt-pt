@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory híbrida identidade considerações de design - determinar os requisitos de identidade | Microsoft Docs"
+title: "Estrutura de identidade do Azure na nuvem dos requisitos de identidade híbrida | Microsoft Docs"
 description: "Identifica necessidades de negócio da empresa que irão originar a definir os requisitos para a estrutura de identidade híbrida."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: d88648731ef021f2705a15a544d23359e65c64f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de identidade para a sua solução de identidade híbrida
 O primeiro passo para conceber uma solução de identidade híbrido consiste em determinar os requisitos da organização de negócio que irá tirar partido desta solução.  Identidade híbrida é iniciada como uma função de suporte (suporta todas as outras soluções de nuvem, fornecer autenticação) e entra para fornecer capacidades novas e interessantes que desbloquear novas cargas de trabalho para os utilizadores.  Estas cargas de trabalho ou serviços que pretende que adotar para os seus utilizadores vai ditar os requisitos para a estrutura de identidade híbrida.  Estes serviços e cargas de trabalho necessário tirar partido de identidade híbrida no local e na nuvem.  
@@ -103,9 +104,9 @@ Também terá de avaliar os requisitos de utilizador. Esta avaliação é import
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Determinar os requisitos de sincronização de diretórios](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 [Descrição geral das considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 6e64d2238c36c8f122bbe29b937eeea156df30e0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 99a430810b915f4ca06d9c07182319eff1fa299e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Dispositivos de IoT do Azure SDK para C
 
@@ -68,9 +68,9 @@ Agora que tem o código de origem de exemplo, a seguinte coisa a fazer é obter 
 Existem várias ferramentas open source para ajudar a gerir o seu IoT hub.
 
 * Uma aplicação do Windows chamada [Explorador de dispositivo](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
-* Uma ferramenta CLI plataforma node.js chamado [iothub explorer](https://github.com/azure/iothub-explorer).
+* Uma ferramenta de Python CLI plataforma chamado [a extensão de IoT para Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-Este tutorial utiliza o gráfico *Explorador de dispositivo* ferramenta. Também pode utilizar o *iothub explorer* ferramenta se preferir utilizar uma ferramenta CLI.
+Este tutorial utiliza o gráfico *Explorador de dispositivo* ferramenta. Também pode utilizar o *a extensão de IoT para Azure CLI 2.0* ferramenta se preferir utilizar uma ferramenta CLI.
 
 A ferramenta Explorador do dispositivo utiliza as bibliotecas de serviço do Azure IoT para executar várias funções no IoT Hub, incluindo a adição de dispositivos. Se utilizar a ferramenta Explorador do dispositivo para adicionar um dispositivo, que obtém uma cadeia de ligação para o seu dispositivo. É necessário esta cadeia de ligação para executar as aplicações de exemplo.
 
@@ -562,7 +562,7 @@ serializer_deinit();
 
 Cada uma destas três funções está alinhada com três funções de inicialização descritas anteriormente. Chamar estas APIs garante que libertar recursos alocados anteriormente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 Este artigo abrange as noções básicas da utilização de bibliotecas no **dispositivos de IoT do Azure SDK para C**. -Lhe forneceu informações suficientes para compreender o que está incluído no SDK, a arquitetura e como começar a trabalhar com exemplos do Windows. O seguinte artigo continua a descrição do SDK por explicar [mais informações sobre a biblioteca de IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
@@ -570,7 +570,7 @@ Para saber mais sobre como desenvolver para o IoT Hub, veja o [SDKs IoT do Azure
 
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

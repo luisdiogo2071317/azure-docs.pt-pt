@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: a27c3555f36560f8c945d997a15e98a42e1e5d4c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -132,10 +132,10 @@ Seguem-se os valores esperados:
 
 | Valor | Descrição |
 | --- | --- |
-| {assinatura} |Uma cadeia de assinatura de HMAC SHA256 com o formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave de descodificar a partir de base64 e utilizada como chave para realizar a computação HMAC SHA256. |
+| {signature} |Uma cadeia de assinatura de HMAC SHA256 com o formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: A chave de descodificar a partir de base64 e utilizada como chave para realizar a computação HMAC SHA256. |
 | {resourceURI} |Prefixos de URI (por segmento) dos pontos finais que podem ser acedidos com este token, começando com o nome de anfitrião do hub IoT (nenhum protocolo). Por exemplo, `myHub.azure-devices.net/devices/device1` |
-| {expiração} |UTF8 cadeias para o número de segundos desde a UTC de 00:00:00 época no 1 de Janeiro de 1970. |
-| {ResourceURI de codificados de URL} |Caso inferiores a codificação URL do recurso minúsculas URI |
+| {expiry} |UTF8 cadeias para o número de segundos desde a UTC de 00:00:00 época no 1 de Janeiro de 1970. |
+| {URL-encoded-resourceURI} |Caso inferiores a codificação URL do recurso minúsculas URI |
 | {policyName} |O nome da política de acesso partilhado ao qual este token refere-se. Ausência de se o token refere-se às credenciais de registo do dispositivo. |
 
 **Tenha em atenção, no prefixo**: prefixo o URI é calculado pelo segmento e não pelo caráter. Por exemplo `/a/b` for um prefixo para `/a/b/c` , mas não para `/a/bc`.
@@ -268,7 +268,7 @@ O resultado, o qual concede acesso a todas as funcionalidades para device1, seri
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> É possível gerar um token SAS, utilizando o .NET [Explorador de dispositivo] [ lnk-device-explorer] ferramenta ou plataforma, com base no nó [iothub explorer] [ lnk-iothub-explorer] utilitário da linha de comandos.
+> É possível gerar um token SAS, utilizando o .NET [Explorador de dispositivo] [ lnk-device-explorer] ferramenta ou plataforma, com base no Python [IoT a extensão para Azure CLI 2.0] [ lnk-IoT-extension-CLI-2.0] utilitário da linha de comandos.
 
 ### <a name="use-a-shared-access-policy"></a>Utilizar uma política de acesso partilhado
 
@@ -441,7 +441,7 @@ Outros tópicos de referência no guia de programadores do IoT Hub incluem:
 * [A linguagem de consulta do IoT Hub] [ lnk-query] descreve o idioma de consulta pode utilizar para obter informações a partir do IoT Hub sobre os dispositivos duplos e tarefas.
 * [Suporte do IoT Hub MQTT] [ lnk-devguide-mqtt] fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu como controlar o acesso do IoT Hub, poderá estar interessado nos seguintes tópicos do guia de programadores do IoT Hub:
 
@@ -487,7 +487,7 @@ Se pretender experimentar alguns dos conceitos descritos neste artigo, consulte 
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md

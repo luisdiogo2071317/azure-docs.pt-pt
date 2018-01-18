@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Durante a transmissão 2.0 de dados (pré-visualização) solução na análise de registos
 
@@ -186,10 +186,10 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 #### <a name="dependency-agent-downloads"></a>Transferências de agente de dependência
 
-| **Ficheiro** | **SO** | **Versão** | **SHA-256** |
+| **Ficheiro** | **OS** | **Versão** | **SHA-256** |
 | --- | --- | --- | --- |
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
 
 
 
@@ -217,9 +217,9 @@ Utilize os seguintes passos para instalar o agente de dependência em cada compu
 
 Utilize as opções da tabela seguinte para instalar a partir de uma linha de comandos. Para ver uma lista dos sinalizadores de instalação, execute o instalador utilizando o /? Sinalizador da seguinte forma.
 
-InstallDependencyAgent Windows.exe /?
+InstallDependencyAgent-Windows.exe /?
 
-| **Sinalizador** | **Descrição** |
+| **Flag** | **Descrição** |
 | --- | --- |
 | <code>/?</code> | Obter uma lista das opções da linha de comandos. |
 | <code>/S</code> | Efetue uma instalação automática com sem avisos do utilizador. |
@@ -244,7 +244,7 @@ Para ver uma lista dos sinalizadores de instalação, execute o programa de inst
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Sinalizador** | **Descrição** |
+| **Flag** | **Descrição** |
 | --- | --- |
 | <code>-help</code> | Obter uma lista das opções da linha de comandos. |
 | <code>-s</code> | Efetue uma instalação automática com sem avisos do utilizador. |
@@ -254,11 +254,11 @@ Os ficheiros para o agente de dependência são colocados nas seguintes diretór
 
 | **Ficheiros** | **Localização** |
 | --- | --- |
-| Ficheiros de núcleo | /OPT/Microsoft/Dependency-Agent |
-| Ficheiros de registo | /var/OPT/Microsoft/Dependency-Agent/log |
-| Ficheiros de configuração | /etc/OPT/Microsoft/Dependency-Agent/Config |
-| Ficheiros executáveis do serviço | /OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent<br><br>/OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent-Manager |
-| Ficheiros de armazenamento binário | /var/OPT/Microsoft/Dependency-Agent/Storage |
+| Ficheiros de núcleo | /opt/microsoft/dependency-agent |
+| Ficheiros de registo | /var/opt/microsoft/dependency-agent/log |
+| Ficheiros de configuração | /etc/opt/microsoft/dependency-agent/config |
+| Ficheiros executáveis do serviço | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br><br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Ficheiros de armazenamento binário | /var/opt/microsoft/dependency-agent/storage |
 
 ### <a name="installation-script-examples"></a>Exemplos de script de instalação
 
@@ -375,16 +375,13 @@ Utilize as seguintes informações para instalar e configurar a solução.
 
 Depois de instalar agentes e instalar a solução, o mosaico 2.0 de dados durante a transmissão é apresentado na sua área de trabalho.
 
-> [!NOTE]
-> Atualmente, tem de utilizar o portal do OMS para ver os dados de transmissão. Não é possível utilizar o portal do Azure para ver os dados de transmissão.
-
 ![Mosaico de dados por fio](./media/log-analytics-wire-data/wire-data-tile.png)
 
 ## <a name="using-the-wire-data-20-solution"></a>Utilizando a solução de transmissão dados 2.0
 
 No portal do OMS, clique em de **durante a transmissão dados 2.0** mosaico para abrir o dashboard de dados por fio. O dashboard inclui os painéis na seguinte tabela. Cada painel lista até 10 itens correspondentes aos critérios de nesse painel para o âmbito especificado e o intervalo de tempo. Pode executar uma pesquisa de registo que devolve todos os registos clicando **ver todos os** na parte inferior do painel ou ao clicar no cabeçalho do painel.
 
-| **Painel** | **Descrição** |
+| **Blade** | **Descrição** |
 | --- | --- |
 | Agentes que capturam tráfego de rede | Mostra o número de agentes que está a capturar o tráfego de rede e apresenta uma lista de principais 10 computadores que estão a capturar o tráfego. Clique no número para executar uma pesquisa de registo para <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>. Clique num computador na lista para executar uma pesquisa de registo devolver o número total de bytes capturadas. |
 | Sub-redes locais | Mostra o número de sub-redes locais que tenham detetados agentes.  Clique no número para executar uma pesquisa de registo para <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> que apresenta uma lista de todas as sub-redes com o número de bytes enviados através de cada um deles. Clique uma sub-rede na lista para executar uma pesquisa de registo devolver o número total de bytes enviados através de sub-rede. |
@@ -426,7 +423,7 @@ Um registo com um tipo de _WireData_ é criada para cada tipo de dados de entrad
 | TimeGenerated | Tempo do registo |
 | LocalIP | Endereço IP do computador local |
 | SessionState | Ligado ou desligado |
-| receivedBytes | Quantidade de bytes recebidos |
+| ReceivedBytes | Quantidade de bytes recebidos |
 | ProtocolName | Nome do protocolo de rede utilizado |
 | IPVersion | Versão do IP |
 | Direção | Entrada ou de saída |
@@ -441,8 +438,8 @@ Um registo com um tipo de _WireData_ é criada para cada tipo de dados de entrad
 | LocalPortNumber | Número de porta local |
 | RemoteIP | Endereço IP remoto utilizado pelo computador remoto |
 | RemotePortNumber | Número de porta utilizado pelo endereço IP remoto |
-| ID de sessão | Um valor exclusivo que identifica a sessão de comunicações entre dois endereços IP |
-| sentBytes | Número de bytes enviados |
+| SessionID | Um valor exclusivo que identifica a sessão de comunicações entre dois endereços IP |
+| SentBytes | Número de bytes enviados |
 | TotalBytes | Número total de bytes enviados durante a sessão |
 | ApplicationProtocol | Tipo de protocolo de rede utilizado   |
 | ID do processo | ID de processo do Windows |
@@ -451,6 +448,6 @@ Um registo com um tipo de _WireData_ é criada para cada tipo de dados de entrad
 | RemoteIPLatitude | Valor de latitude do IP |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Pesquisar registos](log-analytics-log-searches.md) para ver registos de pesquisa de dados de transmissão detalhada.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: f2c747f29d1e35b430b30d9aa4ca0bff2e78476f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento apresenta uma lista algumas dos limites mais comuns de Microsoft Azure, que também por vezes, são chamados quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para cobrir mais da plataforma.
@@ -61,6 +61,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças n
 * [Serviços Cloud](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
+* [Serviço de contentor (AKS)](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -127,6 +128,9 @@ Os seguintes limites aplicam-se ao utilizar o Azure Resource Manager e os grupos
 A tabela seguinte fornece detalhes sobre as funcionalidades e limites do básicas, Standard e Premium [escalões de serviço](./container-registry/container-registry-skus.md).
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
+### <a name="container-service-aks-limits"></a>Limites de serviço de contentor (AKS)
+[!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Limites de rede
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
@@ -313,7 +317,7 @@ Para os limites de base de dados SQL, consulte [dos limites de recursos de base 
 ### <a name="sql-data-warehouse-limits"></a>Limites do SQL Data Warehouse
 Para os limites do SQL Data Warehouse, consulte [limites de recursos de armazém de dados SQL](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 [Compreender os limites do Azure e aumenta](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Máquina virtual e tamanhos do serviço em nuvem do Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

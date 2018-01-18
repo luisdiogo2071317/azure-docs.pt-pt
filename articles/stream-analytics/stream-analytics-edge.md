@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/16/2017
+ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: f1ff8d6f64a04ab03c8170fd2b6a7c881227da2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>O Azure Stream Analytics no limite de IoT (pré-visualização)
 
@@ -46,7 +46,7 @@ Executar tarefas do ASA Edge como módulos dentro [tempo de execução do Azure 
 
 ASA utiliza IoT Hub para implementar as tarefas de edge para dispositivos. Obter mais informações sobre [implementação de limite de IoT que pode ser vista aqui](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
-![Tarefa de limite](media/stream-analytics-edge/ASAedge_job.png)
+![Tarefa do Edge](media/stream-analytics-edge/ASAedge_job.png)
 
 
 ### <a name="installation-instructions"></a>Instruções de instalação
@@ -57,7 +57,12 @@ Os passos de alto nível são descritos na seguinte tabela. São fornecidos mais
 | 2   | **Criar um contentor de armazenamento**   | Portal do Azure       | Os contentores de armazenamento são utilizados para guardar a definição de tarefa onde possam ser acedidos pelos seus dispositivos de IoT. <br>  Pode reutilizar qualquer contentor de armazenamento existente.     |
 | 3   | **Configurar o ambiente de limite de IoT no seu dispositivo (s)**   | Dispositivo(s)      | Instruções para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Implementar ASA nos seus dispositivos de IoT Edge**   | Portal do Azure      |  Definição de tarefa do ASA é exportada para o contentor de armazenamento que criou anteriormente.       |
-Pode seguir [neste tutorial passo a passo](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) para implementar o seu primeiro emprego ASA no limite de IoT.
+Pode seguir [neste tutorial passo a passo](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) para implementar o seu primeiro emprego ASA no limite de IoT. O vídeo seguinte deve ajudá-lo a compreender o processo para executar uma tarefa de Stream Analytics num dispositivo de limite de IoT:  
+
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
+
+
 
 #### <a name="create-an-asa-edge-job"></a>Criar uma tarefa do ASA Edge
 1. A partir do portal do Azure, crie uma nova "tarefa de Stream Analytics". [Ligação direta para criar uma nova tarefa ASA aqui](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
@@ -205,7 +210,7 @@ Para obter mais informações, consulte [Docker documentação de Windows aqui](
 Para mais assistência, tente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Obter mais informações sobre o limite de Iot do Azure](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA tutorial IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)

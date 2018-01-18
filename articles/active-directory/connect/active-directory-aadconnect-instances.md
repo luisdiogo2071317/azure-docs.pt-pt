@@ -3,7 +3,7 @@ title: "Do Azure AD Connect: Instâncias do serviço de sincronização | Micros
 description: "Esta página documentos considerações especiais para instâncias do Azure AD."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: f340ea11-8ff5-4ae6-b09d-e939c76355a3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: billmath
-ms.openlocfilehash: 396a0ff94f380e194d4b1d45c3d8132a4265a131
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0b3f274c2bf457760a1d62d5cc369ebdb0c52c59
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>O Azure AD Connect: Considerações especiais para instâncias
 O Azure AD Connect é normalmente utilizado com a instância em todo o mundo do Azure AD e o Office 365. Mas também existem outras instâncias e estes têm diferentes requisitos para os URLs e outras considerações especiais.
@@ -28,7 +28,7 @@ O [Datacenters da Microsoft Cloud](http://www.microsoft.de/cloud-deutschland) é
 
 | URLs para abrir o servidor proxy |
 | --- |
-| \*. microsoftonline.de |
+| \*.microsoftonline.de |
 | \*.windows.net |
 | + Listas de revogação de certificados |
 
@@ -49,9 +49,9 @@ Esta nuvem é suportada por versões anteriores do DirSync. A partir de compila�
 | URLs para abrir o servidor proxy |
 | --- |
 | \*.microsoftonline.com |
-| \*. microsoftonline.us |
+| \*.microsoftonline.us |
 | \*. windows.net (necessário para automático deteção de inquilino do Azure AD government) |
-| \*. gov.us.microsoftonline.com |
+| \*.gov.us.microsoftonline.com |
 | + Listas de revogação de certificados |
 
 > [!NOTE]
@@ -64,5 +64,5 @@ Funcionalidades atualmente não está presentes na nuvem do Microsoft Azure Gove
 * **Repetição de escrita de palavras-passe** está disponível para pré-visualização com a versão do Azure AD Connect 1.1.570.0 e depois.
 * Não estão disponíveis outros serviços do Azure AD Premium.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

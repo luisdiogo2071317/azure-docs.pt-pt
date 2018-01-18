@@ -3,7 +3,7 @@ title: "Sincronização do Azure AD Connect: extensões de diretórios | Microso
 description: "Este tópico descreve a funcionalidade de extensões de diretório no Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 3ab8b02ad30315de23e5d8e7370cc385a53ecf3a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 31758568f7ce916a4c242aad743bb4b0cb9b2d6e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: extensões de diretórios
 Extensões de diretórios permite-lhe expandir o esquema no Azure AD com os seus próprios atributos do Active Directory no local. Esta funcionalidade permite-lhe criar aplicações LOB consumir atributos que continua a gerir no local. Estes atributos podem ser consumidos através de [extensões de diretórios do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://graph.microsoft.io/). Pode ver os atributos disponíveis utilizar [Explorador do Azure AD Graph](https://graphexplorer.azurewebsites.net/) e [explorer Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer) respetivamente.
@@ -49,7 +49,7 @@ Estes atributos estão agora disponíveis através do gráfico:
 
 Os atributos têm o prefixo extensão\_{AppClientId}\_. O AppClientId tem o mesmo valor para todos os atributos no inquilino do Azure AD.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Utilize o Explorador de iothub para gestão de dispositivos do IoT Hub do Azure
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 [Explorador de iothub](https://github.com/azure/iothub-explorer) é uma ferramenta CLI que executar no anfitrião de um computador para gerir identidades de dispositivo no seu registo de hub IoT. É fornecido com as opções de gestão que pode utilizar para efetuar várias tarefas.
 
 | Opção de gestão          | Tarefa                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Métodos diretos             | Se um dispositivo agir como iniciar ou parar o envio de mensagens ou iniciar o dispositivo.                                        |
 | Propriedades de duplo pretendida    | Colocar um dispositivo em determinados Estados, como a definição de um LED como verde ou definir o intervalo de envio de telemetria e 30 minutos.         |
 | Duplo comunicadas propriedades   | Obter o estado de um dispositivo reportado. Por exemplo, o dispositivo comunica que o LED é blinking agora.                                    |
@@ -54,9 +54,9 @@ Execute o Explorador de iothub com várias opções de gestão.
 ## <a name="what-you-need"></a>Do que precisa
 
 - Tutorial [configurar o seu dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) concluir que inclui os seguintes requisitos:
-  - Uma subscrição ativa do Azure.
-  - Um hub IoT do Azure na sua subscrição.
-  - Uma aplicação de cliente que envia mensagens para o seu hub IoT do Azure.
+- Uma subscrição ativa do Azure.
+- Um hub IoT do Azure na sua subscrição.
+- Uma aplicação de cliente que envia mensagens para o seu hub IoT do Azure.
 - Certifique-se de que o dispositivo está em execução com a aplicação de cliente durante este tutorial.
 - Explorador de iothub, [instalar iothub explorer](https://github.com/azure/iothub-explorer) no computador de desenvolvimento.
 
@@ -114,7 +114,6 @@ Adicionar uma função de campo = temperatura e humidade para o dispositivo, exe
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
-
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Utilize o Explorador de iothub com mensagens da nuvem para dispositivo
@@ -141,7 +140,7 @@ Consultar todos os dispositivos, exceto aqueles com uma etiqueta de função = '
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprendeu como utilizar o Explorador do iothub com várias opções de gestão.
 

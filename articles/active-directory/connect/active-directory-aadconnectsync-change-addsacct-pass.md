@@ -4,7 +4,7 @@ description: "Este documento de tópico descreve como atualizar do Azure AD Conn
 services: active-directory
 keywords: Conta do AD DS, a conta do Active Directory, a palavra-passe
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: bd2970a723aa6b9073e25fd19493232af50e7985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bc296b594917f68f35d7d15653b7b0c60cde514
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Alterar a palavra-passe de conta do AD DS
 A conta do AD DS refere-se à conta de utilizador utilizada pelo Azure AD Connect para comunicar com o Active Directory no local. Se alterar a palavra-passe da conta do AD DS, tem de atualizar o serviço de sincronização ligar do Azure AD com a nova palavra-passe. Caso contrário, a sincronização já não pode sincronizar corretamente com o Active Directory no local e irá encontrar os seguintes erros:

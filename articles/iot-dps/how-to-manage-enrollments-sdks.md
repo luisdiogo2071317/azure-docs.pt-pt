@@ -12,11 +12,11 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 14e353af82342bc7a580e1a0a02b8b4e29514fb9
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerir inscrições de dispositivos com SDKs Service de aprovisionamento do dispositivo do Azure
 A *inscrição de dispositivos* cria um registo de um único dispositivo ou um grupo de dispositivos que poderão, a determinada altura registar com o serviço de aprovisionamento de dispositivos. O registo de inscrição contém a configuração pretendida inicial para os dispositivos como parte do que a inscrição, incluindo o hub IoT pretendido. Este artigo mostra como gerir inscrições de dispositivos para o seu serviço aprovisionamento através da programação com os SDKs IoT do Azure aprovisionamento de serviço.  Os SDKs estão disponíveis no GitHub no mesmo repositório como SDKs IoT do Azure.
@@ -25,6 +25,7 @@ A *inscrição de dispositivos* cria um registo de um único dispositivo ou um g
 Este artigo revê os conceitos de alto nível para a gestão de inscrições de dispositivos para o seu serviço aprovisionamento através da programação com os SDKs IoT do Azure aprovisionamento de serviço.  Chamadas de API exatas poderão ser diferentes devido a diferenças de idioma.  Reveja os exemplos que fornecemos no GitHub para obter mais detalhes:
 * [Exemplos de cliente do serviço de aprovisionamento de Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
 * [Exemplos de aprovisionamento de cliente do serviço do node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+* [Exemplos de cliente do serviço de aprovisionamento de .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Cadeia de ligação de uma instância de serviço de aprovisionamento de dispositivos
@@ -32,7 +33,7 @@ Este artigo revê os conceitos de alto nível para a gestão de inscrições de 
     * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
         * Inscrição individuais: ID de registo e a chave de endossamento TPM de um dispositivo físico ou de simulador de TPM.
         * Grupo de inscrição não é aplicável a atestado TPM.
-    * [**X. 509**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
+    * [**X.509**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
         * Inscrição individuais: O [certificado folha](https://docs.microsoft.com/azure/iot-dps/concepts-security#leaf-certificate) do dispositivo físico ou de REPARTIR emulador.
         * Grupo de inscrição: O [certificado de raiz](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) ou [intermediária](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), utilizada para produzir o certificado de dispositivo num dispositivo físico.  Também pode ser gerado pelo emulador REPARTIR.
 

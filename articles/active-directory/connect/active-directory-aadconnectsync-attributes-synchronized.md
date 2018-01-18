@@ -3,7 +3,7 @@ title: Atributos sincronizados pelo Azure AD Connect | Microsoft Docs
 description: "Lista os atributos que são sincronizados com o Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 1fb5772f58511b33d6927c3d0ff155980ed756ad
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d935b73e1087d5ad858bdbee9af68dd1cf5cd1e
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos que estão sincronizados com a sincronização do Azure AD Connect.  
@@ -36,7 +36,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 >
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
-| Nome do Atributo | Utilizador | Comentar |
+| Nome do Atributo | Utilizador | Comentário |
 | --- |:---:| --- |
 | accountEnabled |X |Define se a uma conta estiver ativada. |
 | CN |X | |
@@ -48,17 +48,17 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | userPrincipalName |X |UPN é o ID de início de sessão do utilizador. Mais frequentemente é o valor igual a [correio]. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentar |
+| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se a uma conta estiver ativada. |
 | Assistente de |X |X | | |
 | altRecipient |X | | |Requer o Azure AD Connect compilação 1.1.552.0 ou após. |
 | authOrig |X |X |X | |
-| C |X |X | | |
+| c |X |X | | |
 | CN |X | |X | |
 | Co |X |X | | |
 | Empresa |X |X | | |
-| Indicativo do país |X |X | | |
+| countryCode |X |X | | |
 | Departamento |X |X | | |
 | descrição |X |X |X | |
 | displayName |X |X |X | |
@@ -85,9 +85,9 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | informações |X |X |X |Atualmente, este atributo é consumido não para grupos. |
 | Iniciais |X |X | | |
 | l |X |X | | |
-| LegacyExchangeDN |X |X |X | |
+| legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
-| Está | | |X | |
+| managedBy | | |X | |
 | Gestor |X |X | | |
 | Membro | | |X | |
 | Mobile |X |X | | |
@@ -148,7 +148,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | otherTelephone |X |X | | |
 | Pager |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
-| PostalCode |X |X | | |
+| postalCode |X |X | | |
 | proxyAddresses |X |X |X | |
 | publicDelegates |X |X |X | |
 | pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de palavra-passe e a Federação. |
@@ -158,12 +158,12 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mechanical. Identificador imutável para manter a relação entre ADDS e o Azure AD. |
 | St |X |X | | |
-| StreetAddress |X |X | | |
+| streetAddress |X |X | | |
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| Título |X |X | | |
+| título |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |propriedade mechanical. País do utilizador. Utilizado para a atribuição de licença. |
 | userCertificate |X |X | | |
@@ -172,15 +172,15 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentar |
+| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se a uma conta estiver ativada. |
 | authOrig |X |X |X | |
-| C |X |X | | |
+| c |X |X | | |
 | CN |X | |X | |
 | Co |X |X | | |
 | Empresa |X |X | | |
-| Indicativo do país |X |X | | |
+| countryCode |X |X | | |
 | Departamento |X |X | | |
 | descrição |X |X |X | |
 | displayName |X |X |X | |
@@ -211,7 +211,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | l |X |X | | |
 | capacidade de correio |X |X |X | |
 | mailNickname |X |X |X | |
-| Está | | |X | |
+| managedBy | | |X | |
 | Gestor |X |X | | |
 | Membro | | |X | |
 | middleName |X |X | | |
@@ -225,12 +225,12 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | otherFacsimileTelephone |X |X | | |
 | otherHomePhone |X |X | | |
 | otherIpPhone |X |X | | |
-| OtherMobile |X |X | | |
+| otherMobile |X |X | | |
 | otherPager |X |X | | |
 | otherTelephone |X |X | | |
 | Pager |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
-| PostalCode |X |X | | |
+| postalCode |X |X | | |
 | postOfficeBox |X |X | |Este atributo é atualmente não é consumido pelo SharePoint Online. |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
@@ -241,12 +241,12 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mechanical. Identificador imutável para manter a relação entre ADDS e o Azure AD. |
 | St |X |X | | |
-| StreetAddress |X |X | | |
+| streetAddress |X |X | | |
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| Título |X |X | | |
+| título |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
 | usageLocation |X | | |propriedade mechanical. País do utilizador. Utilizado para a atribuição de licença. |
@@ -254,10 +254,10 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (subsequentemente conhecido como Skype para empresas)
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentar |
+| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se a uma conta estiver ativada. |
-| C |X |X | | |
+| c |X |X | | |
 | CN |X | |X | |
 | Co |X |X | | |
 | Empresa |X |X | | |
@@ -271,14 +271,14 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | l |X |X | | |
 | capacidade de correio |X |X |X | |
 | mailNickname |X |X |X | |
-| Está | | |X | |
+| managedBy | | |X | |
 | Gestor |X |X | | |
 | Membro | | |X | |
 | Mobile |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
 | msRTCSIP-ApplicationOptions |X | | | |
 | msRTCSIP-DeploymentLocator |X |X | | |
-| msRTCSIP-linha |X |X | | |
+| msRTCSIP-Line |X |X | | |
 | msRTCSIP-OptionFlags |X |X | | |
 | msRTCSIP-OwnerUrn |X | | | |
 | msRTCSIP-PrimaryUserAddress |X |X | | |
@@ -286,7 +286,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | Sidobjeto |X | |X |propriedade mechanical. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
 | otherTelephone |X |X | | |
 | physicalDeliveryOfficeName |X |X | | |
-| PostalCode |X |X | | |
+| postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de palavra-passe e a Federação. |
@@ -294,16 +294,16 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mechanical. Identificador imutável para manter a relação entre ADDS e o Azure AD. |
 | St |X |X | | |
-| StreetAddress |X |X | | |
+| streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
-| Título |X |X | | |
+| título |X |X | | |
 | usageLocation |X | | |propriedade mechanical. País do utilizador. Utilizado para a atribuição de licença. |
 | userPrincipalName |X | | |UPN é o ID de início de sessão do utilizador. Mais frequentemente é o valor igual a [correio]. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>O Azure RMS
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentar |
+| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se a uma conta estiver ativada. |
 | CN |X | |X |Nome ou alias comum. Mais frequentemente o prefixo do valor de [correio]. |
@@ -319,10 +319,10 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | userPrincipalName |X | | |Este UPN é o ID de início de sessão do utilizador. Mais frequentemente é o valor igual a [correio]. |
 
 ## <a name="intune"></a>Intune
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentar |
+| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se a uma conta estiver ativada. |
-| C |X |X | | |
+| c |X |X | | |
 | CN |X | |X | |
 | descrição |X |X |X | |
 | displayName |X |X |X | |
@@ -338,35 +338,35 @@ Neste caso, comece com a lista de atributos neste tópico e identificar os atrib
 | userPrincipalName |X | | |UPN é o ID de início de sessão do utilizador. Mais frequentemente é o valor igual a [correio]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentar |
+| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se a uma conta estiver ativada. |
-| C |X |X | | |
+| c |X |X | | |
 | CN |X | |X | |
 | Co |X |X | | |
 | Empresa |X |X | | |
-| Indicativo do país |X |X | | |
+| countryCode |X |X | | |
 | descrição |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
 | l |X |X | | |
-| Está | | |X | |
+| managedBy | | |X | |
 | Gestor |X |X | | |
 | Membro | | |X | |
 | Mobile |X |X | | |
 | Sidobjeto |X | |X |propriedade mechanical. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
 | physicalDeliveryOfficeName |X |X | | |
-| PostalCode |X |X | | |
+| postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |propriedade mechanical. Utilizado para saberem invalidar tokens já emitidos. Utilizado pela sincronização de palavra-passe e a Federação. |
 | securityEnabled | | |X |Derivado groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mechanical. Identificador imutável para manter a relação entre ADDS e o Azure AD. |
 | St |X |X | | |
-| StreetAddress |X |X | | |
+| streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| Título |X |X | | |
+| título |X |X | | |
 | usageLocation |X | | |propriedade mechanical. País do utilizador. Utilizado para a atribuição de licença. |
 | userPrincipalName |X | | |UPN é o ID de início de sessão do utilizador. Mais frequentemente é o valor igual a [correio]. |
 
@@ -378,14 +378,14 @@ Este grupo é um conjunto de atributos utilizado como os atributos mínimo neces
 
 Este grupo é um conjunto de atributos que pode ser utilizado se o diretório do Azure AD não é utilizado para suportar o Office 365, o Dynamics ou o Intune. Tem um pequeno conjunto de atributos principais.
 
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentar |
+| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se a uma conta estiver ativada. |
 | CN |X | |X | |
 | displayName |X |X |X | |
 | givenName |X |X | | |
 | capacidade de correio |X | |X | |
-| Está | | |X | |
+| managedBy | | |X | |
 | mailNickName |X |X |X | |
 | Membro | | |X | |
 | Sidobjeto |X | | |propriedade mechanical. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
@@ -399,21 +399,21 @@ Este grupo é um conjunto de atributos que pode ser utilizado se o diretório do
 ## <a name="windows-10"></a>Windows 10
 Um computer(device) associados a um domínio do Windows 10 efetua a sincronização de alguns atributos para o Azure AD. Para obter mais informações sobre os cenários, consulte [ligar dispositivos associados a um domínio ao Azure AD para experiências do Windows 10](../active-directory-azureadjoin-devices-group-policy.md). Estes atributos sempre sincronizar e Windows 10 não aparece como uma aplicação que pode anular a seleção. Um computador associado a um domínio do Windows 10 é identificado por ter userCertificate o atributo preenchido.
 
-| Nome do Atributo | Dispositivo | Comentar |
+| Nome do Atributo | Dispositivo | Comentário |
 | --- |:---:| --- |
 | accountEnabled |X | |
 | deviceTrustType |X |Valor de codificado para computadores associados a um domínio. |
 | displayName |X | |
-| MS-DS-CreatorSID |X |Também denominado registeredOwnerReference. |
+| ms-DS-CreatorSID |X |Também denominado registeredOwnerReference. |
 | objectGUID |X |Também denominado deviceID. |
 | Sidobjeto |X |Também denominado onPremisesSecurityIdentifier. |
-| sistema operativo |X |Também denominado deviceOSType. |
+| operatingSystem |X |Também denominado deviceOSType. |
 | operatingSystemVersion |X |Também denominado deviceOSVersion. |
 | userCertificate |X | |
 
 Estes atributos para **utilizador** estão além de outras aplicações que selecionou.  
 
-| Nome do Atributo | Utilizador | Comentar |
+| Nome do Atributo | Utilizador | Comentário |
 | --- |:---:| --- |
 | domainFQDN |X |Também denominado dnsDomainName. Por exemplo, contoso.com. |
 | domainNetBios |X |Também denominado netBiosName. Por exemplo, CONTOSO. |
@@ -421,7 +421,7 @@ Estes atributos para **utilizador** estão além de outras aplicações que sele
 ## <a name="exchange-hybrid-writeback"></a>Repetição de escrita do Exchange híbrida
 Estes atributos são repetidos do AD do Azure Active Directory no local ao selecionar a opção para ativar **híbrida do Exchange**. Dependendo da versão do Exchange, poderão estar sincronizados menos atributos.
 
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentar |
+| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | msDS-ExternalDirectoryObjectID |X | | |Derivado cloudAnchor no Azure AD. Este atributo é novo no Exchange 2016 e AD do Windows Server 2016. |
 | msExchArchiveStatus |X | | |Arquivo online: Permite que os clientes Arquivar correio. |
@@ -436,7 +436,7 @@ Estes atributos são repetidos do AD do Azure Active Directory no local ao selec
 ## <a name="exchange-mail-public-folder"></a>Pasta de público de correio do Exchange
 Estes atributos são sincronizados a partir do Active Directory no local ao Azure AD quando optar por ativar **pasta pública de correio eletrónico Exchange**.
 
-| Nome do Atributo | PublicFolder | Comentar |
+| Nome do Atributo | PublicFolder | Comentário |
 | --- | :---:| --- |
 | displayName | X |  |
 | capacidade de correio | X |  |
@@ -448,7 +448,7 @@ Estes atributos são sincronizados a partir do Active Directory no local ao Azur
 ## <a name="device-writeback"></a>Repetição de escrita do dispositivo
 Objetos de dispositivo são criados no Active Directory. Estes objetos podem ser dispositivos associados ao Azure AD ou a computadores associados a domínios do Windows 10.
 
-| Nome do Atributo | Dispositivo | Comentar |
+| Nome do Atributo | Dispositivo | Comentário |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | displayName |X | |
@@ -469,7 +469,7 @@ Objetos de dispositivo são criados no Active Directory. Estes objetos podem ser
 * Quando utilizar um ID alternativo, o atributo userPrincipalName no local está sincronizado com o onPremisesUserPrincipalName de atributo do Azure AD. O atributo ID alternativo, para o correio de exemplo, está sincronizado com o atributo userPrincipalName do Azure AD.
 * Na lista acima, o tipo de objeto **utilizador** também se aplica para o tipo de objeto **iNetOrgPerson**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

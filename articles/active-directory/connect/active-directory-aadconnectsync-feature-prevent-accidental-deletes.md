@@ -3,7 +3,7 @@ title: "Sincronização do Azure AD Connect: impedir eliminações acidentais | 
 description: "Este tópico descreve a funcionalidade de impedir eliminações acidentais (impedir eliminações acidentais) no Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 57ce7b2fcece751b1386ef1d57762ad8d1c27c62
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização do Azure AD Connect: impedir eliminações acidentais
 Este tópico descreve a funcionalidade de impedir eliminações acidentais (impedir eliminações acidentais) no Azure AD Connect.
@@ -63,7 +63,7 @@ Se forem pretendidas todas as eliminações, em seguida, efetue o seguinte:
 3. Com o conector Azure Active Directory ainda selecionada, selecione a ação **executar** e selecione **exportar**.
 4. Para reativar a proteção, execute o cmdlet do PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Substitua o valor que é reparado ao obter o limiar de eliminação atual 500. Forneça uma conta de Administrador Global do AD do Azure e a palavra-passe.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 **Tópicos de descrição geral**
 
 * [Sincronização do Azure AD Connect: Noções e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)

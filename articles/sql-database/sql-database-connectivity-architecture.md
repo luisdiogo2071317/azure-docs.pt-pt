@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 06/05/2017
+ms.date: 01/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 26cb1a5dd9b290366307e4026686e65f7afc0523
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8cf926bab45705802cfaca95973ec1071d8d175a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de conectividade de base de dados SQL do Azure 
 
@@ -71,7 +71,7 @@ A tabela seguinte lista os IPs primário e secundário do gateway para todas as 
 | EUA Central | 23.99.160.139 | 13.67.215.62 |
 | Ásia Oriental | 191.234.2.139 | 52.175.33.150 |
 | EUA Leste 1 | 191.238.6.43 | 40.121.158.30 |
-| EUA Leste 2 | 191.239.224.107 | 40.79.84.180 |
+| EUA Leste 2 | 191.239.224.107 | 40.79.84.180 * |
 | Índia Central | 104.211.96.159  | |
 | Índia do Sul | 104.211.224.146  | |
 | Índia Ocidental | 104.211.160.80 | |
@@ -92,6 +92,8 @@ A tabela seguinte lista os IPs primário e secundário do gateway para todas as 
 | EUA oeste 1 | 23.99.34.75 | 104.42.238.205 |
 | EUA Oeste 2 | 13.66.226.202  | |
 ||||
+
+\***Nota:** *EUA Leste 2* também tem um endereço IP terciária `2.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Alterar a política de ligação de SQL Database do Azure
 
@@ -183,7 +185,7 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para obter informações sobre como alterar a política de ligação de SQL Database do Azure para um servidor de base de dados do Azure SQL, consulte [Create ou política de ligação de servidor de atualização utilizando a API REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 - Para informações sobre o comportamento de ligação de SQL Database do Azure para clientes que utilizam ADO.NET 4.5 ou uma versão posterior, consulte [portas para além de 1433 para ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).

@@ -2,23 +2,18 @@
 title: "Azure Site Recovery resolução de problemas do VMware para Azure | Microsoft Docs"
 description: "Resolver erros ao replicar máquinas virtuais do Azure"
 services: site-recovery
-documentationcenter: 
 author: anoopkv
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Resolver problemas de instalação push do serviço de mobilidade
 
@@ -74,7 +69,7 @@ Este erro pode ser emitido pelo serviço por vários motivos. Escolha o erro do 
 
 **Código de erro** | **Causas possíveis** | **Recomendações de erro específico**
 --- | --- | ---
-95108 </br>**Mensagem:** a instalação Push do serviço de mobilidade na máquina de origem falhou com o código de erro **EP0859**. <br>| As credenciais fornecidas para instalar o serviço de mobilidade estão incorretas ou a conta de utilizador tem privilégios insuficientes <br>| Certifique-se de que as credenciais fornecidas são a **raiz** credenciais da conta. Para [adicionar/editar credenciais de utilizador](site-recovery-vmware-to-azure-manage-configuration-server.md#modify-user-accounts-and-passwords), vá para o servidor de configuração e clique no ícone de atalho "Cspsconfigtool" no ambiente de trabalho. Clique em "Gerir conta" para adicionar/editar credenciais.|
+95108 </br>**Mensagem:** a instalação Push do serviço de mobilidade na máquina de origem falhou com o código de erro **EP0859**. <br>| As credenciais fornecidas para instalar o serviço de mobilidade estão incorretas ou a conta de utilizador tem privilégios insuficientes <br>| Certifique-se de que as credenciais fornecidas são a **raiz** credenciais da conta. Adicionar/editar credenciais de utilizador, vá para o servidor de configuração e clique no ícone de atalho "Cspsconfigtool" no ambiente de trabalho. Clique em "Gerir conta" para adicionar/editar credenciais.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Erro 95265 - não foi possível proteção ativada (EP0902)
 
@@ -92,13 +87,14 @@ Este erro pode ser emitido pelo serviço por vários motivos. Escolha o erro do 
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>Recursos para resolver problemas de instalação de push
 
 #### <a name="troubleshoot-file-and-print-sharing-issues"></a>Resolver problemas de impressão partilha de ficheiros e
-*  [Ativar ou desativar a partilha de ficheiros com a política de grupo](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx)
-* [Como ativar o ficheiro e imprimir partilha através da Firewall do Windows](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
+*  [Ativar ou desativar a partilha de ficheiros com a política de grupo](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
+* [Como ativar o ficheiro e imprimir partilha através da Firewall do Windows](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>Resolver problemas WMI
 * [Teste de WMI básico](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
-* [Resolução de problemas do WMI](https://msdn.microsoft.com/en-us/library/aa394603(v=vs.85).aspx)
-* [Resolução de problemas com scripts WMI e serviços de WMI](https://technet.microsoft.com/en-us/library/ff406382.aspx#H22)
+* [Resolução de problemas do WMI](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
+* [Resolução de problemas com scripts WMI e serviços de WMI](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
-## <a name="next-steps"></a>Passos seguintes
-- [Ativar a replicação para máquinas virtuais VMware](vmware-walkthrough-enable-replication.md)
+## <a name="next-steps"></a>Passos Seguintes
+
+[Saiba como](tutorial-vmware-to-azure.md) para configurar a recuperação após desastre para as VMs de VMware.

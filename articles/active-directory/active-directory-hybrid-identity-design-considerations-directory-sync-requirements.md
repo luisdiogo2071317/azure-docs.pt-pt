@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory híbrida identidade considerações de design - determine os requisitos de sincronização de diretórios | Microsoft Docs"
+title: "Estrutura de identidade híbrida - requisitos de sincronização do Azure | Microsoft Docs"
 description: "Identificar requisitos de que são necessárias para sincronizar todos os utilizadores entre = no local e na nuvem para a empresa."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 00e9ecf39c386b7c1295bfca9ebf45fa40ae7e82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: 475b35c767fcc9c42b828dd2219a14890e05f779
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinar os requisitos de sincronização de diretórios
 A sincronização é tudo para fornecer aos utilizadores uma identidade na nuvem com base na respetiva identidade no local. Se pretende ou não irão utilizar a conta sincronizada para autenticação ou autenticação federada, os utilizadores têm de ter uma identidade na nuvem.  Esta identidade tem de ser mantidos e atualizada periodicamente.  As atualizações podem tomar várias formas, de alterações de título a alterações de palavra-passe.  
@@ -68,9 +69,9 @@ Também precisa de determinar a sincronização de diretórios de requisitos e r
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Determinar os requisitos de autenticação multifator](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 [Descrição geral das considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 

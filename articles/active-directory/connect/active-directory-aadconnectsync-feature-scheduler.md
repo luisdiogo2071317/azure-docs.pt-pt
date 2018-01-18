@@ -3,7 +3,7 @@ title: "Sincronização do Azure AD Connect: programador | Microsoft Docs"
 description: "Este tópico descreve a funcionalidade de programador incorporada na sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 418dcf67844bff7352b63db31ddfa3be3f7f29e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: df7b16157ccb47a5463570c3ed58b9c44f0b67d0
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: programador
 Este tópico descreve o programador incorporado na sincronização do Azure AD Connect (a.k.a. motor de sincronização).
@@ -68,7 +68,7 @@ No compilações anteriores do Azure AD Connect, **isStagingModeEnabled** foi ex
 A configuração do programador é armazenada no Azure AD. Se tiver um servidor de teste, qualquer alteração no servidor primário também afeta o servidor de transição (exceto IsStagingModeEnabled).
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
-Sintaxe:`Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
+Syntax: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
 d - dias, HH - horas, segundos mm - minutos, ss-
 
 Exemplo:`Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
@@ -131,7 +131,7 @@ Os cmdlets documentados nesta secção só estão disponíveis na compilação [
 
 Se o programador incorporado não satisfaz os requisitos de, em seguida, pode agendar os conectores com o PowerShell.
 
-### <a name="invoke-adsyncrunprofile"></a>ADSyncRunProfile invocar
+### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
 Pode iniciar um perfil para um conector desta forma:
 
 ```
@@ -168,7 +168,7 @@ Na imagem acima, a primeira linha é de um Estado em que o motor de sincronizaç
 ## <a name="scheduler-and-installation-wizard"></a>Assistente de instalação e do agendador
 Se iniciar o Assistente de instalação, o programador está temporariamente suspensa. Este comportamento é porque é suposto efetuar alterações de configuração e não não possível aplicar estas definições se o motor de sincronização está ativamente em execução. Por este motivo, não deixe o Assistente de instalação aberta, uma vez que interrompe o motor de sincronização de efetuar quaisquer ações de sincronização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

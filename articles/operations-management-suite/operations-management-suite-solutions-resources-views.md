@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Vistas em soluções de gestão do Operations Management Suite (OMS) (pré-visualização)
 > [!NOTE]
@@ -75,11 +75,10 @@ Adicione o seguinte recurso de vista para o **recursos** elemento do seu ficheir
 
 Adicione as seguintes variáveis para o elemento de variáveis do ficheiro de solução e substitua os valores para as para a sua solução.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 Tenha em atenção que pode copiar o recurso de vista completa do ficheiro exportado vista, mas terá de efetuar as seguintes alterações para que esta funcione na sua solução.  
 
@@ -89,6 +88,18 @@ Tenha em atenção que pode copiar o recurso de vista completa do ficheiro expor
 * **DisplayName** propriedade tem de ser adicionado à vista.  O **Id**, **nome**, e **DisplayName** todos devem corresponder.
 * Os nomes de parâmetros tem de ser alterados para corresponder ao conjunto de parâmetros necessário.
 * Variáveis devem ser definidas na solução e utilizadas nas propriedades adequadas.
+
+### <a name="log-analytics-api-version"></a>Versão de API de análise do registo
+Todos os recursos de análise de registos definidos num modelo do Resource Manager tem uma propriedade **apiVersion** que define a versão da API, deve utilizar o recurso.  Esta versão é diferente das vistas com consultas que utilizem o [legado e o idioma de consulta atualizado](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ A seguinte tabela especifica as versões de API de análise do registo para vistas em áreas de trabalho de legado e atualizadas: 
+
+| Versão da área de trabalho | Versão de API | Consulta |
+|:---|:---|:---|
+| V1 (Legado)   | 2015-11-01-preview | Formato de legado.<br> Exemplo: Escreva = EventLevelName de evento = erro  |
+| v2 (atualizado) | 2015-11-01-preview | Formato de legado.  Converter para formato atualizado na instalação.<br> Exemplo: Escreva = EventLevelName de evento = erro<br>Converter a: eventos &#124; onde EventLevelName = = "Erro"  |
+| v2 (atualizado) | 2017-03-03-preview | Formato de atualização. <br>Exemplo: Evento &#124; onde EventLevelName = = "Erro"  |
+
 
 ## <a name="add-the-view-details"></a>Adicione os detalhes de vista
 O recurso de vista no ficheiro de vista exportado irá conter dois elementos no **propriedades** elemento com o nome **Dashboard** e **OverviewTile** que contenha a secção detalhada configuração da vista.  Copiar estes dois elementos e os respetivos conteúdos para o **propriedades** elemento do recurso ver no seu ficheiro de solução.
@@ -176,6 +187,6 @@ Por exemplo, o exemplo seguinte mostra um ficheiro de solução simples com uma 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba os detalhes completos da criação de [soluções de gestão](operations-management-suite-solutions-creating.md).
 * Incluir [runbooks de automatização na sua solução de gestão](operations-management-suite-solutions-resources-automation.md).

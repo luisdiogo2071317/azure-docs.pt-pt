@@ -4,7 +4,7 @@ description: "Este tópico documenta como restaurar a conta de serviço do Azure
 services: active-directory
 keywords: "AADSTS70002, AADSTS50054, como repor a palavra-passe para a conta de serviço do conector de sincronização do Azure AD Connect"
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 096b14f8e64ac288fe6d3956658a4b738993cea9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cfd807706ebbf0bfa6ea699129cb197f1c79db8c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Sincronização do Azure AD Connect: como gerir a conta de serviço do Azure AD
 A conta de serviço utilizada pelo conector do Azure AD deveria para ser serviço gratuito. Se precisar de repor as respetivas credenciais, em seguida, este tópico é que o utilizador. Por exemplo, se um Administrador Global tiver por erro repor a palavra-passe da conta de serviço com o PowerShell.
@@ -47,7 +47,7 @@ Evento 659
 Erro ao obter a configuração de sincronização da política de palavra-passe. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
 AADSTS70002: Erro a validar as credenciais. AADSTS50054: Palavra-passe antiga é utilizado para autenticação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 **Tópicos de descrição geral**
 
 * [Sincronização do Azure AD Connect: Noções e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)

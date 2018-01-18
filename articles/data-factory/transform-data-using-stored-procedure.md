@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: f13f8aa0ca8686c0582bed77d047c9e6b39f7aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b4523747b57ee7a3d48211c9bb7fba1123fe4ce
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformar dados utilizando a atividade de procedimento de armazenado do SQL Server no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,12 +74,12 @@ A tabela seguinte descreve estas propriedades JSON:
 | ------------------------- | ---------------------------------------- | -------- |
 | nome                      | Nome da atividade                     | Sim      |
 | descrição               | Texto que descreve o que é utilizada a atividade para | Não       |
-| tipo                      | Para a atividade de procedimento armazenados, o tipo de atividade é SqlServerStoredProcedure | Sim      |
-| linkedServiceName         | Referência para a SQL Database do Azure ou o Azure SQL Data Warehouse ou o SQL Server registado como um serviço ligado no Factory de dados. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
-| storedProcedureName       | Especifique o nome do procedimento armazenado na base de dados SQL do Azure ou do armazém de dados do SQL do Azure ou SQL Server da base de dados que é representada pelo serviço ligado que utilize a tabela de saída. | Sim      |
-| storedProcedureParameters | Especifique os valores dos parâmetros de procedimento armazenado. Utilize `"param1": { "value": "param1Value","type":"param1Type" }` transmitir parâmetro valores e o respetivo tipo nativo suportada pela origem de dados. Se tiver de passar nulo para um parâmetro, utilize *"param1": {"valor": nulo}* (todas as minúsculas). | Não       |
+| tipo                      | Para a atividade de procedimento armazenados, o tipo de atividade é **SqlServerStoredProcedure** | Sim      |
+| linkedServiceName         | Referência para o **SQL Database do Azure** ou **Azure SQL Data Warehouse** ou **do SQL Server** registado como um serviço ligado no Factory de dados. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
+| storedProcedureName       | Especifique o nome do procedimento armazenado para invocar. | Sim      |
+| storedProcedureParameters | Especifique os valores para parâmetros de procedimento armazenado. Utilize `"param1": { "value": "param1Value","type":"param1Type" }` para passar os valores de parâmetros e o respetivo tipo suportada pela origem de dados. Se tiver de passar nulo para um parâmetro, utilize `"param1": { "value": null }` (todas as minúsculas). | Não       |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os artigos seguintes que explicam como transformar dados de outras formas: 
 
 * [Atividade U-SQL](transform-data-using-data-lake-analytics.md)

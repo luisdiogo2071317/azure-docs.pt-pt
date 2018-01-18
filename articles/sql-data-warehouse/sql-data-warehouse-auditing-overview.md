@@ -13,30 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: security
-ms.date: 08/21/2017
+ms.date: 01/16/2018
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no armazém de dados SQL do Azure
-> [!div class="op_single_selector"]
-> * [Auditoria](sql-data-warehouse-auditing-overview.md)
-> * [Deteção de ameaças](sql-data-warehouse-security-threat-detection.md)
-> 
-> 
 
-Auditoria de SQL Data Warehouse permite-lhe para registo de eventos na base de dados para uma auditoria iniciar sessão na sua conta do Storage do Azure. Auditoria pode ajudar a manter a conformidade de regulamentação, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que poderão indicar preocupações para a empresa ou suspeitas de violação de segurança. Auditoria de SQL Data Warehouse também integra-se com o Microsoft Power BI para desagregar relatórios e análise.
+Auditoria de SQL Data Warehouse permite-lhe para registo de eventos na base de dados para uma auditoria iniciar sessão na sua conta do Storage do Azure. Auditoria pode ajudar a manter a conformidade de regulamentação, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que poderão indicar preocupações para a empresa ou suspeitas de violação de segurança. Auditoria de SQL Data Warehouse também integra-se com o Microsoft Power BI para análise e relatórios.
 
 As ferramentas de auditoria ativarem e facilitam a conformidade com as normas de conformidade, mas não garantir a compatibilidade. Para obter mais informações sobre o Azure programas que conformidade de padrões de suporte, consulte o <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Centro de fidedignidade do Azure</a>.
 
-* [Noções básicas de auditoria de base de dados]
-* [Configurar a auditoria da base de dados]
-* [Analisar registos de auditoria e relatórios]
-
-## <a id="subheading-1"></a>Noções básicas de auditoria da base de dados de armazém de dados do SQL do Azure
+## <a id="subheading-1"></a>Noções básicas de auditorias
 Auditoria de base de dados do SQL Data Warehouse permite-lhe:
 
 * **Manter** um registo de auditoria de eventos selecionados. Pode definir categorias de ações de base de dados a serem auditados.
@@ -59,19 +50,19 @@ Para obter mais informações sobre os eventos auditados e atividades, consulte 
 
 Os registos de auditoria são armazenados na sua conta do storage do Azure. Pode definir um período de retenção do registo de auditoria.
 
-Uma política de auditoria pode ser definida para uma base de dados específica ou como uma política de servidor de predefinição. Uma política de auditoria do servidor predefinido aplica-se a todas as bases de dados num servidor, que não dispõe de uma substituição da base de dados auditoria política específica definida.
+Pode definir uma política de auditoria para uma base de dados específica ou como uma política de servidor de predefinição. Uma política de auditoria do servidor predefinido aplica-se a todas as bases de dados num servidor que não dispõe de uma substituição da base de dados auditoria política específica definida.
 
 Antes de configurar a auditoria de auditoria de verificação se estiver a utilizar um ["Clientes de nível inferior."](sql-data-warehouse-auditing-downlevel-clients.md)
 
 ## <a id="subheading-2"></a>Configurar a auditoria da base de dados
 1. Inicie o <a href="https://portal.azure.com" target="_blank">portal do Azure</a>.
-2. Vá para o **definições** painel do SQL Server do armazém de dados que pretende de auditoria. No **definições** painel, selecione **deteção de ameaças e auditoria**.
+2. Aceda a **definições** para o armazém de dados do SQL Server que pretende de auditoria. Selecione **deteção de ameaças e auditoria**.
    
     ![][1]
 3. Em seguida, ativar a auditoria clicando a **ON** botão.
    
     ![][3]
-4. No painel de configuração de auditoria, selecione **detalhes armazenamento** para abrir o painel de armazenamento de registos de auditoria. Selecione a conta de armazenamento do Azure onde serão guardados registos e o período de retenção. 
+4. No painel de configuração de auditoria, selecione **detalhes armazenamento** para abrir o painel de armazenamento de registos de auditoria. Selecione a conta de armazenamento do Azure para os registos e o período de retenção. 
 >[!TIP]
 >Utilize a mesma conta de armazenamento para todas as bases de dados auditadas para tirar o máximo partido de modelos de relatórios pré-configurados.
    
@@ -91,11 +82,12 @@ O modelo tem dados de exemplo fictícias no mesmo e, pode configurar o Power Que
 ## <a id="subheading-4"></a>Regeneração da chave de armazenamento
 Na produção, que é provável que atualize periodicamente as chaves de armazenamento. Ao atualizar as suas chaves, terá de guardar a política. O processo é o seguinte:
 
-1. No painel de configuração de auditoria (descrito acima na auditoria de secção de configuração) mudar o **chave de acesso de armazenamento** de *primário* para *secundário* e **Guardar**.
+1. Na auditoria de painel de configuração, o que é descrito a auditoria secção de configuração anterior, altere o **chave de acesso de armazenamento** de *primário* para *secundário* e  **GUARDAR**.
 
    ![][4]
 2. Aceda ao painel de configuração de armazenamento e **regenerar** o *chave de acesso primária*.
-3. Volte ao painel de configuração de auditoria, mude o **chave de acesso de armazenamento** de *secundário* para *primário* e prima **guardar**.
+3. Volte ao painel Configuração de auditoria 
+4. mudar o **chave de acesso de armazenamento** de *secundário* para *primário* e prima **guardar**.
 4. Volte ao armazenamento da IU e **regenerar** o *chave de acesso secundária* (como preparação para a próxima chaves atualizar ciclo.
 
 ## <a id="subheading-5"></a>Automatização (do PowerShell/REST API)
@@ -103,18 +95,41 @@ Também pode configurar a auditoria no Azure SQL Data Warehouse, utilizando as f
 
 * **Cmdlets do PowerShell**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy][101]
-   * [Get-AzureRMSqlServerAuditingPolicy][102]
-   * [Remover AzureRMSqlDatabaseAuditing][103]
-   * [Remover AzureRMSqlServerAuditing][104]
-   * [Conjunto AzureRMSqlDatabaseAuditingPolicy][105]
-   * [Conjunto AzureRMSqlServerAuditingPolicy][106]
-   * [Utilize AzureRMSqlServerAuditingPolicy][107]
+   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
+   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
+   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
+   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
+   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
+   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
+   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+
+
+## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Suportem de clientes de nível inferior para auditoria e dados dinâmicos máscara
+Auditoria funciona com os clientes de SQL que suportam redirecionamento de TDS.
+
+Qualquer cliente que implementa TDS 7.4 também deve suportar redirecionamento. Exceções a este incluem JDBC 4.0 em que a funcionalidade de redirecionamento não é totalmente suportada e Tedious para Node.JS no qual redirecionamento não foi implementada.
+
+"Em clientes" que suportam TDS versão 7.3 e abaixo, modifique o FQDN do servidor na cadeia de ligação da seguinte forma:
+
+- Original FQDN do servidor na cadeia de ligação: <*nome do servidor*>. database.windows.net
+- Modificação FQDN do servidor na cadeia de ligação: <*nome do servidor*> .database. **segura**. windows.net
+
+Uma lista parcial de "Clientes de nível inferior" inclui:
+
+* O .NET 4.0 e abaixo
+* ODBC 10.0 e abaixo.
+* JDBC (enquanto JDBC suporta TDS 7.4, a funcionalidade de redirecionamento do TDS não é totalmente suportada)
+* Tedious (para Node.JS)
+
+**Remark:** o modificação do FDQN de servidor anterior poderá ser útil também aplicar uma política de auditoria de nível de servidor de SQL, sem necessidade de uma configuração passo em cada base de dados (mitigação temporária).     
+
+
+
 
 <!--Anchors-->
-[Noções básicas de auditoria de base de dados]: #subheading-1
-[Configurar a auditoria da base de dados]: #subheading-2
-[Analisar registos de auditoria e relatórios]: #subheading-3
+[Database Auditing basics]: #subheading-1
+[Set up auditing for your database]: #subheading-2
+[Analyze audit logs and reports]: #subheading-3
 
 
 <!--Image references-->
@@ -125,11 +140,3 @@ Também pode configurar a auditoria no Azure SQL Data Warehouse, utilizando as f
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
 
 
-<!--Link references-->
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy

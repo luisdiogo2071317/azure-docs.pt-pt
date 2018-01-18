@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory híbrida identidade considerações de design - definir a estratégia de proteção de dados | Microsoft Docs"
+title: "Estrutura de identidade híbrida - estratégia de proteção de dados do Azure | Microsoft Docs"
 description: "É possível definir a estratégia de proteção de dados para a sua solução de identidade híbrida satisfazer as necessidades empresariais que definiu."
 documentationcenter: 
 services: active-directory
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2017
 ms.author: billmath
-ms.openlocfilehash: ab8f884449aa21f91ff873901b44753d8e15bcd9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: seohack1
+ms.openlocfilehash: d43be976f9b3fae7f3cbec1a0033f1a401ede896
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definir a estratégia de proteção de dados para a sua solução de identidade híbrida
 Nesta tarefa, vai definir a estratégia de proteção de dados para a sua solução de identidade híbrida cumprir os requisitos de negócio que definiu no:
@@ -41,7 +42,7 @@ Dependendo de como respondeu às questões na [determinar os requisitos de prote
 
 | Opções de proteção de dados | Inativos na nuvem | Em rest no local | Em trânsito |
 | --- | --- | --- | --- |
-| Encriptação de unidade BitLocker |X |X | |
+| Encriptação de Unidade BitLocker |X |X | |
 | SQL Server para encriptar as bases de dados |X |X | |
 | Encriptação de VM para VM | | |X |
 | SSL/TLS | | |X |
@@ -164,8 +165,8 @@ Para além da capacidade de relatórios de núcleo do Azure AD Premium que pode 
 
 Uma vez que as opções de resposta a incidentes utilizam uma abordagem multicamada, não é aplicável para esta tarefa a comparação entre essas opções. Certifique-se de que lhe é tirar partido de todas as opções disponíveis para cada cenário que requer a utilização de capacidade de relatórios do Azure AD como parte do processo de resposta a incidentes da sua empresa.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Determinar as tarefas de gestão de identidade híbrida](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 [Descrição geral das considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)

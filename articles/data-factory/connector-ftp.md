@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: a2706a1cfa2a99faf20860b23cd6bd401f6f7233
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 36466ffe31a728e3267ef5002e4e69f52889577c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copiar os dados do servidor FTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ As seguintes propriedades são suportadas para o serviço FTP ligada:
 | enableSsl | Especifique se pretende utilizar FTP através de um canal SSL/TLS.<br/>Valores permitidos são: **verdadeiro** (predefinição), **falso**. | Não |
 | enableServerCertificateValidation | Especifique se pretende ativar a validação do certificado SSL de servidor quando estiver a utilizar FTP através do canal SSL/TLS.<br/>Valores permitidos são: **verdadeiro** (predefinição), **falso**. | Não |
 | authenticationType | Especifique o tipo de autenticação.<br/>Valores permitidos são: **básico**, **anónimo** | Sim |
-| Nome de utilizador | Especifique o utilizador que tem acesso ao servidor de FTP. | Não |
+| userName | Especifique o utilizador que tem acesso ao servidor de FTP. | Não |
 | palavra-passe | Especifique a palavra-passe para o utilizador (nome de utilizador). Marcar este campo como SecureString. | Não |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
@@ -164,7 +164,7 @@ Para copiar dados de FTP, defina o tipo de origem na atividade de cópia para **
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **FileSystemSource** |Sim |
-| Recursiva | Indica se os dados é lida a recursivamente partir das pastas sub ou apenas a partir da pasta especificada.<br/>Valores permitidos são: **verdadeiro** (predefinição), **false** | Não |
+| Recursiva | Indica se os dados é lida a recursivamente partir das pastas sub ou apenas a partir da pasta especificada. Nota Quando recursiva está definida como VERDADEIRO e o sink é baseado em ficheiros de arquivo, vazia pasta/sub-folder não serão copiados/criado no sink.<br/>Valores permitidos são: **verdadeiro** (predefinição), **false** | Não |
 
 **Exemplo:**
 

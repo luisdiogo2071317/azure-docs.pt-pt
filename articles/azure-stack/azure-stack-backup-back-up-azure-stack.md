@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: daea97c0f5ee6ef855dc50c1ed6c7934aa85a1c4
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 955b286967ca2bc8450e8988ec16c6a5c352aa8a
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="back-up-azure-stack"></a>Cópia de segurança de pilha do Azure
 
@@ -26,13 +26,22 @@ ms.lasthandoff: 01/10/2018
 
 Efetue uma cópia de segurança a pedido na pilha do Azure com cópia de segurança no local. Se precisar de ativar o serviço de cópia de segurança da infraestrutura, consulte [ativar a cópia de segurança do Azure pilha do portal de administração do](azure-stack-backup-enable-backup-console.md).
 
+> [!Note]  
+>  Ferramentas de pilha do Azure contêm o **início AzSBackup** cmdlet. Para obter instruções sobre como instalar as ferramentas, consulte [começar a trabalhar com o PowerShell na pilha de Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+
 ## <a name="start-azure-stack-backup"></a>Iniciar a cópia de segurança de pilha do Azure
 
-Abra o Windows PowerShell com uma linha de comandos elevada e execute os seguintes comandos:
+Abra o Windows PowerShell com uma linha de comandos elevada do ambiente de gestão do operador e execute os seguintes comandos:
 
-   ```powershell
-   Start-AzSBackup -Location $location.Name
-   ```
+```powershell
+    cd C:\tools\AzureStack-Tools-master\Connect
+    Import-Module .\AzureStack.Connect.psm1
+
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+    
+    Start-AzSBackup -Location $location.Name
+```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>Confirme a cópia de segurança foi concluída no portal de administração do
 

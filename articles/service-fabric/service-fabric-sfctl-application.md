@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 82d2024f567768e784d9d8697784d06b56bc08ed
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9008a29a5ca94b92669277ab3a2f68b3f129396b
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-application"></a>aplicação de sfctl
 Criar, eliminar e gerir aplicações e tipos de aplicações.
@@ -30,22 +30,22 @@ Criar, eliminar e gerir aplicações e tipos de aplicações.
 | criar       | Cria uma aplicação de Service Fabric utilizando a descrição especificada.|
 | eliminar       | Elimina uma aplicação de Service Fabric existente.|
 | Implementado     | Obtém as informações sobre uma aplicação implementada num nó de Service Fabric.|
-| Estado de funcionamento implementado | Obtém as informações sobre o estado de funcionamento de uma aplicação implementada num nó de Service Fabric.|
+| deployed-health | Obtém as informações sobre o estado de funcionamento de uma aplicação implementada num nó de Service Fabric.|
 | lista implementado| Obtém a lista de aplicações implementadas num nó de Service Fabric.|
-| Estado de funcionamento       | Obtém o estado de funcionamento da aplicação de recursos de infraestrutura de serviço.|
+| estado de funcionamento       | Obtém o estado de funcionamento da aplicação de recursos de infraestrutura de serviço.|
 | informações         | Obtém informações sobre uma aplicação de Service Fabric.|
 | lista         | Obtém a lista de aplicações criado no cluster de Service Fabric que correspondem aos filtros especificados como parâmetro.|
 | carregar | Obtém informações sobre uma aplicação de Service Fabric de carga. |
 | Manifesto     | Obtém o manifesto que descreve um tipo de aplicação.|
 | Aprovisionar    | Aprovisiona ou regista escrever uma aplicação de Service Fabric com o cluster.|
-| Estado de funcionamento de relatório| Envia um relatório de estado de funcionamento da aplicação de Service Fabric.|
+| report-health| Envia um relatório de estado de funcionamento da aplicação de Service Fabric.|
 | tipo         | Obtém a lista de tipos de aplicações no cluster de Service Fabric correspondente exatamente o nome especificado.|
 | lista de tipos    | Obtém a lista de tipos de aplicações no cluster de Service Fabric.|
 | Não aprovisionamento  | Remove ou anula o registo de um tipo de aplicação de Service Fabric do cluster.|
 | atualização      | Inicia a atualizar uma aplicação no cluster de Service Fabric.|
 | retoma de atualização  | Retoma a atualizar uma aplicação no cluster de Service Fabric.|
-| reversão de atualização| Inicia a reverter a atualização atualmente em curso de uma aplicação no cluster de Service Fabric.|
-| Estado de atualização  | Obtém os detalhes para a atualização mais recente efetuada nesta aplicação.|
+| upgrade-rollback| Inicia a reverter a atualização atualmente em curso de uma aplicação no cluster de Service Fabric.|
+| upgrade-status  | Obtém os detalhes para a atualização mais recente efetuada nesta aplicação.|
 | Carregar       | Copie um pacote de aplicação de Service Fabric para o arquivo de imagens.|
 
 ## <a name="sfctl-application-create"></a>Criar aplicação sfctl
@@ -58,9 +58,9 @@ Cria uma aplicação de Service Fabric utilizando a descrição especificada.
 | --nome da aplicação [necessário]| O nome da aplicação, incluindo o ' recursos de infraestrutura:' esquema de URI.|
 | --tipo de aplicação [necessário]| O nome do tipo de aplicação foi encontrado no manifesto da aplicação.|
 | versão de – aplicação [necessária]| A versão do tipo de aplicação conforme definido no manifesto da aplicação.|
-| – contagem máxima de nó     | O número máximo de nós que o Service Fabric reserva-se a capacidade para esta aplicação. Isto significa que os serviços desta aplicação são colocados em todos os nós.|
+| --max-node-count     | O número máximo de nós que o Service Fabric reserva-se a capacidade para esta aplicação. Isto significa que os serviços desta aplicação são colocados em todos os nós.|
 | -as métricas            | Um JSON codificado lista de descrições de métrica de capacidade de aplicação. Uma métrica é definida como um nome, associado um conjunto das capacidades para cada nó que a aplicação existe na.|
-| número de nós – mín.     | O número mínimo de nós que o Service Fabric reserva-se a capacidade para esta aplicação. Isto significa que os serviços desta aplicação são colocados em todos os nós.|
+| --min-node-count     | O número mínimo de nós que o Service Fabric reserva-se a capacidade para esta aplicação. Isto significa que os serviços desta aplicação são colocados em todos os nós.|
 | -parâmetros         | Uma lista JSON codificado de parâmetro de aplicação as substituições aplicadas ao criar a aplicação.|
 | tempo limite – -t         | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
@@ -68,7 +68,7 @@ Cria uma aplicação de Service Fabric utilizando a descrição especificada.
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug              | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug              | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h            | Mostra esta mensagem de ajuda e saída.|
 | --o de saída          | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta              | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -84,14 +84,14 @@ Elimina uma aplicação de Service Fabric existente. Tem de ser criada uma aplic
 |Argumento|Descrição|
 | --- | --- |
 | --id da aplicação [necessário]| A identidade da aplicação. Isto é, geralmente, o nome completo da aplicação sem a ' recursos de infraestrutura:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados por com o "~" carateres. Por exemplo, se o nome da aplicação é "fabric://myapp/app1", a identidade da aplicação será "myapp ~ app1" 6.0 + e "myapp/app1" em versões anteriores.|
-| -force-remover          | Remova uma aplicação de Service Fabric ou o serviço forçadamente sem passar a sequência de encerramento correto. Este parâmetro pode ser utilizado para forçadamente eliminar uma aplicação ou serviço para o eliminar é exceder o tempo limite devido a problemas com o código do serviço que impede o correto fechar das réplicas.|
+| --force-remove          | Remova uma aplicação de Service Fabric ou o serviço forçadamente sem passar a sequência de encerramento correto. Este parâmetro pode ser utilizado para forçadamente eliminar uma aplicação ou serviço para o eliminar é exceder o tempo limite devido a problemas com o código do serviço que impede o correto fechar das réplicas.|
 | tempo limite – -t            | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug                 | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug                 | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h               | Mostra esta mensagem de ajuda e saída.|
 | --o de saída             | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta                 | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -112,7 +112,7 @@ Obtém as informações sobre uma aplicação implementada num nó de Service Fa
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug                 | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug                 | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h               | Mostra esta mensagem de ajuda e saída.|
 | --o de saída             | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta                 | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -128,17 +128,17 @@ Devolve o estado de estado de funcionamento da aplicação de recursos de infrae
 |Argumento|Descrição|
 | --- | --- |
 | --id da aplicação [necessário]| A identidade da aplicação. Isto é, geralmente, o nome completo da aplicação sem a ' recursos de infraestrutura:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados por com o "~" carateres. Por exemplo, se o nome da aplicação é "fabric://myapp/app1", a identidade da aplicação será "myapp ~ app1" 6.0 + e "myapp/app1" em versões anteriores.|
-| -implementar-aplicações-estado de funcionamento--filtro de estado| Permite a filtragem dos objetos de estado de funcionamento de aplicações implementadas devolvido nos resultados da consulta de estado de funcionamento de aplicação com base no respetivo estado de funcionamento. Os valores possíveis para este parâmetro incluem o valor de número inteiro de um dos seguintes Estados de funcionamento. Apenas as aplicações implementadas que correspondem ao filtro vai ser devolvidas. Todas as aplicações implementadas são utilizadas para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são enumeração baseada no sinalizador de, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é 6, em seguida, estado de funcionamento de aplicações implementadas com o valor HealthState OK (2) e de aviso (4) são devolvidas. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso. O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
-| – Estado-filtro de eventos-estado de funcionamento            | Permite a filtragem na coleção de objetos de HealthEvent devolvido com base no estado de funcionamento. Os valores possíveis para este parâmetro incluem o valor de número inteiro de um dos seguintes Estados de funcionamento. Apenas os eventos que correspondem ao filtro são devolvidos. Todos os eventos são utilizados para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são enumeração baseada no sinalizador de, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é 6, em seguida, todos os eventos com o valor HealthState OK (2) e de aviso (4) são devolvidos. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso. O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
-| – estatísticas de estado de funcionamento de exclusão | Indica se as estatísticas de estado de funcionamento devem ser devolvidas como parte do resultado da consulta. FALSO por predefinição. As estatísticas mostram o número de elementos subordinados entidades no estado de funcionamento Ok, aviso e erro.|
-| -Serviços de estado de funcionamento-estado do filtro          | Permite a filtragem de objetos de estado de funcionamento dos serviços devolvido nos resultados da consulta de estado de funcionamento de serviços com base no respetivo estado de funcionamento. Os valores possíveis para este parâmetro incluem o valor de número inteiro de um dos seguintes Estados de funcionamento. Apenas os serviços que correspondem ao filtro são devolvidos. Todos os serviços são utilizados para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são enumeração baseada no sinalizador de, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é 6, em seguida, estado de funcionamento de serviços com o valor HealthState OK (2) e de aviso (4) vai ser devolvido. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso. O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
+| --deployed-applications-health-state-filter| Permite a filtragem dos objetos de estado de funcionamento de aplicações implementadas devolvido nos resultados da consulta de estado de funcionamento de aplicação com base no respetivo estado de funcionamento. Os valores possíveis para este parâmetro incluem o valor de número inteiro de um dos seguintes Estados de funcionamento. Apenas as aplicações implementadas que correspondem ao filtro vai ser devolvidas. Todas as aplicações implementadas são utilizadas para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são enumeração baseada no sinalizador de, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é 6, em seguida, estado de funcionamento de aplicações implementadas com o valor HealthState OK (2) e de aviso (4) são devolvidas. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso. O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
+| --events-health-state-filter            | Permite a filtragem na coleção de objetos de HealthEvent devolvido com base no estado de funcionamento. Os valores possíveis para este parâmetro incluem o valor de número inteiro de um dos seguintes Estados de funcionamento. Apenas os eventos que correspondem ao filtro são devolvidos. Todos os eventos são utilizados para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são enumeração baseada no sinalizador de, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é 6, em seguida, todos os eventos com o valor HealthState OK (2) e de aviso (4) são devolvidos. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso. O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
+| --exclude-health-statistics | Indica se as estatísticas de estado de funcionamento devem ser devolvidas como parte do resultado da consulta. FALSO por predefinição. As estatísticas mostram o número de elementos subordinados entidades no estado de funcionamento Ok, aviso e erro.|
+| --services-health-state-filter          | Permite a filtragem de objetos de estado de funcionamento dos serviços devolvido nos resultados da consulta de estado de funcionamento de serviços com base no respetivo estado de funcionamento. Os valores possíveis para este parâmetro incluem o valor de número inteiro de um dos seguintes Estados de funcionamento. Apenas os serviços que correspondem ao filtro são devolvidos. Todos os serviços são utilizados para avaliar o estado de funcionamento agregada. Se não for especificado, são devolvidas todas as entradas. Os valores de estado são enumeração baseada no sinalizador de, pelo que o valor pode ser uma combinação destes valores obtidos através de operador de 'Ou' bit a bit. Por exemplo, se o valor fornecido é 6, em seguida, estado de funcionamento de serviços com o valor HealthState OK (2) e de aviso (4) vai ser devolvido. -Predefinição - valor predefinido. Corresponde a qualquer HealthState. O valor é zero. -Nenhuma - filtro que não corresponde a qualquer valor HealthState. Utilizado para não devolver resultados numa coleção especificada dos Estados. O valor é 1. -Ok - filtre que corresponde de entrada com o valor de HealthState Ok. O valor é 2. -Aviso - filtro que corresponde à entrada com HealthState valor aviso. O valor é 4. -Erro - filtro que corresponda à entrada com o valor de HealthState erro. O valor é 8. -Todos os - filtro que corresponda à entrada com qualquer valor HealthState. O valor é a 65535.|
 | tempo limite – -t                            | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug                                 | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug                                 | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                               | Mostra esta mensagem de ajuda e saída.|
 | --o de saída                             | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta                                 | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -154,14 +154,14 @@ Devolve as informações sobre a aplicação que foi criada ou no processo de qu
 |Argumento|Descrição|
 | --- | --- |
 | --id da aplicação [necessário]| A identidade da aplicação. Isto é, geralmente, o nome completo da aplicação sem a ' recursos de infraestrutura:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados por com o "~" carateres. Por exemplo, se o nome da aplicação é "fabric://myapp/app1", a identidade da aplicação será "myapp ~ app1" 6.0 + e "myapp/app1" em versões anteriores.|
-| -parâmetros da aplicação de exclusão| O sinalizador que especifica se os parâmetros da aplicação serão excluídos do resultado.|
+| --exclude-application-parameters| O sinalizador que especifica se os parâmetros da aplicação serão excluídos do resultado.|
 | tempo limite – -t                 | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug                      | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug                      | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                    | Mostra esta mensagem de ajuda e saída.|
 | --o de saída                  | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.             Predefinição: json.|
 | – consulta                      | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -176,17 +176,17 @@ Obtém as informações sobre as aplicações que foram criados ou no processo d
 
 |Argumento|Descrição|
 | --- | --- |
-|– aplicação-definição de tipo de filtro| Utilizado para filtrar ApplicationDefinitionKind para operações de consulta de aplicações. -Predefinição - valor predefinido. Filtro que corresponda à entrada com qualquer valor ApplicationDefinitionKind. O valor é 0. -Todos os - filtro que corresponda à entrada com qualquer valor ApplicationDefinitionKind. O valor é a 65535. -ServiceFabricApplicationDescription - filtro que corresponda à entrada com o valor de ApplicationDefinitionKind ServiceFabricApplicationDescription. O valor é 1. -Compose - filtro que corresponda à entrada com o valor de ApplicationDefinitionKind Compose. O valor é 2. Predefinição: 65535.|
-| – o nome de tipo de aplicação      | O nome do tipo de aplicação utilizado para filtrar as aplicações a consultar. Este valor não deve conter a versão de tipo de aplicação.|
-| -token de continuação         | O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
-| -parâmetros da aplicação de exclusão| O sinalizador que especifica se os parâmetros da aplicação são excluídos do resultado.|
+|--application-definition-kind-filter| Utilizado para filtrar ApplicationDefinitionKind para operações de consulta de aplicações. -Predefinição - valor predefinido. Filtro que corresponda à entrada com qualquer valor ApplicationDefinitionKind. O valor é 0. -Todos os - filtro que corresponda à entrada com qualquer valor ApplicationDefinitionKind. O valor é a 65535. -ServiceFabricApplicationDescription - filtro que corresponda à entrada com o valor de ApplicationDefinitionKind ServiceFabricApplicationDescription. O valor é 1. -Compose - filtro que corresponda à entrada com o valor de ApplicationDefinitionKind Compose. O valor é 2. Predefinição: 65535.|
+| --application-type-name      | O nome do tipo de aplicação utilizado para filtrar as aplicações a consultar. Este valor não deve conter a versão de tipo de aplicação.|
+| --continuation-token         | O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
+| --exclude-application-parameters| O sinalizador que especifica se os parâmetros da aplicação são excluídos do resultado.|
 | tempo limite – -t                 | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug                      | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug                      | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                    | Mostra esta mensagem de ajuda e saída.|
 | --o de saída                  | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.             Predefinição: json.|
 | – consulta                      | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -206,7 +206,7 @@ Devolve as carregar as informações sobre a aplicação que foi criada ou no pr
 ### <a name="global-arguments"></a>Argumentos global
 |Argumento|Descrição|
 | --- | --- |
-|-debug                    | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+|--debug                    | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
     -ajudar -h                  | Mostra esta mensagem de ajuda e saída.|
     --o de saída                | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
     – consulta                    | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -229,7 +229,7 @@ Obtém o manifesto que descreve um tipo de aplicação. A resposta contém o man
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug                           | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug                           | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                         | Mostra esta mensagem de ajuda e saída.|
 | --o de saída                       | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.                  Predefinição: json.|
 | – consulta                           | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -251,7 +251,7 @@ Aprovisiona ou regista escrever uma aplicação de Service Fabric com o cluster.
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug                              | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug                              | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                            | Mostra esta mensagem de ajuda e saída.|
 | --o de saída                          | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta                              | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -268,16 +268,16 @@ Devolve as informações sobre os tipos de aplicação que estão aprovisionados
 |Argumento|Descrição|
 | --- | --- |
 | -nome de tipo de aplicação [necessário]| O nome do tipo de aplicação.|
-| -token de continuação           | O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
-| -parâmetros da aplicação de exclusão  | O sinalizador que especifica se os parâmetros da aplicação serão excluídos do resultado.|
-| -resultados máx.                  | O número máximo de resultados a ser devolvido como parte das consultas paginadas. Este parâmetro define o limite superior no número de resultados devolvidos. Os resultados devolvidos pode ser menor que o especificado máximo de resultados se estes não se enquadram na mensagem de acordo com as restrições de tamanho máximo de mensagem definida na configuração. Se este parâmetro for zero ou não especificado, a consulta paginada inclui o mesmo resultados possível ajustar na mensagem de retorno.|
+| --continuation-token           | O parâmetro de token de continuação é utilizado para obter o seguinte conjunto de resultados. Um token de continuação com um valor não vazio está incluído na resposta da API de quando os resultados do sistema não se enquadram numa única resposta. Quando este valor é transmitido para a próxima chamada de API, a API devolve o seguinte conjunto de resultados. Se não existirem resultados adicionais, em seguida, o token de continuação não contém um valor. O valor deste parâmetro não deve ser o URL, codificado.|
+| --exclude-application-parameters  | O sinalizador que especifica se os parâmetros da aplicação serão excluídos do resultado.|
+| --max-results                  | O número máximo de resultados a ser devolvido como parte das consultas paginadas. Este parâmetro define o limite superior no número de resultados devolvidos. Os resultados devolvidos pode ser menor que o especificado máximo de resultados se estes não se enquadram na mensagem de acordo com as restrições de tamanho máximo de mensagem definida na configuração. Se este parâmetro for zero ou não especificado, a consulta paginada inclui o mesmo resultados possível ajustar na mensagem de retorno.|
 | tempo limite – -t                   | Tempo limite do servidor em segundos.  Predefinição: 60.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug                        | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug                        | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                      | Mostra esta mensagem de ajuda e saída.|
 | --o de saída                    | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.               Predefinição: json.|
 | – consulta                        | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -300,7 +300,7 @@ Remove ou anula o registo de um tipo de aplicação de Service Fabric do cluster
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug                           | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug                           | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                         | Mostra esta mensagem de ajuda e saída.|
 | --o de saída                       | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.                  Predefinição: json.|
 | – consulta                           | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -318,26 +318,26 @@ Valida os parâmetros de atualização da aplicação fornecida e começa a efet
 | id da aplicação – [necessário]| A identidade da aplicação. Isto é, geralmente, o nome completo da aplicação sem a ' recursos de infraestrutura:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados por com o ' ~' carateres. Por exemplo, se o nome da aplicação é 'fabric://myapp/app1', a identidade da aplicação será ' myapp ~ app1' 6.0 + e ' myapp/app1' em versões anteriores.|
 | versão de – aplicação [necessária]| Versão da aplicação de destino.|
 | -parâmetros [necessários]| Uma lista JSON codificado de parâmetro de aplicação as substituições aplicadas ao atualizar a aplicação.|
-| -predefinição serviço-estado de funcionamento da política| JSON codificado especificação da política de estado de funcionamento utilizada por predefinição para avaliar o estado de funcionamento de um tipo de serviço.|
+| --default-service-health-policy| JSON codificado especificação da política de estado de funcionamento utilizada por predefinição para avaliar o estado de funcionamento de um tipo de serviço.|
 | -Falha de ação            | A ação a executar quando uma atualização monitorizada encontra monitorização violações de políticas ou de estado de funcionamento da política.|
-| -force-reinício             | Reinicie forçadamente processos durante a atualização, mesmo quando a versão de código não foi alterada.|
-| -Estado de funcionamento verificação-repetição-tempo limite| A quantidade de tempo para repetir avaliações do Estado de funcionamento quando a aplicação ou o cluster mau estado de funcionamento antes da ação de falha é executada. Medido em milissegundos.  Predefinição: PT0H10M0S.|
-| -Estado de funcionamento-verifique-estável-duração | A quantidade de tempo que a aplicação ou o cluster tem de permanecer bom estado de funcionamento antes de continua a atualização para o domínio de atualização seguinte.            Medido em milissegundos.  Predefinição: PT0H2M0S.|
-| -Estado de funcionamento-verificação espera duração| A quantidade de tempo de espera após a conclusão de um domínio de atualização antes de aplicar políticas de estado de funcionamento. Medido em milissegundos.            Predefinição: 0.|
-| – máximo aplicações mau estado de funcionamento        | O máximo permitido de percentagem de mau estado de funcionamento aplicações implementadas. Representado como um número entre 0 e 100.|
+| --force-restart             | Reinicie forçadamente processos durante a atualização, mesmo quando a versão de código não foi alterada.|
+| --health-check-retry-timeout| A quantidade de tempo para repetir avaliações do Estado de funcionamento quando a aplicação ou o cluster mau estado de funcionamento antes da ação de falha é executada. Medido em milissegundos.  Default: PT0H10M0S.|
+| --health-check-stable-duration | A quantidade de tempo que a aplicação ou o cluster tem de permanecer bom estado de funcionamento antes de continua a atualização para o domínio de atualização seguinte.            Medido em milissegundos.  Default: PT0H2M0S.|
+| --health-check-wait-duration| A quantidade de tempo de espera após a conclusão de um domínio de atualização antes de aplicar políticas de estado de funcionamento. Medido em milissegundos.            Predefinição: 0.|
+| --max-unhealthy-apps        | O máximo permitido de percentagem de mau estado de funcionamento aplicações implementadas. Representado como um número entre 0 e 100.|
 | -modo                      | O modo utilizado para monitorizar o estado de funcionamento durante uma atualização sem interrupção.            Predefinição: UnmonitoredAuto.|
-| -réplica set-verifique-tempo limite | A quantidade máxima de tempo para bloquear o processamento de um domínio de atualização e evitar a perda de disponibilidade quando existirem problemas inesperados. Medido em segundos.|
+| --replica-set-check-timeout | A quantidade máxima de tempo para bloquear o processamento de um domínio de atualização e evitar a perda de disponibilidade quando existirem problemas inesperados. Medido em segundos.|
 | – política de estado de funcionamento de serviço     | JSON codificado mapa com a política de estado de funcionamento do tipo de serviço por nome de tipo de serviço. O mapa está vazio ser predefinido.|
 | tempo limite – -t                | Tempo limite do servidor em segundos.  Predefinição: 60.|
-| -atualização--tempo limite do domínio    | A quantidade de tempo cada domínio de atualização tem de concluir antes de FailureAction é executada. Medido em milissegundos.  Predefinição: P10675199DT02H48M05.4775807S.|
-| -tempo limite de atualização           | A quantidade de tempo de atualização global tem de concluir antes de FailureAction é executada. Medido em milissegundos.  Predefinição: P10675199DT02H48M05.4775807S.|
-| -aviso como erro          | Processe avisos de avaliação do Estado de funcionamento com o mesmo gravidade como erros.|
+| --upgrade-domain-timeout    | A quantidade de tempo cada domínio de atualização tem de concluir antes de FailureAction é executada. Medido em milissegundos.  Default:            P10675199DT02H48M05.4775807S.|
+| -tempo limite de atualização           | A quantidade de tempo de atualização global tem de concluir antes de FailureAction é executada. Medido em milissegundos.  Default:            P10675199DT02H48M05.4775807S.|
+| --warning-as-error          | Processe avisos de avaliação do Estado de funcionamento com o mesmo gravidade como erros.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug                     | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug                     | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h                   | Mostra esta mensagem de ajuda e saída.|
 | --o de saída                 | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.            Predefinição: json.|
 | – consulta                     | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
@@ -353,19 +353,19 @@ Apresenta opcionalmente o progresso do carregamento para cada ficheiro no pacote
 |Argumento|Descrição|
 | --- | --- |
 | – o caminho [necessário]| Caminho para o pacote de aplicação local.|
-|cadeia de – o arquivo de imagens| Armazenar a imagem de destino para carregar o pacote de aplicação.  Predefinição: recursos de infraestrutura: arquivo de imagens.|
-| – Mostrar progresso  | Mostra progresso de carregamento de ficheiros para pacotes grandes.|
+|--imagestore-string| Armazenar a imagem de destino para carregar o pacote de aplicação.  Predefinição: recursos de infraestrutura: arquivo de imagens.|
+| --show-progress  | Mostra progresso de carregamento de ficheiros para pacotes grandes.|
 
 ### <a name="global-arguments"></a>Argumentos global
 
 |Argumento|Descrição|
 | --- | --- |
-| -debug       | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
+| --debug       | Aumente a verbosidade do registo para mostrar que todos os registos de depuração.|
 | -ajudar -h     | Mostra esta mensagem de ajuda e saída.|
 | --o de saída   | Formato de saída.  Valores permitidos: json, jsonc, tabela, tsv.  Predefinição: json.|
 | – consulta       | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e exemplos.|
 | -verbose     | Aumente a verbosidade do registo. Utilize - a depuração para os registos de depuração completas.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [A configuração](service-fabric-cli.md) os recursos de infraestrutura do serviço CLI.
 - Saiba como utilizar a CLI de recursos de infraestrutura de serviço utilizando o [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -3,7 +3,7 @@ title: "Atributos do sombra de volumes de serviço de sincronização do Azure A
 description: "Descreve como funcionam os atributos de sombra de volumes no serviço de sincronização do Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 00488391c496f06cfcad12e67f5a874313c57e08
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19d5ae46955ecc094c340d141485d3eb54c8e9b2
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos do sombra de volumes de serviço de sincronização do Azure AD Connect
 A maioria dos atributos são representados da mesma forma no Azure AD, dado que estão no Active Directory no local. Mas alguns atributos têm alguns tratamento especial e o valor do atributo no Azure AD pode ser diferente da que sincroniza o Azure AD Connect.
@@ -71,6 +71,6 @@ ProxyCalc poderá demorar algum tempo a processar uma alteração num utilizador
 ### <a name="quarantined-attribute-values"></a>Valores de atributo em quarentena
 Atributos de sombra também são utilizados quando existem valores de atributo duplicado. Para obter mais informações, consulte [resiliência de atributo duplicado](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](active-directory-aadconnect.md).

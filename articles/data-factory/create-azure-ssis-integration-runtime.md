@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 7796df75d811ad34967aee66478eae992fd449fe
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a5ed3cbfac0b86cedde5718cef4231a7fcc36f2e
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um tempo de execução de integração do Azure-SSIS no Azure Data Factory
 Este artigo fornece os passos para o aprovisionamento de um tempo de execução de integração do Azure-SSIS no Azure Data Factory. Em seguida, pode utilizar o SQL Server Data Tools (SSDT) ou o SQL Server Management Studio (SSMS) para implementar pacotes de SQL Server Integration Services (SSIS) neste runtime no Azure.
@@ -44,7 +44,7 @@ Para obter informações concetuais sobre associar uma resposta a incidentes SSI
 > [!NOTE]
 > Para obter uma lista das regiões suportadas pelo Azure Data Factory V2 e o Integration Runtime Azure-SSIS, veja [Products available by region](https://azure.microsoft.com/regions/services/) (Produtos disponíveis por região). Expanda **Dados + Análise** para ver **Data Factory V2** e **Integration Runtime do SSIS**.
 
-## <a name="use-azure-portal"></a>Utilizar o portal do Azure
+## <a name="azure-portal"></a>Portal do Azure
 
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
@@ -142,7 +142,7 @@ Para obter informações concetuais sobre associar uma resposta a incidentes SSI
     ![Especifique o tipo de tempo de execução de integração](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 4. Consulte o [aprovisionar um tempo de execução de integração do Azure SSIS](#provision-an-azure-ssis-integration-runtime) restante na secção passos para configurar um IR. SSIS do Azure
 
-## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
+## <a name="azure-powershell"></a>Azure PowerShell
 
 ### <a name="create-variables"></a>Criar variáveis
 Defina variáveis para utilizar nos scripts neste tutorial:
@@ -411,7 +411,69 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
 
+## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
+Pode utilizar um modelo Azure Resource Manager para criar um tempo de execução de integração de SSIS do Azure. Eis uma exemplo de instruções: 
 
+1. Crie um ficheiro JSON com o seguinte modelo do Resource Manager. Substitua os valores na angled Retos (local proprietários da) com os seus próprios valores. 
+
+    ```json
+    {
+        "contentVersion": "1.0.0.0",
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "parameters": {},
+        "variables": {},
+        "resources": [{
+            "name": "<Specify a name for your data factory>",
+            "apiVersion": "2017-09-01-preview",
+            "type": "Microsoft.DataFactory/factories",
+            "location": "East US",
+            "properties": {},
+            "resources": [{
+                "type": "integrationruntimes",
+                "name": "<Specify a name for the Azure SSIS IR>",
+                "dependsOn": [ "<The name of the data factory you specified at the beginning>" ],
+                "apiVersion": "2017-09-01-preview",
+                "properties": {
+                    "type": "Managed",
+                    "typeProperties": {
+                        "computeProperties": {
+                            "location": "East US",
+                            "nodeSize": "Standard_D1_v2",
+                            "numberOfNodes": 1,
+                            "maxParallelExecutionsPerNode": 1
+                        },
+                        "ssisProperties": {
+                            "catalogInfo": {
+                                "catalogServerEndpoint": "<Azure SQL server>.database.windows.net",
+                                "catalogAdminUserName": "<Azure SQL user",
+                                "catalogAdminPassword": {
+                                    "type": "SecureString",
+                                    "value": "<Azure SQL Password>"
+                                },
+                                "catalogPricingTier": "Basic"
+                            }
+                        }
+                    }
+                }
+            }]
+        }]
+    }
+    ```
+2. Para implementar o modelo do Resource Manager, execute o comando de New-AzureRmResourceGroupDeployment conforme mostrado no exemplo seguinte. Neste exemplo, ADFTutorialResourceGroup é o nome do grupo de recursos. Adftutorialarm. JSON é o ficheiro que contém uma definição de JSON para a fábrica de dados e o IR. SSIS do Azure 
+
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
+    ```
+
+    Este comando cria a fábrica de dados e cria uma resposta a incidentes SSIS do Azure no mesmo, mas não inicia o IR. 
+3. Para iniciar a resposta a incidentes SSIS do Azure, execute o comando Start-AzureRmDataFactoryV2IntegrationRuntime: 
+
+    ```powershell
+    Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name> `
+                                             -DataFactoryName <Data Factory Name> `
+                                             -Name <Azure SSIS IR Name> `
+                                             -Force
+    ``` 
 
 ## <a name="deploy-ssis-packages"></a>Implementar pacotes de SSIS
 Agora, utilize o SQL Server Data Tools (SSDT) ou o SQL Server Management Studio (SSMS) para implementar os pacotes de SSIS no Azure. Ligue ao seu SQL server do Azure que aloja o catálogo de SSIS (SSISDB). O nome do SQL server do Azure está no formato: &lt;servername&gt;.database.windows.net (para a Base de Dados SQL do Azure). Veja o artigo [Implementar pacotes](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) para obter instruções. 

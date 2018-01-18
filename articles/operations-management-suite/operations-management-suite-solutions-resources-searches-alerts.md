@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>A adição de análise de registos guardar pesquisas e os alertas à solução de gestão do OMS (pré-visualização)
 
@@ -45,20 +45,17 @@ O nome da área de trabalho é nome cada recurso de análise de registos.  Isto 
 ## <a name="log-analytics-api-version"></a>Versão de API de análise do registo
 Todos os recursos de análise de registos definidos num modelo do Resource Manager tem uma propriedade **apiVersion** que define a versão da API, deve utilizar o recurso.  Esta versão é diferente para recursos que utilizam o [legado e o idioma de consulta atualizado](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- A seguinte tabela especifica as versões de API de análise do registo para áreas de trabalho de legado e atualizadas e uma consulta de exemplo para especificar a sintaxe diferente para cada. 
+ A seguinte tabela especifica as versões de API de análise do registo para pesquisas guardadas em áreas de trabalho de legado e atualizadas: 
 
-| Versão da área de trabalho | Versão de API | Consulta de exemplo |
+| Versão da área de trabalho | Versão de API | Consulta |
 |:---|:---|:---|
-| V1 (Legado)   | 2015-11-01-preview | Tipo = EventLevelName de evento = erro             |
-| v2 (atualizado) | 2017-03-15-preview | Evento &#124; onde EventLevelName = = "Erro"  |
-
-Tenha em atenção o seguinte para o qual as áreas de trabalho são suportadas por versões diferentes.
-
-- Os modelos que utilizam o idioma de consulta legado podem ser instalados numa área de trabalho atualizada ou legada.  Se instalou numa área de trabalho atualizada, as consultas são convertidas no momento para o novo idioma quando são executados pelo utilizador.
-- Os modelos que utilizam o idioma de consulta atualizado só podem ser instalados numa área de trabalho atualizada.
+| V1 (Legado)   | 2015-11-01-preview | Formato de legado.<br> Exemplo: Escreva = EventLevelName de evento = erro  |
+| v2 (atualizado) | 2015-11-01-preview | Formato de legado.  Converter para formato atualizado na instalação.<br> Exemplo: Escreva = EventLevelName de evento = erro<br>Converter a: eventos &#124; onde EventLevelName = = "Erro"  |
+| v2 (atualizado) | 2017-03-03-preview | Formato de atualização. <br>Exemplo: Evento &#124; onde EventLevelName = = "Erro"  |
 
 
-## <a name="saved-searches"></a>Pesquisas guardadas
+
+## <a name="saved-searches"></a>Procuras Guardadas
 Incluir [pesquisas guardadas](../log-analytics/log-analytics-log-searches.md) numa solução para permitir aos utilizadores consultar os dados recolhidos pela sua solução.  Guardar pesquisas são apresentados em **Favoritos** no portal do OMS e **pesquisas guardadas** no portal do Azure.  Uma pesquisa guardada também é necessária para cada alerta.   
 
 [Análise de registos guardar pesquisa](../log-analytics/log-analytics-log-searches.md) recursos tem um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches` e ter a seguinte estrutura.  Isto inclui os parâmetros e variáveis comuns para que possam copie e cole o fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
@@ -85,7 +82,7 @@ Cada propriedade de uma procura guardada são descritas na seguinte tabela.
 | Propriedade | Descrição |
 |:--- |:--- |
 | categoria | A categoria para a pesquisa guardada.  As pesquisas guardadas na mesma solução frequentemente irão partilhar uma única categoria para são agrupados em conjunto na consola do. |
-| DisplayName | Nome a apresentar para a pesquisa guardada no portal. |
+| displayname | Nome a apresentar para a pesquisa guardada no portal. |
 | consulta | Consulta seja executada. |
 
 > [!NOTE]
@@ -130,9 +127,9 @@ As propriedades de recursos de agenda são descritas na seguinte tabela.
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| ativado       | Sim | Especifica se o alerta é ativado quando é criado. |
+| enabled       | Sim | Especifica se o alerta é ativado quando é criado. |
 | intervalo      | Sim | Frequência de consulta é executada em minutos. |
-| QueryTimeSpan | Sim | Período de tempo em minutos durante o qual a avaliar os resultados. |
+| queryTimeSpan | Sim | Período de tempo em minutos durante o qual a avaliar os resultados. |
 
 O recurso de agenda deve dependem a pesquisa guardada para que é criado antes da agenda.
 
@@ -192,7 +189,7 @@ As propriedades de recursos da ação de alerta são descritas nas tabelas segui
 | Tipo | Sim | Tipo de ação.  Este é **alerta** para ações de alerta. |
 | Nome | Sim | Nome a apresentar para o alerta.  Este é o nome que é apresentado na consola para a regra de alerta. |
 | Descrição | Não | Descrição opcional do alerta. |
-| Gravidade | Sim | Gravidade do alerta registo entre os valores seguintes:<br><br> **Crítico**<br>**Aviso**<br>**Informativo** |
+| Gravidade | Sim | Gravidade do alerta registo entre os valores seguintes:<br><br> **Critical**<br>**Aviso**<br>**Informativo** |
 
 
 ##### <a name="threshold"></a>Limiar
@@ -200,7 +197,7 @@ Esta secção é necessária.  Define as propriedades para o limiar de alerta.
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| operador | Sim | Operador de comparação entre os valores seguintes:<br><br>**gt = maior<br>lt = inferior a** |
+| Operador | Sim | Operador de comparação entre os valores seguintes:<br><br>**gt = maior<br>lt = inferior a** |
 | Valor | Sim | O valor a comparar os resultados. |
 
 
@@ -213,7 +210,7 @@ Esta secção é opcional.  Incluí-la para um alerta de métrica de medida.
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
 | TriggerCondition | Sim | Especifica se o limiar de número total de falhas ou falhas consecutivas entre os valores seguintes:<br><br>**Total<br>consecutivas** |
-| operador | Sim | Operador de comparação entre os valores seguintes:<br><br>**gt = maior<br>lt = inferior a** |
+| Operador | Sim | Operador de comparação entre os valores seguintes:<br><br>**gt = maior<br>lt = inferior a** |
 | Valor | Sim | Número de vezes que os critérios têm de ser cumpridos para acionar o alerta. |
 
 ##### <a name="throttling"></a>Limitação
@@ -240,7 +237,7 @@ Esta secção é opcional incluí-la se pretender que um runbook para começar e
 |:--|:--|:--|
 | RunbookName | Sim | Nome do runbook para iniciar. |
 | WebhookUri | Sim | URI de webhook para o runbook. |
-| Expiração | Não | Data e hora de expiração a remediação. |
+| Validade | Não | Data e hora de expiração a remediação. |
 
 #### <a name="webhook-actions"></a>Ações de Webhook
 
@@ -271,12 +268,12 @@ As propriedades de recursos de ação do Webhook são descritas nas tabelas segu
 | tipo | Sim | Tipo de ação.  Este é **Webhook** para ações de webhook. |
 | nome | Sim | Nome a apresentar para a ação.  Não é apresentado na consola do. |
 | wehookUri | Sim | URI para o webhook. |
-| CustomPayload | Não | Payload personalizado sejam enviados para o webhook. O formato depende do que o webhook está à espera. |
+| customPayload | Não | Payload personalizado sejam enviados para o webhook. O formato depende do que o webhook está à espera. |
 
 
 
 
-## <a name="sample"></a>Exemplo
+## <a name="sample"></a>Sample
 
 Segue-se um exemplo de uma solução que inclui o que inclui os seguintes recursos:
 
@@ -520,7 +517,7 @@ O ficheiro de parâmetros seguinte fornece valores de exemplos para esta soluç�
     }
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Adicionar vistas](operations-management-suite-solutions-resources-views.md) à sua solução de gestão.
 * [Adicionar runbooks de automatização e outros recursos](operations-management-suite-solutions-resources-automation.md) à sua solução de gestão.
 

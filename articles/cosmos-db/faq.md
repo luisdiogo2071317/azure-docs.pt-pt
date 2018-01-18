@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/12/2018
 ms.author: mimig
-ms.openlocfilehash: 0bc0551259e47cdbd74d323d8d9877c74dd64c4b
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 0f7998ca4000a4ccfd77b173cb3dd9756b4777ae
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Cosmos BD do Azure
@@ -28,7 +28,7 @@ BD do Cosmos do Azure é um serviço de base de dados globalmente replicados e m
 
 BD do Cosmos do Azure é a solução certa para a web, móveis, jogos, e aplicações IoT quando o débito previsível, elevada disponibilidade, latência baixa e um modelo de dados sem esquema são requisitos principais. Fornece flexibilidade de esquema e indexação avançada e inclui suporte de transacional com vários documento com JavaScript integrado. 
 
-Para obter mais perguntas de base de dados, respostas e instruções para implementar e utilizar este serviço, consulte a [página de documentação do Azure Cosmos DB] ((https://docs.microsoft.com/azure/cosmos-db/).
+Para obter mais perguntas de base de dados, respostas e instruções para implementar e utilizar este serviço, consulte o [página de documentação do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/).
 
 ### <a name="what-happened-to-the-documentdb-api"></a>O que aconteceu à API do DocumentDB?
 
@@ -74,7 +74,16 @@ Se estiver familiarizado com o Azure, pode inscrever-se para obter um [conta gra
 Também pode utilizar o [emulador de BD do Azure Cosmos](local-emulator.md) para desenvolver e testar a aplicação localmente para gratuitamente, sem criar uma subscrição do Azure. Quando estiver satisfeito com a forma como a aplicação está a funcionar no emulador de BD do Cosmos do Azure, pode mudar para utilizar uma conta de base de dados do Azure Cosmos na nuvem.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Como posso obter ajuda adicional com o Azure Cosmos DB?
-Se precisar de qualquer ajuda, entrar-no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) ou [fórum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB), ou agendar um chat cara com a equipa de engenharia da BD do Cosmos Azure através do envio de correio a [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com). 
+
+Para fazer uma pergunta técnica, pode publicar um destes dois pergunta e responder fóruns:
+* [Fórum do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [Capacidade excedida da pilha](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Capacidade excedida da pilha é melhor para questões de programação. Certifique-se a sua pergunta [no tópico](https://stackoverflow.com/help/on-topic) e [fornecem detalhes tantas quanto possível, tornando a pergunta clara e answerable](https://stackoverflow.com/help/how-to-ask). 
+
+Para pedir novas funcionalidades, crie um novo pedido no [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
+
+Para corrigir um problema com a sua conta, ficheiro um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
+
+Outras perguntas podem ser submetidas para a equipa, [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com); no entanto, isto não é um alias de suporte técnico. 
 
 <a id="try-cosmos-db"></a>
 ## <a name="try-azure-cosmos-db-subscriptions"></a>Tente subscrições do Azure Cosmos DB
@@ -180,7 +189,7 @@ Para além de códigos de erro comuns do MongoDB, a API do MongoDB tem os seus p
 | Erro               | Código  | Descrição  | Solução  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | O número total de unidades de pedido consumido excedeu a taxa de aprovisionamento de unidade de pedido para a coleção e foi limitado. | Considere aumentar o débito da coleção do portal do Azure ou tentar novamente. |
-| ExceededMemoryLimit | 16501 | Como um serviço de multi-inquilino, a operação excedeu a alocação de memória do cliente. | Reduzir o âmbito da operação através de critérios de consulta mais restritivas ou contacte o suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exemplo:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {nome: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {idade: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | Como um serviço de multi-inquilino, a operação excedeu a alocação de memória do cliente. | Reduzir o âmbito da operação através de critérios de consulta mais restritivas ou contacte o suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Desenvolver com a tabela de API
 
@@ -204,11 +213,11 @@ Existem algumas diferenças de comportamento utilizadores provenientes da Table 
 * Alguns dos formatos de internos da BD do Cosmos do Azure para obter informações de codificação, como binários campos, atualmente não estão como eficientes como um poderá gostar. Por conseguinte, isto pode provocar limitações inesperadas no tamanho dos dados. Por exemplo, atualmente um não foi possível utilizar a completa 1 Meg de uma entidade de tabela para armazenar dados binários porque a codificação aumenta o tamanho dos dados.
 
 Em termos da API REST, existem várias opções de pontos finais/consulta que não são suportadas pelo Azure Cosmos DB tabela API de:
-| Método de REST | Opção de consulta/ponto final de REST | URLs do documento | Explicação |
+| Método de REST | Opção de consulta/ponto final de REST | Doc URLs | Explicação |
 | ------------| ------------- | ---------- | ----------- |
-| OBTER, COLOCAR | /? restype =service@comp= propriedades| [Definir as propriedades do serviço tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) e [obter propriedades de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Este ponto final é utilizado para definir as regras CORS, configuração de armazenamento da análise e as definições de registo. CORS não é atualmente suportada e registo e análise são processadas forma diferente na base de dados do Azure Cosmos que tabelas de armazenamento do Azure |
-| OPÇÕES | / < nome de recurso de tabela > | [Pré-voo CORS tabela pedido](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Isto faz parte de CORS que BD do Cosmos Azure não suporta atualmente. |
-| GET | /? restype =service@comp= estatísticas | [Obter estatísticas de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações como rapidamente dados está a replicar entre principais e secundárias. Isto não é necessário na base de dados do Cosmos como a replicação faz parte das escritas. |
+| OBTER, COLOCAR | /?restype=service@comp=properties| [Definir as propriedades do serviço tabela](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) e [obter propriedades de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Este ponto final é utilizado para definir as regras CORS, configuração de armazenamento da análise e as definições de registo. CORS não é atualmente suportada e registo e análise são processadas forma diferente na base de dados do Azure Cosmos que tabelas de armazenamento do Azure |
+| OPÇÕES | /<table-resource-name> | [Pré-voo CORS tabela pedido](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Isto faz parte de CORS que BD do Cosmos Azure não suporta atualmente. |
+| GET | /?restype=service@comp=stats | [Obter estatísticas de serviço tabela](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornece informações como rapidamente dados está a replicar entre principais e secundárias. Isto não é necessário na base de dados do Cosmos como a replicação faz parte das escritas. |
 | OBTER, COLOCAR | /MyTable? concluída = acl | [Obter tabela ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) e [Definir tabela ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Este obtém e define as políticas de acesso armazenada utilizadas para gerir assinaturas de acesso partilhado (SAS). Embora seja suportado SAS, estão definidas e geridos de forma diferente. |
 
 Além disso API de tabela de base de dados do Azure Cosmos só suporta o formato JSON, não ATOM.
@@ -220,9 +229,9 @@ Para o SDK .NET em particular, existem algumas classes e métodos que BD do Cosm
 | Classe | Método não suportado |
 |-------|-------- |
 | CloudTableClient | \*ServiceProperties * |
-|                  | \*ServiceStats * |
-| CloudTable | SetPermissions * |
-|            | GetPermissions * |
+|                  | \*ServiceStats* |
+| CloudTable | SetPermissions* |
+|            | GetPermissions* |
 | TableServiceContext | * (esta classe é realmente preterida) |
 | TableServiceEntity | " " |
 | TableServiceExtensions | " " |
@@ -235,7 +244,7 @@ Pode partilhar os seus comentários em qualquer uma das seguintes formas:
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
 * [Fórum do MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
-* [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
+* [Capacidade excedida da pilha](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Capacidade excedida da pilha é melhor para questões de programação. Certifique-se a sua pergunta [no tópico](https://stackoverflow.com/help/on-topic) e [fornecem detalhes tantas quanto possível, tornando a pergunta clara e answerable](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>O que é a cadeia de ligação que tenho de utilizar para ligar à API de tabela?
 A cadeia de ligação é:
@@ -248,7 +257,7 @@ Pode obter a cadeia de ligação da página de cadeia de ligação no portal do 
 Para informações sobre definições de configuração, consulte [capacidades de base de dados do Azure Cosmos](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). Algumas definições são processadas no método CreateCloudTableClient e outros através do App. config na secção appSettings a aplicação de cliente.
 
 ### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>Existem alterações para os clientes que utilizam o armazenamento de tabelas do Azure SDKs existente?
-nenhum. Não foram efetuadas alterações para os clientes de novas ou existentes que estão a utilizar o armazenamento de tabelas do Azure existente SDKs. 
+Nenhum. Não foram efetuadas alterações para os clientes de novas ou existentes que estão a utilizar o armazenamento de tabelas do Azure existente SDKs. 
 
 ### <a name="how-do-i-view-table-data-that-is-stored-in-azure-cosmos-db-for-use-with-the-table-api"></a>Como posso ver dados de tabela que são armazenados na base de dados do Azure Cosmos para utilização com a API de tabela? 
 Pode utilizar o portal do Azure para procurar os dados. Também pode utilizar o código de API de tabela ou as ferramentas mencionadas na resposta seguinte. 
@@ -382,7 +391,7 @@ Sim, pode utilizar o painel de escala do portal do Azure Cosmos DB para aumentar
 Sim, se não substituir TableThroughput através de App. config e não utilizar um contentor previamente criado na base de dados do Azure Cosmos, o serviço cria uma tabela com débito de 400.
  
 ### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>É efetuada qualquer alteração de preço para clientes existentes do serviço de armazenamento de tabelas do Azure?
-nenhum. Não há nenhuma alteração no preço para clientes de armazenamento de tabelas do Azure existentes. 
+Nenhum. Não há nenhuma alteração no preço para clientes de armazenamento de tabelas do Azure existentes. 
 
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Como é o preço calculado para a API de tabela? 
 O preço depende o TableThroughput alocado. 
