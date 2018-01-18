@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: ca0817b37b6baaa4ef63dfb76790fb3b3735b55f
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 47e872bf4c1007fdc9d69eea2e91b1daad8293c3
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 > [!div class="op_single_selector"]
@@ -320,7 +320,7 @@ A [governação de recursos](service-fabric-resource-governance.md) restringe os
 ```
 ## <a name="configure-docker-healthcheck"></a>Configurar docker HEALTHCHECK 
 
-A partir da versão v6.1, o Service Fabric integra automaticamente eventos [docker HEALTHCHECK ](https://docs.docker.com/engine/reference/builder/#healthcheck) no respetivo relatório de estado de funcionamento do sistema. Isto significa que, se o seu contentor tiver **HEALTHCHECK** ativado, o Service Fabric comunicará o estado de funcionamento sempre que o estado de funcionamento do contentor for alterado, conforme comunicado pelo Docker. Quando o *health_status* for *bom estado de funcionamento* é apresentado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) um relatório com o estado de funcionamento **OK** e é apresentado **AVISO** se o *health_status* for *mau estado de funcionamento*. A instrução **HEALTHCHECK** que aponta para a verificação atual que é efetuada para monitorizar o estado de funcionamento do contentor tem estar presente no **dockerfile** utilizado ao gerar a imagem de contentor. 
+A partir da versão v6.1, o Service Fabric integra automaticamente eventos [HEALTHCHECK do docker](https://docs.docker.com/engine/reference/builder/#healthcheck) no respetivo relatório de estado de funcionamento do sistema. Isto significa que, se o seu contentor tiver **HEALTHCHECK** ativado, o Service Fabric comunicará o estado de funcionamento sempre que o estado de funcionamento do contentor for alterado, conforme comunicado pelo Docker. Quando o *health_status* for *bom estado de funcionamento* é apresentado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) um relatório com o estado de funcionamento **OK** e é apresentado **AVISO** se o *health_status* for *mau estado de funcionamento*. A instrução **HEALTHCHECK** que aponta para a verificação atual que é efetuada para monitorizar o estado de funcionamento do contentor tem de estar presente no **dockerfile** utilizado ao gerar a imagem de contentor. 
 
 ![HealthCheckHealthy][3]
 
@@ -494,14 +494,15 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 Pode configurar um intervalo de tempo para o tempo de execução para aguardar antes do contentor ser removido após a eliminação do serviço (ou uma mudança para outro nó) ser iniciada. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contentor.   Para obter mais detalhes, veja [paragem do docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na secção `Hosting`. O fragmento do manifesto do cluster seguinte mostra como definir o intervalo de espera:
 
-```xml
+```json
 {
         "name": "Hosting",
         "parameters": [
           {
-            "ContainerDeactivationTimeout": "10",
+                "name": "ContainerDeactivationTimeout",
+                "value" : "10"
+          },
           ...
-          }
         ]
 }
 ```
@@ -518,8 +519,13 @@ Pode configurar o cluster do Service Fabric para remover as imagens do contentor
         "name": "Hosting",
         "parameters": [
           {
-            "PruneContainerImages": “True”,
-            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+                "name": "PruneContainerImages",
+                "value": "True"
+          },
+          {
+                "name": "ContainerImagesToSkip",
+                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+          }
           ...
           }
         ]
@@ -554,7 +560,7 @@ Para ajudar a diagnosticar falhas no arranque de contentores, o Service Fabric (
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-A definição **ContainersRetentionCount** especifica o número de contentores que vão ser retidos quando falham. Se for especificado um valor negativo, todos os contentores em falha serão mantidos. Se o atributo **ContainersRetentionCount** não for especificado, não serão retidos contentores. O atributo **ContainersRetentionCount** também suporta Parâmetros de Aplicação, para que os utilizadores possam especificar valores diferentes para clusters de teste e produção. Recomendamos a utilização de restrições de posicionamento para segmentar o serviço de contentores para um nó particular ao utilizar as respetivas funcionalidades para impedir a passagem do serviço de contentores para outros nós. Quaisquer contentores retidos que utilizem esta funcionalidade têm de ser removidos manualmente.
+A definição **ContainersRetentionCount** especifica o número de contentores que vão ser retidos quando falham. Se não for especificado um valor negativo, todos os contentores com falhas serão mantidos. Se o atributo **ContainersRetentionCount** não for especificado, não serão retidos contentores. O atributo **ContainersRetentionCount** também suporta Parâmetros de Aplicação, para que os utilizadores possam especificar valores diferentes para clusters de teste e produção. Recomendamos a utilização de restrições de posicionamento para segmentar o serviço de contentores para um nó particular ao utilizar esta funcionalidade para impedir a passagem do serviço de contentores para outros nós. Quaisquer contentores retidos que utilizem esta funcionalidade têm de ser removidos manualmente.
 
 
 ## <a name="next-steps"></a>Passos seguintes
