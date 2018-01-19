@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 75be5be0bef4dd07c8560076f47055105a70ee05
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f80e682a89dcf6b5d3d5d6f2f15c4eeab2046e7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: criar uma base de dados de gráficos utilizando PHP e o portal do Azure
 
@@ -137,7 +137,9 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
     ]);
     ```
 
-3. Altere o parâmetro `username` no objeto da ligação com o nome da base de dados e do gráfico. Se utilizou os valores recomendados do `sample-database` e `sample-graph`, deve ter o seguinte aspeto:
+3. Se a sua conta de base de dados do gráfico foi criada em ou após 20 de dezembro de 2017, altere `graphs.azure.com` no nome do anfitrião para `gremlin.cosmosdb.azure.com`.
+
+4. Altere o parâmetro `username` no objeto da ligação com o nome da base de dados e do gráfico. Se utilizou os valores recomendados do `sample-database` e `sample-graph`, deve ter o seguinte aspeto:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -155,7 +157,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
     ]);
     ```
 
-4. No portal do Azure, utilize o botão de cópia para copiar a CHAVE PRIMÁRIA e cole-a sobre `your_primary_key` no parâmetro palavra-passe.
+5. No portal do Azure, utilize o botão de cópia para copiar a CHAVE PRIMÁRIA e cole-a sobre `your_primary_key` no parâmetro palavra-passe.
 
     A inicialização do objeto de ligação deve agora ter este aspeto:
 
@@ -171,7 +173,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
     ]);
     ```
 
-5. Guarde o ficheiro `connect.php`.
+6. Guarde o ficheiro `connect.php`.
 
 ## <a name="run-the-console-app"></a>Executar a aplicação de consola
 

@@ -17,15 +17,18 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b64d994dbc8f53418981e33a1dcd3cf513838b92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9bb71adf85490fe68bf6b73133017c5e9c377e1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Armazenar dados não estruturados usando as funções do Azure e o Azure Cosmos DB
 
 O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é uma ótima forma de armazenar dados não estruturados e dados JSON. Combinado com funções do Azure, o Cosmos DB torna o armazenamento de dados rápido e fácil, sendo necessário menos códigos para armazenar dados numa base de dados relacional.
+
+> [!NOTE]
+> Neste momento, o acionador do Azure Cosmos DB, os enlaces de entrada e os enlaces de saída funcionam apenas com contas de API do SQL e do Graph API.
 
 Nas Funções do Azure, os enlaces de entrada e saída proporcionam uma forma declarativa para ligar aos dados do serviço externo a partir da sua função. Neste tópico, saiba como atualizar uma função C# existente para adicionar um enlace de saída que armazena dados não estruturados num documento do Cosmos DB. 
 
@@ -65,7 +68,7 @@ Para concluir este tutorial:
     | Definição      | Valor sugerido  | Descrição                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Nome da base de dados | ID exclusivo para a base de dados do Azure Cosmos DB  |
-    | **API** | SQL (DocumentDB) | Selecione a API da base de dados de documentos.  |
+    | **API** | SQL | Selecione a API do SQL. Neste momento, o acionador do Azure Cosmos DB, os enlaces de entrada e os enlaces de saída funcionam apenas com contas de API do SQL e do Graph API. |
     | **Subscrição** | Subscrição do Azure | Subscrição do Azure  |
     | **Grupo de Recursos** | myResourceGroup |  Utilize o grupo de recursos existente que contém a aplicação de funções. |
     | **Localização**  | WestEurope | Selecione uma localização perto da sua aplicação de funções ou de outras aplicações que utilizam os documentos armazenados.  |
@@ -142,4 +145,4 @@ Adicionou um enlace com êxito ao acionador de HTTP que armazena os dados não e
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 
-Para obter mais informações sobre o enlace a uma base de dados do Cosmos DB, veja [Enlaces do Cosmos DB das Funções do Azure](functions-bindings-documentdb.md).
+Para obter mais informações sobre o enlace a uma base de dados do Cosmos DB, veja [Enlaces do Cosmos DB das Funções do Azure](functions-bindings-cosmosdb.md).
