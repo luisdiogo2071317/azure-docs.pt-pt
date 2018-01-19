@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Criar uma aplicação do Service Bus de multicamadas](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Procedimento
 ## Planear e conceber
@@ -29,6 +28,7 @@
 ### [Controlo de Acesso Baseado em Funções (pré-visualização)](service-bus-role-based-access-control.md)
 ### [Mensagens premium](service-bus-premium-messaging.md)
 ### [Comparar Filas do Azure e filas do Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+### [Criar uma aplicação do Service Bus de multicamadas](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Otimizar o desempenho](service-bus-performance-improvements.md)
 ### [Recuperação após desastre a nível geográfico e georreplicação](service-bus-geo-dr.md)
 ### [Mensagens assíncronas e elevada disponibilidade](service-bus-async-messaging.md)
