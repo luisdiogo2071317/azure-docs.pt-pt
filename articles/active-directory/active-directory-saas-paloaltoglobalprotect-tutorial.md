@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: b7c85dd01802bd67724e405f786481ba128e559a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c851c056095ef8e7fb40d7d2ead76457495b2118
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Tutorial: Integração do Azure Active Directory com redes da Palo Alto - GlobalProtect
 
@@ -123,7 +123,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     | Nome do Atributo | Valor do Atributo |
     | --- | --- |    
-    | o nome de utilizador | User.userPrincipalName |
+    | o nome de utilizador | user.userprincipalname |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -146,7 +146,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_general_400.png)
 
-8. Abra o site da Palo Alto como um administrador na outra janela do browser.
+8. Abra a IU da Firewall da Palo Alto redes Admin como um administrador na outra janela do browser.
 
 9. Clique em **dispositivo**.
 
@@ -160,7 +160,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar da Palo Alto-início de sessão único](./media/active-directory-saas-paloaltoglobalprotect-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-    a. No **nome do perfil** caixa de texto, forneça um por nome exemplo do Azure AD Global proteger.
+    a. No **nome do perfil** caixa de texto, forneça por exemplo do nome do Azure AD GlobalProtect.
     
     b. No **metadados do fornecedor de identidade**, clique em **procurar** e selecione o ficheiro metadata.xml que transferiu a partir do portal do Azure
     

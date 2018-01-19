@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4b8b547e3fc57d51f35aa7ca31b76f09593bb5f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -121,11 +121,11 @@ Sim. Cada circuito do ExpressRoute tem um par redundante de entre as ligações 
 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Irá perder conectividade se falhar um dos meus ligações ExpressRoute?
 
-Não perderá conectividade se uma das ligações cruzadas falhar. Uma ligação redundante está disponível para suportar a carga da rede. Além disso, pode criar vários circuitos numa localização diferente peering para alcançar a resiliência de falha.
+Não perderá conectividade se uma das ligações cruzadas falhar. Uma ligação redundante está disponível para suportar a carga da rede e fornecer elevada disponibilidade do seu circuito do ExpressRoute. Além disso, pode criar um circuito numa localização diferente peering para alcançar a resiliência ao nível do circuito.
 
-## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como posso garantir a elevada disponibilidade numa rede virtual ligada ao ExpressRoute?
+### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como posso garantir a elevada disponibilidade numa rede virtual ligada ao ExpressRoute?
 
-Pode alcançar a elevada disponibilidade, ligando-se vários circuitos ExpressRoute em diferentes localizações de peering à sua rede virtual. Por exemplo, se um site de ExpressRoute ficar inativo, conectividade serão ativadas pós-falha para outro site do ExpressRoute. Por predefinição, o tráfego que sai de rede virtual é encaminhado com base no igual custo multi-path encaminhamento (ECMP). Pode utilizar o peso de ligação para preferir uma ligação para outro. Consulte [otimizar o encaminhamento do ExpressRoute](expressroute-optimize-routing.md) para obter detalhes adicionais sobre o peso de ligação.
+Pode obter a elevada disponibilidade através da ligação circuitos do ExpressRoute em diferentes localizações de peering (por exemplo, Singapura, Singapore2) à sua rede virtual. Se um circuito do ExpressRoute ficar inativo, conectividade serão ativadas pós-falha para outro circuito do ExpressRoute. Por predefinição, o tráfego que sai de rede virtual é encaminhado com base no igual custo multi-path encaminhamento (ECMP). Pode utilizar o peso de ligação para preferir um circuito para outro. Consulte [otimizar o encaminhamento do ExpressRoute](expressroute-optimize-routing.md) para obter detalhes adicionais sobre o peso de ligação.
 
 ### <a name="onep2plink"></a>Se não sou colocalizada numa troca de nuvem e os meus fornecedor de serviço oferece ligação ponto a ponto, é necessário ordenar duas ligações físicas entre a minha rede no local e a Microsoft?
 
@@ -145,9 +145,12 @@ Sim. Pode ter mais do que um circuito de ExpressRoute na sua subscrição. A pre
 
 Sim. Pode ter circuitos ExpressRoute com muitos fornecedores de serviços. Cada circuito ExpressRoute é associado a um serviço fornecedor apenas. 
 
-### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>Pode ter vários circuitos ExpressRoute na mesma localização?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Consulte o artigo dois ExpressRoute localizações de peering no metro mesmo, por exemplo, Singapura e Singapore2. A peering localização deve escolher para criar o meu circuito do ExpressRoute
+Se o seu fornecedor de serviços ExpressRoute em ambos os sites, pode trabalhar com o fornecedor e escolha a qualquer um dos sites para configurar o ExpressRoute. 
 
-Sim. Pode ter vários circuitos do ExpressRoute, com os fornecedores de serviços idêntica ou diferente na mesma localização. No entanto, não é possível associar mais do que um circuito de ExpressRoute à mesma rede virtual da mesma localização.
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Pode ter vários circuitos ExpressRoute na metro mesmo? Posso ligá-las à mesma rede virtual?
+
+Sim. Pode ter vários circuitos ExpressRoute com os fornecedores de serviços idêntica ou diferente. Se o metro tem várias localizações de peering de ExpressRoute e de circuitos criados em várias localizações de peering, pode ligá-los para a mesma rede virtual. Se o circuitos criados na mesma localização de peering, não pode associá-las à mesma rede virtual.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como se ligar a minha redes virtuais para um circuito ExpressRoute
 

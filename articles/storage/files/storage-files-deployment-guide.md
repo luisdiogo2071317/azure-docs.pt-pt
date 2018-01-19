@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implementar os Ficheiros do Azure
 [Ficheiros do Azure](storage-files-introduction.md) oferece completamente geridos partilhas de ficheiros na nuvem que estão acessíveis através do protocolo SMB padrão da indústria. Este artigo irá mostrar como implementar praticamente ficheiros do Azure dentro da sua organização.
@@ -35,7 +35,7 @@ Este artigo pressupõe que já tenha concluído os passos seguintes:
 Pode pretender migrar as partilhas de ficheiros existentes, tais como esse armazenada no local, para a nova partilha de ficheiros do Azure. Esta secção irá mostrar-lhe como mover a partilham de dados para um ficheiro do Azure através de vários métodos populares detalhados do [guia de planeamento](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync-preview"></a>Sincronização de ficheiros do Azure (pré-visualização)
-Sincronização de ficheiros do Azure (pré-visualização) permite que centralizar partilhas de ficheiros da sua organização nos ficheiros de Azure sem fornecer a flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Isto é feito ao transformar os Servidores do Windows numa cache rápida da partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
+Sincronização de ficheiros do Azure (pré-visualização) permite-lhe centralizar partilhas de ficheiros da sua organização nos ficheiros de Azure sem fornecer a flexibilidade, o desempenho e a compatibilidade de um servidor de ficheiros no local. Isto é feito ao transformar os Servidores do Windows numa cache rápida da partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter o número de caches que precisar em todo o mundo.
 
 Sincronização de ficheiros do Azure pode ser utilizada para migrar dados para uma partilha de ficheiros do Azure, mesmo que o mecanismo de sincronização não está pretendido para utilização de longo prazo. Podem encontrar mais informações sobre como utilizar a sincronização de ficheiros do Azure para transferir dados para a partilha de ficheiros do Azure no [planear uma implementação de sincronização de ficheiros do Azure](storage-sync-files-planning.md) e [como implementar a sincronização de ficheiros do Azure](storage-sync-files-deployment-guide.md).
 
@@ -145,15 +145,15 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 Um script de bash simples combinado com SSH, pode produzir o mesmo resultado no exemplo seguinte. O `$computer` variável for deixada da mesma forma para ser preenchido pelo utilizador:
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Planear uma implementação de sincronização de ficheiros do Azure](storage-sync-files-planning.md)
 - [Resolver problemas de ficheiros do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Resolver problemas de ficheiros do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)

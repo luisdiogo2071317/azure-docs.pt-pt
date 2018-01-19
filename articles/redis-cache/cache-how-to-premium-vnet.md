@@ -3,8 +3,8 @@ title: Configurar uma rede Virtual para uma Cache de Redis do Azure Premium | Mi
 description: "Saiba como criar e gerir o suporte de rede Virtual para as instâncias de Cache de Redis do Azure do escalão Premium"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: sdanie
-ms.openlocfilehash: 59d46990e02c0719d2b4df01e216a97fd649c509
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 74ec104bebec2004a8b7116865c2394c02b12638
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Como configurar o suporte da Virtual Network para uma Cache de Redis do Azure Premium
 Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de funcionalidades, incluindo funcionalidades do escalão Premium, tais como clustering, persistência e suporte da virtual network e tamanho da cache. Uma VNet é uma rede privada na nuvem. Quando uma instância da Cache de Redis do Azure está configurada com uma VNet, não é acessível publicamente e só pode ser acedido a partir de máquinas virtuais e aplicações dentro da VNet. Este artigo descreve como configurar o suporte de rede virtual para uma instância de Cache de Redis do Azure premium.
@@ -210,7 +210,7 @@ Informações de fundo sobre rotas definidas pelo utilizador estão disponíveis
 
 Para obter mais informações sobre o ExpressRoute, consulte [descrição geral técnica do ExpressRoute](../expressroute/expressroute-introduction.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba como utilizar as funcionalidades de cache do mais premium.
 
 * [Introdução ao escalão Premium de Cache de Redis do Azure](cache-premium-tier-intro.md)

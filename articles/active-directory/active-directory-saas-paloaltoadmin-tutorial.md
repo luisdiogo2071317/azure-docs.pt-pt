@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8e54630d97dee2388ffc9c8877faeac269df1609
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integração do Azure Active Directory com redes da Palo Alto - Admin IU
 
@@ -37,7 +37,7 @@ Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o
 Para configurar a integração do Azure AD com redes da Palo Alto - Admin IU, terá dos seguintes itens:
 
 - Uma subscrição do Azure AD
-- Da Palo Alto redes - Admin IU-início de sessão único ativada subscrição
+- Uma Firewall de próxima geração de redes da Palo Alto ou Panorama (gestão centralizada de sistema para as firewalls)
 
 > [!NOTE]
 > Para testar os passos neste tutorial, não recomendamos a utilização num ambiente de produção.
@@ -72,7 +72,7 @@ Para configurar a integração das redes da Palo Alto - UI de administração co
 
 4. Na caixa de pesquisa, escreva **redes da Palo Alto - Admin IU**, selecione **redes da Palo Alto - Admin IU** partir do painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
 
-    ![Redes da Palo Alto - UI de administrador na lista de resultados](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_addfromgallery.png)
+    ![Redes da Palo Alto - UI de administrador na lista de resultados](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_step4-add-from-the-gallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
 
@@ -108,9 +108,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Redes da Palo Alto - administrador de domínio de IU e URLs único início de sessão informações](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_url.png)
 
-    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<Customer Firewall URL>/php/login.php`
+    a. No **URL de início de sessão** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<Customer Firewall FQDN>/php/login.php`
 
-    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<Customer Firewall URL>/SAML20/SP`
+    b. No **identificador** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<Customer Firewall FQDN>/SAML20/SP`
 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [redes da Palo Alto - equipa de suporte de cliente de IU de Admin](https://support.paloaltonetworks.com/support) para obter estes valores. 
@@ -123,7 +123,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
         
     | Nome do Atributo | Valor do Atributo |
     | --- | --- |    
-    | o nome de utilizador | User.userPrincipalName |
+    | o nome de utilizador | user.userprincipalname |
     | adminrole | customadmin |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
@@ -151,7 +151,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configurar botão único início de sessão guardar](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_general_400.png)
 
-8. Abra o site da Palo Alto como um administrador na outra janela do browser.
+8. Abra a IU da Firewall da Palo Alto redes Admin como um administrador na outra janela do browser.
 
 9. Clique em **dispositivo**.
 

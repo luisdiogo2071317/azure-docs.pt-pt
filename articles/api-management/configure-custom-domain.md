@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: cf8a3eb502a808945e97822e10e44d38137d1161
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 0f1c9e8e8298647721f16962d3f6756c74f8c8ef
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado 
 
@@ -55,10 +55,10 @@ Para efetuar os passos descritos neste artigo, tem de ter:
 1. Clique em aplicar.
 
     >[!NOTE]
-    >O processo de atribuição do certificado pode demorar 15 minutos ou modo.
+    >O processo de atribuição do certificado pode demorar 15 minutos ou mais, dependendo do tamanho da implementação. Programador SKU tem um período de indisponibilidade, básico e superiores SKU não dispõe de um período de indisponibilidade.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Atualizar e dimensionar o serviço](upgrade-and-scale.md)

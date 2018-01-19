@@ -11,14 +11,14 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: 667efced715b904234bd2b941453ed27e9ef1c42
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicação .NET multicamadas que utiliza as filas do Service Bus do Azure
 
@@ -68,7 +68,7 @@ Antes de poder começar a desenvolver aplicações do Azure, obtenha as ferramen
 5. Após a conclusão da instalação, terá tudo o que é necessário para começar a desenvolver a aplicação. O SDK inclui ferramentas que permitem desenvolver facilmente aplicações do Azure no Visual Studio.
 
 ## <a name="create-a-namespace"></a>Criar um espaço de nomes
-O passo seguinte consiste em criar um *espaço de nomes* e obter uma [chave de Assinatura de Acesso Partilhado (SAS)](service-bus-sas.md) para esse espaço de nomes. Um espaço de nomes fornece um limite de aplicação para cada aplicação exposta através do Service Bus. O sistema gera uma chave SAS quando um espaço de nomes é criado. A combinação do nome do espaço de nomes e da chave SAS fornece as credenciais do Service Bus para autenticar o acesso a uma aplicação.
+O passo seguinte consiste em criar um *espaço de nomes* e obter uma [chave de Assinatura de Acesso Partilhado (SAS)](service-bus-sas.md) para esse espaço de nomes. Um espaço de nomes proporciona um limite de aplicação para cada aplicação exposta através do Service Bus. O sistema gera uma chave SAS quando um espaço de nomes é criado. A combinação do nome do espaço de nomes e da chave SAS fornece as credenciais do Service Bus para autenticar o acesso a uma aplicação.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -358,7 +358,7 @@ Agora criará a função de trabalho que processa as submissões de pedidos. Est
     
     ![][20]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre o Service Bus, consulte os seguintes recursos:  
 
 * [Noções básicas sobre o Service Bus](service-bus-fundamentals-hybrid-solutions.md)

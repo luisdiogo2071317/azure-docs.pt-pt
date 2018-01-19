@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: danlep
 ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Utilize com capacidade RDMA ou preparados para a GPU instâncias em conjuntos do Batch
 
@@ -47,7 +47,7 @@ As capacidades RDMA e GPU dos tamanhos intensivas de computação só são supor
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Conjuntos de Linux - configuração de Máquina Virtual
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
+| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do agrupamento |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, ou<br/>Com base em centOS HPC<br/>(Do azure Marketplace) | Intel MPI 5 | Ativar a comunicação entre nós, desative a execução de tarefas simultâneas |
 | [Série de NC *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, ou<br/>CentOS-based 7.3<br/>(Do azure Marketplace) | Controladores NVIDIA CUDA Toolkit 9.0 | N/A | 
@@ -59,9 +59,9 @@ As capacidades RDMA e GPU dos tamanhos intensivas de computação só são supor
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Conjuntos de Windows - configuração de Máquina Virtual
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
+| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do agrupamento |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 ou<br/>Windows Server 2012 (do Azure Marketplace) | Microsoft MPI 2012 R2 ou posterior, ou<br/> Intel MPI 5<br/><br/>Extensão da VM do Azure de HpcVMDrivers | Ativar a comunicação entre nós, desative a execução de tarefas simultâneas |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 or<br/>Windows Server 2012 (do Azure Marketplace) | Microsoft MPI 2012 R2 ou posterior, ou<br/> Intel MPI 5<br/><br/>Extensão da VM do Azure de HpcVMDrivers | Ativar a comunicação entre nós, desative a execução de tarefas simultâneas |
 | [Série de NC *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 ou <br/>Windows Server 2012 R2 (do Azure Marketplace) | Controladores NVIDIA Tesla ou controladores CUDA Toolkit 9.0| N/A | 
 | [Série NV](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 ou<br/>Windows Server 2012 R2 (do Azure Marketplace) | 4.3 de grelha NVIDIA controladores | N/A |
 
@@ -73,9 +73,9 @@ As capacidades RDMA e GPU dos tamanhos intensivas de computação só são supor
 > Série N tamanhos não são suportados em conjuntos do Batch com a configuração de serviços em nuvem.
 >
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
+| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do agrupamento |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2<br/>Windows Server 2012, ou<br/>Windows Server 2008 R2 (família de SO convidado) | Microsoft MPI 2012 R2 ou posterior, ou<br/>Intel MPI 5<br/><br/>Extensão da VM do Azure de HpcVMDrivers | Ativar a comunicação entre nós,<br/> Desative a execução de tarefas simultâneas |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012, ou<br/>Windows Server 2008 R2 (família de SO convidado) | Microsoft MPI 2012 R2 ou posterior, ou<br/>Intel MPI 5<br/><br/>Extensão da VM do Azure de HpcVMDrivers | Ativar a comunicação entre nós,<br/> Desative a execução de tarefas simultâneas |
 
 
 
@@ -136,7 +136,7 @@ Para executar aplicações de CUDA num conjunto de nós de NC do Linux, tem de i
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para executar tarefas MPI num conjunto do Azure Batch, consulte o [Windows](batch-mpi.md) ou [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) exemplos.
 

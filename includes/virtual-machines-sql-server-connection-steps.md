@@ -42,7 +42,7 @@ O Motor de Base de Dados do SQL Server não pode utilizar a Autenticação do Wi
 1. Enquanto estiver ligado à máquina virtual, na página Início, escreva **SQL Server Management Studio** e clique no ícone selecionado.
    
     Na primeira vez que abre o Management Studio, este tem de criar os utilizadores do ambiente do Management Studio. Esta operação poderá demorar alguns tempo.
-2. O Management Studio apresenta a caixa de diálogo **Ligar ao Servidor**. Na caixa **Nome do servidor**, escreva o nome da máquina virtual a ligar ao Motor de Base de Dados com o Object Explorer (em vez do nome da máquina virtual, também pode utilizar **(local)** ou um caráter de ponto como **Nome do servidor**). Selecione **Autenticação do Windows** e deixe ***nome_da_sua_VM*\o_seu_administrador_local** na caixa **Nome de utilizador**. Clique em **Ligar**.
+2. O Management Studio apresenta a caixa de diálogo **Ligar ao Servidor**. Na caixa **Nome do servidor**, escreva o nome da máquina virtual a ligar ao Motor de Base de Dados com o Object Explorer (em vez do nome da máquina virtual, também pode utilizar **(local)** ou um caráter de ponto como **Nome do servidor**). Selecione **autenticação do Windows**e deixe ***your_VM_name * \your_local_administrator** no **nome de utilizador** caixa. Clique em **Ligar**.
    
     ![Ligar ao Servidor](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. No Object Explorer do SQL Server Management Studio, clique com o botão direito do rato no nome da instância do SQL Server (o nome de máquina virtual) e, em seguida, clique em **Propriedades**.

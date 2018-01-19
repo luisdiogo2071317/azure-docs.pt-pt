@@ -1,6 +1,6 @@
 ---
-title: "Mosaico de referência para o estruturador de vistas no OMS Log Analytics | Microsoft Docs"
-description: "Estruturador de vistas no Log Analytics permite-lhe criar vistas personalizadas na consola do OMS que contêm visualizações diferentes dos dados no repositório de OMS. Este artigo fornece uma referência de definições para cada um dos mosaicos disponíveis para utilização na sua vistas personalizadas."
+title: "Mosaico de referência para o estruturador de vistas no Log Analytics do Azure | Microsoft Docs"
+description: "Estruturador de vistas no Log Analytics permite-lhe criar vistas personalizadas no portal do Azure que contêm diferentes visualizações de dados da sua área de trabalho de análise de registos. Este artigo fornece uma referência de definições para cada um dos mosaicos disponíveis para utilização na sua vistas personalizadas."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 2bce5c63b4c6edd3753f1b234cc4f493dcf53dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9512a3f45ba6b03af4b0c9bee444948381f4fdcb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Referência de mosaico do estruturador de vistas de análise de registo
-O estruturador de vistas no Log Analytics permite-lhe criar vistas personalizadas na consola do OMS que contêm visualizações diferentes dos dados no repositório de OMS. Este artigo fornece uma referência de definições para cada um dos mosaicos disponíveis para utilização na sua vistas personalizadas.
+O estruturador de vistas no Log Analytics permite-lhe criar vistas personalizadas no portal do Azure que contêm diferentes visualizações de dados da sua área de trabalho de análise de registos. Este artigo fornece uma referência de definições para cada um dos mosaicos disponíveis para utilização na sua vistas personalizadas.
 
 Outros artigos disponíveis para o estruturador de vistas são:
 
@@ -176,6 +176,6 @@ O **duas linhas cronológicas** mosaico apresenta os resultados das duas consult
 | Mensagem |Mensagem a apresentar se a consulta de verificação de fluxo de dados devolver sem dados.  Não se fornecer nenhuma mensagem *efetuar avaliação* é apresentado. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para suportar as consultas de mosaicos.
 * Adicionar [partes de visualização](log-analytics-view-designer-parts.md) à vista personalizada.

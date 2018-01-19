@@ -3,8 +3,8 @@ title: "Aprovisionar uma Cache de Redis através do Azure Resource Manager | Mic
 description: Utilize o modelo Azure Resource Manager para implementar uma Cache de Redis do Azure.
 services: app-service
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: cce5d63e8bad2dd066cb4c28e2a8a9cb16c47953
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: b26116b974abbfe410b0a6ebc0186d73f4eea1bf
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Criar uma Cache de Redis com um modelo
 Neste tópico, irá aprender a criar um modelo Azure Resource Manager que implementa uma Cache de Redis do Azure. A cache pode ser utilizada com uma conta de armazenamento existente para manter os dados de diagnóstico. Pode também Saiba como definir quais os recursos são implementados e como definir os parâmetros que são especificados quando a implementação é executada. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades.
@@ -67,7 +67,7 @@ O nome da conta do storage existente a utilizar para obter um diagnóstico.
       "type": "string"
     }
 
-### <a name="enablenonsslport"></a>EnableNonSslPort
+### <a name="enablenonsslport"></a>enableNonSslPort
 Um valor booleano que indica se pretende permitir o acesso através de portas não SSL.
 
     "enableNonSslPort": {

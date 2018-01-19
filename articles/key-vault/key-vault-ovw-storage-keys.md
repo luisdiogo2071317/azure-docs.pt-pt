@@ -5,15 +5,15 @@ description: "Chaves de conta de armazenamento fornecem uma integração seemles
 ms.topic: article
 services: key-vault
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+author: lleonard-msft
+ms.author: alleonar
 manager: mbaldwin
 ms.date: 10/12/2017
-ms.openlocfilehash: a87877f4b213365442400d113a67964ef942341f
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 6ebac5fc90e259b19e0a4103a732754384232a44
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chaves de conta de armazenamento do Cofre de chaves do Azure
 
@@ -132,7 +132,7 @@ $yourKeyVaultServicePrincipalId = (Get-AzureRmADServicePrincipal -ServicePrincip
 
 O resultado do comando anterior irá incluir o ServicePrincipal que receberá um telefonema nosso *yourKeyVaultServicePrincipalId*. 
 
-### <a name="set-permissions"></a>Defina as permissões
+### <a name="set-permissions"></a>Definir permissões
 
 Certifique-se de que tem as permissões de armazenamento definidas como *todos os*. Pode obter youruserPrincipalId e definir as permissões no cofre utilizando os seguintes comandos.
 
@@ -145,7 +145,7 @@ Agora procurar o nome e obtenha o ObjectId relacionado, o que irá utilizar ao d
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $youruserPrincipalId -PermissionsToStorage all
 ```
 
-### <a name="allow-access"></a>Permitir o acesso
+### <a name="allow-access"></a>Permitir acesso
 
 Terá de conceder acesso de serviço Cofre de chaves para as contas de armazenamento, antes de poder criar uma conta de armazenamento gerida e definições de SAS.
 
@@ -205,13 +205,13 @@ Set-AzureStorageBlobContent -Container cont1-file "file.txt"  -Context $context2
 
 ### <a name="relevant-powershell-cmdlets"></a>Cmdlets do Powershell relevantes
 
-- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
-- [AzureKeyVaultManagedStorageAccount adicionar](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount?view=azurermps-4.3.1)
+- [Get-AzureKeyVaultManagedStorageAccount ](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
+- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount?view=azurermps-4.3.1)
 - [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
-- [Atualização AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey?view=azurermps-4.3.1)
-- [Remover AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
-- [Remover AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
-- [Conjunto AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
+- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey?view=azurermps-4.3.1)
+- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount?view=azurermps-4.3.1)
+- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
+- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition?view=azurermps-4.3.1)
 
 ## <a name="storage-account-onboarding"></a>Integração de conta de armazenamento 
 
@@ -234,7 +234,7 @@ O token OBO funcionará apenas quando utilizar originais, aplicações de client
 
 - Tokens SAS, construído de acordo com as chaves de conta de armazenamento do Cofre de chaves, fornecem acesso controlado ainda mais a uma conta de armazenamento do Azure. Para obter mais informações, consulte [utilizar assinaturas de acesso partilhado](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 - [Sobre chaves, segredos e certificados](https://docs.microsoft.com/rest/api/keyvault/)
 - [Blogue da equipa do Cofre de chaves](https://blogs.technet.microsoft.com/kv/)

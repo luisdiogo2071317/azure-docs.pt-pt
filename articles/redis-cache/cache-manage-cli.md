@@ -3,8 +3,8 @@ title: Gerir a Cache de Redis do Azure utilizando a CLI do Azure | Microsoft Doc
 description: "Saiba como instalar a CLI do Azure em qualquer plataforma, como utilizá-la para ligar à sua conta do Azure e como criar e gerir uma cache de Redis a partir da CLI do Azure."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: sdanie
-ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: wesmc
+ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Como criar e gerir a Cache de Redis do Azure utilizando a Interface de linha de comandos do Azure (CLI do Azure)
 > [!div class="op_single_selector"]
@@ -51,16 +51,16 @@ As seguintes propriedades são utilizadas quando criar e atualizar instâncias d
 | grupo de recursos |-g, - grupo de recursos |Nome do grupo de recursos. |
 | localização |-l, – localização |Localização para criar a cache. |
 | tamanho |-z, - tamanho |Tamanho da Cache de Redis. Os valores válidos: [C0 C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
-| SKU |-x, - sku |SKU de redis. Deve ser um dos: [básico, Standard, Premium] |
-| EnableNonSslPort |-i, - enable-não--porta ssl |Propriedade EnableNonSslPort da Cache de Redis. Adicionar este sinalizador, se pretender ativar a porta de SSL não para a sua cache |
-| Configuração de redis |-c - redis-configuração, |Configuração de redis. Introduza uma cadeia de formatação JSON de chaves de configuração e os valores aqui. Formato: "{" ":""," ":" "}" |
-| Configuração de redis |-f, - ficheiro de configuração de redis |Configuração de redis. Introduza o caminho de um ficheiro que contém chaves de configuração e os valores aqui. Formato para a entrada de ficheiro: {"": "","": ""} |
+| sku |-x, --sku |SKU de redis. Deve ser um dos: [básico, Standard, Premium] |
+| EnableNonSslPort |-e, --enable-non-ssl-port |Propriedade EnableNonSslPort da Cache de Redis. Adicionar este sinalizador, se pretender ativar a porta de SSL não para a sua cache |
+| Configuração de redis |-c - redis-configuração, |Configuração de redis. Introduza uma cadeia de formatação JSON de chaves de configuração e os valores aqui. Format:"{"":"","":""}" |
+| Configuração de redis |-f, --redis-configuration-file |Configuração de redis. Introduza o caminho de um ficheiro que contém chaves de configuração e os valores aqui. Formato para a entrada de ficheiro: {"": "","": ""} |
 | Contagem de partições horizontais |-r, - contagem de partições horizontais |Número de partições horizontais para criar uma Cache de Cluster Premium com clustering. |
-| Rede Virtual |-v, - rede virtual |Quando a alojar a cache numa VNET, especifica o ID de recurso ARM exato, da rede virtual para implementar a cache de redis no. Formato de exemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Rede Virtual |-v, --virtual-network |Quando a alojar a cache numa VNET, especifica o ID de recurso ARM exato, da rede virtual para implementar a cache de redis no. Formato de exemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | tipo de chave |-t, - tipo de chave |Tipo de chave a renovação. Os valores válidos: [principal, secundária] |
 | StaticIP |-p, - ip estático < ip estático > |Quando a alojar a cache numa VNET, especifica um endereço IP exclusivo na sub-rede para a cache. Se não for indicado, um valor é escolhido por si da sub-rede. |
 | Subrede |t, – sub-rede<subnet> |Quando a alojar a cache numa VNET, especifica o nome da sub-rede na qual pretende implementar a cache. |
-| VirtualNetwork |-v, - rede virtual <-rede virtual > |Quando a alojar a cache numa VNET, especifica o ID de recurso ARM exato, da rede virtual para implementar a cache de redis no. Formato de exemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| VirtualNetwork |-v, --virtual-network <virtual-network> |Quando a alojar a cache numa VNET, especifica o ID de recurso ARM exato, da rede virtual para implementar a cache de redis no. Formato de exemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subscrição |-s, - subscrição |O identificador de subscrição. |
 
 ## <a name="see-all-redis-cache-commands"></a>Ver todos os comandos de Cache de Redis

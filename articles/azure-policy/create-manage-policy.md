@@ -5,19 +5,19 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/03/2018
+ms.date: 01/18/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 882cf3cde71f5154efcd88f055984e72463b3099
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: d6a588e1d8a20ffba555461cf98009f3894ed761
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerir políticas para impor a compatibilidade
 
-Noções sobre como criar e gerir políticas no Azure é importante para permanecendo em conformidade com os padrões empresariais e contratos de nível de serviço. Neste tutorial, irá aprender a utilizar a política do Azure para fazer algumas das tarefas mais comuns relacionadas com a criar, atribuir e gerir políticas na sua organização, tais como:
+Noções sobre como criar e gerir políticas no Azure é importante para permanecendo em conformidade com os padrões empresariais e contratos de nível de serviço. Neste tutorial, saiba utilizar a política do Azure para efetuar algumas das tarefas mais comuns relacionadas com a criar, atribuir e gerir políticas na sua organização, tais como:
 
 > [!div class="checklist"]
 > * Atribuir uma política para impor uma condição para recursos que cria no futuro
@@ -25,11 +25,11 @@ Noções sobre como criar e gerir políticas no Azure é importante para permane
 > * Resolver um recurso de não conformidade ou negado
 > * Implementar uma nova política numa organização
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se gostaria de atribuir uma política para identificar o atual estado de compatibilidade dos seus recursos existentes, os artigos de guia de introdução passam como fazê-lo. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="assign-a-policy"></a>Atribuir uma política
 
-É o primeiro passo para impor a compatibilidade com a política do Azure para atribuir uma definição de política. Define uma definição de política em que condições de uma política é imposta e a ação a tomar. Neste exemplo, vamos atribuir uma definição de política incorporada chamada *requerem 12.0 da versão do SQL Server*, para impor a condição que todas as bases de dados do SQL Server tem de ser v12.0 para estar em conformidade.
+É o primeiro passo para impor a compatibilidade com a política do Azure para atribuir uma definição de política. Define uma definição de política em que condições de uma política é imposta e a ação a tomar. Neste exemplo, atribua uma definição de política incorporada chamada *requerem 12.0 da versão do SQL Server*, para impor a condição que todas as bases de dados do SQL Server tem de ser v12.0 para estar em conformidade.
 
 1. Iniciar o serviço de política do Azure no portal do Azure, procurar e selecionar **política** no painel esquerdo.
 
@@ -40,28 +40,29 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
    ![Atribuir uma definição de política](media/create-manage-policy/select-assign-policy.png)
 
-4. Na página **Atribuir Política**, clique em ![botão de Definição de política](media/assign-policy-definition/definitions-button.png), junto ao campo **Política**, para abrir a lista de definições disponíveis.
+4. Na página **Atribuir Política**, clique em ![botão de Definição de política](media/assign-policy-definition/definitions-button.png), junto ao campo **Política**, para abrir a lista de definições disponíveis. Pode filtrar a definição de política **tipo** para *BuiltIn* para ver todas e ler as respetivas descrições.
 
    ![Abrir definições de política disponíveis](media/create-manage-policy/open-policy-definitions.png)
 
-5. Selecione **requerem versão do SQL Server 12.0**.
+5. Selecione **requerem versão do SQL Server 12.0**. Se não é possível encontrá-lo imediatamente, escreva **requerem 12.0 da versão do SQL Server** para a caixa de pesquisa e, em seguida, prima ENTER.
 
    ![Localize uma política](media/create-manage-policy/select-available-definition.png)
 
-6. Indique um **Nome** de apresentação para a atribuição de política. Neste caso, vamos utilizar *requerem o SQL Server versão 12.0*. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre a forma como esta atribuição de política assegura a todos os servidores SQL criados neste ambiente têm a versão 12.0.
+6. O apresentadas **nome** é automaticamente preenchida, mas pode alterá-la. Neste exemplo, utilizar *requerem o SQL Server versão 12.0*. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre a forma como esta atribuição de política assegura a todos os servidores SQL criados neste ambiente têm a versão 12.0.
+
 7. Altere o escalão de preço para **Standard** para se certificar de que a política é aplicada aos recursos existentes.
 
-   Existem dois escalões de preços no Azure Policy – *Gratuito* e *Standard*. No Escalão gratuito, apenas pode impor políticas em recursos futuros, enquanto no Standard, também pode impô-los em recursos existentes para compreender melhor o seu estado de compatibilidade. Uma vez que estamos na Pré-visualização Limitada, ainda não lançámos um modelo de preços, pelo que não irá receber uma fatura para selecionar *Standard*. Para obter mais informações sobre preços, veja: [Azure Policy pricing (Preços do Azure Policy)](https://azure.microsoft.com/pricing/details/azure-policy).
+   Existem dois escalões de preços no Azure Policy – *Gratuito* e *Standard*. No Escalão gratuito, apenas pode impor políticas em recursos futuros, enquanto no Standard, também pode impô-los em recursos existentes para compreender melhor o seu estado de compatibilidade. Porque a política do Azure está em pré-visualização, não há ainda um lançado um modelo de preços, pelo que não receberão uma fatura para selecionar *padrão*. Para obter mais informações sobre preços, veja: [Azure Policy pricing (Preços do Azure Policy)](https://azure.microsoft.com/pricing/details/azure-policy).
 
 8. Selecione o **âmbito** -subscrição (ou grupo de recursos) anteriormente registados. Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos.
 
-   Para este exemplo, estamos a utilizar esta subscrição - **Dev de capacidade de análise do Azure**. A subscrição serão diferentes.
+   Este exemplo utiliza o **Dev de capacidade de análise do Azure** subscrição. A subscrição serão diferentes.
 
 10. Selecione **Atribuir**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implementar uma nova política personalizada
 
-Agora que Atribuímos a definição de política, vamos criar uma nova política para reduzir os custos, garantindo que as VMs criadas em todo o ambiente não podem ser na série de G. Desta forma, sempre que um utilizador na sua organização tenta criar a VM na série de G, o pedido irá obter negado.
+Agora que tiver atribuída uma definição de política incorporada, pode fazer mais com a política do Azure. Em seguida, crie uma nova política personalizada para reduzir os custos, garantindo que não podem ser VMs criadas no seu ambiente na série de G. Desta forma, sempre que um utilizador na sua organização tenta criar a VM na série de G, o pedido é negado.
 
 1. Selecione **definição** em **criação** no painel esquerdo.
 
@@ -72,7 +73,8 @@ Agora que Atribuímos a definição de política, vamos criar uma nova política
 
    - O nome da definição de política - *necessitam de SKUs de VM mais pequeno do que a série de G*
    - A descrição do que a definição de política consiste em – esta definição de política impõe que todas as VMs criadas neste âmbito têm SKUs inferior a série de G para reduzir o custo.
-   - A subscrição em que a definição de política irá em direto – neste caso, os nossa definição de política irá em direto **Dev de capacidade de análise do Advisor**. A lista de subscrições serão diferentes.
+   - A subscrição em que reside a definição de política. Neste caso, a definição de política reside no **Dev de capacidade de análise do Advisor**. A lista de subscrições serão diferentes.
+   - Escolha do existente opções ou criar uma nova categoria para esta definição de política.
    - Copie o seguinte código json e, em seguida, atualizá-lo para as suas necessidades com:
       - Os parâmetros de política.
       - A política de regras/condições, neste caso – o tamanho do SKU de VM é igual a série de G
@@ -102,7 +104,9 @@ Agora que Atribuímos a definição de política, vamos criar uma nova política
 }
     ```
 
-    Para ver os exemplos de código json, leia o [modelos de política do Azure](json-samples.md) artigo.
+    O valor da *campo propriedade* na política de regra tem de ser um dos seguintes: nome, tipo, localização, etiquetas ou um alias. Por exemplo, `"Microsoft.Compute/VirtualMachines/Size"`.
+
+    Para ver mais exemplos de código json, leia o [modelos de política do Azure](json-samples.md) artigo.
 
 4. Selecione **Guardar**.
 
@@ -333,11 +337,11 @@ Com uma definição de iniciativa, pode agrupar várias definições de polític
 2. Selecione **iniciativa definição** na parte superior da página, esta seleção leva-o para o **iniciativa definição** formulário.
 3. Introduza o nome e descrição da iniciativa.
 
-   Neste exemplo, queremos garantir que os recursos estão em conformidade com as definições de política sobre como obter seguro, o nome da iniciativa seria **obter segura**, e a descrição seria: **este iniciativa foi criado para processar todas as definições de política associadas proteger recursos**.
+   Neste exemplo, certifique-se de que os recursos estão em conformidade com as definições de política sobre a obtenção segura. Por isso, o nome da iniciativa seria **obter Secure**, e a descrição seria: **este iniciativa foi criada para processar todas as definições de política associadas proteger recursos**.
 
    ![Definição de iniciativa](media/create-manage-policy/initiative-definition.png)
 
-4. Procure a lista de **definições disponíveis** e selecione o definition(s) de política que pretende adicionar a esse iniciativa. Para o nosso **obter segura** iniciativa, adicione o seguinte incorporado nas definições de política:
+4. Procure a lista de **definições disponíveis** e selecione o definition(s) de política que pretende adicionar a esse iniciativa. Para o nosso **obter segura** iniciativa, **adicionar** seguintes incorporadas nas definições de política:
    - Necessita do SQL Server versão 12.0
    - Monitorize aplicações web não protegido no Centro de segurança.
    - Monitorizar a rede permissiva no Centro de segurança.
@@ -346,9 +350,9 @@ Com uma definição de iniciativa, pode agrupar várias definições de polític
 
    ![Definições da iniciativa](media/create-manage-policy/initiative-definition-2.png)
 
-   Depois de selecionar as definições de política na lista irá vê-lo em **políticas e os parâmetros**, conforme mostrado acima.
+   Depois de selecionar as definições de política na lista vê-lo em **políticas e os parâmetros**, conforme mostrado na imagem anterior.
 
-5. Selecione **Criar**.
+5. Utilize **localização definição** para selecionar uma subscrição para armazenar a definição. Selecione **Guardar**.
 
 ### <a name="assign-an-initiative-definition"></a>Atribuir uma definição de iniciativa
 
@@ -358,27 +362,27 @@ Com uma definição de iniciativa, pode agrupar várias definições de polític
 
    ![Atribuir uma definição](media/create-manage-policy/assign-definition.png)
 
-4. Preencha o **atribuição** formulário, introduzindo:
+4. Preencha o **atribuição** formulário, introduzindo as seguintes informações de exemplo. Pode utilizar as suas próprias informações.
    - nome: obter a atribuição de segura
-   - Descrição: esta atribuição iniciativa é adaptada para impor este grupo de definições de política no **Azure Advisor capacidade Dev** subscrição
-   - escalão de preço: Standard
-   - âmbito gostaria esta atribuição aplicada a: **Dev de capacidade do Azure do Advisor**
+   - Descrição: Esta atribuição iniciativa é adaptada para impor a este grupo de definições de política no **Azure Advisor capacidade Dev** subscrição.
+   - Escalão de preço: Standard
+   - Âmbito onde pretende que esta atribuição aplicada a: **Azure Advisor capacidade Dev**. Pode escolher o seu próprio grupo de recursos e de subscrição.
 
 5. Selecione **Atribuir**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Resolver um recurso de não conformidade ou negado
 
-Seguindo o exemplo acima, depois de atribuir a definição de política para exigir 12.0 a versão do servidor SQL, seria obter negado um criado com uma versão diferente do SQL server. Nesta secção, iremos estiver a walking através de uma tentativa para criar um SQL server com uma versão diferente, pedindo uma exclusão negada a resolver.
+Seguindo o exemplo acima, depois de atribuir a definição de política para exigir 12.0 a versão do servidor SQL, seria obter negado um criado com uma versão diferente do SQL server. Nesta secção, pode ajudá-resolver uma tentativa para criar um SQL server com uma versão diferente, pedindo uma exclusão negada. A exclusão essencialmente impede a imposição de política. Pode aplicar uma exclusão para um grupo de recursos ou, pode restringir a exclusão aos recursos individuais.
 
 1. Selecione **Atribuições** no painel esquerdo.
-2. Percorrer todas as atribuições de política e iniciar o *requerem o SQL Server versão 12.0* atribuição.
-3. Pedir uma exclusão para os grupos de recursos no qual está a tentar criar o SQL server. Neste caso, iremos são excluindo Microsoft.Sql/servers/databases: *baconandbeer/Cheetos* e *baconandbeer/Chorizo*.
+2. Percorrer todas as atribuições de política e abra o *requerem o SQL Server versão 12.0* atribuição.
+3. **Selecione** uma exclusão para recursos em grupos de recursos onde está a tentar criar o SQL server. Neste exemplo, excluir Microsoft.Sql/servers/databases: *azuremetrictest/testdb* e *azuremetrictest/testdb2*.
 
    ![Exclusão de pedido](media/create-manage-policy/request-exclusion.png)
 
    Outras formas foi possível resolver a um recurso negado incluem: atingir para o contacto associado à política se tiver uma justificação forte para que necessitam do SQL server criado e editar diretamente a política se tem acesso a.
 
-4. Selecione **Guardar**.
+4. Clique em **atribuir**.
 
 Nesta secção, resolver a negação da tentativa de criar um SQL server com a versão 12.0, ao solicitar uma exclusão para os recursos.
 
@@ -390,7 +394,7 @@ Se pretender continuar a trabalhar nos tutoriais subsequentes, não limpeza até
 2. Procure o novo iniciativa ou política definição (ou atribuição) que acabou criado.
 3. Selecione as reticências no final da definição ou atribuição e selecione **eliminar definição** (ou **eliminar atribuição**).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, é com êxito feito o seguinte:
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/3/2017
+ms.date: 1/16/2017
 ms.author: jeedes
-ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 8d77215fd2923e22a9cc87e469cb135d035d22d9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Azure Active Directory com o Amazon Web Services (AWS)
 
@@ -116,8 +116,8 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     
     | Nome do Atributo  | Valor do Atributo | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
-    | RoleSessionName | User.userPrincipalName | https://AWS.amazon.com/SAML/Attributes |
-    | Função            | User.assignedroles |  https://AWS.amazon.com/SAML/Attributes |
+    | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
+    | Função            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     
     >[!TIP]
     >Terá de configurar o aprovisionamento de utilizador no Azure AD para obter todas as funções a partir da consola AWS. Consulte os passos de aprovisionamento abaixo.
@@ -131,6 +131,8 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     b. No **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
     c. Do **valor** lista, digite o valor de atributo apresentado para essa linha.
+
+    d. No **espaço de nomes** caixa de texto, digite o valor do espaço de nomes mostrado para essa linha.
     
     d. Clique em **OK**.
 
@@ -230,19 +232,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Criar nova política](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
  
-25. Crie a sua própria política para obter todas as funções de contas do AWS. No **criar a sua própria política** secção, clique em **selecione** botão.
-    
+25. Crie a sua própria política para obter todas as funções de contas do AWS, efetuando os seguintes passos:
+
     ![Criar nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-26. Defina a nova política, efetuando os seguintes passos:
+    a. No **"Criar política"** secção, clique em **"JSON"** separador.
 
-    ![Definir a nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
-
-    a. Forneça o **nome da política** como **AzureAD_SSOUserRole_Policy**.
-
-    b. Pode fornecer **Descrição** para a política conforme **esta política irá permitir ao obter as funções do contas AWS**.
-    
-    c. O documento de política, adicione o abaixo JSON.
+    b. O documento de política, adicione o abaixo JSON.
     
     ```
     
@@ -271,13 +267,21 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     }
     
     ```
+
+    c. Clique em **botão de política de revisão** para validar a política.
+
+    ![Definir a nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
+
+26. Definir o **nova política** efetuando os seguintes passos:
+
+    ![Definir a nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
+
+    a. Forneça o **nome da política** como **AzureAD_SSOUserRole_Policy**.
+
+    b. Pode fornecer **Descrição** para a política conforme **esta política irá permitir ao obter as funções do contas AWS**.
     
-    d. Certifique-se de que verifique no **utilizar autoformatting para edição de política**.
-    
-    e. Clique em **validar política** na parte inferior.
-    
-    f. Depois da política é foi validada corretamente, em seguida, pode clicar em **criar política** botão.
-    
+    c. Clique em **"Criar a política"** botão.
+        
 27. Crie uma nova conta de utilizador no serviço de IAM AWS, efetuando os seguintes passos:
 
     a. Clique em **utilizadores** navegação na consola do AWS IAM.

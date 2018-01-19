@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
 ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico Cosmos BD do Azure
 
@@ -414,7 +414,7 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 | operationName | OperationName | Nome da operação. Este valor pode ser qualquer uma das seguintes operações: criar, atualizar, leitura, ReadFeed, eliminar, substituir, executar, SqlQuery, consulta, JSQuery, Head, HeadFeed ou Upsert.   |
 | propriedades | n/d | O conteúdo deste campo é descrito nas linhas seguintes. |
 | ActivityId | activityId_g | O GUID exclusivo para a operação com sessão iniciada. |
-| UserAgent | userAgent_s | Uma cadeia que especifica o agente de utilizador do cliente está a efetuar o pedido. O formato é {nome do agente de utilizador} / {version}.|
+| userAgent | userAgent_s | Uma cadeia que especifica o agente de utilizador do cliente está a efetuar o pedido. O formato é {nome do agente de utilizador} / {version}.|
 | resourceType | ResourceType | O tipo de recurso acedido. Este valor pode ser qualquer um dos seguintes tipos de recurso: base de dados, coleção, documentos, anexo, um utilizador, permissão, StoredProcedure, acionador, UserDefinedFunction ou oferta. |
 | statusCode |statusCode_s | O estado de resposta da operação. |
 | requestResourceId | ResourceId | ResourceId relativas a pedido, pode apontar para databaseRid, collectionRid ou documentRid dependendo da operação efetuada.|
@@ -426,7 +426,7 @@ A tabela seguinte descreve o conteúdo de cada entrada de registo.
 | responseLength | responseLength_s | O comprimento da resposta, em bytes.|
 | resourceTokenUserRid | resourceTokenUserRid_s | Isto é não vazia quando [tokens de recurso](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) são utilizados para autenticação e de pontos para o ID de recurso do utilizador. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma compreensão dos não só como ativar o registo, mas também as categorias de métricas e registo suportadas do Azure de várias a serviços ler o [descrição geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [descrição geral do Azure Os registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artigos.
 - Estes artigos para saber mais sobre os event hubs de leitura:

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 080f83a67674ab059404870f6ec0e7470cfcceff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configuração de exemplo: Cisco ASA dispositivo (IKEv2/não BGP)
 Este artigo fornece configurações de exemplo para dispositivos de ligação da aplicação segurança adaptável Cisco (ASA) para gateways de VPN do Azure. O exemplo que se aplica a dispositivos Cisco ASA que estejam a executar o IKEv2 sem Border Gateway Protocol (BGP). 
@@ -98,10 +98,7 @@ A tabela seguinte lista os parâmetros que são utilizados no exemplo e algoritm
 
 * Suporte para o grupo DH e grupo PFS além do grupo de 5 requer a versão do ASA 9.x.
 
-* Suporte para encriptação de IPsec com AES-GCM e IPsec integridade com o SHA-256, SHA-384 ou SHA-512, requer a versão do ASA 9.x. Este requisito de suporte aplica-se aos dispositivos ASA mais recentes.
-
-    > [!NOTE]
-    > Modelos de dispositivos do ASA 5505, 5510, 5520, 5540, 5550 e 5580 não são suportados. Consulte as especificações de dispositivo VPN para verificar os algoritmos que são suportados para os modelos de dispositivos VPN e as versões de firmware.
+* Suporte para encriptação de IPsec com AES-GCM e IPsec integridade com o SHA-256, SHA-384 ou SHA-512, requer a versão do ASA 9.x. Este requisito de suporte aplica-se aos dispositivos ASA mais recentes. No momento da publicação, modelos ASA 5505, 5510, 5520, 5540, 5550 e 5580 não suportam estes algoritmos. Consulte as especificações de dispositivo VPN para verificar os algoritmos que são suportados para os modelos de dispositivos VPN e as versões de firmware.
 
 
 ### <a name="sample-device-configuration"></a>Exemplo de configuração de dispositivo
@@ -310,5 +307,5 @@ Utilize os seguintes comandos do ASA para fins de depuração:
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para configurar ativo-ativo em vários locais e ligações VNet a VNet, consulte [configurar gateways de VPN de ativo-ativo](vpn-gateway-activeactive-rm-powershell.md).

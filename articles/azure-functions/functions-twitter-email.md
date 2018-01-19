@@ -17,10 +17,10 @@ ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra com Azure Logic Apps
 
@@ -51,7 +51,7 @@ Se ainda não o fez, conclua estes passos agora para criar a sua aplicação de 
 
 As APIs de serviços cognitivos estão disponíveis no Azure como recursos individuais. Utilize a API de análise de texto para detetar o sentimento de tweets em que está a ser monitorizado.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Clique no botão **Novo** localizado no canto superior esquerdo do portal do Azure.
 
@@ -84,7 +84,7 @@ Funções fornece uma excelente forma de descarga de tarefas de processamento nu
 
 1. Expanda a aplicação de funções e clique no botão **+**, junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **Função personalizada**. É apresentado o conjunto completo de modelos de função.
 
-    ![Início rápido das funções no portal do Azure](media/functions-twitter-email/add-first-function.png)
+    ![Página de início rápido das funções no portal do Azure](media/functions-twitter-email/add-first-function.png)
 
 2. No campo de pesquisa, escreva `http` e, em seguida, escolha **c#** para o modelo de Acionador HTTP. 
 
@@ -169,7 +169,7 @@ Em primeiro lugar, crie uma ligação à sua conta do Twitter. A aplicação ló
     | ----------------- | ------------ | ------------- |
     | **Texto de pesquisa** | #Azure | Utilize um hashtag que é popular para gerar novos tweets no intervalo escolhido. Quando utilizar o escalão gratuito e o hashtag é demasiado popular, pode utilizar rapidamente cópias de segurança a quota de transação na sua API serviços cognitivos. |
     | **Frequência** | Minuto | A unidade de frequência utilizada para consultar o Twitter.  |
-    | **Intervalo** | 15 | O tempo decorrido entre pedidos do Twitter, em unidades de frequência. |
+    | **Interval** | 15 | O tempo decorrido entre pedidos do Twitter, em unidades de frequência. |
 
 3.  Clique em **guardar** para ligar à sua conta do Twitter. 
 
@@ -271,7 +271,7 @@ Para desativar a aplicação lógica, clique em **descrição geral** e, em segu
 
 ![Registos de funções](media/functions-twitter-email/disable-logic-app.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

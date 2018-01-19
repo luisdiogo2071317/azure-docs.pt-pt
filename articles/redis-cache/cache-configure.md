@@ -3,8 +3,8 @@ title: Como configurar a Cache de Redis do Azure | Microsoft Docs
 description: "Compreender a configuração de Redis predefinida para a Cache de Redis do Azure e saiba como configurar as instâncias de Cache de Redis do Azure"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: sdanie
-ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Como configurar a Cache de Redis do Azure
 Este tópico descreve como rever e atualizar a configuração das suas instâncias de Cache de Redis do Azure e abrange a configuração do servidor de Redis predefinido de instâncias de Cache de Redis do Azure.
@@ -86,7 +86,7 @@ O **(IAM) do controlo de acesso** secção fornece suporte para o controlo de ac
 O **etiquetas** secção ajuda a organizar os recursos. Para obter mais informações, consulte [utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
 
 
-### <a name="diagnose-and-solve-problems"></a>Diagnosticar e resolver problemas
+### <a name="diagnose-and-solve-problems"></a>Diagnóstico e Resolução de Problemas
 
 Clique em **diagnosticar e resolver problemas** devem ser fornecidas com estratégias e problemas comuns para resolvê-los.
 
@@ -123,7 +123,7 @@ As seguintes definições são configuradas no **definições avançadas** paine
 * [Políticas de memória](#memory-policies)
 * [Notificações Keyspace (definições avançadas)](#keyspace-notifications-advanced-settings)
 
-#### <a name="access-ports"></a>Portas de acesso
+#### <a name="access-ports"></a>Portas de Acesso
 Por predefinição, o acesso não SSL está desativado para as novas caches. Para ativar a porta não SSL, clique em **não** para **permitir o acesso apenas via SSL** no **definições avançadas** painel e clique em **guardar**.
 
 ![Portas de acesso de Cache de redis](./media/cache-configure/redis-cache-access-ports.png)
@@ -170,7 +170,7 @@ Para obter mais informações, consulte [as notificações Keyspace de Redis](ht
 
 
 <a name="recommendations"></a>
-## <a name="redis-cache-advisor"></a>O Advisor de Cache de redis
+## <a name="redis-cache-advisor"></a>Assistente de Cache de Redis
 O **Advisor de Cache de Redis** painel apresenta as recomendações para a sua cache. Durante as operações normais, são apresentadas atualmente não existem recomendações. 
 
 ![Recomendações](./media/cache-configure/redis-cache-no-recommendations.png)
@@ -222,7 +222,7 @@ Para alterar o tamanho do cluster, utilize o controlo de deslize ou escreva um n
 > 
 
 
-### <a name="redis-data-persistence"></a>A persistência de dados de redis
+### <a name="redis-data-persistence"></a>Persistência de dados de Redis
 Clique em **persistência de dados de Redis** para ativar, desativar ou configurar a persistência de dados para a sua cache premium. Cache de Redis do Azure oferece a persistência de Redis através de [persistência RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) ou [persistência AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Para obter mais informações, consulte [como configurar a persistência para uma Cache de Redis do Azure Premium](cache-how-to-premium-persistence.md).
@@ -343,10 +343,10 @@ O **monitorização** secção permite-lhe configurar o diagnóstico e monitoriz
 * [Regras de alertas](#alert-rules)
 * [Diagnóstico](#diagnostics)
 
-### <a name="redis-metrics"></a>Métricas de redis
+### <a name="redis-metrics"></a>Métricas de Redis
 Clique em **Redis métricas** para [ver métricas](cache-how-to-monitor.md#view-cache-metrics) para a sua cache.
 
-### <a name="alert-rules"></a>Regras de alertas
+### <a name="alert-rules"></a>Regras de alerta
 
 Clique em **regras de alerta** para configurar alertas com base nas métricas de Cache de Redis. Para obter mais informações, consulte [alertas](cache-how-to-monitor.md#alerts).
 
@@ -362,7 +362,7 @@ Por predefinição, as métricas de cache no Monitor do Azure são [armazenadas 
 ## <a name="support--troubleshooting-settings"></a>Suporte e as definições de resolução de problemas
 As definições no **suporte + resolução de problemas** secção fornecer-lhe opções para resolver problemas com a cache.
 
-![Suporte + resolução de problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
+![Suporte e resolução de problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Estado de funcionamento de recursos](#resource-health)
 * [Novo pedido de suporte](#new-support-request)
@@ -512,6 +512,6 @@ Pode mover a cache para uma nova subscrição clicando **mover**.
 
 Para informações sobre como mover os recursos de um grupo de recursos para outro e de uma subscrição para outro, consulte [mover recursos para o novo grupo de recursos ou subscrição](../azure-resource-manager/resource-group-move-resources.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter mais informações sobre como trabalhar com os comandos de Redis, consulte [como executar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands)
 

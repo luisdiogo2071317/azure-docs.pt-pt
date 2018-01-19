@@ -3,8 +3,8 @@ title: "Fornecedor de estado da sessão ASP.NET cache | Microsoft Docs"
 description: "Saiba como armazenar o estado de sessão do ASP.NET com a Cache de Redis do Azure"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 192f384c-836a-479a-bb65-8c3e6d6522bb
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
-ms.author: sdanie
-ms.openlocfilehash: 0f3683939ac9646565a0669e19b4c82811d621fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 485375f2f2ffb83b7d0fdeef8daab5880a8bbc27
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Fornecedor de Estado da Sessão ASP.NET para a Cache de Redis do Azure
 Cache de Redis do Azure fornece um fornecedor de estado de sessão que pode utilizar para armazenar o estado da sessão cache em vez de na memória ou numa base de dados do SQL Server. Para utilizar o colocação em cache no fornecedor de estado de sessão, primeiro de configurar a cache e, em seguida, configure a sua aplicação ASP.NET para cache com o pacote NuGet de estado de sessão Cache de Redis.
@@ -117,6 +117,6 @@ Assim que estes passos são efetuados, a aplicação está configurada para util
 
 Para obter mais informações sobre o estado da sessão e outras melhores práticas, consulte [Web desenvolvimento melhores práticas (compilar aplicações de nuvem de mundo Real com o Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Veja o [fornecedor de Cache de saída do ASP.NET para a Cache de Redis do Azure](cache-aspnet-output-cache-provider.md).
 

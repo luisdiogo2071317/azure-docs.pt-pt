@@ -3,7 +3,7 @@ title: "Descrição geral de instantâneos de partilha de ficheiros do Azure (pr
 description: "Um instantâneo de partilha é uma versão só de leitura de uma partilha de ficheiros do Azure que é executada num ponto no tempo, como uma forma de fazer cópias de segurança da partilha."
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 2504e180799164845a89a7f89ca6a6c61352304f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Descrição geral de instantâneos de partilha de ficheiros do Azure (pré-visualização)
 Ficheiros do Azure fornece a capacidade para criar instantâneos de partilha de partilhas de ficheiros. Partilha de instantâneos (pré-visualização) capturam o estado de partilha neste ponto no tempo. Neste artigo, vamos descrever que capacidades fornecem de instantâneos de partilha e como pode tirar partido dos mesmos no seu caso de utilização personalizada.
@@ -96,7 +96,7 @@ Antes de implementar o Programador de instantâneo de partilha, pondere cuidados
 
 Instantâneos de partilha fornecem apenas uma proteção ao nível dos ficheiros. Partilha de instantâneos não impedem eliminações fat mas numa conta de armazenamento ou de partilha de ficheiros. Para ajudar a proteger uma conta de armazenamento de eliminações acidentais, pode bloquear a conta de armazenamento ou o grupo de recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Trabalhar com instantâneos de partilha](storage-how-to-use-files-snapshots.md)
 * [Partilhar o instantâneo FAQ](storage-files-faq.md)
 

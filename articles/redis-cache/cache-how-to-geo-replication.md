@@ -3,8 +3,8 @@ title: "Como configurar a replicação geográfica para a Cache de Redis do Azur
 description: "Saiba como replicar as instâncias de Cache de Redis do Azure em regiões geográficas."
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.author: sdanie
-ms.openlocfilehash: 332326ce4188385aa6e569c812e16c3daa68bd5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 883683f6af7943fa4da49095c9a15aefd5cfa719
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Como configurar a replicação geográfica para a Cache de Redis do Azure
 
@@ -177,7 +177,7 @@ A versão inicial do georreplicação, a Cache de Redis do Azure não suporta at
 Atualmente, para iniciar a ativação pós-falha, terá de remover a ligação de replicação geográfica no portal do Azure e, em seguida, altere o ponto final de ligação no cliente Redis da cache de principal ligada à cache secundária (anteriormente ligada). Quando as duas caches são desassociar, a réplica torna-se de uma cache de leitura e escrita regular novamente e aceita os pedidos diretamente a partir de clientes de Redis.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre o [escalão Premium do Azure Redis Cache](cache-premium-tier-intro.md).
 

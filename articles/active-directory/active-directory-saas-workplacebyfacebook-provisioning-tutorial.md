@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/17/2018
 ms.author: jeedes
-ms.openlocfilehash: fc0d7223cdc15cd7f17a4983d2c2ac46c5d1669b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Tutorial: Configurar à área de trabalho ao Facebook para aprovisionamento de utilizadores
 
@@ -73,9 +73,9 @@ AD do Azure suporta a capacidade para sincronizar automaticamente os detalhes da
 
 4. Definir o **modo de aprovisionamento** para **automática**. 
 
-    ![Aprovisionamento](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![a aprovisionar](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Sob o **credenciais de administrador** secção, introduza o Token do segredo e o URL de inquilino da sua área de trabalho pelo administrador do Facebook.
+5. Sob o **credenciais de administrador** secção, introduza o Token do segredo da sua área de trabalho pelo administrador do Facebook e defina o valor do URL de inquilino para `https://www.facebook.com/scim/v1/` .
 
 6. No portal do Azure, clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua área de trabalho através da aplicação do Facebook. Se a ligação falhar, certifique-se à sua área de trabalho pela conta do Facebook permissões de administração de equipa.
 
@@ -100,4 +100,3 @@ Agora, pode criar uma conta de teste. Aguarde até 20 minutos para verificar que
 * [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Configurar o início de sessão único](active-directory-saas-workplacebyfacebook-tutorial.md)
-

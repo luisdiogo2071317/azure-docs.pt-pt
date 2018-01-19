@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: cf960ac827db94b9a43361288b1d0863dac86555
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 36e24da50386d1abc441e2beb09f570a9612a346
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-using-azure-data-factory"></a>Carregar dados para o Azure SQL Data Warehouse com o Azure Data Factory
 
@@ -128,6 +128,10 @@ Este artigo mostra como utilizar a ferramenta de dados de cópia de fábrica de 
 15. Para ver as execuções de atividade associadas com o pipeline executar, clique em **ver a atividade é executada** ligação no **ações** coluna. 10 atividades de cópia no pipeline, copia cada uma tabela de dados. Para mudar para o pipeline é executado vista, clique em **Pipelines** ligação na parte superior. Clique em **atualizar** para atualizar a lista. 
 
     ![Execuções de atividade do monitor](./media/load-azure-sql-data-warehouse/monitor-activity-run.png)
+
+16. Ainda pode monitorizar detalhes da execução de cada atividade de cópia, clicando a **detalhes** ligação em **ações** na vista de monitorização de atividade. Mostra informações, incluindo o volume dos dados copiados a partir da origem para sink, débito, os passos que realiza com duração correspondente e utilizado configurações.
+
+    ![Detalhes da execução de atividade de monitorização](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

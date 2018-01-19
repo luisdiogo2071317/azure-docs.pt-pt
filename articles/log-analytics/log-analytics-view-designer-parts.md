@@ -1,6 +1,6 @@
 ---
-title: "Parte de referência para o estruturador de vistas no OMS Log Analytics | Microsoft Docs"
-description: "Estruturador de vistas no Log Analytics permite-lhe criar vistas personalizadas na consola do OMS que contêm visualizações diferentes dos dados no repositório de OMS. Este artigo fornece uma referência de definições para cada uma das partes de visualização disponíveis para utilização na sua vistas personalizadas."
+title: "Parte de referência para o estruturador de vistas no Log Analytics do Azure | Microsoft Docs"
+description: "Estruturador de vistas no Log Analytics permite-lhe criar vistas personalizadas no portal do Azure que contêm diferentes visualizações de dados da sua área de trabalho de análise de registos. Este artigo fornece uma referência de definições para cada uma das partes de visualização disponíveis para utilização na sua vistas personalizadas."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1fdfb237fcea6a10d38f3be8524ea5fbcf1f3728
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Referência de parte de visualização do estruturador de vistas de análise de registo
-O estruturador de vistas no Log Analytics permite-lhe criar vistas personalizadas na consola do OMS que contêm diferentes visualizações de dados do repositório OMS. Este artigo fornece uma referência de definições para cada uma das partes de visualização disponíveis para utilização na sua vistas personalizadas.
+O estruturador de vistas no Log Analytics permite-lhe criar vistas personalizadas no portal do Azure que contêm visualizações diferentes dos dados da sua área de trabalho de análise de registos. Este artigo fornece uma referência de definições para cada uma das partes de visualização disponíveis para utilização na sua vistas personalizadas.
 
 Outros artigos disponíveis para o estruturador de vistas são:
 
@@ -53,7 +53,7 @@ Mostra uma lista de consultas de pesquisa de registo.  O utilizador pode clicar 
 | Definição | Descrição |
 |:--- |:--- |
 | **Geral** | |
-| Título |Texto a apresentar na parte superior da vista. |
+| Cargo |Texto a apresentar na parte superior da vista. |
 | Novo grupo |Selecione para criar um novo grupo na vista de começando vista atual. |
 | Filtros previamente selecionados |Lista de propriedades para incluir no painel de filtro esquerda quando o utilizador seleciona uma consulta delimitada por vírgulas. |
 | Modo de composição |Vista inicial apresentada quando a consulta estiver selecionada.  O utilizador pode selecionar qualquer vistas disponíveis depois de abrir a consulta. |
@@ -73,20 +73,20 @@ Cabeçalho tem um único número que mostra número de registos por uma consulta
 | Novo grupo |Selecione para criar um novo grupo na vista de começando vista atual. |
 | Ícone |Ficheiro de imagem a apresentar junto o resultado no cabeçalho. |
 | Ícone de utilização |Selecione para ter a apresentação de ícone. |
-| **Título** | |
+| **Title** (Título) | |
 | Legenda |Texto a apresentar na parte superior do cabeçalho. |
 | Consulta |Consulta seja executada para o cabeçalho.  Será apresentada a contagem do número de registos devolvidos pela consulta. |
-| **Lista** | |
+| **List** | |
 | Consulta |Consulta para a lista.  Serão apresentadas as primeiras duas propriedades dos registos primeiro dez nos resultados da.  A primeira propriedade deve ser um valor de texto e a segunda propriedade um valor numérico.  Barras são automaticamente criadas com base no valor da coluna numérica relativo.<br><br>Utilize o comando de ordenação na consulta para ordenar os registos na lista.  O utilizador pode clicar em ver todos os para executar a consulta e devolver todos os registos. |
 | Ocultar gráfico |Selecione esta opção para desativar o gráfico para a direita da coluna numérica. |
 | Ativar sparklines |Selecione esta opção para apresentar o gráfico sparkline em vez de barras horizontais.  Consulte [definições comuns](#sparklines) para obter mais detalhes. |
 | Cor |Cor de barras ou sparklines. |
 | Nome e valor de separação |Delimitador de carácter único se pretender analisar a propriedade de texto em vários valores.  Consulte [definições comuns](#name-value-separator) para obter mais detalhes. |
 | Consulta de navegação |Consulta para ser executada quando o utilizador seleciona um item na lista.  Consulte [definições comuns](#navigation-query) para obter mais detalhes. |
-| **Lista** |**> Títulos de coluna** |
+| **List** |**> Títulos de coluna** |
 | Nome |Texto a apresentar na parte superior da coluna primeiro da lista. |
 | Valor |Texto a apresentar na parte superior da coluna segundo da lista. |
-| **Lista** |**> Limiares** |
+| **List** |**> Limiares** |
 | Ativar os limiares |Selecione esta opção para ativar os limiares.  Consulte [definições comuns](#thresholds) para obter mais detalhes. |
 
 ## <a name="two-numbers--list-part"></a>Dois números & parte da lista
@@ -101,10 +101,10 @@ Cabeçalho tem dois números que mostra a contagem de registos de consultas de p
 | Novo grupo |Selecione para criar um novo grupo na vista de começando vista atual. |
 | Ícone |Ficheiro de imagem a apresentar junto o resultado no cabeçalho. |
 | Ícone de utilização |Selecione para ter a apresentação de ícone. |
-| **Título** | |
+| **Title** (Título) | |
 | Legenda |Texto a apresentar na parte superior do cabeçalho. |
 | Consulta |Consulta seja executada para o cabeçalho.  Será apresentada a contagem do número de registos devolvidos pela consulta. |
-| **Lista** | |
+| **List** | |
 | Consulta |Consulta para a lista.  Serão apresentadas as primeiras duas propriedades dos registos primeiro dez nos resultados da.  A primeira propriedade deve ser um valor de texto e a segunda propriedade um valor numérico.  Barras são automaticamente criadas com base no valor da coluna numérica relativo.<br><br>Utilize o comando de ordenação na consulta para ordenar os registos na lista.  O utilizador pode clicar em ver todos os para executar a consulta e devolver todos os registos. |
 | Ocultar gráfico |Selecione esta opção para desativar o gráfico para a direita da coluna numérica. |
 | Ativar sparklines |Selecione esta opção para apresentar o gráfico sparkline em vez de barras horizontais.  Consulte [definições comuns](#sparklines) para obter mais detalhes. |
@@ -112,10 +112,10 @@ Cabeçalho tem dois números que mostra a contagem de registos de consultas de p
 | Operação |Operação de efetuar para o gráfico sparkline.  Consulte [definições comuns](#sparklines) para obter mais detalhes. |
 | Nome e valor de separação |Delimitador de carácter único se pretender analisar a propriedade de texto em vários valores.  Consulte [definições comuns](#name-value-separator) para obter mais detalhes. |
 | Consulta de navegação |Consulta para ser executada quando o utilizador seleciona um item na lista.  Consulte [definições comuns](#navigation-query) para obter mais detalhes. |
-| **Lista** |**> Títulos de coluna** |
+| **List** |**> Títulos de coluna** |
 | Nome |Texto a apresentar na parte superior da coluna primeiro da lista. |
 | Valor |Texto a apresentar na parte superior da coluna segundo da lista. |
-| **Lista** |**> Limiares** |
+| **List** |**> Limiares** |
 | Ativar os limiares |Selecione esta opção para ativar os limiares.  Consulte [definições comuns](#thresholds) para obter mais detalhes. |
 
 ## <a name="donut--list-part"></a>Parte de anel & lista
@@ -131,8 +131,8 @@ Cabeçalho apresenta um número único resumido a partir da coluna valor de uma 
 | Ícone |Ficheiro de imagem a apresentar junto o resultado no cabeçalho. |
 | Ícone de utilização |Selecione para ter a apresentação de ícone. |
 | **Cabeçalho** | |
-| Título |Texto a apresentar na parte superior do cabeçalho. |
-| Subtítulo do |Texto a apresentar sob o título na parte superior do cabeçalho. |
+| Cargo |Texto a apresentar na parte superior do cabeçalho. |
+| Subtítulo |Texto a apresentar sob o título na parte superior do cabeçalho. |
 | **Anel** | |
 | Consulta |Consulta de executar o anel.  A primeira propriedade deve ser um valor de texto e a segunda propriedade um valor numérico. |
 | **Anel** |**> Center** |
@@ -144,7 +144,7 @@ Cabeçalho apresenta um número único resumido a partir da coluna valor de uma 
 | **Opções adicionais** |**> Mapeamento de cor avançadas** |
 | Valor do campo |Escreva o nome de um campo para apresentá-la como uma cor diferente se está incluído no anel. |
 | Cor |Selecione a cor para o campo exclusivo. |
-| **Lista** | |
+| **List** | |
 | Consulta |Consulta para a lista.  Será apresentada a contagem do número de registos devolvidos pela consulta. |
 | Ocultar gráfico |Selecione esta opção para desativar o gráfico para a direita da coluna numérica. |
 | Ativar sparklines |Selecione esta opção para apresentar o gráfico sparkline em vez de barras horizontais.  Consulte [definições comuns](#sparklines) para obter mais detalhes. |
@@ -152,10 +152,10 @@ Cabeçalho apresenta um número único resumido a partir da coluna valor de uma 
 | Operação |Operação de efetuar para o gráfico sparkline.  Consulte [definições comuns](#sparklines) para obter mais detalhes. |
 | Nome e valor de separação |Delimitador de carácter único se pretender analisar a propriedade de texto em vários valores.  Consulte [definições comuns](#name-value-separator) para obter mais detalhes. |
 | Consulta de navegação |Consulta para ser executada quando o utilizador seleciona um item na lista.  Consulte [definições comuns](#navigation-query) para obter mais detalhes. |
-| **Lista** |**> Títulos de coluna** |
+| **List** |**> Títulos de coluna** |
 | Nome |Texto a apresentar na parte superior da coluna primeiro da lista. |
 | Valor |Texto a apresentar na parte superior da coluna segundo da lista. |
-| **Lista** |**> Limiares** |
+| **List** |**> Limiares** |
 | Ativar os limiares |Selecione esta opção para ativar os limiares.  Consulte [definições comuns](#thresholds) para obter mais detalhes. |
 
 ## <a name="two-timelines--list-part"></a>Dois parte linhas cronológicas & lista
@@ -175,17 +175,17 @@ Cabeçalho apresenta os resultados das duas consultas de registo ao longo do tem
 | Cor |Cor a utilizar para as colunas da série. |
 | Consulta |Consulta seja executada para a série primeiro.  A contagem do número de registos ao longo de cada intervalo de tempo será representada pelas colunas de gráfico. |
 | Operação |A operação para efetuar a propriedade de valor para resumir para um valor único para a chamada.<br><br>-Soma: Soma do valor de todos os registos.<br>-Média: A média do valor de todos os registos.<br>-Última amostra: Valor no último intervalo incluído no gráfico.<br>-O primeiro exemplo: O valor do primeiro intervalo de incluído no gráfico.<br>-Contagem: Contagem de todos os registos devolvidos pela consulta. |
-| **Lista** | |
+| **List** | |
 | Consulta |Consulta para a lista.  Será apresentada a contagem do número de registos devolvidos pela consulta. |
 | Ocultar gráfico |Selecione esta opção para desativar o gráfico para a direita da coluna numérica. |
 | Ativar sparklines |Selecione esta opção para apresentar o gráfico sparkline em vez de barras horizontais.  Consulte [definições comuns](#sparklines) para obter mais detalhes. |
 | Cor |Cor de barras ou sparklines. |
 | Operação |Operação de efetuar para o gráfico sparkline.  Consulte [definições comuns](#sparklines) para obter mais detalhes. |
 | Consulta de navegação |Consulta para ser executada quando o utilizador seleciona um item na lista.  Consulte [definições comuns](#navigation-query) para obter mais detalhes. |
-| **Lista** |**> Títulos de coluna** |
+| **List** |**> Títulos de coluna** |
 | Nome |Texto a apresentar na parte superior da coluna primeiro da lista. |
 | Valor |Texto a apresentar na parte superior da coluna segundo da lista. |
-| **Lista** |**> Limiares** |
+| **List** |**> Limiares** |
 | Ativar os limiares |Selecione esta opção para ativar os limiares.  Consulte [definições comuns](#thresholds) para obter mais detalhes. |
 
 ## <a name="information-part"></a>Parte de informações
@@ -202,11 +202,11 @@ Cabeçalho mostra texto estático e uma ligação opcional.  Lista apresenta um 
 | **Cabeçalho** | |
 | Imagem |Ficheiro de imagem a apresentar no cabeçalho. |
 | Etiqueta |Texto a apresentar no cabeçalho. |
-| **Cabeçalho** |**> Ligação de** |
+| **Cabeçalho** |**> Link** |
 | Etiqueta |Texto da hiperligação. |
 | Url |URL da ligação. |
 | **Itens de informações** | |
-| Título |Texto a apresentar para o título de cada item. |
+| Cargo |Texto a apresentar para o título de cada item. |
 | Conteúdo |Texto a apresentar para cada item. |
 
 ## <a name="line-chart-callout--list-part"></a>Gráfico de linhas, chamada & parte da lista
@@ -222,8 +222,8 @@ Cabeçalho apresenta um gráfico de linhas com várias séries por uma consulta 
 | Ícone |Ficheiro de imagem a apresentar junto o resultado no cabeçalho. |
 | Ícone de utilização |Selecione para ter a apresentação de ícone. |
 | **Cabeçalho** | |
-| Título |Texto a apresentar na parte superior do cabeçalho. |
-| Subtítulo do |Texto a apresentar sob o título na parte superior do cabeçalho. |
+| Cargo |Texto a apresentar na parte superior do cabeçalho. |
+| Subtítulo |Texto a apresentar sob o título na parte superior do cabeçalho. |
 | **Gráfico de linhas** | |
 | Consulta |Consulta para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda propriedade um valor numérico.  Isto é normalmente uma consulta que utiliza o **medidas** palavra-chave para resumir os resultados.  Se a consulta utiliza a **intervalo** palavra-chave, em seguida, o eixo x do gráfico irá utilizar este intervalo de tempo.  Se a consulta não inclui o **intervalo** intervalos de palavra-chave e a hora a hora são utilizados para o eixo x. |
 | **Gráfico de linhas** |**> Chamada** |
@@ -234,7 +234,7 @@ Cabeçalho apresenta um gráfico de linhas com várias séries por uma consulta 
 | Utilizar escala logarítmica |Selecione para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores devolvidos pela consulta.  Estas informações são utilizadas para apresentar as etiquetas no gráfico indicar os tipos de valor e, opcionalmente, para converter os valores.  O tipo de unidade Especifica a categoria da unidade e define os valores do tipo de unidade atual que estão disponíveis.  Se selecionar um valor em converter, em seguida, os valores numéricos são convertidos do tipo de unidade atual para converter no tipo. |
 | Etiqueta personalizada |Texto a apresentar para o eixo Y junto a etiqueta para o tipo de unidade.  Não se for especificada nenhuma etiqueta, em seguida, é apresentado apenas o tipo de unidade. |
-| **Lista** | |
+| **List** | |
 | Consulta |Consulta para a lista.  Será apresentada a contagem do número de registos devolvidos pela consulta. |
 | Ocultar gráfico |Selecione esta opção para desativar o gráfico para a direita da coluna numérica. |
 | Ativar sparklines |Selecione esta opção para apresentar o gráfico sparkline em vez de barras horizontais.  Consulte [definições comuns](#sparklines) para obter mais detalhes. |
@@ -242,10 +242,10 @@ Cabeçalho apresenta um gráfico de linhas com várias séries por uma consulta 
 | Operação |Operação de efetuar para o gráfico sparkline.  Consulte [definições comuns](#sparklines) para obter mais detalhes. |
 | Nome e valor de separação |Delimitador de carácter único se pretender analisar a propriedade de texto em vários valores.  Consulte [definições comuns](#name-value-separator) para obter mais detalhes. |
 | Consulta de navegação |Consulta para ser executada quando o utilizador seleciona um item na lista.  Consulte [definições comuns](#navigation-query) para obter mais detalhes. |
-| **Lista** |**> Títulos de coluna** |
+| **List** |**> Títulos de coluna** |
 | Nome |Texto a apresentar na parte superior da coluna primeiro da lista. |
 | Valor |Texto a apresentar na parte superior da coluna segundo da lista. |
-| **Lista** |**> Limiares** |
+| **List** |**> Limiares** |
 | Ativar os limiares |Selecione esta opção para ativar os limiares.  Consulte [definições comuns](#thresholds) para obter mais detalhes. |
 
 ## <a name="line-chart--list-part"></a>Parte de gráfico & lista de linha
@@ -261,15 +261,15 @@ Cabeçalho apresenta um gráfico de linhas com várias séries por uma consulta 
 | Ícone |Ficheiro de imagem a apresentar junto o resultado no cabeçalho. |
 | Ícone de utilização |Selecione para ter a apresentação de ícone. |
 | **Cabeçalho** | |
-| Título |Texto a apresentar na parte superior do cabeçalho. |
-| Subtítulo do |Texto a apresentar sob o título na parte superior do cabeçalho. |
+| Cargo |Texto a apresentar na parte superior do cabeçalho. |
+| Subtítulo |Texto a apresentar sob o título na parte superior do cabeçalho. |
 | **Gráfico de linhas** | |
 | Consulta |Consulta para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda propriedade um valor numérico.  Isto é normalmente uma consulta que utiliza o **medidas** palavra-chave para resumir os resultados.  Se a consulta utiliza a **intervalo** palavra-chave, em seguida, o eixo x do gráfico irá utilizar este intervalo de tempo.  Se a consulta não inclui o **intervalo** intervalos de palavra-chave e a hora a hora são utilizados para o eixo x. |
 | **Gráfico de linhas** |**> Eixo Y** |
 | Utilizar escala logarítmica |Selecione para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores devolvidos pela consulta.  Estas informações são utilizadas para apresentar as etiquetas no gráfico indicar os tipos de valor e, opcionalmente, para converter os valores.  O tipo de unidade Especifica a categoria da unidade e define os valores do tipo de unidade atual que estão disponíveis.  Se selecionar um valor em converter, em seguida, os valores numéricos são convertidos do tipo de unidade atual para converter no tipo. |
 | Etiqueta personalizada |Texto a apresentar para o eixo Y junto a etiqueta para o tipo de unidade.  Não se for especificada nenhuma etiqueta, em seguida, é apresentado apenas o tipo de unidade. |
-| **Lista** | |
+| **List** | |
 | Consulta |Consulta para a lista.  Será apresentada a contagem do número de registos devolvidos pela consulta. |
 | Ocultar gráfico |Selecione esta opção para desativar o gráfico para a direita da coluna numérica. |
 | Ativar sparklines |Selecione esta opção para apresentar o gráfico sparkline em vez de barras horizontais.  Consulte [definições comuns](#sparklines) para obter mais detalhes. |
@@ -277,10 +277,10 @@ Cabeçalho apresenta um gráfico de linhas com várias séries por uma consulta 
 | Operação |Operação de efetuar para o gráfico sparkline.  Consulte [definições comuns](#sparklines) para obter mais detalhes. |
 | Nome e valor de separação |Delimitador de carácter único se pretender analisar a propriedade de texto em vários valores.  Consulte [definições comuns](#name-value-separator) para obter mais detalhes. |
 | Consulta de navegação |Consulta para ser executada quando o utilizador seleciona um item na lista.  Consulte [definições comuns](#navigation-query) para obter mais detalhes. |
-| **Lista** |**> Títulos de coluna** |
+| **List** |**> Títulos de coluna** |
 | Nome |Texto a apresentar na parte superior da coluna primeiro da lista. |
 | Valor |Texto a apresentar na parte superior da coluna segundo da lista. |
-| **Lista** |**> Limiares** |
+| **List** |**> Limiares** |
 | Ativar os limiares |Selecione esta opção para ativar os limiares.  Consulte [definições comuns](#thresholds) para obter mais detalhes. |
 
 ## <a name="stack-of-line-charts-part"></a>Pilha da peça de gráficos de linha
@@ -295,11 +295,11 @@ Apresenta os três separado gráficos de linhas com várias séries por uma cons
 | Novo grupo |Selecione para criar um novo grupo na vista de começando vista atual. |
 | Ícone |Ficheiro de imagem a apresentar junto o resultado no cabeçalho. |
 | **Gráfico 1<br>gráfico 2<br>gráfico 3** |**> Cabeçalho** |
-| Título |Texto a apresentar na parte superior do gráfico. |
-| Subtítulo do |Texto a apresentar sob o título na parte superior do gráfico. |
+| Cargo |Texto a apresentar na parte superior do gráfico. |
+| Subtítulo |Texto a apresentar sob o título na parte superior do gráfico. |
 | **Gráfico 1<br>gráfico 2<br>gráfico 3** |**Gráfico de linhas** |
 | Consulta |Consulta para o gráfico de linhas.  A primeira propriedade deve ser um valor de texto e a segunda propriedade um valor numérico.  Isto é normalmente uma consulta que utiliza o **medidas** palavra-chave para resumir os resultados.  Se a consulta utiliza a **intervalo** palavra-chave, em seguida, o eixo x do gráfico irá utilizar este intervalo de tempo.  Se a consulta não inclui o **intervalo** intervalos de palavra-chave e a hora a hora são utilizados para o eixo x. |
-| **Gráfico** |**> Eixo Y** |
+| **Chart** |**> Eixo Y** |
 | Utilizar escala logarítmica |Selecione para utilizar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores devolvidos pela consulta.  Estas informações são utilizadas para apresentar as etiquetas no gráfico indicar os tipos de valor e, opcionalmente, para converter os valores.  O tipo de unidade Especifica a categoria da unidade e define os valores do tipo de unidade atual que estão disponíveis.  Se selecionar um valor em converter, em seguida, os valores numéricos são convertidos do tipo de unidade atual para converter no tipo. |
 | Etiqueta personalizada |Texto a apresentar para o eixo Y junto a etiqueta para o tipo de unidade.  Não se for especificada nenhuma etiqueta, em seguida, é apresentado apenas o tipo de unidade. |
@@ -343,5 +343,5 @@ A tabela seguinte descreve as definições para tresholds.
 | Limiar |Valor para o limiar.  A cor do Estado de funcionamento para cada item de lista está definida para a cor do valor mais elevado de limiar excedido pelo valor do item.  Não há um limiar de predefinido que é a cor, se não existem valores de limiar for excedidos. |
 | Cor |Cor para o valor de limiar. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para suportar as consultas em partes de visualização.

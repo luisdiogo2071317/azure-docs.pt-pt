@@ -8,7 +8,7 @@
 
     ![Ativar TCP](./media/virtual-machines-sql-server-connection-tcp-protocol/enable-tcp.png)
 
-1. No painel da consola, clique em **Serviços do SQL Server**. No painel de detalhes, clique com o botão direito do rato em **SQL Server (*nome da instância*)** (a instância predefinida é **SQL Server (MSSQLSERVER)**) e, em seguida, clique em **Reiniciar** para parar e reiniciar a instância do SQL Server.
+1. No painel da consola, clique em **Serviços do SQL Server**. No painel de detalhes, faça duplo clique **do SQL Server (*nome da instância*)** (a instância predefinida é **SQL Server (MSSQLSERVER)**) e, em seguida, clique em **reiniciar**, para parar e reiniciar a instância do SQL Server.
 
     ![Reiniciar o Motor de Base de Dados](./media/virtual-machines-sql-server-connection-tcp-protocol/restart-sql-server.png)
 

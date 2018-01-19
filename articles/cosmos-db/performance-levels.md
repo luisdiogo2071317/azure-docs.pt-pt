@@ -16,10 +16,10 @@ ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Extinguir os níveis de desempenho S1, S2 e S3
 
@@ -56,8 +56,8 @@ A tabela seguinte compara as opções de débito e armazenamento disponíveis em
 
 |   |Coleção particionada|Coleção de partições únicas|S1|S2|S3|
 |---|---|---|---|---|---|
-|Débito máximo|Ilimitado|10 mil RU/s|250 RU/s|1 mil RU/s|2.5 mil RU/s|
-|Débito mínimo|2.5 mil RU/s|400 RU/s|250 RU/s|1 mil RU/s|2.5 mil RU/s|
+|Débito máximo|Ilimitado|10 mil RU/s|250 RU/s|1 K RU/s|2.5 mil RU/s|
+|Débito mínimo|2.5 mil RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 mil RU/s|
 |Armazenamento máximo|Ilimitado|10 GB|10 GB|10 GB|10 GB|
 |Preço (mensalmente)|Débito: $6 / 100 RU/s<br><br>Armazenamento: $0.25/ GB|Débito: $6 / 100 RU/s<br><br>Armazenamento: $0.25/ GB|$25 EUR|$50 EUR|$100 EUR|
 
@@ -174,7 +174,7 @@ Visite [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents
 
 Clientes EA estarão preços protegidos até ao fim do respetivo contrato atual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre preços e gestão de dados com o Azure Cosmos DB, explore estes recursos:
 
 1.  [A criação de partições de dados na base de dados do Cosmos](sql-api-partition-data.md). Compreenda a diferença entre o contentor de partições únicas e contentores particionadas, bem como sugestões na implementação de uma estratégia de criação de partições de dimensionamento de forma totalmente integrada.

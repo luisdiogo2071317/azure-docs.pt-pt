@@ -3,8 +3,8 @@ title: Como resolver problemas com a Cache de Redis do Azure | Microsoft Docs
 description: Saiba como resolver problemas comuns com a Cache de Redis do Azure.
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: sdanie
-ms.openlocfilehash: 2e9d1b644f1e80c7d916a261a6c47fcc11a1ffe0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 3a79a0b20cd007816391745f6f717253df17f067
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Como resolver problemas com a Cache de Redis do Azure
 Este artigo fornece orientações para resolução de problemas seguintes categorias de problemas de Cache de Redis do Azure.
@@ -186,10 +186,10 @@ Esta mensagem de erro contém métricas que podem ajudar a orientar a causa e po
 | Gestor de MP |O Gestor de socket está a efetuar `socket.select` que significa está a pedir o SO para indicar um socket que tenha algo fazer; basicamente: o leitor é não ativamente ao ler a partir da rede porque não considerar a há nada a fazer |
 | fila |Existem 73 operações em curso totais |
 | qu |6 das operações em curso estão na fila enviada e ainda não foi escrito para a rede de saída |
-| Qs |67 operações em curso de putador terem sido enviados para o servidor, mas uma resposta ainda não está disponível. A resposta pode ser `Not yet sent by the server` ou`sent by the server but not yet processed by the client.` |
-| QC |0 das operações em curso ter visto responde, mas ainda não foram marcadas como concluídas devido a aguardar o ciclo de conclusão |
-| wR |Há um bytes/activewriters escritor Active Directory (isto é, que não estão a ser ignorados os 6 pedidos não enviados) |
-| No |Não existem nenhum leitor de Active Directory e estão disponíveis para ser continue a ler os bytes NIC/activereaders zero bytes |
+| qs |67 operações em curso de putador terem sido enviados para o servidor, mas uma resposta ainda não está disponível. A resposta pode ser `Not yet sent by the server` ou`sent by the server but not yet processed by the client.` |
+| qc |0 das operações em curso ter visto responde, mas ainda não foram marcadas como concluídas devido a aguardar o ciclo de conclusão |
+| wr |Há um bytes/activewriters escritor Active Directory (isto é, que não estão a ser ignorados os 6 pedidos não enviados) |
+| pol. |Não existem nenhum leitor de Active Directory e estão disponíveis para ser continue a ler os bytes NIC/activereaders zero bytes |
 
 ### <a name="steps-to-investigate"></a>Passos para investigar
 1. Como melhor prática Certifique-se de que está a utilizar o seguinte padrão para ligar ao utilizar o cliente stackexchange. redis.
