@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 3d8516c0f3f6cc8185b16f4cdabcc391e31cc605
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 18a342fed7e99e82082764d6f5a3429a3ce794b7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Criar o seu primeiro contentor no Azure Container Instances
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 3.6 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzureRmAccount` para criar uma ligação com o Azure.
 
-## <a name="create-resource-group"></a>Criar grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
@@ -39,7 +39,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Para criar um contentor, pode indicar um nome, uma imagem do Docker e um grupo de recursos do Azure ao cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Opcionalmente, pode expor o contentor na Internet com um endereço IP público. Neste caso, iremos utilizar um contentor do Servidor Nano do Windows com os Serviços de Informação Internet (IIS).
+Para criar um contentor, pode indicar um nome, uma imagem do Docker e um grupo de recursos do Azure ao cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Opcionalmente, pode expor o contentor na Internet com um endereço IP público. Neste caso, iremos utilizar um contentor do Servidor Nano com os Serviços de Informação Internet (IIS).
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Introdução ao Azure Location Based Services (pré-visualização)
 O Azure Location Based Services é um portefólio de serviços geoespaciais que incluem APIs de serviço para Mapas, Pesquisa, Encaminhamento, Trânsito e Fusos Horários. O portfólio de serviços em conformidade com o Azure OneAPI permite-lhe utilizar ferramentas de programação familiares para programar e dimensionar rapidamente soluções que integram informações de localização nas suas soluções do Azure. O Azure Location Based Services fornece aos programadores de todas as indústrias capacidades geoespaciais poderosas, repletas de dados de mapeamento atualizados, essenciais para dar contexto geográfico a aplicações Web e móveis. O Azure Location Based Services é um conjunto de APIs REST que estão em conformidade com o Azure OneAPI, o qual ainda inclui um controlo de JavaScript baseado na Web para que o desenvolvimento seja fácil, flexível e portátil em vários suportes. 
@@ -64,6 +64,20 @@ O Azure Location Based Services é constituído por cinco serviços principais p
 O Azure Location Based Services baseia-se na mobilidade e pode alimentar aplicações de várias plataformas desde que o modelo de programação seja agnóstico e suporte a saída JSON através de APIs REST. Além disso, o Azure LBS disponibiliza um cómodo Controlo de Mapas de JavaScript com um modelo de programação simples para um desenvolvimento fácil e rápido de aplicações Web e móveis. 
 
 O Azure Location Based Services utiliza um esquema de autenticação baseado em chaves, pelo que, para aceder aos serviços, basta navegar para o [portal do Azure](http://portal.azure.com) e criar uma conta do Azure Location Based Services. A conta inclui duas chaves pré-geradas para si. Comece por integrar estas capacidades de localização diretamente nas suas aplicações através das suas chaves nos pedidos ao serviço Azure Location Based Services.
+
+**Relação com o Bing Maps** - tenha em atenção que os Azure Location Based Services descritos neste documento são diferentes dos que são apresentados pelo Bing Maps.  Embora eles partilhem muitas funcionalidades iguais, os serviços são diferentes e não estão relacionados.  Não há nenhum impacto sobre a oferta de produtos ou as previsões do Bing Maps relativamente à disponibilidade deste novo serviço no Azure, que será gerido separadamente.
+
+O objetivo da Microsoft é disponibilizar uma escolha à comunidade de programadores em termos de ofertas de serviços de localização.  Abaixo encontra alguma documentação de orientação rápida para programadores sobre o serviço a utilizar para vários casos de utilização e situações de cliente.  Note que esta documentação de orientação aplica-se atualmente ao Azure LBS, uma vez que está na fase de Pré-visualização Pública e será atualizada assim que atingir Disponibilidade Geral posteriormente em 2018.
+
+| Critérios de cliente | Utilize os Azure Location Based Services Quando... | Utilize o Bing Maps Quando... |
+| ------------- | ------------- | ------------- |
+| Ambiente de Programação | Compilar ou tirar partido de outros serviços do Azure | Através de uma cloud de terceiros ou outro ambiente de programação |
+| Estágio de desenvolvimento  | Como o Azure LBS está atualmente em Pré-visualização Pública, está otimizado para um teste de estágio inicial e desenvolvimento de uma Prova de Conceito | É preciso um SLA de nível empresarial para um ambiente de produção |
+| Opções de Preços | As opções preliminares de preços para programadores são suficientes | São precisos preços de nível empresarial personalizados |
+| Ambiente de Cenário de Utilização | É precisa a utilização no veículo | Não é precisa a utilização no veículo |
+| Cobertura Geográfica | A Índia, a China, o Japão e a Coreia do Sul não são precisos | A cobertura do mapa da Índia, da China, do Japão e da Coreia do Sul são precisos |
+| Conteúdo do Mapa | Os mapas de superfície standard são suficientes | As imagens de satélite, com vista aérea e da rua são precisas |
+| Origem do mapa subjacente | Os dados de mapeamento do TomTom são preferenciais | Os dados de mapeamento do HERE são preferenciais |
 
 Inscreva-se numa [conta do Azure Location Based Services hoje mesmo!](http://aka.ms/azurelbsportal)
 

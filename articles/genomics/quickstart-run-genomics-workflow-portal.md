@@ -10,11 +10,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 82cf5ba260e2b6a8f21b85034060e88bd0d445d3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 71f5e4d1288a361c4b52ff45fb4c6601fa39a757
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Início Rápido: Executar um fluxo de trabalho através do serviço Microsoft Genomics
 
@@ -37,9 +37,9 @@ Configure a conta do Genomics com as informações seguintes, conforme mostrado 
 
  |**Definição**          |  **Valor sugerido**  | **Descrição do campo** |
  |:-------------       |:-------------         |:----------            |
- |Nome da conta         | MyGenomicsAccount     |Escolha um identificador de conta exclusivo. Para obter os nomes válidos, veja [Regras de Nomenclatura](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) |
+ |Nome da conta         | MyGenomicsAccount     |Escolha um identificador de conta exclusivo. Para obter os nomes válidos, veja [Regras de Nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Subscrição         | Nome da sua subscrição|Trata-se da unidade de faturação dos serviços do Azure. Para obter detalhes sobre a sua subscrição, veja [Subscrições](https://account.azure.com/Subscriptions) |      
- |Grupo de recursos       | MyResourceGroup       |  Os grupos de recursos permitem-lhe agrupar múltiplos recursos do Azure (conta de armazenamento, conta do Genomics, etc.) num único grupo de gestão simples. Para obter mais informações, veja [Grupos de Recursos] (https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups). Para obter os nomes de grupos de recursos válidos, veja [Regras de Nomenclatura](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) |
+ |Grupo de recursos       | MyResourceGroup       |  Os grupos de recursos permitem-lhe agrupar múltiplos recursos do Azure (conta de armazenamento, conta do Genomics, etc.) num único grupo de gestão simples. Para obter mais informações, veja [Grupos de Recursos] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Para obter os nomes de grupos de recursos válidos, veja [Regras de Nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Localização                   | EUA Oeste 2                    |    O serviço está disponível nas regiões E.U.A. Oeste 2, Europa Ocidental e Sudeste Asiático |
 
 
@@ -105,7 +105,7 @@ msgen list -f “<full path where you saved the config file>”
 
 ## <a name="create-a-microsoft-azure-storage-account"></a>Criar uma Conta de Armazenamento do Microsoft Azure 
 O serviço Microsoft Genomics espera que as entradas sejam armazenadas como blobs de blocos numa conta de armazenamento do Azure. Também escreve os ficheiros de saída como blobs de blocos num contentor especificado pelo utilizador numa conta de armazenamento do Azure. As entradas e saídas podem residir em contas de armazenamento diferentes.
-Se já tiver os dados numa conta de armazenamento do Azure, basta certificar-se de que está na mesma localização da conta do Genomics. Caso contrário, são cobradas taxas de saída quando executar o serviço Genomics. Se ainda não tiver uma conta de Armazenamento do Microsoft Azure, tem de criar uma e carregar os dados. Pode encontrar mais informações sobre contas de Armazenamento do Azure [aqui](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account), incluindo o que é uma conta de armazenamento e que serviços fornece. Para criar uma conta de Armazenamento do Microsoft Azure, navegue para o [portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ).  
+Se já tiver os dados numa conta de armazenamento do Azure, basta certificar-se de que está na mesma localização da conta do Genomics. Caso contrário, são cobradas taxas de saída quando executar o serviço Genomics. Se ainda não tiver uma conta de Armazenamento do Microsoft Azure, tem de criar uma e carregar os dados. Pode encontrar mais informações sobre contas de Armazenamento do Azure [aqui](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), incluindo o que é uma conta de armazenamento e que serviços fornece. Para criar uma conta de Armazenamento do Microsoft Azure, navegue para o [portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM ).  
 
 ![Painel de criação de armazenamento](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Painel de criação de armazenamento")
 
@@ -114,7 +114,7 @@ Configure a conta de Armazenamento com as informações seguintes, conforme most
 
  |**Definição**          |  **Valor sugerido**  | **Descrição do campo** |
  |:-------------------------       |:-------------         |:----------            |
- |Nome         | MyStorageAccount     |Escolha um identificador de conta exclusivo. Para obter os nomes válidos, veja [Regras de Nomenclatura](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) |
+ |Nome         | MyStorageAccount     |Escolha um identificador de conta exclusivo. Para obter os nomes válidos, veja [Regras de Nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Modelo de Implementação         | Resource Manager| O modelo de implementação recomendado é o Resource Manager. Para obter mais informações, veja [Compreender a implementação do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) |      
  |Tipo de conta       | Armazenamento de blobs       |  O armazenamento de blobs pode ser entre duas e cinco vezes mais rápido do que para fins gerais para transferências e carregamentos. |
  |Desempenho                  | Standard                   | A predefinição é Standard. Para obter mais detalhes sobre as contas de armazenamento standard e premium, veja [Introdução ao Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
@@ -122,7 +122,7 @@ Configure a conta de Armazenamento com as informações seguintes, conforme most
  |Transferência segura necessária                  | Desativado                 | A predefinição é Desativado. Para obter mais informações sobre a segurança das transferências de dados, veja [Requerer transferência segura](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)    |
  |Escalão de acesso                  | Acesso Frequente                   | Um acesso frequente indica que os objetos na conta de armazenamento serão acedidos com mais frequência.    |
  |Subscrição         | A sua subscrição do Azure |Para obter detalhes sobre a sua subscrição, veja [Subscrições](https://account.azure.com/Subscriptions) |      
- |Grupo de recursos       | MyResourceGroup       |  Pode selecionar o mesmo grupo de recursos como a sua conta do Genomics. Para obter os nomes de grupos de recursos válidos, veja [Regras de Nomenclatura](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions) |
+ |Grupo de recursos       | MyResourceGroup       |  Pode selecionar o mesmo grupo de recursos como a sua conta do Genomics. Para obter os nomes de grupos de recursos válidos, veja [Regras de Nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Localização                  | EUA Oeste 2                  | Utilize a mesma localização como localização da sua conta do Genomics, para reduzir os custos de saída e a latência. O serviço Genomics está disponível nas regiões E.U.A. Oeste 2, Europa Ocidental e Sudeste Asiático    |
  |Redes virtuais                | Desativado                   | A predefinição é Desativado. Para obter mais informações, veja [Redes Virtuais do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security)    |
 

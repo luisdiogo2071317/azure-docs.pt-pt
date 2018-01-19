@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b5160aec6504dfa924279286d9676a97716f5a6c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 68cc1a3b69e3e2d59a791a9241a1a8b4b3062673
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Criar uma base de dados de gráficos com Python e o portal do Azure
 
@@ -135,28 +135,30 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
         password="<YOUR_PASSWORD>")
     ```
 
-3. Altere o segundo parâmetro do objeto `client` para substituir as cadeias `<YOUR_DATABASE>` e `<YOUR_COLLECTION_OR_GRAPH>`. Se utilizou os valores sugeridos, o parâmetro deve ser semelhante a este código:
+3. Altere `graphs.azure.com` no nome do cliente para `gremlin.cosmosdb.azure.com`. (Se a sua conta de base de dados de gráfico foi criada antes de 20 de dezembro de 2017, não faça alterações e avance para o passo seguinte.)
+
+4. Altere o segundo parâmetro do objeto `client` para substituir as cadeias `<YOUR_DATABASE>` e `<YOUR_COLLECTION_OR_GRAPH>`. Se utilizou os valores sugeridos, o parâmetro deve ser semelhante a este código:
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
     O objeto `client` completo deverá agora ser semelhante a este código:
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="<YOUR_PASSWORD>")
     ```
 
-4. No portal do Azure, utilize o botão de cópia para copiar a CHAVE PRIMÁRIA e cole-a sobre `<YOUR_PASSWORD>` no parâmetro `password=<YOUR_PASSWORD>`.
+5. No portal do Azure, utilize o botão de cópia para copiar a CHAVE PRIMÁRIA e cole-a sobre `<YOUR_PASSWORD>` no parâmetro `password=<YOUR_PASSWORD>`.
 
     A definição do objeto `client` completa deve agora ser semelhante a este código:
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/sample-database/colls/sample-graph", 
         password="asdb13Fadsf14FASc22Ggkr662ifxz2Mg==")
     ```
 
-5. Guarde o ficheiro `connect.py`.
+6. Guarde o ficheiro `connect.py`.
 
 ## <a name="run-the-console-app"></a>Executar a aplicação de consola
 

@@ -2,24 +2,24 @@
 title: "Criar uma aplicação de contentor do Azure Service Fabric no Linux | Microsoft Docs"
 description: "Crie a sua primeira aplicação de contentor do Linux no Azure Service Fabric.  Crie uma imagem do Docker com a sua aplicação, envie-a para um registo de contentor e crie e implemente uma aplicação de contentor do Service Fabric."
 services: service-fabric
-documentationcenter: .net
-author: rwike77
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
-ms.author: ryanwi
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a3fa592e08ab05dfc56cf0c0c13eb6a64a7e2052
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Implementar uma aplicação de contentor do Linux do Azure Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores dimensionáveis e fiáveis. 
@@ -66,23 +66,34 @@ Para obter informações sobre como criar o seu próprio cluster, veja [Crie um 
 > O serviço de front-end da Web está configurado para escutar tráfego de entrada na porta 80. Certifique-se de que a porta está aberta no seu cluster. Se estiver a utilizar um Cluster de grupo, esta porta estará aberta.
 >
 
-### <a name="deploy-the-application-manifests"></a>Implementar os manifestos da aplicação 
+### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Instale a Interface de Linha de Comandos do Service Fabric e Ligue ao seu cluster
 Instale a [CLI do Service Fabric (sfctl)](service-fabric-cli.md) no ambiente da CLI
 
 ```azurecli-interactive
 pip3 install --user sfctl 
 export PATH=$PATH:~/.local/bin
 ```
+
 Ligue ao cluster do Service Fabric no Azure com a CLI do Azure. O ponto final é o ponto final de gestão do seu cluster - por exemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 ```azurecli-interactive
 sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
+### <a name="deploy-the-service-fabric-application"></a>Implementar a aplicação do Service Fabric 
+As aplicações do contentor do Service Fabric podem ser implementadas com o pacote de aplicação do Service Fabric descrito ou o Docker Compose. 
+
+#### <a name="deploy-using-service-fabric-application-package"></a>Implementar com o pacote de aplicação de Service Fabric
 Utilize o script de instalação fornecido para copiar a definição da aplicação de Voto para o cluster, registar o tipo de aplicação e criar uma instância da mesma.
 
 ```azurecli-interactive
 ./install.sh
+```
+
+#### <a name="deploy-the-application-using-docker-compose"></a>Implementar a aplicação com o Docker compose
+Implementar e instalar a aplicação no cluster do Service Fabric com o Docker Compose com o seguinte comando.
+```azurecli-interactive
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 
 Abra um browser e navegue até ao Service Fabric Explorer em http://\<my-azure-service-fabric-cluster-url>:19080/Explorer – por exemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Expanda o nó de Aplicações para ver que existe agora uma entrada para o tipo de aplicação de Voto e a instância que criou.

@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 01e539856adbdcf02dc4e49087a3ab71b328db5a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -43,7 +43,9 @@ Para obter e persistir o estado com o Azure Container Instances, ofereceremos a 
 
 ## <a name="linux-and-windows-containers"></a>Contentores de Linux e Windows
 
-O Azure Container Instances permite-lhe agendar contentores do Windows e do Linux com a mesma API. Basta indicar o tipo de SO base e tudo o resto é igual.
+O Azure Container Instances permite-lhe agendar contentores do Windows e do Linux com a mesma API. Basta especificar o tipo de SO quando cria os [grupos de contentor](container-instances-container-groups.md).
+
+Algumas funcionalidades estão atualmente restritas para contentores Linux. Enquanto estamos a trabalhar para colocar todas as funcionalidades de contentores do Windows, pode encontrar as diferenças da plataforma atual em [Quotas e disponibilidade das regiões do Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="co-scheduled-groups"></a>Grupos agendados conjuntamente
 

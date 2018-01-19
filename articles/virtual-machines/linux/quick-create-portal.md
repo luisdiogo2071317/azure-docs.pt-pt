@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ac6ed21f3cf363137381b82835a11d0920aee3b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c587a2ba10606a08aec7a75e4bdc6fe5cc297be9
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Criar uma máquina virtual Linux com o portal do Azure
 
@@ -32,11 +32,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Precisa de um par de chaves SSH para concluir este guia de introdução. Se tiver um par de chaves SSH existente, este passo pode ser ignorado.
 
-A partir de uma shell Bash, execute este comando e siga as direções no ecrã. A saída do comando inclui o nome de ficheiro do ficheiro de chave pública. Copie o conteúdo do ficheiro de chave pública para a área de transferência.
+A partir de uma shell Bash, execute este comando e siga as direções no ecrã. A saída do comando inclui o nome de ficheiro do ficheiro de chave pública. Copie o conteúdo do ficheiro de chave pública (`cat ~/.ssh/id_rsa.pub`) para a área de transferência. Se utilizar o Subsistema Windows para o Linux, certifique-se de que não copia carateres de quebra de linha da saída. Tenha em atenção ao nome do ficheiro da chave privada para utilização posterior.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+
+Pode encontrar informações mais detalhadas sobre este processo [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure 
 
@@ -102,7 +104,7 @@ Um Grupo de segurança de rede (NSG) protege os tráfegos de entrada e de saída
 2. Selecione o **grupo de segurança de rede**. O NSG pode ser identificado através da coluna **Tipo**. 
 3. No menu do lado esquerdo, em definições, clique em **Regras de segurança de entrada**.
 4. Clique em **Adicionar**.
-5. Em **Nome**, escreva **http**. Certifique-se de que o **Intervalo da porta** está definido como 80 e a **Ação** está definida como **Permitir**. 
+5. Em **Nome**, escreva **http**. Certifique-se de que o **intervalo das Portas de Origem** está definido como `*`, o **intervalo das Portas de Destino** está definido como *80* e a **Ação** está definida como *Permitir*. 
 6. Clique em **OK**.
 
 

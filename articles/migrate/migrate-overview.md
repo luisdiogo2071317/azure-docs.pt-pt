@@ -4,13 +4,13 @@ description: "Disponibiliza uma descrição geral do serviço do Azure Migrate."
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/19/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -66,7 +66,7 @@ Uma avaliação ajuda-o a identificar a adequabilidade do Azure de VMs no local,
 3.  Ao ligar-se à VM através da ligação de consola no vCenter Server, especifique uma nova palavra-passe para a VM durante a ligação e, em seguida, execute a aplicação de recoletor na VM para iniciar a deteção.
 4.  O recoletor utiliza cmdlets do VMware PowerCLI para recolher os metadados da VM. A deteção é feita sem agentes e não instala nada nos anfitriões do VMware nem nas VMs. Os metadados recolhidos incluem informações da VM (núcleos, memória, discos, tamanhos de discos e adaptadores de rede). Também recolhe dados de desempenho das VMs, incluindo utilização da CPU e de memória, IOPS de disco, débito de disco (MBps) e saída de rede (MBps).
 5.  Os metadados são enviados para o projeto do Azure Migrate. Pode vê-los no portal do Azure.
-6.  Para efeitos da avaliação, agrupa as VMs detetadas em grupos. Por exemplo, pode agrupar VMs que executem a mesma aplicação. Pode agrupar as VMs no portal do Azure Migrate ou utilizar a marcação no vCenter Server. Além disso, pode utilizar a visualização de dependência para ver as dependências de uma máquina específica ou para todas as máquinas de um grupo e refinar o grupo.
+6.  Para efeitos da avaliação, agrupa as VMs detetadas em grupos. Por exemplo, pode agrupar VMs que executem a mesma aplicação. Para um agrupamento mais preciso, pode utilizar a visualização de dependências para ver as dependências de uma máquina específica ou para todas as máquinas de um grupo e refinar o grupo.
 7.  Assim que o grupo é formado, crie uma avaliação para o grupo. 
 8.  Depois de concluída a avaliação, pode vê-la no portal ou transferi-la no formato Excel.
 
