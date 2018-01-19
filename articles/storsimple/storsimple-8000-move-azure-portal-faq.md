@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: ac57894e4f180f42f80479d2031f4dd5ddfdb1be
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-storsimple-device-manager-service-from-classic-to-azure-portal-frequently-asked-questions-faq"></a>Mover o serviço StorSimple Manager de dispositivo do clássico para o portal do Azure: Perguntas mais frequentes sobre (FAQ)
 
@@ -144,7 +144,7 @@ Não. Não há nenhum impacto para Snapshot Manager do StorSimple ao mover o ser
 
 Não. Não é possível mudar o nome de dispositivos, volumes, contentores de volume ou políticas de cópia de segurança no portal do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [suportadas operações em dispositivos com versões anteriores à atualização 5.0](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-50).
 

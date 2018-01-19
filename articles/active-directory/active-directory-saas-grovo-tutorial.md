@@ -4,7 +4,7 @@ description: "Saiba como configurar o início de sessão entre o Azure Active Di
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 9deb4c9bd6719e7cf86883fba1306c435de0ebb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d5cb69d7832b974ec5e5b8b4e9f83b66fc9b98a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Tutorial: Integração do Azure Active Directory com Grovo
 
@@ -64,7 +64,7 @@ Para configurar a integração de Grovo com o Azure AD, terá de adicionar Grovo
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todas as aplicações**.
 
-    ![As aplicações da empresa][2]
+    ![O painel de aplicações da empresa][2]
     
 3. Para adicionar a nova aplicação, clique em **nova aplicação** botão no topo da caixa de diálogo.
 
@@ -76,13 +76,13 @@ Para configurar a integração de Grovo com o Azure AD, terá de adicionar Grovo
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD-início de sessão único
 
-Nesta secção, configure e teste do Azure AD-início de sessão único com Grovo com base num utilizador de teste chamado "Britta Simon."
+Nesta secção, configure e teste do Azure AD-início de sessão único com Grovo com base num utilizador de teste chamado "Britta Simon".
 
 Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo no Grovo é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Grovo tem de ser estabelecida.
 
 No Grovo, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
 
-Para configurar e testar o Azure AD início de sessão único com Grovo, tem de concluir os blocos modulares seguintes:
+Para configurar e testar o Azure AD-início de sessão único com Grovo, tem de concluir os blocos modulares seguintes:
 
 1. **[Configurar o Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)**  - para permitir aos utilizadores utilizar esta funcionalidade.
 2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD-início de sessão único com Britta Simon.
@@ -112,7 +112,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     b. No **URL de resposta** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-4.  Verifique **Mostrar avançadas definições de URL**, execute os seguintes passos:  
+4. Verifique **Mostrar avançadas definições de URL**, executar o passo seguinte:
 
     ![Domínio Grovo e os URLs únicos de informações de início de sessão](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url1.png)
 
@@ -121,7 +121,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     b. Se pretender configurar a aplicação no **SP** iniciada modo, execute os seguintes passos:
 
     ![Domínio Grovo e os URLs únicos de informações de início de sessão](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
-
+    
     No **iniciar sessão no URL** caixa de texto, escreva um URL a utilizar o padrão do seguinte:`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     > [!NOTE] 
@@ -129,31 +129,35 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
  
 5. Aplicação de Grovo espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos a partir de "**atributos de utilizador**" secção na página de integração de aplicações. A seguinte captura de ecrã mostra um exemplo para este.
     
-    ![Configurar o início de sessão único atributo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
+    ![Configurar attb Single Sign-On](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
     
 6. No **atributos de utilizador** secção no **de sessão único-** caixa de diálogo, configurar atributo token SAML, conforme mostrado na imagem e efetuar os seguintes passos:
     
     | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |    
-    | Nome Próprio              | User.givenName |
-    | Apelido               | User.Surname |
+    | Nome Próprio          | user.givenname |
+    | Apelido           | user.surname |
+    | Endereço de E-mail       | user.mail    |
+    | Campo IDdeEmpregado          | User.employeeid |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
-    ![Configurar o atributo de início de sessão único](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
+    ![Configurar o início de sessão único adicionar](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
 
-    ![Configurar o atributo de início de sessão único](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
+    ![Configurar Addattb de início de sessão único](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
 
     b. No **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
     c. Do **valor** lista, digite o valor de atributo apresentado para essa linha.
+
+    d. Deixe o **espaço de nomes** em branco.
     
-    d. Clique em **OK**.
+    e. Clique em **OK**.
 
 
 7. No **certificado de assinatura de SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![O tinta digital Transferir certificado](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_certificate.png) 
+    ![A hiperligação de transferência do certificado](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_certificate.png) 
 
 8. Clique em **guardar** botão.
 
@@ -163,9 +167,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configuração de Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_configure.png) 
 
-10. Numa janela do browser web diferente, inicie sessão no Grovo como administrador.
+10. Numa janela do browser web diferente, no início de sessão Grovo como administrador.
 
-11. Aceda a **ADMIN** > **integrações**.
+11. Aceda a **Admin** > **integrações**.
  
     ![Configuração de Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_admin.png) 
 
@@ -173,13 +177,13 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configuração de Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_setup.png)
 
-13. No **SP iniciada SAML 2.0** janela de pop-up, execute os seguintes passos:
+13. No **SP iniciada SAML 2.0** janela pop-up, execute os seguintes passos:
 
     ![Configuração de Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_saml.png)
 
-    a. No **id de entidade** caixa de texto, cole o valor de **ID de entidade de SAML** que copiou a partir do portal do Azure.
+    a. No **id de entidade** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
 
-    b. No **único ponto final do serviço de início de sessão** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML** que copiou a partir do portal do Azure.
+    b. No **único ponto final do serviço de início de sessão** caixa de texto, cole o valor de **único início de sessão no URL do serviço SAML**, que copiou do portal do Azure.
 
     c. Selecione **no enlace do ponto final de serviço início de sessão único** como `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
     

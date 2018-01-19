@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: davidmu
-ms.openlocfilehash: bd1c860db026f948202cd1f3aa763b4547c597b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b82a70d1b654ff9601db501011d9aa21af8e36c2
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementar uma máquina de Virtual do Azure com c# e um modelo do Resource Manager
 Este artigo mostra como implementar um modelo de Gestor de recursos do Azure com c#. O modelo que criou implementa uma única máquina virtual com o Windows Server numa rede virtual novo com uma única sub-rede.
@@ -249,7 +249,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 O modelo e os parâmetros sejam implementados a partir de uma conta de armazenamento no Azure. Neste passo, pode criar a conta e carregar os ficheiros. 
 
@@ -282,11 +282,11 @@ container.SetPermissionsAsync(containerPermissions).Wait();
 
 Console.WriteLine("Uploading template file...");
 var templateblob = container.GetBlockBlobReference("CreateVMTemplate.json");
-templateblob.UploadFromFile("..\\..\\CreateVMTemplate.json");
+templateblob.UploadFromFileAsync("..\\..\\CreateVMTemplate.json").Result();
 
 Console.WriteLine("Uploading parameters file...");
 var paramblob = container.GetBlockBlobReference("Parameters.json");
-paramblob.UploadFromFile("..\\..\\Parameters.json");
+paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 ```
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
@@ -326,6 +326,6 @@ Deve demorar cerca de cinco minutos para esta aplicação de consola executar to
 
 2. Antes de premir **Enter** para iniciar a eliminação de recursos, pode demorar alguns minutos para verificar a criação dos recursos no portal do Azure. Clique no estado de implementação para ver informações sobre a implementação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Se ocorreram problemas com a implementação, um passo seguinte será consultar [resolver erros comuns de implementação do Azure com o Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Saiba como implementar uma máquina virtual e os respetivos recursos de suporte, revendo [implementar uma Azure Virtual Machine utilizar c#](csharp.md).

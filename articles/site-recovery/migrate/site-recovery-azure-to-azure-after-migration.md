@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: ponatara
 ms.openlocfilehash: 2943d33744a29da7ffd1f1544fc81696195ecce1
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replicar VMs do Azure para noutra região após a migração para o Azure utilizando o Azure Site Recovery
 
@@ -61,7 +61,7 @@ A tabela seguinte fornece informações adicionais sobre como instalar o agente 
 | **Operação** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Instalar o agente da VM |Transfira e instale o [MSI do agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necessita de privilégios de administrador para concluir a instalação. |Instalar a versão mais recente [agente Linux](../../virtual-machines/linux/agent-user-guide.md). Necessita de privilégios de administrador para concluir a instalação. Recomendamos que instale o agente do seu repositório de distribuição. Iremos *não é recomendada a* instalar o agente de VM com Linux diretamente a partir do GitHub.  |
-| A validar a instalação do agente VM |1. Procure a pasta de C:\WindowsAzure\Packages na VM do Azure. Deverá ver o ficheiro WaAppAgent.exe. <br>2. Clique com o botão direito do rato no ficheiro, aceda a **Propriedades** e, em seguida, selecione o separador **Detalhes**. O **versão do produto** campo deve ser 2.6.1198.718 ou superior. |N/D |
+| A validar a instalação do agente VM |1. Procure a pasta de C:\WindowsAzure\Packages na VM do Azure. Deverá ver o ficheiro WaAppAgent.exe. <br>2. Clique com o botão direito do rato no ficheiro, aceda a **Propriedades** e, em seguida, selecione o separador **Detalhes**. O **versão do produto** campo deve ser 2.6.1198.718 ou superior. |N/A |
 
 
 ### <a name="step-3-remove-the-mobility-service-from-the-migrated-virtual-machine"></a>Passo 3: Remover o serviço de mobilidade da máquina virtual migrada
@@ -100,6 +100,6 @@ Utilize um dos seguintes métodos para desinstalar o serviço de mobilidade num 
 Depois de desinstalar o serviço de mobilidade, reinicie a VM antes de configurar a replicação para outra região do Azure.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Começar a proteger as cargas de trabalho por [replicar máquinas virtuais do Azure](../azure-to-azure-quickstart.md).
 - Saiba mais sobre [redes orientações para replicar máquinas virtuais do Azure](../site-recovery-azure-to-azure-networking-guidance.md).

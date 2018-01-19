@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: sethm
-ms.openlocfilehash: e64e7d9f203debe19dfa222f501c7902cfe2ae98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 Este artigo aborda algumas perguntas mais frequentes sobre o Microsoft Azure Service Bus. Também pode visitar o [perguntas frequentes do suporte do Azure](http://go.microsoft.com/fwlink/?LinkID=185083) para gerais informações de preços e suporte do Azure.
@@ -48,7 +48,6 @@ Consulte [melhores práticas para melhorias de desempenho utilizando o Service B
 ### <a name="what-should-i-know-before-creating-entities"></a>O que posso saber antes de criar entidades?
 As seguintes propriedades de uma fila e um tópico são imutáveis. Considere esta limitação ao aprovisionar as entidades, como estas propriedades não podem ser modificadas sem criar uma nova entidade de substituição.
 
-* Tamanho
 * Criação de partições
 * Sessões
 * Deteção de duplicados
@@ -112,7 +111,7 @@ $res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Mic
 Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais acerca do Service Bus, consulte os artigos seguintes:
 
 * [Introdução ao Azure Premium do Service Bus (blogue)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)

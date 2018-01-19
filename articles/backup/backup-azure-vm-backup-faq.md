@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Perguntas sobre o serviço Azure VM Backup
 Este artigo tem respostas a perguntas comuns para o ajudar a compreender rapidamente os componentes do Azure VM Backup. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -72,3 +72,13 @@ Sim, pode utilizar as cópias de segurança colocadas antes de migrar discos de 
 ## <a name="manage-vm-backups"></a>Gerir cópias de segurança de VMs
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>O que acontece quando altero uma política de cópias de segurança numa ou em várias VMs?
 Quando uma nova política é aplicada no VM, agenda e a retenção da nova política é seguido. Se a retenção é expandida, pontos de recuperação existentes são marcados para mantê-las de acordo com a nova política. Se a retenção é reduzida, estão marcados para eliminação na próxima tarefa de limpeza e são eliminados subsequentemente. 
+
+### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Como mover que uma VM inscrito na cópia de segurança do Azure entre os grupos de recursos?
+Siga os passos abaixo para mover com êxito a cópia de segurança VM para o grupo de recursos de destino 
+1. Temporariamente parar a cópia de segurança e manter os dados de cópia de segurança
+2. Mova a VM para o grupo de recursos de destino
+3. Volte a protegê-lo com o mesmo/novo cofre
+
+Os utilizadores podem restaurar a partir dos pontos de restauro disponíveis criados antes da operação de movimentação.
+
+

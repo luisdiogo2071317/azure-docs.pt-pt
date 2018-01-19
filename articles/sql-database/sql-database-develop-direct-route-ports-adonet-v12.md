@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: ea184cce4217e6c81c02740f0d6ccf79cc1c1c4a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3004edee0096d2e1594679371fb162b392e67f9a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas para além de 1433 para ADO.NET 4.5
 Este tópico descreve o comportamento de ligação de SQL Database do Azure para clientes que utilizam ADO.NET 4.5 ou uma versão posterior. 
@@ -35,7 +35,7 @@ Para ligações ao SQL Database do Azure, podemos devem primeiro solicitar se o 
 A porta 1433 é a porta única que tem de estar aberta no seu computador de secretária que aloja a aplicação de cliente da base de dados SQL.
 
 #### <a name="inside-client-runs-on-azure"></a>*Interior:* cliente é executado no Azure
-Quando o cliente é executado dentro do limite em nuvem do Azure, utiliza o que podemos chamar um *rota direta* para interagir com o servidor de base de dados SQL. Depois de uma ligação é estabelecida, mais as interações entre o cliente e a base de dados não envolvem não existe nenhum proxy middleware.
+Quando o cliente é executado dentro do limite em nuvem do Azure, utiliza o que podemos chamar um *rota direta* para interagir com o servidor de base de dados SQL. Depois de uma ligação é estabelecida, mais as interações entre o cliente e a base de dados não envolvem nenhum Gateway de base de dados SQL do Azure.
 
 A sequência é o seguinte:
 

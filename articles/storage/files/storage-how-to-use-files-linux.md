@@ -12,31 +12,33 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/20/2017
 ms.author: renash
-ms.openlocfilehash: 0a87f8572af2620420faa0e3c2e575aa8add42ab
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: cca0d315a815faca5db07099b8e8e451ef55fad5
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. Partilhas de ficheiros do Azure podem ser montadas nas distribuições do Linux utilizando o [cliente de kernel CIFS](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas formas de montar uma partilha de ficheiros do Azure: a pedido com o `mount` comando e de arranque através da criação de uma entrada no `/etc/fstab`.
 
 > [!NOTE]  
-> Para montar uma partilha de ficheiros de Azure fora do Azure está alojado, tal como no local ou numa região diferente do Azure, SO de região tem de suportar a funcionalidade de encriptação do SMB 3.0. Funcionalidade de encriptação para SMB 3.0 para Linux foi introduzida no 4.11 kernel. Esta funcionalidade permite a montagem do Azure da partilha de ficheiros no local ou uma região do Azure diferente. No momento da publicação, esta funcionalidade foi backported para Ubuntu 16.04 e acima.
+> Para montar uma partilha de ficheiros do Azure fora a região do Azure que está alojado no, tal como no local ou numa região diferente do Azure, o sistema operativo tem de suportar a funcionalidade de encriptação do SMB 3.0.
 
-## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Partilhar Prerequisities para montar um ficheiro do Azure com o Linux e o pacote de cifs utils
-* **Escolha uma distribuição de Linux que pode ter o pacote de cifs utils instalado**: a Microsoft recomenda as distribuições de Linux seguintes na galeria da imagem do Azure:
+## <a name="prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Pré-requisitos para montar uma partilha de ficheiros do Azure com o Linux e o pacote de cifs utils
+* **Escolha uma distribuição de Linux que pode ter o pacote de cifs utils instalado.**  
+    As distribuições de Linux seguintes estão disponíveis para utilização na galeria do Azure:
 
     * Ubuntu Server 14.04 +
     * RHEL 7 +
     * CentOS 7 +
-    * Debian 8
+    * Debian 8 +
     * openSUSE 13.2 +
     * SUSE Linux Enterprise Server 12
 
-* <a id="install-cifs-utils"></a>**O pacote de cifs utils está instalado**: cifs-utils pode ser instalado utilizando o Gestor de pacotes de distribuição de Linux da sua preferência. 
+* <a id="install-cifs-utils"></a>**O pacote de cifs utils está instalado.**  
+    O pacote de cifs utils pode ser instalado utilizando o Gestor de pacotes de distribuição de Linux da sua preferência. 
 
     No **Ubuntu** e **baseado em Debian** distribuições, utilize o `apt-get` Gestor de pacotes:
 
@@ -59,49 +61,61 @@ ms.lasthandoff: 01/12/2018
 
     No outras distribuições, utilize o Gestor de pacotes apropriada ou [compilar a partir da origem](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* **Opte por utilizar as permissões do diretório/ficheiro da partilha montada**: os exemplos abaixo, utilizamos 0777, para permitir leitura, escrita e de executar permissões a todos os utilizadores. Pode ser substituído com outros [chmod permissões](https://en.wikipedia.org/wiki/Chmod) conforme pretendido. 
+* <a id="smb-client-reqs"></a>**Compreenda os requisitos do cliente SMB.**  
+    Podem ser montados os ficheiros do Azure ou através de SMB 2.1 e o SMB 3.0. Para ligações futuras a partir de clientes no local ou noutras regiões do Azure, ficheiros do Azure irão rejeitar SMB 2.1 (ou SMB 3.0 sem encriptação). Se *secure transferência necessária* está ativada para uma conta de armazenamento, ficheiros do Azure irá permitir apenas ligações através de SMB 3.0 com encriptação.
+    
+    Suporte de encriptação SMB 3.0 foi introduzido na versão de kernel 4.11 de Linux e foi backported a versões mais antigas do kernel para as distribuições do Linux populares. No momento da publicação deste documento, as distribuições seguintes na galeria do Azure suportam esta funcionalidade:
 
-* **Nome da Conta de Armazenamento**: para montar uma partilha de Ficheiros do Azure, precisa do nome da conta de armazenamento.
+    - Ubuntu Server 16.04 +
+    - openSUSE 42.3 +
+    - SUSE Linux Enterprise Server 12 SP3+
+    
+    Se a distribuição de Linux não estiver listada aqui, pode verificar para ver a versão de kernel do Linux com o seguinte comando:
 
-* **Chave da Conta de Armazenamento**: para montar uma partilha de Ficheiros do Azure, precisa da chave de armazenamento primária (ou secundária). Atualmente, não são suportadas chaves SAS para a montagem.
+    ```
+    uname -r
+    ```
+
+* **Opte por utilizar as permissões do diretório/ficheiro da partilha montada**: nos exemplos abaixo, a permissão `0777` é utilizado para dar a leitura, escrita e de executar permissões a todos os utilizadores. Pode ser substituído com outros [chmod permissões](https://en.wikipedia.org/wiki/Chmod) conforme pretendido. 
+
+* **Nome da conta de armazenamento**: para montar uma partilha de ficheiros do Azure, terá do nome da conta de armazenamento.
+
+* **Chave de conta de armazenamento**: para montar uma partilha de ficheiros do Azure, terá da chave de armazenamento () principais ou secundários. Atualmente, não são suportadas chaves SAS para a montagem.
 
 * **Certifique-se de que a porta 445 está aberta**: SMB comunica através da porta TCP 445 - verificar ver se a firewall não está a bloquear TCP portas 445 do computador cliente.
 
 ## <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montar a ficheiro do Azure partilha a pedido com`mount`
 1. **[Instalar o pacote de cifs utils para a distribuição de Linux](#install-cifs-utils)**.
 
-2. **Crie uma pasta para o ponto de montagem**: Isto pode ser efetuado em qualquer local no sistema de ficheiros.
+2. **Crie uma pasta para o ponto de montagem**: uma pasta para um ponto de montagem pode ser criada em qualquer local no sistema de ficheiros, mas é Convenção comuns para criar esta sob o `/mnt` pasta. Por exemplo:
 
     ```
-    mkdir mymountpoint
+    mkdir /mnt/MyAzureFileShare
     ```
 
-3. **Utilize o comando de montagem para montar a partilha de ficheiros do Azure**: não se esqueça de substituir `<storage-account-name>`, `<share-name>`, e `<storage-account-key>` com as informações corretas.
+3. **Utilize o comando de montagem para montar a partilha de ficheiros do Azure**: não se esqueça de substituir `<storage-account-name>`, `<share-name>`, `<smb-version>`, `<storage-account-key>`, e `<mount-point>` com as informações adequadas para o seu ambiente. Se a distribuição de Linux suportar SMB 3.0 com encriptação (consulte [requisitos do cliente SMB compreender](#smb-client-reqs) para obter mais informações), utilize `3.0` para `<smb-version>`. Para as distribuições do Linux que não suportem SMB 3.0 com encriptação, utilize `2.1` para `<smb-version>`. Tenha em atenção que uma partilha de ficheiros do Azure só pode ser montada fora de uma região do Azure (incluindo no local ou numa região diferente do Azure) com SMB 3.0. 
 
     ```
-    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
-> Quando tiver terminado a utilizar a partilha de ficheiros do Azure, pode utilizar `sudo umount ./mymountpoint` desmontar a partilha.
+> Quando tiver terminado a utilizar a partilha de ficheiros do Azure, pode utilizar `sudo umount <mount-point>` desmontar a partilha.
 
 ## <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Criar um ponto de montagem persistente para a partilha de ficheiros do Azure com o`/etc/fstab`
 1. **[Instalar o pacote de cifs utils para a distribuição de Linux](#install-cifs-utils)**.
 
-2. **Crie uma pasta para o ponto de montagem**: Isto pode ser efetuado em qualquer local no sistema de ficheiros, mas tem de ter em atenção o caminho absoluto da pasta. O exemplo seguinte cria uma pasta na raiz.
+2. **Crie uma pasta para o ponto de montagem**: uma pasta para um ponto de montagem pode ser criada em qualquer local no sistema de ficheiros, mas é Convenção comuns para criar esta sob o `/mnt` pasta. Sempre que criar isto, tenha em atenção o caminho absoluto da pasta. Por exemplo, o comando seguinte cria uma nova pasta em `/mnt` (o caminho é um caminho absoluto).
 
     ```
-    sudo mkdir /mymountpoint
+    sudo mkdir /mnt/MyAzureFileShare
     ```
 
-3. **Utilize o seguinte comando para acrescentar a linha seguinte ao `/etc/fstab`** : não se esqueça de substituir `<storage-account-name>`, `<share-name>`, e `<storage-account-key>` com as informações corretas.
+3. **Utilize o seguinte comando para acrescentar a linha seguinte ao `/etc/fstab`** : não se esqueça de substituir `<storage-account-name>`, `<share-name>`, `<smb-version>`, `<storage-account-key>`, e `<mount-point>` com as informações adequadas para o ambiente. Se a distribuição de Linux suportar SMB 3.0 com encriptação (consulte [requisitos do cliente SMB compreender](#smb-client-reqs) para obter mais informações), utilize `3.0` para `<smb-version>`. Para as distribuições do Linux que não suportem SMB 3.0 com encriptação, utilize `2.1` para `<smb-version>`. Tenha em atenção que uma partilha de ficheiros do Azure só pode ser montada fora de uma região do Azure (incluindo no local ou numa região diferente do Azure) com SMB 3.0. 
 
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs nofail,vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
-
-> [!Note]  
-> Certifique-se de que adiciona o `nofail` opção o `/etc/fstab` entrada, caso contrário, a VM pode bloquear durante o arranque em caso de uma configuração incorreta ou outro erro ao montar a partilha de ficheiros do Azure.
 
 > [!Note]  
 > Pode utilizar `sudo mount -a` para montar a partilha de ficheiros do Azure após a edição `/etc/fstab` em vez de ser reiniciado.
@@ -113,8 +127,7 @@ Os ficheiros do Azure para o grupo de utilizadores do Linux fornece um fórum pa
 
 ## <a name="next-steps"></a>Passos Seguintes
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure.
-* [File Service REST API reference (Referência da API REST do Serviço do Ficheiros)](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-* [Como utilizar o AzCopy com armazenamento do Microsoft Azure](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Utilizar a CLI do Azure com o storage do Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
+* [Introdução aos ficheiros do Azure](storage-files-introduction.md)
+* [Planear uma implementação de ficheiros do Azure](storage-files-planning.md)
 * [FAQ](../storage-files-faq.md)
 * [Resolução de problemas](storage-troubleshoot-linux-file-connection-problems.md)

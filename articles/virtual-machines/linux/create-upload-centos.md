@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 010f4b05b35fa1f31c14f34a5fae9298fcd831e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16256203cc11ebaf7df402a3502328a63d4c2718
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em CentOS para o Azure
 * [Preparar uma máquina de virtual do CentOS 6. x para o Azure](#centos-6x)
@@ -40,7 +40,7 @@ Este artigo pressupõe que já tem instalado um CentOS (ou semelhante derivativo
 * Não configure uma partição de comutação no disco do SO. O agente Linux pode ser configurado para criar um ficheiro de comutação no disco de recursos temporário.  Podem encontrar mais informações sobre esta nos passos abaixo.
 * Todos os VHDs têm de ter tamanhos que estão em múltiplos de 1 MB.
 
-## <a name="centos-6x"></a>CentOS 6. x
+## <a name="centos-6x"></a>CentOS 6.x
 
 1. No Gestor de Hyper-V, selecione a máquina virtual.
 
@@ -330,6 +330,6 @@ Preparar uma máquina virtual do CentOS 7 para o Azure é muito semelhante à Ce
 
 14. Clique em **ação -> encerrar baixo** no Gestor de Hyper-V. O VHD de Linux está agora pronto para ser carregado para o Azure.
 
-## <a name="next-steps"></a>Passos seguintes
-Agora, está pronto a utilizar o seu disco rígido virtual do CentOS Linux para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que está a carregar o ficheiro. vhd para o Azure, consulte os passos 2 e 3 na [criar e carregar um disco rígido virtual que contém o sistema operativo Linux](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+## <a name="next-steps"></a>Passos Seguintes
+Agora, está pronto a utilizar o seu disco rígido virtual do CentOS Linux para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que está a carregar o ficheiro. vhd para o Azure, consulte [criar e carregar um disco rígido virtual que contém o sistema operativo Linux](upload-vhd.md#option-1-upload-a-vhd).
 

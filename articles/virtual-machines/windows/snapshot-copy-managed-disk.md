@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: dba70db512d88dfc57107bade0df50d1834eb883
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 10b5eb0062e4a029b0f233ee8af17d590d59c8d4
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo
 
@@ -26,7 +26,7 @@ Tire um instantâneo de um disco de SO ou dados problemas de VHD para cópia de 
 
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Utilize o portal do Azure para criar um instantâneo 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. A partir do canto superior esquerdo, clique em **novo** e procure **instantâneo**.
 3. No painel do instantâneo, clique em **criar**.
 4. Introduza um **nome** para o instantâneo.
@@ -42,7 +42,7 @@ Os passos seguintes mostram como obter o disco VHD para ser copiado, criar as co
 Certifique-se de que tem a versão mais recente do módulo do AzureRM.Compute PowerShell instalado. Execute o seguinte comando para instalá-lo.
 
 ```
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 ```
 Para obter mais informações, consulte [controlo de versões do Azure PowerShell](/powershell/azure/overview).
 
@@ -73,6 +73,6 @@ New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGro
 ```
 Se planear utilizar o instantâneo para criar um disco gerido e ligá-lo uma VM que tem de ser a execução elevada, utilize o parâmetro `-AccountType Premium_LRS` com o comando AzureRmSnapshot de novo. O parâmetro cria o instantâneo, de modo a que seja armazenada como um disco de gerido para Premium. Os discos Premium geridos são mais dispendiosos do que padrão. Por isso, não se esqueça de que precisar realmente Premium antes de poder utilizar esse parâmetro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Crie uma máquina virtual a partir de um instantâneo ao criar um disco gerido a partir de um instantâneo e, em seguida, anexar o disco novo gerido como disco do SO. Para obter mais informações, consulte o [criar uma VM a partir de um instantâneo](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) exemplo.

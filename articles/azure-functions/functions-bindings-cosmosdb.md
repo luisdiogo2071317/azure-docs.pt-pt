@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 286f4df74bcacfa2e7d559f1135b9fba2a915bd1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ab55281b6adcc8867f207e6887c88a26c1a8616b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Enlaces de Cosmos BD do Azure para as funções do Azure
 
@@ -150,9 +150,9 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** || tem de ser definido como `cosmosDBTrigger`. |
-|**direção** || tem de ser definido como `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
-|**nome** || O nome da variável utilizado no código de função que representa a lista de documentos com as alterações. | 
+|**type** || tem de ser definido como `cosmosDBTrigger`. |
+|**direction** || tem de ser definido como `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
+|**name** || O nome da variável utilizado no código de função que representa a lista de documentos com as alterações. | 
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma definição de aplicação que contém a cadeia de ligação utilizada para ligar à conta de base de dados do Azure Cosmos a ser monitorizada. |
 |**databaseName**|**DatabaseName**  | O nome da base de dados do Azure Cosmos DB com a coleção que está a ser monitorizada. |
 |**collectionName** |**CollectionName** | O nome da coleção que está a ser monitorizado. |
@@ -384,7 +384,7 @@ Segue-se os dados do enlace *function.json* ficheiro:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -423,7 +423,7 @@ Segue-se os dados do enlace *function.json* ficheiro:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -455,14 +455,14 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     || tem de ser definido como `documentdb`.        |
-|**direção**     || tem de ser definido como `in`.         |
-|**nome**     || Nome do parâmetro de enlace que representa o documento na função.  |
+|**type**     || tem de ser definido como `documentdb`.        |
+|**direction**     || tem de ser definido como `in`.         |
+|**name**     || Nome do parâmetro de enlace que representa o documento na função.  |
 |**databaseName** |**DatabaseName** |A base de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
-|**ID**    | **ID** | O ID do documento para obter. Esta propriedade suporta parâmetros de enlaces. Para obter mais informações, consulte [vincular a propriedades personalizadas de entrada numa expressão de enlace](functions-triggers-bindings.md#bind-to-custom-input-properties). Não definir ambos os **id** e **sqlQuery** propriedades. Se não definir uma, é obtida a coleção completa. |
+|**id**    | **Id** | O ID do documento para obter. Esta propriedade suporta parâmetros de enlaces. Para obter mais informações, consulte [vincular a propriedades personalizadas de entrada numa expressão de enlace](functions-triggers-bindings.md#bind-to-custom-input-properties). Não definir ambos os **id** e **sqlQuery** propriedades. Se não definir uma, é obtida a coleção completa. |
 |**sqlQuery**  |**SqlQuery**  | Uma consulta de base de dados SQL do Azure Cosmos utilizada para obter vários documentos. A propriedade suporta os enlaces de tempo de execução, tal como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. Não definir ambos os **id** e **sqlQuery** propriedades. Se não definir uma, é obtida a coleção completa.|
-|**ligação**     |**ConnectionStringSetting**|O nome da definição de aplicação que contém a cadeia de ligação de base de dados do Azure Cosmos.        |
+|**connection**     |**ConnectionStringSetting**|O nome da definição de aplicação que contém a cadeia de ligação de base de dados do Azure Cosmos.        |
 |**partitionKey**|**PartitionKey**|Especifica o valor de chave de partição para a pesquisa. Pode incluir parâmetros de enlace.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -727,15 +727,15 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     || tem de ser definido como `documentdb`.        |
-|**direção**     || tem de ser definido como `out`.         |
-|**nome**     || Nome do parâmetro de enlace que representa o documento na função.  |
+|**type**     || tem de ser definido como `documentdb`.        |
+|**direction**     || tem de ser definido como `out`.         |
+|**name**     || Nome do parâmetro de enlace que representa o documento na função.  |
 |**databaseName** | **DatabaseName**|A base de dados que contém a coleção onde o documento é criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção em que o documento é criado. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Um valor booleano para indicar se a coleção é criada quando não existe. A predefinição é *falso* porque são criadas novas coleções com débito reservado, que tem custos implicações. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**partitionKey**|**PartitionKey** |Quando `CreateIfNotExists` for VERDADEIRO, define o caminho de chave de partição para a coleção criada.|
 |**collectionThroughput**|**CollectionThroughput**| Quando `CreateIfNotExists` for VERDADEIRO, define o [débito](../cosmos-db/set-throughput.md) da coleção criada.|
-|**ligação**    |**ConnectionStringSetting** |O nome da definição de aplicação que contém a cadeia de ligação de base de dados do Azure Cosmos.        |
+|**connection**    |**ConnectionStringSetting** |O nome da definição de aplicação que contém a cadeia de ligação de base de dados do Azure Cosmos.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

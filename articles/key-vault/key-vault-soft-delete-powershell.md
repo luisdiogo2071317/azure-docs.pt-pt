@@ -3,18 +3,18 @@ ms.assetid:
 title: "O Cofre de chaves do Azure - como utilizar a eliminação de forma recuperável com o PowerShell"
 description: "Utilizar os exemplos de cenários de eliminação de forma recuperável com recortes de código do PowerShell"
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 08/21/2017
-ms.author: bruceper
-ms.openlocfilehash: 8cf0674f7eb139e50da4a3c22a8d8376a86b0dcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alleonar
+ms.openlocfilehash: 48569e31e6400e3ec8958e0bceda1fd3b72207ea
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Cofre de chaves com o PowerShell
 
@@ -34,7 +34,7 @@ Funcionalidade de eliminação de forma recuperável do Azure do Cofre de chaves
 
 Para informações de refernece específico do Cofre de chaves para o PowerShell, consulte [referência do PowerShell do Cofre de chaves do Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
-## <a name="required-permissions"></a>Permissões necessárias
+## <a name="required-permissions"></a>Permissões obrigatórias
 
 Operações do Cofre de chaves separadamente geridas através de permissões de controlo (RBAC) de acesso baseado em funções da seguinte forma:
 

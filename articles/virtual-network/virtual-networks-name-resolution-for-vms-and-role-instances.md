@@ -3,8 +3,8 @@ title: "Resolução para VMs e instâncias de função"
 description: "Cenários de resolução de nome para o IaaS do Azure, as soluções híbridas, entre os serviços de nuvem diferente, do Active Directory e utilizando o seu próprio servidor DNS "
 services: virtual-network
 documentationcenter: na
-author: GarethBradshawMSFT
-manager: carmonm
+author: jimdial
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2016
-ms.author: telmos
-ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jdial
+ms.openlocfilehash: 5a298f535308cff90ddd249594b7bb5e36909867
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="name-resolution-for-vms-and-role-instances"></a>Resolução de nomes para VMs e instâncias de função
 Dependendo de como utilizar o Azure para alojar o IaaS, PaaS e soluções híbridas, se pretender permitir que as VMs e instâncias de função que criar para comunicar entre si. Embora esta comunicação pode ser feita através da utilização de endereços IP, é muito mais simples utilizar nomes que podem ser memorizados facilmente e não alteram. 
@@ -32,9 +32,10 @@ O tipo de resolução de nomes que utiliza depende de como as VMs e instâncias 
 
 **A tabela seguinte ilustra os cenários e soluções de resolução de nome correspondente:**
 
-| **Cenário** | **Solução** | **Sufixo** |
+| **Cenário** | **Solução** | **Suffix** |
 | --- | --- | --- |
 | Resolução de nome entre instâncias de função ou VMs localizadas no mesmo serviço em nuvem ou de rede virtual |[Resolução de nome fornecidos pelo Azure](#azure-provided-name-resolution) |nome de anfitrião ou o FQDN |
+| Resolução de nome de um serviço de aplicações do Azure (aplicação Web, a função, Bot, etc.) utilizando a integração de VNET para instâncias de função ou VMs localizado na mesma rede virtual |Gerida pelo cliente servidores DNS reencaminhamento consultas entre vnets para a resolução pelo Azure (proxy DNS).  Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |Apenas FQDN |
 | Resolução de nome entre instâncias de função ou VMs localizadas em redes virtuais diferentes |Gerida pelo cliente servidores DNS reencaminhamento consultas entre vnets para a resolução pelo Azure (proxy DNS).  Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |Apenas FQDN |
 | Resolução de nomes de computador e o serviço no local de instâncias de função ou VMs no Azure |Gerida pelo cliente servidores DNS (por exemplo, o controlador de domínio no local, controlador de domínio só de leitura local ou um DNS secundário sincronizada com êxito utilizando transferências de zona).  Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |Apenas FQDN |
 | Resolução de nomes de anfitrião do Azure a partir de computadores no local |Consultas de reencaminhar para um servidor de proxy DNS gerida pelo cliente na vnet correspondente, o servidor de proxy reencaminha consultas para o Azure para a resolução. Consulte [resolução de nomes utilizando o seu próprio servidor DNS](#name-resolution-using-your-own-dns-server) |Apenas FQDN |
@@ -42,7 +43,7 @@ O tipo de resolução de nomes que utiliza depende de como as VMs e instâncias 
 | Resolução de nome entre VMs ou instâncias de função localizadas nos serviços de nuvem diferente, não numa rede virtual |Não aplicável. A conectividade entre VMs e instâncias de função nos serviços de nuvem diferente não é suportada fora de uma rede virtual. |n/d |
 
 ## <a name="azure-provided-name-resolution"></a>Resolução de nome fornecidos pelo Azure
-Juntamente com a resolução de nomes DNS públicos, o Azure oferece resolução dos nomes internos para VMs e instâncias de função que residem dentro da mesma rede virtual ou serviço em nuvem.  VMs/instâncias num serviço em nuvem partilham o mesmo sufixo DNS (para que o nome de anfitrião autónomo é suficiente) mas numa nuvem diferente de redes virtuais clássicas serviços têm diferentes sufixos DNS para que o FQDN é necessária para resolver nomes entre os serviços de nuvem diferente.  Nas redes virtuais no modelo de implementação Resource Manager, o sufixo DNS é consistente entre a rede virtual (para que o FQDN não é necessário) e nomes DNS podem ser atribuídos a NICs e VMs. Apesar de resolução de nome fornecidos pelo Azure necessita de qualquer configuração, não é a opção adequada para todos os cenários de implementação, como mostrado na tabela acima.
+Juntamente com a resolução de nomes DNS públicos, o Azure oferece resolução dos nomes internos para VMs e instâncias de função que residem dentro da mesma rede virtual ou serviço em nuvem.  VMs/instâncias num serviço em nuvem partilham o mesmo sufixo DNS (para que o nome de anfitrião autónomo é suficiente) mas numa nuvem diferente de redes virtuais clássicas serviços têm diferentes sufixos DNS para que o FQDN é necessária para resolver nomes entre os serviços de nuvem diferente.  Nas redes virtuais no modelo de implementação Resource Manager, o sufixo DNS é consistente entre a rede virtual (para que o FQDN não é necessário) e nomes DNS podem ser atribuídos a NICs e VMs. Apesar de resolução de nome fornecidos pelo Azure necessita de qualquer configuração, não é a opção adequada para todos os cenários de implementação, como mostrado na tabela anterior.
 
 > [!NOTE]
 > No caso de funções web e de trabalho, também pode aceder os endereços IP internos de instâncias de função com base no número de nome e a instância de função utilizando a API de REST de gestão de serviço do Azure. Para obter mais informações, consulte [referência de API de REST de gestão de serviço](https://msdn.microsoft.com/library/azure/ee460799.aspx).
@@ -65,7 +66,7 @@ Juntamente com a resolução de nomes DNS públicos, o Azure oferece resolução
 * Não é possível registar manualmente os seus próprios registos.
 * WINS e NetBIOS não são suportados. (Não é possível ver as suas VMs no Explorador do Windows.)
 * Os nomes de anfitrião tem de ser compatível com o DNS (tem de utilizar apenas 0-9, a-z e '-' e não pode começar nem terminar com um '-'. Consulte a secção de 3696 RFC 2.)
-* O tráfego de consulta DNS está limitado para cada VM. Isto não deve afetar a maioria das aplicações.  Se a limitação do pedido é observado, certifique-se de que a colocação em cache do lado do cliente está ativada.  Para obter mais detalhes, consulte [ao obter o máximo partido do resolução de nome fornecidos pelo Azure](#Getting-the-most-from-Azure-provided-name-resolution).
+* O tráfego de consulta DNS está limitado para cada VM. Isto não deve afetar a maioria das aplicações.  Se a limitação do pedido é observado, certifique-se de que a colocação em cache do lado do cliente está ativada.  Para obter mais informações, consulte [ao obter o máximo partido do resolução de nome fornecidos pelo Azure](#Getting-the-most-from-Azure-provided-name-resolution).
 * Apenas as VMs nos serviços de 180 nuvem primeiro estão registadas para cada rede virtual de um modelo de implementação clássica. Não é aplicável às redes virtuais em modelos de implementação do Resource Manager.
 
 ### <a name="getting-the-most-from-azure-provided-name-resolution"></a>Obter o máximo partido do resolução de nome fornecidos pelo Azure
@@ -75,7 +76,7 @@ Nem todas as consultas DNS tem de ser enviadas através da rede.  Colocação em
 
 A predefinição do cliente DNS do Windows tem uma cache DNS incorporada.  Alguns Linux distros não incluem a colocação em cache por predefinição, é recomendado que um adicionadas para cada VM com Linux (após verificar-se de que não é uma cache local já).
 
-Há uma série de diferentes DNS colocação em cache pacotes disponíveis, por exemplo, dnsmasq, Eis os passos para instalar o dnsmasq a distros mais comuns:
+Há uma série de DNS diferente, colocação em cache pacotes disponíveis. Por exemplo, dnsmasq. Os seguintes passos listam como instalar dnsmasq na distros mais comuns:
 
 * **Ubuntu (utiliza resolvconf)**:
   * Instale apenas o pacote de dnsmasq ("sudo apt get instalação dnsmasq").
@@ -83,7 +84,7 @@ Há uma série de diferentes DNS colocação em cache pacotes disponíveis, por 
   * instalar o pacote de dnsmasq ("sudo zypper instalação dnsmasq") 
   * Ativar o serviço de dnsmasq ("systemctl ativar dnsmasq.service") 
   * iniciar o serviço de dnsmasq ("systemctl início dnsmasq.service") 
-  * Editar "/ etc/sysconfig/rede/configuração" e altere NETCONFIG_DNS_FORWARDER = "" para "dnsmasq"
+  * edit “/etc/sysconfig/network/config” and change NETCONFIG_DNS_FORWARDER="" to ”dnsmasq”
   * Atualizar resolv.conf ("netconfig update") para definir a cache, como a resolução DNS local
 * **OpenLogic (utiliza NetworkManager)**:
   * instalar o pacote de dnsmasq ("sudo yum instalação dnsmasq")
@@ -102,9 +103,9 @@ Há uma série de diferentes DNS colocação em cache pacotes disponíveis, por 
 O DNS é principalmente um protocolo UDP.  Como o protocolo UDP não garante a entrega de mensagens, lógica de repetição é processada no próprio protocolo DNS.  Cada cliente DNS (sistema operativo) pode apresentem um lógica de repetição diferentes consoante a preferência criadores:
 
 * Sistemas operativos Windows novamente depois de 1 segundo e, em seguida, novamente após outro 2, 4 e outro 4 segundos. 
-* As repetições a configuração do Linux predefinida que se após 5 segundos.  Recomenda-se para alterar esta para repetir 5 vezes intervalos 1 segundo.  
+* As repetições a configuração do Linux predefinida que se após cinco segundos.  Recomenda-se para alterar esta para repetir 5 vezes intervalos 1 segundo.  
 
-Para verificar as definições atuais numa VM com Linux, 'cat /etc/resolv.conf' e observe a linha de 'Opções', por ex.:
+Utilize o comando 'cat /etc/resolv.conf' para verificar as definições atuais numa VM com Linux, em seguida, procure na linha 'Opções', por exemplo:
 
     options timeout:1 attempts:5
 
@@ -121,13 +122,13 @@ O ficheiro resolv.conf, normalmente, é gerado para automática e não deve ser 
   * Execute 'rede reinício do serviço' ao atualizar
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Resolução de nomes utilizando o seu próprio servidor DNS
-Existem várias situações em que as suas necessidades de resolução de nome poderão ir para além das funcionalidades fornecidas pelo Azure, por exemplo quando utilizar domínios do Active Directory ou quando necessitar de resolução de DNS entre redes virtuais (vnets).  Para estes cenários, o Azure oferece a capacidade para que possa utilizar os seus próprios servidores DNS.  
+Existem várias situações em que as suas necessidades de resolução de nome poderão ir para além das funcionalidades fornecidas pelo Azure, por exemplo quando utilizar domínios do Active Directory ou quando necessitar de resolução de DNS entre redes virtuais.  Para estes cenários, o Azure oferece a capacidade para que possa utilizar os seus próprios servidores DNS.  
 
 Servidores DNS dentro de uma rede virtual podem reencaminhar consultas DNS para resoluções de recursiva do Azure para resolver os nomes de anfitrião dentro da rede virtual.  Por exemplo, um domínio Controller (controlador de domínio) em execução no Azure pode responder às consultas DNS para os domínios e reencaminhar todas as outras consultas para o Azure.  Isto permite que as VMs ver os seus recursos no local (através de DC) e o hostnames fornecidos pelo Azure (através do reencaminhador).  Acesso para resoluções de recursiva do Azure é fornecido através de virtual IP 168.63.129.16.
 
-Reencaminhamento de DNS também permite a resolução de DNS inter-vnet e permite que as máquinas no local resolver os nomes de anfitrião fornecidos pelo Azure.  Para resolver o nome do anfitrião da VM, o servidor DNS VM tem de residir na mesma rede virtual e de ser configurado para consultas de nome de anfitrião direta para o Azure.  Como o sufixo DNS for diferente em cada vnet, pode utilizar regras de reencaminhamento condicional para enviar consultas DNS para a vnet correta para a resolução.  A imagem seguinte mostra duas vnets e uma rede no local ao executar a resolução de DNS inter-vnet através deste método.  Um reencaminhador DNS de exemplo está disponível no [Galeria de modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) e [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
+Reencaminhamento de DNS também permite a resolução de DNS de rede intervirtual e permite que as máquinas no local resolver os nomes de anfitrião fornecidos pelo Azure.  Para resolver o nome do anfitrião da VM, o servidor DNS VM tem de residir na mesma rede virtual e de ser configurado para consultas de nome de anfitrião direta para o Azure.  Como o sufixo DNS for diferente em cada vnet, pode utilizar regras de reencaminhamento condicional para enviar consultas DNS para a vnet correta para a resolução.  A imagem seguinte mostra duas redes virtuais e uma rede no local ao executar a resolução DNS ao utilizar este método de rede intervirtual.  Um reencaminhador DNS de exemplo está disponível no [Galeria de modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) e [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
-![Inter-vnet DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
+![Rede intervirtual DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
 Ao utilizar a resolução de nome fornecidos pelo Azure, um sufixo DNS interno (*. internal.cloudapp.net) fornecido para cada VM utilizando o DHCP.  Isto permite que a resolução de nome de anfitrião, porque os registos de nome de anfitrião se encontram na zona internal.cloudapp.net.  Quando utilizar a sua própria solução de resolução de nome, o sufixo IDNS não é fornecido para VMs porque-interfere com outras arquiteturas DNS (por exemplo, cenários de associados a um domínio).  Em vez disso, fornecemos um marcador não está em funcionamento (reddog.microsoft.com).  
 
@@ -165,13 +166,13 @@ Quando utilizar o modelo de implementação clássica, servidores DNS para a red
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Modelo de implementação do Resource Manager:
 
 * [Criar ou atualizar uma rede virtual](https://msdn.microsoft.com/library/azure/mt163661.aspx)
 * [Criar ou atualizar uma placa de interface de rede](https://msdn.microsoft.com/library/azure/mt163668.aspx)
-* [Novo-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
-* [Novo AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx)
+* [New-AzureRmVirtualNetwork](https://msdn.microsoft.com/library/mt603657.aspx)
+* [New-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619370.aspx)
 
 Modelo de implementação clássica:
 

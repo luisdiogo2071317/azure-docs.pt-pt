@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/16/2017
+ms.date: 01/16/2018
 ms.author: larryfr
-ms.openlocfilehash: 49a57431c778ee018ecd71e3921cd21c3be94885
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 2709bab433bdc108b313c58e0844236dd4af38bf
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Utilizar o Spark estruturado de transmissão em fluxo com DB Kafka e Cosmos do Azure
 
@@ -145,11 +145,11 @@ Utilize os seguintes passos para carregar os blocos de notas do projeto para o S
 
 4. Repita os passos 1 a 3 para carregar o __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ bloco de notas.
 
-## <a name="load-tweets-into-kafka"></a>Carregar tweets para Kafka
+## <a name="load-taxi-data-into-kafka"></a>Dados de carregamento de taxi para Kafka
 
 Depois dos ficheiros tiverem sido carregados, selecione o __fluxo-taxi-data-para-kafka.ipynb__ entrada para abrir o bloco de notas. Siga os passos para carregar dados para Kafka o bloco de notas.
 
-## <a name="process-tweets-using-spark-structured-streaming"></a>Tweets processo com o Spark estruturados de transmissão em fluxo
+## <a name="process-taxi-data-using-spark-structured-streaming"></a>Processo taxi dados com o Spark estruturados de transmissão em fluxo
 
 A partir da home page do bloco de notas do Jupyter, selecione o __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ entrada. Siga os passos no bloco de notas para os dados de fluxo do Kafka e para a base de dados do Cosmos do Azure com o Spark estruturados de transmissão em fluxo.
 

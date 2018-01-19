@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/29/2017
 ms.author: jroth
-ms.openlocfilehash: 5babea628180501e959387f80dac55618051f552
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: db37fbbc0abdafcb56d56809eeb43096617b6da3
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Como criar máquinas virtuais do SQL Server com o Azure PowerShell
 
@@ -27,17 +27,17 @@ Este guia explica as opções para criar as VMs do Windows SQL Server com o Azur
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Este guia de introdução requer o Azure PowerShell versão do módulo 3,6 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
+Este início rápido requer a versão 3.6 ou posterior do módulo Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
 
 ## <a name="configure-your-subscription"></a>Configurar a sua subscrição
 
-1. Abra o PowerShell e estabelecer o acesso à sua conta do Azure executando o **Add-AzureRmAccount** comando.
+1. Abra o PowerShell e estabeleça o acesso à sua conta do Azure ao executar o comando **Add-AzureRmAccount**.
 
    ```PowerShell
    Add-AzureRmAccount
    ```
 
-1. Deverá ver um ecrã de início de sessão para introduzir as suas credenciais. Utilize o mesmo correio eletrónico e palavra-passe que utiliza para iniciar sessão no portal do Azure.
+1. Deverá ver um ecrã de início de sessão para introduzir as suas credenciais. Utilize o mesmo e-mail e palavra-passe que utiliza para iniciar sessão no portal do Azure.
 
 ## <a name="define-image-variables"></a>Definir as variáveis de imagem
 Para simplificar o script e reutilização de criações, comece por definir um número de variáveis. Altere os valores de parâmetros como julgar, mas cuidado com de nomenclatura restrições relacionadas com o comprimentos de nome e carateres especiais ao modificar os valores fornecidos.
@@ -128,7 +128,7 @@ Execute o cmdlet seguinte para criar o novo grupo de recursos.
 New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 A máquina virtual necessita de recursos de armazenamento para o disco do sistema operativo e para os ficheiros de dados e de registo do SQL Server. De simplicidade, criamos um único disco para ambos. Pode anexar mais discos posteriormente utilizando o [Azure adicionar disco](/powershell/module/azure/add-azuredisk) cmdlet para colocar os dados do SQL Server e o registo de ficheiros em discos dedicados. Utilize o [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet para criar uma conta de armazenamento standard no seu novo grupo de recursos e com o nome da conta de armazenamento, o nome do Sku de armazenamento e a localização definidos utilizando as variáveis que anteriormente inicializado .
 
 Execute o cmdlet seguinte para criar a sua nova conta de armazenamento.
@@ -295,7 +295,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine `
    -Skus $Sku -Version $Version
 ```
 
-## <a name="create-the-sql-vm"></a>Criar a VM do SQL Server
+## <a name="create-the-sql-vm"></a>Criar a VM do SQL
 Agora que tiver concluído os passos de configuração, está pronto para criar a máquina virtual. Utilize o [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet para criar a máquina virtual utilizando as variáveis que definiu.
 
 Execute o cmdlet seguinte para criar a máquina virtual.
@@ -307,10 +307,10 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 A máquina virtual é criada.
 
 > [!NOTE]
-> Pode ignorar o erro sobre o diagnóstico bot. É criada uma conta de armazenamento standard para diagnóstico de arranque, porque a conta de armazenamento especificado para o disco da máquina virtual é uma conta de armazenamento premium.
+> Pode ignorar o erro sobre o diagnóstico de arranque. É criada uma conta de armazenamento standard para diagnóstico de arranque, porque a conta de armazenamento especificado para o disco da máquina virtual é uma conta de armazenamento premium.
 
-## <a name="install-the-sql-iaas-agent"></a>Instalar o agente SQL do Iaas
-Máquinas virtuais do SQL Server suportam funcionalidades de gestão automatizada com o [extensão de agente do SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md). Para instalar o agente da VM nova, execute o seguinte comando depois de criado.
+## <a name="install-the-sql-iaas-agent"></a>Instalar o Agente Iaas do SQL
+Máquinas virtuais do SQL Server suportam funcionalidades de gestão automatizada com o [extensão de agente do SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md). Para instalar o agente da nova VM, execute o seguinte comando depois de ser criado.
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -318,13 +318,13 @@ Máquinas virtuais do SQL Server suportam funcionalidades de gestão automatizad
 
 ## <a name="remove-a-test-vm"></a>Remover uma VM de teste
 
-Se não precisa da VM em execução continuamente, pode evitar custos desnecessários por a pará-lo quando não está em utilização. O seguinte comando deixa a VM, mas deixa-o disponível para utilização futura.
+Se não precisar que a VM seja executada continuamente, pode evitar despesas desnecessárias ao pará-la quando não estiver em utilização. O comando seguinte para a VM, mas deixa-a disponível para utilização futura.
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Pode também permanentemente eliminar todos os recursos associados à máquina virtual com o **Remove-AzureRmResourceGroup** comando. Isto elimina permanentemente a máquina virtual, bem como, por isso, utilize este comando com cuidado.
+Também pode eliminar permanentemente todos os recursos associados à máquina virtual com o comando **Remove-AzureRmResourceGroup**. Isto também elimina permanentemente a máquina virtual, pelo que utilize este comando com cuidado.
 
 ## <a name="example-script"></a>Script de exemplo
 O script seguinte contém o script do PowerShell concluído para este tutorial. Parte do pressuposto de que configurou já a subscrição do Azure para utilizar com o **Add-AzureRmAccount** e **Select-AzureRmSubscription** comandos.
@@ -394,7 +394,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois da máquina virtual é criada, pode:
 
 - Ligar à máquina virtual utilizando o ambiente de trabalho remoto (RDP).

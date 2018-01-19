@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c283fb4d1a390de88b425ce51a312b5404503f0d
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerir capturas de pacotes com observador de rede do Azure através do portal
 
@@ -83,7 +83,7 @@ As propriedades que podem ser definidas numa captura de pacotes são:
 - **Conta de armazenamento** -determina se a captura de pacotes é guardada numa conta do storage.
 - **Ficheiro** -determina se uma captura de pacotes é guardada localmente na máquina virtual.
 - **As contas do Storage** - a conta de armazenamento para guardar a captura de pacotes no selecionada. Localização predefinida é o id da https://{storage conta name}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscription} /resourcegroups/ {nome da máquina do name}/providers/microsoft.compute/virtualmachines/{virtual de grupo de recursos} / {AA} / {MM} / {DD} / packetcapture_ {HH}_{MM}_.cap _ {XXX} de {SS}. (Apenas ativada se **armazenamento** está selecionado)
-- **Caminho do ficheiro local** -o caminho local numa máquina virtual para guardar a captura de pacotes. (Apenas ativada se **ficheiro** está selecionado). Tem de ser fornecido um caminho válido
+- **Caminho do ficheiro local** -o caminho local numa máquina virtual para guardar a captura de pacotes. (Apenas ativada se **ficheiro** está selecionado). Tem de ser fornecido um caminho válido. Para uma máquina virtual do Linux, o caminho tem de começar com */var/captura*.
 - **Bytes máximos por pacote** - o número de bytes de cada pacote que são capturadas, todos os bytes são capturados se deixado em branco.
 - **Bytes máximos por sessão** - Total número de bytes que são capturadas, assim que o valor for atingido a deixa de captura de pacotes.
 - **Tempo limite (segundos)** -define um limite de tempo para a captura de pacotes parar. Predefinição é 18000 segundos.
@@ -134,7 +134,7 @@ Se for especificada uma conta de armazenamento, ficheiros de captura de pacotes 
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como automatizar capturas de pacotes com alertas de Máquina Virtual visualizando [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md)
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e13cc70dc09dd795bb0df57a4bbb29c8fcddb9e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -99,10 +99,10 @@ Este pode ser exportado pelo utilizador e os membros da equipa e foi ser copiado
 A Microsoft utiliza os dados apenas para fornecer o serviço para si.
 
 ## <a name="where-is-the-data-held"></a>Onde estão contidos os dados?
-* Nos E.U.A. ou Europa. Pode selecionar a localização quando cria um novo recurso do Application Insights. 
+* Nos EUA, Europa ou Sudeste asiático. Pode selecionar a localização quando cria um novo recurso do Application Insights. 
 
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-or-europe"></a>Significa que a minha aplicação tem de ser alojados na Europa ou EUA?
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Significa que a minha aplicação tem de ser alojado no EUA, Europa ou Sudeste asiático?
 * Não. A aplicação pode executar em qualquer local, na suas própria anfitriões no local ou na nuvem.
 
 ## <a name="how-secure-is-my-data"></a>Qual é o como protegem os meus dados?

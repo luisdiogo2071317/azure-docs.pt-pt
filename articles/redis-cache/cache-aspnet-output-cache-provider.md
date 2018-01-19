@@ -3,8 +3,8 @@ title: "Fornecedor de cache de Cache de saída do ASP.NET"
 description: "Saiba como colocar em cache de saída de página do ASP.NET com a Cache de Redis do Azure"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 78469a66-0829-484f-8660-b2598ec60fbf
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
-ms.author: sdanie
-ms.openlocfilehash: 845f25637a0e48460fc76c1ee36060274b3cec38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 81c95949971d54833ca7a15ec5148116c94767f7
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Fornecedor de Cache de saída do ASP.NET para o Azure Redis Cache
 O fornecedor de Cache de saída Redis é um mecanismo de armazenamento de fora do processo para dados da cache de saída. Estes dados são especificamente para as respostas HTTP completas (página a cache de saída). O fornecedor plugs para o novo saída cache fornecedor extensibilidade ponto que foi introduzido no ASP.NET 4.
@@ -89,6 +89,6 @@ No anterior exemplo, os dados de página em cache permanecem na cache durante 60
 
 Assim que estes passos são efetuados, a aplicação está configurada para utilizar o fornecedor de Cache de saída Redis.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Veja o [fornecedor de estado de sessão do ASP.NET para a Cache de Redis do Azure](cache-aspnet-session-state-provider.md).
 

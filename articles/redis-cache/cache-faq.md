@@ -3,8 +3,8 @@ title: Cache de Redis do Azure FAQ | Microsoft Docs
 description: "Aprender as respostas a perguntas comuns, padrões e melhores práticas para a Cache de Redis do Azure"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: sdanie
-ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-redis-cache-faq"></a>FAQ da Cache de Redis do Azure
 Saiba as respostas a perguntas comuns, padrões e melhores práticas para a Cache de Redis do Azure.
@@ -165,10 +165,10 @@ Sim, a Cache de Redis do Azure está disponível na nuvem do Azure Government, A
 
 | Nuvem   | Sufixo DNS de Redis            |
 |---------|---------------------------------|
-| Público  | *. redis.cache.windows.net       |
-| Governo dos EUA  | *. redis.cache.usgovcloudapi.net |
-| Alemanha | *. redis.cache.cloudapi.de       |
-| China   | *. redis.cache.chinacloudapi.cn  |
+| Público  | *.redis.cache.windows.net       |
+| Governo dos EUA  | *.redis.cache.usgovcloudapi.net |
+| Alemanha | *.redis.cache.cloudapi.de       |
+| China   | *.redis.cache.chinacloudapi.cn  |
 
 Para obter mais informações sobre considerações quando utilizar a Cache de Redis do Azure com outras nuvens, consulte as hiperligações seguintes.
 

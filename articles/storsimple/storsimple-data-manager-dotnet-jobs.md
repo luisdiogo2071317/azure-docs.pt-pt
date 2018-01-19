@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 7ecb3ed41a8a05f3ced2488226fa0380107b1b43
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d15a5cbda2f0c2a363b40e94c38fed6631aa81b5
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Utilizar o SDK do .net para iniciar a transformação de dados
 
@@ -79,7 +79,7 @@ Execute os seguintes passos para utilizar o .NET para iniciar uma tarefa de tran
 
         ![Criar um projeto 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.  Agora, adicione todas as dlls presentes no [dlls pasta](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) como **referências** no projeto que criou. Para transferir os ficheiros dll, execute o seguinte:
+4.  Agora, adicione todas as dlls presentes no [dlls pasta](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) como **referências** no projeto que criou. Para adicionar os ficheiros dll, execute o seguinte:
 
     1. No Visual Studio, aceda a **vista > Explorador de soluções**.
     2. Clique na seta à esquerda do projeto de aplicação de transformação de dados. Clique em **referências** e, em seguida, faça duplo clique para **Adicionar referência**.
@@ -117,19 +117,14 @@ Execute os seguintes passos para utilizar o .NET para iniciar uma tarefa de tran
 
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
-
     ```
-   Depois do código é colado, compilar a solução. Eis uma captura de ecrã de fragmento de código para inicializar a instância de tarefa de transformação de dados.
-
-   ![Fragmento de código para inicializar a tarefa de transformação de dados](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
-
+   
 7. Especifique os parâmetros com o qual a definição de tarefa tem de ser executado
 
     ```
     string jobDefinitionName = "job-definition-name";
 
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
-
     ```
 
     (OR)
@@ -159,7 +154,6 @@ Execute os seguintes passos para utilizar o .NET para iniciar uma tarefa de tran
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
-    
     ```
 
 8. Após a inicialização, adicione o seguinte código para acionar uma tarefa de transformação de dados na definição da tarefa. Plug-in apropriados **nome da definição de tarefa**.
@@ -169,12 +163,17 @@ Execute os seguintes passos para utilizar o .NET para iniciar uma tarefa de tran
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
+    Console.WriteLine("jobid: ", jobId);
+    Console.ReadLine();
 
     ```
+    Depois do código é colado, compilar a solução. Eis uma captura de ecrã de fragmento de código para inicializar a instância de tarefa de transformação de dados.
 
-9. Esta tarefa carrega os ficheiros correspondentes presentes no diretório de raiz no volume do StorSimple para o contentor especificado. Quando um ficheiro é carregado, uma mensagem foi removida da fila (na mesma conta de armazenamento como o contentor) com o mesmo nome que a definição de tarefa. Esta mensagem pode ser utilizada como um acionador para iniciar a qualquer processamento adicional do ficheiro.
+   ![Fragmento de código para inicializar a tarefa de transformação de dados](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
 
-10. Depois da tarefa foi acionada, adicione o seguinte código para controlar a tarefa de conclusão.
+9. Esta tarefa transforma os dados que corresponda ao diretório de raiz e o ficheiro filtra o volume do StorSimple e coloca-o para a partilha de ficheiros/contentor especificado. Quando um ficheiro é transformado, uma mensagem é adicionada a uma fila de armazenamento (na mesma conta de armazenamento como a partilha de ficheiros/contentor) com o mesmo nome que a definição de tarefa. Esta mensagem pode ser utilizada como um acionador para iniciar a qualquer processamento adicional do ficheiro.
+
+10. Depois da tarefa foi acionada, pode utilizar o seguinte código para controlar a tarefa de conclusão. Não é obrigatório para adicionar este código para executar a tarefa.
 
     ```
     Job jobDetails = null;
@@ -200,6 +199,6 @@ Execute os seguintes passos para utilizar o .NET para iniciar uma tarefa de tran
 
  ![Completo fragmento de código para acionar uma tarefa de .NET](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Utilize o Gestor de dados StorSimple IU para transformar os seus dados](storsimple-data-manager-ui.md).

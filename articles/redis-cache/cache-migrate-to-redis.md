@@ -3,8 +3,8 @@ title: "Migrar aplicações de serviço de Cache gerida para Redis - Azure | Mic
 description: "Saiba como migrar as aplicações de serviço de Cache gerida e Cache de função para a Cache de Redis do Azure"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/30/2017
-ms.author: sdanie
-ms.openlocfilehash: 0fbfb945c66926794721f2ce8cc183dac51ecb27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 87a31ac992592cbbbc54a487867a65346ad06a0b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Migrar do serviço de Cache gerida para Cache de Redis do Azure
 Migrar as aplicações que utilizam o serviço de Cache gerida do Azure para a Cache de Redis do Azure pode ser conseguido com alterações mínimas à sua aplicação, consoante as funcionalidades do serviço de Cache gerida utilizadas pela sua aplicação de colocação em cache. Enquanto as APIs são não exatamente os mesmos são semelhantes e grande parte do seu código existente que utiliza o serviço de Cache gerida para aceder a uma cache pode ser reutilizada com alterações mínimas. Este tópico mostra como efetuar a configuração necessária e alterações de aplicação para migrar as suas aplicações de serviço de Cache gerida para utilizar a Cache de Redis do Azure e mostra como algumas das funcionalidades de Cache de Redis do Azure podem ser utilizadas para implementar a funcionalidade de uma cache de serviço de Cache gerida.
@@ -187,6 +187,6 @@ Cache de Redis do Azure pode trabalhar com objetos .NET, bem como tipos de dados
 ## <a name="migrate-aspnet-session-state-and-output-caching-to-azure-redis-cache"></a>Migrar o estado da sessão ASP.NET e a cache de saída para a Cache de Redis do Azure
 Cache de Redis do Azure tem fornecedores para o estado da sessão ASP.NET e cache de saída de página. Para migrar a sua aplicação que utiliza as versões do serviço de Cache gerida destes fornecedores, remova primeiro as secções existentes do seu Web. config e, em seguida, configure as versões de Cache de Redis do Azure dos fornecedores. Para obter instruções sobre como utilizar os fornecedores do ASP.NET de Cache de Redis do Azure, consulte [fornecedor de estado de sessão do ASP.NET para a Cache de Redis do Azure](cache-aspnet-session-state-provider.md) e [fornecedor de Cache de saída do ASP.NET para a Cache de Redis do Azure](cache-aspnet-output-cache-provider.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Explorar o [documentação de Cache de Redis do Azure](https://azure.microsoft.com/documentation/services/cache/) para tutoriais, amostras, vídeos e muito mais.
 

@@ -3,8 +3,8 @@ title: Como configurar o clustering de Redis para uma Cache de Redis do Azure Pr
 description: "Saiba como criar e gerir Redis clustering para o escalão Premium instâncias de Cache de Redis do Azure"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: sdanie
-ms.openlocfilehash: 86a4a605dbb3b11924c14ff42238009742f72898
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: 16281cca4e4bc95e145317365d42382ab11fde93
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Como configurar o clustering de Redis para uma Cache de Redis do Azure Premium
 Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de funcionalidades, incluindo funcionalidades do escalão Premium, tais como clustering, persistência e suporte da virtual network e tamanho da cache. Este artigo descreve como configurar o clustering numa instância de Cache de Redis do Azure premium.
@@ -159,7 +159,7 @@ Clustering só está disponível para premium caches.
 ### <a name="i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do"></a>Posso estou obtendo mover exceções ao utilizar o stackexchange. redis e clustering, o que devo fazer?
 Se estiver a utilizar o stackexchange. redis e receber `MOVE` exceções ao utilizar o clustering, certifique-se de que está a utilizar [stackexchange. redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) ou posterior. Para obter instruções sobre como configurar as aplicações de .NET para utilizar stackexchange. redis, consulte [configurar os clientes de cache](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba como utilizar as funcionalidades de cache do mais premium.
 
 * [Introdução ao escalão Premium de Cache de Redis do Azure](cache-premium-tier-intro.md)

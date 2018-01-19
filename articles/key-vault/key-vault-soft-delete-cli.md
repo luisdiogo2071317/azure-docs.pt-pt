@@ -2,18 +2,18 @@
 ms.assetid: 
 title: "O Cofre de chaves do Azure - como utilizar a eliminação de forma recuperável com a CLI"
 description: "Utilizar maiúsculas e exemplos de eliminação de forma recuperável com o CLI recortes de código"
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: bruceper
-ms.openlocfilehash: 3ee2c5dfb99d734cde25894174466b8e49823c67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alleonar
+ms.openlocfilehash: a9b80cae69c4e5852341385b98fcccc86d7959e9
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como utilizar a eliminação de forma recuperável do Cofre de chaves com a CLI
 
@@ -28,7 +28,7 @@ Funcionalidade de eliminação de forma recuperável do Azure do Cofre de chaves
 
 Para informações de referência específica do Cofre de chaves para a CLI, consulte [referência do Cofre de chaves do Azure CLI 2.0](https://docs.microsoft.com/cli/azure/keyvault).
 
-## <a name="required-permissions"></a>Permissões necessárias
+## <a name="required-permissions"></a>Permissões obrigatórias
 
 Operações do Cofre de chaves separadamente geridas através de permissões de controlo (RBAC) de acesso baseado em funções da seguinte forma:
 

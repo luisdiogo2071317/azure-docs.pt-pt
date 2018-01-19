@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 802658b50d8e398451507ad11c76fedd0db697df
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 271d3fa858e9178bef37a7d7c859557b29af3c75
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Verifique a conectividade com o observador de rede do Azure no portal do Azure
 
@@ -41,33 +41,8 @@ ARMclient é utilizada para chamar a API de REST utilizando o PowerShell. ARMCli
 
 Este cenário pressupõe que já tiver seguido os passos em [criar um observador de rede](network-watcher-create.md) para criar um observador de rede.
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 > [!IMPORTANT]
 > Verificação da conectividade requer uma extensão da máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão numa Windows VM visite [extensão da máquina virtual de agente de observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para, visite VM com Linux [extensão da máquina virtual de agente de observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## <a name="register-the-preview-capability"></a>Registar a capacidade de pré-visualização
-
-Verificação da conectividade está atualmente em pré-visualização pública, para utilizar esta funcionalidade tem de ser registado. Para tal, execute o seguinte exemplo do PowerShell:
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Para verificar que o registo foi efetuado com êxito, execute o seguinte exemplo do Powershell:
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-Se a funcionalidade foi registada correctamente, a saída deve corresponder o seguinte:
-
-```
-FeatureName                             ProviderName      RegistrationState
------------                             ------------      -----------------
-AllowNetworkWatcherConnectivityCheck    Microsoft.Network Registered
-```
 
 ## <a name="log-in-with-armclient"></a>Iniciar sessão com ARMClient
 
@@ -494,7 +469,7 @@ O exemplo seguinte é a resposta ao executar a chamada de API anterior. Como a v
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como automatizar capturas de pacotes com alertas de Máquina Virtual visualizando [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md)
 

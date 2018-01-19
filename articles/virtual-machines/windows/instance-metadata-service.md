@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 5a09895f32d5cc559cda9ec8794c3ce982d99774
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 2694c25b0db7a4a0b9f527ec67e62fede5de6a80
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -53,7 +53,7 @@ O serviço de metadados de instância é com a versão. As versões são obrigat
 > [!NOTE] 
 > Pré-visualização as versões anteriores dos eventos agendadas suportados {mais recente} como a api-version. Este formato já não é suportado e será preterido no futuro.
 
-À medida que adiciona as versões mais recentes, as versões mais antigas podem ainda ser acedidas para compatibilidade, se os scripts terem dependências de formatos de dados específicos. No entanto, tenha em atenção que a anterior version(2017-03-01) de pré-visualização poderão não estar disponíveis assim que o serviço estiver geralmente disponível.
+Como são adicionadas novas versões, as versões mais antigas podem ainda ser acedidas para compatibilidade, se os scripts terem dependências de formatos de dados específicos. No entanto, a versão de pré-visualização anterior (2017-03-01) poderá não estar disponível assim que o serviço estiver geralmente disponível.
 
 ### <a name="using-headers"></a>Utilizar cabeçalhos
 Ao consultar o serviço de metadados de instância, tem de fornecer o cabeçalho `Metadata: true` para garantir que o pedido não foi redirecionado inadvertidamente.
@@ -62,7 +62,7 @@ Ao consultar o serviço de metadados de instância, tem de fornecer o cabeçalho
 
 Metadados da instância estão disponível para executar as VMs criado/geridos através de [do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). Todas as categorias de dados para uma instância de máquina virtual utilizando o seguinte pedido de acesso:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
 ```
 
@@ -80,13 +80,13 @@ API | Formato de dados predefinido | Outros formatos
 
 Para aceder a um formato de resposta não predefinido, especifique o formato de pedido como um parâmetro de cadeia de consulta no pedido. Por exemplo:
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
 ### <a name="security"></a>Segurança
 Ponto final do serviço de metadados de instância é acessível apenas a partir de dentro de instância de máquina virtual em execução num endereço IP não encaminháveis internos. Além disso, qualquer pedido com um `X-Forwarded-For` cabeçalho é rejeitado pelo serviço.
-É também necessário pedidos para conter uma `Metadata: true` cabeçalho para se certificar de que o pedido real foi diretamente pretendida e não uma parte de redirecionamento não intencional. 
+Pedidos também tem de conter um `Metadata: true` cabeçalho para se certificar de que o pedido real foi diretamente pretendida e não uma parte de redirecionamento não intencional. 
 
 ### <a name="error"></a>Erro
 Se existir um elemento de dados não encontrado ou um pedido com formato incorreto, o serviço de metadados de instância devolve erros de HTTP padrão. Por exemplo:
@@ -109,7 +109,7 @@ Erro no serviço 500     | Tente novamente após algum tempo
 
 **Pedido**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
@@ -118,7 +118,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 > [!NOTE] 
 > A resposta é uma cadeia JSON. A resposta de exemplo seguinte é impresso pretty para legibilidade.
 
-```
+```json
 {
   "interface": [
     {
@@ -148,7 +148,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 #### <a name="retrieving-public-ip-address"></a>Obter o endereço IP público
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
 ```
 
@@ -156,7 +156,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 
 **Pedido**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
@@ -165,7 +165,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE] 
 > A resposta é uma cadeia JSON. A resposta de exemplo seguinte é impresso pretty para legibilidade.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -217,13 +217,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 Metadados de instância podem ser obtido no Windows através do utilitário de PowerShell `curl`: 
 
-```
+```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
 Ou através de `Invoke-RestMethod` cmdlet:
     
-```
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
 
@@ -232,7 +232,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 > [!NOTE] 
 > A resposta é uma cadeia JSON. A resposta de exemplo seguinte é impresso pretty para legibilidade.
 
-```
+```json
 {
   "compute": {
     "location": "westus",
@@ -284,8 +284,8 @@ Dados | Descrição | Versão introduzida
 localização | Região do Azure a VM está em execução no | 2017-04-02 
 nome | Nome da VM | 2017-04-02
 oferta | Disponibilizam informações para a imagem VM. Este valor só está presente para imagens implementadas a partir da Galeria de imagem do Azure. | 2017-04-02
-Fabricante | Publicador de imagem de VM | 2017-04-02
-SKU | SKU específico para a imagem VM | 2017-04-02
+publisher | Publicador de imagem de VM | 2017-04-02
+sku | SKU específico para a imagem VM | 2017-04-02
 versão | Versão da imagem VM | 2017-04-02
 osType | Linux ou do Windows | 2017-04-02
 platformUpdateDomain |  [Domínio de atualização](manage-availability.md) a VM está em execução no | 2017-04-02
@@ -295,14 +295,14 @@ vmSize | [Tamanho da VM](sizes.md) | 2017-04-02
 subscriptionId | Subscrição do Azure para a Máquina Virtual | 2017-08-01
 etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para a Máquina Virtual  | 2017-08-01
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a Máquina Virtual | 2017-08-01
-placementGroupId | [Grupo de posicionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do seu dimensionamento da Máquina Virtual definido | 2017-08-01
-IPv4/privateIpAddress | Endereço IPv4 local da VM | 2017-04-02
-IPv4/publicIpAddress | Endereço IPv4 público da VM | 2017-04-02
-endereço de sub-rede / | Endereço de sub-rede da VM | 2017-04-02 
-prefixo de sub-rede / | Prefixo de sub-rede, 24 de exemplo | 2017-04-02 
-IPv6/ipAddress | Endereço IPv6 local da VM | 2017-04-02 
-MacAddress | Endereço mac VM | 2017-04-02 
-scheduledevents | Está a ser atualmente consulte de pré-visualização pública [scheduledevents](scheduled-events.md) | 2017-03-01
+placementGroupId | [Grupo de posicionamento](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do seu dimensionamento da máquina virtual definido | 2017-08-01
+ipv4/privateIpAddress | Endereço IPv4 local da VM | 2017-04-02
+ipv4/publicIpAddress | Endereço IPv4 público da VM | 2017-04-02
+subnet/address | Endereço de sub-rede da VM | 2017-04-02 
+subnet/prefix | Prefixo de sub-rede, 24 de exemplo | 2017-04-02 
+ipv6/ipAddress | Endereço IPv6 local da VM | 2017-04-02 
+macAddress | Endereço mac VM | 2017-04-02 
+scheduledevents | Atualmente em pré-visualização pública. Consulte [agendada eventos](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>Exemplos de cenários de utilização  
 
@@ -312,7 +312,7 @@ Como um fornecedor de serviços, poderá ser necessário para controlar o númer
 
 **Pedido**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
 ```
 
@@ -329,7 +329,7 @@ Pode consultar estes dados diretamente através do serviço de metadados de inst
 
 **Pedido**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
 ```
 
@@ -345,7 +345,7 @@ Como um fornecedor de serviços, poderá receber uma chamada de suporte em que g
 
 **Pedido**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
 ```
 
@@ -354,7 +354,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 > [!NOTE] 
 > A resposta é uma cadeia JSON. A resposta de exemplo seguinte é impresso pretty para legibilidade.
 
-```
+```json
 {
   "compute": {
     "location": "CentralUS",
@@ -376,24 +376,24 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 Idioma | Exemplo 
 ---------|----------------
-Ruby     | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.RB
-Ir  | https://github.com/Microsoft/azureimds/blob/Master/imdssample.go            
-Python   | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.PY
-C++      | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample-Windows.cpp
-C#       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.CS
-JavaScript | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.js
-PowerShell | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.ps1
-Bash       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.SH
-Perl       | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.pl
-Java       | https://github.com/Microsoft/azureimds/blob/Master/imdssample.Java
-Visual Basic | https://github.com/Microsoft/azureimds/blob/Master/IMDSSample.VB
+Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+Ir  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
+C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>FAQ
 1. Estou a obter o erro `400 Bad Request, Required metadata header not specified`. O que significa?
    * O serviço de metadados de instância requer o cabeçalho `Metadata: true` transmitido no pedido. Transmitir este cabeçalho na chamada REST permite o acesso ao serviço de metadados de instância. 
 2. Por que razão estou posso obter não informações de computação para a minha VM?
-   * O serviço de metadados de instância só suporta atualmente instâncias criadas com o Azure Resource Manager. No futuro, iremos pode adicionar suporte para as VMs de serviço de nuvem.
+   * O serviço de metadados de instância só suporta atualmente instâncias criadas com o Azure Resource Manager. No futuro, suporte para VMs de serviço na nuvem podem ser adicionadas.
 3. Criar um algum volta a minha máquina Virtual através do Azure Resource Manager. Por que razão estou posso não ver as informações de metadados de computação?
    * Para quaisquer VMs criadas após Sep 2016, adicione um [Tag](../../azure-resource-manager/resource-group-using-tags.md) para começar a ver metadados de computação. Para VMs anteriores (criadas antes de Sep 2016), adicionar/remover discos de dados ou extensões para a VM para atualizar os metadados.
 4. Não estou a ver todos os dados preenchidos nova versão de 2017-08-01
