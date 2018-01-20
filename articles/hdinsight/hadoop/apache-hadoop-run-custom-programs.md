@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 59c7a65ff4eb35b3ea462962163b7b6ee94f521f
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 8e65c946d2cfcc830a1b9fa59b3f7886857f4f7d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="run-custom-mapreduce-programs"></a>Executar programas de MapReduce personalizados
+# <a name="run-custom-mapreduce-programs"></a>Executar programas MapReduce personalizados
 
 Ativar a sistemas de macrodados baseado no Hadoop, tais como o HDInsight utilizando uma vasta gama de tecnologias e ferramentas de processamento de dados. A tabela seguinte descreve os principais vantagens e as considerações para cada um deles.
 
@@ -77,7 +77,7 @@ Os programas de MapReduce mais comuns são escritos em Java e compilados para um
 
     Este comando submete a tarefa de MapReduce para YARN. O ficheiro de entrada é `/example/data/sample.log`, e o diretório de saída é `/example/data/logoutput`. O ficheiro de entrada e de quaisquer ficheiros de saída são armazenados no armazenamento de predefinido para o cluster.
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Utilizar c# com o MapReduce, transmissão em fluxo do Hadoop no HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Desenvolver programas de Java MapReduce para o Hadoop no HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

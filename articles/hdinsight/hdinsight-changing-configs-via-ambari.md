@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 5b3700580f593e7590360792f2b76dee79608896
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utilizar Ambari para otimizar a configurações de cluster do HDInsight
 
@@ -183,7 +183,7 @@ Os tipos de compressão disponíveis são:
 
 | Formato | Ferramenta | Algoritmo | Extensão de ficheiro | Divisíveis? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .GZ | Não |
+| Gzip | Gzip | DEFLATE | .gz | Não |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Sim |
 | LZO | Lzop | LZO | .lzo | Sim, se indexada |
 | snappy | N/A | snappy | snappy | Não |
@@ -234,7 +234,7 @@ Execução speculative inicia um determinado número de tarefas duplicados para 
 
 Execução speculative não deve ser ativada para execução longa tarefas de MapReduce com grandes quantidades de entrada.
 
-1. Para ativar a execução speculative, navegue para o ramo do **folhas** separador e, em seguida, defina o `hive.mapred.reduce.tasks.speculative.execution` parâmetro como true. O valor predefinido é falso.
+* Para ativar a execução speculative, navegue para o ramo do **folhas** separador e, em seguida, defina o `hive.mapred.reduce.tasks.speculative.execution` parâmetro como true. O valor predefinido é falso.
 
     ![Ramo de registo mapred reduzir execução speculative tarefas](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -453,10 +453,10 @@ O tamanho do Memstore é definido pelo `hbase.regionserver.global.memstore.Upper
 
 Utilização de memória intermédia de alocação local do Memstore é determinada pela propriedade `hbase.hregion.memstore.mslab.enabled`. Quando ativada (verdadeiro), isto impede a fragmentação de área dinâmica para dados durante a operação de escrita intensivas. O valor predefinido é verdadeiro.
  
-![hbase.hregion.memstore.mslab.Enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
+![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Gerir clusters do HDInsight com a IU da web do Ambari](hdinsight-hadoop-manage-ambari.md)
 * [API de REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Começar a utilizar o HTTP + Swagger ação
 
 Pode criar um conector de primeira classe para qualquer ponto final REST através de um [documento Swagger](https://swagger.io) ao utilizar o HTTP + Swagger ação no seu fluxo de trabalho de aplicação lógica. Também pode expandir as logic apps para chamar a qualquer ponto final REST com uma experiência primeira classe do Designer de aplicação lógica.
 
-Para saber como criar aplicações lógicas com conectores, consulte [criar uma nova aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para saber como criar aplicações lógicas com conectores, consulte [criar uma nova aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Utilizar HTTP + Swagger como um acionador ou uma ação
 
@@ -88,7 +88,7 @@ Uma ação é uma operação que é efetuada pelo fluxo de trabalho que está de
 | --- | --- |
 | HTTP + Swagger |Efetuar uma chamada HTTP e devolver o conteúdo de resposta |
 
-### <a name="action-details"></a>Detalhes de ação
+### <a name="action-details"></a>Detalhes da ação
 O HTTP + Swagger connector vem com uma ação possíveis. Segue-se informações sobre cada um das ações, os campos de entrada necessários e opcionais e os detalhes de resultado correspondente que estão associados a respetiva utilização.
 
 #### <a name="http--swagger"></a>HTTP + Swagger
@@ -97,11 +97,11 @@ Um asterisco (*) significa que um campo obrigatório.
 
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Método * |Método |Verbo HTTP a utilizar. |
-| URI * |URI |URI do pedido de HTTP. |
-| Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos de HTTP para incluir. |
-| Corpo |Corpo |O corpo do pedido HTTP. |
-| Autenticação |Autenticação |Autenticação a utilizar para o pedido. Para obter mais informações, consulte o [conetor HTTP](connectors-native-http.md#authentication). |
+| Método * |método |Verbo HTTP a utilizar. |
+| URI* |uri |URI do pedido de HTTP. |
+| Cabeçalhos |cabeçalhos |Um objeto JSON de cabeçalhos de HTTP para incluir. |
+| Corpo |corpo |O corpo do pedido HTTP. |
+| Autenticação |autenticação |Autenticação a utilizar para o pedido. Para obter mais informações, consulte o [conetor HTTP](connectors-native-http.md#authentication). |
 
 **Detalhes de saída**
 
@@ -111,7 +111,7 @@ Resposta de HTTP
 | --- | --- | --- |
 | Cabeçalhos |objeto |Cabeçalhos de resposta |
 | Corpo |objeto |Objeto de resposta |
-| Código de estado |Int |Código de estado HTTP |
+| Código de Estado |Int |Código de estado HTTP |
 
 ### <a name="http-responses"></a>Respostas de HTTP
 Quando efetuar chamadas para várias ações, poderá obter determinadas respostas. Segue-se uma tabela que descreve as respostas correspondentes e descrições.
@@ -123,11 +123,11 @@ Quando efetuar chamadas para várias ações, poderá obter determinadas respost
 | 400 |Pedido incorreto |
 | 401 |Não autorizado |
 | 403 |Proibido |
-| 404 |Não foi encontrado |
-| 500 |Erro de servidor interno. Ocorreu um erro desconhecido. |
+| 404 |Não Encontrado |
+| 500 |Erro interno de servidor. Ocorreu um erro desconhecido. |
 
 - - -
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Localizar outros conectores](apis-list.md)

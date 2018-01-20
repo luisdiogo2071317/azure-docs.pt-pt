@@ -9,11 +9,11 @@ ms.workload: data-services
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 4eb17466713aed93209e585c27fd6bb7220a97d9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 7320b632c7bd623f5a0e67ecd105cf5b263969b3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurar o tempo de execução de integração do Azure-SSIS para elevado desempenho
 
@@ -26,7 +26,7 @@ Este artigo descreve como configurar um tempo de execução de integração de S
 
 A seguinte parte de um script de configuração mostra as propriedades que pode configurar quando criar um tempo de execução de integração de SSIS do Azure. Para o script do PowerShell concluída e a descrição, consulte [pacotes de implementar o SQL Server Integration Services para o Azure](tutorial-deploy-ssis-packages-azure.md).
 
-```
+```powershell
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -42,7 +42,7 @@ $AzureSSISLocation = "EastUS"
 $AzureSSISNodeSize = "Standard_A4_v2"
 # In public preview, only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
-# In public preview, only 1-8 parallel executions per node are supported.
+# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
 $AzureSSISMaxParallelExecutionsPerNode = 2 
 
 # SSISDB info
@@ -90,7 +90,8 @@ Se tiver muitos pacotes para executar e são mais importantes sobre o débito gl
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Quando já estiver a utilizar um nó de trabalho de elevado desempenho para executar os pacotes, aumentando **AzureSSISMaxParallelExecutionsPerNode** pode aumentar o débito global do tempo de execução de integração. Pode calcular o valor adequado baseado no custo do seu pacote e as seguintes configurações para nós de trabalho. Para obter mais informações, consulte [tamanhos de máquinas de virtuais para fins gerais](../virtual-machines/windows/sizes-general.md).
+Quando já estiver a utilizar um nó de trabalho de elevado desempenho para executar os pacotes, aumentando **AzureSSISMaxParallelExecutionsPerNode** pode aumentar o débito global do tempo de execução de integração. Standard_D1_v2 nós, de 1 a 4 execuções paralelas por nó são suportadas. Para todos os outros tipos de nós, são suportadas 1-8 execuções paralelas por nó.
+Pode calcular o valor adequado baseado no custo do seu pacote e as seguintes configurações para nós de trabalho. Para obter mais informações, consulte [tamanhos de máquinas de virtuais para fins gerais](../virtual-machines/windows/sizes-general.md).
 
 | Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | NICs. Máx. / Desempenho de rede esperado (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -120,5 +121,5 @@ Pode também ajustar a base de dados com base do escalão de preço [unidade de 
 ## <a name="design-for-high-performance"></a>Conceber o elevado desempenho
 Conceber um pacote SSIS para ser executada no Azure é diferente do conceber um pacote para execução no local. Em vez de combinar várias tarefas independentes no mesmo pacote, separá-los em pacotes de vários para execução mais eficiente no IR. SSIS do Azure Crie uma execução de pacotes para cada pacote, para que não têm de aguardar por si concluir. Esta abordagem beneficia de escalabilidade do tempo de execução de integração do Azure-SSIS e melhora o débito global.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o tempo de execução de integração de SSIS do Azure. Consulte [Runtime de integração do Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 8273647aa1cf8f7d35a9c645d44c64455e554cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b57b30688d6ca3b9c1a0fc8e87db80fc051c4f90
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Resolver Problemas do Data Factory
 > [!NOTE]
-> Este artigo aplica-se versão 1 do Azure Data Factory, que é geralmente disponível (GA). 
+> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível (GA). 
 
 Este artigo fornece sugestões de resolução de problemas para problemas ao utilizar o Azure Data Factory. Este artigo não listar todos os possíveis problemas ao utilizar o serviço, mas abrange alguns problemas e sugestões de resolução de problemas gerais.   
 
@@ -117,7 +117,7 @@ Consulte [depurar um pipeline com atividade personalizada](data-factory-use-cust
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Utilize o portal do Azure para resolver problemas
 ### <a name="using-portal-blades"></a>Com os painéis do portais
-Consulte [monitorizar o pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) para obter os passos.
+Consulte [monitorizar o pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) para obter os passos.
 
 ### <a name="using-monitor-and-manage-app"></a>Com a Aplicação Monitorizar e Gerir
 Consulte [monitorizar e gerir pipelines de fábrica de dados com a monitorizar e gerir aplicações](data-factory-monitor-manage-app.md) para obter mais detalhes.

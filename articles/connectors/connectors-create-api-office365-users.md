@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 330f733440932a769eb0fe6031cd0d947a820080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e7827e32a03b6f6af46f5bc65f0ed74f3065f86
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Começar a utilizar o conector de utilizadores do Office 365
 Ligar para os utilizadores do Office 365 para obter perfis, utilizadores de pesquisa e muito mais. Utilizadores do Office 365, pode:
@@ -27,7 +27,7 @@ Ligar para os utilizadores do Office 365 para obter perfis, utilizadores de pesq
 * Crie o fluxo de negócio com base nos dados que aproveitar utilizadores do Office 365. 
 * Ações de utilização que obter relatórios diretos, obter o perfil de utilizador de um gestor e muito mais. Estas ações obter uma resposta e, em seguida, torne a saída disponível para outras ações. Por exemplo, obter relatórios de direta de uma pessoa e, em seguida, efetuar estas informações e atualizar uma base de dados do SQL Azure. 
 
-Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-office-365-users"></a>Criar uma ligação para utilizadores do Office 365
 Ao adicionar este conector para as logic apps, que tem início de sessão à sua conta de utilizadores do Office 365 e permitir que as logic apps ligar à sua conta.

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f655becfac05acfacfeef12edd68b37835420bf
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede do Service Fabric
 Pode integrar o seu cluster do Azure Service Fabric com outras funcionalidades de rede do Azure. Neste artigo, vamos mostrar-lhe como criar clusters que utilizam as seguintes funcionalidades:
@@ -36,7 +36,7 @@ Se a porta 19080 não está acessível a partir do fornecedor de recursos do Ser
 
 ## <a name="templates"></a>Modelos
 
-Todos os modelos de Service Fabric, estão em [um transferir ficheiro](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). Deverá conseguir implementar os modelos como-utilizando os seguintes comandos do PowerShell. Se estiver a implementar o modelo de rede Virtual do Azure existente ou o modelo de IP público estático, ler primeiro o [inicial configuração](#initialsetup) secção deste artigo.
+Todos os modelos de Service Fabric, estão em [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). Deverá conseguir implementar os modelos como-utilizando os seguintes comandos do PowerShell. Se estiver a implementar o modelo de rede Virtual do Azure existente ou o modelo de IP público estático, ler primeiro o [inicial configuração](#initialsetup) secção deste artigo.
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>Configuração inicial
@@ -73,7 +73,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Modelo de Service Fabric
 
-Os exemplos neste artigo, utilizamos o Template de Service Fabric. Pode utilizar o Assistente de portal padrão para transferir o modelo do portal, antes de criar um cluster. Também pode utilizar um dos modelos no [Galeria de modelo](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), como o [cluster do Service Fabric cinco nós](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Os exemplos neste artigo, utilizamos o Template de Service Fabric. Pode utilizar o Assistente de portal padrão para transferir o modelo do portal, antes de criar um cluster. Também pode utilizar um do [modelos de exemplo](https://github.com/Azure-Samples/service-fabric-cluster-templates), como o [segura cluster do Service Fabric cinco nós](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Rede virtual existente ou a sub-rede
@@ -596,5 +596,5 @@ Num cluster de tipo de nó de dois, é um tipo de nó no balanceador de carga ex
 
 Após a implementação, pode ver dois balanceadores de carga no grupo de recursos. Se procurar os balanceadores de carga, pode ver os IP endereço e a gestão de pontos finais públicos (as portas 19000 e 19080) atribuídos para o endereço IP público. Também pode ver o estático interno endereço e a aplicação de ponto final de IP (porta 80) atribuído ao balanceador de carga interno. Ambos os balanceadores de carga usam o conjunto de back-end de conjunto de dimensionamento do mesmo máquina virtual.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Criar um cluster](service-fabric-cluster-creation-via-arm.md)

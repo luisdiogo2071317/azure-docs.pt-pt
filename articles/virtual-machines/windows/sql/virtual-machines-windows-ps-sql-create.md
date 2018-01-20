@@ -15,8 +15,8 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/29/2017
 ms.author: jroth
-ms.openlocfilehash: db37fbbc0abdafcb56d56809eeb43096617b6da3
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 00f229c1b7fd9f3abaea1a07cec9b44efac5a5fa
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
@@ -246,7 +246,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Definir as propriedades do sistema operativo da máquina virtual
-Agora, está prontos para definir as propriedades do sistema operativo da máquina virtual com [conjunto AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) necessitam de cmdlet para definir o tipo do sistema operativo como Windows, o [agente da máquina virtual](../classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para ser instalada, especifique que o cmdlet permite a atualização automática e defina o nome de máquina virtual, o nome do computador e a credencial utilizando as variáveis que anteriormente inicializado.
+Agora, está prontos para definir as propriedades do sistema operativo da máquina virtual com [conjunto AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) necessitam de cmdlet para definir o tipo do sistema operativo como Windows, o [agente da máquina virtual](../classic/agents-and-extensions-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para ser instalada, especifique que o cmdlet permite a atualização automática e defina o nome de máquina virtual, o nome do computador e a credencial utilizando as variáveis que anteriormente inicializado.
 
 Execute o cmdlet seguinte para definir as propriedades do sistema operativo para a máquina virtual.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2016
 ms.author: cjiang
-ms.openlocfilehash: 4f97f28118e0fc6e92373f04c45450537723fce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 581fbaa477bd603fea5fdc0ef77c6ef7498b7897
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Resolver problemas de implementação clássica com a criação de uma nova máquina virtual de Linux no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -50,7 +50,7 @@ No portal do Azure, clique em **procurar** > **máquinas virtuais** > *a máquin
 
 **Resolução:**
 
-Para resolver ambos estes erros, carregue o VHD original, disponível no local, com a mesma definição que para o SO (generalizado/especializado). Para carregar como generalizado, lembre-se executar - desaprovisionar primeiro. Consulte [criar e carregar um disco rígido Virtual que contém o sistema operativo Linux](create-upload-vhd.md) para obter mais informações.
+Para resolver ambos estes erros, carregue o VHD original, disponível no local, com a mesma definição que para o SO (generalizado/especializado). Para carregar como generalizado, lembre-se executar - desaprovisionar primeiro. Consulte [criar e carregar um disco rígido Virtual que contém o sistema operativo Linux](create-upload-vhd-classic.md) para obter mais informações.
 
 **Captura de erros:**
 
@@ -60,7 +60,7 @@ Para resolver ambos estes erros, carregue o VHD original, disponível no local, 
 
 **Resolução:**
 
-Para resolver ambos estes erros, elimine a imagem atual no portal, e [recapturá-lo a partir dos VHD atual](capture-image.md) com a mesma definição que para o SO (generalizado/especializado).
+Para resolver ambos estes erros, elimine a imagem atual no portal, e [recapturá-lo a partir dos VHD atual](capture-image-classic.md) com a mesma definição que para o SO (generalizado/especializado).
 
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: Personalizada / Galeria / imagem do marketplace; Falha de alocação
 Este erro for em situações quando o novo pedido VM é enviado para um cluster que não tem espaço livre disponível para acomodar o pedido, ou não suporta o tamanho da VM que está a ser solicitado. Não é possível combinar uma série diferente de VMs no mesmo serviço em nuvem. Por isso, se pretender criar uma nova VM de um tamanho diferente que o seu serviço em nuvem pode suportar, irá falhar o pedido de computação.
@@ -88,6 +88,6 @@ Consoante as restrições do serviço de nuvem que é utilizado para criar a nov
 * Crie nova VM na rede virtual de novo.
 * [Ligar à rede virtual existente](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) para a nova rede virtual. Ver mais informações sobre [redes virtuais regionais](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Em alternativa, pode [migrar a rede virtual baseado em grupo de afinidade para uma rede virtual regional](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)e, em seguida, crie a nova VM.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se ocorrerem problemas ao iniciar uma VM com Linux parada ou redimensionar uma VM com Linux existente no Azure, consulte o artigo [resolver problemas de implementação clássica com reiniciar ou redimensionar uma Máquina Virtual de Linux existente no Azure](restart-resize-error-troubleshooting.md).
 

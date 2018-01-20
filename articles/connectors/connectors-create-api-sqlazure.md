@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Começar a utilizar o conector do SQL Database do Azure
 Utilizar o conector do SQL Database do Azure, crie fluxos de trabalho para a sua organização que gerem dados no seu tabelas. 
@@ -31,7 +31,7 @@ Base de dados SQL, pode:
 
 Este tópico mostra-lhe como utilizar o conector de base de dados SQL numa aplicação lógica e também lista as ações.
 
-Para saber mais sobre Logic Apps, consulte o artigo [que são logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) e [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para saber mais sobre Logic Apps, consulte o artigo [que são logic apps](../logic-apps/logic-apps-overview.md) e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-azure-sql-database"></a>Ligar à base de dados SQL do Azure
 Antes da aplicação lógica pode aceder a qualquer serviço, tem primeiro de criar um *ligação* ao serviço. Uma ligação oferece a conectividade entre uma aplicação lógica e outro serviço. Por exemplo, para ligar à base de dados do SQL Server, tem primeiro de criar uma base de dados do SQL Server *ligação*. Para criar uma ligação, introduza as credenciais que normalmente utiliza para aceder ao serviço que está a ligar. Por isso, na base de dados do SQL Server, introduza as credenciais da base de dados SQL para criar a ligação. 
@@ -42,10 +42,10 @@ Antes da aplicação lógica pode aceder a qualquer serviço, tem primeiro de cr
 > 
 
 ## <a name="use-a-trigger"></a>Utilizar um acionador
-Este conector não ter acionadores. Utilize outros acionadores para iniciar a aplicação lógica, tais como um acionador de recorrência, um acionador de HTTP Webhook, acionadores disponíveis com outros conectores e muito mais. [Criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md) fornece um exemplo.
+Este conector não ter acionadores. Utilize outros acionadores para iniciar a aplicação lógica, tais como um acionador de recorrência, um acionador de HTTP Webhook, acionadores disponíveis com outros conectores e muito mais. [Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) fornece um exemplo.
 
 ## <a name="use-an-action"></a>Utilizar uma ação
-Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Selecione o sinal de adição. Pode ver várias opções: **adicionar uma ação**, **adicionar uma condição**, ou um do **mais** opções.
    
@@ -70,6 +70,6 @@ Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa 
 
 Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/sql/). 
 
-## <a name="next-steps"></a>Passos seguintes
-[Criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explorar os outros conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Passos Seguintes
+[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorar os outros conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
 

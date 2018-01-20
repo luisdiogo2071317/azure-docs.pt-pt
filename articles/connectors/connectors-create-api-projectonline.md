@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: b075e2eb36f54afb7544e0aeb698701cd224ff93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be1fc1dd5b9122a62bfb1810ff29f6a38900c9b3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>Começar a utilizar o conector ProjectOnline
 Projeto Online é uma solução flexível online para gestão de portefólio de projeto (PPM) e de uso corrente trabalho da Microsoft. Project Online entregar através do Office 365, permite às organizações começar a trabalhar rapidamente com capacidades de gestão do projeto poderosa para planear, atribuir prioridades e gerir projetos e os investimentos em portefólio de projeto — partir de praticamente qualquer lugar em praticamente qualquer dispositivo.
 
-Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-projectonline"></a>Criar uma ligação a ProjectOnline
 Para criar aplicações lógicas com ProjectOnline, primeiro tem de criar um **ligação** , em seguida, forneça os detalhes para as seguintes propriedades: 
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| Token |Sim |Forneça credenciais ProjectOnline |
+| Token |Sim |Fornecer Credenciais do Project Online |
 
 > [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 > 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 3ef7a4054be80547b0d91ad1f13777d915005f8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 128abd504785227c1f27debd329d46d358e6e516
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>Controlar a comunicação de B2B no Microsoft Operations Management Suite (OMS)
 
@@ -32,7 +32,7 @@ Após configurar a comunicação de B2B entre duas a executar os processos de ne
 
 ## <a name="requirements"></a>Requisitos
 
-* Uma aplicação lógica que esteja configurada com o registo de diagnóstico. Saiba [como criar uma aplicação lógica](logic-apps-create-a-logic-app.md) e [como configurar o registo para essa aplicação lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Uma aplicação lógica que esteja configurada com o registo de diagnóstico. Saiba [como criar uma aplicação lógica](quickstart-create-first-logic-app-workflow.md) e [como configurar o registo para essa aplicação lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Uma conta de integração que está configurada com a monitorização e registo. Saiba [como criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [como configurar a monitorização e o registo para essa conta](../logic-apps/logic-apps-monitor-b2b-message.md).
 
@@ -155,9 +155,9 @@ Seguem-se as descrições de propriedade para cada mensagem AS2.
 | Estado | O estado de mensagem AS2 <br>Êxito = recebidos ou enviados uma mensagem de AS2 válida. Não existem MDN está definida. <br>Êxito = recebidos ou enviados uma mensagem de AS2 válida. MDN está configurado e recebido ou MDN é enviado. <br>Não foi possível = recebida uma mensagem de AS2 inválida. Não existem MDN está definida. <br>Pendente = recebidos ou enviados uma mensagem de AS2 válida. Configurar a MDN e MDN é esperado. |
 | Confirmação | O estado de mensagem MDN <br>Aceite = recebidos ou enviados um MDN positivo. <br>Pendente = à espera de receber ou enviar um MDN. <br>Rejeitado = recebidos ou enviados um MDN negativo. <br>Não é necessária = MDN não está definido no contrato. |
 | Direção | A direção de mensagem AS2 |
-| ID de correlação | O ID de que está correlacionada com todos os acionadores e ações numa aplicação lógica |
-| ID da mensagem | O ID de mensagem AS2 de cabeçalhos de mensagens AS2 |
-| Timestamp | A hora quando a ação de AS2 processar a mensagem |
+| ID de Correlação | O ID de que está correlacionada com todos os acionadores e ações numa aplicação lógica |
+| ID da Mensagem | O ID de mensagem AS2 de cabeçalhos de mensagens AS2 |
+| Carimbo de data/hora | A hora quando a ação de AS2 processar a mensagem |
 |          |             |
 
 <a name="as2-folder-file-names"></a>
@@ -168,7 +168,7 @@ Seguem-se formatos de nome para cada pasta de mensagem AS2 transferida e ficheir
 
 | Ficheiro ou pasta | Formato de nome |
 | :------------- | :---------- |
-| Pasta de mensagem | [remetente] \_[recetor]\_AS2\_[ID de correlação]\_[ID de mensagem]\_[timestamp] |
+| Pasta de mensagem | [sender]\_[receiver]\_AS2\_[correlation-ID]\_[message-ID]\_[timestamp] |
 | Entrada, saída e se configurar os ficheiros de confirmação | **Payload de entrada**: [remetente]\_[recetor]\_AS2\_[ID de correlação]\_input_payload.txt </p>**Payload de saída**: [remetente]\_[recetor]\_AS2\_[ID de correlação]\_saída\_payload.txt </p></p>**Entradas**: [remetente]\_[recetor]\_AS2\_[ID de correlação]\_inputs.txt </p></p>**Saídas**: [remetente]\_[recetor]\_AS2\_[ID de correlação]\_outputs.txt |
 |          |             |
 
@@ -186,11 +186,11 @@ Seguem-se as descrições de propriedade para cada X12 mensagem.
 | Estado | O X12 mensagem de estado <br>Êxito = recebidos ou enviados um X12 válido mensagem. Nenhum ack funcional está definida. <br>Êxito = recebidos ou enviados um X12 válido mensagem. Ack funcional está configurado e recebido ou uma confirmação funcional é enviada. <br>Não foi possível = recebidos ou enviados um X12 inválido mensagem. <br>Pendente = recebidos ou enviados um X12 válido mensagem. Configurar a confirmação funcional e prevê-se uma confirmação funcional. |
 | Confirmação | Estado de confirmação (997) funcional <br>Aceite = recebidos ou enviados uma confirmação funcional positivo <br>Rejeitado = recebidos ou enviados uma confirmação negativa de funcional <br>Pendente = era esperado um ack funcional, mas não foi recebido. <br>Pendente = gerou uma confirmação funcional, mas não é possível enviar para o parceiro. <br>Não é necessária = funcional ack não está configurado. |
 | Direção | A direção da mensagem X12 |
-| ID de correlação | O ID de que está correlacionada com todos os acionadores e ações numa aplicação lógica |
+| ID de Correlação | O ID de que está correlacionada com todos os acionadores e ações numa aplicação lógica |
 | Tipo de tarifas de mensagens | O tipo de mensagem 12 EDI X |
 | ICN | O número de controlo intercâmbio para o X12 mensagem |
 | TSCN | O número de controlo de transação definida para o X12 mensagem |
-| Timestamp | A hora quando o X12 processar a ação a mensagem |
+| Carimbo de data/hora | A hora quando o X12 processar a ação a mensagem |
 |          |             |
 
 <a name="x12-folder-file-names"></a>
@@ -201,7 +201,7 @@ Seguem-se formatos de nome de cada transferido X12 pastas e ficheiros de mensage
 
 | Ficheiro ou pasta | Formato de nome |
 | :------------- | :---------- |
-| Pasta de mensagem | [remetente] \_[recetor]\_X12\_[número de controlo de intercâmbio]\_[global-controlo-número]\_[transação-set-controlo-número]\_[timestamp] |
+| Pasta de mensagem | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
 | Entrada, saída e se configurar os ficheiros de confirmação | **Payload de entrada**: [remetente]\_[recetor]\_X12\_[número de controlo de intercâmbio]\_input_payload.txt </p>**Payload de saída**: [remetente]\_[recetor]\_X12\_[número de controlo de intercâmbio]\_saída\_payload.txt </p></p>**Entradas**: [remetente]\_[recetor]\_X12\_[número de controlo de intercâmbio]\_inputs.txt </p></p>**Saídas**: [remetente]\_[recetor]\_X12\_[número de controlo de intercâmbio]\_outputs.txt |
 |          |             |
 
@@ -219,11 +219,11 @@ Seguem-se as descrições de propriedade para cada mensagem EDIFACT.
 | Estado | O estado de mensagem EDIFACT <br>Êxito = recebidos ou enviados uma mensagem EDIFACT válida. Nenhum ack funcional está definida. <br>Êxito = recebidos ou enviados uma mensagem EDIFACT válida. Ack funcional está configurado e recebido ou uma confirmação funcional é enviada. <br>Não foi possível = recebidos ou enviados uma mensagem EDIFACT inválida <br>Pendente = recebidos ou enviados uma mensagem EDIFACT válida. Configurar a confirmação funcional e prevê-se uma confirmação funcional. |
 | Confirmação | Estado de confirmação (997) funcional <br>Aceite = recebidos ou enviados uma confirmação funcional positivo <br>Rejeitado = recebidos ou enviados uma confirmação negativa de funcional <br>Pendente = era esperado um ack funcional, mas não foi recebido. <br>Pendente = gerou uma confirmação funcional, mas não é possível enviar para o parceiro. <br>Não é necessária = Ack funcional não está configurado. |
 | Direção | A direção de mensagem EDIFACT |
-| ID de correlação | O ID de que está correlacionada com todos os acionadores e ações numa aplicação lógica |
+| ID de Correlação | O ID de que está correlacionada com todos os acionadores e ações numa aplicação lógica |
 | Tipo de tarifas de mensagens | O tipo de mensagem EDIFACT |
 | ICN | O número de controlo intercâmbio para a mensagem EDIFACT |
 | TSCN | O número de controlo de transação definida para a mensagem EDIFACT |
-| Timestamp | A hora quando a ação de EDIFACT processar a mensagem |
+| Carimbo de data/hora | A hora quando a ação de EDIFACT processar a mensagem |
 |          |               |
 
 <a name="edifact-folder-file-names"></a>
@@ -234,11 +234,11 @@ Seguem-se formatos de nome para cada pasta de mensagem EDIFACT transferida e fic
 
 | Ficheiro ou pasta | Formato de nome |
 | :------------- | :---------- |
-| Pasta de mensagem | [remetente] \_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_[global-controlo-número]\_[transação-set-controlo-número]\_[timestamp] |
+| Pasta de mensagem | [sender]\_[receiver]\_EDIFACT\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
 | Entrada, saída e se configurar os ficheiros de confirmação | **Payload de entrada**: [remetente]\_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_input_payload.txt </p>**Payload de saída**: [remetente]\_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_saída\_payload.txt </p></p>**Entradas**: [remetente]\_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_inputs.txt </p></p>**Saídas**: [remetente]\_[recetor]\_EDIFACT\_[número de controlo de intercâmbio]\_outputs.txt |
 |          |             |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Consulta para mensagens B2B no Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Esquemas de controlo de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)

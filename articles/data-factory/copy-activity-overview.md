@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: f26f36f241edba2e1fcd1156587b82b79d559e2d
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
@@ -158,7 +158,7 @@ Clique para ver a lista de atividades esta execução de pipeline. No **ações*
 
 ![Execuções de atividade do monitor](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Clique em de "**detalhes**" ligação em **ações** para ver detalhes de execução da atividade de cópia e as características de desempenho. Mostra informações, incluindo: volume dos dados copiados a partir da origem para sink, débito, os passos que realiza com duração correspondente e utilizado configurações para o seu cenário de cópia.
+Clique em de "**detalhes**" ligação em **ações** para ver detalhes de execução da atividade de cópia e as características de desempenho. Mostra informações incluindo volume/linhas/copiados os ficheiros de dados de origem para sink, débito, os passos que realiza com duração correspondente e utilizado configurações para o seu cenário de cópia.
 
 **Exemplo: copiar do Amazon S3 ao Azure Data Lake Store**
 ![detalhes da execução da atividade de monitorização](./media/copy-activity-overview/monitor-activity-run-details-adls.png)

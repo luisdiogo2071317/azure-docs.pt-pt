@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: d6cda201e4cf16549f296bf9873b1085effd3a45
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca11199e51774e766113309150d8a260427cb4b4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerir aplicações e serviços como recursos do Azure Resource Manager
 
@@ -66,7 +66,7 @@ O fragmento seguinte mostra os diferentes tipos de recursos que podem ser gerido
 1. Prepare o modelo de Gestor de recursos do cluster para a implementação. Consulte [criar um cluster do Service Fabric com o Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter mais informações sobre este.
 2. Pensa sobre algumas das aplicações que planeia implementar no cluster. Existem os que será sempre executado que outras aplicações podem demorar dependências? Planear implementar qualquer governação de cluster ou aplicações de configuração? Estes tipos de aplicações melhor geridos através de um modelo do Resource Manager, tal como explicado acima. 
 3. Depois de ter figured saída que aplicações pretende que sejam implementados desta forma, as aplicações tem de ser compactadas, zipado e colocada numa partilha de ficheiros. A partilha tem de estar acessível através de um ponto final de REST do Azure Resource Manager para consumir durante a implementação.
-4. O modelo do Resource Manager, abaixo da declaração de cluster, descreve as propriedades de cada aplicação. Estas propriedades incluem a contagem de instâncias ou de réplica e quaisquer cadeias de dependência entre os recursos (outros serviços ou aplicações). Para obter uma lista de propriedades completos, consulte o [REST API Swagger Spec](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicefabric/resource-manager/Microsoft.ServiceFabric/2017-07-01-preview/servicefabric.json). Tenha em atenção que isto não substitui a aplicação ou serviço manifestos, mas em vez disso descreve algumas das novidades no-los como parte do modelo de Gestor de recursos do cluster. Segue-se um modelo de exemplo que inclui a implementar um serviço sem estado *Service1* e um serviço com estado *Service2* como parte da *Application1*:
+4. O modelo do Resource Manager, abaixo da declaração de cluster, descreve as propriedades de cada aplicação. Estas propriedades incluem a contagem de instâncias ou de réplica e quaisquer cadeias de dependência entre os recursos (outros serviços ou aplicações). Para obter uma lista de propriedades completos, consulte o [REST API Swagger Spec](https://aka.ms/sfrpswaggerspec). Tenha em atenção que isto não substitui a aplicação ou serviço manifestos, mas em vez disso descreve algumas das novidades no-los como parte do modelo de Gestor de recursos do cluster. Segue-se um modelo de exemplo que inclui a implementar um serviço sem estado *Service1* e um serviço com estado *Service2* como parte da *Application1*:
 
   ```json
   {
@@ -77,62 +77,62 @@ O fragmento seguinte mostra os diferentes tipos de recursos que podem ser gerido
         "type": "string",
         "defaultValue": "Cluster",
         "metadata": {
-          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only"
+          "description": "Name of your cluster - Between 3 and 23 characters. Letters and numbers only."
         }
       },
       "applicationTypeName": {
         "type": "string",
         "defaultValue": "ApplicationType",
         "metadata": {
-          "description": "The application type name"
+          "description": "The application type name."
         }
       },
       "applicationTypeVersion": {
         "type": "string",
         "defaultValue": "1",
         "metadata": {
-          "description": "The application type version"
+          "description": "The application type version."
         }
       },
       "appPackageUrl": {
         "type": "string",
         "metadata": {
-          "description": "The URL to the application package sfpkg file"
+          "description": "The URL to the application package sfpkg file."
         }
       },
       "applicationName": {
         "type": "string",
         "defaultValue": "Application1",
         "metadata": {
-          "description": "The application name"
+          "description": "The name of the application resource."
         }
       },
       "serviceName": {
         "type": "string",
         "defaultValue": "Service1",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName": {
         "type": "string",
         "defaultValue": "Service1Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       },
       "serviceName2": {
         "type": "string",
         "defaultValue": "Service2",
         "metadata": {
-          "description": "The service name"
+          "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
       },
       "serviceTypeName2": {
         "type": "string",
         "defaultValue": "Service2Type",
         "metadata": {
-          "description": "The service type name"
+          "description": "The name of the service type."
         }
       }
     },
@@ -263,7 +263,7 @@ O fragmento seguinte mostra os diferentes tipos de recursos que podem ser gerido
 Se o cluster já está operacional e obter algumas aplicações que pretende gerir recursos do Gestor de recursos já são implementados no mesmo, em vez de remoção das aplicações e reimplementação-los, pode utilizar uma chamada PUT com as APIs do mesmas para que as aplicações confirmada como recursos do Resource Manager. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Utilize o [CLI de recursos de infraestrutura de serviço](service-fabric-cli.md) ou [PowerShell](service-fabric-deploy-remove-applications.md) para implementar outras aplicações em cluster. 
 * [Atualize o cluster do Service Fabric](service-fabric-cluster-upgrade.md)

@@ -11,15 +11,15 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Monitorizar alterações de máquina virtual com a grelha de eventos do Azure e Logic Apps
 
-Pode iniciar uma automatizada [fluxo de trabalho de aplicação de lógica](../logic-apps/logic-apps-what-are-logic-apps.md) quando os eventos específicos acontecer em recursos do Azure ou recursos de terceiros. Estes recursos podem publicar esses eventos para um [grelha de eventos do Azure](../event-grid/overview.md). Por sua vez, a grelha de evento pushes esses eventos para os subscritores que tenham as filas, webhooks, ou [dos event hubs](../event-hubs/event-hubs-what-is-event-hubs.md) como pontos finais. Como um subscritor, a aplicação lógica pode aguardar esses eventos da grelha de eventos antes de executar fluxos de trabalho automatizados para efetuar tarefas - sem que escrever qualquer código.
+Pode iniciar uma automatizada [fluxo de trabalho de aplicação de lógica](../logic-apps/logic-apps-overview.md) quando os eventos específicos acontecer em recursos do Azure ou recursos de terceiros. Estes recursos podem publicar esses eventos para um [grelha de eventos do Azure](../event-grid/overview.md). Por sua vez, a grelha de evento pushes esses eventos para os subscritores que tenham as filas, webhooks, ou [dos event hubs](../event-hubs/event-hubs-what-is-event-hubs.md) como pontos finais. Como um subscritor, a aplicação lógica pode aguardar esses eventos da grelha de eventos antes de executar fluxos de trabalho automatizados para efetuar tarefas - sem que escrever qualquer código.
 
 Por exemplo, aqui estão alguns eventos que podem enviar editores para subscritores através do serviço de grelha de eventos do Azure:
 
@@ -49,7 +49,7 @@ Neste tutorial, ficará a saber como:
 
 Em primeiro lugar, crie uma aplicação lógica e adicionar um acionador de grelha de eventos que monitoriza o grupo de recursos para a máquina virtual. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 2. No canto superior esquerdo do menu principal do Azure, escolha **novo** > **integração empresarial com** > **aplicação lógica**.
 
@@ -61,10 +61,10 @@ Em primeiro lugar, crie uma aplicação lógica e adicionar um acionador de grel
 
    | Definição | Valor sugerido | Descrição | 
    | ------- | --------------- | ----------- | 
-   | **Nome** | *{logic-nome da aplicação}* | Indique um nome exclusivo para a aplicação lógica. | 
-   | **Subscrição** | *{your-subscrição do Azure}* | Selecione a mesma subscrição do Azure para todos os serviços neste tutorial. | 
+   | **Nome** | *{your-logic-app-name}* | Indique um nome exclusivo para a aplicação lógica. | 
+   | **Subscrição** | *{your-Azure-subscription}* | Selecione a mesma subscrição do Azure para todos os serviços neste tutorial. | 
    | **Grupo de recursos** | *{your-Azure-resource-group}* | Selecione o mesmo grupo de recursos do Azure para todos os serviços neste tutorial. | 
-   | **Localização** | *{your-região do Azure}* | Selecione a região mesma para todos os serviços neste tutorial. | 
+   | **Localização** | *{your-Azure-region}* | Selecione a região mesma para todos os serviços neste tutorial. | 
    | | | 
 
 4. Quando estiver pronto, selecione **afixar ao dashboard**e escolha **criar**.
@@ -79,7 +79,7 @@ Em primeiro lugar, crie uma aplicação lógica e adicionar um acionador de grel
 
    ![Escolher o modelo da aplicação lógica](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-   O Designer de aplicações lógicas agora mostra-lhe [ *conectores* ](../connectors/apis-list.md) e [ *acionadores* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) que pode utilizar para iniciar a aplicação lógica bem como as ações que pode adicionar após um acionador para efetuar tarefas. Um acionador é um evento que cria uma instância da aplicação lógica e inicia o fluxo de trabalho de aplicação lógica. 
+   O Designer de aplicações lógicas agora mostra-lhe [ *conectores* ](../connectors/apis-list.md) e [ *acionadores* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) que pode utilizar para iniciar a aplicação lógica bem como as ações que pode adicionar após um acionador para efetuar tarefas. Um acionador é um evento que cria uma instância da aplicação lógica e inicia o fluxo de trabalho de aplicação lógica. 
    A aplicação de lógica tem um acionador, como o primeiro item.
 
 6. Na caixa de pesquisa, introduza "grelha de evento" como o filtro. Selecione este acionador: **grelha de eventos do Azure - num evento de recursos**
@@ -99,9 +99,9 @@ Em primeiro lugar, crie uma aplicação lógica e adicionar um acionador de grel
 
    | Definição | Valor sugerido | Descrição | 
    | ------- | --------------- | ----------- | 
-   | **Subscrição** | *{virtual-machine-subscrição do Azure}* | Selecione a subscrição do Azure o publicador de eventos. Para este tutorial, selecione a subscrição do Azure para a máquina virtual. | 
+   | **Subscrição** | *{virtual-machine-Azure-subscription}* | Selecione a subscrição do Azure o publicador de eventos. Para este tutorial, selecione a subscrição do Azure para a máquina virtual. | 
    | **Tipo de Recurso** | Microsoft.Resources.resourceGroups | Selecione o tipo de recurso o publicador de eventos. Para este tutorial, selecione o valor especificado para a sua aplicação lógica monitoriza apenas os grupos de recursos. | 
-   | **Nome do recurso** | *{virtual-machine-resource--nome do grupo}* | Selecione o nome do Editor recursos. Para este tutorial, selecione o nome do grupo de recursos para a máquina virtual. | 
+   | **Nome do recurso** | *{virtual-machine-resource-group-name}* | Selecione o nome do Editor recursos. Para este tutorial, selecione o nome do grupo de recursos para a máquina virtual. | 
    | Para as definições opcionais, escolha **Mostrar opções avançadas**. | *{consulte as descrições}* | * **Prefixo filtro**: para este tutorial, deixe esta definição em branco. O comportamento predefinido corresponde a todos os valores. No entanto, pode especificar uma cadeia de prefixo como um filtro, por exemplo, um caminho e um parâmetro para um recurso específico. <p>* **Sufixo filtro**: para este tutorial, deixe esta definição em branco. O comportamento predefinido corresponde a todos os valores. No entanto, pode especificar uma cadeia de sufixo como um filtro, por exemplo, uma extensão de nome de ficheiro, se pretender que os tipos de ficheiro específicos apenas.<p>* **Nome da subscrição**: forneça um nome exclusivo para a sua subscrição de evento. |
    | | | 
 
@@ -154,7 +154,7 @@ Introduza esta expressão:
 
 ## <a name="send-email-when-your-virtual-machine-changes"></a>Enviar correio eletrónico quando altera a sua máquina virtual
 
-Agora adicione um [ *ação* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) para que receber um e-mail quando a condição especificada é verdadeira.
+Agora adicione um [ *ação* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) para que receber um e-mail quando a condição especificada é verdadeira.
 
 1. A condição **se for verdadeiro** caixa, escolha **adicionar uma ação**.
 
@@ -182,7 +182,7 @@ Agora adicione um [ *ação* ](../logic-apps/logic-apps-what-are-logic-apps.md#l
 
    | Definição | Valor sugerido | Descrição | 
    | ------- | --------------- | ----------- | 
-   | **Para** | *{endereço de correio eletrónico de destinatário}* |Introduza o endereço de e-mail do destinatário. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. | 
+   | **Para** | *{recipient-email-address}* |Introduza o endereço de e-mail do destinatário. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. | 
    | **Assunto** | O recurso atualizado: **requerente**| Introduza o conteúdo para o assunto do e-mail. Para este tutorial, introduza o texto sugerido e selecione o evento **requerente** campo. Aqui, o assunto do correio eletrónico inclui o nome para o recurso atualizado (máquina virtual). | 
    | **Corpo** | Grupo de recursos: **tópico** <p>Tipo de evento: **tipo de evento**<p>ID de evento: **ID**<p>Hora: **tempo do evento** | Introduza o conteúdo para o corpo do e-mail. Para este tutorial, introduza o texto sugerido e selecione o evento **tópico**, **tipo de evento**, **ID**, e **tempo do evento** campos para que o seu correio eletrónico inclui o nome do grupo de recursos, tipo de evento, timestamp de eventos e ID de evento para a atualização. <p>Para adicionar linhas em branco no seu conteúdo, prima Shift + Enter. | 
    | | | 
@@ -241,10 +241,10 @@ Este tutorial utiliza recursos e efetua ações de pagar a sua subscrição do A
   ![Desativar a sua aplicação lógica](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
 
   > [!TIP]
-  > Se não vir o menu da aplicação lógica, experimente regressar ao dashboard do Azure e reabra a aplicação lógica.
+  > Se não vir o menu da aplicação lógica, experimente regressar ao dashboard do Azure e reabra-a.
 
 * Para eliminar permanentemente a sua aplicação lógica, no menu de aplicação lógica, escolha **descrição geral**. Na barra de ferramentas, escolha **Eliminar**. Confirme que pretende eliminar a sua aplicação lógica e escolha **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar e eventos personalizados com grelha de eventos de rotas](../event-grid/custom-event-quickstart.md)

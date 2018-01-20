@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: c9b72c26649ddf5e15c6d8c36a732f2ca3e4aa30
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Neste artigo, **passo 2**, explica como preparar os discos rígidos virtuais (VHDs) que vai implementar no Azure Marketplace. Os VHDs são a base do SKU. O processo é diferente dependendo se está a fornecer um SKU baseado em Windows ou baseado em Linux. Este artigo abrange ambos os cenários. Este processo pode ser executado em paralelo com [conta criação e registo][link-acct-creation].
@@ -28,7 +28,7 @@ Nesta secção, saiba definir as ofertas e os respetivos SKUs associados.
 
 Uma oferta funciona como o "elemento principal" de todos os SKUs correspondentes. Pode ter várias ofertas. A forma como as ofertas são estruturadas é uma questão que lhe cabe a si decidir. Quando uma oferta é emitida para teste, a emissão é propagada por todos os SKUs correspondentes. Considere cuidadosamente os identificadores SKU, porque estará visíveis no URL:
 
-* Azure.com: http://azure.microsoft.com/marketplace/partners/ {PartnerNamespace} / {OfferIdentifier}-{SKUidentifier}
+* Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
 * Portal de pré-visualização do Azure: https://portal.azure.com/#gallery/ {PublisherNamespace}. {OfferIdentifier} {SKUIDdentifier}  
 
 Um SKU é o nome comercial para uma imagem de VM. Uma imagem de VM contém disco de um sistema operativo e zero ou mais discos de dados. Trata-se, no fundo, do perfil de armazenamento completo de uma máquina virtual. É necessário um VHD por disco. Os discos de dados, mesmo em branco precisam de um VHD ser criado.
@@ -58,7 +58,7 @@ Depois de ter adicionado uma oferta, terá de definir e identificar os SKUs. Pod
 3. Se estiver a utilizar SKUs baseadas no Windows, siga as ligações sugeridas para obter as versões aprovadas do Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Criar um VHD compatível com o Azure (baseado em Linux)
-Esta secção está centrado nas melhores práticas para criar uma imagem VM baseadas em Linux para o Azure Marketplace. Para obter instruções passo a passo, consulte a seguinte documentação: [criar e carregar um disco rígido Virtual que contém o sistema operativo Linux](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Esta secção está centrado nas melhores práticas para criar uma imagem VM baseadas em Linux para o Azure Marketplace. Para obter instruções passo a passo, consulte a seguinte documentação: [criar e carregar um disco rígido Virtual que contém o sistema operativo Linux](../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Criar um VHD compatível com o Azure (baseado no Windows)
 Esta secção centra-se os passos para criar um SKU baseado no Windows Server para o Azure Marketplace.
@@ -68,8 +68,8 @@ O VHD de sistema operativo para a imagem VM tem de ser baseada em imagem base ap
 
 Para começar, crie uma VM a partir de um dos seguintes imagens, localizado no [portal do Microsoft Azure][link-azure-portal]:
 
-* Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1] [link-datactr-2008-r2])
-* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [padrão][link-sql-2014-std], [Web] [ link-sql-2014-web])
+* Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
+* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
 * SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [padrão][link-sql-2012-std], [Web] [ link-sql-2012-web])
 
 Estas ligações encontram-se igualmente disponíveis no Portal de Publicação, na página SKU.
@@ -512,17 +512,17 @@ Depois de ter criado a sua oferta e SKU, deverá introduzir os detalhes da image
 
 |Problema|Mensagem de falha|Corrigir|Ligação de documentação|
 |---|---|---|---|
-|Falha ao copiar imagens - "?" não foi encontrado no SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o SAS Url utilizando recomendado ferramentas|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens - "st" e "zar" parâmetros não SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o Url de SAS com datas de início e fim no mesmo|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens - "SP2 = rl" não está num SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS|Atualizar o Url de SAS com definido como "Leitura" & "lista de permissões|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens - SAS url tem espaços em branco no nome do vhd|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o Url de SAS, sem espaços em branco|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens – erro de autorização de Url SAS|Falha: Copiar as imagens. Não é possível transferir BLOBs devido a erro de autorização|Voltar a gerar o Url SAS|[https://Azure.microsoft.com/en-us/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Falha ao copiar imagens – o Url de SAS "st" e "zar" parâmetros não dispõe de especificação de data / hora completa|Falha: Copiar as imagens. Não é possível transferir BLOBs devido ao Url de SAS incorreto |Parâmetros de início do Url de SAS e a data de fim ("st", "zar") são necessários para ter a especificação de completa de data / hora, tal como 11-02-2017T00:00:00Z e não apenas a data ou versões reduzidas durante o período de tempo. É possível encontrar este cenário através do Azure CLI 2.0 (az command). Lembre-se de que fornecem a especificação de data / hora completa e voltar a gerar o Url de SAS.|[https://Azure.microsoft.com/Documentation/articles/Storage-DotNet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens - "?" não foi encontrado no SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o SAS Url utilizando recomendado ferramentas|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens - "st" e "zar" parâmetros não SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o Url de SAS com datas de início e fim no mesmo|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens - "SP2 = rl" não está num SAS url|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS|Atualizar o Url de SAS com definido como "Leitura" & "lista de permissões|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens - SAS url tem espaços em branco no nome do vhd|Falha: Copiar as imagens. Não é possível transferir BLOBs utiliza fornecidas Uri de SAS.|Atualizar o Url de SAS, sem espaços em branco|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens – erro de autorização de Url SAS|Falha: Copiar as imagens. Não é possível transferir BLOBs devido a erro de autorização|Voltar a gerar o Url SAS|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Falha ao copiar imagens – o Url de SAS "st" e "zar" parâmetros não dispõe de especificação de data / hora completa|Falha: Copiar as imagens. Não é possível transferir BLOBs devido ao Url de SAS incorreto |Parâmetros de início do Url de SAS e a data de fim ("st", "zar") são necessários para ter a especificação de completa de data / hora, tal como 11-02-2017T00:00:00Z e não apenas a data ou versões reduzidas durante o período de tempo. É possível encontrar este cenário através do Azure CLI 2.0 (az command). Lembre-se de que fornecem a especificação de data / hora completa e voltar a gerar o Url de SAS.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Passo seguinte
 Depois de terminar com os detalhes do SKU, pode avançar para o [Guia do Azure Marketplace marketing conteúdo][link-pushstaging]. Esse passo do processo de publicação, deve fornecer o conteúdo de marketing, preço e outras informações necessárias antes **passo 3: testar a sua VM oferecem no modo de transição**, onde testar vários cenários de caso de utilização antes de implementar o oferta no Azure Marketplace para visibilidade pública e compra.  
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png

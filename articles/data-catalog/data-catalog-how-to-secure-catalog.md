@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 0950d453e53a70f96f59de572ac10326ef030444
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 89346113c6231442beb1147c4c4fea524d03d909
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Como proteger o acesso ao catálogo de dados e recursos de dados
 > [!IMPORTANT]
@@ -54,6 +54,6 @@ Para conceder um utilizador ou um grupo de acesso a um catálogo de dados e defi
 - As permissões atribuídas a grupos de segurança são cumulativas. Diga, um utilizador estiver em dois grupos. Um grupo tem anotar permissões e não ter anotar outro grupo de permissões. Em seguida, o utilizador tem anotar permissões. 
 - As permissões atribuídas explicitamente para um utilizador substituem as permissões atribuídas a grupos a que o utilizador pertence. No exemplo anterior, diga, explicitamente adicionou o utilizador de utilizadores do catálogo e não atribuir anotar permissões. O utilizador não é possível anotar recursos de dados, apesar do utilizador é membro de um grupo que tenham anotar permissões.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)
 

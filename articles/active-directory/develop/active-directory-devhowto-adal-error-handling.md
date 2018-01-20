@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/11/2017
 ms.custom: 
-ms.openlocfilehash: b6cf7bbb1ae41fcdf16601af87ec1b573866639a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Erro ao processar as melhores práticas para os clientes do Azure Active Directory Authentication Library (ADAL)
 
@@ -49,7 +49,7 @@ Não há um conjunto de erros gerados pelo sistema operativo, que podem necessit
 
 Fundamentalmente, existem dois cenários de AcquireTokenSilent erros:
 
-| Caso | Descrição |
+| Maiúsculas/Minúsculas | Descrição |
 |------|-------------|
 | **Caso 1**: erro é resolvível com um interativa início de sessão | Para erros causados por uma falta de tokens válidos, é necessário um pedido de interativo. Especificamente, a pesquisa de cache e um token de atualização inválido/expirado necessitam de uma chamada de AcquireToken para resolver.<br><br>Nestes casos, o utilizador final tem de ser-lhe pedido que inicie sessão. A aplicação pode optar por fazer um pedido de interativo imediatamente, após a interação do utilizador final (tais como a atingir um botão de início de sessão) ou posterior. A opção depende o comportamento pretendido da aplicação.<br><br>Consulte o código na secção seguinte para este cenário específico e os erros que diagnosticá-lo.|
 | **Cenário 2**: erro não é resolvível com um interativa início de sessão | Para a rede e erros de transitório/temporário ou outras falhas, executar um pedido de AcquireToken interativo não resolver o problema. Desnecessários interativa início de sessão pede também pode frustrar utilizadores finais. ADAL tenta automaticamente uma repetição único para a maioria dos erros AcquireTokenSilent falhas.<br><br>A aplicação de cliente também pode tentar uma repetição em algum momento posterior, mas quando e como fazê-lo está dependente o comportamento da aplicação e experiência do utilizador final pretendido. Por exemplo, a aplicação pode efetuar uma repetição AcquireTokenSilent após alguns minutos, ou em resposta a qualquer ação do utilizador final. Uma repetição imediata resultará na aplicação a ser limitada e não deve ser tentada.<br><br>Uma repetição subsequente falha com o mesmo erro não significa que o cliente deve fazer um pedido de interativo utilizando AcquireToken, não resolver o erro.<br><br>Consulte o código na secção seguinte para este cenário específico e os erros que diagnosticá-lo. |
@@ -58,8 +58,8 @@ Fundamentalmente, existem dois cenários de AcquireTokenSilent erros:
 
 As seguintes orientações fornece exemplos de processamento em conjunto com o ADAL métodos de erros: 
 
-- acquireTokenSilentAsync(...)
-- acquireTokenSilentSync(...) 
+- acquireTokenSilentAsync(…)
+- acquireTokenSilentSync(…) 
 - acquireTokenSilent(...) [preterido]
 - acquireTokenByRefreshToken(...) [preterido] 
 
@@ -102,7 +102,7 @@ catch (AdalException e) {
 
 As seguintes orientações fornece exemplos de processamento em conjunto com o ADAL métodos de erros: 
 
-- acquireTokenSilentSync(...)
+- acquireTokenSilentSync(…)
 - acquireTokenSilentAsync(...)
 - acquireTokenSilent(...) [preterido]
 
@@ -138,7 +138,7 @@ public void onError(Exception e) {
 
 As seguintes orientações fornece exemplos de processamento em conjunto com o ADAL métodos de erros: 
 
-- acquireTokenSilentWithResource(...)
+- acquireTokenSilentWithResource(…)
 
 O código teria de ser implementado da seguinte forma:
 
@@ -208,10 +208,10 @@ Erro ao processar aplicações nativas pode ser definido por dois cenários:
 
 As seguintes orientações fornece exemplos de juntamente com todos os não silencioso AcquireToken(...) de processamento de erros Métodos de ADAL, *exceto*: 
 
-- AcquireTokenAsync (..., IClientAssertionCertification,...)
-- AcquireTokenAsync (..., ClientCredential,...)
-- AcquireTokenAsync (..., ClientAssertion,...)
-- AcquireTokenAsync(...,UserAssertion,...)   
+- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- AcquireTokenAsync(…,ClientCredential, …)
+- AcquireTokenAsync(…,ClientAssertion, …)
+- AcquireTokenAsync(…,UserAssertion,…)   
 
 O código teria de ser implementado da seguinte forma:
 
@@ -252,7 +252,7 @@ catch (AdalException e) {
 
 As seguintes orientações fornece exemplos de processamento em conjunto com o ADAL métodos de erros: 
 
-- acquireToken(..., PromptBehavior.Never)
+- acquireToken(…, PromptBehavior.Never)
 
 O código teria de ser implementado da seguinte forma:
 
@@ -344,7 +344,7 @@ Se estiver a criar uma aplicação web do .NET que chama obtém um token com um 
 
 As seguintes orientações fornece exemplos de processamento em conjunto com o ADAL métodos de erros: 
 
-- AcquireTokenByAuthorizationCodeAsync(...)
+- AcquireTokenByAuthorizationCodeAsync(…)
 
 O código teria de ser implementado da seguinte forma:
 
@@ -413,10 +413,10 @@ Para *todos os* cenários de aplicação de serviço a serviço, incluindo em-no
 
 As seguintes orientações fornece exemplos de processamento em conjunto com o ADAL métodos de erros: 
 
-- AcquireTokenAsync (..., IClientAssertionCertification,...)
-- AcquireTokenAsync (..., ClientCredential,...)
-- AcquireTokenAsync (..., ClientAssertion,...)
-- AcquireTokenAsync (..., UserAssertion,...)
+- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- AcquireTokenAsync(…,ClientCredential, …)
+- AcquireTokenAsync(…,ClientAssertion, …)
+- AcquireTokenAsync(…,UserAssertion, …)
 
 O código teria de ser implementado da seguinte forma:
 
@@ -441,7 +441,7 @@ Para *em-nome-de* cenários de aplicação de serviço ao serviço.
 
 As seguintes orientações fornece exemplos de processamento em conjunto com o ADAL métodos de erros: 
 
-- AcquireTokenAsync (..., UserAssertion,...)
+- AcquireTokenAsync(…, UserAssertion, …)
 
 O código teria de ser implementado da seguinte forma:
 
@@ -576,6 +576,7 @@ window.Logging = {
 
 Utilize a secção de comentários que se segue para fornecer comentários e ajudam-nos refinar e formam o nosso conteúdo.
 
+[![Botão Iniciar sessão][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
@@ -584,5 +585,5 @@ Utilize a secção de comentários que se segue para fornecer comentários e aju
 [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
-[! [Inicie sessão no botão] [AAD-início de sessão]] [AAD-início de sessão] [AAD-início de sessão]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
+[AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origens de dados suportadas no catálogo de dados do Azure
 
@@ -82,7 +82,7 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       </td>
     </tr>
     <tr>
-      <td>Diretório do HDFS</td>
+      <td>Diretório HDFS</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -210,7 +210,7 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td>Apenas a servidores de modo nativo. Modo de tabela não é suportado.</td>
     </tr>
     <tr>
-      <td>Tabela de SQL Server</td>
+      <td>Tabela do SQL Server</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -338,7 +338,7 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td></td>
     </tr>
     <tr>
-      <td>Vista de PostgreSQL</td>
+      <td>PostgreSQL view</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -394,7 +394,7 @@ Pode publicar metadados utilizando uma API pública ou de um clique-registo uma 
       <td></td>
     </tr>
     <tr>
-      <td>Tabela de Cassandra</td>
+      <td>Tabela Cassandra</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>

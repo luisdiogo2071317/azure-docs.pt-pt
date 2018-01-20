@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Enviar, receber e processar mensagens nas logic apps do batch
 
@@ -39,7 +39,7 @@ Para seguir este exemplo, é necessário estes itens:
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, pode [começar com uma conta do Azure gratuita](https://azure.microsoft.com/free/). Caso contrário, pode [inscrever-se numa subscrição Pay As You Go](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 * Uma conta de e-mail com qualquer [fornecedor e-mail suportado pelo Azure Logic Apps](../connectors/apis-list.md)
 
@@ -83,13 +83,13 @@ Logic apps do remetente tem de saber para onde enviar os itens, enquanto as rece
       Por exemplo, se tiver uma conta profissional ou escolar, selecione o conector do Outlook do Office 365. 
       Se tiver uma conta do Gmail, seleccione o conector do Gmail.
 
-   3. Selecione esta ação para o conector:  **{*fornecedor de correio eletrónico*}-enviar um e-mail * *
+   3. Selecione esta ação para o conector: **{*fornecedor de correio eletrónico*}-enviar uma mensagem de e-mail**
 
       Por exemplo:
 
       ![Selecione a ação "Enviar uma mensagem de e-mail" para o seu fornecedor de e-mail](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. Se anteriormente não tenha criado uma ligação para o seu fornecedor de e-mail, forneça as credenciais de correio eletrónico para autenticação quando lhe for pedido. Saiba mais sobre [autenticar as suas credenciais de correio eletrónico](../logic-apps/logic-apps-create-a-logic-app.md).
+5. Se anteriormente não tenha criado uma ligação para o seu fornecedor de e-mail, forneça as credenciais de correio eletrónico para autenticação quando lhe for pedido. Saiba mais sobre [autenticar as suas credenciais de correio eletrónico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Defina as propriedades para a ação que acabou de adicionar.
 
@@ -170,7 +170,7 @@ Logic apps do remetente tem de saber para onde enviar os itens, enquanto as rece
      1. Quando o **conteúdo dinâmico** é apresentada a lista, escolha **expressão**. 
      2. Introduza a expressão **utcnow()**e escolha **OK**. 
 
-        ![Em "Mensagem conteúdo", escolha "Expressão". Introduza "utcnow()".](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
+        ![Em "Mensagem conteúdo", escolha "Expressão". Enter "utcnow()".](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
 
 4. Configure agora uma partição para o batch. A ação "BatchReceiver", escolha **Mostrar opções avançadas**.
 
@@ -200,7 +200,7 @@ A aplicação de lógica de BatchSender é executada a cada minuto, gera um núm
 > [!IMPORTANT]
 > Quando tiver terminado de teste, certifique-se de que desativa a aplicação de lógica de BatchSender para parar o envio de mensagens e evitar sobrecarregar a pasta a receber.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar em definições da aplicação lógica utilizando JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Criar uma aplicação sem servidor no Visual Studio com Azure Logic Apps e funções](../logic-apps/logic-apps-serverless-get-started-vs.md)

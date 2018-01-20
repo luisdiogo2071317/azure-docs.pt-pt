@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 63bd33bf4e09b98aa53dcfec9fcc4a0109204952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e988ae22a3d6e47591c37ad0b4c9f781d523bcc8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Começar a utilizar o conector do OneDrive
 Ligar para o OneDrive para gerir os seus ficheiros, incluindo carregar, obter, eliminar ficheiros e muito mais. 
@@ -32,7 +32,7 @@ Com o OneDrive, pode:
 
 Este tópico mostra-lhe como utilizar o conector do OneDrive numa aplicação lógica e também apresenta uma lista de acionadores e ações.
 
-Para saber mais sobre Logic Apps, consulte o artigo [que são logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) e [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para saber mais sobre Logic Apps, consulte o artigo [que são logic apps](../logic-apps/logic-apps-overview.md) e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-onedrive"></a>Ligar para o OneDrive
 Antes da aplicação lógica pode aceder a qualquer serviço, tem primeiro de criar um *ligação* ao serviço. Uma ligação oferece a conectividade entre uma aplicação lógica e outro serviço. Por exemplo, para ligar para o OneDrive, terá primeiro um OneDrive *ligação*. Para criar uma ligação, introduza as credenciais que normalmente utiliza para aceder ao serviço que pretende ligar. Por isso, com o OneDrive, introduza as credenciais para a sua conta do OneDrive para criar a ligação.
@@ -43,7 +43,7 @@ Antes da aplicação lógica pode aceder a qualquer serviço, tem primeiro de cr
 > 
 
 ## <a name="use-a-trigger"></a>Utilizar um acionador
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. Acionadores "consultam" o serviço de um intervalo e a frequência com que pretende. [Saiba mais sobre acionadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. Acionadores "consultam" o serviço de um intervalo e a frequência com que pretende. [Saiba mais sobre acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Na aplicação lógica, escreva "onedrive" para obter uma lista dos acionadores:  
    
@@ -63,7 +63,7 @@ Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalh
 4. **Guardar** as suas alterações (canto superior esquerdo da barra de ferramentas). A aplicação lógica é guardada e pode ser ativada automaticamente.
 
 ## <a name="use-an-action"></a>Utilizar uma ação
-Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Selecione o sinal de adição. Pode ver várias opções: **adicionar uma ação**, **adicionar uma condição**, ou um do **mais** opções.
    

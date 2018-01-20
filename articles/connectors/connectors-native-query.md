@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-query-action"></a>Começar com a ação de consulta
 Ao utilizar a ação de consulta, pode trabalhar com lotes e matrizes para realizar os fluxos de trabalho para:
@@ -27,7 +27,7 @@ Ao utilizar a ação de consulta, pode trabalhar com lotes e matrizes para reali
 * Crie uma tarefa para todos os registos de alta prioridade a partir de uma base de dados.
 * Guarde anexos de PDF todas as mensagens de correio eletrónico para um blob do Azure.
 
-Para começar a utilizar a ação de consulta numa aplicação lógica, consulte o artigo [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para começar a utilizar a ação de consulta numa aplicação lógica, consulte o artigo [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Utilize a ação de consulta
 Uma ação é uma operação que é efetuada pelo fluxo de trabalho que está definido uma aplicação lógica. [Saiba mais sobre as ações](connectors-overview.md).  
@@ -56,29 +56,29 @@ Seguem-se os detalhes para a ação que este conector suporta. O conector tem um
 
 | Ação | Descrição |
 | --- | --- |
-| Matriz de filtro |Avalia uma condição para cada item numa matriz e devolve os resultados |
+| Filtrar matriz |Avalia uma condição para cada item numa matriz e devolve os resultados |
 
-## <a name="action-details"></a>Detalhes de ação
+## <a name="action-details"></a>Detalhes da ação
 A ação de consulta é fornecido com uma ação possíveis. As tabelas seguintes descrevem os campos de entrada necessários e opcionais para a ação e os detalhes de resultado correspondente que estão associados utilizando a ação.
 
-### <a name="filter-array"></a>Matriz de filtro
+### <a name="filter-array"></a>Filtrar matriz
 Seguem-se os campos de entrada para a ação, o que faz um pedido de saída de HTTP.
 A * significa que é um campo obrigatório.
 
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| De * |Do |A matriz para filtrar |
+| De * |de |A matriz para filtrar |
 | Condição * |onde |A condição para avaliar para cada item |
 
 <br>
 
-### <a name="output-details"></a>Detalhes de saída
+### <a name="output-details"></a>Detalhes da saída
 Seguem-se detalhes de saída para a resposta HTTP.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
-| Matriz filtrado |Matriz |Uma matriz que contenha um objeto para cada resultado filtrado |
+| Matriz filtrado |array |Uma matriz que contenha um objeto para cada resultado filtrado |
 
-## <a name="next-steps"></a>Passos seguintes
-Agora, experimente a plataforma e [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md). Pode explorar os outros conectores disponíveis nas logic apps observando nosso [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Passos Seguintes
+Agora, experimente a plataforma e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pode explorar os outros conectores disponíveis nas logic apps observando nosso [lista APIs](apis-list.md).
 

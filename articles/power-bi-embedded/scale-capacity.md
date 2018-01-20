@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: e1ab6a2f52fa56f1e04c6c327796587daf43596e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Dimensionar a sua capacidade de Power BI Embedded
 
@@ -26,7 +26,8 @@ Este artigo explica como dimensionar uma capacidade Power BI Embedded no Microso
 
 Isto pressupõe que criou uma capacidade Power BI Embedded. Se não tiver, consulte [capacidade criar Power BI Embedded no portal do Azure](create-capacity.md) para começar a utilizar.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+> [!NOTE]
+> Uma operação de dimensionamento pode demorar sobre um minuto. Durante este período, a capacidade não estarão disponível. Conteúdo incorporado pode falhar ao carregar.
 
 ## <a name="scale-a-capacity"></a>Uma capacidade de dimensionamento
 
@@ -58,7 +59,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
     ![Confirmar escalão atual](media/scale-capacity/azure-portal-confirm-tier.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para interromper ou iniciar a capacidade, consulte [colocar em pausa e iniciar a sua capacidade de Power BI Embedded no portal do Azure](pause-start.md).
 

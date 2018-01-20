@@ -3,18 +3,18 @@ title: "As aplicações no mercado de gerido do Azure | Microsoft Docs"
 description: "Descreve Azure as aplicações que estão disponíveis através do Marketplace gerido."
 services: azure-resource-manager
 author: tfitzmac
-manager: rjmax
+manager: timlt
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/08/2017
+ms.date: 01/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: e643c86bfd5a78f21f6d96051e4395168cb7d6e0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicações geridas do Azure no Marketplace
 
@@ -36,26 +36,18 @@ Além disso, existem vários pré-requisitos de negócio. São:
 * Aceite os termos do contrato do publicador e políticas de participação do Azure Marketplace.
 * Concorda em estar em conformidade com os termos de utilização, declaração de privacidade da Microsoft e contrato de programa de certificados do Microsoft Azure.
 
-## <a name="set-up-your-account-for-publishing-portal"></a>Configurar a conta para portal de publicação
+## <a name="become-a-publisher"></a>Tornar-se de um fabricante
 
-O portal de publicação é utilizado para publicar e gerir a sua offer(s). Para publicar uma aplicação de marketplace, tem de ter um Developer Microsoft aprovados para o Azure Marketplace. Se ainda não registou para uma conta aprovada, consulte [criar uma conta Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+Para se tornar um publicador no Azure Marketplace, tem de:
 
-Se tiver um aprovados **Microsoft Developer Center** conta, mas não tiver utilizado anteriormente a [Portal de publicação do Azure](https://cloudpartner.azure.com/), tem de se registar para o portal de publicação.
-
-1. Abra uma nova Chrome Incognito ou Internet Explorer InPrivate navegação sessão para se certificar de que tem não sessão iniciada para uma conta pessoal.
-2. Aceda a [https://cloudpartner.azure.com/](https://cloudpartner.azure.com/).
-3. Se for um novo utilizador e o início de sessão para a publicação portal pela primeira vez, em seguida, deve iniciar sessão com o mesmo ID de correio eletrónico como a sua conta do Centro de programadores. Agora, conta de centro de programadores e conta de publicação de portal estão ligados.
-
-Posteriormente, pode adicionar outros membros da empresa como um [coadministrador](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md#4-steps-to-add-a-co-admin-in-the-publishing-portal) no portal de publicação. Se é adicionado como coadministrador no portal de publicação, pode iniciar sessão com a sua conta de co-admin.
-
-> [!TIP]
-> As políticas de participação são descritas no [Web site Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
->
->
+1. Criar um ID de Microsoft - criar a sua conta Microsoft com um endereço de e-mail que pertence ao domínio da sua empresa, mas não para um único individuais. Este endereço de correio eletrónico é utilizado para a Microsoft Developer Center e o Portal de parceiros de nuvem. Para obter mais informações, consulte [guia de publicador do Azure Marketplace](https://aka.ms/sellerguide).
+1. Submeter [Azure Marketplace Nomination formulário](https://aka.ms/ampnomination) - para **solução que pretende publicar?**, selecione **aplicações geridas**. Depois do formulário é submetido, a equipa de integração de Marketplace revê a aplicação e valida o pedido. O processo de aprovação pode demorar uma a três dias. Quando o seu nomination é aprovado, receberá um código promocional para waive a taxa de registo para o Centro de programadores. Se o fizer **não** preencher o formulário de Nomination do Marketplace, é-lhe perguntado aos quais deve prestar uma taxa de registo $99.
+1. Registar no [Centro para programadores](https://developer.microsoft.com) -Microsoft valida que a sua organização é uma entidade legal válida com um ID de dedução dos impostos válido para o país/região na qual está registado. O processo de aprovação pode demorar 5 a 10 dias. Para evitar a taxa de registo, utilize o código promocional que recebeu por correio eletrónico do processo de nomination. Para obter mais informações, consulte [guia de publicador do Azure Marketplace](https://aka.ms/sellerguide).
+1. Inicie sessão no [Portal de parceiros de nuvem](https://cloudpartner.azure.com) - no perfil do publicador, associar a sua conta do Centro de programadores com o perfil de publicador do Marketplace. Para obter mais informações, consulte [guia de publicador do Azure Marketplace](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Criar uma nova oferta de aplicação do Azure
 
-Após cumprir os pré-requisitos, está pronto para criar a sua oferta da aplicação gerida.
+Depois de criar a sua conta do portal de parceiros, está pronto para criar a sua oferta da aplicação gerida.
 
 ### <a name="set-up-an-offer"></a>Configurar uma oferta
 
@@ -65,11 +57,7 @@ A oferta para uma aplicação gerida corresponde a uma classe de produto de um f
 
 1. No painel de navegação à esquerda, selecione **+ nova oferta** > **aplicações do Azure**.
 
-   ![Nova oferta](./media/publish-marketplace-app/newOffer.png)
-
 1. No **Editor** vista, consulte os formulários necessários. Cada formulário é descrito mais à frente neste artigo.
-
-   ![Definições da oferta](./media/publish-marketplace-app/newOffer_OfferSettings.png)
 
 ## <a name="offer-settings-form"></a>Formulário de definições da oferta
 
@@ -95,13 +83,9 @@ Um SKU aparece sob a oferta de principal no marketplace. É apresentado como o s
 
 1. Selecione **SKUs** > **SKU novo**.
 
-   ![Selecione o novo SKU](./media/publish-marketplace-app/newOffer_skus.png)
-
 1. Introduza um **ID do SKU**. Um ID de SKU é um identificador exclusivo para o SKU dentro de uma oferta. Este ID é visível no produto URLs, modelos do Resource Manager, e relatórios de faturação. Só podem ser composta de carateres alfanuméricos minúsculos ou traços (-). O ID não pode terminar com um travessão e de limitada a um máximo de 50 carateres. Depois de uma oferta fica em direto, este campo está bloqueado. Pode ter vários SKUs dentro de uma oferta. É necessário um SKU de cada imagem que pretende publicar.
 
 1. Preencha o **detalhes de SKU** secção no seguinte formato:
-
-   ![Forneça o SKU de novo](./media/publish-marketplace-app/sku-settings.png)
 
    Preencha os campos seguintes:
 
@@ -110,14 +94,9 @@ Um SKU aparece sob a oferta de principal no marketplace. É apresentado como o s
    * **Descrição**: introduza uma descrição detalhada sobre o SKU.
    * **Tipo de SKU**: os valores permitidos são *aplicações geridas* e *modelos de solução*. Neste caso, selecione *aplicações geridas*.
    * **Disponibilidade do país/região**: selecione países/regiões onde a aplicação gerida está disponível.
-
-      ![Selecione países](./media/publish-marketplace-app/select-country.png)
-
    * **Preços**: forneça um preço para a gestão da aplicação. Selecione os países disponíveis antes de definir o preço.
 
 1. Adicione um novo pacote. Preencha o **detalhes do pacote** secção no seguinte formato:
-
-   ![Pacote](./media/publish-marketplace-app/new-package.png)
 
    Preencha os campos seguintes:
 

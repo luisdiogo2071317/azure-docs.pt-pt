@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 5e4de47de554f36e7797b7994faee4e90c3a8186
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 76ec4f6d2f4471f2e8399c3e028321754ea7c160
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VM do Azure para o Azure
 
@@ -109,13 +109,13 @@ Tem de ser inicializado num disco novo anexado à VM.
 
 **Código de erro** | **Causas possíveis** | **Recommendations (Recomendações)**
 --- | --- | ---
-150039<br></br>**Mensagem**: o disco de dados do Azure (DiskName) (DiskURI) com o número de unidade lógica (LUN) (LUNValue) não foi mapeado para um disco correspondente a ser reportado de dentro da VM que tenha o mesmo valor LUN. | -Um novo disco de dados foi ligado à VM, mas não foi inicializado.</br></br>-O disco de dados dentro da VM não está corretamente a comunicar o valor do LUN em que o disco foi ligado à VM.| Certifique-se de que os discos de dados são inicializados e, em seguida, repita a operação.</br></br>Para o Windows: [anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Para Linux: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+150039<br></br>**Mensagem**: o disco de dados do Azure (DiskName) (DiskURI) com o número de unidade lógica (LUN) (LUNValue) não foi mapeado para um disco correspondente a ser reportado de dentro da VM que tenha o mesmo valor LUN. | -Um novo disco de dados foi ligado à VM, mas não foi inicializado.</br></br>-O disco de dados dentro da VM não está corretamente a comunicar o valor do LUN em que o disco foi ligado à VM.| Certifique-se de que os discos de dados são inicializados e, em seguida, repita a operação.</br></br>Para o Windows: [anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Para Linux: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
 
 ### <a name="fix-the-problem"></a>Corrija o problema
 Certifique-se de que os discos de dados tem sido inicializados e, em seguida, repita a operação:
 
 - Para o Windows: [anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).
-- Para Linux: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+- Para Linux: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
 
 Se o problema persistir, contacte o suporte.
 
@@ -132,5 +132,5 @@ Não poderá ver a VM do Azure para seleção nos [ativar a replicação: passo 
 Pode utilizar [remover o script de configuração de ASR obsoleto](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e remover a configuração da recuperação de Site obsoleta na VM do Azure. Deverá ver a VM no [ativar a replicação: passo 2](./site-recovery-azure-to-azure.md#step-2-select-virtual-machines) depois de remover a configuração obsoleta.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Replicar máquinas virtuais do Azure](site-recovery-replicate-azure-to-azure.md)

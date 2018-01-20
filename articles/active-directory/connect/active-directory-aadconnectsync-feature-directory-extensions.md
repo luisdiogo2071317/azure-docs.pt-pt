@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 31758568f7ce916a4c242aad743bb4b0cb9b2d6e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9abd035b13a0d51c534eb8cac50c045012399a69
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronização do Azure AD Connect: extensões de diretórios
 Extensões de diretórios permite-lhe expandir o esquema no Azure AD com os seus próprios atributos do Active Directory no local. Esta funcionalidade permite-lhe criar aplicações LOB consumir atributos que continua a gerir no local. Estes atributos podem ser consumidos através de [extensões de diretórios do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://graph.microsoft.io/). Pode ver os atributos disponíveis utilizar [Explorador do Azure AD Graph](https://graphexplorer.azurewebsites.net/) e [explorer Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer) respetivamente.
@@ -44,10 +44,20 @@ Um objeto no Azure AD pode ter até 100 atributos de extensões de diretórios. 
 Durante a instalação do Azure AD Connect, uma aplicação está registada em que estes atributos estão disponíveis. Pode ver esta aplicação no portal do Azure.  
 ![Aplicação de extensões de esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
 
-Estes atributos estão agora disponíveis através do gráfico:  
+Os atributos têm o prefixo extensão\_{AppClientId}\_. O AppClientId tem o mesmo valor para todos os atributos no inquilino do Azure AD.
+
+Estes atributos estão agora disponíveis através do **Azure AD Graph**:
+
+Iremos pode consultar o Azure AD Graph através do Explorador do Azure AD Graph: [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/)
+
 ![Graph](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
-Os atributos têm o prefixo extensão\_{AppClientId}\_. O AppClientId tem o mesmo valor para todos os atributos no inquilino do Azure AD.
+Ou através de **Microsoft Graph API**:
+
+Iremos pode consultar o Microsoft Graph API através do Explorador do Microsoft Graph: [https://developer.microsoft.com/en-us/graph/graph-explorer#](https://developer.microsoft.com/en-us/graph/graph-explorer#)
+
+>[!NOTE]
+> Tem de perguntar explicitamente para o atributo deve ser devolvida. Isto pode ser efetuado selecionando explicitamente os atributos como esta: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division para mais informações, consulte [Microsoft Graph: utilizar os parâmetros de consulta](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) configuração.

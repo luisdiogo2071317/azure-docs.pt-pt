@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 3a282c8b2c2ba2749de6a2d3688bd57d75703b22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fe6dadb444ebbe6af6239562f507e451f9f605
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Resolver problemas de uma VM com Linux do Azure que falhe, erros de saída, ou é recusada ligações SSH
 Existem várias razões se encontrar erros de Secure Shell (SSH), falhas de ligação de SSH, ou SSH é recusou-se ao tentar ligar a uma máquina virtual (VM) do Linux. Este artigo ajuda-o a localizar e corrigir os problemas. Pode utilizar o portal do Azure, CLI do Azure ou a extensão de acesso de VM para Linux para resolver problemas de ligação.
@@ -234,7 +234,7 @@ Repita estes passos para resolver falhas de ligação de SSH mais comuns para as
 * Volte a implementar a VM para um novo nó de Azure. Para obter informações sobre como voltar a implementar uma VM, consulte [Reimplementar a máquina virtual para o novo nó de Azure](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Depois de concluída esta operação, dados do disco efémeras serão perdidos e serão atualizados em endereços IP dinâmicos que estão associados a máquina virtual.
-* Siga as instruções em [como repor uma palavra-passe ou SSH para máquinas virtuais baseadas em Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) para:
+* Siga as instruções em [como repor uma palavra-passe ou SSH para máquinas virtuais baseadas em Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) para:
   
   * Repor a palavra-passe ou chave SSH.
   * Criar um *sudo* conta de utilizador.
@@ -245,5 +245,5 @@ Repita estes passos para resolver falhas de ligação de SSH mais comuns para as
 ## <a name="additional-resources"></a>Recursos adicionais
 * Se ainda não é possível SSH para a VM depois de seguir os passos após, consulte o artigo [mais passos de resolução de problemas](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para rever os passos adicionais para resolver o problema.
 * Para obter mais informações sobre resolução de problemas de acesso de aplicação, consulte [resolver problemas de acesso a uma aplicação em execução numa máquina virtual do Azure](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Para obter mais informações sobre resolução de problemas de máquinas virtuais que foram criadas utilizando o modelo de implementação clássica, consulte [como repor uma palavra-passe ou SSH para máquinas virtuais baseadas em Linux](classic/reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* Para obter mais informações sobre resolução de problemas de máquinas virtuais que foram criadas utilizando o modelo de implementação clássica, consulte [como repor uma palavra-passe ou SSH para máquinas virtuais baseadas em Linux](classic/reset-access-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

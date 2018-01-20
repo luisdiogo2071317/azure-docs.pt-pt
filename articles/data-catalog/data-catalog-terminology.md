@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 8cb24357bb24c48dceda714a040427fcc0c0ba4d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b88abd01c2dbc302bfc0e783d1715710c6f8397c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia do catálogo de dados do Azure
-## <a name="catalog"></a>Catálogo
+## <a name="catalog"></a>catálogo
 O catálogo de dados do Azure é um repositório de metadados baseado na nuvem em que dados ativos origens e dados podem ser registados. O catálogo funciona como uma localização de armazenamento central para metadados estruturais extraídos das origens de dados e para metadados descritivos que adicionou pelos utilizadores.
 
 ## <a name="data-source"></a>Origem de dados
@@ -52,7 +52,7 @@ Metadados descritivos um recurso de dados podem incluir informações sobre como
 Uma versão de pré-visualização no catálogo de dados do Azure é um instantâneo de até 20 registos que podem ser extraídos da origem de dados durante o registo e armazenados no catálogo com metadados do recurso de dados. A pré-visualização pode ajudar os utilizadores que detetar um recurso de dados compreender melhor a sua função e o objetivo. Por outras palavras, a ver dados de exemplo pode ser mais útil ao ver apenas os nomes das colunas e tipos de dados.
 Pré-visualizações só são suportadas para tabelas e vistas e tem de ser explicitamente selecionados pelo utilizador durante o registo.
 
-## <a name="data-profile"></a>Perfil de dados
+## <a name="data-profile"></a>Perfil de Dados
 Um perfil de dados no catálogo de dados do Azure é um instantâneo do nível de tabela e ao nível da coluna metadados sobre um recurso de dados registados que pode ser extraído da origem de dados durante o registo e armazenado no catálogo com metadados do recurso de dados. O perfil de dados pode ajudar os utilizadores que detetar um recurso de dados compreender melhor a sua função e o objetivo. Semelhante à pré-visualizações, perfis de dados tem de ser explicitamente selecionados pelo utilizador durante o registo.
 
 > [!NOTE]
@@ -65,7 +65,7 @@ No catálogo de dados do Azure, qualquer utilizador pode fornecer metadados desc
 
 Cada um destes perspetivas são inerentemente importantes e com o catálogo de dados do Azure, cada utilizador pode fornecer as informações que faça sentidas, apesar de todos os utilizadores podem utilizar essas informações para compreender os dados e o objetivo.
 
-## <a name="expert"></a>disponibilizamos
+## <a name="expert"></a>Especialista
 Um especialista é um utilizador que foi identificado como tendo uma perspetiva informada "especialista" para um recurso de dados. Qualquer utilizador pode adicionar si próprios ou outro utilizador como um especialista para um recurso. A ser apresentado como um especialista não transmitir quaisquer privilégios adicionais no catálogo de dados do Azure; permite que os utilizadores localizar facilmente as perspetivas que são mais prováveis ser útil quando rever metadados descritivos um recurso.
 
 ## <a name="owner"></a>Proprietário
@@ -79,6 +79,6 @@ Um proprietário é um utilizador com privilégios adicionais para gerir um recu
 ## <a name="registration"></a>Registo
 O registo é o ato de extrair metadados do recurso de dados de uma origem de dados e copiar para o serviço de catálogo de dados do Azure. Recursos de dados que foram registados, em seguida, podem ser anotados e detetados.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [O que é o Catálogo de Dados do Azure?](data-catalog-what-is-data-catalog.md) -Este artigo fornece uma descrição geral do serviço catálogo de dados do Azure, o valor fornece e os cenários que suporta.
 * [Introdução ao catálogo de dados do Azure](data-catalog-get-started.md) -este artigo fornece um tutorial ponto-a-ponto que mostra como utilizar o catálogo de dados do Azure para a deteção de origem de dados.  

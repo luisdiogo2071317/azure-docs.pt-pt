@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Recuperação de desastre por várias regiões lógica B2B de aplicações
 
@@ -92,7 +92,7 @@ Para ativar a recuperação após desastre para as mensagens de entrada, selecio
 
 ![Selecione as definições de verificação duplicado](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Criar um [aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md) numa região secundária.    
+1. Criar um [aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) numa região secundária.    
 
 2. Pesquisar nos **X12**e selecione **X12-quando um número de controlo é modificado**.   
 
@@ -115,7 +115,7 @@ Para ativar a recuperação após desastre para as mensagens de entrada, selecio
 
 6. Pesquisar nos **X12**e selecione **X12-adicionar ou atualizar os números de controlo**.   
 
-   ![Adicionar ou atualizar os números de controlo](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Adicionar ou atualizar números de controlo](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
 7. Para ligar uma ação para uma conta de integração de região secundária, selecione **Alterar ligação** > **Adicionar nova ligação** para obter uma lista das contas de integração disponível. Introduza um nome de ligação, selecione o *conta de integração de região secundária* na lista e escolha **criar**. 
 
@@ -147,7 +147,7 @@ Para ativar a recuperação após desastre para as mensagens de entrada, selecio
 
 ![Selecione as definições de verificação duplicado](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Criar um [aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md) numa região secundária.    
+1. Criar um [aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) numa região secundária.    
 
 2. Pesquisar nos **EDIFACT**e selecione **EDIFACT - quando um número de controlo é modificado**.
 
@@ -170,7 +170,7 @@ Para ativar a recuperação após desastre para as mensagens de entrada, selecio
 
 7. Pesquisar nos **EDIFACT**e selecione **EDIFACT - adicionar ou atualizar os números de controlo**.   
 
-   ![Adicionar ou atualizar os números de controlo](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Adicionar ou atualizar números de controlo](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
 8. Para ligar uma ação para uma conta de integração de região secundária, selecione **Alterar ligação** > **Adicionar nova ligação** para obter uma lista das contas de integração disponível. Introduza um nome de ligação, selecione o *conta de integração de região secundária* na lista e escolha **criar**.
 
@@ -199,7 +199,7 @@ Continuidade do negócio para documentos que utilizam o protocolo AS2 baseia o I
 > [!TIP]
 > Também pode utilizar o [AS2 início rápido modelo](https://github.com/Azure/azure-quickstart-templates/pull/3302) para criar as logic apps. Criar contas de automatização primária e secundária são pré-requisitos para utilizar o modelo. O modelo de ajuda a criar uma aplicação lógica que tem um acionador e uma ação. A aplicação lógica cria uma ligação a partir de um acionador para uma conta de integração primária e uma ação para uma conta de integração secundário.
 
-1. Criar um [aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md) na região secundária.  
+1. Criar um [aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) na região secundária.  
 
 2. Pesquisar nos **AS2**e selecione **AS2 - valor MIC de quando é criado**.   
 
@@ -243,7 +243,7 @@ Continuidade do negócio para documentos que utilizam o protocolo AS2 baseia o I
 
 Com base num intervalo de tempo, o estado de incremental runtime replica a partir de região primária para a região secundária. Durante um evento de desastre, quando a região primária não está disponível, direto tráfego para a região secundária para a continuidade do negócio. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Monitorizar mensagens B2B](logic-apps-monitor-b2b-message.md)
 

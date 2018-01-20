@@ -13,24 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 01/18/2018
 ms.author: spelluru
-ms.openlocfilehash: 68727976358e81094e2d841948ae09c2c4949e35
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 537ed3bccf7d3306628b7a64ba0866f0e51a03e5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Atalhos de teclado do Catálogo de Dados do Azure
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Ferramenta de registo da origem de atalhos de teclado para os dados de catálogo de dados
 ### <a name="general-keyboard-shortcuts"></a>Atalhos de teclado geral
 | Operação | Prima |
 | --- | --- |
-| Separador para cada controlo numa página |Separador |
+| Separador para cada controlo numa página |Tab |
 | Escolha uma opção |Introduza ou barra de espaço |
 | Maximizar a página |WIN + CÓPIA DE SEGURANÇA |
 | Página minimizar/restauro |WIN + BAIXO |
-| Menu abrir página |ALT + BARRA DE ESPAÇO |
+| Menu abrir página |ALT+SPACEBAR |
 
 ### <a name="authentication-page"></a>Página de autenticação
 | Operação | Prima |
@@ -57,14 +57,14 @@ ms.lasthandoff: 11/03/2017
 | Incluir a caixa de verificação do perfil de dados (se disponível) |ALT + D |
 | Navegue para cada item de lista |Cópia de segurança ou de seta para baixo |
 | Hierarquia de servidores, expanda o nó de uma vista de árvore |SETA PARA A DIREITA |
-| Mover itens selecionados para **objetos disponíveis** ou **objetos a registar** |BARRA DE ESPAÇO |
+| Mover itens selecionados para **objetos disponíveis** ou **objetos a registar** |SPACEBAR |
 
 ### <a name="publish-progress-page"></a>Publicar a página progresso
 | Operação | Prima |
 | --- | --- |
 | Botão Cancelar |ALT + C |
 | Botão mais objetos de registo |ALT + R |
-| Ver o botão de Portal |ALT + V |
+| Ver o botão de Portal |ALT+V |
 
 ### <a name="publish-progress-page"></a>Publicar a página progresso
 | Operação | Prima |

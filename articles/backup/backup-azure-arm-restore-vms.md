@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d420e0a39edf2af4bb050dd735dd7b4d1e604d6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utilizar o portal do Azure para monitorizar máquinas virtuais
 Proteger os seus dados, efetuando os instantâneos dos seus dados em intervalos definidos. Estes instantâneos são conhecidos como pontos de recuperação e que está a ser armazenadas numa cofres dos serviços de recuperação. Se for necessário reparar ou reconstrua uma máquina virtual (VM), pode restaurar a VM a partir de qualquer um dos pontos de recuperação guardado. Quando restaurar um ponto de recuperação, pode:
@@ -70,7 +70,7 @@ Restaurar uma VM ou todos os discos de VM a cópia de segurança envolve dois pa
 
     O **restaurar** abre o painel.
 
-    ![restaurar painel](./media/backup-azure-arm-restore-vms/restore-blade.png)
+    ![Restaurar painel](./media/backup-azure-arm-restore-vms/restore-blade.png)
 7. No **restaurar** painel, selecione **ponto de restauro**. O **selecionar ponto de restauro** abre o painel.
 
     ![Selecione o ponto de restauro](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
@@ -196,7 +196,7 @@ Para obter o modelo que foi gerado como parte da opção de discos de restauro:
    ![Submeter a implementação de modelo](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Passos de pós-restauro
-* Se utilizar uma distribuição de Linux init-baseado na nuvem, tais como Ubuntu, por motivos de segurança, a palavra-passe é bloqueada após o restauro. Utilizar a extensão VMAccess à VM restaurada [repor a palavra-passe](../virtual-machines/linux/classic/reset-access.md). Recomendamos a utilização de chaves SSH nestes distribuições para evitar a repor o restauro de post de palavra-passe.
+* Se utilizar uma distribuição de Linux init-baseado na nuvem, tais como Ubuntu, por motivos de segurança, a palavra-passe é bloqueada após o restauro. Utilizar a extensão VMAccess à VM restaurada [repor a palavra-passe](../virtual-machines/linux/classic/reset-access-classic.md). Recomendamos a utilização de chaves SSH nestes distribuições para evitar a repor o restauro de post de palavra-passe.
 * Extensões presentes durante a configuração de cópia de segurança estão instaladas, mas não serão ativadas. Se vir um problema, reinstale as extensões. 
 * Se a VM de cópia de segurança tem o restauro de post IP estático, a VM restaurada tem um IP dinâmico para evitar conflitos quando criar uma VM restaurada. Saiba mais sobre como pode [adicionar um IP estático para uma VM restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * Uma VM restaurada não tem um valor de disponibilidade definido. Recomendamos que utilize a opção de discos de restauro de [adicionar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) quando criar uma VM do PowerShell ou modelos utilizando o restauro de discos. 

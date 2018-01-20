@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ce65ec272c9fe5be8f95371179de092c5df2f3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>Gerir as logic apps com o Visual Studio Cloud Explorer
 
@@ -69,7 +69,7 @@ A partir do Explorador de nuvem, pode abrir uma aplicação lógica implementado
 
 * Para iniciar uma nova execução, escolha **executar acionador**.
 
-![Designer de aplicações lógicas](./media/logic-apps-manage-from-vs/designer.png)
+![Estruturador de Aplicações Lógicas](./media/logic-apps-manage-from-vs/designer.png)
 
 A partir do designer, pode também **transferir** uma aplicação lógica. Esta ação automaticamente parameterizes a definição da aplicação lógica e guarda a definição de como um modelo de implementação Azure Resource Manager. Pode adicionar este modelo de implementação para o projeto do grupo de recursos do Azure.
 
@@ -77,15 +77,15 @@ A partir do designer, pode também **transferir** uma aplicação lógica. Esta 
 
 Para ver o histórico de execução para a sua aplicação lógica, a aplicação lógica com o botão direito e selecione **histórico de execução Open**. Para reordenar o histórico de execução com base em qualquer uma das propriedades mostradas, selecione o cabeçalho de coluna.
 
-![histórico de execução](media/logic-apps-manage-from-vs/runs.png)
+![Execuções](media/logic-apps-manage-from-vs/runs.png)
 
 Para mostrar o histórico de execução de uma instância, pelo que pode rever os resultados de execução, incluindo as entradas e saídas de cada passo, faça duplo clique uma das instâncias em execução.
 
 ![Resultados de histórico de execução, entradas e saídas dos passos](./media/logic-apps-manage-from-vs/history.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar a sua primeira aplicação lógica](logic-apps-create-a-logic-app.md)
+* [Criar a sua primeira aplicação lógica](quickstart-create-first-logic-app-workflow.md)
 * [Conceber, criar e implementar as logic apps no Visual Studio](logic-apps-deploy-from-vs.md)
 * [Ver exemplos e cenários comuns](logic-apps-examples-and-scenarios.md)
 * [Vídeo: Automatizar os processos de negócios com Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694)

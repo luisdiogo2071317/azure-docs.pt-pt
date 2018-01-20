@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 026ec3195f9851164a85613f2060b1c282f8bb7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiar dados para um índice da Azure Search utilizando o Azure Data Factory
 
@@ -36,7 +36,7 @@ Pode copiar dados a partir de qualquer arquivo de dados de origem suportada para
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector de pesquisa do Azure.
 
@@ -47,7 +47,7 @@ As seguintes propriedades são suportadas para o serviço da Azure Search ligada
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **azuresearch, uma vez** | Sim |
-| URL | URL para o serviço de pesquisa do Azure. | Sim |
+| url | URL para o serviço de pesquisa do Azure. | Sim |
 | key | Chave de administrador para o serviço de pesquisa do Azure. Marcar este campo como um SecureString. | Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
@@ -117,7 +117,7 @@ Para copiar dados na Azure Search, defina o tipo de origem na atividade de cópi
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **AzureSearchIndexSink** | Sim |
 | WriteBehavior | Especifica se deve intercalar ou substituir quando já existe um documento no índice. Consulte o [WriteBehavior propriedade](#writebehavior-property).<br/><br/>Valores permitidos são: **intercalar** (predefinição), e **carregar**. | Não |
-| WriteBatchSize | Carrega dados para o índice da Azure Search, quando o tamanho da memória intermédia atinge writeBatchSize. Consulte o [WriteBatchSize propriedade](#writebatchsize-property) para obter mais detalhes.<br/><br/>Valores permitidos são: número inteiro de 1 a 1000; predefinição é 1000. | Não |
+| writeBatchSize | Carrega dados para o índice da Azure Search, quando o tamanho da memória intermédia atinge writeBatchSize. Consulte o [WriteBatchSize propriedade](#writebatchsize-property) para obter mais detalhes.<br/><br/>Valores permitidos são: número inteiro de 1 a 1000; predefinição é 1000. | Não |
 
 ### <a name="writebehavior-property"></a>Propriedade de WriteBehavior
 
@@ -175,7 +175,7 @@ A seguinte tabela especifica se um tipo de dados de pesquisa do Azure é suporta
 | Cadeia | S |
 | Int32 | S |
 | Int64 | S |
-| duplo | S |
+| Duplo | S |
 | Booleano | S |
 | DataTimeOffset | S |
 | Matriz de cadeia | N |

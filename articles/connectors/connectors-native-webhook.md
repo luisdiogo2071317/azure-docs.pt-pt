@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: fbfef291334109c6dcfcde80741874549fb7929f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Começar a utilizar o conector do webhook
 
@@ -90,28 +90,28 @@ Eis mais detalhes sobre os acionadores e ações que webhook suporta.
 Subscreve um URL de chamada de retorno para um serviço que pode chamar o URL para accionar aplicação lógica, conforme necessário.
 Um * meios de campo obrigatório.
 
-| Nome a apresentar | Nome da propriedade | Descrição |
+| Nome a Apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Subscrever o método * |Método |Método de HTTP a utilizar para subscrever pedido |
-| Subscrever URI * |URI |URI de HTTP a utilizar para o pedido de subscrever |
-| Anular a subscrição método * |Método |Método HTTP a utilizar para o pedido de anular a subscrição |
-| Anular a subscrição URI * |URI |URI de HTTP a utilizar para o pedido de anular a subscrição |
-| Subscrever o corpo |Corpo |Corpo do pedido HTTP para subscrever |
-| Subscrever cabeçalhos |Cabeçalhos |Cabeçalhos de pedido HTTP para subscrever |
-| Subscrever autenticação |Autenticação |Autenticação HTTP a utilizar para subscrever. [Consulte o conetor HTTP](connectors-native-http.md#authentication) para obter detalhes |
-| Anular a subscrição de corpo |Corpo |Corpo do pedido HTTP para anular a subscrição |
-| Anular a subscrição cabeçalhos |Cabeçalhos |Cabeçalhos de pedido HTTP para anular a subscrição |
-| Anular a subscrição de autenticação |Autenticação |Autenticação HTTP a utilizar para anular a subscrição. [Consulte o conetor HTTP](connectors-native-http.md#authentication) para obter detalhes |
+| Subscrever o método * |método |Método de HTTP a utilizar para subscrever pedido |
+| Subscrever URI * |uri |URI de HTTP a utilizar para o pedido de subscrever |
+| Anular a subscrição método * |método |Método HTTP a utilizar para o pedido de anular a subscrição |
+| Anular a subscrição URI * |uri |URI de HTTP a utilizar para o pedido de anular a subscrição |
+| Subscrever o corpo |corpo |Corpo do pedido HTTP para subscrever |
+| Subscrever cabeçalhos |cabeçalhos |Cabeçalhos de pedido HTTP para subscrever |
+| Subscrever autenticação |autenticação |Autenticação HTTP a utilizar para subscrever. [Consulte o conetor HTTP](connectors-native-http.md#authentication) para obter detalhes |
+| Anular a subscrição de corpo |corpo |Corpo do pedido HTTP para anular a subscrição |
+| Anular a subscrição cabeçalhos |cabeçalhos |Cabeçalhos de pedido HTTP para anular a subscrição |
+| Anular a subscrição de autenticação |autenticação |Autenticação HTTP a utilizar para anular a subscrição. [Consulte o conetor HTTP](connectors-native-http.md#authentication) para obter detalhes |
 
 **Detalhes de saída**
 
 Pedido de Webhook
 
-| Nome da propriedade | Tipo de dados | Descrição |
+| Nome da propriedade | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | Cabeçalhos |objeto |Cabeçalhos de pedido de Webhook |
 | Corpo |objeto |Objeto de pedido de Webhook |
-| Código de estado |Int |Código de estado de pedido de Webhook |
+| Código de Estado |Int |Código de estado de pedido de Webhook |
 
 ## <a name="webhook-actions"></a>Ações de Webhook
 
@@ -119,37 +119,37 @@ Pedido de Webhook
 | --- | --- |
 | Webhook de HTTP |Subscreve um URL de chamada de retorno para um serviço que pode chamar o URL para retomar um passo de fluxo de trabalho, conforme necessário. |
 
-### <a name="action-details"></a>Detalhes de ação
+### <a name="action-details"></a>Detalhes da ação
 
 #### <a name="http-webhook"></a>Webhook de HTTP
 
 Subscreve um URL de chamada de retorno para um serviço que pode chamar o URL para retomar um passo de fluxo de trabalho, conforme necessário.
 Um * meios de campo obrigatório.
 
-| Nome a apresentar | Nome da propriedade | Descrição |
+| Nome a Apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Subscrever o método * |Método |Método de HTTP a utilizar para subscrever pedido |
-| Subscrever URI * |URI |URI de HTTP a utilizar para o pedido de subscrever |
-| Anular a subscrição método * |Método |Método HTTP a utilizar para o pedido de anular a subscrição |
-| Anular a subscrição URI * |URI |URI de HTTP a utilizar para o pedido de anular a subscrição |
-| Subscrever o corpo |Corpo |Corpo do pedido HTTP para subscrever |
-| Subscrever cabeçalhos |Cabeçalhos |Cabeçalhos de pedido HTTP para subscrever |
-| Subscrever autenticação |Autenticação |Autenticação HTTP a utilizar para subscrever. [Consulte o conetor HTTP](connectors-native-http.md#authentication) para obter detalhes |
-| Anular a subscrição de corpo |Corpo |Corpo do pedido HTTP para anular a subscrição |
-| Anular a subscrição cabeçalhos |Cabeçalhos |Cabeçalhos de pedido HTTP para anular a subscrição |
-| Anular a subscrição de autenticação |Autenticação |Autenticação HTTP a utilizar para anular a subscrição. [Consulte o conetor HTTP](connectors-native-http.md#authentication) para obter detalhes |
+| Subscrever o método * |método |Método de HTTP a utilizar para subscrever pedido |
+| Subscrever URI * |uri |URI de HTTP a utilizar para o pedido de subscrever |
+| Anular a subscrição método * |método |Método HTTP a utilizar para o pedido de anular a subscrição |
+| Anular a subscrição URI * |uri |URI de HTTP a utilizar para o pedido de anular a subscrição |
+| Subscrever o corpo |corpo |Corpo do pedido HTTP para subscrever |
+| Subscrever cabeçalhos |cabeçalhos |Cabeçalhos de pedido HTTP para subscrever |
+| Subscrever autenticação |autenticação |Autenticação HTTP a utilizar para subscrever. [Consulte o conetor HTTP](connectors-native-http.md#authentication) para obter detalhes |
+| Anular a subscrição de corpo |corpo |Corpo do pedido HTTP para anular a subscrição |
+| Anular a subscrição cabeçalhos |cabeçalhos |Cabeçalhos de pedido HTTP para anular a subscrição |
+| Anular a subscrição de autenticação |autenticação |Autenticação HTTP a utilizar para anular a subscrição. [Consulte o conetor HTTP](connectors-native-http.md#authentication) para obter detalhes |
 
 **Detalhes de saída**
 
 Pedido de Webhook
 
-| Nome da propriedade | Tipo de dados | Descrição |
+| Nome da propriedade | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | Cabeçalhos |objeto |Cabeçalhos de pedido de Webhook |
 | Corpo |objeto |Objeto de pedido de Webhook |
-| Código de estado |Int |Código de estado de pedido de Webhook |
+| Código de Estado |Int |Código de estado de pedido de Webhook |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Localizar outros conectores](apis-list.md)

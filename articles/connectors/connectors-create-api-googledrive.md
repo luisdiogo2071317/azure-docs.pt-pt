@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c066a10b33e172eb5f16eede43ec407794000c90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05d6efa3f48c9b0b8c21badd96a0e13a63542b30
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Começar a utilizar o conector do Google Drive
 Ligar ao Google Drive para criar ficheiros, linhas de get e muito mais. Com o Google Drive, pode: 
@@ -28,7 +28,7 @@ Ligar ao Google Drive para criar ficheiros, linhas de get e muito mais. Com o Go
 * Crie o fluxo de negócio com base nos dados que aproveitar a pesquisa. 
 * Utilize ações para imagens de pesquisa, procure as notícias e muito mais. Estas ações obter uma resposta e, em seguida, torne a saída disponível para outras ações. Por exemplo, pode procurar um vídeo e, em seguida, utilize o Twitter publicar que o vídeo para um feed do Twitter.
 
-Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-the-connection-to-google-drive"></a>Criar a ligação ao Google Drive
 Ao adicionar este conector para as logic apps, tem de autorizar as logic apps para ligar a sua unidade de Google.

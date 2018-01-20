@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a3957ffcc149bdaf5c196960c7c7f23913f8b5c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-logic-apps-features"></a>Utilizar funcionalidades das Logic Apps
 
-Num [tópico anterior](../logic-apps/logic-apps-create-a-logic-app.md), que criou a sua primeira aplicação lógica. Para controlar o fluxo de trabalho da sua aplicação lógica, pode especificar diferentes caminhos para a sua aplicação lógica para ser executada e como processar os dados em matrizes, coleções e lotes. Pode incluir estes elementos no seu fluxo de trabalho de aplicação lógica:
+Num [tópico anterior](../logic-apps/quickstart-create-first-logic-app-workflow.md), que criou a sua primeira aplicação lógica. Para controlar o fluxo de trabalho da sua aplicação lógica, pode especificar diferentes caminhos para a sua aplicação lógica para ser executada e como processar os dados em matrizes, coleções e lotes. Pode incluir estes elementos no seu fluxo de trabalho de aplicação lógica:
 
 * Condições e [comutador instruções](../logic-apps/logic-apps-switch-case.md) permitem a sua aplicação lógica executar ações diferentes com base em se forem cumpridas condições específicas.
 
@@ -143,7 +143,7 @@ Para iniciar um fluxo de trabalho, os serviços podem chamar um ponto final da a
 <!-- Shared links -->
 [portal do Azure]: https://portal.azure.com
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Instruções de comutador](../logic-apps/logic-apps-switch-case.md) 
 * [Ciclos, âmbitos e divisões](../logic-apps/logic-apps-loops-and-scopes.md)

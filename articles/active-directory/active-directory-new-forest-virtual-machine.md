@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 23bea4b6e3351bdce77e6d265ba258ce60a22a36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acfdb94323853161e835b88ef441eaed681bde25
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalar uma nova floresta do Active Directory numa rede virtual do Azure
 Este artigo mostra como criar um novo ambiente do Active Directory do Windows Server numa máquina virtual (VM) num [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Neste caso, a rede virtual do Azure não está ligada a uma rede no local.
@@ -67,7 +67,7 @@ Para criar as VMs através do Windows PowerShell em vez da IU, consulte [utilize
    |  **Configuração da máquina virtual** |<p>Nome da máquina virtual: Escreva um nome de etiqueta única (por exemplo, AzureDC1).</p><p>Novo nome de utilizador: Escreva o nome de um utilizador. Este utilizador será um membro do grupo Administradores local na VM. Precisará para iniciar sessão para a VM pela primeira vez. A conta incorporada com o nome de administrador não funcionará.</p><p>Nova palavra-passe/confirmar: Escreva uma palavra-passe</p> |
    |  **Configuração da máquina virtual** |<p>O serviço em nuvem: Escolha <b>criar um novo serviço de nuvem</b> para a primeira VM e selecione esse nome de serviço em nuvem mesmo quando criar mais VMs que irá alojar a função de DC.</p><p>Nome DNS do serviço de nuvem: Especifique um nome globalmente exclusivo</p><p>Região/grupo de afinidade/rede Virtual: Especifique o nome de rede virtual (por exemplo, WestUSVNet).</p><p>Conta de armazenamento: Escolha <b>utilizar uma conta de armazenamento gerado automaticamente</b> para a primeira VM e, em seguida, selecione esse nome de conta de armazenamento mesmo quando criar mais VMs que irá alojar a função de DC.</p><p>Conjunto de disponibilidade: Escolher <b>criar um conjunto de disponibilidade</b>.</p><p>Nome do conjunto de disponibilidade: escreva um nome para o conjunto de disponibilidade quando criar a VM primeiro e, em seguida, selecione se o mesmo nome quando criar as VMs mais.</p> |
    |  **Configuração da máquina virtual** |<p>Selecione <b>instale o agente VM</b> e quaisquer outras extensões precisa.</p> |
-2. Ligar um disco para cada VM que irão executar a função de servidor DC. O disco adicional é necessário para armazenar a base de dados, os registos e SYSVOL do AD. Especifique um tamanho para o disco (por exemplo, 10 GB) e deixar o **preferência de Cache do anfitrião** definido como **nenhum**. Para obter os passos, consulte [como anexar um disco de dados para uma Máquina Virtual do Windows](../virtual-machines/windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+2. Ligar um disco para cada VM que irão executar a função de servidor DC. O disco adicional é necessário para armazenar a base de dados, os registos e SYSVOL do AD. Especifique um tamanho para o disco (por exemplo, 10 GB) e deixar o **preferência de Cache do anfitrião** definido como **nenhum**. Para obter os passos, consulte [como anexar um disco de dados para uma Máquina Virtual do Windows](../virtual-machines/windows/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Depois de a sessão pela primeira vez para a VM, abra **Gestor de servidor** > **File and Storage Services** para criar um volume neste disco utilizando o NTFS.
 4. Reserve um endereço IP estático para VMs com a função de DC. Para reservar um endereço IP estático, transferir o instalador de plataforma Web Microsoft e [instalar o Azure PowerShell](/powershell/azure/overview) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo:
 
@@ -105,14 +105,14 @@ Para criar as VMs através do Windows PowerShell em vez da IU, consulte [utilize
 
 Para obter mais informações sobre como utilizar o Windows PowerShell, consulte [introdução aos Cmdlets do Azure](/powershell/azure/overview) e [referência de cmdlets do Azure](/powershell/azure/get-started-azureps).
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 * [Como instalar uma nova floresta do Active Directory numa rede virtual do Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * [Diretrizes para a implementação do Windows Server Active Directory em máquinas virtuais do Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 * [Configurar uma VPN de Site a Site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Instalar um controlador de domínio do Active Directory réplica numa rede virtual do Azure](active-directory-install-replica-active-directory-domain-controller.md)
 * [Microsoft Azure IT Pro IaaS: Noções básicas de (01) Máquina Virtual](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IT Pro IaaS: (05) criar redes virtuais e conectividade em vários locais](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
-* [Descrição geral da rede virtual](../virtual-network/virtual-networks-overview.md)
+* [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) (Descrição Geral da Rede Virtual)
 * [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Referência de Cmdlet do Azure](/powershell/azure/get-started-azureps)

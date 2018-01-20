@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Copiar dados de/para Dynamics 365 / Dynamics CRM utilizando o Azure Data Factory
 
@@ -50,7 +50,7 @@ Especificamente, para o Dynamics 365 são suportados os seguintes tipos de aplic
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir o Dynamics entidades do Data Factory específicas.
 
@@ -64,7 +64,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Dynamics:
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **Dynamics**. | Sim |
 | deploymentType | O tipo de implementação da instância do Dynamics. Tem de ser **"Online"** para o Dynamics Online. | Sim |
-| OrganizationName | O nome da organização da instância do Dynamics. | Não, deve especificar quando existem várias instâncias de Dynamics associadas ao utilizador. |
+| organizationName | O nome da organização da instância do Dynamics. | Não, deve especificar quando existem várias instâncias de Dynamics associadas ao utilizador. |
 | authenticationType | O tipo de autenticação para ligar ao servidor de Dynamics. Especifique **"Office 365"** para Dynamics Online. | Sim |
 | o nome de utilizador | Especifique o nome de utilizador para ligar para o Dynamics. | Sim |
 | palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Tem de colocar a palavra-passe no Cofre de chaves do Azure e configurar a palavra-passe como uma "AzureKeyVaultSecret". Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Sim |
@@ -111,9 +111,9 @@ As seguintes propriedades são suportadas para o serviço ligado do Dynamics:
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **Dynamics**. | Sim |
 | deploymentType | O tipo de implementação da instância do Dynamics. Tem de ser **"OnPremisesWithIfd"** para Dynamics no local com IFD.| Sim |
-| **nome de anfitrião** | O nome de anfitrião do servidor de Dynamics no local. | Sim |
-| **porta** | A porta do servidor de Dynamics no local. | Não, a predefinição é 443 |
-| OrganizationName | O nome da organização da instância do Dynamics. | Sim |
+| **hostName** | O nome de anfitrião do servidor de Dynamics no local. | Sim |
+| **port** | A porta do servidor de Dynamics no local. | Não, a predefinição é 443 |
+| organizationName | O nome da organização da instância do Dynamics. | Sim |
 | authenticationType | O tipo de autenticação para ligar ao servidor de Dynamics. Especifique **"Ifd"** para Dynamics no local com IFD. | Sim |
 | o nome de utilizador | Especifique o nome de utilizador para ligar para o Dynamics. | Sim |
 | palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Tenha em atenção de que tem de colocar a palavra-passe no Cofre de chaves do Azure e configurar a palavra-passe como uma "AzureKeyVaultSecret". Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Sim |
@@ -163,7 +163,7 @@ Para copiar dados de/para Dynamics, defina a propriedade de tipo do conjunto de 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **DynamicsEntity** |Sim |
-| EntityName | O nome lógico da entidade a obter. | Não para a origem (se "consulta" na origem da atividade não for especificada), Sim para sink |
+| entityName | O nome lógico da entidade a obter. | Não para a origem (se "consulta" na origem da atividade não for especificada), Sim para sink |
 
 > [!IMPORTANT]
 >- **Ao copiar dados de Dynamics, a secção "estrutura" é necessária** no conjunto de dados do Dynamics, que define o tipo de dados e o nome de coluna para dados de Dynamics que pretende copiar através de. Saiba mais de [estrutura do conjunto de dados](concepts-datasets-linked-services.md#dataset-structure) e [mapeamento de tipo de dados para o Dynamics](#data-type-mapping-for-dynamics).
@@ -278,7 +278,7 @@ Para copiar dados para o Dynamics, defina o tipo de sink na atividade de cópia 
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **DynamicsSink**  | Sim |
 | WriteBehavior | O comportamento da operação de escrita.<br/>Permitido é de valor: **"Upsert"**. | Sim |
-| WriteBatchSize | O número de linhas de dados escritos na Dynamics em cada lote. | Não (a predefinição é 10) |
+| writeBatchSize | O número de linhas de dados escritos na Dynamics em cada lote. | Não (a predefinição é 10) |
 | ignoreNullValues | Indica se deve ignorar valores nulos de dados de entrada (exceto os campos de chave) durante a operação de escrita.<br/>Valores permitidos são: **verdadeiro**, e **falso**.<br>-verdadeiro: mantenha os dados de destino objeto inalterado ao efetuar a operação de atualização/upsert e inserir definido um valor predefinido ao efetuar a operação de inserção.<br/>-FALSO: atualizar os dados no objeto de destino para um valor nulo ao efetuar a operação de atualização/upsert e insira um valor nulo ao efetuar a operação de inserção.  | Não (a predefinição é false) |
 
 >[!NOTE]
@@ -331,7 +331,7 @@ Configurar o tipo de dados do Data Factory correspondente na estrutura do conjun
 | AttributeType.Customer | GUID | ✓ |  |
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
-| AttributeType.Double | duplo | ✓ | ✓ |
+| AttributeType.Double | Duplo | ✓ | ✓ |
 | AttributeType.EntityName | Cadeia | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ |  |

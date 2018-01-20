@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dde5bc4733af1aba34199f332379d2faf566725
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Criar definições de fluxo de trabalho para aplicações lógicas utilizando JSON
 
-Pode criar definições de fluxo de trabalho para [Azure Logic Apps](logic-apps-what-are-logic-apps.md) simples e declarativo linguagem de JSON. Se ainda não o fez, consulte primeiro [como criar a sua primeira aplicação lógica com o Designer de aplicação lógica](logic-apps-create-a-logic-app.md). Além disso, consulte o [completa de referência para o idioma de definição de fluxo de trabalho](http://aka.ms/logicappsdocs).
+Pode criar definições de fluxo de trabalho para [Azure Logic Apps](logic-apps-overview.md) simples e declarativo linguagem de JSON. Se ainda não o fez, consulte primeiro [como criar a sua primeira aplicação lógica com o Designer de aplicação lógica](quickstart-create-first-logic-app-workflow.md). Além disso, consulte o [completa de referência para o idioma de definição de fluxo de trabalho](http://aka.ms/logicappsdocs).
 
 ## <a name="repeat-steps-over-a-list"></a>Repita os passos através de uma lista
 

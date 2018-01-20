@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Criar uma rede virtual (clássica) com várias sub-redes
 
@@ -159,10 +159,10 @@ Pode criar uma rede virtual (clássica) utilizando o [portal do Azure](#portal),
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais sobre todas as definições de sub-rede e de rede virtual, consulte [gerir redes virtuais](virtual-network-manage-network.md) e [gerir sub-redes da rede virtual](virtual-network-manage-subnet.md). Tem várias opções para utilizar redes virtuais e sub-redes num ambiente de produção para satisfazer requisitos diferentes.
 - Para filtrar o tráfego de sub-rede de entrada e saída, criar e aplicar [grupos de segurança de rede](virtual-networks-nsg.md) a sub-redes.
-- Criar um [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou um [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquina virtual e, em seguida, ligue-o a uma rede virtual existente.
+- Criar um [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou um [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquina virtual e, em seguida, ligue-o a uma rede virtual existente.
 - Para ligar duas redes virtuais na mesma localização do Azure, criar um [peering de rede virtual](create-peering-different-deployment-models.md) entre as redes virtuais. Pode elemento uma rede virtual (Resource Manager) a uma rede virtual (clássica), mas não é possível criar um peering entre duas redes virtuais (clássica).
 - Ligar a rede virtual a uma rede no local utilizando um [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) circuito.

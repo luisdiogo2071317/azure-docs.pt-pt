@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 42d7fddd592b9cea8fbfa38bf39ca5def3542d66
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 48b13eef0960afb4aab68923fb97b5b9c14a3d9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Registar origens de dados no catálogo de dados do Azure
 ## <a name="introduction"></a>Introdução
@@ -85,5 +85,5 @@ Volte a registar uma origem de dados já registado efetua uma operação de inte
 ## <a name="summary"></a>Resumo
 Porque copia metadados estruturais e descritivo da origem de dados para o serviço de catálogo, registar a origem de dados no catálogo de dados faz com que os dados mais fáceis de detetar e compreender. Depois de ter registado a origem de dados, pode anotar, gerir e deteção utilizando o portal do catálogo de dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre como registar origens de dados, consulte o [introdução ao catálogo de dados do Azure](data-catalog-get-started.md) tutorial.

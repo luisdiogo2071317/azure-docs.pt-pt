@@ -1,6 +1,6 @@
 ---
 title: "Atribuir funções de administrador no Azure Active Directory | Microsoft Docs"
-description: "Uma função de administrador pode criar ou editar utilizadores, atribuir funções administrativas a outras pessoas, repor palavras-passe do utilizador, gerir licenças de utilizador ou gerir os domínios. Um utilizador a quem é atribuído uma função de administrador tem as mesmas permissões em todos os serviços de nuvem para o qual a sua organização tiver subscrito."
+description: "Uma função de administrador pode adicionar utilizadores, atribuir funções administrativas, repor palavras-passe do utilizador, gerir licenças de utilizador ou gerir os domínios. Um utilizador a quem é atribuído uma função de administrador tem as mesmas permissões em todos os serviços de nuvem para o qual a sua organização tiver subscrito."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 66df4d709b60f2eb80329b8527b2a6edeb123168
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 051212e3771b20cc901efcd54a81d4cfb4274002
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuir funções de administrador no Azure Active Directory
 
@@ -65,7 +65,7 @@ Estão disponíveis as seguintes funções de administrador:
 
 * **Suporte de 2 de nível de parceiros**: não utilize. Esta função foi despromovida e será removida do Azure AD no futuro. Esta função destina-se por um pequeno número de parceiros de revenda Microsoft e não se destina a utilização geral.
 
-* **Palavra-passe de administrador / suporte técnico administrador**: os utilizadores com esta função podem repor palavras-passe, gerir pedidos de serviço e monitorizar estado de funcionamento do serviço. Os administradores de palavras-passe podem repor palavras-passe apenas para os utilizadores e de outros administradores de palavras-passe.
+* **Palavra-passe de administrador / suporte técnico administrador**: os utilizadores com esta função podem alterar as palavras-passe, gerir pedidos de serviço e monitorizar estado de funcionamento do serviço. Os administradores de suporte técnico podem alterar as palavras-passe apenas para os utilizadores e de outros administradores de suporte técnico. 
 
   > [!NOTE]
   > Na Microsoft Graph API, AD Graph API do Azure e Azure AD PowerShell, esta função é identificada como "Administrador de suporte técnico". É "Palavra-passe de administrador" no [portal do Azure](https://portal.azure.com/).
@@ -91,7 +91,7 @@ Estão disponíveis as seguintes funções de administrador:
   >
   >
 
-* **Administrador de conta de utilizador**: os utilizadores com esta função podem criar e gerir todos os aspetos de utilizadores e grupos. Além disso, esta função inclui a capacidade de gerir pedidos de suporte e monitores de estado de funcionamento do serviço. Algumas restrições aplicam-se. Por exemplo, esta função não permite a eliminação de um administrador global e ao permitir a alteração de palavras-passe para não administradores, não permite a alteração de palavras-passe para os administradores globais ou outros administradores com privilégios.
+* **Administrador de conta de utilizador**: os utilizadores com esta função podem criar e gerir todos os aspetos de utilizadores e grupos. Além disso, esta função inclui a capacidade de gerir pedidos de suporte e monitores de estado de funcionamento do serviço. Algumas restrições aplicam-se. Por exemplo, esta função não permite a eliminação de um administrador global. Os administradores de conta de utilizador podem alterar as palavras-passe para os utilizadores, administradores de suporte técnico e apenas outros administradores de conta de utilizador.
 
 ## <a name="administrator-permissions"></a>Permissões de administrador
 
@@ -110,31 +110,31 @@ Estão disponíveis as seguintes funções de administrador:
 ### <a name="global-administrator"></a>Administrador global
 | Pode fazê-lo | Não é possível efetuar |
 | --- | --- |
-|<p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Efetuar operações de faturação e compras para produtos do Office</p><p>Repor palavras-passe do utilizador</p><p>Repor palavras-passe de outro administrador</p> <p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ativar ou desativar a autenticação multifator</p><p>Ver registos de auditoria</p> |N/D |
+|<p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Efetuar operações de faturação e compras para produtos do Office</p><p>Repor palavras-passe do utilizador</p><p>Repor palavras-passe de outro administrador</p> <p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ativar ou desativar a autenticação multifator</p><p>Ver registos de auditoria</p> |N/A |
 
-### <a name="password-administrator"></a>Administrador de palavras-passe
+### <a name="password-administrator--helpdesk-administrator"></a>Administrador de palavras-passe / administrador de suporte técnico
 | Pode fazê-lo | Não é possível efetuar |
 | --- | --- |
-| <p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Repor palavras-passe do utilizador</p> <p>Repor palavras-passe de outro administrador</p>|<p>Efetuar operações de faturação e compras para produtos do Office</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ver relatórios</p>|
+| <p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Alterar as palavras-passe para os utilizadores e de outros administradores de suporte técnico apenas</p>|<p>Efetuar operações de faturação e compras para produtos do Office</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ver relatórios</p>|
 
 ### <a name="service-administrator"></a>Administrador de serviços
 | Pode fazê-lo | Não é possível efetuar |
 | --- | --- |
 | <p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p> |<p>Repor palavras-passe do utilizador</p><p>Efetuar operações de faturação e compras para produtos do Office</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ver registos de auditoria</p> |
 
-### <a name="user-administrator"></a>Administrador de utilizador
+### <a name="user-account-administrator"></a>Administrador de conta de utilizador
 | Pode fazê-lo | Não é possível efetuar |
 | --- | --- |
-| <p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Repor palavras-passe de utilizador, com limitações.</p><p>Repor palavras-passe de outro administrador</p><p>Repor palavras-passe de outros utilizadores</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador, com limitações. Seja não pode eliminar um administrador global nem criar outros administradores.</p> |<p>Efetuar operações de faturação e compras para produtos do Office</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ativar ou desativar a autenticação multifator</p><p>Ver registos de auditoria</p> |
+| <p>Ver informações de utilizador e da empresa</p><p>Gerir pedidos de suporte do Office</p><p>Alterar as palavras-passe para os utilizadores, administradores de suporte técnico e apenas outros administradores de conta de utilizador</p><p>Criar e gerir vistas de utilizador</p><p>Criar, editar, eliminar utilizadores e grupos e gerir licenças de utilizador, com limitações. Seja não pode eliminar um administrador global nem criar outros administradores.</p> |<p>Efetuar operações de faturação e compras para produtos do Office</p><p>Gerir domínios</p><p>Gerir as informações da empresa</p><p>Delegar funções administrativas a outras pessoas</p><p>Utilizar a sincronização de diretórios</p><p>Ativar ou desativar a autenticação multifator</p><p>Ver registos de auditoria</p> |
 
-### <a name="security-reader"></a>Leitor de segurança
+### <a name="security-reader"></a>Leitor de Segurança
 | No | Pode fazê-lo |
 | --- | --- |
-| Identity Protection Center |Ler todos os relatórios de segurança e informações de definições de funcionalidades de segurança<ul><li>Anti spam<li>Encriptação<li>Prevenção de perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Antiphishing<li>Regras de Mailflow |
+| Identity Protection Center |Ler todos os relatórios de segurança e informações de definições de funcionalidades de segurança<ul><li>Anti spam<li>Encriptação<li>Prevenção de perda de dados<li>Anti-malware<li>Proteção avançada contra ameaças<li>Antiphishing<li>Regras de Mailflow |
 | Privileged Identity Management |<p>Tem acesso só de leitura para todas as informações anexados no Azure AD PIM: as políticas e relatórios para atribuições de funções do Azure AD, segurança analisa e acesso aos dados de política e relatórios para cenários para além de atribuição de função do Azure AD de leitura no futuro.<p>**Não é possível** inscrever-se no Azure AD PIM ou efetue as alterações. No portal do PIM ou através do PowerShell, alguém que esta função pode ativar funções adicionais (por exemplo, Administrador Global ou com privilégios de função de administrador), se o utilizador é uma candidata para os mesmos. |
 | <p>O estado de funcionamento do monitor do Office 365 serviço</p><p>Segurança do Office 365 e o Centro de conformidade</p> |<ul><li>Ler e gerir alertas<li>Políticas de segurança de leitura<li>Ler informações sobre ameaças, o Cloud App Discovery e colocam em quarentena na procura e investigar<li>Ler todos os relatórios |
 
-### <a name="security-administrator"></a>Administrador de segurança
+### <a name="security-administrator"></a>Administrador de Segurança
 | No | Pode fazê-lo |
 | --- | --- |
 | Identity Protection Center |<ul><li>Todas as permissões da função de leitor de segurança.<li>Além disso, a capacidade de efetuar todas as operações de IPC exceto repor palavras-passe. |
@@ -165,14 +165,14 @@ Para saber como atribuir funções administrativas a um utilizador no Azure Acti
 
 As seguintes funções não devem ser utilizadas. Estes foi despromovida e será removida do Azure AD no futuro.
 
-* Administrador de licença de ad hoc
-* Correio eletrónico verificado criador de utilizador
+* Administrador de Licenças AdHoc
+* Criador de Utilizador Verificado por E-mail
 * Associação de dispositivos
-* Gestores de dispositivos
+* Gestores de Dispositivo
 * Utilizadores de dispositivos
-* Associação à área de trabalho de dispositivo
+* Associação de Dispositivos da Área de Trabalho
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre como alterar os administradores para uma subscrição do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md)
 * Para saber mais sobre como o Microsoft Azure controla o acesso aos recursos, consulte [Noções sobre o acesso aos recursos no Azure](active-directory-understanding-resource-access.md)

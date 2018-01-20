@@ -4,7 +4,7 @@ description: "Saiba como configurar e clusters do HDInsight associados a um dom�
 services: hdinsight
 documentationcenter: 
 author: saurinsh
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: 
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: saurinsh
-ms.openlocfilehash: 4921e329c2ec8ce3d5bbf8a0851146e13d5f6cd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: e24ea43f6df3c22c338646af21f7517e16b718ea
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configurar o ambiente de sandbox HDInsight associados a um domínio
 
@@ -49,7 +49,7 @@ Utilizar uma autónoma do Active Directory em execução no IaaS do Azure é des
 ## <a name="option-1-one-step-approach"></a>Opção 1: abordagem de um passo
 Nesta secção, abra um modelo de gestão de recursos do Azure do portal do Azure. O modelo é utilizado para criar uma autónoma do Active Directory e um cluster do HDInsight. Atualmente, pode criar cluster de Hadoop associados a um domínio, o cluster do Spark e o cluster de consulta interativo.
 
-1. Clique na imagem seguinte para abrir o modelo no portal do Azure. O modelo está localizado no [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/).
+1. Clique na imagem seguinte para abrir o modelo no portal do Azure. O modelo está localizado nos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/).
    
     Para criar um cluster do Spark:
 

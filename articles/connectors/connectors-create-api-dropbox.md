@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 0d09580c60fd620811b539147439d0922839fe7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3fecdc33a08c82d9ad13226e75d0d704a5557f98
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Começar a utilizar o conector Dropbox
 Ligar a Dropbox para gerir os seus ficheiros. Pode efetuar várias ações, como o carregamento, atualizar, obter e eliminar ficheiros da Dropbox.
 
-Para utilizar [qualquer conector](apis-list.md), terá primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/logic-apps-create-a-logic-app.md).
+Para utilizar [qualquer conector](apis-list.md), terá primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-dropbox"></a>Ligar a Dropbox
 Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de criar um *ligação* ao serviço. Uma ligação oferece a conectividade entre uma aplicação lógica e outro serviço. Por exemplo, para ligar a Dropbox, primeiro precisa de um Dropbox *ligação*. Para criar uma ligação, terá de fornecer as credenciais que normalmente utiliza para aceder ao serviço que pretende ligar. Por isso, no exemplo Dropbox, terá as credenciais para a sua conta Dropbox para criar a ligação ao Dropbox. [Saiba mais sobre ligações]()
@@ -35,7 +35,7 @@ Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de 
 > 
 
 ## <a name="use-a-dropbox-trigger"></a>Utilizar um acionador Dropbox
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Neste exemplo, utilizaremos o **quando é criado um ficheiro** acionador. Quando ocorre este acionador, que iremos chamar o **obter conteúdo de ficheiros utilizando caminho** ação Dropbox. 
 
@@ -45,7 +45,7 @@ Neste exemplo, utilizaremos o **quando é criado um ficheiro** acionador. Quando
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## <a name="use-a-dropbox-action"></a>Utilizar uma ação de Dropbox
-Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Agora que o acionador foi adicionado, siga estes passos para adicionar uma ação que irá obter conteúdo do novo ficheiro.
 

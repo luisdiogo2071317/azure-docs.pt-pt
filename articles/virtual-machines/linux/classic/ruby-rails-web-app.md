@@ -15,11 +15,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: fb6ded1dcba2ac0f78fc6f1f4f7de9238cd752bd
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 1ee30aadc1bd07e7ac9a1894e4be832436ab5910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Aplicação Web Ruby on Rails numa VM do Azure
 Este tutorial mostra como alojar um Ruby no Web site de Rails no Azure através de uma máquina virtual Linux.  
@@ -119,7 +119,7 @@ Deverá ver um resultado semelhante ao seguinte.
 
      Este ponto final possui uma porta pública 80 que irá encaminhar o tráfego para a porta privada 3000, onde o servidor de Rails está à escuta. A regra de lista de controlo de acesso permite tráfego público na porta 80.
 
-     ![novo ponto final](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
+     ![new-endpoint](./media/virtual-machines-linux-classic-ruby-rails-web-app/createendpoint.png)
 
 5. Clique em OK para guardar o ponto final.
 
@@ -142,7 +142,7 @@ Para utilizar os serviços do Azure da sua aplicação Ruby, consulte:
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:https://azure.microsoft.com/develop/ruby/app-services/
 [tables]:../../../cosmos-db/table-storage-how-to-use-ruby.md
-[vm-instructions]:createportal.md
+[vm-instructions]:createportal-classic.md
 
 <!-- External Links -->
 [rails-guides]:http://guides.rubyonrails.org/

@@ -5,23 +5,23 @@ services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/18/2017
+ms.date: 01/19/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 67f262913333fb69f5b862fa3d862c0d773e4172
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 50a6126f065b1b4d851f53b5cb3096c130314450
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Encaminhar eventos de armazenamento de Blobs para um ponto final da Web personalizado (pré-visualização)
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, a CLI do Azure é utilizada para subscrever a eventos de armazenamento de Blobs e acionar o evento para ver o resultado. 
 
-Normalmente, os eventos são enviados para um ponto final que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo apresentado neste artigo, enviamos eventos para um URL que apenas recolhe as mensagens. Este URL é criado através de uma ferramenta de terceiros open source chamada [RequestBin](https://requestb.in/).
+Normalmente, os eventos são enviados para um ponto final que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo apresentado neste artigo, enviamos eventos para um URL que apenas recolhe as mensagens. Criar este URL utilizando uma ferramenta open source, terceiros chamada [RequestBin](https://requestb.in/).
 
 > [!NOTE]
-> **RequestBin** é uma ferramenta open source que não se destina a uma utilização de débito elevado. A utilização da ferramenta aqui é puramente demonstrativa. Se emitir mais do que um evento simultaneamente, não poderá ver todos os eventos na ferramenta.
+> **RequestBin** é uma ferramenta de open source que não se destina a utilização de débito elevado. A utilização da ferramenta aqui é puramente demonstrativa. Se emitir mais do que um evento simultaneamente, não poderá ver todos os eventos na ferramenta.
 
 Quando concluir os passos descritos neste artigo, pode ver que os dados do evento foram enviados para um ponto final.
 
@@ -31,7 +31,7 @@ Quando concluir os passos descritos neste artigo, pode ver que os dados do event
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão mais recente da CLI do Azure (2.0.14 ou posterior). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este artigo requer que está a executar a versão mais recente da CLI do Azure (2.0.24 ou posterior). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 Se não estiver a utilizar o Cloud Shell, tem primeiro de iniciar sessão com o `az login`.
 
@@ -70,20 +70,19 @@ az storage account create \
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem
 
-Antes de subscrever aos eventos da conta de armazenamento de Blobs, vamos criar o ponto final para a mensagem de evento. Em vez de escrever código para responder ao evento, iremos criar um ponto final que recolhe as mensagens, para que possa vê-las. RequestBin é uma ferramenta de terceiros open source que permite criar um ponto final e ver os pedidos que são enviados para o mesmo. Aceda a [RequestBin](https://requestb.in/)e clique em **Criar um RequestBin**.  Copie o URL do bin, porque irá precisar dele quando subscrever o tópico.
+Antes de subscrever aos eventos da conta de armazenamento de Blobs, vamos criar o ponto final para a mensagem de evento. Em vez de escrever código para responder ao evento, iremos criar um ponto final que recolhe as mensagens, para que possa vê-las. RequestBin é uma ferramenta open source, de terceiros que lhe permite criar um ponto final e ver pedidos que são enviados para o mesmo. Aceda a [RequestBin](https://requestb.in/)e clique em **Criar um RequestBin**.  Copie o URL do bin, porque irá precisar dele quando subscrever o tópico.
 
 ## <a name="subscribe-to-your-blob-storage-account"></a>Subscrever à sua conta de armazenamento de Blobs
 
 Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar. O exemplo seguinte subscreve à conta de armazenamento de Blobs que criou e transmite o URL do RequestBin como o ponto final para notificação de eventos. Substitua `<event_subscription_name>` por um nome exclusivo para a sua subscrição de eventos e `<URL_from_RequestBin>` pelo o valor da secção anterior. Ao especificar um ponto final quando subscrever, o Event Grid processa o encaminhamento de eventos para esse ponto final. Para `<resource_group_name>` e `<storage_account_name>`, utilize o valor que criou anteriormente. 
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create \
---endpoint <URL_from_RequestBin> \
---name <event_subscription_name> \
---provider-namespace Microsoft.Storage \
---resource-type storageAccounts \
---resource-group <resource_group_name> \
---resource-name <storage_account_name>
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint <URL_from_RequestBin>
 ```
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Acionar um evento a partir do armazenamento de Blobs
@@ -122,7 +121,9 @@ Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configu
     "storageDiagnostics": {
       "batchId": "dffea416-b46e-4613-ac19-0371c0c5e352"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 
 ```
@@ -136,7 +137,7 @@ Substitua `<resource_group_name>` pelo grupo de recursos que criou acima.
 az group delete --name <resource_group_name>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre os Eventos de armazenamento de Blobs o que o Event Grid pode ajudá-lo a fazer:
 

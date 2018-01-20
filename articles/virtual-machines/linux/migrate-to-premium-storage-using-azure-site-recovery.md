@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5ff52449414a6c9796b66195c33721553220f6bc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3b5c3a80262adc71374fe30092006fa6cb6865c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Premium Storage, utilizando o Azure Site Recovery
 
@@ -199,7 +199,7 @@ Recuperação de sites irá criar uma instância VM cujo tipo é o mesmo como ou
 ## <a name="post-migration-steps"></a>Passos de pós-migração
 
 1. **Configurar VMs replicadas para o conjunto se aplicável disponibilidade**. Recuperação de sites não suporta VMs migrar juntamente com o conjunto de disponibilidade. Dependendo da implementação de VM replicada, efetue um dos seguintes:
-   * Para uma VM criada através do modelo de implementação clássica: adicionar a VM para a conjunto de disponibilidade no portal do Azure. Para obter passos detalhados, aceda a [adicionar uma máquina virtual existente para um conjunto de disponibilidade](../linux/classic/configure-availability.md#addmachine).
+   * Para uma VM criada através do modelo de implementação clássica: adicionar a VM para a conjunto de disponibilidade no portal do Azure. Para obter passos detalhados, aceda a [adicionar uma máquina virtual existente para um conjunto de disponibilidade](../linux/classic/configure-availability-classic.md).
    * Para uma VM criada através do modelo de implementação Resource Manager: guardar a configuração da VM e, em seguida, eliminar e voltar a criar as VMs no conjunto de disponibilidade. Para tal, utilize o script em [definir do Azure Resource Manager VM conjunto de disponibilidade](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Antes de executar este script, verifique o respetivas limitações e planear os períodos de indisponibilidade.
 
 2. **Eliminar antigo VMs e discos**. Certifique-se de que os discos Premium são consistentes com discos de origem e que as VMs novas executem a mesma função que as VMs de origem. Elimine a VM e elimine os discos das suas contas de armazenamento de origem no portal do Azure. Se não existir um problema em que o disco não é eliminada, apesar de eliminar a VM, consulte [resolver erros ao eliminar os VHDs](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
@@ -211,20 +211,20 @@ Recuperação de sites irá criar uma instância VM cujo tipo é o mesmo como ou
 * [Monitorizar e resolver problemas de proteção para máquinas virtuais e servidores físicos](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Fórum do Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para cenários específicos para migrar máquinas virtuais, consulte os seguintes recursos:
 
 * [Migrar máquinas virtuais do Azure entre contas de armazenamento](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Criar e carregar um VHD do Windows Server para o Azure](../windows/classic/createupload-vhd.md)
-* [Criar e carregar um disco rígido virtual que contém o sistema operativo Linux](../linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Criar e carregar um disco rígido virtual que contém o sistema operativo Linux](../linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migração de máquinas virtuais do Amazon AWS ao Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Além disso, consulte os seguintes recursos para saber mais sobre o Storage do Azure e Virtual Machines do Azure:
 
 * [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [Máquinas virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de máquina virtual do Azure](premium-storage.md)
+* [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Armazenamento Premium: High-Performance Storage for Azure Virtual Machine Workloads](premium-storage.md) (Armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de máquinas virtuais do Azure)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

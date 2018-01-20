@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 2748d3d3daf7c13dca05f663a4a088598e1b3605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69e8735417bc006296b8a6e5168d9fbeff052247
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>Consultar AS2, X12 e EDIFACT mensagens no Microsoft Operations Management Suite (OMS)
 
@@ -26,7 +26,7 @@ Para localizar o AS2, X12 ou EDIFACT mensagens que está a controlar com [Log An
 
 ## <a name="requirements"></a>Requisitos
 
-* Uma aplicação lógica que esteja configurada com o registo de diagnóstico. Saiba [como criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md) e [como configurar o registo para essa aplicação lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Uma aplicação lógica que esteja configurada com o registo de diagnóstico. Saiba [como criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) e [como configurar o registo para essa aplicação lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Uma conta de integração que está configurada com a monitorização e registo. Saiba [como criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [como configurar a monitorização e o registo para essa conta](../logic-apps/logic-apps-monitor-b2b-message.md).
 
@@ -124,7 +124,7 @@ Este exemplo mostra como pode encontrar com base no respetivo número de control
 
    ![Selecione a sua consulta](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Esquemas de controlo de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Esquemas de controlo de X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)

@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: cd6ceaf5f8cdcfbde5d0d2bebb4b89488d0122e9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ffe5ee95c66eee7dccd25a1afd2fe639cbc273f5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-and-publish-your-first-api"></a>Importar e publicar a sua primeira API 
 
@@ -54,11 +54,11 @@ Esta secção mostra como importar e publicar um OpenAPI especificação back-en
 
     |Definição|Valor|Descrição|
     |---|---|---|
-    |**Especificação de OpenAPI**|http://conferenceapi.azurewebsites.NET?Format=JSON|Referencia o serviço de implementação da API. API de gestão reencaminha os pedidos para este endereço.|
+    |**Especificação de OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Referencia o serviço de implementação da API. API de gestão reencaminha os pedidos para este endereço.|
     |**Nome a apresentar**|*API de conferências de demonstração*|Se premir separador depois de introduzir o URL do serviço, APIM será preencha este campo com base no que é no json. <br/>Este nome é apresentado no portal do programador.|
-    |**Nome**|*api de conferências de demonstração*|Fornece um nome exclusivo para a API. <br/>Se premir separador depois de introduzir o URL do serviço, APIM será preencha este campo com base no que é no json.|
+    |**Nome**|*demo-conference-api*|Fornece um nome exclusivo para a API. <br/>Se premir separador depois de introduzir o URL do serviço, APIM será preencha este campo com base no que é no json.|
     |**Descrição**|Forneça uma descrição opcional da API.|Se premir separador depois de introduzir o URL do serviço, APIM será preencha este campo com base no que é no json.|
-    |**Sufixo do URL da API**|*Conferência*|O sufixo é acrescentado para o URL de base para o serviço de gestão de API. Gestão de API distingue APIs pelo respetivo sufixo e, por conseguinte, o sufixo tem de ser exclusivo para cada API para um determinado publicador.|
+    |**Sufixo do URL da API**|*conference*|O sufixo é acrescentado para o URL de base para o serviço de gestão de API. Gestão de API distingue APIs pelo respetivo sufixo e, por conseguinte, o sufixo tem de ser exclusivo para cada API para um determinado publicador.|
     |**Esquema de URL**|*HTTPS*|Determina os protocolos podem ser utilizados para aceder à API do. |
     |**Produtos**|*Ilimitado*| Publica a API ao associar a API com um produto. Para adicionar, opcionalmente, esta nova API a um produto, escreva o nome de produto. Este passo pode ser repetido múltiplas vezes para adicionar a API a vários produtos.<br/>Produtos são associações de APIs de um ou mais. Pode incluir um número de APIs e oferecem-las para os programadores através do portal do programador. Os programadores têm primeiro de subscrever um produto para obter acesso à API. Quando estes subscrever, recebem uma chave de subscrição é válida para qualquer API esse produto. Se tiver criado a instância APIM, um administrador já estiver, pelo que tem subscritos todos os produtos por predefinição.<br/> Por predefinição, cada instância da API Management vem com dois produtos de exemplo: **Starter** e **ilimitada**. |
 3. Selecione **Criar**.
@@ -67,13 +67,10 @@ Esta secção mostra como importar e publicar um OpenAPI especificação back-en
 
 Operações podem ser chamadas diretamente a partir do portal do Azure, que fornece uma maneira conveniente para ver e testar as operações de uma API.  
 1. Selecione a API que criou no passo anterior.
-2. Prima a **teste** separador.
-
-    ![API de teste](./media/api-management-get-started/test-api.png)
+2. Prima a **teste** separador.  ![API de teste](./media/api-management-get-started/test-api.png)
 3. Clique em **GetSpeakers**.
-
-    A página apresenta os campos para os parâmetros de consulta, mas neste caso, não temos qualquer. A página também apresenta os campos para os cabeçalhos. Um dos cabeçalhos de é "Ocp-Apim-Subscription-Key", para a chave de subscrição do produto que está associado esta API. Se tiver criado a instância APIM, um administrador já estiver, pelo que a chave é automaticamente preenchida. 
-4. Prima **enviar**.
+    A página apresenta os campos para os parâmetros de consulta, mas neste caso, não temos qualquer. A página também apresenta os campos para os cabeçalhos. Um dos cabeçalhos de é "Ocp-Apim-Subscription-Key", para a chave de subscrição do produto que está associado esta API. A chave é automaticamente preenchida.
+4. Prima **Enviar**.
 
     Back-end responde com **200 OK** e alguns dados.
 
@@ -93,7 +90,7 @@ Também podem ser chamadas operações **portal do programador** para testar as 
     
     A página apresenta os campos para os parâmetros de consulta, mas neste caso, não temos qualquer. A página também apresenta os campos para os cabeçalhos. Um dos cabeçalhos de é "Ocp-Apim-Subscription-Key", para a chave de subscrição do produto que está associado esta API. Se tiver criado a instância APIM, um administrador já estiver, pelo que a chave é automaticamente preenchida.
 6. Prima **experimente**.
-7. Prima **enviar**.
+7. Prima **Enviar**.
     
     Depois de uma operação ser invocada, o portal do programador apresenta o **Estado da resposta**, os **Cabeçalhos da resposta** e qualquer **Conteúdo da resposta**.
 

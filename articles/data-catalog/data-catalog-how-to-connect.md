@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 8176a952107a630d42d557e568a230f1cdc840aa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b5bed534d9fa1a64b0e90c268407281724185ce8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-connect-to-data-sources"></a>Como ligar a origens de dados
 ## <a name="introduction"></a>Introdução
@@ -43,11 +43,11 @@ Ao utilizar o "Abrir em..." menu para origens de dados no portal do catálogo de
 
 | Abrir numa aplicação | Extensão de ficheiro / protocolo | Versões de aplicações suportados |
 | --- | --- | --- |
-| Excel |. odc |Excel 2010 ou posterior |
-| Excel (primeiros 1000) |. odc |Excel 2010 ou posterior |
-| Power Query |ou |Excel 2016 ou o Excel 2010 ou o Excel 2013 com o Power Query para o suplemento do Excel instalado |
-| Ambiente de trabalho do Power BI |. pbix |Power BI Desktop Julho de 2016 ou posterior |
-| SQL Server Data Tools |vsweb: / / |Visual Studio 2013 atualização 4 ou posterior com ferramentas do SQL Server instalada |
+| Excel |.odc |Excel 2010 ou posterior |
+| Excel (primeiros 1000) |.odc |Excel 2010 ou posterior |
+| Power Query |.xlsx |Excel 2016 ou o Excel 2010 ou o Excel 2013 com o Power Query para o suplemento do Excel instalado |
+| Ambiente de trabalho do Power BI |.pbix |Power BI Desktop Julho de 2016 ou posterior |
+| SQL Server Data Tools |vsweb:// |Visual Studio 2013 atualização 4 ou posterior com ferramentas do SQL Server instalada |
 | Gestor de relatórios |http:// |Consulte [requisitos de browser do SQL Server Reporting Services](https://technet.microsoft.com/en-us/library/ms156511.aspx) |
 
 ## <a name="your-data-your-tools"></a>Os dados, as ferramentas
@@ -67,5 +67,5 @@ Para tornar mais fácil para os utilizadores que detetar uma origem de dados, ma
 ## <a name="summary"></a>Resumo
 Registar uma origem de dados com **catálogo de dados do Azure** faz com que os dados detetável por copiar os metadados estruturais e descritivo da origem de dados para o serviço de catálogo. Depois de uma origem de dados tiver sido registada e detetada, os utilizadores podem ligar à origem de dados do **catálogo de dados do Azure** portal "Abrir em..." " menu ou utilizar as ferramentas de dados escolhidas.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Introdução ao catálogo de dados do Azure](data-catalog-get-started.md) tutorial para obter detalhes passo a passo sobre como ligar a origens de dados.

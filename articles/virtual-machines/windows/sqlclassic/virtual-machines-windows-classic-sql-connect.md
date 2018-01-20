@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 3f6dc1b2ab8198ec2c03615aedced98a314bf66d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Ligar a uma Máquina Virtual do SQL Server no Azure (Implementação Clássica)
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ A forma como um cliente liga ao SQL Server em execução numa máquina Virtual �
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Ligar ao SQL Server no mesmo serviço em nuvem
-Várias máquinas virtuais podem ser criadas no mesmo serviço em nuvem. Para compreender este cenário de máquinas virtuais, consulte [como ligar a máquinas virtuais com um serviço de nuvem ou de rede virtual](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service). Este cenário ocorre quando um cliente na máquina virtual de um tenta estabelecer ligação ao SQL Server em execução outra máquina virtual no mesmo serviço em nuvem.
+Várias máquinas virtuais podem ser criadas no mesmo serviço em nuvem. Para compreender este cenário de máquinas virtuais, consulte [como ligar a máquinas virtuais com um serviço de nuvem ou de rede virtual](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service). Este cenário ocorre quando um cliente na máquina virtual de um tenta estabelecer ligação ao SQL Server em execução outra máquina virtual no mesmo serviço em nuvem.
 
 Neste cenário, pode ser ligados utilizando a VM **nome** (também são mostradas como **nome do computador** ou **hostname** no portal). Este é o nome fornecido para a VM durante a criação. Por exemplo, se denominar a VM do SQL Server **mysqlvm**, um cliente VM no mesmo serviço em nuvem foi possível utilizar a seguinte cadeia de ligação para ligar:
 
