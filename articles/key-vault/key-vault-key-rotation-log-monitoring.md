@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurar o Cofre de Chaves do Azure com auditoria e rotação de ponto a ponto
 ## <a name="introduction"></a>Introdução
@@ -186,7 +186,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <ap
 
 Em seguida, selecione **Runbooks** na sua instância de automatização do Azure e, em seguida, selecione **adicionar um Runbook**. Selecione **Criação Rápida**. Nome do runbook e selecione **PowerShell** como o tipo de runbook. Tem a opção para adicionar uma descrição. Por fim, clique em **criar**.
 
-![Criar o runbook](./media/keyvault-keyrotation/Create_Runbook.png)
+![Criar runbook](./media/keyvault-keyrotation/Create_Runbook.png)
 
 Cole o seguinte script do PowerShell no painel do editor para o seu runbook novo:
 
@@ -416,7 +416,7 @@ Neste momento, a função está pronta. Certifique-se mudar para o **desenvolver
 ### <a name="azure-logic-app"></a>Aplicação lógica do Azure
 Em seguida tem de criar uma aplicação de lógica do Azure que seleciona os eventos que a função é enviar para a fila do Service Bus, analisa o conteúdo e envia um e-mail com base numa condição que está a ser correspondida.
 
-[Criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md) acedendo a **novo > aplicação lógica**.
+[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) acedendo a **novo > aplicação lógica**.
 
 Uma vez criada a aplicação lógica, navegue para a mesma e escolha **editar**. Dentro do editor de aplicação lógica, escolha **fila do Service Bus** e introduza as suas credenciais do Service Bus a ligá-lo para a fila.
 

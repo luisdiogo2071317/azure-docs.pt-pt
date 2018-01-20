@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-db2-connector"></a>Começar a utilizar o conector DB2
 Conector do Microsoft para DB2 liga as Logic Apps aos recursos armazenados numa base de dados IBM DB2. Este conector inclui o cliente Microsoft para comunicar com computadores de servidor DB2 remotos através de uma rede TCP/IP. Isto inclui as bases de dados de nuvem, como IBM Bluemix dashDB ou IBM DB2 para o Windows em execução no Azure Virtualização e no local utilizando o gateway de dados no local de bases de dados. Consulte o [suportado lista](connectors-create-api-db2.md#supported-db2-platforms-and-versions) do IBM DB2 plataformas e versões (deste tópico).
@@ -35,7 +35,7 @@ O conector DB2 suporta as seguintes operações de base de dados:
 
 Este tópico mostra como utilizar o conector numa aplicação lógica para processar operações de base de dados.
 
-Para saber mais sobre Logic Apps, consulte o artigo [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para saber mais sobre Logic Apps, consulte o artigo [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Ações disponíveis
 O conector DB2 suporta as seguintes ações de aplicação lógica:
@@ -87,7 +87,7 @@ Este conector suporta ligações para as bases de dados alojados no local e na n
 | --- | --- |
 | servidor |Necessário. Aceita um valor de cadeia que representa um endereço de TCP/IP ou alias, no formato IPv4 ou IPv6, seguido (delimitado por vírgula) por um número de porta de TCP/IP. |
 | base de dados |Necessário. Aceita um valor de cadeia que representa um nome DRDA da base de dados relacional (RDBNAM). DB2 para z/SO aceita uma cadeia de 16 bytes (base de dados é conhecido como um IBM DB2 para a localização de SO/z). DB2 para i5/SO aceita uma cadeia de carateres de 18 byte (base de dados é conhecido como um IBM DB2 para i relacional base de dados). DB2 para LUW aceita uma cadeia de 8 bytes. |
-| Autenticação |Opcional. Aceita um valor de item de lista, Basic ou o Windows (kerberos). |
+| autenticação |Opcional. Aceita um valor de item de lista, Basic ou o Windows (kerberos). |
 | o nome de utilizador |Necessário. Aceita um valor de cadeia. DB2 para z/SO aceita uma cadeia de 8 bytes. DB2 para i aceita uma cadeia de 10 bytes. DB2 para Linux ou UNIX aceita uma cadeia de 8 bytes. DB2 para Windows aceita uma cadeia de 30-byte. |
 | palavra-passe |Necessário. Aceita um valor de cadeia. |
 | gateway |Necessário. Aceita um valor de item de lista, que representa o gateway de dados no local, definido para as Logic Apps dentro do grupo de armazenamento. |
@@ -280,6 +280,6 @@ Este conector suporta nas seguintes plataformas IBM DB2 e versões, bem como IBM
 
 Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/db2/). 
 
-## <a name="next-steps"></a>Passos seguintes
-[Criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explorar os outros conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Passos Seguintes
+[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorar os outros conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
 

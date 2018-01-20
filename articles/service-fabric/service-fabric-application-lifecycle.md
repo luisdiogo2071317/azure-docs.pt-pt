@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/29/2017
+ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: d892c5979d0dec54767fe5a9ef84b05739683604
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 923778e54a1ae5967d681751841c3a2b3fb45130
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida de aplicação de Service Fabric
 Com outras plataformas, uma aplicação no Azure Service Fabric normalmente realiza as seguintes fases: estrutura, desenvolvimento, teste, implementação, a atualização, manutenção e remoção. O Service Fabric fornece suporte de primeira classe para o ciclo de vida de aplicação completa das aplicações em nuvem, de desenvolvimento através da implementação, gestão diária e manutenção para desativar eventual. O modelo de serviço permite várias funções diferentes para participar independentemente no ciclo de vida de aplicação. Este artigo fornece uma descrição geral das APIs e como são utilizados pelas funções de diferentes durante as fases do ciclo de vida de aplicação de Service Fabric.
@@ -91,7 +91,7 @@ Consulte o [tutorial de atualização da aplicação](service-fabric-application
 
 Consulte [implementar uma aplicação](service-fabric-deploy-remove-applications.md) para obter exemplos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre desenvolver, testar e gerir aplicações de Service Fabric e serviços, consulte:
 
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)

@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 01/05/2018
+ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 8e48d771ffcefe31c89a0d70f65ca867653a2163
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 04fa529a0d84f0413c825fef04eadea2496c02cd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Introdução ao conceber a tabelas no armazém de dados SQL do Azure
 
@@ -37,34 +37,27 @@ A [esquema em estrela](https://en.wikipedia.org/wiki/Star_schema) organiza os da
 ## <a name="schema-and-table-names"></a>Nomes de tabela e esquema
 No SQL Data Warehouse, um armazém de dados é um tipo de base de dados. Todas as tabelas no armazém de dados estão contidas na mesma base de dados.  Não é possível associar as tabelas em vários armazéns de dados. Este comportamento é diferente do SQL Server que suporta as associações entre bases de dados. 
 
-Numa base de dados do SQL Server, poderá utilizar facto, Dim. do, ou integrar os nomes de esquema. Se estiver a transferir uma base de dados do SQL Server para o SQL Data Warehouse, funciona melhor para migrar guardar todas as tabelas de facto, dimensão e de integração para um esquema no armazém de dados do SQL Server. Por exemplo, pode armazenar todas as tabelas a [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) do armazém de dados de exemplo dentro de um esquema chamado WWI. O código seguinte cria um [definido pelo utilizador esquema](/sql/t-sql/statements/create-schema-transact-sql) chamado WWI.
+Numa base de dados do SQL Server, poderá utilizar facto, Dim. do, ou integrar os nomes de esquema. Se estiver a transferir uma base de dados do SQL Server para o SQL Data Warehouse, funciona melhor para migrar guardar todas as tabelas de facto, dimensão e de integração para um esquema no armazém de dados do SQL Server. Por exemplo, pode armazenar todas as tabelas a [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) do armazém de dados de exemplo dentro de um esquema chamado wwi. O código seguinte cria um [definido pelo utilizador esquema](/sql/t-sql/statements/create-schema-transact-sql) chamado wwi.
 
 ```sql
-CREATE SCHEMA WWI;
+CREATE SCHEMA wwi;
 ```
 
-Para mostrar a organização das tabelas no armazém de dados do SQL Server, utilize o facto de, Dim. do e int como prefixos para os nomes de tabela. A tabela seguinte mostra alguns dos nomes de tabela e esquema de WideWorldImportersDW. Compara os nomes no SQL Server e do armazém de dados do SQL Server. 
+Para mostrar a organização das tabelas no armazém de dados do SQL Server, pode utilizar facto, Dim. do e int como prefixos para os nomes de tabela. A tabela seguinte mostra alguns dos nomes de tabela e esquema de WideWorldImportersDW. Compara os nomes no SQL Server com nomes no armazém de dados do SQL Server. 
 
-| Tabelas de dimensões de WWI  | SQL Server | SQL Data Warehouse |
+| Tabela de WideWorldImportersDW  | Tipo de tabela | SQL Server | SQL Data Warehouse |
 |:-----|:-----|:------|
-| Cidade | Dimension.City | WWI. DimCity |
-| Cliente | Dimension.Customer | WWI. DimCustomer |
-| Data | Dimension.Date | WWI. DimDate |
-
-| Tabelas de factos WWI | SQL Server | SQL Data Warehouse |
-|:---|:---|:---|
-| Ordem | Fact.Order | WWI. FactOrder |
-| Venda  | Fact.Sale  | WWI. FactSale  |
-| Comprar | Facto de | WWI. FactPurchase |
+| Cidade | Dimensão | Dimension.City | wwi.DimCity |
+| Ordem | Facto de | Fact.Order | wwi.FactOrder |
 
 
-## <a name="table-definition"></a>Definição da tabela 
+## <a name="table-persistence"></a>Persistência da tabela 
 
-Os seguintes conceitos explicam aspetos fundamentais de definir as tabelas. 
+Tabelas armazenam dados de forma permanente no armazenamento do Azure, temporariamente no armazenamento do Azure ou num arquivo de dados externo para o armazém de dados.
 
-### <a name="standard-table"></a>Tabela padrão
+### <a name="regular-table"></a>Tabela normal
 
-Uma tabela padrão é armazenada no armazenamento do Azure como parte do armazém de dados. A tabela e os dados são mantidas independentemente se encontra aberta uma sessão.  Este exemplo cria uma tabela com duas colunas. 
+Uma tabela normal armazena os dados no armazenamento do Azure como parte do armazém de dados. A tabela e os dados são mantidas independentemente se encontra aberta uma sessão.  Este exemplo cria uma tabela normal com duas colunas. 
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -76,17 +69,30 @@ Só existe uma tabela temporária para a duração da sessão. Pode utilizar uma
 ### <a name="external-table"></a>Tabela externa
 Pontos de uma tabela externa aos dados localizados no armazenamento de Blobs do Azure ou do Azure Data Lake Store. Quando utilizado em conjunto com a instrução CREATE TABLE AS SELECT, selecionando a partir de uma tabela externa importa dados para o SQL Data Warehouse. As tabelas externas, por isso, são úteis para carregar dados. Para um tutorial de carregamento, consulte [PolyBase de utilização para carregar dados do blob storage do Azure](load-data-from-azure-blob-storage-using-polybase.md).
 
-### <a name="data-types"></a>Tipos de dados
+## <a name="data-types"></a>Tipos de dados
 Armazém de dados SQL suporta utilizadas mais frequentemente tipos de dados. Para obter uma lista dos tipos de dados suportadas, consulte [tipos de dados](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) na instrução CREATE TABLE. Minimizar o tamanho dos tipos de dados ajuda a melhorar o desempenho de consulta. Para obter orientações sobre os tipos de dados, consulte [tipos de dados](sql-data-warehouse-tables-data-types.md).
 
-### <a name="distributed-tables"></a>Tabelas distribuídas
-Uma funcionalidade fundamental do SQL Data Warehouse é a forma que pode armazenar tabelas em 60 localizações distribuídas, denominadas distribuições, no sistema distribuído.  Armazém de dados do SQL Server pode armazenar uma tabela dos seguintes três formas:
+## <a name="distributed-tables"></a>Tabelas distribuídas
+Uma funcionalidade fundamental do SQL Data Warehouse é a forma que pode armazenar tabelas em 60 localizações distribuídas, denominadas distribuições, no sistema distribuído.  A tabela são distribuídas utilizando um método de replicação, hash ou round robin.
 
-- **Round robin** arquivos de tabela linhas aleatoriamente, mas uniformemente entre as distribuições. A tabela de round robin distribui o desempenho de carregamento rápida, mas requer mais movimento de dados que os outros métodos para consultas de colunas de associação. 
-- **Hash** distribuição distribui as linhas com base no valor da coluna de distribuição. A tabela hash distribuída tem mais potencial para alcançar elevado desempenho para associações de consulta em tabelas grandes. Existem vários fatores que afetam a escolha da coluna de distribuição. Para obter mais informações, consulte [distribuídas tabelas](sql-data-warehouse-tables-distribute.md).
-- **Replicado** tabelas disponibilizar uma cópia completa da tabela em cada nó de computação. Consultas executadas rápido em tabelas replicadas, uma vez que as associações em tabelas replicadas não necessitam de movimento de dados. A replicação necessita de armazenamento adicional, embora e não é prática para tabelas grandes. Para obter mais informações, consulte [conceber de orientações para tabelas replicadas](design-guidance-for-replicated-tables.md).
+### <a name="hash-distributed-tables"></a>Tabelas hash distribuída
+A distribuição de hash distribui as linhas com base no valor da coluna de distribuição. A tabela hash distribuída tem mais potencial para alcançar elevado desempenho para associações de consulta em tabelas grandes. Existem vários fatores que afetam a escolha da coluna de distribuição. 
 
-A categoria de tabela, muitas vezes, determina qual a opção para escolher para distribuir a tabela.  
+Para obter mais informações, consulte [conceber de orientações para tabelas distribuídas](sql-data-warehouse-tables-distribute.md).
+
+### <a name="replicated-tables"></a>Tabelas replicadas
+Uma tabela não replicada tem uma cópia completa da tabela disponível em cada nó de computação. Consultas executadas rápido em tabelas replicadas, uma vez que as associações em tabelas replicadas não necessitam de movimento de dados. A replicação necessita de armazenamento adicional, embora e não é prática para tabelas grandes. 
+
+Para obter mais informações, consulte [conceber de orientações para tabelas replicadas](design-guidance-for-replicated-tables.md).
+
+### <a name="round-robin-tables"></a>Round robin tabelas
+Uma tabela de round robin distribui as linhas da tabela uniformemente por todas as distribuições. As linhas são distribuídas aleatoriamente. Carregar dados para uma tabela de round robin é muito rápido.  No entanto, consultas podem exigir mais de movimento de dados que os outros métodos de distribuição. 
+
+Para obter mais informações, consulte [conceber de orientações para tabelas distribuídas](sql-data-warehouse-tables-distribute.md).
+
+
+### <a name="common-distribution-methods-for-tables"></a>Métodos de distribuição comuns para tabelas
+A categoria de tabela, muitas vezes, determina qual a opção para escolher para distribuir a tabela. As tabelas, normalmente, são distribuídas, de acordo com o tipo de tabela. 
 
 | Categoria da tabela | Opção de distribuição recomendada |
 |:---------------|:--------------------|
@@ -94,18 +100,18 @@ A categoria de tabela, muitas vezes, determina qual a opção para escolher para
 | Dimensão      | Utilize replicada para tabelas mais pequenas. Se as tabelas são demasiado grandes para armazenar em cada nó de computação, utilize distribuído de hash. |
 | Testes        | Utilize o round robin para a tabela de testes. A carga com CTAS é rápida. Depois dos dados na tabela de teste, utilize INSERT... SELECIONE para mover os dados para um tabelas de produção. |
 
-### <a name="table-partitions"></a>Partições da tabela
+## <a name="table-partitions"></a>Partições da tabela
 Uma tabela particionada armazena e efetua operações nas linhas de tabela, de acordo com os intervalos de dados. Por exemplo, uma tabela pode ser particionada por dia, mês ou ano. Pode melhorar a eliminação de partição desempenho de consulta, que limita uma análise de consulta para dados dentro de uma partição. Também pode manter os dados através de mudança de partições. Uma vez que os dados no armazém de dados do SQL Server já tenham sido distribuídos, partições demasiados podem abrandar o desempenho das consultas. Para obter mais informações, consulte [orientações de criação de partições](sql-data-warehouse-tables-partition.md).
 
-### <a name="columnstore-indexes"></a>Índices Columnstore
+## <a name="columnstore-indexes"></a>Índices Columnstore
 Por predefinição, o SQL Data Warehouse armazena uma tabela como um índice columnstore em cluster. Esta forma de armazenamento de dados permite compressão de dados de elevado e o desempenho das consultas em tabelas grandes.  O índice columnstore em cluster costuma é a melhor opção, mas em alguns casos, um índice em cluster ou de uma área dinâmica para dados é a estrutura de armazenamento adequado.
 
 Para obter uma lista das funcionalidades de columnstore, consulte [que há de novo para índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Para melhorar o desempenho de índice columnstore, consulte o artigo [maximizando a qualidade de rowgroup para índices columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
-### <a name="statistics"></a>Estatísticas
+## <a name="statistics"></a>Estatísticas
 O otimizador de consultas utiliza estatísticas de nível de coluna quando cria o plano para executar uma consulta. Para melhorar o desempenho das consultas, é importante criar estatísticas em colunas individuais, especialmente as colunas utilizadas nas associações de consulta. Criar e atualizar as estatísticas não ocorrem automaticamente. [Criar estatísticas](/sql/t-sql/statements/create-statistics-transact-sql) depois de criar uma tabela. Atualize as estatísticas após um número significativo de linhas é adicionado ou alterado. Por exemplo, Atualize as estatísticas após uma carga. Para obter mais informações, consulte [orientações de estatísticas](sql-data-warehouse-tables-statistics.md).
 
-## <a name="ways-to-create-tables"></a>Formas de criar as tabelas
+## <a name="commands-for-creating-tables"></a>Comandos para criar tabelas
 Pode criar uma tabela como uma nova tabela vazia. Também pode criar e preencher uma tabela com os resultados de uma instrução select. Seguem-se os comandos de T-SQL para criar uma tabela.
 
 | Declaração de T-SQL | Descrição |
@@ -128,7 +134,7 @@ Armazém de dados SQL suporta muitas, mas não todas, as tabela funcionalidades 
 
 - [Colunas calculadas](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
 - [Vistas indexadas](/sql/relational-databases/views/create-indexed-views)
-- [Sequência](/sql/t-sql/statements/create-sequence-transact-sql)
+- [Sequence](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Colunas dispersas](/sql/relational-databases/tables/use-sparse-columns)
 - [Caráter de substituição de chaves](). Implementar com [identidade](sql-data-warehouse-tables-identity.md).
 - [Sinónimos](/sql/t-sql/statements/create-synonym-transact-sql)

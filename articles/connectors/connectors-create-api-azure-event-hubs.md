@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Monitorizar, receber e enviar eventos com o conector de Event Hubs
 
@@ -30,7 +30,7 @@ Para configurar um monitor de eventos, para que a aplicação lógica pode detet
 
 * Tem de ter um [Hub de eventos e espaço de nomes de Event Hubs](../event-hubs/event-hubs-create.md) no Azure. Saiba [como criar um espaço de nomes de Event Hubs e o Hub de eventos](../event-hubs/event-hubs-create.md). 
 
-* Para utilizar [qualquer conector](https://docs.microsoft.com/azure/connectors/apis-list) na sua aplicação lógica, tem de criar uma aplicação lógica pela primeira vez. Saiba [como criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+* Para utilizar [qualquer conector](https://docs.microsoft.com/azure/connectors/apis-list) na sua aplicação lógica, tem de criar uma aplicação lógica pela primeira vez. Saiba [como criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Verifique as permissões de espaço de nomes de Event Hubs e localize a cadeia de ligação
@@ -64,7 +64,7 @@ Para verificar as suas permissões e obter a cadeia de ligação, siga estes pas
 
 ## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Iniciar o fluxo de trabalho quando o seu Hub de eventos recebe eventos novos.
 
-A [ *acionador* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) é um evento que inicia a um fluxo de trabalho na sua aplicação lógica. Para iniciar um fluxo de trabalho quando novos eventos são enviados para o Hub de eventos, siga estes passos para adicionar o acionador que Deteta este evento.
+A [ *acionador* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um evento que inicia a um fluxo de trabalho na sua aplicação lógica. Para iniciar um fluxo de trabalho quando novos eventos são enviados para o Hub de eventos, siga estes passos para adicionar o acionador que Deteta este evento.
 
 1.  No [portal do Azure](https://portal.azure.com "portal do Azure"), aceda à sua aplicação lógica existente ou criar uma aplicação lógica em branco.
 
@@ -94,7 +94,7 @@ A [ *acionador* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-conc
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>Enviar eventos para o Hub de eventos a partir da sua aplicação lógica
 
-Uma [*ação*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) é uma tarefa realizada pelo fluxo de trabalho da sua aplicação lógica. Depois de adicionar um acionador à aplicação lógica, pode adicionar uma ação para realizar operações com dados gerados por esse acionador. Para enviar um evento para o Hub de eventos da sua aplicação lógica, siga estes passos.
+Uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma tarefa realizada pelo fluxo de trabalho da sua aplicação lógica. Depois de adicionar um acionador à aplicação lógica, pode adicionar uma ação para realizar operações com dados gerados por esse acionador. Para enviar um evento para o Hub de eventos da sua aplicação lógica, siga estes passos.
 
 1.  No Designer de aplicação lógica, sob o acionador de aplicação lógica, escolha **novo passo** > **adicionar uma ação**.
 
@@ -131,6 +131,6 @@ Para fazer perguntas, responder a perguntas e ver o que os outros utilizadores d
 
 Para ajudar a melhorar o Logic Apps e os conectores, vote ou submeta ideais no [site de comentários dos utilizadores do Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 *  [Localizar outros conectores para aplicações lógicas do Azure](./apis-list.md)

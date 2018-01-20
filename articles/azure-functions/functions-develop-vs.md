@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 4681138dfc7ed67c8c9da0c55abfc27351736be4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Ferramentas de funções do Azure para Visual Studio  
 
-Ferramentas de funções do Azure para Visual Studio 2017 é uma extensão para o Visual Studio permite-lhe desenvolver, testar e implementar funções de c# no Azure. Se esta for a primeira experiência com as funções do Azure, pode saber mais em [uma introdução para as funções do Azure](functions-overview.md).
+Ferramentas de funções do Azure para Visual Studio 2017 é uma extensão para o Visual Studio permite-lhe desenvolver, testar e implementar funções de c# no Azure. Se esta experiência é o primeiro as funções do Azure, pode saber mais em [uma introdução para as funções do Azure](functions-overview.md).
 
 As ferramentas de funções do Azure fornece as seguintes vantagens: 
 
@@ -34,7 +34,7 @@ As ferramentas de funções do Azure fornece as seguintes vantagens:
 Este tópico mostra como utilizar as ferramentas de funções do Azure para Visual Studio 2017 para desenvolver as suas funções em c#. Também irá aprender a publicar o projeto no Azure como uma assemblagem .NET.
 
 > [!IMPORTANT]
-> Não misture desenvolvimento local com o desenvolvimento portal na mesma aplicação de função. Quando publicar a partir de um projeto local para uma aplicação de função, o processo de implementação irá substituir quaisquer funções que desenvolvidos no portal.
+> Não misture desenvolvimento local com o desenvolvimento portal na mesma aplicação de função. Quando publicar a partir de um projeto local para uma aplicação de função, o processo de implementação substitui quaisquer funções que desenvolvidos no portal.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -61,9 +61,9 @@ Quando cria um novo projeto utilizando o modelo de funções do Azure, obtenha u
     
 * **local.Settings.JSON**: mantém as definições utilizadas ao executar localmente a funções. Estas definições não são utilizadas pelo Azure, são utilizados pelo [ferramentas de núcleos de funções do Azure](functions-run-local.md). Utilize este ficheiro para especificar definições, tais como cadeias de ligação para outros serviços do Azure. Adicionar uma nova chave para o **valores** matriz para cada ligação de funções no seu projeto. Para obter mais informações, consulte [ficheiro de definições locais](functions-run-local.md#local-settings-file) o tópico de ferramentas de núcleos de funções do Azure.
 
-O tempo de execução de funções utiliza uma conta de armazenamento do Azure internamente. Para acionam todos os tipos diferentes de HTTP e webhooks, tem de definir o **Values.AzureWebJobsStorage** chave para uma cadeia de ligação de conta do Storage do Azure válida.
+O tempo de execução de funções utiliza uma conta de armazenamento do Azure internamente. Para acionam todos os tipos diferentes de HTTP e webhooks, tem de definir o **Values.AzureWebJobsStorage** chave para uma cadeia de ligação de conta do Storage do Azure válida. 
 
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
+[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
 
  Para definir a cadeia de ligação da conta de armazenamento:
 
@@ -83,7 +83,7 @@ Nas funções de pré-compiladas, os enlaces utilizados pela função são defin
 
     ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
     
-    Uma chave de cadeia de ligação denominada **QueueStorage** for fornecido, que está definido no ficheiro local.settings.json. 
+    Este exemplo de Acionador utiliza uma cadeia de ligação com uma chave denominada **QueueStorage**. Esta definição de cadeia de ligação tem de ser definida no ficheiro local.settings.json. 
  
 3. Examine a classe adicionada recentemente. Consulte static **executar** método, o que tem o atributo com o **FunctionName** atributo. Este atributo indica que o método é o ponto de entrada para a função. 
 
@@ -113,7 +113,7 @@ Nas funções de pré-compiladas, os enlaces utilizados pela função são defin
 
 As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar o projeto de funções do Azure no seu computador de programação local. Deverá instalar essas ferramentas da primeira vez que iniciar uma função do Visual Studio.  
 
-Para testar a sua função, prima F5. Se solicitado, aceite o pedido do Visual Studio para transferir e instalar as ferramentas de Núcleo das Funções do Azure (CLI).  Também poderá ativar a exceção da firewall para que todas as ferramentas possam aceitar os pedidos de HTTP.
+Para testar a sua função, prima F5. Se solicitado, aceite o pedido do Visual Studio para transferir e instalar as ferramentas de Núcleo das Funções do Azure (CLI). Também poderá ativar a exceção da firewall para que todas as ferramentas possam aceitar os pedidos de HTTP.
 
 Com o projeto em execução, pode testar o seu código como seria testar a função implementada. Para obter mais informações, consulte [estratégias para testar o seu código das funções do Azure](functions-test-a-function.md). Quando em execução no modo de depuração, pontos de interrupção são atingidos no Visual Studio, conforme esperado. 
 
@@ -125,12 +125,23 @@ Para saber mais sobre como utilizar as ferramentas de núcleos de funções do A
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
->[!NOTE]  
->As definições que adicionou no local.settings.json tem de ser adicionadas também para a aplicação de função no Azure. Estas definições não são automaticamente adicionadas. Pode adicionar as definições necessárias para a sua aplicação de função de uma das seguintes formas:
->
->* [No portal do Azure](functions-how-to-use-azure-function-app-settings.md#settings).
->* [Utilizar o `--publish-local-settings` publicar opção nas ferramentas de núcleos de funções do Azure](functions-run-local.md#publish).
->* [Utilizar a CLI do Azure](/cli/azure/functionapp/config/appsettings#set). 
+## <a name="function-app-settings"></a>Definições da aplicação de funções   
+
+As definições que adicionou no local.settings.json tem de ser adicionadas também para a aplicação de função no Azure. Estas definições não são carregadas automaticamente quando publicar o projeto. 
+
+A forma mais fácil para carregar as definições necessárias para a sua aplicação de função no Azure está a utilizar o **gerir definições da aplicação...**  ligação que é apresentada depois de publicar o projeto com êxito. 
+
+![](./media/functions-develop-vs/functions-vstools-app-settings.png)
+
+Esta ação apresenta os **definições da aplicação** caixa de diálogo para a aplicação de função, onde pode adicionar novas definições de aplicação ou modificar as relações existentes.
+
+![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
+
+Também pode gerir as definições da aplicação de uma das seguintes outras maneiras:
+
+* [No portal do Azure](functions-how-to-use-azure-function-app-settings.md#settings).
+* [Utilizar o `--publish-local-settings` publicar opção nas ferramentas de núcleos de funções do Azure](functions-run-local.md#publish).
+* [Utilizar a CLI do Azure](/cli/azure/functionapp/config/appsettings#set). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

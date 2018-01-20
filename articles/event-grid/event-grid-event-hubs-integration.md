@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7d2b1970cb7b1330b3d9bdff7987a90fa381392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Macrodados fluxo para um armazém de dados
 
@@ -144,7 +144,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 8. Obter o URL para a função. Terá este URL ao criar a subscrição de evento.
 
-   ![Obter o URL de função](media/event-grid-event-hubs-integration/get-function-url.png)
+   ![Obter URL de função](media/event-grid-event-hubs-integration/get-function-url.png)
 
 9. Copie o valor.
 
@@ -170,10 +170,14 @@ Pode utilizar a CLI do Azure ou o portal para subscrever o evento. Este artigo m
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para subscrever o evento, execute o seguinte comando:
+Para subscrever o evento, execute os seguintes comandos (que requer a versão 2.0.24 ou posterior da CLI do Azure):
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create -g rgDataMigrationSample --provider-namespace Microsoft.EventHub --resource-type namespaces --resource-name <your-EventHubs-namespace> --name captureEventSub --endpoint <your-function-endpoint>
+namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
+az eventgrid event-subscription create \
+  --resource-id $namespaceid \
+  --name captureEventSub \
+  --endpoint <your-function-endpoint>
 ```
 
 ## <a name="run-the-app-to-generate-data"></a>Executar a aplicação para gerar dados
@@ -203,7 +207,7 @@ Terminar de configurar o seu hub de eventos, o SQL data warehouse, aplicação d
 
 6. Compilar a solução. Execute a aplicação de WindTurbineGenerator.exe. Após alguns minutos, consulta a tabela no seu armazém de dados para dados migrados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para uma introdução à grelha de eventos, consulte [sobre eventos grelha](overview.md).
 * Para uma introdução ao Event Hubs captura, consulte [ativar Event Hubs capturar utilizando o portal do Azure](../event-hubs/event-hubs-capture-enable-through-portal.md).

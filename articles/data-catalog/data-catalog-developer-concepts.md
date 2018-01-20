@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: spelluru
-ms.openlocfilehash: e3c26c2358c15d18c71b82fe1f389c039ecbd97b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 48d4a33f7667786f2eb8851ed69dedc206e777ae
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceitos do Programador de catálogo de dados do Azure
 Microsoft **catálogo de dados do Azure** é um serviço em nuvem completamente gerido que fornece capacidades de deteção de origem de dados e para fazer crowdsourcing de metadados de origem de dados. Os programadores podem utilizar o serviço através das respetivas APIs REST. Compreender os conceitos implementados no serviço é importante para os programadores integrar com êxito **catálogo de dados do Azure**.
@@ -31,7 +31,7 @@ O **catálogo de dados do Azure** modelo concetual baseia-se em quatro conceitos
 
 *Figura 1 - modelo concetual simplificada de catálogo de dados do Azure*
 
-### <a name="catalog"></a>Catálogo
+### <a name="catalog"></a>catálogo
 A **catálogo** é o contentor de nível superior para todos os metadados armazena uma organização. Há um **catálogo** permitido por conta do Azure. Catálogos estão associados a uma subscrição do Azure, mas apenas um **catálogo** podem ser criados para qualquer conta do Azure especificada, apesar de uma conta pode ter várias subscrições.
 
 Contém um catálogo **utilizadores** e **ativos**.
@@ -84,21 +84,21 @@ O UX, em seguida, pode escolher como apresentar a combinação. Existem três pa
 Conforme apresentado na secção de conceitos chave, o **catálogo de dados do Azure** modelo de objetos incluem itens, o que podem ser ativos ou anotações. Itens têm propriedades, o que podem ser necessária ou opcional. Algumas propriedades aplicam-se a todos os itens. Algumas propriedades se aplicam a todos os recursos. Algumas propriedades aplicam-se apenas aos tipos de recurso específico.
 
 ### <a name="system-properties"></a>Propriedades do sistema
-<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>carimbo de data/hora</td><td>DateTime</td><td>A última vez em que o item foi modificado. Este campo é gerado pelo servidor quando um item é inserido e sempre que um item é atualizado. O valor desta propriedade é ignorado na entrada de publicar operações.</td></tr><tr><td>ID</td><td>URI</td><td>Url absoluto do item (só de leitura). É o URI endereçável exclusivo para o item.  O valor desta propriedade é ignorado na entrada de publicar operações.</td></tr><tr><td>tipo</td><td>Cadeia</td><td>O tipo de elemento (só de leitura).</td></tr><tr><td>ETag</td><td>Cadeia</td><td>Uma cadeia correspondente para a versão do item que pode ser utilizada para controlo de simultaneidade otimista quando executar operações que atualizam itens no catálogo. "*" pode ser utilizado para corresponder qualquer valor.</td></tr></table>
+<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>carimbo de data/hora</td><td>DateTime</td><td>A última vez em que o item foi modificado. Este campo é gerado pelo servidor quando um item é inserido e sempre que um item é atualizado. O valor desta propriedade é ignorado na entrada de publicar operações.</td></tr><tr><td>ID</td><td>Uri</td><td>Url absoluto do item (só de leitura). É o URI endereçável exclusivo para o item.  O valor desta propriedade é ignorado na entrada de publicar operações.</td></tr><tr><td>tipo</td><td>Cadeia</td><td>O tipo de elemento (só de leitura).</td></tr><tr><td>ETag</td><td>Cadeia</td><td>Uma cadeia correspondente para a versão do item que pode ser utilizada para controlo de simultaneidade otimista quando executar operações que atualizam itens no catálogo. "*" pode ser utilizado para corresponder qualquer valor.</td></tr></table>
 
 ### <a name="common-properties"></a>Propriedades comuns
 Estas propriedades se aplicam a todos os tipos de elemento de raiz e todos os tipos de anotação.
 
 <table>
 <tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
-<tr><td>fromSourceSystem</td><td>Valor booleano</td><td>Indica se os dados do item são derivados de um sistema de origem (por exemplo, o servidor de base de dados Sql, base de dados Oracle) ou criados por um utilizador.</td></tr>
+<tr><td>fromSourceSystem</td><td>Booleano</td><td>Indica se os dados do item são derivados de um sistema de origem (por exemplo, o servidor de base de dados Sql, base de dados Oracle) ou criados por um utilizador.</td></tr>
 </table>
 
 ### <a name="common-root-properties"></a>Propriedades comuns de raiz
 <p>
 Estas propriedades aplicam-se a todos os tipos de elemento raiz.
 
-<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>nome</td><td>Cadeia</td><td>Um nome derivado as informações de localização de origem de dados</td></tr><tr><td>DSL</td><td>DataSourceLocation</td><td>Exclusivamente descreve a origem de dados e é um dos identificadores para o elemento. (Consulte a secção identidade dupla).  A estrutura do dsl varia consoante o tipo de origem e de protocolo.</td></tr><tr><td>origem de dados</td><td>DataSourceInfo</td><td>Mais detalhes sobre o tipo de recurso.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descreve o utilizador recentemente registado este recurso.  Contém o id exclusivo para o utilizador (o upn) e um nome a apresentar (lastName e firstName).</td></tr><tr><td>ID do contentor</td><td>Cadeia</td><td>ID do recurso de contentor para a origem de dados. Esta propriedade não é suportada para o tipo de contentor.</td></tr></table>
+<table><tr><td><b>Nome da propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td>nome</td><td>Cadeia</td><td>Um nome derivado as informações de localização de origem de dados</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>Exclusivamente descreve a origem de dados e é um dos identificadores para o elemento. (Consulte a secção identidade dupla).  A estrutura do dsl varia consoante o tipo de origem e de protocolo.</td></tr><tr><td>origem de dados</td><td>DataSourceInfo</td><td>Mais detalhes sobre o tipo de recurso.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Descreve o utilizador recentemente registado este recurso.  Contém o id exclusivo para o utilizador (o upn) e um nome a apresentar (lastName e firstName).</td></tr><tr><td>containerId</td><td>Cadeia</td><td>ID do recurso de contentor para a origem de dados. Esta propriedade não é suportada para o tipo de contentor.</td></tr></table>
 
 ### <a name="common-non-singleton-annotation-properties"></a>Propriedades comuns de anotação não singleton
 Estas propriedades que se aplicam a todos os tipos de anotação não singleton (anotações, o que podem para ser vários por ativo).
@@ -111,8 +111,8 @@ Estas propriedades que se aplicam a todos os tipos de anotação não singleton 
 ### <a name="root-asset-types"></a>Tipos de elemento de raiz
 Tipos de elemento de raiz são os tipos que representam os vários tipos de recursos de dados que podem ser registados no catálogo. Para cada tipo de raiz, há uma vista, que descreve os ativos e anotações incluídas na vista. Nome da vista deve ser utilizado num segmento de url {view_name} correspondente ao publicar um elemento com a REST API.
 
-<table><tr><td><b>Tipo de recurso (nome de vista)</b></td><td><b>Propriedades adicionais</b></td><td><b>Tipo de dados</b></td><td><b>Anotações permitidas</b></td><td><b>Comentários</b></td></tr><tr><td>Tabela ("tabelas")</td><td></td><td></td><td>Descrição<p>friendlyName<p>Etiqueta<p>Esquema<p>ColumnDescription<p>ColumnTag<p> disponibilizamos<p>Pré-visualização<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentação<p></td><td>Uma tabela representa dados de tabela.  Por exemplo: SQL tabela, vista SQL, tabela em tabela do Analysis Services, Analysis Services Multidimensional de dimensão, Oracle tabela, etc.   </td></tr><tr><td>Medidas ("medidas")</td><td></td><td></td><td>Descrição<p>friendlyName<p>Etiqueta<p>disponibilizamos<p>AccessInstruction<p>Documentação<p></td><td>Este tipo representa uma medida de Analysis Services.</td></tr><tr><td></td><td>medidas</td><td>Coluna</td><td></td><td>Metadados que descrevem a medida</td></tr><tr><td></td><td>isCalculated </td><td>Valor booleano</td><td></td><td>Especifica se a medida é calculada ou não.</td></tr><tr><td></td><td>Grupo de medidas</td><td>Cadeia</td><td></td><td>Contentor de físico para a medida</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Descrição<p>friendlyName<p>Etiqueta<p>disponibilizamos<p>AccessInstruction<p>Documentação</td><td></td></tr><tr><td></td><td>Grupo de medidas</td><td>Cadeia</td><td></td><td>Contentor de físico para a medida</td></tr><tr><td></td><td>goalExpression</td><td>Cadeia</td><td></td><td>Uma expressão numérica MDX ou um cálculo que devolve o valor de destino do KPI.</td></tr><tr><td></td><td>valueExpression</td><td>Cadeia</td><td></td><td>Uma expressão MDX numérica que devolve o valor real do KPI.</td></tr><tr><td></td><td>statusExpression</td><td>Cadeia</td><td></td><td>Uma expressão MDX que representa o estado do KPI num especificado ponto no tempo.</td></tr><tr><td></td><td>trendExpression</td><td>Cadeia</td><td></td><td>Uma expressão MDX que avalia o valor do KPI ao longo do tempo. A tendência pode ser qualquer critério baseados no tempo que é útil num contexto empresariais específicos.</td>
-<tr><td>Relatórios "(relatórios)</td><td></td><td></td><td>Descrição<p>friendlyName<p>Etiqueta<p>disponibilizamos<p>AccessInstruction<p>Documentação<p></td><td>Este tipo representa um relatório do SQL Server Reporting Services </td></tr><tr><td></td><td>assetCreatedDate</td><td>Cadeia</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>Cadeia</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>Cadeia</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>Cadeia</td><td></td><td></td></tr><tr><td>Contentor ("contentores")</td><td></td><td></td><td>Descrição<p>friendlyName<p>Etiqueta<p>disponibilizamos<p>AccessInstruction<p>Documentação<p></td><td>Este tipo representa um contentor de outros recursos, tais como uma base de dados do SQL Server, um contentor de Blobs do Azure ou um modelo de Analysis Services.</td></tr></table>
+<table><tr><td><b>Tipo de recurso (nome de vista)</b></td><td><b>Propriedades adicionais</b></td><td><b>Tipo de dados</b></td><td><b>Anotações permitidas</b></td><td><b>Comentários</b></td></tr><tr><td>Tabela ("tabelas")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Esquema<p>ColumnDescription<p>ColumnTag<p> Especialista<p>Pré-visualização<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Documentação<p></td><td>Uma tabela representa dados de tabela.  Por exemplo: SQL tabela, vista SQL, tabela em tabela do Analysis Services, Analysis Services Multidimensional de dimensão, Oracle tabela, etc.   </td></tr><tr><td>Medidas ("medidas")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Este tipo representa uma medida de Analysis Services.</td></tr><tr><td></td><td>medida</td><td>Coluna</td><td></td><td>Metadados que descrevem a medida</td></tr><tr><td></td><td>isCalculated </td><td>Booleano</td><td></td><td>Especifica se a medida é calculada ou não.</td></tr><tr><td></td><td>measureGroup</td><td>Cadeia</td><td></td><td>Contentor de físico para a medida</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Especialista<p>AccessInstruction<p>Documentação</td><td></td></tr><tr><td></td><td>measureGroup</td><td>Cadeia</td><td></td><td>Contentor de físico para a medida</td></tr><tr><td></td><td>goalExpression</td><td>Cadeia</td><td></td><td>Uma expressão numérica MDX ou um cálculo que devolve o valor de destino do KPI.</td></tr><tr><td></td><td>valueExpression</td><td>Cadeia</td><td></td><td>Uma expressão MDX numérica que devolve o valor real do KPI.</td></tr><tr><td></td><td>statusExpression</td><td>Cadeia</td><td></td><td>Uma expressão MDX que representa o estado do KPI num especificado ponto no tempo.</td></tr><tr><td></td><td>trendExpression</td><td>Cadeia</td><td></td><td>Uma expressão MDX que avalia o valor do KPI ao longo do tempo. A tendência pode ser qualquer critério baseados no tempo que é útil num contexto empresariais específicos.</td>
+<tr><td>Relatórios "(relatórios)</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Este tipo representa um relatório do SQL Server Reporting Services </td></tr><tr><td></td><td>assetCreatedDate</td><td>Cadeia</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>Cadeia</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>Cadeia</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>Cadeia</td><td></td><td></td></tr><tr><td>Contentor ("contentores")</td><td></td><td></td><td>Descrição<p>FriendlyName<p>Etiqueta<p>Especialista<p>AccessInstruction<p>Documentação<p></td><td>Este tipo representa um contentor de outros recursos, tais como uma base de dados do SQL Server, um contentor de Blobs do Azure ou um modelo de Analysis Services.</td></tr></table>
 
 ### <a name="annotation-types"></a>Tipos de anotação
 Tipos de anotação representam os tipos de metadados que podem ser atribuídos para outros tipos no catálogo.
@@ -121,16 +121,16 @@ Tipos de anotação representam os tipos de metadados que podem ser atribuídos 
 <tr><td><b>Tipo de anotação (nome de vista aninhadas)</b></td><td><b>Propriedades adicionais</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
 
 <tr><td>Descrição ("descrições")</td><td></td><td></td><td>Esta propriedade contém uma descrição para um recurso. Cada utilizador do sistema pode adicionar as seus próprios descrição.  Apenas esse utilizador pode editar o objeto de descrição.  (Os proprietários de recursos e administradores podem eliminar o objeto de descrição, mas não editá-lo). O sistema mantém as descrições dos utilizadores em separado.  Deste modo, é uma matriz de descrições de cada recurso (um para cada utilizador que tem contribuíram os seus conhecimentos sobre o elemento, para além de possivelmente um que contém informações derivadas da origem de dados).</td></tr>
-<tr><td></td><td>descrição</td><td>Cadeia</td><td>Uma descrição breve (linhas 2-3) do elemento</td></tr>
+<tr><td></td><td>descrição</td><td>cadeia</td><td>Uma descrição breve (linhas 2-3) do elemento</td></tr>
 
 <tr><td>Etiqueta ("etiquetas")</td><td></td><td></td><td>Esta propriedade define uma etiqueta para um recurso. Cada utilizador do sistema pode adicionar várias etiquetas para um recurso.  Apenas o utilizador que criou objetos de etiqueta pode editá-los.  (Os proprietários de recursos e administradores podem eliminar o objeto de etiqueta, mas não editá-lo). O sistema mantém etiquetas dos utilizadores em separado.  Deste modo, é uma matriz de objetos de Tag em cada recurso.</td></tr>
-<tr><td></td><td>Etiqueta</td><td>Cadeia</td><td>Uma etiqueta que descrevem o elemento.</td></tr>
+<tr><td></td><td>etiqueta</td><td>cadeia</td><td>Uma etiqueta que descrevem o elemento.</td></tr>
 
 <tr><td>FriendlyName ("friendlyName")</td><td></td><td></td><td>Esta propriedade contém um nome amigável para um recurso. FriendlyName é uma anotação singleton - FriendlyName apenas uma pode ser adicionado a um recurso.  Apenas o utilizador que criou FriendlyName objeto pode editá-lo. (Os proprietários de recursos e administradores podem eliminar o objeto de FriendlyName, mas não editá-lo). O sistema mantém nomes amigáveis dos utilizadores em separado.</td></tr>
-<tr><td></td><td>friendlyName</td><td>Cadeia</td><td>Um nome amigável do elemento.</td></tr>
+<tr><td></td><td>friendlyName</td><td>cadeia</td><td>Um nome amigável do elemento.</td></tr>
 
-<tr><td>Esquema ("schema")</td><td></td><td></td><td>O esquema descreve a estrutura dos dados.  Esta lista os nomes de atributo (coluna, atributo, campo, etc.), tipos, bem como outros metadados.  Esta informação é derivada da origem de dados.  Esquema é uma anotação singleton - apenas um esquema que pode ser adicionada para um recurso.</td></tr>
-<tr><td></td><td>colunas</td><td>Coluna []</td><td>Uma matriz de objetos de coluna. Descrevem a coluna com informações derivadas da origem de dados.</td></tr>
+<tr><td>Schema ("schema")</td><td></td><td></td><td>O esquema descreve a estrutura dos dados.  Esta lista os nomes de atributo (coluna, atributo, campo, etc.), tipos, bem como outros metadados.  Esta informação é derivada da origem de dados.  Esquema é uma anotação singleton - apenas um esquema que pode ser adicionada para um recurso.</td></tr>
+<tr><td></td><td>colunas</td><td>Column[]</td><td>Uma matriz de objetos de coluna. Descrevem a coluna com informações derivadas da origem de dados.</td></tr>
 
 <tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>Esta propriedade contém uma descrição para uma coluna.  Cada utilizador do sistema pode adicionar as seus próprios descrições para várias colunas (um por coluna). Apenas o utilizador que criou objetos ColumnDescription pode editá-los.  (Os proprietários de recursos e administradores podem eliminar o objeto de ColumnDescription, mas não editá-lo). O sistema mantém descrições das colunas destas utilizador separadamente.  Deste modo, é uma matriz de objetos de ColumnDescription em cada recurso (uma por coluna para cada utilizador que tem contribuíram os seus conhecimentos sobre a coluna para além de possivelmente um que contém informações derivadas da origem de dados).  O ColumnDescription aproximadamente ligado está vinculado ao esquema para poder obter fora de sincronização. O ColumnDescription poderá descrever uma coluna que já não existe no esquema.  Trata-se até o escritor de manter sincronizadas a descrição e o esquema.  A origem de dados pode também ter informações de descrição de colunas e são objetos ColumnDescription adicionais que seriam possível criar quando executar a ferramenta.</td></tr>
 <tr><td></td><td>columnName</td><td>Cadeia</td><td>O nome da coluna que esta descrição refere-se a.</td></tr>
@@ -138,34 +138,34 @@ Tipos de anotação representam os tipos de metadados que podem ser atribuídos 
 
 <tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>Esta propriedade contém uma tag para uma coluna. Cada utilizador do sistema pode adicionar várias etiquetas para uma determinada coluna e pode adicionar etiquetas de várias colunas. Apenas o utilizador que criou objetos ColumnTag pode editá-los. (Os proprietários de recursos e administradores podem eliminar o objeto de ColumnTag, mas não editá-lo). O sistema mantém as etiquetas de coluna dos utilizadores, estes separadamente.  Deste modo, é uma matriz de objetos de ColumnTag em cada recurso.  O ColumnTag aproximadamente ligado está vinculado ao esquema para poder obter fora de sincronização. O ColumnTag poderá descrever uma coluna que já não existe no esquema.  Trata-se até o escritor para manter a tag de coluna e esquema sincronizadas.</td></tr>
 <tr><td></td><td>columnName</td><td>Cadeia</td><td>O nome da coluna que esta etiqueta refere-se a.</td></tr>
-<tr><td></td><td>Etiqueta</td><td>Cadeia</td><td>Uma etiqueta que descrevem a coluna.</td></tr>
+<tr><td></td><td>etiqueta</td><td>Cadeia</td><td>Uma etiqueta que descrevem a coluna.</td></tr>
 
 <tr><td>Especialista ("especialistas")</td><td></td><td></td><td>Esta propriedade contém um utilizador que é considerado um especialista no conjunto de dados. Bolha desenhada opinions(descriptions) dos especialistas na parte superior do UX quando listar as descrições. Cada utilizador pode especificar as seus próprios especialistas. Apenas esse utilizador pode editar o objeto de especialistas. (Os proprietários de recursos e administradores podem eliminar os objetos especialistas, mas não editá-lo).</td></tr>
-<tr><td></td><td>disponibilizamos</td><td>SecurityPrincipal</td><td></td></tr>
+<tr><td></td><td>especialista</td><td>SecurityPrincipal</td><td></td></tr>
 
 <tr><td>Pré-visualização ("pré-visualizações")</td><td></td><td></td><td>A pré-visualização contém um instantâneo das principais 20 linhas de dados para o elemento. Pré-visualização só fazem sentido para alguns tipos de recursos (faz sentido para a tabela, mas não para a medida).</td></tr>
-<tr><td></td><td>pré-visualização</td><td>[] do objeto</td><td>Matriz de objetos que representam uma coluna.  Cada objeto tem um mapeamento de propriedade para uma coluna com um valor para essa coluna para a linha.</td></tr>
+<tr><td></td><td>pré-visualização</td><td>object[]</td><td>Matriz de objetos que representam uma coluna.  Cada objeto tem um mapeamento de propriedade para uma coluna com um valor para essa coluna para a linha.</td></tr>
 
 <tr><td>AccessInstruction ("accessInstructions")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>mimeType</td><td>Cadeia</td><td>O tipo de mime do conteúdo.</td></tr>
-<tr><td></td><td>Conteúdo</td><td>Cadeia</td><td>As instruções sobre como obter acesso a este recurso de dados. O conteúdo pode ser um URL, um endereço de e-mail ou um conjunto de instruções.</td></tr>
+<tr><td></td><td>mimeType</td><td>cadeia</td><td>O tipo de mime do conteúdo.</td></tr>
+<tr><td></td><td>content</td><td>cadeia</td><td>As instruções sobre como obter acesso a este recurso de dados. O conteúdo pode ser um URL, um endereço de e-mail ou um conjunto de instruções.</td></tr>
 
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>Int</td><td>O número de linhas no conjunto de dados</td></tr>
-<tr><td></td><td>Tamanho</td><td>longa</td><td>O tamanho em bytes do conjunto de dados.  </td></tr>
-<tr><td></td><td>schemaModifiedTime</td><td>Cadeia</td><td>A hora da última modificação do esquema</td></tr>
-<tr><td></td><td>dataModifiedTime</td><td>Cadeia</td><td>A última vez que o conjunto de dados foi modificado (dados foi adicionados, modificados, ou eliminar)</td></tr>
+<tr><td></td><td>tamanho</td><td>longa</td><td>O tamanho em bytes do conjunto de dados.  </td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>cadeia</td><td>A hora da última modificação do esquema</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>cadeia</td><td>A última vez que o conjunto de dados foi modificado (dados foi adicionados, modificados, ou eliminar)</td></tr>
 
 <tr><td>ColumnsDataProfile ("columnsDataProfiles")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>colunas</td></td><td>ColumnDataProfile []</td><td>Uma matriz de perfis de dados da coluna.</td></tr>
+<tr><td></td><td>colunas</td></td><td>ColumnDataProfile[]</td><td>Uma matriz de perfis de dados da coluna.</td></tr>
 
 <tr><td>ColumnDataClassification ("columnDataClassifications")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnName</td><td>Cadeia</td><td>O nome da coluna que referencia esta classificação.</td></tr>
 <tr><td></td><td>Classificação</td><td>Cadeia</td><td>A classificação de dados nesta coluna.</td></tr>
 
 <tr><td>Documentação ("documentação")</td><td></td><td></td><td>Um determinado elemento pode ter apenas uma documentação associada à mesma.</td></tr>
-<tr><td></td><td>mimeType</td><td>Cadeia</td><td>O tipo de mime do conteúdo.</td></tr>
-<tr><td></td><td>Conteúdo</td><td>Cadeia</td><td>O conteúdo de documentação.</td></tr>
+<tr><td></td><td>mimeType</td><td>cadeia</td><td>O tipo de mime do conteúdo.</td></tr>
+<tr><td></td><td>content</td><td>cadeia</td><td>O conteúdo de documentação.</td></tr>
 
 </table>
 
@@ -175,36 +175,36 @@ Tipos comuns podem ser utilizados como tipos de propriedades, mas não são iten
 <table>
 <tr><td><b>Tipo comum</b></td><td><b>Propriedades</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>SourceType</td><td>Cadeia</td><td>Descreve o tipo da origem de dados.  Por exemplo: SQL Server, a base de dados Oracle, etc.  </td></tr>
-<tr><td></td><td>objectType</td><td>Cadeia</td><td>Descreve o tipo de objeto da origem de dados. Por exemplo: tabela, ver para o SQL Server.</td></tr>
+<tr><td></td><td>sourceType</td><td>cadeia</td><td>Descreve o tipo da origem de dados.  Por exemplo: SQL Server, a base de dados Oracle, etc.  </td></tr>
+<tr><td></td><td>objectType</td><td>cadeia</td><td>Descreve o tipo de objeto da origem de dados. Por exemplo: tabela, ver para o SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Protocolo</td><td>Cadeia</td><td>Necessário. Descreve um protocolo utilizado para comunicar com a origem de dados. Por exemplo: "tds" para o SQl Server, "oracle" para Oracle, etc. Consulte [especificação de referência - DSL estrutura de origem de dados](data-catalog-dsr.md) para obter a lista de protocolos atualmente suportados.</td></tr>
+<tr><td></td><td>protocolo</td><td>cadeia</td><td>Necessário. Descreve um protocolo utilizado para comunicar com a origem de dados. Por exemplo: "tds" para o SQl Server, "oracle" para Oracle, etc. Consulte [especificação de referência - DSL estrutura de origem de dados](data-catalog-dsr.md) para obter a lista de protocolos atualmente suportados.</td></tr>
 <tr><td></td><td>Endereço</td><td>Dicionário<string, object></td><td>Necessário. O endereço é um conjunto de dados específicos do protocolo que é utilizado para identificar a origem de dados referenciada. Os dados de endereço no âmbito de um protocolo específico, que significa é sem significado sem saberem o protocolo.</td></tr>
-<tr><td></td><td>Autenticação</td><td>Cadeia</td><td>Opcional. O esquema de autenticação utilizado para comunicar com a origem de dados. Por exemplo: windows, oauth, etc.</td></tr>
+<tr><td></td><td>autenticação</td><td>cadeia</td><td>Opcional. O esquema de autenticação utilizado para comunicar com a origem de dados. Por exemplo: windows, oauth, etc.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Dicionário<string, object></td><td>Opcional. Obter informações adicionais sobre como ligar a uma origem de dados.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>O back-end não efetua qualquer validação das propriedades fornecidas contra AAD durante a publicação.</td></tr>
-<tr><td></td><td>UPN</td><td>Cadeia</td><td>Endereço de e-mail exclusivo do utilizador. Tem de ser especificado se não for fornecido objectId ou no contexto da propriedade "lastRegisteredBy", caso contrário, opcional.</td></tr>
+<tr><td></td><td>UPN</td><td>cadeia</td><td>Endereço de e-mail exclusivo do utilizador. Tem de ser especificado se não for fornecido objectId ou no contexto da propriedade "lastRegisteredBy", caso contrário, opcional.</td></tr>
 <tr><td></td><td>objectId</td><td>GUID</td><td>Identidade AAD de grupo ou utilizador administrativo. Opcional. Tem de ser especificado se upn não for fornecido, caso contrário, opcional.</td></tr>
-<tr><td></td><td>Nome próprio</td><td>Cadeia</td><td>Nome próprio do utilizador (para efeitos de apresentação). Opcional. Só é válida no contexto da propriedade "lastRegisteredBy". Não é possível especificar ao fornecer o principal de segurança para "funções", "permissões" e "especialistas".</td></tr>
-<tr><td></td><td>Apelido</td><td>Cadeia</td><td>Apelido do utilizador (para efeitos de apresentação). Opcional. Só é válida no contexto da propriedade "lastRegisteredBy". Não é possível especificar ao fornecer o principal de segurança para "funções", "permissões" e "especialistas".</td></tr>
+<tr><td></td><td>firstName</td><td>cadeia</td><td>Nome próprio do utilizador (para efeitos de apresentação). Opcional. Só é válida no contexto da propriedade "lastRegisteredBy". Não é possível especificar ao fornecer o principal de segurança para "funções", "permissões" e "especialistas".</td></tr>
+<tr><td></td><td>lastName</td><td>cadeia</td><td>Apelido do utilizador (para efeitos de apresentação). Opcional. Só é válida no contexto da propriedade "lastRegisteredBy". Não é possível especificar ao fornecer o principal de segurança para "funções", "permissões" e "especialistas".</td></tr>
 
 <tr><td>Coluna</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>nome</td><td>Cadeia</td><td>Nome da coluna ou atributo.</td></tr>
-<tr><td></td><td>tipo</td><td>Cadeia</td><td>tipo de dados da coluna ou atributo. Os tipos permitidos dependem sourceType de dados do elemento.  Apenas um subconjunto dos tipos é suportado.</td></tr>
+<tr><td></td><td>nome</td><td>cadeia</td><td>Nome da coluna ou atributo.</td></tr>
+<tr><td></td><td>tipo</td><td>cadeia</td><td>tipo de dados da coluna ou atributo. Os tipos permitidos dependem sourceType de dados do elemento.  Apenas um subconjunto dos tipos é suportado.</td></tr>
 <tr><td></td><td>maxLength</td><td>Int</td><td>O comprimento máximo permitido para a coluna ou um atributo. Derivado da origem de dados. Só é aplicável a alguns tipos de origem.</td></tr>
-<tr><td></td><td>precisão</td><td>Bytes</td><td>A precisão da coluna ou um atributo. Derivado da origem de dados. Só é aplicável a alguns tipos de origem.</td></tr>
-<tr><td></td><td>isNullable</td><td>Valor booleano</td><td>Indica se a coluna tem permissão para ter um valor nulo ou não. Derivado da origem de dados. Só é aplicável a alguns tipos de origem.</td></tr>
-<tr><td></td><td>expressão</td><td>Cadeia</td><td>Se o valor é uma coluna calculada, este campo contém a expressão que expresse precisa o valor. Derivado da origem de dados. Só é aplicável a alguns tipos de origem.</td></tr>
+<tr><td></td><td>precisão</td><td>byte</td><td>A precisão da coluna ou um atributo. Derivado da origem de dados. Só é aplicável a alguns tipos de origem.</td></tr>
+<tr><td></td><td>isNullable</td><td>Booleano</td><td>Indica se a coluna tem permissão para ter um valor nulo ou não. Derivado da origem de dados. Só é aplicável a alguns tipos de origem.</td></tr>
+<tr><td></td><td>expressão</td><td>cadeia</td><td>Se o valor é uma coluna calculada, este campo contém a expressão que expresse precisa o valor. Derivado da origem de dados. Só é aplicável a alguns tipos de origem.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>columnName </td><td>Cadeia</td><td>O nome da coluna</td></tr>
-<tr><td></td><td>tipo </td><td>Cadeia</td><td>O tipo da coluna</td></tr>
-<tr><td></td><td>min. </td><td>Cadeia</td><td>O valor mínimo do conjunto de dados</td></tr>
-<tr><td></td><td>Máx. </td><td>Cadeia</td><td>O valor máximo no conjunto de dados</td></tr>
+<tr><td></td><td>columnName </td><td>cadeia</td><td>O nome da coluna</td></tr>
+<tr><td></td><td>tipo </td><td>cadeia</td><td>O tipo da coluna</td></tr>
+<tr><td></td><td>min. </td><td>cadeia</td><td>O valor mínimo do conjunto de dados</td></tr>
+<tr><td></td><td>máx. </td><td>cadeia</td><td>O valor máximo no conjunto de dados</td></tr>
 <tr><td></td><td>média </td><td>duplo</td><td>O valor médio no conjunto de dados</td></tr>
-<tr><td></td><td>StDev </td><td>duplo</td><td>O desvio padrão para o conjunto de dados</td></tr>
+<tr><td></td><td>stdev </td><td>duplo</td><td>O desvio padrão para o conjunto de dados</td></tr>
 <tr><td></td><td>nullCount </td><td>Int</td><td>A contagem de valores nulos existentes no conjunto de dados</td></tr>
 <tr><td></td><td>distinctCount  </td><td>Int</td><td>A contagem de valores distintos no conjunto de dados</td></tr>
 
@@ -222,20 +222,20 @@ O conjunto de protocolos suportados pode ser expandido através de programação
 <tr><td><b>Tipo</b></td><td><b>Propriedades</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
 
 <tr><td>DataSourceProtocol</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Espaço de nomes</td><td>Cadeia</td><td>O espaço de nomes do protocolo. Espaço de nomes tem de ser entre 1 e 255 carateres de comprimento, conter uma ou mais partes vazios separadas por ponto (.). Cada parte tem de ter entre 1 e 255 carateres, começar com uma letra e conter apenas letras e números.</td></tr>
-<tr><td></td><td>nome</td><td>Cadeia</td><td>O nome do protocolo. Nome tem de ter entre 1 e 255 carateres, começar com uma letra e conter apenas letras, números e o caráter de travessão (-).</td></tr>
-<tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty []</td><td>Lista de propriedades de identidade, tem de conter pelo menos, mas não existem propriedades mais de 20. Por exemplo: "server", "base de dados", "schema", "objeto" é propriedades de identidade do protocolo "tds".</td></tr>
-<tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet []</td><td>Lista de conjuntos de identidade. Define os conjuntos de propriedades de identidade, o que representam a identidade de recurso válido. Tem de conter pelo menos, mas não existem conjuntos mais de 20. Por exemplo: {"server", "base de dados", "schema" e "objeto"} é uma identidade definida para o protocolo "tds", que define a identidade do elemento de tabela do Sql Server.</td></tr>
+<tr><td></td><td>namespace</td><td>cadeia</td><td>O espaço de nomes do protocolo. Espaço de nomes tem de ser entre 1 e 255 carateres de comprimento, conter uma ou mais partes vazios separadas por ponto (.). Cada parte tem de ter entre 1 e 255 carateres, começar com uma letra e conter apenas letras e números.</td></tr>
+<tr><td></td><td>nome</td><td>cadeia</td><td>O nome do protocolo. Nome tem de ter entre 1 e 255 carateres, começar com uma letra e conter apenas letras, números e o caráter de travessão (-).</td></tr>
+<tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty[]</td><td>Lista de propriedades de identidade, tem de conter pelo menos, mas não existem propriedades mais de 20. Por exemplo: "server", "base de dados", "schema", "objeto" é propriedades de identidade do protocolo "tds".</td></tr>
+<tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>Lista de conjuntos de identidade. Define os conjuntos de propriedades de identidade, o que representam a identidade de recurso válido. Tem de conter pelo menos, mas não existem conjuntos mais de 20. Por exemplo: {"server", "base de dados", "schema" e "objeto"} é uma identidade definida para o protocolo "tds", que define a identidade do elemento de tabela do Sql Server.</td></tr>
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>nome</td><td>Cadeia</td><td>O nome da propriedade. Nome deve ser de 1 a 100 carateres, começar com uma letra e só pode conter letras e números.</td></tr>
-<tr><td></td><td>tipo</td><td>Cadeia</td><td>O tipo da propriedade. Valores suportados: "bool" booleano ","byte","guid","int","inteiros","período de tempo","cadeia","url"</td></tr>
+<tr><td></td><td>nome</td><td>cadeia</td><td>O nome da propriedade. Nome deve ser de 1 a 100 carateres, começar com uma letra e só pode conter letras e números.</td></tr>
+<tr><td></td><td>tipo</td><td>cadeia</td><td>O tipo da propriedade. Valores suportados: "bool" booleano ","byte","guid","int","inteiros","período de tempo","cadeia","url"</td></tr>
 <tr><td></td><td>ignoreCase</td><td>bool</td><td>Indica se devem ser ignorada maiúsculas e minúsculas, ao utilizar o valor da propriedade. Só pode ser especificado para propriedades com o tipo "cadeia". Valor predefinido é falso.</td></tr>
-<tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool []</td><td>Indica se as maiúsculas e minúsculas devem ser ignorada para cada segmento do caminho do url. Só pode ser especificado para propriedades com o tipo de "url". Valor predefinido é [false].</td></tr>
+<tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>Indica se as maiúsculas e minúsculas devem ser ignorada para cada segmento do caminho do url. Só pode ser especificado para propriedades com o tipo de "url". Valor predefinido é [false].</td></tr>
 
 <tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>nome</td><td>Cadeia</td><td>O nome de identidade do conjunto.</td></tr>
-<tr><td></td><td>propriedades</td><td>String]</td><td>A lista de propriedades de identidade incluído nesta identidade de conjunto. Não pode conter duplicados. Cada propriedade referenciada pelo conjunto de identidade tem de ser definida na lista de "identityProperties" do protocolo.</td></tr>
+<tr><td></td><td>nome</td><td>cadeia</td><td>O nome de identidade do conjunto.</td></tr>
+<tr><td></td><td>propriedades</td><td>string[]</td><td>A lista de propriedades de identidade incluído nesta identidade de conjunto. Não pode conter duplicados. Cada propriedade referenciada pelo conjunto de identidade tem de ser definida na lista de "identityProperties" do protocolo.</td></tr>
 
 </table>
 

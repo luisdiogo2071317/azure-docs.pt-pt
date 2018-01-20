@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: e3787b48037360bf6066ddce2bacba6842213b2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41bd0291f3ff8f5dd61a21d1ba4ecb3b60a3cbfb
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificar mensagens EDIFACT para Azure Logic Apps com o pacote de integração do Enterprise
 
@@ -35,7 +35,7 @@ Segue-se os itens que precisa de:
 
 ## <a name="decode-edifact-messages"></a>Descodificar mensagens EDIFACT
 
-1. [Criar uma aplicação lógica](logic-apps-create-a-logic-app.md).
+1. [Criar uma aplicação lógica](quickstart-create-first-logic-app-workflow.md).
 
 2. O conector de mensagem de descodificar EDIFACT não tem acionadores, pelo que tem de adicionar um acionador para iniciar a sua aplicação lógica, como um acionador pedido. No Designer de aplicação lógica, adicione um acionador e, em seguida, adicionar uma ação à sua aplicação lógica.
 
@@ -99,6 +99,6 @@ O conector de descodificar EDIFACT executa estas tarefas:
 ## <a name="view-swagger-file"></a>Ver o ficheiro Swagger
 Para ver os detalhes do Swagger para o conector EDIFACT, consulte [EDIFACT](/connectors/edifact/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o pacote de integração do Enterprise") 
 

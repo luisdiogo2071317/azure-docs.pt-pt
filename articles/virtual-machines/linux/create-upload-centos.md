@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 16256203cc11ebaf7df402a3502328a63d4c2718
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e003d31b42c7a9518668fb8ddfb6accb9c158c90
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/19/2018
@@ -331,5 +331,5 @@ Preparar uma máquina virtual do CentOS 7 para o Azure é muito semelhante à Ce
 14. Clique em **ação -> encerrar baixo** no Gestor de Hyper-V. O VHD de Linux está agora pronto para ser carregado para o Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora, está pronto a utilizar o seu disco rígido virtual do CentOS Linux para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que está a carregar o ficheiro. vhd para o Azure, consulte [criar e carregar um disco rígido virtual que contém o sistema operativo Linux](upload-vhd.md#option-1-upload-a-vhd).
+Agora, está pronto a utilizar o seu disco rígido virtual do CentOS Linux para criar novas máquinas virtuais no Azure. Se esta for a primeira vez que está a carregar o ficheiro. vhd para o Azure, consulte [criar e carregar um disco rígido virtual que contém o sistema operativo Linux](upload-vhd.md).
 

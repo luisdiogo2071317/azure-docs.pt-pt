@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ad8281744293a05b50f8664a7e5a3fea7aa7b33
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorizar o estado, configurar o registo de diagnóstico e ativar alertas para o Azure Logic Apps
 
-Depois de [criar e executar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md), pode verificar o respetivo histórico de execuções, o histórico de Acionador, o estado e o desempenho. Para monitorização de eventos em tempo real e mais rico de depuração, configurar [registo de diagnóstico](#azure-diagnostics) para a sua aplicação lógica. Dessa forma, pode [localizar e visualizar eventos](#find-events), como o acionador eventos, execução de eventos e os eventos de ação. Também pode utilizar este [dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o Storage do Azure e Event Hubs do Azure. 
+Depois de [criar e executar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md), pode verificar o respetivo histórico de execuções, o histórico de Acionador, o estado e o desempenho. Para monitorização de eventos em tempo real e mais rico de depuração, configurar [registo de diagnóstico](#azure-diagnostics) para a sua aplicação lógica. Dessa forma, pode [localizar e visualizar eventos](#find-events), como o acionador eventos, execução de eventos e os eventos de ação. Também pode utilizar este [dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o Storage do Azure e Event Hubs do Azure. 
 
 Para obter notificações sobre falhas ou outros informações sobre problemas possíveis, configurar [alertas](#add-azure-alerts). Por exemplo, pode criar um alerta que Deteta "quando é executada mais de cinco falha numa hora." Também pode configurar monitorização, registo e registo através de programação utilizando [propriedades e definições de eventos de diagnóstico do Azure](#diagnostic-event-properties).
 
@@ -279,7 +279,7 @@ Por exemplo, o `ActionCompleted` evento tem o `clientTrackingId` e `trackedPrope
   }
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar modelos de implementação da aplicação lógica e gestão de versões](../logic-apps/logic-apps-create-deploy-template.md)
 * [Cenários B2B com Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)

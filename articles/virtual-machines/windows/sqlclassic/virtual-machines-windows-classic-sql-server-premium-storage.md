@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: ad4b5aeed645512774f1a3ecf94de37beff26b22
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f637e3c744d61f6fda755c162609d7cc9f4619c7
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais
 ## <a name="overview"></a>Descrição geral
@@ -119,7 +119,7 @@ Para cada disco, utilize os seguintes passos:
 
 1. Obter a lista de discos anexados a VM com o **Get-AzureVM** comando:
 
-    Get-AzureVM - ServiceName <servicename> -nome <vmname> | Get-AzureDataDisk
+    Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 2. Tenha em atenção o Diskname e LUN.
 
     ![DisknameAndLUN][2]
@@ -132,7 +132,7 @@ Para cada disco, utilize os seguintes passos:
     ![VirtualDiskPropertyDetails][4]
 6. Para cada agrupamento de armazenamento, informação do Estado da saída os discos associados:
 
-    Get-StoragePool - FriendlyName AMS1pooldata | Get-PhysicalDisk
+    Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
     ![GetStoragePool][5]
 
@@ -270,7 +270,7 @@ Este cenário demonstra onde tenha imagens personalizadas existentes que residem
 
 
 #### <a name="step-3-use-existing-image"></a>Passo 3: Utilizar a imagem existente
-Pode utilizar uma imagem existente. Em alternativa, pode [tirar uma imagem de uma máquina existente](../classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenha em atenção a máquina a imagem tem de ser DS * máquina. Assim que tiver a imagem, os passos seguintes mostram como copiá-lo para a conta de armazenamento Premium com a **início AzureStorageBlobCopy** commandlet do PowerShell.
+Pode utilizar uma imagem existente. Em alternativa, pode [tirar uma imagem de uma máquina existente](../classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenha em atenção a máquina a imagem tem de ser DS * máquina. Assim que tiver a imagem, os passos seguintes mostram como copiá-lo para a conta de armazenamento Premium com a **início AzureStorageBlobCopy** commandlet do PowerShell.
 
     #Get storage account keys:
     #Standard Storage account
@@ -549,7 +549,7 @@ Este cenário pressupõe que tem documentados a instalação e saber como o arma
 O resto deste tópico fornece um exemplo de detalhado de conversão de um cluster multilocal Always On para o Premium storage. Também converte-o serviço de escuta de utilizar um balanceador de carga externo (ELB) para um balanceador de carga interno (ILB).
 
 ### <a name="environment"></a>Ambiente
-* Windows 2 mil 12 / SQL 2 mil 12
+* Windows 2k12 / SQL 2k12
 * Ficheiros de base de dados 1 em SP
 * 2x agrupamentos de armazenamento por nó
 

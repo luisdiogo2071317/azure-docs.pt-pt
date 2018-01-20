@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 24f3d506354c9c81d17f96a51599db2e1bccf178
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b3f093f84758fe8622f09212b6a11a2c5f3795aa
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiar os dados de ou para o File Storage do Azure utilizando o Azure Data Factory
 
@@ -34,7 +34,7 @@ Especificamente, este conector de File Storage do Azure suporta a cópia de fich
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas ao File Storage do Azure.
 

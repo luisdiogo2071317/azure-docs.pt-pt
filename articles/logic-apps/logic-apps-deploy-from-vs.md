@@ -15,17 +15,17 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614e07ad9fcbe9ad3684ed977f7ffa36e727dddc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Conceber, criar e implementar o Azure Logic Apps no Visual Studio
 
 Embora o [portal do Azure](https://portal.azure.com/) oferece uma excelente forma de criar e gerir o Azure Logic Apps, pode utilizar o Visual Studio para conceber, criar e implementar as logic apps. O Visual Studio fornece ferramentas avançadas, como o Designer de aplicação lógica para criar as logic apps, a configurar modelos de implementação e a automatização e a implementar em qualquer ambiente. 
 
-Para começar com Azure Logic Apps, saiba [como criar a sua primeira aplicação de lógica no portal do Azure](logic-apps-create-a-logic-app.md).
+Para começar com Azure Logic Apps, saiba [como criar a sua primeira aplicação de lógica no portal do Azure](quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="installation-steps"></a>Passos de instalação
 
@@ -109,7 +109,7 @@ Quando pretender que a sua aplicação lógica para referenciar recursos depende
 Pode utilizar os parâmetros de aplicação de lógica nestes tipos de acionadores e ações:
 
 *   Fluxo de trabalho subordinado
-*   Aplicação de função
+*   Function App
 *   Chamada APIM
 *   URL de tempo de execução de ligação de API
 *   Caminho de ligação de API
@@ -230,7 +230,7 @@ Se tiver um projeto do grupo de recursos existente, pode adicionar a sua aplica�
 
     ![Adicionar recurso](./media/logic-apps-deploy-from-vs/addresource.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * [Gerir as logic apps com o Visual Studio Cloud Explorer](logic-apps-manage-from-vs.md)
 * [Ver exemplos e cenários comuns](logic-apps-examples-and-scenarios.md)

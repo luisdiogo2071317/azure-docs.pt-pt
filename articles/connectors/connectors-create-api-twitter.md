@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065de976118e7be67ef8a515e39c04cfd74b5b43
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Começar a utilizar o conector do Twitter
 Com o conector do Twitter, pode:
@@ -28,7 +28,7 @@ Com o conector do Twitter, pode:
 * Linhas cronológicas de acesso, amigos e followers
 * Efetue qualquer uma das outras ações e acionadores descritos abaixo  
 
-Para utilizar [qualquer conector](apis-list.md), terá primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/logic-apps-create-a-logic-app.md).  
+Para utilizar [qualquer conector](apis-list.md), terá primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
 
 ## <a name="connect-to-twitter"></a>Ligar ao Twitter
 Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de criar um *ligação* ao serviço. A [ligação](connectors-overview.md) fornece conectividade entre uma aplicação lógica e outro serviço.  
@@ -39,7 +39,7 @@ Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de 
 > 
 
 ## <a name="use-a-twitter-trigger"></a>Utilizar um acionador do Twitter
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Neste exemplo, posso irá mostrar-lhe como utilizar o **quando é registado um tweet novo** acionador para procurar #Seattle e, se for encontrado #Seattle, atualizar um ficheiro no Dropbox com o texto do tweet. Um exemplo de enterprise, foi possível procurar o nome da sua empresa e atualizar uma base de dados do SQL Server com o texto do tweet.
 
@@ -80,7 +80,7 @@ Uma vez que vamos só esteja interessados em tweets dos utilizadores com mais de
    ![Imagem de condição do twitter 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## <a name="use-a-twitter-action"></a>Utilizar uma ação do Twitter
-Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Agora que adicionou um acionador, siga estes passos para adicionar uma ação que irá publicar um tweet novo com os conteúdos de tweets encontrados pelo acionador. Para efeitos desta passagem apenas tweets dos utilizadores com mais de 50 followers vai ser publicadas.  
 
@@ -103,6 +103,6 @@ No próximo passo, irá adicionar uma ação de Twitter que irá publicar um twe
 
 Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/twitterconnector/). 
 
-## <a name="next-steps"></a>Passos seguintes
-[Criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md)
+## <a name="next-steps"></a>Passos Seguintes
+[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

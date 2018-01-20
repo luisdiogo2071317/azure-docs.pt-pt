@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 5335dae62e61659b68e8befb4ed0d404dffb800c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Começar a utilizar o conector do Outlook do Office 365
 O conector do Outlook do Office 365 permite a interação com o Outlook no Office 365. Utilize este conector para criar, editar, contactos e itens de calendário, atualização e também obter, enviar e responder ao e-mail.
@@ -37,7 +37,7 @@ Este tópico mostra-lhe como utilizar o conector do Outlook do Office 365 numa a
 > 
 > 
 
-Para saber mais sobre Logic Apps, consulte o artigo [que são logic apps](../logic-apps/logic-apps-what-are-logic-apps.md) e [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para saber mais sobre Logic Apps, consulte o artigo [que são logic apps](../logic-apps/logic-apps-overview.md) e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-office-365"></a>Ligar ao Office 365
 Antes da aplicação lógica pode aceder a qualquer serviço, tem primeiro de criar um *ligação* ao serviço. Uma ligação oferece a conectividade entre uma aplicação lógica e outro serviço. Por exemplo, para ligar ao Outlook do Office 365, terá primeiro um Office 365 *ligação*. Para criar uma ligação, introduza as credenciais que normalmente utiliza para aceder ao serviço que pretende ligar. Por isso, com o Outlook do Office 365, introduza as credenciais para a sua conta Office 365 para criar a ligação.
@@ -48,7 +48,7 @@ Antes da aplicação lógica pode aceder a qualquer serviço, tem primeiro de cr
 > 
 
 ## <a name="use-a-trigger"></a>Utilizar um acionador
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. Acionadores "consultam" o serviço de um intervalo e a frequência com que pretende. [Saiba mais sobre acionadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. Acionadores "consultam" o serviço de um intervalo e a frequência com que pretende. [Saiba mais sobre acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Na aplicação lógica, escreva "do office 365" para obter uma lista dos acionadores:  
    
@@ -69,7 +69,7 @@ Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalh
 4. **Guardar** as suas alterações (canto superior esquerdo da barra de ferramentas). A aplicação lógica é guardada e pode ser ativada automaticamente.
 
 ## <a name="use-an-action"></a>Utilizar uma ação
-Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 1. Selecione o sinal de adição. Pode ver várias opções: **adicionar uma ação**, **adicionar uma condição**, ou um do **mais** opções.
    
@@ -94,6 +94,6 @@ Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa 
 
 Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/office365connector/). 
 
-## <a name="next-steps"></a>Passos Seguintes
-[Criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explorar os outros conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Próximos Passos
+[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorar os outros conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
 

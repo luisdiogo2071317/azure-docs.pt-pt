@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 9d310df29156f16f6b5290ff0575ff43d083a26c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Configurar o mapa de serviço no Operations Management Suite
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode utilizá-lo para ver os servidores que acha que deles – como interligados sistemas que fornecem serviços críticos. Mapa de serviço mostra as ligações entre servidores, processos e portas em qualquer arquitetura TCP ligados sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -28,8 +28,8 @@ Este artigo descreve os detalhes de configuração de agentes de mapa de serviç
 ## <a name="dependency-agent-downloads"></a>Transferências de agente de dependência
 | Ficheiro | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
 
 
 ## <a name="connected-sources"></a>Origens ligadas
@@ -84,7 +84,7 @@ Utilize as opções da tabela seguinte para instalar a partir de uma linha de co
 
     InstallDependencyAgent-Windows.exe /?
 
-| Sinalizador | Descrição |
+| Flag | Descrição |
 |:--|:--|
 | /? | Obter uma lista das opções da linha de comandos. |
 | /S | Efetue uma instalação automática com sem avisos do utilizador. |
@@ -106,7 +106,7 @@ Para ver uma lista dos sinalizadores de instalação, execute a instalação do 
 
     InstallDependencyAgent-Linux64.bin -help
 
-| Sinalizador | Descrição |
+| Flag | Descrição |
 |:--|:--|
 | -ajudar | Obter uma lista das opções da linha de comandos. |
 | -s | Efetue uma instalação automática com sem avisos do utilizador. |
@@ -116,11 +116,11 @@ Os ficheiros para o agente de dependência são colocados nas seguintes diretór
 
 | Ficheiros | Localização |
 |:--|:--|
-| Ficheiros de núcleo | /OPT/Microsoft/Dependency-Agent |
-| Ficheiros de registo | /var/OPT/Microsoft/Dependency-Agent/log |
-| Ficheiros de configuração | /etc/OPT/Microsoft/Dependency-Agent/Config |
-| Ficheiros executáveis do serviço | /OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent<br>/OPT/Microsoft/Dependency-Agent/bin/Microsoft-Dependency-Agent-Manager |
-| Ficheiros de armazenamento binário | /var/OPT/Microsoft/Dependency-Agent/Storage |
+| Ficheiros de núcleo | /opt/microsoft/dependency-agent |
+| Ficheiros de registo | /var/opt/microsoft/dependency-agent/log |
+| Ficheiros de configuração | /etc/opt/microsoft/dependency-agent/config |
+| Ficheiros executáveis do serviço | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
+| Ficheiros de armazenamento binário | /var/opt/microsoft/dependency-agent/storage |
 
 ## <a name="installation-script-examples"></a>Exemplos de script de instalação
 Para facilmente implementar o agente de dependência em vários servidores ao mesmo tempo, ajuda a para utilizar um script. Pode utilizar os seguintes exemplos de script para transferir e instalar o agente de dependência no Windows ou Linux.
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Extensão da VM do Azure
-Pode facilmente implementar o agente de dependência para as VMs do Azure utilizando um [extensão da VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Com a extensão de VM do Azure, pode implementar o agente de dependência para as suas VMs através de um script do PowerShell ou diretamente no modelo do Azure Resource Manager a VM.  Uma extensão está disponível para Windows (DependencyAgentWindows) e do Linux (DependencyAgentLinux).  Se implementar através da extensão da VM do Azure, os agentes podem ser atualizados automaticamente para as versões mais recentes.
+Pode facilmente implementar o agente de dependência para as VMs do Azure utilizando um [extensão da VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions-classic).  Com a extensão de VM do Azure, pode implementar o agente de dependência para as suas VMs através de um script do PowerShell ou diretamente no modelo do Azure Resource Manager a VM.  Uma extensão está disponível para Windows (DependencyAgentWindows) e do Linux (DependencyAgentLinux).  Se implementar através da extensão da VM do Azure, os agentes podem ser atualizados automaticamente para as versões mais recentes.
 
 Para implementar a extensão da VM do Azure através do PowerShell, pode utilizar o exemplo seguinte:
 ```PowerShell

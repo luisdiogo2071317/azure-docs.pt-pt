@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 0bab180fe726eeece9d03883889253825b5e9560
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 96ac8ce81087717f05ae6480a8f875079139b7b6
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importar uma aplicação lógica como uma API
 
@@ -33,7 +33,7 @@ Neste artigo, saiba como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Concluir o guia de introdução seguinte: [criar uma instância de API Management do Azure](get-started-create-service-instance.md)
-+ Certifique-se de que existe uma aplicação lógica na sua subscrição. Para obter mais informações, [criar a sua primeira aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md)
++ Certifique-se de que existe uma aplicação lógica na sua subscrição. Para obter mais informações, [criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -65,7 +65,7 @@ Operações podem ser chamadas diretamente a partir do portal do Azure, que forn
 3. Selecione algumas operações.
 
     A página apresenta os campos para os cabeçalhos e os campos para os parâmetros de consulta. Um dos cabeçalhos de é "Ocp-Apim-Subscription-Key", para a chave de subscrição do produto que está associado esta API. Se tiver criado a instância APIM, um administrador já estiver, pelo que a chave é automaticamente preenchida. 
-1. Prima **enviar**.
+1. Prima **Enviar**.
 
     Back-end responde com **200 OK** e alguns dados.
 
@@ -80,7 +80,7 @@ Também podem ser chamadas operações **portal do programador** para testar as 
 3. Selecione o **API** que criou.
 4. Clique a que pretende testar.
 5. Prima **experimente**.
-6. Prima **enviar**.
+6. Prima **Enviar**.
     
     Depois de uma operação ser invocada, o portal do programador apresenta o **Estado da resposta**, os **Cabeçalhos da resposta** e qualquer **Conteúdo da resposta**.
 
@@ -91,7 +91,7 @@ Também podem ser chamadas operações **portal do programador** para testar as 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Transformar e proteger uma API publicada](transform-api.md)

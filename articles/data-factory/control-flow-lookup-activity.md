@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/19/2017
 ms.author: spelluru
-ms.openlocfilehash: 3c4f401682e5d1789c6e15597ced145a230bbcd6
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 699f5eba75bc105a708f82be353a7849646309ac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 Pode utilizar a atividade de pesquisa para ler ou procure um registo, o nome da tabela ou o valor de uma origem externa. Este resultado pode ser ainda referenciado por atividades subsequentes. 
@@ -36,6 +36,8 @@ As seguintes origens de dados são atualmente suportadas para a pesquisa:
 - O Azure SQL Data Warehouse (convertidos a partir da consulta de dados JSON)
 - SQL Server (convertidos a partir da consulta de dados JSON)
 - Table storage do Azure (convertidos a partir da consulta de dados JSON)
+
+O número máximo de linhas devolvidas pela atividade de pesquisa é **5000**e até **10Mb** de tamanho.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -267,7 +269,7 @@ Esta instância de base de dados do Azure SQL contém os dados para ser copiado 
 }
 ```
 
-### <a name="sourcetablejson"></a>SourceTable.JSON
+### <a name="sourcetablejson"></a>sourcetable.json
 
 #### <a name="set-of-objects"></a>Conjunto de objetos
 

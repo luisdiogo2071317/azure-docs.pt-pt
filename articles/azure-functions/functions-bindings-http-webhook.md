@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces de funções de HTTP e webhook do Azure
 
@@ -386,12 +386,12 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |propriedade de Function.JSON | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **tipo** | n/d| Necessário - tem de ser definido como `httpTrigger`. |
-| **direção** | n/d| Necessário - tem de ser definido como `in`. |
-| **nome** | n/d| Necessário - o nome da variável utilizado no código de função para o corpo do pedido ou o pedido. |
+| **type** | n/d| Necessário - tem de ser definido como `httpTrigger`. |
+| **direction** | n/d| Necessário - tem de ser definido como `in`. |
+| **name** | n/d| Necessário - o nome da variável utilizado no código de função para o corpo do pedido ou o pedido. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina o chaves, se existirem, precisam de estar presente no pedido para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Não é necessária nenhuma chave de API.</li><li><code>function</code>&mdash;É necessária uma chave de API de específicas. Este é o valor predefinido se não for fornecido nenhum.</li><li><code>admin</code>&mdash;Não é necessária a chave mestra.</li></ul> Para obter mais informações, consulte a secção [chaves de autorização](#authorization-keys). |
 | **métodos** |**Métodos** | Uma matriz dos métodos HTTP para os quais a função responde. Se não for especificado, a função de responde a todos os métodos HTTP. Consulte [personalizar o ponto final de http](#trigger---customize-the-http-endpoint). |
-| **rota** | **Rota** | Define o modelo de rota, controlar ao qual pedido URLs responde a sua função. O valor predefinido se não for fornecido nenhum é `<functionname>`. Para obter mais informações, consulte [personalizar o ponto final de http](#customize-the-http-endpoint). |
+| **route** | **Rota** | Define o modelo de rota, controlar ao qual pedido URLs responde a sua função. O valor predefinido se não for fornecido nenhum é `<functionname>`. Para obter mais informações, consulte [personalizar o ponto final de http](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |Configura o acionador HTTP para atuar como um [webhook](https://en.wikipedia.org/wiki/Webhook) recetor para o fornecedor especificado. Não defina a `methods` propriedade se definir esta propriedade. O tipo de webhook pode ser um dos seguintes valores:<ul><li><code>genericJson</code>&mdash;Um ponto final de webhook para fins gerais sem lógica para um fornecedor específico. Esta definição limita os pedidos para apenas os utilizando o HTTP POST e com o `application/json` tipo de conteúdo.</li><li><code>github</code>&mdash;A função responde a [GitHub webhooks](https://developer.github.com/webhooks/). Não utilize o _authLevel_ propriedade com o GitHub webhooks. Para obter mais informações, consulte a secção de webhooks GitHub neste artigo.</li><li><code>slack</code>&mdash;A função responde a [Slack webhooks](https://api.slack.com/outgoing-webhooks). Não utilize o _authLevel_ propriedade com Slack webhooks. Para obter mais informações, consulte a secção de Slack webhooks neste artigo.</li></ul>|
 
 ## <a name="trigger---usage"></a>Acionador - utilização
@@ -528,6 +528,10 @@ Autorização de Webhook é processada pelo componente de recetor de webhook, pa
 - **Cadeia de consulta**: O fornecedor transmite o nome da chave no `clientid` consultar o parâmetro de cadeia, tal como `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
 - **Cabeçalho de pedido**: O fornecedor transmite o nome da chave no `x-functions-clientid` cabeçalho.
 
+## <a name="trigger---limits"></a>Acionador - limites
+
+O comprimento do pedido HTTP está limitado a 100 (102,400) KBytes e o comprimento do URL é limitado a 4 k (4,096) bytes. Estes limites especificados pelo `httpRuntime` elemento do tempo de execução [ficheiro Web. config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+
 ## <a name="trigger---hostjson-properties"></a>Acionador - host.json propriedades
 
 O [host.json](functions-host-json.md) ficheiro contém definições que controlam o comportamento de Acionador HTTP.
@@ -556,9 +560,9 @@ A tabela seguinte explica as propriedades de configuração de enlace que defini
 
 |Propriedade  |Descrição  |
 |---------|---------|
-| **tipo** |tem de ser definido como `http`. |
-| **direção** | tem de ser definido como `out`. |
-|**nome** | O nome da variável utilizado no código de função para a resposta. |
+| **type** |tem de ser definido como `http`. |
+| **direction** | tem de ser definido como `out`. |
+|**name** | O nome da variável utilizado no código de função para a resposta. |
 
 ## <a name="output---usage"></a>Saída - utilização
 

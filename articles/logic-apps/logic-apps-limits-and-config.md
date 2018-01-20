@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Configuração e os limites de aplicações lógicas
 
@@ -30,7 +30,7 @@ Este tópico descreve os limites atuais e detalhes de configuração para o Azur
 
 Estes limites aplicam-se um único pedido HTTP ou uma chamada de conector.
 
-#### <a name="timeout"></a>Tempo limite
+#### <a name="timeout"></a>Tempo Limite (excedido)
 
 | Nome | Limite | Notas | 
 | ---- | ----- | ----- | 
@@ -123,8 +123,8 @@ Aplicam estes limites conectores personalizado que pode criar a partir de web AP
 
 | Nome | Limite | 
 | ---- | ----- | 
-| Vários conectores personalizados que pode criar | 1000 por subscrição do Azure | 
-| Número de pedidos por minuto para cada ligação criada por um conetor personalizado | 500 pedidos para cada ligação criada pelo conector do |
+| Número de conectores que pode criar | 1000 por subscrição do Azure | 
+| Número de pedidos por minuto para cada ligação criada por um conector personalizado | 500 pedidos para cada ligação criada pelo conector |
 ||| 
 
 ### <a name="integration-account-limits"></a>Limites de conta de integração
@@ -188,7 +188,7 @@ As chamadas de uma aplicação lógica diretamente que faz com que, ou seja, atr
 |EUA Central|13.67.236.125, 104.208.25.27, 40.122.170.198|
 |Ásia Oriental|13.75.94.173, 40.83.127.19, 52.175.33.254|
 |EUA Leste|13.92.98.111, 40.121.91.41, 40.114.82.191|
-|E.U.A. Leste 2|40.84.30.147, 104.208.155.200, 104.208.158.174|
+|EUA Leste 2|40.84.30.147, 104.208.155.200, 104.208.158.174|
 |Leste do Japão|13.71.158.3, 13.73.4.207, 13.71.158.120|
 |Oeste do Japão|40.74.140.4, 104.214.137.243, 138.91.26.45|
 |EUA Centro-Norte|168.62.248.37, 157.55.210.61, 157.55.212.238|
@@ -200,7 +200,7 @@ As chamadas de uma aplicação lógica diretamente que faz com que, ou seja, atr
 |Europa Ocidental|40.68.222.65, 40.68.209.23, 13.95.147.65|
 |Índia Ocidental|104.211.164.80, 104.211.162.205, 104.211.164.136|
 |EUA Oeste|52.160.92.112, 40.118.244.241, 40.118.241.243|
-|Oeste dos E.U.A 2|13.66.210.167, 52.183.30.169, 52.183.29.132|
+|EUA Oeste 2|13.66.210.167, 52.183.30.169, 52.183.29.132|
 |Reino Unido Sul|51.140.74.14, 51.140.73.85, 51.140.78.44|
 |Reino Unido Oeste|51.141.54.185, 51.141.45.238, 51.141.47.136|
 | | |
@@ -220,7 +220,7 @@ As chamadas que [conectores](../connectors/apis-list.md) tornar provenientes de 
 |EUA Central|40.122.49.51|
 |Ásia Oriental|23.99.116.181|
 |EUA Leste|191.237.41.52|
-|E.U.A. Leste 2|104.208.233.100|
+|EUA Leste 2|104.208.233.100|
 |Leste do Japão|40.115.186.96|
 |Oeste do Japão|40.74.130.77|
 |EUA Centro-Norte|65.52.218.230|
@@ -235,9 +235,9 @@ As chamadas que [conectores](../connectors/apis-list.md) tornar provenientes de 
 |Reino Unido Oeste|51.141.47.105|
 | | | 
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Passos Seguintes  
 
-* [Criar a sua primeira aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [Exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Vídeo: Automatizar os processos de negócios com Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
 * [Vídeo: Integrar os seus sistemas com Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)

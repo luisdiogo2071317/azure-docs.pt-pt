@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 01/19/2018
 ms.author: garye
-ms.openlocfilehash: d93c7c0bdad930bba679d705b012f1567da1da8a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilizar os conjuntos de dados de exemplo no Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -102,15 +102,6 @@ Dados donor incluem os meses desde o último donation) e frequência ou o númer
 <b>Relacionados Research:</b> Yeh I.C., (2008). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, AC: University da Califórnia, profissional de informações e ciência de computador
 <p></p>
 Yeh, posso-Cheng Yang, King-Jang e Ting, Tao-Ming "deteção de dados de conhecimento no modelo de MFR utilizando sequência Bernoulli," especialista sistemas com aplicações, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
-  </td>
-</tr>
-
-<tr>
-  <td>Revisões de livro da Amazon</td>
-  <td>
-Revisões Books no Amazon, obtidas a partir do Web site amazon.com pelos investigadores University de Pennsylvania (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">sentimento</a>). Consulte o documento de investigação, "Biographies, Bollywood, caixas de Boom e Blenders: Adaptation de domínio para classificação de dados de sentimento" João Blitzer, marca Dredze e Fernando Pereira; Associação de Linguistics computacional (ACL) de 2007.
-<p></p>
-O conjunto de dados original foi 975K revisões com as classificações 1, 2, 3, 4 ou 5. As revisões foram escritos em inglês e são do período de tempo 1997 2007. Este conjunto de dados foi amostragem inferior a 10 mil revisões.
   </td>
 </tr>
 
@@ -212,7 +203,7 @@ Contém dados de Meteorologia, tais como índices de temperatura e humidade e a 
 <p></p>
 <b>Relacionados Research:</b> Cortez, P. & Morais, A. (2008). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, AC: University da Califórnia, profissional de informações e ciência de computador
 <p></p>
-[Cortez e Morais, 2007] Cortez P. e recomeço Morais. Uma abordagem de extração de dados para prever floresta é desencadeado Meteorological dados a utilizar. No J. Neves, M. f. Santos e Eds. J. Machado, tendências de novo no Artificial Intelligence, Proceedings do 2007 de EPIA 13 - conferência Portuguese no Artificial Intelligence, Dezembro, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN 13 978-989-95618-0-9. Disponível em: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez e Morais, 2007] Cortez P. e recomeço Morais. Uma abordagem de extração de dados para prever floresta é desencadeado Meteorological dados a utilizar. No J. Neves, M. f. Santos e Eds. J. Machado, tendências de novo no Artificial Intelligence, Proceedings do 2007 de EPIA 13 - conferência Portuguese no Artificial Intelligence, Dezembro, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponível em: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -401,7 +392,7 @@ O conjunto de dados foi transferido e armazenado no Blob storage do Azure (<a hr
 </tr>
 
 <tr>
-  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1 v2.topics.qrels.csv</a></td>
+  <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
 Atribuições de tópico de novos artigos no conjunto de dados de notícias Reuters RCV1 V2. Um artigo de notícias de última hora pode ser atribuído a vários tópicos. O formato de cada linha é "&lt;o nome do tópico&gt; &lt;id do documento&gt; 1". O conjunto de dados contém atribuições de tópico 2.6M. O conjunto de dados foi disponibilizado pela David. D. Lewis.
   </td>
@@ -410,7 +401,7 @@ Atribuições de tópico de novos artigos no conjunto de dados de notícias Reut
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Estes dados provém do desafio de avaliação de desempenho KDD Cup 2010 estudante (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">avaliação de desempenho do estudante</a>). Os dados utilizados são o conjunto de preparação de Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, recomeço, Ritter, s., Gordon, G.J. & Koedinger, K.R. (2010). Algebra posso 2008-2009. Conjunto de dados do desafio de KDD Cup 2010 Educational Data Mining desafio. Encontrá-lo em <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> ou <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
+Estes dados provém do desafio de avaliação de desempenho KDD Cup 2010 estudante (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">avaliação de desempenho do estudante</a>). Os dados utilizados são o conjunto de preparação de Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, recomeço, Ritter, s., Gordon, G.J. & Koedinger, K.R. (2010). Algebra I 2008-2009. Conjunto de dados do desafio de KDD Cup 2010 Educational Data Mining desafio. Encontrá-lo em <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> ou <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
 <p></p>
 O conjunto de dados foi transferido e armazenado no Blob storage do Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) e contém ficheiros de registo de um estudante tutoring sistema. As funcionalidades fornecidas incluem o ID do problema e respetiva descrição breve, ID de estudante, timestamp e quantas tentativas estudante efetuada antes de resolver o problema da forma correta. O conjunto de dados original foi 8.9M registos; Este conjunto de dados foi amostragem pendentes para as primeiras linhas de 100K. O conjunto de dados tem 23 colunas separador por vírgulas de vários tipos: numéricos, categórico e timestamp.
   </td>

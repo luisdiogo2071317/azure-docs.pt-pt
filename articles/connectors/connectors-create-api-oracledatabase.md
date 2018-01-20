@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Começar a utilizar o conector de base de dados Oracle
 
@@ -133,5 +133,5 @@ O [fórum de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/ho
 Pode ajudar a melhorar as Logic Apps e conectores ao voto e submeter as suas ideias em [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
 
 
-## <a name="next-steps"></a>Passos seguintes
-[Criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md)e explorar os conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Passos Seguintes
+[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)e explorar os conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).

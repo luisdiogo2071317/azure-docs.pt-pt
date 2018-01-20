@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/20/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 31253d8daee1581167a96a20ba8ad529a04b3e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1abc15daaa96e834aedd121a88b543067e53641b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sftp-connector"></a>Começar a utilizar o conector SFTP
 Utilize o conector SFTP para aceder a uma conta SFTP para enviar e receber ficheiros. Pode realizar várias operações, tais como criar, atualizar, obterem ou eliminar ficheiros.  
 
-Para utilizar [qualquer conector](apis-list.md), terá primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/logic-apps-create-a-logic-app.md).
+Para utilizar [qualquer conector](apis-list.md), terá primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-sftp"></a>Ligar ao SFTP
 Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de criar um *ligação* ao serviço. A [ligação](connectors-overview.md) fornece conectividade entre uma aplicação lógica e outro serviço.  
@@ -35,7 +35,7 @@ Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de 
 > 
 
 ## <a name="use-an-sftp-trigger"></a>Utilizar um acionador SFTP
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Neste exemplo, o **SFTP - quando um ficheiro é adicionado ou modificado** acionador é utilizado para iniciar um fluxo de trabalho de aplicação lógica, quando um ficheiro é adicionado à ou modificado num servidor SFTP. Também pode adiciona uma condição que verifica o conteúdo do ficheiro novo ou modificado e efetua uma decisão para extrair o ficheiro se os respetivos conteúdos indicarem que deve ser extraído antes de utilizar o conteúdo. Por fim, adicionar uma ação para extrair os conteúdos de um ficheiro e coloque o conteúdo extraído numa pasta no servidor de SFTP. 
 
@@ -51,7 +51,7 @@ Um exemplo de empresa, pode utilizar este acionador para monitorizar uma pasta S
 > 
 
 ## <a name="use-an-sftp-action"></a>Utilizar uma ação de SFTP
-Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
 > 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
-ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3e07b8d7194d83e3ba3986177170edff21e1d7a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar um dashboard de conhecimentos de cliente em tempo real com Azure Logic Apps e as funções do Azure
 
@@ -37,7 +37,7 @@ A solução completa pode ser [compilar no Visual Studio](logic-apps-deploy-from
 
 ## <a name="build-the-logic-app-to-trigger-on-customer-data"></a>Criar a aplicação lógica para acionar nos dados de cliente
 
-Depois de [criar uma aplicação lógica](logic-apps-create-a-logic-app.md) no Visual Studio ou no portal do Azure:
+Depois de [criar uma aplicação lógica](quickstart-create-first-logic-app-workflow.md) no Visual Studio ou no portal do Azure:
 
 1. Adicionar um acionador para **novos Tweets** do Twitter
 2. Configure o acionador para escutar tweets num hashtag ou palavra-chave.
@@ -99,7 +99,7 @@ Depois de uma solução foi desenvolveu, podem ser capturada e implementada atra
 
 As funções do Azure também podem ser incorporadas no modelo de implementação - para a solução completa com todas as dependências pode ser gerida como um único modelo.  Um exemplo de um modelo de implementação de função pode ser encontrado no [repositório de modelo de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Veja outros exemplos e cenários para Azure Logic Apps](logic-apps-examples-and-scenarios.md)
 * [Veja um vídeo com instruções sobre como criar esta solução ponto-a-ponto](http://aka.ms/logicappsdemo)

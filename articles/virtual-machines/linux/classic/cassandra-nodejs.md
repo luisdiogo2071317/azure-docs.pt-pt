@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 9782df5a5c94169b42d476b0c478fedd3465e3d0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Executar um cluster de Cassandra em Linux no Azure com o Node.js
 
@@ -146,7 +146,7 @@ Introduza as seguintes informações no ecrã "configuração de Máquina Virtua
 <tr><td>TAMANHO                     </td><td> A1                              </td><td>Selecione a VM com base nas necessidades de e/s; para este fim, deixe a predefinição </td><tr>
 <tr><td> NOVO NOME DE UTILIZADOR             </td><td> localadmin                       </td><td> "admin" é um nome de utilizador reservado no Ubuntu 12. xx e depois</td><tr>
 <tr><td> AUTENTICAÇÃO         </td><td> Clique em caixa de verificação                 </td><td>Verifique se pretende proteger com uma chave SSH </td><tr>
-<tr><td> CERTIFICADO             </td><td> nome de ficheiro do certificado de chave pública </td><td> Utilize a chave pública gerada anteriormente</td><tr>
+<tr><td> CERTIFICATE             </td><td> nome de ficheiro do certificado de chave pública </td><td> Utilize a chave pública gerada anteriormente</td><tr>
 <tr><td> Nova Palavra-passe    </td><td> palavra-passe segura </td><td> </td><tr>
 <tr><td> Confirmar Palavra-passe    </td><td> palavra-passe segura </td><td></td><tr>
 </table>
@@ -156,10 +156,10 @@ Introduza as seguintes informações no ecrã "configuração de Máquina Virtua
 <table>
 <tr><th>NOME DO CAMPO             </th><th> VALOR DO CAMPO                       </th><th> OBSERVAÇÕES                                 </th></tr>
 <tr><td> SERVIÇO EM NUVEM    </td><td> Criar um novo serviço de nuvem    </td><td>Serviço em nuvem é um recursos de computação do contentor como máquinas virtuais</td></tr>
-<tr><td> NOME DE DNS DO SERVIÇO DE NUVEM    </td><td>ubuntu template.cloudapp.net    </td><td>Dê um nome de Balanceador de carga com máquina</td></tr>
+<tr><td> NOME DE DNS DO SERVIÇO DE NUVEM    </td><td>ubuntu-template.cloudapp.net    </td><td>Dê um nome de Balanceador de carga com máquina</td></tr>
 <tr><td> REGIÃO/GRUPO DE AFINIDADE/REDE VIRTUAL </td><td>    EUA Oeste    </td><td> Selecione uma região a partir da qual as suas aplicações web, aceder ao Cassandra cluster</td></tr>
 <tr><td>CONTA DE ARMAZENAMENTO </td><td>    Utilizar predefinição    </td><td>Utilizar a conta do storage predefinida ou uma conta de armazenamento previamente criada numa região específica</td></tr>
-<tr><td>CONJUNTO DE DISPONIBILIDADE </td><td>    Nenhuma </td><td>    Pode deixar em branco</td></tr>
+<tr><td>CONJUNTO DE DISPONIBILIDADE </td><td>    Nenhum </td><td>    Pode deixar em branco</td></tr>
 <tr><td>PONTOS FINAIS    </td><td>Utilizar predefinição </td><td>    Utilize a configuração predefinida do SSH </td></tr>
 </table>
 
@@ -169,7 +169,7 @@ Clique em seta para a direita, deixe as predefinições no ecrã #3. Clique no b
 #### <a name="step-1-upload-tarballs"></a>PASSO 1: Carregamento tarballs
 Utilizar o scp ou pscp, copie o software de anteriormente transferido para diretório ~/downloads utilizando o seguinte formato de comando:
 
-##### <a name="pscp-server-jre-8u5-linux-x64targz-localadminhk-cas-templatecloudappnethomelocaladmindownloadsserver-jre-8u5-linux-x64targz"></a>pscp servidor-jre-8u5-linux-x64.tar.gzlocaladmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
+##### <a name="pscp-server-jre-8u5-linux-x64targz-localadminhk-cas-templatecloudappnethomelocaladmindownloadsserver-jre-8u5-linux-x64targz"></a>pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 Repita o comando acima para JRE, bem como para o bits Cassandra.
 
 #### <a name="step-2-prepare-the-directory-structure-and-extract-the-archives"></a>PASSO 2: Preparar a estrutura de diretórios e extrair os arquivos
@@ -292,7 +292,7 @@ Iniciar sessão na máquina virtual utilizando o nome de anfitrião (hk-ACs-temp
 Execute a sequência de ações para capturar a imagem seguinte:
 
 ##### <a name="1-deprovision"></a>1. Desaprovisionamento
-Utilize o comando "sudo waagent – deprovision + utilizador" para remover informações específicas de instância de Máquina Virtual. Consulte para [como capturar uma Máquina Virtual Linux](capture-image.md) para utilizar como um modelo mais detalhes sobre o processo de captura de imagem.
+Utilize o comando "sudo waagent – deprovision + utilizador" para remover informações específicas de instância de Máquina Virtual. Consulte para [como capturar uma Máquina Virtual Linux](capture-image-classic.md) para utilizar como um modelo mais detalhes sobre o processo de captura de imagem.
 
 ##### <a name="2-shut-down-the-vm"></a>2: encerre a VM
 Certifique-se de que a máquina virtual é realçada e clique na ligação de encerramento da barra de comando na parte inferior.
@@ -307,7 +307,7 @@ Este processo demora alguns segundos e a imagem deve estar disponível na secç�
 
 <table>
 <tr><th>Nome de atributo VM</th><th>Valor</th><th>Observações</th></tr>
-<tr><td>Nome</td><td>vnet-cass--EUA oeste</td><td></td></tr>
+<tr><td>Nome</td><td>vnet-cass-west-us</td><td></td></tr>
 <tr><td>Região</td><td>EUA Oeste</td><td></td></tr>
 <tr><td>Servidores DNS</td><td>Nenhuma</td><td>Ignore esta indicação como podemos não estiver a utilizar um servidor DNS</td></tr>
 <tr><td>Espaço de Endereços</td><td>10.1.0.0/16</td><td></td></tr>    
@@ -329,16 +329,16 @@ Dados e sub-redes Web podem ser protegidas através de grupos de segurança de r
 
 <table>
 <tr><th>Nome do Computador    </th><th>Subrede    </th><th>Endereço IP    </th><th>Conjunto de disponibilidade</th><th>DC/Rack</th><th>Seed?</th></tr>
-<tr><td>HK-c1--EUA oeste    </td><td>dados    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = WESTUS bastidor = rack1 </td><td>Sim</td></tr>
-<tr><td>HK-c2--EUA oeste    </td><td>dados    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC = WESTUS bastidor = rack1    </td><td>Não </td></tr>
-<tr><td>HK-c3--EUA oeste    </td><td>dados    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = WESTUS bastidor = rack2    </td><td>Sim</td></tr>
-<tr><td>HK-c4--EUA oeste    </td><td>dados    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC = WESTUS bastidor = rack2    </td><td>Não </td></tr>
-<tr><td>HK-c5--EUA oeste    </td><td>dados    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC = WESTUS bastidor = rack3    </td><td>Sim</td></tr>
-<tr><td>HK-c6--EUA oeste    </td><td>dados    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC = WESTUS bastidor = rack3    </td><td>Não </td></tr>
-<tr><td>HK-c7--EUA oeste    </td><td>dados    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = WESTUS bastidor = rack4    </td><td>Sim</td></tr>
-<tr><td>HK-c8--EUA oeste    </td><td>dados    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC = WESTUS bastidor = rack4    </td><td>Não </td></tr>
-<tr><td>HK-w1--EUA oeste    </td><td>web    </td><td>10.1.1.4    </td><td>HK-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
-<tr><td>HK-w2--EUA oeste    </td><td>web    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
+<tr><td>hk-c1-west-us    </td><td>dados    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>DC = WESTUS bastidor = rack1 </td><td>Sim</td></tr>
+<tr><td>HK-c2--EUA oeste    </td><td>dados    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>DC = WESTUS bastidor = rack1    </td><td>Não </td></tr>
+<tr><td>HK-c3--EUA oeste    </td><td>dados    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>DC = WESTUS bastidor = rack2    </td><td>Sim</td></tr>
+<tr><td>hk-c4-west-us    </td><td>dados    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>DC = WESTUS bastidor = rack2    </td><td>Não </td></tr>
+<tr><td>HK-c5--EUA oeste    </td><td>dados    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>DC = WESTUS bastidor = rack3    </td><td>Sim</td></tr>
+<tr><td>HK-c6--EUA oeste    </td><td>dados    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>DC = WESTUS bastidor = rack3    </td><td>Não </td></tr>
+<tr><td>HK-c7--EUA oeste    </td><td>dados    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>DC = WESTUS bastidor = rack4    </td><td>Sim</td></tr>
+<tr><td>HK-c8--EUA oeste    </td><td>dados    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>DC = WESTUS bastidor = rack4    </td><td>Não </td></tr>
+<tr><td>HK-w1--EUA oeste    </td><td>web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
+<tr><td>HK-w2--EUA oeste    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
 </table>
 
 Criação da lista acima de VMs requer o seguinte processo:
@@ -425,7 +425,7 @@ Inicie sessão num de nós (por exemplo hk-c1--EUA oeste) e execute o seguinte c
 Deverá ver a apresentação semelhante às abaixo para um cluster do nó de 8:
 
 <table>
-<tr><th>Estado</th><th>Endereço    </th><th>Carregar    </th><th>Tokens    </th><th>É proprietário </th><th>ID de anfitrião    </th><th>Bastidor</th></tr>
+<tr><th>Estado</th><th>Endereço    </th><th>Carregar    </th><th>Tokens    </th><th>É proprietário </th><th>ID de anfitrião    </th><th>Rack</th></tr>
 <tr><th>ANULAR    </td><td>10.1.2.4     </td><td>87.81 KB    </td><td>256    </td><td>38.0%    </td><td>GUID (removido)</td><td>rack1</td></tr>
 <tr><th>ANULAR    </td><td>10.1.2.5     </td><td>41.08 KB    </td><td>256    </td><td>68.9%    </td><td>GUID (removido)</td><td>rack1</td></tr>
 <tr><th>ANULAR    </td><td>10.1.2.6     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (removido)</td><td>rack2</td></tr>
@@ -466,7 +466,7 @@ Inicie sessão no portal do Azure e criar uma rede Virtual com a mostrar os atri
 
 <table>
 <tr><th>Nome do Atributo    </th><th>Valor    </th><th>Observações</th></tr>
-<tr><td>Nome    </td><td>vnet-cass-Leste-nos</td><td></td></tr>
+<tr><td>Nome    </td><td>vnet-cass-east-us</td><td></td></tr>
 <tr><td>Região    </td><td>EUA Leste</td><td></td></tr>
 <tr><td>Servidores DNS        </td><td></td><td>Ignore esta indicação como podemos não estiver a utilizar um servidor DNS</td></tr>
 <tr><td>Configurar uma VPN ponto a site</td><td></td><td>        Ignore esta indicação</td></tr>
@@ -492,16 +492,16 @@ Crie duas redes locais pelos seguintes detalhes:
 
 | Nome de Rede | Endereço de Gateway VPN | Espaço de Endereços | Observações |
 | --- | --- | --- | --- |
-| HK-lnet-Map-to-East-US |23.1.1.1 |10.2.0.0/16 |Durante a criação da rede Local, atribua um marcador de posição endereço de gateway. O endereço de real gateway é preenchido quando é criado o gateway. Certifique-se de que o espaço de endereços corresponde exatamente a respetiva VNET remota; Neste caso a VNET criada na região EUA Leste. |
-| HK-lnet-Map-to-West-US |23.2.2.2 |10.1.0.0/16 |Durante a criação da rede Local, atribua um marcador de posição endereço de gateway. O endereço de real gateway é preenchido quando é criado o gateway. Certifique-se de que o espaço de endereços corresponde exatamente a respetiva VNET remota; Neste caso a VNET criada na região EUA oeste. |
+| hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |Durante a criação da rede Local, atribua um marcador de posição endereço de gateway. O endereço de real gateway é preenchido quando é criado o gateway. Certifique-se de que o espaço de endereços corresponde exatamente a respetiva VNET remota; Neste caso a VNET criada na região EUA Leste. |
+| hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |Durante a criação da rede Local, atribua um marcador de posição endereço de gateway. O endereço de real gateway é preenchido quando é criado o gateway. Certifique-se de que o espaço de endereços corresponde exatamente a respetiva VNET remota; Neste caso a VNET criada na região EUA oeste. |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Passo 3: Mapa "Local" rede as respetivas VNETs
 No portal do Azure, selecione cada vnet, clique em "Configurar", consulte "Ligar à rede local" e selecione as redes locais pelos seguintes detalhes:
 
 | Rede Virtual | Rede local |
 | --- | --- |
-| HK-vnet--EUA oeste |HK-lnet-Map-to-East-US |
-| HK-vnet-Leste-nos |HK-lnet-Map-to-West-US |
+| hk-vnet-west-us |hk-lnet-map-to-east-us |
+| hk-vnet-east-us |hk-lnet-map-to-west-us |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>Passo 4: Criar Gateways no VNET1 e VNET2
 A partir do dashboard das redes virtuais, clique em criar GATEWAY para acionar o processo de aprovisionamento do gateway de VPN. Após alguns minutos, o dashboard de cada rede virtual deve apresentar o endereço de gateway real.
@@ -511,8 +511,8 @@ Edite as redes locais para substituir o endereço IP do gateway de marcador de p
 
 <table>
 <tr><th>Rede local    </th><th>Gateway de Rede Virtual</th></tr>
-<tr><td>HK-lnet-Map-to-East-US </td><td>Gateway de hk-vnet--EUA oeste</td></tr>
-<tr><td>HK-lnet-Map-to-West-US </td><td>Gateway de hk-vnet-Leste-nos</td></tr>
+<tr><td>hk-lnet-map-to-east-us </td><td>Gateway de hk-vnet--EUA oeste</td></tr>
+<tr><td>hk-lnet-map-to-west-us </td><td>Gateway de hk-vnet-Leste-nos</td></tr>
 </table>
 
 ### <a name="step-6-update-the-shared-key"></a>Passo 6: Atualizar a chave partilhada
@@ -526,15 +526,15 @@ Criar a imagem do Ubuntu conforme descrito na implementação de região #1 ao s
 
 | Nome do Computador | Subrede | Endereço IP | Conjunto de disponibilidade | DC/Rack | Seed? |
 | --- | --- | --- | --- | --- | --- |
-| HK-c1-Leste-nos |dados |10.2.2.4 |HK-c-aset-1 |DC = EASTUS bastidor = rack1 |Sim |
-| HK-c2-Leste-nos |dados |10.2.2.5 |HK-c-aset-1 |DC = EASTUS bastidor = rack1 |Não |
-| HK-c3-Leste-nos |dados |10.2.2.6 |HK-c-aset-1 |DC = EASTUS bastidor = rack2 |Sim |
-| HK-c5-Leste-nos |dados |10.2.2.8 |HK-c-aset-2 |DC = EASTUS bastidor = rack3 |Sim |
-| HK-c6-Leste-nos |dados |10.2.2.9 |HK-c-aset-2 |DC = EASTUS bastidor = rack3 |Não |
-| HK-c7-Leste-nos |dados |10.2.2.10 |HK-c-aset-2 |DC = EASTUS bastidor = rack4 |Sim |
-| HK-c8-Leste-nos |dados |10.2.2.11 |HK-c-aset-2 |DC = EASTUS bastidor = rack4 |Não |
-| HK-w1-Leste-nos |web |10.2.1.4 |HK-w-aset-1 |N/A |N/A |
-| HK-w2-Leste-nos |web |10.2.1.5 |HK-w-aset-1 |N/A |N/A |
+| hk-c1-east-us |dados |10.2.2.4 |hk-c-aset-1 |DC = EASTUS bastidor = rack1 |Sim |
+| hk-c2-east-us |dados |10.2.2.5 |hk-c-aset-1 |DC = EASTUS bastidor = rack1 |Não |
+| hk-c3-east-us |dados |10.2.2.6 |hk-c-aset-1 |DC = EASTUS bastidor = rack2 |Sim |
+| hk-c5-east-us |dados |10.2.2.8 |hk-c-aset-2 |DC = EASTUS bastidor = rack3 |Sim |
+| hk-c6-east-us |dados |10.2.2.9 |hk-c-aset-2 |DC = EASTUS bastidor = rack3 |Não |
+| hk-c7-east-us |dados |10.2.2.10 |hk-c-aset-2 |DC = EASTUS bastidor = rack4 |Sim |
+| hk-c8-east-us |dados |10.2.2.11 |hk-c-aset-2 |DC = EASTUS bastidor = rack4 |Não |
+| hk-w1-east-us |web |10.2.1.4 |hk-w-aset-1 |N/A |N/A |
+| hk-w2-east-us |web |10.2.1.5 |hk-w-aset-1 |N/A |N/A |
 
 Siga as mesmas instruções como região #1, mas utilize 10.2.xxx.xxx espaço de endereço.
 
@@ -551,8 +551,8 @@ Inicie sessão em cada VM e inicie Cassandra em segundo plano, executando o segu
 Por agora Cassandra implementado 16 nós com 8 nós em cada região do Azure. Estes nós estão no mesmo cluster em virtude o nome comum do cluster e a configuração do nó seed. Utilize o seguinte processo para o cluster de teste:
 
 ### <a name="step-1-get-the-internal-load-balancer-ip-for-both-the-regions-using-powershell"></a>Passo 1: Obter o IP de Balanceador de carga interno para ambas as regiões com o PowerShell
-* Get-AzureInternalLoadbalancer - ServiceName "hk-c-svc--EUA Oeste"
-* Get-AzureInternalLoadbalancer - ServiceName "hk-c-svc-Leste-us"  
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
   
     Tenha em atenção os endereços IP (para oeste de exemplo - 10.1.2.101 Leste - 10.2.2.101) apresentado.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 7a30cca215dad6ca71a31bd1f775b85dd2f8ea00
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: b0cc1bca6035104aba655bdb6fc63a1a66483f0c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-beta"></a>Copiar dados de PayPal utilizando o Azure Data Factory (Beta)
 
@@ -37,7 +37,7 @@ O Azure Data Factory fornece um controlador incorporado para ativar a conetivida
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir o conector PayPal entidades do Data Factory específicas.
 
@@ -49,7 +49,7 @@ As seguintes propriedades são suportadas para o serviço de PayPal ligada:
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **PayPal** | Sim |
 | anfitrião | O URL da instância PayPal. (ou seja, api.sandbox.paypal.com)  | Sim |
-| ID de cliente | O ID de cliente associado à sua aplicação PayPal.  | Sim |
+| clientId | O ID de cliente associado à sua aplicação PayPal.  | Sim |
 | clientSecret | O segredo do cliente associado à sua aplicação PayPal. Pode escolher marcar este campo como um SecureString armazena de forma segura na ADF ou armazenar a palavra-passe no Cofre de chaves do Azure e permitir que a atividade de cópia solicitar a partir daí quando efetuar a cópia de dados - Saiba mais de [armazenar credenciais no Cofre de chaves](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
 | useHostVerification | Especifica se o nome de anfitrião no certificado do servidor para fazer corresponder o nome de anfitrião do servidor ao ligar através de SSL. O valor predefinido é verdadeiro.  | Não |

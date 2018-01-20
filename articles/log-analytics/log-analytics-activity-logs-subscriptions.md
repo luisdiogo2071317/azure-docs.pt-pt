@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d8c970b322be7f735e51c7b246b2421589c91813
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recolher registos de atividade do Azure para análise de registos, entre subscrições
 
@@ -27,7 +27,7 @@ Se a área de trabalho de análise de registos na mesma subscrição do Azure, o
 
 ## <a name="overview"></a>Descrição geral
 
-A estratégia utilizada neste cenário é tem registo de atividade do Azure enviar eventos para um [Hub de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) onde um [aplicação lógica](../logic-apps/logic-apps-what-are-logic-apps.md) envia-as para a sua área de trabalho de análise de registos. 
+A estratégia utilizada neste cenário é tem registo de atividade do Azure enviar eventos para um [Hub de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) onde um [aplicação lógica](../logic-apps/logic-apps-overview.md) envia-as para a sua área de trabalho de análise de registos. 
 
 ![imagem do fluxo de dados de análise do registo para o registo de atividade](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -141,7 +141,7 @@ Para obter o cadeia de ligação e nome de Hub de eventos, siga os passos no [pe
 
 O Designer de aplicações lógicas agora mostra conectores disponíveis e as respetivas acionadores, que utiliza para iniciar o fluxo de trabalho de aplicação lógica.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### <a name="add-event-hub-trigger"></a>Adicionar o acionador de Hub de eventos
 

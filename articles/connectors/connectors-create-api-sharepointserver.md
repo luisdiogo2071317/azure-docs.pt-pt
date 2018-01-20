@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 0f3274816e279a1aa57febaa2f8294914900799a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da863e0249cb46e4e569812a851f3199d57b2107
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Começar a utilizar o conector do SharePoint
 O conector do SharePoint fornece uma forma de trabalhar com apresenta uma lista do SharePoint.
 
-Começar através da criação de uma aplicação lógica; consulte [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Começar através da criação de uma aplicação lógica; consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-sharepoint"></a>Criar uma ligação para o SharePoint
 Para utilizar o conector do SharePoint, tem primeiro de criar um **ligação** , em seguida, forneça os detalhes para estas propriedades: 
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| Token |Sim |Forneça credenciais do SharePoint |
+| Token |Sim |Fornecer Credenciais do SharePoint |
 
 Para ligar ao **SharePoint**, introduza a sua identidade (nome de utilizador e palavra-passe, smart card credenciais, etc.) para SharePoint. Uma vez que já foi autenticado, pode continuar a utilizar o conector do SharePoint na sua aplicação lógica. 
 

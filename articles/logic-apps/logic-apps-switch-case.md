@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Efetuar ações diferentes aplicações lógicas com uma instrução de comutador
 
@@ -34,7 +34,7 @@ Pode utilizar uma instrução para implementar estes cenários. A aplicação l�
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição ativa do Azure. Se não tiver uma subscrição do Azure Active Directory, [criar uma conta gratuita](https://azure.microsoft.com/free/), ou tente [Logic Apps para libertar](https://tryappservice.azure.com/).
-- [Conhecimentos básicos sobre as logic apps](logic-apps-what-are-logic-apps.md)
+- [Conhecimentos básicos sobre as logic apps](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Adicione uma instrução de comutador para o fluxo de trabalho
 
@@ -120,7 +120,7 @@ Para fazer perguntas, responder a perguntas e ver o que os outros utilizadores d
 
 Para ajudar a melhorar o Azure Logic Apps e os conectores, vote ou submeta ideais no [site de comentários dos utilizadores do Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [adicionar condições](logic-apps-use-logic-app-features.md)
 - Saiba mais sobre [erros e de processamento de exceções](logic-apps-exception-handling.md)

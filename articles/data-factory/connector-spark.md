@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ba25bb71857ee91cc078fd87de074f0ea954b558
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 0107c0e02e7158ad73671ae8e4599e1e998f20fc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiar dados de Spark utilizando o Azure Data Factory 
 
@@ -35,7 +35,7 @@ O Azure Data Factory fornece um controlador incorporado para ativar a conetivida
 
 ## <a name="getting-started"></a>Introdução
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector do Spark.
 
@@ -48,7 +48,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Spark:
 | tipo | A propriedade de tipo tem de ser definida: **Spark** | Sim |
 | anfitrião | Nome de anfitrião ou endereço IP do servidor do Spark  | Sim |
 | porta | A porta TCP que o servidor de Spark utiliza para escutar ligações de cliente.  | Sim |
-| Tipo | O tipo de servidor de Spark. <br/>Valores permitidos são: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Não |
+| serverType | O tipo de servidor de Spark. <br/>Valores permitidos são: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Não |
 | thriftTransportProtocol | O protocolo de transporte para utilizar na camada de Thrift. <br/>Valores permitidos são: **binário**, **SASL**, * * HTTP * * | Não |
 | authenticationType | O método de autenticação utilizado para aceder ao servidor de Spark. <br/>Valores permitidos são: **anónimo**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
 | o nome de utilizador | O nome de utilizador que utilizar para aceder ao servidor de Spark.  | Não |

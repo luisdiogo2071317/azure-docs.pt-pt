@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a0c1cebfa22939ead98ff8f4a204ef6fd1f4cf96
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -181,7 +181,7 @@ Depois de ativar a cópia de segurança com êxito, a política de cópia de seg
 Se tiver problemas ao registar a máquina virtual, consulte as seguintes informações sobre como instalar o agente da VM e conectividade de rede. Provavelmente, não terá as seguintes informações se estiver a proteger máquinas virtuais criadas no Azure. Mas, se tiver migrado máquinas virtuais no Azure, não se esqueça de que instalou corretamente o agente da VM e que a máquina virtual pode comunicar com a rede virtual.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalar o agente da VM na máquina virtual
-Para a extensão de cópia de segurança funcione, o Azure [agente da VM](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) tem de estar instalado na máquina virtual do Azure. Se a VM foi criada no Azure Marketplace, o agente da VM já se encontra presente na máquina virtual. 
+Para a extensão de cópia de segurança funcione, o Azure [agente da VM](../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) tem de estar instalado na máquina virtual do Azure. Se a VM foi criada no Azure Marketplace, o agente da VM já se encontra presente na máquina virtual. 
 
 As seguintes informações são fornecidas para situações em que são *não* através de uma VM criada no Azure Marketplace. Por exemplo, migrou uma VM a partir de um datacenter no local. Nesse caso, o agente da VM tem de ser instalado para poder proteger a máquina virtual.
 

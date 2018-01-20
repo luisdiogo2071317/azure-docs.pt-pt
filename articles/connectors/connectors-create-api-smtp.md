@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 1cf96bbf8bd215d7ddb3c99860a5cb4e668be3c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Começar a utilizar o conector de SMTP
 Ligar ao SMTP para enviar correio eletrónico.
 
-Para utilizar [qualquer conector](apis-list.md), terá primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/logic-apps-create-a-logic-app.md).
+Para utilizar [qualquer conector](apis-list.md), terá primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-smtp"></a>Ligar ao SMTP
 Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de criar um *ligação* ao serviço. A [ligação](connectors-overview.md) fornece conectividade entre uma aplicação lógica e outro serviço. Por exemplo, para ligar a SMTP, terá primeiro um SMTP *ligação*. Para criar uma ligação, introduza as credenciais que normalmente utiliza para aceder ao serviço que ligar. Por isso, no exemplo SMTP, introduza as credenciais para o nome da ligação, endereço do servidor SMTP e informações de início de sessão de utilizador para criar a ligação ao SMTP.  
@@ -35,7 +35,7 @@ Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de 
 > 
 
 ## <a name="use-an-smtp-trigger"></a>Utilizar um acionador de SMTP
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Neste exemplo, porque SMTP não tem um acionador próprios, iremos utilizar o **Salesforce - quando é criado um objecto** acionador. Este acionador ativa quando é criado um novo objeto no Salesforce. Para o nosso exemplo, iremos definir-forma a que sempre que é criado um novo fabrico no Salesforce, um *enviar correio eletrónico* ação ocorre através do conector SMTP com uma notificação de fabrico de novo a ser criada.
 
@@ -49,7 +49,7 @@ Neste exemplo, porque SMTP não tem um acionador próprios, iremos utilizar o **
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## <a name="use-an-smtp-action"></a>Utilizar uma ação de SMTP
-Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Agora que o acionador foi adicionado, siga estes passos para adicionar uma ação de SMTP que irá ocorrer quando é criado um novo fabrico no Salesforce.
 

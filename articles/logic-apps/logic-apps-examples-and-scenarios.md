@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 09/13/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5b2b82d90dee41e80233e5f52c960be23d89ee3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Comuns cenários, exemplos, tutoriais e instruções para Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) ajuda-o a orquestrar e integrar os diferentes serviços fornecendo [100 + prontos a utilizar conectores](../connectors/apis-list.md), vão de SQL Server no local ou SAP cognitivos serviços da Microsoft. O serviço de aplicações lógicas é "sem servidor", pelo que não precisa de preocupar com escala ou instâncias. Tudo o que precisa de executar é definir o fluxo de trabalho com um acionador e as ações que executa o fluxo de trabalho. A plataforma subjacente processa escala, disponibilidade e desempenho. As Logic Apps é especialmente útil para cenários em que terá de coordenar várias ações em vários sistemas e de casos de utilização.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) ajuda-o a orquestrar e integrar os diferentes serviços fornecendo [100 + prontos a utilizar conectores](../connectors/apis-list.md), vão de SQL Server no local ou SAP cognitivos serviços da Microsoft. O serviço de aplicações lógicas é "sem servidor", pelo que não precisa de preocupar com escala ou instâncias. Tudo o que precisa de executar é definir o fluxo de trabalho com um acionador e as ações que executa o fluxo de trabalho. A plataforma subjacente processa escala, disponibilidade e desempenho. As Logic Apps é especialmente útil para cenários em que terá de coordenar várias ações em vários sistemas e de casos de utilização.
 
-Para saber mais sobre a muitos padrões e capacidades que [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) suporta, seguem-se exemplos e cenários comuns.
+Para saber mais sobre a muitos padrões e capacidades que [Azure Logic Apps](../logic-apps/logic-apps-overview.md) suporta, seguem-se exemplos e cenários comuns.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>Pontos de partida para fluxos de trabalho de aplicação de lógica populares
 
-Cada aplicação lógica começa com um [ *acionador*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts)e apenas um acionador, que inicia o fluxo de trabalho de aplicação de lógica e passa em todos os dados como parte desse acionador. Alguns conectores fornecem acionadores, que são fornecidos em destes tipos:
+Cada aplicação lógica começa com um [ *acionador*](../logic-apps/logic-apps-overview.md#logic-app-concepts)e apenas um acionador, que inicia o fluxo de trabalho de aplicação de lógica e passa em todos os dados como parte desse acionador. Alguns conectores fornecem acionadores, que são fornecidos em destes tipos:
 
 * *Acionadores de consulta*: verifica regularmente um ponto final de serviço para novos dados. Quando existem novos dados, o acionador cria e é executada uma nova instância de fluxo de trabalho com os dados como entrada.
 
@@ -105,7 +105,7 @@ As Logic apps oferecem também a integração com vários serviços, como as fun
 
 * [Documento técnico: Integração ponto-a-ponto maiúsculas gestão empresarial com os serviços do Azure, como as Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Definições de fluxo de trabalho de autor com a linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-author-definitions.md)
 * [Processar os erros e exceções em aplicações lógicas](../logic-apps/logic-apps-exception-handling.md)

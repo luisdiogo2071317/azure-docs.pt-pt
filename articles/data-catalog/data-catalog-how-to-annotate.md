@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 011f4396b11cc43ba36dd678cd4ec0f5d5daa81a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f9dd68380773e3cdb93cf1033ccd1b55d9f69305
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-annotate-data-sources"></a>Como anotar origens de dados
 ## <a name="introduction"></a>Introdução
@@ -66,5 +66,5 @@ Tal como os metadados extraídos da origem de dados durante o registo é adicion
 ## <a name="summary"></a>Resumo
 Registar uma origem de dados com o catálogo de dados faz com que os dados detetável por copiar os metadados estruturais e descritivo da origem de dados para o serviço de catálogo. Depois de uma origem de dados foi registada, os utilizadores podem fornecer anotações para facilitar a detetar e compreender a partir de dentro do portal do catálogo de dados.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Introdução ao catálogo de dados do Azure](data-catalog-get-started.md) tutorial para obter detalhes passo a passo sobre como anotar origens de dados.

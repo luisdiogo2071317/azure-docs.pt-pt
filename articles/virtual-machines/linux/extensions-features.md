@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 59f718e0e547ed9374152985e706acad4421b35b
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2797085d1e675f0e6608b6192736f939952ed98b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões de máquina virtual e funcionalidades para Linux
 
@@ -47,7 +47,7 @@ Cada extensão da máquina virtual poderá ter o seu próprio conjunto de pré-r
 
 O agente da VM do Azure gere as interações entre uma máquina virtual do Azure e o controlador de recursos de infraestrutura do Azure. O agente da VM é responsável por muitos aspetos funcionais de implementar e gerir máquinas virtuais do Azure, incluindo a executar as extensões VM. O agente da VM do Azure está pré-instalado imagens do Azure Marketplace e pode ser instalado manualmente nos sistemas operativos suportados.
 
-Para obter informações sobre sistemas operativos suportados e instruções de instalação, consulte [agente da máquina virtual do Azure](../windows/classic/agents-and-extensions.md).
+Para obter informações sobre sistemas operativos suportados e instruções de instalação, consulte [agente da máquina virtual do Azure](../windows/classic/agents-and-extensions-classic.md).
 
 ## <a name="discover-vm-extensions"></a>Detetar as extensões de VM
 

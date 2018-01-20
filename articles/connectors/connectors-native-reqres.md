@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Começar com os componentes de pedido e resposta
 Com os componentes de pedido e resposta numa aplicação lógica, pode responder em tempo real a eventos.
@@ -30,7 +30,7 @@ Pode, por exemplo:
 * Acione uma aplicação de lógica de um evento de webhook externo.
 * Chame uma aplicação lógica com uma ação de pedido e resposta a partir de outra aplicação de lógica.
 
-Para começar a utilizar as ações de pedido e resposta numa aplicação lógica, consulte o artigo [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para começar a utilizar as ações de pedido e resposta numa aplicação lógica, consulte o artigo [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Utilize o acionador de pedido de HTTP
 Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho que está definido uma aplicação lógica. [Saiba mais sobre acionadores](connectors-overview.md).
@@ -86,7 +86,7 @@ Segue-se um campo de entrada para o acionador de um pedido HTTP recebido.
 
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Esquema JSON |Esquema |O esquema JSON de corpo do pedido HTTP |
+| JSON Schema |schema |O esquema JSON de corpo do pedido HTTP |
 
 <br>
 
@@ -96,7 +96,7 @@ Seguem-se detalhes de resultado para o pedido.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
-| Cabeçalhos |objeto |Cabeçalhos de pedido |
+| Cabeçalhos |objeto |Cabeçalhos do pedido |
 | Corpo |objeto |Objeto de pedido |
 
 #### <a name="response-action"></a>Ação de resposta
@@ -105,9 +105,9 @@ Seguem-se os campos de entrada para a ação de resposta de HTTP. A * significa 
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
 | Código de estado * |statusCode |O código de estado HTTP |
-| Cabeçalhos |Cabeçalhos |Um objeto JSON qualquer de cabeçalhos de resposta incluir |
-| Corpo |Corpo |O corpo da resposta |
+| Cabeçalhos |cabeçalhos |Um objeto JSON qualquer de cabeçalhos de resposta incluir |
+| Corpo |corpo |O corpo da resposta |
 
-## <a name="next-steps"></a>Passos seguintes
-Agora, experimente a plataforma e [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md). Pode explorar os outros conectores disponíveis nas logic apps observando nosso [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Passos Seguintes
+Agora, experimente a plataforma e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pode explorar os outros conectores disponíveis nas logic apps observando nosso [lista APIs](apis-list.md).
 

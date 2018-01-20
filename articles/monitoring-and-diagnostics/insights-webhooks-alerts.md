@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 06ec1263046f7878871de628b6a0ac25682b2f83
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurar um webhook num alerta métrico do Azure
 Webhooks permitem-lhe uma notificação de alerta do Azure de rotas para outros sistemas de ações de pós-processamento ou personalizados. Pode utilizar um webhook num alerta para o encaminhar para os serviços que enviar SMS, registo de erros, notificar a equipa através de serviços de chat/mensagens ou fazer qualquer número de outras ações. Este artigo descreve como definir um webhook num alerta métrico do Azure e aspeto o payload para o POST de HTTP para um webhook. Para obter informações sobre a configuração e o esquema para um alerta de registo de atividade do Azure (alerta em eventos), [consulte em vez disso, esta página](insights-auditlog-to-webhook-email.md).
@@ -40,34 +40,37 @@ A operação POST contém a seguinte payload JSON e o esquema para todos os aler
 
 ```JSON
 {
-"status": "Activated",
-"context": {
+    "WebhookName": "Alert1515515157799",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
             "timestamp": "2015-08-14T22:26:41.9975398Z",
             "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
             "name": "ruleName1",
             "description": "some description",
             "conditionType": "Metric",
             "condition": {
-                        "metricName": "Requests",
-                        "metricUnit": "Count",
-                        "metricValue": "10",
-                        "threshold": "10",
-                        "windowSize": "15",
-                        "timeAggregation": "Average",
-                        "operator": "GreaterThanOrEqual"
-                },
+                "metricName": "Requests",
+                "metricUnit": "Count",
+                "metricValue": "10",
+                "threshold": "10",
+                "windowSize": "15",
+                "timeAggregation": "Average",
+                "operator": "GreaterThanOrEqual"
+            },
             "subscriptionId": "s1",
-            "resourceGroupName": "useast",                                
+            "resourceGroupName": "useast",
             "resourceName": "mysite1",
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
             "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
-},
-"properties": {
-              "key1": "value1",
-              "key2": "value2"
-              }
+        },
+        "properties": {
+            "key1": "value1",
+            "key2": "value2"
+        }
+    }
 }
 ```
 
@@ -75,19 +78,19 @@ A operação POST contém a seguinte payload JSON e o esquema para todos os aler
 | Campo | Obrigatório | Fixo conjunto de valores | Notas |
 |:--- |:--- |:--- |:--- |
 | status |S |"Ativado", "Resolvido" |Estado do alerta baseados nas condições que definiu. |
-| Contexto |S | |O contexto do alerta. |
+| context |S | |O contexto do alerta. |
 | carimbo de data/hora |S | |A hora em que o alerta foi acionado. |
 | ID |S | |Cada regra de alerta tem um id exclusivo. |
 | nome |S | |O nome do alerta. |
 | descrição |S | |Descrição do alerta. |
 | conditionType |S |"Métrica", "Evento de" |São suportados dois tipos de alertas. Um baseada numa condição de métrica e outra com base num evento no registo de atividade. Utilize este valor para verificar se o alerta é baseado num métrica ou eventos. |
-| Condição |S | |Os campos específicos para procurar com base no conditionType. |
+| condição |S | |Os campos específicos para procurar com base no conditionType. |
 | metricName |existência de alertas métricas | |O nome da métrica que define o que monitoriza a regra. |
-| metricUnit |existência de alertas métricas |"Bytes", "BytesPerSecond", "Count", "CountPerSecond", "Percentagem", "Segundos" |A unidade permitida na métrica. [Permitido valores estão listados aqui](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricUnit |existência de alertas métricas |"Bytes", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds" |A unidade permitida na métrica. [Permitido valores estão listados aqui](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |existência de alertas métricas | |O valor real da métrica que causou o alerta. |
 | Limiar |existência de alertas métricas | |O valor de limiar em que o alerta está ativado. |
 | windowSize |existência de alertas métricas | |O período de tempo que é utilizado para monitorizar a atividade de alerta com base no limiar. Tem de estar entre 5 minutos e 1 dia. Formato de duração ISO 8601. |
-| timeAggregation |existência de alertas métricas |"Médio", "Último", "Máximo", "Mínimo", "None", "Total de" |Como devem ser combinados os dados que são recolhidos ao longo do tempo. O valor predefinido é média. [Permitido valores estão listados aqui](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
+| timeAggregation |existência de alertas métricas |"Average", "Last", "Maximum", "Minimum", "None", "Total" |Como devem ser combinados os dados que são recolhidos ao longo do tempo. O valor predefinido é média. [Permitido valores estão listados aqui](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
 | operador |existência de alertas métricas | |O operador utilizado para comparar os dados métricos atuais para o limiar definido. |
 | subscriptionId |S | |ID da subscrição do Azure. |
 | resourceGroupName |S | |Nome do grupo de recursos para o recurso afetado. |
@@ -103,7 +106,7 @@ A operação POST contém a seguinte payload JSON e o esquema para todos os aler
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre alertas do Azure e webhooks as vídeo [integrar alertas do Azure com PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080)
 * [Executar scripts de automatização do Azure (Runbooks) nos alertas do Azure](http://go.microsoft.com/fwlink/?LinkId=627081)
 * [Utilize a aplicação lógica para enviar um SMS através do Twilio a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)

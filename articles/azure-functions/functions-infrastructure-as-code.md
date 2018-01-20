@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: e6b3deb9353ba07d693d71822d37a1761dd70d67
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implementação de recursos para a sua aplicação de função das funções do Azure
 
@@ -76,7 +76,7 @@ Estas propriedades são especificadas no `appSettings` coleção no `siteConfig`
 
 A definição do plano de alojamento varia consoante utilize ou não um plano de consumo ou o serviço de aplicações. Consulte [implementar uma aplicação de função no plano de consumo](#consumption) e [implementar uma aplicação de função no plano do App Service](#app-service-plan).
 
-### <a name="function-app"></a>Aplicação de função
+### <a name="function-app"></a>Function App
 
 O recurso de aplicação de função é definido através da utilização de um recurso do tipo **Microsoft.Web/Site** e tipo **functionapp**:
 
@@ -197,7 +197,7 @@ Depois de selecionar uma opção de dimensionamento, crie uma aplicação de fun
 Uma aplicação de função tem muitos recursos subordinados que pode utilizar na sua implementação, incluindo as definições de aplicação e as opções de controlo de origem. Também pode optar por remover o **sourcecontrols** recursos subordinados e utilize outro [a opção de implementação](functions-continuous-deployment.md) em vez disso.
 
 > [!IMPORTANT]
-> Para implementar com êxito a aplicação utilizando o Gestor de recursos do Azure, é importante compreender a forma como os recursos são implementados no Azure. No exemplo seguinte, as configurações de nível superior são aplicadas utilizando **siteConfig**. É importante definir estas configurações num nível superior, porque estes transmitir informações para o motor de execução e a implementação de funções. São necessárias informações de nível superior antes do subordinado **sourcecontrols/web** recurso é aplicado. Embora seja possível configurar estas definições no nível subordinado **configuração/appSettings** recurso, em alguns casos, a aplicação de função tem de ser implementada *antes* **configuração/appSettings**  é aplicada. Por exemplo, quando estiver a utilizar as funções com [Logic Apps](../logic-apps/index.md), as suas funções são uma dependência de outro recurso.
+> Para implementar com êxito a aplicação utilizando o Gestor de recursos do Azure, é importante compreender a forma como os recursos são implementados no Azure. No exemplo seguinte, as configurações de nível superior são aplicadas utilizando **siteConfig**. É importante definir estas configurações num nível superior, porque estes transmitir informações para o motor de execução e a implementação de funções. São necessárias informações de nível superior antes do subordinado **sourcecontrols/web** recurso é aplicado. Embora seja possível configurar estas definições no nível subordinado **configuração/appSettings** recurso, em alguns casos, a aplicação de função tem de ser implementada *antes* **configuração/appSettings**  é aplicada. Por exemplo, quando estiver a utilizar as funções com [Logic Apps](../logic-apps/index.yml), as suas funções são uma dependência de outro recurso.
 
 ```json
 {
@@ -279,7 +279,7 @@ Eis um exemplo que utiliza HTML:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"></a>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre como desenvolver e configurar as funções do Azure.
 

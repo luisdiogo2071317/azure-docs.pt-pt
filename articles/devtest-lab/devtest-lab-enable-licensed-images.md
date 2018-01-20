@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: bc3217e3b4ebd97d5cb80a90126f4a1ade5f6cc5
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 022b6340a8d2748624ba292fb4a28a956d28c6f9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Ativar uma imagem no laboratório no Azure DevTest Labs licenciada
 
@@ -29,7 +29,7 @@ O primeiro passo para permitir aos utilizadores criar VMs a partir de uma imagem
 
 1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Mais serviços**, e, em seguida, selecione **DevTest Labs** na lista.
+1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 
 1. Na lista de laboratórios, selecione o laboratório pretendido.  
 
@@ -76,7 +76,15 @@ Pode ativar a implementação programática para uma imagem licenciada, seguindo
    >
 
 
-1. Selecione **Guardar**. Na lista de imagens do marketplace, imagem que mostra agora **termos aceites** e está disponível para os utilizadores criar máquinas virtuais.
+1. Selecione **Guardar**. 
+
+    Na lista de imagens do marketplace, imagem que mostra agora **termos aceites** e está disponível para os utilizadores criar máquinas virtuais.
+
+> [!NOTE]
+> Os utilizadores podem criar uma imagem personalizada a partir de uma imagem licenciada. Consulte [criar uma imagem personalizada de um ficheiro VHD](devtest-lab-create-template.md) para obter mais informações.
+>
+>
+
 
 ## <a name="related-blog-posts"></a>Mensagens de blogue relacionados
 
@@ -85,4 +93,6 @@ Pode ativar a implementação programática para uma imagem licenciada, seguindo
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+- [Criar uma imagem personalizada a partir de uma VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Criar uma imagem personalizada de um ficheiro VHD](devtest-lab-create-template.md)
 - [Adicionar uma VM para o laboratório](devtest-lab-add-vm.md)

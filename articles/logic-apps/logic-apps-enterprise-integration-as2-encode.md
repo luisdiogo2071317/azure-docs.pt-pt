@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 7889bf9e4e02143b6bb4c797531afa54f8647ce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bccc8f81a3a664e090796ae8a3cbb38c890c0479
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificar AS2 mensagens para o Azure Logic Apps com o pacote de integração do Enterprise
 
@@ -35,7 +35,7 @@ Segue-se os itens que precisa de:
 
 ## <a name="encode-as2-messages"></a>Codificar mensagens AS2
 
-1. [Criar uma aplicação lógica](logic-apps-create-a-logic-app.md).
+1. [Criar uma aplicação lógica](quickstart-create-first-logic-app-workflow.md).
 
 2. O conector de mensagem de codificar AS2 não tem acionadores, pelo que tem de adicionar um acionador para iniciar a sua aplicação lógica, como um acionador pedido. No Designer de aplicação lógica, adicione um acionador e, em seguida, adicionar uma ação à sua aplicação lógica.
 
@@ -78,6 +78,6 @@ Para tentar implementar um cenário de AS2 totalmente operacional logic app e ex
 ## <a name="view-the-swagger"></a>Ver o swagger
 Consulte o [swagger detalhes](/connectors/as2/). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o pacote de integração do Enterprise") 
 

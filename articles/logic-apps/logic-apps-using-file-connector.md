@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 7738b3346af49cb8aa811eb17003d1b72b1bbe46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Ligar a sistemas de ficheiros no local a partir das logic apps com o conector sistema de ficheiros
 
@@ -30,7 +30,7 @@ Para gerir os dados e aceder de forma segura a recursos no local, as logic apps 
 
 * Instalar e configurar o gateway de dados no local mais recente, versão 1.15.6150.1 ou acima. Para obter os passos, consulte [ligar a origens de dados no local](http://aka.ms/logicapps-gateway). Tem de instalar o gateway numa máquina no local antes de poder continuar com estes passos.
 
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/logic-apps-create-a-logic-app.md)
+* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>Adicionar acionadores e ações para ligar ao seu sistema de ficheiros
 
@@ -79,16 +79,16 @@ Parabéns, tem agora uma aplicação de lógica de trabalho que se pode ligar pa
 
 Tente explorar outras funcionalidades que o conector oferece, por exemplo:
 
-- Criar o ficheiro
-- Lista de ficheiros na pasta
-- Anexar ficheiro
+- Criar ficheiro
+- Listar ficheiros na pasta
+- Acrescentar ficheiro
 - Eliminar ficheiro
-- Obter o conteúdo do ficheiro
-- Obter o conteúdo do ficheiro com o caminho
+- Obter conteúdo do ficheiro
+- Obter conteúdo do ficheiro através do caminho
 - Obter metadados do ficheiro
-- Obter os metadados de ficheiro com o caminho
-- Lista de ficheiros na pasta raiz
-- Ficheiro de atualização
+- Obter metadados do ficheiro através do caminho
+- Listar ficheiros na pasta raiz
+- Atualizar ficheiro
 
 ## <a name="view-the-swagger"></a>Ver o swagger
 
@@ -100,7 +100,7 @@ Consulte o [swagger detalhes](/connectors/fileconnector/).
 
 * Para ajudar a melhorar o Azure Logic Apps e conectores, votar em ou submeter ideias no [site voz do utilizador do Azure Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Ligar aos dados no local](../logic-apps/logic-apps-gateway-connection.md) 
 * [Monitorizar as aplicações lógicas](../logic-apps/logic-apps-monitor-your-logic-apps.md)

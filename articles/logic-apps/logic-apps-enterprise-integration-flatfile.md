@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: bc3430624844cdeb92958433fba295f67a8ae0ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8795687c002282b68ebd1a4fa3fe18a9b102af4a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>Descrição geral da integração empresarial com ficheiros simples
 
-Pretende codificar o conteúdo XML antes de enviá-lo para um parceiro de negócios num cenário empresa-empresa (B2B). Numa aplicação lógica, pode utilizar o conector de codificação com ficheiros simples para efetuar este procedimento. A aplicação lógica que criar pode obter a respetiva XML conteúdos de uma variedade de origens, incluindo a partir de um acionador de pedido HTTP, de outra aplicação ou mesmo a partir de um dos muitos [conectores](../connectors/apis-list.md). Para mais informações sobre as logic apps, consulte o [documentação de aplicações lógicas](logic-apps-what-are-logic-apps.md "saber mais sobre as Logic apps").  
+Pretende codificar o conteúdo XML antes de enviá-lo para um parceiro de negócios num cenário empresa-empresa (B2B). Numa aplicação lógica, pode utilizar o conector de codificação com ficheiros simples para efetuar este procedimento. A aplicação lógica que criar pode obter a respetiva XML conteúdos de uma variedade de origens, incluindo a partir de um acionador de pedido HTTP, de outra aplicação ou mesmo a partir de um dos muitos [conectores](../connectors/apis-list.md). Para mais informações sobre as logic apps, consulte o [documentação de aplicações lógicas](logic-apps-overview.md "saber mais sobre as Logic apps").  
 
 ## <a name="create-the-flat-file-encoding-connector"></a>Criar o ficheiro simples codificação conector
 Siga estes passos para adicionar um ficheiro simples codificação conector à sua aplicação lógica.
@@ -82,6 +82,6 @@ Neste momento, tiver terminado de configurar o seu ficheiro simples descodificar
 
 Agora pode testar o seu conector ao efetuar um pedido para o ponto final de HTTP e incluindo o conteúdo XML que pretende descodificar no corpo do pedido.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack").  
 

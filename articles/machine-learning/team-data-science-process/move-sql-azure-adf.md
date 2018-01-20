@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um servidor SQL no local para o SQL Azure com o Azure Data Factory
 Este tópico mostra como mover dados de uma base de dados do servidor de SQL no local para uma base de dados do SQL do Azure através do Blob Storage do Azure com a fábrica de dados do Azure (ADF).
@@ -67,7 +67,7 @@ Utilizamos o [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) 
 Pode adaptar o procedimento indicado aqui a um conjunto de dados da sua própria ou siga os passos, conforme descrito utilizando o conjunto de dados NYC Taxi. Para carregar o conjunto de dados NYC Taxi para a base de dados do SQL Server no local, siga o procedimento descrito no [em massa importar dados na base de dados do SQL Server](sql-walkthrough.md#dbload). Estas instruções se destinam a um SQL Server uma Máquina Virtual no Azure, mas o procedimento para carregar para o SQL Server no local é o mesmo.
 
 ## <a name="create-adf"></a>Criar um Azure Data Factory
-As instruções para criar uma nova fábrica de dados do Azure e um grupo de recursos a [portal do Azure](https://portal.azure.com/) são fornecidos [criar um Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Nome a nova ocorrência do ADF *adfdsp* e atribua o nome do grupo de recursos criado *adfdsprg*.
+As instruções para criar uma nova fábrica de dados do Azure e um grupo de recursos a [portal do Azure](https://portal.azure.com/) são fornecidos [criar um Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Nome a nova ocorrência do ADF *adfdsp* e atribua o nome do grupo de recursos criado *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Instalar e configurar o Data Management Gateway
 Para ativar os seus pipelines de um Azure data factory para trabalhar com um servidor de SQL no local, terá de adicioná-lo como um serviço ligado a uma fábrica de dados. Para criar um serviço ligado para um servidor de SQL no local, tem de:

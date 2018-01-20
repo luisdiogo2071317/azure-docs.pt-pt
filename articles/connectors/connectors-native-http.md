@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Começar com a ação de HTTP
 
@@ -30,7 +30,7 @@ Pode:
 * Crie lógica fluxos de trabalho da aplicação que ativar (acionador) quando um site que gere fica inativo.
 * Comunicar com qualquer ponto final através de HTTP para expandir os seus fluxos de trabalho noutros serviços.
 
-Para começar a utilizar a ação de HTTP numa aplicação lógica, consulte o artigo [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Para começar a utilizar a ação de HTTP numa aplicação lógica, consulte o artigo [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-trigger"></a>Utilize o acionador HTTP
 Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho que está definido uma aplicação lógica. [Saiba mais sobre acionadores](connectors-overview.md).
@@ -107,28 +107,28 @@ Seguem-se os detalhes para a ação que este conector suporta. O conector HTTP t
 ## <a name="http-details"></a>Detalhes HTTP
 As tabelas seguintes descrevem os campos de entrada necessários e opcionais para a ação e os detalhes de resultado correspondente que estão associados utilizando a ação.
 
-#### <a name="http-request"></a>Pedido de HTTP
+#### <a name="http-request"></a>Pedido HTTP
 Seguem-se os campos de entrada para a ação, o que faz um pedido de saída de HTTP.
 A * significa que é um campo obrigatório.
 
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Método * |Método |O verbo HTTP a utilizar |
-| URI * |URI |O URI do pedido de HTTP |
-| Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos de HTTP para incluir |
-| Corpo |Corpo |O corpo do pedido HTTP |
-| Autenticação |Autenticação |Os detalhes no [autenticação](#authentication) secção |
+| Método * |método |O verbo HTTP a utilizar |
+| URI* |uri |O URI do pedido de HTTP |
+| Cabeçalhos |cabeçalhos |Um objeto JSON de cabeçalhos de HTTP para incluir |
+| Corpo |corpo |O corpo do pedido HTTP |
+| Autenticação |autenticação |Os detalhes no [autenticação](#authentication) secção |
 
 <br>
 
-#### <a name="output-details"></a>Detalhes de saída
+#### <a name="output-details"></a>Detalhes da saída
 Seguem-se detalhes de saída para a resposta HTTP.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
 | Cabeçalhos |objeto |Cabeçalhos de resposta |
 | Corpo |objeto |Objeto de resposta |
-| Código de estado |Int |Código de estado HTTP |
+| Código de Estado |Int |Código de estado HTTP |
 
 ## <a name="authentication"></a>Autenticação
 A funcionalidade de Logic Apps permite-lhe utilizar diferentes tipos de autenticação nos pontos finais HTTP. Pode utilizar esta autenticação com o **HTTP**,  **[HTTP + Swagger](connectors-native-http-swagger.md)**, e  **[HTTP Webhook](connectors-native-webhook.md)**  conectores. Os seguintes tipos de autenticação são configuráveis:
@@ -169,7 +169,7 @@ Por exemplo:
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
 | Tipo * |tipo |O tipo de autenticação (tem de ser `ClientCertificate` para certificados de cliente SSL) |
-| PFX * |PFX |O conteúdo com codificação Base64 do ficheiro Personal Information (Exchange PFX) |
+| PFX* |pfx |O conteúdo com codificação Base64 do ficheiro Personal Information (Exchange PFX) |
 | Palavra-passe * |palavra-passe |A palavra-passe para aceder ao ficheiro PFX |
 
 > [!TIP]
@@ -192,9 +192,9 @@ Por exemplo:
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
 | Tipo * |tipo |O tipo de autenticação (tem de ser `ActiveDirectoryOAuth` para o Azure AD OAuth) |
-| Inquilino * |Inquilino |O identificador de inquilino para o inquilino do Azure AD |
+| Inquilino * |inquilino |O identificador de inquilino para o inquilino do Azure AD |
 | Público-alvo * |público-alvo |O recurso que está a pedir autorização para utilizar. Por exemplo: `https://management.core.windows.net/` |
-| Cliente ID * |ID de cliente |O identificador de cliente para a aplicação do Azure AD |
+| Cliente ID * |clientId |O identificador de cliente para a aplicação do Azure AD |
 | Segredo * |segredo |O segredo do cliente que está a solicitar o token |
 
 > [!TIP]
@@ -214,6 +214,6 @@ Por exemplo:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Agora, experimente a plataforma e [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md). Pode explorar os outros conectores disponíveis em Logic Apps observando nosso [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Passos Seguintes
+Agora, experimente a plataforma e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pode explorar os outros conectores disponíveis em Logic Apps observando nosso [lista APIs](apis-list.md).
 

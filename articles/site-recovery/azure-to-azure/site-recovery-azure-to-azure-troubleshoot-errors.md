@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 7231c5d58dfd2d6eddd40e9003b63206f4c7f859
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VM do Azure para o Azure
 
@@ -109,13 +109,13 @@ Tem de ser inicializado num disco novo anexado à VM.
 
 **Código de erro** | **Causas possíveis** | **Recommendations (Recomendações)**
 --- | --- | ---
-150039<br></br>**Mensagem**: o disco de dados do Azure (DiskName) (DiskURI) com o número de unidade lógica (LUN) (LUNValue) não foi mapeado para um disco correspondente a ser reportado de dentro da VM que tenha o mesmo valor LUN. | -Um novo disco de dados foi ligado à VM, mas não foi inicializado.</br></br>-O disco de dados dentro da VM não está corretamente a comunicar o valor do LUN em que o disco foi ligado à VM.| Certifique-se de que os discos de dados são inicializados e, em seguida, repita a operação.</br></br>Para o Windows: [anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Para Linux: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+150039<br></br>**Mensagem**: o disco de dados do Azure (DiskName) (DiskURI) com o número de unidade lógica (LUN) (LUNValue) não foi mapeado para um disco correspondente a ser reportado de dentro da VM que tenha o mesmo valor LUN. | -Um novo disco de dados foi ligado à VM, mas não foi inicializado.</br></br>-O disco de dados dentro da VM não está corretamente a comunicar o valor do LUN em que o disco foi ligado à VM.| Certifique-se de que os discos de dados são inicializados e, em seguida, repita a operação.</br></br>Para o Windows: [anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Para Linux: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
 
 ### <a name="fix-the-problem"></a>Corrija o problema
 Certifique-se de que os discos de dados tem sido inicializados e, em seguida, repita a operação:
 
 - Para o Windows: [anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).
-- Para Linux: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+- Para Linux: [inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk-classic#initialize-a-new-data-disk-in-linux).
 
 Se o problema persistir, contacte o suporte.
 

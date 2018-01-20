@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.openlocfilehash: cb46c3f2809fa86fea7a8370d4c417f04040b74c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9c2ac737c9f4e13b4e5e4f5dba18c7a697f6e6c3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrar para o armazenamento do Azure Premium (discos não geridos)
 
@@ -755,18 +755,18 @@ Para otimizar a aplicação para um melhor desempenho de disco, consulte [otimiz
 ### <a name="application-migrations"></a>Migrações de aplicação
 Bases de dados e outras aplicações complexas podem necessitar de passos especiais conforme definido pelo fornecedor de aplicação para a migração. Consulte a documentação da respetiva aplicação. Por exemplo, Normalmente, as bases de dados podem ser migrados através da cópia de segurança e restaurar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes recursos para cenários específicos para migrar máquinas virtuais:
 
 * [Migrar máquinas virtuais do Azure entre contas de armazenamento](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Criar e carregar um VHD do Windows Server para o Azure.](../../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Criar e carregar um disco rígido Virtual que contém o sistema operativo Linux](../../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Criar e carregar um disco rígido Virtual que contém o sistema operativo Linux](../../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migração de máquinas virtuais do Amazon AWS ao Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Além disso, consulte os seguintes recursos para saber mais sobre o Storage do Azure e Virtual Machines do Azure:
 
 * [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [Máquinas virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure](../../virtual-machines/windows/premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

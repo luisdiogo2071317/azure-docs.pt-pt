@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Mover dos BizTalk Services para aplicações lógicas
 
@@ -39,7 +39,7 @@ A tabela seguinte fornece um mapeamento das capacidades do BizTalk Services para
 
 | Serviços BizTalk   | Aplicações Lógicas            | Objetivo                  |
 | ------------------ | --------------------- | ---------------------------- |
-| conector          | conector             | Enviar e receber dados   |
+| Conector          | Conector             | Enviar e receber dados   |
 | Bridge             | Aplicação Lógica             | Processador de pipeline           |
 | Validar fase     | Ação de validação de XML      | Validar um documento XML com um esquema             |
 | Enriqueça a fase       | Tokens de dados      | Promova propriedades em mensagens de ou para tomar decisões de encaminhamento             |
@@ -64,9 +64,9 @@ Cada bridge tem um ponto final de HTTP, por predefinição, o que está configur
 Uma ponte nos BizTalk Services é semelhante a um pipeline de processamento. Uma ponte pode demorar recebidos a partir de um conector de dados, e algumas trabalhar com os dados e, em seguida, envia-as para outro sistema. As Logic Apps tem a mesma ao suportar os padrões de interação com base no pipeline mesmo como os BizTalk Services e também fornece um número de outros padrões de integração. O [Bridge de pedido-resposta XML](https://msdn.microsoft.com/library/azure/hh689781.aspx) nos BizTalk Services é conhecido como um pipeline VETER constituídas por fases que podem:
 
 * (V) validar
-* (E) enriquecer a
+* (E) Enrich
 * (T) transformação
-* (E) enriquecer a
+* (E) Enrich
 * (R) rota
 
 Como mostrado na imagem seguinte, o processamento é dividido entre pedido e resposta e permite um controlo sobre o pedido e os caminhos de resposta separadamente (por exemplo, utilizando mapas diferentes para cada):
@@ -126,6 +126,6 @@ As Logic Apps fornece capacidades de monitorização e controlo mais rico de [po
 Para alcançar a elevada disponibilidade (HA) nos BizTalk Services, pode utilizar mais do que uma instância uma determinada região para partilhar a carga de processamento. Com as logic apps, na região HA está incorporada e ficar sem custos adicionais. Fora da região recuperação de desastres para processamento de B2B nos BizTalk Services, é necessário um processo de cópia de segurança e restauro. Em Logic Apps, um ativo/passivo por várias regiões [capacidade de DR](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) é fornecido; que permite a sincronização de dados de B2B em contas de automatização em diferentes regiões de continuidade do negócio.
 
 ## <a name="next"></a>Seguinte
-* [O que são as aplicações lógicas](logic-apps-what-are-logic-apps.md)
-* [Criar a sua primeira aplicação lógica](logic-apps-create-a-logic-app.md) ou começar rapidamente com um [modelo compilado previamente](logic-apps-create-logic-apps-from-templates.md)  
+* [O que são as aplicações lógicas](logic-apps-overview.md)
+* [Criar a sua primeira aplicação lógica](quickstart-create-first-logic-app-workflow.md) ou começar rapidamente com um [modelo compilado previamente](logic-apps-create-logic-apps-from-templates.md)  
 * [Ver todos os conectores disponíveis](../connectors/apis-list.md) pode usar numa aplicação lógica

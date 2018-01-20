@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 11/13/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 2839c265596d98834fb4071dea1684d5a6669907
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 9fb7814a8412200f6d31cfb9dcaee4663d7cea97
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novidades no catálogo de dados do Azure
 Atualizações **catálogo de dados do Azure** são lançadas regularmente. Não cada versão inclui novas funcionalidades de destinada ao utilizador, como algumas versões são concentra-se nas capacidades do serviço de back-end. Esta página realça as novas capacidades destinada ao utilizador adicionadas para o serviço de catálogo de dados do Azure.
@@ -169,7 +169,7 @@ A partir de Janeiro de 2016, foram adicionadas as seguintes capacidades do Azure
   * OData - função, o conjunto de entidades e o contentor de entidades
   * HTTP - ficheiro, o ponto final, o relatório e o Site
   * Sistema de ficheiros - ficheiro
-  * SharePoint - lista
+  * SharePoint - List
   * FTP - de ficheiros e diretórios
   * Em Salesforce.com - objeto
   * DB2 - de tabela, vista e base de dados

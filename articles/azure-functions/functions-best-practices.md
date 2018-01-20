@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3ef75a2a157190b24c171309c4d5c39596b5045
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d8088a8a83bcaefce17ac2756360a46119c8eb27
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e fiabilidade das funções do Azure
 
@@ -40,7 +40,7 @@ Sempre que possível, as funções de grande refactorize para a função de meno
 
 ### <a name="cross-function-communication"></a>Cruzada comunicação de função
 
-[Funções duráveis](durable-functions-overview.md) e [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) incorporada para gerir transições de estado e a comunicação entre várias funções.
+[Funções duráveis](durable-functions-overview.md) e [Azure Logic Apps](../logic-apps/logic-apps-overview.md) incorporada para gerir transições de estado e a comunicação entre várias funções.
 
 Se não utilizar funções durável ou Logic Apps para integrar com várias funções, normalmente, é uma melhor prática para utilizar as filas de armazenamento para cruzada comunicação de função.  O principal motivo é que as filas de armazenamento são mais barata e muito mais fácil para aprovisionar. 
 

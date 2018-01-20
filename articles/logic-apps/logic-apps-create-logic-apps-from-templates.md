@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8adda0d9cd6af98c04f2432eeabbc003ad403719
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 49b4bbfda4518b03ef6080bec1e2a493933af4f5
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Criar fluxos de trabalho da aplicação de lógica a partir de modelos prebuilt
 
@@ -36,7 +36,7 @@ Seguem-se algumas categorias do modelo:
 | Modelos de padrão de protocolo | Para implementar padrões de protocolo como resposta-pedido através de HTTP e integrações em FTP e SFTP. Utilizar estes modelos como fornecidos ou criar nos mesmos padrões de protocolo complexas. | 
 ||| 
 
-Se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar. Para obter mais informações sobre como criar uma aplicação lógica, consulte [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar. Para obter mais informações sobre como criar uma aplicação lógica, consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-logic-apps-from-templates"></a>Criar as logic apps a partir de modelos
 
@@ -155,7 +155,7 @@ Na barra de ferramentas do estruturador, escolha **Guardar**.
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](http://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre como criar aplicações lógicas através de exemplos, cenários, stories de cliente e instruções.
 

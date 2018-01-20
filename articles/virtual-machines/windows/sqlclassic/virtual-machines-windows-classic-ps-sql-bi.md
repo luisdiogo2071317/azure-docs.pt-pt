@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence em Máquinas Virtuais do Azure
 > [!IMPORTANT] 
@@ -69,11 +69,11 @@ Para obter mais informações sobre edições e funcionalidades suportadas pelo 
 A tabela seguinte resume as funcionalidades de Business Intelligence instaladas nas imagens de galeria comuns do Microsoft Azure Virtual Machine para o SQL Server:
 
 * SQL Server 2016 SP1 Enterprise
-* SQL Server 2016 SP1 padrão
-* Enterprise do SQL Server 2014 SP2
+* SQL Server 2016 SP1 Standard
+* SQL Server 2014 SP2 Enterprise
 * SQL Server 2014 SP2 Standard
 * SQL Server 2012 SP3 Enterprise
-* SQL Server 2012 SP3 padrão
+* SQL Server 2012 SP3 Standard
 
 | Funcionalidade do SQL Server BI | Instalado na imagem da Galeria | Notas |
 | --- | --- | --- |
@@ -98,7 +98,7 @@ A tabela seguinte resume as funcionalidades de Business Intelligence instaladas 
   * A unidade de colocação em cache da política para a unidade de predefinição **C**: não é o ideal para trabalhar com dados.
   * O **D**: unidade é uma unidade temporária que é utilizada principalmente para o ficheiro de paginação. O **D**: unidade não é continuada e não é guardada no armazenamento de Blobs. Reposição de tamanho de tarefas de gestão, tais como uma alteração à máquina virtual a **D**: unidade. É recomendado **não** utilizar o **D**: unidade para os ficheiros de base de dados, incluindo tempdb.
     
-    Para obter mais informações sobre como criar e anexar discos, consulte [como anexar um disco de dados para uma Máquina Virtual](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Para obter mais informações sobre como criar e anexar discos, consulte [como anexar um disco de dados para uma Máquina Virtual](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Parar ou desinstalar os serviços que não planeia utilizar. Para o exemplo se a máquina virtual só é utilizada para o Reporting Services, parar ou desinstalar o Analysis Services e do SQL Server Integration Services. A imagem seguinte é um exemplo dos serviços que são iniciadas por predefinição.
   
     ![Serviços do SQL Server](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -152,7 +152,7 @@ Existem dois fluxos de trabalho comuns para ligar uma máquina de Virtual do Azu
   1. Tipo de **nome do serviço de nuvem** como o nome do computador.
   2. Tipo de dois pontos (:) e o número de porta pública que esteja configurado para o TCP ambiente de trabalho ponto final remoto.
      
-      Myservice.cloudapp.NET:63133
+      Myservice.cloudapp.net:63133
      
       Para obter mais informações, consulte [o que é um serviço em nuvem?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
@@ -339,7 +339,7 @@ O diagrama seguinte ilustra as portas para abrir na firewall VM para permitir o 
 * [SQL Server em Descrição geral de máquinas virtuais do Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Aprovisionamento de uma Máquina Virtual do SQL Server no Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Como anexar um disco de dados para uma Máquina Virtual](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Como anexar um disco de dados para uma Máquina Virtual](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Migrar uma base de dados para o SQL Server numa VM do Azure](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Determinar o modo de servidor de uma instância do Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Modelação multidimensional (Adventure Works Tutorial)](https://technet.microsoft.com/library/ms170208.aspx)

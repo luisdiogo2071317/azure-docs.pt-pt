@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Azure de arquivar dados de monitorização
 
@@ -32,9 +32,9 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta do Storage
 
 Primeiro terá de configurar uma conta de armazenamento ao qual os dados de monitorização serão arquivados. Para tal, [siga os passos aqui descritos](../storage/common/storage-create-storage-account.md).
 
@@ -66,11 +66,11 @@ Agora que fluem a dados da sua subscrição de monitorização para a conta de a
 
 Agora vamos configurar dados de nível de recursos (métricas de recurso e os registos de diagnóstico) para ser encaminhados para a conta de armazenamento ao configurar **definições de diagnóstico de recurso**.
 
-1. Clique em de **Monitor** encontrado botão na lista de navegação esquerdo, em seguida, no **definições de diagnóstico**. Aqui pode ver uma lista de todos os recursos na sua subscrição produzir dados de monitorização por meio do Monitor do Azure. Se não tiver quaisquer recursos nesta lista, pode [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md) antes de prosseguir para que tenham um recurso que pode configurar uma definição de diagnóstico.
+1. Clique em de **Monitor** encontrado botão na lista de navegação esquerdo, em seguida, no **definições de diagnóstico**. Aqui pode ver uma lista de todos os recursos na sua subscrição produzir dados de monitorização por meio do Monitor do Azure. Se não tiver quaisquer recursos nesta lista, pode [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) antes de prosseguir para que tenham um recurso que pode configurar uma definição de diagnóstico.
 
 2. Clique num recurso na lista e, em seguida, clique em **ative os diagnósticos**.
    
-   ![Ative os diagnósticos](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
+   ![Ativar diagnósticos](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
    Se já existir uma definição configurada, consulte em vez disso, as definições existentes e um botão para **Adicionar definição de diagnóstico**. Clique neste botão.
 
@@ -164,7 +164,7 @@ Pode agora definiu com êxito dados de monitorização para ser arquivados para 
 
 5. Se tiver criado uma máquina virtual ou uma aplicação lógica para os passos anteriores, elimine-os também.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a configurar dados de monitorização do seu ambiente do Azure (subscrição, recursos e SO convidado) sejam arquivadas, para uma conta de armazenamento. 
 

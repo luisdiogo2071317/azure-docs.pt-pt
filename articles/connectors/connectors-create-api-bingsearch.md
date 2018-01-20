@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e420c837f9635b2386ca3b52bef487864d1aa2c1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-bing-search-connector"></a>Começar a utilizar o conector de pesquisa do Bing
 Ligar a pesquisa do Bing para pesquisar notícias de última hora, pesquisa vídeos e muito mais. Com a pesquisa do Bing, pode: 
@@ -28,7 +28,7 @@ Ligar a pesquisa do Bing para pesquisar notícias de última hora, pesquisa víd
 * Crie o fluxo de negócio com base nos dados que aproveitar a pesquisa. 
 * Utilize ações para imagens de pesquisa, procure as notícias e muito mais. Estas ações obter uma resposta e, em seguida, torne a saída disponível para outras ações. Por exemplo, pode procurar um vídeo e, em seguida, utilize o Twitter publicar que o vídeo para um feed do Twitter.
 
-Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md).
+Pode começar por criar uma aplicação lógica agora, consulte [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 

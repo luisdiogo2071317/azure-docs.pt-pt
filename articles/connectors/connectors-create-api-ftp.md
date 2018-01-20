@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Começar a utilizar o conector FTP
 Utilize o conector FTP para monitorizar, gerir e criar ficheiros num servidor FTP. 
 
-Para utilizar [qualquer conector](apis-list.md), terá primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/logic-apps-create-a-logic-app.md).
+Para utilizar [qualquer conector](apis-list.md), terá primeiro de criar uma aplicação lógica. Pode começar a utilizar pelo [criar uma aplicação lógica agora](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-ftp"></a>Ligar para FTP
 Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de criar um *ligação* ao serviço. A [ligação](connectors-overview.md) fornece conectividade entre uma aplicação lógica e outro serviço.  
@@ -35,7 +35,7 @@ Antes da aplicação lógica pode aceder a qualquer serviço, terá primeiro de 
 > 
 
 ## <a name="use-a-ftp-trigger"></a>Utilizar um acionador FTP
-Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre acionadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > O conector FTP requer um servidor FTP que está acessível a partir da Internet e está configurado para funcionar com o modo passivo. Além disso, o conector FTP é **não é compatível com FTPS implícita (FTP através de SSL)**. O conector FTP só suporta FTPS explícita (FTP através de SSL).  
@@ -61,7 +61,7 @@ Neste momento, a aplicação lógica foi configurada com um acionador que irá i
 > 
 
 ## <a name="use-a-ftp-action"></a>Utilizar uma ação de FTP
-Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Uma ação é uma operação levada a cabo pelo fluxo de trabalho definido numa aplicação lógica. [Saiba mais sobre as ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Agora que adicionou um acionador, siga estes passos para adicionar uma ação que irá obter os conteúdos do ficheiro novo ou modificado encontrado pelo acionador.    
 
@@ -73,7 +73,7 @@ Agora que adicionou um acionador, siga estes passos para adicionar uma ação qu
    ![Imagem da ação de FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
    O **obter o conteúdo do ficheiro** controlar é aberto. **Tenha em atenção**: lhe-á para autorizar a aplicação lógica para aceder à sua conta de servidor FTP, se não o fez, anteriormente.  
    ![Imagem da ação de FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Selecione o **ficheiro** controlo (o espaço em branco localizado abaixo **ficheiro***). Aqui, pode utilizar qualquer uma das várias propriedades do ficheiro de novo ou modificado encontrado no servidor de FTP.  
+5. Selecione o **ficheiro** controlo (o espaço em branco localizado abaixo * * ficheiro ***). Aqui, pode utilizar qualquer uma das várias propriedades do ficheiro de novo ou modificado encontrado no servidor de FTP.  
 6. Selecione o **conteúdo do ficheiro** opção.  
    ![Imagem da ação de FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
 7. O controlo é atualizado, indicando que o **FTP - obter o conteúdo do ficheiro** ação obterá o *conteúdo do ficheiro* do ficheiro novo ou modificado no servidor de FTP.      
@@ -90,6 +90,6 @@ Agora pode adicionar outra ação, tal como o [do SQL Server - Inserir linha](co
 
 Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/ftpconnector/). 
 
-## <a name="next-steps"></a>Passos Seguintes
-[Criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md)
+## <a name="next-steps"></a>Próximos Passos
+[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

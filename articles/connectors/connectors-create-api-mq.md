@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Ligar a um servidor do IBM MQ partir das logic apps através do conector MQ 
 
@@ -71,7 +71,7 @@ O conector MQ inclui as seguintes ações. Não existem nenhum acionador.
     1. Selecione **ligar através do gateway de dados no local**e introduza as propriedades do servidor MQ.  
     Para **servidor**, pode introduzir o nome do servidor MQ ou introduza o endereço IP seguido por um vírgula e o número de porta. 
     2. O **gateway** pendente lista quaisquer ligações de gateway existentes que tenham sido configuradas. Selecione o seu gateway.
-    3. Selecione **criar** quando terminar. A ligação semelhante ao seguinte:   
+    3. Quando terminar, selecione **Criar**. A ligação semelhante ao seguinte:   
     ![Propriedades de ligação](media/connectors-create-api-mq/Connection_Properties.png)
 
 4. Nas propriedades da ação, pode:  
@@ -122,5 +122,5 @@ Se não existirem não mensagens na fila de espera ao efetuar uma procura ou rec
 
 Ver todos os acionadores e ações definidas no swagger e consulte também os limites no [detalhes do conector](/connectors/mq/).
 
-## <a name="next-steps"></a>Passos seguintes
-[Criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md). Explorar os outros conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Passos Seguintes
+[Criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorar os outros conectores disponíveis em Logic Apps no nosso [lista APIs](apis-list.md).
