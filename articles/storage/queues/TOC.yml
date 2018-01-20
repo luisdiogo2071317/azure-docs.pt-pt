@@ -4,7 +4,7 @@
       href: storage-queues-introduction.md
 - name: Introdução
   items:
-    - name: Criar uma conta de armazenamento
+    - name: Criar uma conta do Storage
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Programar
       items:
