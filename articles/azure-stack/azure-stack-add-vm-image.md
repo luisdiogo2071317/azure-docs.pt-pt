@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3b228452d416bbb2c54243b95292f7e1198af14f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual personalizada na pilha do Azure
 
@@ -43,7 +43,7 @@ Execute os seguintes pré-requisitos a partir de [kit de desenvolvimento](azure-
    Pilha do Azure suporta o formato VHD do disco fixo. O formato fixo estruturas de disco lógico forma linear dentro do ficheiro, pelo que esse X do deslocamento de disco é armazenado no desvio de blob X. Um rodapé pequeno no final do blob descreve as propriedades do VHD. Para confirmar se o disco está corrigido, utilize o [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando do PowerShell.  
 
    > [!IMPORTANT]
-   >  Pilha do Azure não suporta VHDs de disco dinâmico. Redimensionar um disco dinâmico que está ligado a uma VM deixará a VM em estado de falha. Para atenuar este problema, elimine a VM sem eliminar o disco da VM, um blob VHD numa conta do storage. Converter o VHD de um disco dinâmico para um disco fixo e, em seguida, voltar a criar a máquina virtual.
+   >  Pilha do Azure não suporta VHDs de disco dinâmico. Redimensionar um disco dinâmico que está ligado a uma VM deixará a VM em estado de falha. Para atenuar este problema, elimine a VM sem eliminar o disco da VM, um blob VHD numa conta do storage. Em seguida, converter o VHD a partir de um disco dinâmico num disco fixo e voltar a criar a máquina virtual.
 
 Para adicionar a imagem para a pilha do Azure Marketplace, conclua os seguintes passos:
 
