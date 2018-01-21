@@ -14,9 +14,9 @@ A série Fs oferece todas as vantagens da série F, além do armazenamento Premi
 
 ## <a name="fsv2-series-sup1sup"></a>Série Fsv2 <sup>1</sup>
 
-ACU: 195-210
+ACU: 195 - 210
 
-| Tamanho             | do vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
+| Tamanho             | vCPU's | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Os NICs de máximo / esperado largura de banda de rede (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Moderado                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Moderado                                       |
@@ -24,9 +24,11 @@ ACU: 195-210
 | Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | Elevado                                           |
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extremamente elevado                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extremamente elevado                                 |
-| Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremamente elevado                                 |
+| Standard_F72s_v2<sup>2</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremamente elevado                                 |
 
 <sup>1</sup>série Fsv2 VM funcionalidade tecnologia® Hyper-Threading da Intel
+
+<sup>2</sup> necessita de mais de 64 vCPU uma destas convidados suportados sos: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 com LIS 4.2.1
 
 ## <a name="fs-series-sup1sup"></a>Série FS <sup>1</sup>
 
@@ -57,7 +59,7 @@ ACU: 210 - 250
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1500                     |
 | Standard_F4  | 4         | 8           | 64             | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 3000                     |
 | Standard_F8  | 8         | 16          | 128            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 6000                     |
-| Standard_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000           |
+| Standard_F16 | 16        | 32          | 256            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000           |
 
 
 <br>
