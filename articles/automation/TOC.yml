@@ -131,10 +131,10 @@
       items:
         - name: Galeria de runbooks
           href: automation-runbook-gallery.md
+        - name: Iniciar um runbook a partir dos alertas do Azure
+          href: automation-create-alert-triggered-runbook.md
         - name: Criar uma VM do Amazon Web Service
           href: automation-scenario-aws-deployment.md
-        - name: Remediar o alerta da VM do Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Iniciar/parar VM com etiquetas JSON
           href: automation-scenario-start-stop-vm-wjson-tags.md
         - name: Remover grupo de recursos
