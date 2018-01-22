@@ -45,6 +45,10 @@
           maintainContext: true
     - name: Programar
       items:
+        - name: Utilizar a API Kafka Producer and Consumer
+          href: apache-kafka-producer-consumer-api.md
+        - name: Utilizar a API Kafka Streams
+          href: apache-kafka-streams-api.md
         - name: Utilizar nós de extremidade em branco
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true

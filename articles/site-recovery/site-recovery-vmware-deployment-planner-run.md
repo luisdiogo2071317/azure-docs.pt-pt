@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 71090d897634989a061181f4471368cfb5f14be0
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 9aedd5561397c78622a43f39f423c618000a2a33
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Executar Azure Site Recovery Deployment Planner de VMware para o Azure
 Este artigo é o manual do utilizador do Azure Site Recovery Deployment Planner para implementações de produção de VMware para o Azure.
@@ -85,7 +85,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (Opcional) A palavra-passe a utilizar para ligar ao vCenter Server/anfitrião ESXi do vSphere. Se não indicar uma agora, ser-lhe-á pedida quando o comando for executado.|
 |-Port|(Opcional) Número de porta para estabelecer ligação ao anfitrião do vCenter/ESXi. A porta predefinida é 443.|
 |-Protocol| (Opcional) Protocolo especificado entre "http" ou "https" para ligar ao vCenter. O protocolo predefinido é https.|
-| -StorageAccountName | (Opcional) O nome da conta de armazenamento utilizada para encontrar o débito alcançável para a replicação de dados no local para o Azure. Para calcular o débito, a ferramenta carrega dados de teste para esta conta de armazenamento.|
+| -StorageAccountName | (Opcional) O nome da conta de armazenamento utilizada para encontrar o débito alcançável para a replicação de dados no local para o Azure. Para calcular o débito, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser de fins gerais v1 ou storageV2 (fins gerais v2)|
 | -StorageAccountKey | (Opcional) A chave da conta de armazenamento utilizada para aceder à mesma. Aceda a o portal do Azure > Contas de armazenamento > <*Nome da conta de armazenamento*> > Definições > Chaves de Acesso > Chave1. |
 | -Ambiente | (opcional) Este é o seu ambiente da conta de Armazenamento do Azure de destino. Este pode ser um de três valores - AzureCloud, AzureUSGovernment, AzureChinaCloud. A predefinição é AzureCloud. Utilize o parâmetro quando o região do Azure de destino está na cloud do Azure US Government ou do Azure China. |
 
@@ -263,7 +263,7 @@ Abra uma consola da linha de comandos e aceda à pasta da ferramenta Site Recove
 | -Operation | GetThroughput |
 |-Virtualization|Especifica o tipo de virtualização (VMware ou Hyper-V).|
 | -Directory | (Opcional) O caminho UNC ou o caminho do diretório local onde são armazenados os dados da criação de perfis (ficheiros gerados durante a criação de perfis). Estes dados são necessários para gerar o relatório. Se não for especificado o nome de um diretório, é utilizado o diretório “ProfiledData”. |
-| -StorageAccountName | O nome da conta de armazenamento utilizado para encontrar a largura de banda consumida para a replicação dos dados no local para o Azure. Para calcular a largura de banda consumida, a ferramenta carrega dados de teste para esta conta de armazenamento. |
+| -StorageAccountName | O nome da conta de armazenamento utilizado para encontrar a largura de banda consumida para a replicação dos dados no local para o Azure. Para calcular a largura de banda consumida, a ferramenta carrega dados de teste para esta conta de armazenamento. A conta de armazenamento tem de ser de fins gerais v1 ou storageV2 (fins gerais v2).|
 | -StorageAccountKey | A chave da conta de armazenamento utilizada para aceder à mesma. Aceda ao portal do Azure > Contas de armazenamento > <*Nome da conta de armazenamento*> > Definições > Chaves de acesso > Chave1 (ou uma chave de acesso primário para contas de armazenamento clássicas). |
 | -VMListFile | O ficheiro que contém a lista de VMs para as quais criar perfis para calcular a largura de banda consumida. O caminho do ficheiro pode ser absoluto ou relativo. Deve conter um nome/endereço IP de VM por linha. Os nomes das VMs especificados no ficheiro devem ser iguais aos nomes das VMs no vCenter Server/anfitrião ESXi do vSphere.<br>Por exemplo, o ficheiro VMList.txt contém as VMs seguintes:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 | -Ambiente | (opcional) Este é o seu ambiente da conta de Armazenamento do Azure de destino. Este pode ser um de três valores - AzureCloud, AzureUSGovernment, AzureChinaCloud. A predefinição é AzureCloud. Utilize o parâmetro quando o região do Azure de destino está na cloud do Azure US Government ou do Azure China. |

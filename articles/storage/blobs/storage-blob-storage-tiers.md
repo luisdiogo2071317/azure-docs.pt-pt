@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivos
 
@@ -113,7 +113,7 @@ Nesta secção os seguintes cenários são demonstrados através do portal do Az
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Alterar a camada de acesso predefinida de uma conta GPv2 ou de Armazenamento de Blobs
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Para navegar para a sua conta de armazenamento, selecione Todos os Recursos, em seguida, selecione a sua conta de armazenamento.
 
@@ -125,7 +125,7 @@ Nesta secção os seguintes cenários são demonstrados através do portal do Az
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Alterar a camada de um blob numa conta GPv2 ou de Armazenamento de Blobs.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Para navegar para o blob na conta de armazenamento, selecione Todos os Recursos, selecione a conta de armazenamento, selecione o contentor e, em seguida, selecione o blob.
 
@@ -189,7 +189,7 @@ O armazenamento de dados, juntamente com outros limites, é definido ao nível d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-### <a name="evaluate-hot-cool-and-archvie-in-gpv2-blob-storage-accounts"></a>Avaliar as camadas frequente, esporádica e de arquivo nas contas GPv2 e de Armazenamento de Blobs
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Avaliar as camadas frequente, esporádica e de arquivo nas contas GPv2 e de Armazenamento de Blobs
 
 [Verificar a disponibilidade das camadas frequente, esporádica e de arquivo por região](https://azure.microsoft.com/regions/#services)
 
