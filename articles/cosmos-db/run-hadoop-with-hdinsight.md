@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 01/19/2018
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 181954e4657166db8aa94021ad093437d8c7abfd
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Executar uma tarefa Apache Hive, Pig ou Hadoop, utilizando a BD do Cosmos do Azure e o HDInsight
 Este tutorial mostra como executar [Apache Hive][apache-hive], [Apache Pig][apache-pig], e [do Apache Hadoop] [ apache-hadoop] As tarefas do MapReduce no Azure HDInsight com o conector de Hadoop da BD do Cosmos. Conector de Hadoop da BD do cosmos permite BD do Cosmos agir como uma origem e o sink para tarefas do Hive, Pig e MapReduce. Este tutorial irá utilizar BD do Cosmos como a origem de dados e de destino para tarefas do Hadoop.
+
+> [!IMPORTANT] 
+> O Spark para o conector de BD do Cosmos do Azure é a opção recomendada para ligar o Azure HDInsight ao Azure Cosmos DB. Para obter mais informações, consulte [acelerar a análise de macrodados em tempo real com o Spark para o conector Azure Cosmos DB](spark-connector.md).
 
 Depois de concluir este tutorial, poderá responder às seguintes questões:
 
@@ -49,7 +52,7 @@ Não tem tempo para concluir o tutorial e apenas pretende obter os scripts do Po
     <tr><th>Versão do conector de Hadoop</th>
         <td>1.2.0</td></tr>
     <tr><th>Uri de script</th>
-        <td>https://portalcontent.blob.Core.Windows.NET/scriptaction/documentdb-hadoop-Installer-v04.ps1</td></tr>
+        <td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</td></tr>
     <tr><th>Data de modificação</th>
         <td>04/26/2016</td></tr>
     <tr><th>Versões do HDInsight suportados</th>
@@ -122,7 +125,7 @@ O campo tem de ser uma cadeia entre 3 e 63 carateres.</td></tr>
              <td>Especifique um nome para a ação de script.</td></tr>
          <tr><td>URI de script</td>
              <td>Especifique o URI para o script que é invocado para personalizar o cluster.</br></br>
-Introduza: </br> <strong>https://portalcontent.blob.Core.Windows.NET/scriptaction/documentdb-hadoop-Installer-v04.ps1</strong>.</td></tr>
+Introduza: </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v04.ps1</strong>.</td></tr>
          <tr><td>Head</td>
              <td>Clique na caixa de verificação para executar o script do PowerShell para o nó principal.</br></br>
              <strong>Selecione esta caixa de verificação</strong>.</td></tr>

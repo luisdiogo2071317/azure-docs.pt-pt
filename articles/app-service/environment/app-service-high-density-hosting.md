@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 22/01/2018
 ms.author: byvinyal
-ms.openlocfilehash: 2f10788ed01f5ad5e93ae491a03ca820554df2f9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 2ffffd3cc9f5c59f74f71d6d7d31c5ea615d11f4
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Alojamento de alta densidade no App Service do Azure
 Ao utilizar o serviço de aplicações, a aplicação é dissociada da capacidade alocada por dois conceitos:
@@ -38,12 +38,12 @@ No entanto, quando várias aplicações partilharem um plano do App Service, uma
 Por aplicação dimensionamento dimensiona uma aplicação independentemente do plano de serviço de aplicações que aloja-lo. Desta forma, um plano do App Service pode ser escalado para 10 instâncias, mas uma aplicação pode ser definida para utilizar apenas cinco.
 
    >[!NOTE]
-   >Por aplicação dimensionamento só está disponível para **Premium** planos SKU do App Service
+   >Por aplicação-dimensionamento, só está disponível para **padrão**, **Premium**, **Premium V2** e **Isolated** planos SKU do App Service
    >
 
 ### <a name="per-app-scaling-using-powershell"></a>Por aplicação dimensionamento com o PowerShell
 
-Pode criar um plano configurado como um *por aplicação dimensionamento* plano mediante a transmissão no ```-perSiteScaling $true``` atributo para o ```New-AzureRmAppServicePlan``` commandlet
+Criar um plano configurado como um *por aplicação dimensionamento* plano mediante a transmissão no ```-perSiteScaling $true``` atributo para o ```New-AzureRmAppServicePlan``` commandlet
 
 ```
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -71,7 +71,7 @@ $newASP
 Set-AzureRmAppServicePlan $newASP
 ```
 
-Ao nível da aplicação, é necessário configurar o número de instâncias, que pode utilizar a aplicação no plano de serviço de aplicações.
+Ao nível da aplicação, configure o número de instâncias, que pode utilizar a aplicação no plano de serviço de aplicações.
 
 No exemplo abaixo, a aplicação está limitada a duas instâncias, independentemente de quantas instâncias do plano do app service subjacente aumenta horizontalmente de forma a.
 

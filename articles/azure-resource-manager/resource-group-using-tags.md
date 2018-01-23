@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: d18f5f9e75cd815b7f9622498f16624cf375d6bd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 31477cbf478d2d836c2d7c3472e3a53f13831480
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
@@ -147,9 +147,9 @@ Quando transferir a utilização de CSV para serviços que suportam etiquetas co
 
 ![Consulte as etiquetas na faturação](./media/resource-group-using-tags/billing_csv.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Pode aplicar restrições e convenções na sua subscrição através da utilização de políticas personalizadas. Uma política que definir poderão exigir que todos os recursos têm um valor para uma tag específica. Para obter mais informações, consulte [o que é a política do Azure?](../azure-policy/azure-policy-introduction.md).
+* Pode aplicar restrições e convenções na sua subscrição através da utilização de políticas personalizadas. Uma política que definir poderão exigir que todos os recursos têm um valor para uma tag específica. Para obter mais informações, veja [What is Azure Policy?](../azure-policy/azure-policy-introduction.md) (O que é o Azure Policy?).
 * Para uma introdução ao utilizar o Azure PowerShell quando estiver a implementar recursos, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
 * Para uma introdução ao utilizar a CLI do Azure quando estiver a implementar recursos, consulte [utilizando a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Para uma introdução ao utilizar o portal, consulte [no portal do Azure para gerir os recursos do Azure](resource-group-portal.md).  

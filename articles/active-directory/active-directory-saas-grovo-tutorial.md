@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d5cb69d7832b974ec5e5b8b4e9f83b66fc9b98a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e4bb050e96d3e8d9da4666f5418ac3e444f6212d
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Tutorial: Integração do Azure Active Directory com Grovo
 
@@ -127,7 +127,7 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     > [!NOTE] 
     > Estes valores não estiverem reais. Atualize estes valores com o identificador, o URL de resposta, real de sessão no estado de URL e reencaminhamento. Contacte [equipa de suporte de Grovo](https://www.grovo.com/contact-us) para obter estes valores.
  
-5. Aplicação de Grovo espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos a partir de "**atributos de utilizador**" secção na página de integração de aplicações. A seguinte captura de ecrã mostra um exemplo para este.
+5. Aplicação de Grovo espera as asserções de SAML num formato específico. Configure as seguintes afirmações para esta aplicação. Pode gerir os valores destes atributos a partir de "**atributos de utilizador**" secção na página de integração de aplicações. Mapear **identificador de utilizador** com **user.mail** e configurar outros atributos como abaixo na captura de ecrã.
     
     ![Configurar attb Single Sign-On](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
     

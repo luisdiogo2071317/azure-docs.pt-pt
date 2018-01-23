@@ -14,13 +14,13 @@ ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: be2db4e413426be3a5e2dece43d74270e3636909
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1da38ebbe3354bbb36f68d1243b30bf2f4c5633f
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias do Apache Storm no HDInsight com o Python
 
@@ -149,7 +149,7 @@ Para parar a topologia, utilize __Ctrl + C__.
 > * O **Kill** botão na IU do Storm.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte os seguintes documentos para outras formas de utilizar o Python com o HDInsight:
 

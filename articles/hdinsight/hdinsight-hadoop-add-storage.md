@@ -12,14 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/24/2017
+ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 68229487f45c3246500875303105b0ebcc8079cb
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 72045d363516a2f16d45e3f8ee157ddd9d9242bd
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar contas de armazenamento adicional para o HDInsight
 
@@ -55,7 +55,7 @@ Durante o processamento, o script executa as seguintes ações:
 
 ## <a name="the-script"></a>O script
 
-__Localização do script__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
+__Script location__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
 __Requisitos__:
 
@@ -147,6 +147,6 @@ Se a conta de armazenamento numa região diferente que o cluster do HDInsight, p
 > [!WARNING]
 > Não é suportada a utilização de uma conta de armazenamento numa região diferente que o cluster do HDInsight.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprendeu como adicionar contas de armazenamento adicional para um cluster do HDInsight existente. Para obter mais informações sobre ações de script, consulte [clusters do HDInsight baseado em Linux personalizar através da ação de script](hdinsight-hadoop-customize-cluster-linux.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para o novo grupo de recursos ou subscrição
 
@@ -106,7 +106,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Automatização
 * Azure Cosmos DB
 * Batch
-* Bing Maps
+* Mapas Bing
 * CDN
 * Serviços em nuvem - consulte [limitações de implementação clássica](#classic-deployment-limitations)
 * Serviços Cognitivos
@@ -120,7 +120,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 * Clusters do HDInsight - consulte [limitações do HDInsight](#hdinsight-limitations)
 * Hubs IoT
 * Cofre de Chaves
-* Balanceadores de carga
+* Balanceadores de Carga
 * Aplicações Lógicas
 * Machine Learning
 * Serviços de Multimédia
@@ -150,7 +150,7 @@ Os serviços que permitem mover para um novo grupo de recursos e de subscrição
 
 Os serviços que atualmente não permitem mover um recurso são:
 
-* Serviços de domínio do AD
+* AD Domain Services
 * Serviço de estado de funcionamento de AD híbrido
 * Gateway de Aplicação
 * Serviços BizTalk
@@ -162,7 +162,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Discos geridos - Consulte [limitações de máquinas virtuais](#virtual-machines-limitations)
 * Cofre dos serviços de recuperação - também efetue não mover os recursos de computação, rede e armazenamento associados ao Cofre de serviços de recuperação, consulte [limitações de serviços de recuperação](#recovery-services-limitations).
 * Segurança
-* Gestor de dispositivos do StorSimple
+* Gestor de Dispositivos do StorSimple
 * Redes virtuais (clássicas) - consulte [limitações de implementação clássica](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Limitações de máquinas virtuais
@@ -315,6 +315,12 @@ Mover não está ativada para armazenamento, rede, ou computação recursos util
 
 Por exemplo, suponha que configurou a replicação das máquinas no local para uma conta de armazenamento (Storage1) e pretende máquina protegida para detetar um após a ativação pós-falha para o Azure como uma máquina virtual (VM1) ligada a uma rede virtual (Network1). Não é possível mover qualquer um destes recursos do Azure - Storage1, VM1 e Network1 - entre grupos de recursos dentro da mesma subscrição ou nas subscrições.
 
+Para mover uma VM inscrita no **cópia de segurança do Azure** entre grupos de recursos:
+ 1. Temporariamente parar a cópia de segurança e manter os dados de cópia de segurança
+ 2. Mova a VM para o grupo de recursos de destino
+ 3. Volte a protegê-lo sob o mesmo/novo cofre que os utilizadores podem restaurar a partir dos pontos de restauro disponíveis criados antes da operação de movimentação.
+Se o utilizador move a VM de cópia de segurança entre subscrições, passo 1 e o passo 2 se alteram. No passo 3, o utilizador precisa de proteger a VM novo cofre presente / criada na subscrição de destino. Suporte entre cópias de segurança de subscrição do cofre dos serviços de recuperação.
+
 ## <a name="hdinsight-limitations"></a>Limitações do HDInsight
 
 Pode mover clusters do HDInsight para uma nova subscrição ou grupo de recursos. No entanto, não é possível mover entre subscrições os recursos de rede ligados ao cluster do HDInsight (por exemplo, a rede virtual, o NIC ou o Balanceador de carga). Além disso, não é possível mover a um novo grupo de recursos um NIC anexado a uma máquina virtual para o cluster.
@@ -380,7 +386,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 No corpo do pedido, especifique o grupo de recursos de destino e os recursos para mover. Para obter mais informações sobre a operação REST de movimentação, consulte [mover recursos](/rest/api/resources/Resources/MoveResources).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para mais informações sobre cmdlets do PowerShell para gerir a sua subscrição, consulte o artigo [utilizar o Azure PowerShell com o Resource Manager](powershell-azure-resource-manager.md).
 * Para saber mais sobre os comandos da CLI do Azure para gerir a sua subscrição, consulte [utilizando a CLI do Azure com o Resource Manager](xplat-cli-azure-resource-manager.md).

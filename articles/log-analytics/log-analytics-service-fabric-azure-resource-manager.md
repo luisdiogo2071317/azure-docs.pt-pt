@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 01/19/2018
 ms.author: nini
-ms.openlocfilehash: 8c564c0dcbb2f9be286917b2f4d8a40da5406fae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cc29a8ac6369560d37466d69fad272cef2337732
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Avalie as aplicações de Service Fabric e microserviços com o portal do Azure
 
@@ -37,7 +37,7 @@ A solução de Service Fabric utiliza dados de diagnóstico do Azure da sua VMs 
 Para começar a utilizar com a solução, terá de ligar o seu cluster do Service Fabric para uma área de trabalho de análise de registos. Seguem-se três cenários a ter em consideração:
 
 1. Se não tiver implementado o cluster do Service Fabric, utilize os passos em ***implementar um Cluster do Service Fabric ligado a uma área de trabalho de análise de registos*** para implementar um novo cluster e tiver configurado para relatar para análise de registos.
-2. Se pretender recolher contadores de desempenho a partir dos anfitriões para utilizar outras soluções OMS, tais como a segurança no seu Cluster do Service Fabric, siga os passos no ***implementar um Cluster do Service Fabric ligado a uma área de trabalho de análise de registos com a extensão da VM instalado.***
+2. Se pretender recolher contadores de desempenho a partir dos anfitriões para utilizar outras soluções de gestão, tais como a segurança no seu Cluster do Service Fabric, siga os passos no ***implementar um Cluster do Service Fabric ligado a uma área de trabalho de análise de registos com a extensão de VM instalado.***
 3. Se já tiver implementado o cluster do Service Fabric e pretende estabelecer a ligação à análise de registos, siga os passos no ***adicionar uma conta de armazenamento existente para análise de registos.***
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Implemente um Cluster do Service Fabric ligado a uma área de trabalho de análise de registos.
@@ -138,7 +138,7 @@ Depois de implementar este modelo, será capaz de ver a conta de armazenamento l
 
 Depois de concluídas as implementações e a solução de Service Fabric foi ativada na sua área de trabalho, selecione o **Service Fabric** mosaico no portal do Log Analytics para iniciar o dashboard de Service Fabric. O dashboard inclui as colunas da tabela seguinte. Cada coluna apresenta os eventos principais de 10 por contagem correspondentes aos critérios dessa coluna para o intervalo de tempo especificado. Pode executar uma pesquisa de registo que fornece a lista completa clicando **ver todos os** na parte inferior direita de cada coluna ou ao clicar no cabeçalho da coluna.
 
-| **Evento de Service Fabric** | **Descrição** |
+| **Evento de Service Fabric** | **description** |
 | --- | --- |
 | Problemas Relevantes |Uma apresentação de problemas, tais como RunAsyncFailures RunAsynCancellations e nó pendentes. |
 | Eventos operacionais |Eventos operacionais relevantes, tais como a atualização da aplicação e implementações. |

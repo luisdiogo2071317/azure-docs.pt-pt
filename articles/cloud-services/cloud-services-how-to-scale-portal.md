@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 264f68b879653f4168637e19cc886524c4af8557
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0eea38cdb9827ab6e322025ff344ebbab0e83da3
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar automática dimensionamento para um serviço em nuvem no portal
 
 Condições podem ser definidas para uma função de trabalho do serviço de nuvem que acionam uma escala de entrada ou saída da operação. Podem basear-se as condições para a função na CPU, disco ou de carga na rede da função. Também pode definir uma condição com base na fila de mensagens ou a métrica de alguns recursos do Azure associado à sua subscrição.
 
 > [!NOTE]
-> Este artigo foca-se as funções web e de trabalho do serviço em nuvem. Quando cria uma máquina virtual (clássica) diretamente, está alojada num serviço em nuvem. Pode dimensionar uma máquina virtual standard associando-o com um [conjunto de disponibilidade](../virtual-machines/windows/classic/configure-availability-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) e ativá-los manualmente ou desativar.
+> Este artigo foca-se as funções web e de trabalho do serviço em nuvem. Quando cria uma máquina virtual (clássica) diretamente, está alojada num serviço em nuvem. Pode dimensionar uma máquina virtual standard associando-o com um [conjunto de disponibilidade](../virtual-machines/windows/classic/configure-availability-classic.md) e ativá-los manualmente ou desativar.
 
 ## <a name="considerations"></a>Considerações
 Deve considerar as seguintes informações antes de configurar o dimensionamento para a sua aplicação:

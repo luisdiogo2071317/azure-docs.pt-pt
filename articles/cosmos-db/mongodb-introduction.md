@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: anhoh
-ms.openlocfilehash: 9acc3268bc6a043852cadfafa40c0a54ecc66e59
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: d39ca60438ce5f49ed411eded22583438706dc8c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Introdução ao Azure Cosmos DB: API para MongoDB
 
@@ -33,13 +33,13 @@ Bases de dados de base de dados do Cosmos do Azure podem ser utilizados como o a
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>O que é a vantagem de utilizar a base de dados do Azure Cosmos para MongoDB aplicações?
 
-**Débito e armazenamento dimensionável aprovisionadas:** cumprem as suas aplicações necessitam ao facilmente aumentar ou reduzir vertical a base de dados de MongoDB. Os dados são armazenados em discos de estado sólidos (SSD) para baixas latências previsíveis. BD do Azure do Cosmos suporta MongoDB coleções que podem ser dimensionados para tamanhos de armazenamento virtualmente ilimitados e débito aprovisionado. Pode dimensionar de forma totalmente integrada o Azure Cosmos DB, com um desempenho previsível, à medida que a sua aplicação aumenta. 
+**Débito e armazenamento dimensionável aprovisionadas:** cumprem as suas aplicações necessitam ao facilmente aumentar ou reduzir vertical a base de dados de MongoDB. Os seus dados são armazenados em unidades de estado sólido (SSD) para baixas latências previsíveis. BD do Azure do Cosmos suporta MongoDB coleções que podem ser dimensionados para tamanhos de armazenamento virtualmente ilimitados e débito aprovisionado. Pode dimensionar de forma totalmente integrada o Azure Cosmos DB, com um desempenho previsível, à medida que a sua aplicação aumenta. 
 
 **Replicação de multirregião:** Azure Cosmos DB replica de forma transparente os dados para todas as regiões que associou à sua conta do MongoDB, permitindo-lhe desenvolver aplicações que necessitam acesso global aos dados ao fornecer as responsabilidades entre consistência, disponibilidade e desempenho, tudo com garantias correspondentes. O Azure Cosmos DB oferece ativação pós-falha regional transparente com APIs multi-homing e a capacidade e dimensionar de forma elástica o débito e o armazenamento a nível global. Saiba mais em [distribuir dados globalmente](distribute-data-globally.md).
 
 **Nenhuma gestão de servidor**: não tem de gerir e dimensionar as bases de dados de MongoDB. BD do Cosmos do Azure é um serviço completamente gerido, o que significa que não tem de gerir qualquer infraestrutura ou de máquinas virtuais por si. BD do Cosmos do Azure está disponível no 30 + [regiões do Azure](https://azure.microsoft.com/regions/services/).
 
-**Níveis de consistência sincronizáveis:** Selecionarem cinco níveis de consistência bem definidos para alcançar entre a consistência e desempenho. Para consultas e operações de leitura, o Azure Cosmos DB oferece cinco níveis de consistência distintos: forte, consistência vinculada, sessão, prefixo de consistência e eventual. Estes níveis de consistência granular e bem definidos permitem-lhe efetuar compromissos sonoros entre a consistência, a disponibilidade e a latência. Saiba mais em [Using consistency levels to maximize availability and performance](consistency-levels.md) (Utilizar níveis de consistência para maximizar a disponibilidade e desempenho).
+**Níveis de consistência sincronizáveis:** Selecione um dos cinco níveis de consistência bem definidos para alcançar compromissos ótimos entre a consistência e o desempenho. Para consultas e operações de leitura, o Azure Cosmos DB oferece cinco níveis de consistência distintos: forte, consistência vinculada, sessão, prefixo de consistência e eventual. Estes níveis de consistência granular e bem definidos permitem-lhe efetuar compromissos sonoros entre a consistência, a disponibilidade e a latência. Saiba mais em [Using consistency levels to maximize availability and performance](consistency-levels.md) (Utilizar níveis de consistência para maximizar a disponibilidade e desempenho).
 
 **A indexação automática**: por predefinição, base de dados do Azure Cosmos indexa automaticamente os todas as propriedades dentro de documentos no seu MongoDB da base de dados e não espera nem requer nenhum esquema ou criação de índices secundários. Além disso, a capacidade de índice exclusivo permite uma restrição de exclusividade em todos campos de documento que já são indexados automática do BD Azure Cosmos.
 
@@ -58,12 +58,12 @@ Siga os inícios rápidos MongoDB para criar uma conta de base de dados do Azure
 * [Criar uma aplicação de web API do MongoDB com .NET e o portal do Azure](create-mongodb-dotnet.md)
 * [Criar uma aplicação de consola do MongoDB API com Java e o portal do Azure](create-mongodb-java.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Informações sobre a API do Azure Cosmos base de dados MongoDB estão integradas a documentação de base de dados do Azure Cosmos geral, mas aqui estão alguns ponteiros para começar:
 
 * Siga o [ligar a uma conta do MongoDB](connect-mongodb-account.md) tutorial para saber como obter as informações de cadeia de ligação da conta.
-* Siga o [MongoChef de utilização com a base de dados do Azure Cosmos](mongodb-mongochef.md) tutorial para saber como criar uma ligação entre a base de dados de base de dados do Azure Cosmos e aplicação MongoDB no MongoChef.
+* Siga o [utilize Studio 3T (MongoChef) com base de dados do Azure Cosmos](mongodb-mongochef.md) tutorial para saber como criar uma ligação entre a base de dados de base de dados do Azure Cosmos e aplicação MongoDB no Studio t 3.
 * Siga o [migrar dados a BD do Cosmos do Azure com o protocolo de suportem para o MongoDB](mongodb-migrate.md) tutorial para importar os dados a uma API para a base de dados de MongoDB.
 * Ligar a uma API para utilizar a conta MongoDB [Robomongo](mongodb-robomongo.md).
 * Saiba RUs quantos suas operações estiver a utilizar com o [GetLastRequestStatistics comandos e as métricas de portais do Azure](request-units.md#GetLastRequestStatistics).

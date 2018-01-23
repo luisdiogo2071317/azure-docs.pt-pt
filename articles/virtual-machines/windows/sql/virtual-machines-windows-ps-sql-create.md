@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/29/2017
 ms.author: jroth
-ms.openlocfilehash: 00f229c1b7fd9f3abaea1a07cec9b44efac5a5fa
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e6d1f36d998ac8726e3a74b31772a5dd5a24bd58
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>Como criar máquinas virtuais do SQL Server com o Azure PowerShell
 
@@ -246,7 +246,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Definir as propriedades do sistema operativo da máquina virtual
-Agora, está prontos para definir as propriedades do sistema operativo da máquina virtual com [conjunto AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) necessitam de cmdlet para definir o tipo do sistema operativo como Windows, o [agente da máquina virtual](../classic/agents-and-extensions-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para ser instalada, especifique que o cmdlet permite a atualização automática e defina o nome de máquina virtual, o nome do computador e a credencial utilizando as variáveis que anteriormente inicializado.
+Agora, está prontos para definir as propriedades do sistema operativo da máquina virtual com [conjunto AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) necessitam de cmdlet para definir o tipo do sistema operativo como Windows, o [agente da máquina virtual](../agent-user-guide.md) para ser instalada, especifique que o cmdlet permite a atualização automática e defina o nome de máquina virtual, o nome do computador e a credencial utilizando as variáveis que anteriormente inicializado.
 
 Execute o cmdlet seguinte para definir as propriedades do sistema operativo para a máquina virtual.
 

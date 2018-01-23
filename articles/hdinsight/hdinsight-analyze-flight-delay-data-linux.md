@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 96a40753d87d49e9493e808da0294d682b2a19e5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analisar dados de atraso do voo utilizando o Hive no HDInsight baseado em Linux
 
@@ -47,7 +47,7 @@ Saiba como analisar dados de atraso do voo utilizando o Hive no HDInsight basead
    | --- | --- |
    | Filtrar ano |2013 |
    | Período de filtro |Janeiro |
-   | Campos |Ano, FlightDate, UniqueCarrier, operadora, FlightNum, OriginAirportID, origem, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   | Campos |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
    Limpe todos os outros campos. 
 
 3. Selecione **transferir**.
@@ -200,9 +200,7 @@ Se ainda não tiver uma base de dados do SQL Server, utilize as informações em
 > Existem várias formas para ligar à base de dados SQL e criar uma tabela. Os passos seguintes utilize [FreeTDS](http://www.freetds.org/) do HDInsight cluster.
 
 
-1. Utilizar o SSH para ligar ao cluster do HDInsight baseado em Linux e execute os seguintes passos da sessão SSH.
-
-2. Utilize o seguinte comando para instalar o FreeTDS:
+1. Para instalar o FreeTDS, utilize o comando seguinte a partir de uma ligação SSH para o cluster:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,8 +209,10 @@ Se ainda não tiver uma base de dados do SQL Server, utilize as informações em
 3. Após a conclusão da instalação, utilize o seguinte comando para ligar ao servidor de base de dados SQL. Substitua **serverName** com o nome do servidor de base de dados SQL. Substitua **adminLogin** e **adminPassword** com o início de sessão da base de dados do SQL Server. Substitua **databaseName** com o nome de base de dados.
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
+
+    Quando lhe for pedido, introduza a palavra-passe para início de sessão de administrador da base de dados SQL.
 
     Poderá recebe um resultado semelhante ao seguinte texto:
 
@@ -286,7 +286,7 @@ Se ainda não tiver uma base de dados do SQL Server, utilize as informações em
 
     Deverá ver uma lista dos dados da tabela. Tipo `exit` para sair do utilitário de tsql.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais formas de trabalhar com dados no HDInsight, consulte os artigos seguintes:
 

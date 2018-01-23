@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/19/2018
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 09fed11830bbbce23f7098050568d68a3b3bebec
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimizar o seu ambiente do SQL Server com a solução de verificação de estado de funcionamento do SQL Server na análise de registos
 
@@ -165,14 +165,14 @@ Ver as avaliações de conformidade resumidos para a sua infraestrutura e, em se
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver as recomendações para uma área de foco e tomar medidas corretivas
 1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
-3. No painel de subscrições de análise de registos, selecione uma área de trabalho e, em seguida, clique em de **Portal do OMS** mosaico.  
+3. No painel de subscrições de análise de registos, selecione uma área de trabalho e, em seguida, clique em de **descrição geral** mosaico.  
 4. No **descrição geral** página, clique em de **verificação de estado de funcionamento do SQL Server** mosaico. 
 5. No **verificação do Estado de funcionamento** página, reveja as informações de resumo de uma das seguintes painéis de área de foco e, em seguida, clique num para ver as recomendações para essa área de foco.
 6. Em qualquer uma das páginas da área de foco, pode ver as recomendações prioritários efetuadas para o seu ambiente. Clique numa recomendação em **Objetos afetados** para ver detalhes sobre o motivo pelo qual a recomendação é feita.<br><br> ![imagem de verificação de estado de funcionamento do SQL Server recomendações](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
 7. Pode executar ações corretivas sugeridas na **as ações sugeridas**. Quando o item tem sido resolvido, irão registar avaliações posteriores que ações foram executadas e o modelo de pontuação de conformidade aumentam recomendadas. Itens corrigidas aparecem como **transmitido objetos**.
 
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
-Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto que OMS irá utilizar para impedir que as recomendações a apresentação nos resultados da avaliação.
+Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto que irá utilizar análise de registos para impedir que as recomendações a apresentação nos resultados da avaliação.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -265,5 +265,5 @@ Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto q
 
 * Sim, consulte [ignorar recomendações](#ignore-recommendations) secção acima.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Pesquisar registos](log-analytics-log-searches.md) para saber como analisar dados de verificação do Estado de funcionamento de SQL detalhados e recomendações.

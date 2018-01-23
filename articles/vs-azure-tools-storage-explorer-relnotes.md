@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure (pré-visualização)
 
-Este artigo contém a versão de lançamento de notas do Explorador de armazenamento do Azure 0.9.3 (pré-visualização), bem como as notas de versão para versões anteriores.
+Este artigo contém a versão de lançamento de notas do Explorador de armazenamento do Azure 0.9.4 (pré-visualização), bem como as notas de versão para versões anteriores.
 
 [Explorador de armazenamento do Microsoft Azure (pré-visualização)](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
 
-## <a name="version-093"></a>Versão 0.9.3
-12/08/2017
+## <a name="version-094--093"></a>Versão 0.9.4 / 0.9.3
+01/21/2018
 
-### <a name="download-azure-storage-explorer-093-preview"></a>Transferir o Explorador de armazenamento do Azure 0.9.3 (pré-visualização)
-- [Explorador de armazenamento do Azure 0.9.3 (pré-visualização) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de armazenamento do Azure 0.9.3 (pré-visualização) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de armazenamento do Azure 0.9.3 (pré-visualização) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-094-preview"></a>Transferir o Explorador de armazenamento do Azure 0.9.4 (pré-visualização)
+- [Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de armazenamento do Azure 0.9.4 (pré-visualização) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Novo
 * A janela do Explorador de armazenamento existente será reutilizado quando:
@@ -44,10 +44,11 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
     * Para Mac, há uma opção 'Nova janela' no Menu de aplicação.
 
 ### <a name="fixes"></a>Correções
+* Corrigido um problema de segurança. Atualize para 0.9.4 em conveniência mais antigo.
 * Atividades antigas não foram adequadamente a ser limpa. Isto afetados o desempenho das tarefas de execução longa. Estes são agora a ser limpa corretamente.
 * Ações que envolvem grandes quantidades de ficheiros e diretórios ocasionalmente causaria Explorador de armazenamento parar. Pedidos para o Azure para partilhas de ficheiros estão agora trottled para limitar a utilização de recursos do sistema.
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
 * Teclas de atalho para "Explorador de vista" e "Vista de gestão de contas" devem ser Ctrl / Cmd + Shift + E e Ctrl / Cmd + Shift + A respetivamente.
 * Quando a filtrar a pilha do Azure, carregar determinados ficheiros como blobs de acréscimo pode falhar.
@@ -85,7 +86,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 
 
 
-### <a name="hotfixes"></a>Correções
+### <a name="hotfixes"></a>Hotfixes
 * Alterações de dados inesperado foram possíveis ao editar Edm.DateTime valores para as entidades da tabela, consoante o fuso horário local. O editor de utiliza uma caixa de texto simples, dar controlo preciso, consistente Edm.DateTime valores.
 * Um grupo de blobs quando anexada com o nome e a chave de carregamento/transferência não arrancam. Esta correção.
 * Anteriormente, Explorador de armazenamento só iria solicitar-lhe para voltar uma conta obsoleta se um ou mais subscrições da conta foi selecionado. Agora Explorador de armazenamento pedirá, mesmo se a conta é totalmente filtrada.
@@ -94,7 +95,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 
 ### <a name="new"></a>Novo
 * Suporte de pré-visualização para a base de dados do Azure Cosmos:
-    * [Documentação online](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Documentação online](./cosmos-db/storage-explorer.md)
     * Criar bases de dados e de coleções
     * Manipular dados
     * Consultar, criar ou eliminar documentos
@@ -116,7 +117,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * O suporte de várias formas de cadeias de ligação e SAS URIs regressed. Podemos ter resolvidos todos os problemas conhecidos, mas envie comentários, se ainda ocorrerem problemas.
 * A notificação de atualização foi interrompida para alguns utilizadores numa 0.9.0. Corrigir este problema e para os que são afetados pelos erros, pode transferir manualmente a versão mais recente do Explorador de armazenamento [aqui](https://azure.microsoft.com/en-us/features/storage-explorer/).
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
 * Teclas de atalho para "Explorador de vista" e "Vista de gestão de contas" devem ser Ctrl / Cmd + Shift + E e Ctrl / Cmd + Shift + A respetivamente.
 * Quando a filtrar a pilha do Azure, carregar determinados ficheiros como blobs de acréscimo pode falhar.
@@ -174,7 +175,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 10/20/2017
 ### <a name="new"></a>Novo
 * Suporte de pré-visualização para a base de dados do Azure Cosmos:
-    * [Documentação online](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * [Documentação online](./cosmos-db/storage-explorer.md)
     * Criar bases de dados e de coleções
     * Manipular dados
     * Consultar, criar ou eliminar documentos
@@ -196,7 +197,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * O suporte de várias formas de cadeias de ligação e SAS URIs regressed. Podemos ter resolvidos todos os problemas conhecidos, mas envie comentários, se ainda ocorrerem problemas.
 * A notificação de atualização foi interrompida para alguns utilizadores numa 0.9.0. Corrigir este problema e para os que são afetados pelos erros, pode transferir manualmente a versão mais recente do Explorador de armazenamento [aqui](https://azure.microsoft.com/en-us/features/storage-explorer/)
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Explorador de armazenamento não suporta contas ADFS.
 * Teclas de atalho para "Explorador de vista" e "Vista de gestão de contas" devem ser Ctrl / Cmd + Shift + E e Ctrl / Cmd + Shift + A respetivamente.
 * Quando a filtrar a pilha do Azure, carregar determinados ficheiros como blobs de acréscimo pode falhar.
@@ -240,7 +241,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Explorador de armazenamento foi incorretamente gerar carimbos de data / hora para assinaturas de acesso partilhado e consultas de tabela.
 
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 * Atualmente, o utilizando um nome e a cadeia de ligação de chave não funcionam. Irá ser corrigida na versão seguinte. Até que, em seguida, pode utilizar anexar com nome e chave.
 * Se tentar abrir um ficheiro com um nome de ficheiro inválido do Windows, a transferência resultará num ficheiro não foi encontrado o erro.
 * Depois de clicar em "Cancelar" uma tarefa, pode demorar um pouco para essa tarefa Cancelar. Esta é uma limitação da biblioteca do nó de armazenamento do Azure.
@@ -274,7 +275,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Explorador de armazenamento de resolução de problemas [guia][2]
 * [Instruções] [ 3] sobre a ligação a uma subscrição de pilha do Azure
 
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 
 * Botões de caixa de diálogo de confirmação de pasta de eliminação não registar os cliques do rato no Linux. Solução consiste em utilizar a tecla Enter
 * Se escolher o certificado PIN/smart card errado, em seguida, terá de reiniciar para ter o Explorador de armazenamento se esqueça de decisão
@@ -308,7 +309,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Corrigido: Selecionar tudo foi desativado durante a gestão de instantâneos
 * Fixo: Os metadados do base blob podem obter substituídos depois de visualizar as propriedades dos respetivos instantâneos.
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Se escolher o certificado PIN/smart card errado, em seguida, terá de reiniciar para ter o Explorador de armazenamento se esqueça de decisão
 * Enquanto ampliado ou reduzir, o nível de zoom momentaneamente pode repor o nível predefinido
@@ -351,7 +352,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Fixo: carregar blobs que necessitam de resoluções de conflito poderão falhar - fixo em 0.8.11
 * Corrigido: enviar comentários foi quebrada em 0.8.11 - fixo em 0.8.12
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Após a atualização para 0.8.10, terá de atualizar todas as suas credenciais.
 * Enquanto ampliado ou reduzir, o nível de zoom momentaneamente pode repor o nível predefinido.
@@ -395,7 +396,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Fixo: carregar para uma partilha de ficheiros puserem para sempre se o diretório de destino já não existe
 * Fixa: estabilidade melhorada para carregamentos de tempo e as transferências
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Enquanto ampliado ou reduzir, o nível de zoom momentaneamente pode repor o nível predefinido.
 * Acesso rápido só funciona com itens de subscrição com base. Recursos locais ou recursos ligados através de chave ou o SAS token não são suportados nesta versão.
@@ -423,7 +424,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Fixo: O tamanho da janela da última sessão fechada é agora retido
 * Fixo: Pode abrir vários separadores para o mesmo recurso utilizando o menu de contexto
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Acesso rápido só funciona com itens de subscrição com base. Recursos locais ou recursos ligados através de chave ou o SAS token não são suportados nesta versão
 * Poderá demorar um acesso rápido a alguns segundos para navegar para o recurso de destino, dependendo da quantidade de recursos tem
@@ -460,7 +461,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Fixo: Aumentar o número de recursos carregado a partir do 50 a 100 quando clicar em "Mais carga"
 * Corrigido: Na primeira execução, se uma conta é iniciada, iremos agora selecionar todas as subscrições para essa conta por predefinição
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Esta versão do Explorador de armazenamento não é executado no Ubuntu 14.04
 * Para abrir vários separadores para o mesmo recurso, não continuamente clique no mesmo recurso. Clique no outro recurso e, em seguida, volte atrás e, em seguida, clique no recurso original para abri-lo novamente noutro separador
@@ -485,7 +486,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
     * Por vezes, a chave de partição e a chave de linha foram inversa
     * Não é possível ler as chaves de partição "null"
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Identificadores de pesquisa procura em aproximadamente 50 000 nós - depois da primeira, o desempenho pode ser afetado
 * Pilha do Azure não suporta atualmente a ficheiros, pelo que tentar expandir ficheiros irá mostrar um erro
@@ -507,7 +508,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 
 * Fixo: não é possível editar as entidades da tabela se contiverem propriedades booleanos ou binárias
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Identificadores de pesquisa procura em aproximadamente 50 000 nós - depois da primeira, o desempenho pode ser afetado
 
@@ -528,7 +529,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 
 * Fixo: Accounts Microsoft requerem reautenticação cada 8-12 horas
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Por vezes, a IU pode aparecer congelada - maximizando a janela de ajuda a resolver este problema
 * instalação de macOS pode necessitar de permissões elevadas
@@ -556,7 +557,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Fixo: $metrics tabelas não são apresentadas para contas do Blob Storage
 * Fixo: nó de tabelas não funciona para o armazenamento (desenvolvimento) local
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * instalação de macOS pode necessitar de permissões elevadas
 
@@ -584,7 +585,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Fixo: Editar, adicionar ou importar uma entidade com um valor de cadeia numérica ("1") irá convertê-lo para duplo
 * Corrigido: Não é possível expandir o nó de tabela no ambiente de desenvolvimento local
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * $metrics tabelas não estão visíveis para contas do Blob Storage
 * Fila de mensagens através de programação adicionadas não pode ser apresentada corretamente se as mensagens são codificadas com codificação Base64
@@ -600,7 +601,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 
 * Erros fixo onde as mensagens de barra de informações por vezes, não apareçam quando as credenciais de início de sessão eram necessárias
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * As tabelas: Adicionar, editar ou importar uma entidade que tem uma propriedade com um valor numérico ambiguously, tais como "1" ou "1.0" e o utilizador tenta enviá-lo como um `Edm.String`, o valor regressará através do cliente de API como um Edm.Double
 
@@ -663,7 +664,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Armazenamento local continuam a estar disponíveis mesmo se as credenciais de utilizador expiraram
 * Quando é eliminado um contentor de blob aberta, o Explorador do blob no lado direito está fechado
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Instalação do Linux tem de versão do gcc atualizado ou atualizado – passos para atualizar abaixo:
     * `sudo add-apt-repository ppa:ubuntu-toolchain-r/test`
@@ -691,7 +692,7 @@ Este artigo contém a versão de lançamento de notas do Explorador de armazenam
 * Procurar blobs pelo prefixo
 * Arraste 'n largar ficheiros para carregar ou transferir
 
-#### <a name="known-issues"></a>Problemas conhecidos
+#### <a name="known-issues"></a>Problemas Conhecidos
 
 * Ao definir o nível de acesso de público do contentor de blob, o novo valor não for atualizado até voltar a definir o foco no contentor
 * Quando abre a caixa de diálogo para definir o nível de acesso público, indica sempre "Sem acesso de público" como a predefinição e não o valor real atual

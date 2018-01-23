@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 8513ace2589056387d8a1959c5727ee6bd5674cd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 2286843317230b8167b315b1e8e413e7571da4fe
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Monitorizar o desempenho de base de dados na Base de Dados SQL do Azure
 A monitorização do desempenho de uma base de dados SQL do Azure é iniciada com a monitorização da utilização de recursos em relação ao nível de desempenho de base de dados que escolher. A monitorização ajuda-o a determinar se a base de dados tem excesso de capacidade ou está a ter problemas porque os recursos estão a ser excessivamente utilizados e a decidir se está na altura de ajustar o nível de desempenho e a [camada de serviços](sql-database-service-tiers.md) da base de dados. Pode monitorizar a base de dados com as ferramentas gráficas no [portal do Azure](https://portal.azure.com) ou através de [vistas de gestão dinâmica](https://msdn.microsoft.com/library/ms188754.aspx) do SQL.
@@ -61,10 +61,10 @@ Pode monitorizar a utilização de utilização de recursos [SQL da base de dado
 
 Também pode monitorizar a utilização utilizando estas duas vistas:
 
-* [sys.dm db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
-* [resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+* [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+* [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-#### <a name="sysdmdbresourcestats"></a>sys.dm db_resource_stats
+#### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
 Pode utilizar o [sys.dm db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) vista em cada base de dados do SQL Server. O **sys.dm db_resource_stats** vista apresenta dados de utilização de recursos recentes relativamente à camada de serviço. Percentagens médias para memória, escritas de registo, dados e/s e CPU são gravadas a cada 15 segundos e são mantidas durante 1 hora.
 
 Uma vez que esta vista fornece mais granular Ver utilização de recursos, utilize **sys.dm db_resource_stats** primeiro para qualquer análise do estado atual ou a resolução de problemas. Por exemplo, esta consulta apresenta a utilização de recursos máxima e média da base de dados atual através da hora nos últimos:
@@ -82,8 +82,8 @@ Uma vez que esta vista fornece mais granular Ver utilização de recursos, utili
 
 Para outras consultas, consulte os exemplos [sys.dm db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-#### <a name="sysresourcestats"></a>resource_stats
-O [resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) ver no **mestre** base de dados tem informações adicionais que podem ajudar a monitorizar o desempenho da base de dados SQL no seu nível de desempenho e o escalão de serviço específicos. Os dados são recolhidos a cada 5 minutos e são mantidos para cerca de 35 dias. Esta vista é útil para uma análise histórica duração mais longa do como a base de dados do SQL Server utiliza recursos.
+#### <a name="sysresourcestats"></a>sys.resource_stats
+O [resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) ver no **mestre** base de dados tem informações adicionais que podem ajudar a monitorizar o desempenho da base de dados SQL no seu nível de desempenho e o escalão de serviço específicos. Os dados são recolhidos a cada 5 minutos e são mantidos para cerca de 14 dias. Esta vista é útil para uma análise histórica duração mais longa do como a base de dados do SQL Server utiliza recursos.
 
 O gráfico seguinte mostra a utilização de recursos da CPU para uma base de dados Premium com o nível de desempenho P2 para cada hora numa semana. Este gráfico é iniciado numa segunda, mostra 5 dias úteis e, em seguida, mostra um fim de semana, quando muito menos acontece na aplicação.
 

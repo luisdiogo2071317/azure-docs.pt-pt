@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Encriptação de base de dados do Cosmos DB do Azure Inativos
 
@@ -26,7 +26,7 @@ Encriptação de Inativos é uma expressão que geralmente refere-se para a encr
 
 Como um serviço de PaaS, Cosmos DB é muito fácil de utilizar. Porque todos os dados de utilizador armazenados na base de dados do Cosmos são encriptados em descanso e em transporte, não tem de efetuar qualquer ação. Outra forma coloque isto é que a encriptação de Inativos é "em" por predefinição. Não existem nenhum controlos para ativá-la ou desativar. Podemos fornecer esta funcionalidade, enquanto que continuam a corresponder aos nossos [SLA de disponibilidade e desempenho](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-## <a name="implement-encryption-at-rest"></a>Implementar a encriptação de Inativos
+## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementação de encriptação de Inativos para Azure Cosmos DB
 
 Encriptação de Inativos é implementada através da utilização de uma série de tecnologias de segurança, incluindo sistemas de armazenamento de chaves segura, redes encriptados e APIs de criptografia. Sistemas que desencriptar e processam os dados têm de comunicar com sistemas que gerir chaves. O diagrama mostra como armazenamento dos dados encriptados e a gestão de chaves são separadas. 
 
@@ -64,7 +64,7 @@ R: não há nenhum impacto ou alterações ao nível de desempenho SLAs agora qu
 ### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>P: o emulador local suporta a encriptação de Inativos?
 R: o emulador é uma ferramenta de programador/teste autónomo e não utiliza os serviços de gestão de chaves que o serviço de base de dados do Cosmos gerido utiliza. É a nossa recomendação para ativar o BitLocker em unidades onde estão a armazenar dados de teste de emulador confidenciais. O [emulador suporta alterar o diretório de dados predefinido](local-emulator.md) , bem como a utilização de uma localização conhecida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter uma descrição geral de segurança de BD do Cosmos e melhoramentos mais recentes, consulte [segurança da base de dados de base de dados do Azure Cosmos](database-security.md).
 Para mais informações sobre certificações da Microsoft, consulte o [Centro de fidedignidade do Azure](https://azure.microsoft.com/en-us/support/trust-center/).

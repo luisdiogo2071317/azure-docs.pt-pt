@@ -1,6 +1,6 @@
 ---
-title: "Análise de registos Iniciar pesquisa REST API | Microsoft Docs"
-description: "Este guia fornece um tutorial básico que descreve como pode utilizar a REST API de pesquisa de análise de registos no Operations Management Suite (OMS) e fornece exemplos mostram-lhe como utilizar os comandos."
+title: "Pesquisa de REST API de registo de análise de registos do Azure | Microsoft Docs"
+description: "Este guia fornece um tutorial básico que descreve como pode utilizar a REST API de pesquisa do Log Analytics do Azure com exemplos mostram-lhe como utilizar os comandos."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,24 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 0ca80408f8e8b2dae7ff35d50b3d2c41ae54d3d3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 46c88f7cc250d4c35043039a6f0440aaac85b1c2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Análise de registos de pesquisa REST API de registo
 
 > [!IMPORTANT]
 > Se a sua área de trabalho tiver sido atualizada para o [idioma de consulta de análise de registos nova](log-analytics-log-search-upgrade.md), em seguida, deve referir-se ao [documentação para a nova versão da pesquisa de registo API](https://dev.loganalytics.io/).  Esta API legada funcione com uma área de trabalho atualizada, mas será depracated em breve.  Deve modificar qualquer soluções existentes para utilizar a nova API.
 
-Este guia fornece um tutorial básico, incluindo exemplos, de como pode utilizar a API de REST de pesquisa de análise do registo. Análise de registos faz parte do conjunto de operações de gestão (OMS).
+Este guia fornece um tutorial básico, incluindo exemplos, de como pode utilizar a API de REST de pesquisa de análise do registo. 
 
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Descrição geral da pesquisa de registo REST API
-A API de REST de pesquisa de análise do registo é RESTful e pode ser acedida através da API do Azure Resource Manager. Este artigo fornece exemplos de aceder à API através de [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de código aberto que simplifica a invocar a API do Azure Resource Manager. A utilização de ARMClient é uma das muitas opções para aceder à API de pesquisa de análise do registo. Outra opção consiste em utilizar o módulo Azure PowerShell para OperationalInsights, que inclui cmdlets para aceder a pesquisa. Com estas ferramentas, pode utilizar a API do Gestor de recursos do Azure para efetuar chamadas a áreas de trabalho do OMS e executar comandos de pesquisa dentro delas. A API produz os resultados da pesquisa no formato JSON, permitindo-lhe utilizar os resultados da pesquisa de várias maneiras diferentes através de programação.
+A API de REST de pesquisa de análise do registo é RESTful e pode ser acedida através da API do Azure Resource Manager. Este artigo fornece exemplos de aceder à API através de [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de código aberto que simplifica a invocar a API do Azure Resource Manager. A utilização de ARMClient é uma das muitas opções para aceder à API de pesquisa de análise do registo. Outra opção consiste em utilizar o módulo Azure PowerShell para OperationalInsights, que inclui cmdlets para aceder a pesquisa. Com estas ferramentas, pode utilizar a API do Gestor de recursos do Azure para efetuar chamadas a áreas de trabalho de análise de registos e executar comandos de pesquisa dentro delas. A API produz os resultados da pesquisa no formato JSON, permitindo-lhe utilizar os resultados da pesquisa de várias maneiras diferentes através de programação.
 
 O Azure Resource Manager pode ser utilizado através de um [biblioteca para .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) e [REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx). Para obter mais informações, consulte as páginas web ligado.
 
