@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com agentes e/ou extensão
 
@@ -78,7 +78,7 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>A configuração de disco especificada não é suportada
 
 > [!NOTE]
-> Temos uma pré-visualização privada para suportar cópias de segurança de VMs com mais do que 1 TB de discos não geridos. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Temos uma versão de pré-visualização privada para suportar cópias de segurança para VMs com > discos de 1TB. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -97,11 +97,14 @@ Para funcionar corretamente, a extensão de cópia de segurança necessita de co
 
 ####  <a name="solution"></a>Solução
 Para resolver o problema, experimente um dos métodos listados aqui.
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Permitir o acesso para os intervalos IP do datacenter do Azure
+##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>Permitir o acesso ao armazenamento do Azure correspondente à região
 
-1. Obter o [lista do datacenter do Azure IPs](https://www.microsoft.com/download/details.aspx?id=41653) para permitir o acesso ao.
-2. Desbloquear os IPs executando o **New-NetRoute** cmdlet na VM do Azure numa janela elevada do PowerShell. Execute o cmdlet como administrador.
-3. Para permitir o acesso para os IPs, adicione regras para o grupo de segurança de rede, se tiver uma.
+Pode permitir que as ligações para o armazenamento da região específica utilizando [etiquetas de serviço](../virtual-network/security-overview.md#service-tags). Certifique-se de que a regra que permite o acesso à conta de armazenamento tem prioridade mais alta do que a regra que bloqueia o acesso à internet. 
+
+![NSG com etiquetas de armazenamento para uma região](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> As etiquetas de serviço de armazenamento estão disponíveis apenas em regiões específicas e estão em pré-visualização. Para obter uma lista de regiões, consulte [etiquetas de serviço para o armazenamento](../virtual-network/security-overview.md#service-tags).
 
 ##### <a name="create-a-path-for-http-traffic-to-flow"></a>Criar um caminho para o tráfego HTTP para o fluxo
 
@@ -166,8 +169,6 @@ As seguintes condições podem causar a falha de tarefa de instantâneo:
 | --- | --- |
 | A VM possui uma cópia de segurança do SQL Server configurada. | Por predefinição, a cópia de segurança VM é executado um VSS cópia de segurança completa em VMs do Windows. Em VMs que estejam a executar servidores baseados no SQL Server e no qual o SQL Server está configurada a cópia de segurança, podem ocorrer atrasos de execução do instantâneo.<br><br>Se estão a experienciar uma falha de cópia de segurança devido a um problema de instantâneo, defina a seguinte chave de registo:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | O estado VM é comunicado incorretamente porque a VM seja encerrada RDP. | Se desligar a VM no protocolo de ambiente de trabalho remoto (RDP), consulte o portal para determinar se o estado da VM está correto. Se não estiver correto, encerre a VM no portal utilizando o **encerramento** opção no dashboard VM. |
-| Várias VMs do mesmo serviço de nuvem estão configuradas para fazer cópias de segurança ao mesmo tempo. | É uma melhor prática para distribuir as agendas de cópia de segurança para as VMs do mesmo serviço de nuvem. |
-| A VM esteja em execução numa utilização elevada da CPU ou memória. | Se a VM esteja em execução numa utilização elevada da CPU (mais do que 90 por cento) ou utilização elevada da memória, a tarefa de instantâneo é colocado em fila e atrasada e acaba por atingir o tempo limite. Nesta situação, tente uma cópia de segurança a pedido. |
 | A VM não é possível obter o endereço do anfitrião/recursos de infraestrutura do DHCP. | DHCP deve ser ativado no computador convidado para a cópia de segurança de VM do IaaS funcione.  Se a VM não é possível obter o endereço do anfitrião/recursos de infraestrutura da resposta DHCP 245, não é possível transferir ou executar quaisquer extensões. Se precisar de um IP privado estático, deve configurá-lo através da plataforma. A opção de DHCP dentro da VM deve ser ativada à esquerda. Para obter mais informações, consulte [definir um IP estático de privada interna](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>A extensão de cópia de segurança não consegue atualizar ou carregar
@@ -192,24 +193,6 @@ Para desinstalar a extensão, efetue o seguinte:
 6. Clique em **desinstalar**.
 
 Este procedimento faz com que a extensão de ser reinstalado durante a próxima cópia de segurança.
-
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>VMs clássicas do Azure pode necessitar de um passo adicional para concluir o registo
-O agente em VMs clássicas do Azure deve estar registado para estabelecer ligação ao serviço de cópia de segurança e iniciar a cópia de segurança
-
-#### <a name="solution"></a>Solução
-
-Depois de instalar o agente convidado da VM, inicie o Azure PowerShell <br>
-1. No início de sessão na conta do Azure a utilizar <br>
-       `Login-AzureAsAccount`<br>
-2. Certifique-se de que se da VM ProvisionGuestAgent for definida como True, pelo que os seguintes comandos <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. Se a propriedade está definida como FALSE, siga abaixo comandos para configurá-lo para verdadeiro<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. Em seguida, execute o seguinte comando para atualizar a VM <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. Tente iniciar a cópia de segurança. <br>
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Serviço de cópia de segurança não tem permissão para eliminar os pontos de restauro antigos devido a bloqueio de grupo de recursos
 Este problema é específico para VMs gerido onde o utilizador bloqueia o grupo de recursos e o serviço de cópia de segurança não é possível eliminar os pontos de restauro mais antigos. Devido a esta novas cópias de segurança começam a falhar, há um limite de pontos de restauro 18 máxima imposta de back-end.

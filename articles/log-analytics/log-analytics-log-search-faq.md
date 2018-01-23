@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6dfee26d7585c8ec295a1f0ea1bd0bc14a34cc5a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Análise de registos nova registo pesquisa FAQ e problemas conhecidos
 
@@ -86,11 +86,11 @@ Pode ver uma comparação dos dois portais em [portais para criação e edição
 
 O browser necessita de acesso para os seguintes endereços para executar consultas de análise de registos após a atualização.  Se o seu browser está a aceder ao portal do Azure através de uma firewall, tem de ativar o acesso a estes endereços.
 
-| URI | IP | Portas |
+| Uri | IP | Portas |
 |:---|:---|:---|
-| Portal.loganalytics.IO | Dinâmica | 80,443 |
-| API.loganalytics.IO    | Dinâmica | 80,443 |
-| Docs.loganalytics.IO   | Dinâmica | 80,443 |
+| portal.loganalytics.io | Dinâmica | 80,443 |
+| api.loganalytics.io    | Dinâmica | 80,443 |
+| docs.loganalytics.io   | Dinâmica | 80,443 |
 
 
 
@@ -160,13 +160,12 @@ A pesquisa de registo legado vai ser preterida nos próximos meses. Áreas de tr
 Antes da disponibilidade geral, pode reverter a sua área de trabalho após a atualização.  Agora que o novo idioma atingiu disponibilidade geral, esta capacidade foi removida como podemos começar a extinguir a plataforma de legado.
 
 
-
 ## <a name="views"></a>Vistas
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Pergunta: Como criar uma nova vista com o estruturador de vistas?
-Antes da atualização, pode criar uma nova vista com o estruturador de vistas a partir de um mosaico no dashboard principal.  Quando a sua área de trabalho estiver atualizada, este mosaico é removido.  Pode criar uma nova vista com o estruturador de vistas no portal do OMS, clicando na verde + clique no botão no menu à esquerda.
+Antes da atualização, pode criar uma nova vista com o estruturador de vistas a partir de um mosaico no dashboard principal no portal do OMS.  Quando a sua área de trabalho estiver atualizada, este mosaico é removido.  Pode criar uma nova vista com o estruturador de vistas no portal do OMS, clicando na verde + clique no botão no menu à esquerda.  Continua a criar uma nova vista com o portal do Azure, clicando no mosaico do estruturador de vistas.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [atualizar a sua área de trabalho para a nova consulta de análise de registos idioma](log-analytics-log-search-upgrade.md).

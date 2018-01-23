@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Procurar os modelos de pilha do Azure com a validação do modelo
 
@@ -93,11 +93,11 @@ Os ficheiros transferidos incluem uma predefinição *AzureStackCloudCapabilitie
 3.  Utilize o cmdlet Get-CloudCapabilities para obter versões de service e crie um ficheiro JSON de capacidades de nuvem:
 
     ```PowerShell
-    Get-AzureRMCloudCapabilities -Location 'local' -Verbose
+    Get-AzureRMCloudCapability -Location 'local' -Verbose
     ```             
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
  - [Implementar modelos pilha do Azure](azure-stack-arm-templates.md)
  - [Desenvolver modelos para a pilha do Azure](azure-stack-develop-templates.md)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: c9b72c26649ddf5e15c6d8c36a732f2ca3e4aa30
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 126c5a5b3abd48b350c7d11a038a5d94e40280a0
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Neste artigo, **passo 2**, explica como preparar os discos rígidos virtuais (VHDs) que vai implementar no Azure Marketplace. Os VHDs são a base do SKU. O processo é diferente dependendo se está a fornecer um SKU baseado em Windows ou baseado em Linux. Este artigo abrange ambos os cenários. Este processo pode ser executado em paralelo com [conta criação e registo][link-acct-creation].
@@ -58,7 +58,7 @@ Depois de ter adicionado uma oferta, terá de definir e identificar os SKUs. Pod
 3. Se estiver a utilizar SKUs baseadas no Windows, siga as ligações sugeridas para obter as versões aprovadas do Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Criar um VHD compatível com o Azure (baseado em Linux)
-Esta secção está centrado nas melhores práticas para criar uma imagem VM baseadas em Linux para o Azure Marketplace. Para obter instruções passo a passo, consulte a seguinte documentação: [criar e carregar um disco rígido Virtual que contém o sistema operativo Linux](../virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Esta secção está centrado nas melhores práticas para criar uma imagem VM baseadas em Linux para o Azure Marketplace. Para obter instruções passo a passo, consulte a seguinte documentação: [criar uma imagem de VM com Linux personalizada](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Criar um VHD compatível com o Azure (baseado no Windows)
 Esta secção centra-se os passos para criar um SKU baseado no Windows Server para o Azure Marketplace.

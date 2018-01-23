@@ -3,7 +3,7 @@ title: "Gerido identidade de serviço (MSI) para o Azure Active Directory"
 description: "Uma descrição geral da identidade de serviço geridas para recursos do Azure."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/19/2017
-ms.author: bryanla
-ms.openlocfilehash: a2a42f13c81a6f6bb34a8e6aafabf380f3d220e1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.author: skwan
+ms.openlocfilehash: 914d09a73026356c836a6eb468818cc43664ec2e
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Gerido identidade de serviço (MSI) para recursos do Azure
 
@@ -63,6 +63,7 @@ Experimente um tutorial de identidade de serviço geridas para saber mais cenár
 |                    | [Aceder a um recurso de AD não do Azure com uma identidade de serviço geridas do Linux VM e o Cofre de chaves do Azure](msi-tutorial-linux-vm-access-nonaad.md) |
 | Serviço de Aplicações do Azure  | [Utilizar identidade de serviço geridas com o App Service do Azure ou as funções do Azure](/azure/app-service/app-service-managed-service-identity) |
 | Função do Azure     | [Utilizar identidade de serviço geridas com o App Service do Azure ou as funções do Azure](/azure/app-service/app-service-managed-service-identity) |
+| Service Bus do Azure  | [Utilizador geridos identidade de serviço com o Service Bus do Azure](../service-bus-messaging/service-bus-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Os serviços do Azure suportam uma identidade de serviço geridas?
 
@@ -85,12 +86,12 @@ Os seguintes serviços de suportam a autenticação do Azure AD e foi testados c
 
 | Serviço | ID do Recurso | Estado | Data | Atribuir acesso |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://Management.Azure.com/ | Disponível | Setembro de 2017 | [Portal do Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[CLI do Azure](msi-howto-assign-access-CLI.md) |
-| Azure Key Vault | https://Vault.Azure.NET/ | Disponível | Setembro de 2017 | |
-| Azure Data Lake | https://datalake.Azure.NET/ | Disponível | Setembro de 2017 | |
-| SQL do Azure | https://Database.Windows.NET/ | Disponível | Outubro de 2017 | |
-| Azure Event Hubs | https://eventhubs.Azure.NET/ | Disponível | Dezembro de 2017 | |
-| Service Bus do Azure | https://servicebus.Azure.NET/ | Disponível | Dezembro de 2017 | |
+| Azure Resource Manager | https://management.azure.com/ | Disponível | Setembro de 2017 | [Portal do Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[CLI do Azure](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net/ | Disponível | Setembro de 2017 | |
+| Azure Data Lake | https://datalake.azure.net/ | Disponível | Setembro de 2017 | |
+| SQL do Azure | https://database.windows.net/ | Disponível | Outubro de 2017 | |
+| Azure Event Hubs | https://eventhubs.azure.net/ | Disponível | Dezembro de 2017 | |
+| Service Bus do Azure | https://servicebus.azure.net/ | Disponível | Dezembro de 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Quantidade de identidade de serviço geridas custos?
 

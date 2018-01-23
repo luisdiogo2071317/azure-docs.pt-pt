@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b263c69554c22978c854d2678ad7eeca91bc71f7
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: cccab530e86373fee8a78b42c8cba532b05c1bab
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Introdução ao Explorador de Armazenamento (Pré-visualização)
 ## <a name="overview"></a>Descrição geral
@@ -99,7 +99,7 @@ Com o Explorador de Armazenamento (Pré-visualização), pode anexar a contas de
 ### <a name="get-the-storage-account-credentials"></a>Obter as credenciais da conta do Storage
 Para partilhar uma conta de armazenamento externa, o proprietário dessa conta tem primeiro de obter as credenciais (nome e chave da conta) da mesma e, em seguida, partilhar essas informações com a pessoa que se quer anexar a essa conta (externa). Pode obter as credenciais da conta de armazenamento através do portal do Azure, fazendo o seguinte:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **Procurar**.
 
@@ -241,9 +241,9 @@ Enquanto escreve na caixa de pesquisa, o painel esquerdo apresenta as contas de 
 
 ![Procurar conta de armazenamento][11]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Manage Azure Blob Storage resources with Storage Explorer (Preview)](vs-azure-tools-storage-explorer-blobs.md) [Gerir recursos do Armazenamento de Blobs do Azure com o Explorador de Armazenamento (Pré-visualização)]
-* [Gerir o Azure Cosmos DB no Explorador de armazenamento do Azure (pré-visualização)](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+* [Gerir o Azure Cosmos DB no Explorador de armazenamento do Azure (pré-visualização)](./cosmos-db/storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png

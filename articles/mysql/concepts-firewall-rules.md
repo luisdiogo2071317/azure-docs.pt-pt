@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/20/2017
-ms.openlocfilehash: aea561b526d6f3f818fd75771dd8c65c9f25051a
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.date: 1/20/2018
+ms.openlocfilehash: 3cc879fb568965af98997889437c6348e0d341e1
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Base de dados do Azure para as regras de firewall do servidor MySQL
 Firewalls impedir que todo o acesso ao seu servidor de base de dados até especificar quais os computadores que tem permissão. A firewall concede acesso ao servidor com base no endereço IP de origem de cada pedido.
@@ -36,6 +36,15 @@ Se o endereço IP do pedido estiver dentro dos intervalos especificados nas regr
 
 Se o endereço IP do pedido está fora dos intervalos especificados em qualquer uma das regras de firewall ao nível da base de dados ou ao nível do servidor, o pedido de ligação falha.
 
+## <a name="connecting-from-azure"></a>Ligar a partir do Azure
+Para permitir que as aplicações do Azure ligar à base de dados do Azure para o servidor de MySQL, as ligações do Azure tem de estar ativadas. Por exemplo, para alojar uma aplicação de Web Apps do Azure ou uma aplicação que é executado numa VM do Azure ou para ligar a partir de um gateway de gestão de dados do Azure Data Factory. Os recursos não precisam de estar na mesma rede Virtual (VNET) ou grupo de recursos para a regra de firewall para permitir essas ligações. Quando uma aplicação do Azure tenta ligar ao servidor de base de dados, a firewall verifica se as ligações do Azure são permitidas. Existem dois métodos para ativar estes tipos de ligações. Uma definição de firewall com o endereço de início e de fim igual a 0.0.0.0 indica que estas ligações são permitidas. Em alternativa, pode definir o **permitir o acesso aos serviços do Azure** opção para **ON** no portal do **segurança de ligação** painel e prima **guardar**. Se a tentativa de ligação não for permitida, o pedido não atingir o MySQL servidor da base de dados do Azure.
+
+> [!IMPORTANT]
+> Esta opção configura a firewall para permitir todas as ligações a partir do Azure, incluindo ligações de subscrições de outros clientes. Quando seleciona esta opção, certifique-se de que as permissões de início de sessão e de utilizador limitam o acesso a utilizadores autorizados apenas.
+> 
+
+![Configurar a permitir o acesso aos serviços do Azure no portal](./media/concepts-firewall-rules/allow-azure-services.png)
+
 ## <a name="programmatically-managing-firewall-rules"></a>Gerir regras de firewall programaticamente
 Para além de portal do Azure, as regras de firewall podem ser geridas através de programação utilizando a CLI do Azure. Consulte também [criar e gerir a base de dados do Azure para as regras de firewall de MySQL utilizando a CLI do Azure](./howto-manage-firewall-using-cli.md)
 
@@ -52,7 +61,7 @@ Quando o acesso à base de dados do Microsoft Azure para o serviço de servidor 
 
 * Em alternativa, obtenha o endereçamento IP estático para os computadores cliente e adicione os endereços IP como regras de firewall.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Criar e gerir a base de dados do Azure MySQL das regras de firewall com o portal do Azure](./howto-manage-firewall-using-portal.md)
 [criar e gerir a base de dados do Azure para as regras de firewall de MySQL utilizando a CLI do Azure](./howto-manage-firewall-using-cli.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3c3b036a8294e17aec103ba470402c1f8f707d8
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Ação com um Runbook de automatização a partir de um resultado de pesquisa de registos de análise de registos
 
@@ -30,7 +30,7 @@ A partir de um resultado de pesquisa de registo no Log Analytics do Azure, agora
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Para iniciar o runbook a partir de pesquisa de registo
 
-Para executar ações num evento e iniciar um runbook a partir dos resultados da pesquisa de registo, comece por criar uma pesquisa de registo e na lista de resultados pode invocar uma runbook a pedido.  Isto pode ser conseguido da funcionalidade de pesquisa de registo do Azure ou [portal do OMS](../log-analytics/log-analytics-log-searches.md).  Neste exemplo, vamos efetuar uma pesquisa de registo do portal do Azure com uma demonstração básico desta funcionalidade.
+Para executar ações num evento e iniciar um runbook a partir dos resultados da pesquisa de registo, comece por criar uma pesquisa de registo e na lista de resultados pode invocar uma runbook a pedido.  Isto pode ser conseguido da funcionalidade de pesquisa de registo no [portal do Azure](../log-analytics/log-analytics-log-search-new.md).  Neste exemplo, vamos efetuar uma pesquisa de registo do portal do Azure com uma demonstração básico desta funcionalidade.
 
 1. No portal do Azure, no Hub menu clique **mais serviços** e selecione **Log Analytics**.  
 2. No painel de análise de registos, selecione a sua área de trabalho de análise de registos e no painel da área de trabalho selecione **pesquisa registo**.  
@@ -46,7 +46,7 @@ Para executar ações num evento e iniciar um runbook a partir dos resultados da
 
 Se selecionar um runbook que foi configurado para ser [chamado a partir de um alerta de análise de registos](../automation/automation-invoke-runbook-from-omsla-alert.md), tem um parâmetro de entrada chamado **WebhookData** que **objeto** tipo.  Se o parâmetro de entrada é obrigatório, tem de passar os resultados da pesquisa para o runbook, pelo que pode converter a cadeia formatada em JSON para um tipo de objeto, permitindo-lhe filtrar itens específicos que irá referenciar em atividades do runbook.  Fazê-lo ao selecionar **procurar resultado (objeto)** na lista pendente.<br><br> ![Selecione o objeto de dados de Webhook para o parâmetro de runbook](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Reveja o [referência de pesquisa de registo de análise de registos](log-analytics-search-reference.md) para ver todos os campos de pesquisa e facetas disponíveis na análise de registos.
-* Para saber como invocar um runbook da automatização automaticamente, reveja [chamar um runbook de automatização do Azure a partir de um alerta de análise de registos do OMS](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* Para saber como invocar um runbook da automatização automaticamente, reveja [chamar um runbook de automatização do Azure a partir de um alerta de análise de registos](../automation/automation-invoke-runbook-from-omsla-alert.md).  

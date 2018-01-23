@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9651e582d6a33bed310e5e7f5354fb47dc47fe79
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Descrição geral do padrão de Balanceador de carga do Azure (pré-visualização)
 
@@ -217,7 +217,7 @@ Quando as ligações de saída são utilizadas com uma zona com redundância de 
 
 O novo algoritmo na padrão de Balanceador de carga preallocates realizar o SNAT portas para o NIC de cada VM. Quando um NIC é adicionado ao conjunto, as portas de realizar o SNAT são preallocated com base no tamanho do conjunto. A tabela seguinte mostra os preallocations de porta de camadas de seis de tamanhos de conjunto back-end:
 
-| Tamanho do conjunto (instâncias de VM) | Porta de realizar o SNAT preallocated |
+| Tamanho do conjunto (instâncias de VM) | Preallocated número de portas de realizar o SNAT |
 | --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |
@@ -255,7 +255,7 @@ SKUs só estão disponíveis no modelo de implementação Azure Resource Manager
 >[!IMPORTANT]
 >O SKU de um recurso não é mutável. Não pode alterar o SKU de um recurso existente.  
 
-### <a name="load-balancer"></a>Balanceador de Carga
+### <a name="load-balancer"></a>Load balancer
 
 O [recurso de Balanceador de carga existente](load-balancer-overview.md) torna-se a SKU básico e permanece geralmente disponível e não alterado.
 
@@ -339,7 +339,7 @@ Azure [limites de serviço para funcionamento em rede](https://docs.microsoft.co
 
 A tabela seguinte compara os limites e capacidades do Balanceador de carga básico e padrão SKUs:
 
-| Balanceador de Carga | Básica | Standard |
+| Load balancer | Básica | Standard |
 | --- | --- | --- |
 | Tamanho do conjunto de back-end | até 100 | até 1000 |
 | Limite de conjunto back-end | Conjunto de Disponibilidade | rede virtual, a região |
@@ -452,7 +452,7 @@ As seguintes limitações aplicam-se no momento da pré-visualização e estão 
 - No contexto das zonas de disponibilidade, não é possível mover um endereço IP público zonal de uma zona para outro.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [básico de Balanceador de carga](load-balancer-overview.md).
 - Saiba mais sobre [disponibilidade zonas](../availability-zones/az-overview.md).

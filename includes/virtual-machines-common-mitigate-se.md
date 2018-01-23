@@ -1,11 +1,14 @@
 
 
 
-**Documente última atualização**: 12 de Janeiro, 3:00 PM PST.
+**Documente última atualização**: 22 de Janeiro, 3:00 PM PST.
 
 A divulgação recente de um [nova classe de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) conhecido como ataques de canal de lado de execução speculative resultou no questões a partir de clientes de pesquisa mais efeitos de clareza.  
 
 A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente umas das outras está protegida.  Isto significa que outros clientes em execução no Azure não é possível ataques a sua aplicação utilizar estas vulnerabilidades.
+
+> [!NOTE] 
+> Azure mitigações previamente anunciadas no 3 de Janeiro de 2018 não são afetadas pelo recente [instruções atualizadas](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) da Intel. Não haverá nenhuma atividade manutenção adicionais no cliente VMs em resultado destas novas informações pela Intel.
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Manter os sistemas de operativos atualizado
 

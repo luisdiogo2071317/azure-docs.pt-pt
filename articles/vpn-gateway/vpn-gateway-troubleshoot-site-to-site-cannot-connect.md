@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: 55cfba5e9730b123bba20dfdc5d10c1157352a35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5fe877a46586af63c0991e3c3fbb8d42f69736c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Resolução de problemas: Uma ligação de VPN de site para site do Azure não é possível ligar e deixa de funcionar
 
@@ -26,7 +26,7 @@ Depois de configurar uma ligação de VPN de site a site entre uma rede no local
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
+## <a name="troubleshooting-steps"></a>Passos da resolução de problemas
 
 Para resolver o problema, tente primeiro [repor o gateway de VPN do Azure](vpn-gateway-resetgw-classic.md) e repor o túnel do dispositivo VPN no local. Se o problema persistir, siga estes passos para identificar a causa do problema.
 
@@ -92,7 +92,7 @@ Procurar e remover o encaminhamento definido pelo utilizador (UDR) ou grupos de 
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Passo 7. Certifique-se a pesquisa de estado de funcionamento do gateway do Azure
 
-1. Vá para o [sonda do Estado de funcionamento](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Vá para a sonda de estado de funcionamento.
 
 2. Clicar no aviso de certificado.
 3. Se receber uma resposta, o gateway VPN é considerado em bom estado. Se não receber uma resposta, o gateway poderá não estar em bom estado de funcionamento ou um NSG a sub-rede de gateway está a causar o problema. O texto seguinte é uma resposta de exemplo:
@@ -103,7 +103,7 @@ Procurar e remover o encaminhamento definido pelo utilizador (UDR) ou grupos de 
 
 A funcionalidade de perfeita secrecy reencaminhar pode causar problemas de interrupção de ligação. Se o dispositivo VPN tem perfeita secrecy reencaminhar ativada, desative a funcionalidade. Em seguida, atualize o política IPsec do gateway de VPN.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 -   [Configurar uma ligação site a site a uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Configurar uma política de IPsec/IKE para ligações de VPN de site a site](vpn-gateway-ipsecikepolicy-rm-powershell.md)

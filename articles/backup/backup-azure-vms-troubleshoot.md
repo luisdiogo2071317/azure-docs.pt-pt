@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/21/2018
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: d8840d2561e6102fe1679c36e981de6614b84d54
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados ao utilizar o Backup do Azure com as informações apresentadas na tabela abaixo.
@@ -28,7 +28,7 @@ Pode resolver erros encontrados ao utilizar o Backup do Azure com as informaçõ
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Erro: Não é suportada a configuração de disco especificado
 
 > [!NOTE]
-> Temos uma pré-visualização privada para suportar cópias de segurança de VMs com mais do que 1 TB de discos não geridos. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Temos uma versão de pré-visualização privada para suportar cópias de segurança para VMs com > discos de 1TB. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -72,19 +72,19 @@ Cópia de segurança do Azure não suporta atualmente os tamanhos de disco [supe
 ## <a name="jobs"></a>Tarefas
 | Detalhes do erro | Solução |
 | --- | --- |
-| Cancelamento não é suportado para este tipo de tarefa - por favor, aguardar até que a tarefa é concluída. |Nenhum |
+| Cancelamento não é suportado para este tipo de tarefa - por favor, aguardar até que a tarefa é concluída. |Nenhuma |
 | A tarefa não está num Estado cancelable - por favor, aguardar até que a tarefa é concluída. <br>OU<br> A tarefa selecionada não está num Estado cancelable -. Aguarde a conclusão da tarefa. |Em todos os probabilidade, a tarefa quase estiver concluída. Aguarde até que a tarefa esteja concluída.|
 | Não é possível cancelar a tarefa porque não está em curso - cancelamento só é suportado para tarefas que se encontrem em curso. . A tentativa de cancelar num em curso tarefa. |Isto acontece devido a um Estado temporárias. Aguarde um minuto e repita a operação de cancelamento. |
-| Falha ao cancelar a tarefa -. Aguarde pela conclusão da tarefa. |Nenhuma |
+| Falha ao cancelar a tarefa -. Aguarde pela conclusão da tarefa. |Nenhum |
 
 ## <a name="restore"></a>Restauro
 | Detalhes do erro | Solução |
 | --- | --- |
 | Falha no restauro com um erro interno de nuvem |<ol><li>O serviço em nuvem para o qual está a tentar restaurar está configurado com as definições de DNS. Pode verificar <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Se houver um endereço configurado, isto significa que as definições de DNS estão configuradas.<br> <li>O serviço em nuvem para a qual está a tentar restaurar está configurado com ReservedIP e VMs existentes num serviço em nuvem estão no estado de paragem.<br>Pode verificar o que IP reservado tem um serviço em nuvem, utilizando os seguintes cmdlets do powershell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Está a tentar restaurar uma máquina virtual com as seguintes configurações de rede especial no mesmo serviço em nuvem. <br>-As máquinas virtuais em configuração de Balanceador de carga (externas e internas)<br>-As máquinas virtuais com vários IPs reservados<br>-As máquinas virtuais com vários NICs<br>Selecione um novo serviço em nuvem na IU ou consulte [restaurar considerações](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) para VMs com configurações de rede especiais.</ol> |
 | O nome DNS selecionado já foi atribuído - Especifique um nome DNS diferente e tente novamente. |O nome DNS aqui refere-se ao nome do serviço em nuvem (normalmente, terminando. cloudapp.net). Isto deve ser exclusivo. Se ocorrer este erro, terá de escolher um nome VM diferente durante o restauro. <br><br> Este erro é apresentado apenas a utilizadores do portal do Azure. A operação de restauro através do PowerShell será bem sucedida porque apenas restaura os discos e não criar a VM. O erro irá ser deparam quando a VM é explicitamente criada por si após a operação de restauro de disco. |
-| A configuração de rede virtual especificado não está correta –. Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhum |
+| A configuração de rede virtual especificado não está correta –. Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhuma |
 | O serviço de nuvem especificada está a utilizar um IP reservado, que não coincide com a configuração da máquina virtual a ser restaurada - Especifique um serviço de nuvem diferente, que não está a utilizar o IP reservado, ou escolha outro ponto de recuperação para restaurar a partir de. |Nenhum |
-| Serviço em nuvem atingiu o limite do número de pontos finais de entrada - repetir a operação especificando um serviço em nuvem diferente ou através da utilização de um ponto final existente. |Nenhum |
+| Serviço em nuvem atingiu o limite do número de pontos finais de entrada - repetir a operação especificando um serviço em nuvem diferente ou através da utilização de um ponto final existente. |Nenhuma |
 | Conta de armazenamento do cofre e o destino da cópia de segurança em duas regiões diferentes - Certifique-se de que a conta de armazenamento especificada na operação de restauro na mesma região que o Cofre de cópia de segurança do Azure. |Nenhum |
 | Conta de armazenamento especificada para a operação de restauro não é suportada - contas do storage apenas Basic/Standard com localmente redundante ou definições de replicação redundante georreplicação são suportadas. Selecione uma conta de armazenamento suportadas |Nenhum |
 | Tipo de conta de armazenamento especificado para a operação de restauro não está online - Certifique-se de que a conta de armazenamento especificada na operação de restauro online |Isto pode acontecer devido a um erro transitório no armazenamento do Azure ou devido a uma falha. Escolha outra conta de armazenamento. |

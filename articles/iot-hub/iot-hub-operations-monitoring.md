@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: db03cfdd486a3172b258379928fac12cc0af730a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94cbef9d01299547a48923876cf134d5f3dafa6b
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="iot-hub-operations-monitoring"></a>Monitorização de operações de IoT Hub
 
 Monitorização de operações de IoT Hub permite-lhe monitorizar o estado das operações no seu IoT hub em tempo real. IoT Hub controla os eventos em várias categorias de operações. Pode participar num envio de eventos de uma ou mais categorias para um ponto final do seu IoT hub para processamento. Pode monitorizar os dados de erros ou configurar o processamento de mais complexo com base nos padrões de dados.
 
 >[!NOTE]
->Monitorização de operações de IoT Hub foi preterido e será removida do IoT Hub no futuro. Para monitorizar o estado de funcionamento do IoT Hub e operações, consulte [monitorizar o estado de funcionamento do Azure IoT Hub e diagnosticar problemas rapidamente][lnk-monitor]. Para obter mais informações sobre a linha cronológica descontinuação, consulte [monitorizar as suas soluções de IoT do Azure com o Monitor do Azure e o estado de funcionamento de recursos de Azure][lnk-blog-announcement].
+>Monitorização de operações de IoT Hub foi preterido e será removida do IoT Hub no 10 de Outubro de 2018. Para monitorizar o estado de funcionamento do IoT Hub e operações, consulte [monitorizar o estado de funcionamento do Azure IoT Hub e diagnosticar problemas rapidamente][lnk-monitor]. Para obter mais informações sobre a linha cronológica descontinuação, consulte [monitorizar as suas soluções de IoT do Azure com o Monitor do Azure e o estado de funcionamento de recursos de Azure][lnk-blog-announcement].
 
 IoT Hub monitoriza seis categorias de eventos:
 
@@ -287,11 +287,11 @@ class Program
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para explorar ainda mais as capacidades do IoT Hub, consulte:
 
 * [Guia para programadores do IoT Hub][lnk-devguide]
-* [Implementar o AI para dispositivos de limite com limite de IoT do Azure][lnk-iotedge]
+* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 
 <!-- Links and images -->
 [1]: media/iot-hub-operations-monitoring/enable-OM-1.png

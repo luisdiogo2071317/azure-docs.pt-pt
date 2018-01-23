@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 7f341b550316b44f7b6677bf59f323b568007700
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Oozie com o Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -31,7 +31,7 @@ Saiba como utilizar o Apache Oozie com o Hadoop no Azure HDInsight. Oozie é um 
 * Apache MapReduce
 * O Apache Pig
 * Apache Hive
-* O Apache Sqoop
+* Apache Sqoop
 
 Também pode utilizar o Oozie para agendar tarefas específicas para um sistema, como os programas de Java ou scripts de shell.
 
@@ -518,7 +518,7 @@ Para obter mais informações sobre como utilizar a API de REST do Oozie, consul
 A IU da web de Oozie fornece uma vista baseada na web para o estado das tarefas de Oozie no cluster. Com a IU da web pode ver as seguintes informações:
 
    * Estado da tarefa
-   * Definição de tarefa
+   * Definição da tarefa
    * Configuração
    * Um gráfico das ações na tarefa
    * Registos da tarefa
@@ -541,7 +541,7 @@ Para aceder a IU da web do Oozie, conclua os seguintes passos:
 
 5. Para visualizar mais informações sobre uma tarefa, selecione a tarefa.
 
-    ![Informações de tarefa](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
+    ![Informações da tarefa](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
 
 6. Do **tarefa informações** separador, pode ver as informações básicas de tarefa e as ações individuais dentro da tarefa. Pode utilizar os separadores na parte superior para ver o **definição de tarefa**, **tarefa configuração**, acesso a **registo da tarefa**, ou visualizar um acíclicos direcionados (DAG) da tarefa em **Tarefa DAG**.
 
@@ -731,7 +731,7 @@ Por exemplo, para a tarefa neste documento, teria de utilizar os seguintes passo
     <archive>sqljdbc41.jar</archive>
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu como definir um fluxo de trabalho do Oozie e como executar uma tarefa de Oozie. Para obter mais informações sobre como trabalhar com o HDInsight, consulte os artigos seguintes:
 

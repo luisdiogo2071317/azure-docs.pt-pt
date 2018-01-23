@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Criar registo pesquisas na análise de registos do Azure utilizando o portal de registo de pesquisa
 
@@ -37,11 +37,11 @@ Este tutorial parte do princípio de que já tem uma área de trabalho de análi
 - Ligar pelo menos, um [agente do Windows](log-analytics-windows-agent.md) ou um [agente Linux](log-analytics-linux-agents.md) à área de trabalho.  
 
 ## <a name="open-the-log-search-portal"></a>Abra o portal de registo de pesquisa
-Comece por abrir o portal de registo de pesquisa.  Pode aceder no portal do Azure ou o portal do OMS.
+Comece por abrir o portal de registo de pesquisa. 
 
 1. Abra o portal do Azure.
 2. Navegue até à análise de registos e selecione a sua área de trabalho.
-3. Selecione **pesquisa registo** para se manter no portal do Azure ou iniciar o portal do OMS selecionando **Portal do OMS** e, em seguida, clicando no botão de procura de registo.
+3. Selecione **Iniciar pesquisa**.
 
 ![Botão de procura de registo](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
@@ -160,7 +160,7 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 
 ![Gráfico de linhas](media/log-analytics-log-search-log-search-portal/log-search-portal-14.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre o idioma de consulta de análise de registos em [começar a utilizar o Portal da análise](https://go.microsoft.com/fwlink/?linkid=856079).
 - Percorrer um tutorial, utilizando o [portal da análise avançadas](https://go.microsoft.com/fwlink/?linkid=856587) que lhe permite executar as mesmas consultas e aceder os mesmos dados que o portal de registo de pesquisa.

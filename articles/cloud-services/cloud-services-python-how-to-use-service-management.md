@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: d0fd1063194ecbccb0af1abc0c441aa65b18883b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ca6e892e9f40204682be4ed00c413696f2022622
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-service-management-from-python"></a>Como utilizar o serviço de gestão do Python
 Este guia mostra como programaticamente efetuar tarefas de gestão comuns do serviço do Python. O **ServiceManagementService** classe no [Azure SDK para Python](https://github.com/Azure/azure-sdk-for-python) suporta acesso programático para muito a funcionalidade relacionadas com a gestão do serviço que está disponível no [Azure Portal] [ management-portal] (tais como **criar, atualizar e eliminar serviços em nuvem, implementações, os serviços de gestão de dados e as máquinas virtuais**). Esta funcionalidade pode ser útil na criação de aplicações que necessitam de acesso programático para gestão de serviço.
@@ -394,9 +394,9 @@ Por fim, criar a máquina virtual utilizando a imagem capturada, utilize o **cri
         role_size='Small',
         vm_image_name = image_name)
 
-Para obter mais informações sobre como capturar uma Máquina Virtual Linux, consulte [como capturar uma Máquina Virtual Linux.](../virtual-machines/linux/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Para obter mais informações sobre como capturar uma Máquina Virtual do Linux no modelo de implementação clássica, consulte [como capturar uma Máquina Virtual Linux.](../virtual-machines/linux/classic/capture-image-classic.md).
 
-Para obter mais informações sobre como capturar uma Máquina Virtual do Windows, consulte [como capturar uma Máquina Virtual do Windows.](../virtual-machines/windows/classic/capture-image-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Para obter mais informações sobre como capturar uma Máquina Virtual do Windows no modelo de implementação clássica, consulte [como capturar uma Máquina Virtual do Windows.](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"> </a>Passos seguintes
 Agora que aprendeu as noções básicas de gestão de serviço, pode aceder a [documentação de referência de API completa para o SDK Python](http://azure-sdk-for-python.readthedocs.org/) e efetuar as tarefas complexas facilmente para gerir a sua aplicação de python.

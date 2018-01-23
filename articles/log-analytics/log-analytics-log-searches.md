@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Localizar dados através de pesquisas de registo na análise de registos
 
@@ -30,7 +30,7 @@ O núcleo da análise de registos é a funcionalidade de pesquisa de registo que
 
 Na página de pesquisa, pode criar uma consulta e, em seguida, durante a pesquisa, pode filtrar os resultados ao utilizar controlos de aspeto de restrições. Também pode criar consultas avançadas para a transformação, o filtro e o relatório no seu resultados.
 
-Consultas de pesquisa de registo comum apresentados na maioria das páginas de solução. Em toda a consola do OMS, pode clique nos mosaicos ou desagregar outros itens para ver os detalhes sobre o item, utilizando a pesquisa de registo.
+Consultas de pesquisa de registo comum apresentados na maioria das páginas de solução. Ao longo do portal do OMS, pode clique nos mosaicos ou desagregar outros itens para ver os detalhes sobre o item, utilizando a pesquisa de registo.
 
 Neste tutorial, vamos explicar através de exemplos para cobrir todas as noções básicas quando utilizar a pesquisa de registo.
 
@@ -39,7 +39,7 @@ Vamos começar com exemplos simples, práticos e, em seguida, criar nos mesmos, 
 Depois de já familiarizado com as técnicas de pesquisa, pode rever o [referência de pesquisa de registo de análise de registos](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Utilizar filtros básicos
-A primeira coisa saber é que a primeira parte de uma procura consultar, antes de qualquer "|" caráter de barra vertical, é sempre um *filtro*. Pode considerá-la como uma cláusula WHERE na TSQL - determina *que* subconjunto de dados para solicitar a partir do arquivo de dados do OMS. Procurar no arquivo de dados é amplamente sobre Especifica as características dos dados que pretende extrair, pelo que é natural que uma consulta seria começar a utilizar a cláusula WHERE.
+A primeira coisa saber é que a primeira parte de uma procura consultar, antes de qualquer "|" caráter de barra vertical, é sempre um *filtro*. Pode considerá-la como uma cláusula WHERE na TSQL - determina *que* subconjunto de dados para solicitar fora de iniciar a área de trabalho de análise. Procurar no arquivo de dados é amplamente sobre Especifica as características dos dados que pretende extrair, pelo que é natural que uma consulta seria começar a utilizar a cláusula WHERE.
 
 Os filtros mais básicos, pode utilizar são *palavras-chave*, tais como 'error' ou 'timeout' ou um nome de computador. Estes tipos de consulta simple, geralmente, devolvem diversas formas de dados dentro do mesmo conjunto de resultados. Isto acontece porque a análise de registos tem diferentes *tipos* dos dados no sistema.
 
@@ -185,7 +185,7 @@ Por exemplo, dado que os alertas da avaliação de configuração tem os seguint
 
 * 0 = informações
 * 1 = aviso
-* 2 = crítico
+* 2 = Critical
 
 Pode consultar os alertas de aviso e críticas e também excluir informativas aqueles com a seguinte consulta:
 
@@ -355,7 +355,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ## <a name="use-the-avg-function-with-the-measure-command"></a>Utilize a função avg com o comando de medida
 A função de análises de Avg() utilizada com medidas permite-lhe calcular o valor médio para algumas campo e os resultados de grupo, o mesmo ou outro campo. Isto é útil numa variedade de cenários, tais como os dados de desempenho.
 
-Iremos começar com dados de desempenho. Tenha em atenção que o OMS atualmente recolhe os contadores de desempenho para as máquinas do Windows e Linux.
+Iremos começar com dados de desempenho. Tenha em atenção que a análise de registos recolhe atualmente os contadores de desempenho para as máquinas do Windows e Linux.
 
 Para procurar *todos os* dados de desempenho, a consulta mais básica é:
 
@@ -551,7 +551,7 @@ A função de countdistinct conta o número de valores distintos dentro de cada 
 * | measure countdistinct(Computer) by Type
 ```
 
-![Countdistinct do OMS](./media/log-analytics-log-searches/oms-countdistinct.png)
+![OMS-countdistinct](./media/log-analytics-log-searches/oms-countdistinct.png)
 
 ## <a name="use-the-measure-interval-command"></a>Utilize o comando de intervalo de medida
 Com perto de recolha de dados de desempenho em tempo real, pode recolher e visualizar quaisquer contador de desempenho de análise de registos. Basta introduzir a consulta **tipo: desempenho** devolverá milhares de métricos gráficos com base no número de contadores e os servidores no seu ambiente de análise de registos. Com agregação de métrica a pedido, pode ver as métricas globais no seu ambiente, um nível elevado e uma descrição profunda sobre os dados mais granulares, conforme necessário para.
@@ -583,7 +583,7 @@ Pode especificar múltiplas cláusulas agregadas num comando de medida.  Cada um
  ```
 Type=WireData | measure avg(ReceivedBytes), avg(SentBytes) by Direction interval 1hour
 ```
-![Multiaggregates1 do OMS](./media/log-analytics-log-searches/oms-multiaggregates1.png)
+![OMS-multiaggregates1](./media/log-analytics-log-searches/oms-multiaggregates1.png)
 
 Segue-se outro exemplo:
 
@@ -592,7 +592,7 @@ Segue-se outro exemplo:
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre pesquisas de registo, consulte:
 
 * Utilize [campos personalizados na análise de registos](log-analytics-custom-fields.md) para expandir as pesquisas de registo.

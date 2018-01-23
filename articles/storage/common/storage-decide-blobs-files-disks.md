@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 648d8f04952a4dbe474b44f385075c0ac1c9fd57
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e68f02484c0b8de8319a2d9a6d7e3a01ee06c69a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidir quando deve utilizar Blobs do Azure, ficheiros do Azure ou discos do Azure
 
@@ -78,4 +78,4 @@ Ao tomar decisões sobre a forma como os dados são armazenados e aceder, deve t
   
 Algumas funcionalidades do SMB não são aplicáveis para a nuvem. Para obter mais informações, consulte [funcionalidades não são suportadas pelo serviço de ficheiros do Azure](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
-Para obter mais informações acerca dos discos, consulte [gestão de discos e imagens](../../virtual-machines/windows/about-disks-and-vhds.md) e [como anexar um disco de dados para uma Máquina Virtual do Windows](../../virtual-machines/windows/classic/attach-disk-classic.md).
+Para obter mais informações acerca dos discos, consulte [gestão de discos e imagens](../../virtual-machines/windows/about-disks-and-vhds.md) e [como anexar um disco de dados para uma Máquina Virtual do Windows](../../virtual-machines/windows/attach-managed-disk-portal.md).

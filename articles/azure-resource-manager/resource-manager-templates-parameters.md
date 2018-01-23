@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d0f53751bf529d52c156a8b9319b10560eb8997
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Secção de parâmetros de modelos Azure Resource Manager
 Na secção de parâmetros do modelo, especifique os valores que pode introduzir quando implementar os recursos. Estes valores de parâmetros permitem-lhe personalizar a implementação, fornecendo valores que são adaptados para um ambiente específico (por exemplo, o desenvolvimento, teste e produção). Não é necessário fornecer os parâmetros no modelo, mas sem parâmetros do modelo implementaria sempre os mesmos recursos com os mesmos nomes, localizações e as propriedades.
@@ -86,10 +86,10 @@ O exemplo anterior mostrou apenas algumas das propriedades que pode utilizar a s
 |:--- |:--- |:--- |
 | parameterName |Sim |Nome do parâmetro. Tem de ser um identificador de JavaScript válido. |
 | tipo |Sim |Tipo do valor de parâmetro. Os tipos permitidos e os valores são **cadeia**, **secureString**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
-| DefaultValue |Não |Valor predefinido para o parâmetro se não for fornecido nenhum valor para o parâmetro. |
+| defaultValue |Não |Valor predefinido para o parâmetro se não for fornecido nenhum valor para o parâmetro. |
 | allowedValues |Não |Matriz de valores permitidos para o parâmetro para se certificar de que é fornecido o valor correto. |
-| MinValue |Não |O valor mínimo de parâmetros de tipo int, este valor é inclusive. |
-| MaxValue |Não |O valor máximo de parâmetros de tipo int, este valor é inclusive. |
+| minValue |Não |O valor mínimo de parâmetros de tipo int, este valor é inclusive. |
+| maxValue |Não |O valor máximo de parâmetros de tipo int, este valor é inclusive. |
 | minLength |Não |O comprimento mínimo de cadeia, secureString e parâmetros de tipo de matriz, este valor é inclusive. |
 | maxLength |Não |O comprimento máximo da cadeia, secureString e parâmetros de tipo de matriz, este valor é inclusive. |
 | descrição |Não |Descrição do parâmetro que é apresentada aos utilizadores através do portal. |
@@ -131,6 +131,7 @@ Defina o parâmetro no seu modelo e especifique um objeto JSON em vez de um valo
     "type": "object",
     "defaultValue": {
       "name": "VNet1",
+      "location": "eastus",
       "addressPrefixes": [
         {
           "name": "firstPrefix",
@@ -160,7 +161,7 @@ Em seguida, fazer referência a subproperties do parâmetro utilizando o operado
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('VNetSettings').name]",
-    "location":"[resourceGroup().location]",
+    "location": "[parameters('VNetSettings').location]",
     "properties": {
       "addressSpace":{
         "addressPrefixes": [
@@ -237,7 +238,7 @@ As seguintes informações podem ser úteis quando trabalha com parâmetros:
    }
    ```
 
-* Sempre que possível, não utilize um parâmetro para especificar a localização. Em alternativa, utilize o **localização** propriedade do grupo de recursos. Utilizando o **resourceGroup (). location** expressão para todos os recursos, recursos do modelo são implementados na mesma localização que o grupo de recursos:
+* Utilize um parâmetro para especificar a localização e partilhar esse valor de parâmetro quanto possível com os recursos que são provável que esteja na mesma localização. Esta abordagem minimiza o número de vezes que os utilizadores são-lhe pedidos para fornecer informações de localização. Se um tipo de recurso é suportado em apenas um número limitado de localizações, poderá especificar uma localização válida diretamente no modelo ou adicione outro parâmetro de localização. Quando uma organização limita as regiões permitidas aos utilizadores, a **resourceGroup (). location** expressão pode impedir um utilizador que está a ser possível implementar o modelo. Por exemplo, um utilizador cria um grupo de recursos numa região. Um segundo utilizador tem de implementar a esse grupo de recursos, mas não tem acesso para a região. 
    
    ```json
    "resources": [
@@ -245,13 +246,12 @@ As seguintes informações podem ser úteis quando trabalha com parâmetros:
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
+         "location": "[parameters('location')]",
          ...
      }
    ]
    ```
-   
-   Se um tipo de recurso é suportado em apenas um número limitado de localizações, pode pretender especificar uma localização válida diretamente no modelo. Se tiver de utilizar um **localização** parâmetro, partilham esse valor de parâmetro quanto possível com os recursos que são provável que esteja na mesma localização. Esta abordagem minimiza o número de vezes que os utilizadores são-lhe pedidos para fornecer informações de localização.
+    
 * Evite utilizar um parâmetro ou variável para a versão da API para um tipo de recurso. Propriedades de recursos e os valores podem variar pelo número de versão. O IntelliSense num editor de código não é possível determinar o esquema correto quando a versão de API está definida como um parâmetro ou variável. Em vez disso, versão de codificar a API no modelo.
 * Evite especificar um nome de parâmetro no modelo que corresponda a um parâmetro de comando de implementação. Gestor de recursos resolve este conflito de atribuição de nomes ao adicionar o sufixo **FromTemplate** para o parâmetro de modelo. Por exemplo, se incluir um parâmetro com o nome **ResourceGroupName** no seu modelo, está em conflito com o **ResourceGroupName** parâmetro o [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Durante a implementação, lhe for pedido para fornecer um valor para **ResourceGroupNameFromTemplate**.
 
@@ -264,7 +264,7 @@ Estes modelos de exemplo demonstram alguns cenários de utilização de parâmet
 |[parâmetros com as funções para os valores predefinidos](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como utilizar funções de modelo quando definir os valores predefinidos para os parâmetros. O modelo não implementa todos os recursos. Constrói valores de parâmetros e devolve esses valores. |
 |[objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra a utilização de um objeto para um parâmetro. O modelo não implementa todos os recursos. Constrói valores de parâmetros e devolve esses valores. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para saber como os valores de parâmetros de entrada durante a implementação, consulte [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md). 

@@ -1,6 +1,6 @@
 ---
-title: "Alerta de solução de gestão no Operations Management Suite (OMS) | Microsoft Docs"
-description: "A solução de gestão de alertas no Log Analytics ajuda a analisar todos os alertas no seu ambiente.  Para além de consolidar os alertas gerados no OMS,-importa alertas de grupos de gestão do System Center Operations Manager ligados para análise de registos."
+title: "Alerta de solução de gestão no Log Analytics do Azure | Microsoft Docs"
+description: "A solução de gestão de alertas no Log Analytics ajuda a analisar todos os alertas no seu ambiente.  Para além dos alertas consolidar gerados na análise de registos,-importa alertas de grupos de gestão do System Center Operations Manager ligados para análise de registos."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Solução de gestão de alerta no Operations Management Suite (OMS)
+# <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de gestão de alerta no Log Analytics do Azure
 
 ![Ícone de gestão de alertas](media/log-analytics-solution-alert-management/icon.png)
 
@@ -34,10 +34,10 @@ A solução funciona com qualquer registos no repositório de análise de regist
 - Existência de alertas do System Center Operations Manager, [ligue o grupo de gestão do Operations Manager a sua área de trabalho de análise de registos](log-analytics-om-agents.md).  Todos os alertas criados no System Center Operations Manager são importados para análise de registos.  
 
 ## <a name="configuration"></a>Configuração
-Adicionar a solução de gestão de alertas a sua área de trabalho do OMS utilizando o processo descrito no [adicionar soluções](log-analytics-add-solutions.md).  Não há nenhuma configuração adicional.
+Adicionar a solução de gestão de alertas a sua área de trabalho de análise de registos com o processo descrito no [adicionar soluções](log-analytics-add-solutions.md).  Não há nenhuma configuração adicional.
 
 ## <a name="management-packs"></a>Pacotes de gestão
-Se o grupo de gestão do System Center Operations Manager está ligado à sua área de trabalho do OMS, em seguida, os seguintes pacotes de gestão estão instalados no System Center Operations Manager ao adicionar esta solução.  Não há nenhuma configuração ou a manutenção dos pacotes de gestão necessários.  
+Se o grupo de gestão do System Center Operations Manager está ligado à sua área de trabalho de análise de registos, os seguintes pacotes de gestão estão instalados no System Center Operations Manager ao adicionar esta solução.  Não há nenhuma configuração ou a manutenção dos pacotes de gestão necessários.  
 
 * Gestão de alertas do Microsoft System Center Advisor (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -59,7 +59,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 - Dados de alertas são enviados do grupo de gestão do Operations Manager para análise de registos a cada três minutos.  
 
 ## <a name="using-the-solution"></a>Utilizar a solução
-Quando adiciona a solução de gestão de alertas a sua área de trabalho do OMS, a **gestão de alertas** mosaico é adicionado ao seu dashboard do OMS.  Este mosaico mostra uma contagem e a representação gráfica do número de alertas atualmente ativos que foram gerados nas últimas 24 horas.  Não é possível alterar este intervalo de tempo.
+Quando adiciona a solução de gestão de alertas a sua área de trabalho de análise de registos, o **gestão de alertas** mosaico é adicionado ao dashboard.  Este mosaico mostra uma contagem e a representação gráfica do número de alertas atualmente ativos que foram gerados nas últimas 24 horas.  Não é possível alterar este intervalo de tempo.
 
 ![Mosaico de gestão de alertas](media/log-analytics-solution-alert-management/tile.png)
 
@@ -115,8 +115,8 @@ A tabela seguinte fornece pesquisas de registo de exemplo para registos alertas 
 | Tipo = SourceSystem alerta = OpsManager AlertState! = TimeRaised fechado > agora 24 horas &#124; medida existente como contagem por SourceDisplayName |Origens com alertas ativos gerados nas últimas 24 horas |
 | Tipo = SourceSystem alerta = OpsManager AlertSeverity = erro TimeRaised > agora 24 horas AlertState! = fechado |Alertas críticos gerados nas últimas 24 horas que continuam ativos |
 | Tipo = SourceSystem alerta = OpsManager TimeRaised > agora 24 horas AlertState = fechado |Alertas gerados nas últimas 24 horas que agora estão fechadas |
-| Tipo = SourceSystem alerta = OpsManager TimeRaised > agora - 1 dia &#124; medida existente como contagem por AlertSeverity |Alertas gerados durante o último dia agrupado pelo respetivo grau de gravidade |
-| Tipo = SourceSystem alerta = OpsManager TimeRaised > agora - 1 dia &#124; Ordenar RepeatCount desc |Alertas gerados durante o último dia, ordenados pelo respetivo valor de contagem de repetições |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity |Alertas gerados durante o último dia agrupado pelo respetivo grau de gravidade |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc |Alertas gerados durante o último dia, ordenados pelo respetivo valor de contagem de repetições |
 
 
 >[!NOTE]
@@ -133,5 +133,5 @@ A tabela seguinte fornece pesquisas de registo de exemplo para registos alertas 
 | Alertar &#124; onde SourceSystem = = "OpsManager" e TimeRaised > ago(1d) &#124; Ordenar por RepeatCount desc |Alertas gerados durante o último dia, ordenados pelo respetivo valor de contagem de repetições |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Veja o artigo [Alerts in Log Analytics](log-analytics-alerts.md) (Alertas no Log Analytics) para obter detalhes sobre a geração de alertas do Log Analytics.

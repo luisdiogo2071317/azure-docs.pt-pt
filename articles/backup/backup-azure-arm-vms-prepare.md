@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: a0c1cebfa22939ead98ff8f4a204ef6fd1f4cf96
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
 
@@ -54,7 +54,7 @@ Antes de preparar o seu ambiente, é necessário compreender estas limitações:
 * Não é suportada a cópia de segurança das máquinas virtuais com dados tamanhos de disco superiores 1,023 GB.
 
   > [!NOTE]
-  > Temos uma versão de pré-visualização privada para suportar cópias de segurança para VMs com discos de não geridos de 1 TB (ou superiores). Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > Temos uma versão de pré-visualização privada para suportar cópias de segurança para VMs com discos > 1TB. Para obter detalhes, consulte [pré-visualização privada para o suporte de cópia de segurança de VM de disco grande](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Não é suportada a cópia de segurança de máquinas virtuais com um endereço IP reservado e nenhum ponto final de definidos.
@@ -181,7 +181,7 @@ Depois de ativar a cópia de segurança com êxito, a política de cópia de seg
 Se tiver problemas ao registar a máquina virtual, consulte as seguintes informações sobre como instalar o agente da VM e conectividade de rede. Provavelmente, não terá as seguintes informações se estiver a proteger máquinas virtuais criadas no Azure. Mas, se tiver migrado máquinas virtuais no Azure, não se esqueça de que instalou corretamente o agente da VM e que a máquina virtual pode comunicar com a rede virtual.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalar o agente da VM na máquina virtual
-Para a extensão de cópia de segurança funcione, o Azure [agente da VM](../virtual-machines/windows/classic/agents-and-extensions-classic.md#azure-vm-agents-for-windows-and-linux) tem de estar instalado na máquina virtual do Azure. Se a VM foi criada no Azure Marketplace, o agente da VM já se encontra presente na máquina virtual. 
+Para a extensão de cópia de segurança funcione, o Azure [agente da VM](../virtual-machines/windows/agent-user-guide.md) tem de estar instalado na máquina virtual do Azure. Se a VM foi criada no Azure Marketplace, o agente da VM já se encontra presente na máquina virtual. 
 
 As seguintes informações são fornecidas para situações em que são *não* através de uma VM criada no Azure Marketplace. Por exemplo, migrou uma VM a partir de um datacenter no local. Nesse caso, o agente da VM tem de ser instalado para poder proteger a máquina virtual.
 
@@ -219,7 +219,7 @@ Pode permitir que as ligações para o armazenamento da região específica util
 ![NSG com etiquetas de armazenamento para uma região](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> Etiquetas de armazenamento estão disponíveis apenas em regiões específicas que estão em pré-visualização. Para obter uma lista de regiões, consulte [etiquetas de serviço para o armazenamento](../virtual-network/security-overview.md#service-tags).
+> As etiquetas de serviço de armazenamento estão disponíveis apenas em regiões específicas e estão em pré-visualização. Para obter uma lista de regiões, consulte [etiquetas de serviço para o armazenamento](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Utilizar um proxy HTTP para cópias de segurança VM
 Quando estiver a cópia de segurança de uma VM, a extensão de cópia de segurança na VM envia os comandos de gestão do instantâneo ao Storage do Azure através da utilização de uma API de HTTPS. Encaminhar o tráfego de extensão de cópia de segurança através do proxy HTTP, porque é o único componente configurado para acesso à internet pública.

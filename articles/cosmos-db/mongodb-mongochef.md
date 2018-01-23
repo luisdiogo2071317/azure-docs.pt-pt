@@ -1,7 +1,7 @@
 ---
-title: Utilizar MongoChef para Azure Cosmos DB | Microsoft Docs
-description: 'Saiba como utilizar MongoChef com uma base de dados do Azure Cosmos: API para a conta do MongoDB'
-keywords: mongochef
+title: Utilizar o Studio 3T (MongoChef) com o Azure Cosmos DB | Microsoft Docs
+description: Saiba como utilizar o Studio 3T com uma conta do Azure Cosmos DB MongoDB API
+keywords: mongochef, 3T do studio
 services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
@@ -13,58 +13,58 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 01/18/2018
 ms.author: anhoh
-ms.openlocfilehash: 54c9799bd646b827f602e2ea2f9a15a4fc853f00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0341fbf668bbbc8f02e78bc1f6c7a00ecc939cc2
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Utilizar MongoChef com uma base de dados do Azure Cosmos: API para a conta do MongoDB
+# <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>DB de Cosmos do Azure: Utilize o Studio 3T com uma conta de API do MongoDB
 
-Para ligar a uma base de dados do Azure Cosmos: API para a conta do MongoDB, tem de:
+Para ligar a uma conta de API do Azure Cosmos DB MongoDB, tem de:
 
-* Transfira e instale [MongoChef](http://3t.io/mongochef)
-* Tem a sua base de dados do Azure Cosmos: API para a conta do MongoDB [cadeia de ligação](connect-mongodb-account.md) informações
+* Transfira e instale [Studio 3T](https://studio3t.com/) (anteriormente conhecida como MongoChef)
+* Tem a sua base de dados do Azure Cosmos [cadeia de ligação](connect-mongodb-account.md) informações para a sua conta do MongoDB
 
-## <a name="create-the-connection-in-mongochef"></a>Criar a ligação no MongoChef
-Para adicionar a base de dados do Azure Cosmos: API para a conta do MongoDB para o Gestor de ligações de MongoChef, execute os seguintes passos.
+## <a name="create-the-connection-in-studio-3t"></a>Criar a ligação no Studio 3T
+Para adicionar a sua conta de base de dados do Azure Cosmos para o Gestor de ligações de 3T Studio, execute os seguintes passos:
 
-1. Obter a sua base de dados do Azure Cosmos: API de informações de ligação do MongoDB utilizando as instruções [aqui](connect-mongodb-account.md).
+1. Obter as informações de ligação de base de dados do Azure Cosmos para a sua conta de API do MongoDB utilizando as instruções no [ligar uma aplicação do MongoDB à base de dados do Azure Cosmos](connect-mongodb-account.md) artigo.
 
-    ![Captura de ecrã do painel de cadeia de ligação](./media/mongodb-mongochef/ConnectionStringBlade.png)
+    ![Captura de ecrã da página de cadeia de ligação](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Clique em **Connect** para abrir o Gestor de ligações, em seguida, clique em **nova ligação**
 
-    ![Captura de ecrã do Gestor de ligações MongoChef](./media/mongodb-mongochef/ConnectionManager.png)
-3. No **nova ligação** janela, no **servidor** separador, introduza o anfitrião (FQDN) do BD Azure Cosmos: API para a conta do MongoDB e a porta.
+    ![Captura de ecrã do Gestor de ligações de 3T Studio](./media/mongodb-mongochef/ConnectionManager.png)
+3. No **nova ligação** janela, no **servidor** separador, introduza a porta e o anfitrião (FQDN) da conta de base de dados do Azure Cosmos.
 
-    ![Captura de ecrã do separador de servidor do Gestor de ligação MongoChef](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
-4. No **nova ligação** janela, no **autenticação** separador, escolha o modo de autenticação **Standard (MONGODB CR ou SCARM-SHA-1)** e introduza o nome de utilizador e palavra-passe.  Aceite a BD de autenticação predefinido (administrador) ou forneça o seu próprio valor.
+    ![Captura de ecrã do separador de servidor de Gestor do Studio 3T ligação](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
+4. No **nova ligação** janela, no **autenticação** separador, escolha o modo de autenticação **Basic (MONGODB CR ou SCARM-SHA-1)** e introduza o nome de utilizador e palavra-passe.  Aceite a BD de autenticação predefinido (administrador) ou forneça o seu próprio valor.
 
-    ![Captura de ecrã do separador autenticação de Gestor de ligação do MongoChef](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
+    ![Captura de ecrã do separador de autenticação de Gestor do Studio 3T ligação](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 5. No **nova ligação** janela, no **SSL** separador, verifique o **protocolo SSL utilizado para ligar** caixa de verificação e o **aceitar certificados SSL autoassinados do servidor**  botão de opção.
 
-    ![Captura de ecrã do separador de SSL do Gestor de ligação MongoChef](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
+    ![Captura de ecrã do separador SSL do Studio 3T ligação manager](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. Clique em de **Testar ligação** botão para validar as informações de ligação, clique em **OK** para regressar à janela de nova ligação e, em seguida, clique em **guardar**.
 
-    ![Captura de ecrã da janela de ligação de teste MongoChef](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Captura de ecrã da janela de ligação de teste de 3T do Studio](./media/mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>Utilize MongoChef para criar uma base de dados, coleção e documentos
-Para criar uma base de dados, coleção e documentos utilizando MongoChef, execute os seguintes passos.
+## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Utilize Studio 3T para criar uma base de dados, coleção e documentos
+Para criar uma base de dados, coleção e documentos utilizando Studio 3T, execute os seguintes passos:
 
 1. No **Gestor de ligações**, realce a ligação e clique em **Connect**.
 
-    ![Captura de ecrã do Gestor de ligações MongoChef](./media/mongodb-mongochef/ConnectToAccount.png)
-2. Clique com o botão direito do rato no anfitrião e escolha **Adicionar base de dados**.  Forneça um nome de base de dados e clique em **OK**.
+    ![Captura de ecrã do Gestor de ligações de 3T Studio](./media/mongodb-mongochef/ConnectToAccount.png)
+2. Clique no anfitrião e escolha **Adicionar base de dados**.  Forneça um nome de base de dados e clique em **OK**.
 
-    ![Captura de ecrã da opção MongoChef Adicionar base de dados](./media/mongodb-mongochef/AddDatabase1.png)
-3. Clique com o botão direito do rato na base de dados e escolha **adicionar coleção**.  Forneça um nome da coleção e clique em **criar**.
+    ![Captura de ecrã da opção Studio 3T Adicionar base de dados](./media/mongodb-mongochef/AddDatabase1.png)
+3. A base de dados com o botão direito e selecione **adicionar coleção**.  Forneça um nome da coleção e clique em **criar**.
 
-    ![Captura de ecrã da opção MongoChef adicionar coleção](./media/mongodb-mongochef/AddCollection.png)
+    ![Captura de ecrã da opção Studio 3T adicionar coleção](./media/mongodb-mongochef/AddCollection.png)
 4. Clique em de **coleção** menu item, em seguida, clique em **Adicionar documento**.
 
-    ![Captura de ecrã do item de menu MongoChef Adicionar documento](./media/mongodb-mongochef/AddDocument1.png)
+    ![Captura de ecrã do item de menu do Studio 3T Adicionar documento](./media/mongodb-mongochef/AddDocument1.png)
 5. Na caixa de diálogo Adicionar documento, cole o seguinte e, em seguida, clique em **Adicionar documento**.
 
         {
@@ -83,7 +83,7 @@ Para criar uma base de dados, coleção e documentos utilizando MongoChef, execu
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
         }
-6. Adicione outro documento, desta vez com o seguinte conteúdo.
+6. Adicione outro documento, desta vez com o seguinte conteúdo:
 
         {
         "_id": "WakefieldFamily",
@@ -114,5 +114,5 @@ Para criar uma base de dados, coleção e documentos utilizando MongoChef, execu
 
     ![Captura de ecrã Mongo Chef dos resultados da consulta](./media/mongodb-mongochef/QueryDocument1.png)
 
-## <a name="next-steps"></a>Passos seguintes
-* Explorar o Azure Cosmos DB: API para o MongoDB [amostras](mongodb-samples.md).
+## <a name="next-steps"></a>Passos Seguintes
+* Explore a API do Azure Cosmos DB MongoDB [amostras](mongodb-samples.md).

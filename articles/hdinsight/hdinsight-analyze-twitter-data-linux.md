@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 5be05fabf03e7e3ccaa3bf66ffefdd6406a06b3e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b6e540576bc4a5876bc8546262a181bd82ad9727
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analisar dados do Twitter através do Hive e do Hadoop no HDInsight
 
@@ -326,7 +326,7 @@ Estes comandos armazenam os dados numa localização que podem aceder a todos os
     > [!NOTE]
     > Se tiver alterado o filtro no `gettweets.py` scripts, substitua **Azure** com uma dos filtros que utilizou.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Aprendeu transformar um conjunto de dados não estruturado JSON para uma tabela do Hive structured. Para saber mais sobre o Hive no HDInsight, consulte os seguintes documentos:
 
