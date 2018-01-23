@@ -34,7 +34,7 @@
         - name: Kafka e Spark (Transmissão em Fluxo Estruturada)
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
-        - name: Transmissão em fluxo estruturada do Kafka para CosmosDB
+        - name: Transmissão em fluxo estruturada do Kafka para o Azure Cosmos DB
           href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
           maintainContext: true
         - name: Kafka e Spark (DStream)

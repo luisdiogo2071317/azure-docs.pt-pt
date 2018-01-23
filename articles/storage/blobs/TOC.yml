@@ -234,6 +234,8 @@
           href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: AzCopy no Linux
           href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Montar o armazenamento de Blobs como um sistema de ficheiros no Linux
+          href: storage-how-to-mount-container-linux.md
         - name: Utilizar o serviço Importar/Exportar
           href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Utilizar a Ferramenta Importar/Exportar

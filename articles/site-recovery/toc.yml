@@ -265,7 +265,7 @@
           href: site-recovery-manage-registration-and-protection.md
         - name: Eliminar um cofre
           href: delete-vault.md
-    - name: Resolução de problemas
+    - name: Monitorizar e Resolver problemas
       items:
         - name: Problemas da replicação do Azure para o Azure
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
@@ -275,8 +275,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problemas de ativação pós-falha para o Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
-        - name: Recolher registos e resolver problemas no local
-          href: site-recovery-monitoring-and-troubleshooting.md
+        - name: Monitorizar o Azure Site Recovery
+          href: site-recovery-monitor-and-troubleshoot.md
 - name: Referência
   items:
     - name: Azure PowerShell

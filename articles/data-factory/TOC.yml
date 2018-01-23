@@ -9,7 +9,7 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar fábrica de dados - Interface de Utilizador (IU)
+    - name: Criar fábrica de dados - Interface de utilizador (IU)
       href: quickstart-create-data-factory-portal.md
     - name: Criar fábrica de dados - Ferramenta de Copiar Dados
       href: quickstart-create-data-factory-copy-data-tool.md
@@ -64,6 +64,8 @@
               href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - Copiar de várias tabelas
           items:
+            - name: Interface de Utilizador (IU)
+              href: tutorial-incremental-copy-multiple-tables-portal.md
             - name: Azure PowerShell
               href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - Utilizar funcionalidade monitorização de alterações
