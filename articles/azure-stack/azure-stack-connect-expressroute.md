@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 248e9cb521975e9c982684668a68214ce5a1c827
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Ligar a pilha do Azure para o Azure com o ExpressRoute
 
@@ -90,7 +90,7 @@ Utilize os procedimentos seguintes para criar recursos de rede necessários na p
    |---------|---------|
    |Nome     |Tenant1VNet1         |
    |Espaço de endereços     |10.1.0.0/16|
-   |Nome da sub-rede     |Tenant1 Sub1|
+   |Nome da sub-rede     |Tenant1-Sub1|
    |Intervalo de endereços da sub-rede     |10.1.1.0/24|
 
 6. Deverá encontrar a Subscrição que criou anteriormente preenchida no campo **Subscrição**.
@@ -205,19 +205,22 @@ O router é uma máquina virtual do Windows (**AzS BGPNAT01**) com a função de
    Nos diagramas de exemplo, o *endereço externo BGPNAT* é 10.10.0.62 e *endereços IP internos* é 192.168.102.1.
 
    ```
+   $ExtBgpNat = '<External BGPNAT address>'
+   $IntBgpNat = '<Internal IP address>'
+
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
       -PortEnd 4501}
    # create a static NAT mapping to map the external address to the Gateway
@@ -227,8 +230,8 @@ O router é uma máquina virtual do Windows (**AzS BGPNAT01**) com a função de
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
       -InternalPort 500}
    # Finally, configure NAT traversal which uses port 4500 to
@@ -238,8 +241,8 @@ O router é uma máquina virtual do Windows (**AzS BGPNAT01**) com a função de
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
    ```
@@ -564,5 +567,5 @@ Se pretender saber quanto tráfego é a transmissão através da ligação, pode
 
    ![Dados em dados de saída](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Implementar aplicações do Azure e Azure pilha](azure-stack-solution-pipeline.md)
