@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33ec5775a371a04074f07d589d35d1c05bd64d30
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af09c5602c53be4377ba19e68ff3486bcfefe0ea
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores do VMware no local para a recuperação após desastre para o Azure
 
@@ -88,7 +88,7 @@ Certifique-se de que a VM está em conformidade com os requisitos do Azure resum
 **VHD partilhado** | Não suportado
 **Disco FC** | Não suportado
 **Formato de disco rígido** | VHD ou VHDX.<br/><br/> Embora VHDX não é atualmente suportado no Azure, a recuperação de sites converte automaticamente VHDX VHD, quando efetuar a ativação pós-falha para o Azure. Quando falhar novamente para VMs no local continue a utilizar o formato VHDX.
-**BitLocker** | Não é suportado. Desative antes de ativar a replicação para uma VM.
+**Bitlocker** | Não suportado. Desative antes de ativar a replicação para uma VM.
 **Nome da VM** | Entre 1 e 63 carateres.<br/><br/> Restritas a letras, números e hífenes. O nome da VM tem de começar e terminar com uma letra ou número.
 **Tipo VM** | Geração 1 - Linux ou do Windows<br/><br/>Geração 2 - apenas o Windows
 
@@ -110,9 +110,9 @@ Para ligar a VMs com Linux através do SSH após a ativação pós-falha, efetue
 1. Na máquina no local antes da ativação pós-falha, verifique se o serviço de Secure Shell está definido para iniciar automaticamente no arranque do sistema. Certifique-se de que as regras de firewall permitem uma ligação SSH.
 
 2. Na VM do Azure após a ativação pós-falha, permita ligações de entrada na porta SSH para as regras de grupo de segurança de rede na ativação pós-falha VM e para a sub-rede do Azure à qual está ligado.
-   [Adicionar um endereço IP público](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) para a VM. Pode verificar **diagnóstico de arranque** para ver uma captura de ecrã da VM.
+   [Adicionar um endereço IP público](site-recovery-monitoring-and-troubleshooting.md) para a VM. Pode verificar **diagnóstico de arranque** para ver uma captura de ecrã da VM.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Configure a recuperação de desastre para o Azure para VMware VMs](tutorial-vmware-to-azure.md)

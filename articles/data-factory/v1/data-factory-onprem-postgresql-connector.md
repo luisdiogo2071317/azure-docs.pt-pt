@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 46a72a15ba35119ecb5640cb0b22cd2a0fc56a27
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4cec177456b007fd7c6721380c00a622b43af677
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados de PostgreSQL utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -78,7 +78,7 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos do
 | tipo |A propriedade de tipo tem de ser definida: **OnPremisesPostgreSql** |Sim |
 | servidor |Nome do servidor PostgreSQL. |Sim |
 | base de dados |Nome da base de dados PostgreSQL. |Sim |
-| Esquema |Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
+| schema |Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. |Não |
@@ -93,7 +93,7 @@ A secção de typeProperties é diferente para cada tipo de conjunto de dados e 
 | --- | --- | --- |
 | tableName |Nome da tabela na instância da base de dados PostgreSQL pelo serviço ligado refere-se. TableName é maiúsculas e minúsculas. |Não (se **consulta** de **RelationalSource** especificado) |
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e política estão disponíveis para todos os tipos de atividades.
 
 Enquanto, propriedades disponíveis na secção typeProperties da atividade variar de acordo com cada tipo de atividade. Para a atividade de cópia, podem variam consoante os tipos de origens e sinks.
@@ -307,45 +307,45 @@ Ao mover dados para PostgreSQL, os seguintes mapeamentos são utilizados do tipo
 
 | Tipo de base de dados PostgreSQL | PostgresSQL aliases | Tipo de .NET framework |
 | --- | --- | --- |
-| abstime | |DateTime | &nbsp;
+| abstime | |Datetime | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [(n)] | |Byte [], cadeia | &nbsp;
-| bit variando [(n)] |varbit |Byte [], cadeia |
-| Valor booleano |bool |Valor booleano |
-| Caixa | |Byte [], cadeia |&nbsp;
-| bytea | |Byte [], cadeia |&nbsp;
+| bit [(n)] | |Byte[], String | &nbsp;
+| bit variando [(n)] |varbit |Byte[], String |
+| boolean |bool |Booleano |
+| Caixa | |Byte[], String |&nbsp;
+| bytea | |Byte[], String |&nbsp;
 | caráter [(n)] |char [(n)] |Cadeia |
 | caráter vários [(n)] |varchar [(n)] |Cadeia |
 | CID | |Cadeia |&nbsp;
-| CIDR | |Cadeia |&nbsp;
-| Círculo | |Byte [], cadeia |&nbsp;
-| Data | |DateTime |&nbsp;
+| cidr | |Cadeia |&nbsp;
+| Círculo | |Byte[], String |&nbsp;
+| data | |Datetime |&nbsp;
 | daterange | |Cadeia |&nbsp;
-| precisão dupla |FLOAT8 |duplo |
-| inet | |Byte [], cadeia |&nbsp;
+| precisão dupla |float8 |Duplo |
+| inet | |Byte[], String |&nbsp;
 | intarry | |Cadeia |&nbsp;
 | int4range | |Cadeia |&nbsp;
 | int8range | |Cadeia |&nbsp;
-| número inteiro |int, int4 |Int32 |
+| inteiro |int, int4 |Int32 |
 | intervalo [campos] [(p)] | |Timespan |&nbsp;
-| JSON | |Cadeia |&nbsp;
-| jsonb | |Byte] |&nbsp;
-| linha | |Byte [], cadeia |&nbsp;
-| lseg | |Byte [], cadeia |&nbsp;
-| macaddr | |Byte [], cadeia |&nbsp;
+| json | |Cadeia |&nbsp;
+| jsonb | |Byte[] |&nbsp;
+| linha | |Byte[], String |&nbsp;
+| lseg | |Byte[], String |&nbsp;
+| macaddr | |Byte[], String |&nbsp;
 | dinheiro | |Decimal |&nbsp;
 | numérica [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Cadeia |&nbsp;
 | OID | |Int32 |&nbsp;
-| Caminho | |Byte [], cadeia |&nbsp;
+| caminho | |Byte[], String |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
-| ponto de | |Byte [], cadeia |&nbsp;
-| polígono | |Byte [], cadeia |&nbsp;
-| real |FLOAT4 |Único |
+| ponto de | |Byte[], String |&nbsp;
+| polygon | |Byte[], String |&nbsp;
+| real |float4 |Solteiro |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
-| Série |serial4 |Int32 |
+| série |serial4 |Int32 |
 | Texto | |Cadeia |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Origem de mapa para sink colunas

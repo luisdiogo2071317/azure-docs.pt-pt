@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b933adc884c8c353d50f94b40de2b977f852671
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f3faaf964c33ca336d91c1cf207e077046f617e9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formatos de ficheiro e compressão suportados pelo Azure Data Factory
 *Este tópico aplica-se para os conectores que se seguem: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Blob do Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [sistema de ficheiros](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md), e [SFTP](data-factory-sftp-connector.md).*
 
 > [!NOTE]
-> Este artigo aplica-se versão 1 do Azure Data Factory, que é geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [suportado formatos de ficheiro e compressão codecs na versão 2 do Data Factory](../supported-file-formats-and-compression-codecs.md).
+> Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [suportado formatos de ficheiro e compressão codecs na versão 2 do Data Factory](../supported-file-formats-and-compression-codecs.md).
 
 O Azure Data Factory suporta os seguintes tipos de formato de ficheiro:
 
@@ -228,7 +228,7 @@ e quiser copiá-lo para uma tabela do SQL do Azure no formato seguinte mediante 
 O conjunto de dados de entrada com o tipo **JsonFormat** é definido da seguinte forma: (definição parcial com apenas as partes relevantes). Mais especificamente:
 
 - A secção `structure` define os nomes de colunas personalizados e o tipo de dados correspondente enquanto converte em dados tabulares. Esta secção é **opcional**, exceto se precisar de fazer o mapeamento de colunas. Consulte [mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de destino](data-factory-map-columns.md) secção para obter mais detalhes.
-- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, pode utilizar **array[x].property** para extrair o valor da propriedade específica a partir do objeto xth ou pode utilizar **array[*].property** para encontrar o valor em qualquer objeto que contenha essa propriedade.
+- `jsonPathDefinition` especifica o caminho JSON para cada coluna que indica de onde extrair os dados. Para copiar dados da matriz, pode utilizar **matriz [x] .property** para extrair o valor da propriedade indicado o objeto de xth, ou pode utilizar **.property matriz [*]** para encontrar o valor de qualquer objeto que contém tais propriedade.
 
 ```json
 "properties": {
@@ -505,7 +505,7 @@ Quando especificar `compression` propriedade de um conjunto de dados de entrada 
 * Ler um GZIP compressão de dados de um blob do Azure, descomprimi-lo, comprimi-los utilizando BZIP2 e escrever dados de resultados para um blob do Azure. Definir o conjunto de dados de Blobs do Azure entrado com `compression` `type` definida como GZIP e o conjunto de dados de saída com `compression` `type` definido como BZIP2 neste caso.   
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os artigos seguintes para os arquivos de dados de ficheiros suportados pelo Azure Data Factory:
 
 - [Armazenamento de Blobs do Azure](data-factory-azure-blob-connector.md)

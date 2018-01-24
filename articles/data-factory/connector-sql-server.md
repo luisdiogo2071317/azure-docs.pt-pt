@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7316ad5637fbfc11f3da48394874f814dc47be31
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d6e5b27493a786daa604124d4572f51bae4bcb20
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados para e do SQL Server utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ São suportadas as seguintes propriedades do serviço ligado do SQL Server:
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **SqlServer** | Sim |
 | connectionString |Especificar as informações de connectionString necessárias para ligar à base de dados do SQL Server utilizando a autenticação SQL ou autenticação do Windows. Marcar este campo como um SecureString. |Sim |
-| Nome de utilizador |Especifique o nome de utilizador se estiver a utilizar a autenticação do Windows. Exemplo: **domainname\\username**. |Não |
+| userName |Especifique o nome de utilizador se estiver a utilizar a autenticação do Windows. Exemplo: **domainname\\username**. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como um SecureString. |Não |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
@@ -139,7 +139,7 @@ Para copiar dados de/para a base de dados do SQL Server, defina a propriedade de
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pelo SQL Server origem e dependente.
 
@@ -254,12 +254,12 @@ Para copiar dados para o SQL Server, defina o tipo de sink na atividade de cópi
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **SqlSink** | Sim |
-| WriteBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize.<br/>Valores permitidos são: número inteiro (número de linhas). |Não (predefinição: 10000) |
+| writeBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize.<br/>Valores permitidos são: número inteiro (número de linhas). |Não (predefinição: 10000) |
 | writeBatchTimeout |De tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite.<br/>Valores permitidos são: timespan. Exemplo: "00: 30:00" (30 minutos). |Não |
-| sqlWriterStoredProcedureName |Nome do procedimento armazenado dados upserts (inserções/atualizações) para a tabela de destino. |Não |
+| preCopyScript |Especifique uma consulta SQL para a atividade de cópia para ser executado antes de escrita de dados do SQL Server. Este será apenas ser invocado uma vez por cópia executar. Pode utilizar esta propriedade para limpar os dados previamente carregados. |Não |
+| sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar dados de origem na tabela de destino, por exemplo, efetue upserts ou utilizando a sua própria lógica de negócio de transformação. <br/><br/>Tenha em atenção de que este procedimento armazenado será **invocado por lote**. Se pretender efetuar a operação que apenas é executada uma vez e não tem nada a fazer com dados de origem, por exemplo, eliminar/truncar, utilize `preCopyScript` propriedade. |Não |
 | storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Valores permitidos são: pares nome/valor. Nomes e maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e a maiúsculas e minúsculas dos parâmetros de procedimento armazenado. |Não |
 | sqlWriterTableType |Especifique um nome de tipo de tabela a ser utilizado no procedimento armazenado. Atividade de cópia faz com que os dados a ser movidos disponível numa tabela temporária com este tipo de tabela. Código do procedimento armazenado, em seguida, pode intercalar os dados que está a ser copiados com dados existentes. |Não |
-| preCopyScript |Especifique uma consulta de SQL Server ser executado antes de escrever dados no servidor SQL em cada execução de atividade de cópia. Pode utilizar esta propriedade para limpar os dados previamente carregados. |Não |
 
 > [!TIP]
 > Quando copiar dados para o SQL Server, a atividade de cópia acrescenta dados para a tabela do sink por predefinição. Para executar um UPSERT ou lógica de negócio adicionais, utilize o procedimento armazenado no SqlSink. Saiba mais detalhes de [invocar o procedimento armazenado para Sink do SQL Server](#invoking-stored-procedure-for-sql-sink).
@@ -482,37 +482,37 @@ Quando copiar dados de/para SQL Server, os seguintes mapeamentos são utilizados
 | Tipo de dados do SQL Server | Tipo de dados intermédio de fábrica de dados |
 |:--- |:--- |
 | bigint |Int64 |
-| Binário |Byte] |
+| Binário |Byte[] |
 | bits |Booleano |
-| char |Cadeia, Char [] |
+| char |String, Char[] |
 | data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atributo FILESTREAM (varbinary(max)) |Byte] |
-| Número de vírgula flutuante |duplo |
-| Imagem |Byte] |
+| Atributo FILESTREAM (varbinary(max)) |Byte[] |
+| Flutuante |Duplo |
+| Imagem |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |
-| nchar |Cadeia, Char [] |
-| ntext |Cadeia, Char [] |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
 | um valor numérico |Decimal |
-| nvarchar |Cadeia, Char [] |
+| nvarchar |String, Char[] |
 | real |Solteiro |
-| ROWVERSION |Byte] |
+| ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | em smallmoney |Decimal |
 | sql_variant |Objeto * |
-| Texto |Cadeia, Char [] |
+| Texto |String, Char[] |
 | hora |TimeSpan |
-| carimbo de data/hora |Byte] |
+| carimbo de data/hora |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |GUID |
-| varbinary |Byte] |
-| varchar |Cadeia, Char [] |
-| xml |XML |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
+| xml |Xml |
 
 ## <a name="troubleshooting-connection-issues"></a>Resolução de problemas de ligação
 

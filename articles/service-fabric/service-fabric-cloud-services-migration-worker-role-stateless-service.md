@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d6dc1cddd6228d2841e1e77b6f2800f788e5e1bb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia para converter Web e funções de trabalho para serviços sem monitorização de estado do Service Fabric
 Este artigo descreve como migrar a sua nuvem serviços Web e funções de trabalho para serviços sem monitorização de estado do Service Fabric. Este é o mais simples caminho de migração de serviços em nuvem para o Service Fabric para as aplicações cuja arquitetura geral vai aproximadamente permaneça igual.
@@ -43,20 +43,20 @@ Semelhante à função de trabalho, uma função da Web também representa uma c
 | Formulários ASP.NET Web |Não |Converter em MVC do ASP.NET Core 1 |
 | ASP.NET MVC |Com a migração |Atualização para o ASP.NET Core 1 MVC |
 | ASP.NET Web API |Com a migração |Utilizar um servidor personalizada alojado ou ASP.NET Core 1 |
-| ASP.NET Core 1 |Sim |N/D |
+| ASP.NET Core 1 |Sim |N/A |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API de ponto de entrada e de ciclo de vida
 Pontos de entrada de semelhantes de oferta APIs do serviço de função de trabalho e recursos de infraestrutura do serviço: 
 
 | **Ponto de entrada** | **Função de trabalho** | **Serviço do Service Fabric** |
 | --- | --- | --- |
-| Processamento |`Run()` |`RunAsync()` |
-| Iniciar VM |`OnStart()` |N/D |
-| Pare a VM |`OnStop()` |N/D |
-| Serviço de escuta aberto para pedidos de cliente |N/D |<ul><li> `CreateServiceInstanceListener()`para sem monitorização de estado</li><li>`CreateServiceReplicaListener()`para monitorização de estado</li></ul> |
+| A processar |`Run()` |`RunAsync()` |
+| Iniciar VM |`OnStart()` |N/A |
+| Pare a VM |`OnStop()` |N/A |
+| Serviço de escuta aberto para pedidos de cliente |N/A |<ul><li> `CreateServiceInstanceListener()`para sem monitorização de estado</li><li>`CreateServiceReplicaListener()`para monitorização de estado</li></ul> |
 
 ### <a name="worker-role"></a>Função de trabalho
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -81,7 +81,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Serviço sem monitorização de estado do serviço de recursos de infraestrutura
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -122,8 +122,8 @@ O ambiente de serviços em nuvem API fornece informações e a funcionalidade pa
 | Definições de configuração e a notificação de alteração |`RoleEnvironment` |`CodePackageActivationContext` |
 | Armazenamento Local |`RoleEnvironment` |`CodePackageActivationContext` |
 | Informações de ponto final |`RoleInstance` <ul><li>Instância atual:`RoleEnvironment.CurrentRoleInstance`</li><li>Outras funções e instância:`RoleEnvironment.Roles`</li> |<ul><li>`NodeContext`para o endereço do nó atual</li><li>`FabricClient`e `ServicePartitionResolver` para a deteção de ponto final de serviço</li> |
-| Ambiente emulação |`RoleEnvironment.IsEmulated` |N/D |
-| Evento de alteração em simultâneo |`RoleEnvironment` |N/D |
+| Ambiente emulação |`RoleEnvironment.IsEmulated` |N/A |
+| Evento de alteração em simultâneo |`RoleEnvironment` |N/A |
 
 ## <a name="configuration-settings"></a>Definições de configuração
 Definições de configuração nos serviços em nuvem estão definidas para uma função VM e aplicam-se a todas as instâncias dessa função de VM. Estas definições são pares chave-valor definidas nos ficheiros de ServiceConfiguration.*.cscfg e podem ser acedidas diretamente através do RoleEnvironment. No Service Fabric, as definições se aplicam individualmente para cada serviço e para cada aplicação, em vez de uma VM, porque uma VM pode alojar vários serviços e aplicações. Um serviço é composto por três pacotes:
@@ -138,7 +138,7 @@ Cada um destes pacotes pode ser independentemente com versão e atualizado. Seme
 #### <a name="cloud-services"></a>Serviços Cloud
 Definições de configuração dos ServiceConfiguration.*.cscfg podem ser acedidas através de `RoleEnvironment`. Estas definições são globalmente disponíveis para todas as instâncias de função na mesma implementação do serviço em nuvem.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -149,7 +149,7 @@ Cada serviço tem o seu próprio pacote de configuração individuais. Não há 
 
 Definições de configuração são acessos dentro de cada instância de serviço através do serviço `CodePackageActivationContext`.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -170,7 +170,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### <a name="cloud-services"></a>Serviços Cloud
 O `RoleEnvironment.Changed` eventos é utilizado para notificar todas as instâncias de função quando ocorre uma alteração no ambiente, como uma alteração de configuração. Isto é utilizado para consumir atualizações de configuração sem Reciclagem instâncias de função ou reiniciar um processo de trabalho.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -191,7 +191,7 @@ Cada um dos tipos de três pacote num serviço - código, configuração e dados
 
 Estes eventos estão disponíveis para consumir alterações nos pacotes de service sem reiniciar a instância de serviço.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
@@ -209,7 +209,7 @@ Tarefas de arranque são ações efetuadas antes de iniciar uma aplicação. Uma
 
 | Serviços Cloud | Service Fabric |
 | --- | --- | --- |
-| Localização de configuração |Servicedefinition. Csdef |
+| Localização de configuração |ServiceDefinition.csdef |
 | Privilégios |"limitado" ou "elevados" |
 | Sequenciação |"simples", "em segundo plano", "em primeiro plano" |
 
@@ -251,7 +251,7 @@ No Service Fabric está configurado um ponto de entrada de arranque por serviço
 ## <a name="a-note-about-development-environment"></a>Nota sobre o ambiente de desenvolvimento
 Serviços em nuvem e de recursos de infraestrutura de serviço estão integradas com o Visual Studio com modelos de projeto e suporte para depuração, configurar e implementar ambos localmente e para o Azure. Serviços em nuvem e de Service Fabric também de fornecer um ambiente de tempo de execução de desenvolvimento local. A diferença é que, enquanto o tempo de execução de desenvolvimento do serviço em nuvem emula o ambiente do Azure no qual é executado, Service Fabric não utiliza um emulador - utiliza o tempo de execução do Service Fabric concluído. O ambiente do Service Fabric que executar no seu computador de desenvolvimento local é o mesmo ambiente, que é executado na produção.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o serviço de recursos de infraestrutura Reliable Services e as diferenças fundamentais entre serviços em nuvem e arquitetura de aplicação de Service Fabric para compreender melhor como tirar partido do conjunto completo de funcionalidades do Service Fabric.
 
 * [Introdução ao serviço de recursos de infraestrutura Reliable Services](service-fabric-reliable-services-quick-start.md)

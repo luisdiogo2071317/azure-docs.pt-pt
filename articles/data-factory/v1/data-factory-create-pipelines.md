@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8bfdd9d69b6172ff4fae82be6db4a459dd516716
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c8ddd2b49ca48f3bf232a8650d870a8b7159f66a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -99,7 +99,7 @@ Vamos ver mais de perto a definição dos pipelines no formato JSON. A estrutura
 | descrição | Especifique o texto que descreve para o que é utilizado o pipeline. |Sim |
 | atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Consulte a secção seguinte para obter detalhes sobre o elemento JSON de atividades. | Sim |  
 | start | Data-hora de início para o pipeline. Tem de constar [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: `2016-10-14T16:32:41Z`. <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00-05:00`", que é 6 AM EST.<br/><br/>As propriedades de início e de fim em conjunto especifique o período ativo para o pipeline. Setores de saída só são produzidos neste período de Active Directory. |Não<br/><br/>Se especificar um valor para a propriedade end, tem de especificar o valor da propriedade de início.<br/><br/>Os tempos de início e de fim podem de estar vazios para criar um pipeline. Tem de especificar ambos os valores para definir um período ativo do pipeline ser executada. Se não especificar os tempos de início e de fim quando criar um pipeline, pode configurá-los utilizando o cmdlet Set-AzureRmDataFactoryPipelineActivePeriod mais tarde. |
-| Fim | Data-hora de fim para o pipeline. Se for especificado tem de estar no formato ISO. Por exemplo: `2016-10-14T17:32:41Z` <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00-05:00`, que é 6 AM EST.<br/><br/>Para executar o pipeline de forma indefinida, especifique 9999-09-09 como o valor para a propriedade end. <br/><br/> Um pipeline está ativo apenas entre a hora de início e a hora de fim. Não foi executada antes da data de início ou após a hora de fim. Se o pipeline está em pausa, não ser executada independentemente da respetiva hora de início e de fim. Para um pipeline executar, que deve não ser pausado. Consulte [agendamento e execução](data-factory-scheduling-and-execution.md) para compreender como funciona o agendamento e execução no Azure Data Factory. |Não <br/><br/>Se especificar um valor para a propriedade de início, tem de especificar o valor da propriedade end.<br/><br/>Consulte as notas para o **iniciar** propriedade. |
+| end | Data-hora de fim para o pipeline. Se for especificado tem de estar no formato ISO. Por exemplo: `2016-10-14T17:32:41Z` <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00-05:00`, que é 6 AM EST.<br/><br/>Para executar o pipeline de forma indefinida, especifique 9999-09-09 como o valor para a propriedade end. <br/><br/> Um pipeline está ativo apenas entre a hora de início e a hora de fim. Não foi executada antes da data de início ou após a hora de fim. Se o pipeline está em pausa, não ser executada independentemente da respetiva hora de início e de fim. Para um pipeline executar, que deve não ser pausado. Consulte [agendamento e execução](data-factory-scheduling-and-execution.md) para compreender como funciona o agendamento e execução no Azure Data Factory. |Não <br/><br/>Se especificar um valor para a propriedade de início, tem de especificar o valor da propriedade end.<br/><br/>Consulte as notas para o **iniciar** propriedade. |
 | isPaused | Se definido como true, o pipeline não é executado. Trata-se no Estado em pausa. Valor predefinido = false. Pode utilizar esta propriedade para ativar ou desativar um pipeline. |Não |
 | pipelineMode | O método de agendamento é executado para o pipeline. Valores permitidos são: agendada (predefinição), onetime.<br/><br/>'Agendada' indica que o pipeline é executado num intervalo de tempo especificado, de acordo com o período ativo (hora de início e fim). 'Onetime' indica que o pipeline é executado apenas uma vez. Pipelines onetime depois de criado não podem ser modificado/atualizar atualmente. Consulte [Onetime pipeline](#onetime-pipeline) para obter detalhes sobre a definição onetime. |Não |
 | expirationTime | Duração de tempo após a criação para o qual o [pipeline Monouso](#onetime-pipeline) é válido e deve permanecer aprovisionado. Se não tem nenhum Active Directory, falha, ou pendentes é executado, o pipeline é automaticamente uma vez eliminada atingir o tempo de expiração. O valor predefinido:`"expirationTime": "3.00:00:00"`|Não |
@@ -147,7 +147,7 @@ A tabela seguinte descreve as propriedades na definição JSON da atividade:
 ### <a name="policies"></a>Políticas
 As políticas afetam o comportamento de tempo de execução de uma atividade, especificamente quando o setor de uma tabela é processado. A tabela seguinte fornece os detalhes.
 
-| Propriedade | Valores permitidos | Valor predefinido | Descrição |
+| Propriedade | Valores permitidos | Valor Predefinido | Descrição |
 | --- | --- | --- | --- |
 | Simultaneidade |Número inteiro <br/><br/>O valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de actividade paralela que pode acontecer em diferentes setores. Por exemplo, se uma atividade tem de passar por um grande conjunto de dados disponíveis, que tenham um valor de concorrência maior acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordenação de setores de dados que estão a ser processados.<br/><br/>Por exemplo, se tiver setores de 2 (uma acontecer em 4 pm e outra nas 17: 00) e ambos são pendentes execução. Se definir o executionPriorityOrder ser NewestFirst, o setor nas 17: 00 é processado primeiro. Da mesma forma se definir o executionPriorityORder ser OldestFIrst, em seguida, o setor no 4 PM é processado. |
@@ -357,7 +357,7 @@ Tenha em atenção o seguinte:
 * Não não possível atualizar o uso pipelines. Pode clonar um único pipeline, mude o nome, atualizar propriedades e implementá-la para criar uma nova.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 - Para mais informações sobre conjuntos de dados, consulte [criar conjuntos de dados](data-factory-create-datasets.md) artigo. 
 - Para obter mais informações sobre como pipelines são agendadas e executadas, consulte [agendamento e execução no Azure Data Factory](data-factory-scheduling-and-execution.md) artigo. 
   

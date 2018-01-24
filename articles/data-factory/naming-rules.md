@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 085328a9bbe304004f25f46ba5c366e911ac3836
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 17661f139c162f1ed22f9e186ae12bcf963e57f9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---naming-rules"></a>O Azure Data Factory - as regras de nomenclatura
 A tabela seguinte fornece regras de nomenclatura artefactos do Data Factory de dados.
@@ -32,5 +32,5 @@ A tabela seguinte fornece regras de nomenclatura artefactos do Data Factory de d
 | Os serviços ligados/tabelas/Pipelines |Exclusivo com uma fábrica de dados. Os nomes são sensível. |<ul><li>Número máximo de carateres num nome de tabela: a 260.</li><li>Nomes de objeto tem de começar com uma letra, o número ou um caráter de sublinhado (_).</li><li>Os seguintes carateres não são permitidos: ".", "+","?", "/", "<", ">","*", "%", "&", ":","\\"</li></ul> |
 | Grupo de Recursos |Exclusivo em todo o Microsoft Azure. Os nomes são sensível. |<ul><li>Número máximo de carateres: 1000.</li><li>O nome pode conter letras, dígitos e os seguintes carateres: "-", "_",","e"."</li></ul> |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba como criar fábricas de dados ao seguir as instruções passo a passo em [início rápido: criar uma fábrica de dados](quickstart-create-data-factory-powershell.md) artigo. 

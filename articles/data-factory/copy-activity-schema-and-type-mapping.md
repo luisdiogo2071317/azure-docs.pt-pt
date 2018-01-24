@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 459c792028d3eede059814324597811b24e65ac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1fde0abd2f5fa8e36c71707d14cd5afeb3a0d2d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
 Este artigo descreve como a atividade de cópia de Azure Data Factory funciona o mapeamento de esquema e o mapeamento do tipo de dados a partir dos dados de origem para sink de dados ao efetuar a cópia de dados.
@@ -150,17 +150,17 @@ Pode localizar o mapeamento entre o tipo nativo para o tipo provisória na secç
 
 Fábrica de dados suporta os seguintes tipos de dados intermédio: pode especificar abaixo valores quando fornecer informações de tipo no [estrutura do conjunto de dados](concepts-datasets-linked-services.md#dataset-structure) configuração:
 
-* Byte]
-* Valor booleano
-* DateTime
+* Byte[]
+* Booleano
+* Datetime
 * Datetimeoffset
 * Decimal
-* duplo
+* Duplo
 * GUID
 * Int16
 * Int32
 * Int64
-* Único
+* Solteiro
 * Cadeia
 * Timespan
 
@@ -186,7 +186,7 @@ Na abaixo cenários, é sugerida "estrutura" no conjunto de dados:
 * Copiar a partir dos dados armazena com o esquema flexível, por exemplo, base de dados do Azure-tabela/Cosmos (conjunto de dados de entrada), para garantir os dados esperados (colunas) que está a ser copiados em vez de copiar permitem atividade inferir o esquema com base nas linhas principais durante cada execução da atividade.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os outros artigos de atividade de cópia:
 
 - [Descrição geral da atividade de cópia](copy-activity-overview.md)

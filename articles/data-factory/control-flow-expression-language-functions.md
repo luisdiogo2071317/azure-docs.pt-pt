@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 78f21576bb7d839e5b5c4d8c2b721e381d663406
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>As expressões e funções no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -175,7 +175,7 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 |comprimento|Devolve o número de elementos de uma cadeia ou matriz. Por exemplo, a seguinte expressão devolve `3`:`length('abc')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para obter o comprimento do.|  
 |Vazio|Devolve true se o objeto, cadeia ou matriz está vazia. Por exemplo, a seguinte expressão devolve `true`:<br /><br /> `empty('')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para verificar se está vazia.|  
 |intersecção|Devolve uma matriz única ou o objeto com os elementos comuns entre as matrizes ou objetos transmitidos ao mesmo. Por exemplo, esta função devolve `[1, 2]`:<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> Os parâmetros para a função podem ser um conjunto de objetos ou um conjunto de matrizes (não uma mistura de ambos). Se existirem dois objetos com o mesmo nome, o objeto de última com esse nome é apresentado no objeto final.<br /><br /> **Número de parâmetro**: 1...*n*<br /><br /> **Nome**: coleção*n*<br /><br /> **Descrição**: necessário. As coleções a avaliar. Um objeto tem de ser transmitidas nas aparecer nos resultados de todas as coleções.|  
-|União|Devolve uma matriz única ou o objeto com todos os elementos que estão na matriz ou objeto transmitidos ao mesmo. Por exemplo, esta função devolve`[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> Os parâmetros para a função podem ser um conjunto de objetos ou um conjunto de matrizes (não uma mistura de ambos). Se existirem dois objetos com o mesmo nome no resultado final, o objeto de última com esse nome é apresentado no objeto final.<br /><br /> **Número de parâmetro**: 1...*n*<br /><br /> **Nome**: coleção*n*<br /><br /> **Descrição**: necessário. As coleções a avaliar. Um objeto que é apresentado em qualquer uma das coleções é apresentado nos resultados.|  
+|União|Devolve uma matriz única ou o objeto com todos os elementos que estão na matriz ou objeto transmitidos ao mesmo. Por exemplo, esta função devolve`[1, 2, 3, 10, 101]:`<br /><br /> :`union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> Os parâmetros para a função podem ser um conjunto de objetos ou um conjunto de matrizes (não uma mistura de ambos). Se existirem dois objetos com o mesmo nome no resultado final, o objeto de última com esse nome é apresentado no objeto final.<br /><br /> **Número de parâmetro**: 1...*n*<br /><br /> **Nome**: coleção*n*<br /><br /> **Descrição**: necessário. As coleções a avaliar. Um objeto que é apresentado em qualquer uma das coleções é apresentado nos resultados.|  
 |primeiro|Devolve o primeiro elemento da matriz ou a cadeia transmitida. Por exemplo, esta função devolve `0`:<br /><br /> `first([0,2,3])`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para tirar o objeto do primeiro.|  
 |última|Devolve o último elemento na matriz ou cadeia transmitida. Por exemplo, esta função devolve `3`:<br /><br /> `last('0123')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para tirar o objeto de última.|  
 |tirar|Devolve o primeiro **contagem** transmitido elementos da matriz ou de cadeia, por exemplo esta função devolve `[1, 2]`:`take([1, 2, 3, 4], 2)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: coleção<br /><br /> **Descrição**: necessário. A coleção para tirar o primeiro **contagem** objetos de.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: contagem<br /><br /> **Descrição**: necessário. O número de objetos a demorar entre o **coleção**. Tem de ser um número inteiro positivo.|  
@@ -186,7 +186,7 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
   
 |Nome da função|Descrição|  
 |-------------------|-----------------|  
-|igual a|Devolve true se dois valores são iguais. Por exemplo, se parameter1 foo, a seguinte expressão devolvam `true`:`equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: 1 de objeto<br /><br /> **Descrição**: necessário. O objeto comparar para **objeto 2**.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: objeto 2<br /><br /> **Descrição**: necessário. O objeto comparar para **objeto 1**.|  
+|é igual a|Devolve true se dois valores são iguais. Por exemplo, se parameter1 foo, a seguinte expressão devolvam `true`:`equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: 1 de objeto<br /><br /> **Descrição**: necessário. O objeto comparar para **objeto 2**.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: objeto 2<br /><br /> **Descrição**: necessário. O objeto comparar para **objeto 1**.|  
 |menos|Devolve VERDADEIRO se o primeiro argumento for menor do que o segundo. Tenha em atenção de que os valores só podem ser do tipo número inteiro, flutuante ou uma cadeia. Por exemplo, a seguinte expressão devolve `true`:`less(10,100)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: 1 de objeto<br /><br /> **Descrição**: necessário. O objeto para verificar se é inferior a **objeto 2**.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: objeto 2<br /><br /> **Descrição**: necessário. O objeto para verificar se é superior ao **objeto 1**.|  
 |lessOrEquals|Devolve true se o primeiro argumento é menor ou igual ao segundo. Tenha em atenção de que os valores só podem ser do tipo número inteiro, flutuante ou uma cadeia. Por exemplo, a seguinte expressão devolve `true`:`lessOrEquals(10,10)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: 1 de objeto<br /><br /> **Descrição**: necessário. O objeto para verificar se é menor ou igual a **objeto 2**.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: objeto 2<br /><br /> **Descrição**: necessário. O objeto para verificar se é maior que ou igual a **objeto 1**.|  
 |maior|Devolve true se o primeiro argumento é maior do que o segundo. Tenha em atenção de que os valores só podem ser do tipo número inteiro, flutuante ou uma cadeia. Por exemplo, a seguinte expressão devolve `false`:`greater(10,10)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: 1 de objeto<br /><br /> **Descrição**: necessário. O objeto para verificar se é superior ao **objeto 2**.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: objeto 2<br /><br /> **Descrição**: necessário. O objeto para verificar se é inferior a **objeto 1**.|  
@@ -199,13 +199,13 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 ## <a name="conversion-functions"></a>Funções de conversão  
  Estas funções são utilizadas para a conversão entre cada um dos tipos nativos no idioma:  
   
--   string  
+-   cadeia  
   
--   número inteiro  
+-   inteiro  
   
--   Número de vírgula flutuante  
+-   flutuante  
   
--   Valor booleano  
+-   boolean  
   
 -   Matrizes  
   
@@ -214,9 +214,9 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 |Nome da função|Descrição|  
 |-------------------|-----------------|  
 |Int|Converta o parâmetro para um número inteiro. Por exemplo, a seguinte expressão devolve 100 como um número, em vez de uma cadeia:`int('100')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um número inteiro.|  
-|string|Converta o parâmetro numa cadeia. Por exemplo, a seguinte expressão devolve `'10'`: `string(10)` também pode converter um objeto de uma cadeia, por exemplo, se o **foo** parâmetro é um objeto com uma propriedade `bar : baz`, em seguida, teria o seguinte devolver `{"bar" : "baz"}``string(pipeline().parameters.foo)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido numa cadeia.|  
-|JSON|Converta o parâmetro para um valor de tipo JSON. É o oposto da string(). Por exemplo, a seguinte expressão devolve `[1,2,3]` como uma matriz, em vez de uma cadeia:<br /><br /> `parse('[1,2,3]')`<br /><br /> Da mesma forma, pode converter uma cadeia para um objeto. Por exemplo, `json('{"bar" : "baz"}')` devolve:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia que é convertida para um valor de tipo nativo.<br /><br /> A função de json suporta também a entrada de xml. Por exemplo, o valor do parâmetro:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> é convertido para o seguinte json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|Número de vírgula flutuante|Converta o argumento de parâmetro para um número de vírgula flutuante. Por exemplo, a seguinte expressão devolve `10.333`:`float('10.333')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um número de vírgula flutuante.|  
+|cadeia|Converta o parâmetro numa cadeia. Por exemplo, a seguinte expressão devolve `'10'`: `string(10)` também pode converter um objeto de uma cadeia, por exemplo, se o **foo** parâmetro é um objeto com uma propriedade `bar : baz`, em seguida, teria o seguinte devolver `{"bar" : "baz"}``string(pipeline().parameters.foo)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido numa cadeia.|  
+|json|Converta o parâmetro para um valor de tipo JSON. É o oposto da string(). Por exemplo, a seguinte expressão devolve `[1,2,3]` como uma matriz, em vez de uma cadeia:<br /><br /> `parse('[1,2,3]')`<br /><br /> Da mesma forma, pode converter uma cadeia para um objeto. Por exemplo, `json('{"bar" : "baz"}')` devolve:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: cadeia<br /><br /> **Descrição**: necessário. A cadeia que é convertida para um valor de tipo nativo.<br /><br /> A função de json suporta também a entrada de xml. Por exemplo, o valor do parâmetro:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> é convertido para o seguinte json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|flutuante|Converta o argumento de parâmetro para um número de vírgula flutuante. Por exemplo, a seguinte expressão devolve `10.333`:`float('10.333')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um número de vírgula flutuante.|  
 |bool|Converta o parâmetro booleano. Por exemplo, a seguinte expressão devolve `false`:`bool(0)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido para um valor booleano.|  
 |Unir|Devolve o objeto não nulo primeiro os argumentos transmitidos. Nota: uma cadeia vazia não é nula. Por exemplo, se não for definidos um parâmetros 1 e 2, esta ação devolve `fallback`:`coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Número de parâmetro**: 1...*n*<br /><br /> **Nome**: objeto*n*<br /><br /> **Descrição**: necessário. Os objetos para procurar `null`.|  
 |Base64|Devolve a representação de base64 de cadeia de entrada. Por exemplo, a seguinte expressão devolve `c29tZSBzdHJpbmc=`:`base64('some string')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: 1 de cadeia<br /><br /> **Descrição**: necessário. A cadeia de codificar para base64 representação.|  
@@ -238,7 +238,7 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 |array|Converta o parâmetro de uma matriz.  Por exemplo, a seguinte expressão devolve `["abc"]`:`array('abc')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: valor<br /><br /> **Descrição**: necessário. O valor que é convertido numa matriz.|
 |createArray|Cria uma matriz de parâmetros.  Por exemplo, a seguinte expressão devolve `["a", "c"]`:`createArray('a', 'c')`<br /><br /> **Número de parâmetro**: 1... n<br /><br /> **Nome**: quaisquer n<br /><br /> **Descrição**: necessário. Os valores para combinar numa matriz.|
 
-## <a name="math-functions"></a>Funções de bibliotecas  
+## <a name="math-functions"></a>Funções matemáticas  
  Estas funções podem ser utilizadas para qualquer um dos tipos de números: **números inteiros** e **floats**.  
   
 |Nome da função|Descrição|  
@@ -264,5 +264,5 @@ No exemplo seguinte, o pipeline demora **inputPath** e **outputPath** parâmetro
 |adddays|Adiciona um número inteiro de dias para um carimbo de cadeia transmitido. O número de dias pode ser positivo ou negativo. O resultado é uma cadeia no formato ISO 8601 ("o") por predefinição, a menos que é fornecido um especificador de formato. Por exemplo `2015-02-23T13:27:36Z`:<br /><br /> `addseconds('2015-03-15T13:27:36Z', -20)`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrição**: necessário. Uma cadeia que contém a hora.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: dias<br /><br /> **Descrição**: necessário. O número de dias a adicionar. Pode ser negativo subtrair dias.<br /><br /> **Número de parâmetro**: 3<br /><br /> **Nome**: formato<br /><br /> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").|  
 |FormatDateTime|Devolve uma cadeia no formato de data. O resultado é uma cadeia no formato ISO 8601 ("o") por predefinição, a menos que é fornecido um especificador de formato. Por exemplo `2015-02-23T13:27:36Z`:<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **Número de parâmetro**: 1<br /><br /> **Nome**: data<br /><br /> **Descrição**: necessário. Uma cadeia que contém a data.<br /><br /> **Número de parâmetro**: 2<br /><br /> **Nome**: formato<br /><br /> **Descrição**: opcional. É um [único caráter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) ou um [padrão de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica como formatar o valor deste carimbo. Se o formato não for fornecido, é utilizado o formato ISO 8601 ("o").|  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista de variáveis de sistema pode utilizar expressões, consulte [variáveis do sistema](control-flow-system-variables.md).

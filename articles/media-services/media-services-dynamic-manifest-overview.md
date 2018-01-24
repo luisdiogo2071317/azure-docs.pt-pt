@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d3c7cfad5ce9b25c88aa11b53194b6e06b1cc034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
 A partir da versão 2.17, os Media Services permite-lhe definir os filtros para os elementos. Estes filtros são as regras do lado do servidor que irão permitir que os seus clientes de optar por efetuar ações como: reprodução apenas uma secção de um vídeo (em vez de reproduzir o vídeo todo), ou especifique apenas um subconjunto de áudio e vídeos renditions que pode processar o dispositivo do cliente (em vez de todos os renditions que estão associados com o elemento). Esta filtragem dos seus ativos é arquivado através de **manifesto dinâmica**s que são criados após o pedido do cliente para um vídeo de fluxo com base em filtros especificados.
 
-Este tópicos descreve cenários comuns nos quais pode utilizar filtros seria muito vantajoso para os clientes e ligações para tópicos que demonstram como criar filtros programaticamente (atualmente, pode criar filtros com REST APIs apenas).
+Este tópicos descreve cenários comuns nos quais pode utilizar filtros seria muito vantajoso para os clientes e ligações para tópicos que demonstram como criar filtros através de programação.
 
 ## <a name="overview"></a>Descrição geral
 Quando distribui conteúdo aos clientes (transmissão em fluxo de eventos em direto ou as vídeo a pedido) o seu objetivo é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para alcançar esta proceda de objetivo do seguinte modo:
@@ -189,7 +189,7 @@ Para obter mais informações, consulte [isto](https://azure.microsoft.com/blog/
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 [Entrega de conteúdos para clientes descrição-geral](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png

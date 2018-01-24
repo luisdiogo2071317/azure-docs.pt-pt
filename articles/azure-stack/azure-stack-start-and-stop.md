@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: mabrigg
-ms.openlocfilehash: 09c22b22b49664a55b8a9e77936df3b1362d5b88
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 9bbfffe15dc23d5d7d7b17aa4c79edc8a2aaab8c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>Iniciar e parar a pilha do Azure
 
@@ -41,6 +41,15 @@ Encerre a pilha do Azure com os seguintes passos:
 > [!Note]  
 > Pode verificar o estado de energia de um nó físico ao seguir as instruções do fabricante de equipamento Original (OEM) que forneceu o hardware de pilha do Azure. 
 
+## <a name="start-azure-stack"></a>Iniciar a pilha do Azure 
+
+Começar a pilha do Azure com os seguintes passos. Siga estes passos, independentemente de como parou a pilha do Azure.
+
+1. Ligar a todos os nós físicos no seu ambiente de pilha do Azure. Certifique-se as instruções para os nós físicos de ativação ao seguir as instruções do fabricante de equipamento Original (OEM) que é fornecido o hardware para a pilha do Azure.
+
+2. Aguarde até que os serviços de infraestrutura de pilha do Azure é iniciado. Serviços de infraestrutura de pilha do Azure podem exigir a duas horas para concluir o processo de início. Pode verificar o estado de início da pilha do Azure com o [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
+
+
 ## <a name="get-the-startup-status-for-azure-stack"></a>Obter o estado de arranque para a pilha do Azure
 
 Obter o arranque para a rotina de arranque de pilha do Azure com os seguintes passos:
@@ -52,14 +61,6 @@ Obter o arranque para a rotina de arranque de pilha do Azure com os seguintes pa
     ```powershell
       Get-ActionStatus Start-AzureStack
     ```
-
-## <a name="start-azure-stack"></a>Iniciar a pilha do Azure 
-
-Começar a pilha do Azure com os seguintes passos. Siga estes passos, independentemente de como parou a pilha do Azure.
-
-1. Ligar a todos os nós físicos no seu ambiente de pilha do Azure. Certifique-se as instruções para os nós físicos de ativação ao seguir as instruções do fabricante de equipamento Original (OEM) que é fornecido o hardware para a pilha do Azure.
-
-2. Aguarde até que os serviços de infraestrutura de pilha do Azure é iniciado. Serviços de infraestrutura de pilha do Azure podem exigir a duas horas para concluir o processo de início. Pode verificar o estado de início da pilha do Azure com o [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
 
 ## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Resolver problemas de arranque e encerramento da pilha do Azure
 

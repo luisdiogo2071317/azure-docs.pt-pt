@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: 3a79a0b20cd007816391745f6f717253df17f067
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a88adc300e52c74f2a1fcd2e546ab879000d877e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Como resolver problemas com a Cache de Redis do Azure
 Este artigo fornece orientações para resolução de problemas seguintes categorias de problemas de Cache de Redis do Azure.
@@ -194,7 +194,7 @@ Esta mensagem de erro contém métricas que podem ajudar a orientar a causa e po
 ### <a name="steps-to-investigate"></a>Passos para investigar
 1. Como melhor prática Certifique-se de que está a utilizar o seguinte padrão para ligar ao utilizar o cliente stackexchange. redis.
 
-    ```c#
+    ```csharp
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
         return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");

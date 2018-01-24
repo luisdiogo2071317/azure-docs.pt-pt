@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 53f2b59e57d49a409552aebbdb1b0e81ccd5200c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o desempenho de atividade e o guia de otimização
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -191,8 +191,8 @@ Configurar o **enableStaging** definição na atividade de cópia para especific
 | Propriedade | Descrição | Valor predefinido | Necessário |
 | --- | --- | --- | --- |
 | **enableStaging** |Especifique se pretende copiar os dados através de um provisório arquivo de teste. |Falso |Não |
-| **linkedServiceName** |Especifique o nome de um [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) serviço, que se refere à instância de armazenamento que utilizar como um arquivo de transição provisória ligado. <br/><br/> Não é possível utilizar o armazenamento com uma assinatura de acesso partilhado para carregar dados para o SQL Data Warehouse através do PolyBase. Pode utilizá-lo em todos os outros cenários. |N/D |Sim, quando **enableStaging** está definido como verdadeiro |
-| **caminho** |Especifique o caminho de armazenamento de BLOBs que pretende que contêm os dados de teste. Se não fornecer um caminho, o serviço cria um contentor para armazenar dados temporários. <br/><br/> Especifique um caminho de apenas se utilizar o armazenamento com uma assinatura de acesso partilhado ou exigir temporários de dados numa localização específica. |N/D |Não |
+| **linkedServiceName** |Especifique o nome de um [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) serviço, que se refere à instância de armazenamento que utilizar como um arquivo de transição provisória ligado. <br/><br/> Não é possível utilizar o armazenamento com uma assinatura de acesso partilhado para carregar dados para o SQL Data Warehouse através do PolyBase. Pode utilizá-lo em todos os outros cenários. |N/A |Sim, quando **enableStaging** está definido como verdadeiro |
+| **path** |Especifique o caminho de armazenamento de BLOBs que pretende que contêm os dados de teste. Se não fornecer um caminho, o serviço cria um contentor para armazenar dados temporários. <br/><br/> Especifique um caminho de apenas se utilizar o armazenamento com uma assinatura de acesso partilhado ou exigir temporários de dados numa localização específica. |N/A |Não |
 | **enableCompression** |Especifica se os dados devem ser comprimidos antes que seja copiado para o destino. Esta definição reduz o volume de dados a serem transferidos. |Falso |Não |
 
 Segue-se uma definição de exemplo de atividade de cópia com as propriedades descritas na tabela anterior:
@@ -395,7 +395,7 @@ Segue-se desempenho de monitorização e a otimização de referências para alg
 * SQL Server no local: [monitorizar e otimizar para desempenho](https://msdn.microsoft.com/library/ms189081.aspx)
 * Servidor de ficheiros no local: [otimização de desempenho para servidores de ficheiros](https://msdn.microsoft.com/library/dn567661.aspx)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os outros artigos de atividade de cópia:
 
 - [Descrição geral da atividade de cópia](copy-activity-overview.md)

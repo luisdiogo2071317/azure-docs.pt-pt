@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: a437c369ac48fd4ac71dee2a85547d787d9dd210
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9457e90f378cf7b30810ca9cadfcad139e91e2d4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Fábrica de dados do Azure - referência de scripts JSON
 > [!NOTE]
@@ -51,7 +51,7 @@ A tabela seguinte descreve as propriedades no pipeline de definição JSON:
 | descrição |Texto que descreve o que a atividade ou o pipeline é utilizado para | Não |
 | atividades | Contém uma lista de atividades. | Sim |
 | start |Data-hora de início para o pipeline. Tem de constar [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41. <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00**-05:00`, que é 6 AM EST.<br/><br/>As propriedades de início e de fim em conjunto especifique o período ativo para o pipeline. Setores de saída só são produzidos neste período de Active Directory. |Não<br/><br/>Se especificar um valor para a propriedade end, tem de especificar o valor da propriedade de início.<br/><br/>Os tempos de início e de fim podem de estar vazios para criar um pipeline. Tem de especificar ambos os valores para definir um período ativo do pipeline ser executada. Se não especificar os tempos de início e de fim quando criar um pipeline, pode configurá-los utilizando o cmdlet Set-AzureRmDataFactoryPipelineActivePeriod mais tarde. |
-| Fim |Data-hora de fim para o pipeline. Se for especificado tem de estar no formato ISO. Por exemplo: 2014-10-14T17:32:41 <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00**-05:00`, que é 6 AM EST.<br/><br/>Para executar o pipeline de forma indefinida, especifique 9999-09-09 como o valor para a propriedade end. |Não <br/><br/>Se especificar um valor para a propriedade de início, tem de especificar o valor da propriedade end.<br/><br/>Consulte as notas para o **iniciar** propriedade. |
+| end |Data-hora de fim para o pipeline. Se for especificado tem de estar no formato ISO. Por exemplo: 2014-10-14T17:32:41 <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00**-05:00`, que é 6 AM EST.<br/><br/>Para executar o pipeline de forma indefinida, especifique 9999-09-09 como o valor para a propriedade end. |Não <br/><br/>Se especificar um valor para a propriedade de início, tem de especificar o valor da propriedade end.<br/><br/>Consulte as notas para o **iniciar** propriedade. |
 | isPaused |Se definido como verdadeiro pipeline não é executado. Valor predefinido = false. Pode utilizar esta propriedade para ativar ou desativar. |Não |
 | pipelineMode |O método de agendamento é executado para o pipeline. Valores permitidos são: agendada (predefinição), onetime.<br/><br/>'Agendada' indica que o pipeline é executado num intervalo de tempo especificado, de acordo com o período ativo (hora de início e fim). 'Onetime' indica que o pipeline é executado apenas uma vez. Pipelines onetime depois de criado não podem ser modificado/atualizar atualmente. Consulte [Onetime pipeline](data-factory-create-pipelines.md#onetime-pipeline) para obter detalhes sobre a definição onetime. |Não |
 | expirationTime |Duração de tempo após a criação, para que o pipeline é válido e deve permanecer aprovisionado. Se não tem nenhum Active Directory, falha, ou pendentes é executado, o pipeline é eliminado automaticamente assim que atingir o tempo de expiração. |Não |
@@ -98,7 +98,7 @@ Os seguintes tabela descrevem as propriedades dentro da definição JSON da ativ
 ### <a name="policies"></a>Políticas
 As políticas afetam o comportamento de tempo de execução de uma atividade, especificamente quando o setor de uma tabela é processado. A tabela seguinte fornece os detalhes.
 
-| Propriedade | Valores permitidos | Valor predefinido | Descrição |
+| Propriedade | Valores permitidos | Valor Predefinido | Descrição |
 | --- | --- | --- | --- |
 | Simultaneidade |Número inteiro <br/><br/>O valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de actividade paralela que pode acontecer em diferentes setores. Por exemplo, se uma atividade tem de passar por um grande conjunto de dados disponíveis, que tenham um valor de concorrência maior acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordenação de setores de dados que estão a ser processados.<br/><br/>Por exemplo, se tiver setores de 2 (uma acontecer em 4 pm e outra nas 17: 00) e ambos são pendentes execução. Se definir o executionPriorityOrder ser NewestFirst, o setor nas 17: 00 é processado primeiro. Da mesma forma se definir o executionPriorityORder ser OldestFIrst, em seguida, o setor no 4 PM é processado. |
@@ -288,7 +288,7 @@ A tabela seguinte descreve as propriedades no JSON acima:
 | tipo | tipo do conjunto de dados. Especifique um dos tipos suportados pelo Azure Data Factory (por exemplo: AzureBlob, AzureSqlTable). Consulte [ARQUIVOS de dados](#data-stores) secção para todos os arquivos de dados e os tipos de conjunto de dados suportados pela fábrica de dados. | 
 | estrutura | Esquema do conjunto de dados. Contém colunas, os respetivos tipos, etc. | Não |ND |
 | typeProperties | Propriedades correspondente ao tipo selecionado. Consulte [ARQUIVOS de dados](#data-stores) na secção tipos suportados e as respetivas propriedades. |Sim |ND |
-| externo | Sinalizador booleano para especificar se um conjunto de dados explicitamente é produzido por um pipeline de fábrica de dados ou não. |Não |FALSO |
+| externo | Sinalizador booleano para especificar se um conjunto de dados explicitamente é produzido por um pipeline de fábrica de dados ou não. |Não |falso |
 | disponibilidade | Define a janela de processamento ou o modelo slicing para o conjunto de dados de produção. Para obter detalhes sobre o conjunto de dados repartir modelo, consulte [agendamento e execução](data-factory-scheduling-and-execution.md) artigo. |Sim |ND |
 | política |Define os critérios ou a condição que os setores de conjunto de dados tem de cumprir. <br/><br/>Para obter mais informações, consulte [política de conjunto de dados](#Policy) secção. |Não |ND |
 
@@ -319,7 +319,7 @@ A tabela seguinte descreve as propriedades que pode utilizar o **disponibilidade
 | frequência |Especifica a unidade de tempo para produção de setor de conjunto de dados.<br/><br/><b>Suportado frequência</b>: minuto, hora, dia, semana, mês |Sim |ND |
 | intervalo |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina com que frequência o setor é produzido.<br/><br/>Se precisar do conjunto de dados segmentados numa base horária, defina <b>frequência</b> para <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/><b>Tenha em atenção</b>: Se especificar a frequência como minuto, recomendamos que defina o intervalo para não inferior a 15 |Sim |ND |
 | Estilo |Especifica se deve ser produzido do setor no início/fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência é definida para o mês e estilo está definido como EndOfInterval, o setor é produzido no último dia do mês. Se o estilo for definido como StartOfInterval, o setor é produzido no primeiro dia do mês.<br/><br/>Se a frequência é definida para o dia e estilo está definido como EndOfInterval, o setor é produzido na última hora do dia.<br/><br/>Se a frequência é definida para a hora e estilo está definido como EndOfInterval, o setor é produzido no fim da hora. Por exemplo, para um setor para 1 PM – 2 PM período, o setor é produzido em 2 PM. |Não |EndOfInterval |
-| anchorDateTime |Define a posição na hora utilizado pelo programador para limites de setor de conjunto de dados de computação absoluta. <br/><br/><b>Tenha em atenção</b>: se o AnchorDateTime tem partes de data que são mais granulares do que a frequência, em seguida, as partes mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> é <b>hora a hora</b> (frequência: horas e intervalo: 1) e o <b>AnchorDateTime</b> contém <b>minutos e segundos</b>a <b>minutos e segundos</b> partes do AnchorDateTime são ignoradas. |Não |01/01/0001 |
+| anchorDateTime |Define a posição na hora utilizado pelo programador para limites de setor de conjunto de dados de computação absoluta. <br/><br/><b>Tenha em atenção</b>: se o AnchorDateTime tem partes de data que são mais granulares do que a frequência, em seguida, as partes mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> é <b>hora a hora</b> (frequência: horas e intervalo: 1) e o <b>AnchorDateTime</b> contém <b>minutos e segundos</b>a <b>minutos e segundos</b> partes do AnchorDateTime são ignoradas. |Não |01/01/0001 e |
 | deslocamento |TimeSpan através do qual são desviados o início e de fim de todos os setores de conjunto de dados. <br/><br/><b>Tenha em atenção</b>: se forem especificadas anchorDateTime e desvio, o resultado é o shift combinada. |Não |ND |
 
 A secção de disponibilidade seguinte especifica que o conjunto de dados de saída produzidos hora a hora (ou) entrada conjunto de dados está disponível por hora:
@@ -334,7 +334,7 @@ A secção de disponibilidade seguinte especifica que o conjunto de dados de sa�
 
 O **política** secção na definição do conjunto de dados define os critérios ou a condição que os setores de conjunto de dados tem de cumprir.
 
-| Nome da política | Descrição | Aplicar a | Necessário | Predefinição |
+| Nome da Política | Descrição | Aplicar a | Necessário | Predefinição |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valida que os dados de um **BLOBs do Azure** cumpre os requisitos de tamanho mínimo (em megabytes). |Blob do Azure |Não |ND |
 | minimumRows |Valida que os dados de um **SQL database do Azure** ou um **tabela do Azure** contém o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |Não |ND |
@@ -354,7 +354,7 @@ O **política** secção na definição do conjunto de dados define os critério
 
 A menos que um conjunto de dados está a ser produzido pelo Azure Data Factory, deverá ser marcado como **externo**. Esta definição geralmente aplica-se para as entradas de atividade primeiro num pipeline, a menos que está a ser utilizada a atividade ou encadeamento do pipeline.
 
-| Nome | Descrição | Necessário | Valor predefinido |
+| Nome | Descrição | Necessário | Valor Predefinido |
 | --- | --- | --- | --- |
 | dataDelay |Tempo de atraso de verificação na disponibilidade dos dados externos para o setor especificado. Por exemplo, se os dados estão disponíveis numa base horária, a verificação para ver os dados externos estão disponíveis e o setor correspondente estiver pronta pode sofrer um atraso utilizando dataDelay.<br/><br/>Aplica-se apenas à hora presente.  Por exemplo, se for 1:00 PM agora e este valor é 10 minutos, a validação é iniciada à 1: as 22: 00.<br/><br/>Esta definição não afeta setores no passado (setores com a hora de fim do setor + dataDelay < agora) processados sem qualquer atrasos.<br/><br/>Tempo maior do que o 23:59, precisam de horas especificado utilizando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar a 24 horas, não utilize 24:00:00; em alternativa, utilize 1.00:00:00. Se utilizar 24:00:00, esta é tratada como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
 | RetryInterval |O tempo de espera entre uma falha e a próxima repetir a tentativa. Se tentar falhar, repita seguinte é após retryInterval. <br/><br/>Se for 1:00 PM agora, vamos começar a primeira tentativa. Se a duração para concluir a primeira verificação de validação é de 1 minuto e a operação falhou, a tentativa seguinte ocorrerá é 1:00 + 1 min (duração) + 1 min (intervalo de repetição) = 1:02 PM. <br/><br/>Setores no passado, não há nenhum atraso. Nova tentativa ocorre imediatamente. |Não |00:01:00 (1 minuto) |
@@ -596,7 +596,7 @@ Para definir um Azure Data Lake Store serviço ligado, defina o tipo de serviço
 | resourceGroupName | Nome do grupo de recursos do Azure à qual pertence Data Lake Store. | Obrigatório para sink |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim (para autenticação principal do serviço) |
 | servicePrincipalKey | Especifique a chave da aplicação. | Sim (para autenticação principal do serviço) |
-| Inquilino | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim (para autenticação principal do serviço) |
+| inquilino | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim (para autenticação principal do serviço) |
 | Autorização | Clique em **autorizar** clique no botão no **Editor do Data Factory** e introduza as credenciais que atribui o URL de autorização gerado automaticamente a esta propriedade. | Sim (para autenticação de credenciais de utilizador)|
 | ID de sessão | Id de sessão OAuth da sessão de autorização do OAuth. Cada id de sessão é exclusivo e só pode ser utilizado uma vez. Esta definição é gerada automaticamente quando utiliza o Editor do Data Factory. | Sim (para autenticação de credenciais de utilizador) |
 
@@ -1228,7 +1228,7 @@ Se estiver a copiar dados para o Azure SQL Data Warehouse, defina o **sink do ti
 | polyBaseSettings |Um grupo de propriedades que podem ser especificados quando o **allowPolybase** propriedade está definida como **verdadeiro**. |&nbsp; |Não |
 | rejectValue |Especifica o número ou a percentagem de linhas que pode ser rejeitada antes da consulta falha. <br/><br/>Saiba mais sobre as opções de rejeitar o PolyBase no **argumentos** secção [criar tabela externa (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) tópico. |0 (predefinição), 1, 2,... |Não |
 | rejectType |Especifica se a opção de rejectValue é especificada como um valor literal ou uma percentagem. |Valor de percentagem (predefinição) |Não |
-| rejectSampleValue |Determina o número de linhas a obter antes do PolyBase recalcula a percentagem de linhas rejeitadas. |1, 2, … |Sim, se **rejectType** é **percentagem** |
+| rejectSampleValue |Determina o número de linhas a obter antes do PolyBase recalcula a percentagem de linhas rejeitadas. |1, 2,... |Sim, se **rejectType** é **percentagem** |
 | useTypeDefault |Especifica como processar os valores em falta nos ficheiros de texto delimitado quando PolyBase obtém dados a partir do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade da secção de argumentos no [criar formato de ficheiro externo (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |TRUE, False (predefinição) |Não |
 | WriteBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize |Número inteiro (número de linhas) |Não (predefinição: 10000) |
 | writeBatchTimeout |De tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
@@ -1286,7 +1286,7 @@ Para definir uma pesquisa do Azure de serviço ligado, defina o **tipo** do serv
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| URL | URL para o serviço de pesquisa do Azure. | Sim |
+| url | URL para o serviço de pesquisa do Azure. | Sim |
 | key | Chave de administrador para o serviço de pesquisa do Azure. | Sim |
 
 #### <a name="example"></a>Exemplo
@@ -2230,13 +2230,13 @@ Para definir um armazém de negócio de SAP (BW) serviço ligado, defina o **tip
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor no qual reside a instância do SAP BW. | Cadeia | Sim
+servidor | Nome do servidor no qual reside a instância do SAP BW. | cadeia | Sim
 systemNumber | Número de sistema do sistema SAP BW. | Número de decimal dois dígitos representado como uma cadeia. | Sim
 ID de cliente | ID de cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia. | Sim
-o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | Cadeia | Sim
-palavra-passe | Palavra-passe para o utilizador. | Cadeia | Sim
-gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP BW no local. | Cadeia | Sim
-encryptedCredential | A cadeia de credencial encriptada. | Cadeia | Não
+o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | cadeia | Sim
+palavra-passe | Palavra-passe para o utilizador. | cadeia | Sim
+gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP BW no local. | cadeia | Sim
+encryptedCredential | A cadeia de credencial encriptada. | cadeia | Não
 
 #### <a name="example"></a>Exemplo
 
@@ -2340,12 +2340,12 @@ Para definir um SAP HANA serviço ligado, defina o **tipo** do serviço ligado p
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor no qual reside a instância de SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | Cadeia | Sim
+servidor | Nome do servidor no qual reside a instância de SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | cadeia | Sim
 authenticationType | Tipo de autenticação. | Cadeia. "Básico" ou "Windows" | Sim 
-o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | Cadeia | Sim
-palavra-passe | Palavra-passe para o utilizador. | Cadeia | Sim
-gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP HANA no local. | Cadeia | Sim
-encryptedCredential | A cadeia de credencial encriptada. | Cadeia | Não
+o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | cadeia | Sim
+palavra-passe | Palavra-passe para o utilizador. | cadeia | Sim
+gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP HANA no local. | cadeia | Sim
+encryptedCredential | A cadeia de credencial encriptada. | cadeia | Não
 
 #### <a name="example"></a>Exemplo
 
@@ -3151,7 +3151,7 @@ Para definir um Amazon S3 serviço ligado, defina o **tipo** do serviço ligado 
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| accessKeyID |ID da chave de acesso secreta. |Cadeia |Sim |
+| accessKeyID |ID da chave de acesso secreta. |cadeia |Sim |
 | secretAccessKey |A chave de acesso secreta próprio. |Cadeia secreta encriptada |Sim |
 
 #### <a name="example"></a>Exemplo
@@ -3178,7 +3178,7 @@ Para definir um conjunto de dados do Amazon S3, defina o **tipo** do conjunto de
 | bucketName |O nome do registo de S3. |Cadeia |Sim |
 | key |A chave do objeto de S3. |Cadeia |Não |
 | prefixo |Prefixo para a chave do objeto de S3. Objetos cujas chaves começar a utilizar este prefixo estão selecionados. Aplica-se apenas quando o chave está vazia. |Cadeia |Não |
-| Versão |A versão do objeto de S3 se o controlo de versões de S3 estiver ativado. |Cadeia |Não |
+| versão |A versão do objeto de S3 se o controlo de versões de S3 estiver ativado. |Cadeia |Não |
 | formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formato](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se pretender **copiar ficheiros como-é** entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída. |Não | |
 | Compressão | Especifique o tipo e o nível de compressão de dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Os níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e compressão no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não | |
 
@@ -3549,14 +3549,14 @@ Para definir um FTP serviço ligado, defina o **tipo** do serviço ligado para *
 | Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
 | anfitrião |Nome ou endereço IP do servidor de FTP |Sim |&nbsp; |
-| authenticationType |Especifique o tipo de autenticação |Sim |Anónimo, básico |
+| authenticationType |Especificar o tipo de autenticação |Sim |Anónimo, básico |
 | o nome de utilizador |Utilizador com acesso ao servidor de FTP |Não |&nbsp; |
 | palavra-passe |Palavra-passe para o utilizador (nome de utilizador) |Não |&nbsp; |
 | encryptedCredential |Credencial encriptada para aceder ao servidor FTP |Não |&nbsp; |
 | gatewayName |Nome do gateway Data Management Gateway para ligar a um servidor FTP no local |Não |&nbsp; |
 | porta |Porta em que o servidor FTP está à escuta |Não |21 |
-| enableSsl |Especifique se pretende utilizar FTP através do canal SSL/TLS |Não |VERDADEIRO |
-| enableServerCertificateValidation |Especifique se pretende ativar a validação do certificado SSL de servidor quando a utilizar FTP através do canal SSL/TLS |Não |VERDADEIRO |
+| enableSsl |Especifique se pretende utilizar FTP através do canal SSL/TLS |Não |true |
+| enableServerCertificateValidation |Especifique se pretende ativar a validação do certificado SSL de servidor quando a utilizar FTP através do canal SSL/TLS |Não |true |
 
 #### <a name="example-using-anonymous-authentication"></a>Exemplo: Utilizar a autenticação anónima
 
@@ -3729,7 +3729,7 @@ Para definir um HDFS serviço ligado, defina o **tipo** do serviço ligado para 
 | tipo |A propriedade de tipo tem de ser definida: **Hdfs** |Sim |
 | Url |URL para o HDFS |Sim |
 | authenticationType |Anónimo, ou o Windows. <br><br> Para utilizar **a autenticação Kerberos** para o conector do HDFS, consulte [nesta secção](#use-kerberos-authentication-for-hdfs-connector) para configurar o seu ambiente no local em conformidade. |Sim |
-| Nome de utilizador |Autenticação de nome de utilizador do Windows. |Sim (para autenticação do Windows) |
+| userName |Autenticação de nome de utilizador do Windows. |Sim (para autenticação do Windows) |
 | palavra-passe |Palavra-passe para autenticação do Windows. |Sim (para autenticação do Windows) |
 | gatewayName |Nome do gateway que o serviço fábrica de dados deve utilizar para ligar para o HDFS. |Sim |
 | encryptedCredential |[Novo AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) saída da credencial de acesso. |Não |
@@ -3928,7 +3928,7 @@ Para utilizar autenticação básica, defina `authenticationType` como `SshPubli
 | o nome de utilizador |Utilizador com acesso ao servidor de SFTP |Sim |
 | privateKeyPath | Especifique um caminho absoluto para o ficheiro de chave privada pode aceder a este gateway. | Especifique o `privateKeyPath` ou `privateKeyContent`. <br><br> Aplicam-se apenas ao copiar dados a partir de um servidor SFTP no local. |
 | privateKeyContent | Uma cadeia serializada do conteúdo da chave privada. O Assistente para copiar pode ler o ficheiro de chave privado e extrair automaticamente o conteúdo da chave privado. Se estiver a utilizar qualquer outra ferramenta/SDK, utilize a propriedade de privateKeyPath em vez disso. | Especifique o `privateKeyPath` ou `privateKeyContent`. |
-| frase de acesso | Especifique a passagem frase/palavra-passe para desencriptar a chave privada, se o ficheiro de chave estiver protegido por uma frase de acesso. | Sim, se o ficheiro de chave privada está protegido por uma frase de acesso. |
+| passPhrase | Especifique a passagem frase/palavra-passe para desencriptar a chave privada, se o ficheiro de chave estiver protegido por uma frase de acesso. | Sim, se o ficheiro de chave privada está protegido por uma frase de acesso. |
 
 ```json
 {
@@ -4069,7 +4069,7 @@ Para definir um HTTP de serviço ligado, defina o **tipo** do serviço ligado pa
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| URL | URL de base ao servidor Web | Sim |
+| url | URL de base ao servidor Web | Sim |
 | authenticationType | Especifica o tipo de autenticação. Valores permitidos são: **anónimo**, **básico**, **resumida**, **Windows**, **ClientCertificate**. <br><br> Consulte a secções abaixo desta tabela mais propriedades e exemplos JSON para os tipos de autenticação, respetivamente. | Sim |
 | enableServerCertificateValidation | Especifique se pretende ativar a validação do certificado SSL de servidor, se a origem é o servidor de Web de HTTPS | Não, a predefinição é verdadeiro |
 | gatewayName | Nome do Data Management Gateway para ligar a uma origem HTTP no local. | Sim, se copiar dados a partir de uma origem HTTP no local. |
@@ -4105,7 +4105,7 @@ Para utilizar autenticação básica, defina `authenticationType` como `ClientCe
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | embeddedCertData | O conteúdo dos dados binários do ficheiro Personal Information (Exchange PFX) com codificação Base64. | Especifique o `embeddedCertData` ou `certThumbprint`. |
-| CertThumbprint | O thumbprint do certificado que foi instalado no arquivo de certificados do computador do gateway. Aplicam-se apenas ao copiar dados a partir de uma origem HTTP no local. | Especifique o `embeddedCertData` ou `certThumbprint`. |
+| certThumbprint | O thumbprint do certificado que foi instalado no arquivo de certificados do computador do gateway. Aplicam-se apenas ao copiar dados a partir de uma origem HTTP no local. | Especifique o `embeddedCertData` ou `certThumbprint`. |
 | palavra-passe | Palavra-passe associado ao certificado. | Não |
 
 Se utilizar `certThumbprint` para autenticação e o certificado está instalado no arquivo pessoal do computador local, tem de conceder a permissão de leitura para o serviço de gateway:
@@ -4267,7 +4267,7 @@ Para definir um OData serviço ligado, defina o **tipo** do serviço ligado para
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| URL |URL do serviço OData. |Sim |
+| url |URL do serviço OData. |Sim |
 | authenticationType |Tipo de autenticação utilizado para ligar à origem de OData. <br/><br/> Para a nuvem OData, os valores possíveis são anónimo, básico e OAuth (tenha em atenção o suporte do Azure Data Factory atualmente, apenas do Azure Active Directory com base em OAuth). <br/><br/> De OData no local, os valores possíveis são anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica. |Sim (apenas se estiver a utilizar autenticação básica) |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. |Sim (apenas se estiver a utilizar autenticação básica) |
@@ -4347,7 +4347,7 @@ Para definir um conjunto de dados de OData, defina o **tipo** do conjunto de dad
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| Caminho |Caminho para o recurso de OData |Não |
+| caminho |Caminho para o recurso de OData |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -4742,8 +4742,8 @@ Para definir um conjunto de dados Web, defina o **tipo** do conjunto de dados pa
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo |tipo do conjunto de dados. tem de ser definido como **WebTable** |Sim |
-| Caminho |Um URL relativo para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição de serviço ligado. |
-| Índice |O índice da tabela no recurso. Consulte [Get índice de uma tabela numa página HTML](#get-index-of-a-table-in-an-html-page) secção para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
+| caminho |Um URL relativo para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição de serviço ligado. |
+| índice |O índice da tabela no recurso. Consulte [Get índice de uma tabela numa página HTML](#get-index-of-a-table-in-an-html-page) secção para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -4835,9 +4835,9 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |A propriedade de tipo deve ser definida como **HDInsightOnDemand**. |Sim |
-| ClusterSize |Número de nós de trabalho/dados do cluster. O cluster do HDInsight é criado com 2 nós principais, juntamente com o número de nós de trabalho que especificar para esta propriedade. Os nós são de tamanho Standard_D3 tem 4 núcleos, pelo que um cluster de nós de 4 trabalho demora 24 núcleos (4\*4 = 16 núcleos para nós de trabalho plus 2\*4 = 8 núcleos de nós principais). Consulte [clusters do Hadoop baseados em criar Linux no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes sobre a camada de Standard_D3. |Sim |
+| clusterSize |Número de nós de trabalho/dados do cluster. O cluster do HDInsight é criado com 2 nós principais, juntamente com o número de nós de trabalho que especificar para esta propriedade. Os nós são de tamanho Standard_D3 tem 4 núcleos, pelo que um cluster de nós de 4 trabalho demora 24 núcleos (4\*4 = 16 núcleos para nós de trabalho plus 2\*4 = 8 núcleos de nós principais). Consulte [clusters do Hadoop baseados em criar Linux no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes sobre a camada de Standard_D3. |Sim |
 | TimeToLive |O tempo de inatividade permitido para o cluster do HDInsight a pedido. Especifica o tempo durante o qual o cluster do HDInsight a pedido permanece alive após a conclusão de uma atividade executar se existirem outras tarefas ativas no cluster.<br/><br/>Por exemplo, se executar uma atividade demora 6 minutos e timetolive está definido para 5 minutos, o cluster permanece ativo durante 5 minutos após a execução de 6 minutos de atividade de processamento. Se executar de outra atividade é executada com a janela de 6 minutos, é processada pelo mesmo cluster.<br/><br/>Criar um cluster do HDInsight a pedido é uma operação dispendiosa (pode demorar algum tempo), por isso, utilize esta definição como necessários para melhorar o desempenho de uma fábrica de dados através da reutilização de um cluster do HDInsight a pedido.<br/><br/>Se definido pelo valor timetolive como 0, o cluster é eliminado logo que a atividade ser executada num processados. Por outro lado, se definir um valor elevado, o cluster pode permanecer inativo, desnecessariamente, resultando em custos elevados. Por conseguinte, é importante que defina o valor adequado com base nas suas necessidades.<br/><br/>Vários pipelines podem partilhar a mesma instância de cluster do HDInsight a pedido se o valor da propriedade timetolive está corretamente definido |Sim |
-| Versão |Versão do cluster do HDInsight. Para obter mais informações, consulte [suportado as versões do HDInsight no Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Não |
+| versão |Versão do cluster do HDInsight. Para obter mais informações, consulte [suportado as versões do HDInsight no Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Não |
 | linkedServiceName |Serviço ligado do Storage do Azure a ser utilizado pelo cluster a pedido para armazenar e processar dados. <p>Atualmente, não é possível criar um cluster do HDInsight a pedido que utiliza um Azure Data Lake Store, como o armazenamento. Se pretende armazenar os dados de resultado do HDInsight em processamento no Azure Data Lake Store, utilize uma atividade de cópia para copiar os dados de armazenamento de Blobs do Azure para o Azure Data Lake Store.</p>  | Sim |
 | additionalLinkedServiceNames |Especifica a contas de armazenamento adicional para o HDInsight serviço ligado para que o serviço fábrica de dados pode registá-los em seu nome. |Não |
 | osType |Tipo de sistema operativo. Valores permitidos são: (predefinição) do Windows e Linux |Não |
@@ -4971,7 +4971,7 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 | Autorização |Código de autorização é obtido automaticamente depois de clicar em **autorizar** botão no Editor de fábrica de dados e concluir o início de sessão OAuth. |Sim |
 | subscriptionId |Id de subscrição do Azure |Não (se não for especificado, a subscrição do data factory é utilizada). |
 | resourceGroupName |Nome do grupo de recursos do Azure |Não (se não for especificado, grupo de recursos do data factory é utilizado). |
-| ID de sessão |id de sessão da sessão de autorização do OAuth. Cada id de sessão é exclusivo e só pode ser utilizado uma vez. Quando utiliza o Editor do Data Factory, este ID é gerado automaticamente. |Sim |
+| sessionId |id de sessão da sessão de autorização do OAuth. Cada id de sessão é exclusivo e só pode ser utilizado uma vez. Quando utiliza o Editor do Data Factory, este ID é gerado automaticamente. |Sim |
 
 
 #### <a name="json-example"></a>Exemplo JSON
@@ -5284,7 +5284,7 @@ Pode especificar as seguintes propriedades numa definição JSON de atividade de
 | Mapeador de | Nome do mapeador executável. No exemplo, cat.exe é o mapeador de executável.| 
 | reducer | Nome do reducer executável. No exemplo, wc.exe é reducer executável. | 
 | Entrada | Ficheiro de entrada (incluindo a localização) para o mapeador de pontos. No exemplo: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample é o contentor de blob, dados/exemplo/Gutenberg é a pasta, não sendo davinci.txt o blob. |
-| Saída | Ficheiro de saída (incluindo a localização) para o reducer. O resultado da tarefa de transmissão em fluxo do Hadoop é escrito para a localização especificada para esta propriedade. |
+| saída | Ficheiro de saída (incluindo a localização) para o reducer. O resultado da tarefa de transmissão em fluxo do Hadoop é escrito para a localização especificada para esta propriedade. |
 | filePaths | Caminhos para o mapeador de pontos e reducer executáveis. No exemplo: "adfsample/example/apps/wc.exe" adfsample é o contentor de blob, / aplicações de exemplo é a pasta e wc.exe for o executável. | 
 | fileLinkedService | Serviço ligado do Storage do Azure que representa o armazenamento do Azure que contém os ficheiros especificados na secção filePaths. | 
 | Argumentos | Uma lista de argumentos separados por vírgulas para o programa de MapReduce. Em runtime, pode ver alguns argumentos adicionais (por exemplo: mapreduce.job.tags) do framework de MapReduce. Para diferenciar os argumentos com os argumentos de MapReduce, considere utilizar a opção e o valor como argumentos, conforme mostrado no exemplo seguinte (- s, - entrada, - saída etc., são opções seguidas imediatamente pelos respetivos valores) | 
@@ -5456,7 +5456,7 @@ Pode especificar as seguintes propriedades numa definição JSON de atividade de
 
 Propriedade | Descrição | Necessário 
 -------- | ----------- | --------
-Trainedmodeldatasetname | Nome do modelo de retrained. | Sim |  
+trainedModelName | Nome do modelo de retrained. | Sim |  
 trainedModelDatasetName | O conjunto de dados que apontam para o ficheiro iLearner devolvido pela operação de reparametrização. | Sim | 
 
 ### <a name="json-example"></a>Exemplo JSON
@@ -5523,7 +5523,7 @@ Pode especificar as seguintes propriedades numa definição JSON de atividade U-
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| ScriptPath |Caminho para a pasta que contém o script U-SQL. Nome do ficheiro é maiúsculas e minúsculas. |Não (se for utilizar o script) |
+| scriptPath |Caminho para a pasta que contém o script U-SQL. Nome do ficheiro é maiúsculas e minúsculas. |Não (se for utilizar o script) |
 | scriptLinkedService |Serviço ligado que liga o armazenamento que contém o script para a fábrica de dados |Não (se for utilizar o script) |
 | Script |Especifique o script inline de em vez de especificar scriptPath e scriptLinkedService. Por exemplo: ". o script": "Test criar base de dados". |Não (se for utilizar scriptPath e scriptLinkedService) |
 | degreeOfParallelism |O número máximo de nós em simultâneo utilizada para executar a tarefa. |Não |
@@ -5637,7 +5637,7 @@ Pode especificar as seguintes propriedades numa atividade personalizada do .NET 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | AssemblyName | Nome da assemblagem. No exemplo, é: **MyDotnetActivity.dll**. | Sim |
-| Ponto de entrada |Nome da classe que implementa a interface IDotNetActivity. No exemplo, é: **MyDotNetActivityNS.MyDotNetActivity** onde MyDotNetActivityNS é o espaço de nomes e MyDotNetActivity é a classe.  | Sim | 
+| EntryPoint |Nome da classe que implementa a interface IDotNetActivity. No exemplo, é: **MyDotNetActivityNS.MyDotNetActivity** onde MyDotNetActivityNS é o espaço de nomes e MyDotNetActivity é a classe.  | Sim | 
 | PackageLinkedService | Nome do serviço ligado do Storage do Azure que aponta para o armazenamento de blob que contém o ficheiro zip de atividade personalizado. No exemplo, é: **AzureStorageLinkedService**.| Sim |
 | PackageFile | Nome do ficheiro zip. No exemplo, é: **customactivitycontainer/MyDotNetActivity.zip**. | Sim |
 | ExtendedProperties | Propriedades expandidas, que pode definir e transmitir o código de .NET. Neste exemplo, o **SliceStart** variável é definida para um valor com base na variável de sistema SliceStart. | Não | 
@@ -5691,7 +5691,7 @@ Pode especificar as seguintes propriedades numa atividade personalizada do .NET 
 
 Para obter informações detalhadas, consulte [utilizar atividades personalizadas no Data Factory](data-factory-use-custom-activities.md) artigo. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Veja os tutoriais seguintes: 
 
 - [Tutorial: criar um pipeline com uma atividade de cópia](data-factory-copy-activity-tutorial-using-azure-portal.md)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: cb70b6fee5257a07dda673d6d0f6feb07ad66958
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados de SAP HANA utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +64,7 @@ As seguintes propriedades são suportadas para o serviço de SAP HANA ligada:
 | tipo | A propriedade de tipo tem de ser definida: **SapHana** | Sim |
 | servidor | Nome do servidor no qual reside a instância de SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar à base de dados SAP HANA.<br/>Valores permitidos são: **básico**, e **Windows** | Sim |
-| Nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP. | Sim |
+| userName | Nome do utilizador que tem acesso ao servidor do SAP. | Sim |
 | palavra-passe | Palavra-passe para o utilizador. Marcar este campo como um SecureString. | Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Um tempo de execução de integração Self-hosted é necessário, tal como mencionado na [pré-requisitos](#prerequisites). |Sim |
 
@@ -114,7 +114,7 @@ Para copiar dados de SAP HANA, defina a propriedade de tipo do conjunto de dados
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pela origem de SAP HANA.
 
@@ -167,9 +167,9 @@ Quando copiar dados de SAP HANA, os seguintes mapeamentos são utilizados SAP HA
 |:--- |:--- |
 | ALPHANUM | Cadeia |
 | BIGINT | Int64 |
-| BLOB | Byte] |
+| BLOB | Byte[] |
 | VALOR BOOLEANO | Bytes |
-| CLOB | Byte] |
+| CLOB | Byte[] |
 | DATA | DateTime |
 | DECIMAL | Decimal |
 | VALOR DE DUPLO | Solteiro |

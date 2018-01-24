@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20f3d4bb876a46b67385dd4435296e149641149e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter os metadados atividade no Azure Data Factory
 A atividade Obter Metadados pode ser utilizada para obter os metadados de quaisquer dados no Azure Data Factory. Esta atividade é suportada apenas para fábricas de dados da versão 2. Podem ser utilizado nos seguintes cenários:
@@ -96,10 +96,10 @@ Atualmente GetMetadata atividade pode obter os seguintes tipos de informações 
 
 Propriedade | Descrição | Valores Permitidos | Necessário
 -------- | ----------- | -------------- | --------
-fieldList | Lista os tipos de informações de metadados necessários.  | <ul><li>Tamanho</li><li>estrutura</li><li>LastModified</li></ul> |    Não<br/>Se estiver vazia, a atividade devolve todas as informações de metadados suportados 3. 
+fieldList | Lista os tipos de informações de metadados necessários.  | <ul><li>tamanho</li><li>estrutura</li><li>lastModified</li></ul> |    Não<br/>Se estiver vazia, a atividade devolve todas as informações de metadados suportados 3. 
 Conjunto de dados | O conjunto de dados de referência, cujo metadados da atividade é possível obter pela atividade GetMetadata. <br/><br/>O tipo de conjunto de dados suportado atualmente é Blob do Azure. Duas propriedades sub são: <ul><li><b>referenceName</b>: referência a um conjunto de dados de Blobs do Azure existente</li><li><b>tipo</b>: uma vez que o conjunto de dados está a ser referenciado, é do tipo "DatasetReference"</li></ul> |    <ul><li>Cadeia</li><li>DatasetReference</li></ul> | Sim
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Outras atividades de fluxo de controlo suportadas pela fábrica de dados, consulte: 
 
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)

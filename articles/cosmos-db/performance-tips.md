@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: 84a1913bd218d512f7f2818291f59d98628a7272
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 242ec5bfbe33acd4731809efed9b70897b7a9608
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -60,7 +60,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
      O modo de conectividade é configurado durante a construção da instância com o parâmetro ConnectionPolicy DocumentClient. Se for utilizado modo direto, o protocolo também pode ser definido no parâmetro ConnectionPolicy.
 
-    ```C#
+    ```csharp
     var serviceEndpoint = new Uri("https://contoso.documents.net");
     var authKey = new "your authKey from the Azure portal";
     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
@@ -158,7 +158,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
     Política de indexação do cosmos da base de dados também permite-lhe especificar os caminhos do documento para incluir ou excluir da indexação tirando partido dos caminhos de indexação (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). A utilização de indexação caminhos pode oferecer desempenho melhorado de escrita e de armazenamento de índice inferior para cenários em que os padrões de consulta são conhecidos com antecedência, os custos de indexação diretamente são correlacionados com o número exclusivos caminhos indexados.  Por exemplo, o código seguinte mostra como excluir uma secção completa dos documentos (a.k.a. uma subárvore) de indexação a utilizar o "*" caráter universal.
 
-    ```C#
+    ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
     collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
@@ -180,7 +180,7 @@ Para que o se estiver a pedir "como posso melhorar o meu desempenho de base de d
 
     Para medir a sobrecarga de qualquer operação (criar, atualizar ou eliminar), Inspecione o [x-ms-pedido-encargos](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) cabeçalho (ou a propriedade RequestCharge equivalente no ResourceResponse<T> ou FeedResponse<T> no. SDK NET) para medir o número de unidades de pedido consumidos por estas operações.
 
-    ```C#
+    ```csharp
     // Measure the performance (request units) of writes
     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
     Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);

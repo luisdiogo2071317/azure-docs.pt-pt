@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 1c57ea841080fd87c7014e4e4520f17ccf15b156
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 603d1c423ff2039915bdd3d5ed4a79b78d491edc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Como anexar um disco de dados geridos para uma VM do Windows no portal do Azure
 
-Este artigo mostra como anexar um novo disco de dados geridos para máquinas virtuais do Windows através do portal do Azure. Antes de fazer isto, consulte estas sugestões:
+Este artigo mostra como anexar um novo disco de dados geridos para máquinas virtuais do Windows no portal do Azure. Antes de fazer isto, consulte estas sugestões:
 
 * O tamanho da máquina virtual controla quantos discos de dados, pode anexar. Para obter mais informações, consulte [tamanhos das virtual machines](sizes.md).
 * Para um novo disco, não precisa de criar primeiro, porque o Azure cria-lo quando a ligá-lo.
@@ -80,5 +80,5 @@ defrag.exe <volume:> -l
 
 Pode também Certifique-se de que todo o volume é cortado por formatação do volume.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se a aplicação tem de utilizar o d: disco para armazenar dados, pode [alterar a letra de unidade de disco temporário Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

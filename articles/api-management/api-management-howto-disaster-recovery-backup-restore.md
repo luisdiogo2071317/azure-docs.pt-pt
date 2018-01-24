@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 105c1978c049a9981c865eaf752a465c774ab7fd
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 3fcd2fc4162cfbf549be979e15745934c2e4c6ff
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre com serviço cópia de segurança e restaurar na API Management do Azure
 
@@ -80,7 +80,7 @@ Todas as tarefas que fazer sobre recursos geridos com o Azure Resource Manager t
 
 Antes de invocar as APIs que gerar a cópia de segurança e restaurá-lo, é necessário obter um token. O exemplo seguinte utiliza o [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) pacote NuGet ao obter o token.
 
-```c#
+```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System;
 
@@ -121,7 +121,7 @@ Substitua `{tentand id}`, `{application id}`, e `{redirect uri}` utilizando as i
 
 Antes de chamar as operações de "cópia de segurança e restauro" descritas nas secções seguintes, defina o cabeçalho de pedido de autorização para a chamada REST.
 
-```c#
+```csharp
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 

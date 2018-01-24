@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: cf51d9442ff31433cedbcf19052e31247421f4d1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f03c3b6e275c0bc97df9e687a20acf45956664d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas de Spark do Azure Data Factory pipelines
 
@@ -117,7 +117,7 @@ Neste passo, vai criar um serviço ligado do HDInsight para ligar o seu cluster 
 
 1. No Editor de fábrica de dados, selecione **mais** > **nova computação** > **cluster do HDInsight**.
 
-    ![Criar o serviço ligado do HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
+    ![Criar serviço ligado do HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
 
 2. Copie e cole o fragmento seguinte na janela Rascunho-1. No editor de JSON, siga os passos seguintes:
 

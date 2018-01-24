@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: e872062eddd4ae74f6148673a8f0b27751e37ca4
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: fe4481cf851fc021b3073a6d9d6254f546218785
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar o contexto de utilizador IDs proporcionar experiências de utilização no Azure Application Insights
 
@@ -52,7 +52,7 @@ Crie um inicializador de telemetria, conforme descrito detalhadamente [aqui](htt
 
 Neste exemplo define o ID de utilizador para um identificador que expira após a sessão. Se possível, utilize um ID de utilizador que persiste entre sessões.
 
-```C#
+```csharp
 
     using System;
     using System.Web;
@@ -87,7 +87,7 @@ Neste exemplo define o ID de utilizador para um identificador que expira após a
     }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para ativar as experiências de utilização, começar a enviar [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [vistas de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se já enviar eventos personalizados ou vistas de página, explore as ferramentas de utilização para saber como os utilizadores utilizam o serviço.
     * [Descrição geral da utilização](app-insights-usage-overview.md)

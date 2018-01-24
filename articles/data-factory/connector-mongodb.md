@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ddbd27bd832c6fc3c7a0274095d6d203ecf1092a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados de MongoDB utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ As seguintes propriedades são suportadas para o serviço ligado do MongoDB:
 | tipo |A propriedade de tipo tem de ser definida: **MongoDb** |Sim |
 | servidor |Nome anfitrião ou endereço IP do servidor MongoDB. |Sim |
 | porta |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Não (a predefinição é 27017) |
-| DatabaseName |Nome da base de dados MongoDB que pretende aceder. |Sim |
+| databaseName |Nome da base de dados MongoDB que pretende aceder. |Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar à base de dados MongoDB.<br/>Valores permitidos são: **básico**, e **anónimo**. |Sim |
 | o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |Palavra-passe para o utilizador. Marcar este campo como SecureString. |Sim (se for utilizada a autenticação básica). |
@@ -99,7 +99,7 @@ Para copiar dados de MongoDB, defina a propriedade de tipo do conjunto de dados 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **MongoDbCollection** | Sim |
-| CollectionName |Nome da coleção na base de dados de MongoDB. |Sim |
+| collectionName |Nome da coleção na base de dados de MongoDB. |Sim |
 
 **Exemplo:**
 
@@ -119,7 +119,7 @@ Para copiar dados de MongoDB, defina a propriedade de tipo do conjunto de dados 
 
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem do MongoDB.
 
@@ -177,10 +177,10 @@ Quando copiar dados de MongoDB, os seguintes mapeamentos são utilizados MongoDB
 
 | Tipo de dados de MongoDB | Tipo de dados intermédio de fábrica de dados |
 |:--- |:--- |
-| Binário |Byte] |
+| Binário |Byte[] |
 | Booleano |Booleano |
 | Data |DateTime |
-| NumberDouble |duplo |
+| NumberDouble |Duplo |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Cadeia |
@@ -206,14 +206,14 @@ Consulte os dados na tabela real, ativar o controlador para aceder aos dados den
 
 Por exemplo, aqui ExampleTable é uma tabela de MongoDB que tenha uma coluna com uma matriz de objetos em cada célula – faturas e uma coluna com uma matriz de tipos escalares – classificações.
 
-| ID | Nome do cliente | Faturas | Nível de Serviço | Classificações |
+| _id | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: "123" item: "toaster", o preço: Desconto "456": "0,2"}, {invoice_id: "124" item: "oven", o preço: Desconto "1235": "0,2"}] |Prata |[5,6] |
-| 2222 |XYZ |[{invoice_id: item "135": "fridge", o preço: Desconto "12543": "0,0"}] |Dourado |[1,2] |
+| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Prata |[5,6] |
+| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Dourado |[1,2] |
 
 O controlador irá gerar várias tabelas virtuais para representar esta tabela única. A primeira tabela virtual é a tabela base "ExampleTable" mostrado no exemplo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foi omitidos e são expandidos nas tabelas virtuais.
 
-| ID | Nome do cliente | Nível de Serviço |
+| _id | Nome do cliente | Nível de Serviço |
 | --- | --- | --- |
 | 1111 |ABC |Prata |
 | 2222 |XYZ |Dourado |
@@ -226,7 +226,7 @@ As tabelas seguintes mostram as tabelas virtuais que representam matrizes origin
 
 **Tabela "ExampleTable_Invoices":**
 
-| ID | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
+| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |Toaster |456 |0.2 |
 | 1111 |1 |124 |oven |1235 |0.2 |
@@ -234,7 +234,7 @@ As tabelas seguintes mostram as tabelas virtuais que representam matrizes origin
 
 **Tabela "ExampleTable_Ratings":**
 
-| ID | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
+| _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |
 | 1111 |0 |5 |
 | 1111 |1 |6 |

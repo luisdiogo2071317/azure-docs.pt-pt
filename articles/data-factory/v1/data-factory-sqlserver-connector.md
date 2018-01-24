@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 37eb7b728bebcec5c389a8bdf68be6baf97f3c38
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19398a33e17bde7f496070d1f1c84e61dbe65855
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Mover dados para e do SQL Server no local ou no IaaS (VM do Azure) utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -134,7 +134,7 @@ A secção de typeProperties é diferente para cada tipo de conjunto de dados e 
 | --- | --- | --- |
 | tableName |Nome da tabela ou vista na instância da base de dados do SQL Server que o serviço ligado refere-se. |Sim |
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Se estiver a mover dados de uma base de dados do SQL Server, defina o tipo de origem na atividade de cópia para **SqlSource**. Da mesma forma, se estiver a mover dados para uma base de dados do SQL Server, definir o tipo de sink na atividade de cópia para **SqlSink**. Esta secção fornece uma lista de propriedades suportadas por SqlSource e SqlSink.
 
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e as políticas estão disponíveis para todos os tipos de atividades.
@@ -168,10 +168,10 @@ Se não especificar sqlReaderQuery ou sqlReaderStoredProcedureName, as colunas d
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | writeBatchTimeout |De tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
-| WriteBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. |Número inteiro (número de linhas) |Não (predefinição: 10000) |
+| writeBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. |Número inteiro (número de linhas) |Não (predefinição: 10000) |
 | sqlWriterCleanupScript |Especifique a consulta para a atividade de cópia executar de forma a que os dados de um setor específico é limpa. Para obter mais informações, consulte [cópia repetíveis](#repeatable-copy) secção. |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifique o nome da coluna para a atividade de cópia preencher com o identificador de setor automaticamente gerado, o que é utilizado para limpar os dados de um setor específico quando voltar a executar. Para obter mais informações, consulte [cópia repetíveis](#repeatable-copy) secção. |Nome da coluna de uma coluna com o tipo de dados de binary(32). |Não |
-| sqlWriterStoredProcedureName |Nome do procedimento armazenado dados upserts (inserções/atualizações) para a tabela de destino. |Nome do procedimento armazenado. |Não |
+| sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar dados de origem na tabela de destino, por exemplo, efetue upserts ou utilizando a sua própria lógica de negócio de transformação. <br/><br/>Tenha em atenção de que este procedimento armazenado será **invocado por lote**. Se pretender efetuar a operação que apenas é executada uma vez e não tem nada a fazer com dados de origem, por exemplo, eliminar/truncar, utilize `sqlWriterCleanupScript` propriedade. |Nome do procedimento armazenado. |Não |
 | storedProcedureParameters |Parâmetros para o procedimento armazenado. |Pares nome/valor. Nomes e maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e a maiúsculas e minúsculas dos parâmetros de procedimento armazenado. |Não |
 | sqlWriterTableType |Especifique o nome de tipo de tabela a ser utilizado no procedimento armazenado. Atividade de cópia faz com que os dados a ser movidos disponível numa tabela temporária com este tipo de tabela. Código do procedimento armazenado, em seguida, pode intercalar os dados que está a ser copiados com dados existentes. |Um nome de tipo de tabela. |Não |
 
@@ -248,7 +248,7 @@ A definição "external": "true" informa serviço fábrica de dados que o conjun
   }
 }
 ```
-**Conjunto de dados de saída de Blobs do Azure**
+**Conjunto de dados dos Blobs do Azure**
 
 Dados são escritos num blob novo a cada hora (frequência: hora, intervalo: 1). O caminho da pasta para o blob dinamicamente é avaliado com base na hora de início do setor que está a ser processado. O caminho da pasta utiliza ano, mês, dia e em partes de horas a hora de início.
 
@@ -655,37 +655,37 @@ O mapeamento está mesmo que o mapeamento de tipos de dados do SQL Server para A
 | Tipo de motor de base de dados do SQL Server | Tipo de .NET framework |
 | --- | --- |
 | bigint |Int64 |
-| Binário |Byte] |
-| bits |Valor booleano |
-| char |Cadeia, Char [] |
-| Data |DateTime |
-| DateTime |DateTime |
+| Binário |Byte[] |
+| bits |Booleano |
+| char |String, Char[] |
+| data |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atributo FILESTREAM (varbinary(max)) |Byte] |
-| Número de vírgula flutuante |duplo |
-| Imagem |Byte] |
+| Atributo FILESTREAM (varbinary(max)) |Byte[] |
+| Flutuante |Duplo |
+| Imagem |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |
-| nchar |Cadeia, Char [] |
-| ntext |Cadeia, Char [] |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
 | um valor numérico |Decimal |
-| nvarchar |Cadeia, Char [] |
-| real |Único |
-| ROWVERSION |Byte] |
+| nvarchar |String, Char[] |
+| real |Solteiro |
+| ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | em smallmoney |Decimal |
 | sql_variant |Objeto * |
-| Texto |Cadeia, Char [] |
+| Texto |String, Char[] |
 | hora |TimeSpan |
-| carimbo de data/hora |Byte] |
+| carimbo de data/hora |Byte[] |
 | tinyint |Bytes |
 | uniqueidentifier |GUID |
-| varbinary |Byte] |
-| varchar |Cadeia, Char [] |
-| xml |XML |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
+| xml |Xml |
 
 ## <a name="mapping-source-to-sink-columns"></a>Origem de mapeamento para colunas de sink
 Para mapear colunas do conjunto de dados de origem para colunas do conjunto de dados dependente, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

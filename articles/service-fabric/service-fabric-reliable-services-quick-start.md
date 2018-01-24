@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: f67b69e7ad1f7588280de82669040bad5ec6172b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 101ea717816fa2eb9fa9ae25cef21df67cf6ef9c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução ao Reliable Services
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Em seguida, criar um projeto de serviço sem monitorização de estado com o nom
 
 Agora, a sua solução contém dois projetos:
 
-* *Olámundo*. Este é o *aplicação* projeto que contém o *serviços*. Também contém o manifesto da aplicação que descreve a aplicação, bem como um número de scripts do PowerShell que ajudam a implementar a sua aplicação.
+* *HelloWorld*. Este é o *aplicação* projeto que contém o *serviços*. Também contém o manifesto da aplicação que descreve a aplicação, bem como um número de scripts do PowerShell que ajudam a implementar a sua aplicação.
 * *HelloWorldStateless*. Este é o projeto de serviço. Contém a implementação de serviço sem estado.
 
 ## <a name="implement-the-service"></a>Implementar o serviço
@@ -84,7 +84,7 @@ O modelo de projeto inclui uma implementação de exemplo de `RunAsync()` que in
 > 
 > 
 
-### <a name="runasync"></a>Runasync com
+### <a name="runasync"></a>RunAsync
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
@@ -168,7 +168,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
     }
 ```
 
-### <a name="runasync"></a>Runasync com
+### <a name="runasync"></a>RunAsync
 `RunAsync()`funciona da mesma forma nos serviços de monitorização de estado e sem monitorização de estado. No entanto, num serviço com monitorização de estado, a plataforma executa tarefas adicionais em seu nome antes de ser executada `RunAsync()`. Este trabalho pode incluir a garantir que o Gestor de estado fiável e coleções fiável, estará pronto a utilizar.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Coleções fiáveis e o Gestor de estado fiável
@@ -188,7 +188,7 @@ Coleções fiáveis podem armazenar qualquer tipo de .NET, incluindo os tipos pe
 O Gestor de estado fiável gere coleções fiável para si. Pode simplesmente colocar o Gestor de estado fiável para uma coleção fiável pelo nome em qualquer altura e em qualquer lugar no seu serviço. O Gestor de estado fiável garante que obtém uma referência de volta. Não recomendamos que guarde as referências a instâncias de coleção fiável no membro de classe variáveis ou propriedades. Deve ser dada especial cuidado para garantir que a referência está definida para uma instância de todas as vezes no ciclo de vida do serviço. O Gestor de estado fiável processa este trabalho por si e está otimizado para visitas de repetições.
 
 ### <a name="transactional-and-asynchronous-operations"></a>Operações transacionais e assíncronas
-```C#
+```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
     var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: a69f3770184d94c481c1b78f23efa9e9c4fb31fa
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 8bd5ae2aac23b18aeb3ef44692f448b50b7e3d44
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>O Azure Data Factory - considerações de segurança para o movimento de dados
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Movimento de dados utilizando o Azure Data Factory foi **certificadas** para:
 -   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
--   [ESTRELA DE CSA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
 Se estiver interessado na forma como o Azure protege a própria infraestrutura e de conformidade do Azure, visite o [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
 
@@ -137,7 +137,7 @@ As imagens seguintes mostram a utilização de integração personalizada alojad
 
 ![Utilizar o Expressroute com o gateway](media/data-movement-security-considerations/express-route-for-gateway.png) 
 
-**IPSec de VPN:**
+**IPSec VPN:**
 
 ![IPSec de VPN com o gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
@@ -187,7 +187,7 @@ Arquivos de dados de nuvem seguintes requerem a listas brancas de endereço IP d
 **Resposta:** o tempo de execução automática alojada integração permite ligações baseado em HTTP para abrir o internet. O **portas de saída 443 e 80** tem de ser aberto para integração personalizada alojada tempo de execução para que esta ligação. Abra **8050 de porta de entrada** apenas no nível do computador (não a nível de firewall da empresa) para a aplicação Gestor de credenciais. Se a SQL Database do Azure ou do Azure SQL Data Warehouse é utilizado como origem / destino, então poderá ter de abrir **1433** , bem como a porta. Para obter mais informações, consulte [configurações e os endereços IP a listas brancas Firewall](#firewall-configurations-and-whitelisting-ip-address-of gateway) secção. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre o desempenho de atividade de cópia, consulte [copiar guia Otimização e de desempenho de atividade](copy-activity-performance.md).
 
  

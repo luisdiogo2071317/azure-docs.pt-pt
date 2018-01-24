@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 7f494cff1e8dc57a41467cd722fdf224e10c9dec
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiar dados a partir do SAP Business Warehouse utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,8 +64,8 @@ As seguintes propriedades são suportadas para o serviço do SAP Business Wareho
 | tipo | A propriedade de tipo tem de ser definida: **SapBw** | Sim |
 | servidor | Nome do servidor no qual reside a instância do SAP BW. | Sim |
 | systemNumber | Número de sistema do sistema SAP BW.<br/>Permitido valor: número decimal dois dígitos representado como uma cadeia. | Sim |
-| ID de cliente | ID de cliente do cliente no sistema SAP W.<br/>Permitido valor: número decimal de três dígitos representado como uma cadeia. | Sim |
-| Nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP. | Sim |
+| clientId | ID de cliente do cliente no sistema SAP W.<br/>Permitido valor: número decimal de três dígitos representado como uma cadeia. | Sim |
+| userName | Nome do utilizador que tem acesso ao servidor do SAP. | Sim |
 | palavra-passe | Palavra-passe para o utilizador. Marcar este campo como um SecureString. | Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Um tempo de execução de integração Self-hosted é necessário, tal como mencionado na [pré-requisitos](#prerequisites). |Sim |
 
@@ -116,7 +116,7 @@ Para copiar dados de SAP BW, defina a propriedade de tipo do conjunto de dados p
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pela origem de SAP BW.
 
@@ -173,17 +173,17 @@ Quando copiar dados a partir do SAP BW, os seguintes mapeamentos são utilizados
 | CURR | Decimal |
 | CUKY | Cadeia |
 | DEC | Decimal |
-| FLTP | duplo |
+| FLTP | Duplo |
 | INT1 | Bytes |
 | INT2 | Int16 |
 | INT4 | Int |
 | LANG | Cadeia |
 | LCHR | Cadeia |
-| LRAW | Byte] |
+| LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
-| NÃO PROCESSADO | Byte] |
-| RAWSTRING | Byte] |
+| RAW | Byte[] |
+| RAWSTRING | Byte[] |
 | CADEIA | Cadeia |
 | UNIDADE | Cadeia |
 | DATS | Cadeia |

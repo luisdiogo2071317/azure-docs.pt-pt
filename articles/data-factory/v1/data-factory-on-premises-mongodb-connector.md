@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 569e5a3bf8227caf003a9ea9ff897b29d7b0cf19
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 20df17ba01cfc18ce751491d154d7401001e706e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados de MongoDB utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,7 +74,7 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos **
 | o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |Palavra-passe para o utilizador. |Sim (se for utilizada a autenticação básica). |
 | authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Opcional (se for utilizada a autenticação básica). predefinição: utiliza a conta de administrador e a base de dados especificada utilizando a propriedade databaseName. |
-| DatabaseName |Nome da base de dados MongoDB que pretende aceder. |Sim |
+| databaseName |Nome da base de dados MongoDB que pretende aceder. |Sim |
 | gatewayName |Nome do gateway que acede ao arquivo de dados. |Sim |
 | encryptedCredential |Credencial encriptada pelo gateway. |Opcional |
 
@@ -85,9 +85,9 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| CollectionName |Nome da coleção na base de dados de MongoDB. |Sim |
+| collectionName |Nome da coleção na base de dados de MongoDB. |Sim |
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e política estão disponíveis para todos os tipos de atividades.
 
 Propriedades disponíveis no **typeProperties** secção da atividade por outro lado variar com cada tipo de atividade. Para a atividade de cópia, podem variam consoante os tipos de origens e sinks.
@@ -296,10 +296,10 @@ Ao mover dados para o MongoDB os seguintes mapeamentos são utilizados dos tipos
 
 | Tipo do MongoDB | Tipo de .NET framework |
 | --- | --- |
-| Binário |Byte] |
-| Valor booleano |Valor booleano |
+| Binário |Byte[] |
+| Booleano |Booleano |
 | Data |DateTime |
-| NumberDouble |duplo |
+| NumberDouble |Duplo |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |Cadeia |
@@ -325,17 +325,17 @@ Pode utilizar o [Assistente para copiar](data-factory-data-movement-activities.m
 ### <a name="example"></a>Exemplo
 Por exemplo, "ExampleTable" abaixo é uma tabela de MongoDB que tem uma coluna com uma matriz de objetos em cada célula – faturas e uma coluna com uma matriz de tipos escalares – classificações.
 
-| ID | Nome do cliente | Faturas | Nível de serviço | Classificações |
+| _id | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: "123" item: "toaster", o preço: Desconto "456": "0,2"}, {invoice_id: "124" item: "oven", o preço: Desconto "1235": "0,2"}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id: item "135": "fridge", o preço: Desconto "12543": "0,0"}] |Gold |[1,2] |
+| 1111 |ABC |[{invoice_id: "123" item: "toaster", o preço: Desconto "456": "0,2"}, {invoice_id: "124" item: "oven", o preço: Desconto "1235": "0,2"}] |Prata |[5,6] |
+| 2222 |XYZ |[{invoice_id: item "135": "fridge", o preço: Desconto "12543": "0,0"}] |Dourado |[1,2] |
 
 O controlador irá gerar várias tabelas virtuais para representar esta tabela única. A primeira tabela virtual é a tabela base "ExampleTable", abaixo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foi omitidos e são expandidos nas tabelas virtuais.
 
-| ID | Nome do cliente | Nível de serviço |
+| _id | Nome do cliente | Nível de Serviço |
 | --- | --- | --- |
-| 1111 |ABC |Silver |
-| 2222 |XYZ |Gold |
+| 1111 |ABC |Prata |
+| 2222 |XYZ |Dourado |
 
 As tabelas seguintes mostram as tabelas virtuais que representam matrizes originais no exemplo. Estas tabelas contenham o seguinte:
 
@@ -345,7 +345,7 @@ As tabelas seguintes mostram as tabelas virtuais que representam matrizes origin
 
 Tabela "ExampleTable_Invoices":
 
-| ID | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
+| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |Toaster |456 |0.2 |
 | 1111 |1 |124 |oven |1235 |0.2 |
@@ -353,7 +353,7 @@ Tabela "ExampleTable_Invoices":
 
 Tabela "ExampleTable_Ratings":
 
-| ID | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
+| _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |
 | 1111 |0 |5 |
 | 1111 |1 |6 |
@@ -369,5 +369,5 @@ Quando armazena a cópia de dados de dados relacionais, manter a repetibilidade 
 ## <a name="performance-and-tuning"></a>Desempenho e a otimização
 Consulte [desempenho de atividade de cópia & otimização guia](data-factory-copy-activity-performance.md) para saber mais sobre fatores determinantes esse desempenho impacto de movimento de dados (atividade de cópia) no Azure Data Factory e várias formas para otimizar o mesmo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Consulte [mover dados entre no local e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo para criar um pipeline de dados que move os dados de um arquivo de dados no local para um arquivo de dados do Azure.

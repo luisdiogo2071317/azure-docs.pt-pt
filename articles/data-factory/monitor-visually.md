@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorizar visualmente fábricas de dados do Azure
 O Azure Data Factory é um serviço de integração de dados baseado na cloud que lhe permite criar fluxos de trabalho condicionados por dados na cloud para orquestrar e automatizar o movimento e a transformação de dados. Com o Azure Data Factory, poderá criar e agendar fluxos de trabalho condicionados por dados (denominados pipelines) que são capazes de ingerir dados provenientes de diferentes arquivos de dados, processar/transformar os dados através de serviços de computação, tais como o Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning, e publicar os dados de saída em arquivos de dados como o Azure SQL Data Warehouse para serem consumidos por aplicações de business intelligence (BI).
@@ -51,7 +51,7 @@ Vista de lista que mostram a cada pipeline executar para os seus pipelines de v2
 | Erro | Pipeline executar erro (se/qualquer) |
 | ID de Execução | ID do pipeline executar |
 
-![Monitorizar o pipeline é executada](media/monitor-visually/pipeline-runs.png)
+![Monitorizar execuções de pipeline](media/monitor-visually/pipeline-runs.png)
 
 #### <a name="monitoring-activity-runs"></a>Execuções de atividade de monitorização
 Vista de lista que mostram a execuções de atividade correspondente a cada execução de pipeline. Clique em **'Atividade é executada'** ícone sob o **'Ações'** coluna para ver a atividade é executada para cada execução de pipeline. Colunas incluídas:
@@ -59,7 +59,7 @@ Vista de lista que mostram a execuções de atividade correspondente a cada exec
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
 | Nome da Actividade | Nome da atividade no pipeline. |
-| Tipo de atividade | Tipo de atividade ou seja, o cópia, HDInsightSpark, HDInsightHive etc. |
+| Tipo de Actividade | Tipo de atividade ou seja, o cópia, HDInsightSpark, HDInsightHive etc. |
 | Executar início | Início de execução da atividade tempo data (MM/DD/AAAA HH: mm: SS AM/PM) |
 | Duração | Duração de execução (hh: mm:) |
 | Estado | Não foi possível, foi concluída com êxito, em curso |
@@ -67,7 +67,7 @@ Vista de lista que mostram a execuções de atividade correspondente a cada exec
 | Saída | Matriz JSON que descrevem as saídas da atividade |
 | Erro | Atividade executar erro (se/qualquer) |
 
-![Execuções de atividade do monitor](media/monitor-visually/activity-runs.png)
+![Monitorização de execuções de atividade](media/monitor-visually/activity-runs.png)
 
 > [!IMPORTANT]
 > Tem de clicar em **'Atualizar'** ícone na parte superior para atualizar a lista de execuções de atividade e o pipeline. Atualização automática não é atualmente suportada.
@@ -112,6 +112,6 @@ Clique no ícone 'Comentários' para fornecer comentários em várias funcionali
 
 ![Comentários](media/monitor-visually/feedback.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte [monitorizar e gerir pipelines programaticamente](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) artigo para saber mais sobre como monitorizar e gerir pipelines

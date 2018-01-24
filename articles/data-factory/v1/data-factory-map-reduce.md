@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e5fd49c6b269b5f247440c2bc91680fc77fc296c
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5961395f5ca4e9a6efb019a77dbdf5db5ff1ee38
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar MapReduce programas da fábrica de dados
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -119,7 +119,7 @@ Pode transferir uma amostra para utilizar a atividade de MapReduce HDInsight do:
 ## <a name="running-the-word-count-program"></a>Executar o programa de contagem de Word
 O pipeline neste exemplo é executado o programa de mapa/reduza a contagem de palavra no cluster do Azure HDInsight.   
 
-### <a name="linked-services"></a>Serviços ligados
+### <a name="linked-services"></a>Serviços Ligados
 Em primeiro lugar, crie um serviço ligado para ligar o armazenamento do Azure que é utilizado pelo cluster Azure HDInsight ao Azure data factory. Se que copie/cole o seguinte código, não se esqueça de substituir **nome da conta** e **chave da conta** com o nome e a chave do armazenamento do Azure. 
 
 #### <a name="azure-storage-linked-service"></a>Serviço ligado do Storage do Azure
@@ -247,7 +247,7 @@ Pode utilizar a atividade MapReduce para executar programas do Spark no seu clus
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
 
-## <a name="see-also"></a>Veja Também
+## <a name="see-also"></a>Consultar Também
 * [Atividade do ramo de registo](data-factory-hive-activity.md)
 * [Atividade do PIg](data-factory-pig-activity.md)
 * [Atividade de transmissão em fluxo do Hadoop](data-factory-hadoop-streaming-activity.md)

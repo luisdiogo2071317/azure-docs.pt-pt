@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: a5b4056f3198e998fa7fb127fd2c4bcda90e4bbb
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 526286c7f6b62d165af43487ca63fe9055623d0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade do Azure AD para a reposição de palavra-passe self-service
 
@@ -74,31 +74,7 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
     * Transferindo o *whr* página, tal como "https://login.microsoftonline.com/?whr=contoso.com" Repor o parâmetro para a palavra-passe
     * Transferindo o *username* parâmetro para a palavra-passe de reposição de página, tal como "https://login.microsoftonline.com/?username=admin@contoso.com"
 
-### <a name="graphics-details"></a>Detalhes de gráficos
-
-Utilize as seguintes definições para alterar as características visual da página de início de sessão. Aceda a **do Azure Active Directory** > **da empresa de imagem corporativa** > **Editar imagem corporativa**:
-
-* A imagem da página de início de sessão deve ser um ficheiro. png ou. jpg, 1420 x 1200 pixéis e não superior a 500 KB. Para obter os melhores resultados, recomendamos que mantenha-cerca de 200 KB.
-* A cor de fundo da página de início de sessão é utilizada em ligações de latência alta e tem de estar no formato hexadecimal RGB.
-* A imagem de faixa deve ser um ficheiro. png ou. jpg, 60 x 280 pixels e ser não superior a 10 KB.
-* O logótipo quadrado (tema normal e um escuro) deve ser um ficheiro. png ou. jpg, 240 x 240 pixels (redimensionáveis) e não superior a 10 KB.
-
-### <a name="sign-in-text-options"></a>Opções de início de sessão de texto
-
-Utilize as seguintes definições para adicionar o texto para a página de início de sessão é relevante para a sua organização. Aceda a **do Azure Active Directory** > **da empresa de imagem corporativa** > **Editar imagem corporativa**:
-
-* **Sugestão de nome de utilizador**: substitui o texto de exemplo do  *someone@example.com*  com algo mais adequado para os seus utilizadores. Recomendamos que deixe a sugestão de predefinição quando suportam a utilizadores internos e externos.
-* **Texto da página de início de sessão**: pode ter um máximo de 256 carateres de comprimento. Este texto é apresentado em qualquer local que aos utilizadores iniciarem sessão online e de que a experiência de associação de área de trabalho do Azure AD no Windows 10. Utilize este texto para os termos de utilização, instruções e sugestões para os seus utilizadores. 
-
-   >[!IMPORTANT]
-   >Todos podem ver a página de início de sessão, pelo que não forneça quaisquer informações sensíveis aqui.
-   >
-
-### <a name="the-keep-me-signed-in-disabled-setting"></a>A definição "Keep-me sessão desativada"
-
-Com o **manter a minha sessão iniciada desativado** opção, os utilizadores podem permanecer com sessão iniciada quando fechar e reabrir a respetiva janela do browser. Esta opção não afeta a duração da sessão. Aceda a **do Azure Active Directory** > **da empresa de imagem corporativa** > **Editar imagem corporativa**.
-
-Algumas funcionalidades do SharePoint Online e Office 2010 tem uma dependência na capacidade dos próprios utilizadores para selecionar esta caixa de verificação. Se ocultar esta opção, os utilizadores podem obter adicionais e inesperados início de sessão avisos.
+Obter informações sobre como configurar a imagem corporativa no artigo [adicionar imagem corporativa à sua página de início de sessão no Azure AD](customize-branding.md).
 
 ### <a name="directory-name"></a>Nome do diretório
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: seohack1
-ms.openlocfilehash: 9c0fb2c1d90f4c4ef50e658e9baca91795581eae
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5d4664e87ca0a45d59d976f6415fce858bc51dcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>O Azure AD B2C: Criar uma aplicação de ambiente de trabalho do Windows
 Ao utilizar o Azure Active Directory (Azure AD) B2C, pode adicionar as funcionalidades de gestão de identidade poderosas self-service para a sua aplicação de ambiente de trabalho em poucos passos. Este artigo irá mostrar como criar uma aplicação de "lista de tarefas".NET Windows Presentation Foundation (WPF) que inclui a inscrição, início de sessão de utilizador e gestão de perfis. A aplicação irá incluir suporte para inscrição e o início de sessão utilizando um nome de utilizador ou o e-mail. Irá também inclui suporte para inscrição e o início de sessão através da utilização de contas de redes sociais como o Facebook e Google.
@@ -72,7 +72,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ### <a name="enter-your-b2c-details"></a>Introduza os seus detalhes do B2C
 Abra o ficheiro `Globals.cs` e substitua cada um dos valores de propriedade com os seus próprios. Esta classe é utilizada ao longo `TaskClient` para valores de referência utilizada frequentemente.
 
-```C#
+```csharp
 public static class Globals
 {
     ...
@@ -93,7 +93,7 @@ public static class Globals
 ### <a name="create-the-publicclientapplication"></a>Criar o PublicClientApplication
 A classe principal da MSAL `PublicClientApplication`. Esta classe representa a sua aplicação no sistema do Azure AD B2C. Quando app initalizes, crie uma instância de `PublicClientApplication` no `MainWindow.xaml.cs`. Isto pode ser utilizado em toda a janela.
 
-```C#
+```csharp
 protected async override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -111,7 +111,7 @@ protected async override void OnInitialized(EventArgs e)
 ### <a name="initiate-a-sign-up-flow"></a>Iniciar um fluxo de inscrição
 Quando um utilizador optar por participar ativamente para sinais cópias de segurança, que pretende iniciar um fluxo de inscrição que utiliza a política de inscrição que criou. Ao utilizar MSAL, apenas a chamar `pca.AcquireTokenAsync(...)`. Os parâmetros a transmitir ao `AcquireTokenAsync(...)` determinar qual token receber, a política utilizada no pedido de autenticação e muito mais.
 
-```C#
+```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -162,7 +162,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ### <a name="initiate-a-sign-in-flow"></a>Iniciar um fluxo de início de sessão
 Pode iniciar um fluxo de início de sessão da mesma forma que o se iniciar um fluxo de inscrição. Quando um utilizador inicia sessão, efetue a mesma chamada para MSAL, desta vez utilizando a política de início de sessão:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
     AuthenticationResult result = null;
@@ -177,7 +177,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ### <a name="initiate-an-edit-profile-flow"></a>Iniciar um fluxo de edição de perfil
 Novamente, pode executar uma política de perfil de editar o mesmo modo:
 
-```C#
+```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -193,7 +193,7 @@ Todas as nestes casos, MSAL está devolve um token no `AuthenticationResult` ou 
 ### <a name="check-for-tokens-on-app-start"></a>Verifique a existência de tokens no início da aplicação
 Também pode utilizar MSAL para controlar o estado de início de sessão do utilizador.  Nesta aplicação, queremos permanecer com sessão iniciada, mesmo depois de serem feche a aplicação e volte a abrir o utilizador.  Novamente dentro de `OnInitialized` substituição, utilize do MSAL `AcquireTokenSilent` tokens em cache de método para procurar:
 
-```C#
+```csharp
 AuthenticationResult result = null;
 try
 {
@@ -232,7 +232,7 @@ catch (MsalException ex)
 ## <a name="call-the-task-api"></a>Chamar a API de tarefa
 Agora, utilizou MSAL para executar as políticas e obter tokens.  Quando pretender utilizar um estes tokens para chamar a API de tarefa, pode utilizar novamente do MSAL `AcquireTokenSilent` tokens em cache de método para procurar:
 
-```C#
+```csharp
 private async void GetTodoList()
 {
     AuthenticationResult result = null;
@@ -277,7 +277,7 @@ private async void GetTodoList()
 
 Quando a chamada para `AcquireTokenSilentAsync(...)` for bem sucedida e um token for encontrado na cache, pode adicionar o token para o `Authorization` cabeçalho do pedido HTTP. A API web de tarefas irá utilizar este cabeçalho para autenticar o pedido ler a lista de tarefas do utilizador:
 
-```C#
+```csharp
     ...
     // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
@@ -290,7 +290,7 @@ Quando a chamada para `AcquireTokenSilentAsync(...)` for bem sucedida e um token
 ## <a name="sign-the-user-out"></a>O utilizador terminar sessão
 Por fim, pode utilizar MSAL para terminar uma sessão de utilizador com a aplicação quando o utilizador seleciona **terminar sessão**.  Quando utilizar MSAL, isto é conseguido ao desmarcar todos os tokens da cache de token:
 
-```C#
+```csharp
 private void SignOut(object sender, RoutedEventArgs e)
 {
     // Clear any remnants of the user's session.

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7800329e7f56d604c7911d3997fa76a0fac91664
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados através da execução de scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ A tabela seguinte fornece descrições para as propriedades genéricas utilizada
 
 | Propriedade                 | Descrição                              | Necessário                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **tipo**                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim                                      |
+| **type**                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim                                      |
 | **accountName**          | Nome de conta do Azure Data Lake Analytics.  | Sim                                      |
 | **dataLakeAnalyticsUri** | URI do Azure Data Lake Analytics.           | Não                                       |
 | **subscriptionId**       | ID de subscrição do Azure                    | Não (se não for especificado, a subscrição do data factory é utilizada). |
@@ -57,7 +57,7 @@ Utilize a autenticação principal de serviço, especificando as seguintes propr
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Especifique o ID de cliente. da aplicação     | Sim      |
 | **servicePrincipalKey** | Especifique a chave da aplicação.           | Sim      |
-| **inquilino**              | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim      |
+| **tenant**              | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim      |
 
 **Exemplo: Autenticação principal do serviço**
 ```json
@@ -123,7 +123,7 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 | descrição         | Texto que descreve o que faz a atividade.  | Não       |
 | tipo                | Atividade U-SQL do Data Lake Analytics, o tipo de atividade é **DataLakeAnalyticsU SQL**. | Sim      |
 | linkedServiceName   | Serviço ligado ao Azure Data Lake Analytics. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo.  |Sim       |
-| ScriptPath          | Caminho para a pasta que contém o script U-SQL. Nome do ficheiro é maiúsculas e minúsculas. | Sim      |
+| scriptPath          | Caminho para a pasta que contém o script U-SQL. Nome do ficheiro é maiúsculas e minúsculas. | Sim      |
 | scriptLinkedService | Serviço ligado que liga o armazenamento que contém o script para a fábrica de dados | Sim      |
 | degreeOfParallelism | O número máximo de nós em simultâneo utilizada para executar a tarefa. | Não       |
 | prioridade            | Determina quais os que são colocados em fila trabalhos devem ser selecionados para ser executado primeiro. Menor número, maior prioridade. | Não       |
@@ -187,7 +187,7 @@ Na definição do pipeline de exemplo, e terminar parâmetros recebem com valore
 
 Neste caso, os ficheiros de entrada são ainda captados na pasta /datalake/input e ficheiros de saída são gerados na pasta /datalake/output. Os nomes de ficheiro são dinâmicos, com base na hora de início do setor.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os artigos seguintes que explicam como transformar dados de outras formas: 
 
 * [Atividade do ramo de registo](transform-data-using-hadoop-hive.md)

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d4f7df5ceadf8c6219901af6e516453a88aeece7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar Modelos do Azure Machine Learning, utilizando a atividade do recurso de atualização
 Este artigo complementa o principal do Azure Data Factory - artigo de integração do Azure Machine Learning: [Criar pipelines preditivos com o Azure Machine Learning e o Azure Data Factory](transform-data-using-machine-learning.md). Se ainda não o fez, consulte o artigo principal antes de ler através deste artigo. 
@@ -66,7 +66,7 @@ O fragmento JSON seguinte define uma atividade de execução de lote do Azure Ma
 | descrição                   | Texto que descreve o que faz a atividade.  | Não       |
 | tipo                          | Para a atividade de recursos de atualização do Azure Machine Learning, é o tipo de atividade **AzureMLUpdateResource**. | Sim      |
 | linkedServiceName             | Serviço ligado do Machine Learning do Azure que contém a propriedade updateResourceEndpoint. | Sim      |
-| Trainedmodeldatasetname              | Nome do módulo modelo preparado na experimentação de serviço Web da atualização | Sim      |
+| trainedModelName              | Nome do módulo modelo preparado na experimentação de serviço Web da atualização | Sim      |
 | trainedModelLinkedServiceName | Nome do serviço ligado do Storage do Azure que contém o ficheiro ilearner que é carregado pela operação de atualização | Sim      |
 | trainedModelFilePath          | O caminho de ficheiro relativo no trainedModelLinkedService para representar o ficheiro ilearner que é carregado pela operação de atualização | Sim      |
 

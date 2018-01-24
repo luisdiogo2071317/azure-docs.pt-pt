@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b8a0aad23c6c4ceaf23dd3fbde5daef3519fdcf
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reliable-services-notifications"></a>Notificações de serviços fiáveis
 Notificações de permitir que os clientes controlar as alterações que estão a ser efetuadas a um objeto que o se estiverem interessados em. Notificações de suportam dois tipos de objetos: *fiável Gestor de estado* e *dicionário fiável*.
@@ -36,7 +36,7 @@ O Gestor de estado de fiável fornece notificações para os seguintes eventos:
 * Transação
   * Consolidação
 * Gestor de estado
-  * Reconstrução
+  * Reconstruir
   * Adição de um Estado fiável
   * Remoção de um Estado de fiável
 
@@ -51,7 +51,7 @@ A coleção do Gestor de estado fiável for reconstruída em três casos:
 
 Para se registar para notificações de transação e/ou notificações do Gestor de estado, terá de registar o **TransactionChanged** ou **StateManagerChanged** eventos no Gestor de estado fiável. Um local comum para registar com estes processadores de eventos é o construtor do seu serviço de monitorização de estado. Ao registar no construtor, não irá perder as notificações que é causada por uma alteração ao longo da duração de **IReliableStateManager**.
 
-```C#
+```csharp
 public MyService(StatefulServiceContext context)
     : base(MyService.EndpointName, context, CreateReliableStateManager(context))
 {
@@ -69,7 +69,7 @@ O **TransactionChanged** utiliza o processador de eventos **NotifyTransactionCha
 
 Segue-se um exemplo **TransactionChanged** processador de eventos.
 
-```C#
+```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
 {
     if (e.Action == NotifyTransactionChangedAction.Commit)
@@ -91,7 +91,7 @@ Utilize a propriedade de ação na **NotifyStateManagerChangedEventArgs** conver
 
 Segue-se um exemplo **StateManagerChanged** processador de notificação.
 
-```C#
+```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
 {
     if (e.Action == NotifyStateManagerChangedAction.Rebuild)
@@ -117,7 +117,7 @@ Dicionário fiável fornece notificações para os seguintes eventos:
 Para obter notificações do dicionário fiável, terá de registar o **DictionaryChanged** processador de eventos no **IReliableDictionary**. Um local comum para registar com estes processadores de eventos está no **ReliableStateManager.StateManagerChanged** adicionar notificação.
 Registar quando **IReliableDictionary** é adicionado à **IReliableStateManager** garante que não irá perder quaisquer notificações.
 
-```C#
+```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
 {
     var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
@@ -142,7 +142,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 
 Os conjuntos de código anterior a **IReliableNotificationAsyncCallback** interface, along com **DictionaryChanged**. Porque **NotifyDictionaryRebuildEventArgs** contém um **IAsyncEnumerable** interface – que têm de ser enumerados de forma assíncrona - notificações de reconstrução são desencadeadas através de **RebuildNotificationAsyncCallback** em vez de **OnDictionaryChangedHandler**.
 
-```C#
+```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
     IReliableDictionary<TKey, TValue> origin,
     NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
@@ -171,7 +171,7 @@ O **DictionaryChanged** utiliza o processador de eventos **NotifyDictionaryChang
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
-```C#
+```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
 {
     switch (e.Action)
@@ -215,7 +215,7 @@ Seguem-se alguns aspetos a ter em mente:
 * Para transações que contêm várias operações, as operações são aplicadas pela ordem em que foram recebidos na réplica primária do utilizador.
 * Como parte do processamento de progresso FALSO, algumas operações podem ser anuladas. As notificações são geradas para anulação operações, a reverter o estado da réplica para um ponto de estável. Uma diferença importante de notificações de anulação é que são agregados eventos que tenham chaves duplicadas. Por exemplo, se está a ser anulada transação T1, verá uma notificação para Delete(X) único.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Início rápido de serviços fiável](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services de cópia de segurança e restaurar (recuperação após desastre)](service-fabric-reliable-services-backup-restore.md)

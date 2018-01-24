@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0452610e56294a19bab302d6df73dff2a70a2eeb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: daf865ef33e2b099e01f4647b17f36ca8df92c94
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Mover dados de um servidor de FTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,8 +74,8 @@ A tabela seguinte descreve os elementos JSON específicos para um serviço FTP l
 | encryptedCredential |Especifique a credencial encriptada para aceder ao servidor FTP. |Não |&nbsp; |
 | gatewayName |Especifique o nome do gateway no Data Management Gateway para ligar a um servidor FTP no local. |Não |&nbsp; |
 | porta |Especifique a porta em que o servidor FTP está a escutar. |Não |21 |
-| enableSsl |Especifique se pretende utilizar FTP através de um canal SSL/TLS. |Não |VERDADEIRO |
-| enableServerCertificateValidation |Especifique se pretende ativar a validação do certificado SSL de servidor quando estiver a utilizar FTP através do canal SSL/TLS. |Não |VERDADEIRO |
+| enableSsl |Especifique se pretende utilizar FTP através de um canal SSL/TLS. |Não |true |
+| enableServerCertificateValidation |Especifique se pretende ativar a validação do certificado SSL de servidor quando estiver a utilizar FTP através do canal SSL/TLS. |Não |true |
 
 ### <a name="use-anonymous-authentication"></a>Utilize a autenticação anónima
 
@@ -195,7 +195,7 @@ Neste exemplo, {setor} é substituída pelo valor da variável de sistema do Dat
 ```
 Neste exemplo, o ano, mês, dia e hora do SliceStart são extraídos em separado variáveis que são utilizadas pelo **folderPath** e **fileName** propriedades.
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte [Criar pipelines](data-factory-create-pipelines.md). Propriedades, tais como o nome, descrição e de saída, tabelas e as políticas estão disponíveis para todos os tipos de atividades.
 
 Propriedades disponíveis no **typeProperties** secção da atividade, por outro lado, variar com cada tipo de atividade. Para a atividade de cópia, as propriedades do tipo variam consoante os tipos de origens e sinks.
@@ -387,7 +387,7 @@ O pipeline contém uma atividade de cópia que está configurada para utilizar o
 > [!NOTE]
 > Para mapear colunas do conjunto de dados de origem para colunas do conjunto de dados dependente, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos:
 
 * Para saber mais sobre os principais fatores que desempenho impacto de movimento de dados (atividade de cópia) na fábrica de dados e várias formas para otimizar o mesmo, consulte o [copiar guia Otimização e de desempenho de atividade](data-factory-copy-activity-performance.md).

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: fda3c7a9a369eec1b9033ee7077a5f3770647c9f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 195a1a4810de478b77538716fa8d1362428864d8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>O Data Management Gateway - elevada disponibilidade e escalabilidade (pré-visualização)
 > [!NOTE]
@@ -207,7 +207,7 @@ Online | Nó ligado ao serviço Data Factory.
 Offline | Nó está offline.
 A atualizar | O nó está a ser atualizados automaticamente.
 Limitado | Devido ao problema de conectividade. Pode ser devido ao problema de 8050 de porta HTTP, o problema de conectividade do barramento de serviço ou o problema de sincronização de credenciais. 
-Inativos | Nó está a ser uma configuração diferente da configuração dos outros nós da maioria.<br/><br/> Um nó pode ficar inativo quando não é possível ligar a outros nós. 
+Inativa | Nó está a ser uma configuração diferente da configuração dos outros nós da maioria.<br/><br/> Um nó pode ficar inativo quando não é possível ligar a outros nós. 
 
 
 A tabela seguinte fornece os possíveis Estados de um **gateway lógico**. O estado do gateway depende Estados de nós de gateway. 
@@ -256,7 +256,7 @@ Para reverter a partir da pré-visualização, elimine todos os nós, mas um nó
 Depois de eliminar, clique em **funcionalidades de pré-visualização** na mesma página do portal do Azure e desativar a funcionalidade de pré-visualização. Tem de repor o gateway para um gateway de (disponibilidade geral) de GA de nó.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Reveja os artigos seguintes:
 - [O Data Management Gateway](data-factory-data-management-gateway.md) -fornece uma descrição geral detalhada do gateway.
 - [Mover dados entre no local e na nuvem arquivos de dados](data-factory-move-data-between-onprem-and-cloud.md) -contém instruções com instruções passo a passo para utilizar um gateway com um único nó. 

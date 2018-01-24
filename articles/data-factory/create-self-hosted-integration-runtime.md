@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o tempo de execução do Self-hosted integração
 O tempo de execução de integração (IR) é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados entre ambientes de rede diferentes. Para obter detalhes sobre a resposta a incidentes, consulte [descrição geral de tempo de execução de integração](concepts-integration-runtime.md).
@@ -139,9 +139,9 @@ Em **firewall empresarial** nível, tem de configurar as portas de saída e dom�
 
 Nomes de domínio | Portas | Descrição
 ------------ | ----- | ------------
-*. servicebus.windows.net | 443, 80 | Utilizado para comunicação com o back-end do serviço de movimento de dados
-*. core.windows.net | 443 | Utilizado para cópia de teste utilizando o Blob do Azure (se configurada)
-*. frontend.clouddatahub.net | 443 | Utilizado para comunicação com o back-end do serviço de movimento de dados
+*.servicebus.windows.net | 443, 80 | Utilizado para comunicação com o back-end do serviço de movimento de dados
+*.core.windows.net | 443 | Utilizado para cópia de teste utilizando o Blob do Azure (se configurada)
+*.frontend.clouddatahub.net | 443 | Utilizado para comunicação com o back-end do serviço de movimento de dados
 
 Em **firewall do Windows** nível (nível de computador), estas portas de saída normalmente estão ativadas. Se não, pode configurar as portas em conformidade no autoalojado e domínios máquina de tempo de execução de integração.
 

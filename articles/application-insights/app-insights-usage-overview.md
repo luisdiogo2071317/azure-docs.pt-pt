@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 9f3eb14340205709b5409a3d16d631cc2d02eb32
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
@@ -59,7 +59,7 @@ Insights à direita do ponto de saída padrões interessantes no conjunto de dad
 
 [Mais informações sobre as ferramentas de utilizadores, sessões e os eventos](app-insights-usage-segmentation.md)  
 
-## <a name="page-views"></a>Vistas de página
+## <a name="page-views"></a>Visualizações da página
 
 No painel de utilização, clique no mosaico de vistas de página para obter uma análise detalhada das suas páginas mais populares:
 
@@ -110,7 +110,7 @@ Os eventos podem ser registados no lado do cliente da aplicação:
 
 Ou a partir do lado do servidor:
 
-```C#
+```csharp
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();
     tc.TrackEvent("CreatedAccount", new Dictionary<string,string> {"AccountType":account.Type}, null);
     ...
@@ -141,7 +141,7 @@ No portal do Application Insights, filtrar e dividir os dados nos valores de pro
 
 Para tal, [configurar um inicializador de telemetria](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
-```C#
+```csharp
 
 
     // Telemetry initializer class
@@ -156,7 +156,7 @@ Para tal, [configurar um inicializador de telemetria](app-insights-api-filtering
 
 No inicializador de aplicação web, tais como Global.asax.cs:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {
@@ -168,7 +168,7 @@ No inicializador de aplicação web, tais como Global.asax.cs:
 
 Todos os TelemetryClients novo adicionam automaticamente o valor da propriedade que especificar. Eventos de telemetria individuais podem substituir os valores predefinidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
    - [Utilizadores, Sessões, Eventos](app-insights-usage-segmentation.md)
    - [Funis](usage-funnels.md)
    - [Retenção](app-insights-usage-retention.md)

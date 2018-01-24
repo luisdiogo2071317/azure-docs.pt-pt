@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a16c932aa82eab3083408c2b1d0f94eb788751c
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d78b0dbd3fd124e660b2b2a2cf0cb20f92153508
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados de PostgreSQL através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ As seguintes propriedades são suportadas para o serviço de PostgreSQL ligada:
 | tipo | A propriedade de tipo tem de ser definida: **PostgreSql** | Sim |
 | servidor | Nome do servidor PostgreSQL. |Sim |
 | base de dados | Nome da base de dados PostgreSQL. |Sim |
-| Esquema | Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
+| schema | Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
 | o nome de utilizador | Especifique o nome de utilizador para ligar à base de dados PostgreSQL. |Sim |
 | palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como um SecureString. |Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Um tempo de execução de integração Self-hosted é necessário, tal como mencionado na [pré-requisitos](#prerequisites). |Sim |
@@ -115,7 +115,7 @@ Para copiar dados de PostgreSQL, defina a propriedade de tipo do conjunto de dad
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem PostgreSQL.
 
@@ -173,7 +173,7 @@ Quando copiar dados de PostgreSQL, os seguintes mapeamentos são utilizados Post
 | `bigint` | `int8` | `Int64` |
 | `bigserial` | `serial8` | `Int64` |
 | `bit [ (n) ]` | | `Byte[], String` | &nbsp;
-| `bit varying [ (n) ]` | ' varbit |Byte [] e String' |
+| `bit varying [ (n) ]` | ' varbit |Byte[], String` |
 | `boolean` | `bool` | `Boolean` |
 | `box` | | `Byte[], String` | &nbsp;
 | `bytea` | | `Byte[], String` |&nbsp;
@@ -189,7 +189,7 @@ Quando copiar dados de PostgreSQL, os seguintes mapeamentos são utilizados Post
 | `intarry` | |`String` |&nbsp;
 | `int4range` | |`String` |&nbsp;
 | `int8range` | |`String` |&nbsp;
-| `integer` | ' int, int4 |Int32' |
+| `integer` | ' int, int4 |Int32` |
 | `interval [ fields ] [ (p) ]` | | `Timespan` |&nbsp;
 | `json` | | `String` |&nbsp;
 | `jsonb` | | `Byte[]` |&nbsp;

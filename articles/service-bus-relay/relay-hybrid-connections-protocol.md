@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de ligações híbridas de reencaminhamento do Azure
 Reencaminhamento do Azure é uma das pillars a capacidade de chave de plataforma do Service Bus do Azure. A nova *ligações híbridas* capacidade de reencaminhamento é uma evolução segura e protocolo open com base em HTTP e WebSockets. Este substitui o anterior, igualmente denominado *BizTalk Services* funcionalidade que foi criada no foundation protocolo proprietário. A integração de ligações híbridas para os serviços de aplicações do Azure irá continuar a funcionar como-é.
@@ -96,7 +96,7 @@ Se a ligação de WebSocket falhar devido ao caminho da ligação híbrida não 
 
 | Código | Erro | Descrição |
 | --- | --- | --- |
-| 404 |Não foi encontrado |O caminho da ligação híbrida é inválido ou o URL de base tem um formato incorreto. |
+| 404 |Não Encontrado |O caminho da ligação híbrida é inválido ou o URL de base tem um formato incorreto. |
 | 401 |Não autorizado |O token de segurança está em falta ou com formato incorreto ou é inválido. |
 | 403 |Proibido |O token de segurança não é válido para este caminho para esta ação. |
 | 500 |Erro interno |Ocorreu um erro no serviço. |
@@ -183,7 +183,7 @@ Rejeitar o socket, o cliente utiliza o endereço URI da mensagem de "aceitar" e 
 | Param | Necessário | Descrição |
 | --- | --- | --- |
 | statusCode |Sim |Código de estado HTTP numérico. |
-| StatusDescription |Sim |Motivo legível humano a rejeição. |
+| statusDescription |Sim |Motivo legível humano a rejeição. |
 
 O URI resultante, em seguida, é utilizado para estabelecer uma ligação de WebSocket.
 
@@ -248,7 +248,7 @@ Se a ligação de WebSocket falhar devido ao caminho da ligação híbrida não 
 
 | Código | Erro | Descrição |
 | --- | --- | --- |
-| 404 |Não foi encontrado |O caminho da ligação híbrida é inválido ou o URL de base tem um formato incorreto. |
+| 404 |Não Encontrado |O caminho da ligação híbrida é inválido ou o URL de base tem um formato incorreto. |
 | 401 |Não autorizado |O token de segurança está em falta ou com formato incorreto ou é inválido. |
 | 403 |Proibido |O token de segurança não é válido para este caminho e para esta ação. |
 | 500 |Erro interno |Ocorreu um erro no serviço. |
@@ -262,7 +262,7 @@ Se a ligação de WebSocket foi intencionalmente encerrada pelo serviço depois 
 | 1008 |O token de segurança expirou, pelo que a política de autorização é violada. |
 | 1011 |Ocorreu um erro no serviço. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [FAQ de Reencaminhamento](relay-faq.md)
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)

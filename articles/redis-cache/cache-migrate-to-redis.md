@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 87a31ac992592cbbbc54a487867a65346ad06a0b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0d52454ae1c2159814d4601d07259aba319e8598
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>Migrar do serviço de Cache gerida para Cache de Redis do Azure
 Migrar as aplicações que utilizam o serviço de Cache gerida do Azure para a Cache de Redis do Azure pode ser conseguido com alterações mínimas à sua aplicação, consoante as funcionalidades do serviço de Cache gerida utilizadas pela sua aplicação de colocação em cache. Enquanto as APIs são não exatamente os mesmos são semelhantes e grande parte do seu código existente que utiliza o serviço de Cache gerida para aceder a uma cache pode ser reutilizada com alterações mínimas. Este tópico mostra como efetuar a configuração necessária e alterações de aplicação para migrar as suas aplicações de serviço de Cache gerida para utilizar a Cache de Redis do Azure e mostra como algumas das funcionalidades de Cache de Redis do Azure podem ser utilizadas para implementar a funcionalidade de uma cache de serviço de Cache gerida.
@@ -125,7 +125,7 @@ No serviço de Cache gerida, as ligações para a cache foram processadas pelo `
 
 Adicione o seguinte utilizando a instrução na parte superior de qualquer ficheiro a partir do qual pretende aceder à cache.
 
-```c#
+```csharp
 using StackExchange.Redis
 ```
 
@@ -138,7 +138,7 @@ Se não resolve este espaço de nomes, não se esqueça de que adicionou o pacot
 
 Para ligar a uma instância da Cache de Redis do Azure, chame a estática `ConnectionMultiplexer.Connect` método e passe o ponto final e a chave da. Uma abordagem para partilhar uma instância `ConnectionMultiplexer` na sua aplicação consiste em ter uma propriedade estática que devolva uma instância ligada, tal como no seguinte exemplo. Esta abordagem fornece uma forma segura para os threads de modo a inicializar apenas uma única instância `ConnectionMultiplexer` ligada. Neste exemplo `abortConnect` está definido como FALSO, o que significa que a chamada terá êxito mesmo se não for estabelecida uma ligação para a cache. Uma funcionalidade-chave do `ConnectionMultiplexer` consiste no restauro automático da conectividade à cache assim que o problema de rede, ou outros problemas, tiverem sido resolvidos.
 
-```c#
+```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 {
     return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
@@ -157,7 +157,7 @@ O ponto final da cache, as chaves e as portas podem ser obtidas a partir de **a 
 
 Assim que a ligação for estabelecida, é devolvida uma referência para a base de dados de cache de Redis, chamando o `ConnectionMultiplexer.GetDatabase` método. O objeto devolvido do método `GetDatabase` é um objeto pass-through simples e não precisa de ser armazenado.
 
-```c#
+```csharp
 IDatabase cache = Connection.GetDatabase();
 
 // Perform cache operations using the cache object...
@@ -178,7 +178,7 @@ Quando chamar `StringGet`, se o objeto existir, é devolvido e, se não existir,
 
 Para especificar a expiração de um item na cache, utilize o parâmetro `TimeSpan` de `StringSet`.
 
-```c#
+```csharp
 cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 ```
 

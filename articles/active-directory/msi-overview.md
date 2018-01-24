@@ -14,8 +14,8 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: 914d09a73026356c836a6eb468818cc43664ec2e
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 07610b178bde6de9eb8d890edc060458fc3b07ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/23/2018
@@ -63,7 +63,7 @@ Experimente um tutorial de identidade de serviço geridas para saber mais cenár
 |                    | [Aceder a um recurso de AD não do Azure com uma identidade de serviço geridas do Linux VM e o Cofre de chaves do Azure](msi-tutorial-linux-vm-access-nonaad.md) |
 | Serviço de Aplicações do Azure  | [Utilizar identidade de serviço geridas com o App Service do Azure ou as funções do Azure](/azure/app-service/app-service-managed-service-identity) |
 | Função do Azure     | [Utilizar identidade de serviço geridas com o App Service do Azure ou as funções do Azure](/azure/app-service/app-service-managed-service-identity) |
-| Service Bus do Azure  | [Utilizador geridos identidade de serviço com o Service Bus do Azure](../service-bus-messaging/service-bus-managed-service-identity.md) |
+| Service Bus do Azure  | [Utilizar identidade de serviço geridas com o Service Bus do Azure](../service-bus-messaging/service-bus-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Os serviços do Azure suportam uma identidade de serviço geridas?
 

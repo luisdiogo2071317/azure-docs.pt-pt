@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: mikerou
-ms.openlocfilehash: 3d123a3d06420194d2918b71c98152cd2ea03457
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 1744e3c49ac06abe9e1067d507fd56d694201ffc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Dimensionar um cluster do Service Fabric através de programação 
 
@@ -57,7 +57,7 @@ Um principal de serviço pode ser criado com os seguintes passos:
 
 A biblioteca de computação fluent pode iniciar sessão utilizando estas credenciais da seguinte forma (tenha em atenção que, como tipos de Azure fluent core `IAzure` estão a [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) pacote):
 
-```C#
+```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
                 ClientId = AzureClientId,
                 ClientSecret = 
@@ -79,7 +79,7 @@ Assim que a sessão iniciada, a contagem de instâncias do conjunto de dimension
 ## <a name="scaling-out"></a>Aumentar horizontalmente
 Utilizar o Azure fluent computação SDK, podem ser adicionadas a instâncias para o conjunto com as chamadas alguns - de dimensionamento de máquina virtual
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -95,7 +95,7 @@ Dimensionamento no é semelhante ao aumentar horizontalmente. O máquina de virt
 
 Preparar o nó de encerramento envolve ao localizar o nó ser removido (o nó mais recentemente adicionado) e desativá-lo. Para nós seed não, nós mais recentes podem ser encontrados comparando `NodeInstanceId`. 
 
-```C#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -109,7 +109,7 @@ Nós seed são diferentes e não necessariamente siga a Convenção de que os ID
 
 Assim que for encontrado o nó ser removido, podem ser desativado e removida com o mesmo `FabricClient` instância e o `IAzure` instância de versões anteriores.
 
-```C#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
@@ -134,7 +134,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 Como aumentar horizontalmente, cmdlets do PowerShell para modificar o dimensionamento da máquina virtual com o conjunto de capacidade também pode ser utilizada aqui se uma abordagem de script é preferível. Assim que a instância de máquina virtual é removida, pode remover o estado de nó de Service Fabric.
 
-```C#
+```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
 
@@ -144,7 +144,7 @@ Como é demonstrado nos fragmentos de código anterior, criar os seus próprios 
 
 Como deve abordar o dimensionamento do Service Fabric depende do seu cenário. Se o dimensionamento é invulgar, a capacidade de adicionar ou remover nós manualmente é provavelmente suficiente. Para cenários mais complexos, regras de dimensionamento automático e SDKs exposição a capacidade de dimensionar programaticamente oferecem alternativas poderosas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para começar a implementar a sua própria lógica de dimensionamento automático, familiarize-se com os seguintes conceitos e APIs úteis:
 

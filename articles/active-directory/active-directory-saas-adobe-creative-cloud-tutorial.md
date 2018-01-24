@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 892055728ccc35690b19edf708997e9f104f75b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c34d6bddb733c5979bc2006738e950cf7a185c4e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutorial: Integração do Azure Active Directory nuvem criativos Adobe
 
@@ -133,9 +133,9 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     | Nome do Atributo | Valor do Atributo |
     | ---------------| ----------------|
-    | Nome próprio |User.givenName |
-    | Apelido |User.Surname |
-    | E-mail |User.Mail |
+    | FirstName |user.givenname |
+    | LastName |user.surname |
+    | E-mail |user.mail |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
     
@@ -157,11 +157,11 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
 
     ![Configuração da nuvem criativos Adobe](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
     
-10. Numa janela do browser web diferente, início de sessão no seu inquilino de nuvem criativos Adobe como administrador.
+10. Numa janela do browser web diferente, inicie sessão no [consola de administração do Adobe](https://adminconsole.adobe.com) como administrador.
 
-11. Aceda a **identidade** no painel de navegação esquerdo e clique no seu domínio. Em seguida, execute os seguintes passos no **início de sessão único na configuração necessária** secção.
+11. Aceda a **definições** na parte superior da navegação barra e, em seguida, escolha **identidade**. Abre a lista de domínios. Clique em **configurar** ligação contra o seu domínio. Em seguida, execute os seguintes passos no **início de sessão único na configuração necessária** secção. Para obter mais informações, consulte [configurar um domínio](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
 
-    ![Definições](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_001.png "definições")
+    ![Definições](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "definições")
     
     a. Clique em **procurar** para carregar o certificado transferido do Azure AD para **IDP certificado**.
     
@@ -176,8 +176,6 @@ Nesta secção, pode ativar do Azure AD início de sessão no portal do Azure e 
     f. Clique em **guardar** botão.
 
 12. O dashboard agora apresentará o XML **"Transferir metadados"** ficheiro. Contém EntityDescriptor URL e o URL de AssertionConsumerService do Adobe. Volte a abrir o ficheiro e configurá-las na aplicação do Azure AD.
-
-    ![Configurar o início de sessão único no lado de aplicação](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_002.png)
 
     ![Configurar o início de sessão único no lado de aplicação](./media/active-directory-saas-adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
@@ -226,11 +224,9 @@ Para permitir que os utilizadores do Azure AD inicie sessão no Cloud criativos 
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Aprovisionar contas de utilizador, execute os seguintes passos:
 
-1. Inicie sessão no site da sua empresa nuvem criativos Adobe como administrador.
+1. Inicie sessão no [consola de administração do Adobe](https://adminconsole.adobe.com) site como um administrador.
 
-2. Adicionar o utilizador da consola do Adobe como ID Federado e atribuí-las a um grupo para elegibilidade
-
-    ![A ligação de nuvem criativos Adobe na lista de aplicações](./media/active-directory-saas-adobe-creative-cloud-tutorial/users.png)  
+2. Adicione o utilizador da consola do Adobe como ID Federado e atribuí-las a um perfil de produto. Para obter informações detalhadas sobre como adicionar utilizadores, consulte [adicionar utilizadores na consola de administração do Adobe](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. Neste momento, escreva o endereço de e-mail/upn no formulário de início de sessão do Adobe, prima separador, e deve ser federado para o Azure AD:
     * Web acesso: www.adobe.com > início de sessão
@@ -278,6 +274,8 @@ Para mais informações sobre o painel de acesso, consulte [introdução ao pain
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configurar um domínio (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+* [Configurar o Azure para utilização com o Adobe SSO (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 
 <!--Image references-->
 

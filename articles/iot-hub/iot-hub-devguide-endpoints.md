@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2017
 ms.author: dobett
-ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - pontos finais de IoT Hub
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Pode encontrar o nome do hub IoT que aloja os pontos finais no portal de **descrição geral** painel. Por predefinição, o nome DNS de um hub IoT aspeto: `{your iot hub name}.azure-devices.net`.
 
-Pode utilizar o DNS do Azure para criar um nome DNS personalizado para o seu IoT hub. Para obter mais informações, consulte [DNS do Azure de utilização para fornecer definições de domínio personalizado para um serviço do Azure](../dns/dns-custom-domain.md#azure-iot).
+Pode utilizar o DNS do Azure para criar um nome DNS personalizado para o seu IoT hub. Para obter mais informações, consulte [DNS do Azure de utilização para fornecer definições de domínio personalizado para um serviço do Azure](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista de pontos finais de IoT Hub incorporadas
 
@@ -101,7 +101,7 @@ Uma solução de IoT, um *gateway de campo* se encontra entre os seus dispositiv
 
 Pode utilizar [Azure IoT Edge] [ lnk-iot-edge] para implementar um gateway de campo. Limite de IoT oferece funcionalidades como multiplexação comunicações a partir de vários dispositivos para a mesma ligação do IoT Hub.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Outros tópicos de referência neste guia para programadores do IoT Hub incluem:
 

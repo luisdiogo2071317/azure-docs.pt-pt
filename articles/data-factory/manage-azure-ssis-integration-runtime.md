@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: c1743a0d06f911122ed0aba586aec837f81c578c
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: b4b777a858febb4b601c038508e4fc313c189ac2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Gerir um tempo de execução de integração do Azure-SSIS
 O [criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md) artigo mostra-lhe como criar um tempo de execução de integração do Azure-SSIS (IR) utilizando o Azure Data Factory. Este artigo fornece informações sobre a necessidade de reconfigurar um tempo de execução de integração de SSIS do Azure existente.  
@@ -25,9 +25,28 @@ O [criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja [Data Factory version 1 documentation](v1/data-factory-introduction.md) (Documentação da versão 1 do Data Factory).
 
+
+## <a name="data-factory-ui"></a>IU do Data Factory 
+Pode utilizar a IU da fábrica de dados para parar, reconfigure/editar ou eliminar um IR. SSIS do Azure 
+
+1. No **IU da fábrica de dados**, mude para o **editar** separador. Para iniciar a IU de fábrica de dados, clique em **autor & Monitor** na home page da fábrica de dados.
+2. No painel esquerdo, clique em **ligações**.
+3. No painel da direita, mude para o **tempos de execução de integração**. 
+4. Pode utilizar botões na coluna ações para **parar**, **editar**, ou **eliminar** o tempo de execução de integração. O **código** clique no botão no **ações** coluna permite-lhe ver a definição de JSON associada o tempo de execução de integração.  
+    
+    ![Ações para IR de SSIS do Azure](./media/manage-azure-ssis-integration-runtime/actions-for-azure-ssis-ir.png)
+
+### <a name="to-reconfigure-an-azure-ssis-ir"></a>Para reconfigurar uma resposta a incidentes SSIS do Azure
+1. Parar o runtime de integração, clicando em **parar** no **ações** coluna. Para atualizar a vista de lista, clique em **atualizar** na barra de ferramentas. Após a paragem de resposta a incidentes, verá que a primeira ação permite-lhe iniciar o IR. 
+
+    ![Ações para IR de SSIS do Azure - após a paragem do](./media/manage-azure-ssis-integration-runtime/actions-after-ssis-ir-stopped.png)
+2. Editar/reconfigure IR ao clicar em **editar** clique no botão no **ações** coluna. No **a configuração de tempo de execução de integração** janela, alterar definições (por exemplo, tamanho do nó, número de nós ou execuções paralelas máximas por nó). 
+3. Para reiniciar a resposta a incidentes, clique em **iniciar** clique no botão no **ações** coluna.     
+
+## <a name="azure-powershell"></a>Azure PowerShell
 Depois de aprovisionar e iniciar uma instância do tempo de execução de integração de SSIS do Azure, pode reconfigurá-la ao executar uma sequência de `Stop`  -  `Set`  -  `Start` cmdlets do PowerShell consecutivamente. Por exemplo, o script do PowerShell seguinte altera o número de nós atribuídos para a instância de tempo de execução de integração do Azure-SSIS a cinco.
 
-## <a name="reconfigure-an-azure-ssis-ir"></a>Reconfigurar uma resposta a incidentes SSIS do Azure
+### <a name="reconfigure-an-azure-ssis-ir"></a>Reconfigurar uma resposta a incidentes SSIS do Azure
 
 1. Em primeiro lugar, pare o tempo de execução de integração de SSIS do Azure utilizando o [Stop-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. Este comando disponibiliza todos os respetivos nós e deixa de faturação.
 
@@ -45,7 +64,7 @@ Depois de aprovisionar e iniciar uma instância do tempo de execução de integr
     Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
     ```
 
-## <a name="delete-an-azure-ssis-ir"></a>Eliminar uma resposta a incidentes SSIS do Azure
+### <a name="delete-an-azure-ssis-ir"></a>Eliminar uma resposta a incidentes SSIS do Azure
 1. Em primeiro lugar, liste todos os existente IRs de SSIS Azure sob a fábrica de dados.
 
     ```powershell

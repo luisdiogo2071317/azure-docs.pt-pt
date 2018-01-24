@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c252bc6aee79ad009684f9d3e62c42529c024109
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de resolução de problemas de encriptação de disco do Azure
 
@@ -30,7 +30,7 @@ Encriptação de disco de sistema operativo (SO) do Linux tem desmonte a unidade
 
 Este erro é mais provável acontecer se a encriptação de disco de SO for tentada num ambiente de VM de destino que foi alterado ou mudou da imagem de galeria as cotações suportados. Exemplos de desvios de imagem suportado que podem interferir com a capacidade da extensão de desmonte a unidade de SO incluem o seguinte:
 - Imagens personalizadas já não correspondem a um sistema de ficheiros suportado ou o esquema de criação de partições.
-- Grande aplicações como SAP, MongoDB ou Apache Cassandra estão instalados e em execução no sistema operativo antes de encriptação. A extensão não é possível corretamente encerrado estas aplicações. Se as aplicações manter identificadores de ficheiros abertos a unidade do SO, a unidade não pode ser desmontada, causando a falha.
+- Aplicações de grande como SAP, MongoDB, Apache Cassandra e Docker não são suportadas quando estão instalados e em execução no sistema operativo antes de encriptação.  Encriptação de disco do Azure não consegue encerrar com segurança estes processos conforme necessário durante a preparação da unidade de SO para a encriptação de disco.  Se existirem processos ainda ativos que contém os identificadores de ficheiros abertos a unidade do SO, a unidade de SO não pode ser desmontada, causando uma falha ao encriptar a unidade de SO. 
 - Personalizado de scripts que são executados na proximidade do tempo de fecho para a encriptação ativada ou se existirem outras alterações estão a ser efetuadas na VM durante o processo de encriptação. Este conflito pode acontecer quando um modelo Azure Resource Manager define várias extensões para executar em simultâneo, ou quando uma extensão de script personalizado ou outra ação será executada em simultâneo para encriptação de disco. Isolar esses passos e não poderão resolver o problema.
 - Não foi desativado segurança avançada Linux (SELinux) antes de ativar a encriptação, pelo que o passo de unmount falhar. Pode ser reenabled SELinux após a conclusão da encriptação.
 - O disco de SO utiliza um esquema de Gestor de Volume lógica (LVM). Embora o suporte de disco de dados do limitado LVM esteja disponível, um disco de SO LVM não é.
@@ -116,7 +116,11 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="troubleshooting-encryption-status"></a>Resolução de problemas de estado de encriptação
+
+Se o estado de encriptação esperado não corresponde ao que está a ser reportado no portal, consulte o seguinte artigo de suporte: [estado de encriptação está incorretamente apresentado no Portal de gestão do Azure](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste documento, aprendeu mais informações sobre alguns problemas comuns no Azure Disk Encryption e como resolver esses problemas. Para obter mais informações sobre este serviço e as respetivas capacidades, consulte os artigos seguintes:
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>O Azure Active Directory B2C: Configurar a IU com conteúdo dinâmico utilizando as políticas personalizadas
 Ao utilizar o Azure Active Directory B2C políticas personalizadas (Azure AD B2C), que pode enviar um parâmetro por uma cadeia de consulta. Transferindo o parâmetro para o ponto final de HTML, pode alterar dinamicamente o conteúdo da página. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou início de sessão do Azure AD B2C, com base num parâmetro que passa a partir do seu web ou aplicação móvel. 
@@ -41,16 +41,16 @@ O `ContentDefinitions` secção contém uma série de `ContentDefinition` elemen
 
 | ID de definição de conteúdo | Modelo de HTML5 predefinido| Descrição | 
 |-----------------------|--------|-------------|
-| *API.Error* | [Exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro**. Esta página é apresentada quando é encontrado uma excepção ou um erro. |
-| *API.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de seleção de fornecedor de identidade**. Esta página apresenta uma lista de fornecedores de identidade que os utilizadores podem escolher durante o início de sessão. As opções são, normalmente, fornecedores de identidade empresarial, os fornecedores de identidade de redes sociais, como o Facebook e Google + ou contas locais. |
-| *API.idpselections.Signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Seleção de fornecedor de identidade para inscrição**. Esta página apresenta uma lista de fornecedores de identidade que os utilizadores, podem escolher de entre durante a inscrição. As opções são o fornecedores de identidade empresarial, os fornecedores de identidade de redes sociais como o Facebook e Google + ou contas locais. |
-| *API.localaccountpasswordreset* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Se esqueceu a página de palavra-passe**. Esta página contém um formulário que os utilizadores tem de concluir para iniciar uma reposição de palavra-passe.  |
-| *API.localaccountsignin* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de início de sessão da conta local**. Esta página contém um formulário para iniciar sessão com uma conta local, com base no endereço de e-mail ou um nome de utilizador. O formulário pode conter uma caixa de entrada de texto e a caixa de entrada de palavra-passe. |
-| *API.localaccountsignup* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inscrição conta local**. Esta página contém um formulário para inscrever-se de uma conta local é baseada num endereço de e-mail ou um nome de utilizador. O formulário pode conter vários controlos de entrada, tais como: um texto de entrada caixa, uma caixa de entrada de palavra-passe, um botão de opção, as caixas de lista pendente de selecção única e caixas de verificação de seleção múltipla. |
-| *API.phonefactor* | [1.0.0.cshtml multifator](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Página de autenticação multifator**. Nesta página, os utilizadores podem verificar os respetivos números de telefone (utilizando o texto ou de voz) durante a inscrição ou início de sessão. |
-| *API.selfasserted* | [selfasserted.HTML](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inscrição de redes sociais conta**. Esta página contém um formulário que os utilizadores terão de concluir quando inscrever utilizando uma conta existente de um fornecedor de identidade de redes sociais. Esta página é semelhante à anterior conta sociais página de inscrição, exceto para os campos de entrada de palavra-passe. |
-| *API.selfasserted.profileupdate* | [updateprofile.HTML](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de atualização de perfil**. Esta página contém um formulário que os utilizadores podem aceder ao atualizar o respetivo perfil. Esta página é semelhante para a página de inscrição de conta de redes sociais, exceto para os campos de entrada de palavra-passe. |
-| *API.signuporsignin* | [Unified.HTML](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Página de inscrição ou início de sessão unificada**. Esta página processa o processo de inscrição e o início de sessão do utilizador. Os utilizadores podem utilizar fornecedores de identidade empresarial, fornecedores de identidade de redes sociais, como o Facebook Google + ou para contas locais.  |
+| *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro**. Esta página é apresentada quando é encontrado uma excepção ou um erro. |
+| *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Página de seleção de fornecedor de identidade**. Esta página apresenta uma lista de fornecedores de identidade que os utilizadores podem escolher durante o início de sessão. As opções são, normalmente, fornecedores de identidade empresarial, os fornecedores de identidade de redes sociais, como o Facebook e Google + ou contas locais. |
+| *api.idpselections.signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Seleção de fornecedor de identidade para inscrição**. Esta página apresenta uma lista de fornecedores de identidade que os utilizadores, podem escolher de entre durante a inscrição. As opções são o fornecedores de identidade empresarial, os fornecedores de identidade de redes sociais como o Facebook e Google + ou contas locais. |
+| *api.localaccountpasswordreset* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Se esqueceu a página de palavra-passe**. Esta página contém um formulário que os utilizadores tem de concluir para iniciar uma reposição de palavra-passe.  |
+| *api.localaccountsignin* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de início de sessão da conta local**. Esta página contém um formulário para iniciar sessão com uma conta local, com base no endereço de e-mail ou um nome de utilizador. O formulário pode conter uma caixa de entrada de texto e a caixa de entrada de palavra-passe. |
+| *api.localaccountsignup* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inscrição conta local**. Esta página contém um formulário para inscrever-se de uma conta local é baseada num endereço de e-mail ou um nome de utilizador. O formulário pode conter vários controlos de entrada, tais como: um texto de entrada caixa, uma caixa de entrada de palavra-passe, um botão de opção, as caixas de lista pendente de selecção única e caixas de verificação de seleção múltipla. |
+| *api.phonefactor* | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Página de autenticação multifator**. Nesta página, os utilizadores podem verificar os respetivos números de telefone (utilizando o texto ou de voz) durante a inscrição ou início de sessão. |
+| *api.selfasserted* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Página de inscrição de redes sociais conta**. Esta página contém um formulário que os utilizadores terão de concluir quando inscrever utilizando uma conta existente de um fornecedor de identidade de redes sociais. Esta página é semelhante à anterior conta sociais página de inscrição, exceto para os campos de entrada de palavra-passe. |
+| *api.selfasserted.profileupdate* | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Página de atualização de perfil**. Esta página contém um formulário que os utilizadores podem aceder ao atualizar o respetivo perfil. Esta página é semelhante para a página de inscrição de conta de redes sociais, exceto para os campos de entrada de palavra-passe. |
+| *api.signuporsignin* | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Página de inscrição ou início de sessão unificada**. Esta página processa o processo de inscrição e o início de sessão do utilizador. Os utilizadores podem utilizar fornecedores de identidade empresarial, fornecedores de identidade de redes sociais, como o Facebook Google + ou para contas locais.  |
 
 ## <a name="serving-dynamic-content"></a>Que serve o conteúdo dinâmico
 No [personalização de IU configurar numa política personalizada do](active-directory-b2c-ui-customization-custom.md) artigo, carregar ficheiros HTML5 para o Blob storage do Azure. Esses ficheiros HTML5 são estáticos e compor HTML mesmo conteúdo para cada pedido. 
@@ -105,7 +105,7 @@ O modelo personalizado do HTML5 baseia-se no modelo de HTML5 incorporado do Azur
 
 7. Nestas instruções, iremos remover a referência à página de esquema. Adicione o seguinte fragmento de código para _unified.cshtml_:
 
-    ```C#
+    ```csharp
     @{
         Layout = null;
     }
@@ -264,7 +264,7 @@ Modificar o HomeController `unified` método para aceitar o parâmetro campaignI
 
 1. Abra o *Controllers\HomeController.cs* de ficheiros e, em seguida, altere o `unified` método adicionando o seguinte fragmento de código:
 
-    ```C#
+    ```csharp
     public IActionResult unified(string campaignId)
     {
         // If campaign ID is Hawaii, show Hawaii background

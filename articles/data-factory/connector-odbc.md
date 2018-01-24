@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 5ef8b81b2aa4df802f67b1a9e90b6bd60dcd1168
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 14f654979f004186e81b2f18578ced3c9aab3815
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de origem e de arquivos de dados ODBC utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ As seguintes propriedades são suportadas para o serviço ligado de ODBC:
 | tipo | A propriedade de tipo tem de ser definida: **Odbc** | Sim |
 | connectionString | A cadeia de ligação, excluindo a parte da credencial. Pode especificar a cadeia de ligação com o padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utilize o DSN (nome da origem de dados) configurou na máquina com o tempo de execução de integração do sistema `"DSN=<name of the DSN on IR machine>;"` (necessário ainda especificar a parte da credencial no serviço ligado em conformidade).| Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC.<br/>Valores permitidos são: **básico** e **anónimo**. | Sim |
-| Nome de utilizador | Especifique o nome de utilizador se estiver a utilizar autenticação básica. | Não |
+| userName | Especifique o nome de utilizador se estiver a utilizar autenticação básica. | Não |
 | palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como um SecureString. | Não |
 | credencial | A parte de credencial de acesso da cadeia de ligação especificada no formato do valor da propriedade do controlador específico. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marcar este campo como um SecureString. | Não |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Um tempo de execução de integração Self-hosted é necessário, tal como mencionado na [pré-requisitos](#prerequisites). |Sim |
@@ -144,7 +144,7 @@ Para copiar dados de/para arquivo de dados compatível com ODBC, defina a propri
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pela origem ODBC.
 
@@ -197,7 +197,7 @@ Para copiar dados para o arquivo de dados compatível com ODBC, defina o tipo de
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **OdbcSink** | Sim |
 | writeBatchTimeout |De tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite.<br/>Valores permitidos são: timespan. Exemplo: "00: 30:00" (30 minutos). |Não |
-| WriteBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize.<br/>Valores permitidos são: número inteiro (número de linhas). |Não (a predefinição é 0 - detetada automaticamente) |
+| writeBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize.<br/>Valores permitidos são: número inteiro (número de linhas). |Não (a predefinição é 0 - detetada automaticamente) |
 | preCopyScript |Especifique uma consulta de SQL Server executar antes de escrever dados no arquivo de dados em cada execução de atividade de cópia. Pode utilizar esta propriedade para limpar os dados previamente carregados. |Não |
 
 > [!NOTE]

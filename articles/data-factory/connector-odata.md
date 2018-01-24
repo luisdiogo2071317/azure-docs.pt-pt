@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ab3044b46c37a2a50d271fa8e8a6b924da1e131b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Copiar dados de origem OData utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,7 @@ As seguintes propriedades são suportadas para o serviço OData ligada:
 | tipo | A propriedade de tipo tem de ser definida: **OData** |Sim |
 | url | URL de raiz do serviço OData. |Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar à origem de OData.<br/>Valores permitidos são: **anónimo**, **básico**, e **Windows**. Tenha em atenção o que OAuth não é suportada. | Sim |
-| Nome de utilizador | Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. | Não |
+| userName | Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. | Não |
 | palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como SecureString. | Não |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
 
@@ -155,7 +155,7 @@ Para copiar dados de OData, defina a propriedade de tipo do conjunto de dados pa
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pela origem de OData.
 
@@ -206,12 +206,12 @@ Quando copiar dados de OData, os seguintes mapeamentos são utilizados OData tip
 
 | Tipo de dados de OData | Tipo de dados intermédio de fábrica de dados |
 |:--- |:--- |
-| Edm.Binary | Byte] |
-| Edm.Boolean | bool |
-| Edm.Byte | Byte] |
+| Edm.Binary | Byte[] |
+| Edm.Boolean | Booleano |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
-| Edm.Double | duplo |
+| Edm.Double | Duplo |
 | Edm.Single | Solteiro |
 | Edm.Guid | GUID |
 | Edm.Int16 | Int16 |

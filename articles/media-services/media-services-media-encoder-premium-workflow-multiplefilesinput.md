@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 7dc149f55c2caf4c3ab3a4782fd71affde0694ca
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a55d6dc212da05d7c14679579258e28921fecdc8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilizar vários ficheiros de entrada e propriedades do componente com o codificador Premium
 ## <a name="overview"></a>Descrição geral
@@ -47,7 +47,7 @@ A cadeia de configuração para definir a tarefa de codificação utiliza um doc
 
 O código de c# que lê a configuração XML a partir de um ficheiro, atualizá-lo com o nome de ficheiro de vídeo à direita e passa-a para a tarefa de uma tarefa é o seguinte:
 
-```c#
+```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
 // Declare a new job.
@@ -415,7 +415,7 @@ Em seguida, cole os seguintes dados XML. Tem de especificar o nome do ficheiro d
 
 Se utilizar o SDK .NET para criar e executar a tarefa, estes dados XML tem de ser transmitida como a cadeia de configuração.
 
-```c#
+```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 
@@ -464,7 +464,7 @@ Codificar, siga estes passos:
 
 * O elemento codificado irá conter controla de áudio de idioma de várias e estes controla deve ser selecionável no leitor de multimédia do Azure.
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Introdução às Premium codificação, no suporte de dados do Azure, os serviços](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Como utilizar a Premium codificação de mensagens em fila nos serviços de suporte de dados do Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [A codificação de conteúdo a pedido com Media Services do Azure](media-services-encode-asset.md#media-encoder-premium-workflow)

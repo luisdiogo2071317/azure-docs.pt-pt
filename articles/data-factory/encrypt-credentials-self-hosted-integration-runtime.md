@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: eb07deab834f63b48b7441f32521c48b27e549ca
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 0f42d971fcf21d0f719468a8c10ff637f2e523f9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Encriptar as credenciais para os arquivos de dados no local no Azure Data Factory
 Pode encriptar e armazenar as credenciais para os arquivos de dados no local (serviços ligados com informações confidenciais) numa máquina com o tempo de execução de integração personalizada alojada. 
@@ -51,7 +51,7 @@ Substitua `<servername>`, `<databasename>`, `<username>`, e `<password>` com os 
 }
 ```
 
-## <a name="encrypt-credentials"></a>Encriptar as credenciais
+## <a name="encrypt-credentials"></a>Encriptar credenciais
 Para encriptar os dados confidenciais do payload JSON num tempo de execução de integração personalizada alojada no local, execute **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**e transmitir o payload JSON. Este cmdlet assegura que as credenciais são encriptadas utilizando DPAPI e armazenado no nó de tempo de execução da integração personalizada alojada localmente. O payload de saída pode ser redirecionado para outro ficheiro JSON (neste caso, 'encryptedLinkedService.json'), que contém as credenciais encriptadas.
 
 ```powershell
@@ -65,6 +65,6 @@ Agora, utilize o ficheiro de JSON de saída do comando anterior que contém a cr
 Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre considerações de segurança para o movimento de dados, consulte [considerações de segurança de movimento de dados](data-movement-security-considerations.md).
 

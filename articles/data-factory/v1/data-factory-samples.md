@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4241aedebd388f24834e573fac7a8a61371e728a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e72cdee5b164fcd4944f4f1f95ff22bb5ceba6a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---samples"></a>Fábrica de dados do Azure - Samples
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="samples-on-github"></a>Exemplos em GitHub
 O [repositório do GitHub do Azure-DataFactory](https://github.com/azure/azure-datafactory) contém vários exemplos que ajudam a rapidamente preparação com o serviço Azure Data Factory (ou) modificar os scripts e utilizá-lo na própria aplicação. A pasta de Samples\JSON contém fragmentos JSON para cenários comuns.
 
-| Exemplo | Descrição |
+| Sample | Descrição |
 |:--- |:--- |
 | [Instruções ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Este exemplo fornece uma instruções ponto a ponto para processar ficheiros de registo utilizando o Azure Data Factory para ativar os dados de ficheiros de registo às informações. <br/><br/>Esta explicação passo a passo, o pipeline de fábrica de dados recolhe registos de exemplo, processos e otimiza os dados de registos com dados de referência e transforma os dados para avaliar a eficácia de uma campanha de marketing que recentemente foi iniciada. |
 | [Exemplos JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |Este exemplo fornece exemplos JSON para cenários comuns. |

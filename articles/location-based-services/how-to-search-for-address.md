@@ -8,19 +8,19 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Como localizar um endereço utilizando o serviço de pesquisa do Azure com base dos serviços de localização (pré-visualização)
 O serviço de pesquisa é um conjunto de APIs concebidos para programadores procurar endereços, de locais, de pontos de interesse, listagens de empresas e outras informações geográficas RESTful. O serviço de pesquisa atribui um latitude/longitude para um endereço específico, Rua cruzada, funcionalidade geográfica ou ponto de interesse (POI). Os valores de latitude e longitude devolvidos pelas APIs do serviço de pesquisa podem ser utilizados como parâmetros outros do Azure com base os serviços de localização, tais como a rota e APIs de fluxo de tráfego.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Instalar o [Postman aplicação](https://www.getpostman.com/apps).
+* Instalar o [Postman aplicação](https://www.getpostman.com/apps).
 
-Uma chave de conta e subscrição de com base dos serviços de localização do Azure. Para obter informações sobre como criar uma conta e obter uma chave de subscrição, consulte [como gerir a sua conta com base dos serviços de localização do Azure e as chaves](how-to-manage-account-keys.md). 
+* Ter uma conta com base dos serviços de localização do Azure e uma chave. Para obter informações sobre como criar uma conta e obter uma chave, consulte [como gerir a sua conta com base dos serviços de localização do Azure e as chaves](how-to-manage-account-keys.md). 
 
 ## <a name="using-fuzzy-search"></a>Utilizar a pesquisa difusa
 
@@ -41,7 +41,7 @@ A maioria das consultas de pesquisa predefinido para ' maxFuzzyLevel = 1' para o
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
-    | URL do pedido | https://Atlas.microsoft.com/search/Fuzzy/JSON? |
+    | URL do pedido | https://atlas.microsoft.com/search/fuzzy/json? |
     | Autorização | Sem autenticação |
 
     O **json** atributo no caminho de URL determina o formato da resposta. Estão a utilizar o json em toda este artigo para facilidade de utilização e o facilitar a leitura. Pode encontrar os formatos de resposta disponíveis no **obter pesquisa difusa** definição [Referência de localização com base em API dos serviços funcional] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
@@ -53,7 +53,7 @@ A maioria das consultas de pesquisa predefinido para ' maxFuzzyLevel = 1' para o
     | Chave | Valor |
     |------------------|-------------------------|
     | versão de API | 1.0 |
-    | chave de subscrição | *chave de subscrição* |
+    | chave de subscrição | \<a chave com base dos serviços de localização do Azure\> |
     | consulta | pizza |
 
 4. Clique em **enviar** e rever o corpo da resposta. 
@@ -93,7 +93,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
-    | URL do pedido | https://Atlas.microsoft.com/search/Address/JSON? |
+    | URL do pedido | https://atlas.microsoft.com/search/address/json? |
     | Autorização | Sem autenticação |
 
 2. Clique em **Params**e introduza a seguinte chave / valor pares a utilizar como parâmetros de consulta ou o caminho no URL do pedido:
@@ -103,7 +103,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     | Chave | Valor |
     |------------------|-------------------------|
     | versão de API | 1.0 |
-    | chave de subscrição | *chave de subscrição* |
+    | chave de subscrição | \<a chave com base dos serviços de localização do Azure\> |
     | consulta | 400 abrangente St, Seattle, WA 98109 |
     
 3. Clique em **enviar** e rever o corpo da resposta. 
@@ -133,7 +133,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
-    | URL do pedido | https://Atlas.microsoft.com/search/Address/reverse/JSON? |
+    | URL do pedido | https://atlas.microsoft.com/search/address/reverse/json? |
     | Autorização | Sem autenticação |
     
 2. Clique em **Params**e introduza a seguinte chave / valor pares a utilizar como parâmetros de consulta ou o caminho no URL do pedido:
@@ -143,7 +143,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     | Chave | Valor |
     |------------------|-------------------------|
     | versão de API | 1.0 |
-    | chave de subscrição | *chave de subscrição* |
+    | chave de subscrição | \<a chave com base dos serviços de localização do Azure\> |
     | consulta | 47.59093,-122.33263 |
     
 3. Clique em **enviar** e rever o corpo da resposta. 
@@ -201,7 +201,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     | Parâmetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | Método HTTP | GET |
-    | URL do pedido | https://Atlas.microsoft.com/search/Address/reverse/crossstreet/JSON? |
+    | URL do pedido | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |
     | Autorização | Sem autenticação |
     
 3. Clique em **Params**e introduza a seguinte chave / valor pares a utilizar como parâmetros de consulta ou o caminho no URL do pedido:
@@ -209,7 +209,7 @@ Pode passar uma completa ou parcial morada para a API de endereço de pesquisa e
     | Chave | Valor |
     |------------------|-------------------------|
     | versão de API | 1.0 |
-    | chave de subscrição | *chave de subscrição* |
+    | chave de subscrição | \<a chave com base dos serviços de localização do Azure\> |
     | consulta | 47.59093,-122.33263 |
     
 4. Clique em **enviar** e rever o corpo da resposta. 

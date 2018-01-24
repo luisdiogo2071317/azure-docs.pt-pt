@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d423304c84bd03477f5e9ee2edb4763e2ae8d5b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47a9feaa692eaf048371b4e534e6b2e8c4086997
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados de Redshift de Amazon utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,12 +63,12 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| **tipo** |Esta propriedade tem de ser definida **AmazonRedshift**. |Sim |
-| **servidor** |O endereço IP ou anfitrião nome do servidor Amazon Redshift. |Sim |
-| **porta** |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Não (a predefinição é 5439) |
-| **base de dados** |O nome da base de dados Amazon Redshift. |Sim |
-| **nome de utilizador** |O nome do utilizador que tem acesso à base de dados. |Sim |
-| **palavra-passe** |A palavra-passe da conta de utilizador. |Sim |
+| **type** |Esta propriedade tem de ser definida **AmazonRedshift**. |Sim |
+| **server** |O endereço IP ou anfitrião nome do servidor Amazon Redshift. |Sim |
+| **port** |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Não (a predefinição é 5439) |
+| **database** |O nome da base de dados Amazon Redshift. |Sim |
+| **username** |O nome do utilizador que tem acesso à base de dados. |Sim |
+| **password** |A palavra-passe da conta de utilizador. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
@@ -88,7 +88,7 @@ Para a atividade de cópia, quando a origem é do tipo **AmazonRedshiftSource**,
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| **consulta** | Utilize a consulta personalizada para ler os dados. |Não (se o **tableName** é especificada a propriedade de um conjunto de dados) |
+| **query** | Utilize a consulta personalizada para ler os dados. |Não (se o **tableName** é especificada a propriedade de um conjunto de dados) |
 | **redshiftUnloadSettings** | Contém grupo de propriedades, ao utilizar o Redshift **descarregamento** comando. | Não |
 | **s3LinkedServiceName** | O Amazon S3 para utilizar como um arquivo intermédio. O serviço ligado é especificado, utilizando um nome de Azure Data Factory do tipo **AwsAccessKey**. | É necessário quando utilizar o **redshiftUnloadSettings** propriedade |
 | **bucketName** | Indica o registo do Amazon S3 a utilizar para armazenar os dados intermédio. Se esta propriedade não for fornecida, atividade de cópia auto-gera um registo. | É necessário quando utilizar o **redshiftUnloadSettings** propriedade |
@@ -97,7 +97,7 @@ Em alternativa, pode utilizar o **RelationalSource** tipo, que inclui Amazon Red
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| **consulta** |Utilize a consulta personalizada para ler os dados. | Não (se o **tableName** é especificada a propriedade de um conjunto de dados) |
+| **query** |Utilize a consulta personalizada para ler os dados. | Não (se o **tableName** é especificada a propriedade de um conjunto de dados) |
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Utilize o descarregamento para copiar dados do Amazon Redshift
 
@@ -207,7 +207,7 @@ O **externo** propriedade está definida como "true" para informar o serviço f�
 }
 ```
 
-**Conjunto de dados de saída de Blobs do Azure**
+**Conjunto de dados dos Blobs do Azure**
 
 Dados são escritos para um blob de novo a cada hora, definindo o **frequência** propriedade como "Hora" e o **intervalo** propriedade para 1. O **folderPath** propriedade do blob é avaliada dinamicamente. O valor da propriedade baseia-se a hora de início do setor que está a ser processado. O caminho da pasta utiliza o ano, mês, dia e em partes de horas a hora de início.
 
@@ -332,11 +332,11 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | Tipo de Amazon Redshift | Tipo .NET |
 | --- | --- |
 | SMALLINT |Int16 |
-| NÚMERO INTEIRO |Int32 |
+| INTEGER |Int32 |
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
-| REAL |Único |
-| PRECISÃO DUPLA |duplo |
+| REAL |Solteiro |
+| PRECISÃO DUPLA |Duplo |
 | VALOR BOOLEANO |Cadeia |
 | CHAR |Cadeia |
 | VARCHAR |Cadeia |
@@ -353,5 +353,5 @@ Quando copiar dados de um arquivo de dados relacionais, manter a repetibilidade 
 ## <a name="performance-and-tuning"></a>Desempenho e otimização
 Saiba mais sobre os principais fatores que afetam o desempenho de atividade de cópia e formas para otimizar o desempenho no [guia Otimização e de desempenho de atividade de cópia](data-factory-copy-activity-performance.md). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter instruções passo a passo para criar um pipeline com atividade de cópia, consulte o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

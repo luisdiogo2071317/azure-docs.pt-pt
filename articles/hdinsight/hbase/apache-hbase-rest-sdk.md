@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 2175a009f084b07c10ca3a32d43c2df216cd3c2f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 083150fe5f8787ba791d3d692db73c5156f11e55
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="use-the-hbase-net-sdk"></a>Utilize o SDK .NET do HBase
+# <a name="use-the-hbase-net-sdk"></a>Utilizar o SDK .NET do HBase
 
 [HBase](apache-hbase-overview.md) fornece duas opções principais para trabalhar com os seus dados: [ramo de registo de consultas e chamadas à API RESTful do HBase](apache-hbase-tutorial-get-started-linux.md). Pode trabalhar diretamente com a REST API utilizando o `curl` comando ou um utilitário semelhante.
 
@@ -38,7 +38,7 @@ O SDK .NET do HBase é fornecido como um pacote NuGet, que pode ser instalado a 
 
 Para utilizar o SDK, instanciar um novo `HBaseClient` objeto, passando na `ClusterCredentials` composto o `Uri` para o cluster e o nome de utilizador do Hadoop e a palavra-passe.
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net"), "USERNAME", "PASSWORD");
 client = new HBaseClient(credentials);
 ```
@@ -53,7 +53,7 @@ Os dados fisicamente são armazenados no *HFiles*. Um único HFile contém dados
 
 Para criar uma nova tabela, especifique um `TableSchema` e colunas. O seguinte código verifica se a tabela 'RestSDKTable' já existe - caso contrário, a tabela é criado.
 
-```c#
+```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 {
     // Create the table
@@ -71,7 +71,7 @@ Esta nova tabela tem famílias de coluna dois, t1 e t2. Uma vez que as famílias
 
 Para eliminar uma tabela:
 
-```c#
+```csharp
 await client.DeleteTableAsync("RestSDKTable");
 ```
 
@@ -79,7 +79,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 Para inserir dados, especifique uma chave de linha exclusivo como o identificador de linha. Todos os dados são armazenados num `byte[]` matriz. O código seguinte define e adiciona o `title`, `director`, e `release_date` colunas para a família de coluna t1, como estas colunas são acedidos com maior frequência. O `description` e `tagline` são adicionadas colunas para a família de coluna no t2. Pode particionar os dados para famílias de coluna conforme necessário.
 
-```c#
+```csharp
 var key = "fifth_element";
 var row = new CellSet.Row { key = Encoding.UTF8.GetBytes(key) };
 var value = new Cell
@@ -127,7 +127,7 @@ HBase implementa BigTable, pelo que o formato dos dados o seguinte aspeto:
 
 Ler dados de uma tabela de HBase, transferir a chave de linha e nome de tabela para o `GetCellsAsync` método para devolver o `CellSet`.
 
-```c#
+```csharp
 var key = "fifth_element";
 
 var cells = await client.GetCellsAsync("RestSDKTable", key);
@@ -141,7 +141,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 
 Neste caso, o código devolve apenas a primeira linha correspondente, como deve apenas ser uma linha para uma chave exclusiva. O valor devolvido é alterado em `string` formatar a partir de `byte[]` matriz. Também pode converter o valor para outros tipos de, por exemplo, um número inteiro para a data de lançamento de filmes:
 
-```c#
+```csharp
 var releaseDateField = cells.rows[0].values
     .Find(c => Encoding.UTF8.GetString(c.column) == "t1:release_date");
 int releaseDate = 0;
@@ -158,7 +158,7 @@ Console.WriteLine(releaseDate);
 
 Utiliza o HBase `scan` para obter uma ou mais linhas. Este exemplo pedidos várias linhas em lotes num número 10 e obtém dados cujos valores de chave são entre 25 e 35. Depois de todas as linhas a obter, elimine scanner para limpar os recursos.
 
-```c#
+```csharp
 var tableName = "mytablename";
 
 // Assume the table has integer keys and we want data between keys 25 and 35

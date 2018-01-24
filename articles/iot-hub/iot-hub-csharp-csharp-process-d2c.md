@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 4794f81787fd575c34fa8a2ef66431d85dcf4a5d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>Encaminhamento de mensagens com o IoT Hub (.NET)
 
@@ -101,7 +101,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Este método aleatoriamente adiciona a propriedade `"level": "critical"` e `"level": "storage"` às mensagens enviadas pelo dispositivo, que simula uma mensagem que necessita de uma ação imediata, o back-end da aplicação ou que têm ser armazenados permanentemente. A aplicação passa a informação nas propriedades da mensagem, em vez de no corpo da mensagem, pelo que o IoT Hub pode encaminhar a mensagem para o destino de mensagem adequado.
+Este método aleatoriamente adiciona a propriedade `"level": "critical"` e `"level": "storage"` às mensagens enviadas pelo dispositivo, que simula uma mensagem que necessita de uma ação imediata, o back-end da aplicação ou que têm ser armazenados permanentemente. A aplicação suporta encaminhamento de mensagens com base no corpo da mensagem.
 
 > [!NOTE]
 > Pode utilizar as propriedades da mensagem para encaminhar mensagens para vários cenários, incluindo o processamento de frio caminho, para além de exemplo-path mostrado aqui.
@@ -209,7 +209,7 @@ Nesta secção, criar uma conta de armazenamento, ligue-o ao seu IoT hub e confi
 
 1. No Portal do Azure, aceda à sua conta do storage em **serviço Blob**, clique em **procurar blobs...** .  Selecione o contentor, navegue para e clique no ficheiro JSON e clique em **transferir** para ver os dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a fiável emitir mensagens do dispositivo para nuvem utilizando a funcionalidade de encaminhamento de mensagens do IoT Hub.
 
 O [como enviar mensagens da nuvem para o dispositivo com o IoT Hub] [ lnk-c2d] mostra como enviar mensagens para os dispositivos da sua solução de back-end.

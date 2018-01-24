@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 01/04/2018
-ms.openlocfilehash: 3d7e96623ef4ad9abd55deca8b410e9ce0d73b6c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d23628fd8446f6e7e0e5ed14b98da13c09b2d592
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Migração de período de indisponibilidade mínimo para a base de dados do Azure para MySQL
 Pode migrar a base de dados MySQL existente à base de dados do Azure para MySQL utilizando Attunity replicar para Migrations da Microsoft. Replicar Attunity é uma oferta conjunta Attunity e Microsoft. Juntamente com o serviço de migração de base de dados do Azure, é incluída sem custos adicionais para os clientes da Microsoft. 
@@ -34,5 +34,5 @@ Uma descrição geral do processo para efetuar uma migração de período de ind
 Para obter mais informações sobre a replicar Attunity para Migrations Microsoft oferta, consulte os seguintes recursos:
  - Vá para o [Attunity replicar para Microsoft Migrations](https://aka.ms/attunity-replicate) página Web.
  - Transferir [Attunity replicar para migrações Microsoft](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Vá para o [Attunity replicar Comunidade](https://microsoft.attunity.com/) para um guia rápido, tutoriais e suporte.
+ - Vá para o [Attunity replicar Comunidade](https://aka.ms/attunity-community) para um guia rápido, tutoriais e suporte.
  - Para obter orientações passo a passo sobre como utilizar Attunity replicar para migrar a base de dados MySQL à base de dados do Azure para MySQL, consulte o [guia de migração de base de dados](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).

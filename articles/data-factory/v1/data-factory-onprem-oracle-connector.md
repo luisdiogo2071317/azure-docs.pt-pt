@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8ff071ed1ce5a3e9927e4c24d23efae3ae0cd6c6
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 82fe637b46decfc9c8d09b5c7e03f328a8636263
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copiar os dados do Oracle no local utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -141,7 +141,7 @@ A secção de typeProperties é diferente para cada tipo de conjunto de dados e 
 | --- | --- | --- |
 | tableName |Nome da tabela na base de dados Oracle que referencia o serviço ligado. |Não (se **oracleReaderQuery** de **OracleSource** especificado) |
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e política estão disponíveis para todos os tipos de atividades.
 
 > [!NOTE]
@@ -162,7 +162,7 @@ Na atividade de cópia, quando a origem é do tipo **OracleSource** as proprieda
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | writeBatchTimeout |De tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: 00:30:00 (30 minutos). |Não |
-| WriteBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. |Número inteiro (número de linhas) |Não (predefinição: 100) |
+| writeBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize. |Número inteiro (número de linhas) |Não (predefinição: 100) |
 | sqlWriterCleanupScript |Especifique uma consulta para a atividade de cópia para executar de forma a que os dados de um setor específico é limpa. |Uma instrução de consulta. |Não |
 | sliceIdentifierColumnName |Especifique o nome da coluna para a atividade de cópia preencher com o identificador de setor automaticamente gerado, o que é utilizado para limpar os dados de um setor específico quando voltar a executar. |Nome da coluna de uma coluna com o tipo de dados de binary(32). |Não |
 
@@ -572,22 +572,22 @@ Quando move os dados da Oracle, são utilizados os seguintes mapeamentos do tipo
 
 | Tipo de dados Oracle | Tipo de dados .NET framework |
 | --- | --- |
-| BFILE |Byte] |
-| BLOB |Byte]<br/>(apenas suportado no Oracle 10g e superior quando utilizar o controlador Microsoft) |
+| BFILE |Byte[] |
+| BLOB |Byte[]<br/>(apenas suportado no Oracle 10g e superior quando utilizar o controlador Microsoft) |
 | CHAR |Cadeia |
 | CLOB |Cadeia |
 | DATA |DateTime |
 | NÚMERO DE VÍRGULA FLUTUANTE |Decimal, cadeia (se precisão > 28) |
-| NÚMERO INTEIRO |Decimal, cadeia (se precisão > 28) |
+| INTEGER |Decimal, cadeia (se precisão > 28) |
 | INTERVALO DE ANO A MÊS |Int32 |
 | DIA DE INTERVALO PARA O SEGUNDO |TimeSpan |
-| LONGA |Cadeia |
-| PERÍODO DE TEMPO EM BRUTO |Byte] |
+| LONG |Cadeia |
+| PERÍODO DE TEMPO EM BRUTO |Byte[] |
 | NCHAR |Cadeia |
 | NCLOB |Cadeia |
 | NÚMERO |Decimal, cadeia (se precisão > 28) |
 | NVARCHAR2 |Cadeia |
-| NÃO PROCESSADO |Byte] |
+| RAW |Byte[] |
 | ROWID |Cadeia |
 | TIMESTAMP |DateTime |
 | TIMESTAMP COM O FUSO HORÁRIO LOCAL |DateTime |

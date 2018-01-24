@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: db3be2120c998a0c8973a85d375b526f53e73247
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f242a8a15334818d83651cf0af55e8ec39bce212
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 Este artigo explica vários ambientes de computação que pode utilizar para o processo ou de transformação de dados. Também fornece detalhes sobre as configurações diferentes (a pedido vs traga o seu próprio) suportados pela fábrica de dados, quando configurar serviços ligados de ligação estes computação ambientes para um Azure data factory.
@@ -29,7 +29,7 @@ A tabela seguinte fornece uma lista de ambientes de computação suportada pela 
 | [O Azure Batch](#azure-batch-linked-service) | [Personalizada](transform-data-using-dotnet-custom-activity.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: Execução de Lotes e Atualizar Recurso](transform-data-using-machine-learning.md) |
 | [Análise do Azure Data Lake](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
-| [SQL do Azure](#azure-sql-linked-service), [do armazém de dados SQL do Azure](#azure-sql-data-warehouse-linked-service), [do SQL Server](#sql-server-linked-service) | [Procedimento Armazenado](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimento Armazenado](transform-data-using-stored-procedure.md) |
 
 >  
 
@@ -101,7 +101,7 @@ O JSON seguinte define um serviço ligado do HDInsight baseado em Linux da pedid
 | Propriedade                     | Descrição                              | Necessário |
 | ---------------------------- | ---------------------------------------- | -------- |
 | tipo                         | A propriedade de tipo deve ser definida como **HDInsightOnDemand**. | Sim      |
-| ClusterSize                  | Número de nós de trabalho/dados do cluster. O cluster do HDInsight é criado com 2 nós principais, juntamente com o número de nós de trabalho que especificar para esta propriedade. Os nós são de tamanho Standard_D3 tem 4 núcleos, pelo que um cluster de nós de 4 trabalho demora 24 núcleos (4\*4 = 16 núcleos para nós de trabalho plus 2\*4 = 8 núcleos de nós principais). Consulte [configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter mais detalhes. | Sim      |
+| clusterSize                  | Número de nós de trabalho/dados do cluster. O cluster do HDInsight é criado com 2 nós principais, juntamente com o número de nós de trabalho que especificar para esta propriedade. Os nós são de tamanho Standard_D3 tem 4 núcleos, pelo que um cluster de nós de 4 trabalho demora 24 núcleos (4\*4 = 16 núcleos para nós de trabalho plus 2\*4 = 8 núcleos de nós principais). Consulte [configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter mais detalhes. | Sim      |
 | linkedServiceName            | Serviço ligado do Storage do Azure a ser utilizado pelo cluster a pedido para armazenar e processar dados. O cluster do HDInsight é criado na mesma região que esta conta de armazenamento do Azure. O Azure HDInsight tem limitação do número total de núcleos que pode utilizar em cada região do Azure que suporta. Certifique-se que tem suficiente quotas de núcleos nessa região do Azure para satisfazer o clusterSize necessária. Para obter detalhes, consulte [configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Atualmente, não é possível criar um cluster do HDInsight a pedido que utiliza um Azure Data Lake Store, como o armazenamento. Se pretende armazenar os dados de resultado do HDInsight em processamento no Azure Data Lake Store, utilize uma atividade de cópia para copiar os dados de armazenamento de Blobs do Azure para o Azure Data Lake Store. </p> | Sim      |
 | clusterResourceGroup         | O cluster do HDInsight é criado neste grupo de recursos. | Sim      |
 | TimeToLive                   | O tempo de inatividade permitido para o cluster do HDInsight a pedido. Especifica o tempo durante o qual o cluster do HDInsight a pedido permanece alive após a conclusão de uma atividade executar se existirem outras tarefas ativas no cluster. Permitido o valor mínimo é 5 minutos (00: 05:00).<br/><br/>Por exemplo, se executar uma atividade demora 6 minutos e timetolive está definido para 5 minutos, o cluster permanece ativo durante 5 minutos após a execução de 6 minutos de atividade de processamento. Se executar de outra atividade é executada com a janela de 6 minutos, é processada pelo mesmo cluster.<br/><br/>Criar um cluster do HDInsight a pedido é uma operação dispendiosa (pode demorar algum tempo), por isso, utilize esta definição como necessários para melhorar o desempenho de uma fábrica de dados através da reutilização de um cluster do HDInsight a pedido.<br/><br/>Se definir o valor de timetolive para 0, o cluster é eliminado, assim que concluir a execução de atividade. Enquanto que, se definir um valor elevado, o cluster pode permanecer inativo para que possa iniciar sessão para algumas resolução de problemas objetivo, mas pode resultar em custos elevados. Por conseguinte, é importante que defina o valor adequado com base nas suas necessidades.<br/><br/>Se o valor da propriedade timetolive adequadamente estiver definido, pipelines vários podem partilhar a instância de cluster do HDInsight a pedido. | Sim      |
@@ -125,7 +125,7 @@ O JSON seguinte define um serviço ligado do HDInsight baseado em Linux da pedid
 >
 > 
 
-#### <a name="additionallinkedservicenames-json-example"></a>exemplo JSON additionalLinkedServiceNames
+#### <a name="additionallinkedservicenames-json-example"></a>additionalLinkedServiceNames JSON example
 
 ```json
 "additionalLinkedServiceNames": [{
@@ -148,7 +148,7 @@ Utilize a autenticação principal de serviço, especificando as seguintes propr
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Especifique o ID de cliente. da aplicação     | Sim      |
 | **servicePrincipalKey** | Especifique a chave da aplicação.           | Sim      |
-| **inquilino**              | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim      |
+| **tenant**              | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim      |
 
 ### <a name="advanced-properties"></a>Propriedades avançadas
 
@@ -238,7 +238,7 @@ Se pretender criar D4 um tamanho de nós principais e nós de trabalho, especifi
 "dataNodeSize": "Standard_D4",
 ```
 
-Se especificar um valor incorreto para estas propriedades, poderá receber o seguinte **erro:** Falha ao criar o cluster. Exceção: não foi possível concluir a operação de criação do cluster. A operação falhou com o código "400". Estado do cluster não concluído: "Erro". Mensagem: 'PreClusterCreationValidationFailure'. Quando receber este erro, certifique-se de que está a utilizar o **CMDLET & APIS** nome da tabela no [tamanhos das Virtual Machines](../virtual-machines/linux/sizes.md) artigo.        
+Se especificar um valor incorreto para estas propriedades, poderá receber o seguinte **erro:** Falha ao criar o cluster. Exceção: não foi possível concluir a operação de criação do cluster. A operação falhou com o código "400". Estado do cluster não concluído: "Erro". Message: 'PreClusterCreationValidationFailure'. Quando receber este erro, certifique-se de que está a utilizar o **CMDLET & APIS** nome da tabela no [tamanhos das Virtual Machines](../virtual-machines/linux/sizes.md) artigo.        
 
 ## <a name="bring-your-own-compute-environment"></a>Traga o seu ambiente de computação
 Este tipo de configuração, os utilizadores podem registar um ambiente informático já existente como um serviço ligado no Factory de dados. O ambiente informático é gerido pelo utilizador e o serviço fábrica de dados utiliza-o para executar as atividades.
@@ -379,7 +379,7 @@ Criar um serviço ligado do Azure Machine Learning para registar um lote de Mach
 | updateResourceEndpoint | O URL de recurso atualizar para um ponto final de serviço Web do Azure ML utilizado para atualizar o serviço Web Preditiva com o ficheiro de modelo treinado | Não                                       |
 | servicePrincipalId     | Especifique o ID de cliente. da aplicação     | Necessário se updateResourceEndpoint for especificado |
 | servicePrincipalKey    | Especifique a chave da aplicação.           | Necessário se updateResourceEndpoint for especificado |
-| Inquilino                 | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Necessário se updateResourceEndpoint for especificado |
+| inquilino                 | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Necessário se updateResourceEndpoint for especificado |
 | connectVia             | O tempo de execução de integração a ser utilizado para emitir as atividades para este serviço ligado. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração. Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não                                       |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Serviço do Azure Data Lake Analytics ligado
@@ -423,7 +423,7 @@ Criar um **Azure Data Lake Analytics** um Azure data factory do serviço de comp
 | resourceGroupName    | Nome do grupo de recursos do Azure                | Não (se não for especificado, grupo de recursos do data factory é utilizado). |
 | servicePrincipalId   | Especifique o ID de cliente. da aplicação     | Sim                                      |
 | servicePrincipalKey  | Especifique a chave da aplicação.           | Sim                                      |
-| Inquilino               | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim                                      |
+| inquilino               | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim                                      |
 | connectVia           | O tempo de execução de integração a ser utilizado para emitir as atividades para este serviço ligado. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração. Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. | Não                                       |
 
 
@@ -446,5 +446,5 @@ A tabela seguinte fornece regras de nomenclatura artefactos do Data Factory de d
 | Os serviços ligados/tabelas/pipelines | Exclusivo com uma fábrica de dados. Os nomes são sensível. | <ul><li>Número máximo de carateres num nome de tabela: a 260.</li><li>Nomes de objeto tem de começar com uma letra, o número ou um caráter de sublinhado (_).</li><li>Os seguintes carateres não são permitidos: ".", "+","?", "/", "<", ">","*", "%", "&", ":","\\"</li></ul> |
 | Grupo de Recursos                   | Exclusivo em todo o Microsoft Azure. Os nomes são sensível. | <ul><li>Número máximo de carateres: 1000.</li><li>O nome pode conter letras, dígitos e os seguintes carateres: "-", "_",","e"."</li></ul> |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista das atividades de transformação suportado pelo Azure Data Factory, consulte [transformar dados](transform-data.md).

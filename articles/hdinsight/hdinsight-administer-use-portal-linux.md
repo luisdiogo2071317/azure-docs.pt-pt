@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 347af14d342751fd9d03cd5d0e9cedf05f91a2e1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Hadoop no HDInsight ao utilizar o portal do Azure
 
@@ -60,14 +60,14 @@ Tem de especificar uma subscrição do Azure quando criar um cluster do HDInsigh
 
 - Para criar um novo grupo de recursos:
 
-    1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+    1. Inicie sessão no [portal do Azure](https://portal.azure.com).
     2. Clique em **subscrição** no menu esquerdo. Tem um ícone de chave amarelo. Deverá ver uma lista de subscrições.
     3. Clique na subscrição que utilizar para criar clusters. 
     4. Clique em **as minhas permissões**.  Mostra o [função](../active-directory/role-based-access-control-what-is.md#built-in-roles) na subscrição. É necessário pelo menos acesso de contribuinte ao criar o cluster do HDInsight.
 
 - Para utilizar um grupo de recursos existente:
 
-    1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+    1. Inicie sessão no [portal do Azure](https://portal.azure.com).
     2. Clique em **grupos de recursos** no menu à esquerda para listar os grupos de recursos.
     3. Clique no grupo de recursos que pretende utilizar para criar o cluster do HDInsight.
     4. Clique em **(IAM) do controlo de acesso**e certifique-se de que a (ou um grupo que pertence a) de ter, pelo menos, o acesso de contribuinte ao grupo de recursos.
@@ -81,10 +81,10 @@ Se receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionRegistr
 4. Clique em cluster na lista para ver a página de descrição geral:
 
     ![Azure portais essentials de cluster de HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **menu de descrição geral:**
-    * **Dashboard**: abre o dashboard do cluster, o que é Web do Ambari para clusters baseados em Linux.
+    * **Dashboard**: abre Ambari IU da web de cluster.
     * **Secure Shell**: mostra as instruções para ligar ao cluster através de ligação de Secure Shell (SSH).
     * **Dimensionar o Cluster**: permite-lhe alterar o número de nós de trabalho para este cluster.
-    * **Mover**: mover o cluster para antoher grupo de recursos ou subscrição.
+    * **Mover**: o cluster é movido para outro grupo de recursos ou a outra subscrição.
     * **Eliminar**: elimina o cluster.
 
     **Menu à esquerda:**
@@ -98,7 +98,7 @@ Se receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionRegistr
     * **Ferramentas para o HDInsight**: informações de ajuda para o HDInsight ferramentas relacionadas.
     * **Utilização de núcleos da subscrição**: apresentar os núcleos utilizados e disponíveis para a sua subscrição.
     * **Dimensionar o Cluster**: aumentar e diminuir o número de nós de trabalho de cluster. Consulte[dimensionar clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **SSH + início de sessão do Cluster**: mostra as instruções para ligar ao cluster através de ligação de Secure Shell (SSH). Para obter mais informações, consulte [utilizar o SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)e repor as credenciais de início de sessão do cluster.
+    * **SSH + início de sessão do Cluster**: mostra as instruções para ligar ao cluster através de ligação de Secure Shell (SSH). Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
     * **Parceiro do HDInsight**: Adicionar/remover atual parceiro do HDInsight.
     * **As Metastores externas**: ver as metastores do Hive e Oozie. As metastores só podem ser configuradas durante o processo de criação do cluster. Consulte [utilizar metastore do Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Ações de script**: scripts de Bash executar no cluster. Consulte [clusters do HDInsight baseado em Linux personalizar através da ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
@@ -226,6 +226,21 @@ Pode mover um cluster do HDInsight para outro grupo de recursos do Azure ou outr
 
 Consulte [cluster do HDInsight atualizar para uma versão mais recente](./hdinsight-upgrade-cluster.md).
 
+## <a name="open-the-ambari-web-ui"></a>Abra a IU da web do Ambari
+
+Ambari fornece um intuitiva, fácil de utilizar Hadoop gestão IU da web das respetivas APIs RESTful. Ambari permite aos administradores de sistema gerir e monitorizar clusters do Hadoop.
+
+1. Abra um cluster do HDInsight a partir do portal do Azure.  Consulte [clusters lista e mostrar](#list-and-show-clusters).
+2. Clique em **Cluster Dashboard**.
+
+    ![Menu de cluster do HDInsight Hadoop](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+
+1. Introduza o nome de utilizador do cluster e a palavra-passe.  O nome de utilizador de cluster predefinido é _admin_. O web do Ambari IU aspeto:
+
+    ![IU da Web do Ambari de Hadoop do HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+
+Para obter mais informações, consulte [gerir clusters do HDInsight utilizando a IU da Web do Ambari](hdinsight-hadoop-manage-ambari.md).
+
 ## <a name="change-passwords"></a>Alterar as palavras-passe
 Um cluster do HDInsight pode ter duas contas de utilizador. O HDInsight cluster conta de utilizador (A.K.A. Conta de utilizador HTTP) e a conta de utilizador SSH são criados durante o processo de criação. Pode utilizar a IU da web do Ambari para mudar o nome de utilizador de conta de utilizador de cluster e a palavra-passe e a ações de script para alterar a conta de utilizador do SSH
 
@@ -267,7 +282,7 @@ Ambari, em seguida, altera a palavra-passe em todos os nós do cluster.
    | Campo | Valor |
    | --- | --- |
    | Nome |Alterar ssh palavra-passe |
-   | Scripts de bash URI |O URI para o ficheiro changepassword.sh |
+   | URI do script de bash |O URI para o ficheiro changepassword.sh |
    | Nós (Head, trabalho, Nimbus, Supervisor, Zookeeper, etc.) |✓ para todos os tipos de nó listados |
    | Parâmetros |Introduza o nome de utilizador SSH e, em seguida, a nova palavra-passe. Deve ser um espaço entre o nome de utilizador e a palavra-passe. |
    | Manter esta ação de script... |Deixe este campo desmarcada. |
@@ -349,7 +364,7 @@ O **utilização** secção do painel do cluster de HDInsight apresenta informa�
 * [Utilizar o Hive com o HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu algumas funções administrativas básicas. Para obter mais informações, consulte os artigos seguintes:
 

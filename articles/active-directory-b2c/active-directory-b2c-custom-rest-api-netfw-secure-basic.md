@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteger a sua serviços RESTful, utilizando a autenticação básica de HTTP
 Num [relacionado do Azure AD B2C artigo](active-directory-b2c-custom-rest-api-netfw.md), criar um serviço RESTful (web API) que se integra com o Azure Active Directory B2C percursos de utilizador (Azure AD B2C) sem autenticação. 
@@ -76,7 +76,7 @@ Adicionar o `ClientAuthMiddleware.cs` classe sob o *App_Start* pasta. Para tal:
 
 3. Abra o *App_Start\ClientAuthMiddleware.cs* de ficheiros e substitua o ficheiro de conteúdo com o código seguinte:
 
-    ```C#
+    ```csharp
     
     using Microsoft.Owin;
     using System;
@@ -194,7 +194,7 @@ Adicionar uma classe de startup da OWIN denominada `Startup.cs` para a API. Para
 
 2. Abra o *Startup.cs* de ficheiros e substitua o ficheiro de conteúdo com o código seguinte:
 
-    ```C#
+    ```csharp
     using Microsoft.Owin;
     using Owin;
     
@@ -342,6 +342,6 @@ Depois do serviço RESTful está protegido pelo ID de cliente (nome de utilizado
 * Depois de concluir o [introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md) explicação passo a passo, recomendamos que crie o seu cenário utilizando os seus próprios ficheiros de política personalizada. Para sua referência, fornecemos [ficheiros de política de exemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
 * Pode transferir o código de conclusão de [solução do Visual Studio de exemplo para referência](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Utilizar certificados de cliente para proteger a sua API RESTful](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 

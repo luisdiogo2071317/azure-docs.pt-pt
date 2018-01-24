@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 8d6f2347e06e58ec2b506aa9eaf716b3f71f3a77
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicações de .NET
 
@@ -82,7 +82,7 @@ São suportados os seguintes ambientes:
 
 3. Modificar a sua aplicação `Startup` classe para adicionar e configurar o processador de telemetria do Recoletor de instantâneo.
 
-   ```C#
+   ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
    ...
@@ -140,7 +140,7 @@ São suportados os seguintes ambientes:
 2. Adicionar o [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pacote NuGet na sua aplicação.
 
 3. Instantâneos são recolhidos apenas em exceções são comunicadas ao Application Insights. Poderá ter de modificar o código para reportá-los. A exceção de código de processamento depende a estrutura da sua aplicação, mas é um exemplo abaixo:
-    ```C#
+    ```csharp
    TelemetryClient _telemetryClient = new TelemetryClient();
 
    void ExampleRequest()
@@ -258,7 +258,7 @@ MinidumpUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 No exemplo anterior, é a chave de instrumentação `c12a605e73c44346a984e00000000000`. Este valor deve corresponder a chave de instrumentação para a sua aplicação.
 A mini-cópia de segurança está associada um instantâneo com o ID `139e411a23934dc0b9ea08a626db16c5`. Pode utilizar este ID mais tarde para localizar a telemetria de exceção associada no Application Insights Analytics.
 
-O /carregador verifica a existência de novas PDBs sobre uma vez a cada 15 minutos. Eis um exemplo:
+O /carregador verifica a existência de novas PDBs sobre uma vez a cada 15 minutos. Segue-se um exemplo:
 
 ```
 MinidumpUploader.exe Information: 0 : PDB rescan requested.
@@ -291,7 +291,7 @@ Siga estes passos para configurar a sua função de serviço em nuvem com um rec
 ```
 
 2. Modificar a sua função `OnStart` método para adicionar uma variável de ambiente que aponta para o `SnapshotStore` recurso local.
-```C#
+```csharp
    public override bool OnStart()
    {
        Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);

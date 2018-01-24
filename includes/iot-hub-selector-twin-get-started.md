@@ -1,8 +1,9 @@
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
-> * [C#/node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
+> * [C#/Node.js](../articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md)
 > * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
 Os dispositivos duplos são documentos JSON que armazenam informações de estado dos dispositivos (metadados, configurações e condições). IoT Hub mantém um dispositivo duplo para cada dispositivo que se liga ao mesmo.
 
@@ -14,7 +15,7 @@ Utilize dispositivos duplos para:
 * Consulta os metadados do dispositivo, a configuração ou o estado.
 
 > [!NOTE]
-> Dispositivos duplos foram concebidos para a sincronização de e para consultar as configurações de dispositivo e condições. Podem encontrar mais informations no quando utilizar dispositivos duplos [compreender dispositivos duplos][lnk-twins].
+> Dispositivos duplos foram concebidos para a sincronização de e para consultar as configurações de dispositivo e condições. Podem encontrar mais informações sobre quando utilizar dispositivos duplos no [compreender dispositivos duplos][lnk-twins].
 
 Dispositivos duplos são armazenados num IoT hub e contenham:
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: f7664291c2f45c422d52f682d08dbb67ab32b099
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 81910dd9c2743484ca65bd21e400a1a52e961a19
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Cópia de segurança automatizada do SQL Server em máquinas virtuais do Azure (clássica)
 > [!div class="op_single_selector"]
@@ -48,15 +48,13 @@ Para utilizar a cópia de segurança automatizada, considere os seguintes pré-r
 * SQL Server 2014 Enterprise
 
 > [!NOTE]
-> SQL Server 2016 ainda não é suportada para cópia de segurança automatizada.
-> 
-> 
+> Cópia de segurança automatizada do SQL Server 2016 é suportada com as máquinas virtuais do Gestor de recursos. Para obter mais informações, consulte [v2 de cópia de segurança automatizada para o SQL Server 2016 máquinas virtuais do Azure (Resource Manager)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
 
 **Configuração de base de dados**:
 
 * Bases de dados de destino tem de utilizar o modelo de recuperação completo.
 
-**O Azure PowerShell**:
+**Azure PowerShell**:
 
 * [Instalar os comandos do Azure PowerShell mais recentes](/powershell/azure/overview).
 

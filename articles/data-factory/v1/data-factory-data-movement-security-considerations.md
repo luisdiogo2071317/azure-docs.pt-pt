@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5857a0286dce92493c4d538f79ef9f47012bc0a2
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>O Azure Data Factory - considerações de segurança para o movimento de dados
 
@@ -38,7 +38,7 @@ Movimento de dados utilizando o Azure Data Factory foi **certificadas** para:
 -   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA)  
 -   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--   [ESTRELA DE CSA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
 Se estiver interessado na forma como o Azure protege a própria infraestrutura e de conformidade do Azure, visite o [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
 
@@ -138,7 +138,7 @@ As imagens seguintes mostram a utilização do Data Management Gateway para move
  
 ![Utilizar o Expressroute com o gateway](media/data-factory-data-movement-security-considerations/express-route-for-gateway.png) 
 
-**IPSec de VPN:**
+**IPSec VPN:**
 
 ![IPSec de VPN com o gateway](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
@@ -190,7 +190,7 @@ Arquivos de dados de nuvem seguintes requerem a listas brancas de endereço IP d
 **Pergunta:** quais são os requisitos de certificado para o Gateway?
 **Resposta:** gateway atual requer um certificado que é utilizado pela aplicação de Gestor de credenciais para definir em segurança as credenciais do arquivo de dados. Este certificado é um certificado autoassinado criado e configurado, o programa de configuração do gateway. Pode utilizar o seu próprio TLS / SSL em vez disso, o certificado. Para obter mais informações, consulte [clique-a aplicação de Gestor de credenciais uma vez](#click-once-credentials-manager-app) secção. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre o desempenho de atividade de cópia, consulte [copiar guia Otimização e de desempenho de atividade](data-factory-copy-activity-performance.md).
 
  

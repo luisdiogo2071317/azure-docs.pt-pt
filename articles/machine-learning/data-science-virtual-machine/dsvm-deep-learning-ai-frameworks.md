@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 46662c15374f781a6527bb1435d883ae060c63f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Arquiteturas de Aprendizagem Profunda e AI
 O [máquinas de virtuais de ciência de dados](http://aka.ms/dsvm) (DSVM) e o [profunda VM Learning](http://aka.ms/dsvm/deeplearning) suporta um número de estruturas de aprendizagem avançada para o ajudar a criar aplicações Artificial Intelligence (AI) com a Análise Preditiva e capacidades cognitivos como imagem e a compreensão de idiomas. 
@@ -55,8 +55,8 @@ Seguem-se os detalhes em todos os avançada disponíveis no DSVM estruturas de a
 | O que é?   | Learning profunda framework      |
 | Edições de DSVM suportados      | Windows, Linux     |
 | Como é mesmo configurado / instalado o DSVM?  | Keras está instalado no Python 2.7 (_raiz_), bem como o Python 3.5 (_py35_) ambiente.   |
-| Ligações para amostras      | https://github.com/fchollet/keras/Tree/Master/examples      |
-| Ferramentas relacionadas no DSVM      | Microsoft cognitivos Toolkit, TensorLlow, Theano      |
+| Ligações para amostras      | https://github.com/fchollet/keras/tree/master/examples      |
+| Ferramentas relacionadas no DSVM      | Microsoft cognitivos Toolkit, TensorFlow, Theano      |
 | Como utilizar / executá-lo?    | Transfira os exemplos da localização do Github, copie-a para um diretório na ~/notebooks e abri-lo no Jupyter   |
 
 
@@ -117,7 +117,7 @@ Num terminal, ativar a versão do Python pretende (_raiz_ ou _py35_), execute _p
 | Edições de DSVM suportados      | Linux     |
 | Como é mesmo configurado / instalado o DSVM?  | Máximo de profundo está instalado no `/dsvm/tools/deep_water`.   |
 | Ligações para amostras      | Amostras estão disponíveis através do servidor de níveis máximos profunda.      |
-| Ferramentas relacionadas no DSVM      | H2o, Sparkling máximo      |
+| Ferramentas relacionadas no DSVM      | H2O, Sparkling máximo      |
 
 ### <a name="how-to-use--run-it"></a>Como utilizar / executá-lo?  
 
@@ -140,7 +140,7 @@ Em seguida, abra um browser e ligar ao `http://localhost:54321`.
 | Ferramentas relacionadas no DSVM      | Keras      |
 | Como utilizar / executá-lo?    | Abrir Jupyter, em seguida, procure a pasta de mxnet  |
 
-## <a name="nvidia-digits"></a>NVIDIA DÍGITOS
+## <a name="nvidia-digits"></a>NVIDIA DIGITS
 
 |    |           |
 | ------------- | ------------- |
@@ -157,7 +157,7 @@ O serviço demora cerca de um minuto para iniciar. Iniciar um browser e navegue 
 
 
 
-## <a name="nvdia-smi"></a>nvdia smi
+## <a name="nvdia-smi"></a>nvdia-smi
 
 |    |           |
 | ------------- | ------------- |

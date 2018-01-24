@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 3652e80c20c425570ba90a1f3ce7a3035762a34d
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: dd5bc0dd0088856954e06d880f2c03f0a74ed9d7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Métricas de reencaminhamento do Azure no Monitor do Azure (pré-visualização)
 
@@ -55,7 +55,7 @@ Todos os valores da métrica são enviados para o Monitor de Azure cada minuto. 
 
 ## <a name="connection-metrics"></a>Métricas de ligação
 
-| Nome da métrica | Descrição |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | ListenerConnections-êxito (pré-visualização) | O número de ligações de serviço de escuta com êxito efetuados para reencaminhamento do Azure durante um período especificado. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |ListenerConnections-ClientError (pré-visualização)|O número de erros de cliente em ligações de serviço de escuta durante um período especificado.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
@@ -72,7 +72,7 @@ Todos os valores da métrica são enviados para o Monitor de Azure cada minuto. 
 
 ## <a name="memory-usage-metrics"></a>Métrica de utilização de memória
 
-| Nome da métrica | Descrição |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 |BytesTransferred (pré-visualização)|O número de bytes transferidos durante um período especificado.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
@@ -84,7 +84,7 @@ Reencaminhamento do Azure suporta as seguintes dimensões para as métricas no M
 | ------------------- | ----------------- |
 |EntityName| Reencaminhamento do Azure suporta entidades de mensagens sob o espaço de nomes.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Consulte o [descrição geral da monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5d56e74c6344580760f55506d7d90dac3e90721d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 65f25e2496065ca1aaba443a9d6b3e29239e0218
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-an-mvc-web-api"></a>Proteger uma API web MVC
 Com o Azure Active Directory o ponto final v 2.0, pode proteger uma Web API utilizando [OAuth 2.0](active-directory-v2-protocols.md) aceder tokens, permitindo que os utilizadores com ambos os conta Microsoft pessoal e profissional ou escolar contas para acesso com segurança a API Web.
@@ -69,7 +69,7 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 * Adicionar uma classe de Startup da OWIN ao projeto denominado TodoListService `Startup.cs`.  Clique direito no projeto--> **adicionar** --> **Novo Item** --> procure "OWIN".  O middleware da OWIN vai invocar o método `Configuration(…)` quando a aplicação for iniciada.
 * Alterar a declaração de classe para `public partial class Startup` -iremos já tiver implementado parte desta classe para si no outro ficheiro.  No `Configuration(…)` método, crie uma chamada para ConfgureAuth(...) para configurar a autenticação para a sua aplicação web.
 
-```C#
+```csharp
 public partial class Startup
 {
     public void Configuration(IAppBuilder app)
@@ -81,7 +81,7 @@ public partial class Startup
 
 * Abra o ficheiro `App_Start\Startup.Auth.cs` e implementar o `ConfigureAuth(…)` método, o que irá configurar a API Web para aceitar tokens a partir do ponto final v 2.0.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
         var tvps = new TokenValidationParameters
@@ -118,7 +118,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 * Agora, pode utilizar `[Authorize]` atributos para proteger os seus controladores e ações com autenticação de portador do OAuth 2.0.  OptionalFieldAttribute a `Controllers\TodoListController.cs` classe com uma etiqueta de autorizar.  Isto irá forçar o utilizador iniciar sessão antes de aceder a essa página.
 
-```C#
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -126,7 +126,7 @@ public class TodoListController : ApiController
 
 * Quando um autor da chamada autorizado com êxito invoca um do `TodoListController` APIs, a ação poderá ter acesso a informações sobre o autor da chamada.  OWIN fornece acesso a afirmações dentro do token de portador através de `ClaimsPrincipal` objeto.  
 
-```C#
+```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the
@@ -156,7 +156,7 @@ Para referência, o exemplo concluído (sem os valores de configuração) [é fo
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora pode mover para tópicos adicionais.  Poderá querer experimentar:
 
 [Chamar uma API Web a partir de uma aplicação Web >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
@@ -164,7 +164,7 @@ Agora pode mover para tópicos adicionais.  Poderá querer experimentar:
 Para obter recursos adicionais, consulte:
 
 * [O guia para programadores de v 2.0 >>](active-directory-appmodel-v2-overview.md)
-* [Etiqueta de StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [StackOverflow "azure-active-directory" tag >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança dos nossos produtos
 Aconselhamo-lo a obter notificações de quando os incidentes de segurança ocorrem, visitando [esta página](https://technet.microsoft.com/security/dd252948) e subscrevendo os alertas de aviso de segurança.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Amostras nas máquinas de virtuais de ciência de dados (DSVM)
 
@@ -34,11 +34,11 @@ Os DSVMs vêm incluídos exemplos de escalamento de trabalhado totalmente sob a 
 | **Python** idioma  | Amostras no **Python** explicar cenários, como estabelecer ligação com os arquivos de dados em nuvem do Azure e a trabalhar com **Azure Machine Learning**.  <br/> [Captura de ecrã](#python-language) | <br/>`~notebooks` <br/><br/>|
 | **Leonor** idioma  | Exemplo no **Leonor** que detalhe Plotting no Leonor, profundo no Leonor, chamar C e o Python de Leonor etc. <br/> [Captura de ecrã](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
 | **CNTK** <br/> (Cognitivos Toolkit de)  | Ligação avançada learning amostras publicadas pela equipa do Toolkit cognitivos na Microsoft.  <br/> [Captura de ecrã](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
-| **MXnet** blocos de notas  | Profundidade exemplos de utilização de aprendizagem **MXnet** com base em redes neurais. Existem vários blocos de notas entre beginner para cenários avançados.  <br/> [Captura de ecrã](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
+| **MXNet** blocos de notas  | Profundidade exemplos de utilização de aprendizagem **MXNet** com base em redes neurais. Existem vários blocos de notas entre beginner para cenários avançados.  <br/> [Captura de ecrã](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | **Azure Machine Learning** AzureML  | Interagir com **Azure Machine Learning** Studio e a criação de pontos finais do serviço web a partir de modelos de formação localmente, para fluxos de trabalho classificação baseados na nuvem. <br/> [Captura de ecrã](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | Profundidade exemplos de utilização de aprendizagem **caffe2** com base em redes neurais. Existem vários blocos de notas concebidos para familiarizar-os utilizadores com caffe2 e como utilizá-lo de forma eficaz, incluindo exemplos como imagem previamente processamento, criação de conjunto de dados, regressão e utilizar previamente preparado modelos. <br/> [Captura de ecrã](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | Exemplos de baseado no Python através das **H2O** inúmeros problemas de cenário do mundo real. <br/> [Captura de ecrã](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
-| **SparkML** idioma  | Exemplo de utilização de funcionalidades e capacidades do Spark **MLlib** toolkit através de **pySpark 2.0** no **Apache Spark 2.0**.  <br/> [Captura de ecrã](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/><br/> |
+| **SparkML** Language  | Exemplo de utilização de funcionalidades e capacidades do Spark **MLlib** toolkit através de **pySpark 2.0** no **Apache Spark 2.0**.  <br/> [Captura de ecrã](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/><br/> |
 | **MMLSpark** idioma  | Exemplos de utilização de diversas **MMLSpark - Microsoft Machine Learning para Apache Spark**, que é uma estrutura que fornece um número de ferramentas de ciência de dados para e de aprendizagem profunda **Apache Spark**. <br/> [Captura de ecrã](#sparkml) | <br/>`~notebooks/MMLSpark`<br/><br/> |
 | **TensorFlow**  | Vários exemplos de rede neuronal diferente e técnicas implementadas utilizando o **TensorFlow** framework. <br/> [Captura de ecrã](#tensorflow) | <br/>`~notebooks/tensorflow`<br/><br/> |
 | **XGBoost** | Amostras de Machine Learning padrão no **XGBoost** para cenários, como a classificação, regressão etc. <br/> [Captura de ecrã](#xgboost) | <br/>`~samples/xgboost/demo`<br/><br/> |
@@ -60,7 +60,7 @@ Pode aceder a home page do Jupyter depois do processo de Jupyter foi iniciada co
 <br/>![Ativar a exceção do Jupyter](./media/windows-jupyter-exception.png)<br/>
 Inicie sessão com a nova palavra-passe que apenas tinha sido definido.
 <br/>
-**DSVM do Linux**
+**Linux DSVM**
 
 Pode aceder à home page do Jupyter na sua VM, visitando  **`https://localhost:8000`**  no seu browser. Consulte a captura de ecrã para adicionar a exceção e ativar o acesso do Jupyter através do browser.
 <br/>![Ativar a exceção do Jupyter](./media/ubuntu-jupyter-exception.png)<br/>
@@ -83,13 +83,13 @@ Inicie sessão com a mesma palavra-passe como o início de sessão para o DSVM.
 <br/>![Exemplos CNTK](./media/cntk-samples2.png)<br/>
 <br/>![Exemplos CNTK](./media/cntk-samples.png)<br/>
 
-## <a name="mxnet"></a>MXnet
+## <a name="mxnet"></a>MXNet
 <br/>![Exemplos de MXnet](./media/mxnet-samples.png)<br/>
 
 ## <a name="azureml"></a>AzureML 
 <br/>![Exemplos de AzurekML](./media/azureml-samples.png)<br/>
 
-## <a name="caffe2"></a>Caffe2 
+## <a name="caffe2"></a>caffe2 
 <br/>![Exemplos de caffe2](./media/caffe2-samples.png)<br/>
 
 ## <a name="h2o"></a>H2O 

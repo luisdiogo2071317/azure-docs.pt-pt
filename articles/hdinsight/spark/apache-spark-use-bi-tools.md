@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI utilizando ferramentas de visualização de dados com o Azure HDInsight
 
@@ -29,7 +29,7 @@ Saiba como utilizar [Microsoft Power BI](http://powerbi.microsoft.com) e [Tablea
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Completa [executar consultas interativas nos clusters do Spark no HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Concluir o artigo [executar consultas interativas nos clusters do Spark no HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) e [subscrição de avaliação do Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (opcional).
 * **Tableau**: [Tableau ambiente de trabalho](http://www.tableau.com/products/desktop) e [o controlador ODBC do Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229).
 
@@ -63,7 +63,7 @@ O bloco de notas do Jupyter que criou no [tutorial anterior](apache-spark-load-d
 
     ![Mostrar linhas da tabela de AVAC no Spark](./media/apache-spark-use-bi-tools/select-limit.png)
 
-3. Do **ficheiro** menu do bloco de notas, clique em **fechar e parar**. Encerre o bloco de notas para libertar os recursos. 
+3. A partir do menu **Ficheiro** do bloco de notas, clique em **Fechar e Parar**. Encerre o bloco de notas para libertar os recursos. 
 
 
 
@@ -109,7 +109,7 @@ Os passos primeiro trabalhar com o Spark estão a ligar ao cluster no Power BI D
 
     ![Nome do cluster de utilizador e palavra-passe de spark](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark nome de utilizador do cluster e a palavra-passe")
 
-    Ambiente de trabalho do Power BI tem as informações que necessita para estabelecer ligação com os Spark cluster e carregar dados do `hvac` tabela. A tabela e as colunas são apresentadas no **campos** painel.  Veja a captura de ecrã abaixo.
+    Ambiente de trabalho do Power BI tem as informações que necessita para estabelecer ligação com os Spark cluster e carregar dados do `hvac` tabela. A tabela e as colunas são apresentadas no **campos** painel.  Consulte a captura de ecrã seguinte:
 
 6. Visualize a variância entre temperatura de destino e temperatura real para cada criação: 
 
@@ -212,11 +212,11 @@ O visual está afixado ao dashboard - pode adicionar outros elementos visuais pa
 6. Clique em de **Sheet1** separador na parte inferior esquerda. Efetuar uma visualização que mostra o destino de média e temperatures reais para edifícios todos os para cada data. Arraste **data** e **criação ID** para **colunas** e **Temp real**/**destino Temp** para **linhas**. Em **marcas**, selecione **área** a utilizar um mapa de área para visualização de dados de Spark.
 
      ![Adicione campos para visualização de dados de Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "adicionar campos para visualização de dados do Spark")
-7. Por predefinição, os campos de temperatura são apresentados como agregado. Se pretende mostrar os temperatures média em vez disso, pode fazê-na lista pendente, conforme mostrado na captura de ecrã seguinte.
+7. Por predefinição, os campos de temperatura são apresentados como agregado. Se pretende mostrar os temperatures média em vez disso, pode fazê-na lista pendente, conforme mostrado na captura de ecrã seguinte:
 
     ![Tirar médio de temperatura para visualização de dados de Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "demorar médio de temperatura para visualização de dados do Spark")
 
-8. Pode também super-impor um mapeamento de temperatura detrimento dos outros para perceber melhor de diferença entre temperatures reais e de destino. Mova o rato para o canto do mapa de área inferior até verá a forma de identificador realçada num círculo vermelho. Arraste o mapa para o mapa de outro na parte superior e libertar o rato quando vir a forma realçada na retângulo vermelho.
+8. Pode também super-impor um mapeamento de temperatura detrimento dos outros para perceber melhor de diferença entre temperatures reais e de destino. Mova o rato para o canto do mapa de área inferior até ver a forma de identificador realçada num círculo vermelho. Arraste o mapa para o mapa de outro na parte superior e libertar o rato quando vir a forma realçada na retângulo vermelho.
 
     ![Intercalar maps para visualização de dados de Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "intercalação mapeia para visualização de dados do Spark")
 
@@ -225,7 +225,7 @@ O visual está afixado ao dashboard - pode adicionar outros elementos visuais pa
     ![Saída de tableau para visualização de dados de Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "saída Tableau para visualização de dados do Spark")
 9. Clique em **guardar** para guardar a folha de cálculo. Pode criar dashboards e adicionar-lhe um ou mais folhas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Até ao momento aprendeu a criar um cluster, criar Spark frames de dados para dados de consulta e, em seguida, aceder a esses dados de ferramentas de BI. Agora pode ver as instruções sobre como gerir os recursos de cluster e depurar tarefas em execução num cluster do HDInsight Spark.
 

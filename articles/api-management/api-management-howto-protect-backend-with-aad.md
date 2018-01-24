@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Como pretende proteger um back-end de Web API com o Azure Active Directory e a API Management
 O vídeo seguinte mostra como criar um back-end de Web API e protegê-lo através do protocolo de OAuth 2.0 com o Azure Active Directory e a API Management.  Este artigo fornece uma descrição geral e informações adicionais para obter os passos as vídeo. Este vídeo de minuto 24 mostra-lhe como para:
@@ -81,13 +81,13 @@ A API Web neste exemplo implementa um serviço de calculadora básica utilizando
 
 Adicione o seguinte `using` declaração na parte superior do `CalcInput.cs` ficheiro.
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 Substitua a classe gerada pelo código seguinte.
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -104,7 +104,7 @@ Clique com botão direito **controladores** no **Explorador de soluções** e es
 
 Adicione o seguinte `using` declaração na parte superior do `CalcController.cs` ficheiro.
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -112,7 +112,7 @@ using APIMAADDemo.Models;
 
 Substitua a classe de controlador gerado pelo código seguinte. Este código implementa o `Add`, `Subtract`, `Multiply`, e `Divide` operações da API de calculadora básica.
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {
@@ -510,7 +510,7 @@ O procedimento final as vídeo começa às 20:48 e mostra-lhe como utilizar o [v
 
 Para outra demonstração de configurar e utilizar esta política, consulte [nuvem abrangem episódio 177: mais funcionalidades de gestão de API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e fast-forward a 13:50 carateres. Reencaminhe rápido para 15:00 para ver as políticas configuradas no editor de política e, em seguida, para 18:50 para uma demonstração de chamar uma operação a partir do portal do programador com e sem o token de autorização necessário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Consulte mais [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre a API Management.
 * Para outras formas de proteger o seu serviço de back-end, consulte [autenticação de certificados mútuos](api-management-howto-mutual-certificates.md).
 

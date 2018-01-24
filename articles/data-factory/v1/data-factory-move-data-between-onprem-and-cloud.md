@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 39e283e4b0bb5e50d1268e1b2cac53bf9ee71028
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: e326a512bdb9c30068845b51e86795a410e6c9b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre origens no local e a nuvem com o Data Management Gateway
 > [!NOTE]
@@ -281,7 +281,7 @@ Neste passo, vai criar os conjuntos de dados de entrada e de saída que represen
    * **folderPath** está definido como **adftutorial/outfromonpremdf** onde outfromonpremdf é a pasta no contentor adftutorial. Criar o **adftutorial** contentor se ainda não existir.
    * A **disponibilidade** está definida como **de hora a hora** (**frequência** definida como **hora** e **intervalo** definido como **1**).  O serviço fábrica de dados gera um setor de dados de saída a cada hora no **emp** tabela na base de dados do SQL do Azure.
 
-   Se não especificar um **fileName** para um **tabela de saída**, os ficheiros gerados no **folderPath** são denominados no seguinte formato: Data.<Guid>.txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Se não especificar um **fileName** para um **tabela de saída**, os ficheiros gerados no **folderPath** são denominados no seguinte formato: Data.<Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Para definir **folderPath** e **fileName** dinamicamente com base no **SliceStart** tempo, utilize a propriedade de partitionedBy. No exemplo seguinte, o folderPath utiliza o Ano, o Mês e o Dia do SliceStart (hora de início do setor a ser processado) e o fileName utiliza a Hora do SliceStart. Por exemplo, se está a ser produzido um setor para 2014-10-20T08:00:00, folderName está definido como wikidatagateway/wikisampledataout/2014/10/20 e o fileName está definido como 08.csv.
 
@@ -412,6 +412,6 @@ Neste passo, irá utilizar o portal do Azure para monitorizar os acontecimentos 
 
    ![Explorador do Storage do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Consulte [Data Management Gateway](data-factory-data-management-gateway.md) artigo para todos os detalhes sobre o Data Management Gateway.
 * Consulte [copiar dados de Blobs do Azure para o Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para saber mais sobre como utilizar a atividade de cópia para mover dados de um arquivo de dados de origem para um arquivo de dados do sink.
