@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: b5661dea3a63f6e7e5b67261bc9704061ae9c5b6
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 04b542bf1f77b75c1c92b147b578df630b86d0ac
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade de Web no Azure Data Factory
 A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir. 
 
 > [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [documentação do Data Factory versão 1](v1/data-factory-introduction.md).
+> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço Data Factory, que está disponível em geral (GA), veja a [documentação da versão 1 do Data Factory](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -68,11 +68,11 @@ Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 nome | Nome da atividade de web | Cadeia | Sim
 tipo | Tem de ser definido como **WebActivity**. | Cadeia | Sim
-Método | Método de REST API para o ponto final de destino. | Cadeia. <br/><br/>Tipos suportados: "GET", "Publicar", "Colocar" | Sim
-URL | Ponto final de destino e o caminho | Cadeia (ou expressão com o resultType da cadeia) | Sim
-Cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e o tipo de um pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia (ou expressão com o resultType da cadeia) | Sim, é necessário o cabeçalho Content-type. `"headers":{ "Content-Type":"application/json"}`
-Corpo | Representa o payload de que é enviado para o ponto final. Necessário para métodos POST/PUT.  | Cadeia (ou expressão com o resultType da cadeia). <br/><br/>Consulte o esquema do payload de pedido no [esquema de payload de pedido](#request-payload-schema) secção. | Não
-Autenticação | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Basic ou ClientCertificate." Para obter mais informações, consulte [autenticação](#authentication) secção. Se não for necessária a autenticação, exclua esta propriedade. | Cadeia (ou expressão com o resultType da cadeia) | Não
+método | Método de REST API para o ponto final de destino. | Cadeia. <br/><br/>Tipos suportados: "GET", "Publicar", "Colocar" | Sim
+url | Ponto final de destino e o caminho | Cadeia (ou expressão com o resultType da cadeia) | Sim
+cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e o tipo de um pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia (ou expressão com o resultType da cadeia) | Sim, é necessário o cabeçalho Content-type. `"headers":{ "Content-Type":"application/json"}`
+corpo | Representa o payload de que é enviado para o ponto final. Necessário para métodos POST/PUT.  | Cadeia (ou expressão com o resultType da cadeia). <br/><br/>Consulte o esquema do payload de pedido no [esquema de payload de pedido](#request-payload-schema) secção. | Não
+autenticação | Método de autenticação utilizado para chamar o ponto final. Os tipos suportados são "Basic ou ClientCertificate." Para obter mais informações, consulte [autenticação](#authentication) secção. Se não for necessária a autenticação, exclua esta propriedade. | Cadeia (ou expressão com o resultType da cadeia) | Não
 Conjuntos de dados | Lista de conjuntos de dados transmitido para o ponto final. | Matriz de referências de conjunto de dados. Pode ser uma matriz vazia. | Sim
 linkedServices | Lista de serviços ligados transmitido para o ponto final. | Matriz de referências de serviço ligado. Pode ser uma matriz vazia. | Sim
 
@@ -81,7 +81,7 @@ linkedServices | Lista de serviços ligados transmitido para o ponto final. | Ma
 
 ## <a name="authentication"></a>Autenticação
 
-### <a name="none"></a>Nenhuma
+### <a name="none"></a>Nenhum
 Se não for necessária a autenticação, não inclua a propriedade de "autenticação".
 
 ### <a name="basic"></a>Básica
@@ -222,7 +222,7 @@ public HttpResponseMessage Execute(JObject payload)
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Outras atividades de fluxo de controlo suportadas pela fábrica de dados, consulte: 
 
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)

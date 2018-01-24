@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 4cab6297e45dc7a14826d7bb10cf22a8a300355f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Extinguir os níveis de desempenho S1, S2 e S3
 
@@ -147,7 +147,7 @@ Outra opção para alterar os níveis de desempenho dos seus coleções é atrav
 
 Eis um fragmento de código para alterar o débito de coleção para 5000 unidades de pedido por segundo:
     
-```C#
+```csharp
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    

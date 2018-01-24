@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 3f0b296b0bfb762607fdb4b42151b77a9e388a18
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: d9f3fea0db5a08fc91d9e4dc525b48575c512634
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de cópia de Factory de dados do Azure
 > [!NOTE]
@@ -32,7 +32,7 @@ O Assistente de cópia do Azure Data Factory facilita o processo de ingestão re
 ## <a name="designed-for-big-data"></a>Concebido para macrodados
 Este assistente permite-lhe mover facilmente dados de uma ampla variedade de origens para destinos em minutos. Depois de passar através do assistente, um pipeline com uma atividade de cópia é criado automaticamente para si, juntamente com dependentes entidades do Data Factory (serviços ligados e conjuntos de dados). Não existem passos adicionais são necessários para criar o pipeline.   
 
-![Selecione a origem de dados](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Selecionar origem de dados](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > Para obter instruções passo a passo Criar um exemplo de pipeline para copiar dados de um Azure blob para uma tabela de base de dados do Azure SQL, consulte o [tutorial do Assistente para copiar](data-factory-copy-data-wizard-tutorial.md).
@@ -90,5 +90,5 @@ Uma operação de cópia de uso individual permite que o movimento de dados de u
 
 ![Propriedades de agendamento](./media/data-factory-copy-wizard/scheduling-properties.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para instruções rápidas de utilizar o Assistente de cópia do Data Factory para criar um pipeline com atividade de cópia, consulte [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md).

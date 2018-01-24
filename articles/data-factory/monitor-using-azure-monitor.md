@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f30042ad8d687db59e1aaa092c46cee371e8c7fb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorizar fábricas de dados utilizando o Monitor do Azure  
 Aplicações em nuvem são complexas com várias partes mover. A monitorização fornece dados para se certificar de que a aplicação permanece cópias de segurança e em execução em bom estado. Também o ajuda a stave desativar potenciais problemas ou resolver passado aqueles. Além disso, pode utilizar dados de monitorização para obter conhecimentos aprofundados sobre a sua aplicação. Este conhecimento pode ajudar a melhorar o desempenho da aplicação ou maintainability ou automatizar ações que caso contrário necessitem intervenção manual.
@@ -57,7 +57,7 @@ PUT
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-**Cabeçalhos**
+**Headers** (Cabeçalhos)
 * Substitua `{api-version}` com `2016-09-01`.
 * Substitua `{resource-id}` com o ID de recurso do recurso para o qual gostaria de editar as definições de diagnóstico. Para obter mais informações [utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-portal.md).
 * Definir o `Content-Type` cabeçalho para `application/json`.
@@ -105,14 +105,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriedade | Tipo | Descrição |
 | --- | --- | --- |
-| StorageAccountId |Cadeia | O ID de recurso da conta do storage para o qual pretende enviar registos de diagnóstico |
+| storageAccountId |Cadeia | O ID de recurso da conta do storage para o qual pretende enviar registos de diagnóstico |
 | serviceBusRuleId |Cadeia | O service bus ID da regra de espaço de nomes de barramento serviço, na qual gostaria de ter criado para os registos de diagnóstico de transmissão em fluxo do Event Hubs. A regra ID é o formato: "{ID de recurso de barramento de serviço} /authorizationrules/ {nome da chave}".|
-| WorkspaceId | Tipo complexo | Matriz de grains de métrica de tempo e as respetivas políticas de retenção. Atualmente, esta propriedade está vazia. |
-|metrics| Os valores dos parâmetros do pipeline de executam a ser transmitido para o pipeline invocado| Um objeto JSON mapear os nomes de parâmetros para valores de argumento | 
+| workspaceId | Tipo complexo | Matriz de grains de métrica de tempo e as respetivas políticas de retenção. Atualmente, esta propriedade está vazia. |
+|métricas| Os valores dos parâmetros do pipeline de executam a ser transmitido para o pipeline invocado| Um objeto JSON mapear os nomes de parâmetros para valores de argumento | 
 | registos| Tipo complexo| Nome de uma categoria de registo de diagnóstico para um tipo de recurso. Para obter a lista de categorias de registo de diagnóstico para um recurso, execute primeiro uma operação de definições de diagnóstico de GET. |
 | categoria| Cadeia| Matriz de categorias de registo e as respetivas políticas de retenção |
 | Intervalo de agregação | Cadeia | A granularidade de métricas que são capturadas num formato de duração ISO 8601. Tem de ser PT1M (um minuto)|
-| ativado| Booleano | Especifica se a coleção dessa categoria métrica ou de registo está ativada para este recurso|
+| enabled| Booleano | Especifica se a coleção dessa categoria métrica ou de registo está ativada para este recurso|
 | retentionPolicy| Tipo complexo| Descreve a política de retenção para uma categoria de métrica ou de registo. Utilizado para apenas opção de conta de armazenamento.|
 | dias| Int| Número de dias a manter as métricas ou os registos. Um valor de 0 mantém os registos indefinidamente. Utilizado para apenas opção de conta de armazenamento. |
 
@@ -175,7 +175,7 @@ GET
 https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
 ```
 
-**Cabeçalhos**
+**Headers** (Cabeçalhos)
 * Substitua `{api-version}` com `2016-09-01`.
 * Substitua `{resource-id}` com o ID de recurso do recurso para o qual gostaria de editar as definições de diagnóstico. Para obter mais informações através de grupos de recursos para gerir os recursos do Azure.
 * Definir o `Content-Type` cabeçalho para `application/json`.
@@ -287,7 +287,7 @@ Obter mais informações aqui] (https://msdn.microsoft.com/en-us/library/azure/d
 |pipelineName| Cadeia | Nome do pipeline | `MyPipeline` |
 |activityName| Cadeia | Nome da atividade | `MyActivity` |
 |start| Cadeia | Início da atividade executada nos timespan, formato UTC | `2017-06-26T20:55:29.5007959Z`|
-|Fim| Cadeia | Executam extremidades da atividade em timespan, formato UTC. Se não terminou a atividade ainda (registo de diagnóstico para iniciar uma atividade), um valor predefinido de `1601-01-01T00:00:00Z` está definido.  | `2017-06-26T20:55:29.5007959Z` |
+|end| Cadeia | Executam extremidades da atividade em timespan, formato UTC. Se não terminou a atividade ainda (registo de diagnóstico para iniciar uma atividade), um valor predefinido de `1601-01-01T00:00:00Z` está definido.  | `2017-06-26T20:55:29.5007959Z` |
 
 
 ### <a name="pipeline-run-logs-attributes"></a>Atributos de registos de execução de pipeline
@@ -332,7 +332,7 @@ Obter mais informações aqui] (https://msdn.microsoft.com/en-us/library/azure/d
 |operationName| Cadeia |Nome do pipeline com o estado. "Pipeline - foi concluída com êxito" com o estado final aquando da conclusão do pipeline executar| `MyPipeline - Succeeded` |
 |pipelineName| Cadeia | Nome do pipeline | `MyPipeline` |
 |start| Cadeia | Início da atividade executada nos timespan, formato UTC | `2017-06-26T20:55:29.5007959Z`|
-|Fim| Cadeia | Fim da atividade é executada no timespan, formato UTC. Se não terminou a atividade ainda (registo de diagnóstico para iniciar uma atividade), um valor predefinido de `1601-01-01T00:00:00Z` está definido.  | `2017-06-26T20:55:29.5007959Z` |
+|end| Cadeia | Fim da atividade é executada no timespan, formato UTC. Se não terminou a atividade ainda (registo de diagnóstico para iniciar uma atividade), um valor predefinido de `1601-01-01T00:00:00Z` está definido.  | `2017-06-26T20:55:29.5007959Z` |
 |status| Cadeia | Estado final do pipeline de run (com êxito ou falha) | `Succeeded`|
 
 
@@ -398,5 +398,5 @@ ADFV2 emite as métricas seguintes
 
 Para as métricas de acesso, siga as instruções no artigo - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte [monitorizar e gerir pipelines programaticamente](monitor-programmatically.md) artigo para saber mais sobre como monitorizar e gerir pipelines, executando a aplicação. 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 875f00064f94b37ab5efdde54ca3e6cbda779654
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 055f04d496b56a5e8542911aa78292d7746ae80b
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-port-settings"></a>Definições de porta de reencaminhamento do Azure
 
@@ -29,7 +29,7 @@ As ligações híbridas utiliza WebSockets como o mecanismo de transporte subjac
 
 ## <a name="wcf-relays"></a>Reencaminhamentos do WCF
   
-|Enlace|Segurança de transporte|Porta|  
+|Vínculo|Segurança de transporte|Porta|  
 |-------------|------------------------|----------|  
 |[Classe de BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (cliente)|Sim|HTTPS| 
 | |" |Não|HTTP|  
@@ -48,7 +48,7 @@ As ligações híbridas utiliza WebSockets como o mecanismo de transporte subjac
 ||" |Não|HTTP|  
 |[Classe de WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (serviço)|Qualquer um dos|9351/HTTP|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para mais informações sobre o reencaminhamento do Azure, visite estas ligações:
 * [O que é o Reencaminhamento do Azure?](relay-what-is-it.md)
 * [FAQ de Reencaminhamento](relay-faq.md)

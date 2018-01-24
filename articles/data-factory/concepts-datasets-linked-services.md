@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 
-ms.date: 09/05/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços ligados no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -221,7 +221,7 @@ Seguem-se algumas diferenças entre conjuntos de dados de Data Factory, v1 e v2:
 - As propriedades de política e a disponibilidade não são suportadas na V2. A hora de início de um pipeline depende [acionadores](concepts-pipeline-execution-triggers.md).
 - Âmbito conjuntos de dados (conjuntos de dados definidos num pipeline) não são suportados na V2. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte o tutorial seguinte para obter instruções passo a passo para criar pipelines e conjuntos de dados utilizando um destas ferramentas ou SDKs. 
 
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md) (Início rápido: criar uma fábrica de dados com .NET)

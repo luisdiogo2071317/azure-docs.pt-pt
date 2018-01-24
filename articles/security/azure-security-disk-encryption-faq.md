@@ -3,9 +3,9 @@ title: "Encriptação de disco do Azure FAQ | Microsoft Docs"
 description: "Este artigo fornece respostas às perguntas mais frequentes sobre o Microsoft Azure disco encriptação para o Windows e as VMs de IaaS Linux."
 services: security
 documentationcenter: na
-author: deventiwari
+author: DevTiw
 manager: avibm
-editor: yuridio
+editor: barclayn
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
-ms.author: devtiw
-ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
+ms.openlocfilehash: 9c94c62b86ef69704ad011ee3661a1688c39a388
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Encriptação de disco do Azure FAQ
 
@@ -47,14 +47,14 @@ Este artigo fornece respostas às perguntas mais frequentes (FAQ) sobre a encrip
 
 | Distribuição de Linux | Versão | Tipo de volume suportado para a encriptação|
 | --- | --- |--- |
-| Ubuntu | 16.04-DIARIAMENTE-LTS | Disco do SO e dados |
+| Ubuntu | 16.04-DAILY-LTS | Disco do SO e dados |
 | Ubuntu | 14.04.5-DAILY-LTS | Disco do SO e dados |
 | RHEL | 7.3 | Disco do SO e dados |
 | RHEL | 7.2 | Disco do SO e dados |
 | RHEL | 6.8 | Disco do SO e dados |
 | RHEL | 6.7 | Disco de dados |
 | CentOS | 7.3 | Disco do SO e dados |
-| CentOS | 7.2N | Disco do SO e dados |
+| CentOS | 7.2n | Disco do SO e dados |
 | CentOS | 6.8 | Disco do SO e dados |
 | CentOS | 7.1 | Disco de dados |
 | CentOS | 7.0 | Disco de dados |
@@ -65,7 +65,7 @@ Este artigo fornece respostas às perguntas mais frequentes (FAQ) sobre a encrip
 | SLES | 12 SP1 | Disco de dados |
 | SLES | Prioridade: 12-SP1 | Disco de dados |
 | SLES | HPC 12 | Disco de dados |
-| SLES | Prioridade: 11-SP4 | Disco de dados |
+| SLES | Priority:11-SP4 | Disco de dados |
 | SLES | 11 SP4 | Disco de dados |
 
 **P:** como posso começar a utilizar o Azure Disk Encryption?
@@ -131,7 +131,7 @@ Se este fluxo de trabalho não for possível, depender [encriptação do serviç
 
 **R:** pode colocar questões ou comentários sobre o [fórum do Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste documento, aprendeu mais informações sobre as perguntas mais frequentes relacionadas com a Azure Disk Encryption. Para obter mais informações sobre este serviço e as respetivas capacidades, consulte os artigos seguintes:
 
 - [Aplicar a encriptação de disco no Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)

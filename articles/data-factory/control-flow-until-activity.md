@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: da15ddd47580a37a7fdb35adfd80482b698074fd
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Até que a atividade no Azure Data Factory
-A atividade de Until fornece a mesma funcionalidade que um efetue-até ciclo estrutura fornece linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada com a atividade avalia como verdadeiro. Pode especificar um valor de tempo limite para o até que a atividade no Factory de dados. 
+A atividade de Until fornece a mesma funcionalidade que um efetue-até ciclo estrutura fornece linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory. 
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [documentação do Data Factory V1](v1/data-factory-introduction.md).
@@ -289,10 +289,10 @@ while ($True) {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Outras atividades de fluxo de controlo suportadas pela fábrica de dados, consulte: 
 
-- [Se a condição atividade](control-flow-if-condition-activity.md)
+- [Atividade Se Condição](control-flow-if-condition-activity.md)
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)
 - [Atividade Obter Metadados](control-flow-get-metadata-activity.md)

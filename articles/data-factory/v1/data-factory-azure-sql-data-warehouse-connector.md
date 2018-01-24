@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 97782d1437f47a5ec403a98464d38961874d7575
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Data Warehouse com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -87,7 +87,7 @@ A secção de typeProperties é diferente para cada tipo de conjunto de dados e 
 | --- | --- | --- |
 | tableName |Nome da tabela ou vista na base de dados do Azure SQL Data Warehouse que referencia o serviço ligado. |Sim |
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e política estão disponíveis para todos os tipos de atividades.
 
 > [!NOTE]
@@ -153,7 +153,7 @@ GO
 | rejectType |Especifica se a opção de rejectValue é especificada como um valor literal ou uma percentagem. |Valor de percentagem (predefinição) |Não |
 | rejectSampleValue |Determina o número de linhas a obter antes do PolyBase recalcula a percentagem de linhas rejeitadas. |1, 2, … |Sim, se **rejectType** é **percentagem** |
 | useTypeDefault |Especifica como processar os valores em falta nos ficheiros de texto delimitado quando PolyBase obtém dados a partir do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade da secção de argumentos no [criar formato de ficheiro externo (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |TRUE, False (predefinição) |Não |
-| WriteBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize |Número inteiro (número de linhas) |Não (predefinição: 10000) |
+| writeBatchSize |Insere dados para a tabela SQL quando o tamanho da memória intermédia atinge writeBatchSize |Número inteiro (número de linhas) |Não (predefinição: 10000) |
 | writeBatchTimeout |De tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
 
 #### <a name="sqldwsink-example"></a>Exemplo de SqlDWSink
@@ -275,12 +275,12 @@ Para obter uma melhor débito possíveis, considere atribuir maior classe de rec
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>tableName no Azure SQL Data Warehouse
 A tabela seguinte fornece exemplos sobre como especificar o **tableName** propriedade no conjunto de dados JSON para várias combinações de nome de esquema e de tabela.
 
-| Esquema da BD | Nome da tabela | propriedade JSON tableName |
+| DB Schema | Nome da tabela | propriedade JSON tableName |
 | --- | --- | --- |
 | dbo |MyTable |MyTable ou dbo. MyTable ou [dbo]. [MyTable] |
 | dbo1 |MyTable |dbo1. MyTable ou [dbo1]. [MyTable] |
 | dbo |My.Table |[My.Table] ou [dbo]. [My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Se vir o seguinte erro, isto pode dever um problema com o valor especificado para a propriedade tableName. Consulte a tabela para a forma correta especificar valores para a propriedade JSON tableName.  
 
@@ -310,7 +310,7 @@ Fábrica de dados cria a tabela no arquivo de destino com o mesmo nome de tabela
 | bits | bits |
 | Decimal | Decimal |
 | Numérico | Decimal |
-| Número de vírgula flutuante | Número de vírgula flutuante |
+| Flutuante | Flutuante |
 | dinheiro | dinheiro |
 | Real | Real |
 | Em SmallMoney | Em SmallMoney |
@@ -330,7 +330,7 @@ Fábrica de dados cria a tabela no arquivo de destino com o mesmo nome de tabela
 | NChar | NChar |
 | VarChar | VarChar (até 8000) |
 | NVarChar | NVarChar (até 4000) |
-| XML | Varchar (até 8000) |
+| Xml | Varchar (até 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -347,37 +347,37 @@ O mapeamento de é igual a [mapeamento do tipo de dados do SQL Server para ADO.N
 | Tipo de motor de base de dados do SQL Server | Tipo de .NET framework |
 | --- | --- |
 | bigint |Int64 |
-| Binário |Byte] |
+| Binário |Byte[] |
 | bits |Booleano |
-| char |Cadeia, Char [] |
+| char |String, Char[] |
 | data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| Atributo FILESTREAM (varbinary(max)) |Byte] |
-| Número de vírgula flutuante |duplo |
-| Imagem |Byte] |
+| Atributo FILESTREAM (varbinary(max)) |Byte[] |
+| Flutuante |Duplo |
+| Imagem |Byte[] |
 | Int |Int32 |
 | dinheiro |Decimal |
-| nchar |Cadeia, Char [] |
-| ntext |Cadeia, Char [] |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
 | um valor numérico |Decimal |
-| nvarchar |Cadeia, Char [] |
+| nvarchar |String, Char[] |
 | real |Solteiro |
-| ROWVERSION |Byte] |
+| ROWVERSION |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | em smallmoney |Decimal |
 | sql_variant |Objeto * |
-| Texto |Cadeia, Char [] |
+| Texto |String, Char[] |
 | hora |TimeSpan |
-| carimbo de data/hora |Byte] |
+| carimbo de data/hora |Byte[] |
 | tinyint |Bytes |
 | uniqueidentifier |GUID |
-| varbinary |Byte] |
-| varchar |Cadeia, Char [] |
-| xml |XML |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
+| xml |Xml |
 
 Também pode mapear colunas do conjunto de dados de origem para colunas do conjunto de dados dependente na definição da atividade de cópia. Para obter mais informações, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 

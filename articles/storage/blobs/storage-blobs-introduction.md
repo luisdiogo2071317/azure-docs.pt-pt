@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: b6814eea9120e0ee86afe333c11354fe49821978
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 0097f1c02b88343a135b6489130a6e0d35cf6fba
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Introdução ao Blob storage
 
@@ -42,7 +42,7 @@ O serviço Blob contém os seguintes componentes:
 
 * **Contentor:** um contentor fornece um agrupamento de um conjunto de blobs. Todos os blobs tem de estar num contentor. Uma conta pode conter um número ilimitado de contentores. Um contentor pode armazenar um número ilimitado de blobs. Tenha em atenção que o nome do contentor tem de ser em minúsculas.
 
-* **Blob:** um ficheiro de qualquer tipo e tamanho. O Storage do Azure oferece três tipos de blobs: blobs de blocos, blobs de páginas e blobs de acréscimo.
+* **Blob:** um ficheiro de qualquer tipo e tamanho. Storage do Azure oferece três tipos de blobs: blobs, de blocos [blobs de páginas](storage-blob-pageblob-overview.md), blobs e de acréscimo.
   
     Os *blobs de blocos* são ideais para armazenar ficheiros de texto ou binários, como documentos e ficheiros multimédia. Os *blobs de acréscimo* são semelhantes aos blobs de blocos na medida em que são constituídos por blocos, mas estão otimizados para operações de acréscimo, sendo pois úteis para cenários de registo. Um único blob de blocos pode conter até 50.000 blocos com um máximo de 100 MB cada, para um tamanho total ligeiramente acima de 4.75 TB (100 MB X 50.000). Um único blob de acréscimo pode conter até 50.000 blocos com um máximo de 4 MB cada, para um tamanho total ligeiramente acima de 195 GB (4 MB X 50.000).
   

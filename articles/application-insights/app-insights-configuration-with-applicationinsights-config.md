@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 87eed377528db60724ba2f37bc22d916dfd7c0eb
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 980b297db87c2829f3c393ae867780f263f8d87c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou .xml
 O SDK .NET do Application Insights é composta por um número de pacotes NuGet. O [pacote core](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria para o Application Insights. [Pacotes adicionais](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecer telemetria *módulos* e *inicializadores* para controlo automaticamente telemetria da sua aplicação e o respetivo contexto. Ao ajustar o ficheiro de configuração, pode ativar ou desativar os módulos de telemetria e inicializadores e definir os parâmetros de algumas delas.
@@ -178,7 +178,7 @@ Estes parâmetros afetam a forma como o SDK de Java deve armazenar e esvaziar os
 O número de itens de telemetria que podem ser armazenados no armazenamento de dentro da memória do SDK. Quando este número for atingido, a memória intermédia de telemetria é descarregada - ou seja, os itens de telemetria são enviados para o servidor do Application Insights.
 
 * Mínimo: 1
-* Máx.: 1000
+* Max: 1000
 * Predefinição: 500
 
 ```
@@ -196,7 +196,7 @@ O número de itens de telemetria que podem ser armazenados no armazenamento de d
 Determina com que frequência os dados armazenados no armazenamento na memória devem ser removida da cache (enviado para o Application Insights).
 
 * Mínimo: 1
-* Máx.: 300
+* Max: 300
 * Predefinição: 5
 
 ```
@@ -214,7 +214,7 @@ Determina com que frequência os dados armazenados no armazenamento na memória 
 Determina o tamanho máximo em MB, que é atribuído ao armazenamento persistente no disco local. Este tipo de armazenamento é utilizado para itens de telemetria persistentes que falharam ao ser transmitidos para o ponto final do Application Insights. Quando o tamanho de armazenamento tiver sido cumprido, novos itens de telemetria serão eliminados.
 
 * Mínimo: 1
-* Máxima: 100
+* Max: 100
 * Predefinição: 10
 
 ```
@@ -237,7 +237,7 @@ Se pretender definir a chave dinamicamente - por exemplo, se pretender enviar os
 
 Para definir a chave para todas as instâncias TelemetryClient, incluindo módulos de telemetria padrão, defina a chave no TelemetryConfiguration.Active. Fazê-lo um método de inicialização, tais como global.aspx.cs num serviço ASP.NET:
 
-```C#
+```csharp
 
     protected void Application_Start()
     {
@@ -250,7 +250,7 @@ Para definir a chave para todas as instâncias TelemetryClient, incluindo módul
 
 Se pretender enviar um conjunto específico de eventos para um recurso diferente, pode definir a chave para um TelemetryClient específico:
 
-```C#
+```csharp
 
     var tc = new TelemetryClient();
     tc.Context.InstrumentationKey = "----- my key ----";

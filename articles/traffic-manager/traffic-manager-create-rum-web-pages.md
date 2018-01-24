@@ -4,7 +4,7 @@ description: "Configurar as suas páginas web para enviar medidas de utilizador 
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: ce5d333ad5d339b64d1fc1d081651052f71a8b67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Como enviar medidas de utilizador reais para Traffic Manager do Azure utilizando as páginas web
 
@@ -61,7 +61,7 @@ Após obter a chave RUM, o passo seguinte é incorporar esta JavaScript copiado 
 1.  Abra a página HTML num editor de texto
 2.  Cole o código JavaScript tinha copiou no passo anterior para a secção de corpo de HTML (o código de copiados é linha 8 & 9, consulte a figura 3).
  
-    ![Incorporar o código Javascript na página web para Real medidas de utilizador](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)  
+    ![Incorporar o código Javascript na página web para Real medidas de utilizador](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
     **Figura 3: HTML Simple com incorporados JavaScript de medidas de utilizador reais**
 
@@ -69,7 +69,7 @@ Após obter a chave RUM, o passo seguinte é incorporar esta JavaScript copiado 
 4. Próxima vez que esta página é composta no web browser, o JavaScript referenciado é transferido e o script será executado a medição e elaboração de relatórios de operações.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [Real medidas de utilizador](traffic-manager-rum-overview.md)
 - Saiba [como funciona o Gestor de tráfego](traffic-manager-overview.md)
 - Saiba mais sobre o [métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md) suportada pelo Gestor de tráfego

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Consultas SQL para a base de dados do Azure Cosmos
 
@@ -45,7 +45,7 @@ Em seguida, regresse a este artigo, onde iremos começar com um tutorial de cons
 ## <a id="GettingStarted"></a>Introdução aos comandos SQL na base de dados do Cosmos
 Para ver Cosmos BD SQL no trabalho, vamos começar por alguns documentos JSON simples e guiá algumas consultas simples nele. Considere estes dois documentos JSON sobre famílias de dois. Com base de dados do Cosmos, não temos de criar explicitamente quaisquer esquemas ou índices secundários. Precisamos simplesmente de inserir os documentos JSON para uma coleção de BD do Cosmos e subsequentemente consultar. Aqui temos um JSON simples documentos para a família ou seja, os principais, elementos subordinados (e as respetivas pets), endereço e informações de registo. O documento tem as cadeias, números, em booleanos, matrizes e propriedades aninhadas. 
 
-**Documento**  
+**Document**  
 
 ```JSON
 {
@@ -71,7 +71,7 @@ Para ver Cosmos BD SQL no trabalho, vamos começar por alguns documentos JSON si
 
 Eis um segundo documento com uma diferença subtis – `givenName` e `familyName` são utilizados em vez de `firstName` e `lastName`.
 
-**Documento**  
+**Document**  
 
 ```json
 {
@@ -347,7 +347,7 @@ A tabela seguinte mostra o resultado da comparações de igualdade na API do SQL
    <tbody>
       <tr>
          <td valign="top">
-            <strong>OP</strong>
+            <strong>Op</strong>
          </td>
          <td valign="top">
             <strong>Indefinido</strong>
@@ -1086,7 +1086,7 @@ Também pode executar agregação sobre o resultado da iteração de matriz. Por
 ### <a id="Joins"></a>Associações
 Numa base de dados relacional, é importante a necessidade de associação em tabelas. É o corollary lógica para estruturar esquemas normalizadas. Contrária ao disposto, a API do SQL Server lida com o modelo de dados denormalized de documentos sem esquema. Este é o equivalente lógico de uma "associação automática".
 
-A sintaxe que suporta o idioma é a União de associação < from_source2 > de < from_source1 >... ASSOCIAÇÃO < from_sourceN >. Em geral, esta ação devolve um conjunto de **N**- cadeias de identificação (cadeia de identificação com **N** valores). Cada cadeia de identificação tem valores produzidos pelo iterating todos os aliases de coleção ao longo do respetivos respetivos conjuntos. Por outras palavras, este é um produto cruzado completo dos conjuntos de participar na União.
+A sintaxe que suporta o idioma é a União de associação < from_source2 > de < from_source1 >... JOIN <from_sourceN>. Em geral, esta ação devolve um conjunto de **N**- cadeias de identificação (cadeia de identificação com **N** valores). Cada cadeia de identificação tem valores produzidos pelo iterating todos os aliases de coleção ao longo do respetivos respetivos conjuntos. Por outras palavras, este é um produto cruzado completo dos conjuntos de participar na União.
 
 Os exemplos seguintes mostram como funciona a cláusula JOIN. No exemplo seguinte, o resultado é vazio desde o produto cruzado de cada documento a partir da origem e um conjunto vazio está vazio.
 
@@ -1407,27 +1407,27 @@ As funções matemática efetuar um cálculo, com base nos valores de entrada qu
 | Utilização | Descrição |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [[ABS (num_expr)](#bk_abs) | Devolve o valor absoluto (positivo) da expressão numérica especificada. |
-| [LIMITE (num_expr)](#bk_ceiling) | Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada. |
-| [PISO (num_expr)](#bk_floor) | Devolve o maior número inteiro menor ou igual a expressão numérica especificada. |
+| [CEILING (num_expr)](#bk_ceiling) | Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada. |
+| [FLOOR (num_expr)](#bk_floor) | Devolve o maior número inteiro menor ou igual a expressão numérica especificada. |
 | [EXP (num_expr)](#bk_exp) | Devolve o expoente da expressão numérica especificada. |
-| [REGISTO (num_expr [, base])](#bk_log) | Devolve o logaritmo natural da expressão numérica especificada ou o logaritmo utilizando a base especificada |
-| [Log10 (num_expr)](#bk_log10) | Devolve o valor logarítmica base 10 da expressão numérica especificada. |
-| [ARREDONDAR (num_expr)](#bk_round) | Devolve um valor numérico, arredondado para o valor de número inteiro mais próximo. |
+| [LOG (num_expr [,base])](#bk_log) | Devolve o logaritmo natural da expressão numérica especificada ou o logaritmo utilizando a base especificada |
+| [LOG10 (num_expr)](#bk_log10) | Devolve o valor logarítmica base 10 da expressão numérica especificada. |
+| [ROUND (num_expr)](#bk_round) | Devolve um valor numérico, arredondado para o valor de número inteiro mais próximo. |
 | [TRUNC (num_expr)](#bk_trunc) | Devolve um valor numérico, truncada de acordo com o valor de número inteiro mais próximo. |
 | [SQRT (num_expr)](#bk_sqrt) | Devolve a raiz quadrada da expressão numérica especificada. |
-| [PARÊNTESES (num_expr)](#bk_square) | Devolve o quadrado da expressão numérica especificado. |
-| [ENERGIA (num_expr, num_expr)](#bk_power) | Devolve a energia da expressão numérica especificada para o valor especificado. |
-| [Início de sessão (num_expr)](#bk_sign) | Devolve o valor de início de sessão (-1, 0, 1) da expressão numérica especificada. |
+| [SQUARE (num_expr)](#bk_square) | Devolve o quadrado da expressão numérica especificado. |
+| [POWER (num_expr, num_expr)](#bk_power) | Devolve a energia da expressão numérica especificada para o valor especificado. |
+| [SIGN (num_expr)](#bk_sign) | Devolve o valor de início de sessão (-1, 0, 1) da expressão numérica especificada. |
 | [ACOS (num_expr)](#bk_acos) | Devolve o ângulo em radianos, cujo co-seno é a expressão numérica especificada; Também denominado o arco de co-seno. |
 | [ASIN (num_expr)](#bk_asin) | Devolve o ângulo em radianos, cujo seno é a expressão numérica especificada. Isto também é denominado o arco de seno. |
 | [ATAN (num_expr)](#bk_atan) | Devolve o ângulo em radianos, cuja tangente é a expressão numérica especificada. Isto também é denominado o arco de tangente. |
 | [ATN2 (num_expr)](#bk_atn2) | Devolve o ângulo em radianos, entre o eixo x positivo e ray da origem para o ponto (y, x), onde x e y são os valores das duas expressões de vírgula flutuante especificado. |
 | [COS (num_expr)](#bk_cos) | Devolve o co-seno do ângulo especificado, trigonometric em radianos, a expressão especificada. |
 | [COT (num_expr)](#bk_cot) | Devolve a co-tangente do ângulo especificado, trigonometric em radianos, a expressão numérica especificado. |
-| [GRAUS (num_expr)](#bk_degrees) | Devolve o ângulo correspondente em graus para um ângulo especificado em radianos. |
-| [INSTALADOR DE PLATAFORMA ()](#bk_pi) | Devolve o valor de PI constante. |
-| [RADIANOS (num_expr)](#bk_radians) | Devolve radianos quando uma expressão numérica, em graus, é introduzida. |
-| [ÚNICO (num_expr)](#bk_sin) | Devolve o seno do ângulo especificado, trigonometric em radianos, a expressão especificada. |
+| [DEGREES (num_expr)](#bk_degrees) | Devolve o ângulo correspondente em graus para um ângulo especificado em radianos. |
+| [PI ()](#bk_pi) | Devolve o valor de PI constante. |
+| [RADIANS (num_expr)](#bk_radians) | Devolve radianos quando uma expressão numérica, em graus, é introduzida. |
+| [SIN (num_expr)](#bk_sin) | Devolve o seno do ângulo especificado, trigonometric em radianos, a expressão especificada. |
 | [TAN (num_expr)](#bk_tan) | Devolve a tangente da expressão de entrada, a expressão especificada. |
 
 Por exemplo, pode agora executar consultas como o seguinte:
@@ -1447,7 +1447,7 @@ As funções de verificação do tipo permitem-lhe verificar o tipo de uma expre
 
 <table>
 <tr>
-  <td><strong>Utilização</strong></td>
+  <td><strong>Usage</strong></td>
   <td><strong>Descrição</strong></td>
 </tr>
 <tr>
@@ -1500,22 +1500,22 @@ As seguintes funções escalares efetuar uma operação num valor de cadeia de e
 
 | Utilização | Descrição |
 | --- | --- |
-| [COMPRIMENTO (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Devolve o número de carateres da expressão de cadeia especificada |
-| [CONCAT (str_expr str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Devolve uma cadeia que é o resultado da concatenar duas ou mais valores de cadeia. |
-| [SUBCADEIA (str_expr num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Devolve a parte de uma expressão de cadeia. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Devolve um booleano que indica se a primeira expressão de cadeia termina com o segundo |
+| [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Devolve o número de carateres da expressão de cadeia especificada |
+| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Devolve uma cadeia que é o resultado da concatenar duas ou mais valores de cadeia. |
+| [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Devolve a parte de uma expressão de cadeia. |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Devolve um booleano que indica se a primeira expressão de cadeia começa com o segundo |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Devolve um booleano que indica se a primeira expressão de cadeia termina com o segundo |
-| [CONTÉM (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Devolve um booleano que indica se a primeira cadeia de expressão contém o segundo. |
+| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Devolve um booleano que indica se a primeira cadeia de expressão contém o segundo. |
 | [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Devolve a posição inicial da primeira ocorrência da segunda cadeia de expressão na primeira expressão de cadeia especificada ou -1 se a cadeia não foi encontrada. |
-| [À esquerda (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |Devolve a parte esquerda de uma cadeia com o número especificado de carateres. |
-| [À direita (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |Devolve a parte direita de uma cadeia com o número especificado de carateres. |
+| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |Devolve a parte esquerda de uma cadeia com o número especificado de carateres. |
+| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |Devolve a parte direita de uma cadeia com o número especificado de carateres. |
 | [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) |Devolve uma expressão de cadeia após remove espaços em branco à esquerda. |
 | [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) |Devolve uma expressão de cadeia após truncar todos os espaços em branco de à direita. |
-| [INFERIOR (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Devolve uma expressão de cadeia após a conversão de dados do caráter em maiúsculas em minúsculas. |
-| [MAIÚSCULA (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Devolve uma expressão de cadeia após a conversão de dados de carateres em minúsculas em maiúsculas. |
-| [SUBSTITUA (str_expr str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Substitui todas as ocorrências de um valor de cadeia especificada com outro valor de cadeia. |
-| [REPLICAR (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) |Repete-se um valor de cadeia um número de vezes especificado. |
-| [INVERSA (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Devolve a ordem inversa de um valor de cadeia. |
+| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Devolve uma expressão de cadeia após a conversão de dados do caráter em maiúsculas em minúsculas. |
+| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Devolve uma expressão de cadeia após a conversão de dados de carateres em minúsculas em maiúsculas. |
+| [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Substitui todas as ocorrências de um valor de cadeia especificada com outro valor de cadeia. |
+| [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) |Repete-se um valor de cadeia um número de vezes especificado. |
+| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Devolve a ordem inversa de um valor de cadeia. |
 
 Utilizando estas funções, pode agora executar consultas como o seguinte. Por exemplo, pode devolver o nome de família em maiúsculas da seguinte forma:
 
@@ -1571,9 +1571,9 @@ As seguintes funções escalares efetuar uma operação num valor de entrada da 
 | Utilização | Descrição |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Devolve o número de elementos da expressão de matriz especificada. |
-| [ARRAY_CONCAT (arr_expr arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Devolve uma matriz que é o resultado da concatenar duas ou mais valores de matriz. |
-| [ARRAY_CONTAINS (arr_expr expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Devolve um valor boleano que indica se a matriz contém o valor especificado. Pode especificar se a correspondência total ou parcial. |
-| [ARRAY_SLICE (arr_expr num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Devolve a parte de uma expressão de matriz. |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Devolve uma matriz que é o resultado da concatenar duas ou mais valores de matriz. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Devolve um valor boleano que indica se a matriz contém o valor especificado. Pode especificar se a correspondência total ou parcial. |
+| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Devolve a parte de uma expressão de matriz. |
 
 Funções de matriz podem ser utilizadas para manipular matrizes no JSON. Por exemplo, aqui está uma consulta que devolva todos os documentos em que é um dos principais "Round Robin Wakefield". 
 
@@ -1627,7 +1627,7 @@ BD do cosmos suporta as seguintes funções incorporadas abra Geoespacial Consor
 
 <table>
 <tr>
-  <td><strong>Utilização</strong></td>
+  <td><strong>Usage</strong></td>
   <td><strong>Descrição</strong></td>
 </tr>
 <tr>
@@ -1771,7 +1771,7 @@ Em primeiro lugar, para o sistema de tipo, suportamos todas as JSON tipos primit
      2 * family.children[0].grade;    x + y;
 * Expressão de comparação de cadeia - estes incluem a comparar um valor de cadeia para um valor de constante de cadeia.  
   
-     mother.familyName = = "Santos";    child.givenName = = s; s é uma variável de cadeia
+     mother.familyName == "Smith";    child.givenName == s; //s is a string variable
 * Objeto/matriz expressão criação - estas expressões retorno um objeto do tipo de valor composta ou tipo anónimo ou uma matriz desses objetos. Estes valores podem ser aninhados.
   
      Principal novo {familyName = "Santos", givenName = "João"}; novo {primeiro = 1, segundo = 2}; um tipo anónimo com dois campos              

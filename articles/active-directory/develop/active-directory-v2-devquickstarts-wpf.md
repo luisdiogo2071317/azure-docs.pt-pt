@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7436db2943a6b3de6ec53cdaa6692aa05d2f2f69
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88679e7dd71011f767cbe4de295c284516375d20
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Adicionar início de sessão a uma aplicação de ambiente de trabalho do Windows
 Com o ponto final v 2.0, pode adicionar rapidamente a autenticação para as aplicações de ambiente de trabalho com suporte para ambas as contas pessoais da Microsoft e contas profissionais ou escolares.  Também permite que a aplicação comunicar de forma segura com um back-end web api, bem como [Microsoft Graph](https://graph.microsoft.io) e alguns do [Unified APIs do Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -69,7 +69,7 @@ O princípio básico atrás MSAL é que sempre que a aplicação tem um token de
 
 * No `TodoListClient` projeto, abra `MainWindow.xaml.cs` e localize o `OnInitialized(...)` método.  O primeiro passo é ao inicializar a sua aplicação `PublicClientApplication` -classe principal do MSAL que representam aplicações nativas.  Este é onde passar MSAL as coordenadas que necessita para comunicar com o Azure AD e informe-lo como colocar em cache de tokens.
 
-```C#
+```csharp
 protected override async void OnInitialized(EventArgs e)
 {
         base.OnInitialized(e);
@@ -82,7 +82,7 @@ protected override async void OnInitialized(EventArgs e)
 
 * Quando a aplicação é iniciado, queremos de verificação e veja se o utilizador já tem sessão iniciada na aplicação.  No entanto, não queremos invocar uma IU de início de sessão ainda - podemos irá tornar o utilizador, clique em "Iniciar sessão" para o fazer.  Também no `OnInitialized(...)` método:
 
-```C#
+```csharp
 // As the app starts, we want to check to see if the user is already signed in.
 // You can do so by trying to get a token from MSAL, using the method
 // AcquireTokenSilent.  This forces MSAL to throw an exception if it cannot
@@ -119,7 +119,7 @@ catch (MsalException ex)
 
 * Se o utilizador não tem sessão iniciado e clicar no botão "Início de sessão em", queremos invocar um início de sessão da IU e que o utilizador introduza as suas credenciais.  Processador de botão de implementar o início de sessão:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // TODO: Sign the user out if they clicked the "Clear Cache" button
@@ -167,7 +167,7 @@ catch (MsalException ex)
 
 * Se o utilizador com êxito inicia sessão, MSAL irá receber e um token da cache por si e para poder continuar para chamar o `GetTodoList()` método com confiança.  Tudo o que for deixado ao obter tarefas de um utilizador é implementar o `GetTodoList()` método.
 
-```C#
+```csharp
 private async void GetTodoList()
 {
 
@@ -219,7 +219,7 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 
 - When the user is done managing their To-Do List, they may finally sign out of the app by clicking the "Clear Cache" button.
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
         // If the user clicked the 'clear cache' button,
@@ -248,7 +248,7 @@ Para referência, o exemplo concluído (sem os valores de configuração) [é fo
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora pode mover para tópicos mais avançados.  Poderá querer experimentar:
 
 * [Proteger a API Web de TodoListService com o ponto final v 2.0](active-directory-v2-devquickstarts-dotnet-api.md)

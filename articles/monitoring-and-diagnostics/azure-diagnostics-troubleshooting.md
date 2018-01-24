@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae99085a37162a883d18976181be198a2f21a60c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Resolução de problemas de diagnóstico do Azure
 Este artigo descreve as informações de resolução de problemas que são relevantes para a utilização de diagnóstico do Azure. Para mais informações sobre o diagnóstico do Azure, consulte [descrição geral de diagnóstico do Azure](azure-diagnostics.md).
@@ -36,25 +36,25 @@ Seguem-se os caminhos para alguns registos importantes e os artefactos. Vamos re
 ### <a name="azure-cloud-services"></a>Cloud Services do Azure
 | Artefactos | Caminho |
 | --- | --- |
-| **Ficheiro de configuração de diagnósticos do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versão > \Config.txt |
-| **Ficheiros de registo** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versão > \ |
-| **Arquivo local para dados de diagnóstico** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Tables |
-| **Ficheiro de configuração do agente de monitorização** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
-| **Pacote de extensão de diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<versão > |
+| **Ficheiro de configuração de diagnósticos do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
+| **Ficheiros de registo** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
+| **Arquivo local para dados de diagnóstico** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
+| **Ficheiro de configuração do agente de monitorização** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Pacote de extensão de diagnóstico do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Caminho do utilitário de recolha de registo** | %SystemDrive%\Packages\GuestAgent\ |
 | **Ficheiro de registo MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 | Artefactos | Caminho |
 | --- | --- |
-| **Ficheiro de configuração de diagnósticos do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versão > \RuntimeSettings |
-| **Ficheiros de registo** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versão > \Logs\ |
-| **Arquivo local para dados de diagnóstico** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Tables |
-| **Ficheiro de configuração do agente de monitorização** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MaConfig.xml |
-| **Ficheiro de estado** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<versão > \Status |
-| **Pacote de extensão de diagnóstico do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion >|
+| **Ficheiro de configuração de diagnósticos do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
+| **Ficheiros de registo** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
+| **Arquivo local para dados de diagnóstico** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
+| **Ficheiro de configuração do agente de monitorização** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
+| **Ficheiro de estado** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
+| **Pacote de extensão de diagnóstico do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
 | **Caminho do utilitário de recolha de registo** | C:\WindowsAzure\Packages |
-| **Ficheiro de registo MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num >. log |
+| **Ficheiro de registo MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Dados métricos não aparecem no portal do Azure
 Diagnóstico do Azure fornece dados métricos que podem ser apresentados no portal do Azure. Se tiver problemas a ver os dados no portal, verifique o WADMetrics\* tabela na conta de armazenamento de diagnóstico do Azure para ver se os registos de métricos correspondentes existem. 
@@ -154,7 +154,7 @@ Se estiver a pensar sobre como contactar o suporte, a primeira coisa que poderã
 ## <a name="diagnostics-data-tables-not-found"></a>Não foram encontradas tabelas de dados de diagnóstico
 As tabelas no armazenamento do Azure que contêm eventos ETW são denominadas utilizando o seguinte código:
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -207,9 +207,9 @@ Este código gera as quatro tabelas:
 
 | Evento | Nome da tabela |
 | --- | --- |
-| fornecedor = "prov1" &lt;id de evento = "1" /&gt; |WADEvent + MD5("prov1") + "1" |
+| fornecedor = "prov1" &lt;id de evento = "1" /&gt; |WADEvent+MD5(“prov1”)+”1” |
 | fornecedor = "prov1" &lt;id de evento = "2" eventDestination = "dest1" /&gt; |WADdest1 |
-| fornecedor = "prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5("prov1") |
+| fornecedor = "prov1" &lt;DefaultEvents /&gt; |WADDefault+MD5(“prov1”) |
 | fornecedor = "prov2" &lt;DefaultEvents eventDestination = "dest2" /&gt; |WADdest2 |
 
 ## <a name="references"></a>Referências

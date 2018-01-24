@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2415850491018f4e27c5ec930b688026cc12b41a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d8848f93518392333df16c9c7bf07bd0b2529034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Enviar dados para um índice da Azure Search utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
 | tipo | A propriedade de tipo tem de ser definida: **azuresearch, uma vez**. | Sim |
-| URL | URL para o serviço de pesquisa do Azure. | Sim |
+| url | URL para o serviço de pesquisa do Azure. | Sim |
 | key | Chave de administrador para o serviço de pesquisa do Azure. | Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -73,7 +73,7 @@ Para uma lista completa das secções e as propriedades disponíveis para defini
 | indexName | Nome do índice da Azure Search. Fábrica de dados não crie o índice. O índice tem de existir na Azure Search. | Sim |
 
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções e as propriedades disponíveis para definir as atividades, consulte o [Criar pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição, entrada e tabelas de saída e várias políticas estão disponíveis para todos os tipos de atividades. Enquanto, propriedades disponíveis na secção typeProperties variar de acordo com cada tipo de atividade. Para a atividade de cópia, podem variam consoante os tipos de origens e sinks.
 
 Para a atividade de cópia, quando o sink não é do tipo **AzureSearchIndexSink**, na secção typeProperties, estão disponíveis as seguintes propriedades:
@@ -104,8 +104,8 @@ A seguinte tabela especifica se um tipo de dados de pesquisa do Azure é suporta
 | Cadeia | S |
 | Int32 | S |
 | Int64 | S |
-| duplo | S |
-| Valor booleano | S |
+| Duplo | S |
+| Booleano | S |
 | DataTimeOffset | S |
 | Matriz de cadeia | N |
 | GeographyPoint | N |
@@ -292,7 +292,7 @@ Também pode mapear colunas do conjunto de dados de origem para colunas do conju
 ## <a name="performance-and-tuning"></a>Desempenho e otimização  
 Consulte o [guia Otimização e de desempenho de atividade de cópia](data-factory-copy-activity-performance.md) para saber mais sobre fatores determinantes esse desempenho impacto de movimento de dados (atividade de cópia) e de várias formas para otimizar o mesmo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos:
 
 * [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um pipeline com uma atividade de cópia.

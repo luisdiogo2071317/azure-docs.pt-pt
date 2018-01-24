@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 01/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 376bc64bee85fbc073b6ea4a39ecd013c23e791f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 8d47ebe5ad40aee8289420e8424ec4d745baf2df
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Através de programação monitorizar um Azure data factory
 Este artigo descreve como monitorizar um pipeline na fábrica de dados utilizando kits de desenvolvimento de software diferentes (SDKs). 
@@ -146,6 +146,6 @@ Para instruções completas de criação e monitorização de um pipeline com o 
 
 Para obter documentação completa sobre os cmdlets do PowerShell, consulte [referência de cmdlets PowerShell da fábrica de dados](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte [Monitor pipelines utilizando o Monitor de Azure](monitor-using-azure-monitor.md) artigo para saber mais sobre como utilizar o Monitor do Azure para monitorizar os pipelines de fábrica de dados. 
 

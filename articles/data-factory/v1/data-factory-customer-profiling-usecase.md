@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fcba76555902fb393830f352e6274b3ecd2fba38
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3a3c9c1d483ece71ecc38c7eaa364c35464d80f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-case---customer-profiling"></a>Caso de Utilização - Criação de Perfis de Cliente
 O Azure Data Factory é um dos muitos serviços utilizados para implementar o Cortana Intelligence Suite de Aceleradores de solução.  Para obter mais informações sobre a Cortana Intelligence, visite [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). Neste documento, vamos descrever um caso de utilização simples para ajudar a começar por compreender a forma como o Azure Data Factory pode resolver problemas comuns de análise.
@@ -53,7 +53,7 @@ Tudo o que precisa para aceder e experimentar este caso de utilização simples 
 
     ![Painel Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
-## <a name="solution-overview"></a>Descrição geral da solução
+## <a name="solution-overview"></a>Descrição Geral da Solução
 Neste caso, utilize simples pode ser utilizado como um exemplo de como pode utilizar o Azure Data Factory para inserir, preparar, transformar, analisar e publicar dados.
 
 ![Fluxo de trabalho ponto a ponto](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)

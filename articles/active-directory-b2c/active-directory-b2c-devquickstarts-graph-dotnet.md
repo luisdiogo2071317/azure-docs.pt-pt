@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: d7d809570012b292877813c7350e55edf509183b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 33df6c4255d4ca672e65237c8be45b3f0bc7864e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>O Azure AD B2C: Utilizar o Azure AD Graph API
 
@@ -43,7 +43,7 @@ Depois de ter um inquilino do B2C, tem de registar a sua aplicação através do
 > [!IMPORTANT]
 > Para utilizar a Graph API com o seu inquilino do B2C, terá de registar uma aplicação dedicada utilizando genérica *registos de aplicação* menu no Portal do Azure, **não** do Azure AD B2C  *Aplicações* menu. Não é possível reutilizar as aplicações de B2C já existentes que registou no Azure AD B2C *aplicações* menu.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Escolha o seu inquilino do Azure AD B2C ao selecionar a sua conta no canto superior direito da página.
 3. No painel de navegação da esquerda, escolha **mais serviços**, clique em **registos de aplicação**e clique em **adicionar**.
 4. Siga os avisos e crie uma nova aplicação. 
@@ -137,7 +137,7 @@ Qualquer pedido para a Graph API necessita de um token de acesso para a autentic
 
 Quando `B2CGraphClient` é executado, cria uma instância do `B2CGraphClient` classe. O construtor para esta classe configura um andaime de autenticação da ADAL:
 
-```C#
+```csharp
 public B2CGraphClient(string clientId, string clientSecret, string tenant)
 {
     // The client_id, client_secret, and tenant are provided in Program.cs, which pulls the values from App.config
@@ -156,7 +156,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 
 Utilizaremos o `B2C Get-User` comando como exemplo. Quando `B2C Get-User` é invocado sem quaisquer entradas adicionais, as chamadas CLI o `B2CGraphClient.GetAllUsers(...)` método. Este método chama `B2CGraphClient.SendGraphGetRequest(...)`, que submete um pedido de HTTP GET para a Graph API. Antes de `B2CGraphClient.SendGraphGetRequest(...)` envia pedidos de GET, primeiro obtém acesso token ao utilizar a ADAL:
 
-```C#
+```csharp
 public async Task<string> SendGraphGetRequest(string api, string query)
 {
     // First, use ADAL to acquire a token by using the app's identity (the credential)
@@ -190,7 +190,7 @@ Existem dois aspetos importantes a ter em atenção:
 
 Ambos estes detalhes são processados os `B2CGraphClient.SendGraphGetRequest(...)` método:
 
-```C#
+```csharp
 public async Task<string> SendGraphGetRequest(string api, string query)
 {
     ...

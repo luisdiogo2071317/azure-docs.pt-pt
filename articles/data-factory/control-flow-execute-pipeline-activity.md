@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 413d7ddf1e5b87f64c0d8e14c0ef4bdefd2890a7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 90402e047caff2446591dca9cc9392c9d0344b5f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Executar a atividade de Pipeline no Azure Data Factory
 A atividade de executar o Pipeline permite um pipeline do Data Factory invocar o pipeline de outro.
@@ -66,11 +66,11 @@ Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 nome | Nome da atividade do pipeline de execução. | Cadeia | Sim
 tipo | Tem de ser definido como: **ExecutePipeline**. | Cadeia | Sim
-Pipeline | Pipeline de referência para o pipeline dependente que invoca este pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **tipo**. A propriedade referenceName Especifica o nome do pipeline de referência. A propriedade de tipo tem de ser definida para PipelineReference. | PipelineReference | Sim
+pipeline | Pipeline de referência para o pipeline dependente que invoca este pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **tipo**. A propriedade referenceName Especifica o nome do pipeline de referência. A propriedade de tipo tem de ser definida para PipelineReference. | PipelineReference | Sim
 parâmetros | Parâmetros para o pipeline invocado | Um objeto JSON que mapeia nomes de parâmetro para valores de argumento | Não
-waitOnCompletion | Define se execução da atividade tem de aguardar durante a execução de pipeline dependentes concluir. | Predefinição é falsa. | Valor booleano | Não
+waitOnCompletion | Define se execução da atividade tem de aguardar durante a execução de pipeline dependentes concluir. | Predefinição é falsa. | Booleano | Não
 
-## <a name="sample"></a>Exemplo
+## <a name="sample"></a>Sample
 Este cenário tem dois pipelines:
 
 - **Pipeline mestre** -este pipeline com uma atividade de executar o Pipeline que chama o pipeline invocado. O pipeline mestre demora dois parâmetros: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
@@ -257,7 +257,7 @@ O pipeline mestre reencaminha estes valores para o pipeline invocado, conforme m
 }
 
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Outras atividades de fluxo de controlo suportadas pela fábrica de dados, consulte: 
 
 - [Para cada atividade](control-flow-for-each-activity.md)

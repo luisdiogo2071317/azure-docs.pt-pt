@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 29f4c5e8998331cc48dac694512766a5b3cd4a30
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9e678e947a686b5a672af13cb0f0e60b4a272de9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce ao utilizar o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 
 ![Nome do Data Factory - Salesforce ligação - API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções e as propriedades disponíveis para definir as atividades, consulte o [Criar pipelines](data-factory-create-pipelines.md) artigo. Propriedades como o nome, a descrição, a entrada e saída tabelas e várias políticas estão disponíveis para todos os tipos de atividades.
 
 As propriedades que estão disponíveis na secção typeProperties da atividade, por outro lado, variar de acordo com cada tipo de atividade. Para a atividade de cópia, podem variam consoante os tipos de origens e sinks.
@@ -285,19 +285,19 @@ Consulte [propriedades do tipo RelationalSource](#copy-activity-properties) para
 
 
 ### <a name="type-mapping-for-salesforce"></a>Mapeamento de tipo para o Salesforce
-| Tipo do Salesforce | . Tipo de rede |
+| Tipo de Salesforce | . Tipo de rede |
 | --- | --- |
 | Número de automática |Cadeia |
-| Caixa de verificação |Valor booleano |
-| Moeda |duplo |
+| Caixa de verificação |Booleano |
+| Moeda |Duplo |
 | Data |DateTime |
-| Data/hora |DateTime |
+| Data/Hora |DateTime |
 | E-mail |Cadeia |
 | Id |Cadeia |
 | Relação de referência |Cadeia |
 | Selecionar vários Picklist |Cadeia |
-| Número |duplo |
-| Percentagem |duplo |
+| Número |Duplo |
+| Percentagem |Duplo |
 | Telefone |Cadeia |
 | Picklist |Cadeia |
 | Texto |Cadeia |

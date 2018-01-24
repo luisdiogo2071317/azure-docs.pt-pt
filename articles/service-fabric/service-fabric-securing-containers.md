@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 7c18c2b3b0d271f2dbe4f247c132850b49d8f1d9
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 7ebec89e1481ccc232403426c04bed0ffd6f4fe7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="container-security"></a>Segurança de contentor
 
@@ -53,7 +53,7 @@ Em alternativa, se já tiver os certificados no formato necessário e pretenda s
 
 O serviço de contentor ou processo é responsável por importar os ficheiros de certificado para o contentor. Para importar o certificado, pode utilizar `setupentrypoint.sh` scripts ou executar código personalizado no processo do contentor. Código de exemplo em c# para importar o ficheiro PFX segue:
 
-```c#
+```csharp
     string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
     string passwordFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
@@ -78,7 +78,7 @@ Para configurar a gMSA (grupo de contas de serviço gerida), um ficheiro de espe
   </ContainerHostPolicies>
 </Policies>
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Implementar um contentor do Windows para o Service Fabric no Windows Server 2016](service-fabric-get-started-containers.md)
 * [Implementar um contentor de Docker Service Fabric no Linux](service-fabric-get-started-containers-linux.md)

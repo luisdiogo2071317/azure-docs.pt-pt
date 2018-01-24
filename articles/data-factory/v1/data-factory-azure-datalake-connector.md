@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cc3128d3d07210d5c8e3ebe70c6c1d8ebaa9b863
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: f4ba8288c1efd443310b4efc305c6f397c8163a0
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copiar os dados e de Data Lake Store utilizando o Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,7 +73,7 @@ Um serviço ligado liga um arquivo de dados para uma fábrica de dados. Criar um
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| **tipo** | A propriedade de tipo tem de ser definida **AzureDataLakeStore**. | Sim |
+| **type** | A propriedade de tipo tem de ser definida **AzureDataLakeStore**. | Sim |
 | **dataLakeStoreUri** | Informações sobre a conta do Azure Data Lake Store. Estas informações demora um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
 | **subscriptionId** | ID de subscrição do Azure à qual pertence a conta de Data Lake Store. | Obrigatório para sink |
 | **resourceGroupName** | Nome do grupo de recursos do Azure à qual pertence a conta de Data Lake Store. | Obrigatório para sink |
@@ -96,7 +96,7 @@ Utilize a autenticação principal de serviço, especificando as seguintes propr
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Especifique o ID de cliente. da aplicação | Sim |
 | **servicePrincipalKey** | Especifique a chave da aplicação. | Sim |
-| **inquilino** | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim |
+| **tenant** | Especifique as informações de inquilino (nome ou o inquilino ID de domínio) em que reside a aplicação. Pode obtê-lo por posicionado o rato no canto superior direito do portal do Azure. | Sim |
 
 **Exemplo: Autenticação principal do serviço**
 ```json
@@ -122,7 +122,7 @@ Em alternativa, pode utilizar a autenticação de credenciais de utilizador para
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | **autorização** | Clique em de **autorizar** botão no Editor do Data Factory e introduza as credenciais que atribui o URL de autorização gerado automaticamente a esta propriedade. | Sim |
-| **ID de sessão** | ID de sessão OAuth da sessão de autorização do OAuth. Cada ID de sessão é exclusivo e pode ser utilizado apenas uma vez. Esta definição é gerada automaticamente quando utiliza o Editor do Data Factory. | Sim |
+| **sessionId** | ID de sessão OAuth da sessão de autorização do OAuth. Cada ID de sessão é exclusivo e pode ser utilizado apenas uma vez. Esta definição é gerada automaticamente quando utiliza o Editor do Data Factory. | Sim |
 
 > [!IMPORTANT]
 > Certifique-se de que conceder as permissões adequadas do utilizador no Azure Data Lake Store:
@@ -150,7 +150,7 @@ Em alternativa, pode utilizar a autenticação de credenciais de utilizador para
 #### <a name="token-expiration"></a>Expiração do token
 O código de autorização que geram utilizando o **autorizar** botão expira após um determinado período de tempo. A seguinte mensagem de erro significa que o token de autenticação expirou:
 
-Erro de operação de credencial: invalid_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: A concessão de acesso fornecida está expirada ou revogada. ID de rastreio: ID de correlação d18629e8-af88-43c5-88e3-d8419eb1fca1: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z.
+Erro de operação de credencial: invalid_grant - AADSTS70002: erro ao validar as credenciais. AADSTS70008: A concessão de acesso fornecida está expirada ou revogada. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21-09-31Z.
 
 A tabela seguinte mostra os tempos de expiração de diferentes tipos de contas de utilizador:
 
@@ -241,10 +241,10 @@ O **typeProperties** secção para um conjunto de dados do tipo **AzureDataLakeS
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | **folderPath** |Caminho para o contentor e a pasta no Data Lake Store. |Sim |
-| **nome de ficheiro** |Nome do ficheiro no Azure Data Lake Store. O **fileName** propriedade é opcional e maiúsculas e minúsculas. <br/><br/>Se especificar **fileName**, a atividade (incluindo cópia) funciona no ficheiro específico.<br/><br/>Quando **fileName** não for especificado, cópia inclui todos os ficheiros no **folderPath** no conjunto de dados de entrada.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída e **preserveHierarchy** não foram especificadas no receptor de atividade, o nome do ficheiro gerado está no formato de dados. _GUID_. txt '. Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |
+| **fileName** |Nome do ficheiro no Azure Data Lake Store. O **fileName** propriedade é opcional e maiúsculas e minúsculas. <br/><br/>Se especificar **fileName**, a atividade (incluindo cópia) funciona no ficheiro específico.<br/><br/>Quando **fileName** não for especificado, cópia inclui todos os ficheiros no **folderPath** no conjunto de dados de entrada.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída e **preserveHierarchy** não foram especificadas no receptor de atividade, o nome do ficheiro gerado está no formato de dados. _GUID_. txt '. Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |
 | **partitionedBy** |O **partitionedBy** propriedade é opcional. Pode utilizá-lo para especificar um caminho dinâmico e um nome de ficheiro para dados de séries de tempo. Por exemplo, **folderPath** podem ser parametrizadas para cada hora dos dados. Para obter detalhes e exemplos, consulte [a propriedade partitionedBy](#using-partitionedby-property). |Não |
-| **formato** | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e  **ParquetFormat**. Definir o **tipo** propriedade **formato** para um destes valores. Para obter mais informações, consulte o [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato ](data-factory-supported-file-and-compression-formats.md#parquet-format) secções no [formatos de ficheiro e compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artigo. <br><br> Se pretender copiar ficheiros "como-é" entre arquivos baseados em ficheiros (cópia binário), ignore o `format` secção em ambas as definições do conjunto de dados de entrada e de saída. |Não |
-| **compressão** | Especifique o tipo e o nível de compressão de dados. Tipos suportados são **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| **format** | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e  **ParquetFormat**. Definir o **tipo** propriedade **formato** para um destes valores. Para obter mais informações, consulte o [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato ](data-factory-supported-file-and-compression-formats.md#parquet-format) secções no [formatos de ficheiro e compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artigo. <br><br> Se pretender copiar ficheiros "como-é" entre arquivos baseados em ficheiros (cópia binário), ignore o `format` secção em ambas as definições do conjunto de dados de entrada e de saída. |Não |
+| **compression** | Especifique o tipo e o nível de compressão de dados. Tipos suportados são **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Níveis suportados são **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
 ### <a name="the-partitionedby-property"></a>A propriedade partitionedBy
 Pode especificar dinâmica **folderPath** e **fileName** propriedades para dados de séries de tempo com o **partitionedBy** propriedade, funções de Data Factory e variáveis do sistema. Para obter mais informações, consulte o [do Azure Data Factory - as funções e variáveis do sistema](data-factory-functions-variables.md) artigo.
@@ -275,7 +275,7 @@ No exemplo seguinte, ano, mês, dia e hora do `SliceStart` são extraídos em se
 Para obter mais detalhes em conjuntos de dados de séries de tempo, agendar e setores, consulte o [conjuntos de dados no Azure Data Factory](data-factory-create-datasets.md) e [Data Factory agendamento e execução](data-factory-scheduling-and-execution.md) artigos. 
 
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Criar pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e política estão disponíveis para todos os tipos de atividades.
 
 As propriedades disponíveis no **typeProperties** secção de uma atividade variar de acordo com cada tipo de atividade. Para uma atividade de cópia, podem variam consoante os tipos de origens e sinks.
@@ -284,7 +284,7 @@ As propriedades disponíveis no **typeProperties** secção de uma atividade var
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| **recursiva** |Indica se os dados é leitura recursivamente as subpastas ou apenas a pasta especificada. |TRUE (valor predefinido), False |Não |
+| **recursive** |Indica se os dados é leitura recursivamente as subpastas ou apenas a pasta especificada. |TRUE (valor predefinido), False |Não |
 
 
 **AzureDataLakeStoreSink** suporta as seguintes propriedades no **typeProperties** secção:
@@ -301,9 +301,9 @@ Esta secção descreve o comportamento resultante da operação de cópia para d
 | true |preserveHierarchy |Para uma pasta de origem Pasta1 com a estrutura seguinte: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a mesma estrutura de origem<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
 | true |flattenHierarchy |Para uma pasta de origem Pasta1 com a estrutura seguinte: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>o destino Pasta1 é criado com a estrutura seguinte: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File5 |
 | true |mergeFiles |Para uma pasta de origem Pasta1 com a estrutura seguinte: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>o destino Pasta1 é criado com a estrutura seguinte: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + ficheiro 5 é intercalado conteúdo para um ficheiro com nome de ficheiro gerado automaticamente |
-| False |preserveHierarchy |Para uma pasta de origem Pasta1 com a estrutura seguinte: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/><br/>Não Subfolder1 com File3, File4 e File5 captado. |
-| False |flattenHierarchy |Para uma pasta de origem Pasta1 com a estrutura seguinte:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/><br/><br/>Não Subfolder1 com File3, File4 e File5 captado. |
-| False |mergeFiles |Para uma pasta de origem Pasta1 com a estrutura seguinte:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 conteúdos são intercalados para um ficheiro com nome de ficheiro gerada automaticamente. nome gerado automaticamente para File1<br/><br/>Não Subfolder1 com File3, File4 e File5 captado. |
+| falso |preserveHierarchy |Para uma pasta de origem Pasta1 com a estrutura seguinte: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/><br/>Não Subfolder1 com File3, File4 e File5 captado. |
+| falso |flattenHierarchy |Para uma pasta de origem Pasta1 com a estrutura seguinte:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para File2<br/><br/><br/>Não Subfolder1 com File3, File4 e File5 captado. |
+| falso |mergeFiles |Para uma pasta de origem Pasta1 com a estrutura seguinte:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 conteúdos são intercalados para um ficheiro com nome de ficheiro gerada automaticamente. nome gerado automaticamente para File1<br/><br/>Não Subfolder1 com File3, File4 e File5 captado. |
 
 ## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiro e compressão suportados
 Para obter mais informações, consulte o [formatos de ficheiro e compressão no Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artigo.

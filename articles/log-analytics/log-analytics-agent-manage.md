@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 01/23/2018
 ms.author: magoedte
-ms.openlocfilehash: e917b64c32c2f99c9a8b0397e70a32b2dbb2e3cf
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a17418142fb5f52a93d7a56cb2e6e6e97a250002
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerir e manter o agente de análise de registos para o Windows e Linux
 
@@ -111,7 +111,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Agente Linux
-Execute os passos seguintes se os computadores Linux têm de comunicar através de um servidor proxy ou Gateway do OMS à análise de registos.  O valor de configuração do proxy tem a seguinte sintaxe `[protocol://][user:password@]proxyhost[:port]`.
+Execute os passos seguintes se os computadores Linux têm de comunicar através de um servidor proxy ou Gateway do OMS à análise de registos.  O valor de configuração do proxy tem a seguinte sintaxe `[protocol://][user:password@]proxyhost[:port]`.  O *proxyhost* propriedade aceita um nome de domínio completamente qualificado ou o endereço IP do servidor proxy.
 
 1. Edite o ficheiro `/etc/opt/microsoft/omsagent/proxy.conf` ao executar os comandos seguintes e altere os valores para as definições específicas.
 
@@ -178,6 +178,6 @@ Execute os seguintes passos para configurar o agente do OMS para Linux para que 
 2. Certifique-se de que o início da linha com `httpsport=` define a porta 1270. Tal como:`httpsport=1270`
 3. Reinicie o servidor OMI:`sudo /opt/omi/bin/service_control restart`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Reveja [resolução de problemas do agente Linux](log-analytics-agent-linux-support.md) se ocorrerem problemas ao instalar ou gerir o agente.  

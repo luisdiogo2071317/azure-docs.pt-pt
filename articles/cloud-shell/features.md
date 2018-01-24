@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
 ms.openlocfilehash: a6627ab6febc763ae3f1cd464f26ad641f7c717d
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funcionalidades e ferramentas para Bash na Shell de nuvem do Azure
 
@@ -54,11 +54,11 @@ Ficheiros fora do `$Home` e o estado da máquina não são mantidas entre sessõ
 |---|---|
 |Ferramentas do Linux            |Bash<br> partilhar<br> tmux<br> aprofundar<br>               |
 |Ferramentas do Azure            |[CLI do Azure 2.0](https://github.com/Azure/azure-cli) e [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
-|Editores de texto           |VIM<br> Nano<br> emacs       |
+|Editores de texto           |VIM<br> nano<br> emacs       |
 |Controlo de código fonte         |Git                    |
 |Ferramentas de compilação            |Certifique-<br> maven<br> npm<br> PIP         |
 |Contentores             |[CLI do docker](https://github.com/docker/cli)/[Docker máquina](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI DE DC/SO](https://github.com/dcos/dcos-cli)         |
-|Bases de Dados              |Cliente de MySQL<br> Cliente PostgreSql<br> [SQLCMD utilitário](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL scripter](https://github.com/Microsoft/sql-xplat-cli) |
+|Bases de Dados              |Cliente de MySQL<br> PostgreSql client<br> [SQLCMD utilitário](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Outros                  |iPython cliente<br> [Nuvem Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/) |
 
 ## <a name="language-support"></a>Suporte de idiomas

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 860d32f26616c1e1a92254ef288df2e3367fdf1c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2f4ae056dfa1bf6b2faabcb100ac82b38da9e361
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mover dados de Teradata utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -77,7 +77,7 @@ Para uma lista completa das secções & Propriedades disponíveis para definir o
 
 O **typeProperties** secção é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados no arquivo de dados. Atualmente, não existem propriedades de tipo não suportadas para o conjunto de dados Teradata.
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e as políticas estão disponíveis para todos os tipos de atividades.
 
 Enquanto, propriedades disponíveis na secção typeProperties da atividade variar de acordo com cada tipo de atividade. Para a atividade de cópia, podem variam consoante os tipos de origens e sinks.
@@ -291,20 +291,20 @@ Ao mover dados para Teradata, os seguintes mapeamentos são utilizados do tipo T
 | Gráfico |Cadeia |
 | VarChar |Cadeia |
 | VarGraphic |Cadeia |
-| Blobs |Byte] |
-| Bytes |Byte] |
-| VarByte |Byte] |
+| Blobs |Byte[] |
+| Bytes |Byte[] |
+| VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | Decimal |Decimal |
-| duplo |duplo |
+| Duplo |Duplo |
 | Número inteiro |Int32 |
-| Número |duplo |
+| Número |Duplo |
 | SmallInt |Int16 |
 | Data |DateTime |
 | Hora |TimeSpan |
 | Período de tempo com fuso horário |Cadeia |
-| Timestamp |DateTime |
+| Carimbo de data/hora |DateTime |
 | Timestamp com o fuso horário |DateTimeOffset |
 | Dia de intervalo |TimeSpan |
 | Dia de intervalo hora |TimeSpan |
@@ -324,7 +324,7 @@ Ao mover dados para Teradata, os seguintes mapeamentos são utilizados do tipo T
 | Período (Time com fuso horário) |Cadeia |
 | Period(Timestamp) |Cadeia |
 | Período (Timestamp com o fuso horário) |Cadeia |
-| XML |Cadeia |
+| Xml |Cadeia |
 
 ## <a name="map-source-to-sink-columns"></a>Origem de mapa para sink colunas
 Para saber mais sobre as colunas de mapeamento no conjunto de dados de origem em colunas no conjunto de dados do sink, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

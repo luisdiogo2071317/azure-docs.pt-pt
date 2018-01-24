@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: fe02adafbf96df22462683c69813b05c182d3106
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: controlo de dependência
 A *dependência* é um componente externo que é chamado pela sua aplicação. Normalmente, é um serviço chamado utilizando HTTP, ou uma base de dados ou um sistema de ficheiros. [Application Insights](app-insights-overview.md) mede o tempo durante o qual a aplicação aguarda dependências e frequência uma chamada de dependência falha. Pode investigar chamadas específicas e estão relacionadas com pedidos e exceções.
@@ -178,7 +178,7 @@ Pode escrever o código que envia as informações de dependência com o mesmo [
 
 Por exemplo, se criar o seu código com uma assemblagem que não tenha de escrever pessoalmente, foi tempo todas as chamadas, para saber que contribuição faz com que os tempos de resposta. Para que estes dados apresentados nos gráficos de dependência no Application Insights, envia-as utilizando `TrackDependency`.
 
-```C#
+```csharp
 
             var startTime = DateTime.UtcNow;
             var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -208,7 +208,7 @@ Se pretender desactivar o módulo de registo de dependência padrão, remova a r
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Exceções](app-insights-asp-net-exceptions.md)
 * [Dados de utilizador e página](app-insights-javascript.md)
 * [Disponibilidade](app-insights-monitor-web-app-availability.md)

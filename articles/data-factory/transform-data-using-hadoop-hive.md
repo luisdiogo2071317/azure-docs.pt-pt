@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 579df714910020e1e16e410a051c8b3773369dea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37a29d826a948788c5374ad2cc20b6a2040230ad
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformar dados utilizando a atividade do Hive do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,12 +66,12 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 | tipo                | Para a atividade do ramo de registo, o tipo de atividade é HDinsightHive | Sim      |
 | linkedServiceName   | Referência para o cluster do HDInsight registado como um serviço ligado no Factory de dados. Para saber mais sobre este serviço ligado, consulte [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
 | scriptLinkedService | Referência a um serviço ligado do Storage do Azure utilizados para armazenar o script de ramo de registo para ser executada. Se não especificar este serviço ligado, o serviço ligado de armazenamento de Azure definido no serviço ligado do HDInsight é utilizado. | Não       |
-| ScriptPath          | Forneça o caminho para o ficheiro de script armazenado no Storage do Azure que referida pelo scriptLinkedService. O nome de ficheiro é maiúsculas e minúsculas. | Sim      |
+| scriptPath          | Forneça o caminho para o ficheiro de script armazenado no Storage do Azure que referida pelo scriptLinkedService. O nome de ficheiro é maiúsculas e minúsculas. | Sim      |
 | getDebugInfo        | Especifica se os ficheiros de registo são copiados para o armazenamento do Azure utilizados pelo cluster do HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: None, sempre ou falha. Valor predefinido: nenhuma. | Não       |
 | Argumentos           | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
 | Define             | Especifique parâmetros como pares chave-valor para referenciar dentro do script de ramo de registo. | Não       |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os artigos seguintes que explicam como transformar dados de outras formas: 
 
 * [Atividade U-SQL](transform-data-using-data-lake-analytics.md)

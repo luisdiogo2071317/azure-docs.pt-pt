@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/16/2017
 ms.author: pratshar
-ms.openlocfilehash: 1e85db7ce866943696979f61c0aa5104217acc62
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: a4555b1cc758e2d4bdd11a16776dc3bb209adee8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Ativação pós-falha de teste para o Azure no Site Recovery
 
@@ -50,7 +50,7 @@ Este procedimento descreve como executar uma ativação pós-falha de teste para
     - Se o mesmo endereço IP não está disponível na sub-rede, VM recebe outro endereço IP disponível na sub-rede. [Saiba mais](#creating-a-network-for-test-failover).
 4. Se estiver a efetuar a ativação pós-falha para o Azure e a encriptação de dados estiver ativada, no **chave de encriptação**, selecione o certificado que foi emitido quando ativada, encriptação durante a instalação do fornecedor. Pode ignorar este passo de encriptação não está ativada.
 5. Controlar o progresso de ativação pós-falha no **tarefas** separador. Deve conseguir ver a máquina de réplica de teste no portal do Azure.
-6. Para iniciar uma ligação de RDP para a VM do Azure, terá de [adicionar um endereço IP público](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) na interface de rede de ativação pós-falha VM. 
+6. Para iniciar uma ligação de RDP para a VM do Azure, terá de [adicionar um endereço IP público](site-recovery-monitoring-and-troubleshooting.md) na interface de rede de ativação pós-falha VM. 
 7. Quando tudo está a funcionar conforme esperado, clique em **ativação pós-falha de teste de limpeza**. Isto elimina as VMs que foram criadas durante a ativação pós-falha de teste.
 8. No **notas**, registar e guardar todas as observações associadas à ativação pós-falha de teste. 
 
@@ -70,7 +70,7 @@ Nos seguintes cenários, ativação pós-falha requer um passo intermédio extra
 
 * Executar uma versão do serviço de mobilidade anterior 9.8 de VMs de VMware
 * Servidores físicos
-* VMs de VMware Linux
+* VMware Linux VMs
 * VM do Hyper-V protegida como servidores físicos
 * VM de VMware, onde os seguintes controladores não são controladores de arranque:
     * storvsc
@@ -113,9 +113,9 @@ Se pretende ligar as VMs do Azure com RDP após a ativação pós-falha, siga os
 **Ativação pós-falha** | **Localização** | **Ações**
 --- | --- | ---
 **VM do Azure com o Windows** | Máquina no local antes da ativação pós-falha | Para aceder à VM do Azure através da internet, ative o RDP e certifique-se de que as regras TCP e UDP estão adicionadas para **pública**, e que o RDP é permitido para todos os perfis de **Firewall do Windows**  >  **Aplicações permitidas**.<br/><br/> Para aceder à VM do Azure através de uma ligação site a site, ative o RDP na máquina e certifique-se de que o RDP é permitido no **Firewall do Windows** -> **aplicações e funcionalidades permitidas**, para **Domínio e privada** redes.<br/><br/>  Certifique-se de que o sistema operativo de política de SAN está definido como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que existem não existem atualizações pendentes do Windows na VM quando acione uma ativação pós-falha. Poderá iniciar a atualização do Windows quando efetuar a ativação pós-falha e não poderá iniciar sessão no VM até a conclusão da atualização. 
-**VM do Azure com o Windows** | VM do Azure após a ativação pós-falha |  [Adicionar um endereço IP público](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) para a VM.<br/><br/> As regras de grupo de segurança de rede em ativação pós-falha VM (e na sub-rede Azure à qual está ligado) necessário permitir ligações de entrada à porta RDP.<br/><br/> Verifique **diagnóstico de arranque** para verificar uma captura de ecrã da VM.<br/><br/> Se não conseguir ligar, verifique que a VM está em execução e reveja estes [sugestões de resolução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**VM do Azure com o Windows** | VM do Azure após a ativação pós-falha |  [Adicionar um endereço IP público](site-recovery-monitoring-and-troubleshooting.md) para a VM.<br/><br/> As regras de grupo de segurança de rede em ativação pós-falha VM (e na sub-rede Azure à qual está ligado) necessário permitir ligações de entrada à porta RDP.<br/><br/> Verifique **diagnóstico de arranque** para verificar uma captura de ecrã da VM.<br/><br/> Se não conseguir ligar, verifique que a VM está em execução e reveja estes [sugestões de resolução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **VM do Azure a executar Linux** | Máquina no local antes da ativação pós-falha | Certifique-se de que o serviço de Secure Shell na VM está definido para iniciar automaticamente no arranque do sistema.<br/><br/> Verifique se as regras de firewall permitem uma ligação SSH ao mesmo.
-**VM do Azure a executar Linux** | VM do Azure após a ativação pós-falha | As regras de grupo de segurança de rede em ativação pós-falha VM (e na sub-rede Azure à qual está ligado) necessário permitir ligações de entrada na porta SSH.<br/><br/> [Adicionar um endereço IP público](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine) para a VM.<br/><br/> Verifique **diagnóstico de arranque** para uma captura de ecrã da VM.<br/><br/>
+**VM do Azure a executar Linux** | VM do Azure após a ativação pós-falha | As regras de grupo de segurança de rede em ativação pós-falha VM (e na sub-rede Azure à qual está ligado) necessário permitir ligações de entrada na porta SSH.<br/><br/> [Adicionar um endereço IP público](site-recovery-monitoring-and-troubleshooting.md) para a VM.<br/><br/> Verifique **diagnóstico de arranque** para uma captura de ecrã da VM.<br/><br/>
 
 
 

@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 72def45d7f5085c6aa68c5236a8a274501e470ce
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 35041e148e52e5c567601c53dffac05c88d45ed5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorizar e gerir fábricas de dados do Azure utilizando o SDK .NET do Azure Data Factory
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [tutorial de atividade de cópia na documentação da versão 2](../quickstart-create-data-factory-dot-net.md). 
+> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço Data Factory, que está em pré-visualização, veja o [tutorial da atividade de cópia na documentação da versão 2](../quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="overview"></a>Descrição geral
 Pode criar, monitorizar e gerir fábricas de dados do Azure através de programação utilizando o SDK .NET da fábrica de dados. Este artigo contém instruções que pode seguir para criar uma aplicação de consola .NET de exemplo que cria e monitoriza uma fábrica de dados. 
@@ -499,7 +499,7 @@ do
 while (response != null);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte o exemplo seguinte para criar um pipeline com o SDK do .NET que copia dados a partir de um armazenamento de Blobs do Azure para uma base de dados SQL do Azure: 
 
 - [Criar um pipeline para copiar dados de armazenamento de BLOBs para base de dados SQL](data-factory-copy-activity-tutorial-using-dotnet-api.md)

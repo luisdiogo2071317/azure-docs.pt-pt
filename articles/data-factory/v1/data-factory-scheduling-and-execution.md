@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: d1cd846418b0e65b978971526af7b918bd03a7a1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 22005f6b0f655a68dbf8fab600872d8d20102dfe
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento da fábrica de dados e execução
 > [!NOTE]
@@ -191,7 +191,7 @@ A tabela seguinte descreve as propriedades que pode utilizar o **disponibilidade
 | intervalo |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina com que frequência o setor é produzido.<br/><br/>Se precisar do conjunto de dados segmentados numa base horária, defina <b>frequência</b> para <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/><b>Tenha em atenção</b>: Se especificar a frequência como minuto, recomendamos que defina o intervalo para não inferior a 15 |Sim |ND |
 | Estilo |Especifica se deve ser produzido do setor no início/fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência é definida para o mês e estilo está definido como EndOfInterval, o setor é produzido no último dia do mês. Se o estilo for definido como StartOfInterval, o setor é produzido no primeiro dia do mês.<br/><br/>Se a frequência é definida para o dia e estilo está definido como EndOfInterval, o setor é produzido na última hora do dia.<br/><br/>Se a frequência é definida para a hora e estilo está definido como EndOfInterval, o setor é produzido no fim da hora. Por exemplo, para um setor para 1 PM – 2 PM período, o setor é produzido em 2 PM. |Não |EndOfInterval |
 | anchorDateTime |Define a posição na hora utilizado pelo programador para limites de setor de conjunto de dados de computação absoluta. <br/><br/><b>Tenha em atenção</b>: se o AnchorDateTime tem partes de data que são mais granulares do que a frequência, em seguida, as partes mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> é <b>hora a hora</b> (frequência: horas e intervalo: 1) e o <b>AnchorDateTime</b> contém <b>minutos e segundos</b>, em seguida, a <b>minutos e segundos</b> partes do AnchorDateTime são ignoradas. |Não |01/01/0001 |
-| deslocamento |TimeSpan através do qual são desviados o início e de fim de todos os setores de conjunto de dados. <br/><br/><b>Tenha em atenção</b>: se forem especificadas anchorDateTime e desvio, o resultado é o shift combinada. |Não |ND |
+| offset |TimeSpan através do qual são desviados o início e de fim de todos os setores de conjunto de dados. <br/><br/><b>Tenha em atenção</b>: se forem especificadas anchorDateTime e desvio, o resultado é o shift combinada. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
 Por predefinição, diariamente (`"frequency": "Day", "interval": 1`) setores iniciar no momento da UTC 12: 00 (meia-noite). Se pretender que a hora de início, a hora UTC de 6: 00 em vez disso, defina o deslocamento conforme mostrado no seguinte fragmento: 
@@ -233,7 +233,7 @@ Um conjunto de dados pode ter uma política de validação definida que especifi
 
 O **política** secção na definição do conjunto de dados define os critérios ou a condição que os setores de conjunto de dados tem de cumprir. A tabela seguinte descreve as propriedades que pode utilizar o **política** secção:
 
-| Nome da política | Descrição | Aplicar a | Necessário | Predefinição |
+| Nome da Política | Descrição | Aplicar a | Necessário | Predefinição |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Valida que os dados de um **BLOBs do Azure** cumpre os requisitos de tamanho mínimo (em megabytes). |Blob do Azure |Não |ND |
 | minimumRows | Valida que os dados de um **SQL database do Azure** ou um **tabela do Azure** contém o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |Não |ND |
@@ -266,10 +266,10 @@ O **política** secção na definição do conjunto de dados define os critério
 
 Para obter mais informações sobre estas propriedades e exemplos, consulte [criar conjuntos de dados](data-factory-create-datasets.md) artigo. 
 
-## <a name="activity-policies"></a>Políticas de atividade
+## <a name="activity-policies"></a>Políticas de atividades
 As políticas afetam o comportamento de tempo de execução de uma atividade, especificamente quando o setor de uma tabela é processado. A tabela seguinte fornece os detalhes.
 
-| Propriedade | Valores permitidos | Valor predefinido | Descrição |
+| Propriedade | Valores permitidos | Valor Predefinido | Descrição |
 | --- | --- | --- | --- |
 | Simultaneidade |Número inteiro <br/><br/>O valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de actividade paralela que pode acontecer em diferentes setores. Por exemplo, se uma atividade tem de passar por um grande conjunto de dados disponíveis, que tenham um valor de concorrência maior acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordenação de setores de dados que estão a ser processados.<br/><br/>Por exemplo, se tiver setores de 2 (uma acontecer em 4 pm e outra nas 17: 00) e ambos são pendentes execução. Se definir o executionPriorityOrder ser NewestFirst, o setor nas 17: 00 é processado primeiro. Da mesma forma se definir o executionPriorityORder ser OldestFIrst, em seguida, o setor no 4 PM é processado. |

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: bba8fff7997340e563c604f571604ee8d06eb719
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 3686cfffd2c29461213b2866665e59336f037fa0
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação para U-SQL
 
@@ -903,7 +903,7 @@ Os agregados definidos pelo utilizador são quaisquer funções relacionadas com
 
 A definição de classe base agregado definido pelo utilizador é o seguinte:
 
-```c#
+```csharp
     [SqlUserDefinedAggregate]
     public abstract class IAggregate<T1, T2, TResult> : IAggregate
     {
@@ -1058,7 +1058,7 @@ Segue-se uma lista de UDO em U-SQL:
 
 UDO é normalmente designado explicitamente no script U-SQL como parte das seguintes declarações de U-SQL:
 
-* EXTRAIR
+* EXTRACT
 * SAÍDA
 * PROCESSO
 * COMBINAR
@@ -1480,7 +1480,7 @@ OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeade
 
 Para evitar a criação de uma instância do objeto de script de base, podemos criar um dispositivo de moldagem de função, conforme mostrado no nosso exemplo anterior:
 
-```c#
+```csharp
         // Define the factory classes
         public static class Factory
         {
@@ -1796,7 +1796,7 @@ CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns
 
 Ou com a invocação de um método de fábrica do dispositivo de moldagem:
 
-```c#
+```csharp
     CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
@@ -1854,7 +1854,7 @@ O **SqlUserDefinedCombiner** atributo indica que o tipo deve ser registado como 
 
 **SqlUserDefinedCombiner** é utilizado para definir a propriedade de modo de combinação. É um atributo opcional para uma definição de combinação definido pelo utilizador.
 
-Modo de CombinerMode
+CombinerMode     Mode
 
 Enumeração de CombinerMode pode efetuar os seguintes valores:
 
@@ -1871,7 +1871,7 @@ Exemplo: [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
 Os objetos de programação para principais são:
 
-```c#
+```csharp
     public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
         IUpdatableRow output
 ```

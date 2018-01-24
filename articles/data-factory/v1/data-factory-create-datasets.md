@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3e4b73f432f2695fa8b66b4d2bca23d32bfa9f3a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1733e953d9dd65a3d2b801e6c5ba5cfbb5f82920
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ A tabela seguinte descreve as propriedades no JSON acima:
 | tipo |tipo do conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter mais informações, consulte [tipo do conjunto de dados](#Type). |Sim |ND |
 | estrutura |Esquema do conjunto de dados.<br/><br/>Para obter mais informações, consulte [estrutura do conjunto de dados](#Structure). |Não |ND |
 | typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo do conjunto de dados](#Type). |Sim |ND |
-| externo | Sinalizador booleano para especificar se um conjunto de dados explicitamente é produzido por um pipeline de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não é produzido pelo pipeline atual, defina este sinalizador como verdadeiro. Defina este sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |FALSO |
+| externo | Sinalizador booleano para especificar se um conjunto de dados explicitamente é produzido por um pipeline de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não é produzido pelo pipeline atual, defina este sinalizador como verdadeiro. Defina este sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |falso |
 | disponibilidade | Define a janela de processamento (por exemplo, hora ou diária) ou o modelo slicing para o conjunto de dados de produção. Cada unidade de dados consumidos e produzidos por uma execução de atividade é chamada um setor de dados. Se a disponibilidade de um conjunto de dados de saída está definida como diariamente (frequência - dia, o intervalo de-1), um setor é produzido diariamente. <br/><br/>Para obter mais informações, consulte [disponibilidade do conjunto de dados](#Availability). <br/><br/>Para obter detalhes sobre o conjunto de dados repartir modelo, consulte o [agendamento e execução](data-factory-scheduling-and-execution.md) artigo. |Sim |ND |
 | política |Define os critérios ou a condição que os setores de conjunto de dados tem de cumprir. <br/><br/>Para obter mais informações, consulte o [política de conjunto de dados](#Policy) secção. |Não |ND |
 
@@ -242,7 +242,7 @@ A tabela seguinte descreve as propriedades que pode utilizar a secção de dispo
 | intervalo |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina com que frequência o setor é produzido. Por exemplo, se precisar do conjunto de dados segmentados numa base horária, defina <b>frequência</b> para <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que se especificar **frequência** como **minuto**, deve definir o intervalo para não inferior a 15. |Sim |ND |
 | Estilo |Especifica se deve ser produzido do setor no início ou fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **frequência** está definido como **mês**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no último dia do mês. Se **estilo** está definido como **StartOfInterval**, o setor é produzido no primeiro dia do mês.<br/><br/>Se **frequência** está definido como **dia**, e **estilo** está definido como **EndOfInterval**, o setor é produzido na última hora do dia.<br/><br/>Se **frequência** está definido como **hora**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no fim da hora. Por exemplo, para um setor para o período de PM 1 PM - 2, o setor é produzido em 2 PM. |Não |EndOfInterval |
 | anchorDateTime |Define a posição na hora utilizado pelo programador para limites de setor de conjunto de dados de computação absoluta. <br/><br/>Tenha em atenção que, se este propoerty tem partes de data que são mais granulares do que a frequência especificada, as partes mais granulares serão ignoradas. Por exemplo, se o **intervalo** é **hora a hora** (frequência: horas e intervalo: 1) e o **anchorDateTime** contém **minutos e segundos**, em seguida, as partes minutos e segundos, da **anchorDateTime** são ignorados. |Não |01/01/0001 |
-| deslocamento |TimeSpan através do qual são desviados o início e de fim de todos os setores de conjunto de dados. <br/><br/>Tenha em atenção que se ambos os **anchorDateTime** e **desvio** especificado, o resultado é o shift combinada. |Não |ND |
+| offset |TimeSpan através do qual são desviados o início e de fim de todos os setores de conjunto de dados. <br/><br/>Tenha em atenção que se ambos os **anchorDateTime** e **desvio** especificado, o resultado é o shift combinada. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
 Por predefinição, diariamente (`"frequency": "Day", "interval": 1`) setores iniciar às 12 AM (meia-noite) Hora Universal Coordenada (UTC). Se pretender que a hora de início, a hora UTC de 6: 00 em vez disso, defina o deslocamento conforme mostrado no seguinte fragmento: 
@@ -322,7 +322,7 @@ A menos que um conjunto de dados está a ser produzido pela fábrica de dados, d
 | Nome | Descrição | Necessário | Valor predefinido |
 | --- | --- | --- | --- |
 | dataDelay |O tempo de atraso de verificação na disponibilidade dos dados externos para o setor especificado. Por exemplo, pode atrasar uma verificação horária ao utilizar esta definição.<br/><br/>A definição só se aplica à hora presente.  Por exemplo, se for 1:00 PM agora e este valor é 10 minutos, a validação é iniciada à 1: as 22: 00.<br/><br/>Tenha em atenção que esta definição não afeta a setores no passado. Setores com **hora de fim de setor** + **dataDelay** < **agora** são processadas sem qualquer atrasos.<br/><br/>Vezes superior ao 23:59 horas devem ser especificadas utilizando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar a 24 horas, não utilize o 24:00:00. Em alternativa, utilize 1.00:00:00. Se utilizar 24:00:00, esta é tratada como 24 dias (24.00:00:00). Para 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
-| RetryInterval |O tempo de espera entre uma falha e a tentativa seguinte. Esta definição aplica-se a hora presente. Se anterior tente falhado, tente o seguinte é após o **retryInterval** período. <br/><br/>Se for 1:00 PM agora, vamos começar a primeira tentativa. Se a duração para concluir a primeira verificação de validação é de 1 minuto e a operação falhou, a tentativa seguinte ocorrerá é 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 1:02 PM. <br/><br/>Setores no passado, não há nenhum atraso. Nova tentativa ocorre imediatamente. |Não |00:01:00 (1 minuto) |
+| retryInterval |O tempo de espera entre uma falha e a tentativa seguinte. Esta definição aplica-se a hora presente. Se anterior tente falhado, tente o seguinte é após o **retryInterval** período. <br/><br/>Se for 1:00 PM agora, vamos começar a primeira tentativa. Se a duração para concluir a primeira verificação de validação é de 1 minuto e a operação falhou, a tentativa seguinte ocorrerá é 1:00 + 1 min (duração) + 1min (intervalo de repetição) = 1:02 PM. <br/><br/>Setores no passado, não há nenhum atraso. Nova tentativa ocorre imediatamente. |Não |00:01:00 (1 minuto) |
 | retryTimeout |O tempo limite para cada tentativa de repetição.<br/><br/>Se esta propriedade é definida para 10 minutos, a validação deve ser concluída entre 10 minutos. Se demora mais de 10 minutos para efetuar a validação, a repetir o tempo limite.<br/><br/>Se todas as tentativas para o tempo limite de validação, o setor está marcado como **ServiceHost**. |Não |00:10:00 (10 minutos) |
 | maximumRetry |O número de vezes para procurar a disponibilidade dos dados externos. O valor máximo permitido é de 10. |Não |3 |
 
@@ -448,6 +448,6 @@ Pode criar conjuntos de dados que estão no âmbito de um pipeline, utilizando o
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para mais informações sobre pipelines, consulte [Criar pipelines](data-factory-create-pipelines.md). 
 - Para obter mais informações sobre como pipelines são agendadas e executadas, consulte [agendamento e execução no Azure Data Factory](data-factory-scheduling-and-execution.md). 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4b0af784ad8f18e7dba49a32320dd6a6a7c5ad99
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: fb2b534955a2cd0e1294df5425550ac6958ff3c2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Mover dados do serviço de armazenamento simples Amazon através da utilização do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Este artigo explica como utilizar a atividade de cópia no Azure Data Factory pa
 
 Pode copiar dados do Amazon S3 para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados suportados como sinks pela atividade de cópia, consulte o [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. Fábrica de dados atualmente suporta apenas mover dados do Amazon S3 outros arquivos de dados, mas não mover dados de outros dados armazena para Amazon S3.
 
-## <a name="required-permissions"></a>Permissões necessárias
+## <a name="required-permissions"></a>Permissões obrigatórias
 Para copiar dados do Amazon S3, certifique-se de que lhe foram concedidas as seguintes permissões:
 
 * `s3:GetObject`e `s3:GetObjectVersion` para operações de objeto do Amazon S3.
@@ -66,7 +66,7 @@ Um serviço ligado liga um arquivo de dados para uma fábrica de dados. Criar um
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| accessKeyID |ID da chave de acesso secreta. |Cadeia |Sim |
+| accessKeyID |ID da chave de acesso secreta. |cadeia |Sim |
 | secretAccessKey |A chave de acesso secreta próprio. |Cadeia secreta encriptada |Sim |
 
 >[!NOTE]
@@ -98,7 +98,7 @@ As secções, tais como a estrutura, a disponibilidade e a política são semelh
 | bucketName |O nome do registo de S3. |Cadeia |Sim |
 | key |A chave do objeto de S3. |Cadeia |Não |
 | prefixo |Prefixo para a chave do objeto de S3. Objetos cujas chaves começar a utilizar este prefixo estão selecionados. Aplica-se apenas quando o chave está vazia. |Cadeia |Não |
-| Versão |A versão do objeto S3, se o controlo de versões de S3 estiver ativado. |Cadeia |Não |
+| versão |A versão do objeto S3, se o controlo de versões de S3 estiver ativado. |Cadeia |Não |
 | formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade de formato para um destes valores. Para obter mais informações, consulte o [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc formato](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se pretender copiar ficheiros como-está entre arquivos baseados em ficheiros (cópia binário), ignorar a secção de formato em ambas as definições do conjunto de dados de entrada e de saída. |Não | |
 | Compressão | Especifique o tipo e o nível de compressão de dados. Os tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Os níveis suportados são: **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e compressão no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não | |
 
@@ -171,7 +171,7 @@ Pode ter o Data Factory calcular estas propriedades dinamicamente em runtime, ut
 
 Pode efetuar as mesmas o **prefixo** propriedade de um conjunto de dados do Amazon S3. Para obter uma lista de funções suportadas e as variáveis, consulte [funções de Data Factory e variáveis do sistema](data-factory-functions-variables.md).
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte [Criar pipelines](data-factory-create-pipelines.md). Propriedades, tais como o nome, descrição e de saída, tabelas e as políticas estão disponíveis para todos os tipos de atividades. Propriedades disponíveis no **typeProperties** secção da atividade variar de acordo com cada tipo de atividade. Para a atividade de cópia, propriedades variam consoante os tipos de origens e sinks. Quando uma origem na atividade de cópia é do tipo **FileSystemSource** (que inclui o Amazon S3), da seguinte propriedade está disponível no **typeProperties** secção:
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
@@ -361,7 +361,7 @@ O pipeline contém uma atividade de cópia que está configurada para utilizar o
 > Para mapear colunas de um conjunto de dados de origem para colunas de um conjunto de dados dependente, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos:
 
 * Para saber mais sobre os principais fatores que desempenho impacto de movimento de dados (atividade de cópia) na fábrica de dados e várias formas para otimizar o mesmo, consulte o [copiar guia Otimização e de desempenho de atividade](data-factory-copy-activity-performance.md).

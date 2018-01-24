@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: f9b679f167952076db6df17711dc124931a0880c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 696e3f77a283cc31d3c8f6007a839480ae8eb984
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Descrição geral da API de nó de ligações híbridas de reencaminhamento
 
@@ -134,7 +134,7 @@ Argumentos de construtor:
 
 `RelayedServer`instâncias emitir três eventos que permitem-lhe processar os pedidos recebidos, estabelecer ligações e, detetar condições de erro. Tem de subscrever o `connect` eventos para processar mensagens. 
 
-##### <a name="headers"></a>Cabeçalhos
+##### <a name="headers"></a>cabeçalhos
 
 ```JavaScript 
 function(headers)
@@ -207,7 +207,7 @@ WebSocket.relayedConnect(
 );
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para mais informações sobre o reencaminhamento do Azure, visite estas ligações:
 * [O que é o Reencaminhamento do Azure?](relay-what-is-it.md)
 * [APIs de reencaminhamento disponíveis](relay-api-overview.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: 81f846e1fd8cca586613e6fc57737ec27e43a639
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: c75624d8551adabbd993d22ac4901ca26ef40d51
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="routing-messages-with-iot-hub-java"></a>Encaminhamento de mensagens com o IoT Hub (Java)
 
@@ -105,7 +105,7 @@ Nesta secção, modificar a aplicação de dispositivo que criou no [introduçã
     }
     ```
    
-    Este método aleatoriamente adiciona a propriedade `"level": "critical"` e `"level": "storage"` às mensagens enviadas pelo dispositivo, que simula uma mensagem que necessita de uma ação imediata, o back-end da aplicação ou que têm ser armazenados permanentemente. A aplicação passa a informação nas propriedades da mensagem, em vez de no corpo da mensagem, pelo que o IoT Hub pode encaminhar a mensagem para o destino de mensagem adequado.
+    Este método aleatoriamente adiciona a propriedade `"level": "critical"` e `"level": "storage"` às mensagens enviadas pelo dispositivo, que simula uma mensagem que necessita de uma ação imediata, o back-end da aplicação ou que têm ser armazenados permanentemente. A aplicação suporta encaminhamento de mensagens com base no corpo da mensagem.
    
    > [!NOTE]
    > Pode utilizar as propriedades da mensagem para encaminhar mensagens para vários cenários, incluindo o processamento de frio caminho, para além do exemplo de caminho frequente apresentado aqui.
@@ -199,7 +199,7 @@ Nesta secção, criar uma conta de armazenamento, ligue-o ao seu IoT hub e confi
 
 1. No Portal do Azure, aceda à sua conta do storage em **serviço Blob**, clique em **procurar blobs...** .  Selecione o contentor, navegue para e clique no ficheiro JSON e clique em **transferir** para ver os dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a fiável emitir mensagens do dispositivo para nuvem utilizando a funcionalidade de encaminhamento de mensagens do IoT Hub.
 

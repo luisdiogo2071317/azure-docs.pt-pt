@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b03be0df05f85ec9ecd1fca4042e87c838022c7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a6dad8242c709240b57b8a47acc44c5ddfdaa755
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Mover dados a partir de uma origem HTTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,7 +51,7 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos HT
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo | A propriedade de tipo tem de ser definida: `Http`. | Sim |
-| URL | URL de base ao servidor Web | Sim |
+| url | URL de base ao servidor Web | Sim |
 | authenticationType | Especifica o tipo de autenticação. Valores permitidos são: **anónimo**, **básico**, **resumida**, **Windows**, **ClientCertificate**. <br><br> Consulte a secções abaixo desta tabela mais propriedades e exemplos JSON para os tipos de autenticação, respetivamente. | Sim |
 | enableServerCertificateValidation | Especifique se pretende ativar a validação do certificado SSL de servidor, se a origem é o servidor de Web de HTTPS | Não, a predefinição é verdadeiro |
 | gatewayName | Nome do Data Management Gateway para ligar a uma origem HTTP no local. | Sim, se copiar dados a partir de uma origem HTTP no local. |
@@ -94,7 +94,7 @@ Para utilizar autenticação básica, defina `authenticationType` como `ClientCe
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | embeddedCertData | O conteúdo dos dados binários do ficheiro Personal Information (Exchange PFX) com codificação Base64. | Especifique o `embeddedCertData` ou `certThumbprint`. |
-| CertThumbprint | O thumbprint do certificado que foi instalado no arquivo de certificados do computador do gateway. Aplicam-se apenas ao copiar dados a partir de uma origem HTTP no local. | Especifique o `embeddedCertData` ou `certThumbprint`. |
+| certThumbprint | O thumbprint do certificado que foi instalado no arquivo de certificados do computador do gateway. Aplicam-se apenas ao copiar dados a partir de uma origem HTTP no local. | Especifique o `embeddedCertData` ou `certThumbprint`. |
 | palavra-passe | Palavra-passe associado ao certificado. | Não |
 
 Se utilizar `certThumbprint` para autenticação e o certificado está instalado no arquivo pessoal do computador local, tem de conceder a permissão de leitura para o serviço de gateway:
@@ -203,7 +203,7 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e política estão disponíveis para todos os tipos de atividades.
 
 Propriedades disponíveis no **typeProperties** secção da atividade por outro lado variar com cada tipo de atividade. Para a atividade de cópia, podem variam consoante os tipos de origens e sinks.

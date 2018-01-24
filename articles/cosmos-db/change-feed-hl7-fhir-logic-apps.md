@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.openlocfilehash: 7a041e2121a2762af4307d7044437032cce79f05
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e5fa40dc128412e3b5b39c9fbdb751c797ca0cc7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Notificar patients das alterações de registo de saúde HL7 FHIR com Logic Apps e a base de dados do Azure Cosmos
 
@@ -105,7 +105,7 @@ Estamos a utilizar o [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.
 
 **Origem para a aplicação API**
 
-```C#
+```csharp
 
     using System.Collections.Generic;
     using System.Linq;
@@ -228,7 +228,7 @@ A imagem seguinte mostra todos os serviços do Azure para esta solução em exec
 - Ao tirar partido das Logic Apps, pode criar fluxos de trabalho sem escrever qualquer código.
 - Utilizar filas do Service Bus do Azure para processar a distribuição para os documentos HL7 FHIR.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a BD do Cosmos do Azure, consulte o [home page da base de dados do Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/). Para obter mais informaiton sobre Logic Apps, consulte [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
 

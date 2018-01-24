@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dbe2f7cb1d843c5e4ec7bc00a7e7dc5a49b31896
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7a9023253b87d97d874dbcf1ade97bf32e1f0639
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Repetíveis cópia no Azure Data Factory
 
@@ -148,7 +148,7 @@ O Azure Data Factory preenche esta coluna de acordo com a respetiva necessidade 
 
 Semelhante ao mecanismo 1, atividade de cópia automaticamente limpa os dados para o setor especificado de tabela de SQL de destino. Em seguida, inserem dados de origem para a tabela de destino. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Reveja o conector seguinte artigos que, para obter exemplos JSON concluídos: 
 
 - [Base de Dados SQL do Azure](data-factory-azure-sql-connector.md)

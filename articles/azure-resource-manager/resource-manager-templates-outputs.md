@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: 485a3eb5c5d04d1540482245d088c48645704465
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 64d7a0ea72b2f629160f31e4bc1fb4a90f10653d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Secção saídas modelos Azure Resource Manager
 Na secção saídas, especifique os valores que são devolvidos por implementação. Por exemplo, pode devolver o URI para aceder a um recurso implementado.
@@ -56,6 +56,8 @@ Por exemplo, pode definir o endereço IP num Balanceador de carga por obter um v
     "id": "[reference('linkedTemplate').outputs.resourceID.value]"
 }
 ```
+
+Não é possível utilizar o `reference` função na secção saídas um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver os valores para um recurso implementado num modelo aninhado, converta o modelo aninhado num modelo ligado.
 
 ## <a name="available-properties"></a>Propriedades disponíveis
 
@@ -103,7 +105,7 @@ Se utilizar um modelo para criar os endereços IP públicos, inclua uma secção
 |[Balanceador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Ligações para o modelo anterior. Utiliza o ID de recurso na saída ao criar o Balanceador de carga. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 * Para obter detalhes sobre as funções que pode utilizar a partir de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
 * Combinar vários modelos durante a implementação, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).

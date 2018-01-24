@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9d953ea68e1e14ae12aa401af935d207f0747e8c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurar filtros de rota para peering da Microsoft: PowerShell
 > [!div class="op_single_selector"]
@@ -30,7 +30,9 @@ ms.lasthandoff: 12/21/2017
 
 Filtros de rota são uma forma para consumir um subconjunto de serviços suportados através do peering da Microsoft. Os passos neste artigo ajudam a configurar e gerir filtros de rota para circuitos do ExpressRoute.
 
-Serviços de Dynamics 365 e serviços do Office 365, como o Exchange Online, SharePoint Online e Skype para empresas e serviços do Azure, tais como o armazenamento e a base de dados SQL estão acessíveis através do peering da Microsoft. Quando peering da Microsoft está configurado num circuito do ExpressRoute, relacionadas com estes serviços de todos os prefixos estão anunciados através as que são estabelecidas sessões de BGP. Um valor das Comunidades de BGP está anexado a cada prefixo para identificar o serviço que é fornecido através de prefixo. Para obter uma lista dos valores das Comunidades BGP e os serviços que mapeiam para, consulte [Comunidades BGP](expressroute-routing.md#bgp).
+Serviços de Dynamics 365 e serviços do Office 365, como o Exchange Online, SharePoint Online e Skype para empresas e serviços público do Azure, tais como o armazenamento e a base de dados SQL estão acessíveis através do peering da Microsoft. Serviços de público do Azure são selecionáveis numa base por região e não pode ser definidos por serviço público. 
+
+Quando o peering da Microsoft está configurado num circuito ExpressRoute e está ligado um filtro de rota, todos os prefixos estão selecionados para estes serviços são anunciados através de que são estabelecidas sessões de BGP. Um valor das Comunidades de BGP está anexado a cada prefixo para identificar o serviço que é fornecido através de prefixo. Para obter uma lista dos valores das Comunidades BGP e os serviços que mapeiam para, consulte [Comunidades BGP](expressroute-routing.md#bgp).
 
 Se necessitar de conectividade a todos os serviços, um grande número de prefixos está anunciado através da BGP. Isto aumenta significativamente o tamanho das tabelas de rota mantida por routers na sua rede. Se planear consumir apenas um subconjunto de serviços fornecidos via peering da Microsoft, pode reduzir o tamanho das suas tabelas de rota de duas formas. Pode:
 
@@ -51,7 +53,7 @@ Ser capaz de ligar os filtros de rotas com serviços do Office 365 nos mesmos, t
 > 
 > 
 
-### <a name="workflow"></a>Fluxo de trabalho
+### <a name="workflow"></a>Workflow
 
 Para conseguir ligar com êxito aos serviços através do peering da Microsoft, tem de concluir os seguintes passos de configuração:
 
@@ -152,6 +154,7 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 Execute o seguinte comando para anexar o filtro de rota para o circuito do ExpressRoute, partindo do princípio que tem apenas peering da Microsoft:
 
 ```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

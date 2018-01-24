@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: d9eb4407e537d6a6d45c2fb685c3dcd37bd511a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d73bb33b4b330df803e140145ed63319af4a6733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks em execução num Runbook Worker híbrido 
 Não há qualquer diferença na estrutura de runbooks que são executados na automatização do Azure e os que executam o um Runbook Worker híbrido. Os Runbooks que utiliza com cada provavelmente diferem significativamente entanto, uma vez que os runbooks direcionada para um Runbook Worker híbrido normalmente gerir recursos no próprio computador local ou relativamente aos recursos no ambiente local onde está implementada, enquanto os runbooks do A automatização do Azure, normalmente, gerir os recursos na nuvem do Azure.
@@ -59,7 +59,7 @@ Em vez de ter runbooks fornecer as seus próprios autenticação aos recursos lo
 
 O nome de utilizador para a credencial tem de ser um dos seguintes formatos:
 
-* domínio ome de utilizador
+* domain\username
 * username@domain
 * nome de utilizador (para contas locais no computador local)
 
@@ -144,7 +144,7 @@ O runbook do PowerShell seguinte, *exportação RunAsCertificateToHybridWorker*,
     Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbose
 
     # List automation accounts to confirm Azure Resource Manager calls are working
-    Get-AzureRmAutomationAccount | Select AutomationAccountName
+    Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 
 Guardar o *exportação RunAsCertificateToHybridWorker* runbook para o seu computador com um `.ps1` extensão.  Importe-o para a sua conta de automatização e editar o runbook, alterar o valor da variável `$Password` com a sua própria palavra-passe.  Publicar e, em seguida, executar o runbook direcionada para o grupo de trabalho híbrida que são executados e autenticar runbooks com a conta Run As.  O fluxo de trabalho relatórios ao tentar importar o certificado para o arquivo do computador local e está de acordo com várias linhas, dependendo de quantos contas de automatização são definidas na sua subscrição e se a autenticação é efetuada com êxito.  
 
@@ -155,6 +155,6 @@ Os registos são armazenados localmente em cada função de trabalho híbrida no
 
 Se os runbooks não são concluir com êxito e a tarefa de resumo mostra um Estado de **suspenso**, consulte o artigo de resolução de problemas [Runbook Worker híbrido: uma tarefa de runbook termina com o estado suspenso ](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).   
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre os diferentes métodos que podem ser utilizados para iniciar um runbook, consulte o artigo [iniciar um Runbook na automatização do Azure](automation-starting-a-runbook.md).  
 * Para compreender os diferentes procedimentos para trabalhar com runbooks do PowerShell e o fluxo de trabalho do PowerShell na automatização do Azure utilizando o editor de texto, consulte [editar um Runbook na automatização do Azure](automation-edit-textual-runbook.md)

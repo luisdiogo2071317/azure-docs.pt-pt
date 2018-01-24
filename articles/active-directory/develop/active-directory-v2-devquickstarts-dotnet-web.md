@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 44691f7c06aede764c3bf0dcc99848a4f22ce08d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a23b3b1084cf6776cee8583891ae3d879183d072
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-sign-in-to-an-net-mvc-web-app"></a>Adicionar início de sessão a uma aplicação de web de MVC do .NET
 Com o ponto final v 2.0, pode adicionar rapidamente a autenticação para as suas aplicações web com suporte para ambas as contas pessoais da Microsoft e contas profissionais ou escolares.  Nas web apps do ASP.NET, isto é possível utilizar o middleware OWIN da Microsoft incluído no .NET Framework 4.5.
@@ -64,7 +64,7 @@ Aqui, iremos irá configurar o middleware OWIN para utilizar o protocolo de aute
 3. Adicionar um "OWIN arranque Class" ao projeto denominado `Startup.cs` direito clique no projeto--> **adicionar** --> **Novo Item** --> procure "OWIN".  O middleware da OWIN vai invocar o método `Configuration(...)` quando a aplicação for iniciada.
 4. Alterar a declaração de classe para `public partial class Startup` -iremos já tiver implementado parte desta classe para si no outro ficheiro.  No `Configuration(...)` método, crie uma chamada para ConfigureAuth(...) para configurar a autenticação para a sua aplicação web  
 
-        ```C#
+        ```csharp
         [assembly: OwinStartup(typeof(Startup))]
         
         namespace TodoList_WebApp
@@ -81,7 +81,7 @@ Aqui, iremos irá configurar o middleware OWIN para utilizar o protocolo de aute
 
 5. Abra o ficheiro `App_Start\Startup.Auth.cs` e implementar o `ConfigureAuth(...)` método.  Os parâmetros que fornece `OpenIdConnectAuthenticationOptions` irá servir como coordenadas para a sua aplicação para comunicar com o Azure AD.  Também terá de configurar o Cookie de autenticação - utiliza cookies, por baixo bastidores, o middleware OpenID Connect.
 
-        ```C#
+        ```csharp
         public void ConfigureAuth(IAppBuilder app)
                      {
                              app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -118,7 +118,7 @@ A aplicação agora está corretamente configurada para comunicar com o ponto fi
 
 - Pode utilizar autorizar as etiquetas nos controladores para exigir que o utilizador inicia sessão antes de aceder a uma determinada página.  Abra `Controllers\HomeController.cs`e adicione o `[Authorize]` etiqueta para o controlador acerca de.
         
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
@@ -127,7 +127,7 @@ A aplicação agora está corretamente configurada para comunicar com o ponto fi
 
 - Também pode utilizar OWIN diretamente emitir pedidos de autenticação de dentro do seu código.  Abra `Controllers\AccountController.cs`.  Nas ações SignIn() e SignOut(), emita o desafio OpenID Connect e os pedidos de fim de sessão, respetivamente.
 
-        ```C#
+        ```csharp
         public void SignIn()
         {
             // Send an OpenID Connect sign-in request.
@@ -178,7 +178,7 @@ Quando está a autenticar os utilizadores com OpenID Connect, o ponto final v 2.
 
 - Abra o ficheiro `Controllers\HomeController.cs`.  Pode aceder às afirmações do utilizador no seu controladores através de `ClaimsPrincipal.Current` objeto principal de segurança.
 
-        ```C#
+        ```csharp
         [Authorize]
         public ActionResult About()
         {
@@ -205,7 +205,7 @@ Para referência, o exemplo concluído (sem os valores de configuração) [é fo
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora pode mover para tópicos mais avançados.  Poderá querer experimentar:
 
 [Proteger uma API Web com o ponto final v 2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
@@ -213,7 +213,7 @@ Agora pode mover para tópicos mais avançados.  Poderá querer experimentar:
 Para obter recursos adicionais, consulte:
 
 * [O guia para programadores de v 2.0 >>](active-directory-appmodel-v2-overview.md)
-* [Etiqueta de StackOverflow "azure-active-directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [StackOverflow "azure-active-directory" tag >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança dos nossos produtos
 Aconselhamo-lo a obter notificações de quando os incidentes de segurança ocorrem, visitando [esta página](https://technet.microsoft.com/security/dd252948) e subscrevendo os alertas de aviso de segurança.

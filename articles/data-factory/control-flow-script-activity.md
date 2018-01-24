@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 143e2a29be18771c6d4f7ce5d1711fa8c9b52e07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35ce1d9cedd70aa92bf39d5b6dd5d469f95b3d5c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="script-activity-in-azure-data-factory"></a>Atividade de script no Azure Data Factory
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em pré-visualização. Se estiver a utilizar a versão 1 do serviço do Data Factory, o que é geralmente disponível (DG), consulte [documentação do Data Factory V1](v1/data-factory-introduction.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Outras atividades de fluxo de controlo suportadas pela fábrica de dados, consulte: 
 
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)

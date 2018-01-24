@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: 3a90057b43e3f2074e72f3d0f896b35b4884368b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a2cba85a553f20040d2fb118b35859b05870e361
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Ativar vários inquilinos na pilha do Azure
 
@@ -81,7 +81,7 @@ $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
 
 Register-AzSWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
- -DirectoryTenantName $guestDirectoryTenantName ` 
+ -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
 ````
 ## <a name="direct-users-to-sign-in"></a>Utilizadores diretamente para iniciar sessão
@@ -89,7 +89,7 @@ Agora que tem e a Maria tem concluído os passos para o diretório de carregar M
 
 Maria irão direcionar qualquer [principais externas](../active-directory/active-directory-understanding-resource-access.md) no diretório Fabrikam (ou seja, utilizadores no diretório Fabrikam sem o sufixo de fabrikam.onmicrosoft.com) para iniciar sessão com https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se não utilizar este URL, estes são enviados para o respetivo diretório predefinido (Fabrikam) e recebem um erro que indica o que seu administrador não se consentiu.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 - [Gerir fornecedores de delegado](azure-stack-delegated-provider.md)
 - [Conceitos chaves de pilha do Azure](azure-stack-key-features.md)

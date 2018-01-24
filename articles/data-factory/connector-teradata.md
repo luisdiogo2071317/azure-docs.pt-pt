@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 905a2bf1b42819a531bc4b16dd1e6f5539e80068
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copiar dados de Teradata utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -115,7 +115,7 @@ Para copiar dados de Teradata, defina a propriedade de tipo do conjunto de dados
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem Teradata.
 
@@ -167,14 +167,14 @@ Quando copiar dados de Teradata, os seguintes mapeamentos são utilizados Terada
 | Tipo de dados Teradata | Tipo de dados intermédio de fábrica de dados |
 |:--- |:--- |
 | BigInt |Int64 |
-| Blobs |Byte] |
-| Bytes |Byte] |
+| Blobs |Byte[] |
+| Bytes |Byte[] |
 | ByteInt |Int16 |
 | char |Cadeia |
 | CLOB |Cadeia |
 | Data |DateTime |
 | Decimal |Decimal |
-| duplo |duplo |
+| Duplo |Duplo |
 | Gráfico |Cadeia |
 | Número inteiro |Int32 |
 | Dia de intervalo |TimeSpan |
@@ -190,7 +190,7 @@ Quando copiar dados de Teradata, os seguintes mapeamentos são utilizados Terada
 | Intervalo segundo |TimeSpan |
 | Intervalo ano |Cadeia |
 | Intervalo de ano a mês |Cadeia |
-| Número |duplo |
+| Número |Duplo |
 | Period(Date) |Cadeia |
 | Period(Time) |Cadeia |
 | Período (Time com fuso horário) |Cadeia |
@@ -201,10 +201,10 @@ Quando copiar dados de Teradata, os seguintes mapeamentos são utilizados Terada
 | Período de tempo com fuso horário |Cadeia |
 | Carimbo de data/hora |DateTime |
 | Timestamp com o fuso horário |DateTimeOffset |
-| VarByte |Byte] |
+| VarByte |Byte[] |
 | VarChar |Cadeia |
 | VarGraphic |Cadeia |
-| XML |Cadeia |
+| Xml |Cadeia |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

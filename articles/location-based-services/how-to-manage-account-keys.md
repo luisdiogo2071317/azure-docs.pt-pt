@@ -9,15 +9,15 @@ ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: ccdeafeaf869768f4094aaa31fe2a69d52d7cf9d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3bc28d6744725e7c58d78c5262d9e50d3bb674e8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Como gerir a sua conta com base dos serviços de localização do Azure e as chaves
 
-Pode gerir a sua conta com base dos serviços de localização do Azure e as chaves através do portal do Azure. Assim que tiver uma conta e uma chave de subscrição, pode implementar as APIs no seu web site ou aplicação móvel.
+Pode gerir a sua conta com base dos serviços de localização do Azure e as chaves através do portal do Azure. Assim que tiver uma conta e uma chave, pode implementar as APIs no seu web site ou aplicação móvel.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e5c859d13ea8a10e1fa38340df52f189ec6cd4e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c8f61cb165b0bfffe2f42b060cdbd666fff3a8b3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mover dados de uma base de dados no local Cassandra utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,7 +86,7 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 | keyspace |Nome do esquema na base de dados Cassandra ou keyspace. |Sim (se **consulta** para **CassandraSource** não está definido). |
 | tableName |Nome da tabela na base de dados Cassandra. |Sim (se **consulta** para **CassandraSource** não está definido). |
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e política estão disponíveis para todos os tipos de atividades.
 
 Enquanto, propriedades disponíveis na secção typeProperties da atividade variar de acordo com cada tipo de atividade. Para a atividade de cópia, podem variam consoante os tipos de origens e sinks.
@@ -96,7 +96,7 @@ Quando a origem é do tipo **CassandraSource**, na secção typeProperties, est�
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | consulta |Utilize a consulta personalizada para ler os dados. |Consulta de SQL 92 ou consulta CQL. Consulte [referência CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Quando utilizar a consulta SQL, especifique **keyspace name.table nome** para representar a tabela que pretende consultar. |Não (se for tableName e keyspace no conjunto de dados estão definidos). |
-| consistencyLevel |O nível de consistência Especifica quantos réplicas tem de responder a um pedido de leitura antes da devolução de dados para a aplicação de cliente. Cassandra verifica o número especificado de réplicas de dados satisfazer o pedido de leitura. |UM, DOIS, TRÊS, QUÓRUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Consulte [consistência dos dados de configuração](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para obter mais detalhes. |Não. Valor predefinido é um. |
+| consistencyLevel |O nível de consistência Especifica quantos réplicas tem de responder a um pedido de leitura antes da devolução de dados para a aplicação de cliente. Cassandra verifica o número especificado de réplicas de dados satisfazer o pedido de leitura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Consulte [consistência dos dados de configuração](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para obter mais detalhes. |Não. Valor predefinido é um. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>Exemplo JSON: copiar dados de Cassandra para Blob do Azure
 Neste exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Mostra como copiar dados de uma base de dados de Cassandra no local para um armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) utilizando a atividade de cópia no Azure Data Factory.
@@ -262,11 +262,11 @@ Consulte [propriedades do tipo RelationalSource](#copy-activity-properties) para
 | --- | --- |
 | ASCII |Cadeia |
 | BIGINT |Int64 |
-| BLOB |Byte] |
-| VALOR BOOLEANO |Valor booleano |
+| BLOB |Byte[] |
+| VALOR BOOLEANO |Booleano |
 | DECIMAL |Decimal |
-| VALOR DE DUPLO |duplo |
-| NÚMERO DE VÍRGULA FLUTUANTE |Único |
+| VALOR DE DUPLO |Duplo |
+| NÚMERO DE VÍRGULA FLUTUANTE |Solteiro |
 | INET |Cadeia |
 | INT |Int32 |
 | TEXTO |Cadeia |
@@ -314,7 +314,7 @@ A primeira tabela virtual é a tabela base com o nome "ExampleTable" é apresent
 
 As tabelas seguintes mostram as tabelas de virtuais renormalize os dados a partir das lista, mapa e StringSet colunas. As colunas com nomes que terminem com "_index" ou "c_have" indicam a posição de dados dentro da lista original ou do mapa. As colunas com nomes que terminem com "_value" contêm os dados expandidos da coleção.
 
-#### <a name="table-exampletablevtlist"></a>Tabela "ExampleTable_vt_List":
+#### <a name="table-exampletablevtlist"></a>Table “ExampleTable_vt_List”:
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -329,17 +329,17 @@ As tabelas seguintes mostram as tabelas de virtuais renormalize os dados a parti
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
-| 1 |S2 |B |
-| 3 |S1 |T |
+| 1 |S2 |b |
+| 3 |S1 |t |
 
-#### <a name="table-exampletablevtstringset"></a>Tabela "ExampleTable_vt_StringSet":
+#### <a name="table-exampletablevtstringset"></a>Table “ExampleTable_vt_StringSet”:
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |
 | 1 |B |
 | 1 |C |
 | 3 |A |
-| 3 |I |
+| 3 |E |
 
 ## <a name="map-source-to-sink-columns"></a>Origem de mapa para sink colunas
 Para saber mais sobre as colunas de mapeamento no conjunto de dados de origem em colunas no conjunto de dados do sink, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

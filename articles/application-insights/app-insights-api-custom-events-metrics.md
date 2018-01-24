@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 7d797716fb98ac85f11f956e732e08820b56affc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para as métricas e eventos personalizados
 
@@ -158,7 +158,7 @@ Para enviar um valor métrico único:
 
 *C#, Java*
 
-```C#
+```csharp
     var sample = new MetricTelemetry();
     sample.Name = "metric name";
     sample.Value = 42.3;
@@ -178,7 +178,7 @@ Eis um exemplo de código agregar:
 
 *C#*
 
-```C#
+```csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -334,7 +334,7 @@ A telemetria está disponível no `customMetrics` tabela no [Application Insight
 * `valueSum`-Esta é a soma dos valores. Para obter o valor médio, dividir por `valueCount`.
 * `valueCount`-O número de valores que foram agregados neste `trackMetric(..)` chamada.
 
-## <a name="page-views"></a>Vistas de página
+## <a name="page-views"></a>Visualizações da página
 Numa aplicação ou página Web de dispositivo, a telemetria de visualizações de página é enviada por predefinição quando cada ecrã ou a página é carregada. Mas pode alterar que para controlar as vistas de página em alturas diferentes ou adicionais. Por exemplo, numa aplicação que apresenta os separadores ou em painéis, pode querer controlar uma página sempre que o utilizador abre um novo painel.
 
 ![Lente de utilização no painel de descrição geral](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
@@ -422,7 +422,7 @@ Quando o controlo telemetria manualmente, a forma mais fácil para garantir a co
 
 *C#*
 
-```C#
+```csharp
 // Establish an operation context and associated telemetry item:
 using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
@@ -576,7 +576,7 @@ Se [amostragem](app-insights-sampling.md) está numa operação, a propriedade i
 ## <a name="trackdependency"></a>TrackDependency
 Utilize a chamada de TrackDependency para controlar os tempos de resposta e taxas de êxito de chamadas para um fragmento de código externo. Os resultados são apresentados nos gráficos de dependência no portal.
 
-```C#
+```csharp
 var success = false;
 var startTime = DateTime.UtcNow;
 var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -913,7 +913,7 @@ Para *dinamicamente parar e iniciar* a recolha e a transmissão de telemetria:
 
 *C#*
 
-```C#
+```csharp
 
     using  Microsoft.ApplicationInsights.Extensibility;
 
@@ -1045,7 +1045,7 @@ Para determinar quanto os dados são mantidos, consulte [retenção de dados e p
 ## <a name="questions"></a>Dúvidas
 * *As exceções podem emitir chamadas Track_()*
 
-    nenhum. Não precisa de ser moldado-los em cláusulas try-catch. Se o SDK detetar problemas, irá registar mensagens no resultado da consola de depuração e – se as mensagens de chegar - na pesquisa de diagnóstico.
+    Nenhum. Não precisa de ser moldado-los em cláusulas try-catch. Se o SDK detetar problemas, irá registar mensagens no resultado da consola de depuração e – se as mensagens de chegar - na pesquisa de diagnóstico.
 * *Existe uma API REST para obter dados a partir do portal?*
 
     Sim, o [API de acesso a dados](https://dev.applicationinsights.io/). Outras formas de extrair dados incluem [exportar de análise para o Power BI](app-insights-export-power-bi.md) e [a exportação contínua](app-insights-export-telemetry.md).

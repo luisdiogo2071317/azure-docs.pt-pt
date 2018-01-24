@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 0c0a229e973999cb60ca5da2df652a6182c192a8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e94d920c7d55ad643ed81deda43e8ce96c304346
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar a subscrição de produto e registo de utilizador
 Delegação permite-lhe utilizar o seu Web site existente para processar programador sessão-na/sessão-up e subscrição produtos, por oposição a utilizar a funcionalidade incorporada no portal do programador. Isto permite que o seu Web site para proprietários de dados de utilizador e efetuar a validação destes passos de uma forma personalizada.
@@ -58,7 +58,7 @@ Agora tem de criar o **ponto final de delegação**. Tem de efetuar várias aç�
    
    * Um hash HMAC SHA512 de uma cadeia com base de computação a **returnUrl** e **salt** parâmetros de consulta ([código de exemplo fornecido abaixo]):
      
-     > HMAC (**salt** + '\n' + **returnUrl**)
+     > HMAC(**salt** + '\n' + **returnUrl**)
      > 
      > 
    * Comparar o acima-hash calculado para o valor da **sig** parâmetro de consulta. Se os dois hashes coincidirem, avançar para o passo seguinte, caso contrário negar o pedido.
@@ -70,7 +70,7 @@ Agora tem de criar o **ponto final de delegação**. Tem de efetuar várias aç�
    * [pedir um token de sessão único (SSO)] através da API de REST de gestão de API
    * acrescente um parâmetro de consulta returnUrl para o URL de SSO receberam na chamada de API acima:
      
-     > Por exemplo, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > e.g. https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * redirecionar o utilizador para o URL de produzidos acima
@@ -119,7 +119,7 @@ Certifique-se que o ponto final de delegação efetua as seguintes ações:
    
    * Computação um SHA512 HMAC de uma cadeia com base no **productId**, **userId** e **salt** parâmetros de consulta:
      
-     > HMAC (**salt** + '\n' + **productId** + '\n' + **userId**)
+     > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
    * Comparar o acima-hash calculado para o valor da **sig** parâmetro de consulta. Se os dois hashes coincidirem, avançar para o passo seguinte, caso contrário negar o pedido.
@@ -131,7 +131,7 @@ Estes exemplos de código mostram como tirar o *chave de validação de delegaç
 
 **Código c# para gerar o hash do returnUrl**
 
-```c#
+```csharp
 using System.Security.Cryptography;
 
 string key = "delegation validation key";
@@ -163,7 +163,7 @@ var digest = hmac.update(salt + '\n' + returnUrl).digest();
 var signature = digest.toString('base64');
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre delegação, veja o vídeo seguinte.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]

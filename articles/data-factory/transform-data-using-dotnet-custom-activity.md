@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 2674b431ba610bccb92f6b209970af1fab110f48
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -188,7 +188,7 @@ Este exemplo mostra como pode utilizar o referenceObjects e extendedProperties p
 
 Quando a atividade é executada, referenceObjects e extendedProperties são armazenadas nos seguintes ficheiros que são implementados na mesma pasta de execução do SampleApp.exe: 
 
-- Activity.JSON
+- activity.json
 
   Armazena extendedProperties e propriedades da atividade personalizada. 
 
@@ -196,13 +196,13 @@ Quando a atividade é executada, referenceObjects e extendedProperties são arma
 
   Arquivos de uma matriz de serviços ligados definido na propriedade referenceObjects. 
 
-- DataSets.JSON
+- datasets.json
 
   Arquivos de uma matriz de conjuntos de dados definido na propriedade referenceObjects. 
 
 Seguindo o código de exemplo demonstram como o SampleApp.exe pode aceder as informações necessárias a partir ficheiros JSON: 
 
-```C#
+```csharp
 using Newtonsoft.Json;
 using System;
 using System.IO;

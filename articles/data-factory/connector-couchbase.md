@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: 871ace571c275e217e22deaf71c73eef9621aa1d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: edef6987ce85127aff5c44ba526cbb5a3879fd90
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-beta"></a>Copiar dados de Couchbase utilizando o Azure Data Factory (Beta)
 
@@ -93,7 +93,7 @@ Para copiar dados de Couchbase, defina a propriedade de tipo do conjunto de dado
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por Couchbase origem.
 

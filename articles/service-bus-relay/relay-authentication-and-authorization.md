@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 4ef8cbf22f2fcd7017af16083240608e5ca0fb5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86a9cf2c1106180ba5c8c65849042784bfd2afcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autorização e autenticação de reencaminhamento do Azure
 
 As aplicações podem autenticar para reencaminhamento do Azure utilizando a autenticação de assinatura de acesso partilhado (SAS). Autenticação de SAS permite que as aplicações autenticar para o serviço de reencaminhamento do Azure com uma chave de acesso configurada no espaço de nomes de reencaminhamento. Em seguida, pode utilizar esta chave para gerar um token de assinatura de acesso partilhado que os clientes podem utilizar para autenticar para o serviço de reencaminhamento.
 
 ## <a name="shared-access-signature-authentication"></a>Autenticação da assinatura de acesso partilhada
+
 [Autenticação de SAS](../service-bus-messaging/service-bus-sas.md) permite-lhe conceder um acesso de utilizador a recursos de reencaminhamento do Azure com direitos específicos. Autenticação de SAS envolve a configuração de uma chave criptográfica com direitos associados num recurso. Os clientes, em seguida, podem ter acesso a esse recurso através da apresentação de um token SAS, que consiste o acedidos de URI do recurso e uma expiração assinada com a chave configurada.
 
 Pode configurar as chaves de SAS num espaço de nomes de reencaminhamento. Ao contrário das mensagens do Service Bus, [ligações híbridas de reencaminhamento](relay-hybrid-connections-protocol.md) suporta os remetentes não autorizados ou anonymous. Pode ativar acesso anónimo para a entidade ao criar, conforme mostrado na captura a partir do portal de ecrã seguinte:
@@ -44,7 +45,8 @@ Para aceder a uma entidade, o cliente requer um token SAS gerado utilizando espe
 
 Suporte de autenticação SAS para o reencaminhamento do Azure está incluído nas versões do SDK do .NET 2.0 e posterior. SAS inclui suporte para um [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Todas as APIs que aceitam uma cadeia de ligação como um parâmetro incluem suporte para cadeias de ligação de SAS.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
+
 - Continuar a ler [autenticação de Service Bus com assinaturas de acesso partilhado](../service-bus-messaging/service-bus-sas.md) para obter mais detalhes sobre SAS.
 - Consulte o [guia de protocolo do Azure reencaminhamento híbrido ligações](relay-hybrid-connections-protocol.md) para obter informações detalhadas sobre a capacidade de ligações híbridas.
 - Para obter informações correspondentes sobre mensagens do Service Bus autenticação e autorização, consulte [barramento de serviço de autenticação e autorização](../service-bus-messaging/service-bus-authentication-and-authorization.md). 

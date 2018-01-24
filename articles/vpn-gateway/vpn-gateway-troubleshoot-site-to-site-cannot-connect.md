@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: f5fe877a46586af63c0991e3c3fbb8d42f69736c
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Resolução de problemas: Uma ligação de VPN de site para site do Azure não é possível ligar e deixa de funcionar
 
@@ -87,7 +87,7 @@ Procurar e remover o encaminhamento definido pelo utilizador (UDR) ou grupos de 
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Passo 6. Certifique-se de que as sub-redes de corresponder exatamente (gateways de baseado na política do Azure)
 
--   Certifique-se de que as sub-redes correspondem exatamente entre a rede virtual do Azure e definições no local para a rede virtual do Azure.
+-   Certifique-se de que o space(s) de endereço de rede virtual corresponde exatamente entre a rede virtual do Azure e definições no local.
 -   Certifique-se de que as sub-redes correspondem exatamente entre as **Gateway de rede Local** e definições para a rede no local no local.
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Passo 7. Certifique-se a pesquisa de estado de funcionamento do gateway do Azure

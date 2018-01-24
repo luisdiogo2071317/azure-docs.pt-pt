@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 17ffd0de41964736d2f59b0cf891d0c6b2e7d16b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados de DB2 utilizando a atividade de cópia de fábrica de dados do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,13 +82,13 @@ A tabela seguinte lista as propriedades JSON que são específicas para um servi
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| **tipo** |Esta propriedade tem de ser definida **OnPremisesDb2**. |Sim |
-| **servidor** |O nome do servidor DB2. |Sim |
-| **base de dados** |O nome da base de dados DB2. |Sim |
-| **esquema** |O nome do esquema na base de dados DB2. Esta propriedade é maiúsculas e minúsculas. |Não |
+| **type** |Esta propriedade tem de ser definida **OnPremisesDb2**. |Sim |
+| **server** |O nome do servidor DB2. |Sim |
+| **database** |O nome da base de dados DB2. |Sim |
+| **schema** |O nome do esquema na base de dados DB2. Esta propriedade é maiúsculas e minúsculas. |Não |
 | **authenticationType** |O tipo de autenticação que é utilizada para ligar à base de dados DB2. Os valores possíveis são: anónimo, básico e Windows. |Sim |
-| **nome de utilizador** |O nome da conta de utilizador, se utilizar a autenticação básica ou do Windows. |Não |
-| **palavra-passe** |A palavra-passe da conta de utilizador. |Não |
+| **username** |O nome da conta de utilizador, se utilizar a autenticação básica ou do Windows. |Não |
+| **password** |A palavra-passe da conta de utilizador. |Não |
 | **gatewayName** |O nome do gateway que o serviço fábrica de dados deve utilizar para ligar à base de dados de DB2 no local. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -107,7 +107,7 @@ Para a atividade de cópia, quando a origem é do tipo **RelationalSource** (que
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| **consulta** |Utilize a consulta personalizada para ler os dados. |Cadeia de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""` |Não (se o **tableName** é especificada a propriedade de um conjunto de dados) |
+| **query** |Utilize a consulta personalizada para ler os dados. |Cadeia de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""` |Não (se o **tableName** é especificada a propriedade de um conjunto de dados) |
 
 > [!NOTE]
 > Os nomes de tabela e esquema são maiúsculas e minúsculas. A instrução de consulta, coloque os nomes de propriedade utilizando "" (aspas).
@@ -191,7 +191,7 @@ O **externo** propriedade está definida como "true". Esta definição informa o
 }
 ```
 
-**Conjunto de dados de saída de Blobs do Azure**
+**Conjunto de dados dos Blobs do Azure**
 
 Dados são escritos para um blob de novo a cada hora, definindo o **frequência** propriedade como "Hora" e o **intervalo** propriedade para 1. O **folderPath** propriedade para o blob dinamicamente é avaliado com base na hora de início do setor que está a ser processado. O caminho da pasta utiliza o ano, mês, dia e partes de hora a hora de início.
 
@@ -312,42 +312,42 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | SmallInt |Int16 |
 | Número inteiro |Int32 |
 | BigInt |Int64 |
-| Real |Único |
-| duplo |duplo |
-| Número de vírgula flutuante |duplo |
+| Real |Solteiro |
+| Duplo |Duplo |
+| Flutuante |Duplo |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| um valor numérico |Decimal |
+| Numérico |Decimal |
 | Data |DateTime |
 | Hora |TimeSpan |
-| Timestamp |DateTime |
-| XML |Byte] |
+| Carimbo de data/hora |DateTime |
+| Xml |Byte[] |
 | char |Cadeia |
 | VarChar |Cadeia |
 | LongVarChar |Cadeia |
 | DB2DynArray |Cadeia |
-| Binário |Byte] |
-| VarBinary |Byte] |
-| LongVarBinary |Byte] |
+| Binário |Byte[] |
+| VarBinary |Byte[] |
+| LongVarBinary |Byte[] |
 | Gráfico |Cadeia |
 | VarGraphic |Cadeia |
 | LongVarGraphic |Cadeia |
 | CLOB |Cadeia |
-| Blobs |Byte] |
+| Blobs |Byte[] |
 | DbClob |Cadeia |
 | SmallInt |Int16 |
 | Número inteiro |Int32 |
 | BigInt |Int64 |
-| Real |Único |
-| duplo |duplo |
-| Número de vírgula flutuante |duplo |
+| Real |Solteiro |
+| Duplo |Duplo |
+| Flutuante |Duplo |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| um valor numérico |Decimal |
+| Numérico |Decimal |
 | Data |DateTime |
 | Hora |TimeSpan |
-| Timestamp |DateTime |
-| XML |Byte] |
+| Carimbo de data/hora |DateTime |
+| Xml |Byte[] |
 | char |Cadeia |
 
 ## <a name="map-source-to-sink-columns"></a>Origem de mapa para sink colunas

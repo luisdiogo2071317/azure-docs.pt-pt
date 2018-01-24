@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiar dados de ponto final de HTTP utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ As seguintes propriedades são suportadas para o serviço ligado de HTTP:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo tem de ser definida: **HttpServer**. | Sim |
-| URL | URL de base ao servidor Web | Sim |
+| url | URL de base ao servidor Web | Sim |
 | enableServerCertificateValidation | Especifique se pretende ativar a validação do certificado SSL de servidor ao ligar ao ponto final de HTTP. | Não, a predefinição é verdadeiro |
 | authenticationType | Especifica o tipo de autenticação. Valores permitidos são: **anónimo**, **básico**, **resumida**, **Windows**, **ClientCertificate**. <br><br> Consulte a secções abaixo desta tabela mais propriedades e exemplos JSON para os tipos de autenticação, respetivamente. | Sim |
 | connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o tempo de execução do Self-hosted integração (se o arquivo de dados esteja localizado numa rede privada). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
@@ -65,7 +65,7 @@ Definir a propriedade "authenticationType" para **básico**, **resumida**, ou **
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| Nome de utilizador | Nome de utilizador para aceder ao ponto final HTTP. | Sim |
+| userName | Nome de utilizador para aceder ao ponto final HTTP. | Sim |
 | palavra-passe | Palavra-passe para o utilizador (nome de utilizador). Marcar este campo como SecureString. | Sim |
 
 **Exemplo**
@@ -99,7 +99,7 @@ Para utilizar autenticação ClientCertificate, defina a propriedade de "authent
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | embeddedCertData | Dados do certificado codificado em Base64. | Especifique o `embeddedCertData` ou `certThumbprint`. |
-| CertThumbprint | O thumbprint do certificado que está instalado no arquivo de certificados do seu tempo de execução do Self-hosted integração da máquina. Aplica-se apenas quando personalizada alojado tipo de tempo de execução de integração é especificado no connectVia. | Especifique o `embeddedCertData` ou `certThumbprint`. |
+| certThumbprint | O thumbprint do certificado que está instalado no arquivo de certificados do seu tempo de execução do Self-hosted integração da máquina. Aplica-se apenas quando personalizada alojado tipo de tempo de execução de integração é especificado no connectVia. | Especifique o `embeddedCertData` ou `certThumbprint`. |
 | palavra-passe | Palavra-passe associado ao certificado. Marcar este campo como SecureString. | Não |
 
 Se utilizar "certThumbprint" para a autenticação e o certificado está instalado no arquivo pessoal do computador local, terá de conceder a permissão de leitura para o tempo de execução de integração Self-hosted:
@@ -208,7 +208,7 @@ Para copiar dados de HTTP, defina a propriedade de tipo do conjunto de dados par
 }
 ```
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
 Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pela origem HTTP.
 

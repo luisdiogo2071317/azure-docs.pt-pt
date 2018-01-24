@@ -4,7 +4,7 @@ description: "Segurança de pesquisa do Azure baseia-se em certificados SOC 2 co
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,23 +12,19 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/14/2017
+ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 23616c70a5fd336b743f5acfad2601a6c3e23fc4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="data-security-and-controlled-access-to-azure-search-operations"></a>Segurança de dados e o acesso controlado para operações de pesquisa do Azure
+# <a name="security-and-controlled-access-in-azure-search"></a>Segurança e o acesso controlado na Azure Search
 
 A pesquisa do Azure é [SOC 2 compatíveis](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports), com uma segurança de físico spanning com arquitetura de segurança completa, transmissões encriptadas, armazenamento encriptado e as proteções de toda a plataforma de software. Operacionalmente, a Azure Search só aceita pedidos autenticados. Opcionalmente, pode adicionar controlos de acesso por utilizador no conteúdo. Este artigo tocar em segurança em cada camada, mas principalmente é concentra-se em como os dados e as operações são protegidas na Azure Search.
 
 ![Diagrama de blocos de camadas de segurança](media/search-security-overview/azsearch-security-diagram.png)
-
-Enquanto a Azure Search herda as proteções e proteções de plataforma do Azure, o mecanismo de principal utilizado pelo serviço próprio é autenticação baseada em chave, onde o tipo de chave determina o nível de acesso. Uma chave é uma chave de administração ou uma chave de consulta para acesso só de leitura.
-
-Acesso ao seu serviço baseiam-se um cross-section de permissões transmitido por chave (completo ou só de leitura), mais um contexto que define um âmbito de operações. Todos os pedidos é composto por uma chave obrigatória, uma operação e um objeto. Quando encadeados em conjunto, os dois níveis de permissão e o contexto é suficiente para fornecer segurança completo espetro nas operações de serviço. 
 
 ## <a name="physical-security"></a>segurança física
 
@@ -38,11 +34,17 @@ Centros de dados da Microsoft fornecem segurança física líder da indústria e
 
 ## <a name="encrypted-transmission-and-storage"></a>Transmissão encriptado e armazenamento
 
-A pesquisa do Azure escuta na porta HTTPS 443. Através da plataforma, são encriptadas ligações aos serviços do Azure. 
+Expande a encriptação em todo o pipeline de indexação todo: de ligações, através da transmissão e para baixo para indexada dados armazenados na Azure Search.
 
-No armazenamento de back-end utilizado para índices e outras construções, pesquisa do Azure melhora as capacidades de encriptação dessas plataformas. Completo [AICPA SOC 2 conformidade](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) está disponível para todos os serviços (novos e existentes), de pesquisa em todos os centros de dados a oferta da Azure Search. Para rever o relatório completo, visite [Azure - e Azure Government SOC 2 tipo II relatório](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports).
+| Camada de segurança | Descrição |
+|----------------|-------------|
+| Encriptação em trânsito | A pesquisa do Azure escuta na porta HTTPS 443. Através da plataforma, são encriptadas ligações aos serviços do Azure. |
+| Encriptação inativa | Encriptação é totalmente internalized no processo de indexação, sem afetar mensuráveis indexação tempo para conclusão ou tamanho do índice. -Ocorre automaticamente em todos os indexação, incluindo no atualizações incrementais para um índice que não são totalmente encriptados (criado antes de Janeiro de 2018).<br><br>Internamente, encriptação baseia-se no [encriptação do serviço de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), através de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
+| [Conformidade de certificados SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | Todos os serviços de pesquisa são totalmente AICPA SOC 2 em conformidade, todos os centros de dados, fornecendo da Azure Search. Para rever o relatório completo, visite [Azure - e Azure Government SOC 2 tipo II relatório](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). |
 
-A encriptação é transparente, com as chaves de encriptação gerida internamente e aplicadas universalmente. Não é possível desativá-la para serviços de pesquisa específico ou índices, nem gerir as chaves diretamente, nem fornecer as suas próprias. 
+A encriptação é interna para a Azure Search, com certificados e chaves de encriptação internamente gerida pela Microsoft e aplicadas universalmente. Não é possível ativar ou desativar a encriptação, gerir ou substituir as suas próprias chaves ou ver as definições de encriptação no portal ou através de programação. 
+
+Encriptação de Inativos foi anunciou a 24 de Janeiro de 2018 e aplica-se a todos os escalões de serviço, incluindo os serviços partilhados (gratuitos), em todas as regiões. Para a encriptação completa, índices criados antes dessa data tem de ser removidos e reconstruídos por ordem para a encriptação ocorrer. Caso contrário, adicionados após 24 de Janeiro de apenas novos dados são encriptados.
 
 ## <a name="azure-wide-logical-security"></a>Segurança lógicos em todo o Azure
 
@@ -53,15 +55,15 @@ Vários mecanismos de segurança estão disponíveis em toda a pilha do Azure e 
 
 Todos os serviços do Azure suportam controlos de acesso baseado em funções (RBAC) para definir níveis de acesso de forma consistente em todos os serviços. Por exemplo, visualização de dados confidenciais, tais como a chave de administrador, está restrito às funções de proprietário e contribuinte, enquanto que a visualizar o estado do serviço está disponível para os membros de qualquer função. RBAC fornece funções de proprietário, leitor e contribuinte. Por predefinição, todos os administradores de serviço são membros da função de proprietário.
 
-## <a name="service-authentication"></a>Autenticação do serviço
+## <a name="service-access-and-authentication"></a>Acesso de serviço e autenticação
 
-A pesquisa do Azure fornece a suas próprias metodologia de autenticação. A autenticação ocorre em cada pedido e baseia-se uma chave de acesso que determina o âmbito de operações. Uma chave de acesso válido é considerada uma prova do pedido tem origem uma entidade fidedigna. 
+Enquanto a Azure Search herda as proteções de segurança de plataforma do Azure, também fornece a suas próprias autenticação baseada em chave. O tipo de chave (admin ou consulta) determina o nível de acesso. Submissão de uma chave válida é considerado uma prova do pedido tem origem uma entidade fidedigna. 
 
-A autenticação por serviço existe no dois níveis: completa direitos, só de consulta. O tipo de chave determina o nível de acesso está em vigor.
+É necessária a autenticação em cada pedido, em que cada pedido é composto por uma chave obrigatória, uma operação e um objeto. Quando encadeados em conjunto, os dois níveis de permissão (completos ou só de leitura) e o contexto é suficiente para fornecer segurança completo espetro nas operações de serviço. 
 
 |Chave|Descrição|Limites|  
 |---------|-----------------|------------|  
-|Admin|Concede direitos totais para todas as operações, incluindo a capacidade de gerir o serviço, criar e eliminar **índices**, **indexadores**, e **origens de dados**.<br /><br /> Dois admin **chaves de api**, referidos como *primário* e *secundário* chaves no portal, são gerados quando o serviço é criado e pode ser regenerado individualmente a pedido . Ter duas chaves permite-lhe implementar através de uma chave ao utilizar a segunda chave de acesso contínuo ao serviço.<br /><br /> Apenas são especificadas chaves de administração nos cabeçalhos de pedido HTTP. Não é possível colocar um administrador **chave de api** num URL.|Máximo de 2 por serviço|  
+|Administração|Atribui direitos totais para todas as operações, incluindo a capacidade de gerir o serviço, criar e eliminar índices, indexadores e origens de dados.<br /><br /> Dois admin **chaves de api**, referidos como *primário* e *secundário* chaves no portal, são gerados quando o serviço é criado e pode ser regenerado individualmente a pedido . Ter duas chaves permite-lhe implementar através de uma chave ao utilizar a segunda chave de acesso contínuo ao serviço.<br /><br /> Apenas são especificadas chaves de administração nos cabeçalhos de pedido HTTP. Não é possível colocar uma chave de api de administração num URL.|Máximo de 2 por serviço|  
 |Consulta|Concede acesso só de leitura aos índices e documentos e, normalmente, são distribuídas por aplicações cliente que emitem pedidos de pesquisa.<br /><br /> Chaves de consulta são criadas a pedido. Pode criá-los manualmente no portal ou de forma programática através de [API de REST de gestão](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Chaves de consulta podem ser especificadas no cabeçalho de pedido HTTP para pesquisa, sugestão ou operação de pesquisa. Em alternativa, pode transmitir uma chave de consulta como um parâmetro num URL. Dependendo da forma como a aplicação cliente formulates o pedido, poderá ser mais fácil passar a chave como um parâmetro de consulta:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 por serviço|  
 
  Não há visualmente, sem distinção entre uma chave de administrador ou a chave de consulta. Ambas as chaves são cadeias compostas 32 aleatoriamente gerado carateres alfanuméricos. Se perder a controlar de que tipo de chave for especificado na sua aplicação, pode [Verifique os valores de chave no portal do](https://portal.azure.com) ou utilize o [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) para devolver o valor e o tipo de chave.  
@@ -73,7 +75,7 @@ A autenticação por serviço existe no dois níveis: completa direitos, só de 
 
 Pode obter chaves de acesso no portal ou através de [API de REST de gestão](https://docs.microsoft.com/rest/api/searchmanagement/). Para obter mais informações, consulte [gerir chaves](search-manage.md#manage-api-keys).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Lista o [procurar serviços](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) para a sua subscrição.
 3. Selecione o serviço e na página de serviço, localizar **definições** >**chaves** para ver as chaves de administração e a consulta.
 
@@ -124,7 +126,7 @@ A tabela seguinte resume as operações permitidas na Azure Search e qual a chav
 | Gerir chaves de consulta |  Chave de administrador, RBAC proprietário ou contribuinte no recurso. Leitor do RBAC pode ver as chaves de consulta. |
 
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 
 + [Introdução ao .NET (demonstra a utilização de uma chave de administrador para criar um índice)](search-create-index-dotnet.md)
 + [Obter iniciado REST (demonstra a utilização de uma chave de administrador para criar um índice)](search-create-index-rest-api.md)

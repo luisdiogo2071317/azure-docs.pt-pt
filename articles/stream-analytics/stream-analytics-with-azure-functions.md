@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 6a23b234f12f553c7e146f92ca14bff3255d0837
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Executar as funções do Azure com tarefas do Azure Stream Analytics 
  
@@ -62,7 +62,7 @@ Siga o [deteção de fraudes em tempo real](stream-analytics-real-time-fraud-det
 
 2. Navegue para o **run.csx** função. A atualização com o seguinte código. (Certifique-se de que substitui "\<a cadeia de ligação da cache de redis aqui\>" com a cadeia de ligação principal de Cache de Redis do Azure que obteve na secção anterior.)  
 
-   ```c#
+   ```csharp
    using System;
    using System.Net;
    using System.Threading.Tasks;
@@ -113,7 +113,7 @@ Siga o [deteção de fraudes em tempo real](stream-analytics-real-time-fraud-det
 
    Quando o Stream Analytics recebe a exceção "HTTP do pedido entidade demasiado grande" da função, reduz o tamanho de lotes envia para funções. Na sua função, utilize o seguinte código para verificar que o do Stream Analytics não enviar os lotes de grande dimensão. Certifique-se de que os valores de contagem e tamanho de lote máximo utilizados na função são consistentes com os valores que introduziu no portal do Stream Analytics.
 
-   ```c#
+   ```csharp
    if (dataArray.ToString().Length > 262144)
       {        
         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
@@ -155,7 +155,7 @@ Siga o [deteção de fraudes em tempo real](stream-analytics-real-time-fraud-det
    |**Nome da propriedade**|**Descrição**|
    |---|---|
    |Alias de saída| Um nome amigável de utilizador que utilizar na consulta da tarefa para a referência de saída. |
-   |Opção de importar| Pode utilizar a função da subscrição atual, ou forneça as definições manualmente se a função estiver localizada na outra subscrição. |
+   |Importar opção| Pode utilizar a função da subscrição atual, ou forneça as definições manualmente se a função estiver localizada na outra subscrição. |
    |Aplicação de Funções| Nome da sua aplicação de funções. |
    |Função| Nome da função na sua aplicação de funções (nome da sua função run.csx).|
    |Tamanho de lote máximo|Define o tamanho máximo para cada lote de saída, que é enviado para a sua função. Por predefinição, este valor é definido como 256 KB.|
@@ -179,7 +179,7 @@ Siga o [deteção de fraudes em tempo real](stream-analytics-real-time-fraud-det
 
 5. Iniciar a aplicação de telcodatagen.exe executando o seguinte comando na linha de comandos (utilize o formato `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
    
-   **telcodatagen.exe 1000.2 2**
+   **telcodatagen.exe 1000 .2 2**
     
 6.  Inicie a tarefa de Stream Analytics.
 

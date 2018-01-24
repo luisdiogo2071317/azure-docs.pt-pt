@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: bffca3b1daa3e909a0b17baf33c7f85d57836d32
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c993b1dfb0055da84751c042efccf42d943375d9
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiar ou mover dados facilmente com o Assistente de cópia do Azure Data Factory
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço do Data Factory, o que está em pré-visualização, consulte [tutorial de atividade de cópia na documentação da versão 2](../quickstart-create-data-factory-dot-net.md). 
+> Este artigo aplica-se à versão 1 do Data Factory, que está geralmente disponível (GA). Se estiver a utilizar a versão 2 do serviço Data Factory, que está em pré-visualização, veja o [tutorial da atividade de cópia na documentação da versão 2](../quickstart-create-data-factory-dot-net.md). 
 
 
 O Assistente de cópia do Azure Data Factory é facilitam o processo de ingestão relacionados dados, que é normalmente um primeiro passo para um cenário de integração de dados ponto-a-ponto. Ao percorrer o Assistente de cópia de fábrica de dados do Azure, não terá de compreender as definições de JSON para serviços ligados, conjuntos de dados e pipelines. No entanto, depois de concluir todos os passos no assistente, o assistente cria automaticamente um pipeline para copiar dados de origem de dados selecionada para o destino selecionado. Além disso, o Assistente de cópia ajuda-o a validar os dados que está a ser ingeridos no momento da criação, que guarda grande parte do tempo, especialmente quando está ingestão de dados pela primeira vez da origem de dados. Para iniciar o Assistente de cópia, clique em de **copiar dados** mosaico na home page da fábrica de dados.
@@ -33,7 +33,7 @@ O Assistente de cópia do Azure Data Factory é facilitam o processo de ingestã
 ## <a name="an-intuitive-wizard-for-copying-data"></a>Um Assistente para copiar dados intuitivo
 Este assistente permite-lhe mover facilmente dados de uma ampla variedade de origens para destinos em minutos. Depois de percorrer o assistente, um pipeline com uma atividade de cópia é criado automaticamente para si, juntamente com dependentes entidades do Data Factory (serviços ligados e conjuntos de dados). Não existem passos adicionais são necessários para criar o pipeline.   
 
-![Selecione a origem de dados](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Selecionar origem de dados](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > Consulte [tutorial do Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) artigo para obter instruções passo a passo Criar um exemplo de pipeline para copiar dados de um Azure blob para uma tabela de SQL Database do Azure. 
@@ -92,6 +92,6 @@ Uma operação de cópia de uso individual permite que o movimento de dados de u
 
 ![Propriedades de agendamento](./media/data-factory-copy-wizard/scheduling-properties.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para instruções rápidas de utilizar o Assistente de cópia do Data Factory para criar um pipeline com atividade de cópia, consulte [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md).
 

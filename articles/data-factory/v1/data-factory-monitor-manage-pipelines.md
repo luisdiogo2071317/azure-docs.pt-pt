@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d9e7b1d020a99e939ea01c43c7e5e935188b212e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorizar e gerir pipelines do Azure Data Factory com o portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ Os setores de conjunto de dados na fábrica de dados podem ter um dos seguintes 
 <td>O setor está a ser processado.</td>
 </tr>
 <tr>
-<td rowspan="4">Com Falhas</td><td>ServiceHost</td><td>A execução da atividade demorou mais do que as permitidas pela atividade.</td>
+<td rowspan="4">Com Falhas</td><td>TimedOut</td><td>A execução da atividade demorou mais do que as permitidas pela atividade.</td>
 </tr>
 <tr>
 <td>Cancelado</td><td>O setor foi cancelado pelo ação do utilizador.</td>
@@ -134,10 +134,10 @@ Os setores de conjunto de dados na fábrica de dados podem ter um dos seguintes 
 <td>Pronto</td><td>-</td><td>O setor está pronto para consumo.</td>
 </tr>
 <tr>
-<td>Ignorado</td><td>Nenhum</td><td>O setor não está a ser processado.</td>
+<td>Ignorada</td><td>Nenhuma</td><td>O setor não está a ser processado.</td>
 </tr>
 <tr>
-<td>Nenhum</td><td>-</td><td>Um setor existia com um Estado diferente, mas foi reposto.</td>
+<td>Nenhuma</td><td>-</td><td>Um setor existia com um Estado diferente, mas foi reposto.</td>
 </tr>
 </table>
 
@@ -369,7 +369,7 @@ A tabela seguinte fornece a lista de operações disponíveis e Estados (e subst
 | Nome da operação | Estado | Subestado |
 | --- | --- | --- |
 | RunStarted |Iniciado |A Iniciar |
-| RunFinished |Não foi possível / foi concluída com êxito |FailedResourceAllocation<br/><br/>Bem-sucedido<br/><br/>FailedExecution<br/><br/>ServiceHost<br/><br/>< cancelada<br/><br/>Validação<br/><br/>Abandonado |
+| RunFinished |Não foi possível / foi concluída com êxito |FailedResourceAllocation<br/><br/>Bem-sucedido<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/>< cancelada<br/><br/>FailedValidation<br/><br/>Abandonado |
 | OnDemandClusterCreateStarted |Iniciado | |
 | OnDemandClusterCreateSuccessful |Bem-sucedido | |
 | OnDemandClusterDeleted |Bem-sucedido | |

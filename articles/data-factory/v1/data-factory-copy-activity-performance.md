@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 2bec612b1d67eceb0e62b28524b98e852d31ad0f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o desempenho de atividade e o guia de otimização
 > [!NOTE]
@@ -205,8 +205,8 @@ Configurar o **enableStaging** definição na atividade de cópia para especific
 | Propriedade | Descrição | Valor predefinido | Necessário |
 | --- | --- | --- | --- |
 | **enableStaging** |Especifique se pretende copiar os dados através de um provisório arquivo de teste. |Falso |Não |
-| **linkedServiceName** |Especifique o nome de um [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) serviço, que se refere à instância de armazenamento que utilizar como um arquivo de transição provisória ligado. <br/><br/> Não é possível utilizar o armazenamento com uma assinatura de acesso partilhado para carregar dados para o SQL Data Warehouse através do PolyBase. Pode utilizá-lo em todos os outros cenários. |N/D |Sim, quando **enableStaging** está definido como verdadeiro |
-| **caminho** |Especifique o caminho de armazenamento de BLOBs que pretende que contêm os dados de teste. Se não fornecer um caminho, o serviço cria um contentor para armazenar dados temporários. <br/><br/> Especifique um caminho de apenas se utilizar o armazenamento com uma assinatura de acesso partilhado ou exigir temporários de dados numa localização específica. |N/D |Não |
+| **linkedServiceName** |Especifique o nome de um [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) serviço, que se refere à instância de armazenamento que utilizar como um arquivo de transição provisória ligado. <br/><br/> Não é possível utilizar o armazenamento com uma assinatura de acesso partilhado para carregar dados para o SQL Data Warehouse através do PolyBase. Pode utilizá-lo em todos os outros cenários. |N/A |Sim, quando **enableStaging** está definido como verdadeiro |
+| **path** |Especifique o caminho de armazenamento de BLOBs que pretende que contêm os dados de teste. Se não fornecer um caminho, o serviço cria um contentor para armazenar dados temporários. <br/><br/> Especifique um caminho de apenas se utilizar o armazenamento com uma assinatura de acesso partilhado ou exigir temporários de dados numa localização específica. |N/A |Não |
 | **enableCompression** |Especifica se os dados devem ser comprimidos antes que seja copiado para o destino. Esta definição reduz o volume de dados a serem transferidos. |Falso |Não |
 
 Segue-se uma definição de exemplo de atividade de cópia com as propriedades descritas na tabela anterior:

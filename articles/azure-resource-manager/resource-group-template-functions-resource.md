@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdee4280b6642fa7c3e26e792b8b940772572ae7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para os modelos Azure Resource Manager
 
@@ -26,7 +26,7 @@ O Resource Manager fornece as seguintes funções, para obter valores de recurso
 
 * [listKeys e lista {Value}](#listkeys)
 * [fornecedores](#providers)
-* [referência](#reference)
+* [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
 * [subscrição](#subscription)
@@ -47,8 +47,8 @@ Devolve os valores para qualquer tipo de recurso que suporta a operação de lis
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |Cadeia |Identificador exclusivo para o recurso. |
-| apiVersion |Sim |Cadeia |Versão de API do Estado de runtime do recurso. Normalmente, no formato, **aaaa-mm-dd**. |
+| resourceName ou resourceIdentifier |Sim |cadeia |Identificador exclusivo para o recurso. |
+| apiVersion |Sim |cadeia |Versão de API do Estado de runtime do recurso. Normalmente, no formato, **aaaa-mm-dd**. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -153,8 +153,8 @@ Devolve informações sobre um fornecedor de recursos e os respetivos tipos de r
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sim |Cadeia |Espaço de nomes do fornecedor |
-| resourceType |Não |Cadeia |O tipo de recurso no espaço de nomes especificado. |
+| providerNamespace |Sim |cadeia |Espaço de nomes do fornecedor |
+| resourceType |Não |cadeia |O tipo de recurso no espaço de nomes especificado. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -241,9 +241,9 @@ Devolve um objeto que representa o estado do tempo de execução de um recurso.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |Cadeia |Nome ou o identificador exclusivo de um recurso. |
-| apiVersion |Não |Cadeia |Versão de API do recurso especificado. Inclua este parâmetro quando o recurso não está aprovisionado dentro do mesmo modelo. Normalmente, no formato, **aaaa-mm-dd**. |
-| 'Total' |Não |Cadeia |Valor que especifica se pretende devolver o objeto de recurso completo. Se não especificar `'Full'`, é devolvido apenas o objeto de propriedades do recurso. O objeto completo inclui os valores, tais como o ID de recurso e a localização. |
+| resourceName ou resourceIdentifier |Sim |cadeia |Nome ou o identificador exclusivo de um recurso. |
+| apiVersion |Não |cadeia |Versão de API do recurso especificado. Inclua este parâmetro quando o recurso não está aprovisionado dentro do mesmo modelo. Normalmente, no formato, **aaaa-mm-dd**. |
+| 'Total' |Não |cadeia |Valor que especifica se pretende devolver o objeto de recurso completo. Se não especificar `'Full'`, é devolvido apenas o objeto de propriedades do recurso. O objeto completo inclui os valores, tais como o ID de recurso e a localização. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -251,7 +251,7 @@ Cada tipo de recurso devolve propriedades diferentes para a função de referên
 
 ### <a name="remarks"></a>Observações
 
-A função de referência deriva o respetivo valor a partir de um Estado de runtime e, por conseguinte, não pode ser utilizada na secção de variáveis. Pode ser utilizado na secção de saídas de um modelo. 
+A função de referência deriva o respetivo valor a partir de um Estado de runtime e, por conseguinte, não pode ser utilizada na secção de variáveis. Podem ser utilizado na secção de saídas de um modelo ou [modelo ligado](resource-group-linked-templates.md#link-or-nest-a-template). Não pode ser utilizado na secção saídas um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver os valores para um recurso implementado num modelo aninhado, converta o modelo aninhado num modelo ligado. 
 
 Ao utilizar a função de referência, implicitamente declarar que um recurso depende outro recurso, se o recurso referenciado é aprovisionado dentro do mesmo modelo. Não é necessário utilizar também a propriedade de dependsOn. A função não é avaliada até que o recurso referenciado foi concluída a implementação.
 
@@ -534,10 +534,10 @@ Devolve o identificador exclusivo de um recurso. Utilize esta função quando o 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |cadeia (formato de GUID no) |Valor predefinido é a subscrição atual. Especificar este valor quando precisar de obter um recurso na outra subscrição. |
-| resourceGroupName |Não |Cadeia |Valor predefinido é o grupo de recursos atual. Especificar este valor quando precisar de obter um recurso noutro grupo de recursos. |
-| resourceType |Sim |Cadeia |Tipo de recurso, incluindo o espaço de nomes de fornecedor de recursos. |
-| resourceName1 |Sim |Cadeia |Nome do recurso. |
-| resourceName2 |Não |Cadeia |Recursos nome segmento seguinte se o recurso está aninhado. |
+| resourceGroupName |Não |cadeia |Valor predefinido é o grupo de recursos atual. Especificar este valor quando precisar de obter um recurso noutro grupo de recursos. |
+| resourceType |Sim |cadeia |Tipo de recurso, incluindo o espaço de nomes de fornecedor de recursos. |
+| resourceName1 |Sim |cadeia |Nome do recurso. |
+| resourceName2 |Não |cadeia |Recursos nome segmento seguinte se o recurso está aninhado. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -654,10 +654,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| sameRGOutput | Cadeia | /subscriptions/{current-sub-ID}/resourceGroups/examplegroup/Providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | Cadeia | /subscriptions/{current-sub-ID}/resourceGroups/otherResourceGroup/Providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | Cadeia | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/Providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Cadeia | /subscriptions/{current-sub-ID}/resourceGroups/examplegroup/Providers/Microsoft.SQL/Servers/serverName/Databases/databaseName |
+| sameRGOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | Cadeia | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | Cadeia | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -721,7 +721,7 @@ Para implementar este modelo de exemplo com o PowerShell, utilize:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Intercalar vários modelos, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).

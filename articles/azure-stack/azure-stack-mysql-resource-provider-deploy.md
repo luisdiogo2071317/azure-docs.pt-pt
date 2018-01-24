@@ -3,7 +3,7 @@ title: Utilizar bases de dados MySQL como PaaS na pilha do Azure | Microsoft Doc
 description: "Saiba como pode implementar o fornecedor de recursos de MySQL e fornecer bases de dados MySQL como um serviço na pilha do Azure"
 services: azure-stack
 documentationCenter: 
-author: JeffGoldner
+author: mattbriggs
 manager: bradleyb
 editor: 
 ms.service: azure-stack
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: JeffGo
-ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.author: mabrigg
+ms.openlocfilehash: 97344009ffb42d99824d053652594546f9f53374
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utilizar bases de dados MySQL na pilha do Microsoft Azure
 
@@ -90,7 +90,7 @@ A conta do sistema tem de ter os seguintes privilégios:
 
 6. [Instalar o Azure PowerShell versão 1.2.11](azure-stack-powershell-install.md).
 
-7. Execute o script de DeploySqlProvider.ps1.
+7. Execute o script `DeployMySqlProvider.ps1`.
 
 O script efetua estes passos:
 
@@ -155,17 +155,17 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
  ```
 
 
-### <a name="deploysqlproviderps1-parameters"></a>Parâmetros de DeploySqlProvider.ps1
+### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parameters
 Pode especificar estes parâmetros na linha de comandos. Se não o fizer, ou qualquer parâmetro validação falhar, são-lhe pedido fornecer as necessárias.
 
 | Nome do Parâmetro | Descrição | Comentário ou o valor predefinido |
 | --- | --- | --- |
-| **CloudAdminCredential** | A credencial para o administrador da nuvem, necessária para aceder ao ponto final Privleged. | _necessário_ |
-| **AzCredential** | Forneça as credenciais da conta de administrador de serviço de pilha do Azure. Utilize as mesmas credenciais que utilizou para a implementação de pilha do Azure). | _necessário_ |
-| **VMLocalCredential** | Defina as credenciais para a conta de administrador local do fornecedor de recursos de MySQL VM. | _necessário_ |
-| **PrivilegedEndpoint** | Forneça o endereço IP ou nome de DNS do ponto final com privilégios. |  _necessário_ |
+| **CloudAdminCredential** | A credencial para o administrador da nuvem, necessária para aceder ao ponto final com privilégios. | _required_ |
+| **AzCredential** | Forneça as credenciais da conta de administrador de serviço de pilha do Azure. Utilize as mesmas credenciais que utilizou para a implementação de pilha do Azure). | _required_ |
+| **VMLocalCredential** | Defina as credenciais para a conta de administrador local do fornecedor de recursos de MySQL VM. | _required_ |
+| **PrivilegedEndpoint** | Forneça o endereço IP ou nome de DNS do ponto final com privilégios. |  _required_ |
 | **DependencyFilesLocalPath** | Caminho para uma partilha local que contém [mysql conector-net 6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Se fornecer um, o ficheiro de certificado tem de ser colocado bem neste diretório. | _opcional_ (_obrigatório_ para vários nós) |
-| **DefaultSSLCertificatePassword** | A palavra-passe para o certificado. pfx | _necessário_ |
+| **DefaultSSLCertificatePassword** | A palavra-passe para o certificado. pfx | _required_ |
 | **MaxRetryCount** | Defina o número de vezes que pretende repetir a cada operação, se existir uma falha.| 2 |
 | **RetryDuration** | Defina o limite de tempo entre tentativas, em segundos. | 120 |
 | **Desinstalar** | Remover o fornecedor de recursos e recursos de todos os associados (ver notas abaixo) | Não |
@@ -200,7 +200,7 @@ Consoante as velocidades de desempenho e a transferência de sistema, instalaç�
 
     O **servidores de alojamento MySQL** painel é onde pode ligar o fornecedor de recursos do servidor de MySQL para instâncias reais do servidor de MySQL que servem de back-end do fornecedor de recursos.
 
-    ![Servidores de alojamento](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
+    ![Hosting Servers](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
 3. Preencha o formulário com os detalhes de ligação da sua instância do servidor de MySQL. Forneça o nome de domínio completamente qualificado (FQDN) ou um endereço IPv4 válido e não o nome abreviado de VM. Esta instalação já não fornece uma instância de MySQL predefinida. O tamanho fornecido ajuda-o o gerir a capacidade de base de dados do fornecedor de recursos. Deve estar perto a capacidade do servidor da base de dados física.
 
@@ -320,12 +320,12 @@ Pode especificar estes parâmetros na linha de comandos. Se não o fizer, ou qua
 
 | Nome do Parâmetro | Descrição | Comentário ou o valor predefinido |
 | --- | --- | --- |
-| **CloudAdminCredential** | A credencial para o administrador da nuvem, necessária para aceder ao ponto final com privilégios. | _necessário_ |
-| **AzCredential** | Forneça as credenciais da conta de administrador de serviço de pilha do Azure. Utilize as mesmas credenciais que utilizou para a implementação de pilha do Azure). | _necessário_ |
-| **VMLocalCredential** | Defina as credenciais para a conta de administrador local do fornecedor de recursos VM do SQL Server. | _necessário_ |
-| **PrivilegedEndpoint** | Forneça o endereço IP ou nome de DNS do ponto final Privleged. |  _necessário_ |
+| **CloudAdminCredential** | A credencial para o administrador da nuvem, necessária para aceder ao ponto final com privilégios. | _required_ |
+| **AzCredential** | Forneça as credenciais da conta de administrador de serviço de pilha do Azure. Utilize as mesmas credenciais que utilizou para a implementação de pilha do Azure). | _required_ |
+| **VMLocalCredential** | Defina as credenciais para a conta de administrador local do fornecedor de recursos VM do SQL Server. | _required_ |
+| **PrivilegedEndpoint** | Forneça o endereço IP ou nome de DNS do ponto final com privilégios. |  _required_ |
 | **DependencyFilesLocalPath** | O ficheiro PFX de certificado tem de ser colocado bem neste diretório. | _opcional_ (_obrigatório_ para vários nós) |
-| **DefaultSSLCertificatePassword** | A palavra-passe para o certificado. pfx | _necessário_ |
+| **DefaultSSLCertificatePassword** | A palavra-passe para o certificado. pfx | _required_ |
 | **MaxRetryCount** | Defina o número de vezes que pretende repetir a cada operação, se existir uma falha.| 2 |
 | **RetryDuration** | Defina o limite de tempo entre tentativas, em segundos. | 120 |
 | **Desinstalar** | Remover o fornecedor de recursos e recursos de todos os associados (ver notas abaixo) | Não |

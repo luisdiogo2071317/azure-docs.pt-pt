@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e72dd426f7af3d1539aad6a3499d2ce5f792c152
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04504d1e32243f752e488a24e04ec5ba73fbadc1
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-case---product-recommendations"></a>Caso de Utilização - Recomendações do Produto
 O Azure Data Factory é um dos muitos serviços utilizados para implementar o Cortana Intelligence Suite de Aceleradores de solução.  Consulte [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) página para obter detalhes sobre este conjunto. Neste documento, vamos descrever um caso de utilização comuns que os utilizadores do Azure já resolvidos e implementadas utilizando o Azure Data Factory e outros serviços de componentes do Cortana Intelligence.
@@ -40,7 +40,7 @@ Terceira, as recomendações tem de ser imediatamente deliverable ao utilizador 
 
 Por fim, retalhistas tem de medir a eficácia do respetiva abordagem através do registo de segurança geral-vende cross-vende êxitos de vendas de conversão de clique e ajuste para as respetivas recomendações futuras.
 
-## <a name="solution-overview"></a>Descrição geral da solução
+## <a name="solution-overview"></a>Descrição Geral da Solução
 Neste caso de utilização de exemplo foi resolvido e implementado por utilizadores real do Azure utilizando o Azure Data Factory e outros serviços de componentes do Cortana Intelligence, incluindo [HDInsight](https://azure.microsoft.com/services/hdinsight/) e [Power BI](https://powerbi.microsoft.com/).
 
 O revendedor online utiliza um arquivo de Blob do Azure, um servidor SQL no local, BD SQL do Azure e um relacional data mart como as opções de armazenamento de dados em todo o fluxo de trabalho.  O arquivo de blob contém informações de cliente, dados de comportamento do cliente e dados de informações de produto. Os dados de informações de produto incluem informações de marca de produto e armazenada no local num armazém de dados SQL do catálogo de um produto. 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-faq"></a>FAQ do Azure Data Factory
 Este artigo aplica-se a versão 2 do serviço do Azure Data Factory. Fornece respostas às perguntas mais frequentes sobre o Data Factory.  
@@ -31,7 +31,7 @@ Fábrica de dados é um serviço de integração de dados completamente gerido, 
 
 Ao utilizar o Azure Data Factory, pode criar fluxos de trabalho condicionada por dados para mover dados entre no local e na nuvem arquivos de dados. Pode processar e serviços, tais como o tempo de execução de integração do Azure HDInsight, o Azure Data Lake Analytics e o SQL Server Integration Services (SSIS) de computação de transformação de dados através da utilização. 
 
-Com o Data Factory, pode executar o processamento de dados num serviço em nuvem baseado no Azure ou no seu próprio ambiente de computação personalizada alojada, tais como SSIS, SQL Server ou Oracle. Depois de criar um pipeline que executa a ação que é necessário, pode agendar para executar periodicamente (por exemplo, horário, diário ou semanal) ou acionar o pipeline de uma ocorrência de evento. Para obter mais informações, consulte [introdução ao Azure Data Factory](introduction.md).
+Com o Data Factory, pode executar o processamento de dados num serviço em nuvem baseado no Azure ou no seu próprio ambiente de computação personalizada alojada, tais como SSIS, SQL Server ou Oracle. Depois de criar um pipeline que executa a ação que é necessário, pode agendar para executar periodicamente (por exemplo, horário, diário ou semanal) ou acionar o pipeline de uma ocorrência de evento. Para obter mais informações, veja [Introdução ao Azure Data Factory](introduction.md).
 
 ## <a name="whats-different-in-version-2"></a>Quais são as diferenças na versão 2?
 A versão 2 do Azure Data Factory tem por base o serviço de movimento e de transformação de dados original do Azure Data Factory, alargando-se para um conjunto mais vasto de cenários de integração de dados cloud-first. O Azure Data Factory versão 2 oferece as seguintes capacidades:
@@ -93,7 +93,7 @@ Tempo de execução de integração é a infraestrutura de computação que é u
 
 Pode implementar uma ou várias instâncias do tempo de execução de integração conforme necessário para mover e transforme dados. Tempo de execução de integração pode executar numa rede pública do Azure ou numa rede privada (no local, rede Virtual do Azure ou nuvem privada virtual Amazon Web Services [VPC]). 
 
-Para obter mais informações, consulte [integração tempo de execução no Azure Data Factory](concepts-integration-runtime.md).
+Para obter mais informações, veja [Integration runtime no Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>O que é o limite no número de tempos de execução de integração?
 Não há nenhum disco rígido limite no número de instâncias de tempo de execução de integração que pode ter uma fábrica de dados. No entanto, há um limite no número de núcleos VM que o tempo de execução de integração, pode utilizar por subscrição para a execução de pacotes SSIS. Para obter mais informações, consulte [limita a fábrica de dados](../azure-subscription-service-limits.md#data-factory-limits).
@@ -176,7 +176,7 @@ Sim. Pode encadeiam atividades de versão 2 sem necessidade de conjuntos de dado
 Sim, todas as atividades de versão 1 são suportadas na versão 2.
 
 ### <a name="how-can-i-schedule-a-version-2-pipeline"></a>Como agendar a um pipeline de versão 2? 
-Pode utilizar o acionador de programador para agendar um pipeline de versão 2. O acionador utiliza uma agenda de calendário do relógio de firewall e pode utilizá-la para agendar pipelines periodicamente ou através da utilização baseada em Calendário periódica padrões (por exemplo, semanalmente nos segundas às 18: 00 e às quintas-em 9 PM). Para obter mais informações, consulte [acionadores e da execução de Pipeline](concepts-pipeline-execution-triggers.md).
+Pode utilizar o acionador de programador para agendar um pipeline de versão 2. O acionador utiliza uma agenda de calendário do relógio de firewall e pode utilizá-la para agendar pipelines periodicamente ou através da utilização baseada em Calendário periódica padrões (por exemplo, semanalmente nos segundas às 18: 00 e às quintas-em 9 PM). Para mais informações, consulte [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md).
 
 ### <a name="can-i-pass-parameters-to-a-pipeline-run-in-version-2"></a>Pode passar parâmetros para um pipeline executar na versão 2?
 Sim, os parâmetros são um conceito de primeira classe, nível superior na versão 2. Pode definir os parâmetros ao nível do pipeline e passar os argumentos como executar o pipeline de executar a pedido ou utilizando um acionador.  
@@ -196,7 +196,7 @@ Pode utilizar o `@coalesce` construir em expressões de lidar graciosamente com 
 ### <a name="can-i-use-retry-and-timeout-at-the-activity-level-in-version-2"></a>Posso utilizar repetições e tempo limite ao nível de atividade numa versão 2?
 Sim. Para regulamentar a execução de atividades de versão 2, tal como na versão 1, pode configurar a repetição e tempo limite ao nível de atividade. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter instruções passo a passo Criar uma fábrica de dados da versão 2, consulte os seguintes tutoriais:
 
 - [Início rápido: Criar uma fábrica de dados](quickstart-create-data-factory-dot-net.md)

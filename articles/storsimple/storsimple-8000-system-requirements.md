@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 1a9cdf31c5924d22d968cd99383417ba371cd1c3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de série 8000 do StorSimple, elevada disponibilidade e requisitos de rede
 
@@ -100,19 +100,19 @@ Recomendamos que defina as regras de firewall para o tráfego de saída, com bas
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revogação de certificados |Interfaces de rede com capacidade de nuvem |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitorização e de contas do storage do Azure |Interfaces de rede com capacidade de nuvem |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Servidores do Microsoft Update<br> |IPs fixos do controlador só |
-| `http://*.deploy.akamaitechnologies.com` |CDN da Akamai |IPs fixos do controlador só |
+| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |IPs fixos do controlador só |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Pacote de suporte |Interfaces de rede com capacidade de nuvem |
 
 #### <a name="url-patterns-for-azure-government-portal"></a>Padrões de URL para o portal do Azure Government
 
 | Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |Serviço do Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de autenticação |Interfaces de rede com capacidade de nuvem |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Serviço do Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de autenticação |Interfaces de rede com capacidade de nuvem |
 | `https://*.backup.windowsazure.us` |Registo de dispositivo |Apenas dados 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revogação de certificados |Interfaces de rede com capacidade de nuvem |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Monitorização e de contas do storage do Azure |Interfaces de rede com capacidade de nuvem |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Servidores do Microsoft Update<br> |IPs fixos do controlador só |
-| `http://*.deploy.akamaitechnologies.com` |CDN da Akamai |IPs fixos do controlador só |
+| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |IPs fixos do controlador só |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Pacote de suporte |Interfaces de rede com capacidade de nuvem |
 
 ### <a name="routing-metric"></a>Métrica de encaminhamento
@@ -126,7 +126,7 @@ O algoritmo de métrico encaminhamento utilizado para a atualização 2 e versõ
 * Um conjunto de valores predeterminados tenham sido atribuídos a interfaces de rede.
 * Considere uma tabela de exemplo mostrada abaixo, com valores atribuídos para as várias interfaces de rede quando este for cloud-ativado ou desativado de nuvem, mas com um gateway configurado. Tenha em atenção de que os valores aqui atribuídos são apenas valores de exemplo.
 
-    | Interface de rede | Capacidade de nuvem | Nuvem-desativado com gateway |
+    | Interface de rede | Cloud-enabled | Nuvem-desativado com gateway |
     |-----|---------------|---------------------------|
     | Dados 0  | 1            | -                        |
     | Dados 1  | 2            | 20                       |
@@ -144,7 +144,7 @@ O algoritmo de métrico encaminhamento utilizado para a atualização 2 e versõ
   
     Considere um dispositivo StorSimple com duas interfaces de rede ativado para a nuvem, dados 0 e 5 de dados. Dados 1 a 4 de dados são nuvem-desativado, mas tem um gateway configurado. A ordem em que o tráfego será encaminhado para este dispositivo será:
   
-    *Dados 0 (1) > dados 5 (6) > dados 1 (20) > dados 2 (30) > dados 3 (40) > dados 4 (50)*
+    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
   
     *Os números de parênteses indicam as respetivas métricas de encaminhamento.*
   

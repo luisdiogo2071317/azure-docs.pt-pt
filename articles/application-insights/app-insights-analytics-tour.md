@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>A introdução de análise no Application Insights
 [Análise de](app-insights-analytics.md) é a funcionalidade de pesquisa poderoso de [Application Insights](app-insights-overview.md). Estas páginas descrevem o idioma de consulta de análise de registos.
@@ -538,7 +538,7 @@ Se a sua aplicação anexa [dimensões personalizadas (propriedades) e medidas p
 
 Por exemplo, se a sua aplicação inclui:
 
-```C#
+```csharp
 
     var dimensions = new Dictionary<string, string>
                      {{"p1", "v1"},{"p2", "v2"}};
@@ -611,7 +611,7 @@ Se utilizar [trackevent ()](app-insights-api-custom-events-metrics.md#trackevent
 
 Vejamos um exemplo em que o seu código de aplicação contém estas linhas:
 
-```C#
+```csharp
 
     telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},
@@ -709,7 +709,7 @@ Consultas avançadas:
 > [!VIDEO https://channel9.msdn.com/Events/Build/2016/P591/player]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Referência de linguagem de análise](app-insights-analytics-reference.md)
 * [SQL Server-dos utilizadores cheat folha](https://aka.ms/sql-analytics) traduz as idioms mais comuns.
 

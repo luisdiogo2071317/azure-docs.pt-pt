@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -139,10 +139,10 @@ Ao nível da firewall da empresa, tem de configurar as portas de saída e domín
 
 | Nomes de domínio | Portas | Descrição |
 | --- | --- | --- |
-| *. servicebus.windows.net |443, 80 |Utilizado para comunicação com o back-end do serviço de movimento de dados |
-| *. core.windows.net |443 |Utilizado para cópia de teste utilizando o Blob do Azure (se configurada)|
-| *. frontend.clouddatahub.net |443 |Utilizado para comunicação com o back-end do serviço de movimento de dados |
-| *. servicebus.windows.net |9350-9354, 5671 |Reencaminhamento de barramento de serviço opcional através de TCP utilizada pelo Assistente de cópia |
+| *.servicebus.windows.net |443, 80 |Utilizado para comunicação com o back-end do serviço de movimento de dados |
+| *.core.windows.net |443 |Utilizado para cópia de teste utilizando o Blob do Azure (se configurada)|
+| *.frontend.clouddatahub.net |443 |Utilizado para comunicação com o back-end do serviço de movimento de dados |
+| *.servicebus.windows.net |9350-9354, 5671 |Reencaminhamento de barramento de serviço opcional através de TCP utilizada pelo Assistente de cópia |
 
 
 Ao nível de firewall do Windows, estas portas de saída normalmente estão ativadas. Se não, pode configurar as portas e domínios em conformidade na máquina do gateway.
@@ -379,7 +379,7 @@ Online | Nó ligado ao serviço Data Factory.
 Offline | Nó está offline.
 A atualizar | O nó está a ser atualizados automaticamente.
 Limitado | Devido ao problema de conectividade. Pode ser devido ao problema de 8050 de porta HTTP, o problema de conectividade do barramento de serviço ou o problema de sincronização de credenciais. 
-Inativo | Nó está a ser uma configuração diferente da configuração dos outros nós da maioria.<br/><br/> Um nó pode ficar inativo quando não é possível ligar a outros nós. 
+Inativa | Nó está a ser uma configuração diferente da configuração dos outros nós da maioria.<br/><br/> Um nó pode ficar inativo quando não é possível ligar a outros nós. 
 
 
 A tabela seguinte fornece os possíveis Estados de um **gateway lógico**. O estado do gateway depende Estados de nós de gateway. 
@@ -405,7 +405,7 @@ Esta secção fornece os passos para mover cliente do gateway de uma máquina pa
 
 1. No portal, navegue para o **home page da fábrica de dados**e clique em de **serviços ligados** mosaico.
 
-    ![Ligação de Gateways de dados](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+    ![Data Gateways Link](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
 2. Selecione o gateway no **GATEWAYS dados** secção o **serviços ligados** página.
 
     ![Página dos serviços ligada com o gateway selecionado](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)

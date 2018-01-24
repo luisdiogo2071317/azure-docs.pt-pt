@@ -10,12 +10,12 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/13/2017
-ms.openlocfilehash: 9eebe8352d6a447df520c194b9906df8c2c9a83f
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.date: 01/24/2018
+ms.openlocfilehash: 8569bf65d04f677a45935284dc61d68879014c10
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrar do SQL Server no local para a BD SQL do Azure com o Azure PowerShell
 Neste artigo, migra a **Adventureworks2012** base de dados restaurada para uma instância no local do SQL Server 2016 ou posterior para uma base de dados do SQL do Azure utilizando o Microsoft Azure PowerShell. Pode migrar bases de dados de uma instância do SQL Server no local para a SQL Database do Azure, utilizando o `AzureRM.DataMigration` módulo no Microsoft Azure PowerShell.
@@ -60,26 +60,29 @@ Pode criar nova instância do serviço de migração de base de dados do Azure u
 - *Nome do grupo de recursos do Azure*. Pode utilizar [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) comando para criar o grupo de recursos do Azure mostrado anteriormente e forneça o nome como um parâmetro.
 - *Nome do serviço*. Cadeia que corresponda ao nome do serviço exclusivo pretendido para o serviço de migração de base de dados do Azure 
 - *Localização*. Especifica a localização do serviço. Especifique uma localização de centro de dados do Azure, como EUA Oeste ou Sudeste asiático
-- *SKU*. Este parâmetro corresponde ao nome do DMS Sku. Os nomes de Sku atualmente suportados são *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*
+- *Sku*. Este parâmetro corresponde ao nome do DMS Sku. Os nomes de Sku atualmente suportados são *Basic_1vCore*, *Basic_2vCores*, *GeneralPurpose_4vCores*
 - *Identificador da sub-rede virtual*. Pode utilizar o cmdlet [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) para criar uma sub-rede. 
 
-O exemplo seguinte cria um serviço com o nome *MyDMS* no grupo de recursos *MyDMSResourceGroup*, que está localizado na *EUA Leste* região com uma sub-rede virtual chamado *MySubnet*.
+O exemplo seguinte cria um serviço com o nome *MyDMS* no grupo de recursos *MyDMSResourceGroup*, que está localizado na *EUA Leste* com uma rede virtual com o nome de região *MyVNET* e sub-rede denominada *MySubnet*.
 
 ```powershell
+ $vNet = Get-AzureRmVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+
+$vSubNet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
+
 $service = New-AzureRmDms -ResourceGroupName myResourceGroup `
   -ServiceName MyDMS `
   -Location EastUS `
   -Sku Basic_2vCores `  
-  -VirtualSubnetId
-$vnet.Id`
+  -VirtualSubnetId $vSubNet.Id`
 ```
 
 ## <a name="create-a-migration-project"></a>Criar um projeto de migração
 Depois de criar uma instância de serviço de migração de base de dados do Azure, crie um projeto de migração. Um projeto de serviço de migração de base de dados do Azure necessita de informações de ligação para ambas as instâncias de origem e de destino, bem como uma lista de bases de dados que pretende migrar como parte do projeto.
 
 ### <a name="create-a-database-connection-info-object-for-the-source-and-target-connections"></a>Criar um objeto de informações de ligação de base de dados para as ligações de origem e de destino
-Pode criar um objeto de informações de ligação de base de dados utilizando o `New-AzureRmDmsConnInfo` cmdlet.  Este cmdlet espera os seguintes parâmetros:
-- *Tipo*. O tipo de ligação de base de dados, por exemplo, SQL Server, Oracle ou pedido MySQL. Utilize o SQL Server para SQL Server e SQL Azure.
+Pode criar um objeto de informações de ligação de base de dados utilizando o `New-AzureRmDmsConnInfo` cmdlet. Este cmdlet espera os seguintes parâmetros:
+- *ServerType*. O tipo de ligação de base de dados, por exemplo, SQL Server, Oracle ou pedido MySQL. Utilize o SQL Server para SQL Server e SQL Azure.
 - *Origem de dados*. O nome ou o IP de uma instância do SQL Server ou o servidor de SQL Azure.
 - *AuthType*. O tipo de autenticação para a ligação, que pode ser SqlAuthentication ou WindowsAuthentication.
 - *TrustServerCertificate* parâmetro define um valor que indica se o canal é encriptado ao ignorando walking a cadeia de certificados para validar a confiança. Valor pode ser true ou false.
@@ -166,9 +169,9 @@ $selectedDbs = New-AzureRmDmsSqlServerSqlDbSelectedDB -Name AdventureWorks2016 `
 ### <a name="create-and-start-a-migration-task"></a>Criar e iniciar uma tarefa de migração
 
 Utilize o `New-AzureRmDataMigrationTask` cmdlet para criar e iniciar uma tarefa de migração. Este cmdlet espera os seguintes parâmetros:
-- *TaskType*.  Tipo de tarefa de migração para criar para o SQL Server para o tipo de migração do SQL Azure *MigrateSqlServerSqlDb* é esperado. 
+- *TaskType*. Tipo de tarefa de migração para criar para o SQL Server para o tipo de migração do SQL Azure *MigrateSqlServerSqlDb* é esperado. 
 - *Nome do grupo de recursos*. Nome do grupo de recursos do Azure na qual pretende criar a tarefa.
-- *ServiceName*.  Instância de serviço de migração de base de dados do Azure na qual pretende criar a tarefa.
+- *ServiceName*. Instância de serviço de migração de base de dados do Azure na qual pretende criar a tarefa.
 - *ProjectName*. Nome do projeto de migração de base de dados do Azure na qual pretende criar a tarefa. 
 - *TaskName*. Nome de tarefa a ser criado. 
 - *Ligação de origem*. Objeto de AzureRmDmsConnInfo que representa a ligação de origem.
@@ -202,5 +205,5 @@ if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTas
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Reveja as orientações de migração no Microsoft [guia de migração de base de dados](https://datamigration.microsoft.com/).

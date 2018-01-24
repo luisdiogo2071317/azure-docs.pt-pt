@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: c741f995c32bf6fa9ba4e0646573be8cdb67a7c3
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: cfdee4450b0ef88d593d401009a7d7f29c24780b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -95,9 +95,9 @@ public IDictionary<string, string> Execute(
 O método utiliza quatro parâmetros:
 
 - **linkedServices**. Esta propriedade é uma lista enumeráveis de serviços de ligado do arquivo de dados referenciada por conjuntos de dados de entrada/saída da atividade.   
-- **conjuntos de dados**. Esta propriedade é uma lista enumeráveis de conjuntos de dados de entrada/saída da atividade. Pode utilizar este parâmetro para obter as localizações e esquemas definidas conjuntos de dados de entrada e de saída.
+- **datasets**. Esta propriedade é uma lista enumeráveis de conjuntos de dados de entrada/saída da atividade. Pode utilizar este parâmetro para obter as localizações e esquemas definidas conjuntos de dados de entrada e de saída.
 - **atividade**. Esta propriedade representa a atividade atual. Pode ser utilizado para aceder às propriedades expandidas associadas com a atividade personalizada. Consulte [acesso propriedades expandidas](#access-extended-properties) para obter mais detalhes.
-- **registo**. Este objeto permite-lhe escrever comentários de depuração esse superfície no registo de utilizador para o pipeline.
+- **logger**. Este objeto permite-lhe escrever comentários de depuração esse superfície no registo de utilizador para o pipeline.
 
 O método devolve um dicionário que pode ser utilizado encadear atividades personalizadas em conjunto no futuro. Esta funcionalidade ainda não está implementada, por isso, devolver um dicionário vazio do método.  
 

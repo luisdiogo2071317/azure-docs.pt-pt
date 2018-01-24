@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee0564ad3eae3cc902ce596aceb5c218efabd43e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 108b6e3ae704a99e5c050fea07c72300ab948905
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mover dados de SAP HANA utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,12 +60,12 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos do
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor no qual reside a instância de SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | Cadeia | Sim
+servidor | Nome do servidor no qual reside a instância de SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | cadeia | Sim
 authenticationType | Tipo de autenticação. | Cadeia. "Básico" ou "Windows" | Sim 
-o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | Cadeia | Sim
-palavra-passe | Palavra-passe para o utilizador. | Cadeia | Sim
-gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP HANA no local. | Cadeia | Sim
-encryptedCredential | A cadeia de credencial encriptada. | Cadeia | Não
+o nome de utilizador | Nome do utilizador que tem acesso ao servidor do SAP | cadeia | Sim
+palavra-passe | Palavra-passe para o utilizador. | cadeia | Sim
+gatewayName | Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à instância de SAP HANA no local. | cadeia | Sim
+encryptedCredential | A cadeia de credencial encriptada. | cadeia | Não
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para uma lista completa das secções & Propriedades disponíveis para definir os conjuntos de dados, consulte o [criar conjuntos de dados](data-factory-create-datasets.md) artigo. As secções, tais como a estrutura, a disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (SQL do Azure, Azure blob, tabela do Azure, etc.).
@@ -73,7 +73,7 @@ Para uma lista completa das secções & Propriedades disponíveis para definir o
 O **typeProperties** secção é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados no arquivo de dados. Não estão propriedades específicos do tipo suportadas para o conjunto de dados SAP HANA do tipo **RelationalTable**. 
 
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição, tabelas de entrada e de saída, são as políticas estão disponíveis para todos os tipos de atividades.
 
 Enquanto, propriedades disponíveis no **typeProperties** secção da atividade variar de acordo com cada tipo de atividade. Para a atividade de cópia, podem variam consoante os tipos de origens e sinks.
@@ -288,17 +288,17 @@ TINYINT | Bytes
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-REAL | Único
-VALOR DE DUPLO | Único
+REAL | Solteiro
+VALOR DE DUPLO | Solteiro
 DECIMAL | Decimal
 VALOR BOOLEANO | Bytes
 VARCHAR | Cadeia
 NVARCHAR | Cadeia
-CLOB | Byte]
+CLOB | Byte[]
 ALPHANUM | Cadeia
-BLOB | Byte]
+BLOB | Byte[]
 DATA | DateTime
-TEMPO | TimeSpan
+HORA | TimeSpan
 TIMESTAMP | DateTime
 SECONDDATE | DateTime
 

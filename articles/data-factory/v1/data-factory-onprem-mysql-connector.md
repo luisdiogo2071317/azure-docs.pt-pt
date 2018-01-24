@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 74ee639af5e941c098cbdd1fafd96a0e1ce1b036
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f04a3b8c7bb744e3a9d539f6d3a392bc59702758
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados de MySQL utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +72,7 @@ A tabela seguinte fornece uma descrição para os elementos JSON específicos do
 | tipo |A propriedade de tipo tem de ser definida: **OnPremisesMySql** |Sim |
 | servidor |Nome do servidor MySQL. |Sim |
 | base de dados |Nome da base de dados MySQL. |Sim |
-| Esquema |Nome do esquema na base de dados. |Não |
+| schema |Nome do esquema na base de dados. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador para ligar à base de dados MySQL. |Sim |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou. |Sim |
@@ -87,7 +87,7 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 | --- | --- | --- |
 | tableName |Nome da tabela na instância da base de dados MySQL que o serviço ligado refere-se. |Não (se **consulta** de **RelationalSource** especificado) |
 
-## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
+## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição, tabelas de entrada e de saída, são as políticas estão disponíveis para todos os tipos de atividades.
 
 Enquanto, propriedades disponíveis no **typeProperties** secção da atividade variar de acordo com cada tipo de atividade. Para a atividade de cópia, podem variam consoante os tipos de origens e sinks.
@@ -305,37 +305,37 @@ Ao mover dados para MySQL, os seguintes mapeamentos são utilizados de tipos de 
 | bigint não assinado |Decimal |
 | bigint |Int64 |
 | bits |Decimal |
-| blob |Byte] |
-| bool |Valor booleano |
+| blob |Byte[] |
+| bool |Booleano |
 | char |Cadeia |
-| Data |DateTime |
-| DateTime |DateTime |
-| Decimal |Decimal |
-| precisão dupla |duplo |
-| duplo |duplo |
+| data |Datetime |
+| datetime |Datetime |
+| decimal |Decimal |
+| precisão dupla |Duplo |
+| duplo |Duplo |
 | Enum |Cadeia |
-| Número de vírgula flutuante |Único |
+| flutuante |Solteiro |
 | Int não assinado |Int64 |
 | Int |Int32 |
 | número inteiro sem sinal |Int64 |
-| número inteiro |Int32 |
-| varbinary longo |Byte] |
+| inteiro |Int32 |
+| varbinary longo |Byte[] |
 | varchar longo |Cadeia |
-| longblob |Byte] |
-| LONGTEXT |Cadeia |
-| mediumblob |Byte] |
+| longblob |Byte[] |
+| longtext |Cadeia |
+| mediumblob |Byte[] |
 | mediumint não assinado |Int64 |
 | mediumint |Int32 |
 | mediumtext |Cadeia |
 | um valor numérico |Decimal |
-| real |duplo |
+| real |Duplo |
 | definir |Cadeia |
 | smallint não assinado |Int32 |
 | smallint |Int16 |
 | Texto |Cadeia |
 | hora |TimeSpan |
-| carimbo de data/hora |DateTime |
-| tinyblob |Byte] |
+| carimbo de data/hora |Datetime |
+| tinyblob |Byte[] |
 | tinyint não assinado |Int16 |
 | tinyint |Int16 |
 | tinytext |Cadeia |
