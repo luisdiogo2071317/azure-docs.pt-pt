@@ -87,6 +87,8 @@
       href: how-to-control-access.md
     - name: Utilize a CLI do Azure para gerir o serviço de aprovisionamento de dispositivos
       href: how-to-manage-dps-with-cli.md
+    - name: Utilizar as ferramentas do SDK para programar
+      href: how-to-use-sdk-tools.md
 - name: Referência
   items:
     - name: REST

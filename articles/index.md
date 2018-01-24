@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentação do Microsoft Azure"
 description: "Saiba como criar e gerir aplicações poderosas com os serviços cloud do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 featureFlags: clicktale
-ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2cc74958c62ed99c75e848094e9da40fb21dddd3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1047,7 +1047,7 @@ ms.lasthandoff: 01/18/2018
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>Aplicações Lógicas</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1303,7 +1303,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Conjuntos de Dimensionamento de Máquinas Virtuais</h3>
-                                                    <p>Faça a gestão e dimensione dezenas a milhares de máquinas virtuais do Linux e do Windows</p>
+                                                    <p>Faça a gestão e aumente verticalmente para milhares de máquinas virtuais do Linux e do Windows</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1341,7 +1341,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Serviço de Aplicações</h3>
-                                                    <p>Implemente aplicações Web no Linux através de contentores</p>
+                                                    <p>Crie rapidamente poderosas aplicações Web e móveis na cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1379,7 +1379,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Executar a aplicação de conteúdo em escala com Kubernetes</p>
+                                                    <p>Simplifique a implementação, gestão e operações do Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1536,8 +1536,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Gateway de Aplicação</h3>
-                                                    <p>
-Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo de entrega </p>
+                                                    <p>Crie front-ends Web seguros, dimensionáveis e de disponibilidade elevada no Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1594,7 +1593,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Rede de Entrega de Conteúdos</h3>
-                                                    <p>Distribua conteúdo aos utilizadores finais através de uma rede robusta de data centers globais</p>
+                                                    <p>Garanta a entrega de conteúdos segura e fiável com ampla influência global</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1670,7 +1669,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Observador de Rede</h3>
-                                                    <p>Monitorizar e diagnosticar condições ao nível do cenário de rede</p>
+                                                    <p>Solução de monitorização e diagnóstico do desempenho de rede</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1713,7 +1712,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Blob Storage</h3>
-                                                    <p>Armazenamento de objetos altamente dimensionável para dados não estruturados</p>
+                                                    <p>Armazenamento de objetos baseados em REST para dados não estruturados</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1732,7 +1731,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Armazenamento em Disco</h3>
-                                                    <p>Armazenamento de disco para VMs</p>
+                                                    <p>Opções de disco persistentes e seguras que suportam máquinas virtuais</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1751,7 +1750,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Armazenamento de filas</h3>
-                                                    <p>Filas duráveis para serviços cloud de grande volume</p>
+                                                    <p>Dimensione aplicações de forma eficaz e de acordo com o tráfego</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1770,7 +1769,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Armazenamento de Ficheiros</h3>
-                                                    <p>Sistema de ficheiros multiplataformas simples e distribuído</p>
+                                                    <p>Partilhas de ficheiros que utilizam o protocolo 3.0 SMB padrão</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1808,7 +1807,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>O armazenamento híbrido na cloud para empresas que melhora a segurança dos dados</p>
+                                                    <p>Custos baixos com uma solução de armazenamento na cloud híbrido empresarial</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1846,7 +1845,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Orquestrar a recuperação após desastre de VMs do Azure, de VMs no local e de servidores físicos</p>
+                                                    <p>Organize a proteção e recuperação de nuvens privadas</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1927,7 +1926,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Aplicações API</h3>
-                                                    <p>Crie e consuma facilmente API de Cloud</p>
+                                                    <p>Crie e consuma facilmente APIs de Nuvem</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1946,7 +1945,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Rede de Entrega de Conteúdos</h3>
-                                                    <p>Distribua conteúdo aos utilizadores finais através de uma rede robusta de data centers globais </p>
+                                                    <p>Garanta a entrega de conteúdos segura e fiável com ampla influência global</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1984,7 +1983,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Search</h3>
-                                                    <p>Pesquisa como serviço totalmente gerida</p>
+                                                    <p>Serviço de pesquisa totalmente gerido</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2021,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Hubs de Notificação</h3>
-                                                    <p>Um motor de notificação push, dimensionável para o envio rápido de milhões de mensagens</p>
+                                                    <p>Envie notificações push para qualquer plataforma em qualquer back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2046,7 +2045,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Executar a aplicação de conteúdo em escala com Kubernetes</p>
+                                                    <p>Simplifique a implementação, gestão e operações do Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2165,7 +2164,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
-                                                    <p>Base de dados relacional gerida como serviço</p>
+                                                    <p>Base de Dados relacional gerida SQL como serviço</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2279,7 +2278,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Armazenamento de Tabelas</h3>
-                                                    <p>Base de dados com múltiplos modelos distribuída globalmente para qualquer dimensionamento</p>
+                                                    <p>Armazenamento de valor chave NoSQL a utilizar conjuntos de dados semiestruturados</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2298,7 +2297,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cache de Redis</h3>
-                                                    <p>Débito elevado, acesso a dados de baixa latência para criar aplicações do Azure rápidas/dimensionáveis</p>
+                                                    <p>Confira às suas aplicações débito elevado e acesso a dados de baixa latência</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2322,7 +2321,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>Aprovisione clusters do Hadoop, Spark, R Server, Hbase e Storm na cloud</p>
+                                                    <p>Aprovisione clusters do Hadoop, Spark, R Server, HBase e Storm na cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2398,7 +2397,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>Modelação de dados de nível empresarial na cloud</p>
+                                                    <p>Motor de análise de nível empresarial como um serviço</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2474,7 +2473,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Poderosa ferramenta de análise preditiva baseada na cloud que permite uma manutenção preditiva</p>
+                                                    <p>Crie, implemente e faça a gestão facilmente de soluções de análise preditiva</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2493,7 +2492,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Catálogo de Dados</h3>
-                                                    <p>Permita a deteção de origens de dados de gestão personalizada em toda a empresa</p>
+                                                    <p>Extraia mais valor dos seus elementos de dados empresariais</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2558,7 +2557,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Serviços de Machine Learning</h3>
-                                                    <p>Poderosa ferramenta de análise preditiva baseada na cloud que permite uma manutenção preditiva</p>
+                                                    <p>Leve a IA a todos com uma plataforma ponto a ponto, dimensionável e fiável com experimentação e gestão de modelos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2834,7 +2833,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>Expanda a inteligência da cloud para dispositivos Edge</p>
+                                                    <p>Expanda a inteligência da cloud para dispositivos de limite</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2872,13 +2871,13 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Location Based Services</h3>
-                                                    <p>Mapas, direções, pesquisa e outros serviços geoespaciais robustos</p>
+                                                    <p>As APIs de localização simples e segura fornecem contexto geoespacial aos dados</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2929,7 +2928,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Serviços de Machine Learning</h3>
-                                                    <p>Poderosa ferramenta de análise preditiva baseada na cloud que permite uma manutenção preditiva</p>
+                                                    <p>Leve a IA a todos com uma plataforma ponto a ponto, dimensionável e fiável com experimentação e gestão de modelos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2948,7 +2947,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Hubs de Notificação</h3>
-                                                    <p>Um motor de notificação push, dimensionável para o envio rápido de milhões de mensagens</p>
+                                                    <p>Envie notificações push para qualquer plataforma em qualquer back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3030,7 +3029,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3105,7 +3104,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>O armazenamento híbrido na cloud para empresas que melhora a segurança dos dados</p>
+                                                    <p>Custos baixos com uma solução de armazenamento na cloud híbrido empresarial</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3143,7 +3142,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Catálogo de Dados</h3>
-                                                    <p>Permita a deteção de origens de dados de gestão personalizada em toda a empresa</p>
+                                                    <p>Extraia mais valor dos seus elementos de dados empresariais</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3224,7 +3223,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Centro de Segurança</h3>
-                                                    <p>Previna, detete e responda a ameaças com maior visibilidade</p>
+                                                    <p>Unifique a gestão de segurança e ative a proteção contra ameaças avançada em cargas de trabalho na cloud híbrida</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3262,7 +3261,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cofre de Chaves</h3>
-                                                    <p>Saiba como gerir chaves criptográficas e segredos</p>
+                                                    <p>Salvaguarde e mantenha controlo das chaves e outros segredos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3338,7 +3337,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multi-Factor Authentication</h3>
-                                                    <p>Proteja o acesso aos seus dados e aplicações com um nível adicional de autenticação</p>
+                                                    <p>Adicione segurança aos seus dados e aplicações sem acrescentar complicações extra aos utilizadores</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3500,7 +3499,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Policy</h3>
-                                                    <p>Criar, atribuir e gerir as definições de políticas </p>
+                                                    <p>Implemente governação e normas empresariais em escala nos recursos do Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3519,7 +3518,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Gestão de Custos do Azure</h3>
-                                                    <p>Controlar a utilização e os gastos com a cloud</p>
+                                                    <p>Otimize o que gasta na cloud, ao mesmo tempo que maximiza o potencial da cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3576,7 +3575,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Aprenda a transformar dados de computador em inteligência operacional</p>
+                                                    <p>Recolha, procure e visualize dados de computadores no local e na cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3690,7 +3689,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>Melhore a eficiência a nível de custos, o desempenho, a elevada disponibilidade e a segurança dos seus recursos do Azure</p>
+                                                    <p>O mecanismo de recomendação personalizado de melhores práticas do Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3709,7 +3708,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Service Health</h3>
-                                                    <p>Fornece orientação e suporte personalizados para quando for afetado por problemas nos serviços do Azure.</p>
+                                                    <p>Receba orientação e suporte personalizados para quando for afetado por problemas nos serviços do Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,7 +3727,7 @@ Load Balancer Layer 7 com um balanceamento de carga HTTP incorporado e controlo 
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Aplicações Geridas</h3>
-                                                    <p>Gerir soluções implementadas para os seus clientes</p>
+                                                    <p>Simplifique a gestão das ofertas da cloud</p>
                                                 </div>
                                             </div>
                                         </div>
