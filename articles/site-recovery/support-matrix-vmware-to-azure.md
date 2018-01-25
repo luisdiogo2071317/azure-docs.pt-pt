@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: raynew
-ms.openlocfilehash: 857bbd42fda4abddd9a7551f4de016cecae03868
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: ead133318d8660e8b8f4b3e9c5dddb6d75878b19
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de suporte para VMware e replicação do servidor físico para o Azure
 
@@ -43,22 +43,28 @@ A tabela seguinte resume o suporte de replicação para máquinas. Recuperação
 --- | ---
 Configuração da máquina | As máquinas que replicam para o Azure tem de cumprir [requisitos do Azure](#failed-over-azure-vm-requirements).
 Sistema operativo da máquina (Windows) | 64 bits do Windows Server 2016 (Server Core, o servidor com experiência de ambiente de trabalho)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com, pelo menos, SP1
-Sistema operativo da máquina (Linux) | Red Hat Enterprise Linux: 5.2 para 5.11, 6.1 para 6.9, 7.0 para 7.3 <br/><br/>CentOS: 5.2 para 5.11, 6.1 para 6.9, 7.0 para 7.3 <br/><br/>Servidor Ubuntu 14.04 LTS[ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Servidor Ubuntu 16.04 LTS[ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Não é suportada a atualização de replicar máquinas do SLES 11 SP3 para SLES 11 SP4. Se uma máquina replicada tiver sido atualizada do SLES 11SP3 para SLES 11 SP4, terá de desativar a replicação e proteger a máquina post novamente a atualização.)
-Versão de kernel do Linux | Red Hat Enterprise Linux Server 7 + e servidores do CentOS 7 +, kernel 3.10.0-514 de versão é suportada a partir da versão 9.8 o Azure Site Recovery do serviço de mobilidade.<br/><br/> Os clientes em kernel 3.10.0-514 com uma versão do serviço de mobilidade inferior à versão 9.8 são necessários para desativar a replicação, atualize a versão do serviço de mobilidade para versão 9.8 e, em seguida, ativar a replicação novamente.
+Sistema operativo da máquina (Linux) | Red Hat Enterprise Linux: 5.2 para 5.11, 6.1 para 6.9, 7.0 e 7,4 <br/><br/>CentOS: 5.2 para 5.11, 6.1 para 6.9, 7.0 e 7,4 <br/><br/>Servidor Ubuntu 14.04 LTS[ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Servidor Ubuntu 16.04 LTS[ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Não é suportada a atualização de replicar máquinas do SLES 11 SP3 para SLES 11 SP4. Se uma máquina replicada tiver sido atualizada do SLES 11SP3 para SLES 11 SP4, terá de desativar a replicação e proteger a máquina post novamente a atualização.)
 
+>[!NOTE]
+>
+> - Sobre as distribuições do Linux, são suportados apenas os cotações kernels que fazem parte da versão secundária versão/atualização da distribuição.
+>
+> - Atualizações entre versões principais de uma distribuição Linux num Azure Site Recovery proteger a máquina virtual VMware ou servidor físico não é suportado. Ao atualizar o sistema operativo em versões principais (por exemplo 6.* CentOS para CentOS 7.*), desative a replicação da máquina, atualize o sistema operativo na máquina e, em seguida, ativar a replicação novamente.
+>
 
 ### <a name="ubuntu-kernel-versions"></a>Versões do Ubuntu kernel
 
 
 **Versão suportada** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
-14.04 LTS | 9.9 | 3.13.0-24-Generic para 3.13.0-117-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-75-generic |
 14.04 LTS | 9.10 | 3.13.0-24-Generic para 3.13.0-121-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-81-generic |
 14.04 LTS | 9.11 | 3.13.0-24-Generic para 3.13.0-128-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-Generic para 3.13.0-132-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-96-generic |
+14.04 LTS | 9.13 | 3.13.0-24-Generic para 3.13.0-137-generic,<br/>3.16.0-25-Generic para 3.16.0-77-generic,<br/>3.19.0-18-Generic para 3.19.0-80-generic,<br/>4.2.0-18-Generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-104-generic |
 16.04 LTS | 9.10 | 4.4.0-21-Generic para 4.4.0-81-generic,<br/>4.8.0-34-Generic para 4.8.0-56-generic,<br/>4.10.0-14-Generic para 4.10.0-24-generic |
 16.04 LTS | 9.11 | 4.4.0-21-Generic para 4.4.0-91-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-32-generic |
 16.04 LTS | 9.12 | 4.4.0-21-Generic para 4.4.0-96-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-35-generic |
+16.04 LTS | 9.13 | 4.4.0-21-Generic para 4.4.0-104-generic,<br/>4.8.0-34-Generic para 4.8.0-58-generic,<br/>4.10.0-14-Generic para 4.10.0-42-generic |
 
 ## <a name="linux-file-systemsguest-storage-configurations"></a>Configurações de armazenamento do Linux ficheiro sistemas/convidado
 
@@ -70,7 +76,7 @@ Software MultiPath | Mapeador de dispositivo
 Dispositivos de armazenamento Paravirtualized | Exportados pelo paravirtualized controladores de dispositivos não são suportados.
 Dispositivos de e/s de fila multi bloco | Não suportado.
 Servidores físicos com o controlador de armazenamento HP CCISS | Não suportado.
-Diretórios | Estes diretórios (se configurar como separados partições /-sistemas de ficheiros) têm de estar todos no mesmo disco do SO no servidor de origem: / (raiz), /boot /usr, /usr/local, /var, /etc/hosts
+Diretórios | Estes diretórios (se configurar como separados partições /-sistemas de ficheiros) têm de estar todos no mesmo disco do SO no servidor de origem: / (raiz), /boot /usr, /usr/local, /var, /etc/hosts </br></br>  Se / volume (raiz) é um volume LVM, em seguida, tem de residir numa partição separada no mesmo disco e não pode ser um volume LVM /boot.<br/><br/>
 XFSv5 | São suportadas as funcionalidades de XFSv5 em sistemas de ficheiros XFS como metadados soma de verificação da versão 9.10 do serviço de mobilidade e superior. Utilize o utilitário de xfs_info para verificar o superblock XFS para a partição. Se ftype estiver definido como 1, em seguida, XFSv5 funcionalidades estão em utilização.
 
 
@@ -115,7 +121,7 @@ Host NFS | Sim para VMware<br/><br/> Não para servidores físicos
 SAN (ISCSI) no anfitrião | Sim
 Caminho de anfitrião multi (o MPIO) | Sim - testada com: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON
 Convidados/servidor VMDK | Sim 
-Convidados/servidor EFI/UEFI| Não
+Convidados/servidor EFI/UEFI| Parcial (migração do Azure para o Windows Server 2012 e apenas mais tarde.) </br></br> * * Consulte a nota no fim da tabela.
 Disco de cluster partilhado convidado/servidor | Não 
 Disco encriptado convidado/servidor | Não 
 Convidados/servidor NFS | Não 
@@ -124,7 +130,14 @@ Convidados/servidor RDM | Sim<br/><br/> N/d para servidores físicos
 Convidados/servidor disco > 1 TB | Sim<br/><br/>4095 GB 
 Disco de convidado/servidor com o tamanho de sector físico lógicos e 4 k de 4K | Sim
 Disco de convidado/servidor com lógico de 4K e tamanho de setor físico de 512 bytes | Sim 
-Volume de convidado/servidor com o disco repartidos > 1 TB<br/><br/> Convidados/servidor de gestão de Volume LVM lógica - os espaços de armazenamento | Nenhum disco de acesso frequente adição/remoção de convidado/servidor | Nenhum convidado/servidor - excluir o disco | Sim multi-path convidado/servidor (MPIO) | N/D 
+Volume de convidado/servidor com o disco repartidos > 1 TB<br/><br/> Convidados/servidor de gestão de Volume LVM lógica - os espaços de armazenamento | Nenhum disco de acesso frequente adição/remoção de convidado/servidor | Nenhum convidado/servidor - excluir o disco | Sim multi-path convidado/servidor (MPIO) | N/D
+
+> [!NOTE]
+> * * UEFI arrancar em máquinas virtuais VMware ou servidores físicos com o Windows Server 2012 ou posterior, que podem ser migrados para o Azure. As seguintes restrições aplicam-se.
+> - Apenas uma migração para o Azure é suportada. Reativação pós-falha para o site de VMware no local não suportada.
+> - O servidor não deve ter mais de 4 partições no disco do SO.
+> - Requer a versão do serviço de mobilidade de recuperação de Site do Azure 9.13 ou posterior.
+
 
 ## <a name="azure-storage"></a>Storage do Azure
 

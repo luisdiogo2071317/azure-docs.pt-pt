@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/22/2018
-ms.openlocfilehash: b680d4b828910207367035a8b03bd75f84c79271
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f75fcec3b722563949b6553f17c4f3db3e223675
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="sprint-3---january-2018"></a>Sprint 3 – Janeiro de 2018 
 
@@ -34,6 +34,7 @@ Segue-se uma lista das atualizações de detalhado cada área de componente do A
 - Capacidade de instalar/desinstalar a aplicação a partir de adicionar/remover programas
 - As atualizações à pilha de autenticação força o início de sessão e a conta de seleção no arranque
 - Experiência melhorada de único início de sessão (SSO) no Windows
+- Os utilizadores que pertencem a vários inquilinos com credenciais diferentes agora conseguirão iniciar sessão em Workbench
 
 #### <a name="ui"></a>IU
 - Melhoramentos gerais e correções de erros
@@ -46,6 +47,7 @@ Segue-se uma lista das atualizações de detalhado cada área de componente do A
 - Algoritmo melhorado para inspector frequência padrão
 - Capacidade de enviar dados de exemplo e comentários ao efetuar transformações de exemplo por ![derivar de imagem de ligação de comentários de envio na transformação de coluna](media/release-notes-sprint-3/SendFeedbackFromDeriveColumn.png)
 - Melhoramentos de tempo de execução do Spark
+- Scala substituiu Pyspark
 - Incapacidade fixa para fechar a dados não é aplicável para o Inspector de séries de tempo 
 - Corrigido hora hang de execução de preparação de dados para HDI
 

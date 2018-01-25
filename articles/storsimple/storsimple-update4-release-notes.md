@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ce9a6493e80d65641ef5d797d89663bfaa5cd624
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Notas de versão do StorSimple 8000 série atualização 4
 > [!NOTE]
-> O portal clássico para StorSimple foi preterido. Os gestores de dispositivo do StorSimple será automaticamente mudada para o novo portal do Azure de acordo com a agenda de preterição. Irá receber uma mensagem de e-mail e uma notificação de movimentação do portal. Este documento também será descontinuado em breve. Para quaisquer perguntas sobre a mudança, consulte [FAQ: mover para o portal do Azure](storsimple-8000-move-azure-portal-faq.md).
+> O portal clássico do StorSimple foi preterido. Os Gestores de Dispositivos do StorSimple vão ser migrados automaticamente para o portal do Azure novo, de acordo com a agenda de preterição. Receberá uma mensagem de e-mail e uma notificação no portal relativamente a esta migração. Este documento também será descontinuado em breve. Relativamente a perguntas sobre a migração, veja [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md) (FAQ: migrar para o portal do Azure).
 
 
 ## <a name="overview"></a>Descrição geral
@@ -59,7 +59,7 @@ Foram efetuadas as seguintes melhorias de chaves e correções de erros na atual
 
 * **Atualizar as alterações** -nesta versão, tem sido corrigidos erros relacionados com falhas de atualização.
 
-* **Alerta de falhas de disco** -é adicionado um novo alerta que avisa o utilizador de falhas de disco iminente nesta versão. Se encontrar este alerta, contacte a Microsoft Support para envie um disco de substituição. Para obter mais informações, aceda a [alertas de hardware no dispositivo StorSimple](storsimple-manage-alerts.md#hardware-alerts).
+* **Alerta de falhas de disco** -é adicionado um novo alerta que avisa o utilizador de falhas de disco iminente nesta versão. Se encontrar este alerta, contacte a Microsoft Support para envie um disco de substituição. Para obter mais informações, aceda a [alertas de hardware no dispositivo StorSimple](storsimple-8000-manage-alerts.md#hardware-alerts).
 
 * **Alterações de substituição de controlador** -é adicionado um cmdlet que permite ao utilizador consultar o estado do processo de substituição de controlador nesta versão. Para obter mais informações, visite o [cmdlet para o estado de substituição de controlador de consulta](https://technet.microsoft.com/library/dn688168.aspx).
 

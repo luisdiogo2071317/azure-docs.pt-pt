@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: 6a23b234f12f553c7e146f92ca14bff3255d0837
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2018
 ---
 # <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Executar as funções do Azure com tarefas do Azure Stream Analytics 
- 
-> [!IMPORTANT]
-> Esta funcionalidade está em pré-visualização.
 
 Pode executar as funções do Azure com o Azure Stream Analytics através da configuração de funções como um dos sinks de saída para a tarefa de Stream Analytics. As funções são uma experiência de cálculo a pedido condicionada por eventos que lhe permite implementar o código que é acionado pelos eventos que ocorrem no Azure ou serviços de terceiros. Esta capacidade de funções para responder a acionadores torna uma saída natural para tarefas do Stream Analytics.
 

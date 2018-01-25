@@ -45,7 +45,7 @@ Os serviços de plataforma do Azure, incluindo web & mobile, serviços de dados,
 
 ## <a name="intel-released-additional-guidance-on-january-22-2018-related-to-the-security-vulnerabilities--will-this-guidance-cause-any-additional-maintenance-activities-by-azure"></a>Intel lançadas orientações adicionais em 22 de Janeiro de 2018 relacionadas com as vulnerabilidades de segurança.  Esta orientação fará com que quaisquer atividades de manutenção adicionais pelo Azure?  
 
-Não são afetadas pelo Azure mitigações previamente anunciadas no 3 de Janeiro de 2018 o [instruções atualizadas](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) da Intel. Não haverá nenhuma atividade manutenção adicionais no cliente VMs em resultado destas novas informações pela Intel.
+Não são afetadas pelo Azure mitigações previamente anunciadas no 3 de Janeiro de 2018 o [instruções atualizadas](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) da Intel. Não haverá nenhuma atividade manutenção adicionais no cliente VMs devido a estas informações de novo.
  
 
 ## <a name="next-steps"></a>Passos Seguintes

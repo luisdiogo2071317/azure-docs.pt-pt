@@ -1,6 +1,6 @@
 ---
-title: Campos personalizados no Log Analytics | Microsoft Docs
-description: "A funcionalidade de campos personalizados do Log Analytics permite-lhe criar os suas próprias campos pesquisáveis a partir dos dados OMS que adicionar às propriedades de um registo recolhida.  Este artigo descreve o processo de criação de um campo personalizado e fornece instruções detalhadas sobre um evento de exemplo."
+title: Campos personalizados no Log Analytics do Azure | Microsoft Docs
+description: "A funcionalidade de campos personalizados do Log Analytics permite-lhe criar os suas próprias campos pesquisáveis a partir de registos de análise de registos que adicionar às propriedades de um registo recolhida.  Este artigo descreve o processo de criação de um campo personalizado e fornece instruções detalhadas sobre um evento de exemplo."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campos personalizados na análise de registos
-O **campos personalizados** funcionalidade de análise de registos permite-lhe expandir registos existentes no repositório de OMS, adicionando os suas próprias campos pesquisáveis.  Campos personalizados serão preenchidos automaticamente a partir dos dados extraídos de outras propriedades no registo mesmo.
+O **campos personalizados** funcionalidade de análise de registos permite-lhe expandir registos existentes na análise de registos ao adicionar os seus próprios campos pesquisáveis.  Campos personalizados serão preenchidos automaticamente a partir dos dados extraídos de outras propriedades no registo mesmo.
 
 ![Descrição geral de campos personalizado](media/log-analytics-custom-fields/overview.png)
 
@@ -40,8 +40,7 @@ Quando cria um campo personalizado, análise de registos tem de compreender que 
 As secções seguintes fornecem o procedimento para criar um campo personalizado.  Na parte inferior deste artigo é uma explicação passo a passo de extração de exemplo.
 
 > [!NOTE]
-> O campo personalizado é preenchido registos correspondentes aos critérios especificados são adicionadas para o arquivo de dados do OMS, pelo que só será apresentado nos registos recolhidos depois do campo personalizado é criado.  O campo personalizado não será adicionado para registos que já estão no arquivo de dados quando é criado.
-> 
+> O campo personalizado é preenchido registos correspondentes aos critérios especificados são adicionadas à análise de registos, pelo que só será apresentado nos registos recolhidos depois do campo personalizado é criado.  O campo personalizado não será adicionado para registos que já estão no arquivo de dados quando é criado.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Passo 1 – identificar registos que tem o campo personalizado
@@ -72,7 +71,7 @@ Assim que tiver efetuado o extrair inicial, análise de registos irá apresentar
 7. Utilize o campo personalizado, como qualquer outra propriedade registo.  Pode utilizá-la para dados de agregação e de grupo e utilizá-lo, mesmo para produzir insights novo.
 
 ## <a name="viewing-custom-fields"></a>Visualizar os campos personalizados
-Pode ver uma lista de todos os campos personalizados no seu grupo de gestão do **definições** mosaico do dashboard do OMS.  Selecione **dados** e, em seguida, **campos personalizados** para uma lista de todos os campos personalizados na sua área de trabalho.  
+Pode ver uma lista de todos os campos personalizados no seu grupo de gestão do **definições avançadas** menu da sua área de trabalho de análise de registos no portal do Azure.  Selecione **dados** e, em seguida, **campos personalizados** para uma lista de todos os campos personalizados na sua área de trabalho.  
 
 ![Campos personalizados](media/log-analytics-custom-fields/list.png)
 
@@ -138,7 +137,7 @@ Agora podemos utilizar o campo personalizado, como qualquer outra propriedade de
 
 ![Agrupar por consulta](media/log-analytics-custom-fields/query-group.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para criar consultas com campos personalizados para os critérios.
 * Monitor [ficheiros de registo personalizado](log-analytics-data-sources-custom-logs.md) que lhe analisar com campos personalizados.
 

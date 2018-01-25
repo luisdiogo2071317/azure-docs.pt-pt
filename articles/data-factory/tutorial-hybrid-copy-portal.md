@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b734a76545dbcbddac3c7ad7beae60d662a9129
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: copiar dados de uma base de dados SQL Server no local para o Armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar a interface de utilizador (IU) do Azure Data Factory para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud. 
@@ -191,7 +191,7 @@ Neste passo, vai criar uma fábrica de dados e iniciar a IU do Azure Data Factor
 11. Na janela **Configuração Rápida do Integration Runtime (Autoalojado)**, clique em **Fechar**. 
 
    ![Configuração do runtime de integração - êxito](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. No browser, na janela **Configuração do Runtime de Integração**, clique em **Concluir**. Deverá regressar à janela **Novo Serviço Ligado**.
+12. No browser, na janela **Configuração do Runtime de Integração**, clique em **Concluir**. 
 
    ![Configuração do runtime de integração - conclusão](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 13. Na janela **Novo Serviço Ligado**, siga os passos abaixo:

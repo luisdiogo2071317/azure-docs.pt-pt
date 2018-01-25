@@ -1,5 +1,5 @@
 ---
-title: "A colocação em cache funcionamento na rede de entrega de conteúdo do Azure | Microsoft Docs"
+title: "Funciona como colocação em cache | Microsoft Docs"
 description: "A colocação em cache é o processo de armazenar dados localmente para que o futuro pedidos para que os dados podem ser acedidos mais rapidamente."
 services: cdn
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 638b105b4848d41b2755a4b153c13a77fb9ca08b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 284b4bcbeafc422a2ed91cec00a5b5b83bb37b7b
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-caching-works"></a>Como funciona a colocação em cache
 
-Este artigo fornece uma descrição geral dos conceitos gerais de colocação em cache e como a rede Azure entrega de conteúdos (CDN) utiliza a colocação em cache para melhorar o desempenho. Se gostaria de saber mais sobre como personalizar o comportamento de colocação em cache no ponto final de CDN, consulte [CDN do Azure de controlo de colocação em cache comportamento com colocação em cache regras](cdn-caching-rules.md) e [CDN do Azure de controlo de colocação em cache comportamento com cadeias de consulta](cdn-query-string.md).
+Este artigo fornece uma descrição geral dos conceitos gerais de colocação em cache e como [Azure rede de entrega de conteúdos (CDN)](cdn-overview.md) utiliza a colocação em cache para melhorar o desempenho. Se gostaria de saber mais sobre como personalizar o comportamento de colocação em cache no ponto final de CDN, consulte [CDN do Azure de controlo de colocação em cache comportamento com colocação em cache regras](cdn-caching-rules.md) e [CDN do Azure de controlo de colocação em cache comportamento com cadeias de consulta](cdn-query-string.md).
 
 ## <a name="introduction-to-caching"></a>Introdução à colocação em cache
 
@@ -57,35 +57,39 @@ A colocação em cache é integral para a forma como uma CDN funciona para acele
 
 - Ao descarregar o trabalho para uma CDN, colocação em cache pode reduzir o tráfego de rede e a carga no servidor de origem. Se o fizer, reduz os requisitos de custos e recursos para a aplicação, mesmo quando existem grande número de utilizadores.
 
-Semelhante a um web browser, pode controlar como a CDN colocação em cache é efetuada através do envio de cabeçalhos de cache diretiva. Cabeçalhos de cache diretiva são cabeçalhos HTTP, o que normalmente são adicionados através do servidor de origem. Embora a maioria destes cabeçalhos originalmente foram concebida para abordar a colocação em cache nos browsers do cliente, agora também são utilizados por todas as caches intermédios, como CDNs. Dois cabeçalhos podem ser utilizados para definir a actualização da cache: `Cache-Control` e `Expires`. `Cache-Control`é mais atual e tem precedência sobre `Expires`, se existem ambas. Também existem dois tipos de cabeçalhos utilizados para a validação (denominada validações): `ETag` e `Last-Modified`. `ETag`é mais atual e tem precedência sobre `Last-Modified`, se ambos estiverem definidas.  
+Semelhante à forma como a colocação em cache é implementada num browser, pode controlar como colocação em cache é efetuada numa CDN enviando cabeçalhos cache-diretiva. Cabeçalhos de cache diretiva são cabeçalhos HTTP, o que normalmente são adicionados através do servidor de origem. Embora a maioria destes cabeçalhos originalmente foram concebida para abordar a colocação em cache nos browsers do cliente, agora também são utilizados por todas as caches intermédios, como CDNs. 
+
+Dois cabeçalhos podem ser utilizados para definir a actualização da cache: `Cache-Control` e `Expires`. `Cache-Control`é mais atual e tem precedência sobre `Expires`, se existem ambas. Também existem dois tipos de cabeçalhos utilizados para a validação (denominada validações): `ETag` e `Last-Modified`. `ETag`é mais atual e tem precedência sobre `Last-Modified`, se ambos estiverem definidas.  
 
 ## <a name="cache-directive-headers"></a>Cabeçalhos de directiva cache
 
+> [!IMPORTANT]
+> Por predefinição, um ponto final de CDN do Azure está otimizado para DSA ignora cabeçalhos cache-diretiva e ignora a colocação em cache. Pode ajustar a forma como um ponto final de CDN do Azure trata estes cabeçalhos utilizando CDN regras a colocação em cache para ativar a colocação em cache. Para obter mais informações, consulte [CDN do Azure de controlo de colocação em cache comportamento com colocação em cache regras](cdn-caching-rules.md).
+
 CDN do Azure suporta os seguintes cabeçalhos cache diretiva HTTP, definem a duração da cache e a partilha de cache: 
 
-`Cache-Control`  
+`Cache-Control`
 - Introduzida no HTTP 1.1 para dar os publicadores web mais controlo sobre o conteúdo e a abordar as limitações do `Expires` cabeçalho.
-- Substitui o `Expires` cabeçalho se ambos os-lo e `Cache-Control` são definidos.
-- Quando utilizado no cabeçalho do pedido: ignoradas pela CDN do Azure, por predefinição.
-- Quando utilizado num cabeçalho de resposta: CDN do Azure honra as seguintes `Cache-Control` diretivas quando está a utilizar geral/video-on-demand suporte de dados otimizações de transmissão em fluxo, transferências de ficheiros grandes e entrega de web gerais:  
-   - `max-age`: Uma cache pode armazenar o conteúdo para o número de segundos especificado. Por exemplo, `Cache-Control: max-age=5`. Esta diretiva Especifica a quantidade máxima de tempo que o conteúdo é considerado raiz.
-   - `private`: O conteúdo é para um único utilizador apenas; Não armazene o conteúdo que as caches partilhadas, tais como o CDN.
-   - `no-cache`: O conteúdo em cache, mas necessário validar o conteúdo, sempre que a entrega de antes da cache. Equivalente ao `Cache-Control: max-age=0`.
-   - `no-store`: Nunca cache o conteúdo. Remova o conteúdo se foi anteriormente armazenado.
+- Substitui o `Expires` cabeçalho, se os dois-lo e `Cache-Control` são definidos.
+- Quando utilizado no cabeçalho de pedido, `Cache-Control` é ignorada por CDN do Azure, por predefinição.
+- Quando utilizado num cabeçalho de resposta, a CDN do Azure suporta as seguintes `Cache-Control` diretivas, de acordo com o produto: 
+   - **CDN do Azure da Verizon**: suporta todas as `Cache-Control` diretivas. 
+   - **CDN do Azure da Akamai**: suporta apenas o seguinte `Cache-Control` diretivas; todos os outros são ignorados: 
+      - `max-age`: Uma cache pode armazenar o conteúdo para o número de segundos especificado. Por exemplo, `Cache-Control: max-age=5`. Esta diretiva Especifica a quantidade máxima de tempo que o conteúdo é considerado raiz.
+      - `no-cache`: O conteúdo em cache, mas validar o conteúdo, sempre que a entrega de antes da cache. Equivalente ao `Cache-Control: max-age=0`.
+      - `no-store`: Nunca cache o conteúdo. Remova o conteúdo se foi anteriormente armazenado.
 
-`Expires` 
+`Expires`
 - Cabeçalho legado introduzido no HTTP 1.0; suportado para efeitos de compatibilidade.
 - Utiliza uma hora de expiração com base na data com precisão. 
 - Semelhante ao `Cache-Control: max-age`.
 - Utilizado quando `Cache-Control` não existe.
 
-`Pragma` 
-   - Por predefinição, não são cumprida pela CDN do Azure.
+`Pragma`
+   - Não cumpridas pela CDN do Azure, por predefinição.
    - Cabeçalho legado introduzido no HTTP 1.0; suportado para efeitos de compatibilidade.
    - Utilizado como um cabeçalho de pedido de cliente com a diretiva seguinte: `no-cache`. Esta diretiva dá instruções ao servidor para fornecer uma nova versão do recurso.
    - `Pragma: no-cache`é equivalente ao `Cache-Control: no-cache`.
-
-Por predefinição, as otimizações de DSA ignorar estes cabeçalhos. Pode ajustar a forma como a CDN do Azure trata estes cabeçalhos utilizando regras de colocação em cache da CDN. Para obter mais informações, consulte [CDN do Azure de controlo de colocação em cache comportamento com colocação em cache regras](cdn-caching-rules.md).
 
 ## <a name="validators"></a>Validações
 
@@ -110,23 +114,23 @@ Nem todos os recursos podem ser colocadas em cache. A tabela seguinte mostra os 
 |                   | CDN do Azure da Verizon | CDN do Azure da Akamai            |
 |------------------ |------------------------|----------------------------------|
 | Códigos de estado HTTP | 200                    | 200, 203, 300, 301, 302 e 401 |
-| Método HTTP       | INTRODUÇÃO                    | INTRODUÇÃO                              |
-| Tamanho dos ficheiros         | 300 GB                 | <ul><li>Otimização de entrega web geral: 1.8 GB</li> <li>Suporte de dados de transmissão em fluxo otimizações: 1.8 GB</li> <li>Otimização de ficheiros grandes: 150 GB</li> |
+| Método HTTP       | GET                    | GET                              |
+| Tamanho dos ficheiros         | 300 GB                 | -Otimização de entrega de web geral: 1.8 GB<br />-Suporte de dados de transmissão em fluxo otimizações: 1.8 GB<br />-Otimização de ficheiros grandes: 150 GB |
 
-## <a name="default-caching-behavior"></a>Predefinição comportamento de colocação em cache
+## <a name="default-caching-behavior"></a>Comportamento de colocação em cache predefinido
 
 A tabela seguinte descreve a predefinição comportamento para os produtos da CDN do Azure e os respetivos otimizações de colocação em cache.
 
-|                    | Verizon - entrega web geral | Verizon – aceleração dinâmicas do site | Akamai - entrega web geral | Akamai - aceleração dinâmicas do site | Akamai - transferência de ficheiros grandes | Akamai - geral ou transmissão em fluxo de suporte de dados de vídeo a pedido |
+|                    | Verizon - entrega web geral | Verizon – DSA | Akamai - entrega web geral | Akamai - DSA | Akamai - transferência de ficheiros grandes | Akamai - geral ou VOD suporte de dados de transmissão em fluxo |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Origem de honor**   | Sim    | Não   | Sim | Não | Sim | Sim |
-| **Duração da cache CDN** | 7 dias | Nenhum | 7 dias | Nenhum | 1 dia | 1 ano |
+| **Duração da cache CDN** | 7 dias | Nenhum | 7 dias | Nenhum | 1 dia | um ano |
 
 **Respeite origem**: Especifica se que respeite o [suportados cabeçalhos cache-diretiva](#http-cache-directive-headers) caso existam na resposta HTTP do servidor de origem.
 
 **Duração da cache CDN**: Especifica a quantidade de tempo que um recurso é colocado em cache na CDN do Azure. No entanto, se **honrar origem** é Sim e a resposta HTTP do servidor de origem inclui o cabeçalho de directiva cache `Expires` ou `Cache-Control: max-age`, CDN do Azure utiliza o valor de duração especificado pelo cabeçalho em vez disso. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber como personalizar e substituir a predefinição do comportamento da CDN através de regras a colocação em cache a colocação em cache, consulte [CDN do Azure de controlo de colocação em cache comportamento com colocação em cache regras](cdn-caching-rules.md). 
 - Para saber como utilizar cadeias de consulta para controlar a colocação em cache comportamento, consulte [CDN do Azure de controlo de colocação em cache comportamento com cadeias de consulta](cdn-query-string.md).

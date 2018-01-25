@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/19/2017
 ms.author: brjohnst
-ms.openlocfilehash: 52bd0fd4cf70401dcf881c7f28d5cd91397bb059
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c3c22b83346269cf3c0327fe3fb98510a6266733
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Consultar o índice de Pesquisa do Azure utilizando o SDK .NET
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 A pesquisa com o SDK .NET é tão simples como chamar o método `Documents.Search` no seu `SearchIndexClient`. Este método aceita alguns parâmetros, incluindo o texto de pesquisa, juntamente com um objeto `SearchParameters` que podem ser utilizados para aperfeiçoar ainda mais a consulta.
 
 #### <a name="types-of-queries"></a>Tipos de consultas
-Os dois principais [tipos de consulta](search-query-overview.md#types-of-queries) que irá utilizar são `search` e `filter`. Uma consulta `search` pesquisa um ou mais termos em todos os campos *pesquisáveis* no seu índice. Uma consulta `filter` avalia uma expressão booleana através de todos os campos *filtráveis* num índice.
+Os dois principais [tipos de consulta](search-query-overview.md#types-of-queries) que irá utilizar são `search` e `filter`. Uma consulta `search` pesquisa um ou mais termos em todos os campos *pesquisáveis* no seu índice. Uma consulta `filter` avalia uma expressão booleana através de todos os campos *filtráveis* num índice. Pode utilizar as pesquisas e os filtros em conjunto ou separadamente.
 
 As pesquisas e os filtros são efetuados utilizando o método `Documents.Search`. Uma consulta de pesquisa pode ser transmitida no parâmetro `searchText`, enquanto uma expressão de filtro pode ser transmitida na propriedade `Filter` da classe `SearchParameters`. Para filtrar sem pesquisar, basta passar `"*"` para o parâmetro `searchText` . Para pesquisar sem filtrar, basta deixar a propriedade `Filter` por definir ou não transmitir numa instância `SearchParameters` de todo.
 

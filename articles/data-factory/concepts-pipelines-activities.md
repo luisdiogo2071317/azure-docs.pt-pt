@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 4214bc2a58a1ce6d0d329010ec7775a343e9d782
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: f5384b4fa0a1baaafd8b2dbf3ed4d7776f4d80ea
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -359,7 +359,7 @@ Pode utilizar a [dependência das atividades](#activity-dependency) para encadea
 ## <a name="scheduling-pipelines"></a>Agendamento de pipelines
 Os pipelines são agendados por acionadores. Existem diferentes tipos de acionadores (acionador Scheduler, que permite acionar vários pipelines de acordo com uma agenda, bem como o acionador manual, que aciona os pipelines a pedido). Para obter mais informações sobre os acionadores, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md). 
 
-Para que o seu acionador arranque uma execução de pipeline, tem de incluir uma referência ao pipeline desse pipeline na definição do acionador. Os pipelines e os acionadores têm uma relação “n-m” (muitos para muitos). Múltiplos acionadores podem arrancar um pipeline individual e o mesmo acionador pode arrancar vários pipelines. Quando o acionador estiver definido, tem de iniciá-lo para que o mesmo comece a acionar o pipeline. Para obter mais informações sobre os acionadores, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md). 
+Para que o seu acionador arranque uma execução de pipeline, tem de incluir uma referência ao pipeline desse pipeline na definição do acionador. Os pipelines e os acionadores têm uma relação “n-m” (muitos para muitos). Múltiplos acionadores podem arrancar um pipeline individual e o mesmo acionador pode arrancar vários pipelines. Quando o acionador estiver definido, tem de iniciá-lo para que o mesmo comece a acionar o pipeline. Para obter mais informações sobre os acionadores, veja o artigo [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md) (Execução e acionadores de pipelines). 
 
 Por exemplo, imagine que tem um acionador Scheduler, o "Trigger A", que pretende que arranque o pipeline “MyCopyPipeline”. Defina o acionador, conforme mostrado no exemplo seguinte:
 

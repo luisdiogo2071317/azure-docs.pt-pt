@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a2b2bd139443159607a0cef800737de6761e1c2
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementação do Serviço de Federação do Active Directory no Azure
 O AD FS proporciona federação de identidade simplificada e protegida e capacidades de início de sessão único (SSO) na Web. A Federação com o Azure AD ou o O365 permite aos utilizadores autenticarem-se com credenciais no local e aceder a todos os recursos na nuvem. Como resultado, torna-se importante ter uma infraestrutura do AD FS de elevada disponibilidade para garantir acesso aos recursos no local e na nuvem. Implementar o AD FS no Azure pode ajudar a alcançar a elevada disponibilidade necessária com um esforço mínimo.
@@ -289,7 +289,10 @@ De um modo geral, precisa das regras seguintes para proteger de forma eficiente 
 
 ![Regras de acesso EXT (entrada)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
-[comment]: <> (![regras de acesso EXT (entrada)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comment]: <> (![regras de acesso EXT (saída)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+<!--
+[comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
+[comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+-->
 
 > [!NOTE]
 > Se a autenticação de certificado de utilizador cliente (autenticação clientTLS com certificados de utilizador X509) for necessária, o AD FS requer que a porta TCP 49443 esteja ativada para acesso de entrada.

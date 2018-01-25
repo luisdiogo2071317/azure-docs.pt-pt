@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 11/13/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6294216568e1d4c50ef6e6b6d2348a2a221406b0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Utilizar pontos finais do serviço de rede Virtual e as regras para a SQL Database do Azure
 
@@ -67,7 +67,7 @@ Uma regra de rede virtual indica que o servidor de base de dados SQL para aceita
 
 Até que a ação, VMs as sub-redes não consegue comunicar com a base de dados do SQL Server. Uma ação que estabelece a comunicação é a criação de uma regra de rede virtual. A lógica por detrás para escolher a abordagem de regra de VNet requer um debate comparar e contraste que envolve as opções de segurança concorrentes disponibilizadas pela firewall.
 
-#### <a name="a-allow-access-to-azure-services"></a>A. Permitir o acesso aos serviços do Azure
+#### <a name="a-allow-access-to-azure-services"></a>A. Permitir acesso aos serviços do Azure
 
 O painel de firewall tem um **ON/OFF** botão assinalada como **permitir o acesso aos serviços do Azure**. O **ON** definição permite as comunicações de todos os endereços IP do Azure e todas as sub-redes do Azure. Estes Azure IPs sub-redes poderão não ser detidas por si. Isto **ON** definição é provavelmente mais aberta que pretende que a base de dados do SQL Server para ser. A funcionalidade de regra de rede virtual oferece muito controlo finer granular.
 
@@ -179,11 +179,20 @@ Atualmente, existem duas formas de ativar a auditoria na sua base de dados do SQ
 Armazenamento do Azure tiver implementado a mesma funcionalidade que permite limitar a conectividade à sua conta de armazenamento.
 Se optar por utilizar esta funcionalidade com uma conta de armazenamento que está a ser utilizada por um servidor de SQL do Azure, pode depare com problemas. Em seguida, é uma lista e debate das funcionalidades do Azure SQLDB que são afetados por este.
 
-#### <a name="azure-sqldw-polybase"></a>PolyBase SQLDW do Azure
+#### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
 O PolyBase costuma é utilizado para carregar dados para o Azure SQLDW das contas do Storage. Se a conta de armazenamento que está a carregar dados a partir de limita o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade do PolyBase à conta.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Blob do Azure SQLDB auditoria
 Auditoria de blob pushes registos de auditoria para a sua própria conta de armazenamento. Se esta conta de armazenamento utiliza a funcionalidade de pontos finais do serviço de prevenir irá interromper a conectividade do SQLDB do Azure para a conta de armazenamento.
+
+
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionar uma regra de Firewall de VNET para o servidor sem desativar na VNET pontos finais de serviço
+
+Há quanto tempo antes desta funcionalidade foi melhorada, eram necessários para ativar a VNet serviço pontos finais em antes de pode implementar uma regra de VNet em direto na Firewall. Os pontos finais relacionados com uma determinada sub-rede de VNet para uma base de dados do SQL do Azure. Mas agora em Janeiro de 2018, pode contornar este requisito, definindo o **IgnoreMissingServiceEndpoint** sinalizador.
+
+Definição simplesmente uma regra de Firewall não ajudar a proteger o servidor. Tem também de ativar pontos finais do serviço de VNet para garantir a segurança tenha efeito. Quando ativar pontos finais de serviço, a sub-rede da VNet ocorrer no período de indisponibilidade até concluir a transição de desativado para no. Isto é particularmente verdadeiro no contexto de grande VNets. Pode utilizar o **IgnoreMissingServiceEndpoint** sinalizador a reduzir ou eliminar o período de indisponibilidade durante a transição.
+
+Pode definir o **IgnoreMissingServiceEndpoint** sinalizador utilizando o PowerShell. Para obter mais informações, consulte [PowerShell para criar um ponto final do serviço de rede Virtual e uma regra para a SQL Database do Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 
 ## <a name="errors-40914-and-40615"></a>Erros 40914 e 40615

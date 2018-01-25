@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar encargos inesperados com o custo de gestão e de faturação do Azure
 
@@ -157,6 +157,7 @@ Vistas de custo de empresa estão atualmente em pré-visualização pública. It
 - Os custos de subscrição baseiam-se em utilização e não conta quantidades pré-pago, excedentes, quantidades incluídas, ajustes e taxas. Custos reais são calculados do nível de inscrição. 
 - Quantidades apresentadas no portal do Azure podem sofrer um atraso de compared para valores no portal da empresa.  
 - Se não existem custos, tal poderá dever-se um dos seguintes motivos:
+    - Não tem permissão suficiente RBAC ao nível da subscrição. Para ver as vistas de custo de empresa, tem de ser um leitor de faturação, leitor, contribuinte ou proprietário ao nível da subscrição.
     - São um proprietário da conta e o administrador de inscrição desativou os "pedidos vista encargos" definir.  Contacte o administrador de inscrição para obter acesso aos custos. 
     - É um administrador do departamento e o administrador de inscrição desativou os "DA vista encargos" definir.  Contacte o administrador de inscrição para obter acesso. 
     - Compradas do Azure através de um parceiro de canal e o parceiro não lançou informações sobre os preços.  

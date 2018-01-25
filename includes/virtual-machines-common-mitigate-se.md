@@ -8,7 +8,10 @@ A divulgação recente de um [nova classe de vulnerabilidades de CPU](https://po
 A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente umas das outras está protegida.  Isto significa que outros clientes em execução no Azure não é possível ataques a sua aplicação utilizar estas vulnerabilidades.
 
 > [!NOTE] 
-> Azure mitigações previamente anunciadas no 3 de Janeiro de 2018 não são afetadas pelo recente [instruções atualizadas](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) da Intel. Não haverá nenhuma atividade manutenção adicionais no cliente VMs em resultado destas novas informações pela Intel.
+> Azure mitigações previamente anunciadas no 3 de Janeiro de 2018 não são afetadas pelo recente [instruções atualizadas](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) da Intel. Não haverá nenhuma atividade manutenção adicionais no cliente VMs devido a estas informações de novo.
+>
+> Vamos continuar a atualizar estas melhores práticas que recebemos microcode atualizações dos fornecedores de hardware. Verifique novamente para orientação atualizada.
+>
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Manter os sistemas de operativos atualizado
 
@@ -46,9 +49,6 @@ Se estiver a utilizar o Windows e a alojar o código não fidedigno, deve ativar
 ### <a name="linux"></a>Linux
 Se estiver a utilizar o Linux e alojar código não fidedigno, também deve atualizar o Linux para uma versão mais recente que implementa o isolamento de tabela de página de kernel (KPTI) que separa as tabelas de página utilizadas pelo kernel das pertencendo ao espaço de utilizador. Estes mitigações requerem uma atualização de SO Linux e podem ser obtidas através do seu fornecedor de distribuição quando disponível. O fornecedor de SO pode indicar-lhe se proteções ativadas ou desativadas por predefinição.
 
-
-
-Vamos continuar a atualizar estas melhores práticas que recebemos microcode atualizações dos fornecedores de hardware. Verifique novamente para orientação atualizada.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -1,21 +1,21 @@
 ---
-title: "Implementar em instâncias de contentor do Azure a partir do registo de contentor do Azure"
-description: "Implementar instâncias de contentor do Azure no registo de contentor do Azure"
+title: "Implementar instâncias de contentor do Azure a partir do registo de contentor do Azure"
+description: "Saiba como implementar contentores em instâncias de contentor Azure utilizando as imagens do contentor num registo de contentor do Azure."
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/24/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 4205b47dc67920021812c1e573a98de64ad198ec
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: c69b95f66bf2eaf4975961da5b25f5ac6172798c
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Implementar em instâncias de contentor do Azure a partir do registo de contentor do Azure
+# <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementar instâncias de contentor do Azure a partir do registo de contentor do Azure
 
 O registo de contentor do Azure é um registo privado baseado no Azure, para imagens de contentor do Docker. Este artigo abrange como implementar imagens do contentor armazenadas no registo de contentor do Azure para instâncias de contentor do Azure.
 
@@ -51,17 +51,23 @@ Se manter a imagens de contentor no registo de contentor do Azure, pode facilmen
 
 1. No portal do Azure, navegue para o registo de contentor.
 
-2. Selecione **repositórios**, em seguida, selecione o repositório de que pretende implementar, clique com botão direito a etiqueta para a imagem de contentor que pretende implementar e selecione **executar instância**.
+1. Selecione **repositórios**, em seguida, selecione o repositório de que pretende implementar, clique com botão direito a etiqueta para a imagem de contentor que pretende implementar e selecione **executar instância**.
 
     !["Executar a instância" no registo de contentor do Azure no portal do Azure][acr-runinstance-contextmenu]
 
-3. Introduza um nome para o contentor e um nome para o grupo de recursos. Também pode alterar os valores predefinidos se desejar.
+1. Introduza um nome para o contentor e um nome para o grupo de recursos. Também pode alterar os valores predefinidos se desejar.
 
     ![Criar o menu para instâncias de contentor do Azure][acr-create-deeplink]
 
-4. Uma vez concluída a implementação, pode navegar para o grupo de contentor do painel de notificações para localizar o respetivo endereço IP e outras propriedades.
+1. Uma vez concluída a implementação, pode navegar para o grupo de contentor do painel de notificações para localizar o respetivo endereço IP e outras propriedades.
 
     ![Vista de detalhes para o grupo do contentor de instâncias de contentor do Azure][aci-detailsview]
+
+## <a name="service-principal-authentication"></a>Autenticação do principal de serviço
+
+Se o utilizador de administrador para o registo de contentor do Azure está desativado, pode utilizar um Azure Active Directory [principal de serviço](../container-registry/container-registry-auth-service-principal.md) para autenticar para o registo ao criar uma instância de contentor. Utilização de um principal de serviço de autenticação também é recomendável sem interface cenários, como um script ou aplicação que cria instâncias de contentor de forma automática.
+
+Para obter mais informações, consulte [autenticar com o registo de contentor do Azure de instâncias de contentor do Azure](../container-registry/container-registry-auth-aci.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/23/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c7aab313e6c848c97447cde22752cfed945442df
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: f32fc2d2df73f4a01c300d565595e2c00b2baf4b
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que é novo no Azure Active Directory?
 
@@ -40,6 +40,126 @@ Azure AD recebe melhoramentos numa base contínua. Para se manter atualizado com
 -   Planos de alterações
 
 Esta página é atualizada mensalmente, por isso, revê-lo regularmente.
+
+
+## <a name="january-2018"></a>De 2018 Janeiro
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Novas federado aplicações disponíveis na Galeria de aplicações do Azure AD 
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** aplicações da empresa  
+**Capacidade de produto:** 3rd integração de terceiros
+ 
+
+Em Janeiro de 2018, foram adicionadas as seguintes novas aplicações com suporte de Federação na Galeria de aplicações:
+
+[IBM OpenPages](https://go.microsoft.com/fwlink/?linkid=864698), [Software de gestão da privacidade de OneTrust](https://go.microsoft.com/fwlink/?linkid=861660), [Dealpath](https://go.microsoft.com/fwlink/?linkid=863526), [IriusRisk federado diretório](https://go.microsoft.com/fwlink/?linkid=864699) e [fidelidade NetBenefits](https://go.microsoft.com/fwlink/?linkid=864701).
+
+Para obter uma descrição completa de todos os tutoriais disponíveis, consulte [integração de aplicações de SaaS no Azure Active Directory](https://aka.ms/appstutorial).
+ 
+
+---
+ 
+
+
+### <a name="sign-in-with-additional-risk-detected"></a>Início de sessão com risco adicional detetado
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** Identity Protection  
+**Capacidade de produto:** segurança de identidade e de proteção
+ 
+
+As informações que obtém para um evento de risco detetados está associada à sua subscrição do Azure AD. Com a edição do Azure AD Premium P2, obter as informações mais detalhadas sobre todas as deteções subjacentes.
+
+Com a edição do Azure AD Premium P1, deteções que não são abrangidas por sua licença são apresentados como o evento de risco início de sessão com o risco adicional detetado.
+
+Para obter mais informações, consulte [Eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+ 
+
+---
+
+### <a name="hide-office-365-applications-from-end-users-access-panels"></a>Ocultar a painéis de acesso do utilizador final de aplicações do Office 365
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** aplicações My  
+**Capacidade de produto:** SSO
+ 
+
+Pode agora melhor gerir como aplicações do Office 365 mostram no painel de acesso do utilizador através de uma nova definição de utilizador. Esta opção é útil para reduzir a quantidade de aplicações no painel de acesso de um utilizador, se preferir Mostrar apenas as aplicações do Office no portal do Office. A definição está localizada no **as definições de utilizador** e assinalada como **os utilizadores apenas podem ver as aplicações do Office 365 no portal do Office 365**.
+ 
+
+Para obter mais informações, consulte [ocultar uma aplicação da experiência do utilizador no Azure Active Directory](active-directory-coreapps-hide-third-party-app.md).
+
+---
+ 
+
+
+### <a name="seamless-sign-into-apps-enabled-for-password-sso-directly-from-apps-url"></a>Início de sessão totalmente integrado em aplicações ativadas para SSO de palavra-passe diretamente a partir do URL da aplicação 
+
+**Tipo:** nova funcionalidade  
+**Categoria de serviço:** aplicações My  
+**Capacidade de produto:** SSO
+ 
+
+A extensão de browser de aplicações My está agora disponível através de uma ferramenta conveniente que dá-lhe os minhas aplicações início de sessão único na capacidade como um atalho no seu browser. Depois de instalar o utilizador verá um ícone de waffle no browser que proporciona-lhes acesso rápido às aplicações. Os utilizadores podem agora beneficiar do:
+
+- A capacidade para iniciar sessão diretamente no SSO de palavra-passe com base em aplicações a partir da página de início de sessão da aplicação
+- Iniciar qualquer aplicação utilizando a funcionalidade de pesquisa rápida
+- Atalhos para aplicações recentemente utilizados da extensão do
+- A extensão está disponível para o limite, o Chrome e o Firefox.
+ 
+Para obter mais informações, consulte [segura de aplicações My início de sessão extensão](active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+
+---
+
+### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>A administração do Azure AD foi retirada experiência de utilização no portal clássico do Azure
+
+**Tipo:** preterido   
+**Categoria de serviço:** do Azure AD  
+**Capacidade de produto:** diretório
+ 
+
+A partir de 8 de Janeiro de 2018, a administração do Azure AD foi retirada experiência de utilização no portal clássico do Azure. Isto demorou local em conjunto com a extinção do portal clássico do Azure em si. Doravante, deve utilizar o [Centro de administração do Azure AD](https://aad.portal.azure.com) todos os seus administração baseada no portal do Azure AD.
+ 
+---
+
+### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>A administração do Azure AD foi retirada experiência de utilização no portal clássico do Azure
+
+**Tipo:** preterido  
+**Categoria de serviço:** do Azure AD  
+**Capacidade de produto:** diretório
+ 
+
+A partir de 8 de Janeiro de 2018, o portal web do PhoneFactor foi extinguido. Este portal foi utilizado para a administração do servidor MFA, mas essas funções terem sido movidas para o portal do Azure em portal.azure.com. 
+
+A configuração da MFA está localizada em: **do Azure Active Directory \> servidor MFA**
+ 
+---
+ 
+### <a name="deprecate-azure-ad-reports"></a>Despromover o relatórios do Azure AD
+
+
+**Tipo:** preterido  
+**Categoria de serviço:** relatórios  
+**Capacidade de produto:** gestão de ciclo de vida de identidade  
+
+
+Com a disponibilidade geral da nova consola de administração do Active Directory do Azure e novas APIs agora disponíveis para relatórios de atividade e segurança, o relatório APIs em ponto final "/ relatórios" foi descontinuado a partir do fim do dia 31 de Dezembro de 2017.
+
+
+**O que está disponível?**
+
+Como parte da transição para a nova consola de administração, efetuamos 2 novas APIs disponíveis para obter os registos de atividade do Azure AD. O novo conjunto de APIs fornecem mais rico de filtragem e ordenação funcionalidade além de proporcionarem auditoria mais completas e as atividades de início de sessão. Os dados previamente disponíveis através de relatórios de segurança agora podem ser acedidos através de eventos de risco Identity Protection API no Microsoft Graph.
+
+Para obter mais informações, consulte:
+
+- [Introdução ao Azure Active Directory API do relatório](active-directory-reporting-api-getting-started-azure-portal.md)
+
+- [Introdução ao Azure Active Directory Identity Protection e o Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+
+
+---
 
 
 ## <a name="december-2017"></a>Dezembro de 2017
@@ -130,25 +250,11 @@ Para obter mais informações, consulte [que é o Azure AD Privileged Identity M
 **Categoria de serviço:** aplicações da empresa  
 **Capacidade de produto:** integração de terceiros
  
-Dezembro de 2017, as seguintes novas aplicações com suporte de Federação foram adicionadas na Galeria de aplicações.
+Dezembro de 2017, as seguintes novas aplicações com suporte de Federação foram adicionadas na Galeria de aplicações:
 
-|Nome|Tipo de integração|Descrição|
-|:-- |----------------|:----------|
-|EFI Digital StoreFront|SAML 2.0|[Impressão Web 2](https://go.microsoft.com/fwlink/?linkid=861685) aplicação.|
-|Vodeclic|SAML 2.0|Utilizar o Azure AD para gerir o acesso de utilizador e ative início de sessão único com [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522). Requer uma conta de Vodeclic existente.|
-|Accredible|SAML 2.0|Utilize [Accredible](https://go.microsoft.com/fwlink/?linkid=863523) para criar, gerir e fornecer certificados, destaques e blockchain credenciais.|
-|FactSet|SAML 2.0|Início de sessão único para o [FactSet FDSWeb aplicação](https://go.microsoft.com/fwlink/?linkid=863525).|
-|Integração do MobileIron Azure AD|SAML 2.0|As empresas modernas podem utilizar [MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) para proteger e gerir as informações são transmitidos para móveis e a nuvem enquanto preservar a privacidade e de confiança.|
-|FUNCIONA DA IMAGEM|SAML 2.0|Utilizar o Azure AD para gerir o acesso de utilizador, aprovisionar contas de utilizador e ative início de sessão único com [imagem FUNCIONA](https://go.microsoft.com/fwlink/?linkid=863517). Requer uma subscrição FUNCIONA de imagem existente.|
-|SAML SSO para Bitbucket pela resolução GmbH|SAML 2.0|[SSO Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) autenticação delegados para o Azure AD. Os utilizadores que já iniciados sessão com o Azure AD podem aceder diretamente a Bitbucket. Os utilizadores podem ser criados e atualizados no momento com dados de atributos SAML.|
-|SAML SSO para Bamboo pela resolução GmbH|SAML 2.0|[SSO Bamboo](https://go.microsoft.com/fwlink/?linkid=863520) autenticação delegados para o Azure AD. Os utilizadores que já iniciados sessão com o Azure AD podem aceder diretamente a Bamboo.|
-|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) é um software de intranet de redes sociais moderna, excelentes que suporte a funcionários e empresariais.|
-|MOBI|SAML 2.0|Utilize [MOBI](https://go.microsoft.com/fwlink/?linkid=863521) para centralizar, comprehend e controlar o seu ecossistema de dispositivo completo.|
-|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) é uma plataforma de gestão de desempenho, comentários em tempo real e definição de objetivo moderna. |
-|CybSafe|OpenID Connect & OAuth|Esta plataforma de deteção de informático GCHQ certificado utiliza análises avançadas de tecnologia e os dados para reduzir o aspeto do risco de proteção de dados e segurança informático humano.|
-|WebHR|OpenID Connect & OAuth|Este software de redes sociais recursos humanos é considerado fidedigno pelo mais de 20.000 empresas 197 países.|
- |Integração do Zenegy Azure AD|OpenID Connect & OAuth|Com esta aplicação, pode utilizar credenciais do Azure AD da sua empresa para iniciar sessão no Zenegy.|
-|Gestor de experiência de Adobe|SAML 2.0|Pode utilizar esta solução de plataforma de Gestão abrangente de conteúdo a criação de Web sites, aplicações móveis e formulários para gerir os seus conteúdos de marketing e recursos.|
+[Accredible](https://go.microsoft.com/fwlink/?linkid=863523), Gestor de experiência de Adobe, [EFI Digital StoreFront](https://go.microsoft.com/fwlink/?linkid=861685), [Communifire](https://go.microsoft.com/fwlink/?linkid=861676) CybSafe, [FactSet](https://go.microsoft.com/fwlink/?linkid=863525), [imagem FUNCIONA](https://go.microsoft.com/fwlink/?linkid=863517), [MOBI](https://go.microsoft.com/fwlink/?linkid=863521), [MobileIron do Azure AD integração](https://go.microsoft.com/fwlink/?linkid=858027), [Reflektive](https://go.microsoft.com/fwlink/?linkid=863518), [SAML SSO para Bamboo pela resolução GmbH](https://go.microsoft.com/fwlink/?linkid=863520), [SAML SSO para Bitbucket pela resolução GmbH](https://go.microsoft.com/fwlink/?linkid=863519), [Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522), WebHR, a integração do Zenegy Azure AD.
+
+Para obter uma descrição completa de todos os tutoriais disponíveis, consulte [integração de aplicações de SaaS no Azure Active Directory](https://aka.ms/appstutorial).
 
  
 ---

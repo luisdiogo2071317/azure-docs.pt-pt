@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: a72c9104dc2df0c8a874f757c100a19dc26c1564
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de suporte de recuperação de sites do Azure para replicar no local para Azure
 
@@ -68,7 +68,7 @@ A tabela seguinte resume o suporte do sistema de operativo replicadas em vários
 
  **Servidor VMware/físico** | **Hyper-V (com/sem VMM)** |
 --- | --- |
-64 bits do Windows Server 2016 (Server Core, o servidor com experiência de ambiente de trabalho)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com, pelo menos, SP1<br/><br/> Red Hat Enterprise Linux: 5.2 para 5.11, 6.1 para 6.9, 7.0 e 7,4<br/><br/>CentOS: 5.2 para 5.11, 6.1 para 6.9, 7.0 e 7,4 <br/><br/>Servidor Ubuntu 14.04 LTS[ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Servidor Ubuntu 16.04 LTS[ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3) <br/><br/>SP3 do SUSE Linux Enterprise Server 11 <br/><br/>SP4 do SUSE Linux Enterprise Server 11 <br/>(Não é suportada a atualização de replicar máquinas do SLES 11 SP3 para SLES 11 SP4. Se uma máquina replicada tiver sido atualizada do SLES 11SP3 para SLES 11 SP4, terá de desativar a replicação e proteger a máquina post novamente a atualização.) | Qualquer SO convidado [suportado pelo Azure](https://technet.microsoft.com/library/cc794868.aspx)
+64 bits do Windows Server 2016 (Server Core, o servidor com experiência de ambiente de trabalho)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com, pelo menos, SP1<br/><br/> Red Hat Enterprise Linux: 5.2 para 5.11, 6.1 para 6.9, 7.0 e 7,4<br/><br/>CentOS: 5.2 para 5.11, 6.1 para 6.9, 7.0 e 7,4 <br/><br/>Servidor Ubuntu 14.04 LTS[ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Servidor Ubuntu 16.04 LTS[ (versões de kernel suportado)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4, 6.5 com o kernel compatível do Red Hat ou Unbreakable Enterprise Kernel versão 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(Não é suportada a atualização de replicar máquinas do SLES 11 SP3 para SLES 11 SP4. Se uma máquina replicada tiver sido atualizada do SLES 11SP3 para SLES 11 SP4, terá de desativar a replicação e proteger a máquina post novamente a atualização.) | Qualquer SO convidado [suportado pelo Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
@@ -166,7 +166,7 @@ Caminho multi (o MPIO)<br></br>Testar com: Microsoft DSM, EMC PowerPath 5.7 SP4,
 VMDK | Sim | N/A
 VHD/VHDX | N/A | Sim
 Ger 2 VM | N/A | Sim
-EFI/UEFI| Não | Sim
+EFI/UEFI| Migração para o Azure para o Windows Server 2012 e apenas mais tarde. </br></br> * * Consulte a nota no fim da tabela.  | Sim
 Disco de cluster partilhado | Não | Não
 Disco encriptado | Não | Não
 NFS | Não | N/A
@@ -180,6 +180,12 @@ Espaços de armazenamento | Não | Sim
 Disco frequente Adicionar/remover | Não | Não
 Excluir o disco | Sim | Sim
 Caminho multi (o MPIO) | N/A | Sim
+
+> [!NOTE]
+> * * UEFI arrancar em máquinas virtuais VMware ou servidores físicos com o Windows Server 2012 ou posterior, que podem ser migrados para o Azure. As seguintes restrições aplicam-se.
+> - Migração para o Azure apenas. Reativação pós-falha para o site de VMware no local não suportada.
+> - São suportadas não mais de 4 partições no disco de SO do servidor.
+> - Requer a versão do serviço de mobilidade de recuperação de Site do Azure 9.13 ou posterior.
 
 **Armazenamento do Azure** | **Servidor VMware/físico** | **Hyper-V (com/sem o Virtual Machine Manager)**
 --- | --- | ---
@@ -220,7 +226,7 @@ Pode implementar o Site Recovery para replicar máquinas virtuais e servidores f
 **VHD partilhado** | Não suportado | Verificação de pré-requisitos irá falhar se não suportado
 **Disco FC** | Não suportado | Verificação de pré-requisitos irá falhar se não suportado
 **Formato de disco rígido** | VHD <br/><br/> VHDX | Embora VHDX não é atualmente suportado no Azure, a recuperação de sites converte automaticamente VHDX VHD, quando efetuar a ativação pós-falha para o Azure. Quando falhar no local as máquinas virtuais continuam a utilizar o formato VHDX.
-**BitLocker** | Não suportado | O BitLocker tem de ser desativado antes de proteger uma máquina virtual.
+**Bitlocker** | Não suportado | O BitLocker tem de ser desativado antes de proteger uma máquina virtual.
 **Nome da VM** | Entre 1 e 63 carateres. Restritas a letras, números e hífenes. O nome da VM tem de começar e terminar com uma letra ou número. | Atualize o valor nas propriedades de máquina virtual na recuperação de sites.
 **Tipo VM** | Geração 1<br/><br/> Geração 2 – Windows | Geração 2 VMs com um tipo de disco de SO de basic (que inclui um ou dois volumes de dados formatados como VHDX) e inferior a 300 GB de espaço em disco são suportadas.<br></br>As VMs do Linux geração 2 não são suportadas. [Saiba mais](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 

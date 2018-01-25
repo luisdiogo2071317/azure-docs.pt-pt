@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 8372817b00d8a5f9e4203b072dbc143185639120
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 180b87e18d98bb1e7ddefdcce09fc45d2fc26d0f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como ativar a virtualização aninhada numa VM do Azure
 
@@ -49,7 +49,7 @@ Crie uma ligação de ambiente de trabalho remoto para a máquina virtual.
 Pode configurar estas definições manualmente ou fornecemos um script do PowerShell para automatizar a configuração.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Opção 1: Utilizar um script do PowerShell para configurar a virtualização de aninhadas
-Um script do PowerShell para ativar a virtualização aninhada num anfitrião Windows Server 2016 não está disponível na [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). O script verifica os pré-requisitos e, em seguida, configura virtualização aninhada na VM do Azure. É necessário para concluir a configuração reiniciar a VM do Azure. Este script pode funcionar nos outros ambientes, mas não é garantido. Consulte a mensagem de blogue do Azure com uma demonstração em vídeo em direto virtualização aninhados em execução no Azure! https://aka.MS/AzureNVblog.
+Um script do PowerShell para ativar a virtualização aninhada num anfitrião Windows Server 2016 não está disponível na [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). O script verifica os pré-requisitos e, em seguida, configura virtualização aninhada na VM do Azure. É necessário para concluir a configuração reiniciar a VM do Azure. Este script pode funcionar nos outros ambientes, mas não é garantido. Consulte a mensagem de blogue do Azure com uma demonstração em vídeo em direto virtualização aninhados em execução no Azure! https://aka.ms/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Opção 2: Configurar a virtualização de aninhada manualmente
 
@@ -77,7 +77,7 @@ Criar um novo adaptador de rede virtual para a máquina virtual do convidado e c
 2. Crie um comutador interno.
 
     ```powershell
-    New-VMSwitch -SwitchName "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
     ```
 
 3. Ver as propriedades do comutador e tenha em atenção o ifIndex para o adaptador de novo.

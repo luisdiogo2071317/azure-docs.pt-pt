@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 9c94c62b86ef69704ad011ee3661a1688c39a388
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 01/24/2018
@@ -129,7 +129,7 @@ Se este fluxo de trabalho não for possível, depender [encriptação do serviç
 
 **P:** onde pode devo para colocar questões ou comentários?
 
-**R:** pode colocar questões ou comentários sobre o [fórum do Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption).
+**R:** pode colocar questões ou comentários sobre o [fórum do Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste documento, aprendeu mais informações sobre as perguntas mais frequentes relacionadas com a Azure Disk Encryption. Para obter mais informações sobre este serviço e as respetivas capacidades, consulte os artigos seguintes:
