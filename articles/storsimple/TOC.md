@@ -2,7 +2,6 @@
 
 ## Descrição geral
 ### [Qual é a solução?](storsimple-ova-overview.md)
-### [Disponibilidade por regiões](storsimple-regions.md)
 
 ## Introdução
 ### Planear
@@ -13,6 +12,7 @@
 ### Implementação
 #### [Preparar para implementar](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Implementar o serviço StorSimple Manager](storsimple-virtual-array-manage-service.md)
+##### [Nova autenticação](storsimple-virtual-array-aad-registration-key.md)
 #### [Aprovisionamento no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Aprovisionamento no VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Configurar como servidor de ficheiros](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -79,6 +79,7 @@
 
 ### Implementação
 #### [Serviço de Gestor de Dispositivos do StorSimple](storsimple-8000-manage-service.md)
+#### [Nova autenticação para o serviço](storsimple-8000-aad-registration-key.md)
 #### [Dispositivo físico no Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Dispositivo físico no Portal do Governo](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Aplicação da cloud no Azure](storsimple-8000-cloud-appliance-u2.md)
