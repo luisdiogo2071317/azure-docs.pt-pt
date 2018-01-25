@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 0409d4576b0671f60c5e3bd7e82a2a1102d3d28c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 22189c3d2d2164ba0fa3c2d790c36361fb0f5854
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory com Confluence SAML SSO pela Microsoft
 
@@ -31,6 +31,10 @@ Integrar Confluence SAML SSO pela Microsoft com o Azure AD fornece as seguintes 
 - Pode gerir as contas numa localização central - portal do Azure
 
 Se pretender saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [que é o acesso a aplicações e início de sessão no Azure Active Directory](active-directory-appssoaccess-whatis.md).
+
+## <a name="description"></a>Descrição:
+
+Utilize a sua conta do Microsoft Azure Active Directory com o servidor de Atlassian Confluence para ativar o início de sessão único. Desta forma todos os utilizadores da organização podem utilizar as credenciais do Azure AD para iniciar sessão na aplicação Confluence. Este plug-in utiliza SAML 2.0 para Federação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -94,8 +98,6 @@ Para configurar a integração de Confluence SAML SSO pela Microsoft com o Azure
 Nesta secção, configure e teste do Azure AD-início de sessão único com Confluence SAML SSO pela Microsoft baseada-se um utilizador de teste chamado "Britta Simon".
 
 Para início de sessão trabalhar, do Azure AD tem de saber o que o utilizador homólogo em Confluence SAML SSO pela Microsoft é um utilizador no Azure AD. Por outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Confluence SAML SSO pela Microsoft tem de ser estabelecida.
-
-Em Confluence SAML SSO pela Microsoft, atribua o valor do **nome de utilizador** no Azure AD como o valor a **Username** para estabelecer a relação de ligação.
 
 Para configurar e testar o Azure AD-início de sessão único com Confluence SAML SSO pela Microsoft, tem de concluir os blocos modulares seguintes:
 
@@ -163,7 +165,7 @@ Nesta secção, ativar o Azure AD início de sessão no portal do Azure e config
     
     ![Configurar o início de sessão único](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. Transfira o plug-in do [Microsoft Download Center](). Carregar manualmente o plug-in fornecido através do Microsoft **carregar o suplemento** menu
+8. Transfira o plug-in do [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Carregar manualmente o plug-in fornecido através do Microsoft **carregar o suplemento** menu
     
     ![Configurar o início de sessão único](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 

@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bd186341329721ee097a5b3ad3e7ad11b8e189f9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4fd84904fb264fc61d0059d389347e05839162d2
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Desenvolver e implementar um módulo de limite de IoT c# para o seu dispositivo simulado – pré-visualização
 
@@ -31,7 +31,7 @@ O módulo de limite de IoT que criou neste tutorial filtra os dados de temperatu
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * O dispositivo de limite de IoT do Azure que criou no início rápido ou primeiro tutorial.
-* A cadeia de ligação de chave primária para o dispositivo de limite de IoT.  
+* A cadeia de ligação da chave primária do dispositivo IoT Edge.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Extensão de limite de IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [C# para a extensão do Visual Studio Code (com tecnologia OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
@@ -70,6 +70,14 @@ A mostrar os passos seguintes, como criar um módulo de limite de IoT com base n
 5. No Explorador de VS Code, clique em **Program.cs** para abri-lo.
 
    ![Abertos Program. CS][1]
+
+6. Na parte superior do **FilterModule** espaço de nomes, adicionar três `using` instruções para tipos de utilizados mais tarde:
+
+    ```csharp
+    using System.Collections.Generic;     // for KeyValuePair<>
+    using Microsoft.Azure.Devices.Shared; // for TwinCollection
+    using Newtonsoft.Json;                // for JsonConvert
+    ```
 
 6. Adicionar o `temperatureThreshold` variável para o **programa** classe. Esta variável define o valor pode exceder a temperatura medida para que os dados a ser enviadas ao IoT Hub. 
 
@@ -247,7 +255,7 @@ Adicione as credenciais para o registo para o tempo de execução do Edge no com
 ## <a name="run-the-solution"></a>Executar a solução
 
 1. No [portal do Azure](https://portal.azure.com), navegue até ao seu IoT hub.
-2. Aceda a **IoT Edge (pré-visualização)** e selecione o seu dispositivo de limite de IoT.
+2. Aceda a **IoT Edge (pré-visualização)** e selecione o seu dispositivo IoT Edge.
 3. Selecione **definir módulos**. 
 2. Verifique se o **tempSensor** módulo é preenchido automaticamente. Se não for, utilize os seguintes passos para adicioná-lo:
     1. Selecione **Adicionar módulo IoT Edge**.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 39cfd269ec7dd9e676a9d4296df1329dc3fbe0cc
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade Copy tiver êxito, o pipeline envia detalhes da operação Copy bem-sucedida (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade Copy falhar, o pipeline envia detalhes da falha da cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
@@ -61,7 +61,7 @@ Este tutorial utiliza o portal do Azure. Pode utilizar outros mecanismos para in
     3. Carregue o ficheiro **input.txt** para o contentor.
 
 ## <a name="create-email-workflow-endpoints"></a>Criar pontos finais de fluxo de trabalho de e-mail
-Para acionar o envio de um e-mail a partir do pipeline, utilize o [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) para definir o fluxo de trabalho. Para obter detalhes sobre a criação de um fluxo de trabalho de Aplicação Lógica, veja [Como criar uma aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md). 
+Para acionar o envio de um e-mail a partir do pipeline, utilize o [Logic Apps](../logic-apps/logic-apps-overview.md) para definir o fluxo de trabalho. Para obter detalhes sobre a criação de um fluxo de trabalho de Aplicação Lógica, veja [Como criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Fluxo de trabalho de e-mail de êxito 
 Crie um fluxo de trabalho de Aplicação Lógica com o nome `CopySuccessEmail`. Definir o acionador do fluxo de trabalho como `When an HTTP request is received` e adicione uma ação de `Office 365 Outlook – Send an email`.

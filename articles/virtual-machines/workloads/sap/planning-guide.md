@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bf9f676b48f25ae2d8949dbdba8b4792b05c67f0
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure máquinas virtuais de planeamento e implementação de SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -372,7 +372,7 @@ Os guias seguintes adicionais estão disponíveis para o tópico de implementaç
 
 As seguintes notas de SAP estão relacionadas com o tópico do SAP no Azure:
 
-| Número de nota | Título |
+| Número de nota | Cargo |
 | --- | --- |
 | [1928533] |Aplicações SAP no Azure: os produtos e dimensionamento suportados |
 | [2015553] |SAP no Microsoft Azure: suporta a pré-requisitos |
@@ -1965,9 +1965,7 @@ A figura seguinte ilustrado a mesma horizontal utilizando discos geridos.
 ![Arquitetura de HA do SAP NetWeaver aplicações com o SQL Server em IaaS do Azure][planning-guide-figure-3201]
 
 ##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA no Linux
-A arquitetura para SAP HA no Linux no Azure é basicamente o mesmo para Windows, tal como descrito acima. A partir de Janeiro de 2016, não há nenhuma solução SAP (A) SCS HA ainda suportada no Linux no Azure
-
-Como um consequence a partir de Janeiro de 2016 um sistema de SAP Linux-do Azure não é possível alcançar a mesmo disponibilidade como um sistema de SAP-Windows-Azure devido à falta HA SCS o (A) instância e a base de dados do SAP ASE de instância única.
+A arquitetura para SAP HA no Linux no Azure é basicamente o mesmo para Windows, tal como descrito acima. Consulte a nota SAP [1928533] para obter uma lista das soluções de elevada disponibilidade suportadas.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Utilizar o início automático para instâncias SAP
 SAP oferecidos a funcionalidade para iniciar as instâncias SAP imediatamente após o início do SO dentro da VM. Os passos exatos documentados no artigo da Base de dados de conhecimento SAP [1909114]. No entanto, SAP é não recomendamos a utilizar a definição já porque não existe nenhum controlo pela ordem dos reinícios de instância, partindo do princípio de mais do que uma VM obteve afetado ou foi executada várias instâncias por VM. Partindo do princípio de um cenário típico do Azure de uma instância de servidor de aplicações SAP uma VM e o caso de uma única VM, eventualmente, obter reiniciado, o início automático não está realmente crítico e pode ser ativado adicionando este parâmetro:

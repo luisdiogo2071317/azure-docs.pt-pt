@@ -14,14 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: 6db900981daa2139a0d2e951f41fc48d5c291074
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: aaab69f452db9d4f11af2b5cfd2cd9ff6ac79954
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Utilizar o cliente do Windows no Azure para cenários de desenvolvimento/teste
-Pode utilizar o Windows 7, Windows 8 ou Windows 10 no Azure para cenários de desenvolvimento/teste fornecida que tem uma subscrição do Visual Studio (anteriormente MSDN) adequada. Este artigo descreve os requisitos de elegibilidade para o cliente Windows em execução no Azure e a utilização das imagens da galeria do Azure.
+Pode utilizar o Windows 7, Windows 8 ou Windows 10 Enterprise (x64) no Azure para cenários de desenvolvimento/teste fornecida que tem uma subscrição do Visual Studio (anteriormente MSDN) adequada. Este artigo descreve os requisitos de elegibilidade para executar o Windows 7, Windows 8.1, Windows 10 Enterprise no Azure e a utilização das seguintes imagens de galeria do Azure.
+
+![Detalhes da imagem do portal do Azure](./media/client-images/windows-client-msdn-images.png) 
+
+> [!NOTE]
+> Imagem do Windows 10 Pro e o Windows 10 Pro N na galeria do Azure, consulte [como implementar o Windows 10 no Azure com direitos de alojamento de multi-inquilino](windows-desktop-multitenant-hosting-deployment.md)
+>![os detalhes da imagem Pro do portal do Azure](./media/client-images/windows-client-pro-images.png) 
+>
 
 ## <a name="subscription-eligibility"></a>Elegibilidade de subscrição
 Subscritores ativos do Visual Studio (pessoas que tem adquirido uma licença de subscrição do Visual Studio) podem utilizar o cliente do Windows para desenvolvimento e testes. Cliente Windows pode ser utilizado nas suas próprias hardware e as máquinas virtuais do Azure em execução em qualquer tipo de subscrição do Azure. Cliente Windows não pode ser implementada ou utilizada no Azure para utilização em produção normal ou utilizada por pessoas que não sejam subscritores ativos do Visual Studio.
@@ -55,6 +62,6 @@ Também pode ver o ID de oferta do [separador "Subscrições"](http://account.wi
 
 ![Detalhes de ID de oferta do portal de contas do Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora pode implementar as suas VMs utilizando [PowerShell](quick-create-powershell.md), [modelos do Resource Manager](ps-template.md), ou [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 

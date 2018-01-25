@@ -6,14 +6,14 @@ author: stevelas
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 278c343124e776ccaee71f472f0889e784e0e935
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um registo de contentor do Docker privado
 
@@ -61,9 +61,11 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 
 Assim que a sessão iniciada, Docker coloca em cache as credenciais, por isso não terá de memorizar o ID de aplicação.
 
-Dependendo da versão do Docker tiver instalado, poderá ver um aviso de segurança, recomendamos a utilização do `--password-stdin` parâmetro. Enquanto a sua utilização está fora do âmbito deste artigo, recomendamos a seguir esta melhor prática. Para obter mais informações, consulte o [início de sessão do docker](https://docs.docker.com/engine/reference/commandline/login/) referência de comandos.
+Dependendo da versão do Docker tiver instalado, poderá ver um aviso de segurança, recomendamos a utilização do `--password-stdin` parâmetro. Enquanto a sua utilização está fora do âmbito deste artigo, recomendamos que siga esta melhor prática. Para obter mais informações, consulte o [início de sessão do docker](https://docs.docker.com/engine/reference/commandline/login/) referência de comandos.
 
-## <a name="admin-account"></a>Conta de administrador
+Para obter mais informações sobre como utilizar um principal de serviço para a autenticação sem interface ACR, consulte [autenticação de registo de contentor do Azure com os principais de serviço](container-registry-auth-service-principal.md).
+
+## <a name="admin-account"></a>Conta de admin
 
 Cada registo de contentor inclui uma conta de utilizador administrador, que está desativada por predefinição. Pode permitir que o utilizador de admin e gerir as suas credenciais no [portal do Azure](container-registry-get-started-portal.md#create-a-container-registry), ou utilizando a CLI do Azure.
 
@@ -89,7 +91,7 @@ Pode ativar o utilizador de administrador no portal do Azure, navegando o regist
 
 ![Permitir que o utilizador de admin da IU no portal do Azure][auth-portal-01]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Push primeira imagem utilizando a CLI do Azure](container-registry-get-started-azure-cli.md)
 

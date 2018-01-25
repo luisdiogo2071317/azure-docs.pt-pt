@@ -3,8 +3,8 @@ title: "Como criar uma aplicação Web com a Cache de Redis | Microsoft Docs"
 description: "Saiba como criar uma aplicação Web com a Cache de Redis"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
-ms.author: sdanie
-ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: c0cf5baa71ce599cd5c20d34c42bd2c578114efe
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Como criar uma aplicação Web com a Cache de Redis
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/18/2017
 > * [ASP.NET](cache-web-app-howto.md)
 > * [Node.js](cache-nodejs-get-started.md)
 > * [Java](cache-java-get-started.md)
-> * [python](cache-python-get-started.md)
+> * [Python](cache-python-get-started.md)
 > 
 > 
 
@@ -102,7 +102,7 @@ Para mais informações sobre este pacote, consulte a página NuGet [EntityFrame
     ![Adicionar a classe de modelo][cache-model-add-class-dialog]
 3. Substitua as instruções `using` na parte superior do ficheiro `Team.cs` pelas seguintes instruções `using`.
 
-    ```c#
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -112,7 +112,7 @@ Para mais informações sobre este pacote, consulte a página NuGet [EntityFrame
 
 1. Substitua a definição da classe `Team` pelo seguinte fragmento de código que contém uma definição da classe `Team` atualizada, bem como outras classes do programa auxiliar do Entity Framework. Para obter mais informações sobre a abordagem Code First para o Entity Framework utilizado neste tutorial, veja [Code first to a new database (Code First para criar uma nova base de dados)](https://msdn.microsoft.com/data/jj193542).
 
-    ```c#
+    ```csharp
     public class Team
     {
         public int ID { get; set; }
@@ -226,7 +226,7 @@ Para mais informações sobre este pacote, consulte a página NuGet [EntityFrame
     ![Global.asax.cs][cache-global-asax]
 6. Adicione as duas instruções `using` seguintes na parte superior do ficheiro, sob as outras declarações `using`.
 
-    ```c#
+    ```csharp
     using System.Data.Entity;
     using ContosoTeamStats.Models;
     ```
@@ -234,7 +234,7 @@ Para mais informações sobre este pacote, consulte a página NuGet [EntityFrame
 
 1. Adicione a seguinte linha de código no final do método `Application_Start`.
 
-    ```c#
+    ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
     ```
 
@@ -244,7 +244,7 @@ Para mais informações sobre este pacote, consulte a página NuGet [EntityFrame
     ![RouteConfig.cs][cache-RouteConfig-cs]
 2. Substitua `controller = "Home"` no seguinte código no método `RegisterRoutes` por `controller = "Teams"`, conforme mostrado no seguinte exemplo.
 
-    ```c#
+    ```csharp
     routes.MapRoute(
         name: "Default",
         url: "{controller}/{action}/{id}",
@@ -296,14 +296,14 @@ Nesta secção do tutorial, vai configurar a aplicação de exemplo para armazen
     ![Controlador de equipas][cache-teamscontroller]
 4. Adicione as duas instruções `using` seguintes ao **TeamsController.cs**.
 
-    ```c#   
+    ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
 5. Adicione as duas propriedades seguintes à classe `TeamsController`.
 
-    ```c#   
+    ```csharp   
     // Redis Connection string info
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -351,14 +351,14 @@ Neste exemplo, as estatísticas da equipa podem ser obtidas a partir da base de 
 
 1. Adicione as seguintes instruções `using` na parte superior do ficheiro `TeamsController.cs`, juntamente com as outras instruções `using`.
 
-    ```c#   
+    ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
 2. Substitua a atual implementação de método `public ActionResult Index()` pela seguinte implementação.
 
-    ```c#
+    ```csharp
     // GET: Teams
     public ActionResult Index(string actionType, string resultType)
     {
@@ -417,7 +417,7 @@ Neste exemplo, as estatísticas da equipa podem ser obtidas a partir da base de 
    
     O método `PlayGames` atualiza as estatísticas da equipa simulando uma época de jogos, guarda os resultados na base de dados e limpa os dados agora desatualizados da cache.
 
-    ```c#
+    ```csharp
     void PlayGames()
     {
         ViewBag.msg += "Updating team statistics. ";
@@ -436,7 +436,7 @@ Neste exemplo, as estatísticas da equipa podem ser obtidas a partir da base de 
 
     O método `RebuildDB` reinicializa a base de dados com o conjunto de equipas predefinido, gera as estatísticas e limpa os dados agora desatualizados da cache.
 
-    ```c#
+    ```csharp
     void RebuildDB()
     {
         ViewBag.msg += "Rebuilding DB. ";
@@ -451,7 +451,7 @@ Neste exemplo, as estatísticas da equipa podem ser obtidas a partir da base de 
 
     O método `ClearCachedTeams` remove quaisquer estatísticas de equipa em cache da cache.
 
-    ```c#
+    ```csharp
     void ClearCachedTeams()
     {
         IDatabase cache = Connection.GetDatabase();
@@ -466,7 +466,7 @@ Neste exemplo, as estatísticas da equipa podem ser obtidas a partir da base de 
    
     O método `GetFromDB` lê as estatísticas da equipa a partir da base de dados.
    
-    ```c#
+    ```csharp
     List<Team> GetFromDB()
     {
         ViewBag.msg += "Results read from DB. ";
@@ -480,7 +480,7 @@ Neste exemplo, as estatísticas da equipa podem ser obtidas a partir da base de 
 
     O método `GetFromList` lê as estatísticas da equipa a partir da cache, como uma `List<Team>` serializada. Se existir uma falha de acerto na cache, as estatísticas da equipa são lidas a partir da base de dados e, em seguida, armazenadas na cache para utilização posterior. Neste exemplo, estamos a utilizar a serialização JSON.NET para serializar os objetos .NET de e para a cache. Para obter mais informações, veja [How to work with .NET objects in Azure Redis Cache (Como trabalhar com objetos .NET na Cache de Redis do Azure)](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
-    ```c#
+    ```csharp
     List<Team> GetFromList()
     {
         List<Team> teams = null;
@@ -508,7 +508,7 @@ Neste exemplo, as estatísticas da equipa podem ser obtidas a partir da base de 
 
     O método `GetFromSortedSet` lê as estatísticas da equipa a partir de um conjunto ordenado em cache. Se existir uma falha de acerto na cache, as estatísticas da equipa são lidos a partir da base de dados e armazenadas na cache como um conjunto ordenado.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSet()
     {
         List<Team> teams = null;
@@ -545,7 +545,7 @@ Neste exemplo, as estatísticas da equipa podem ser obtidas a partir da base de 
 
     O método `GetFromSortedSetTop5` lê as cinco melhores equipas a partir do conjunto ordenado em cache. Começa por verificar se a chave `teamsSortedSet` existe na cache. Se esta chave não estiver presente, o método `GetFromSortedSet` é chamado para ler as estatísticas da equipa e para armazená-las na cache. Em seguida, o conjunto ordenado em cache é consultado relativamente às cinco melhores equipas que são devolvidas.
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSetTop5()
     {
         List<Team> teams = null;
@@ -578,7 +578,7 @@ O código da estrtura gerado como parte deste exemplo inclui métodos para adici
 
 1. Navegue para o método `Create(Team team)`, na classe `TeamsController`. Adicione uma chamada ao método `ClearCachedTeams`, conforme mostrado no seguinte exemplo.
 
-    ```c#
+    ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -603,7 +603,7 @@ O código da estrtura gerado como parte deste exemplo inclui métodos para adici
 
 1. Navegue para o método `Edit(Team team)`, na classe `TeamsController`. Adicione uma chamada ao método `ClearCachedTeams`, conforme mostrado no seguinte exemplo.
 
-    ```c#
+    ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -627,7 +627,7 @@ O código da estrtura gerado como parte deste exemplo inclui métodos para adici
 
 1. Navegue para o método `DeleteConfirmed(int id)`, na classe `TeamsController`. Adicione uma chamada ao método `ClearCachedTeams`, conforme mostrado no seguinte exemplo.
 
-    ```c#
+    ```csharp
     // POST: Teams/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]

@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: v-sharos
-ms.openlocfilehash: 247c422d7ea3feeec1342bb20f99390a07eb4f7a
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 412978d2c343394f295e336690ec72153dda4b79
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Atualizar o seu dispositivo de série de 8000 do StorSimple
 > [!NOTE]
-> O portal clássico para StorSimple foi preterido. Os gestores de dispositivo do StorSimple será automaticamente mudada para o novo portal do Azure de acordo com a agenda de preterição. Irá receber uma mensagem de e-mail e uma notificação de movimentação do portal. Este documento também será descontinuado em breve. Para quaisquer perguntas sobre a mudança, consulte [FAQ: mover para o portal do Azure](storsimple-8000-move-azure-portal-faq.md).
+> O portal clássico do StorSimple foi preterido. Os Gestores de Dispositivos do StorSimple vão ser migrados automaticamente para o portal do Azure novo, de acordo com a agenda de preterição. Receberá uma mensagem de e-mail e uma notificação no portal relativamente a esta migração. Este documento também será descontinuado em breve. Relativamente a perguntas sobre a migração, veja [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md) (FAQ: migrar para o portal do Azure).
 
 ## <a name="overview"></a>Descrição geral
 As funcionalidades de atualizações do StorSimple permitem-lhe manter o dispositivo StorSimple facilmente atualizados. Dependendo do tipo de atualização, pode aplicar atualizações ao dispositivo através do portal clássico do Azure ou através da interface do Windows PowerShell. Este tutorial descreve os tipos de atualização e sobre como instalar cada um deles.
@@ -116,9 +116,9 @@ Os procedimentos seguintes explicam como utilizar o Windows PowerShell para Stor
 [!INCLUDE [storsimple-install-maintenance-mode-hotfixes](../../includes/storsimple-install-maintenance-mode-hotfixes.md)]
 
 ## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>O que acontece às atualizações se efetuar uma reposição de fábrica do dispositivo?
-Se um dispositivo é reposto para as definições de fábrica, todas as atualizações serão perdidas. Depois do dispositivo de reposição de fábrica registado e configurado, terá de instalar manualmente as atualizações através do portal clássico do Azure e/ou o Windows PowerShell para StorSimple. Para obter mais informações sobre a reposição de fábrica, consulte [repor o dispositivo para as predefinições de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+Se um dispositivo é reposto para as definições de fábrica, todas as atualizações serão perdidas. Depois do dispositivo de reposição de fábrica registado e configurado, terá de instalar manualmente as atualizações através do portal clássico do Azure e/ou o Windows PowerShell para StorSimple. Para obter mais informações sobre a reposição de fábrica, consulte [repor o dispositivo para as predefinições de fábrica](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [através do Windows PowerShell para StorSimple para administrar o dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 * Saiba mais sobre [utilizando o serviço StorSimple Manager para administrar o dispositivo StorSimple](storsimple-manager-service-administration.md).
 

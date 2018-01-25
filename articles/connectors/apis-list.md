@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connectors-list"></a>Lista de conectores
 Para localizar os acionadores e ações definidos pela descrição do Swagger de cada conector e os limites de conector, veja [Detalhes de conectores](/connectors/).
@@ -143,7 +143,7 @@ Para ajudar a melhorar o Azure Logic Apps e os conectores, vote ou submeta ideia
 Falta um tópico do conector ou detalhes que considera importantes? Se for o caso, ajude-nos ao adicionar aos nossos tópicos existentes ou escreva os seus próprios. A nossa documentação é open source e está alojada no GitHub. Comece no nosso [repositório do GitHub](https://github.com/Microsoft/azure-docs). 
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Criar a sua primeira aplicação lógica](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Criar APIs personalizadas para aplicações lógicas](../logic-apps/logic-apps-create-api-app.md)
 * [Monitorizar as aplicações lógicas](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 

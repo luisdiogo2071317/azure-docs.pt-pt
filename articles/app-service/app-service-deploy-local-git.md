@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 7667f94ac4e7edd4e94d6605adefea469102a0c4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 948c54a2e9be2260d0a7d2cce31b67ffbbd23d03
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementação de Git Local no Serviço de Aplicações do Azure
 
@@ -54,18 +54,13 @@ Serviço de aplicações suporta aplicações criadas numa variedade de linguage
 
 1. Se o repositório não incluir o conteúdo, adicione um ficheiro estático *.HTML forma; ou ignore este passo:
    * Com um editor de texto, crie um novo ficheiro designado **index.html** na raiz do repositório de Git
-   * Adicione o seguinte texto como o conteúdo para o index.html do ficheiro e guarde-o: *Hello Git!*
+   * Adicione o seguinte texto como o index.html o conteúdo do ficheiro e guarde-o: *Hello Git!*
 1. Na linha de comandos, certifique-se de que estão na raiz do repositório de Git. Em seguida, utilize o seguinte comando para adicionar ficheiros ao repositório:
 
-    ```bash
-    git add -A
-    ```
-    
+        git add -A 
 1. Em seguida, confirme as alterações para o repositório utilizando o seguinte comando:
 
-    ```bash
-    git commit -m "Hello Azure App Service"
-    ```
+        git commit -m "Hello Azure App Service"
 
 ## <a name="Step3"></a>Passo 3: Ativar o repositório da aplicação de serviço de aplicações
 
@@ -92,7 +87,7 @@ Utilize os seguintes passos para publicar a aplicação no App Service utilizand
 1. Utilizando a linha de comandos, certifique-se de que estão na raiz do repositório de Git local.
 1. Utilize `git remote` para adicionar a referência remota listada no **URL do Git** do passo 1. O comando semelhante ao seguinte:
 
-    ```
+    ```bash
     git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git
     ```
 

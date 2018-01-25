@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: danis
-ms.openlocfilehash: f3e4ab075f7cd75bac2d66f0391227c0de6e11a0
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 3be001c2ad63c5872af4740f136438034e1e406b
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Descrição geral do agente da Máquina Virtual do Azure
 
-O agente de Máquina Virtual do Microsoft Azure (AM Agent) é um processo seguro e simples que gere a interação de VM com o controlador de recursos de infraestrutura do Azure. O agente da VM tem uma função primária em ativar e executar as extensões de máquina virtual do Azure. Ativar as extensões de VM após a configuração de implementação de máquinas virtuais, tais como instalar e configurar o software. Extensões de máquina virtual também ativar as funcionalidades de recuperação, tal como repor a palavra-passe administrativa de uma máquina virtual. Sem o agente da VM do Azure, não não possível executar as extensões de máquina virtual.
+O agente de Máquina Virtual do Microsoft Azure (agente da VM) é um processo seguro e simples que gere a interação de VM com o controlador de recursos de infraestrutura do Azure. O agente da VM tem uma função primária em ativar e executar as extensões de máquina virtual do Azure. Ativar as extensões de VM após a configuração de implementação de máquinas virtuais, tais como instalar e configurar o software. Extensões de máquina virtual também ativar as funcionalidades de recuperação, tal como repor a palavra-passe administrativa de uma máquina virtual. Sem o agente da VM do Azure, não não possível executar as extensões de máquina virtual.
 
 Este documento fornece detalhes sobre a instalação, a deteção e a remoção do agente de Máquina Virtual do Azure.
 

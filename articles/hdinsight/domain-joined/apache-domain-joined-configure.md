@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/10/2018
+ms.date: 01/24/2018
 ms.author: saurinsh
-ms.openlocfilehash: e24ea43f6df3c22c338646af21f7517e16b718ea
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configurar o ambiente de sandbox HDInsight associados a um domínio
 
@@ -29,7 +29,6 @@ Sem domínio associado a um cluster do HDInsight, cada cluster só pode ter uma 
 
 -   Autónoma do Active Directory em execução no IaaS do Azure.
 -   Azure Active Directory.
--   Active Directory em execução no ambiente no local ao cliente.
 
 Utilizar uma autónoma do Active Directory em execução no IaaS do Azure é descrito neste artigo. É a arquitetura mais simples de que um cliente pode seguir para obter suporte de vários utilizador no HDInsight. Este artigo abrange duas abordagens para esta configuração:
 
@@ -71,9 +70,10 @@ Nesta secção, abra um modelo de gestão de recursos do Azure do portal do Azur
     - **Nome de utilizador de Admin**: introduza o nome de utilizador de administrador de domínio.
     - **Palavra-passe de administrador**: introduza a palavra-passe de administrador do domínio.
     - **Nome de domínio**: O nome predefinido é *contoso.com*.  Se alterar o nome de domínio, tem também de atualizar o **proteger o certificado de LDAP** campo e o **DN de unidade organizacional** campo.
+    - **Prefixo DNS**: introduza o prefixo DNS para o endereço IP público utilizado pelo balanceador de carga.
     - **Nome do cluster**: introduza o nome de cluster do HDInsight.
     - **Tipo de cluster**: não altere este valor. Se pretender alterar o tipo de cluster, utilize o modelo específico no último passo.
-
+    - **Proteger a palavra-passe de certificados de Ldap**: Utilize o valor predefinido, a menos que altere o campo de certificado seguro LDAP.
     Alguns dos valores estão hard-coded no modelo, por exemplo, a contagem de instâncias de nó de trabalho é dois.  Para alterar os valores codificados, clique em **Editar modelo**.
 
     ![Modelo de edição do HDInsight cluster associados a um domínio](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)

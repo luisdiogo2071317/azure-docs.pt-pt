@@ -9,11 +9,11 @@ ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9637986d10a0e89568b2f79ede3d7b7468bb99a7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 219474a4577a76f5ceb9a9efaa3c349d633de047
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-visual-studio-code-to-develop-and-deploy-azure-functions-to-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e implementar as funções do Azure para o limite de IoT do Azure
 
@@ -140,9 +140,13 @@ A mostrar os passos seguintes, como criar um módulo de limite de IoT com base n
 
 1. No Explorador de VS Code, expanda o **Docker** pasta. Em seguida, expanda a pasta para a sua plataforma de contentor, quer **linux x64** ou **windows nano**.
 2. Clique com botão direito do **Dockerfile** do ficheiro e clique em **imagem de Docker do módulo de limite de IoT criar**. 
+
+    ![Compilar a imagem do docker](./media/how-to-vscode-develop-csharp-function/build-docker-image.png)
+
 3. Navegue para o **FilterFunction** pasta do projeto e clique em **selecionar pasta como EXE_DIR**. 
 4. Na caixa de texto de pop-up na parte superior da janela VS Code, introduza o nome da imagem. Por exemplo: `<your container registry address>/filterfunction:latest`. Se estiver a implementar no registo local, deve ser `localhost:5000/filterfunction:latest`.
 5. A imagem de emissão para o seu repositório de Docker. Utilize o **Edge: imagem de Docker do módulo de limite de Push de IoT** de comandos e introduza o URL da imagem na caixa de texto de pop-up na parte superior da janela VS Code. Utilize o mesmo URL de imagem utilizada nos passos acima.
+    ![Imagem de docker Push](./media/how-to-vscode-develop-csharp-function/push-image.png)
 
 ### <a name="deploy-your-function-to-iot-edge"></a>Implementar a função IoT Edge
 
@@ -172,22 +176,28 @@ A mostrar os passos seguintes, como criar um módulo de limite de IoT com base n
 
 2. Substitua o **rotas** secção com abaixo conteúdo:
    ```json
-   {
        "routes":{
            "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterfunction/inputs/input1\")",
            "filterToIoTHub":"FROM /messages/modules/filterfunction/outputs/* INTO $upstream"
        }
-   }
    ```
    > [!NOTE]
    > As regras de declarativas em tempo de execução definem onde as mensagens de fluxo. Neste tutorial, precisa de dois rotas. A rota primeiro transportes mensagens do sensor de temperatura para a função de filtro através de ponto final "input1", que é o ponto final que configurou com o processador de FilterMessages. A segunda rota transportes mensagens na função de filtro ao IoT Hub. Esta rota montante é um destino especial que diz ao Hub Edge para enviar mensagens para o IoT Hub.
 
 3. Guarde este ficheiro.
 4. Na paleta do comando, selecione **Edge: criar a implementação para o dispositivo de limite**. Em seguida, selecione o ID do dispositivo IoT limite para criar uma implementação. Ou o ID de dispositivo na lista de dispositivos com o botão direito e selecione **criar a implementação para o dispositivo de limite**.
+
+    ![Criar implementação](./media/how-to-vscode-develop-csharp-function/create-deployment.png)
+
 5. Selecione o `deployment.json` -lo. Na janela de resultados, pode ver saídas correspondentes para a sua implementação.
 6. Inicie o tempo de execução do limite na paleta do comando. **Limite: Limite de início**
 7. Pode ver o tempo de execução de limite de IoT iniciar a execução no Explorador do Docker com a função de sensor e filtrar simulada.
+
+    ![Solução em execução](./media/how-to-vscode-develop-csharp-function/solution-running.png)
+
 8. O ID do dispositivo de limite com o botão direito e pode monitorizar as mensagens de D2C no VS Code.
+
+    ![Mensagens de monitor](./media/how-to-vscode-develop-csharp-function/monitor-d2c-messages.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: 13d01e63cfecdc826eba19b8eb0dc539019409dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Resolução de problemas de ponto-a-ponto utilizando as métricas do Storage do Azure e o registo, o AzCopy e o Message Analyzer
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Resolução de problemas de ponto a ponto com as métricas do Storage do Azure e o registo, o AzCopy e o Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 Resolução de problemas e diagnosticar são uma chave skill para criar e suportar aplicações de cliente com o armazenamento do Microsoft Azure. Devido à natureza distribuída de uma aplicação do Azure, diagnosticar e resolução de problemas de erros e problemas de desempenho podem ser mais complexos do que em ambientes tradicionais.
@@ -37,9 +37,7 @@ Para resolver problemas de aplicações de cliente utilizando o armazenamento do
   * **Registo de armazenamento** os registos de cada pedido para os serviços de armazenamento do Azure para um registo do lado do servidor. O registo controla dados detalhados para cada pedido, incluindo a operação efetuada, o estado da operação e informações de latência. Consulte [formato de registo de análise do armazenamento](/rest/api/storageservices/Storage-Analytics-Log-Format) para obter mais informações sobre os dados de pedido e resposta escrito nos registos de análise de armazenamento.
 
 > [!NOTE]
-> Contas de armazenamento com um tipo de replicação de com redundância de zona de armazenamento (ZRS) não têm as métricas ou a capacidade de registo neste momento ativada. 
-> 
-> 
+> As contas de armazenamento com um tipo de replicação de armazenamento com redundância de zona (ZRS) suportam métricas e registo. Contas clássico ZRS não suportam as métricas ou de registo. Para obter mais informações sobre o ZRS, consulte [armazenamentocomredundânciadezona](storage-redundancy.md#zone-redundant-storage). 
 
 * **Portal do Azure**. Pode configurar as métricas e registo para a sua conta de armazenamento na [portal do Azure](https://portal.azure.com). Também pode ver gráficos e gráficos que mostram a forma como a aplicação está a efetuar ao longo do tempo e configurar alertas para notificá-lo se a aplicação executa de forma diferente do que o previsto para uma métrica especificada.
   
@@ -100,7 +98,7 @@ Para configurar o registo e de métricas para o armazenamento de contas utilizan
 > 
 > 
 
-**Através do PowerShell**
+**Via PowerShell**
 
 Para começar a utilizar com o PowerShell para o Azure, consulte o artigo [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
@@ -350,22 +348,22 @@ Agora que já está familiarizado com a utilização Message Analyzer para anali
 | Para investigar... | Utilize a expressão de filtro... | Expressão aplica-se no registo (cliente, de servidor, de rede, todos os) |
 | --- | --- | --- |
 | Atrasos inesperados na entrega de mensagens numa fila |AzureStorageClientDotNetV4.Description contém "Repetir falha na operação." |Cliente |
-| Aumento de HTTP no PercentThrottlingError |PROTOCOLO HTTP. Response.StatusCode = = 500 &#124; &#124; PROTOCOLO HTTP. Response.StatusCode = = 503 |Rede |
-| Aumentam PercentTimeoutError |PROTOCOLO HTTP. Response.StatusCode = = 500 |Rede |
-| Aumentam PercentTimeoutError (todos) |* StatusCode = = 500 |Todos |
-| Aumentam PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level < 2 |Cliente |
-| Mensagens HTTP 403 (proibido) |PROTOCOLO HTTP. Response.StatusCode = = 403 |Rede |
-| HTTP 404 (não for encontrado) mensagens |PROTOCOLO HTTP. Response.StatusCode = = 404 |Rede |
-| 404 (todos) |* StatusCode = = 404 |Todos |
-| Partilhado problema de autorização de assinatura de acesso (SAS) |AzureStorageLog.RequestStatus = = "SASAuthorizationError" |Rede |
-| HTTP 409 (conflito) mensagens |PROTOCOLO HTTP. Response.StatusCode = = 409 |Rede |
-| 409 (todos) |* StatusCode = = 409 |Todos |
-| Entradas de registo PercentSuccess baixa ou análise tem operações com o estado de transação de ClientOtherErrors |AzureStorageLog.RequestStatus = = "ClientOtherError" |Servidor |
-| Aviso de Nagle |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) e (AzureStorageLog.RequestPacketSize < 1460) e (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Servidor |
-| Intervalo de tempo nos registos do servidor e da rede |#Timestamp > = 2014-10-20T16:36:38 e #Timestamp < = 2014-10-20T16:36:39 |Servidor de rede |
+| Aumento de HTTP no PercentThrottlingError |HTTP.Response.StatusCode   == 500 &#124;&#124; HTTP.Response.StatusCode == 503 |Rede |
+| Aumentam PercentTimeoutError |HTTP.Response.StatusCode   == 500 |Rede |
+| Aumentam PercentTimeoutError (todos) |*StatusCode   == 500 |Todos |
+| Aumentam PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |Cliente |
+| Mensagens HTTP 403 (proibido) |HTTP.Response.StatusCode   == 403 |Rede |
+| HTTP 404 (não for encontrado) mensagens |HTTP.Response.StatusCode   == 404 |Rede |
+| 404 (all) |*StatusCode   == 404 |Todos |
+| Partilhado problema de autorização de assinatura de acesso (SAS) |AzureStorageLog.RequestStatus ==  "SASAuthorizationError" |Rede |
+| HTTP 409 (conflito) mensagens |HTTP.Response.StatusCode   == 409 |Rede |
+| 409 (all) |*StatusCode   == 409 |Todos |
+| Entradas de registo PercentSuccess baixa ou análise tem operações com o estado de transação de ClientOtherErrors |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Servidor |
+| Aviso de Nagle |((AzureStorageLog.EndToEndLatencyMS   - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS *   1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS -   AzureStorageLog.ServerLatencyMS >= 200) |Servidor |
+| Intervalo de tempo nos registos do servidor e da rede |#Timestamp > = 2014-10-20T16:36:38 e #Timestamp < = 2014-10-20T16:36:39 |Server, Network |
 | Intervalo de tempo em registos do servidor |AzureStorageLog.Timestamp > = 2014-10-20T16:36:38 e AzureStorageLog.Timestamp < = 2014-10-20T16:36:39 |Servidor |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre os cenários de ponto a ponto de resolução de problemas no armazenamento do Azure, consulte estes recursos:
 
 * [Monitorizar, diagnosticar e resolver problemas de armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)

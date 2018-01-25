@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/06/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c14927f82ca01320206ccec83216777b7d1b8708
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e de segurança do StorSimple
 
@@ -155,7 +155,7 @@ A chave de encriptação de dados do serviço é gerada no apenas o primeiro dis
 > [!IMPORTANT]
 > É muito importante efetuar uma cópia da chave de encriptação de dados do serviço e guardá-lo numa localização segura. Uma cópia da chave de encriptação de dados do serviço deve ser armazenada de forma a que possa ser acedida por uma pessoa autorizada e pode ser facilmente comunicado ao administrador do dispositivo.
 > 
-> Se se perder a chave de encriptação de dados do serviço, uma pessoa de suporte da Microsoft pode ajudá-lo para obtê-lo, desde que tenha, pelo menos, um dispositivo num estado online. Recomendamos que altere a chave de encriptação de dados do serviço após é obtido. Para obter instruções, aceda a [alterar a chave de encriptação de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
+> Se se perder a chave de encriptação de dados do serviço, uma pessoa de suporte da Microsoft pode ajudá-lo para obtê-lo, desde que tenha, pelo menos, um dispositivo num estado online. Recomendamos que altere a chave de encriptação de dados do serviço após é obtido.
 
 Para alterar a chave de encriptação de dados do serviço e o certificado de encriptação de dados correspondente, siga os passos no [alterar a chave de encriptação de dados do serviço para o seu serviço do Gestor de dispositivos do StorSimple](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Alterar as chaves de encriptação requer que todos os dispositivos ser atualizado com a nova chave. Por conseguinte, recomendamos que altere a chave quando todos os dispositivos estão online. Se os dispositivos estiverem offline, as respetivas chaves podem ser alteradas noutra altura. Os dispositivos com chaves Desatualizadas ainda será capazes de executar cópias de segurança, mas não poderão restaurar dados até que a chave é atualizada.
 
@@ -268,7 +268,7 @@ Seguem-se algumas perguntas e respostas sobre segurança e o Microsoft Azure Sto
 
 **R:** porque todos os dados são encriptados no serviço e a chave privada é mantida com o dispositivo, a entidade governamental tem de pedir ao cliente para os dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Implementar o dispositivo StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 

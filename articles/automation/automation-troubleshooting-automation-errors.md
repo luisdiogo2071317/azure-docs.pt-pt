@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 29362ea94fb86f86f7ff85be81cbf33fef6accce
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Resolução de problemas comuns na automatização do Azure 
 Este artigo fornece erros comuns que pode ocorrer na automatização do Azure e sugere possíveis soluções para resolvê-los de resolução de problemas.
@@ -152,7 +152,7 @@ Este artigo fornece erros comuns que pode ocorrer na automatização do Azure e 
   * Para atribuir uma configuração de nó a um nó através do cmdlet do PowerShell, utilize **conjunto AzureRmAutomationDscNode** cmdlet
 
 ### <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Cenário: Não existem configurações de nó (ficheiros MOF) foram produzidas quando uma configuração é compilada
-**Erro:** suspende a tarefa de compilação de DSC com o erro: "compilação foi concluída com êxito, mas não .mofs de configuração de nó foram geradas".
+**Erro:** suspende a tarefa de compilação de DSC com o erro: "compilação foi concluída com êxito, mas não configuration.mofs de nó foram geradas".
 
 **Razão para o erro:** quando seguintes expressão o **nó** palavra-chave na configuração de DSC avalia como `$null`, e não configurações de nó são produzidas.
 
@@ -190,6 +190,16 @@ Este código de erro significa que a consulta de grupo do computador de pesquisa
 **Sugestões de resolução de problemas:**
 
 Pode eliminar a consulta para esta solução e reonboard a solução, a qual recria a consulta. A consulta pode ser encontrada na sua área de trabalho em **pesquisas guardadas**. O nome da consulta é **MicrosoftDefaultComputerGroup**, e a categoria da consulta é o nome da solução associado a esta consulta. Se várias soluções estiverem ativadas, o **MicrosoftDefaultComputerGroup** mostra várias vezes em **pesquisas guardadas**.
+
+### <a name="policyviolation"></a>PolicyViolation
+
+**Razão para o erro:**
+
+Este código de erro significa que a implementação falha devido a violação de uma política.
+
+**Sugestões de resolução de problemas:**
+
+Verifique as notificações no canto superior direito do portal do Azure ou navegue para o grupo de recursos que contém a sua conta de automatização e selecione **implementações** em **definições** para ver a implementação. Para obter mais informações sobre a visita de política do Azure: [descrição geral da política do Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

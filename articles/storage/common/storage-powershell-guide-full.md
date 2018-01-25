@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilizar o Azure PowerShell com o Storage do Azure
 
@@ -28,7 +28,7 @@ Este artigo procedimentos abrange operações comuns utilizando os cmdlets de pl
 > [!div class="checklist"]
 > * Contas de armazenamento de lista
 > * Obter uma referência a uma conta de armazenamento existente
-> * Criar uma conta de armazenamento 
+> * Criar uma conta do Storage 
 > * Definir as propriedades da conta de armazenamento
 > * Obter e voltar a gerar as chaves de acesso
 > * Proteger o acesso à sua conta de armazenamento 
@@ -78,7 +78,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 Tem agora $storageAccount, que aponta para uma conta de armazenamento existente.
 
-### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
+### <a name="create-a-storage-account"></a>Criar uma conta do Storage 
 
 O script seguinte mostra como criar uma conta do storage para fins gerais utilizando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Depois de criar a conta, obter o contexto, que pode ser utilizado nos comandos subsequentes em vez de especificar a autenticação com cada chamada.
 
@@ -133,7 +133,7 @@ Para alterar as definições para uma conta de armazenamento, utilize [Set-Azure
 
 * O **etiquetas** atribuída à conta de armazenamento. As etiquetas, muitas vezes, são utilizadas para categorizar os recursos para fins de faturação.
 
-* O **SKU** é a definição de replicação para a conta de armazenamento, tais como LRS para o armazenamento localmente redundante. Por exemplo, poderá alterar do padrão\_LRS para Standard\_GRS ou Standard\_RAGRS. Tenha em atenção que não é possível alterar o Standard ZRS ou Premium LRS para outros SKUs ou alterar outros SKUs para estas. 
+* O **SKU** é a definição de replicação para a conta de armazenamento, tais como LRS para o armazenamento localmente redundante. Por exemplo, poderá alterar do padrão\_LRS para Standard\_GRS ou Standard\_RAGRS. Tenha em atenção que não é possível alterar padrão\_ZRS ou Premium\_LRS para outros SKUs, ou altere a outros SKUs para estas.
 
 * O **camada de acesso** para contas do Blob storage. O valor para a camada de acesso é definido como **frequente** ou **frios**, e permite-lhe minimizar os custos ao selecionar a camada de acesso está alinhada com a forma como utiliza a conta de armazenamento. Para obter mais informações, consulte [frequente, cool e as camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
 
@@ -185,9 +185,9 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 Por predefinição, todas as contas de armazenamento podem ser acedidas por qualquer rede que tenha acesso à internet. No entanto, pode configurar regras de rede para permitir apenas aplicações de redes virtuais específicas aceder a uma conta de armazenamento. Para obter mais informações, consulte [configurar Firewalls de armazenamento do Azure e as redes virtuais](storage-network-security.md). 
 
 O artigo mostra como gerir estas definições com os seguintes cmdlets do PowerShell:
-* [AzureRmStorageAccountNetworkRule adicionar](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
-* [Atualização AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Remover AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
+* [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
+* [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
+* [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
 
 ## <a name="use-storage-analytics"></a>Utilize a análise de armazenamento  
 
@@ -223,7 +223,7 @@ API de tabela de base de dados do Azure Cosmos fornece as funcionalidades premiu
 * Para obter mais informações, consulte [API de tabela de base de dados do Azure Cosmos](../../cosmos-db/table-introduction.md). 
 * Para saber como utilizar o PowerShell para efetuar operações de API de tabela do Azure Cosmos DB, consulte o artigo [operações efetuar Cosmos DB tabela API do Azure com o PowerShell](../../cosmos-db/table-powershell.md).
 
-## <a name="azures-independently-deployed-clouds"></a>Nuvens de implementadas de forma independente do Azure
+## <a name="independent-cloud-deployments-of-azure"></a>Implementações de nuvem independentes do Azure
 
 A maioria das pessoas utilizam nuvem pública do Azure para as suas implementações do Azure global. Existem também algumas implementações do Microsoft Azure por motivos de soberania dos independentes e assim sucessivamente. Estas implementações independentes são referidas como "ambientes". Estes são os ambientes disponíveis:
 
@@ -235,19 +235,19 @@ Para obter informações sobre como aceder a estes nuvens e o seu armazenamento 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se tiver criado um novo grupo de recursos e uma conta de armazenamento para este exercício, yous pode remover todos os recursos que criou ao remover o grupo de recursos. Isto também elimina todos os recursos contidos dentro do grupo. Neste caso, remove a conta de armazenamento criada e o grupo de recursos em si.
+Se tiver criado um novo grupo de recursos e uma conta de armazenamento para este exercício, yous pode remover todos os recursos que criou ao remover o grupo de recursos. Isto também elimina todos os recursos contidos no grupo. Neste caso, remove a conta de armazenamento criada e o grupo de recursos em si.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este artigo procedimentos abrange operações comuns utilizando os cmdlets de plane de gestão para gerir contas de armazenamento. Aprendeu a: 
 
 > [!div class="checklist"]
 > * Contas de armazenamento de lista
 > * Obter uma referência a uma conta de armazenamento existente
-> * Criar uma conta de armazenamento 
+> * Criar uma conta do Storage 
 > * Definir as propriedades da conta de armazenamento
 > * Obter e voltar a gerar as chaves de acesso
 > * Proteger o acesso à sua conta de armazenamento 

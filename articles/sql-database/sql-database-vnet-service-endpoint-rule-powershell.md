@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Inactive
-ms.date: 09/15/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: 9f58ea34dad5d4436c13b64653040bd2a57c299e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8c27f22657f7f8d04aab96fbc2ee25aa19cebd9f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Utilizar o PowerShell para criar um ponto final do serviço Virtual e uma regra para a SQL Database do Azure
 
@@ -48,7 +48,8 @@ A lista seguinte mostra a sequência de outras *principais* cmdlets que tem de e
 
 4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): persistir as atualizações efetuadas à sua rede virtual.
 
-5. **Novo AzureRmSqlServerVirtualNetworkRule**: depois da sub-rede é um ponto final, adiciona a sub-rede como uma regra de rede virtual, a ACL do seu servidor de SQL Database do Azure.
+5. [Novo AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): depois da sub-rede é um ponto final, adiciona a sub-rede como uma regra de rede virtual, a ACL do seu servidor de SQL Database do Azure.
+    - Oferece o parâmetro **- IgnoreMissingVnetServiceEndpoint**, começando no módulo do PowerShell do Azure RM versão 5.1.1.
 
 #### <a name="prerequisites-for-running-powershell"></a>Pré-requisitos para executar o PowerShell
 

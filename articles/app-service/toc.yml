@@ -31,6 +31,8 @@
   items:
     - name: 1 - Aplicação com BD
       items:
+        - name: .NET Core com BD SQL
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: .NET com BD SQL
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP com MySQL

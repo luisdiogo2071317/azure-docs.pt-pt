@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 163ac33af43a8cb7a23742f6336efca5fe7c4b4e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importar dados de análise de registos do Azure para o Power BI
 
@@ -86,12 +86,12 @@ Quando configura o Power BI com um [área de trabalho de análise de registos le
 ![Análise de registos para o Power BI](media/log-analytics-powerbi/overview-legacy.png)
 
 ### <a name="power-bi-schedules"></a>Agendas do Power BI
-A *Power BI agenda* inclui uma pesquisa de registo que exporta um conjunto de dados do repositório OMS para um conjunto de dados correspondente no Power BI e uma agenda que define a frequência esta pesquisa é executada para manter o conjunto de dados atual.
+A *Power BI agenda* inclui uma pesquisa de registo que exporta um conjunto de dados de análise de registos para um conjunto de dados correspondente no Power BI e uma agenda que define a frequência esta pesquisa é executada para manter o conjunto de dados atual.
 
 Os campos no conjunto de dados corresponderá as propriedades dos registos devolvidos pela pesquisa de registo.  Se a pesquisa devolve os registos de diferentes tipos, em seguida, o conjunto de dados irão incluir todas as propriedades de cada um dos tipos de registo incluídos.  
 
-### <a name="connecting-oms-workspace-to-power-bi"></a>Ligar a área de trabalho OMS ao Power BI
-Pode exportar da análise de registos para o Power BI, tem de ligar a área de trabalho OMS à sua conta Power BI utilizando o procedimento seguinte.  
+### <a name="connecting-log-analytics-workspace-to-power-bi"></a>Área de trabalho de análise de registos ao ligar ao Power BI
+Pode exportar da análise de registos para o Power BI, tem de ligar a área de trabalho para a sua conta Power BI utilizando o procedimento seguinte.  
 
 1. Na consola do OMS clique o **definições** mosaico.
 2. Selecione **contas**.
@@ -169,6 +169,6 @@ Iremos guardar o relatório clicando no botão Guardar na parte superior do ecr�
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [pesquisas de registo](log-analytics-log-searches.md) para criar consultas que podem ser exportadas para o Power BI.
 * Saiba mais sobre [Power BI](http://powerbi.microsoft.com) criar visualizações baseadas nos exportações de análise de registos.

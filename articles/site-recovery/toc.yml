@@ -251,8 +251,6 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Gerir
       items:
-        - name: Atualizar para um cofre dos Serviços de Recuperação
-          href: upgrade-site-recovery-vaults.md
         - name: Gerir servidores de processos no Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: Gerir o servidor de configuração

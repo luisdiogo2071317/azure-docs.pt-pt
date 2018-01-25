@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5b4b31b58c7a4bcb93277333502bc082da2062ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88d9c4b23eb676743c004c0d1b3ab45f6cd66055
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados para análise de registos com a API de Recoletor de dados de HTTP (pré-visualização pública)
 Este artigo mostra como utilizar a API de Recoletor de dados de HTTP para enviar dados para análise de registos de um cliente de REST API.  Descreve como formatou os dados recolhidos pelo seu script ou aplicação, inclua-o num pedido e tem esse pedido autorizado através da análise de registos.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -39,7 +39,7 @@ Todos os dados no repositório de análise de registos é armazenado como um reg
 ## <a name="create-a-request"></a>Criar um pedido
 Para utilizar a API de Recoletor de dados de HTTP, crie um pedido POST que inclui os dados para enviar em JavaScript Object Notation (JSON).  As três tabelas listam os atributos que são necessários para cada pedido. Iremos descrevem cada atributo em mais detalhe posteriormente no artigo.
 
-### <a name="request-uri"></a>URI do pedido
+### <a name="request-uri"></a>URI de pedido
 | Atributo | Propriedade |
 |:--- |:--- |
 | Método |POST |
@@ -51,14 +51,14 @@ Para utilizar a API de Recoletor de dados de HTTP, crie um pedido POST que inclu
 |:--- |:--- |
 | CustomerID |O identificador exclusivo para a área de trabalho do Microsoft Operations Management Suite. |
 | Recurso |O nome de recurso de API: / api/logs. |
-| Versão de API |A versão da API para utilizar com este pedido. Atualmente, é 2016-04-01. |
+| Versão da API |A versão da API para utilizar com este pedido. Atualmente, é 2016-04-01. |
 
-### <a name="request-headers"></a>Cabeçalhos de pedido
+### <a name="request-headers"></a>Cabeçalhos do pedido
 | Cabeçalho | Descrição |
 |:--- |:--- |
 | Autorização |A assinatura de autorização. O artigo, pode ler sobre como criar um cabeçalho de HMAC SHA256. |
 | Tipo de registo |Especifique o tipo de registo dos dados que estão a ser submetidos. Atualmente, o tipo de registo suporta apenas carateres alfanuméricos. Não suporta números ou carateres especiais. |
-| x-ms-data |A data em que o pedido foi processado, no formato RFC 1123. |
+| x-ms-date |A data em que o pedido foi processado, no formato RFC 1123. |
 | campo Hora gerado |O nome de um campo de dados que contém o timestamp do item de dados. Se especificar um campo, em seguida, o respetivo conteúdo é utilizado para **TimeGenerated**. Se este campo não está especificado, a predefinição para **TimeGenerated** é o tempo que a mensagem é ingerida. O conteúdo do campo mensagem deve seguir o formato ISO 8601 aaaa-MM-Aaaathh. |
 
 ## <a name="authorization"></a>Autorização
@@ -135,8 +135,8 @@ Para identificar o tipo de dados de uma propriedade, análise de registos adicio
 | Tipo de dados de propriedade | Sufixo |
 |:--- |:--- |
 | Cadeia |_s |
-| Valor booleano |_b |
-| duplo |_d |
+| Booleano |_b |
+| Duplo |_d |
 | Data/hora |_t |
 | GUID |_g |
 
@@ -186,10 +186,10 @@ Esta tabela lista o conjunto completo de códigos de estado que poderá devolver
 | 400 |Pedido incorreto |MissingLogType |Não foi especificado o tipo de registo do valor necessário. |
 | 400 |Pedido incorreto |UnsupportedContentType |O tipo de conteúdo não foi definido para **application/json**. |
 | 403 |Proibido |InvalidAuthorization |O serviço não conseguiu autenticar o pedido. Certifique-se de que a chave de ID e a ligação de área de trabalho são válidas. |
-| 404 |Não foi encontrado | | O URL fornecido está incorreto, ou o pedido é demasiado grande. |
-| 429 |Demasiados pedidos | | O serviço está com um elevado volume de dados da sua conta. Repita o pedido mais tarde. |
-| 500 |Erro interno do servidor |UnspecifiedError |O serviço encontrou um erro interno. Repita o pedido. |
-| 503 |Serviço indisponível |ServiceUnavailable |O serviço está atualmente disponível para receber pedidos. Repita o pedido. |
+| 404 |Não Encontrado | | O URL fornecido está incorreto, ou o pedido é demasiado grande. |
+| 429 |Demasiados Pedidos | | O serviço está com um elevado volume de dados da sua conta. Repita o pedido mais tarde. |
+| 500 |Erro Interno do Servidor |UnspecifiedError |O serviço encontrou um erro interno. Repita o pedido. |
+| 503 |Serviço Indisponível |ServiceUnavailable |O serviço está atualmente disponível para receber pedidos. Repita o pedido. |
 
 ## <a name="query-data"></a>Consultar dados
 Para consultar dados submetidos pela API em Recoletor de dados no HTTP de análise do registo, pesquisa de registos com **tipo** que é igual do **LogType** valor que especificou, acrescentar **_CL**. Por exemplo, se tiver utilizado **MyCustomLog**, em seguida, iria devolver todos os registos com **tipo = MyCustomLog_CL**.
@@ -260,7 +260,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 
 
 # Create the function to create and post the request
-Function Post-OMSData($customerId, $sharedKey, $body, $logType)
+Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
     $contentType = "application/json"
@@ -291,7 +291,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 }
 
 # Submit the data to the API endpoint
-Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
+Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
 ### <a name="c-sample"></a>Exemplo C#
@@ -463,5 +463,5 @@ def post_data(customer_id, shared_key, body, log_type):
 post_data(customer_id, shared_key, body, log_type)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Utilize o [API de pesquisa de registo](log-analytics-log-search-api.md) obter dados a partir do repositório de análise de registos.

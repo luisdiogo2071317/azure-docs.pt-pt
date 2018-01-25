@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 9651e582d6a33bed310e5e7f5354fb47dc47fe79
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Descrição geral do padrão de Balanceador de carga do Azure (pré-visualização)
 
@@ -72,8 +72,8 @@ Padrão de Balanceador de carga fornece novas funcionalidades de diagnóstico mu
 | --- | --- |
 | Disponibilidade de VIP | Padrão de Balanceador de carga continuamente exercises o caminho de dados de dentro de uma região para o Balanceador de carga front-end para a pilha SDN que suporte o VM. Bom estado de funcionamento instâncias permanecerem, desde que a medição segue o mesmo caminho que o tráfego com balanceamento de carga da sua aplicação. O caminho de dados que é utilizado pelos seus clientes também está a ser validado. A medida é invisível à sua aplicação e não interfere com outras operações.|
 | Disponibilidade do DIP | Padrão de Balanceador de carga utiliza um serviço que monitoriza o estado de funcionamento do ponto final da aplicação, de acordo com as definições de configuração de pesquisa de estado de funcionamento distribuído. Esta métrica fornece um agregado ou por ponto final-vista filtrada de cada ponto final de instância individual no balanceador de carga do agrupamento.  Pode ver como o Balanceador de carga visualiza o estado de funcionamento da sua aplicação, como indicado pela sua configuração de pesquisa do Estado de funcionamento.
-| Pacotes de SIN | Padrão de Balanceador de carga não terminar ligações TCP ou interagir com fluxos de pacotes TCP ou UDP. Fluxos e os respetivos handshakes são sempre entre a origem e a instância VM. Para resolver melhor os cenários de protocolo TCP, pode efetuar a utilização de SIN pacotes para compreender quantos ligação de TCP são realizadas tentativas. A métrica reporta o número de pacotes de TCP SIN que foram recebidos. A métrica também pode apresentar os clientes que tentam estabelecer uma ligação ao seu serviço.|
-| Ligações de realizar o SNAT | Padrão de Balanceador de carga reporta o número de ligações de saída que são masqueraded para o endereço IP público front-end. Portas de realizar o SNAT são um recurso exhaustible. Esta métrica pode fornecem uma indicação da forma como descontos elevados a aplicação é depender de realizar o SNAT para ligações de saída teve origem.|
+| Pacotes de SIN | Padrão de Balanceador de carga não terminar ligações TCP ou interagir com fluxos de pacotes TCP ou UDP. Fluxos e os respetivos handshakes são sempre entre a origem e a instância VM. Para resolver melhor os cenários de protocolo TCP, pode efetuar a utilização de SIN contadores de pacotes para compreender quantos ligação de TCP são realizadas tentativas. A métrica reporta o número de pacotes de TCP SIN que foram recebidos.|
+| Ligações de realizar o SNAT | Padrão de Balanceador de carga reporta o número de fluxos de saída que são masqueraded para o endereço IP público front-end. Portas de realizar o SNAT são um recurso exhaustible. Esta métrica pode dar uma indicação de como descontos elevados a aplicação é depender de realizar o SNAT para saída fluxos teve origem.  Contadores para fluxos de realizar o SNAT de saída com êxito e são reportados e podem ser utilizados para resolver problemas e compreender o estado de funcionamento dos seus fluxos de saída.|
 | Contadores de bytes | Padrão de Balanceador de carga relatórios os dados processados por front-end.|
 | Contadores de pacote | Padrão de Balanceador de carga relatórios pacotes processados por front-end.|
 

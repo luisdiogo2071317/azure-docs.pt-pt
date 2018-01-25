@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: af01fac2c552e038377f5b394fecbe3ad9fd3acc
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure
 Neste tutorial, vai criar um pipeline da fábrica de dados do Azure, que carrega dados delta a partir de uma tabela numa base de dados SQL do Azure para o armazenamento de blobs do Azure. 
@@ -37,7 +37,7 @@ Vai executar os seguintes passos neste tutorial:
 > * Criar um pipeline.
 > * Executar o pipeline.
 > * Monitorizar a execução do pipeline. 
-> * Rever os resultados
+> * Resultados da revisão
 > * Adicionar mais dados à origem.
 > * Executar o pipeline novamente.
 > * Monitorizar a segunda execução do pipeline
@@ -311,7 +311,7 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
 
         | Nome | Tipo | Valor | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue |
+        | LastModifiedtime | datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Cadeia | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
@@ -349,7 +349,7 @@ Clique em **Acionar**, na barra de ferramentas, e clique em **Acionar Agora**.
     4,dddd,2017-09-04 03:21:00.0000000
     5,eeee,2017-09-05 08:06:00.0000000
     ```
-3. Verifique o valor mais recente do `watermarktable`. Verá que o valor de tamanho limite foi atualizado.
+3. Verifique o valor mais recente do `watermarktable`. Verá que o valor de marca d’água foi atualizado.
 
     ```sql
     Select * from watermarktable
@@ -446,7 +446,7 @@ Neste tutorial, executou os passos seguintes:
 Neste tutorial, o pipeline copiou dados a partir de uma única tabela numa base de dados SQL para um armazenamento de Blobs. Avance para o tutorial seguinte para saber como copiar dados de várias tabelas para uma base de dados do SQL Server local para uma base de dados SQL. 
 
 > [!div class="nextstepaction"]
->[Carregar dados de forma incremental a partir de várias tabelas no SQL Server para a Base de Dados SQL do Azure](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Carregar dados de forma incremental a partir de várias tabelas no SQL Server para a Base de Dados SQL do Azure](tutorial-incremental-copy-multiple-tables-portal.md)
 
 
 

@@ -32,7 +32,7 @@ Utilize o serviço de cópia de segurança do Azure com discos geridos para cria
 ## <a name="pricing-and-billing"></a>Preços e Faturação
 
 Ao utilizar discos geridos, aplicam as seguintes considerações de faturação:
-* Tipo de Armazenamento
+* Tipo de armazenamento
 
 * Tamanho do Disco
 
@@ -53,14 +53,14 @@ Aqui estão os tamanhos de disco disponíveis para um disco gerido premium:
 
 | **Premium gerido <br>tipo de disco** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Tamanho do Disco        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Tamanho do Disco        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 Seguem-se disponível para um disco gerido standard os tamanhos de disco:
 
 | **Standard gerido <br>tipo de disco** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Tamanho do Disco        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Tamanho do Disco        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 **Número de transações**: É Faturado por número de transações que efetuar um disco gerido standard. Não há sem qualquer custo para transações para um disco gerido premium.
@@ -72,7 +72,7 @@ Para obter informações detalhadas sobre os preços para discos geridos, consul
 
 ## <a name="managed-disk-snapshots"></a>Disco gerido instantâneos
 
-Um instantâneo gerido é uma cópia completa de só de leitura de um disco gerida que é armazenado como um disco gerido standard por predefinição. Com instantâneos, pode criar cópias de segurança aos discos geridos em qualquer ponto no tempo. Estes instantâneos existem independentes de disco de origem e podem ser utilizados para criar novos discos geridos. Estes são cobrados com base no tamanho utilizado. Por exemplo, se criar um instantâneo de um disco gerido com capacidade de aprovisionamento de 64 GB e o tamanho de dados utilizados real de 10 GB, instantâneo será faturado apenas para o tamanho de dados utilizados de 10 GB.  
+Um instantâneo gerido é uma cópia completa de só de leitura de um disco gerida que é armazenado como um disco gerido standard por predefinição. Com instantâneos, pode criar cópias de segurança aos discos geridos em qualquer ponto no tempo. Estes instantâneos existem independentes de disco de origem e podem ser utilizados para criar novos discos geridos. Estes são cobrados com base no tamanho utilizado. Por exemplo, se criar um instantâneo de um disco gerido com capacidade de aprovisionamento de 64 GiB e o tamanho real de dados utilizados 10 GiB, instantâneo será faturado apenas para o tamanho de dados utilizados dos 10 GiB.  
 
 [Instantâneos incrementais](../articles/virtual-machines/windows/incremental-snapshots.md) não são atualmente suportadas para discos geridos, mas será suportada no futuro.
 

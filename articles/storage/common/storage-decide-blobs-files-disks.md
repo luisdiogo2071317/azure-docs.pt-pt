@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: e68f02484c0b8de8319a2d9a6d7e3a01ee06c69a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidir quando deve utilizar Blobs do Azure, ficheiros do Azure ou discos do Azure
 
@@ -41,7 +41,7 @@ A tabela seguinte compara os ficheiros do Azure com Blobs do Azure.
 ||||  
 |-|-|-|  
 |**Atributo**|**Blobs do Azure**|**Ficheiros do Azure**|  
-|Opções de durabilidade|LRS, ZRS, GRS (e RA-GRS para maior disponibilidade)|LRS, GRS|  
+|Opções de durabilidade|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |Acessibilidade|APIs REST|APIs REST<br /><br /> O SMB 2.1 e o SMB 3.0 (sistema de ficheiros padrão APIs)|  
 |Conectividade|APIs REST em todo o mundo|APIs REST - em todo o mundo<br /><br /> O SMB 2.1 – numa região<br /><br /> O SMB 3.0 – em todo o mundo|  
 |Pontos Finais|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  

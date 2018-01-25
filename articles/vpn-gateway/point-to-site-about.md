@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 74cfa8f54c52463ac0b42c5cc6abab7b0366ac29
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="about-point-to-site-vpn"></a>Sobre VPN ponto a Site
 
@@ -36,7 +36,7 @@ VPN ponto a site pode utilizar um dos seguintes protocolos:
 Se tiver um ambiente de cliente mistos consiste em dispositivos Windows e Mac, configure o SSTP e IKEv2.
 
 >[!NOTE]
->IKEv2 para P2S está disponível para o modelo de implementação Resource Manager. Não está disponível para o modelo de implementação clássica.
+>IKEv2 para P2S está disponível para apenas o modelo de implementação do Resource Manager. Não está disponível para o modelo de implementação clássica.
 >
 
 ## <a name="authentication"></a>Como é que os clientes P2S VPN são são autenticados?
@@ -67,6 +67,10 @@ Os utilizadores utilizam os clientes VPN nativos em dispositivos Windows e Mac p
 * Para dispositivos Mac, é composto por ficheiro mobileconfig instalado pelos utilizadores nos respetivos dispositivos.
 
 O ficheiro zip também fornece os valores de algumas das definições importantes no lado do Azure que pode utilizar para criar o seu próprio perfil para estes dispositivos. Alguns dos valores incluem o endereço de gateway de VPN, tipos de túnel configurado, as rotas e o certificado de raiz para validação do gateway.
+
+>[!NOTE]
+>Para clientes do Windows, tem de ter direitos de administrador no dispositivo cliente para iniciar a ligação de VPN do dispositivo cliente para o Azure.
+>
 
 ### <a name="gwsku"></a>Que P2S de suporte de SKUs de Gateway VPN?
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 8ae6c1eabf87b51dd04b6b6c9686bb89efff3bc0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparar Azure Data Factory V1 e V2
 Este artigo compara a V2 e a V1 do Azure Data Factory. Para uma introdução ao V1, veja [Introdução ao Azure Data Factory](v1/data-factory-introduction.md). Para uma introdução ao V2, veja [Introdução ao Azure Data Factory (V2 – pré-visualização)](introduction.md).
@@ -128,7 +128,16 @@ Para mais informações, consulte [Diferença entre a atividade personalizada no
 Os SDKs que são atualizados para a V2 não são compatíveis com versões anteriores com clientes V1. 
 
 ## <a name="authoring-experience"></a>Experiência de criação
-Com o Data Factory V1, pode criar pipelines com o Data Factory Editor no portal do Azure. Atualmente, o Data Factory V2 suporta apenas métodos programáticos (como .NET SDK, REST API, PowerShell e Python) de criação de fábricas de dados. Ainda não existe suporte de interface de utilizador.  O Data Factory V1 também suporta o suporte de criação de conteúdos de SDK, REST e PowerShell.
+
+| &nbsp; | V2 | V1 |
+| ------ | -- | -- | 
+| Portal do Azure | [Sim](quickstart-create-data-factory-portal.md) | [Sim](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [Sim](quickstart-create-data-factory-powershell.md) | [Sim](data-factory-build-your-first-pipeline-using-powershell.md) |
+| SDK .NET | [Sim](quickstart-create-data-factory-dot-net.md) | [Sim](data-factory-build-your-first-pipeline-using-vs.md) |
+| API REST | [Sim](quickstart-create-data-factory-rest-api.md) | [Sim](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| SDK Python | [Sim](quickstart-create-data-factory-python.md) | Não |
+| Modelo do Resource Manager | [Sim](quickstart-create-data-factory-resource-manager-template.md) | [Sim](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## <a name="monitoring-experience"></a>Experiência de monitorização
 No V2, também pode monitorizar fábricas de dados ao utilizar o [Azure Monitor](monitor-using-azure-monitor.md). Os novos cmdlets do PowerShell suportam a monitorização de [tempos de execução de integração](monitor-integration-runtime.md). Ambos o V1 e V2 suportam monitorização visual através de uma aplicação de monitorização que pode ser aberta a partir do portal do Azure.
