@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 13154e41ebd4867de9af74340a69446400814f5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b110fd4f9eb70644a6fcb66198113af2ec685142
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementar recursos com modelos do Resource Manager e do CLI do Azure
 
@@ -119,7 +119,7 @@ az group deployment create \
 
 ## <a name="test-a-template-deployment"></a>Testar um modelo de implementação
 
-Para testar os valores de parâmetros de modelo e sem a implementar, na verdade, quaisquer recursos, utilize [validar a implementação do grupo az](/cli/azure/group/deployment#validate). 
+Para testar os valores de parâmetros de modelo e sem a implementar, na verdade, quaisquer recursos, utilize [validar a implementação do grupo az](/cli/azure/group/deployment#az_group_deployment_validate). 
 
 ```azurecli
 az group deployment validate \
@@ -230,7 +230,7 @@ O modelo seguinte é utilizado para os exemplos neste tópico. Copie e guarde-o 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Os exemplos neste artigo implementar recursos num grupo de recursos na sua subscrição predefinida. Para utilizar uma subscrição diferente, consulte [gerir várias subscrições do Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 * Para um script de exemplo completo que implementa um modelo, consulte [script de implementação de modelos do Resource Manager](resource-manager-samples-cli-deploy.md).
 * Para compreender como definir parâmetros no modelo, consulte [compreender a estrutura e a sintaxe de modelos Azure Resource Manager](resource-group-authoring-templates.md).

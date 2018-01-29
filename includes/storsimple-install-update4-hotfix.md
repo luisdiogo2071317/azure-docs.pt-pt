@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 02/10/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
 #### <a name="to-download-hotfixes"></a>Para transferir correções
 
@@ -27,7 +27,7 @@ Execute os seguintes passos para transferir a atualização de software a partir
 
 Execute os seguintes passos para instalar e verificar correções do modo normal. Se já as instalou através do portal clássico do Azure, avance para [instalar e verificar correções de modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. Para instalar as correções, aceda à interface do Windows PowerShell na consola de série do dispositivo StorSimple. Siga as instruções detalhadas em [Utilizar o PuTTY para ligar à consola de série](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). Na linha de comandos, prima **Enter**.
+1. Para instalar as correções, aceda à interface do Windows PowerShell na consola de série do dispositivo StorSimple. Siga as instruções detalhadas em [Utilizar o PuTTY para ligar à consola de série](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Na linha de comandos, prima **Enter**.
 2. Selecione a **Opção 1** para iniciar sessão no dispositivo com acesso total. Recomendamos que primeiro instale a correção no controlador passivo.
 3. Para instalar a correção, na linha de comandos, escreva:
    

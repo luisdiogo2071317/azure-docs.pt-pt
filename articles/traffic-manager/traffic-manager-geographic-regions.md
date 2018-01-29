@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia de país/região utilizada pelo Gestor de tráfego do Azure para o método de encaminhamento de tráfego geográfica
 
@@ -66,14 +66,6 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - GB (Reino Unido)
 
-            - GB-ENG(England)
-
-            - GB NIR(Northern Ireland)
-
-            - GB-SCT(Scotland)
-
-            - GB-WLS(Wales)
-
         - GG(Guernsey)
 
         - GI(Gibraltar)
@@ -94,7 +86,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - Je(Jersey)
 
-        - Li(Liechtenstein)
+        - LI(Liechtenstein)
 
         - LT(Lithuania)
 
@@ -106,7 +98,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - MD(Moldova)
 
-        - Me(Montenegro)
+        - ME(Montenegro)
 
         - MK (Macedónia, FYRO)
 
@@ -140,9 +132,9 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - VA (Vatican cidade)
 
-        - XJ (Jan Mayen)
+        - XJ(Jan Mayen)
 
-        - Xk(Kosovo)
+        - XK(Kosovo)
 
     - Georreplicação ME(Middle East)
 
@@ -188,7 +180,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - BL (são Barthélemy)
 
-        - BM(bermuda)
+        - BM(Bermuda)
 
         - BQ(Bonaire)
 
@@ -212,23 +204,23 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
             - AC NT(Northwest Territories)
 
-            - CA-nu(Nunavut)
+            - CA-NU(Nunavut)
 
             - CA-on(Ontario)
 
             - AC PE(Prince Edward Island)
 
-            - CA-qc(Québec)
+            - CA-QC(Québec)
 
             - CA-SK(Saskatchewan)
 
             - AC YT(Yukon Territory)
 
-        - CR (Costa Rica)
+        - CR(Costa Rica)
 
-        - Cu(cuba)
+        - CU(Cuba)
 
-        - Cw(CuraÃ§ao)
+        - CW(CuraÃ§ao)
 
         - DM(Dominica)
 
@@ -264,13 +256,13 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - Ni(Nicaragua)
 
-        - Pa(Panama)
+        - PA(Panama)
 
         - PM (são Pedro e Miquelon)
 
         - ELI (Porto Rico)
 
-        - SV (El Salvador)
+        - SV(El Salvador)
 
         - SX (Santo Maarten)
 
@@ -284,7 +276,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
             - US-AK(Alaska)
 
-            - US-Al(Alabama)
+            - US-AL(Alabama)
 
             - US-ar(Arkansas)
 
@@ -292,13 +284,13 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
             - US-CA(California)
 
-            - US-Co(Colorado)
+            - US-CO(Colorado)
 
             - US-CT(Connecticut)
 
             - E.u. a DC(District of Columbia)
 
-            - US-de(Delaware)
+            - US-DE(Delaware)
 
             - US-FL(Florida)
 
@@ -310,7 +302,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
             - US-ID(Idaho)
 
-            - US-il(Illinois)
+            - US-IL(Illinois)
 
             - US-in(indiana)
 
@@ -320,7 +312,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
             - US-la(Louisiana)
 
-            - US-ma(Massachusetts)
+            - US-MA(Massachusetts)
 
             - US-MD(Maryland)
 
@@ -328,7 +320,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
             - US-MI(Michigan)
 
-            - US-Mn(Minnesota)
+            - US-MN(Minnesota)
 
             - US-MO(Missouri)
 
@@ -344,13 +336,13 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
             - E.u. a NH(New Hampshire)
 
-            - E.u. a NJ(New Jersey)
+            - US-NJ(New Jersey)
 
             - E.u. a NM(New Mexico)
 
             - US-NV(Nevada)
 
-            - E.u. a NY(New York)
+            - US-NY(New York)
 
             - US-OH(Ohio)
 
@@ -358,7 +350,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
             - US-OR(Oregon)
 
-            - US-Pa(Pennsylvania)
+            - US-PA(Pennsylvania)
 
             - E.u. a RI(Rhode Island)
 
@@ -378,7 +370,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
             - US-WA(Washington)
 
-            - US-Wi(Wisconsin)
+            - US-WI(Wisconsin)
 
             - E.u. a WV(West Virginia)
 
@@ -392,7 +384,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - XE (Santo Eustáquio)
 
-        - Xs(Saba)
+        - XS(Saba)
 
     - Geo-as(Asia)
 
@@ -404,7 +396,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - BD(Bangladesh)
 
-        - Bn(Brunei)
+        - BN(Brunei)
 
         - BT(Bhutan)
 
@@ -416,7 +408,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - GE(Georgia)
 
-        - HK (RAE de Hong Kong)
+        - HK(Hong Kong SAR)
 
         - ID(Indonesia)
 
@@ -438,11 +430,11 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - LA(Laos)
 
-        - LK (Sri Lanca)
+        - LK(Sri Lanka)
 
         - MM(Myanmar)
 
-        - Mn(Mongolia)
+        - MN(Mongolia)
 
         - MO (Macao Kong)
 
@@ -476,7 +468,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - AO(Angola)
 
-        - BF (Burkina Faso)
+        - BF(Burkina Faso)
 
         - BI(Burundi)
 
@@ -486,7 +478,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - BW(Botswana)
 
-        - CD (Congo (DRC))
+        - CD(Congo (DRC))
 
         - CF (República de African Central)
 
@@ -496,7 +488,7 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - CM(Cameroon)
 
-        - CV (Cabo Verde)
+        - CV(Cabo Verde)
 
         - DJ(Djibouti)
 
@@ -550,9 +542,9 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - NG(Nigeria)
 
-        - Re(Réunion)
+        - RE(Réunion)
 
-        - RW(RWANDA)
+        - RW(Rwanda)
 
         - SC(Seychelles)
 
@@ -698,6 +690,6 @@ Este artigo apresenta uma lista de países e regiões utilizadas pelo **Geograph
 
         - WS(Samoa)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [no Gestor de tráfego do Azure de método de encaminhamento de tráfego Geographic](traffic-manager-routing-methods.md#geographic).

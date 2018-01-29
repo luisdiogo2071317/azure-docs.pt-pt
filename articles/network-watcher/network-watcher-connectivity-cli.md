@@ -1,10 +1,10 @@
 ---
-title: Verifique a conectividade com o observador de rede do Azure - Azure CLI 2.0 | Microsoft Docs
-description: "Esta página explica como utilizar a verificação de conectividade com o observador de rede a utilizar o Azure CLI 2.0"
+title: "Resolver problemas de ligações com o observador de rede do Azure - Azure CLI 2.0 | Microsoft Docs"
+description: "Saiba como utilizar a ligação de resolução de problemas de capacidade do observador de rede do Azure utilizando o 2.0 CLI do Azure."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,31 +13,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 507ec614e54b035d5470ec34bcfd8e71cf98083c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: dfe77b0a9620ccb8ac91fa8843d01d1cb7bdc44f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Verifique a conectividade com o observador de rede do Azure a utilizar o Azure CLI 2.0
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>Resolver problemas de ligações com o observador de rede do Azure utilizando o 2.0 CLI do Azure
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [API REST do Azure](network-watcher-connectivity-rest.md)
 
-Saiba como utilizar conectividade para verificar se é possível estabelecer uma ligação de TCP direta de uma máquina virtual para um ponto final especificado.
+Saiba como utilizar a ligação de resolução de problemas para verificar se é possível estabelecer uma ligação de TCP direta de uma máquina virtual para um ponto final especificado.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que tem os seguintes recursos:
 
-* Uma instância do observador de rede na região que pretende verificar a conectividade.
-
-* Máquinas virtuais para verificar a conectividade com.
+* Uma instância do observador de rede na região que pretende resolver problemas de uma ligação.
+* Máquinas virtuais para resolver problemas de ligações com.
 
 > [!IMPORTANT]
-> Verificação da conectividade requer uma extensão da máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão numa Windows VM visite [extensão da máquina virtual de agente de observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para, visite VM com Linux [extensão da máquina virtual de agente de observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> Resolver problemas de ligação requer uma extensão da máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão numa Windows VM visite [extensão da máquina virtual de agente de observador de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para, visite VM com Linux [extensão da máquina virtual de agente de observador de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Verifique a conectividade a uma máquina virtual
 
@@ -122,7 +121,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 ## <a name="validate-routing-issues"></a>Validar a problemas de encaminhamento
 
-O exemplo verifica a conectividade entre uma máquina virtual e um ponto final remoto.
+Neste exemplo verifica a conectividade entre uma máquina virtual e um ponto final remoto.
 
 ### <a name="example"></a>Exemplo
 
@@ -269,7 +268,7 @@ O seguinte json é a resposta de exemplo da execução do cmdlet anterior. Como 
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como automatizar capturas de pacotes com alertas de Máquina Virtual visualizando [criar uma captura de pacotes accionadas alerta](network-watcher-alert-triggered-packet-capture.md)
 

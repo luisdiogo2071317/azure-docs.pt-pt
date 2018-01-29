@@ -5,8 +5,7 @@ keywords: "encriptação de dados, a chave de encriptação, a encriptação de 
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: cgronlun
+manager: craigg
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
@@ -16,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 4fb189abfaddcf27c8af223773ab0e5fc9dfca14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Sempre encriptado: Proteger dados sensíveis na base de dados SQL e armazenar as chaves de encriptação no Cofre de chaves do Azure
 
@@ -48,30 +47,18 @@ Para este tutorial, precisa de:
 * [O Azure PowerShell](/powershell/azure/overview), versão 1.0 ou posterior. Tipo **(Get-Module do azure - ListAvailable). Versão** para ver qual a versão do PowerShell está a executar.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Ativar a aplicação de cliente para aceder ao serviço de base de dados SQL
-Tem de ativar a aplicação de cliente aceder ao serviço de base de dados do SQL Server ao configurar a autenticação necessária e adquirir o *ClientId* e *segredo* que será necessário autenticar a sua aplicação no seguinte código.
+Tem de ativar a aplicação de cliente aceder ao serviço de base de dados do SQL Server ao configurar uma aplicação do Azure Active Directory (AAD) e copiar a *ID da aplicação* e *chave* que precisa autentica a aplicação.
 
-1. Abra o [portal clássico do Azure](http://manage.windowsazure.com).
-2. Selecione **do Active Directory** e clique na instância do Active Directory que irá utilizar a sua aplicação.
-3. Clique em **aplicações**e, em seguida, clique em **adicionar**.
-4. Escreva um nome para a sua aplicação (por exemplo: *myClientApp*), selecione **aplicação WEB**e clique na seta para continuar.
-5. Para o **URL de início de sessão no** e **URI de ID de aplicação** pode introduzir um URL válido (por exemplo, *http://myClientApp*) e continuar.
-6. Clique em **configurar**.
-7. Copiar o **ID de cliente**. (Irá precisar deste valor no seu código mais tarde.)
-8. No **chaves** secção, selecione **1 ano** do **selecione duração** na lista pendente. (Será copie a chave depois de guardar no passo 13.)
-9. Desloque para baixo e clique em **Adicionar aplicação**.
-10. Deixe **mostrar** definido como **Microsoft Apps** e selecione **API de gestão de serviços do Microsoft Azure**. Clique na marca de verificação para continuar.
-11. Selecione **aceder à gestão de serviço do Azure...**  do **permissões delegadas** na lista pendente.
-12. Clique em **GUARDAR**.
-13. Depois de concluído o guardar, copie o valor da chave no **chaves** secção. (Irá precisar deste valor no seu código mais tarde.)
+Para obter o *ID da aplicação* e *chave*, siga os passos no [criar um Azure Active Directory principal de serviço e aplicação que pode aceder aos recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Criar um cofre de chaves para armazenar as chaves
-Agora que a aplicação de cliente é configurada e tem o ID de cliente, está na altura de criar um cofre de chaves e configurar a política de acesso para a e a sua aplicação podem aceder segredos no cofre (as chaves sempre encriptado). O *criar*, *obter*, *lista*, *sessão*, *verificar*, *wrapKey*, e *unwrapKey* permissões são necessárias para criar uma nova chave mestra da coluna e para configurar a encriptação com o SQL Server Management Studio.
+Agora que a aplicação de cliente é configurada e tem o ID da aplicação, está na altura de criar um cofre de chaves e configurar a política de acesso para a e a sua aplicação podem aceder segredos no cofre (as chaves sempre encriptado). O *criar*, *obter*, *lista*, *sessão*, *verificar*, *wrapKey*, e *unwrapKey* permissões são necessárias para criar uma nova chave mestra da coluna e para configurar a encriptação com o SQL Server Management Studio.
 
 Pode criar rapidamente um cofre de chaves executando o seguinte script. Para obter uma explicação detalhada destes cmdlets e obter mais informações sobre como criar e configurar um cofre de chaves, consulte [introdução ao Cofre de chaves do Azure](../key-vault/key-vault-get-started.md).
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
-    $clientId = '<client ID that you copied in step 7 above>'
+    $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
@@ -85,13 +72,13 @@ Pode criar rapidamente um cofre de chaves executando o seguinte script. Para obt
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $clientId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 
 
 
 
 ## <a name="create-a-blank-sql-database"></a>Criar uma base de dados do SQL Server em branco
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Aceda a **novo** > **dados + armazenamento** > **base de dados SQL**.
 3. Criar um **em branco** base de dados denominada **Clinic** num servidor novo ou existente. Para obter instruções detalhadas sobre como criar uma base de dados no portal do Azure, consulte [sua primeira base de dados SQL do Azure](sql-database-get-started-portal.md).
    
@@ -233,7 +220,7 @@ O código seguinte mostra como registar o fornecedor do Cofre de chaves do Azure
 
     static void InitializeAzureKeyVaultProvider()
     {
-       _clientCredential = new ClientCredential(clientId, clientSecret);
+       _clientCredential = new ClientCredential(applicationId, clientKey);
 
        SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
           new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -275,8 +262,8 @@ Execute a aplicação para ver sempre encriptados em ação.
     {
         // Update this line with your Clinic database connection string from the Azure portal.
         static string connectionString = @"<connection string from the portal>";
-        static string clientId = @"<client id from step 7 above>";
-        static string clientSecret = "<key from step 13 above>";
+        static string applicationId = @"<application ID from your AAD application>";
+        static string clientKey = "<key from your AAD application>";
 
 
         static void Main(string[] args)
@@ -399,7 +386,7 @@ Execute a aplicação para ver sempre encriptados em ação.
         static void InitializeAzureKeyVaultProvider()
         {
 
-            _clientCredential = new ClientCredential(clientId, clientSecret);
+            _clientCredential = new ClientCredential(applicationId, clientKey);
 
             SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
               new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -628,7 +615,7 @@ Para utilizar o SSMS para aceder aos dados de texto simples, pode adicionar o *d
     ![Nova aplicação de consola](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de criar uma base de dados que utiliza sempre encriptados, poderá pretender efetuar o seguinte:
 
 * [Roda e limpar as chaves](https://msdn.microsoft.com/library/mt607048.aspx).

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 1/24/2018
 ms.author: johnkem
-ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços suportados, esquemas e categorias de registos de diagnóstico do Azure
 
@@ -34,30 +34,29 @@ O esquema para os registos de diagnóstico de recurso varia consoante a categori
 | Gateways da Aplicação |[Registo de diagnóstico para o Gateway de aplicação](../application-gateway/application-gateway-diagnostics.md) |
 | Automatização do Azure |[Análise de registos para a automatização do Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Registo de diagnóstico de lote do Azure](../batch/batch-diagnostics.md) |
-| Informações de cliente | Esquema não está disponível. |
+| Informações do Cliente | Esquema não está disponível. |
 | Rede de Entrega de Conteúdos | Esquema não está disponível. |
 | CosmosDB | [Registo do Cosmos BD do Azure](../cosmos-db/logging.md) |
 | Data Lake Analytics |[Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Aceder a registos de diagnóstico para o Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Hubs de Eventos |[Registos de diagnóstico dos Event Hubs do Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
-| Hub IoT | [Operações de IoT Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
+| Event Hubs |[Registos de diagnóstico dos Event Hubs do Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
+| IoT Hub | [Operações de IoT Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Cofre de Chaves |[Registo do Cofre de Chaves do Azure](../key-vault/key-vault-logging.md) |
-| Balanceador de Carga |[Log Analytics para o Balanceador de Carga do Azure](../load-balancer/load-balancer-monitor-log.md) |
-| Logic Apps |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Load balancer |[Log Analytics para o Balanceador de Carga do Azure](../load-balancer/load-balancer-monitor-log.md) |
+| Aplicações Lógicas |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de Segurança de Rede |[Análise de registos para grupos de segurança de rede (NSGs) (Log analytics for network security groups (NSGs))](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Proteção contra DDOS | Esquema não está disponível. |
 | Serviços de Recuperação | [Modelo de dados para cópia de segurança do Azure](../backup/backup-azure-reports-data-model.md)|
-| Pesquisar |[Ativar e utilizar a análise de tráfego de pesquisa](../search/search-traffic-analytics.md) |
+| Pesquisa |[Ativar e utilizar a análise de tráfego de pesquisa](../search/search-traffic-analytics.md) |
 | Gestão de Servidores | Esquema não está disponível. |
 | Service Bus |[Registos de diagnóstico de Service Bus do Azure](../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| Base de Dados SQL | [Registo de diagnóstico de base de dados SQL do Azure](../sql-database/sql-database-metrics-diag-logging.md) |
+| SQL Database | [Registo de diagnóstico de base de dados SQL do Azure](../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Registos de diagnóstico de tarefa](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Redes Virtuais | Esquema não está disponível. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Suportado categorias de registo por tipo de recurso
 |Tipo de Recurso|Categoria|Nome a apresentar categoria|
 |---|---|---|
-|Microsoft.aadiam/Tenants|Iniciar sessão|Iniciar sessão|
 |Microsoft.AnalysisServices/servers|Motor|Motor|
 |Microsoft.AnalysisServices/servers|Serviço|Serviço|
 |Microsoft.ApiManagement/service|GatewayLogs|Registos relacionados com o Gateway de ApiManagement|
@@ -65,7 +64,7 @@ O esquema para os registos de diagnóstico de recurso varia consoante a categori
 |Microsoft.Automation/automationAccounts|JobStreams|Fluxos de trabalho|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Estado do nó DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Registos do serviço|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtém as métricas do ponto final, por exemplo, a largura de banda, saída, etc.|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtém as métricas do ponto final, por exemplo, largura de banda, saída, etc.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Registo de execuções de atividade do pipeline|
 |Microsoft.DataFactory/factories|PipelineRuns|Registo de execução de pipeline|
@@ -94,14 +93,14 @@ O esquema para os registos de diagnóstico de recurso varia consoante a categori
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Registos de escala automática|
 |Microsoft.KeyVault/vaults|AuditEvent|Registos de Auditoria|
 |Microsoft.Logic/workflows|WorkflowRuntime|Eventos de diagnóstico de runtime de fluxo de trabalho|
-|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Eventos de registo de conta de integração|
+|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Conta de Integração para controlar eventos|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Eventos do grupo de segurança de rede|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de regras do grupo de segurança de rede|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Eventos de fluxo de regra de grupo de segurança de rede|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventos de alerta de Balanceador de carga|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Estado de funcionamento de sonda de Balanceador de carga|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notificações de proteção DDoS|
-|Network/virtualnetworks|VMProtectionAlerts|Alertas de proteção de VM|
+|Microsoft.Network/virtualNetworks|VMProtectionAlerts|Alertas de proteção de VM|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Registo de acesso do Gateway de aplicação|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Registo de desempenho do Gateway de aplicação|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Registo de Firewall de Gateway de aplicação|
@@ -116,6 +115,8 @@ O esquema para os registos de diagnóstico de recurso varia consoante a categori
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Recuperação de sites do Azure replicado itens|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Estatísticas de replicação de recuperação de sites do Azure|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Pontos de recuperação do Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Taxa de carregamento de dados de replicação de recuperação de sites do Azure|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Fluxo de dados do disco de protegidos do Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Registos de Operações|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Registos operacionais|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estatísticas de tempo de execução do arquivo de consultas|
@@ -124,11 +125,12 @@ O esquema para os registos de diagnóstico de recurso varia consoante a categori
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Estatísticas de espera de base de dados|
 |Microsoft.Sql/servers/databases|Tempos limite|Tempos limite|
 |Microsoft.Sql/servers/databases|Blocos de|Blocos de|
-|Microsoft.Sql/servers/databases|SQLInsights|Informações do SQL Server|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|Auditoria|Registos de Auditoria|
 |Microsoft.StreamAnalytics/streamingjobs|Execução|Execução|
 |Microsoft.StreamAnalytics/streamingjobs|Criação de conteúdos|Criação de conteúdos|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 * [Saiba mais sobre os registos de diagnóstico](monitoring-overview-of-diagnostic-logs.md)
 * [Transmitir os registos de diagnóstico de recursos para **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)

@@ -4,7 +4,7 @@ description: Saiba como utilizar assinaturas de acesso partilhado para restringi
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 92ad526d034591b8f463ef6b01e115101b74e1ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilizar assinaturas de acesso partilhado do Azure armazenamento para restringir o acesso aos dados no HDInsight
 
@@ -204,7 +204,7 @@ Se tiver um cluster existente baseado em Linux, pode adicionar a SAS para o **co
 
 4. Expanda o **site core personalizado** secção, em seguida, desloque-se para o fim e selecione o **Adicionar propriedade de...**  ligação. Utilize os seguintes valores para o **chave** e **valor** campos:
 
-   * **Chave**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
+   * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **Valor**: O SAS devolvido pela aplicação c# ou Python que executou anteriormente
 
      Substitua **CONTAINERNAME** com o nome do contentor utilizado com a aplicação c# ou SAS. Substitua **STORAGEACCOUNTNAME** com o nome de conta de armazenamento que utilizou.
@@ -216,7 +216,7 @@ Se tiver um cluster existente baseado em Linux, pode adicionar a SAS para o **co
    > [!IMPORTANT]
    > Tem de reiniciar vários serviços antes da alteração surta efeito.
 
-6. No Ambari IU da web, selecione **HDFS** na lista à esquerda e, em seguida, selecione **todas reinicie as** do **ações de serviço** lista à direita pendente. Quando lhe for pedido, selecione **ativar o modo de manutenção** e, em seguida, selecione __Conform todas reinicie ".
+6. No Ambari IU da web, selecione **HDFS** na lista à esquerda e, em seguida, selecione **afetadas todas reinicie** do **ações de serviço** lista à direita pendente. Quando lhe for pedido, selecione __está em conformidade com todas reinicie__.
 
     Repita este processo para MapReduce2 e YARN.
 
@@ -300,7 +300,7 @@ Assim que estiver ligado ao cluster, utilize os seguintes passos para verificar 
 * Tem de conter pelo menos um caráter não alfanumérico
 * Tem de conter, pelo menos, um em maiúsculas ou minúsculas
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu como adicionar armazenamento de acesso limitado ao cluster do HDInsight, saiba outras formas de trabalhar com dados no seu cluster:
 

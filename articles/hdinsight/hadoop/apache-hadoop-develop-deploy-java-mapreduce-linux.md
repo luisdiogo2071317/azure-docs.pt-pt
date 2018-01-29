@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 75f52e09d141cd009127d46acf93cbab7fc6a4f6
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 16cb62c95784d7c8b284e03f0759028038af7f0a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>Desenvolver programas de Java MapReduce para o Hadoop no HDInsight
 
@@ -151,7 +151,7 @@ As seguintes variáveis de ambiente podem ser definidas quando instalar o Java e
     > [!NOTE]
     > HDInsight 3.4 e utilização anterior Java 7. HDInsight 3.5 e maior utiliza Java 8.
 
-3. Guardar o `pom.xml` ficheiro.
+3. Guarde o ficheiro `pom.xml`.
 
 ## <a name="create-the-mapreduce-application"></a>Criar a aplicação de MapReduce
 

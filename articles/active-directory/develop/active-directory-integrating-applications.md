@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrar aplicações com o Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -309,7 +309,7 @@ As aplicações que registou-se a sua organização mostram sob o filtro "As min
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Remover uma aplicação de multi-inquilino autorizada por outra organização
 Um subconjunto das aplicações que mostram sob o filtro "Todas as aplicações" (excluindo a registos de "As minhas aplicações") na página "Registos de aplicação" principal do seu inquilino, são aplicações de multi-inquilinos. Em termos técnicos, estas aplicações de multi-inquilinos são de outro inquilino em foram registadas no seu inquilino durante o processo de consentimento. Estes erro são mais especificamente, representados por apenas um objeto principal do serviço no seu inquilino, a com nenhum objeto de aplicação correspondente. Para obter mais informações sobre as diferenças entre a aplicação e objetos de principal de serviço, consulte [aplicação e objetos de principal de serviço no Azure AD](active-directory-application-objects.md).
 
-Para remover o acesso de uma aplicação multi-inquilino para o seu diretório (depois de ter concedido consentimento), o administrador da empresa tem de remover o respetivo principal de serviço. O administrador tem de ter acesso de administrador global e pode remover através do portal do Azure a [Cmdlets do Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) para remover o acesso.
+Para remover o acesso de uma aplicação multi-inquilino para o seu diretório (depois de ter concedido consentimento), o administrador da empresa tem de remover o respetivo principal de serviço. O administrador tem de ter acesso de administrador global e pode remover através do portal do Azure ou utilizar o [Cmdlets do Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) para remover o acesso.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Para obter mais informações sobre como funciona a autenticação no Azure AD, consulte [cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).

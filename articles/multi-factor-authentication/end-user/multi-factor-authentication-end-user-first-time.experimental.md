@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 7754aac27381e25fca126f7cdd2e07bfa1dcf380
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec96243a880272a67ed960d50baba43dba8ec207
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar a minha conta para a verificação de dois passos
 Verificação de dois passos é um passo de segurança adicional que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas para entrar na. Se estiver a ler este artigo, provavelmente, recebeu uma mensagem de e-mail do administrador de conta escolar ou profissional sobre multi-factor Authentication. Ou, talvez tentou iniciar sessão e recebeu uma mensagem a pedir-lhe configurar a verificação de segurança adicional. Se for esse o caso, **não pode iniciar sessão depois de concluir o processo de inscrição automática**.
@@ -43,7 +43,7 @@ Se não vir um ecrã de como esta quando iniciar sessão, siga as indicações [
 
 | Método de contacto | Descrição |
 | --- | --- |
-| [Aplicação móvel](#use-a-mobile-app-as-the-contact-method) |- **Receba notificações de verificação.** Esta opção envia uma notificação para a aplicação de autenticação no seu smartphone ou tablet. Ver a notificação e, se esta for legítima, selecionar **autenticar** na aplicação. A empresa ou escola pode exigir que introduza um PIN antes de se autenticar.<br>- **Utilize código de verificação.** Neste modo, a aplicação de autenticação gera um código de verificação que atualiza a cada 30 segundos. Introduza o código de verificação mais recente na interface de início de sessão.<br>A aplicação Authenticator da Microsoft está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Aplicação móvel](#use-a-mobile-app-as-the-contact-method) |- **Receba notificações de verificação.** Esta opção envia uma notificação para a aplicação de autenticação no seu smartphone ou tablet. Ver a notificação e, se esta for legítima, selecionar **autenticar** na aplicação. A empresa ou escola pode exigir que introduza um PIN antes de se autenticar.<br>- **Utilize código de verificação.** Neste modo, a aplicação de autenticação gera um código de verificação que atualiza a cada 30 segundos. Introduza o código de verificação mais recente na interface de início de sessão.<br>A aplicação Authenticator da Microsoft está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
 | [Chamada de telemóvel ou de texto](#use-your-mobile-phone-as-the-contact-method) |- **Chamada telefónica** coloca uma chamada de voz automatizada para o número de telefone que fornecer. Atender a chamada e prima # no teclado do telefone para se autenticar.<br>- **Mensagem de texto** termina uma mensagem de texto que contém um código de verificação. Os seguintes linha no texto, responda à mensagem de texto ou introduza o código de verificação fornecido para a interface de início de sessão. |
 | [Chamada de telefone do escritório](#use-your-office-phone-as-the-contact-method) |Coloca uma chamada de voz automatizada para o número de telefone que fornecer. Atender a chamada e prime # no teclado do telefone para se autenticar. |
 
@@ -67,7 +67,7 @@ Ao utilizar este método requer que instale uma aplicação de autenticação no
    ![Caixa de introduzir um PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Depois de concluída a introdução do PIN, selecione **fechar**. Neste momento, a verificação deve ser efetuada com êxito.
-9. Recomendamos que introduza o seu número de telemóvel no caso de perder o acesso à sua aplicação móvel. Especifique o seu país na lista pendente e introduza o seu número de telemóvel na caixa junto ao nome do país. Selecione **seguinte**.
+9. Recomendamos que introduza o seu número de telemóvel no caso de perder o acesso à sua aplicação móvel. Especifique o seu país na lista pendente e introduza o seu número de telemóvel na caixa junto ao nome do país. Selecione **Seguinte**.
 10. Neste momento, precisará de configurar palavras-passe de aplicação para aplicações não baseadas no browser, tais como o Outlook 2010 ou anterior ou para a aplicação de e-mail nativas em dispositivos da Apple. Esta ação acontece porque algumas aplicações não suportam a verificação de dois passos. Se não utilizar estas aplicações, clique em **feito** e ignore o resto destes passos.
 11. Se estiver a utilizar estas aplicações, a palavra-passe de aplicação de cópia fornecido e cole-o sua aplicação em vez da palavra-passe normal. Pode utilizar a mesma palavra-passe de aplicação para várias aplicações. Para obter mais informações, [ajudar com palavras-passe de aplicação].
 12. Clique em **Concluído**.
@@ -102,7 +102,7 @@ Se pretender adicionar uma conta para a aplicação móvel manualmente, em vez d
 5. Se estiver a utilizar estas aplicações, a palavra-passe de aplicação de cópia fornecido e cole-o sua aplicação em vez da palavra-passe normal. Pode utilizar a mesma palavra-passe de aplicação para várias aplicações. Para obter mais informações, consulte [quais são as palavras-passe de aplicação](multi-factor-authentication-end-user-app-passwords.md).
 6. Clique em **Concluído**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Alterar as opções de preferenciais e [gerir as definições de verificação em dois passos](multi-factor-authentication-end-user-manage-settings.md)
 * Configurar [palavras-passe de aplicação](multi-factor-authentication-end-user-app-passwords.md) nativo para aplicações de dispositivo que não suportam a verificação de dois passos.
 * Veja o [aplicação Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para fast, autenticação segura, mesmo quando não tiver o serviço de célula.

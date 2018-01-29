@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: b69f6b2190362b970420ba81450978ac9faecd86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes no App Service do Azure de teste
 <a name="Overview"></a>
@@ -52,7 +52,7 @@ A aplicação deve estar em execução a **padrão** ou **Premium** modo por ord
    > 
 3. No **adicionar uma ranhura** painel, atribua a ranhura de um nome e optar por clonar a configuração de aplicação a partir de outro bloco de implementação existente. Clique na marca de verificação para continuar.
    
-    ![Origem de configuração][ConfigurationSource1]
+    ![Origem da Configuração][ConfigurationSource1]
    
     A primeira adicionar uma ranhura, apenas terá duas opções: configuração de clone da ranhura de predefinição na produção ou não de todo.
     Depois de criar várias ranhuras, será possível clonar a configuração a partir de uma ranhura diferente em produção:
@@ -75,7 +75,7 @@ Ao clonar a configuração a partir de outro bloco de implementação, a configu
 * Sockets de Web de definições gerais - por exemplo, a versão do framework, 32/64 bits,
 * Definições de aplicação (pode ser configurado para stick para uma ranhura)
 * Cadeias de ligação (pode ser configurado para stick para uma ranhura)
-* Mapeamentos do processador
+* Mapeamentos de processador
 * Definições de monitorização e diagnóstico
 * Conteúdo de WebJobs
 
@@ -244,7 +244,7 @@ A CLI do Azure fornece comandos de várias plataformas para trabalhar com o Azur
 * Para listar os comandos disponíveis para o Azure App Service na CLI do Azure, chamar `azure site -h`.
 
 > [!NOTE] 
-> Para [Azure CLI 2.0](https://github.com/Azure/azure-cli) comandos para as ranhuras de implementação, consulte [ranhura de implementação do az appservice web](/cli/azure/appservice/web/deployment/slot).
+> Para [Azure CLI 2.0](https://github.com/Azure/azure-cli) comandos para as ranhuras de implementação, consulte [ranhura de implementação de webapp az](/cli/azure/webapp/deployment/slot).
 
 - - -
 ### <a name="azure-site-list"></a>lista de sites do Azure
@@ -280,7 +280,7 @@ Para eliminar uma ranhura de implementação que já não é necessária, utiliz
 > 
 > 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 [Web do App Service do Azure aplicação – bloquear o acesso web para as ranhuras de implementação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 [introdução ao serviço de aplicações no Linux](../app-service/containers/app-service-linux-intro.md)
 [avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)

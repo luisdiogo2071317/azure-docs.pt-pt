@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/25/2018
 ms.author: terrylan
-ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar as configurações de segurança do SO no Centro de segurança do Azure (pré-visualização)
 
@@ -26,7 +26,7 @@ Esta explicação passo a passo demonstra como personalizar as avaliações de c
 
 ## <a name="what-are-os-security-configurations"></a>Quais são as configurações de segurança do SO?
 
-Configurações de segurança de monitores de centro de segurança do Azure através da aplicação de um conjunto de regras recomendadas mais de 150 para proteger o sistema operativo, incluindo regras relacionadas com a firewalls, auditoria, políticas de palavra-passe e muito mais. Se for encontrada uma máquina ter uma configuração vulnerável, o Centro de segurança gera uma recomendação de segurança.
+Centro de segurança do Azure monitoriza configurações de segurança aplicando um conjunto de [mais de 150 recomendado regras](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para proteger o sistema operativo, incluindo regras relacionadas com as firewalls, auditoria, políticas de palavra-passe e muito mais. Se for encontrada uma máquina ter uma configuração vulnerável, o Centro de segurança gera uma recomendação de segurança.
 
 Ao personalizar as regras, as organizações podem controlar as opções de configuração são mais adequadas para o respetivo ambiente. Pode definir uma política personalizada de avaliação e, em seguida, aplicam-se em todas as máquinas aplicáveis na subscrição.
 
@@ -60,8 +60,8 @@ Para personalizar a configuração de segurança de SO predefinida no Centro de 
 3.  Selecione a subscrição que pretende efetuar a personalização para.
 
 4. Em **componentes da política**, selecione **configurações de segurança de editar**.  
-    O **configurações de segurança de editar** é aberta a janela. 
-    
+    O **configurações de segurança de editar** é aberta a janela.
+
     ![A janela "Editar configurações de segurança"](media/security-center-customize-os-security-config/blade.png)
 
 5. No painel da direita, siga os passos para transferir, editar e carregar o ficheiro modificado.
@@ -70,7 +70,7 @@ Para personalizar a configuração de segurança de SO predefinida no Centro de 
    > Por predefinição, o ficheiro de configuração que transferir está a ser *json* formato. Para obter instruções sobre como modificar este ficheiro, aceda a [personalizar o ficheiro de configuração](#customize-the-configuration-file).
    >
 
-   Depois de ter guardado com êxito o ficheiro, a configuração é aplicada a todas as VMs e computadores que estejam ligados a todas as áreas de trabalho sob a subscrição. O processo normalmente demora alguns minutos, mas pode demorar mais tempo, dependendo do tamanho de infraestrutura. 
+   Depois de ter guardado com êxito o ficheiro, a configuração é aplicada a todas as VMs e computadores que estejam ligados a todas as áreas de trabalho sob a subscrição. O processo normalmente demora alguns minutos, mas pode demorar mais tempo, dependendo do tamanho de infraestrutura.
 
 6. Para confirmar a alteração, selecione **guardar**. Caso contrário, a política não está armazenada.
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bfe1ad012d126b3522b79a6ccecfe03b2b86f7b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recolher e analisar registos de atividade do Azure na análise de registos
 
@@ -90,10 +90,10 @@ Dados de registo de atividade só é apresentada *depois* que configurou os regi
 
 | Painel | Descrição |
 | --- | --- |
-| Entradas de registo de atividade do Azure | Mostra um gráfico de barras da parte superior entrada de registo de atividade do Azure totais de registos para o intervalo de datas que tiver selecionado e mostra uma lista dos de chamadores de 10 atividade principais. Clique em executar uma pesquisa de registo para o gráfico de barras <code>Type=AzureActivity</code>. Clique num item de autor da chamada para executar uma pesquisa de registo devolver todas as entradas de registo de atividade para esse item. |
-| Registos de atividade por Estado | Mostra um gráfico de anel para o estado de registo de atividade do Azure para o intervalo de datas que selecionou. Também mostra uma lista uma lista de registos de dez Estado principais. Clique em gráfico para executar uma pesquisa de registo para <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Clique num item de estado para executar uma pesquisa de registo devolver todas as entradas de registo de atividade para esse registo de estado. |
-| Registos de atividade por recurso | Mostra o número total de recursos com registos de atividade e apresenta uma lista de principais dez recursos com registo de contagens de cada recurso. Clique na área total para executar uma pesquisa de registo para <code>Type=AzureActivity &#124; measure count() by Resource</code>, que mostra todos os recursos do Azure disponíveis para a solução. Clique num recurso para executar uma pesquisa de registo devolver todos os registos de atividade para esse recurso. |
-| Registos de atividade pelo fornecedor de recursos | Mostra o número total de fornecedores de recursos que produzem a atividade de registo e lista as dez principais. Clique na área total para executar uma pesquisa de registo para <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, que mostra todos os fornecedores de recursos do Azure. Clique num fornecedor de recursos para executar uma pesquisa de registo devolver todos os registos de atividade do fornecedor. |
+| Entradas de registo de atividade do Azure | Mostra um gráfico de barras da parte superior entrada de registo de atividade do Azure totais de registos para o intervalo de datas que tiver selecionado e mostra uma lista dos de chamadores de 10 atividade principais. Clique em executar uma pesquisa de registo para o gráfico de barras <code>AzureActivity</code>. Clique num item de autor da chamada para executar uma pesquisa de registo devolver todas as entradas de registo de atividade para esse item. |
+| Registos de atividade por Estado | Mostra um gráfico de anel para o estado de registo de atividade do Azure para o intervalo de datas que selecionou. Também mostra uma lista uma lista de registos de dez Estado principais. Clique em gráfico para executar uma pesquisa de registo para <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Clique num item de estado para executar uma pesquisa de registo devolver todas as entradas de registo de atividade para esse registo de estado. |
+| Registos de atividade por recurso | Mostra o número total de recursos com registos de atividade e apresenta uma lista de principais dez recursos com registo de contagens de cada recurso. Clique na área total para executar uma pesquisa de registo para <code>AzureActivity &#124; summarize AggregatedValue = count() by Resource</code>, que mostra todos os recursos do Azure disponíveis para a solução. Clique num recurso para executar uma pesquisa de registo devolver todos os registos de atividade para esse recurso. |
+| Registos de atividade pelo fornecedor de recursos | Mostra o número total de fornecedores de recursos que produzem a atividade de registo e lista as dez principais. Clique na área total para executar uma pesquisa de registo para <code>AzureActivity &#124; summarize AggregatedValue = count() by ResourceProvider</code>, que mostra todos os fornecedores de recursos do Azure. Clique num fornecedor de recursos para executar uma pesquisa de registo devolver todos os registos de atividade do fornecedor. |
 
 ![Dashboard de registos de atividade do Azure](./media/log-analytics-activity/activity-log-dash.png)
 

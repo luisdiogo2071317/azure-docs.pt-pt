@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 47b4d70c991bd618ea4ea6e5d2fd1dea86911798
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 028a3f4411e6984b70e0f98c5cf3284e5be1c3b2
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Condições de localização do acesso condicional do Azure Active Directory 
 
@@ -100,7 +100,7 @@ Quando configurar a condição de localização, tem a opção para distinguir e
 
 ### <a name="any-location"></a>Qualquer localização
 
-Por predefinição, a seleção **qualquer localização** faz com que uma política a aplicar a todos os endereços IP, o que significa que quaisquer endereços na Internet. Esta definição não não está limitada a endereços IP que configurou como localização com nome. Quando seleciona **qualquer localização**, ainda pode excluir localizações específicas de uma política. Por exemplo, pode aplicar uma política para todas as localizações excepts fidedignas localizações para definir o âmbito para todas as localizações, exceto a rede empresarial.
+Por predefinição, a seleção **qualquer localização** faz com que uma política a aplicar a todos os endereços IP, o que significa que quaisquer endereços na Internet. Esta definição não não está limitada a endereços IP que configurou como localização com nome. Quando seleciona **qualquer localização**, ainda pode excluir localizações específicas de uma política. Por exemplo, pode aplicar uma política para todas as localizações, exceto fidedignas localizações para definir o âmbito para todas as localizações, exceto a rede empresarial.
 
 ### <a name="all-trusted-locations"></a>Todas as localizações fidedignas
 

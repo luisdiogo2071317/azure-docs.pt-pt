@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.openlocfilehash: a27bae1828bd469d4439e0ce43098edd73f54243
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ac5d3ab2a4df63c429f8478e392d84ac0ea6fd7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemplos de padrões de utilização comuns do Stream Analytics de consulta
 ## <a name="introduction"></a>Introdução
@@ -63,16 +63,16 @@ Por exemplo, verifique que o resultado devolve plates de licença que começam c
 
 | Certifique- | LicensePlate | Hora |
 | --- | --- | --- |
-| Honda |ABC 123 |2015-01-01T00:00:01.0000000Z |
-| Toyota |AAA 999 |2015-01-01T00:00:02.0000000Z |
-| Nissan |ABC 369 |2015-01-01T00:00:03.0000000Z |
+| Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
+| Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
+| Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
 **Saída**:
 
 | Certifique- | LicensePlate | Hora |
 | --- | --- | --- |
-| Toyota |AAA 999 |2015-01-01T00:00:02.0000000Z |
-| Nissan |ABC 369 |2015-01-01T00:00:03.0000000Z |
+| Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
+| Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
 **Solução**:
 
@@ -207,7 +207,7 @@ Por exemplo, quantas exclusivo faz com que o de automóveis passadas a booth uti
 
 **Saída:**
 
-| Contagem | Hora |
+| CountMake | Hora |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -363,16 +363,16 @@ Por exemplo, 2 carros consecutivos de disponibilizar a mesma introduzido viagem 
 
 | Certifique- | LicensePlate | Hora |
 | --- | --- | --- |
-| Honda |ABC 123 |2015-01-01T00:00:01.0000000Z |
-| Honda |AAA 999 |2015-01-01T00:00:02.0000000Z |
-| Toyota |DEF 987 |2015-01-01T00:00:03.0000000Z |
-| Honda |GHI 345 |2015-01-01T00:00:04.0000000Z |
+| Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
+| Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
+| Toyota |DEF-987 |2015-01-01T00:00:03.0000000Z |
+| Honda |GHI-345 |2015-01-01T00:00:04.0000000Z |
 
 **Saída**:
 
 | Certifique- | Hora | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
-| Honda |2015-01-01T00:00:02.0000000Z |AAA 999 |ABC 123 |2015-01-01T00:00:01.0000000Z |
+| Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
 **Solução**:
 
@@ -469,7 +469,7 @@ Por exemplo, gere um evento a cada cinco segundos que o ponto de dados mais rece
 
 **Entrada**:
 
-| T | valor |
+| t | valor |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:01:05" |2 |
@@ -480,7 +480,7 @@ Por exemplo, gere um evento a cada cinco segundos que o ponto de dados mais rece
 
 **Saída (primeiras 10 linhas)**:
 
-| windowend | lastevent.t | lastevent.Value |
+| windowend | lastevent.t | lastevent.value |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
 | 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
@@ -508,7 +508,7 @@ Por exemplo, gere um evento a cada cinco segundos que o ponto de dados mais rece
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

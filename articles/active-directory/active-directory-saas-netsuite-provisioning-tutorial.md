@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com Netsuite | Microsoft Docs"
+title: "Tutorial: Configurar Netsuite para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
 description: "Saiba como configurar o início de sessão entre o Azure Active Directory e Netsuite."
 services: active-directory
 documentationCenter: na
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 20a670a3843586ab57ce776f400bd382947d7861
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3de048a88b2a14936f7a49afefc8c96e56909c37
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar Netsuite para aprovisionamento de utilizadores automática
 
@@ -64,7 +64,7 @@ O objetivo desta secção consiste em descrevem como ativar o aprovisionamento d
 
 4. Definir o **modo de aprovisionamento** para **automática**. 
 
-    ![Aprovisionamento](./media/active-directory-saas-netsuite-provisioning-tutorial/provisioning.png)
+    ![a aprovisionar](./media/active-directory-saas-netsuite-provisioning-tutorial/provisioning.png)
 
 5. Sob o **credenciais de administrador** secção, forneça as seguintes definições de configuração:
    

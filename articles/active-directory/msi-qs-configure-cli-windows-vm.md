@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
-ms.openlocfilehash: 70500ab572be9902c040388ee31a3fbed601445f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 36218c50a7d43cf266459f5cf001350a3ecc84cf
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>Configurar uma VM geridos serviço de identidade (MSI) utilizando a CLI do Azure
 
@@ -43,19 +43,19 @@ Para executar os exemplos de script do CLI, tem três opções:
 
 Para criar uma VM ativada de MSI:
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/#login). Utilize uma conta que está associada à subscrição do Azure na qual gostaria de implementar a VM:
+1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/#az_login). Utilize uma conta que está associada à subscrição do Azure na qual gostaria de implementar a VM:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Criar um [grupo de recursos](../azure-resource-manager/resource-group-overview.md#terminology) para a implementação da VM e os respetivos recursos relacionados, utilizar e contenção [criar grupo az](/cli/azure/group/#create). Pode ignorar este passo se já tiver o grupo de recursos que pretende utilizar em vez disso:
+2. Criar um [grupo de recursos](../azure-resource-manager/resource-group-overview.md#terminology) para a implementação da VM e os respetivos recursos relacionados, utilizar e contenção [criar grupo az](/cli/azure/group/#az_group_create). Pode ignorar este passo se já tiver o grupo de recursos que pretende utilizar em vez disso:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. Criar uma VM utilizando [az vm criar](/cli/azure/vm/#create). O exemplo seguinte cria uma VM chamada *myVM* com um MSI, conforme solicitado pelo `--assign-identity` parâmetro. O `--admin-username` e `--admin-password` parâmetros especificam a conta de nome e palavra-passe de utilizador administrativo para início de sessão na máquina virtual. Atualize estes valores conforme adequado para o seu ambiente: 
+3. Criar uma VM utilizando [az vm criar](/cli/azure/vm/#az_vm_create). O exemplo seguinte cria uma VM chamada *myVM* com um MSI, conforme solicitado pelo `--assign-identity` parâmetro. O `--admin-username` e `--admin-password` parâmetros especificam a conta de nome e palavra-passe de utilizador administrativo para início de sessão na máquina virtual. Atualize estes valores conforme adequado para o seu ambiente: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -65,7 +65,7 @@ Para criar uma VM ativada de MSI:
 
 Se precisar de ativar MSI numa máquina Virtual existente:
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/#login). Utilize uma conta que está associada à subscrição do Azure que contém a VM. Certifique-se a sua conta pertencer a uma função que dá-lhe também permissões de escrita na VM, tais como "Contribuinte de Máquina Virtual":
+1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/#az_login). Utilize uma conta que está associada à subscrição do Azure que contém a VM. Certifique-se a sua conta pertencer a uma função que dá-lhe também permissões de escrita na VM, tais como "Contribuinte de Máquina Virtual":
 
    ```azurecli-interactive
    az login
@@ -81,7 +81,7 @@ Se precisar de ativar MSI numa máquina Virtual existente:
 
 Se tiver uma Máquina Virtual que já não necessita de um MSI:
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/#login). Utilize uma conta que está associada à subscrição do Azure que contém a VM. Certifique-se a sua conta pertencer a uma função que dá-lhe também permissões de escrita na VM, tais como "Contribuinte de Máquina Virtual":
+1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [início de sessão az](/cli/azure/#az_login). Utilize uma conta que está associada à subscrição do Azure que contém a VM. Certifique-se a sua conta pertencer a uma função que dá-lhe também permissões de escrita na VM, tais como "Contribuinte de Máquina Virtual":
 
    ```azurecli-interactive
    az login

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Do Azure AD Connect: Histórico de lançamento de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funções. Nem todas as adições são aplicáveis a todos os público.
@@ -82,7 +82,7 @@ Para utilizar o script do PowerShell para aplicar estas definições, para uma c
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-onde 
+Onde 
 
 **$ObjectDN** = a conta do Active Directory cujas permissões têm de ser tightened.
 
@@ -401,7 +401,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecione|
-    |CertKeyAlgorithmParams|CertHashString|onde|
+    |CertKeyAlgorithmParams|CertHashString|Onde|
     |||Com|
 
 * Foram introduzidas seguintes alterações de esquema para permitir que os clientes podem criar regras de sincronização personalizados para o fluxo sAMAccountName, domainNetBios e domainFQDN para objetos de grupo, bem como distinguishedName para objetos de utilizador:
@@ -473,7 +473,7 @@ Sincronização do Azure AD Connect
   * Conjunto de regras de sincronização de predefinição atualizado não exportar atributos **userCertificate** e **userSMIMECertificate** se os atributos têm mais de 15 valores.
   * Atributos de AD **campo IDdeEmpregado** e **msExchBypassModerationLink** estão agora incluídas no conjunto de regras de sincronização de predefinição.
   * Atributo de AD **fotografia** foi removido do conjunto de regras de sincronização de predefinição.
-  * Adicionar **preferredDataLocation** para o esquema do Metaverso e esquema de conector AAD. Os clientes que pretendem atualizar qualquer um dos atributos no Azure AD, podem implementar regras de sincronização personalizados para o fazer. Para saber mais sobre o atributo, consulte a secção do artigo [sincronização do Azure AD Connect: como efetuar uma alteração para a configuração predefinida - permitir a sincronização de PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * Adicionar **preferredDataLocation** para o esquema do Metaverso e esquema de conector AAD. Os clientes que pretendem atualizar qualquer um dos atributos no Azure AD, podem implementar regras de sincronização personalizados para o fazer. 
   * Adicionar **userType** para o esquema do Metaverso e esquema de conector AAD. Os clientes que pretendem atualizar qualquer um dos atributos no Azure AD, podem implementar regras de sincronização personalizados para o fazer.
 
 * O Azure AD Connect agora ativa automaticamente a utilização do atributo ConsistencyGuid como o atributo âncora de origem para on-premises objetos do AD. Adicional, Azure AD Connect preenche o atributo ConsistencyGuid com o valor do atributo de objectGuid se estiver vazia. Esta funcionalidade é aplicável a nova implementação apenas. Para obter mais informações sobre esta funcionalidade, consulte a secção do artigo [do Azure AD Connect: conceitos - utilizando msDS-ConsistencyGuid como sourceAnchor de Design](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).

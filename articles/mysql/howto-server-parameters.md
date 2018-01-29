@@ -8,16 +8,16 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/10/2017
-ms.openlocfilehash: f3b32c1f6b33bc60b50f1496414a300db468dc92
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.date: 01/25/2018
+ms.openlocfilehash: 59eeed42356a276c259bd8da55890b7ada67d729
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Como configurar parâmetros de servidor na base de dados do Azure para MySQL utilizando o portal do Azure
 
-Base de dados do Azure para MySQL suporta a configuração do alguns parâmetros de servidor. Este tópico descreve como configurar estes parâmetros através do portal do Azure. Nem todos os parâmetros de servidor podem ser ajustados. 
+Base de dados do Azure para MySQL suporta a configuração do alguns parâmetros de servidor. Este artigo descreve como configurar estes parâmetros através do portal do Azure. Nem todos os parâmetros de servidor podem ser ajustados. 
 
 ## <a name="navigate-to-server-parameters-on-azure-portal"></a>Navegue para parâmetros de servidor no portal do Azure
 1. Inicie sessão no portal do Azure, em seguida, localize a base de dados do Azure para o servidor de MySQL.
@@ -25,7 +25,7 @@ Base de dados do Azure para MySQL suporta a configuração do alguns parâmetros
 3. Localize quaisquer definições, que terá de ajustar. Reveja o **Descrição** coluna para compreender a finalidade e os valores permitidos. 
 4. Clique em **guardar** para guardar as alterações.
 
-![Painel de parâmetros de servidor do portal do Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+![Página de parâmetros de servidor do portal do Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
 
 ## <a name="list-of-configurable-server-parameters"></a>Lista de parâmetros de servidor configurável
 
@@ -43,12 +43,15 @@ O conjunto de memória intermédia InnoDB e máx. ligações não são configur�
 | 400 padrão | 10240 | 800 | 
 | 800 padrão | 20480 | 1600 |
 
-Estes parâmetros de servidor adicionais são nonconfigurable no sistema <br>
- Innodb_file_per_table na camada básica: DESATIVADO<br>
- innodb_flush_log_at_trx_commit = 1<br>
- sync_binlog = 1<br>
- innodb_log_file_size = 512MB<br>
- 
+Estes parâmetros de servidor adicionais não são configuráveis no sistema:
+
+|**Parâmetro**|**Valor fixo**|
+| :------------------------ | :-------- |
+|innodb_file_per_table na camada básica|OFF|
+|innodb_flush_log_at_trx_commit|1|
+|sync_binlog|1|
+|innodb_log_file_size|512MB|
+
 Outros parâmetros de servidor que não estão listados aqui estão definidos para os valores de out-of-box predefinido MySQL para versões [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## <a name="next-steps"></a>Passos Seguintes

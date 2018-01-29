@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 8fafda2687e81a226bdc91a642cebc9ec97d8cbe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 164f6bf83d7f0673e9ac7eb1107f90d311bca1c0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn navegador de vendas para o aprovisionamento de utilizador automáticas
+# <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn navegador de vendas para o aprovisionamento de utilizador automáticas
 
 
 O objetivo deste tutorial é mostrar-lhe os passos que necessários para efetuar no navegador de vendas LinkedIn e o Azure AD para aprovisionar e anular o aprovisionamento contas de utilizador do Azure AD para o navegador de vendas LinkedIn automaticamente. 

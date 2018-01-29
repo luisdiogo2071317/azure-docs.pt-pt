@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Configuração de GitHub para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
+title: "Tutorial: Configurar o GitHub para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
 description: Saiba como configurar o Azure Active Directory para aprovisionar e anular o aprovisionamento contas de utilizador ao GitHub automaticamente.
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 7e202899b697872227da4d7bea54406f99089000
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e06d04234f33633275d85732a321a264c777fc59
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-github-for-automatic-user-provisioning"></a>Tutorial: Configuração de GitHub para o aprovisionamento de utilizador automáticas
+# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para aprovisionamento de utilizadores automática
 
 
 O objetivo deste tutorial é mostrar-lhe os passos que necessários para efetuar no GitHub e o Azure AD para aprovisionar e anular o aprovisionamento contas de utilizador do Azure AD ao GitHub automaticamente. 
@@ -104,6 +104,6 @@ Para obter mais informações sobre como ler o Azure AD, os registos de aprovisi
 * [Gerir o aprovisionamento da conta de utilizador para aplicações da empresa](active-directory-enterprise-apps-manage-provisioning.md)
 * [O que é o acesso a aplicações e início de sessão no Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba como rever os registos e obter relatórios sobre o aprovisionamento de atividade](active-directory-saas-provisioning-reporting.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a5e803cadfd08c42e12e6e34feee1c2d0d091d70
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Otimizar o seu ambiente do Active Directory com a solução de verificação de estado de funcionamento do Active Directory na análise de registos
 
@@ -64,7 +64,7 @@ Verificação de estado de funcionamento do Active Directory recolhe dados das s
 
 - Registo 
 - LDAP 
-- .NET framework
+- .NET Framework
 - Registo de eventos 
 - Interfaces de serviço do Active Directory (ADSI)
 - Windows PowerShell
@@ -108,10 +108,8 @@ Depois de ser instalado, pode ver o resumo de recomendações, utilizando o mosa
 Ver as avaliações de conformidade resumidos para a sua infraestrutura e, em seguida, desagregação em recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver as recomendações para uma área de foco e tomar medidas corretivas
-1. Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
-2. No portal do Azure, clique em **Mais serviços**, que se encontra no canto inferior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
-3. No painel de subscrições de análise de registos, selecione uma área de trabalho e, em seguida, clique em de **Portal do OMS** mosaico.  
-4. No **descrição geral** página, clique em de **verificação do Estado de funcionamento de AD** mosaico. 
+3. Clique em de **descrição geral** mosaico para a sua área de trabalho de análise de registos no portal do Azure.
+4. No **descrição geral** página, clique em de **verificação de estado de funcionamento do Active Directory** mosaico. 
 5. No **verificação do Estado de funcionamento** página, reveja as informações de resumo de uma das seguintes painéis de área de foco e, em seguida, clique num para ver as recomendações para essa área de foco.
 6. Em qualquer uma das páginas da área de foco, pode ver as recomendações prioritários efetuadas para o seu ambiente. Clique numa recomendação em **Objetos afetados** para ver detalhes sobre o motivo pelo qual a recomendação é feita.<br><br> ![imagem de verificação do Estado de funcionamento recomendações](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Pode executar ações corretivas sugeridas na **as ações sugeridas**. Quando o item tem sido resolvido, registos de avaliações posteriores que as ações recomendadas foram executados e irá aumentar a sua pontuação de conformidade. Itens corrigidas aparecem como **transmitido objetos**.
@@ -195,5 +193,5 @@ Depois da próxima agendada é executada a verificação de estado de funcioname
 
 * Sim, consulte [ignorar recomendações](#ignore-recommendations) secção acima.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Utilize [pesquisas de registo na análise de registos](log-analytics-log-searches.md) para saber como analisar dados de verificação do Estado de funcionamento de AD e recomendações detalhadas.

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: df31e5b0dfd3b41f5fc125bf3a59cfd6e8e5f4e1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5d624735a91d0828c4ac3796bde6c17acf6e131a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="split-column-by-example-transformation"></a>Coluna de divisão por transformação de exemplo
 Esta transformação divide predictively o conteúdo de uma coluna nos limites significativos sem exigir a intervenção do utilizador. O algoritmo de divisão seleciona os limites depois de analisar o conteúdo da coluna. Estes limites pode ser definidos por
@@ -52,6 +52,11 @@ O utilizador pode **eliminar a coluna** ou **novas colunas de inserção** ao cl
 Utilizador pode copiar e colar os valores de uma célula para outro para fornecer um exemplo de divisão.
 
 Utilizador pode alternar entre o **modo básico** e **modo avançado** clicando nas ligações do Editor de transformação.
+
+### <a name="transform-editor-send-feedback"></a>Transformar o editor: enviar comentários
+
+Clicar no **enviar comentários** hiperligação abre o **comentários** forneceu a caixa de diálogo com a caixa de comentários pré-preenchida com as seleções de parâmetro e o utilizador de exemplos. Utilizador deve rever o conteúdo da caixa de comentários e fornecem mais detalhes para o ajudar-na compreender o problema. Se o utilizador não pretender partilhar dados com a Microsoft, o utilizador deve eliminar os dados de exemplo pré-preenchida antes de clicar no **enviar comentários** botão. 
+
 
 ### <a name="editing-an-existing-transformation"></a>Editar uma transformação existente
 
@@ -114,10 +119,10 @@ Segue-se outro exemplo de vários delimitadores arbitrários. Este exemplo tamb�
 
 |logtext|
 |:-----|
-|192.128.138.20 – [FPO/16/2016 16:22:33-0200] "GET /images/picture.gif HTTP/1.1" 234 343 www.yahoo.com "http://www.example.com/" "Mozilla/4.0 (compatível; MSIE 4)""-"|
+|192.128.138.20 - - [16/Oct/2016 16:22:33 -0200] "GET /images/picture.gif HTTP/1.1" 234 343 www.yahoo.com "http://www.example.com/" "Mozilla/4.0 (compatible; MSIE 4)" "-"|
 |10.128.72.213 – [FPO/17/2016 12:43:12 +0300] "GET /news/stuff.html HTTP/1.1" 200 www.aol.com 6233 "http://www.sample.com/" "Mozilla/5.0 (MSIE)" "-"|
-|192.165.71.165 – [Novembro/12/2016 14:22:44-0500] "GET /sample.ico HTTP/1.1" 342 7342 www.facebook.com "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; Rv:1.7.3) ""-"|
-|10.166.64.165 – [Novembro/23/2016 01:52:45-0800] "GET /style.css HTTP/1.1" 200 2552 www.google.com "http://www.test.com/index.html" "Mozilla/5.0 (Windows)" "-"|
+|192.165.71.165 - - [12/Nov/2016 14:22:44 -0500] "GET /sample.ico HTTP/1.1" 342 7342 www.facebook.com "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; rv:1.7.3)" "-"|
+|10.166.64.165 - - [23/Nov/2016 01:52:45 -0800] "GET /style.css HTTP/1.1" 200 2552 www.google.com "http://www.test.com/index.html" "Mozilla/5.0 (Windows)" "-"|
 |192.167.1.193 – [Jan/16/2017 22:34:56 +0200] "GET /js/ads.js HTTP/1.1" 200 23462 www.microsoft.com "http://www.illustration.com/index.html" "Mozilla/5.0 (Windows)" "-"|
 |192.147.76.193 – [Jan/28/2017 26:36:16 +0800] "GET /search.php HTTP/1.1" 400 1777 www.bing.com "-" "Mozilla/4.0 (compatível; MSIE 6.0; Windows NT 5.1)""-"|
 |192.166.64.165 – [Mar/23/2017 01:55:25-0800] "GET /style.css HTTP/1.1" 200 2552 www.google.com "http://www.test.com/index.html" "Mozilla/5.0 (Windows)" "-"|
@@ -127,14 +132,14 @@ Obtém dividida em:
 
 |logtext_1|logtext_2|logtext_3|logtext_4|logtext_5|logtext_6|logtext_7|logtext_8|logtext_9|logtext_10|logtext_11|logtext_12|logtext_13|logtext_14|logtext_15|
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
-|192.128.138.20|FPO/16/2016|16:22:33|-0200|GET|Images/Picture.gif|HTTP|1.1|234|343|www.yahoo.com|http://www.example.com/|Mozilla|4.0|compatível; MSIE 4|
-|10.128.72.213|17/FPO/2016|12:43:12|+0300|GET|News/Stuff.HTML|HTTP|1.1|200|6233|www.AOL.com|http://www.Sample.com/|Mozilla|5.0|MSIE|
-|192.165.71.165|Novembro/12/2016|14:22:44|-0500|GET|Sample.ico|HTTP|1.1|342|7342|www.Facebook.com|-|Mozilla|5.0|Windows; U; Windows NT 5.1; Rv:1.7.3|
-|10.166.64.165|Novembro/23/2016|01:52:45|-0800|GET|style.css|HTTP|1.1|200|2552|www.google.com|http://www.test.com/index.HTML|Mozilla|5.0|Windows|
-|192.167.1.193|Jan/16/2017|22:34:56|+0200|GET|js/ADs.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.Illustration.com/index.HTML|Mozilla|5.0|Windows|
-|192.147.76.193|Jan/28/2017|26:36:16|+0800|GET|Search.php|HTTP|1.1|400|1777|www.Bing.com|-|Mozilla|4.0|compatível; MSIE 6.0; Windows NT 5.1|
-|192.166.64.165|Mar/23/2017|01:55:25|-0800|GET|style.css|HTTP|1.1|200|2552|www.google.com|http://www.test.com/index.HTML|Mozilla|5.0|Windows|
-|11.167.1.193|Apr/16/2017|11:34:36|+0200|GET|js/ADs.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.Illustration.com/index.HTML|Mozilla|5.0|Windows|
+|192.128.138.20|FPO/16/2016|16:22:33|-0200|GET|images/picture.gif|HTTP|1.1|234|343|www.yahoo.com|http://www.example.com/|Mozilla|4.0|compatível; MSIE 4|
+|10.128.72.213|17/FPO/2016|12:43:12|+0300|GET|news/stuff.html|HTTP|1.1|200|6233|www.aol.com|http://www.sample.com/|Mozilla|5.0|MSIE|
+|192.165.71.165|Novembro/12/2016|14:22:44|-0500|GET|sample.ico|HTTP|1.1|342|7342|www.facebook.com|-|Mozilla|5.0|Windows; U; Windows NT 5.1; Rv:1.7.3|
+|10.166.64.165|Novembro/23/2016|01:52:45|-0800|GET|style.css|HTTP|1.1|200|2552|www.google.com|http://www.test.com/index.html|Mozilla|5.0|Windows|
+|192.167.1.193|Jan/16/2017|22:34:56|+0200|GET|js/ads.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.illustration.com/index.html|Mozilla|5.0|Windows|
+|192.147.76.193|Jan/28/2017|26:36:16|+0800|GET|search.php|HTTP|1.1|400|1777|www.bing.com|-|Mozilla|4.0|compatível; MSIE 6.0; Windows NT 5.1|
+|192.166.64.165|Mar/23/2017|01:55:25|-0800|GET|style.css|HTTP|1.1|200|2552|www.google.com|http://www.test.com/index.html|Mozilla|5.0|Windows|
+|11.167.1.193|Apr/16/2017|11:34:36|+0200|GET|js/ads.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.illustration.com/index.html|Mozilla|5.0|Windows|
 
 ## <a name="examples-of-splitting-without-delimiters"></a>Exemplos de divisão sem delimitadores
 Em alguns casos, não existem nenhum delimitadores reais e campos de dados poderão ocorrer contiguamente junto entre si. Neste caso, a transformação de divisão Deteta automaticamente padrões nos dados para inferir provavelmente pontos de divisão. Por exemplo, no cenário seguinte queremos separar a quantidade do tipo de moeda e divisão infere automaticamente os limites entre os dados numéricos e não numérico como ponto de divisão.

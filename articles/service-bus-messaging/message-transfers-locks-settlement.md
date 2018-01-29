@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: edb6e207852fa59d5828906c891693f367739c9c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 4789da3c84d52b2615bf4250a36093a74154e1d4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagem, bloqueios e settlement
 
-A capacidade central mais de um mediador de mensagens, tais como o Service Bus é aceite mensagens para um tópico ou uma fila e mantenha premido-los disponíveis para obtenção posterior. *Enviar* é o termo que é geralmente utilizado para a transferência de uma mensagem para o Mediador de mensagens. *Receber* é o termo normalmente utilizado para a transferência de uma mensagem para um cliente ao obter.
+A capacidade central de um mediador de mensagens, tais como o Service Bus é aceite mensagens para um tópico ou uma fila e mantenha premido-los disponíveis para obtenção posterior. *Enviar* é o termo que é geralmente utilizado para a transferência de uma mensagem para o Mediador de mensagens. *Receber* é o termo normalmente utilizado para a transferência de uma mensagem para um cliente ao obter.
 
 Quando um cliente envia uma mensagem, normalmente, pretende saber se a mensagem foi corretamente transferida para e aceite pelo broker ou se Ocorreu algum tipo de erro. Esta confirmação positivo ou negativa assenta o cliente e o Mediador de compreender sobre o estado de transferência da mensagem e, por conseguinte, é referida como *settlement*.
 
@@ -121,7 +121,7 @@ Se **concluída** falhar, que ocorre normalmente no final muito de processamento
 
 É o mecanismo de típico para identificar o entregas mensagem duplicada ao verificar o-id de mensagem, que pode e deve ser definido pelo remetente para um valor exclusivo, possivelmente alinhado com um identificador do processo de origem. Um programador de tarefas, provavelmente, iria definir o id de mensagem para o identificador da tarefa está a tentar atribuir a uma função de trabalho com o trabalho especificado e o trabalho seria ignorar a segunda ocorrência da atribuição de tarefas, se essa tarefa já é concluída.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre mensagens do Service Bus, consulte os tópicos seguintes:
 

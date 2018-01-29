@@ -15,11 +15,11 @@ ms.date: 10/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: 0d293833b97b2a65d5377eef668696cb73ee3bd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1532054a9463d710685d3f865d2e26ee7ff5014f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Começar a utilizar a aplicação Authenticator da Microsoft
 A aplicação Authenticator da Microsoft fornece um nível adicional de segurança na sua conta escolar ou profissional (por exemplo, bsimon@contoso.com) ou a sua conta Microsoft (por exemplo, bsimon@outlook.com).
@@ -42,7 +42,7 @@ Para uma conta pessoal, terá de configurar a verificação de dois passos para 
 Também pode utilizar o Microsoft Authenticator com contas de terceiros. Pode chamar a funcionalidade de algo diferente de verificação em dois passos, mas deve ser capaz de encontrá-lo em segurança ou as definições de início de sessão.
 
 ## <a name="install-the-app"></a>Instalar a aplicação
-A aplicação Authenticator da Microsoft está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+A aplicação Authenticator da Microsoft está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="add-accounts-to-the-app"></a>Adicionar contas para a aplicação
 Para cada conta que pretende adicionar a aplicação Microsoft Authenticator, utilize um dos seguintes procedimentos:
@@ -100,7 +100,7 @@ Para configurar o Touch ID para a Microsoft Authenticator, tem de concluir um de
 
 Do ponto de reencaminhar, quando for necessário para verificar o início de sessão, selecione a notificação push recebido e analisar a sua impressão digital em vez de introduzir o PIN.
 
-![Notificação Push](./media/authenticator-app-how-to/touchid2.png)
+![Notificações push](./media/authenticator-app-how-to/touchid2.png)
 
 ## <a name="use-the-app-when-you-sign-in"></a>Utilizar a aplicação quando iniciar sessão
 

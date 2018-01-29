@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/07/2017
+ms.date: 01/25/2018
 ms.author: iainfou
-ms.openlocfilehash: 880f5e5967298401fc2522124af3746d9906ffa8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f9efdbaf0ae79781d6f9c7dfa4c8317185be79e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="how-to-reset-local-windows-password-for-azure-vm"></a>Como repor a palavra-passe do Windows local para a VM do Azure
-Pode repor o Windows palavra-passe local de uma VM no Azure com o [portal do Azure ou do Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) fornecido está instalado o agente convidado do Azure. Este método é a forma de principal para repor uma palavra-passe para uma VM do Azure. Se ocorrerem problemas com o agente convidado do Azure não responde ou falhar instalar depois de carregar uma imagem personalizada, pode manualmente repor uma palavra-passe do Windows. Este artigo fornece detalhes sobre como repor uma palavra-passe de conta local ao anexar o disco virtual de origem SO para outra VM. 
+# <a name="reset-local-windows-password-for-azure-vm-offline"></a>Repor palavra-passe do Windows local para a VM do Azure offline
+Pode repor o Windows palavra-passe local de uma VM no Azure com o [portal do Azure ou do Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) fornecido está instalado o agente convidado do Azure. Este método é a forma de principal para repor uma palavra-passe para uma VM do Azure. Se ocorrerem problemas com o agente convidado do Azure não responde ou falhar instalar depois de carregar uma imagem personalizada, pode manualmente repor uma palavra-passe do Windows. Este artigo fornece detalhes sobre como repor uma palavra-passe de conta local ao anexar o disco virtual de origem SO para outra VM. Os passos descritos neste artigo não se aplicam aos controladores de domínio do Windows. 
 
 > [!WARNING]
 > Só utilize este processo como último recurso. Sempre tentar repor a palavra-passe a utilizar o [portal do Azure ou do Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) primeiro.
@@ -39,6 +39,12 @@ Os passos de núcleos para efetuar uma palavra-passe local reposta para uma VM d
 * Quando inicia a nova VM, os ficheiros de configuração que cria atualizar a palavra-passe do utilizador necessária.
 
 ## <a name="detailed-steps"></a>Passos detalhados
+
+> [!NOTE]
+> Os passos não se aplicam aos controladores de domínio do Windows. Só funciona num servidor autónomo ou um servidor que é um membro de um domínio.
+> 
+> 
+
 Sempre tentar repor a palavra-passe a utilizar o [portal do Azure ou do Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de tentar os seguintes passos. Certifique-se de que tem uma cópia de segurança da sua VM antes de começar. 
 
 1. Elimine a VM afetada no portal do Azure. Apenas a eliminação da VM elimina os metadados, a referência da VM no Azure. Os discos virtuais são mantidos quando a VM é eliminada:
@@ -104,10 +110,9 @@ Sempre tentar repor a palavra-passe a utilizar o [portal do Azure ou do Azure Po
     net user <username> <newpassword> /add
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
-
     ```
 
-    ![Criar FixAzureVM.cmd](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
+    ![Create FixAzureVM.cmd](./media/reset-local-password-without-agent/create_fixazure_cmd.png)
    
     Tem de cumprir os requisitos de complexidade de palavra-passe configurado para a VM quando definir a palavra-passe nova.
 7. No portal do Azure, desligue o disco da VM resolução de problemas:
@@ -137,12 +142,12 @@ Sempre tentar repor a palavra-passe a utilizar o [portal do Azure ou do Azure Po
 11. Da sessão remota para a nova VM, remova os ficheiros seguintes para limpar o ambiente:
     
     * De %windir%\System32
-      * remover FixAzureVM.cmd
+      * remove FixAzureVM.cmd
     * De %windir%\System32\GroupPolicy\Machine\
       * Remover scripts.ini
     * De %windir%\System32\GroupPolicy
       * remover gpt.ini (se previamente existente gpt.ini e é mudado para gpt.ini.bak, mudar o nome de ficheiro. bak de volta para gpt.ini)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Se ainda não é possível estabelecer ligação utilizando o ambiente de trabalho remoto, consulte o [guia de resolução de problemas de RDP](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). O [RDP guia de resolução de problemas de detalhado](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) observa métodos em vez dos passos específicos de resolução de problemas. Também pode [abrir um pedido de suporte do Azure](https://azure.microsoft.com/support/options/) para obter assistência prática.
 

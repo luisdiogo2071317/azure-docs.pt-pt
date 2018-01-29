@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: cff2be1818417a19f36da08d8c2eaa227bb945ec
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 79602cf053d834bf3d6dc6b4d5568637b179d5c7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="understand-autoscale-settings"></a>Compreender as definições de dimensionamento automático
 Definições de dimensionamento automático permitem-lhe para se certificar de que tem a quantidade certa de recursos em execução para processar a carga fluctuating da sua aplicação. Pode configurar as definições de dimensionamento automático para ser acionado com base nas métricas que indicam o carregamento ou de desempenho ou acionam uma hora e data agendada. Este artigo assume uma detalhadas vista de olhos anatomy de uma definição de dimensionamento automático. O artigo começa por compreender o esquema e propriedades de uma definição, em seguida, explica os tipos de perfil diferentes que podem ser configurados e, finalmente, descreve como o dimensionamento automático avalia que perfil de executar em qualquer momento.
@@ -103,18 +103,18 @@ Para ilustrar o esquema de definição de dimensionamento automático, é utiliz
 | propriedades | targetResourceUri | O ID de recurso do recurso que está a ser ampliado. Só pode ter uma definição de dimensionamento automático por recurso. |
 | propriedades | Perfis | Uma definição de dimensionamento automático é composta por um ou mais perfis. Sempre que o motor de dimensionamento automático é executado, este executa um perfil. |
 | perfil | nome | O nome do perfil, pode escolher qualquer nome que o ajuda a identificar o perfil. |
-| perfil | Capacity.Maximum | A capacidade máxima permitida. Garante que dimensionamento automático, quando executar este perfil, não se dimensiona os recursos acima este número. |
-| perfil | Capacity.Minimum | A capacidade mínima, permitida. Garante que dimensionamento automático, quando executar este perfil, não se dimensiona os recursos abaixo este número. |
+| perfil | Capacity.maximum | A capacidade máxima permitida. Garante que dimensionamento automático, quando executar este perfil, não se dimensiona os recursos acima este número. |
+| perfil | Capacity.minimum | A capacidade mínima, permitida. Garante que dimensionamento automático, quando executar este perfil, não se dimensiona os recursos abaixo este número. |
 | perfil | Capacity.default | Se existir um problema ao ler a métrica de recursos (neste caso, a cpu de "vmss1") e a capacidade de atual é inferior a capacidade predefinida, em seguida garantir a disponibilidade do recurso, dimensionamento automático escalas Escalamento predefinido. Se a capacidade atual já for superior à capacidade predefinida, dimensionamento automático serão não escala-in. |
 | perfil | regras | Dimensionamento automático dimensiona automaticamente entre as capacidades máxima e mínimas, utilizando as regras no perfil. Pode ter várias regras num perfil. O cenário básico é ter duas regras, um para determinar quando deve escalável e outra para determinar quando na escala. |
-| Regra | metricTrigger | Define a condição métrica da regra. |
+| regra | metricTrigger | Define a condição métrica da regra. |
 | metricTrigger | metricName | O nome da métrica. |
 | metricTrigger |  metricResourceUri | O ID de recurso do recurso que emite a métrica. Na maioria dos casos, é o mesmo que o recurso que está a ser ampliado. Em alguns casos, pode ser diferente, por exemplo, pode dimensionar um conjunto de dimensionamento de máquina virtual com base no número de mensagens numa fila de armazenamento. |
 | metricTrigger | Intervalo de agregação | A duração de métrica de amostragem. Por exemplo, um intervalo de agregação = "PT1M" significa que devem ser as métricas agregadas cada através de 1 minuto, o método de agregação especificado no "estatística." |
 | metricTrigger | estatística | O método de agregação dentro do período de um intervalo de agregação. Por exemplo, estatística = "Médio" e um intervalo de agregação = "PT1M" significa que as métricas devem ser agregados a cada 1 minuto, efetuando a média. Esta propriedade determinam a forma como a métrica é amostragem. |
 | metricTrigger | timeWindow | A quantidade de tempo para novamente procurar métricas. Por exemplo, timeWindow = "PT10M" significa que sempre que o dimensionamento automático é executado, consulta métricas durante os últimos 10 minutos. A janela de tempo permite que as métricas sejam normalizados e evita a agir os picos de transitórios. |
 | metricTrigger | timeAggregation | O método de agregação utilizado para agregar as métricas de amostras. Por exemplo, TimeAggregation = "Médio" deve agregar as métricas de amostras, efetuando a média. No caso de acima tirar os exemplos de 1 minuto dez e médio-los. |
-| Regra | scaleAction | A ação a tomar quando o metricTrigger da regra é acionada. |
+| regra | scaleAction | A ação a tomar quando o metricTrigger da regra é acionada. |
 | scaleAction | direção | "Aumentar" para aumentar horizontalmente, "Diminuir" para escala|
 | scaleAction | valor | Quantidade para aumentar ou diminuir a capacidade do recurso |
 | scaleAction | cooldown | A quantidade de tempo de espera após uma operação de escala antes de dimensionamento novamente. Por exemplo, se cooldown = "PT10M", em seguida, depois de ocorre uma operação de dimensionamento, dimensionamento automático não irá tentar Dimensionar novamente para outro 10 minutos. O cooldown é permitir que as métricas de stabilize após a adição ou remoção de instâncias. |
@@ -125,7 +125,7 @@ Existem três tipos de perfis de dimensionamento automático:
 
 1. **Perfil regular:** perfil mais comuns. Se não precisar de aumentar os recursos de forma diferente com base no dia da semana, ou num dia específico, em seguida, apenas terá de configurar um perfil regular na sua definição de dimensionamento automático. Este perfil, em seguida, pode ser configurado com regras de métricas da sua organização ditarem quando escalável e quando na escala. Só deve ter um perfil regular definido.
 
-    O perfil de exemplo utilizado anteriormente neste artigo é um exemplo de um perfil regular. Efetue não também é possível definir um perfil de dimensionamento para uma contagem de instâncias static para o seu recurso.
+    O perfil de exemplo utilizado anteriormente neste artigo é um exemplo de um perfil regular. Tenha em atenção que também é possível definir um perfil de dimensionamento para uma contagem de instâncias static para o seu recurso.
 
 2. **Corrigido perfil data:** com o perfil regular definido, vamos supor que tem um evento importante futuras cópias de segurança no 26 de Dezembro de 2017 (PST) e pretende que o valor mínimo/máximo com capacidades o recurso a ser diferente, nesse dia, mas ainda Dimensionar nas mesmas métricas . Neste caso, deve adicionar um perfil de data fixo à lista de perfis da definição. O perfil é configurado para ser executado apenas no dia do evento. Para outro dia, o perfil regular é executado.
 

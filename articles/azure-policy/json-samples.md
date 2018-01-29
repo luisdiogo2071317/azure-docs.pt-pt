@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="templates-for-azure-policy"></a>Modelos de política do Azure
 
@@ -55,7 +55,7 @@ A tabela seguinte inclui ligações para modelos json para a política do Azure.
 | [Permitido SKUs de Balanceador de carga](scripts/allowed-lb-skus.md) | Requer que os balanceadores de carga um SKU aprovado. Especifique uma matriz de SKUs permitidos. |
 | [Nenhuma rede peering à rede de ER](scripts/no-peering-er-net.md) | Proíbe uma rede de peering de que está a ser associado a uma rede de um grupo de recursos especificado. Utilize para impedir a ligação com a infraestrutura de rede gerido central. Especifique o nome do grupo de recursos para impedir a associação. |
 | [Nenhuma tabela de rota definida pelo utilizador](scripts/no-user-def-route-table.md)  |Proíbe a redes virtuais de que está a ser implementada com uma tabela de rota definida pelo utilizador. |
-| [Permitido SKUs de Gateway de rede Virtual](scripts/no-user-def-route-table.md) | Requer que os gateways de rede virtual, utilize um tipo SKU e gateway aprovado. Especifique uma matriz de SKUs aprovados e uma matriz de tipos de gateway aprovados. |
+| [Permitido SKUs de Gateway de rede Virtual](scripts/allowed-vn-gate-sku.md) | Requer que os gateways de rede virtual, utilize um tipo SKU e gateway aprovado. Especifique uma matriz de SKUs aprovados e uma matriz de tipos de gateway aprovados. |
 | [Utilizar a sub-rede aprovado para interfaces de rede VM](scripts/use-approved-subnet-vm-nics.md) | Requer que as interfaces de rede, utilize uma sub-rede aprovada. Especifique o ID da sub-rede aprovado. |
 | [Utilize a vNet aprovado para interfaces de rede VM](scripts/use-approved-vnet-vm-nics.md) | Requer que as interfaces de rede, utilize uma rede virtual aprovada. Especifique o ID da rede virtual aprovado. |
 |**Etiquetas**||

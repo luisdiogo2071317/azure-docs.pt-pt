@@ -4,7 +4,7 @@ description: Como tirar partido de tamanhos de VM com capacidade RDMA ou GPU-ati
 services: batch
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: batch
@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 01/05/2018
 ms.author: danlep
-ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: dc28c3a9d46baa8e8d2136ffccbb4e7ff6675b1e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Utilize com capacidade RDMA ou preparados para a GPU instâncias em conjuntos do Batch
 
@@ -47,25 +47,25 @@ As capacidades RDMA e GPU dos tamanhos intensivas de computação só são supor
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Conjuntos de Linux - configuração de Máquina Virtual
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do agrupamento |
+| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, ou<br/>Com base em centOS HPC<br/>(Do azure Marketplace) | Intel MPI 5 | Ativar a comunicação entre nós, desative a execução de tarefas simultâneas |
-| [Série de NC *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, ou<br/>CentOS-based 7.3<br/>(Do azure Marketplace) | Controladores NVIDIA CUDA Toolkit 9.0 | N/A | 
+| [NC, NCv2, ND série *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla GPU (variam consoante a série) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, ou<br/>CentOS-based 7.3<br/>(Do azure Marketplace) | NVIDIA CUDA Toolkit 9.1 controladores | N/A | 
 | [Série NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, ou<br/>CentOS-based 7.3<br/>(Do azure Marketplace) | 4.3 de grelha NVIDIA controladores | N/A |
 
-* Conectividade de RDMA em NC24r VMs é suportada no Ubuntu 16.04 LTS ou baseada em CentOS 7.3 HPC (a partir do Azure Marketplace) com Intel MPI.
+* Conectividade de RDMA em NC24r, NC24r_v2 e ND24r VMs é suportada no Ubuntu 16.04 LTS ou baseada em CentOS 7.3 HPC (a partir do Azure Marketplace) com Intel MPI.
 
 
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Conjuntos de Windows - configuração de Máquina Virtual
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do agrupamento |
+| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 or<br/>Windows Server 2012 (do Azure Marketplace) | Microsoft MPI 2012 R2 ou posterior, ou<br/> Intel MPI 5<br/><br/>Extensão da VM do Azure de HpcVMDrivers | Ativar a comunicação entre nós, desative a execução de tarefas simultâneas |
-| [Série de NC *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 ou <br/>Windows Server 2012 R2 (do Azure Marketplace) | Controladores NVIDIA Tesla ou controladores CUDA Toolkit 9.0| N/A | 
+| [NC, NCv2, ND série *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (variam consoante a série) | Windows Server 2016 ou <br/>Windows Server 2012 R2 (do Azure Marketplace) | Controladores NVIDIA Tesla ou CUDA Toolkit 9.1 controladores| N/A | 
 | [Série NV](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 ou<br/>Windows Server 2012 R2 (do Azure Marketplace) | 4.3 de grelha NVIDIA controladores | N/A |
 
-* Conectividade de RDMA em NC24r VMs é suportada no Windows Server 2012 R2 (a partir do Azure Marketplace) com a extensão de HpcVMDrivers e Microsoft MPI ou Intel MPI.
+* Conectividade de RDMA em NC24r, NC24r_v2 e ND24r VMs é suportada no Windows Server 2012 R2 (a partir do Azure Marketplace) com a extensão de HpcVMDrivers e Microsoft MPI ou Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Conjuntos de Windows - configuração de serviços Cloud
 
@@ -73,7 +73,7 @@ As capacidades RDMA e GPU dos tamanhos intensivas de computação só são supor
 > Série N tamanhos não são suportados em conjuntos do Batch com a configuração de serviços em nuvem.
 >
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do agrupamento |
+| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2,<br/>Windows Server 2012, ou<br/>Windows Server 2008 R2 (família de SO convidado) | Microsoft MPI 2012 R2 ou posterior, ou<br/>Intel MPI 5<br/><br/>Extensão da VM do Azure de HpcVMDrivers | Ativar a comunicação entre nós,<br/> Desative a execução de tarefas simultâneas |
 
@@ -136,7 +136,7 @@ Para executar aplicações de CUDA num conjunto de nós de NC do Linux, tem de i
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para executar tarefas MPI num conjunto do Azure Batch, consulte o [Windows](batch-mpi.md) ou [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) exemplos.
 

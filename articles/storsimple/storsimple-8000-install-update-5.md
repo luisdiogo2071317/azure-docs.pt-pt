@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalar a atualização 5 no dispositivo StorSimple
 
@@ -77,7 +77,7 @@ Tem de transferir e instalar as seguintes correções na ordem prescrita e as pa
 
 | Ordem | KB | Descrição | Tipo de atualização | Hora de instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Atualização de software<br> Transfira ambos _HcsSfotwareUpdate.exe_ e _CisMSDAgent.exe_ |Normal <br></br>Não acontece |~ minutos de 25 |FirstOrderUpdate|
+| 1. |KB4037264 |Atualização de software<br> Transfira ambos _HcsSoftwareUpdate.exe_ e _CisMSDAgent.exe_ |Normal <br></br>Não acontece |~ minutos de 25 |FirstOrderUpdate|
 
 Se atualizar a partir de um dispositivo com a Update 4, apenas terá de instalar as atualizações acumulativas de SO como segundo atualizações de ordem.
 
@@ -90,7 +90,7 @@ Se instalar a partir de um dispositivo com o Update 3 ou anterior, instale o seg
 | Ordem | KB | Descrição | Tipo de atualização | Hora de instalação |Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
 | 2B. |KB4011841 <br> KB4011842 |Controlador de LSI e atualizações de firmware <br> Atualização de firmware USM (versão 3.38) |Normal <br></br>Não acontece |~ 3 h <br> (inclui 2A. + 2B. + 2 C.)|SecondOrderUpdate|
-| 2 C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Pacote de atualizações de segurança do SO <br> Transferir a versão do Windows Server 2012 R2 |Normal <br></br>Não acontece |- |SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Pacote de atualizações de segurança do SO <br> Transferir a versão do Windows Server 2012 R2 |Normal <br></br>Não acontece |- |SecondOrderUpdate|
 | 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Pacote de atualizações do SO <br> Transferir a versão do Windows Server 2012 R2 |Normal <br></br>Não acontece |- |SecondOrderUpdate|
 
 
@@ -98,7 +98,7 @@ Se também pretender instalar as atualizações de firmware do disco em todas as
 
 | Ordem | KB | Descrição | Tipo de atualização | Hora de instalação | Instalar na pasta|
 | --- | --- | --- | --- | --- | --- |
-| 3. |KB4037263 |Firmware de disco |Manutenção <br></br>Acontece |~ 30 minutos | ThirdOrderUpdate |
+| 3. |KB4037263 |Firmware de disco |Manutenção <br></br>Acontece |~ 30 mins | ThirdOrderUpdate |
 
 <br></br>
 
@@ -112,6 +112,6 @@ Execute os seguintes passos para transferir e instalar as correções.
 
 [!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre o [versão de atualização 5](storsimple-update5-release-notes.md).
 

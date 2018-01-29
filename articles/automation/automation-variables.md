@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e38d2b751090cfdc078de4e8c683c6bb9b48fac3
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: f166b420dcd424b38f89275e1befd42a505b5785
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Recursos de variável na automatização do Azure
 
@@ -51,20 +51,20 @@ Seguem-se uma lista de variáveis tipos disponíveis na automatização:
 * Booleano
 * Valor nulo
 
-## <a name="scripting-the-creation-and-management-of-variables"></a>A criação e gestão das variáveis de processamento de scripts
+## <a name="azurerm-powershell-cmdlets"></a>Cmdlets do AzureRM PowerShell
+Para AzureRM, os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de credencial de automatização com o Windows PowerShell.  Estes são enviados como parte do [AzureRM.Automation módulo](/powershell/azure/overview) que está disponível para utilização nos runbooks de automatização e configurações de DSC.
 
-Os cmdlets na tabela seguinte são utilizados para criar e gerir variáveis de automatização com o Windows PowerShell. Estes são enviados como parte de [módulo Azure PowerShell](../powershell-install-configure.md) que está disponível para utilização em runbooks de automatização e a configuração de DSC.
-
-|Cmdlets|Descrição|
+| Cmdlets | Descrição |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603849.aspx)|Obtém o valor de uma variável existente.|
-|[Novo AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Cria uma nova variável e define o valor.|
-|[Remover AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Remove uma variável existente.|
-|[Conjunto AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Define o valor de uma variável existente.|
+|[New-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603613.aspx)|Cria uma nova variável e define o valor.|
+|[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|Remove uma variável existente.|
+|[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|Define o valor de uma variável existente.|
 
-As atividades de fluxo de trabalho na tabela seguinte são utilizadas para aceder a variáveis de automatização num runbook. Só estão disponíveis para utilização num runbook ou configuração de DSC e não são enviados como parte do módulo do PowerShell do Azure.
+## <a name="activities"></a>Atividades
+As atividades na tabela seguinte são utilizadas para aceder a credenciais num runbook e configurações de DSC.
 
-|Atividades de fluxo de trabalho|Descrição|
+| Atividades | Descrição |
 |:---|:---|
 |Get-AutomationVariable|Obtém o valor de uma variável existente.|
 |Set-AutomationVariable|Define o valor de uma variável existente.|
@@ -205,4 +205,3 @@ A imagem seguinte mostra as atividades de exemplo para atualizar uma variável c
 
 * Para saber mais sobre a ligação de atividades em conjunto na criação de gráficos, consulte [nas hiperligações na criação de gráficos](automation-graphical-authoring-intro.md#links-and-workflow)
 * Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md) 
-

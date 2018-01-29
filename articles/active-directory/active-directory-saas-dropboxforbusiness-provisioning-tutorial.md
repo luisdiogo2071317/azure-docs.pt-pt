@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com o Dropbox para empresas | Microsoft Docs"
+title: "Tutorial: Configurar o Dropbox para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
 description: "Saiba como configurar o início de sessão entre o Azure Active Directory e o Dropbox para empresas."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c41760d60d53dee7be36b2af287cd6755605b708
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-dropbox-for-business-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dropbox para empresas para aprovisionamento de utilizadores automática
+# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dropbox para empresas para aprovisionamento de utilizadores automática
 
 O objetivo deste tutorial é mostrar-lhe os passos que necessários para efetuar a Dropbox para empresas e o Azure AD aprovisionar e anular o aprovisionamento contas de utilizador do Azure AD ao Dropbox para empresas automaticamente.
 
@@ -62,7 +62,7 @@ Esta secção orienta-o de ligar o seu Azure AD ao Dropbox para API de aprovisio
 
 4. Definir o **modo de aprovisionamento** para **automática**. 
 
-    ![Aprovisionamento](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/provisioning.png)
+    ![a aprovisionar](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/provisioning.png)
 
 5. Sob o **credenciais de administrador** secção, clique em **autorizar**. É aberta uma Dropbox para a caixa de diálogo de início de sessão de negócio numa nova janela do browser.
 

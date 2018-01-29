@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/04/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 25f4cea1908a0f9bdf387ddfed5f29e6d19bdd20
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 1a35a6adae1eec88b314252ea0e3f2eb86f10c1d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-an-iot-edge-device-that-acts-as-a-transparent-gateway---preview"></a>Criar um dispositivo de limite de IoT que atua como um gateway transparente - pré-visualização
 
@@ -61,7 +61,7 @@ Pode utilizar o exemplo do Powershell e scripts de Bash descritas [gerir exemplo
 >Este exemplo destinam-se apenas a fins de teste. Para cenários de produção, consulte [proteger a implementação de IoT] [ lnk-iothub-secure-deployment] para as Azure IoT diretrizes sobre como proteger a sua solução de IoT e aprovisionar o certificado em conformidade.
 
 
-1. Clone [SDKs do IoT do Microsoft Azure e bibliotecas para C] a partir do GitHub:
+1. Clone os SDKs IoT do Microsoft Azure e bibliotecas para C a partir do GitHub:
 
    ```
    git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
@@ -177,7 +177,7 @@ Isto é feito, acrescentando o `GatewayHostName` propriedade para a cadeia de li
 
 Estes dois passos ativam a aplicação de dispositivo para ligar ao dispositivo de gateway.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Compreender os requisitos e ferramentas para o desenvolvimento de módulos de limite de IoT][lnk-module-dev].
 
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md

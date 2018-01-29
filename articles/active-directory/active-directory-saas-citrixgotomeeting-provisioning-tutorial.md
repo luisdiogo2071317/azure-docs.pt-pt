@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Integração do Azure Active Directory com GoToMeeting | Microsoft Docs"
+title: "Tutorial: Configurar GoToMeeting para aprovisionamento de utilizadores automática no Azure Active Directory | Microsoft Docs"
 description: "Saiba como configurar o início de sessão entre o Azure Active Directory e GoToMeeting."
 services: active-directory
 documentationCenter: na
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ac664e2b4035f3572584e6f00e86453b10ce44e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 82c7e8ff7d8a6692005bdc7a40d5e12be09bca5d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configurar GoToMeeting para aprovisionamento de utilizadores automática
+# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configurar GoToMeeting para aprovisionamento de utilizadores automática
 
 O objetivo deste tutorial é mostrar-lhe os passos que necessários para efetuar GoToMeeting e o Azure AD para aprovisionar e anular o aprovisionamento contas de utilizador do Azure AD para GoToMeeting automaticamente.
 
@@ -62,7 +62,7 @@ Esta secção orienta-o de ligar o seu Azure AD a conta de utilizador do GoToMee
 
 4. Definir o **aprovisionamento** modo para **automática**. 
 
-    ![Aprovisionamento](./media/active-directory-saas-citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![a aprovisionar](./media/active-directory-saas-citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 5. Na secção credenciais de administrador, execute os seguintes passos:
    

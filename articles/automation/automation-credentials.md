@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: ac253fda413718ded815c9a990ae61473a5d8870
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 12a7d00f9e0721fc4cf2668598515fd769c8a728
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Recursos de credencial na automatização do Azure
 Um recurso de credencial de automatização contém um [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) objeto que contém as credenciais de segurança, tais como um nome de utilizador e palavra-passe. Configurações de Runbooks e DSC podem utilizar os cmdlets que aceite um objeto PSCredential para autenticação ou poderão extrair o nome de utilizador e palavra-passe do objeto PSCredential para fornecer a algumas aplicações ou serviço que requer autenticação. As propriedades das credenciais são armazenadas em segurança na automatização do Azure e podem ser acedidas no runbook ou a configuração de DSC com o [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) atividade.
@@ -32,9 +32,9 @@ Os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de cre
 | Cmdlets | Descrição |
 |:--- |:--- |
 | [Get-AzureAutomationCredential](/powershell/module/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Obtém informações sobre um recurso de credencial. Apenas pode obter a credencial próprio da **Get-AutomationPSCredential** atividade. |
-| [Novo AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Cria uma credencial de automatização novo. |
+| [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Cria uma credencial de automatização novo. |
 | [Remove - AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Remove uma credencial de automatização. |
-| [Set - AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Define as propriedades para uma credencial de automatização existente. |
+| [Set- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Define as propriedades para uma credencial de automatização existente. |
 
 ## <a name="azurerm-powershell-cmdlets"></a>Cmdlets do AzureRM PowerShell
 Para AzureRM, os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de credencial de automatização com o Windows PowerShell.  Estes são enviados como parte do [AzureRM.Automation módulo](/powershell/azure/overview) que está disponível para utilização nos runbooks de automatização e configurações de DSC.
@@ -42,11 +42,11 @@ Para AzureRM, os cmdlets na tabela seguinte são utilizados para criar e gerir r
 | Cmdlets | Descrição |
 |:--- |:--- |
 | [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |Obtém informações sobre um recurso de credencial.  |
-| [Novo AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Cria uma credencial de automatização novo. |
-| [Remover AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Remove uma credencial de automatização. |
-| [Conjunto AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Define as propriedades para uma credencial de automatização existente. |
+| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Cria uma credencial de automatização novo. |
+| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Remove uma credencial de automatização. |
+| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Define as propriedades para uma credencial de automatização existente. |
 
-## <a name="runbook-activities"></a>Atividades do Runbook
+## <a name="activities"></a>Atividades
 As atividades na tabela seguinte são utilizadas para aceder a credenciais num runbook e configurações de DSC.
 
 | Atividades | Descrição |

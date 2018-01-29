@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4b6f4e2b0e42724276448fd4726c8326de8ea6ee
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 98683af2ca35b687f918647602a561d37dd42b11
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Configurar um utilizador atribuído geridos serviço de identidade (MSI) para uma VM, utilizando a CLI do Azure
 
@@ -35,7 +35,7 @@ Neste artigo, irá aprender como ativar e remover um MSI atribuído por utilizad
 Para executar os exemplos de script CLI neste tutorial, tem duas opções:
 
 - Utilize [Shell de nuvem do Azure](~/articles/cloud-shell/overview.md) do portal do Azure ou através do botão "Tente-", localizada no canto superior direito de cada bloco de código.
-- [Instale a versão mais recente do CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou posterior) se preferir utilizar uma consola local do CLI. Em seguida, inicie sessão no Azure com [início de sessão az](/cli/azure/#login). Utilize uma conta que está associada à subscrição do Azure na qual gostaria de implementar o MSI atribuída de utilizador e a VM:
+- [Instale a versão mais recente do CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou posterior) se preferir utilizar uma consola local do CLI. Em seguida, inicie sessão no Azure com [início de sessão az](/cli/azure/#az_login). Utilize uma conta que está associada à subscrição do Azure na qual gostaria de implementar o MSI atribuída de utilizador e a VM:
 
    ```azurecli
    az login
@@ -45,7 +45,7 @@ Para executar os exemplos de script CLI neste tutorial, tem duas opções:
 
 Esta secção explica a criação da VM e atribuição do MSI utilizador atribuído à VM. Se já tiver uma VM que pretende utilizar, ignore esta secção e avance para o seguinte.
 
-1. Pode ignorar este passo se já tiver um grupo de recursos que pretende utilizar. Criar um [grupo de recursos](~/articles/azure-resource-manager/resource-group-overview.md#terminology) para a implementação do seu MSI e contenção utilizando [criar grupo az](/cli/azure/group/#create). Não se esqueça de substituir o `<RESOURCE GROUP>` e `<LOCATION>` valores de parâmetros com os seus próprios valores. :
+1. Pode ignorar este passo se já tiver um grupo de recursos que pretende utilizar. Criar um [grupo de recursos](~/articles/azure-resource-manager/resource-group-overview.md#terminology) para a implementação do seu MSI e contenção utilizando [criar grupo az](/cli/azure/group/#az_group_create). Não se esqueça de substituir o `<RESOURCE GROUP>` e `<LOCATION>` valores de parâmetros com os seus próprios valores. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -73,7 +73,7 @@ A resposta contém detalhes para o utilizador atribuído do MSI criado, semelhan
    }
    ```
 
-3. Criar uma VM utilizando [az vm criar](/cli/azure/vm/#create). O exemplo seguinte cria uma VM associada novo utilizador atribuído do MSI, tal como especificado pelo `--assign-identity` parâmetro. Não se esqueça de substituir o `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, e `<`MSI ID >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id' propriedade criada no passo anterior: 
+3. Criar uma VM utilizando [az vm criar](/cli/azure/vm/#az_vm_create). O exemplo seguinte cria uma VM associada novo utilizador atribuído do MSI, tal como especificado pelo `--assign-identity` parâmetro. Não se esqueça de substituir o `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, e `<`MSI ID >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id' propriedade criada no passo anterior: 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
