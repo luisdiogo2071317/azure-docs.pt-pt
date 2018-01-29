@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 0492a59852a6a2dd424c98e44969eab1ac4697e8
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
-ms.translationtype: HT
+ms.openlocfilehash: f74e890cf716cfd4bc7b41fcc4aa244969cafde5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar Pingboard para aprovisionamento de utilizadores automática
+# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configurar Pingboard para aprovisionamento de utilizadores automática
 
 O objetivo deste tutorial é mostrar-lhe os passos que necessários para efetuar para permitir o aprovisionamento e anular o aprovisionamento de contas de utilizador do Azure Active Directory para Pingboard automática.
 
